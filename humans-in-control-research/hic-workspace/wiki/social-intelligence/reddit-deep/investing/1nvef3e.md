@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1nvef3e.md
 url: "https://www.reddit.com/r/investing/comments/1nvef3e/im_having_trouble_of_deciding_on_what_to_invest/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.192Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1nvef3e.md#c0"
+    char_span: [0, 854]
+    sentence_count: 7
+    key_terms: ["i'm", investing, comments, invest, money, since, entrepreneurs, investments]
+    token_count: 212
+  - id: "social-intelligence/reddit-deep/investing/1nvef3e.md#c1"
+    char_span: [869, 2518]
+    sentence_count: 11
+    key_terms: [ira, roth, investing, etf, plasticbug, schedule, large, money]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/investing/1nvef3e.md#c2"
+    char_span: [2520, 4738]
+    sentence_count: 23
+    key_terms: [stocks, bonds, corporation, back, gold, long, time, government]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/investing/1nvef3e.md#c3"
+    char_span: [4740, 6825]
+    sentence_count: 21
+    key_terms: [crypto, stocks, "don't", like, cryptocurrencies, age, buy, etfs]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/investing/1nvef3e.md#c4"
+    char_span: [6828, 8893]
+    sentence_count: 21
+    key_terms: [future, something, investing, get, take, want, impossible, amounts]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/investing/1nvef3e.md#c5"
+    char_span: [8895, 9320]
+    sentence_count: 4
+    key_terms: [start, yourself, roboinvesting, wholesomebob, disagreeing, investment, knowledge, passively]
+    section: Comments
+    token_count: 105
 ---
-
 # I'm having trouble of deciding on what to invest in? Stocks, crypto, bonds, EFT or gold?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1nvef3e/im_having_trouble_of_deciding_on_what_to_invest/)

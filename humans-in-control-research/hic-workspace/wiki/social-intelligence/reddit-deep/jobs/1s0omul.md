@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1s0omul.md
 url: "https://www.reddit.com/r/jobs/comments/1s0omul/cant_get_any_sort_of_job/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,51 @@ flair: "Rejections"
 extracted_at: "2026-05-25T13:03:11.722Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1s0omul.md#c0"
+    char_span: [0, 673]
+    sentence_count: 9
+    key_terms: [get, job, jobs, comments, simple, conversationempty301, "can't", "don't"]
+    token_count: 167
+  - id: "social-intelligence/reddit-deep/jobs/1s0omul.md#c1"
+    char_span: [688, 2642]
+    sentence_count: 11
+    key_terms: [exotic-cod4011, experience, like, marriott, hotels, been, got, job]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/jobs/1s0omul.md#c2"
+    char_span: [2644, 4750]
+    sentence_count: 15
+    key_terms: [someone, desk, role, position, manager, "they're", hiring, people]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/jobs/1s0omul.md#c3"
+    char_span: [4752, 6624]
+    sentence_count: 12
+    key_terms: [worked, job, better, advertising, work, industry, internet, because]
+    section: Comments
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/jobs/1s0omul.md#c4"
+    char_span: [6626, 7494]
+    sentence_count: 11
+    key_terms: [job, experience, probably, people, conversationempty301, thewhiterosequeen, show, overqualified]
+    section: Comments
+    token_count: 213
+  - id: "social-intelligence/reddit-deep/jobs/1s0omul.md#c5"
+    char_span: [7496, 9504]
+    sentence_count: 16
+    key_terms: [looking, experience, job, years, mysterious-job-5252, front, hotel, someone]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1s0omul.md#c6"
+    char_span: [9225, 10759]
+    sentence_count: 13
+    key_terms: [experience, people, front, application, get, assistant, interview, training]
+    section: Comments
+    token_count: 335
 ---
-
 # Can't Get Any Sort of Job...
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1s0omul/cant_get_any_sort_of_job/)

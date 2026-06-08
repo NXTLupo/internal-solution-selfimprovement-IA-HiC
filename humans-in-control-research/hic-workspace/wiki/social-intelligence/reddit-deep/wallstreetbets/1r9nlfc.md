@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1r9nlfc.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1r9nlfc/open_made_just_4000_per_home_last_quarter_every/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,60 @@ flair: "Loss"
 extracted_at: "2026-05-17T01:14:17.610Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1r9nlfc.md#c0"
+    char_span: [0, 1329]
+    sentence_count: 18
+    key_terms: [contribution, wallstreetbets, margin, metric, homes, down, home, comments]
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1r9nlfc.md#c1"
+    char_span: [1331, 3287]
+    sentence_count: 24
+    key_terms: [october, homes, revenue, margins, cohort, best, pay, expected]
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1r9nlfc.md#c2"
+    char_span: [3289, 5244]
+    sentence_count: 19
+    key_terms: [opendoor, margins, retail, shareholder, questions, earnings, investor, analyst]
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1r9nlfc.md#c3"
+    char_span: [5246, 7207]
+    sentence_count: 14
+    key_terms: [contribution, quarter, everything, opendoor, margin, "that's", profitability, homes]
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1r9nlfc.md#c4"
+    char_span: [7209, 8483]
+    sentence_count: 3
+    key_terms: [preview, format, https, width, auto, jpeg, pjpg, redd]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1r9nlfc.md#c5"
+    char_span: [8485, 9310]
+    sentence_count: 4
+    key_terms: [platinum, rhodium, greenday10dsurfer, too, risefromyourgrav, particularly, converters, catalytic]
+    section: Comments
+    token_count: 249
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1r9nlfc.md#c6"
+    char_span: [9312, 10830]
+    sentence_count: 4
+    key_terms: [dd71f843eb69b04b7cc09b30c3afb163f144aab9, significantly, smash, inventory, october, preview, reduced, format]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1r9nlfc.md#c7"
+    char_span: [10833, 12893]
+    sentence_count: 11
+    key_terms: [management, good, business, shitty, fraud, investors, positive, numbers]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1r9nlfc.md#c8"
+    char_span: [12895, 13250]
+    sentence_count: 2
+    key_terms: [electric, short, crossdefaults, comparison, building, numerous, growing, insider]
+    section: Comments
+    token_count: 86
 ---
-
 # OPEN made just $4,000 per home last quarter. Every possible metric down , but the stock rallied 16%. Value investing at its best!!
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1r9nlfc/open_made_just_4000_per_home_last_quarter_every/)

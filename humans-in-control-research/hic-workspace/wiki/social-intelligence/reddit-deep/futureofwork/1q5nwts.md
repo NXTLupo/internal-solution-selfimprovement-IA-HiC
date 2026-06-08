@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/futureofwork/1q5nwts.md
 url: "https://www.reddit.com/r/FutureOfWork/comments/1q5nwts/future_of_work_job_report/"
 kind: "social-post"
 source: "reddit-deep: r/futureofwork"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-26T12:54:26.438Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/futureofwork/1q5nwts.md#c0"
+    char_span: [0, 889]
+    sentence_count: 2
+    key_terms: [the-future-of-jobs-report-2025, skills, futureofwork, publications, https, work, www, comments]
+    token_count: 225
+  - id: "social-intelligence/reddit-deep/futureofwork/1q5nwts.md#c1"
+    char_span: [904, 1551]
+    sentence_count: 5
+    key_terms: [people, like, part, real, tech, responsibilities, directionally, underestimate]
+    section: Comments
+    token_count: 129
 ---
-
 # Future of work, job report
 
 Source: [reddit-deep: r/futureofwork](https://www.reddit.com/r/FutureOfWork/comments/1q5nwts/future_of_work_job_report/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1qh3ny6/my_definitive_review_of_taiwan_as_a_digital_nomad/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,64 @@ flair: "Lifestyle"
 extracted_at: "2026-05-26T12:53:56.722Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c0"
+    char_span: [0, 1885]
+    sentence_count: 9
+    key_terms: [digitalnomad, taiwan, comments, here, living, digital, reddit, based]
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c1"
+    char_span: [1887, 4279]
+    sentence_count: 20
+    key_terms: [food, taiwan, chinese, people, extremely, taiwanese, cuisines, culture]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c2"
+    char_span: [3954, 6205]
+    sentence_count: 17
+    key_terms: [taiwan, tourist, infrastructure, destination, food, like, developed, extremely]
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c3"
+    char_span: [6207, 6221]
+    sentence_count: 1
+    key_terms: [mixed]
+    token_count: 4
+  - id: "social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c4"
+    char_span: [6223, 8646]
+    sentence_count: 19
+    key_terms: [living, taipei, taiwan, accommodation, like, affordable, especially, depending]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c5"
+    char_span: [8325, 10252]
+    sentence_count: 12
+    key_terms: [taiwan, pedestrian, mountains, although, dynamic, variety, areas, comes]
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c6"
+    char_span: [10267, 11569]
+    sentence_count: 4
+    key_terms: [ok-sherbert-3807, vibrantadder, year, steingar, months, never, theastroidiscoming, hungariannastyboy]
+    section: Comments
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c7"
+    char_span: [11571, 13231]
+    sentence_count: 15
+    key_terms: [been, wifi, available, regarding, steingar, details, speeds, taiwan]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c8"
+    char_span: [13233, 15218]
+    sentence_count: 19
+    key_terms: [taipei, steingar, taiwan, culture, mention, cables, hidden, review]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c9"
+    char_span: [15220, 16779]
+    sentence_count: 13
+    key_terms: [expensive, tokyo, compared, probably, cheaper, vietnam, enough, income]
+    section: Comments
+    token_count: 382
 ---
-
 # My definitive review of Taiwan as a digital nomad
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1qh3ny6/my_definitive_review_of_taiwan_as_a_digital_nomad/)

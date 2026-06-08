@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1opg68z.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1opg68z/if_chatgpt_costs_nearly_a_million_per_day_to_run/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,21 @@ flair: "Other "
 extracted_at: "2026-05-17T01:12:48.212Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1opg68z.md#c0"
+    char_span: [0, 1350]
+    sentence_count: 11
+    key_terms: [chatgpt, going, run, comments, selling, money, data, "it's"]
+    token_count: 348
+  - id: "social-intelligence/reddit-deep/chatgpt/1opg68z.md#c1"
+    char_span: [1365, 2356]
+    sentence_count: 7
+    key_terms: [please, conversation, image, post, r-chatgpt-1050422060352024636, concerns, chatgpt-shared-links-faq, chatgpt]
+    section: Comments
+    token_count: 255
 ---
-
 # "If chatgpt costs nearly a million per DAY to run, how do they not run out of money?" Answer: investment. How can they have a multibillion dollar market cap but no grasp on becoming profitable? Sure, it's a bubble, but what are they going to resort to? I think it's going to be data selling.
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1opg68z/if_chatgpt_costs_nearly_a_million_per_day_to_run/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/5b7aa4ae0e.md
 url: "https://www.reddit.com/r/careerguidance/comments/1pbxv8e/whats_the_most_underrated_work_advice_you_received/"
 url_hash: "5b7aa4ae0e"
 kind: "article"
@@ -8,10 +9,17 @@ author: ""
 date: "2025-12-02T03:28:53.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-22T15:20:07.240545+00:00"
+extracted_at: "2026-06-03T00:57:05.401343+00:00"
 chars: 1113
+relevance: 35
+engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis.  "
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/5b7aa4ae0e.md#c0"
+    char_span: [0, 1322]
+    sentence_count: 8
+    key_terms: [careerguidance, work, underrated, comments, peaceful, position, advice, people]
+    token_count: 331
 ---
-
 # What’s the most underrated work advice you received?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1pbxv8e/whats_the_most_underrated_work_advice_you_received/)
@@ -23,10 +31,10 @@ For me it was learning to ask my boss “What does success look like for you?”
 It saved me from so many misunderstandings down the way
 
 --- TOP COMMENTS ---
-[303↑ liquidhell] Sometimes peace is a win.
-[59↑ Ov3rbyte719] I got switched to a peaceful position at work, no longer have to deal with chaos and drama. It's nice.
-[11↑ kca777] Same, and it still feels weird not to be surrounded by chaos and terrible people
-[17↑ a_fizzle_sizzle] Couldn’t agree with you more on this.
+[301↑ liquidhell] Sometimes peace is a win.
+[56↑ Ov3rbyte719] I got switched to a peaceful position at work, no longer have to deal with chaos and drama. It's nice.
+[10↑ kca777] Same, and it still feels weird not to be surrounded by chaos and terrible people
+[18↑ a_fizzle_sizzle] Couldn’t agree with you more on this.
 [8↑ [deleted]] Went from a high-paced, stressful environment to a much more mellow office. It's been an odd, but nice, adjustment.
 [4↑ benz-hs] Oh I love this!
 [1↑ Background_Book2414] Yes! I changed to a lower paying position but it’s peaceful!!

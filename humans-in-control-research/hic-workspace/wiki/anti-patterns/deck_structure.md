@@ -1,4 +1,5 @@
 ---
+id: anti-patterns/deck_structure.md
 title: "Deck Structure Anti-Patterns"
 type: anti-pattern
 created: 2026-05-19
@@ -8,8 +9,34 @@ confidence: high
 status: active
 tags: [anti-patterns, deck, narrative-structure, slide-flow, quality-gates]
 evidence_count: 0
+chunks:
+  - id: "anti-patterns/deck_structure.md#c0"
+    char_span: [0, 1390]
+    sentence_count: 7
+    key_terms: [recommendation, slide, deck, slides, anti-patterns, conclusion, executive, narrative]
+    token_count: 297
+  - id: "anti-patterns/deck_structure.md#c1"
+    char_span: [1392, 3401]
+    sentence_count: 8
+    key_terms: [section, recommendations, complication, deck, argument, forward, reader, slides]
+    token_count: 436
+  - id: "anti-patterns/deck_structure.md#c2"
+    char_span: [3403, 5371]
+    sentence_count: 10
+    key_terms: [slide, recommendation, template, slides, evidence, data, section, appendix]
+    token_count: 432
+  - id: "anti-patterns/deck_structure.md#c3"
+    char_span: [5373, 7250]
+    sentence_count: 7
+    key_terms: [slide, slides, decision, contain, numbers, quantification, rather, alternative]
+    token_count: 455
+  - id: "anti-patterns/deck_structure.md#c4"
+    char_span: [7291, 7803]
+    sentence_count: 2
+    key_terms: [user, patterns, appendlearnedantipattern, updated, layout, added, edits, slide]
+    section: Learned Anti-Patterns (auto-grown)
+    token_count: 131
 ---
-
 # Deck Structure Anti-Patterns
 
 Known failure modes in strategy-deck composition — the narrative arc, slide ordering, and section-to-section logic. These are distinct from per-slide anti-patterns (those live in `deck.md`); this page covers the architecture of the deck as a whole.

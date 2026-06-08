@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1o6zxj4.md
 url: "https://www.reddit.com/r/personalfinance/comments/1o6zxj4/once_everything_is_figured_out_personal_finance/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,45 @@ flair: "Other"
 extracted_at: "2026-05-17T01:13:31.190Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1o6zxj4.md#c0"
+    char_span: [0, 1144]
+    sentence_count: 11
+    key_terms: [personalfinance, "it's", comments, personal, finance, boring, budget, doing]
+    token_count: 255
+  - id: "social-intelligence/reddit-deep/personalfinance/1o6zxj4.md#c1"
+    char_span: [1159, 1686]
+    sentence_count: 4
+    key_terms: [definitely, russiandisifnomation, forward-trade3449, life, financemaxxing, personality, exhausting, rattarang]
+    section: Comments
+    token_count: 136
+  - id: "social-intelligence/reddit-deep/personalfinance/1o6zxj4.md#c2"
+    char_span: [1688, 3991]
+    sentence_count: 19
+    key_terms: [tax, strategies, gains, turnover1122334455, realize, buying, people, person]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/personalfinance/1o6zxj4.md#c3"
+    char_span: [3676, 4264]
+    sentence_count: 10
+    key_terms: [deduction, tax, appreciated, planetmike2, everything, situations, advantage, automated]
+    section: Comments
+    token_count: 129
+  - id: "social-intelligence/reddit-deep/personalfinance/1o6zxj4.md#c4"
+    char_span: [4266, 6305]
+    sentence_count: 22
+    key_terms: [retirement, boring, passed, sorry, life, time, different, prepared]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/personalfinance/1o6zxj4.md#c5"
+    char_span: [6307, 7208]
+    sentence_count: 9
+    key_terms: [boring, get, "it's", time, want, accomplishments, gratification, sidvictorious]
+    section: Comments
+    token_count: 235
 ---
-
 # Once everything is figured out, personal finance gets... boring?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1o6zxj4/once_everything_is_figured_out_personal_finance/)

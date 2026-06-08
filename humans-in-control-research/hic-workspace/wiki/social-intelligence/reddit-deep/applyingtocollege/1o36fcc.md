@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1o36fcc/can_admissions_officers_tell_if_a_student_took_a/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,92 @@ flair: "Financial Aid/Scholarships"
 extracted_at: "2026-05-23T19:45:32.285Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c0"
+    char_span: [0, 2035]
+    sentence_count: 14
+    key_terms: [class, student, admissions, college, grade, officers, applyingtocollege, daughter]
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c1"
+    char_span: [2040, 2327]
+    sentence_count: 4
+    key_terms: [transcript, understand, colleges, district, clarify, playing, putting, "they're"]
+    token_count: 74
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c2"
+    char_span: [2342, 4490]
+    sentence_count: 18
+    key_terms: [school, class, grades, middle, child, accelerated, frustrating, math]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c3"
+    char_span: [4492, 6490]
+    sentence_count: 16
+    key_terms: [college, school, classes, high, son, transcript, math, program]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c4"
+    char_span: [6492, 8834]
+    sentence_count: 24
+    key_terms: [daughter, college, kids, school, "it's", class, application, high]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c5"
+    char_span: [8836, 10553]
+    sentence_count: 11
+    key_terms: [kids, rankings, too, classes, parents, "don't", high, admissions]
+    section: Comments
+    token_count: 378
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c6"
+    char_span: [10555, 12766]
+    sentence_count: 15
+    key_terms: [aid, financial, merit, colleges, scholarships, need, families, majority]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c7"
+    char_span: [12768, 14983]
+    sentence_count: 18
+    key_terms: [grade, parents, grades, "daughter's", choices, student, "there's", school]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c8"
+    char_span: [14985, 17120]
+    sentence_count: 12
+    key_terms: [school, high, transcript, classes, grade, student, class, works]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c9"
+    char_span: [17122, 19216]
+    sentence_count: 14
+    key_terms: [calculus, advanced, students, admissions, take, class, college, grade]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c10"
+    char_span: [19218, 20803]
+    sentence_count: 13
+    key_terms: [school, high, calculus, math, classes, grades, multivariable, achievements]
+    section: Comments
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c11"
+    char_span: [20805, 22588]
+    sentence_count: 7
+    key_terms: [classes, math, take, school, courses, ability, requirements, grade]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c12"
+    char_span: [22590, 24547]
+    sentence_count: 14
+    key_terms: [school, high, prescribed, class, math, material, algebra, classes]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c13"
+    char_span: [24549, 26108]
+    sentence_count: 12
+    key_terms: [school, grade, high, classes, middle, transcript, fulfilled, pre-ninth]
+    section: Comments
+    token_count: 385
 ---
-
 # Can admissions officers tell if a student took a class much earlier than normal?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1o36fcc/can_admissions_officers_tell_if_a_student_took_a/)

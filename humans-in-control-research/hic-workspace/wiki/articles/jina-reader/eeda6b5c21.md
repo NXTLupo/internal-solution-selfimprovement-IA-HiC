@@ -1,4 +1,5 @@
 ---
+id: articles/jina-reader/eeda6b5c21.md
 url: "https://www.northwestern.edu/president/"
 url_hash: "eeda6b5c21"
 kind: "article"
@@ -10,8 +11,26 @@ tier: 3
 method: "jina"
 extracted_at: "2026-04-29T20:45:37.266584+00:00"
 chars: 5393
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "articles/jina-reader/eeda6b5c21.md#c0"
+    char_span: [0, 2184]
+    sentence_count: 2
+    key_terms: [northwestern, president, https, edu, www, about-the-office, index, html]
+    token_count: 511
+  - id: "articles/jina-reader/eeda6b5c21.md#c1"
+    char_span: [2186, 3625]
+    sentence_count: 2
+    key_terms: [northwestern, president, https, edu, www, index, html, about-the-office]
+    token_count: 346
+  - id: "articles/jina-reader/eeda6b5c21.md#c2"
+    char_span: [3650, 5499]
+    sentence_count: 4
+    key_terms: [northwestern, https, www, edu, university, northwesternu, com, report]
+    section: About Henry Bienen
+    token_count: 426
 ---
-
 # https://www.northwestern.edu/president/
 
 Source: [Jina Reader](https://www.northwestern.edu/president/)

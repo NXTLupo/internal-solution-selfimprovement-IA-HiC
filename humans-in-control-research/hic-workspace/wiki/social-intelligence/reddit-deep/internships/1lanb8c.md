@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1lanb8c.md
 url: "https://www.reddit.com/r/internships/comments/1lanb8c/finally_got_an_internship_from_pure_cold_emailing/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,33 @@ flair: "High School"
 extracted_at: "2026-05-22T13:32:14.553Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1lanb8c.md#c0"
+    char_span: [0, 1022]
+    sentence_count: 10
+    key_terms: [internship, internships, comments, anyone, learn, looks, wants, able]
+    token_count: 250
+  - id: "social-intelligence/reddit-deep/internships/1lanb8c.md#c1"
+    char_span: [1037, 2969]
+    sentence_count: 14
+    key_terms: [did, company, jolly-train-4950, congratulations, job, interested, internship, congrats]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1lanb8c.md#c2"
+    char_span: [2764, 4013]
+    sentence_count: 12
+    key_terms: [skills, projects, applying, congrats, internship, did, sent, too]
+    section: Comments
+    token_count: 332
+  - id: "social-intelligence/reddit-deep/internships/1lanb8c.md#c3"
+    char_span: [4015, 4417]
+    sentence_count: 3
+    key_terms: [best, candidate, curiosity, extension, interview, emailing, linkedin, because]
+    section: Comments
+    token_count: 110
 ---
-
 # Finally Got an Internship from Pure Cold Emailing!
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1lanb8c/finally_got_an_internship_from_pure_cold_emailing/)

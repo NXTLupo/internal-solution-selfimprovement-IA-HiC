@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1t5pqlv.md
 url: "https://www.reddit.com/r/deeplearning/comments/1t5pqlv/best_practices_for_context_management_when/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.044Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1t5pqlv.md#c0"
+    char_span: [0, 299]
+    sentence_count: 1
+    key_terms: [deeplearning, comments, thisguy123123, reddit-deep, generating, management, practices, context]
+    token_count: 80
+  - id: "social-intelligence/reddit-deep/deeplearning/1t5pqlv.md#c1"
+    char_span: [314, 1106]
+    sentence_count: 3
+    key_terms: [context, retrieval, aggressively, requirements, agentixlabs, constraints, clarifying, collecting]
+    section: Comments
+    token_count: 177
 ---
-
 # Best Practices for Context Management when Generating Code with AI Agents
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1t5pqlv/best_practices_for_context_management_when/)

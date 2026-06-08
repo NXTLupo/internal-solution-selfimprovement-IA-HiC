@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1pl2zw5.md
 url: "https://www.reddit.com/r/GradSchool/comments/1pl2zw5/feedbackexperience_torn_between_grad_offer_and/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.134Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce, government]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1pl2zw5.md#c0"
+    char_span: [0, 1797]
+    sentence_count: 15
+    key_terms: [offer, "i'm", job, real, time, gradschool, full-time, permanent]
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/gradschool/1pl2zw5.md#c1"
+    char_span: [1812, 2595]
+    sentence_count: 4
+    key_terms: [people, school, grad, graduate, careers, pitifulasparagus2017, want, excruciating]
+    section: Comments
+    token_count: 189
 ---
-
 # Feedback/experience: Torn between grad offer and permanent job opportunities...?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1pl2zw5/feedbackexperience_torn_between_grad_offer_and/)

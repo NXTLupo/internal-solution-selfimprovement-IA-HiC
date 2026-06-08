@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1nryifa.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1nryifa/lead_engineer_of_aiprm_confirms_the_routing_is/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,75 @@ flair: "Gone Wild "
 extracted_at: "2026-05-17T01:12:48.207Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1nryifa.md#c0"
+    char_span: [0, 2198]
+    sentence_count: 11
+    key_terms: [models, routed, being, sensitive, illegal, people, model, everything]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/chatgpt/1nryifa.md#c1"
+    char_span: [2213, 2470]
+    sentence_count: 2
+    key_terms: [r-chatgpt-1050422060352024636, discord, withoutreason1729, post, contribution, appreciate, featured, getting]
+    section: Comments
+    token_count: 66
+  - id: "social-intelligence/reddit-deep/chatgpt/1nryifa.md#c2"
+    char_span: [2472, 4324]
+    sentence_count: 17
+    key_terms: [ill-increase3549, because, subscription, cancelled, canceled, kimi-k2, renewal, cancel]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1nryifa.md#c3"
+    char_span: [4113, 4981]
+    sentence_count: 6
+    key_terms: [company, kimi-k2, proprio, fishermaneuphoric687, armadilla-brufolosa, anche, intellettivamente, con]
+    section: Comments
+    token_count: 244
+  - id: "social-intelligence/reddit-deep/chatgpt/1nryifa.md#c4"
+    char_span: [4983, 6805]
+    sentence_count: 10
+    key_terms: [chatgpt, people, brand, edits, human, users, efficiencydry6570, feel]
+    section: Comments
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/chatgpt/1nryifa.md#c5"
+    char_span: [6807, 7684]
+    sentence_count: 5
+    key_terms: [corporate, informal-fig-7116, like, png, vj9wdfbl9rrf1, aspectqueasy, trademarks, interests]
+    section: Comments
+    token_count: 269
+  - id: "social-intelligence/reddit-deep/chatgpt/1nryifa.md#c6"
+    char_span: [7686, 9606]
+    sentence_count: 12
+    key_terms: [people, like, pay, ill-increase3549, get, watermarks, believe, chatgpt]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1nryifa.md#c7"
+    char_span: [9390, 10236]
+    sentence_count: 9
+    key_terms: [completely, deleted, getting, october, "there's", louder, models, greedy-sandwich9709]
+    section: Comments
+    token_count: 223
+  - id: "social-intelligence/reddit-deep/chatgpt/1nryifa.md#c8"
+    char_span: [10238, 12044]
+    sentence_count: 15
+    key_terms: [thebratscribe, "it's", like, thinking, fucking, walking, finger, middle]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/chatgpt/1nryifa.md#c9"
+    char_span: [12046, 12860]
+    sentence_count: 6
+    key_terms: [dirty, "i'm", openai, embarrassed-farm-594, internationaldog1836, armadilla-brufolosa, fraud, like]
+    section: Comments
+    token_count: 263
+  - id: "social-intelligence/reddit-deep/chatgpt/1nryifa.md#c10"
+    char_span: [12862, 14441]
+    sentence_count: 12
+    key_terms: [people, gpt, downvoting, comments, because, instead, asking, gregodensgiantdong1]
+    section: Comments
+    token_count: 436
 ---
-
 # Lead Engineer of AIPRM confirms: the routing is intentional for both v4 and v5, and there’s not one, but two new models designed just for this
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1nryifa/lead_engineer_of_aiprm_confirms_the_routing_is/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1ohgn4i.md
 url: "https://www.reddit.com/r/college/comments/1ohgn4i/is_anyone_else_constantly_stressed_about_money/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-17T01:12:59.137Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1ohgn4i.md#c0"
+    char_span: [0, 1113]
+    sentence_count: 8
+    key_terms: [like, college, money, technically, feel, comments, paycheck, anyone]
+    token_count: 254
+  - id: "social-intelligence/reddit-deep/college/1ohgn4i.md#c1"
+    char_span: [1128, 3124]
+    sentence_count: 17
+    key_terms: [money, experience, "i'm", like, always, because, relaxed, enough]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1ohgn4i.md#c2"
+    char_span: [2871, 3492]
+    sentence_count: 4
+    key_terms: [school, non-financial, electrician, obligations, financial, interests, kragaster, something]
+    section: Comments
+    token_count: 143
+  - id: "social-intelligence/reddit-deep/college/1ohgn4i.md#c3"
+    char_span: [3494, 4579]
+    sentence_count: 9
+    key_terms: [best, feel, like, security, yourself, invest, "can't", lot]
+    section: Comments
+    token_count: 220
+  - id: "social-intelligence/reddit-deep/college/1ohgn4i.md#c4"
+    char_span: [4581, 6666]
+    sentence_count: 17
+    key_terms: [food, perishables, don, live, time, wife, work, paycheck]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1ohgn4i.md#c5"
+    char_span: [6408, 7043]
+    sentence_count: 7
+    key_terms: [emergency, sinking, budget, costs, funds, point, etc, like]
+    section: Comments
+    token_count: 151
+  - id: "social-intelligence/reddit-deep/college/1ohgn4i.md#c6"
+    char_span: [7045, 7791]
+    sentence_count: 7
+    key_terms: [money, being, able, month-to-month, conceptualize, subscriptions, lackluster, retirement]
+    section: Comments
+    token_count: 176
 ---
-
 # Is anyone else constantly stressed about money even when they technically have enough?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ohgn4i/is_anyone_else_constantly_stressed_about_money/)

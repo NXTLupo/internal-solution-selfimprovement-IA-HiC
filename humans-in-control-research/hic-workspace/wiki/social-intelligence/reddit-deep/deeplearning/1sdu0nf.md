@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1sdu0nf.md
 url: "https://www.reddit.com/r/deeplearning/comments/1sdu0nf/we_just_released_nandimini150m_a_150m_model_with/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.051Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1sdu0nf.md#c0"
+    char_span: [0, 1861]
+    sentence_count: 11
+    key_terms: [nandi-mini-150m, model, huggingface, https, transformers, architecture, deeplearning, benchmaxing]
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/deeplearning/1sdu0nf.md#c1"
+    char_span: [1876, 2449]
+    sentence_count: 1
+    key_terms: [version, paintereffective9584, nice-resolution2620, does, gguf, approachable, interference, intraluminal]
+    section: Comments
+    token_count: 151
 ---
-
 # We just released Nandi-Mini-150M — a 150M model with factorized embeddings and layer sharing (no benchmaxing)
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1sdu0nf/we_just_released_nandimini150m_a_150m_model_with/)

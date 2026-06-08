@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1syc9z3.md
 url: "https://www.reddit.com/r/NEU/comments/1syc9z3/emotionally_abusive_family_cutting_off_tuition/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -7,14 +8,47 @@ title: "Emotionally abusive family cutting off tuition"
 author: "SatisfactionBorn2798"
 date: "2026-04-28T19:53:45.000Z"
 score: 28
-upvote_ratio: 0.89
+upvote_ratio: 0.87
 num_comments: 11
 flair: "Admissions & Financial Aid"
-extracted_at: "2026-05-12T20:58:42.343Z"
+extracted_at: "2026-06-03T18:34:36.364Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive digital strategy and engagement strategy for Northeastern, based on uploaded transcripts and external research, articles, youtube videos, data, etc., to be used in First-Year advising during orientation to help students identify opportunities and resources to support experiential learning in ways that will improve co-op readiness from day one. Intervention is needed to improve searcher outcomes by identifying skill gaps earlier than the first search semester, democratizing access to knowledge and resources, and enabling students to build competitive profiles and portfolios. Provide plenty of quotes and evidence to support the strategy from extracted research."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1syc9z3.md#c0"
+    char_span: [0, 1958]
+    sentence_count: 3
+    key_terms: [college, because, tuition, school, field, etc, situation, comments]
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/neu/1syc9z3.md#c1"
+    char_span: [1960, 4269]
+    sentence_count: 7
+    key_terms: [ultimatum, because, summer, definitely, tuition, responsibility, school, back]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/neu/1syc9z3.md#c2"
+    char_span: [4271, 4925]
+    sentence_count: 4
+    key_terms: [don, contact, friend, going, stay, appointment, community, relatives]
+    token_count: 157
+  - id: "social-intelligence/reddit-deep/neu/1syc9z3.md#c3"
+    char_span: [4940, 7120]
+    sentence_count: 26
+    key_terms: [want, college, back, life, parents, school, maybe, financially]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/neu/1syc9z3.md#c4"
+    char_span: [6819, 8822]
+    sentence_count: 15
+    key_terms: [independent, vulnerability, someone, support, people, satisfactionborn2798, system, build]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/neu/1syc9z3.md#c5"
+    char_span: [8824, 10988]
+    sentence_count: 25
+    key_terms: [perfectly, complete, because, don, leverage, "she's", back, want]
+    section: Comments
+    token_count: 487
 ---
-
 # Emotionally abusive family cutting off tuition
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1syc9z3/emotionally_abusive_family_cutting_off_tuition/)
@@ -40,11 +74,11 @@ I really dont want to commit to the startup bc it just gives them more control a
 
 ## Comments
 
-- **Joshi1381** (16↑): Sent a PM
-  - **SatisfactionBorn2798** (8↑): Thank you!
+- **Joshi1381** (18↑): Sent a PM
+  - **SatisfactionBorn2798** (6↑): Thank you!
 - **Immediate_School_21** (6↑): Im really sorry you are going through this but I want to assure you that even though this might seem like the end of the world, life has many ways to go around and still get the outcome you want for you. I was in a similar situation during my freshman year in college, my parents didn’t want to pay because the career I chose it wasn’t worth the hassle for them.  This was couple of decades ago when college wasn’t that expensive but I still needed their support. My parents were not rich but they certainly had the means. I didn’t go back to college after that year. I got a job and still figured out a way to work in the field I wanted to be but  with no degree was a challenge to advance. I got my degree later, after having kids.  At the end, looking back I feel all that made me stronger and wiser, tbh I don’t think I’d wanted another way. I look back and I was immature in many ways. I needed the experience, the hassle, the perspective.  I  am close to 50 now and feel I’ve lived a rich life.  Back then, I felt like you feel now.  From your post, I see you have options. Take them, give yourself the opportunity. Life path it’s not linear. It doesn’t have to be. Maybe go to community college.  Maybe work for your parents start up for couple of years? You mentioned you’ve maxed out your loans and that’s concerning in the long term because you’ll be limiting your options. I’m not sure psych its a high earning profession? Maybe go to public school for under grad and a more elite school for grad school. 
 Stay focused on what you want for yourself long term. Life is beautiful with all its ups and downs
-- **Ok_Confection6933** (5↑): You should try and figure out of you can file Fafsa as financially independent (this would mean your expenses are majority paid for by you, 51 percent counts). My mother spent my tuition freshman year paying off her DUI. I ended up filing financially independent and became an RA, graduated with only 13k in federal loans. Now thats practical advice out of the way, i want to say as someone whos also currently dealing with depression and suicidal ideation, you are someone who deserves to live. The heartless reaction when you tried to be vulnerable and talk about how youre struggling disgusts me. For your own well-being, take note of this reaction. These people are not there to support or help you, but there are many people in this world that will and you build that support system for yourself. Your mother is not someone that will reward your vulnerability, she is someone who will take advantage of it. Your vulnerability is so courageous and its a great quality. Dont let these people convince you otherwise. Its just some people dont deserve your vulnerability, and we unfortunately have to be selective with who we show our deep true parts to. Build yourself/call upon an emotional support system independent of your family in the same way you are trying to build a financial support system independent of them.
+- **Ok_Confection6933** (6↑): You should try and figure out of you can file Fafsa as financially independent (this would mean your expenses are majority paid for by you, 51 percent counts). My mother spent my tuition freshman year paying off her DUI. I ended up filing financially independent and became an RA, graduated with only 13k in federal loans. Now thats practical advice out of the way, i want to say as someone whos also currently dealing with depression and suicidal ideation, you are someone who deserves to live. The heartless reaction when you tried to be vulnerable and talk about how youre struggling disgusts me. For your own well-being, take note of this reaction. These people are not there to support or help you, but there are many people in this world that will and you build that support system for yourself. Your mother is not someone that will reward your vulnerability, she is someone who will take advantage of it. Your vulnerability is so courageous and its a great quality. Dont let these people convince you otherwise. Its just some people dont deserve your vulnerability, and we unfortunately have to be selective with who we show our deep true parts to. Build yourself/call upon an emotional support system independent of your family in the same way you are trying to build a financial support system independent of them.
   - **SatisfactionBorn2798** (1↑): I’m definitely gonna look into filing FAFSA as independent than you so much for the advice- and thank you for your empathy on the emotional aspect as well- it really means a lot to me and I appreciate every word!
 - **Independent-Deer-314** (3↑): I am really sorry you're experiencing this. I'm only in high school so I wouldn't be sure what to do in your situation, but I will be praying for you and that this works out.
   - **SatisfactionBorn2798** (1↑): Thank you for your encouragement!

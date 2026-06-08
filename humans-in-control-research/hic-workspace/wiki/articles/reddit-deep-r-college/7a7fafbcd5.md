@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-college/7a7fafbcd5.md
 url: "https://www.reddit.com/r/college/comments/1nhbtuh/i_cannot_complete_my_math_course_and_i_think_it/"
 url_hash: "7a7fafbcd5"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-19T18:05:01.151948+00:00"
 chars: 4368
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-college/7a7fafbcd5.md#c0"
+    char_span: [0, 1976]
+    sentence_count: 15
+    key_terms: [math, class, college, degree, school, keep, like, currently]
+    token_count: 459
+  - id: "articles/reddit-deep-r-college/7a7fafbcd5.md#c1"
+    char_span: [1978, 3833]
+    sentence_count: 13
+    key_terms: [formulas, math, problems, rather, unfortunately, solve, need, take]
+    token_count: 416
+  - id: "articles/reddit-deep-r-college/7a7fafbcd5.md#c2"
+    char_span: [3835, 4609]
+    sentence_count: 4
+    key_terms: [through, formal, years, get, math, notsobrooklynnn, therealmiridion, accommodations]
+    token_count: 189
 ---
-
 # I cannot complete my math course, and I think it might cost me my degree along with 4 years of school
 
 Source: [Reddit Deep: r/college](https://www.reddit.com/r/college/comments/1nhbtuh/i_cannot_complete_my_math_course_and_i_think_it/)

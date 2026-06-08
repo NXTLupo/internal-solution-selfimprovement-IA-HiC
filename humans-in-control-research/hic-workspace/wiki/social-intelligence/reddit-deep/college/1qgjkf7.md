@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1qgjkf7.md
 url: "https://www.reddit.com/r/college/comments/1qgjkf7/tuition_and_expenses/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -10,11 +11,28 @@ score: 3
 upvote_ratio: 1
 num_comments: 6
 flair: ""
-extracted_at: "2026-05-23T12:15:24.659Z"
+extracted_at: "2026-06-03T12:16:23.739Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1qgjkf7.md#c0"
+    char_span: [0, 1150]
+    sentence_count: 9
+    key_terms: [college, get, "bachelor's", comments, career, degree, "didn't", did]
+    token_count: 275
+  - id: "social-intelligence/reddit-deep/college/1qgjkf7.md#c1"
+    char_span: [1165, 3421]
+    sentence_count: 21
+    key_terms: [degree, bachelors, job, field, work, specific, getting, loans]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/college/1qgjkf7.md#c2"
+    char_span: [3423, 3847]
+    sentence_count: 5
+    key_terms: [people, gaps, challenging, employment, experience, caregiver, employers, explained]
+    section: Comments
+    token_count: 95
 ---
-
 # Tuition and Expenses
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1qgjkf7/tuition_and_expenses/)
@@ -30,12 +48,12 @@ With all this in mind and with having my Associate's and Bachelor's. Would it be
 
 ## Comments
 
-- **ourldyofnoassumption** (7↑): Easy answer. No. 
+- **ourldyofnoassumption** (8↑): Easy answer. No. 
 
 It is not worth getting a loan even if you qualify for one. You have a degree, you're out in the world. Make it work as best you can. Start earning. Save. If, after you save enough money to pay for your master's you want to get one; great. 
 
 The job doesn't have to be in your field. Get a job in any field which allows you to support yourself and save for your future.
-- **No_Jaguar_2570** (4↑): Do note that there is a cap on federal and state loans; if you already have a bachelors and you received loans, you will be at or near the cap. 
+- **No_Jaguar_2570** (5↑): Do note that there is a cap on federal and state loans; if you already have a bachelors and you received loans, you will be at or near the cap. 
 
 Getting a second bachelors in general is almost never a good idea. Do you have a) a very clear and specific job you want that can only be obtained with a bachelors in film, and b) a reasonable chance of actually getting that job with said bachelors?
 - **College_student_444** (2↑): What did you major in?

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1rlz9vb.md
 url: "https://www.reddit.com/r/waterloo/comments/1rlz9vb/local_events_this_weekend/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,46 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.131Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [media, government]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c0"
+    char_span: [0, 1901]
+    sentence_count: 10
+    key_terms: [https, cambridge-hosting-speed-skating-ontario-elite-championships-next-month-11845226, march, calendar-a2cb7790-d2db-4f6e-a149-d05217ce711e, waterloo, grandriverbuzz, events, com]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c1"
+    char_span: [1903, 3929]
+    sentence_count: 5
+    key_terms: [event, https, music, kitchener, com, classic-albums-live-princes-purple-rain, jazz, soul]
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c2"
+    char_span: [3931, 5766]
+    sentence_count: 7
+    key_terms: [learn-macrame-make-your-own-knotted-earrings-tickets-1979952833223, market, kitchener, seedlings, growing-seedlings-indoors-tickets-1983204516094, https, own, eventbrite]
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c3"
+    char_span: [5768, 7571]
+    sentence_count: 6
+    key_terms: [https, kitchener, nargis-son-comedy-show-featuring-zul-gulamhusein-tickets-1852800057849, com, www, eventbrite, march-mayhem-fight-night-tickets-1981169261593, centreinthesquare]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c4"
+    char_span: [7573, 9107]
+    sentence_count: 4
+    key_terms: [empowerher-an-international-womens-day-wellness-retreat-tickets-1980389848347, definite-leppard-live-at-evo-kitchen-bar-tickets-1980754902233, waterloo, https, heartfulness-chair-yoga-amp-meditation, leppard, session, international]
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c5"
+    char_span: [9109, 10203]
+    sentence_count: 3
+    key_terms: [country-hoedown-drag-bingo-brunch-and-show-tickets-1981496080116, trades, women, international-womens-day-women-in-trades, demonstrations, https, join, waterloo]
+    token_count: 277
+  - id: "social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c6"
+    char_span: [10218, 10773]
+    sentence_count: 5
+    key_terms: [fragrant-divide240, thanks, outstanding, band, name, appreciate, newsletter, boathouse]
+    section: Comments
+    token_count: 164
 ---
-
 # Local events this weekend!
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1rlz9vb/local_events_this_weekend/)

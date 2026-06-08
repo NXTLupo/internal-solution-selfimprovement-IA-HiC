@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1mtlvxj.md
 url: "https://www.reddit.com/r/internships/comments/1mtlvxj/failling_my_6_month_internship/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,66 @@ subreddit: "internships"
 title: "Failling my 6 month internship..."
 author: "Head_Mushroom_3748"
 date: "2025-08-18T13:21:32.000Z"
-score: 77
-upvote_ratio: 0.99
+score: 75
+upvote_ratio: 0.98
 num_comments: 56
 flair: "General"
-extracted_at: "2026-05-25T15:51:38.721Z"
+extracted_at: "2026-06-05T16:18:00.471Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1mtlvxj.md#c0"
+    char_span: [0, 1306]
+    sentence_count: 11
+    key_terms: ["i'm", model, internships, bad, experience, internship, something, comments]
+    token_count: 312
+  - id: "social-intelligence/reddit-deep/internships/1mtlvxj.md#c1"
+    char_span: [1321, 2011]
+    sentence_count: 5
+    key_terms: [projects, failed, silentschwanzlurche, kellogsnutrigrain, long, put, completely, dismissing]
+    section: Comments
+    token_count: 176
+  - id: "social-intelligence/reddit-deep/internships/1mtlvxj.md#c2"
+    char_span: [2013, 4145]
+    sentence_count: 10
+    key_terms: [internship, aromatic-fig8733, project, like, location, company, garbage, upstairsimpressive84]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1mtlvxj.md#c3"
+    char_span: [3822, 5058]
+    sentence_count: 6
+    key_terms: [engineers, location, internship, mechanical, software, given, help, biomedical]
+    section: Comments
+    token_count: 242
+  - id: "social-intelligence/reddit-deep/internships/1mtlvxj.md#c4"
+    char_span: [5060, 6824]
+    sentence_count: 12
+    key_terms: [project, did, team, acknowledged, internship, mechanical, freshman, herself]
+    section: Comments
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/internships/1mtlvxj.md#c5"
+    char_span: [6826, 9082]
+    sentence_count: 18
+    key_terms: [internship, experience, interns, "i'm", thoughtful, comments, everyone, linkedin]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1mtlvxj.md#c6"
+    char_span: [8831, 10824]
+    sentence_count: 11
+    key_terms: [implement, project, intern, feel, "it's", captxlevi, wanted, smart-conflict-5405]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1mtlvxj.md#c7"
+    char_span: [10570, 11576]
+    sentence_count: 4
+    key_terms: [smart-conflict-5405, understand, "couldn't", people, model, coz, data, "it's"]
+    section: Comments
+    token_count: 240
 ---
-
 # Failling my 6 month internship...
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1mtlvxj/failling_my_6_month_internship/)
-Posted by **Head_Mushroom_3748** · **77↑** · **56 comments**
+Posted by **Head_Mushroom_3748** · **75↑** · **56 comments**
 
 Hi,
 
@@ -34,9 +82,9 @@ I'm wondering if someone also had a pretty bad experience as an intern ? How bad
 
 ## Comments
 
-- **Kellogsnutrigrain** (22↑): as long as u dont put them as a reference employers will never know the project failed
+- **Kellogsnutrigrain** (23↑): as long as u dont put them as a reference employers will never know the project failed
   - **Head_Mushroom_3748** (3↑): i only did one internship before this one, which was 2 month so i didnt have time to do enough, this was my only hope :(
-- **SilentSchwanzlurche** (13↑): Been there, I worked for a huge tech company and I could not complete my 2 intern projects, and my manager just kept dismissing when I struggled. I ended up doing other mini projects and completely scraped the 2 initial projects.
+- **SilentSchwanzlurche** (12↑): Been there, I worked for a huge tech company and I could not complete my 2 intern projects, and my manager just kept dismissing when I struggled. I ended up doing other mini projects and completely scraped the 2 initial projects.
 
 Thankfully for jobs, no one besides you will know you failed or didn't do well. As long as you tried and put your effort into it, well fuck it. Who cares.
 

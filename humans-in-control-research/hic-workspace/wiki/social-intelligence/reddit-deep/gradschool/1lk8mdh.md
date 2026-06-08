@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1lk8mdh.md
 url: "https://www.reddit.com/r/GradSchool/comments/1lk8mdh/i_have_never_experienced_bullying_like_i_have_in/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,50 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.349Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1lk8mdh.md#c0"
+    char_span: [0, 2371]
+    sentence_count: 21
+    key_terms: [program, gradschool, comments, competitive, been, like, experience, professors]
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/gradschool/1lk8mdh.md#c1"
+    char_span: [2373, 2826]
+    sentence_count: 7
+    key_terms: [setting, grad, expectations, experienced, boundaries, colleagues, navigating, adulthood]
+    token_count: 89
+  - id: "social-intelligence/reddit-deep/gradschool/1lk8mdh.md#c2"
+    char_span: [2841, 4567]
+    sentence_count: 16
+    key_terms: [people, "i'm", possible, loving, school, class, sorry, feel]
+    section: Comments
+    token_count: 372
+  - id: "social-intelligence/reddit-deep/gradschool/1lk8mdh.md#c3"
+    char_span: [4569, 6390]
+    sentence_count: 15
+    key_terms: [like, program, cohort, school, people, pretty, age, feel]
+    section: Comments
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/gradschool/1lk8mdh.md#c4"
+    char_span: [6392, 7856]
+    sentence_count: 7
+    key_terms: [presentation, definitely, professor, because, decided, project, person, done]
+    section: Comments
+    token_count: 295
+  - id: "social-intelligence/reddit-deep/gradschool/1lk8mdh.md#c5"
+    char_span: [7858, 10136]
+    sentence_count: 18
+    key_terms: [like, because, professional, bad, classmates, eventually, professor, learning]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/gradschool/1lk8mdh.md#c6"
+    char_span: [10138, 11724]
+    sentence_count: 14
+    key_terms: [department, dean, did, approaches, professor, received, students, handle]
+    section: Comments
+    token_count: 329
 ---
-
 # I have never experienced bullying like I have in gradschool
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1lk8mdh/i_have_never_experienced_bullying_like_i_have_in/)

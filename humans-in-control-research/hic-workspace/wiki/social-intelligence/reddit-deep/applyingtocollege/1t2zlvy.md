@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1t2zlvy.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1t2zlvy/curious_about_westcliff_university_bsn_program/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,21 @@ flair: "College Questions"
 extracted_at: "2026-05-24T14:08:39.591Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t2zlvy.md#c0"
+    char_span: [0, 1175]
+    sentence_count: 8
+    key_terms: [program, applyingtocollege, experiences, university, westcliff, clinical, comments, corona]
+    token_count: 283
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t2zlvy.md#c1"
+    char_span: [1190, 1437]
+    sentence_count: 2
+    key_terms: [regular-pear-8625, prenursing, subreddits, allnurses, graduates, elkrange, chatgpt, nursing]
+    section: Comments
+    token_count: 74
 ---
-
 # Curious About Westcliff University BSN Program (Corona) — Any Student/Alumni Experiences?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1t2zlvy/curious_about_westcliff_university_bsn_program/)

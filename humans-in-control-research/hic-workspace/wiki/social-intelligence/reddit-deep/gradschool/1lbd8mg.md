@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1lbd8mg.md
 url: "https://www.reddit.com/r/GradSchool/comments/1lbd8mg/any_older_students_surprised_by_the_attitudes_of/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,63 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.336Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1lbd8mg.md#c0"
+    char_span: [0, 1487]
+    sentence_count: 15
+    key_terms: [school, comments, independent, grad, need, time, gradschool, profession]
+    token_count: 311
+  - id: "social-intelligence/reddit-deep/gradschool/1lbd8mg.md#c1"
+    char_span: [1502, 3214]
+    sentence_count: 10
+    key_terms: [people, imunderyourbeddude, students, get, loud, own, everyone, positive]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/gradschool/1lbd8mg.md#c2"
+    char_span: [3216, 4658]
+    sentence_count: 17
+    key_terms: [students, parents, heard, assignments, help, "i've", education, hyperbole]
+    section: Comments
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/gradschool/1lbd8mg.md#c3"
+    char_span: [4660, 7035]
+    sentence_count: 14
+    key_terms: [students, school, because, "didn't", older, understand, undergrad, chatgpt]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1lbd8mg.md#c4"
+    char_span: [6750, 8735]
+    sentence_count: 9
+    key_terms: ["master's", life, time, academia, academic, students, because, interests]
+    section: Comments
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/gradschool/1lbd8mg.md#c5"
+    char_span: [8737, 10799]
+    sentence_count: 16
+    key_terms: [professional, program, competitive, people, school, did, curiosity, everyone]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/gradschool/1lbd8mg.md#c6"
+    char_span: [10804, 12589]
+    sentence_count: 8
+    key_terms: [instructors, grad, incredibly, deadlines, behavior, students, program, student]
+    section: Comments
+    token_count: 375
+  - id: "social-intelligence/reddit-deep/gradschool/1lbd8mg.md#c7"
+    char_span: [12591, 15073]
+    sentence_count: 9
+    key_terms: [accuracy, through, school, efficiency, subject, highly, professional, time]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/gradschool/1lbd8mg.md#c8"
+    char_span: [15075, 17163]
+    sentence_count: 14
+    key_terms: [students, school, everyone, college, grad, read, time, important]
+    section: Comments
+    token_count: 449
 ---
-
 # Any older students surprised by the attitudes of younger grad students?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1lbd8mg/any_older_students_surprised_by_the_attitudes_of/)

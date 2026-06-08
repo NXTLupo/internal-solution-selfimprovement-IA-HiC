@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1ns96zy.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1ns96zy/3rd_year_chemical_engineering_student_seeking/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Academic Advice"
 extracted_at: "2026-05-22T15:11:44.444Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ns96zy.md#c0"
+    char_span: [0, 1694]
+    sentence_count: 10
+    key_terms: [chemical, year, engineeringstudents, engineering, successful, currently, comments, engineer]
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ns96zy.md#c1"
+    char_span: [1709, 2705]
+    sentence_count: 6
+    key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
+    section: Comments
+    token_count: 224
 ---
-
 # 3rd Year Chemical Engineering Student Seeking Career Guidance – Where Should I Focus?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1ns96zy/3rd_year_chemical_engineering_student_seeking/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-anthropic/67e6d4ecfb.md
 url: "https://reddit.com/r/Anthropic/comments/1sj9558/mythos_is_mostly_hype_also_the_bugs_it_found_were/"
 url_hash: "67e6d4ecfb"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T13:52:21.544811+00:00"
 chars: 3512
+industries: [ai_research, saas]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-anthropic/67e6d4ecfb.md#c0"
+    char_span: [0, 1653]
+    sentence_count: 1
+    key_terms: [anthropics-claude-mythos-isnt-a-sentient-super-hacker-its-a-sales-pitch-claims-of-thousands-of-severe-zero-days-rely-on-just-198-manual-reviews, claude-mythos-isnt-a-sentient-super-hacker-its-a-sales-pitch-claims-of-thousands-of-severe-zero-days-rely-on-just-198-manual-reviews, https, ai-cybersecurity-after-mythos-the-jagged-frontier, com, tomshardware, anthropic, artificial-intelligence]
+    token_count: 510
+  - id: "articles/reddit-anthropic/67e6d4ecfb.md#c1"
+    char_span: [1655, 3739]
+    sentence_count: 9
+    key_terms: [models, anthropic, vulnerability, exploits, e2f78c7ec1655fedd945366151ba54fcb9580508, exploit, https, open-source]
+    token_count: 476
 ---
-
 # Mythos is Mostly Hype... (also the bugs it found were mostly unexploitable and exaggerated...)
 
 Source: [reddit: anthropic](https://reddit.com/r/Anthropic/comments/1sj9558/mythos_is_mostly_hype_also_the_bugs_it_found_were/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1m9jqh1.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1m9jqh1/choosing_college_based_on_internship_and/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,21 @@ flair: "College Questions"
 extracted_at: "2026-05-20T02:31:57.163Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1m9jqh1.md#c0"
+    char_span: [0, 392]
+    sentence_count: 1
+    key_terms: [opportunities, applyingtocollege, internship, placement, comments, college, reddit-deep, particular]
+    token_count: 91
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1m9jqh1.md#c1"
+    char_span: [407, 2189]
+    sentence_count: 12
+    key_terms: [school, schools, internship, internships, better, summer, "it's", nyc]
+    section: Comments
+    token_count: 364
 ---
-
 # Choosing college based on internship and placement opportunities
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1m9jqh1/choosing_college_based_on_internship_and/)

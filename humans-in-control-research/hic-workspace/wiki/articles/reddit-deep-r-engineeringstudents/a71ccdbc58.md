@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-engineeringstudents/a71ccdbc58.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1nouni2/how_do_i_get_a_co_op_in_power_systems_as_a/"
 url_hash: "a71ccdbc58"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:39:53.038024+00:00"
 chars: 1486
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-engineeringstudents/a71ccdbc58.md#c0"
+    char_span: [0, 1705]
+    sentence_count: 10
+    key_terms: [engineeringstudents, systems, reddit, power, https, com, wiki, www]
+    token_count: 381
 ---
-
 # How do I get a co op in Power systems as a Graduate Student?
 
 Source: [Reddit Deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1nouni2/how_do_i_get_a_co_op_in_power_systems_as_a/)

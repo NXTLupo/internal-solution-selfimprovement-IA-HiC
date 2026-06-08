@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1t8pbom.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1t8pbom/has_anyone_studied_in_both_the_us_and_the_uk/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,39 @@ flair: "Advice"
 extracted_at: "2026-05-25T18:32:06.263Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t8pbom.md#c0"
+    char_span: [0, 1172]
+    sentence_count: 9
+    key_terms: [applyingtocollege, universities, interested, applying, colleges, comments, honestly, studied]
+    token_count: 273
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t8pbom.md#c1"
+    char_span: [1187, 3201]
+    sentence_count: 18
+    key_terms: [experience, state, work, senior-dog-9735, degree, development, reccomend, something]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t8pbom.md#c2"
+    char_span: [3203, 5133]
+    sentence_count: 13
+    key_terms: [universities, year, college, competitive, sure, admission, rejected, because]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t8pbom.md#c3"
+    char_span: [5135, 5723]
+    sentence_count: 4
+    key_terms: [apply, international, undergraduate, unfortunately, application, competitive, interested, extremely]
+    section: Comments
+    token_count: 121
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t8pbom.md#c4"
+    char_span: [5725, 7667]
+    sentence_count: 16
+    key_terms: [colleges, edinburgh, options, chance, sure, top, education, already]
+    section: Comments
+    token_count: 450
 ---
-
 # Has anyone studied in both the US and the UK?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1t8pbom/has_anyone_studied_in_both_the_us_and_the_uk/)

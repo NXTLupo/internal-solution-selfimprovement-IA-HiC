@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1rutggl.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rutggl/thoughts_on_getting_into_elite_phd_programs/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,55 @@ flair: "Physical Sciences"
 extracted_at: "2026-05-23T14:54:16.720Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c0"
+    char_span: [0, 2471]
+    sentence_count: 25
+    key_terms: [admissions, programs, letters, application, lab, phd, research, gradadmissions]
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c1"
+    char_span: [2473, 5037]
+    sentence_count: 20
+    key_terms: [letter, research, statement, work, specific, because, faculty, ideally]
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c2"
+    char_span: [5039, 6653]
+    sentence_count: 23
+    key_terms: [information, people, "you're", recruiting, outcomes, students, faculty, around]
+    token_count: 326
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c3"
+    char_span: [6668, 7401]
+    sentence_count: 3
+    key_terms: [zestyclose-tax2939, got, princeton, harvard, telling, phone, get, application]
+    section: Comments
+    token_count: 191
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c4"
+    char_span: [7403, 8979]
+    sentence_count: 13
+    key_terms: [year, mit, arkansas, looking, professor, students, faculty, expert]
+    section: Comments
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c5"
+    char_span: [8981, 10626]
+    sentence_count: 8
+    key_terms: [research, experience, programs, year, applying, being, undergrad, engineer]
+    section: Comments
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c6"
+    char_span: [10628, 12468]
+    sentence_count: 16
+    key_terms: [good, phd, programs, research, letters, long, experience, looking]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c7"
+    char_span: [12470, 13061]
+    sentence_count: 5
+    key_terms: [experience, program, "didn't", get, appreciated, prestigious, applicants, especially]
+    section: Comments
+    token_count: 125
 ---
-
 # Thoughts on getting into elite phd programs
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rutggl/thoughts_on_getting_into_elite_phd_programs/)

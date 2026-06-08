@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1ryxp8f.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1ryxp8f/need_advice_waterloo_cs_regular_vs_university_of/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,33 @@ flair: "Advice"
 extracted_at: "2026-05-25T18:33:12.672Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1ryxp8f.md#c0"
+    char_span: [0, 1362]
+    sentence_count: 10
+    key_terms: [waterloo, university, alberta, co-op, regular, scholarship, uwaterloo, comments]
+    token_count: 311
+  - id: "social-intelligence/reddit-deep/uwaterloo/1ryxp8f.md#c1"
+    char_span: [1377, 3156]
+    sentence_count: 12
+    key_terms: [co-op, coop, degree, posingmonkey, terms, uofa, graduate, waterloo]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/uwaterloo/1ryxp8f.md#c2"
+    char_span: [3161, 4360]
+    sentence_count: 5
+    key_terms: [internships, posingmonkey, summer, waterloo, tech, probably, apply, did]
+    section: Comments
+    token_count: 302
+  - id: "social-intelligence/reddit-deep/uwaterloo/1ryxp8f.md#c3"
+    char_span: [4362, 5415]
+    sentence_count: 4
+    key_terms: [waterloo, posingmonkey, alberta, quite, informal-layer2241, here, entrepreneurial, international]
+    section: Comments
+    token_count: 255
 ---
-
 # Need Advice!! Waterloo CS (Regular) vs University of Alberta CS
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1ryxp8f/need_advice_waterloo_cs_regular_vs_university_of/)

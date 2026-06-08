@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1snuioa.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1snuioa/what_can_u_advise_me_to_do_extracurricular_for_ee/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,21 @@ flair: "Application Question"
 extracted_at: "2026-05-24T14:08:39.591Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1snuioa.md#c0"
+    char_span: [0, 1532]
+    sentence_count: 9
+    key_terms: [students, experience, applyingtocollege, dev, get, web, year, freelance]
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1snuioa.md#c1"
+    char_span: [1547, 2390]
+    sentence_count: 5
+    key_terms: [competitions, engineering, math, something, physics, pursuit, "aren't", neckbackground5184]
+    section: Comments
+    token_count: 190
 ---
-
 # What can u advise me to do (extracurricular) for ee major or cs major? I have an experience working as a web dev for a year and no experience or something that is related to engineering. What can I do ? What kinds of clubs or programs you advise me to join as an intl gap year student ?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1snuioa/what_can_u_advise_me_to_do_extracurricular_for_ee/)

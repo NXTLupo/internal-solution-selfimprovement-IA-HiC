@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-workonline/bf3ceb11fc.md
 url: "https://www.reddit.com/r/WorkOnline/comments/1r8t78r/worst_training_zero_support_my_concentrix/"
 url_hash: "bf3ceb11fc"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-26T12:56:12.524345+00:00"
 chars: 3226
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-workonline/bf3ceb11fc.md#c0"
+    char_span: [0, 2611]
+    sentence_count: 28
+    key_terms: [supervisor, customer, training, trainer, calls, new, concentrix, experience]
+    token_count: 511
+  - id: "articles/reddit-deep-r-workonline/bf3ceb11fc.md#c1"
+    char_span: [2613, 3422]
+    sentence_count: 9
+    key_terms: [training, support, thanks, high-escalation, visitfrosty2959, bullydogsbest, acknowledge, considering]
+    token_count: 181
 ---
-
 # Worst Training & Zero Support – My Concentrix Experience
 
 Source: [Reddit Deep: r/workonline](https://www.reddit.com/r/WorkOnline/comments/1r8t78r/worst_training_zero_support_my_concentrix/)

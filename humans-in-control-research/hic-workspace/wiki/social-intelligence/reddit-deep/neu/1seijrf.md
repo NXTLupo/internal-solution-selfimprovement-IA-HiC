@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1seijrf.md
 url: "https://www.reddit.com/r/NEU/comments/1seijrf/wellington_management_coop/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -6,19 +7,30 @@ subreddit: "neu"
 title: "Wellington Management Co-op"
 author: "poem2521"
 date: "2026-04-07T01:51:19.000Z"
-score: 5
-upvote_ratio: 0.86
+score: 7
+upvote_ratio: 1
 num_comments: 7
 flair: "Co-op & Career"
-extracted_at: "2026-05-26T14:30:23.758Z"
+extracted_at: "2026-06-05T19:19:55.802Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1seijrf.md#c0"
+    char_span: [0, 1360]
+    sentence_count: 10
+    key_terms: [full-time, finance-related, co-op, year, management, wellington, questions, comments]
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/neu/1seijrf.md#c1"
+    char_span: [1375, 2354]
+    sentence_count: 9
+    key_terms: [co-op, private, answer, co-ops, offers, return, detectiveelectrical2, difficult-review283]
+    section: Comments
+    token_count: 266
 ---
-
 # Wellington Management Co-op
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1seijrf/wellington_management_coop/)
-Posted by **poem2521** · **5↑** · **7 comments**
+Posted by **poem2521** · **7↑** · **7 comments**
 
 Does anyone have experience with co-op at Wellington Management? I'll be joining them this June - Dec for my second and (maybe) final co-op but would like to know if they usually give a full-time offer. 
 

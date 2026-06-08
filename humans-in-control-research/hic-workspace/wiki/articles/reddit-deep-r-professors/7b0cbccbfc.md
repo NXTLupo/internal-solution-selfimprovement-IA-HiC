@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-professors/7b0cbccbfc.md
 url: "https://www.reddit.com/r/Professors/comments/1pn83r0/an_open_letter_to_my_students/"
 url_hash: "7b0cbccbfc"
 kind: "article"
@@ -10,8 +11,30 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T04:05:25.409744+00:00"
 chars: 6995
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-professors/7b0cbccbfc.md#c0"
+    char_span: [0, 1527]
+    sentence_count: 10
+    key_terms: [chatgpt, grade, today, assignment, professors, generated, sometimes, submitted]
+    token_count: 338
+  - id: "articles/reddit-deep-r-professors/7b0cbccbfc.md#c1"
+    char_span: [1529, 4084]
+    sentence_count: 20
+    key_terms: [education, uneducated, person, life, educated, skills, college, sophisticated]
+    token_count: 484
+  - id: "articles/reddit-deep-r-professors/7b0cbccbfc.md#c2"
+    char_span: [4086, 5789]
+    sentence_count: 14
+    key_terms: [opportunity, yourself, opportunities, learn, translation, sacrifices, education, important]
+    token_count: 315
+  - id: "articles/reddit-deep-r-professors/7b0cbccbfc.md#c3"
+    char_span: [5791, 7152]
+    sentence_count: 10
+    key_terms: [popstarkirbys, read, section, did, assignment, student, good, need]
+    token_count: 360
 ---
-
 # An Open Letter to my Students
 
 Source: [Reddit Deep: r/professors](https://www.reddit.com/r/Professors/comments/1pn83r0/an_open_letter_to_my_students/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/addcd87c9a.md
 url: "https://www.reddit.com/r/careerguidance/comments/1q72vsq/need_serious_career_advice_and_guidance_feeling/"
 url_hash: "addcd87c9a"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T13:04:20.685460+00:00"
 chars: 3221
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/addcd87c9a.md#c0"
+    char_span: [0, 2340]
+    sentence_count: 13
+    key_terms: [background, experience, communication, work, without, cat, sciences, profile]
+    token_count: 499
+  - id: "articles/reddit-deep-r-careerguidance/addcd87c9a.md#c1"
+    char_span: [2342, 3464]
+    sentence_count: 5
+    key_terms: [career, india, long-term, stability, decision, guidance, limited, mba]
+    token_count: 206
 ---
-
 # Need serious career advice and guidance . Feeling stuck and confused . Can anyone guide ?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1q72vsq/need_serious_career_advice_and_guidance_feeling/)

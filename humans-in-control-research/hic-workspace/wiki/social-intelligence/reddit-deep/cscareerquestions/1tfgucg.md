@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1tfgucg.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1tfgucg/career_advice_needed_2026_cs_graduate_with_1_yoe/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -10,11 +11,16 @@ score: 0
 upvote_ratio: 0.5
 num_comments: 2
 flair: "New Grad"
-extracted_at: "2026-05-25T18:32:49.823Z"
+extracted_at: "2026-06-03T12:16:59.515Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tfgucg.md#c0"
+    char_span: [0, 964]
+    sentence_count: 8
+    key_terms: [cscareerquestions, developer, comments, graduate, advice, career, react, stack]
+    token_count: 250
 ---
-
 # Career Advice Needed: 2026 CS Graduate with 1 YOE Full Stack Developer.
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1tfgucg/career_advice_needed_2026_cs_graduate_with_1_yoe/)

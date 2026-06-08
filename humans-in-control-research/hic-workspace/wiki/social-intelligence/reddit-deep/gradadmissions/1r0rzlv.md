@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1r0rzlv.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1r0rzlv/help_deciding_grad_school_path/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,15 @@ flair: "Computational Sciences"
 extracted_at: "2026-05-20T06:42:01.111Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1r0rzlv.md#c0"
+    char_span: [0, 1375]
+    sentence_count: 1
+    key_terms: [undergrad, masters, something, gradadmissions, school, grad, like, want]
+    token_count: 310
 ---
-
 # help deciding grad school path
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1r0rzlv/help_deciding_grad_school_path/)

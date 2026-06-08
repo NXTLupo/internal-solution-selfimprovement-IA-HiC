@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1mqud9q.md
 url: "https://www.reddit.com/r/college/comments/1mqud9q/school_is_saying_i_didnt_submit_my_final_exam_for/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,41 @@ subreddit: "college"
 title: "School is saying I didn't submit my final exam for a course but I did.... What can I do to fight against this?"
 author: "Old_Credit_6783"
 date: "2025-08-15T10:54:06.000Z"
-score: 125
+score: 129
 upvote_ratio: 0.97
 num_comments: 21
 flair: ""
-extracted_at: "2026-05-17T01:12:59.140Z"
+extracted_at: "2026-06-03T03:09:04.085Z"
 extraction_method: "praw-deep"
-research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+research_goal: "Generate a strategic analysis identifying actionable opportunities for Northeastern University to enhance experiential learning and co-op success. Focus the analysis on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development."
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1mqud9q.md#c0"
+    char_span: [0, 1053]
+    sentence_count: 7
+    key_terms: [exam, did, saying, date, lms, submission, comments, college]
+    token_count: 255
+  - id: "social-intelligence/reddit-deep/college/1mqud9q.md#c1"
+    char_span: [1055, 2775]
+    sentence_count: 16
+    key_terms: [submitted, exam, "i'm", specific, through, submit, feel, "i've"]
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/college/1mqud9q.md#c2"
+    char_span: [2790, 4532]
+    sentence_count: 12
+    key_terms: [lms, submitted, name, canvas, either, school, specifically, says]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/college/1mqud9q.md#c3"
+    char_span: [4535, 5811]
+    sentence_count: 10
+    key_terms: [lms, logs, submission, submitted, activity, "didn't", since, "won't"]
+    section: Comments
+    token_count: 316
 ---
-
 # School is saying I didn't submit my final exam for a course but I did.... What can I do to fight against this?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1mqud9q/school_is_saying_i_didnt_submit_my_final_exam_for/)
-Posted by **Old_Credit_6783** · **125↑** · **21 comments**
+Posted by **Old_Credit_6783** · **129↑** · **21 comments**
 
 My school is saying I have an outstanding exam from a previous semester. I was shocked because I am 100% certain I submitted it through the LMS (Learning Management System) portal, but when I opened the portal today it's saying late submission and acting like I never did....
 
@@ -35,19 +58,19 @@ Is there anything I can possibly do to fight back? I feel as though this is a te
 
 ## Comments
 
-- **No_Jaguar_2570** (166↑): You can contact the LMS’s tech support and see if they can help you. That’s really your only option. The LMS says you didn’t submit it; “but I know I did” isn’t going to be a winning argument. Otherwise you’ll have to retake the exam.
-  - **Old_Credit_6783** (41↑): I had the same thought. The lms is specifically for my uni, so I'll have to ask the school directly if they'll check their system
-- **DrDirtPhD** (91↑): I'm not sure what LMS you use, but on canvas I can't mess with student submissions; if it says it wasn't submitted, it wasn't submitted. It sounds like you probably wrote the exam, waited for everyone else, and then either forgot to upload it to the LMS or didn't check to ensure it was uploaded successfully. In either case, that's on you and not anyone else.
-  - **Old_Credit_6783** (39↑): No it's not on canvas (I didn't even know what that was, I had to Google) , it's Lms specifically designed for my uni. Think university name Lms
-    - **dancesquared** (22↑): I doubt the name of your university’s LMS is “LMS.” That’s just what learning management systems are called in general. Your school would either use an existing branded LMS (e.g., Blackboard, Canvas, D2L), or they would give it its own name, probably with a branding that ties in with your school name or mascot.
-- **k_t_pie** (43↑): I always get confirmation email saying that I submitted "file name" to "assignment" on date and time. Do you get those? If so, go back and forward that to the person you're dealing with.
-  - **Old_Credit_6783** (24↑): Unfortunately not it just shows on the screen the date and time of submission showing that I submitted. But when I opened it now it says late submission like I never submitted
+- **No_Jaguar_2570** (167↑): You can contact the LMS’s tech support and see if they can help you. That’s really your only option. The LMS says you didn’t submit it; “but I know I did” isn’t going to be a winning argument. Otherwise you’ll have to retake the exam.
+  - **Old_Credit_6783** (39↑): I had the same thought. The lms is specifically for my uni, so I'll have to ask the school directly if they'll check their system
+- **DrDirtPhD** (95↑): I'm not sure what LMS you use, but on canvas I can't mess with student submissions; if it says it wasn't submitted, it wasn't submitted. It sounds like you probably wrote the exam, waited for everyone else, and then either forgot to upload it to the LMS or didn't check to ensure it was uploaded successfully. In either case, that's on you and not anyone else.
+  - **Old_Credit_6783** (34↑): No it's not on canvas (I didn't even know what that was, I had to Google) , it's Lms specifically designed for my uni. Think university name Lms
+    - **dancesquared** (23↑): I doubt the name of your university’s LMS is “LMS.” That’s just what learning management systems are called in general. Your school would either use an existing branded LMS (e.g., Blackboard, Canvas, D2L), or they would give it its own name, probably with a branding that ties in with your school name or mascot.
+- **k_t_pie** (42↑): I always get confirmation email saying that I submitted "file name" to "assignment" on date and time. Do you get those? If so, go back and forward that to the person you're dealing with.
+  - **Old_Credit_6783** (23↑): Unfortunately not it just shows on the screen the date and time of submission showing that I submitted. But when I opened it now it says late submission like I never submitted
 
 
 The only way I could prove would be if I had taken a screenshot back then
     - **[deleted]** (1↑): Always take a Pic and make sure you get the date and time, I download, screen shoot and take a Pic with my phone!😊
-- **Hazelstone37** (38↑): Someone in tech support should be able to see if you submitted the exam.
-  - **Colsim** (19↑): They can see every single click you made in the LMS and when it happened. Ask to see the logs
+- **Hazelstone37** (37↑): Someone in tech support should be able to see if you submitted the exam.
+  - **Colsim** (23↑): They can see every single click you made in the LMS and when it happened. Ask to see the logs
 - **hornybutired** (8↑): So, first, it absolutely sucks that you're in this situation. I'm very sorry this is happening to you.
 
 However

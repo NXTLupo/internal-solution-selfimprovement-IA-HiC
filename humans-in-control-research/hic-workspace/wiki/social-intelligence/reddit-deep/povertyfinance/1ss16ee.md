@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1ss16ee.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1ss16ee/withdrawl_from_401k/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,45 @@ flair: "Debt/Loans/Credit"
 extracted_at: "2026-05-17T01:13:55.885Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1ss16ee.md#c0"
+    char_span: [0, 1364]
+    sentence_count: 12
+    key_terms: [povertyfinance, considering, loan, everything, withdrawl, comments, everyone, current]
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/povertyfinance/1ss16ee.md#c1"
+    char_span: [1379, 1704]
+    sentence_count: 3
+    key_terms: [bankruptcy, easy-seesaw285, relatively, protected, craters, economy, further, level]
+    section: Comments
+    token_count: 83
+  - id: "social-intelligence/reddit-deep/povertyfinance/1ss16ee.md#c2"
+    char_span: [1706, 3407]
+    sentence_count: 12
+    key_terms: [debt, left, ago, bankruptcy, protected, withdraw, medical, credit]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/povertyfinance/1ss16ee.md#c3"
+    char_span: [3409, 5542]
+    sentence_count: 12
+    key_terms: [what-is-the-difference-between-credit-counseling-and-debt-settlement-debt-consolidation-or-credit-repair-en-1449, credit, https, car, nfcc, pay, www, hardship]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/povertyfinance/1ss16ee.md#c4"
+    char_span: [5544, 7511]
+    sentence_count: 17
+    key_terms: [credit, "don't", card, loan, nfcc, completely, expenses, another]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/povertyfinance/1ss16ee.md#c5"
+    char_span: [7513, 7943]
+    sentence_count: 3
+    key_terms: [job, future, national-practice705, searching, temporary, continue, expenses, treading]
+    section: Comments
+    token_count: 109
 ---
-
 # Withdrawl from 401k?
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1ss16ee/withdrawl_from_401k/)

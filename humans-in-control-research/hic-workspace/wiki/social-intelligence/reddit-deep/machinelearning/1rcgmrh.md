@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1rcgmrh.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1rcgmrh/r_neural_pde_solvers_built_almost_purely_from/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -6,19 +7,63 @@ subreddit: "machinelearning"
 title: "[R] Neural PDE solvers built (almost) purely from learned warps"
 author: "t_msr"
 date: "2026-02-23T12:53:35.000Z"
-score: 87
+score: 86
 upvote_ratio: 0.99
 num_comments: 21
 flair: "Research"
-extracted_at: "2026-05-11T17:27:06.574Z"
+extracted_at: "2026-05-31T21:49:57.040Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+research_goal: "Identify emerging AI design trends, skills, tools, platforms, and technical implementations that would  help a company's creative team to move beyond AI as a concepting aid and understand where AI-enabled tools, workflows and internal models can practically support design production, system testing, asset generation, governance and stakeholder confidence. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1rcgmrh.md#c0"
+    char_span: [0, 998]
+    sentence_count: 4
+    key_terms: [https, machinelearning, github, researchgate, comments, flowers, learned, t-muser]
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/machinelearning/1rcgmrh.md#c1"
+    char_span: [1000, 3020]
+    sentence_count: 13
+    key_terms: [neural, model, operators, problem, spatial, paper, extremely, fourier]
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/machinelearning/1rcgmrh.md#c2"
+    char_span: [3022, 4949]
+    sentence_count: 10
+    key_terms: [equation, https, model, dataset, figure, flower, along, ideas]
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/machinelearning/1rcgmrh.md#c3"
+    char_span: [4951, 6825]
+    sentence_count: 14
+    key_terms: [model, poseidon, rollouts, "there's", pub-4782cd68fddd4ce0af349ef3d1c56b27, long, dataset, perform]
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/machinelearning/1rcgmrh.md#c4"
+    char_span: [6840, 8456]
+    sentence_count: 10
+    key_terms: [throughput, lot, efficiently, poseidon, problems, question, solution, kernels]
+    section: Comments
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/machinelearning/1rcgmrh.md#c5"
+    char_span: [8458, 9142]
+    sentence_count: 5
+    key_terms: [paper, competitively, architecture, demonstrate, performance, approaches, prediction, serikkehva]
+    section: Comments
+    token_count: 165
+  - id: "social-intelligence/reddit-deep/machinelearning/1rcgmrh.md#c6"
+    char_span: [9144, 11303]
+    sentence_count: 17
+    key_terms: [problems, smooth, work, autoregressive, warps, interesting, here, relu]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/machinelearning/1rcgmrh.md#c7"
+    char_span: [11088, 12432]
+    sentence_count: 8
+    key_terms: [intermittent, work, non-rectangular, events, modifications, nooo-one, pullback, bit]
+    section: Comments
+    token_count: 350
 ---
-
 # [R] Neural PDE solvers built (almost) purely from learned warps
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1rcgmrh/r_neural_pde_solvers_built_almost_purely_from/)
-Posted by **t_msr** · **87↑** · **21 comments**
+Posted by **t_msr** · **86↑** · **21 comments**
 
 Full Disclaimer: This is my own work.
 
@@ -56,7 +101,7 @@ If you read all of this, I really appreciate it (also if you just read the TL;DR
 
 ## Comments
 
-- **SlayahhEUW** (11↑): Really fun to see new architectures that use qualities of the data more efficiently, looks like a stripped-down deformable DETR for sparse problems where feature averages are not driving the dynamics. I am in real-time computer graphics and the method could be applied to a lot of problems here I think.
+- **SlayahhEUW** (12↑): Really fun to see new architectures that use qualities of the data more efficiently, looks like a stripped-down deformable DETR for sparse problems where feature averages are not driving the dynamics. I am in real-time computer graphics and the method could be applied to a lot of problems here I think.
 
 Question:  
   
@@ -69,14 +114,14 @@ To answer your question, throughput for training seems to be slightly worse than
 I've been thinking a lot about how to make grid_sample more efficient, so if you have any advice on writing triton kernels for it I'd be all ears.
 
 E: just to be explicit: scOT is the base architecture for POSEIDON.
-- **serikkehva** (7↑): Have you tried testing this concept on more advanced PDEs like e.g. weather prediction or some part of it? You mentioned that during long roll-out you see poorer performance, didn’t read the paper yet so the answer might me inside, but do you have any clues why?
-  - **t_msr** (5↑): Hey! Thanks for the question. We didn't try it, our goal with this paper was primarily to benchmark the model against other approaches and demonstrate that it performs competitively, so we kept the scope fairly narrow. I think we succeeded with that, so now it would be cool to have a look at "real" problems. 
+- **serikkehva** (9↑): Have you tried testing this concept on more advanced PDEs like e.g. weather prediction or some part of it? You mentioned that during long roll-out you see poorer performance, didn’t read the paper yet so the answer might me inside, but do you have any clues why?
+  - **t_msr** (4↑): Hey! Thanks for the question. We didn't try it, our goal with this paper was primarily to benchmark the model against other approaches and demonstrate that it performs competitively, so we kept the scope fairly narrow. I think we succeeded with that, so now it would be cool to have a look at "real" problems. 
 
 Weather forecasting does seem like a natural fit. I think it's usually short term enough to not run into serious roll-out problems. Also, for autoregressive weather models, as far as I know, there is often a little bit of autoregressive fine-tuning added at the end. Here we didn't do this since we were trying to not deviate too much from The Well's benchmarking set-up.
 - **oharub** (6↑): Hey author of The Well here, very interesting work, congrats!
   - **t_msr** (4↑): Hey Ruben! Thanks for the great collection. Without such interesting problems to test on, this work would've probably never happened!
 - **Over_Elderberry_5279** (4↑): I had the same reaction. What changed my mind was realizing that execution details and feedback loops decide most real-world results. Once you instrument your workflow and iterate on concrete failure cases, outcomes get way more consistent.
-- **ManufacturerWeird161** (3↑): The warp-based approach here is brilliant—I’ve been wrestling with spectral methods in my own work, and seeing this perform so well on stiff problems like diffusion is genuinely exciting. Can’t wait to dig into the code this weekend.
+- **ManufacturerWeird161** (5↑): The warp-based approach here is brilliant—I’ve been wrestling with spectral methods in my own work, and seeing this perform so well on stiff problems like diffusion is genuinely exciting. Can’t wait to dig into the code this weekend.
   - **t_msr** (3↑): Happy to hear! There's a file at the top of the repo that contains the entire model code and depends only on torch. That should be enough to get you started! If you run into any problems don't hesitate to open a github issue, I'd be happy to help :)
 - **[deleted]** (3↑): Building PDE solvers purely from coordinate warps instead of discretized operators is elegant. The question is how this handles discontinuities and shock waves where smooth warps break down.
   - **t_msr** (1↑): This is such an excellent question! The warps are not necessarily smooth because we use a ReLU in the small MLP that calculates the warp field. Since ReLU is not smooth, the resulting warp is not smooth (experimentally ReLU there also works much better than Tanh, which I also tried).

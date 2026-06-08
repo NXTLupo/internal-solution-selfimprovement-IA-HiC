@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1nk7z8n.md
 url: "https://www.reddit.com/r/highereducation/comments/1nk7z8n/fired_for_being_a_socialist/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-20T03:54:48.177Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1nk7z8n.md#c0"
+    char_span: [0, 2474]
+    sentence_count: 22
+    key_terms: [political, socialist, september, academic, comments, violence, highereducation, remarks]
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/highereducation/1nk7z8n.md#c1"
+    char_span: [2476, 3935]
+    sentence_count: 12
+    key_terms: [conversation, office, president, recorded, private, criticizing, university, illegally]
+    section: Comments
+    token_count: 297
+  - id: "social-intelligence/reddit-deep/highereducation/1nk7z8n.md#c2"
+    char_span: [3937, 5594]
+    sentence_count: 7
+    key_terms: [american, tell, america, because, problem, support, around, people]
+    section: Comments
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/highereducation/1nk7z8n.md#c3"
+    char_span: [5596, 6734]
+    sentence_count: 6
+    key_terms: [sue, ocr, protected, enforce, rights, speech, civil, going]
+    section: Comments
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/highereducation/1nk7z8n.md#c4"
+    char_span: [6736, 8074]
+    sentence_count: 7
+    key_terms: [retaliation, oklahoma, willing, fired, texas, own, won, cross-examining]
+    section: Comments
+    token_count: 291
+  - id: "social-intelligence/reddit-deep/highereducation/1nk7z8n.md#c5"
+    char_span: [8076, 8881]
+    sentence_count: 3
+    key_terms: [overthrow, nothing, system, giddy-girly-banana, foreignlibrary424, poopscootnboogey, gutfounderedgal, twomayaderens]
+    section: Comments
+    token_count: 232
 ---
-
 # Fired for Being a Socialist
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1nk7z8n/fired_for_being_a_socialist/)

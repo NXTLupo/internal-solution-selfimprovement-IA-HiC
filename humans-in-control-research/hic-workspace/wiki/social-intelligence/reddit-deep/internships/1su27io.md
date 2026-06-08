@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1su27io.md
 url: "https://www.reddit.com/r/internships/comments/1su27io/making_a_good_impression_before_and_during_the/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "During the Internship"
 extracted_at: "2026-05-22T13:32:14.561Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1su27io.md#c0"
+    char_span: [0, 1136]
+    sentence_count: 7
+    key_terms: [internship, impression, internships, good, want, questions, comments, summer]
+    token_count: 252
+  - id: "social-intelligence/reddit-deep/internships/1su27io.md#c1"
+    char_span: [1151, 1693]
+    sentence_count: 2
+    key_terms: [did, helpful, manager, "you're", here, work, impression, check-ins]
+    section: Comments
+    token_count: 137
 ---
-
 # Making a good impression before and during the internship
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1su27io/making_a_good_impression_before_and_during_the/)

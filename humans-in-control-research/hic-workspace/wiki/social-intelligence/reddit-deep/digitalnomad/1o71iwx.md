@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1o71iwx.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1o71iwx/after_10_years_of_dreaming_were_finally_living/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,63 @@ flair: "Lifestyle"
 extracted_at: "2026-05-26T12:53:56.725Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c0"
+    char_span: [0, 1821]
+    sentence_count: 18
+    key_terms: [travel, living, years, life, digitalnomad, back, jobs, year]
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c1"
+    char_span: [1836, 3758]
+    sentence_count: 24
+    key_terms: [websites, gun3ro, seo, started, wordpress, work, because, coding]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c2"
+    char_span: [3531, 4335]
+    sentence_count: 7
+    key_terms: [because, freely, comprehensive-phase3, start, work, recommendations, oversaturated, photography]
+    section: Comments
+    token_count: 216
+  - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c3"
+    char_span: [4337, 6263]
+    sentence_count: 26
+    key_terms: [tech, couldn, months, found, money, take, tool, developer]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c4"
+    char_span: [6265, 7426]
+    sentence_count: 11
+    key_terms: [new-jeweler1363, problem, product, market, redact, miu-miu-miu-miu-miu, steve, did]
+    section: Comments
+    token_count: 318
+  - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c5"
+    char_span: [7428, 9187]
+    sentence_count: 19
+    key_terms: [mdeeebeee-101, backpack, english, minored, startup, through, travel, doing]
+    section: Comments
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c6"
+    char_span: [9189, 11338]
+    sentence_count: 33
+    key_terms: [condition, get, together, health, years, applying, thailand, serious]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c7"
+    char_span: [11340, 12594]
+    sentence_count: 14
+    key_terms: [company, work, software, finding, diegofromwifitribe, best, long, requirements]
+    section: Comments
+    token_count: 285
+  - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c8"
+    char_span: [12596, 14452]
+    sentence_count: 11
+    key_terms: [good, going, life, own, time, iceydiceyz, something, positive]
+    section: Comments
+    token_count: 489
 ---
-
 # After 10 years of dreaming, we’re finally living the digital nomad life
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1o71iwx/after_10_years_of_dreaming_were_finally_living/)

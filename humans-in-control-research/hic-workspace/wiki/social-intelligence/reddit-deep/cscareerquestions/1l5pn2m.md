@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1l5pn2m.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1l5pn2m/was_getting_cs_internshipsjobs_really_that_easy/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,39 @@ flair: "Student"
 extracted_at: "2026-05-23T14:54:48.629Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l5pn2m.md#c0"
+    char_span: [0, 1028]
+    sentence_count: 5
+    key_terms: [cscareerquestions, internships, jobs, comments, company, google, covid, right]
+    token_count: 243
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l5pn2m.md#c1"
+    char_span: [1043, 2999]
+    sentence_count: 13
+    key_terms: [like, horsesflyintoboxes, electrical-ad1886, marathonmarathon, company, career, summer, local]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l5pn2m.md#c2"
+    char_span: [3001, 4828]
+    sentence_count: 9
+    key_terms: [ihlidxustpsoftdeve, companies, bubble, covid, get, jobs, stlouisfed, company]
+    section: Comments
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l5pn2m.md#c3"
+    char_span: [4830, 6747]
+    sentence_count: 14
+    key_terms: [companies, number, hired, get, hire, jobs, tech, countries]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l5pn2m.md#c4"
+    char_span: [6749, 8483]
+    sentence_count: 13
+    key_terms: [internships, got, leetcode, people, importance, interviews, networking, university]
+    section: Comments
+    token_count: 390
 ---
-
 # Was getting CS internships/jobs REALLY that easy during and right after COVID?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1l5pn2m/was_getting_cs_internshipsjobs_really_that_easy/)

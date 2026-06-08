@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1swo0dt.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1swo0dt/how_are_people_seriously_making_a_livable_wage/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,135 @@ flair: "Budgeting/Saving/Investing/Spending"
 extracted_at: "2026-05-16T20:55:12.681Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [workforce, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c0"
+    char_span: [0, 1199]
+    sentence_count: 17
+    key_terms: [time, povertyfinance, making, comments, everyone, position, people, simply]
+    token_count: 303
+  - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c1"
+    char_span: [1214, 2429]
+    sentence_count: 9
+    key_terms: [income, dual, nowordsjustdogs, household, having, spacedesignwarehouse, dual-income-no-kids, dink]
+    section: Comments
+    token_count: 320
+  - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c2"
+    char_span: [2431, 3883]
+    sentence_count: 11
+    key_terms: [bartending, job, week, household, insurance, bartend, income, people]
+    section: Comments
+    token_count: 386
+  - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c3"
+    char_span: [3885, 5754]
+    sentence_count: 21
+    key_terms: [roommates, house, family, living, making, middle, shifts, single]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c4"
+    char_span: [5756, 6483]
+    sentence_count: 7
+    key_terms: [people, debt, "that's", being, cranberrykey9865, necessities, well-rested, healthcare]
+    section: Comments
+    token_count: 168
+  - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c5"
+    char_span: [6485, 8660]
+    sentence_count: 20
+    key_terms: [pay, car, own, afford, income, living, single, money]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c6"
+    char_span: [8378, 8680]
+    sentence_count: 3
+    key_terms: [plenty, unknownapkin, opportunity, affordable, university, education, otherwise, college]
+    section: Comments
+    token_count: 70
+  - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c7"
+    char_span: [8682, 9220]
+    sentence_count: 4
+    key_terms: ["i'm", alive-lead-9028, haveabiscuitday, revolution, struggling, laughably, likealamb, struggle]
+    section: Comments
+    token_count: 158
+  - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c8"
+    char_span: [9222, 11138]
+    sentence_count: 20
+    key_terms: [multiple, jobs, job, mom, doing, generations, like, time]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c9"
+    char_span: [10896, 12246]
+    sentence_count: 13
+    key_terms: [job, worked, time, dad, jobs, mom, part, mortgage]
+    section: Comments
+    token_count: 353
+  - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c10"
+    char_span: [12248, 14310]
+    sentence_count: 9
+    key_terms: [job, time, full, work, working, socialism, jobs, illegal]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c11"
+    char_span: [14312, 14950]
+    sentence_count: 6
+    key_terms: [food, universal, meal, work, loose-dirt-brick, restrictions, tracey-ann12, appreciated]
+    section: Comments
+    token_count: 169
+  - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c12"
+    char_span: [14952, 16813]
+    sentence_count: 16
+    key_terms: [upstate, paycheck, hour, years, "i've", account, minimum, making]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c13"
+    char_span: [16581, 17043]
+    sentence_count: 2
+    key_terms: [disgusting, whitewitchwannabe, food, ballskindrapes, delivering, employer, company, startup]
+    section: Comments
+    token_count: 138
+  - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c14"
+    char_span: [17045, 18586]
+    sentence_count: 8
+    key_terms: [minimum, wage, budgeting, like, places, level, hour, "it's"]
+    section: Comments
+    token_count: 389
+  - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c15"
+    char_span: [18588, 19908]
+    sentence_count: 16
+    key_terms: [people, wages, jobs, want, healthcare, bachelors, everyone, making]
+    section: Comments
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c16"
+    char_span: [19910, 21736]
+    sentence_count: 12
+    key_terms: [experience, people, engineer, work, service, someone, skill, specialized]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c17"
+    char_span: [21738, 22997]
+    sentence_count: 9
+    key_terms: [making, taxes, like, need, retirement, employees, paying, people]
+    section: Comments
+    token_count: 298
+  - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c18"
+    char_span: [22999, 24699]
+    sentence_count: 18
+    key_terms: [apartment, roommates, better, space, government, subsidized, expenses, roommate]
+    section: Comments
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c19"
+    char_span: [24701, 25364]
+    sentence_count: 7
+    key_terms: ["i'm", rent, having, amarilloarmadillos, increases, protected, requiring, roommates]
+    section: Comments
+    token_count: 163
+  - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c20"
+    char_span: [25366, 27255]
+    sentence_count: 19
+    key_terms: [live, work, house, own, affordable, electrical, cintegra, kentucky]
+    section: Comments
+    token_count: 509
 ---
-
 # How are people seriously making a livable wage
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1swo0dt/how_are_people_seriously_making_a_livable_wage/)

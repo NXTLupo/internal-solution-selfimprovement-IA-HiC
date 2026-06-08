@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1kxlw42.md
 url: "https://www.reddit.com/r/jobs/comments/1kxlw42/criminal_justice_student_in_florida_what/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,15 @@ flair: "Job searching"
 extracted_at: "2026-05-22T21:35:36.542Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1kxlw42.md#c0"
+    char_span: [0, 1028]
+    sentence_count: 7
+    key_terms: [jobs, entry-level, florida, comments, criminal, justice, looking, outside]
+    token_count: 236
 ---
-
 # Criminal Justice Student in Florida — What Entry-Level Jobs Should I Be Looking At (Outside of Being a Cop)?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1kxlw42/criminal_justice_student_in_florida_what/)

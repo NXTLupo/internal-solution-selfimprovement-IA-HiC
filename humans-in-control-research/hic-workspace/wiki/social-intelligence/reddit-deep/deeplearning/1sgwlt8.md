@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1sgwlt8.md
 url: "https://www.reddit.com/r/deeplearning/comments/1sgwlt8/looking_for_feedback_on_llm_hallucination/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.053Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1sgwlt8.md#c0"
+    char_span: [0, 1887]
+    sentence_count: 6
+    key_terms: [representations, feedback, detection, models, hallucination, deeplearning, arxiv, https]
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/deeplearning/1sgwlt8.md#c1"
+    char_span: [1902, 3743]
+    sentence_count: 18
+    key_terms: [https, org, aclanthology, paper, better, papers, arxiv, conferences]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/deeplearning/1sgwlt8.md#c2"
+    char_span: [3745, 5781]
+    sentence_count: 26
+    key_terms: [paper, important, abstract, writing, introduction, formatting, like, equation]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/deeplearning/1sgwlt8.md#c3"
+    char_span: [5783, 8010]
+    sentence_count: 19
+    key_terms: [internal, divergence, features, figures, sparse, interpretable, state, uncertainty]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/deeplearning/1sgwlt8.md#c4"
+    char_span: [8012, 8642]
+    sentence_count: 5
+    key_terms: [github, individual-ice4288, computational, contribution, correctness, demonstrate, scalability, supervision]
+    section: Comments
+    token_count: 141
 ---
-
 # Looking for feedback on LLM hallucination detection via internal representations (targeting NeurIPS/AAAI/ACL)
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1sgwlt8/looking_for_feedback_on_llm_hallucination/)

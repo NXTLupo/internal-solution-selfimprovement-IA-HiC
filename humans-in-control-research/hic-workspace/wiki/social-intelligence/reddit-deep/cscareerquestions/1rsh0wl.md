@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rsh0wl/16yo_learning_python_ml_but_confused_about_tech/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-25T18:32:49.820Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c0"
+    char_span: [0, 845]
+    sentence_count: 8
+    key_terms: [learning, cscareerquestions, tech, building, comments, confused, people, python]
+    token_count: 189
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c1"
+    char_span: [860, 2322]
+    sentence_count: 11
+    key_terms: [job, productivity, awful, affected, replaced, workers, advice, people]
+    section: Comments
+    token_count: 315
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c2"
+    char_span: [2324, 4387]
+    sentence_count: 15
+    key_terms: [math, hallthink6610, calculus, learn, career, fundamentals, start, perspective]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c3"
+    char_span: [4389, 5837]
+    sentence_count: 11
+    key_terms: [learning, hallthink6610, born-rate-6692, advice, fundamentals, something, concepts, enjoying]
+    section: Comments
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c4"
+    char_span: [5839, 7890]
+    sentence_count: 25
+    key_terms: [something, fundamentals, better, "don't", focus, optimal, realize, "you'll"]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c5"
+    char_span: [7892, 10134]
+    sentence_count: 21
+    key_terms: [building, understand, designing, something, "you'll", start, tutorials, "i'd"]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c6"
+    char_span: [10136, 12284]
+    sentence_count: 17
+    key_terms: [like, understand, "you're", something, understanding, learn, years, technology]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c7"
+    char_span: [12286, 13341]
+    sentence_count: 10
+    key_terms: [hallthink6610, dependent-cash-3405, thanks, keep, too, focusing, learning, getting]
+    section: Comments
+    token_count: 261
 ---
-
 # 16yo learning Python & ML but confused about tech career path
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rsh0wl/16yo_learning_python_ml_but_confused_about_tech/)

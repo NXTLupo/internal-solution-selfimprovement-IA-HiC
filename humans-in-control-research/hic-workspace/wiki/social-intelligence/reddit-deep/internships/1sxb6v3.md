@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1sxb6v3.md
 url: "https://www.reddit.com/r/internships/comments/1sxb6v3/offered_non_finance_internship_graduating_august/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,16 @@ score: 2
 upvote_ratio: 1
 num_comments: 0
 flair: "Offers"
-extracted_at: "2026-05-22T13:32:14.566Z"
+extracted_at: "2026-06-03T18:34:48.713Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1sxb6v3.md#c0"
+    char_span: [0, 664]
+    sentence_count: 6
+    key_terms: [finance, internships, graduating, internship, recruiting, comments, offered, august]
+    token_count: 150
 ---
-
 # Offered non finance internship - graduating August
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1sxb6v3/offered_non_finance_internship_graduating_august/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1th80xu.md
 url: "https://www.reddit.com/r/careerguidance/comments/1th80xu/what_careers_offer_stability/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,39 @@ flair: "Advice"
 extracted_at: "2026-05-26T14:32:49.161Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1th80xu.md#c0"
+    char_span: [0, 1925]
+    sentence_count: 18
+    key_terms: [stability, want, careerguidance, feels, flexibility, time, exhausted, situation]
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/careerguidance/1th80xu.md#c1"
+    char_span: [1940, 3331]
+    sentence_count: 14
+    key_terms: [healthcare, entry-level, specialized, work, different, teaching, setting, people]
+    section: Comments
+    token_count: 340
+  - id: "social-intelligence/reddit-deep/careerguidance/1th80xu.md#c2"
+    char_span: [3333, 5121]
+    sentence_count: 13
+    key_terms: [administration, jobs, government, stability, benefits, honestly, career, higher]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/careerguidance/1th80xu.md#c3"
+    char_span: [5123, 6955]
+    sentence_count: 11
+    key_terms: [people, operations, strategy, environments, less, background, compliance, everything]
+    section: Comments
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/careerguidance/1th80xu.md#c4"
+    char_span: [6957, 8929]
+    sentence_count: 16
+    key_terms: [flexibility, companies, roles, operations, stability, project, coordination, work]
+    section: Comments
+    token_count: 423
 ---
-
 # What careers offer stability?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1th80xu/what_careers_offer_stability/)

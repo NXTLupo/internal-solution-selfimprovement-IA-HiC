@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1nhbtuh.md
 url: "https://www.reddit.com/r/college/comments/1nhbtuh/i_cannot_complete_my_math_course_and_i_think_it/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,60 @@ subreddit: "college"
 title: "I cannot complete my math course, and I think it might cost me my degree along with 4 years of school"
 author: "TheRealMiridion"
 date: "2025-09-15T03:58:20.000Z"
-score: 155
+score: 156
 upvote_ratio: 0.95
 num_comments: 64
 flair: "Academic Life"
-extracted_at: "2026-05-19T17:57:40.136Z"
+extracted_at: "2026-06-06T00:27:48.359Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1nhbtuh.md#c0"
+    char_span: [0, 1656]
+    sentence_count: 12
+    key_terms: [math, degree, class, college, school, keep, like, currently]
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/college/1nhbtuh.md#c1"
+    char_span: [1671, 3875]
+    sentence_count: 16
+    key_terms: [formulas, math, problems, rather, unfortunately, solve, take, time]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/college/1nhbtuh.md#c2"
+    char_span: [3877, 5628]
+    sentence_count: 14
+    key_terms: [like, formulas, get, math, try, practice, formula, problem]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/college/1nhbtuh.md#c3"
+    char_span: [5630, 7593]
+    sentence_count: 17
+    key_terms: ["you're", problem, understand, solution, doing, "it's", math, confusion]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/college/1nhbtuh.md#c4"
+    char_span: [7595, 8308]
+    sentence_count: 12
+    key_terms: [college-algebra-mat-117, college, options, course, asu, pay, therealmiridion, cybersecurity]
+    section: Comments
+    token_count: 199
+  - id: "social-intelligence/reddit-deep/college/1nhbtuh.md#c5"
+    char_span: [8310, 10469]
+    sentence_count: 22
+    key_terms: [math, formula, write, formulas, recommendation, work, semester, because]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1nhbtuh.md#c6"
+    char_span: [10185, 10854]
+    sentence_count: 3
+    key_terms: [problem, through, helped, right, "i'm", classic-lie7836, statistics, attending]
+    section: Comments
+    token_count: 153
 ---
-
 # I cannot complete my math course, and I think it might cost me my degree along with 4 years of school
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1nhbtuh/i_cannot_complete_my_math_course_and_i_think_it/)
-Posted by **TheRealMiridion** · **155↑** · **64 comments**
+Posted by **TheRealMiridion** · **156↑** · **64 comments**
 
 As my title suggests, I’m terrible at academic math. Like really terrible, I dropped out of a math for college readiness class in high school despite being honors and AP almost everywhere else.
 
@@ -35,24 +77,24 @@ Any advice? Please keep in mind that I work full time and have 3 kids, I only ge
 I was very lucky that I got a summer job at the college that *paid for room and board and so was able to devote all my extra time to the math class.  Still barely passed with a 2.0.
 
 I learned later that I’m dyslexic.  Could that possibly be an issue for you too?  Have you sought out counseling/seen your advisor about you having a hard time with math?
-  - **TheRealMiridion** (60↑): I was finding that I struggle with retaining the formulas, rather than struggling with working through the formulas. I can thrive if I have examples and then follow along but with the question I’m trying to solve. Unfortunately I might be too dependent on those examples because if I see a problem that’s different I can’t remember how to do it
-    - **Brief_Criticism_492** (49↑): I find it extremely important to understand what’s going on in the background, why the formulas work (at least get an intuition if not a full understanding), etc. That way you can adapt your formulas and stuff to new problems as they come up and critically problem solve rather than plug-and-chug.
+  - **TheRealMiridion** (58↑): I was finding that I struggle with retaining the formulas, rather than struggling with working through the formulas. I can thrive if I have examples and then follow along but with the question I’m trying to solve. Unfortunately I might be too dependent on those examples because if I see a problem that’s different I can’t remember how to do it
+    - **Brief_Criticism_492** (48↑): I find it extremely important to understand what’s going on in the background, why the formulas work (at least get an intuition if not a full understanding), etc. That way you can adapt your formulas and stuff to new problems as they come up and critically problem solve rather than plug-and-chug.
 
 Math isn’t about remembering how to do it but rather figuring out how to do it. Unfortunately, figuring it out takes a really really long time so instead we are taught what others have figured out. That doesn’t take away the importance of learning how they figured it out (to an extent). 
 
 I’m not saying that you need to go way into the weeds of this stuff but if you’re just memorizing formulas and example problems, you aren’t learning math - aka “applied” critical thinking and that will very likely be apparent in your scores 🤷‍♂️
-    - **InstructionDismal391** (9↑): I'm pretty bad at math myself, currently taking Cal 1 and going for engineering.
+    - **InstructionDismal391** (8↑): I'm pretty bad at math myself, currently taking Cal 1 and going for engineering.
 
 Take your current forumlas you need and write them repeatedly, write in your own words what they do and take one or two problems from your homework and solve them repeatedly. You have to build muscle memory in your head for how to do this.
-    - **Clothes-Excellent** (12↑): Go talk to your professor. 
+    - **Clothes-Excellent** (13↑): Go talk to your professor. 
 
 For everyday life all you will need is,+, ×, ÷,  and -.
 
 You will some how have to find a way to get through this class with a passing grade, this is what I did 40 years ago.
-    - **notsobrooklynnn** (9↑): That's possibly dyscalculia. It's a math learning disability. You may be able to get accommodations thru your school if you have a formal diagnosis.
+    - **notsobrooklynnn** (10↑): That's possibly dyscalculia. It's a math learning disability. You may be able to get accommodations thru your school if you have a formal diagnosis.
 - **C12e** (32↑): Most schools offer free tutoring, have you tried that
-  - **TheRealMiridion** (26↑): I have, my mom is a formal educator in math and has been for 12+ years. Working through the questions when I have the formulas in front of me isn’t a terrible deal, or if the test is multiple choice and I can “throw noodles at the wall and see what sticks”, but my tests are all fill in the blank, no notes allowed so it’s like being given an ikea dresser to assemble with no instructions or tools.
-    - **C12e** (22↑): It seems like your problem is just with the formulas, try to remember one part of a formula and then just recall it actively while doing stuff. So like while vacuuming or whatever just think “a^2 +……” and then look at the formula. Rinse and repeat, did it for bio and it worked like a charm
+  - **TheRealMiridion** (24↑): I have, my mom is a formal educator in math and has been for 12+ years. Working through the questions when I have the formulas in front of me isn’t a terrible deal, or if the test is multiple choice and I can “throw noodles at the wall and see what sticks”, but my tests are all fill in the blank, no notes allowed so it’s like being given an ikea dresser to assemble with no instructions or tools.
+    - **C12e** (20↑): It seems like your problem is just with the formulas, try to remember one part of a formula and then just recall it actively while doing stuff. So like while vacuuming or whatever just think “a^2 +……” and then look at the formula. Rinse and repeat, did it for bio and it worked like a charm
     - **sundrierdtomatos** (2↑): What I’ve found helps is giving you and your brain its own system which does need to be consistently maintained. 
 
 Practice fill in the blanks. Try mapping out things you know and don’t get and which builds on each other. Practice a problem you know, and then try again later by yourself. Work backwards. 
@@ -70,7 +112,7 @@ Also - you CAN do this. Confusion breeds anxiety, anxiety kills confidence, whic
 
 If you wanna talk more about it I can help.
 - **Confident_Natural_87** (3↑): There are some options that might work for you.  They might be pricey.  What school is this.  You said you need Math and Humanities?  Is this a generic AA?
-  - **TheRealMiridion** (2↑): It’s a community college, AS in cybersecurity
+  - **TheRealMiridion** (4↑): It’s a community college, AS in cybersecurity
     - **Confident_Natural_87** (6↑): Here are some other options.  Why not drop this class this semester.  See if the CC takes the College Algebra CLEP.  Most do.  You can also try the Earned Admission course at ASU.  It is online.  You pay $25 to take the course.  When you are done if you like your grade you pay $400 to move it to the transcript.  
 
 https://courses.ea.asu.edu/college-algebra-mat-117/

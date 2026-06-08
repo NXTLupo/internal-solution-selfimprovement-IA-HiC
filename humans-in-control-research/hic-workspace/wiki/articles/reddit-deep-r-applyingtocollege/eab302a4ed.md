@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-applyingtocollege/eab302a4ed.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1sowguz/choosing_between_nyu_and_uiuc_for_math_cs/"
 url_hash: "eab302a4ed"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T12:19:45.957098+00:00"
 chars: 2855
+industries: [higher_ed, education, financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-applyingtocollege/eab302a4ed.md#c0"
+    char_span: [0, 2023]
+    sentence_count: 15
+    key_terms: [uiuc, nyu, math, applyingtocollege, better, quant, internships, nyc]
+    token_count: 489
+  - id: "articles/reddit-deep-r-applyingtocollege/eab302a4ed.md#c1"
+    char_span: [2025, 3053]
+    sentence_count: 15
+    key_terms: [courant, nyu, undergrad, applied, "that's", math, phd, want]
+    token_count: 259
 ---
-
 # Choosing Between NYU and UIUC for Math & CS?
 
 Source: [Reddit Deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1sowguz/choosing_between_nyu_and_uiuc_for_math_cs/)

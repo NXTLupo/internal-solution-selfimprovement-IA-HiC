@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1onzb0k.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1onzb0k/anyone_gave_the_ril_get_2026_test_yesterday_how/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,33 @@ flair: "Academic Advice"
 extracted_at: "2026-05-25T18:32:19.217Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1onzb0k.md#c0"
+    char_span: [0, 822]
+    sentence_count: 7
+    key_terms: [engineeringstudents, get, last, test, year, yesterday, comments, results]
+    token_count: 204
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1onzb0k.md#c1"
+    char_span: [837, 1639]
+    sentence_count: 5
+    key_terms: [engineeringstudents, wiki, reddit, https, com, please, automoderator, read]
+    section: Comments
+    token_count: 183
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1onzb0k.md#c2"
+    char_span: [1641, 3356]
+    sentence_count: 6
+    key_terms: [got, shortlisted, mail, interview, received, results, anyone, please]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1onzb0k.md#c3"
+    char_span: [3132, 3726]
+    sentence_count: 4
+    key_terms: [received, unstop, update, shows, get, adorablecat6521, participate, shortlisted]
+    section: Comments
+    token_count: 184
 ---
-
 # Anyone gave the RIL GET 2026 test yesterday? How was your experience & when did results come out last year?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1onzb0k/anyone_gave_the_ril_get_2026_test_yesterday_how/)

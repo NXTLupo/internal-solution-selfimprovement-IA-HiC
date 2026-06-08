@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1t9np8r.md
 url: "https://www.reddit.com/r/GradSchool/comments/1t9np8r/history_grad_student_advice/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,51 @@ flair: "Health & Work/Life Balance"
 extracted_at: "2026-05-23T20:15:44.983Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1t9np8r.md#c0"
+    char_span: [0, 888]
+    sentence_count: 7
+    key_terms: [program, grad, time, experience, gradschool, positions, comments, history]
+    token_count: 203
+  - id: "social-intelligence/reddit-deep/gradschool/1t9np8r.md#c1"
+    char_span: [903, 2193]
+    sentence_count: 13
+    key_terms: [research, essentially, week, work, attend, worked, hand, take]
+    section: Comments
+    token_count: 298
+  - id: "social-intelligence/reddit-deep/gradschool/1t9np8r.md#c2"
+    char_span: [2195, 4158]
+    sentence_count: 23
+    key_terms: [time, school, week, classes, graduate, worked, understanding, hour]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/gradschool/1t9np8r.md#c3"
+    char_span: [4160, 5052]
+    sentence_count: 8
+    key_terms: [time, important, program, least, full, grad, work, conversations]
+    section: Comments
+    token_count: 181
+  - id: "social-intelligence/reddit-deep/gradschool/1t9np8r.md#c4"
+    char_span: [5054, 7173]
+    sentence_count: 10
+    key_terms: [time, working, full, work, undergrad, research, because, around]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/gradschool/1t9np8r.md#c5"
+    char_span: [7175, 9327]
+    sentence_count: 17
+    key_terms: [work, job, history, time, definitiontrue6252, full, depends, person]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/gradschool/1t9np8r.md#c6"
+    char_span: [9329, 10830]
+    sentence_count: 14
+    key_terms: [time, full-time, part, work, doing, full, part-time, anything]
+    section: Comments
+    token_count: 357
 ---
-
 # History Grad Student Advice
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1t9np8r/history_grad_student_advice/)

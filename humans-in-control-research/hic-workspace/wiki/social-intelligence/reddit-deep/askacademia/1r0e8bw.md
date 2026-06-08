@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1r0e8bw.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1r0e8bw/i_am_completely_disillusioned_with_academia_and/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,33 @@ flair: "Interdisciplinary"
 extracted_at: "2026-05-26T14:32:49.122Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1r0e8bw.md#c0"
+    char_span: [0, 1534]
+    sentence_count: 12
+    key_terms: [askacademia, completely, education, academia, comments, learning, school, field]
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/askacademia/1r0e8bw.md#c1"
+    char_span: [1549, 3351]
+    sentence_count: 12
+    key_terms: [phd, research, industry, "you're", another, setting, undergraduate, "don't"]
+    section: Comments
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/askacademia/1r0e8bw.md#c2"
+    char_span: [3353, 5455]
+    sentence_count: 14
+    key_terms: [phd, hate, doing, want, research, "you'd", don, find]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/askacademia/1r0e8bw.md#c3"
+    char_span: [5460, 6201]
+    sentence_count: 5
+    key_terms: [doing, against, want, extraordinarily, underestimate, exceedingly, absolutely, commitment]
+    section: Comments
+    token_count: 164
 ---
-
 # I am completely disillusioned with academia and have had my love for learning beaten out of me by school. I need an advanced degree to be qualified for the positions I want. What should I do?
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1r0e8bw/i_am_completely_disillusioned_with_academia_and/)

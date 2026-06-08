@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1qym7w2.md
 url: "https://www.reddit.com/r/waterloo/comments/1qym7w2/letter_to_lehmanns_survivor/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,47 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.130Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [nonprofit]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1qym7w2.md#c0"
+    char_span: [0, 2187]
+    sentence_count: 27
+    key_terms: [community, parents, people, music, story, been, "i've", too]
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/waterloo/1qym7w2.md#c1"
+    char_span: [2189, 4367]
+    sentence_count: 38
+    key_terms: [years, became, life, "couldn't", "didn't", abuse, flashbacks, anxiety]
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/waterloo/1qym7w2.md#c2"
+    char_span: [4369, 5819]
+    sentence_count: 18
+    key_terms: [trauma, safety, ourselves, need, new, yourself, complex, version]
+    token_count: 313
+  - id: "social-intelligence/reddit-deep/waterloo/1qym7w2.md#c3"
+    char_span: [5821, 8023]
+    sentence_count: 27
+    key_terms: [something, teachers, institutions, abuse, music, young, highly, relationships]
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/waterloo/1qym7w2.md#c4"
+    char_span: [8025, 9006]
+    sentence_count: 12
+    key_terms: [victory, journey, decide, time, experienced, fellowship, conquered, hopefully]
+    token_count: 238
+  - id: "social-intelligence/reddit-deep/waterloo/1qym7w2.md#c5"
+    char_span: [9021, 11153]
+    sentence_count: 11
+    key_terms: [teachers, teacher, consent, opinions-only, realistically, professional, trust, age]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/waterloo/1qym7w2.md#c6"
+    char_span: [11155, 11994]
+    sentence_count: 13
+    key_terms: [teacher, touch, demonstrate, kid, "doesn't", checks, "i'm", communicate]
+    section: Comments
+    token_count: 180
 ---
-
 # Letter to Lehmann's Survivor
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1qym7w2/letter_to_lehmanns_survivor/)

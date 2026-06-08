@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1rt8g3x.md
 url: "https://www.reddit.com/r/NEU/comments/1rt8g3x/just_got_in_for_london_scholars_can_anyone_share/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,16 @@ score: 1
 upvote_ratio: 1
 num_comments: 0
 flair: "Admissions & Financial Aid"
-extracted_at: "2026-05-12T19:19:22.630Z"
+extracted_at: "2026-06-06T00:27:19.938Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1rt8g3x.md#c0"
+    char_span: [0, 945]
+    sentence_count: 11
+    key_terms: [london, scholars, international, experience, currently, expensive, wondering, comments]
+    token_count: 225
 ---
-
 # just got in for london scholars, can anyone share their experience?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1rt8g3x/just_got_in_for_london_scholars_can_anyone_share/)

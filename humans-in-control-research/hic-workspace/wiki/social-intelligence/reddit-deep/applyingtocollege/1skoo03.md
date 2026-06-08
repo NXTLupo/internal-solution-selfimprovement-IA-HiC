@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1skoo03.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1skoo03/berkeley_cs_cdss_vs_gt_cs_worth_30k_more/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -7,14 +8,42 @@ title: "Berkeley CS (CDSS) vs GT CS: worth ~$30k more?"
 author: "Steaker144449"
 date: "2026-04-13T21:27:48.000Z"
 score: 3
-upvote_ratio: 0.72
+upvote_ratio: 0.8
 num_comments: 58
 flair: "Advice"
-extracted_at: "2026-05-25T18:32:06.246Z"
+extracted_at: "2026-06-03T12:16:39.476Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1skoo03.md#c0"
+    char_span: [0, 2017]
+    sentence_count: 5
+    key_terms: [berkeley, recruiting, applyingtocollege, year, internships, want, especially, meaningful]
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1skoo03.md#c1"
+    char_span: [2019, 3694]
+    sentence_count: 8
+    key_terms: [berkeley, culture, recruiting, people, especially, justify, access, choose]
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1skoo03.md#c2"
+    char_span: [3709, 5542]
+    sentence_count: 10
+    key_terms: [berkeley, steaker144449, quant, peak, difference, research, looking, rsha256]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1skoo03.md#c3"
+    char_span: [5544, 7377]
+    sentence_count: 9
+    key_terms: [berkeley, engineering, oriented, around, people, quant, less, deflation]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1skoo03.md#c4"
+    char_span: [7379, 8582]
+    sentence_count: 12
+    key_terms: [berkeley, ok-store-2788, internships, definitely, consider, prachub, quality, campus]
+    section: Comments
+    token_count: 280
 ---
-
 # Berkeley CS (CDSS) vs GT CS: worth ~$30k more?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1skoo03/berkeley_cs_cdss_vs_gt_cs_worth_30k_more/)
@@ -70,12 +99,12 @@ At the same time, I also do not want to choose **Berkeley**, pay a lot more, and
 
 ## Comments
 
-- **belowaverageint** (4↑): You mentioned recruiting. Being in the Bay is going to give you direct access to the Silicon Valley tech scene. You can go to conferences and network and such. You won't be able to do that as easily at GT.
-- **Gyxis** (10↑): I highly doing there will be a meaningful ROI difference between the two for choosing Berkeley to make sense here.
+- **belowaverageint** (5↑): You mentioned recruiting. Being in the Bay is going to give you direct access to the Silicon Valley tech scene. You can go to conferences and network and such. You won't be able to do that as easily at GT.
+- **Gyxis** (8↑): I highly doing there will be a meaningful ROI difference between the two for choosing Berkeley to make sense here.
   - **Steaker144449** (1↑): Thank you for your response! Just to make sure, you think GT is the right choice here?
     - **Designer_Tell80** (3↑): Yes it seems like they meant doubt instead of doing
-- **Relative-Wealth-3335** (4↑): GT
-- **rsha256** (5↑): Berkeley has a higher peak but realistically if you’re just looking to be a SDE at Amazon then it doesn’t make a difference. If you’re looking for ML research (working at Anthropic/OpenAI) or quant finance then it’d make sense to choose Berkeley (the weather and bigger campus is a nice plus imo). But otherwise save the 30k
+- **Relative-Wealth-3335** (3↑): GT
+- **rsha256** (6↑): Berkeley has a higher peak but realistically if you’re just looking to be a SDE at Amazon then it doesn’t make a difference. If you’re looking for ML research (working at Anthropic/OpenAI) or quant finance then it’d make sense to choose Berkeley (the weather and bigger campus is a nice plus imo). But otherwise save the 30k
   - **Interesting-Bad655** (8↑): GT is not worse for quant and if you’re talking abt “peak” cs outcomes that is determined by individual factors not school
     - **mrfebbox** (2↑): someone goes to gt...
   - **Steaker144449** (1↑): When you say Berkeley has a higher peak for ML/quant, how much of that is actually due to the school vs what a motivated student could do anywhere like GT?

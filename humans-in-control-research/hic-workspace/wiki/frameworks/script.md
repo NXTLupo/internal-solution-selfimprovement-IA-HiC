@@ -1,4 +1,5 @@
 ---
+id: frameworks/script.md
 title: "Conversational AI Script Framework Specification"
 type: framework
 created: 2026-04-10
@@ -8,8 +9,80 @@ confidence: high
 status: active
 tags: [script, conversation-design, rasa, grice, chatbot, voice]
 evidence_count: 0
+chunks:
+  - id: "frameworks/script.md#c0"
+    char_span: [0, 392]
+    sentence_count: 3
+    key_terms: [script, conversational, anti-patterns, authoritative, specification, deliverable, methodology, components]
+    section: Purpose
+    token_count: 64
+  - id: "frameworks/script.md#c1"
+    char_span: [418, 3005]
+    sentence_count: 13
+    key_terms: [conversation, design, business, language, system, user, persona, conversations]
+    section: Canonical Framework
+    token_count: 505
+  - id: "frameworks/script.md#c2"
+    char_span: [3007, 3841]
+    sentence_count: 7
+    key_terms: [violation, maxim, system, conversation, information, responses, provide, acknowledging]
+    section: Canonical Framework
+    token_count: 177
+  - id: "frameworks/script.md#c3"
+    char_span: [3881, 6036]
+    sentence_count: 7
+    key_terms: [intent, utterances, component, plans, suggested, greeting, training, actions]
+    section: Required Components (12 Elements)
+    token_count: 472
+  - id: "frameworks/script.md#c4"
+    char_span: [6038, 8249]
+    sentence_count: 5
+    key_terms: [confirmation, plan, slot, system, family, slots, explicit, required]
+    section: Required Components (12 Elements)
+    token_count: 509
+  - id: "frameworks/script.md#c5"
+    char_span: [8251, 10650]
+    sentence_count: 10
+    key_terms: [system, plan, escalation, context, confirmation, conversation, component, tier]
+    section: Required Components (12 Elements)
+    token_count: 511
+  - id: "frameworks/script.md#c6"
+    char_span: [10652, 13048]
+    sentence_count: 6
+    key_terms: [transfer, escalation, component, closing, context, number, system, confirmation]
+    section: Required Components (12 Elements)
+    token_count: 485
+  - id: "frameworks/script.md#c7"
+    char_span: [13050, 14276]
+    sentence_count: 1
+    key_terms: [question, persona, never, tone, completion, always, survey, level]
+    section: Required Components (12 Elements)
+    token_count: 275
+  - id: "frameworks/script.md#c8"
+    char_span: [14296, 16393]
+    sentence_count: 8
+    key_terms: [target, escalation, percentage, conversations, rate, definitions, threshold, resolved]
+    section: Quality Gates
+    token_count: 440
+  - id: "frameworks/script.md#c9"
+    char_span: [16413, 18448]
+    sentence_count: 21
+    key_terms: [information, confirmation, user, conversation, without, across, system, turn]
+    section: Anti-Patterns
+    token_count: 399
+  - id: "frameworks/script.md#c10"
+    char_span: [18478, 20464]
+    sentence_count: 10
+    key_terms: [conversational, define, escalation, dialogue, persona, error, flows, information]
+    section: Generation Instructions
+    token_count: 387
+  - id: "frameworks/script.md#c11"
+    char_span: [20487, 20870]
+    sentence_count: 1
+    key_terms: [frameworks, persona, script, brand, industry-specific, conversational, anti-patterns, communication]
+    section: Cross-References
+    token_count: 72
 ---
-
 # Conversational AI Script Framework Specification
 
 ## Purpose

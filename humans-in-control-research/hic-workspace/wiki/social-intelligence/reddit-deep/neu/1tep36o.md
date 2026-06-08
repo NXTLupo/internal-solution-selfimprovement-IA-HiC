@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1tep36o.md
 url: "https://www.reddit.com/r/NEU/comments/1tep36o/looking_to_connect_with_seniors_for_course_coop/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 0.6
 num_comments: 2
 flair: "Advice & Experiences"
-extracted_at: "2026-05-26T14:30:23.759Z"
+extracted_at: "2026-06-06T00:27:19.934Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1tep36o.md#c0"
+    char_span: [0, 1015]
+    sentence_count: 3
+    key_terms: [course, msds, advice, coe, neu, comments, students, courses]
+    token_count: 261
+  - id: "social-intelligence/reddit-deep/neu/1tep36o.md#c1"
+    char_span: [1030, 1563]
+    sentence_count: 2
+    key_terms: [subjects, science, data, illhistorian4891, fundamentals, prerequisite, combination, engineering]
+    section: Comments
+    token_count: 120
 ---
-
 # Looking to connect with seniors for course + co-op advice (MSDS COE Fall 2026 NEU, Boston)
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1tep36o/looking_to_connect_with_seniors_for_course_coop/)

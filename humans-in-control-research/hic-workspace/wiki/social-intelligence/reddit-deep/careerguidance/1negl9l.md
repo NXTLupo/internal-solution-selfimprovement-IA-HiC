@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1negl9l.md
 url: "https://www.reddit.com/r/careerguidance/comments/1negl9l/job_market_is_down_whats_the_smartest_or_safest/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,99 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.359Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c0"
+    char_span: [0, 613]
+    sentence_count: 5
+    key_terms: [careerguidance, comments, careers, down, competition, eesamanagod, reddit-deep, callbacks]
+    token_count: 164
+  - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c1"
+    char_span: [628, 2368]
+    sentence_count: 11
+    key_terms: [receptionist, get, experience, healthcare, positions, administrative, job, jobs]
+    section: Comments
+    token_count: 405
+  - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c2"
+    char_span: [2370, 3729]
+    sentence_count: 13
+    key_terms: [people, hairstylist, optometrician-at-the-home, higher, pretty, wheels, significant-leg1070, great]
+    section: Comments
+    token_count: 335
+  - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c3"
+    char_span: [3731, 5098]
+    sentence_count: 13
+    key_terms: [idea, "that's", patients, offices, surgery, people, mission-leopard-4178, maybe]
+    section: Comments
+    token_count: 328
+  - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c4"
+    char_span: [5100, 6469]
+    sentence_count: 9
+    key_terms: [wealth, people, corporations, generational, inheritances, money, transfer, minimal]
+    section: Comments
+    token_count: 320
+  - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c5"
+    char_span: [6471, 7878]
+    sentence_count: 10
+    key_terms: [boomers, generation, rate, people, proportion, because, conscious-quarter423, birth]
+    section: Comments
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c6"
+    char_span: [7880, 8628]
+    sentence_count: 3
+    key_terms: [healthcare, frolickingsymbiote, get, job, considered, eventually, everywhere, expensive]
+    section: Comments
+    token_count: 190
+  - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c7"
+    char_span: [8630, 10761]
+    sentence_count: 15
+    key_terms: [nighthawkndemontron, trades, industries, jobs, like, work, people, desperately]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c8"
+    char_span: [10492, 12581]
+    sentence_count: 17
+    key_terms: [chef, shortage, drivers, school, live, agree, entry, going]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c9"
+    char_span: [12334, 14078]
+    sentence_count: 12
+    key_terms: [water, trades, deleted, reflex, aggravating-flan-818, phthalovonlangborste, delinquentbattlecat, downwiththechipness]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c10"
+    char_span: [13858, 15652]
+    sentence_count: 10
+    key_terms: [work, assassin, social, water, kerrybom, officer, started, funded]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c11"
+    char_span: [15373, 16095]
+    sentence_count: 6
+    key_terms: [work, kerrybom, layoffs, health, public, job, risk, houseofburns]
+    section: Comments
+    token_count: 182
+  - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c12"
+    char_span: [16097, 17843]
+    sentence_count: 15
+    key_terms: [accounting, cpa, market, salty-cod7667, like, lot, tech, getting]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c13"
+    char_span: [17845, 20072]
+    sentence_count: 13
+    key_terms: [insurance, health, "it's", reimbursement, state, accountants, been, get]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c14"
+    char_span: [20074, 20792]
+    sentence_count: 6
+    key_terms: [hair, automation, going, code, job, need, relationship, accountants]
+    section: Comments
+    token_count: 179
 ---
-
 # Job market is down - what’s the smartest or safest careers right now?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1negl9l/job_market_is_down_whats_the_smartest_or_safest/)

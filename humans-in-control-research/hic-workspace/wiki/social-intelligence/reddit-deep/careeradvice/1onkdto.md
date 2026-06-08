@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1onkdto.md
 url: "https://www.reddit.com/r/careeradvice/comments/1onkdto/worked_at_jobs_where_i_did_not_learn_anything/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.244Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1onkdto.md#c0"
+    char_span: [0, 1951]
+    sentence_count: 19
+    key_terms: [company, switch, looking, related, careeradvice, good, experience, chatbots]
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/careeradvice/1onkdto.md#c1"
+    char_span: [1966, 2508]
+    sentence_count: 3
+    key_terms: [programming, background, growing, learn, stats, math, videoconjeetu, sustainable]
+    section: Comments
+    token_count: 138
 ---
-
 # Worked at jobs where I did not learn anything. Looking to switch and restart my career. need advice.
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1onkdto/worked_at_jobs_where_i_did_not_learn_anything/)

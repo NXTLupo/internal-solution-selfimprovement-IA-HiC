@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1maoegp.md
 url: "https://www.reddit.com/r/managers/comments/1maoegp/66_of_employees_are_struggling_in_2025_as_a/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-26T12:54:23.684Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1maoegp.md#c0"
+    char_span: [0, 1773]
+    sentence_count: 18
+    key_terms: [burnout, because, remote-first, work, struggling, comments, managers, either]
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/managers/1maoegp.md#c1"
+    char_span: [1788, 3967]
+    sentence_count: 23
+    key_terms: [openingconfection261, employees, work, "there's", higher, people, encourage, something]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/managers/1maoegp.md#c2"
+    char_span: [3969, 5781]
+    sentence_count: 11
+    key_terms: [work, because, "they're", development, "it's", need, time, sometimes]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/managers/1maoegp.md#c3"
+    char_span: [5783, 7664]
+    sentence_count: 20
+    key_terms: [work, "don't", day, take, constant, meetings, burnout, despite]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/managers/1maoegp.md#c4"
+    char_span: [7666, 8573]
+    sentence_count: 17
+    key_terms: [technically, flexible, another, because, burnout, enough, hours, point]
+    section: Comments
+    token_count: 198
 ---
-
 # 66% of employees are struggling in 2025. As a manager, how do you support your team when burnout signs aren’t always visible?
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1maoegp/66_of_employees_are_struggling_in_2025_as_a/)

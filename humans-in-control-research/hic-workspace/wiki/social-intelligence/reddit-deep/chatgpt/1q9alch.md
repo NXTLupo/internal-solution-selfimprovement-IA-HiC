@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1q9alch.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1q9alch/why_do_i_feel_like_chatgpt_for_the_last_year_has/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,21 @@ flair: "Other "
 extracted_at: "2026-05-17T01:12:48.211Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1q9alch.md#c0"
+    char_span: [0, 324]
+    sentence_count: 2
+    key_terms: [chatgpt, comments, ihateredditors111111, reddit-deep, nothing, openai, posted, reddit]
+    token_count: 98
+  - id: "social-intelligence/reddit-deep/chatgpt/1q9alch.md#c1"
+    char_span: [339, 1413]
+    sentence_count: 7
+    key_terms: [ihateredditors111111, bc9d87f6e7251d1e3f9385c657c7d6b25d8b8f74, chatgpt, please, conversation, https, image, post]
+    section: Comments
+    token_count: 317
 ---
-
 # Why do i feel like ChatGPT for the last year has done nothing but try to save money for OpenAI?
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1q9alch/why_do_i_feel_like_chatgpt_for_the_last_year_has/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1oiicx5.md
 url: "https://www.reddit.com/r/college/comments/1oiicx5/verge_of_being_kicked_out/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,70 @@ subreddit: "college"
 title: "Verge of being kicked out"
 author: "I_Love_ARPG"
 date: "2025-10-28T19:07:41.000Z"
-score: 122
+score: 123
 upvote_ratio: 0.95
 num_comments: 34
 flair: "North America"
-extracted_at: "2026-05-17T01:12:59.137Z"
+extracted_at: "2026-06-06T00:27:48.362Z"
 extraction_method: "praw-deep"
-research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1oiicx5.md#c0"
+    char_span: [0, 2147]
+    sentence_count: 19
+    key_terms: [college, parents, life, leave, money, back, get, home]
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/college/1oiicx5.md#c1"
+    char_span: [2149, 4347]
+    sentence_count: 24
+    key_terms: [year, "i'm", "it's", parents, degree, classes, started, studies]
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/college/1oiicx5.md#c2"
+    char_span: [4349, 4710]
+    sentence_count: 5
+    key_terms: [general, studies, useless, degree, "don't", feel, transfer, anybody]
+    token_count: 87
+  - id: "social-intelligence/reddit-deep/college/1oiicx5.md#c3"
+    char_span: [4725, 6298]
+    sentence_count: 13
+    key_terms: [degree, life, need, get, work, director, control, general]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/college/1oiicx5.md#c4"
+    char_span: [6300, 7946]
+    sentence_count: 21
+    key_terms: [degree, years, time, took, college, matter, engineering, get]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/college/1oiicx5.md#c5"
+    char_span: [7948, 9803]
+    sentence_count: 16
+    key_terms: [degree, school, "it's", employable, something, relevant, courses, "doesn't"]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/college/1oiicx5.md#c6"
+    char_span: [9805, 11818]
+    sentence_count: 15
+    key_terms: [life, "don't", like, problems, parents, bright, future, living]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/college/1oiicx5.md#c7"
+    char_span: [11821, 13942]
+    sentence_count: 19
+    key_terms: [degree, people, life, take, work, because, never, like]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/college/1oiicx5.md#c8"
+    char_span: [13944, 15555]
+    sentence_count: 18
+    key_terms: [life, need, degree, "i'm", parents, without, working, "can't"]
+    section: Comments
+    token_count: 370
 ---
-
 # Verge of being kicked out
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1oiicx5/verge_of_being_kicked_out/)
-Posted by **I_Love_ARPG** · **122↑** · **34 comments**
+Posted by **I_Love_ARPG** · **123↑** · **34 comments**
 
 I feel like at this point I'm just destined to be a failure. I'm 30 and getting kicked out of college and it's my second time going.
 
@@ -36,30 +88,30 @@ I just don't know what to do at this point. If they don't let me transfer into g
 
 ## Comments
 
-- **Katekat0974** (164↑): 1) You really need to cut down the amount of contact with your parents, you don’t need that constant negatively 
+- **Katekat0974** (169↑): 1) You really need to cut down the amount of contact with your parents, you don’t need that constant negatively 
 2) This might be a little harsh, but you need to stop letting tragic life events constantly get in your way and halt your own progress. Grieve, seek therapy, work with your school, etc. Do what you need to do to grieve and still get your work done. Life doesn’t just stop due to tragedy. 
 3) You’re not useless, a loser, or unsuccessful, you’ve done a lot with your life so far. You’ve graduated high school and went to college, and almost have a degree. You saved up money and backpacked across Europe. A lot of people don’t do that. 
 4) Employers won’t care about the time it took you to graduate. There are non-specific jobs you can do with a general studies degree. That degree will allow you to make your way up within companies to management roles. An example of this is my old aquatics director, she was first a lifeguard, then manager, then her general studies degree allowed her to be a director. It won’t be as easy to get a good job with that degree, but it still opens doors and with hard work it’s very possible.
-  - **Total_Permission1550** (29↑): I agree, yes the losses are hard but they are out of your control the only thing you are in control of is what you do for yourself after
-  - **Kota8472** (3↑): I agree with all of this.
-  - **Responsible_Bet3653** (3↑): 2 is something I wish more people could realize.
+  - **Total_Permission1550** (30↑): I agree, yes the losses are hard but they are out of your control the only thing you are in control of is what you do for yourself after
+  - **Kota8472** (4↑): I agree with all of this.
+  - **Responsible_Bet3653** (5↑): 2 is something I wish more people could realize.
 
 It breaks my heart when someone has a life event and it completely ruins them. 
 Takes away everything.
 
 I’ll never downplay that tragic events suck. 
 But no matter what time keeps on ticking.
-- **greencatz412** (23↑): I don’t know if this helps, but I failed a lot of classes in college. I had to retake the same math class three times in order to move on in my program. It took me six years total to get a bachelors. I had places tell me they wanted a B average GPA. I had a C average. I Did get a job and I’ve been doing the same thing for 26 years. It doesn’t matter if your path is windy. The right job will be happy to have YOU and your experiences.
-  - **Anxious_Purchase_915** (5↑): Similar story here. I went at a slow pace to get my engineering degree. I only went below a "C" one time (but I got a lot of "Cs"). After a few years experience, nobody really cared about college. They didn't even know how long it took (because I told no one). Nearly 30 years later, I hold a license to practice engineering in 8 states and I run my own LLC. To steal a line from Emerson "life is a journey, not a destination".
-- **MayoTheMuffin** (44↑): OP I am so sorry you've had to go through this! 
+- **greencatz412** (22↑): I don’t know if this helps, but I failed a lot of classes in college. I had to retake the same math class three times in order to move on in my program. It took me six years total to get a bachelors. I had places tell me they wanted a B average GPA. I had a C average. I Did get a job and I’ve been doing the same thing for 26 years. It doesn’t matter if your path is windy. The right job will be happy to have YOU and your experiences.
+  - **Anxious_Purchase_915** (4↑): Similar story here. I went at a slow pace to get my engineering degree. I only went below a "C" one time (but I got a lot of "Cs"). After a few years experience, nobody really cared about college. They didn't even know how long it took (because I told no one). Nearly 30 years later, I hold a license to practice engineering in 8 states and I run my own LLC. To steal a line from Emerson "life is a journey, not a destination".
+- **MayoTheMuffin** (43↑): OP I am so sorry you've had to go through this! 
 
 If I were in your position my mom & dad would be cut off immediately (invoking the names of dead friends to force you into college like... wtf?) and I'd continue pushing for my life and career.
 
 Who cares that it took you double the time? You have your degree!
-- **jsh1138** (13↑): I hire and fire for a living and I've never asked anyone about their degree. A 4 year degree is basically just there to show that you can complete something over a period of time (barring fields like medicine or whatever). So finish it. It won't matter how long it took you
+- **jsh1138** (12↑): I hire and fire for a living and I've never asked anyone about their degree. A 4 year degree is basically just there to show that you can complete something over a period of time (barring fields like medicine or whatever). So finish it. It won't matter how long it took you
 
 Tomorrow is a new day and all you can do is start where you are and try to improve as much as possible. Let go of the past, I know that's hard, and just start where you are and make progress
-- **JamesRitchey** (9↑): 1. Give yourself some respect for the effort you've put in, even if you haven't gotten the result you wanted. Some people are too afraid to try in the first place. Imagine if you hadn't gone to school, and spent your whole life wondering, "What if?"
+- **JamesRitchey** (10↑): 1. Give yourself some respect for the effort you've put in, even if you haven't gotten the result you wanted. Some people are too afraid to try in the first place. Imagine if you hadn't gone to school, and spent your whole life wondering, "What if?"
 2. Remember, the courses you have completed successfully are an accomplishment on their own which potentially makes you a little bit more employable, and something you should be proud of regardless of whether you ever use them.
 3. A general studies degree doesn't typically prepare you for a specific job, since it's a generalized not specialized program. So, it won't make you as competitive when applying for a certain role as someone who has a relevant degree. That doesn't make it useless though, as any degree makes you a bit more employable, and some jobs only care you have a degree, period. However, it does make it one of the degrees to be extra careful about choosing (as it's not a good fit for most students), and how much you spend on it, since it's harder to establish a career with, and may not be enough on its own. If you do complete a general studies degree, choose electives wisely, and consider listing some relevant courses on your resume, not just the degree name.
 4. If you can't transfer into this program, just keep in mind that there's always another school somewhere out there that will accept you. SOMEONE WANTS YOUR MONEY. So, if school is something **YOU** (not your parents) want to continue with, there are other paths forward.
@@ -75,7 +127,7 @@ Your parents were coming at this with good intentions, just trying to see their 
 Also maybe the problem isn’t college itself but what you’re studying, just sounds like you’re majoring in something you couldn’t care less about which is okay. Reset, go liberal arts and take a bunch of classes, you’ll never know what interests you until you try it. Also don’t let a degree dictate your life, I work in aviation and love my job but my degree did ZERO work to get me there. Life will take you on some unknown paths so trust the process, as corny as it sounds if it ain’t a blessing it’s a lesson but it will build you even if you don’t see it yet. 
 
 Wish you all the best and never let anyone and especially your parents make you feel like you are lost. You got this, it may take some time but everything happens for a reason.
-- **Active_Extension9121** (8↑): Idk man my advice would be to Stop blaming other people. Your friends quit their life. That causes YOU to fail? You wont progress unless u stop with the excuses especially in college where nobody cares about you as a person or a student. You are what 30? Start focusing on what matters “money” “job” “higher education” hell getting out of your parents house even or youll be living on the street with the rest of the people who thought like this. Good luck bro.
+- **Active_Extension9121** (7↑): Idk man my advice would be to Stop blaming other people. Your friends quit their life. That causes YOU to fail? You wont progress unless u stop with the excuses especially in college where nobody cares about you as a person or a student. You are what 30? Start focusing on what matters “money” “job” “higher education” hell getting out of your parents house even or youll be living on the street with the rest of the people who thought like this. Good luck bro.
 - **[deleted]** (3↑): Honestly... im 32 and never even graduated high school.  I also worked in the food service until Covid. I was working regular jobs that people look down on, but at some point society couldn't do without. They called us "Essential" workers when they needed us, but as soon as that ended people went back to belittling those same jobs! (End rant) 
 
    Anyway, during Covid..that's when I decided to go back to school. I did it out of boredom, not because I thought a degree would improve my life. Spoiler alert, it hasn't lmfao if anything i'm more broke now for having to attend some classes in person and take tume off work. But anyway, I chose to get the degree because it was a topic I have been wanting to learn more about. Specially with todays political climate, and also due to my age lol Not because I think I can work in that field (Political Sciences) 

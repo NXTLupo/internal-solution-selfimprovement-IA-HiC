@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1mmlwi1.md
 url: "https://www.reddit.com/r/careerguidance/comments/1mmlwi1/is_it_too_late_for_me_to_get_a_better_life_at_33/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.151Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1mmlwi1.md#c0"
+    char_span: [0, 539]
+    sentence_count: 7
+    key_terms: [feel, careerguidance, like, comments, better, get, path, reddit-deep]
+    token_count: 155
+  - id: "social-intelligence/reddit-deep/careerguidance/1mmlwi1.md#c1"
+    char_span: [554, 1810]
+    sentence_count: 14
+    key_terms: [degree, x-ray, "i'm", tech, work, school, back, days]
+    section: Comments
+    token_count: 335
+  - id: "social-intelligence/reddit-deep/careerguidance/1mmlwi1.md#c2"
+    char_span: [1812, 3662]
+    sentence_count: 11
+    key_terms: [comfortpurchases, school, respiratory, get, schooling, something, congrats, dental]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1mmlwi1.md#c3"
+    char_span: [3433, 5168]
+    sentence_count: 10
+    key_terms: [brockclan216, degrading, time, life, nursing, therapy, people, international-bird17]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1mmlwi1.md#c4"
+    char_span: [4991, 5900]
+    sentence_count: 8
+    key_terms: [brockclan216, adn, bsn, programs, getting, youngladyofmidnight, help, year]
+    section: Comments
+    token_count: 244
+  - id: "social-intelligence/reddit-deep/careerguidance/1mmlwi1.md#c5"
+    char_span: [5902, 7928]
+    sentence_count: 27
+    key_terms: [work, skills, want, better, jobs, plan, valuable, knowing]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/careerguidance/1mmlwi1.md#c6"
+    char_span: [7930, 9713]
+    sentence_count: 21
+    key_terms: [job, time, better, full, astounding, sometimes, remember, college]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/careerguidance/1mmlwi1.md#c7"
+    char_span: [9715, 10444]
+    sentence_count: 3
+    key_terms: [learning, program, like, year, clearabroad2965, personalized, successfully, certificate]
+    section: Comments
+    token_count: 153
 ---
-
 # Is it too late for me to get a better life at 33 ?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1mmlwi1/is_it_too_late_for_me_to_get_a_better_life_at_33/)

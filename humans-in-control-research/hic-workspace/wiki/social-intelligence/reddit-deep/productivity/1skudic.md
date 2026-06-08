@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1skudic.md
 url: "https://www.reddit.com/r/productivity/comments/1skudic/how_do_you_actually_turn_a_journal_full_of_huge/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,45 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:45.653Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1skudic.md#c0"
+    char_span: [0, 2061]
+    sentence_count: 21
+    key_terms: [productivity, real-world, massive, "i'm", constantly, comments, thinking, deliver]
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/productivity/1skudic.md#c1"
+    char_span: [2076, 3964]
+    sentence_count: 20
+    key_terms: [something, need, overthinking, like, step, tool, deadlines, mathematically-speaking]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/productivity/1skudic.md#c2"
+    char_span: [3966, 5995]
+    sentence_count: 16
+    key_terms: [second-guessing, brain, adhd, "i'm", overthink, specific, rabbit, sounds]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/productivity/1skudic.md#c3"
+    char_span: [5997, 6215]
+    sentence_count: 4
+    key_terms: [energy, day, guilt-free, execution, fighting, ruminate, yourself, figure]
+    section: Comments
+    token_count: 50
+  - id: "social-intelligence/reddit-deep/productivity/1skudic.md#c4"
+    char_span: [6217, 8433]
+    sentence_count: 12
+    key_terms: [describing, "you're", right, adhd, big, need, task, different]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/productivity/1skudic.md#c5"
+    char_span: [8092, 8535]
+    sentence_count: 1
+    key_terms: [adhd, second-guessing, underperforming, productivity, describing, diagnosing, strategies, different]
+    section: Comments
+    token_count: 84
 ---
-
 # How do you actually turn a journal full of huge ideas into real-world productivity?
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1skudic/how_do_you_actually_turn_a_journal_full_of_huge/)

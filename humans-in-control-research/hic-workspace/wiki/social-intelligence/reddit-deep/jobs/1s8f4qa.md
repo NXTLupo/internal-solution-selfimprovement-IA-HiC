@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1s8f4qa.md
 url: "https://www.reddit.com/r/jobs/comments/1s8f4qa/too_risky_to_share_or_like/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,51 @@ flair: "Qualifications"
 extracted_at: "2026-05-19T15:09:50.019Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1s8f4qa.md#c0"
+    char_span: [0, 245]
+    sentence_count: 3
+    key_terms: [comments, jobs, bibigengmurat, reddit-deep, omygaaad, posted, reddit, source]
+    token_count: 83
+  - id: "social-intelligence/reddit-deep/jobs/1s8f4qa.md#c1"
+    char_span: [260, 1866]
+    sentence_count: 12
+    key_terms: [like, manager, responsibility, ceo, get, management, delegate, promoted]
+    section: Comments
+    token_count: 401
+  - id: "social-intelligence/reddit-deep/jobs/1s8f4qa.md#c2"
+    char_span: [1868, 3708]
+    sentence_count: 9
+    key_terms: [course, start, use, absolutely, "you're", "can't", doing, least]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/jobs/1s8f4qa.md#c3"
+    char_span: [3710, 3989]
+    sentence_count: 4
+    key_terms: [writing, explaining, profession, discovery, important, accurate, another, mention]
+    section: Comments
+    token_count: 58
+  - id: "social-intelligence/reddit-deep/jobs/1s8f4qa.md#c4"
+    char_span: [3991, 6030]
+    sentence_count: 12
+    key_terms: [hard, work, people, great, job, like, time, seacat8586]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1s8f4qa.md#c5"
+    char_span: [5708, 6101]
+    sentence_count: 2
+    key_terms: [ability, because, time, exaggerated, immigration, awareness, interview, solitaire]
+    section: Comments
+    token_count: 78
+  - id: "social-intelligence/reddit-deep/jobs/1s8f4qa.md#c6"
+    char_span: [6103, 7886]
+    sentence_count: 13
+    key_terms: ["wasn't", job, lol, everyone, "don't", point, years, loose-specific7142]
+    section: Comments
+    token_count: 452
 ---
-
 # Too risky to share... or like
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1s8f4qa/too_risky_to_share_or_like/)

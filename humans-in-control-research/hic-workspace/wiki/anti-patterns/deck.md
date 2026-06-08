@@ -1,4 +1,5 @@
 ---
+id: anti-patterns/deck.md
 title: "Deck Anti-Patterns"
 type: anti-pattern
 created: 2026-04-10
@@ -8,8 +9,56 @@ confidence: high
 status: active
 tags: [anti-patterns, deck, quality-gates]
 evidence_count: 0
+chunks:
+  - id: "anti-patterns/deck.md#c0"
+    char_span: [0, 2744]
+    sentence_count: 11
+    key_terms: [slide, slides, points, recommendation, alternative, description, bullet, rather]
+    section: "AP-DECK-001: Topic Titles Instead of Action Titles / AP-DECK-002: Buried Lead / AP-DECK-003: Death by Bullets"
+    token_count: 507
+  - id: "anti-patterns/deck.md#c1"
+    char_span: [2780, 3662]
+    sentence_count: 4
+    key_terms: [slides, situation-complication-resolution, narrative, previous, sections, section, titles, story]
+    section: "AP-DECK-004: No Narrative Arc"
+    token_count: 161
+  - id: "anti-patterns/deck.md#c2"
+    char_span: [3692, 4483]
+    sentence_count: 2
+    key_terms: [pie, charts, chart, visualization, data, segments, showing, value]
+    section: "AP-DECK-005: Pie Charts"
+    token_count: 170
+  - id: "anti-patterns/deck.md#c3"
+    char_span: [4521, 5312]
+    sentence_count: 3
+    key_terms: [adoption, digital, "slide's", visual, stock, informational, presentation, professional]
+    section: "AP-DECK-006: Decorative Visuals"
+    token_count: 151
+  - id: "anti-patterns/deck.md#c4"
+    char_span: [5355, 6116]
+    sentence_count: 2
+    key_terms: [without, source, market, statistics, global, reach, distinguishing, best-in-class]
+    section: "AP-DECK-007: Missing Sources on Data"
+    token_count: 170
+  - id: "anti-patterns/deck.md#c5"
+    char_span: [6151, 7005]
+    sentence_count: 2
+    key_terms: [categories, example, segments, overlap, rules, discriminating, exhaustiveness, professionals]
+    section: "AP-DECK-008: MECE Violations"
+    token_count: 164
+  - id: "anti-patterns/deck.md#c6"
+    char_span: [7043, 7953]
+    sentence_count: 3
+    key_terms: [data, recommendation, recommended, response, support, action, cause, chart]
+    section: "AP-DECK-009: \"So What?\" Failure"
+    token_count: 180
+  - id: "anti-patterns/deck.md#c7"
+    char_span: [7993, 8950]
+    sentence_count: 5
+    key_terms: [structure, deck, question, strategic, includes, sections, sequence, specific]
+    section: "AP-DECK-010: Template-Driven Deck"
+    token_count: 168
 ---
-
 # Deck Anti-Patterns
 
 Known failure modes in presentation deck deliverables. Use as negative few-shot examples during generation to prevent common structural and narrative mistakes.

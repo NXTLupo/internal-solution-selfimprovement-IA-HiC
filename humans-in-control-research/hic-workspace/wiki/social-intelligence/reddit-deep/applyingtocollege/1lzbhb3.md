@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1lzbhb3.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1lzbhb3/need_college_career_guidance_nigerianamerican_hs/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,20 @@ flair: "College Questions"
 extracted_at: "2026-05-24T14:08:39.596Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lzbhb3.md#c0"
+    char_span: [0, 2152]
+    sentence_count: 2
+    key_terms: [college, basketball, applyingtocollege, nigerian-american, want, finance, looking, year]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lzbhb3.md#c1"
+    char_span: [2154, 3611]
+    sentence_count: 7
+    key_terms: [want, career, work, colleges, internships, ambitious, network, around]
+    token_count: 360
 ---
-
 # Need College & Career Guidance – Nigerian-American HS Student Retaking Junior Year
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1lzbhb3/need_college_career_guidance_nigerianamerican_hs/)

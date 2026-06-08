@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1ru1gw4.md
 url: "https://www.reddit.com/r/investing/comments/1ru1gw4/why_the_spacex_ipo_should_be_concerning_to/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-16T20:55:01.243Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1ru1gw4.md#c0"
+    char_span: [0, 1968]
+    sentence_count: 8
+    key_terms: [nasdaq-100, spacex, shares, capitalisation, tracking, nasdaq, index, rule]
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/investing/1ru1gw4.md#c1"
+    char_span: [1983, 3804]
+    sentence_count: 10
+    key_terms: [shareholders, charlatans, juanpabloeltres, lockup, lastgreenleaf, inclusion, mandatory, podcast]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/investing/1ru1gw4.md#c2"
+    char_span: [3806, 5629]
+    sentence_count: 8
+    key_terms: [added, funds, sp500, buy, vti, companies, investing, backdate]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/investing/1ru1gw4.md#c3"
+    char_span: [5631, 7226]
+    sentence_count: 3
+    key_terms: [elon-mu***REDACTED-KEY***, theprofessional9, stocks, wealthfront, look, voo, want, charge]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/investing/1ru1gw4.md#c4"
+    char_span: [7228, 8480]
+    sentence_count: 8
+    key_terms: [definitely, tesla, sub, theprofessional9, americanscream, phillipjpark, considering, devonhezter]
+    section: Comments
+    token_count: 338
+  - id: "social-intelligence/reddit-deep/investing/1ru1gw4.md#c5"
+    char_span: [8482, 9331]
+    sentence_count: 5
+    key_terms: [nasdaq-100, nasdaq, fightonforusc, investing, stocks, earthelectronic7954, sp500, paradoxicalparrots]
+    section: Comments
+    token_count: 256
 ---
-
 # Why the SpaceX IPO should be concerning to passive investors tracking the NASDAQ-100 index, and other indexes
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1ru1gw4/why_the_spacex_ipo_should_be_concerning_to/)

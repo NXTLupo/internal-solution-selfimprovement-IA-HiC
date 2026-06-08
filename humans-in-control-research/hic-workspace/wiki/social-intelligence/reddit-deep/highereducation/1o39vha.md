@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1o39vha.md
 url: "https://www.reddit.com/r/highereducation/comments/1o39vha/canada_higher_ed_staff_jobs/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -13,8 +14,26 @@ flair: ""
 extracted_at: "2026-05-23T14:53:59.516Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1o39vha.md#c0"
+    char_span: [0, 1763]
+    sentence_count: 6
+    key_terms: [university, canadian, staff, highereducation, housing, administrative, higher, recruitment]
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/highereducation/1o39vha.md#c1"
+    char_span: [1765, 2489]
+    sentence_count: 10
+    key_terms: [roles, positions, higher, certifications, early-career, institutions, universities, appreciated]
+    token_count: 145
+  - id: "social-intelligence/reddit-deep/highereducation/1o39vha.md#c2"
+    char_span: [2504, 3393]
+    sentence_count: 8
+    key_terms: [postings, positions, hiring, people, ubc, universities, government, university]
+    section: Comments
+    token_count: 210
 ---
-
 # Canada Higher Ed Staff Jobs
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1o39vha/canada_higher_ed_staff_jobs/)

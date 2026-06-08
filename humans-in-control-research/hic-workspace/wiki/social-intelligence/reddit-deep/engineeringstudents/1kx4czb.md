@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1kx4czb/please_read_this_if_you_are_doing_an_internship/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,74 @@ flair: "Career Advice"
 extracted_at: "2026-05-25T18:32:19.217Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c0"
+    char_span: [0, 276]
+    sentence_count: 1
+    key_terms: [engineeringstudents, comments, sydneyybydney, reddit-deep, internship, please, posted, reddit]
+    token_count: 75
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c1"
+    char_span: [278, 2570]
+    sentence_count: 23
+    key_terms: [don, feel, like, everyone, people, learn, internships, day]
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c2"
+    char_span: [2585, 4823]
+    sentence_count: 12
+    key_terms: [engineering, actual, job, work, position, doing, interesting, don]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c3"
+    char_span: [4467, 6375]
+    sentence_count: 14
+    key_terms: [interesting, work, anything, down, company, always, worked, learn]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c4"
+    char_span: [6377, 8278]
+    sentence_count: 13
+    key_terms: [questions, engineer, ask, new, internship, sometimes, question, asking]
+    section: Comments
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c5"
+    char_span: [8280, 10510]
+    sentence_count: 17
+    key_terms: [explanation, seeing, been, technical, yesterday, assembly, because, storage]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c6"
+    char_span: [10512, 12460]
+    sentence_count: 11
+    key_terms: [get, like, design, saying, work, experience, assembly, interns]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c7"
+    char_span: [12462, 14474]
+    sentence_count: 13
+    key_terms: [job, work, get, because, months, down, feel, like]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c8"
+    char_span: [14476, 14802]
+    sentence_count: 4
+    key_terms: [communication, interesting, eugeniusjr, attitude, function, overpaid, relative, company]
+    section: Comments
+    token_count: 78
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c9"
+    char_span: [14804, 16983]
+    sentence_count: 14
+    key_terms: [work, internship, hiring, engineers, tactic, hired, internships, get]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c10"
+    char_span: [16720, 17365]
+    sentence_count: 5
+    key_terms: [distributionprize438, opening-crab-4640, uncomfortable, necessarily, internship, optimizing, analyzing, direction]
+    section: Comments
+    token_count: 158
 ---
-
 # PLEASE read this if you are doing an internship this summer
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1kx4czb/please_read_this_if_you_are_doing_an_internship/)

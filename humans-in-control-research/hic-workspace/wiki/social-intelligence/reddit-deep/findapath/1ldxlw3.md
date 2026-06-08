@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1ldxlw3.md
 url: "https://www.reddit.com/r/findapath/comments/1ldxlw3/no_careerpath_is_good_or_safe_anymore/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,51 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-25T13:04:07.391Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce, healthcare]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1ldxlw3.md#c0"
+    char_span: [0, 1521]
+    sentence_count: 12
+    key_terms: [anymore, genuinely, disappearing, idea, jobs, like, healthcare, findapath]
+    token_count: 335
+  - id: "social-intelligence/reddit-deep/findapath/1ldxlw3.md#c1"
+    char_span: [1536, 2483]
+    sentence_count: 9
+    key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/findapath/1ldxlw3.md#c2"
+    char_span: [2486, 4568]
+    sentence_count: 25
+    key_terms: [work, plan, careers, finalfrankymw, being, truth, end, job]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/findapath/1ldxlw3.md#c3"
+    char_span: [4344, 6013]
+    sentence_count: 13
+    key_terms: [get, people, don, job, like, work, excitementcapital290, admin]
+    section: Comments
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/findapath/1ldxlw3.md#c4"
+    char_span: [6015, 8054]
+    sentence_count: 30
+    key_terms: [emerging-jobs-created-by-artificial-intelligence-ai-in-2025, jobs, revolution, age, working, people, roboticsbiz, industries]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/findapath/1ldxlw3.md#c5"
+    char_span: [8056, 9679]
+    sentence_count: 16
+    key_terms: [industries, jobs, workers, technologies, industrial, technology, standard, factory]
+    section: Comments
+    token_count: 348
+  - id: "social-intelligence/reddit-deep/findapath/1ldxlw3.md#c6"
+    char_span: [9681, 10590]
+    sentence_count: 7
+    key_terms: [country, people, apply, bad, job, jobs, line, disintermediates]
+    section: Comments
+    token_count: 206
 ---
-
 # No career/path is good or safe anymore
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1ldxlw3/no_careerpath_is_good_or_safe_anymore/)

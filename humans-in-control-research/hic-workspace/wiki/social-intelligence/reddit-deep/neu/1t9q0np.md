@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1t9q0np.md
 url: "https://www.reddit.com/r/NEU/comments/1t9q0np/incoming_cs_and_math/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,15 @@ flair: "Academics"
 extracted_at: "2026-05-11T18:53:05.500Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1t9q0np.md#c0"
+    char_span: [0, 1248]
+    sentence_count: 9
+    key_terms: [math, people, technical, comments, incoming, switched, courses, co-ops]
+    token_count: 286
 ---
-
 # Incoming CS and Math
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1t9q0np/incoming_cs_and_math/)

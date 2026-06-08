@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1rs6ghm.md
 url: "https://www.reddit.com/r/GenZ/comments/1rs6ghm/they_really_think_were_giving_up_on_homes_because/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,69 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.767Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [fundraising, nonprofit]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1rs6ghm.md#c0"
+    char_span: [0, 402]
+    sentence_count: 3
+    key_terms: [comments, because, genz, tobias-tawanda, reddit-deep, financial, nihilism, paycheck]
+    token_count: 118
+  - id: "social-intelligence/reddit-deep/genz/1rs6ghm.md#c1"
+    char_span: [417, 1815]
+    sentence_count: 6
+    key_terms: [afford, sometimes, paycheck, discord, living, https, fuck, here]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/genz/1rs6ghm.md#c2"
+    char_span: [1817, 3484]
+    sentence_count: 11
+    key_terms: [because, ec19be03146e553d0c7337288d0b5724e61b0757, money, bag, paycheck, spending, minimum, parents]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/genz/1rs6ghm.md#c3"
+    char_span: [3486, 5152]
+    sentence_count: 10
+    key_terms: [car, brigidfairy, get, home, probably, almost, being, point]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/genz/1rs6ghm.md#c4"
+    char_span: [5154, 7091]
+    sentence_count: 18
+    key_terms: [people, family, cause, standards, house, "it's", cultural, nowadays]
+    section: Comments
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/genz/1rs6ghm.md#c5"
+    char_span: [7093, 8874]
+    sentence_count: 15
+    key_terms: [parents, people, billionaires, house, inheritance, getting, afford, means]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/genz/1rs6ghm.md#c6"
+    char_span: [8876, 10345]
+    sentence_count: 4
+    key_terms: [month, housing, living, paragraph, market, shared, studio, alarmingconfusion918]
+    section: Comments
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/genz/1rs6ghm.md#c7"
+    char_span: [10347, 12211]
+    sentence_count: 10
+    key_terms: [month, job, like, emergency, sentinel, another, college, minimum]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/genz/1rs6ghm.md#c8"
+    char_span: [12213, 13950]
+    sentence_count: 8
+    key_terms: [giving, get, f2aa0499a47971b8d19fcd67c73ffa472a6359e8, olddeadgrass, rent, bootstraps, utilities, because]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/genz/1rs6ghm.md#c9"
+    char_span: [13952, 14730]
+    sentence_count: 4
+    key_terms: [housing, paragraph, market, alarmingconfusion918, rapid, affordability, technological, advancement]
+    section: Comments
+    token_count: 163
 ---
-
 # They really think we’re ‘giving up’ on homes because of ‘financial nihilism’ and not because rent is like 90% of our paycheck. How are we supposed to save money we don’t even have?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1rs6ghm/they_really_think_were_giving_up_on_homes_because/)

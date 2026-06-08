@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1qb79py.md
 url: "https://www.reddit.com/r/OpenAI/comments/1qb79py/its_official/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,63 @@ flair: "News"
 extracted_at: "2026-05-11T17:27:05.354Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1qb79py.md#c0"
+    char_span: [0, 950]
+    sentence_count: 3
+    key_terms: [openai, security-implications-apple-google-ai-foundation, google, distribution, comments, gemini, search, apple]
+    token_count: 232
+  - id: "social-intelligence/reddit-deep/openai/1qb79py.md#c1"
+    char_span: [965, 2628]
+    sentence_count: 9
+    key_terms: [siri, alexa, swancatwombat, right, day, play, thought, better]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/openai/1qb79py.md#c2"
+    char_span: [2630, 3878]
+    sentence_count: 20
+    key_terms: [privacy, apple, siri, want, work, iphones, doesn, needs]
+    section: Comments
+    token_count: 308
+  - id: "social-intelligence/reddit-deep/openai/1qb79py.md#c3"
+    char_span: [3880, 5263]
+    sentence_count: 4
+    key_terms: [apple, gemini, models, intelligence, use, important, because, google]
+    section: Comments
+    token_count: 328
+  - id: "social-intelligence/reddit-deep/openai/1qb79py.md#c4"
+    char_span: [5265, 7354]
+    sentence_count: 13
+    key_terms: [apple, model, google, models, use, applications, going, image]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/openai/1qb79py.md#c5"
+    char_span: [7356, 9122]
+    sentence_count: 14
+    key_terms: [gemini, samsung-and-google-cloud-join-forces-to-bring-generative-ai-to-samsung-galaxy-s24-series, apple, google, servers, data, bartturner, features]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/openai/1qb79py.md#c6"
+    char_span: [9124, 10665]
+    sentence_count: 8
+    key_terms: [google, work, siri, use, reddit, timers, bright-internal-7393, apple]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/openai/1qb79py.md#c7"
+    char_span: [10667, 12642]
+    sentence_count: 13
+    key_terms: [apple, employee, good, google, openai, model, secretive, thousands]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/openai/1qb79py.md#c8"
+    char_span: [12644, 14273]
+    sentence_count: 6
+    key_terms: [openai, companies, apple, often, horror-slice-7255, data, like, tech]
+    section: Comments
+    token_count: 424
 ---
-
 # It’s official
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1qb79py/its_official/)

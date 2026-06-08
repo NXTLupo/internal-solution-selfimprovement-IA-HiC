@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1semoup.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1semoup/from_what_should_i_start_learning_engineering_as/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Academic Advice"
 extracted_at: "2026-05-20T12:57:40.605Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1semoup.md#c0"
+    char_span: [0, 492]
+    sentence_count: 2
+    key_terms: [engineeringstudents, recommend, comments, subjects, start, engineering, reddit-deep, engineer]
+    token_count: 110
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1semoup.md#c1"
+    char_span: [507, 2596]
+    sentence_count: 11
+    key_terms: [engineeringstudents, wiki, please, reddit, https, calc, com, calculus]
+    section: Comments
+    token_count: 473
 ---
-
 # From what should i start learning Engineering as a ME student?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1semoup/from_what_should_i_start_learning_engineering_as/)

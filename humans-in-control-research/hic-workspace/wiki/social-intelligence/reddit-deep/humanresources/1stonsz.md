@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1stonsz.md
 url: "https://www.reddit.com/r/humanresources/comments/1stonsz/is_an_mba_for_midcareer_hr_professionals_worth_it/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-23T12:15:41.533Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1stonsz.md#c0"
+    char_span: [0, 1023]
+    sentence_count: 7
+    key_terms: [talent, humanresources, years, like, strategic, comments, another, company]
+    token_count: 234
+  - id: "social-intelligence/reddit-deep/humanresources/1stonsz.md#c1"
+    char_span: [1038, 2617]
+    sentence_count: 7
+    key_terms: [getting, experience, mba, work, get, want, degrees, better]
+    section: Comments
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/humanresources/1stonsz.md#c2"
+    char_span: [2619, 4676]
+    sentence_count: 17
+    key_terms: [mba, business, whether, level, cost, strategic, decision, position]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/humanresources/1stonsz.md#c3"
+    char_span: [4678, 6541]
+    sentence_count: 14
+    key_terms: [like, work, years, mba, business, gonna, level, tinylittlepoopman]
+    section: Comments
+    token_count: 447
 ---
-
 # Is an MBA for mid-career HR professionals worth it? [United States]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1stonsz/is_an_mba_for_midcareer_hr_professionals_worth_it/)

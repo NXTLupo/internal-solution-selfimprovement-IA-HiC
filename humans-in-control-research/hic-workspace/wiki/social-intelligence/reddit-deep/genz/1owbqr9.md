@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1owbqr9.md
 url: "https://www.reddit.com/r/GenZ/comments/1owbqr9/genz_when_theyve_saved_up_money_for_the/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,45 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.764Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1owbqr9.md#c0"
+    char_span: [0, 259]
+    sentence_count: 2
+    key_terms: [genz, comments, downpayment, reddit-deep, bbrk9845, "they've", posted, reddit]
+    token_count: 80
+  - id: "social-intelligence/reddit-deep/genz/1owbqr9.md#c1"
+    char_span: [274, 2184]
+    sentence_count: 13
+    key_terms: [year, mortgage, house, "that's", discord, anyone, equity, likely]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/genz/1owbqr9.md#c2"
+    char_span: [2186, 4169]
+    sentence_count: 14
+    key_terms: [mortgage, year, people, "it's", pay, early, house, payment]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/genz/1owbqr9.md#c3"
+    char_span: [4171, 5385]
+    sentence_count: 10
+    key_terms: [interest, house, price, value, year, increases, principal, paying]
+    section: Comments
+    token_count: 291
+  - id: "social-intelligence/reddit-deep/genz/1owbqr9.md#c4"
+    char_span: [5387, 7478]
+    sentence_count: 13
+    key_terms: [deep-temporary-1268, lower, years, goes, pay, interest, market, people]
+    section: Comments
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/genz/1owbqr9.md#c5"
+    char_span: [7480, 7503]
+    sentence_count: 1
+    key_terms: [acceptable, perfectly]
+    section: Comments
+    token_count: 5
 ---
-
 # GenZ when they've saved up money for the downpayment...
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1owbqr9/genz_when_theyve_saved_up_money_for_the/)

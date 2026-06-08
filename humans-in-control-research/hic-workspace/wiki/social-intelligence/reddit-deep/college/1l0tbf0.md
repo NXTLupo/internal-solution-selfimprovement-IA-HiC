@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1l0tbf0.md
 url: "https://www.reddit.com/r/college/comments/1l0tbf0/im_scared_and_nervous/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-23T19:44:48.194Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1l0tbf0.md#c0"
+    char_span: [0, 1859]
+    sentence_count: 15
+    key_terms: [college, "i'm", "i've", scared, got, family, years, "i'll"]
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/college/1l0tbf0.md#c1"
+    char_span: [1874, 3793]
+    sentence_count: 18
+    key_terms: [school, melodydreamx, ask, "it's", possible, problems, figure, hoping]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/college/1l0tbf0.md#c2"
+    char_span: [3795, 5855]
+    sentence_count: 31
+    key_terms: [reading, learn, "don't", lot, use, important, listening, learning]
+    section: Comments
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/college/1l0tbf0.md#c3"
+    char_span: [5857, 7819]
+    sentence_count: 20
+    key_terms: ["i'm", online, lavishnessrecent2138, full-time, work, because, degree, "can't"]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/college/1l0tbf0.md#c4"
+    char_span: [7821, 9600]
+    sentence_count: 31
+    key_terms: [family, find, got, job, time, yesterday, college, deleted]
+    section: Comments
+    token_count: 450
 ---
-
 # I'm scared, and nervous...
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1l0tbf0/im_scared_and_nervous/)

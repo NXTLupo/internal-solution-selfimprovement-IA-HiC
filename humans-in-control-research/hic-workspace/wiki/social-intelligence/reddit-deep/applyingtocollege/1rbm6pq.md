@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1rbm6pq.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rbm6pq/help_me_find_some_safeties/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -10,11 +11,34 @@ score: 9
 upvote_ratio: 0.76
 num_comments: 45
 flair: "Advice"
-extracted_at: "2026-05-23T12:15:36.226Z"
+extracted_at: "2026-06-03T02:22:51.259Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rbm6pq.md#c0"
+    char_span: [0, 968]
+    sentence_count: 10
+    key_terms: [applyingtocollege, safeties, comments, college, looking, program, safety, upstairs-amount882]
+    token_count: 240
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rbm6pq.md#c1"
+    char_span: [983, 2882]
+    sentence_count: 18
+    key_terms: [college, mizzou, salty-artist-1643, emerson, liberal, program, boston, safety]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rbm6pq.md#c2"
+    char_span: [2884, 4553]
+    sentence_count: 15
+    key_terms: [upstairs-amount882, state, safety, maybe, applicant, creative, domestic, lawrence]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rbm6pq.md#c3"
+    char_span: [4555, 6049]
+    sentence_count: 13
+    key_terms: [math, curriculum, core, like, college, damagedzebra, because, diverse]
+    section: Comments
+    token_count: 336
 ---
-
 # help me find some safeties?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rbm6pq/help_me_find_some_safeties/)
@@ -59,11 +83,11 @@ It’s adjacent to a great downtown and the campus is beautiful.
 
 Mmmm missing some Shakespeare’s Pizza now
 - **Marykb99** (3↑): I’d say Bryn Mawr but it’s not a safety and near philly. Maybe Sarah Lawrence?  Kenyon comes to mind too but also not a safety
-- **HappyCava** (4↑): Why would you exclude Pitt? Terrific school with a campus that is fully part of the city. And a fun college town with CMU a short walk down the road and a thriving creative community.
+- **HappyCava** (5↑): Why would you exclude Pitt? Terrific school with a campus that is fully part of the city. And a fun college town with CMU a short walk down the road and a thriving creative community.
   - **Upstairs-Amount882** (0↑): kinda tryna avoid pa
 - **Ok_Experience_5151** (2↑): Do you have a budget?  Do you expect to receive a lot of financial aid?  Are you a domestic applicant, and, if so, what state are you a resident of?  How strong is your application, since that can determine whether a school is a safety, target or reach?
   - **Upstairs-Amount882** (1↑): I have been told that I won't need aid. I'm a domestic applicant but my state's irrelevant
-    - **Ok_Experience_5151** (3↑): State is relevant since the public schools in your state often offer some good safeties.
+    - **Ok_Experience_5151** (4↑): State is relevant since the public schools in your state often offer some good safeties.
 
 Are you considering LACs?
 - **Harryandmaria** (2↑): Sarah Lawrence for sure. 

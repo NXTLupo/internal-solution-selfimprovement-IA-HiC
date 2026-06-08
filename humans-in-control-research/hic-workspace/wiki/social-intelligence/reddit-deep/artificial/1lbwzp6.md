@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1lbwzp6.md
 url: "https://www.reddit.com/r/artificial/comments/1lbwzp6/accidentally_referred_to_ai_assistant_as_my/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,27 @@ flair: "Discussion"
 extracted_at: "2026-05-11T16:53:08.151Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1lbwzp6.md#c0"
+    char_span: [0, 482]
+    sentence_count: 3
+    key_terms: [assistant, artificial, comments, accidentally, reddit-deep, attachment, emotional, pipeline]
+    token_count: 120
+  - id: "social-intelligence/reddit-deep/artificial/1lbwzp6.md#c1"
+    char_span: [497, 2184]
+    sentence_count: 14
+    key_terms: ["don't", "it's", business, bee8bc30ecc125278e93344b84477719f212d554, intelligence, pleasant, workflow, tools]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/artificial/1lbwzp6.md#c2"
+    char_span: [2186, 3298]
+    sentence_count: 13
+    key_terms: ["i'm", working, always, dogs, find, old, sure, use]
+    section: Comments
+    token_count: 280
 ---
-
 # Accidentally referred to AI assistant as my coding partner
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1lbwzp6/accidentally_referred_to_ai_assistant_as_my/)

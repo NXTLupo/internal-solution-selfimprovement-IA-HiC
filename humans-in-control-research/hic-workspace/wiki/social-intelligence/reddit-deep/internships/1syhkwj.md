@@ -10,9 +10,9 @@ score: 2
 upvote_ratio: 1
 num_comments: 4
 flair: "General"
-extracted_at: "2026-05-25T18:31:15.451Z"
+extracted_at: "2026-06-06T23:20:46.222Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Summer Internship
@@ -32,7 +32,5 @@ If you’re working on a U.S.-based startup or know of one that may be open to a
 
 ## Comments
 
-- **chocolate_asshole** (1↑): reach out to tiny local startups directly, don’t wait on posts like this most legit ones don’t advertise hs internships cold email founders with a short portfolio and 2–3 concrete ways you could help pure cs internships are rare rn
-  - **No_Lemon2045** (1↑): Thank you so much!!!!
 - **Sweet-Frosting4839** (0↑): summer 2026 is not over at all, new roles still drop every day. i would check internshipdaily.com and filter by your field so you stop missing fresh postings. what major are you targeting?
 - **Sweet-Frosting4839** (0↑): still plenty left for summer 2026, i would check internshipdaily.com daily and filter by your track so you can apply same day roles go live. what roles are you targeting most right now?

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/workonline/1nvi0lb.md
 url: "https://www.reddit.com/r/WorkOnline/comments/1nvi0lb/im_very_unsure_about_my_job_offer_from_concentrix/"
 kind: "social-post"
 source: "reddit-deep: r/workonline"
@@ -13,8 +14,32 @@ flair: ""
 extracted_at: "2026-05-26T12:53:45.648Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, saas, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/workonline/1nvi0lb.md#c0"
+    char_span: [0, 2011]
+    sentence_count: 4
+    key_terms: [workonline, interview, comments, because, minutes, breath, called, person]
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/workonline/1nvi0lb.md#c1"
+    char_span: [2013, 4162]
+    sentence_count: 17
+    key_terms: ["it's", selling, job, everyone, "they're", pushy, get, like]
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/workonline/1nvi0lb.md#c2"
+    char_span: [4177, 6049]
+    sentence_count: 19
+    key_terms: [concentrix, center, recommend, call, job, like, department, horrible]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/workonline/1nvi0lb.md#c3"
+    char_span: [6051, 7226]
+    sentence_count: 9
+    key_terms: [work, months, good, "i'm", concentrix, problems, regular-cheetah-7407, leave]
+    section: Comments
+    token_count: 304
 ---
-
 # I'm very unsure about my job offer from Concentrix
 
 Source: [reddit-deep: r/workonline](https://www.reddit.com/r/WorkOnline/comments/1nvi0lb/im_very_unsure_about_my_job_offer_from_concentrix/)

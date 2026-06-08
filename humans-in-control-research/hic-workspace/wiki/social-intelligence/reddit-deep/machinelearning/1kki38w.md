@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1kki38w.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1kki38w/r_continuous_thought_machines_neural_dynamics_as/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -13,8 +14,56 @@ flair: "Research"
 extracted_at: "2026-05-11T17:27:06.577Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1kki38w.md#c0"
+    char_span: [0, 2145]
+    sentence_count: 8
+    key_terms: [https, representation, ctm, continuous, neural, thought, sakana, continuous-thought-machines]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/machinelearning/1kki38w.md#c1"
+    char_span: [2147, 4168]
+    sentence_count: 7
+    key_terms: [ctm, tasks, internal, classification, intelligence, calibration, challenging, work]
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/machinelearning/1kki38w.md#c2"
+    char_span: [4183, 6160]
+    sentence_count: 17
+    key_terms: [mazes, difficult, solving, problem, plausibility, challenging, like, biological]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/machinelearning/1kki38w.md#c3"
+    char_span: [6162, 8192]
+    sentence_count: 9
+    key_terms: [time, models, asking, reason, like, genuinely, gradients, hobbyists]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/machinelearning/1kki38w.md#c4"
+    char_span: [8194, 10236]
+    sentence_count: 18
+    key_terms: [space, representations, "they're", imagination, frequency, engineer, probably, research]
+    section: Comments
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/machinelearning/1kki38w.md#c5"
+    char_span: [10238, 12611]
+    sentence_count: 13
+    key_terms: [llm, language, ctm, model, module, computation, pathfinding, algorithms]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/machinelearning/1kki38w.md#c6"
+    char_span: [12323, 13473]
+    sentence_count: 11
+    key_terms: [gramious, synapse, featurisation, model, use, dimension, slowest, models]
+    section: Comments
+    token_count: 286
+  - id: "social-intelligence/reddit-deep/machinelearning/1kki38w.md#c7"
+    char_span: [13478, 13802]
+    sentence_count: 3
+    key_terms: [synchronization, architecture, interested, multimodal, dimension, fine-tune, accurate, distinct]
+    section: Comments
+    token_count: 74
 ---
-
 # [R] Continuous Thought Machines: neural dynamics as representation.
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1kki38w/r_continuous_thought_machines_neural_dynamics_as/)

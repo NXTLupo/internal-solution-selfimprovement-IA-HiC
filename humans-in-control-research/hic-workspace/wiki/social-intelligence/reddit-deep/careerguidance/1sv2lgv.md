@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sv2lgv.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sv2lgv/does_anyone_have_advise_on_career_change_from/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 2
 flair: "Advice"
-extracted_at: "2026-05-19T15:09:00.780Z"
+extracted_at: "2026-06-02T17:48:25.400Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sv2lgv.md#c0"
+    char_span: [0, 868]
+    sentence_count: 7
+    key_terms: ["i'm", career, careerguidance, too, experience, developer, comments, software]
+    token_count: 211
+  - id: "social-intelligence/reddit-deep/careerguidance/1sv2lgv.md#c1"
+    char_span: [883, 1921]
+    sentence_count: 5
+    key_terms: [programming, background, understand, something, systems, rude-passenger2992, been, "i've"]
+    section: Comments
+    token_count: 217
 ---
-
 # Does anyone have advise on career change from software developer to a new career path?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sv2lgv/does_anyone_have_advise_on_career_change_from/)

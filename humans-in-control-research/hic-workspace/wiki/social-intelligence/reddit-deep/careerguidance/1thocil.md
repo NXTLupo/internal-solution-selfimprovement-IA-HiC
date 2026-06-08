@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1thocil.md
 url: "https://www.reddit.com/r/careerguidance/comments/1thocil/advice_for_a_career_change_at_30_despite_the_job/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-20T02:32:24.883Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1thocil.md#c0"
+    char_span: [0, 1173]
+    sentence_count: 13
+    key_terms: [medical, careerguidance, field, years, comments, career, change, jobs]
+    token_count: 288
+  - id: "social-intelligence/reddit-deep/careerguidance/1thocil.md#c1"
+    char_span: [1188, 3351]
+    sentence_count: 12
+    key_terms: [tech, because, sales, mri, completely, radiology, physical, straight]
+    section: Comments
+    token_count: 441
 ---
-
 # Advice for a career change at 30 despite the job hunting horrors of the future?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1thocil/advice_for_a_career_change_at_30_despite_the_job/)

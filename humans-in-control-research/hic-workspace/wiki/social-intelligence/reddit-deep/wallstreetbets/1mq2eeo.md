@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1mq2eeo/14m_dd_gainz_rddt_is_still_cheap/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,67 @@ flair: "DD"
 extracted_at: "2026-05-16T20:54:42.975Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, media]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c0"
+    char_span: [0, 1958]
+    sentence_count: 12
+    key_terms: [reddit, wallstreetbets, advertisers, comments, intelligence, arpu, rddt, community]
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c1"
+    char_span: [1960, 4318]
+    sentence_count: 17
+    key_terms: [reddit, microsoft-confirms-reddit-blocked-bing-search-444385, search, users, searchengineland, engines, google, monetization]
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c2"
+    char_span: [4320, 6145]
+    sentence_count: 10
+    key_terms: [reddit, png, committee, rddt, diverse, preview, format, https]
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c3"
+    char_span: [6160, 6462]
+    sentence_count: 1
+    key_terms: [comments, total, wallstreetbets, submissions, visualmod, previous, account, months]
+    section: Comments
+    token_count: 112
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c4"
+    char_span: [6464, 8293]
+    sentence_count: 13
+    key_terms: [buy, reddit, ipo, myself, stock, like, wsb, position]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c5"
+    char_span: [8295, 9723]
+    sentence_count: 19
+    key_terms: [ticker, platform, usually, growth, green, price, back, rddt]
+    section: Comments
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c6"
+    char_span: [9725, 10768]
+    sentence_count: 8
+    key_terms: [looking, fundamentals, time, astrology, technical, against, growing, ripping]
+    section: Comments
+    token_count: 253
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c7"
+    char_span: [10770, 12386]
+    sentence_count: 14
+    key_terms: [buy, bought, market, time, technicals, obviously, anything, netflix]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c8"
+    char_span: [12388, 13520]
+    sentence_count: 8
+    key_terms: [roas, winners, though, takebackyourfuture, organizational, techtuna1200, nygiants181, impressive]
+    section: Comments
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c9"
+    char_span: [13522, 14963]
+    sentence_count: 8
+    key_terms: [bots, people, internet, buying, stupid, alarmingadvertising5, alwaysfavoriteasian, users]
+    section: Comments
+    token_count: 445
 ---
-
 # 1.4m DD GAINZ - $RDDT is still cheap
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1mq2eeo/14m_dd_gainz_rddt_is_still_cheap/)

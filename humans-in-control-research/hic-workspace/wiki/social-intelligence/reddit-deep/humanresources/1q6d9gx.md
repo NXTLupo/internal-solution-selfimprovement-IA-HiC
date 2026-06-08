@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1q6d9gx.md
 url: "https://www.reddit.com/r/humanresources/comments/1q6d9gx/does_anyone_else_feel_stuck_as_a_generalist_oh/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,33 @@ flair: "Career Development"
 extracted_at: "2026-05-23T12:15:41.552Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1q6d9gx.md#c0"
+    char_span: [0, 1673]
+    sentence_count: 18
+    key_terms: [generalist, immigration, company, humanresources, development, been, etc, feel]
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/humanresources/1q6d9gx.md#c1"
+    char_span: [1688, 3713]
+    sentence_count: 20
+    key_terms: [company, market, years, get, job, assistant, director, process]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/humanresources/1q6d9gx.md#c2"
+    char_span: [3715, 5582]
+    sentence_count: 13
+    key_terms: [role, often, generalists, immigration, currently, specific, across, hiring]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/humanresources/1q6d9gx.md#c3"
+    char_span: [5584, 6327]
+    sentence_count: 4
+    key_terms: [consultants, need, consulting, generalist, lavender-dalmation, high, questionshauntme, understandable]
+    section: Comments
+    token_count: 168
 ---
-
 # Does anyone else feel stuck as a generalist? [OH]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1q6d9gx/does_anyone_else_feel_stuck_as_a_generalist_oh/)

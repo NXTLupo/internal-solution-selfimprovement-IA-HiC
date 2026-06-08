@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1spcm5u.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1spcm5u/how_much_of_a_pay_cut_would_you_take_for_tech/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -10,11 +11,34 @@ score: 7
 upvote_ratio: 0.68
 num_comments: 34
 flair: "New Grad"
-extracted_at: "2026-05-20T03:56:10.743Z"
+extracted_at: "2026-06-03T18:53:18.791Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1spcm5u.md#c0"
+    char_span: [0, 919]
+    sentence_count: 5
+    key_terms: [experience, cscareerquestions, tech, company, startup, cut, pay, take]
+    token_count: 236
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1spcm5u.md#c1"
+    char_span: [934, 2881]
+    sentence_count: 15
+    key_terms: [startup, big, pay, tech, higher, faang, anthropic, cut]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1spcm5u.md#c2"
+    char_span: [2883, 4527]
+    sentence_count: 15
+    key_terms: [startup, pixelphoenixforce, years, experience, startups, company, usually, reason]
+    section: Comments
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1spcm5u.md#c3"
+    char_span: [4529, 5991]
+    sentence_count: 12
+    key_terms: [experience, money, tech, jsdodgers, probably, startup, better, helped]
+    section: Comments
+    token_count: 362
 ---
-
 # How much of a pay cut would you take for tech company experience over a startup (new grad SWE)?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1spcm5u/how_much_of_a_pay_cut_would_you_take_for_tech/)
@@ -49,18 +73,18 @@ why?
 ## Comments
 
 - **8eSix** (18↑): It's relative. 20k cut from 100k or 200k? Makes a big difference
-  - **Donutfish** (-6↑): let’s split the middle and say 150
-- **packet** (16↑): This is a totally backwards question to reality you would take a significant cut in base compensation for startup equity. Big tech pays much better.
+  - **Donutfish** (-4↑): let’s split the middle and say 150
+- **packet** (15↑): This is a totally backwards question to reality you would take a significant cut in base compensation for startup equity. Big tech pays much better.
   - **babycollect** (1↑): depends on the big tech and depends on the startup! lots of startups pay extremely competitively and some big techs (amazon, apple) can have comp startups manage to beat
   - **Donutfish** (-2↑): this is my reality 🙂
     - **MountaintopCoder** (3↑): What are the numbers for each
-- **Effective_Engine2007** (20↑): I would take a pay cut to work at a faang, versus a startup. Unless if that startup had anthropic level upside. 
+- **Effective_Engine2007** (21↑): I would take a pay cut to work at a faang, versus a startup. Unless if that startup had anthropic level upside. 
 
 If we are just talking about some random established software company that isn’t faang, then I would go with the higher pay without question. 
 
 In other words, name recognition is valuable (google, Netflix, meta, anthropic, etc). Outside of the faang level names, a pay cut wouldn’t gain you anything.
-  - **Clyde_Frag** (6↑): Funny, I feel the exact opposite. I did big tech for the last couple of years just to get paid more and see higher scale. It was really lucrative for me but I hated the politics.
-    - **Effective_Engine2007** (4↑): Not sure that means the opposite. The example this person posted about was name recognition versus higher pay. If your big tech offer was also higher paying, then it’s not the same situation.
+  - **Clyde_Frag** (5↑): Funny, I feel the exact opposite. I did big tech for the last couple of years just to get paid more and see higher scale. It was really lucrative for me but I hated the politics.
+    - **Effective_Engine2007** (3↑): Not sure that means the opposite. The example this person posted about was name recognition versus higher pay. If your big tech offer was also higher paying, then it’s not the same situation.
 
 I took the post as: 
 
@@ -83,7 +107,7 @@ FWIW, I’m on my 3rd startup. The equity from the first 2 is worthless but this
 My wife and I have both worked in big tech for over 25 years. We have each been laid off multiple times. We learned early on that having a rainy day fund is critical to staying in this industry. 
 
 Oh yeah, the reason startups usually pay less is because they are trying to reduce their burn rate. A startup paying top dollar would be a bit of a yellow flag to me. But I don't know the details. Find out more about their finances before you join.
-- **PixelPhoenixForce** (2↑): no pay cut, cuz idk if my role will still be relevant in few years, just take as much $$$ as possible
+- **PixelPhoenixForce** (4↑): no pay cut, cuz idk if my role will still be relevant in few years, just take as much $$$ as possible
 - **EntrepreneurHuge5008** (2↑): >I’m trying to understand how people value the *early-career experience* difference
 
 If I'm valuing the experience, I probably won't be looking at the monetary aspect of it.

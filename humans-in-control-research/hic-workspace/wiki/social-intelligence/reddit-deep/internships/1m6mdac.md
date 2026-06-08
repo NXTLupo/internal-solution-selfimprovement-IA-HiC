@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1m6mdac.md
 url: "https://www.reddit.com/r/internships/comments/1m6mdac/looking_for_a_marketing_internship_mba_student/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "General"
 extracted_at: "2026-05-25T15:51:38.718Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1m6mdac.md#c0"
+    char_span: [0, 1006]
+    sentence_count: 6
+    key_terms: [marketing, internship, opportunities, internships, experience, comments, looking, gain]
+    token_count: 220
+  - id: "social-intelligence/reddit-deep/internships/1m6mdac.md#c1"
+    char_span: [1021, 1898]
+    sentence_count: 4
+    key_terms: [internships, marketing, get, apprenticeships, coursework, structured, artifacts, automated]
+    section: Comments
+    token_count: 194
 ---
-
 # Looking for a Marketing Internship – MBA Student Seeking Guidance and Opportunities
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1m6mdac/looking_for_a_marketing_internship_mba_student/)

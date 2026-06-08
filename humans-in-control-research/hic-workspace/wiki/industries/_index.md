@@ -1,9 +1,15 @@
 ---
+id: industries/_index.md
 title: Industries Index
 type: industry
 updated: 2026-05-29
+chunks:
+  - id: "industries/_index.md#c0"
+    char_span: [0, 1036]
+    sentence_count: 1
+    key_terms: [industries, sources, vertical, sustainability, manufacturing, multi-valued, fundraising, cross-over]
+    token_count: 329
 ---
-
 # Industries
 
 The second brain corpus organized by vertical (multi-valued; cross-over content appears under each relevant vertical).

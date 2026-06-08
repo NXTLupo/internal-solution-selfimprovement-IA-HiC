@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1tefjad.md
 url: "https://www.reddit.com/r/internships/comments/1tefjad/got_two_offers_on_the_same_day_deferred_one_the/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "General"
 extracted_at: "2026-05-24T14:08:27.830Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce, higher_ed, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1tefjad.md#c0"
+    char_span: [0, 1236]
+    sentence_count: 8
+    key_terms: [startup, offer, engineering, internships, got, internship, on-campus, comments]
+    token_count: 277
+  - id: "social-intelligence/reddit-deep/internships/1tefjad.md#c1"
+    char_span: [1251, 2978]
+    sentence_count: 14
+    key_terms: [get, like, time, classmates, different, floating, classes, picture]
+    section: Comments
+    token_count: 414
 ---
-
 # Got two offers on the same day, deferred one, the other got withdrawn 24 hours later
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1tefjad/got_two_offers_on_the_same_day_deferred_one_the/)

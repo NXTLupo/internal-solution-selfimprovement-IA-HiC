@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1roe0qs.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1roe0qs/waterloo_econ_students_how_is_the_coop_program/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,21 @@ flair: "Co-op"
 extracted_at: "2026-05-25T18:33:12.664Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1roe0qs.md#c0"
+    char_span: [0, 423]
+    sentence_count: 3
+    key_terms: [waterloo, uwaterloo, comments, program, co-op, econ, engineering, reddit-deep]
+    token_count: 109
+  - id: "social-intelligence/reddit-deep/uwaterloo/1roe0qs.md#c1"
+    char_span: [438, 2434]
+    sentence_count: 12
+    key_terms: [waterloo, econ, frontdevelopment652, "i'm", business, options, coop, data]
+    section: Comments
+    token_count: 472
 ---
-
 # Waterloo Econ students, how is the co-op program?
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1roe0qs/waterloo_econ_students_how_is_the_coop_program/)

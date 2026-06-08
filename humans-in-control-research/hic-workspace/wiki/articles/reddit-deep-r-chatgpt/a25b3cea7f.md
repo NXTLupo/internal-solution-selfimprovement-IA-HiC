@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-chatgpt/a25b3cea7f.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1s8j27e/someone_just_leaked_claude_codes_source_code_on_x/"
 url_hash: "a25b3cea7f"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T16:59:43.790525+00:00"
 chars: 3232
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-chatgpt/a25b3cea7f.md#c0"
+    char_span: [0, 1992]
+    sentence_count: 8
+    key_terms: [claude, https, com, sessions, chatgpt, source, conversation, mode]
+    token_count: 506
+  - id: "articles/reddit-deep-r-chatgpt/a25b3cea7f.md#c1"
+    char_span: [1994, 3424]
+    sentence_count: 10
+    key_terms: [code, map, source, image, r-chatgpt-1050422060352024636, anthropic, subreddit, concerns]
+    token_count: 364
 ---
-
 # Someone just leaked claude code's Source code on X
 
 Source: [Reddit Deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1s8j27e/someone_just_leaked_claude_codes_source_code_on_x/)

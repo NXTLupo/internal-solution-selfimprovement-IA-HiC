@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1sl9wee.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1sl9wee/why_arent_recruitershiring_team_individuals_hired/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,39 @@ flair: "Discussion"
 extracted_at: "2026-05-25T18:33:12.673Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1sl9wee.md#c0"
+    char_span: [0, 1740]
+    sentence_count: 14
+    key_terms: [co-op, worked, industry, strategies, academia, advisors, advisor, hiring]
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/uwaterloo/1sl9wee.md#c1"
+    char_span: [1755, 3915]
+    sentence_count: 15
+    key_terms: [co-op, waterloo, people, rather, recruiters, pay, industry, provide]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/uwaterloo/1sl9wee.md#c2"
+    char_span: [3917, 5769]
+    sentence_count: 15
+    key_terms: [advisors, people, students, co-op, redcattles, justified, feedback, software]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/uwaterloo/1sl9wee.md#c3"
+    char_span: [5771, 7976]
+    sentence_count: 18
+    key_terms: [alumni, waterloo, industry, co-operative-education-and-professional-affairs-office, coop, hire, job, part]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/uwaterloo/1sl9wee.md#c4"
+    char_span: [7978, 9600]
+    sentence_count: 10
+    key_terms: [uwaterloo, https, moderators, please, automoderator, message, admissions, campus-wellness]
+    section: Comments
+    token_count: 403
 ---
-
 # Why aren't recruiters/hiring team individuals hired as co-op advisors?
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1sl9wee/why_arent_recruitershiring_team_individuals_hired/)

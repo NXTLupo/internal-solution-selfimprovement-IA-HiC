@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1ri34fk.md
 url: "https://www.reddit.com/r/NEU/comments/1ri34fk/note_for_any_trans_students_considering_working/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -6,19 +7,47 @@ subreddit: "neu"
 title: "note for any trans students considering working for massachusetts government / any mass . gov agency"
 author: "Good-Information-383"
 date: "2026-03-01T17:25:06.000Z"
-score: 38
+score: 37
 upvote_ratio: 0.66
-num_comments: 19
+num_comments: 18
 flair: "Co-op & Career"
-extracted_at: "2026-05-14T12:20:30.876Z"
+extracted_at: "2026-06-06T00:27:19.932Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1ri34fk.md#c0"
+    char_span: [0, 2154]
+    sentence_count: 1
+    key_terms: [name, preferred, legal, necessary, changed, profile, correspondence, system]
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/neu/1ri34fk.md#c1"
+    char_span: [2156, 3840]
+    sentence_count: 1
+    key_terms: [name, legal, system, documentation, publicized, preferred, promised, display]
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/neu/1ri34fk.md#c2"
+    char_span: [3855, 6070]
+    sentence_count: 5
+    key_terms: [government, identity, legal, get, "it's", name, different, rguiry913]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/neu/1ri34fk.md#c3"
+    char_span: [5798, 8068]
+    sentence_count: 7
+    key_terms: [name, good-information-383, legal, get, "it's", parents, been, "i'm"]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/neu/1ri34fk.md#c4"
+    char_span: [7771, 8683]
+    sentence_count: 3
+    key_terms: [agency, good-information-383, co-op, fully, job, sexwithpaws69, appropriate, transgender]
+    section: Comments
+    token_count: 220
 ---
-
 # note for any trans students considering working for massachusetts government / any mass . gov agency
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1ri34fk/note_for_any_trans_students_considering_working/)
-Posted by **Good-Information-383** · **38↑** · **19 comments**
+Posted by **Good-Information-383** · **37↑** · **18 comments**
 
 i co-oped there last semester. my name is not legally changed and my parents will not let me do so. 
 
@@ -45,18 +74,12 @@ and before anyone comments saying i'm expecting to be "catered to" or arguing "l
 - **rguiry913** (41↑): i don’t have much to contribute to this discussion but i am very sorry that this was your experience. is your holdup about your parents financial support etc? bc if you can change your name on your own then the can’t stop you but ofc i understand if they’re paying for school or you’d need money from them or whatever it isn’t that easy
   - **Good-Information-383** (25↑): my parents aren't transphobic, but they're concerned about legal/government repercussions with everything going on right now. i could lose my funding (which is a full coverage from a government agency — we're not out of pocket), and i'd have to get all my documents redone. it's just frustrating all around, and they also directly compromised my safety independent of my trans identity with the DV & SA exemption. i wanted to just warn and be clear about this because it seems like i was the first trans co-op they'd had, and they didn't even get a bunch of the answers that they promised for my identity until a month in. i know government jobs are different, but there's no excuse for "we will protect your identity" and then not. it would be different if this was all disclosed upfront and i was prepared for it
     - **Rhynocerous** (13↑): It sounds like you got misled by well meaning employees making promises that they can't actually meet, probably because what they promised actually has to go through 4 or 5 people and it will just not happen. They would say "my hands are tied" or "let me follow up with the office manager" etc. This doesn't surprise me at all and it's extremely common in government for things that should be flexible to be completely inflexible. It's a good lesson for ANYONE considering a federal of state job and I think your advice is absolutely correct.
-    - **rguiry913** (7↑): mhm i see i see
+    - **rguiry913** (5↑): mhm i see i see
 well i wish you the best, please keep yourself as safe as you can🫶🏻 and i’m sure others will appreciate this heads up, you’re doing great
-- **franklinstwr** (8↑): I was able to get my legal name redacted from this database with a court order - I worked with Lambda Legal for free. This will be public information in their system, which was problematic for me once I changed my name legally. It was years ago, but contact Lambda and they might be able to help you!
+- **franklinstwr** (7↑): I was able to get my legal name redacted from this database with a court order - I worked with Lambda Legal for free. This will be public information in their system, which was problematic for me once I changed my name legally. It was years ago, but contact Lambda and they might be able to help you!
   - **Good-Information-383** (2↑): thank you. how long did it take?
-- **exactly17stairs** (11↑): I'm really sorry to hear that was your experience, I hope you bring this up with your advisor so they are informed. You would think that Massachusetts would be better about this kind of thing. It is not a perfectly reasonable ask to want your preferred name be displayed instead of your legal name, and that can be for all sorts of reasons, not just being trans. And seconding what the other comment said, if you're a legal adult and can get all the paperwork necessary there is nothing your parents can do about that, though of course that can be complicated by financial support. I get it, I changed my gender marker on my DL without my parents approval because it was just a form and going to the DMV.
-  - **Good-Information-383** (10↑): unfortunately, the worry isn't transphobic parents (they're not perfect, but they've been more open), but the risk of losing my funding. i'm on an all-expenses-paid (tuition coverage and living expenses) program through the government, and with the political climate, it's just not safe. i know that legally, there can be issues — but i know it's possible for systems to display my preferred name only. not to mention, independent of my trans identity, the DV & SA exemption not being honored or secured is not safe. if i had been given honest answers upfront, this would be a different story. i would've been prepared. but it's not okay for them to say "we will do this," and then it turned out they didn't bother to get over half the confirmations for what they could or couldn't do until well into my co-op. it's unfortunate, and i had no idea beforehand. i have no hatred or bitterness towards other parts of my co-op — it was great otherwise! i'm not trying to undermine the agency at all. but since they were not trustworthy or fully honest, i thought it fully appropriate to issue a warning for students to consider.
-- **SexWithPaws69** (7↑): Out of all things that'd have issues protecting the status of trans people, a government job in the bluest state in the US was not on my bingo card.
+- **exactly17stairs** (10↑): I'm really sorry to hear that was your experience, I hope you bring this up with your advisor so they are informed. You would think that Massachusetts would be better about this kind of thing. It is not a perfectly reasonable ask to want your preferred name be displayed instead of your legal name, and that can be for all sorts of reasons, not just being trans. And seconding what the other comment said, if you're a legal adult and can get all the paperwork necessary there is nothing your parents can do about that, though of course that can be complicated by financial support. I get it, I changed my gender marker on my DL without my parents approval because it was just a form and going to the DMV.
+  - **Good-Information-383** (6↑): unfortunately, the worry isn't transphobic parents (they're not perfect, but they've been more open), but the risk of losing my funding. i'm on an all-expenses-paid (tuition coverage and living expenses) program through the government, and with the political climate, it's just not safe. i know that legally, there can be issues — but i know it's possible for systems to display my preferred name only. not to mention, independent of my trans identity, the DV & SA exemption not being honored or secured is not safe. if i had been given honest answers upfront, this would be a different story. i would've been prepared. but it's not okay for them to say "we will do this," and then it turned out they didn't bother to get over half the confirmations for what they could or couldn't do until well into my co-op. it's unfortunate, and i had no idea beforehand. i have no hatred or bitterness towards other parts of my co-op — it was great otherwise! i'm not trying to undermine the agency at all. but since they were not trustworthy or fully honest, i thought it fully appropriate to issue a warning for students to consider.
+- **SexWithPaws69** (8↑): Out of all things that'd have issues protecting the status of trans people, a government job in the bluest state in the US was not on my bingo card.
   - **Good-Information-383** (5↑): exactly. that's why i decided to post this, so even if a student does take the job, they're prepared for the discomfort of the next six months.
-- **Ornery_Coast_7842** (8↑): In the course of a day, where you interact with coworkers what is displayed? This would be teams, email, zoom, etc. Who cares what it says on payroll? No one sees that?
-
-Are you in situation where you can say it's nickname middle name? Not trying to be difficult, but where is it a problem and how can you fix that?
-
-I go by a nickname at northeastern. I asked to have my nickname as email. They screwed it up. I think you will find this sort of thing at a lot of companies.
-  - **Good-Information-383** (1↑): the issue with payroll is that we are forced to do trainings and fill out documentation at work on a system that literally displays our legal name in big red letters at the top. i have to either wait until i can get home or hide my laptop screen as much as i can, which is distressing. and the payroll system can easily be used to look up employees — most people look you up by last name, and mine is not common. if someone gets curious, they will know their deadname. independent of being trans, i requested removal from the system under their DV & SA victim policy, which they still did not remove and put me in danger. and my deadname is not a believable middle name for a cis man.
-- **Bubbly_Concert_6577** (1↑): Wow, I am so sorry this happened. I didn’t know it was this bad; I had a transgender coworker at my agency and they never really opened up about these types of problems. Thank you for sharing
+- **Bubbly_Concert_6577** (-2↑): Wow, I am so sorry this happened. I didn’t know it was this bad; I had a transgender coworker at my agency and they never really opened up about these types of problems. Thank you for sharing

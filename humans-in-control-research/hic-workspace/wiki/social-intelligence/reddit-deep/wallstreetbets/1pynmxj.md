@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1pynmxj.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1pynmxj/almost_lost_all_my_money_today_trading_silver/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,39 @@ flair: "Gain"
 extracted_at: "2026-05-16T20:54:42.979Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pynmxj.md#c0"
+    char_span: [0, 730]
+    sentence_count: 8
+    key_terms: [wallstreetbets, silver, comments, dollars, futures, bought, money, sell]
+    token_count: 194
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pynmxj.md#c1"
+    char_span: [745, 948]
+    sentence_count: 1
+    key_terms: [total, submissions, visualmod, comments, previous, account, report, years]
+    section: Comments
+    token_count: 76
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pynmxj.md#c2"
+    char_span: [950, 2476]
+    sentence_count: 6
+    key_terms: [own-masterpiece5539, discord, futures, trading, swimming-fondant-892, doing, https, money]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pynmxj.md#c3"
+    char_span: [2260, 3437]
+    sentence_count: 4
+    key_terms: [futures, money, buy, lose, contract, xelonima, change, dollar]
+    section: Comments
+    token_count: 381
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pynmxj.md#c4"
+    char_span: [3439, 4281]
+    sentence_count: 4
+    key_terms: [buy, silver, high, "it's", low, sell, deleted, watercresscontent454]
+    section: Comments
+    token_count: 250
 ---
-
 # Almost lost all my money today trading silver
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1pynmxj/almost_lost_all_my_money_today_trading_silver/)

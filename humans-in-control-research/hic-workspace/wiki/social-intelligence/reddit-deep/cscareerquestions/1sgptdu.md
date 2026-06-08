@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1sgptdu.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1sgptdu/cs_degree_or_bust/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,63 @@ flair: "Student"
 extracted_at: "2026-05-18T14:15:34.435Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sgptdu.md#c0"
+    char_span: [0, 788]
+    sentence_count: 6
+    key_terms: [cscareerquestions, comments, degree, reddit, cybersecurity, understanding, disappearing, reddit-deep]
+    token_count: 193
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sgptdu.md#c1"
+    char_span: [803, 2560]
+    sentence_count: 13
+    key_terms: [years, needs, family, realistically, right, clairvoyant, icyprofit03, job]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sgptdu.md#c2"
+    char_span: [2562, 4151]
+    sentence_count: 6
+    key_terms: [looking, passionate, family, people, experience, industry, passion, affect]
+    section: Comments
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sgptdu.md#c3"
+    char_span: [4153, 6153]
+    sentence_count: 15
+    key_terms: [wgu, trades, learn, whitchorence, trade, experience, anything, degree]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sgptdu.md#c4"
+    char_span: [6155, 8249]
+    sentence_count: 11
+    key_terms: [people, jobs, level, laid, competing, tradesmen, applying, oracle]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sgptdu.md#c5"
+    char_span: [8013, 8739]
+    sentence_count: 7
+    key_terms: [hvac, people, level, down, next, sprchrgddc5, currently, distances]
+    section: Comments
+    token_count: 199
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sgptdu.md#c6"
+    char_span: [8741, 10619]
+    sentence_count: 10
+    key_terms: [jobs, trades, start, got, "it's", different, climate, almost]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sgptdu.md#c7"
+    char_span: [10621, 12346]
+    sentence_count: 18
+    key_terms: [trades, work, get, job, people, school, like, wgu]
+    section: Comments
+    token_count: 409
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sgptdu.md#c8"
+    char_span: [12348, 12992]
+    sentence_count: 4
+    key_terms: [care, center, health, going, gonna, data, etc, mirageofstars]
+    section: Comments
+    token_count: 158
 ---
-
 # CS degree or Bust?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sgptdu/cs_degree_or_bust/)

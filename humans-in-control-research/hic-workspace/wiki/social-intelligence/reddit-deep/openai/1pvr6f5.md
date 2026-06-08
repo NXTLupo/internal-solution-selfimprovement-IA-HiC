@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1pvr6f5.md
 url: "https://www.reddit.com/r/OpenAI/comments/1pvr6f5/openai_just_released_prompt_packs_for_every_job/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,33 @@ flair: "Miscellaneous"
 extracted_at: "2026-05-11T17:27:05.359Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1pvr6f5.md#c0"
+    char_span: [0, 403]
+    sentence_count: 1
+    key_terms: [prompt-packs-6849a0f98c613939acef841c, openai, https, com, comments, academy, public, tags]
+    token_count: 129
+  - id: "social-intelligence/reddit-deep/openai/1pvr6f5.md#c1"
+    char_span: [418, 2204]
+    sentence_count: 6
+    key_terms: [chatgpt, system, accessibility, "i'm", probably, experts, prompts, prompt]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/openai/1pvr6f5.md#c2"
+    char_span: [2206, 4103]
+    sentence_count: 14
+    key_terms: [prompt, prompts, people, "i'm", work, onboarding, customer, template]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/openai/1pvr6f5.md#c3"
+    char_span: [4105, 5661]
+    sentence_count: 10
+    key_terms: [prompt, released, engineering, ask, bad, good, chat, "i'm"]
+    section: Comments
+    token_count: 375
 ---
-
 # OpenAI Just released Prompt Packs for every job
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1pvr6f5/openai_just_released_prompt_packs_for_every_job/)

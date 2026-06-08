@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1qstrlg.md
 url: "https://www.reddit.com/r/findapath/comments/1qstrlg/what_career_or_income_path_did_you_choose_that/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,21 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-25T13:04:07.382Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1qstrlg.md#c0"
+    char_span: [0, 893]
+    sentence_count: 7
+    key_terms: [income, financially, findapath, comments, career, people, wouldn, paths]
+    token_count: 197
+  - id: "social-intelligence/reddit-deep/findapath/1qstrlg.md#c1"
+    char_span: [908, 2679]
+    sentence_count: 14
+    key_terms: [people, thank, everyone, helpful, helped, please, findapath, comments]
+    section: Comments
+    token_count: 390
 ---
-
 # What career or income path did you choose that most people wouldn’t consider but worked surprisingly well for you financially?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1qstrlg/what_career_or_income_path_did_you_choose_that/)

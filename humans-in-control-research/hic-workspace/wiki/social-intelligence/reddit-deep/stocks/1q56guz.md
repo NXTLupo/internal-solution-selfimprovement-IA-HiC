@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1q56guz.md
 url: "https://www.reddit.com/r/stocks/comments/1q56guz/what_are_your_top_stock_picks_in_2026/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,69 @@ flair: ""
 extracted_at: "2026-05-17T01:14:17.623Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1q56guz.md#c0"
+    char_span: [0, 748]
+    sentence_count: 6
+    key_terms: [stocks, portfolio, comments, trading, like, time, outperforming, zachparent93]
+    token_count: 196
+  - id: "social-intelligence/reddit-deep/stocks/1q56guz.md#c1"
+    char_span: [763, 2552]
+    sentence_count: 12
+    key_terms: [year, alpha, andthentherewastwo, returns, administration, launch, market, institutional]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/stocks/1q56guz.md#c2"
+    char_span: [2554, 3876]
+    sentence_count: 8
+    key_terms: [earnings, guidance, stocks, year, coverage, forward, buying, europe]
+    section: Comments
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/stocks/1q56guz.md#c3"
+    char_span: [3878, 4405]
+    sentence_count: 1
+    key_terms: [message, delete, reddit, remindmebot, com, compose, subject, others]
+    section: Comments
+    token_count: 193
+  - id: "social-intelligence/reddit-deep/stocks/1q56guz.md#c4"
+    char_span: [4407, 5512]
+    sentence_count: 6
+    key_terms: [remindmebot, message, reddit, https, com, "it's", www, quuxquxbazbarfoo]
+    section: Comments
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/stocks/1q56guz.md#c5"
+    char_span: [5514, 7069]
+    sentence_count: 9
+    key_terms: [asts, late, rklb, selling, winners, shares, alarmingadvertising5, morrisseysrubikscube]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/stocks/1q56guz.md#c6"
+    char_span: [7071, 7210]
+    sentence_count: 2
+    key_terms: [considered, question, cracked, selling, shares, basis, asts, cost]
+    section: Comments
+    token_count: 41
+  - id: "social-intelligence/reddit-deep/stocks/1q56guz.md#c7"
+    char_span: [7212, 8984]
+    sentence_count: 13
+    key_terms: [probably, shares, asts, msft, sls, want, beautiful, launches]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1q56guz.md#c8"
+    char_span: [8793, 9159]
+    sentence_count: 4
+    key_terms: [amazon, weak, year, burnertaintlol, olddirtybaird, hottruth999, overperform, yesterday]
+    section: Comments
+    token_count: 118
+  - id: "social-intelligence/reddit-deep/stocks/1q56guz.md#c9"
+    char_span: [9161, 10815]
+    sentence_count: 13
+    key_terms: [google, amazon, price, investments, revenue, competitive-ad-9866, based, going]
+    section: Comments
+    token_count: 434
 ---
-
 # What are your top stock picks in 2026?
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1q56guz/what_are_your_top_stock_picks_in_2026/)

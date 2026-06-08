@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-humanresources/3fbbeceff2.md
 url: "https://www.reddit.com/r/humanresources/comments/1ntm8j0/nj_how_many_hr_staff_does_your_company_have_for/"
 url_hash: "3fbbeceff2"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T12:22:27.532624+00:00"
 chars: 4050
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-humanresources/3fbbeceff2.md#c0"
+    char_span: [0, 1782]
+    sentence_count: 11
+    key_terms: [company, employees, humanresources, acquisition, coordinator, assistant, companies, comments]
+    token_count: 423
+  - id: "articles/reddit-deep-r-humanresources/3fbbeceff2.md#c1"
+    char_span: [1784, 2877]
+    sentence_count: 8
+    key_terms: [goodvibezone, wrong, superhuman, including, company, "there's", formericecreamsandie, total]
+    token_count: 271
+  - id: "articles/reddit-deep-r-humanresources/3fbbeceff2.md#c2"
+    char_span: [2879, 4269]
+    sentence_count: 12
+    key_terms: [benefits, manager, director, managers, turnover, coordinator, comp, hris]
+    token_count: 333
 ---
-
 # [NJ] How many HR staff does your company have for ~950 employees?
 
 Source: [Reddit Deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1ntm8j0/nj_how_many_hr_staff_does_your_company_have_for/)

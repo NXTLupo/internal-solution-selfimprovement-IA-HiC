@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-stocks/fde0bcee86.md
 url: "https://www.reddit.com/r/stocks/comments/1p66jaq/gold_may_have_the_strongest_bull_case_in_modern/"
 url_hash: "fde0bcee86"
 kind: "article"
@@ -10,8 +11,40 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:21:09.513466+00:00"
 chars: 11350
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-stocks/fde0bcee86.md#c0"
+    char_span: [0, 1782]
+    sentence_count: 13
+    key_terms: [debt, trillion, maturities, because, saying, money, gold, isn]
+    token_count: 441
+  - id: "articles/reddit-deep-r-stocks/fde0bcee86.md#c1"
+    char_span: [1784, 3714]
+    sentence_count: 12
+    key_terms: [interest, debt, trillion, dollars, payments, budget, term, military]
+    token_count: 431
+  - id: "articles/reddit-deep-r-stocks/fde0bcee86.md#c2"
+    char_span: [3716, 5203]
+    sentence_count: 14
+    key_terms: [tmt-in-the-rear-view-how-did-our-2025-themes-pan-out, market, financial, inflation, debt, happens, barclays, interest]
+    token_count: 335
+  - id: "articles/reddit-deep-r-stocks/fde0bcee86.md#c3"
+    char_span: [5205, 7391]
+    sentence_count: 15
+    key_terms: [bubble, inflation, anyways, cost, real, companies, measuring, official]
+    token_count: 483
+  - id: "articles/reddit-deep-r-stocks/fde0bcee86.md#c4"
+    char_span: [7393, 9672]
+    sentence_count: 16
+    key_terms: [gold, country, taiwan, everything, stated, inflationary, time, financial]
+    token_count: 499
+  - id: "articles/reddit-deep-r-stocks/fde0bcee86.md#c5"
+    char_span: [9674, 11543]
+    sentence_count: 12
+    key_terms: [higher, gold, energy, love, berkshire, horses, likely, silver]
+    token_count: 454
 ---
-
 # Gold may have the strongest bull case in modern history
 
 Source: [Reddit Deep: r/stocks](https://www.reddit.com/r/stocks/comments/1p66jaq/gold_may_have_the_strongest_bull_case_in_modern/)

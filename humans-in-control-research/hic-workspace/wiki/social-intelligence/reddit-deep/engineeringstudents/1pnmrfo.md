@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1pnmrfo.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1pnmrfo/high_school_student_looking_for_summer/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Major Choice"
 extracted_at: "2026-05-23T19:44:57.159Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pnmrfo.md#c0"
+    char_span: [0, 922]
+    sentence_count: 5
+    key_terms: [internship, engineeringstudents, looking, engineering, experience, comments, research, student]
+    token_count: 196
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pnmrfo.md#c1"
+    char_span: [937, 2189]
+    sentence_count: 8
+    key_terms: [prepare-your-application-mites-summer-and-mites-semester, internship, program, apply-to-mites, discover-mites, https, internships, free]
+    section: Comments
+    token_count: 298
 ---
-
 # High school student looking for summer STEM/engineering internship or research experience
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1pnmrfo/high_school_student_looking_for_summer/)

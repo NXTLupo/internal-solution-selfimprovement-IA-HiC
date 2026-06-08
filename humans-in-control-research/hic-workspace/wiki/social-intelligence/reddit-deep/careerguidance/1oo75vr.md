@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1oo75vr.md
 url: "https://www.reddit.com/r/careerguidance/comments/1oo75vr/looking_for_guidance_where_should_i_focus_my_job/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,47 @@ flair: ""
 extracted_at: "2026-05-22T23:34:01.134Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [real_estate, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1oo75vr.md#c0"
+    char_span: [0, 1472]
+    sentence_count: 11
+    key_terms: [internship, months, experience, careerguidance, job, comments, project, working]
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/careerguidance/1oo75vr.md#c1"
+    char_span: [1474, 2517]
+    sentence_count: 2
+    key_terms: [environments, feedback, learning, without, rather, tasks, work, administrative]
+    token_count: 201
+  - id: "social-intelligence/reddit-deep/careerguidance/1oo75vr.md#c2"
+    char_span: [2519, 4705]
+    sentence_count: 2
+    key_terms: [working, long-term, learning, leaders, success, market, clear, encouraging]
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/careerguidance/1oo75vr.md#c3"
+    char_span: [4707, 7361]
+    sentence_count: 8
+    key_terms: [feedback, roles, market, encouragement, constructive, goals, acquisition, work]
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/careerguidance/1oo75vr.md#c4"
+    char_span: [7363, 9569]
+    sentence_count: 14
+    key_terms: [analyst, private, whether, underwriting, firms, focus, years, development]
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/careerguidance/1oo75vr.md#c5"
+    char_span: [9584, 11953]
+    sentence_count: 18
+    key_terms: [management, acquisitions, industrial, asset, multifamily, firms, good, experience]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/careerguidance/1oo75vr.md#c6"
+    char_span: [11955, 12565]
+    sentence_count: 4
+    key_terms: [industrial, underwriting, programs, research, sector, power, dashboard-handy, culture-screen]
+    section: Comments
+    token_count: 139
 ---
-
 # Looking for Guidance: Where Should I Focus My Job Search in Real Estate?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1oo75vr/looking_for_guidance_where_should_i_focus_my_job/)

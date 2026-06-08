@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1tmc42t.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1tmc42t/which_skills_should_i_develop_to_land_a_job_in/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,15 @@ flair: "Career Help"
 extracted_at: "2026-05-25T13:01:49.567Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tmc42t.md#c0"
+    char_span: [0, 1737]
+    sentence_count: 11
+    key_terms: [mechatronics, skills, concentration, engineeringstudents, related, student, school, engineering]
+    token_count: 369
 ---
-
 # Which Skills should I develop to Land a Job in Mechatronics as  Mechanical Engineering Student?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1tmc42t/which_skills_should_i_develop_to_land_a_job_in/)

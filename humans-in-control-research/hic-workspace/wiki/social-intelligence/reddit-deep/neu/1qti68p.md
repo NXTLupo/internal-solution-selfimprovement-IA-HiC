@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1qti68p.md
 url: "https://www.reddit.com/r/NEU/comments/1qti68p/built_a_study_tool_as_a_neu_student_would_love/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "Misc"
 extracted_at: "2026-05-22T13:32:12.394Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1qti68p.md#c0"
+    char_span: [0, 1458]
+    sentence_count: 5
+    key_terms: [study, neu, feedback, "i'm", want, flashcards, comments, students]
+    token_count: 375
+  - id: "social-intelligence/reddit-deep/neu/1qti68p.md#c1"
+    char_span: [1473, 2263]
+    sentence_count: 6
+    key_terms: [notebooklm, features, neither-scarcity-235, specifically, competitors, note-taking, recommended, background]
+    section: Comments
+    token_count: 184
 ---
-
 # Built a study tool as a NEU student - would love feedback from fellow Huskies
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1qti68p/built_a_study_tool_as_a_neu_student_would_love/)

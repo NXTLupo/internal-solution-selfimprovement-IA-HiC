@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t64ych.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t64ych/career_advice_stay_in_bank_or_join_government_job/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-20T02:32:24.885Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [financial_services, government, policy]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t64ych.md#c0"
+    char_span: [0, 1029]
+    sentence_count: 7
+    key_terms: [contract, job, careerguidance, government, comments, working, career, taking]
+    token_count: 237
+  - id: "social-intelligence/reddit-deep/careerguidance/1t64ych.md#c1"
+    char_span: [1044, 2125]
+    sentence_count: 9
+    key_terms: [government, contract, work, mortgage, leave, often, bank, cons]
+    section: Comments
+    token_count: 220
+  - id: "social-intelligence/reddit-deep/careerguidance/1t64ych.md#c2"
+    char_span: [2127, 3498]
+    sentence_count: 8
+    key_terms: [years, government, headcount, increase, mortgage, question, newborn, better]
+    section: Comments
+    token_count: 295
 ---
-
 # Career advice: Stay in Bank or join Government job?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t64ych/career_advice_stay_in_bank_or_join_government_job/)

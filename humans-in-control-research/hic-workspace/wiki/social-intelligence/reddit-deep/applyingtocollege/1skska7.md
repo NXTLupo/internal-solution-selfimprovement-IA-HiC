@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1skska7.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1skska7/i_grinded_for_ivies_just_to_not_want_them_anymore/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,39 @@ flair: "Discussion"
 extracted_at: "2026-05-24T14:08:39.592Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1skska7.md#c0"
+    char_span: [0, 1410]
+    sentence_count: 11
+    key_terms: [ivy, like, applyingtocollege, cwru, comments, thought, visited, happy]
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1skska7.md#c1"
+    char_span: [1425, 3349]
+    sentence_count: 6
+    key_terms: [school, starfirepet, good, getting, drexel, helpmehehehe1, focus, food]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1skska7.md#c2"
+    char_span: [3065, 5123]
+    sentence_count: 19
+    key_terms: [kindly-interview5966, conference, case, ivies, food, get, ivy, cleveland]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1skska7.md#c3"
+    char_span: [4875, 5352]
+    sentence_count: 5
+    key_terms: [did, congratulations, tarasshevckeno, redredred415, application, world-class, botanical, counselor]
+    section: Comments
+    token_count: 126
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1skska7.md#c4"
+    char_span: [5354, 6807]
+    sentence_count: 11
+    key_terms: [like, yale, cmu, get, got, lol, galaxycrow, accepted]
+    section: Comments
+    token_count: 378
 ---
-
 # I grinded for Ivies just to… not want them anymore 😭
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1skska7/i_grinded_for_ivies_just_to_not_want_them_anymore/)

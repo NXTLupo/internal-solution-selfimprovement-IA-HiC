@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1r15ngo.md
 url: "https://www.reddit.com/r/productivity/comments/1r15ngo/what_are_best_apps_for_productivity_and_focus_as/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,27 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:45.659Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1r15ngo.md#c0"
+    char_span: [0, 1175]
+    sentence_count: 10
+    key_terms: [productivity, tasks, important, reminders, calendar, comments, struggle, teuxdeux]
+    token_count: 260
+  - id: "social-intelligence/reddit-deep/productivity/1r15ngo.md#c1"
+    char_span: [1190, 2946]
+    sentence_count: 8
+    key_terms: [reminders, something, work, reminder, ticktick, system, app, currently]
+    section: Comments
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/productivity/1r15ngo.md#c2"
+    char_span: [2948, 4354]
+    sentence_count: 1
+    key_terms: [com, day, use, everything, important, details, outlook, singlio]
+    section: Comments
+    token_count: 346
 ---
-
 # What are best apps for productivity and focus as a person with ADHD?
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1r15ngo/what_are_best_apps_for_productivity_and_focus_as/)

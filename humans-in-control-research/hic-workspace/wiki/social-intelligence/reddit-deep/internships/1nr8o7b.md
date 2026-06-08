@@ -6,19 +6,19 @@ subreddit: "internships"
 title: "My long journey from unpaid intern to 135K job"
 author: "OfComputer"
 date: "2025-09-26T18:14:45.000Z"
-score: 100
+score: 102
 upvote_ratio: 0.97
 num_comments: 9
 flair: "Offers"
-extracted_at: "2026-05-25T18:31:15.453Z"
+extracted_at: "2026-06-06T23:20:46.232Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # My long journey from unpaid intern to 135K job
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1nr8o7b/my_long_journey_from_unpaid_intern_to_135k_job/)
-Posted by **OfComputer** · **100↑** · **9 comments**
+Posted by **OfComputer** · **102↑** · **9 comments**
 
 My first internship was during my junior year of college. I worked as a data analyst volunteer at a small investment bank. Before that, I only had two school capstone projects on my resume. Honestly, I felt pretty down. Most of my friends had already landed internships, whether they were good or not, at least they were all paid. This unpaid internship was the only offer I had at the time.It’s been a long journey, from a volunteer to eventually landing paid internships. But I didn’t give up on searching for new opportunities. My goal was to eventually work for a large tech company with a solid new grad package.Going from a paid internship to a full-time offer is a whole different challenge. You have to keep improving yourself and maximize your efficiency across three key areas: Resumes, job applications, and interview prep.
 
@@ -46,11 +46,10 @@ Don’t waste any opportunities: even unpaid internships are valuable, especiall
 
 ## Comments
 
-- **Appropriate-Tutor587** (4↑): I keep seeing the same similar copied and pasted version of this post for a month now!
+- **Appropriate-Tutor587** (3↑): I keep seeing the same similar copied and pasted version of this post for a month now!
 - **Affectionate-Tailor7** (7↑): Great for telling, not applicable to 2025.
   - **Redditsuna** (1↑): Can you elaborate more about that
 - **Thin_Ice_5738** (1↑): Congratulations buddy
-- **Adventurous_Mail9055** (1↑): Congrats! Proud of you
 - **Leading_Marketing_12** (1↑): Working in Service based company with toxic work environment and workload. What should I do? 2024 passout.
 
 I am a 2024 passout and I currently employed in Service Based Company since 4 months (joining got delayed). Recently I got allocated to a project which is kind of a support and enhancement role with Tech Stack as dotnet. The environment is really bad and higher ups are really toxic and workload is also there. I have been working as a Mobile App developer since  my 3rd year in college and have 2 year experience in it . Also have successfully published 6 applications on play store and app store. Some of the applications are having 5000+ downloads. What should I do?

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1qq12wj.md
 url: "https://www.reddit.com/r/college/comments/1qq12wj/do_i_dorm/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,27 @@ flair: "Living Arrangements/roommates"
 extracted_at: "2026-05-25T15:51:48.251Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1qq12wj.md#c0"
+    char_span: [0, 1016]
+    sentence_count: 10
+    key_terms: [college, school, dorm, like, comments, minutes, living, rooms]
+    token_count: 255
+  - id: "social-intelligence/reddit-deep/college/1qq12wj.md#c1"
+    char_span: [1031, 1864]
+    sentence_count: 6
+    key_terms: [free, living, moving, school, choicereflection965, going, grad, home]
+    section: Comments
+    token_count: 213
+  - id: "social-intelligence/reddit-deep/college/1qq12wj.md#c2"
+    char_span: [1866, 3419]
+    sentence_count: 11
+    key_terms: [living, campus, experience, trustmeiknowthings, get, parents, people, away]
+    section: Comments
+    token_count: 397
 ---
-
 # Do I dorm?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1qq12wj/do_i_dorm/)

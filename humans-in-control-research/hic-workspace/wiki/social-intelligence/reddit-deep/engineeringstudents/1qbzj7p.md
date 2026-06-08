@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1qbzj7p.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1qbzj7p/new_mechanical_engineering_student_tips_advice/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Academic Advice"
 extracted_at: "2026-05-23T20:15:19.046Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qbzj7p.md#c0"
+    char_span: [0, 987]
+    sentence_count: 9
+    key_terms: [engineering, engineeringstudents, "i'm", mechanical, comments, advice, world, internships]
+    token_count: 231
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qbzj7p.md#c1"
+    char_span: [1002, 2367]
+    sentence_count: 18
+    key_terms: [year, sophomore, semester, broadly, develop, habits, maybe, never]
+    section: Comments
+    token_count: 341
 ---
-
 # New Mechanical Engineering student – tips & advice welcome!
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1qbzj7p/new_mechanical_engineering_student_tips_advice/)

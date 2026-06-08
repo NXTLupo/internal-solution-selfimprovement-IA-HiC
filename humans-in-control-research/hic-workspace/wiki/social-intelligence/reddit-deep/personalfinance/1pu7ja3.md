@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1pu7ja3.md
 url: "https://www.reddit.com/r/personalfinance/comments/1pu7ja3/wondering_if_i_have_enough_to_never_go_back_into/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,51 @@ flair: "Investing"
 extracted_at: "2026-05-17T01:13:31.188Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1pu7ja3.md#c0"
+    char_span: [0, 1972]
+    sentence_count: 12
+    key_terms: [personalfinance, enough, "don't", month, cash, fund, get, retirement]
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/personalfinance/1pu7ja3.md#c1"
+    char_span: [1987, 3980]
+    sentence_count: 13
+    key_terms: [year, "you're", puzzleheaded-cat-979, retirement, early, need, otherwise, realistic]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/personalfinance/1pu7ja3.md#c2"
+    char_span: [3982, 6075]
+    sentence_count: 16
+    key_terms: [because, success, calculators, "that's", retirement, bad, "you'll", going]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/personalfinance/1pu7ja3.md#c3"
+    char_span: [6077, 7019]
+    sentence_count: 6
+    key_terms: [medicaid, qualify, assets, government, illustrious-rush8797, puzzleheaded-cat-979, aca, get]
+    section: Comments
+    token_count: 229
+  - id: "social-intelligence/reddit-deep/personalfinance/1pu7ja3.md#c4"
+    char_span: [7021, 8822]
+    sentence_count: 9
+    key_terms: [puzzleheaded-cat-979, insurance, health, income, retirement, something, expenses, biggest]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/personalfinance/1pu7ja3.md#c5"
+    char_span: [8824, 10723]
+    sentence_count: 13
+    key_terms: [free, live, year, puzzleheaded-cat-979, expenses, likely, going, month]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/personalfinance/1pu7ja3.md#c6"
+    char_span: [10725, 11895]
+    sentence_count: 6
+    key_terms: [enough, expenses, pretty-researcher404, "don't", total, trips, low-cost-of-living, itchy-throat-4779]
+    section: Comments
+    token_count: 309
 ---
-
 # Wondering if I Have Enough to Never go back into the Work Force Again
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1pu7ja3/wondering_if_i_have_enough_to_never_go_back_into/)

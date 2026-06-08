@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/workonline/1t7dv5x.md
 url: "https://www.reddit.com/r/WorkOnline/comments/1t7dv5x/uber_ai_solutions_still_hasnt_paid_me_2700_since/"
 kind: "social-post"
 source: "reddit-deep: r/workonline"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-26T12:53:45.644Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/workonline/1t7dv5x.md#c0"
+    char_span: [0, 2087]
+    sentence_count: 15
+    key_terms: [support, uber, payments, solutions, cannot, email, eoin, workonline]
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/workonline/1t7dv5x.md#c1"
+    char_span: [2102, 4173]
+    sentence_count: 12
+    key_terms: [uber, linkedin, project, worked, been, pay, another, malejjj]
+    section: Comments
+    token_count: 507
 ---
-
 # Uber AI Solutions still hasn’t paid me (€2700+) since february
 
 Source: [reddit-deep: r/workonline](https://www.reddit.com/r/WorkOnline/comments/1t7dv5x/uber_ai_solutions_still_hasnt_paid_me_2700_since/)

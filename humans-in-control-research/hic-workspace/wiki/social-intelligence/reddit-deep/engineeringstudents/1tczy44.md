@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1tczy44.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1tczy44/is_prestige_worth_taking_on_debt/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,45 @@ flair: "College Choice"
 extracted_at: "2026-05-23T19:44:57.171Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tczy44.md#c0"
+    char_span: [0, 1513]
+    sentence_count: 11
+    key_terms: [engineering, umich, worth, debt, engineeringstudents, prestige, "i'm", mechanical]
+    token_count: 334
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tczy44.md#c1"
+    char_span: [1528, 3534]
+    sentence_count: 19
+    key_terms: [engineeringstudents, wiki, please, reddit, https, com, students, posting]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tczy44.md#c2"
+    char_span: [3537, 5503]
+    sentence_count: 14
+    key_terms: [portfolio, debt, well-regarded, peterverdone, windjetman62, worth, good, look]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tczy44.md#c3"
+    char_span: [5505, 7200]
+    sentence_count: 21
+    key_terms: [want, msu, companies, michigan, going, like, guessing, prestige]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tczy44.md#c4"
+    char_span: [7202, 8684]
+    sentence_count: 10
+    key_terms: [difference, debt, msu, isn, probably, future, pretty, adoormarkedpirate420]
+    section: Comments
+    token_count: 379
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tczy44.md#c5"
+    char_span: [8686, 9507]
+    sentence_count: 5
+    key_terms: [difference, program, smaller, support, umass, get, significantly, counterpoint]
+    section: Comments
+    token_count: 189
 ---
-
 # Is prestige worth taking on debt?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1tczy44/is_prestige_worth_taking_on_debt/)

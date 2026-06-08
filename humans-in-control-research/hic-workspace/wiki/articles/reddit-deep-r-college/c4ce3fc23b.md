@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-college/c4ce3fc23b.md
 url: "https://www.reddit.com/r/college/comments/1of5atl/4_eight_week_courses_instead_of_4_regular_courses/"
 url_hash: "c4ce3fc23b"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T19:50:06.554141+00:00"
 chars: 1384
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-college/c4ce3fc23b.md#c0"
+    char_span: [0, 1575]
+    sentence_count: 9
+    key_terms: [classes, week, courses, time, semester, cragdragon511, comments, standard]
+    token_count: 418
 ---
-
 # 4 eight week courses instead of 4 regular courses
 
 Source: [Reddit Deep: r/college](https://www.reddit.com/r/college/comments/1of5atl/4_eight_week_courses_instead_of_4_regular_courses/)

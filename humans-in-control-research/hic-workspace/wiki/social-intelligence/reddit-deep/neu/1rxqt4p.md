@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1rxqt4p.md
 url: "https://www.reddit.com/r/NEU/comments/1rxqt4p/prospective_student_oakland_to_boston_business/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,16 @@ score: 5
 upvote_ratio: 0.86
 num_comments: 0
 flair: "Advice & Experiences"
-extracted_at: "2026-05-19T15:08:27.154Z"
+extracted_at: "2026-06-06T00:27:19.938Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1rxqt4p.md#c0"
+    char_span: [0, 2066]
+    sentence_count: 14
+    key_terms: [oakland, business, administration, boston, healthcare, transition, campus, co-ops]
+    token_count: 470
 ---
-
 # Prospective Student: Oakland to Boston (Business + Public Health) — Is the transition/ROI worth it?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1rxqt4p/prospective_student_oakland_to_boston_business/)

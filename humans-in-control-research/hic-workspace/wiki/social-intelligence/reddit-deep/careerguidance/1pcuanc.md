@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1pcuanc.md
 url: "https://www.reddit.com/r/careerguidance/comments/1pcuanc/early_career_advice_am_i_wrong_for_being/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-20T12:56:27.155Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1pcuanc.md#c0"
+    char_span: [0, 1429]
+    sentence_count: 12
+    key_terms: [been, multiple, careerguidance, opportunities, being, interested, different, comments]
+    token_count: 309
+  - id: "social-intelligence/reddit-deep/careerguidance/1pcuanc.md#c1"
+    char_span: [1444, 3379]
+    sentence_count: 18
+    key_terms: ["i'm", get, noinitiative1439, being, comfortable, perspective, "it's", appreciate]
+    section: Comments
+    token_count: 447
 ---
-
 # Early Career Advice: Am I wrong for being interested in multiple career opportunities at my company?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1pcuanc/early_career_advice_am_i_wrong_for_being/)

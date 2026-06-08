@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1pi98ss.md
 url: "https://www.reddit.com/r/internships/comments/1pi98ss/got_my_first_internship_after_many_rejections/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,16 @@ score: 5
 upvote_ratio: 1
 num_comments: 1
 flair: "During the Internship"
-extracted_at: "2026-05-26T14:30:47.899Z"
+extracted_at: "2026-06-05T19:19:58.912Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1pi98ss.md#c0"
+    char_span: [0, 1201]
+    sentence_count: 6
+    key_terms: [student, internship, internships, got, comments, forward, future, learn]
+    token_count: 285
 ---
-
 # Got My First Internship After Many Rejections – Need Advice on Tech Stack and Future Path
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1pi98ss/got_my_first_internship_after_many_rejections/)

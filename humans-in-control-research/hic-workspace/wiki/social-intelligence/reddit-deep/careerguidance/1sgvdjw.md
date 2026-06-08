@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sgvdjw.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sgvdjw/my_dad_worked_35_years_at_one_company_and_told_me/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -6,19 +7,52 @@ subreddit: "careerguidance"
 title: "my dad worked 35 years at one company and told me he doesn't know what the new version of career stability looks like. has anyone actually figured out what replaced the old playbook?"
 author: "Build_with_bob"
 date: "2026-04-09T16:57:44.000Z"
-score: 32
-upvote_ratio: 0.84
+score: 33
+upvote_ratio: 0.86
 num_comments: 24
 flair: ""
-extracted_at: "2026-05-26T14:32:49.166Z"
+extracted_at: "2026-06-03T00:56:03.952Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sgvdjw.md#c0"
+    char_span: [0, 2069]
+    sentence_count: 2
+    key_terms: [playbook, company, worked, "don't", years, dad, form, because]
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/careerguidance/1sgvdjw.md#c1"
+    char_span: [2071, 4346]
+    sentence_count: 2
+    key_terms: [experience, years, something, job, company, month, ago, need]
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/careerguidance/1sgvdjw.md#c2"
+    char_span: [4348, 4809]
+    sentence_count: 1
+    key_terms: [because, "don't", "i'm", rhetorically, genuinely, questions, honestly, playbook]
+    token_count: 110
+  - id: "social-intelligence/reddit-deep/careerguidance/1sgvdjw.md#c3"
+    char_span: [4824, 6801]
+    sentence_count: 14
+    key_terms: [industries, companies, company, like, mazz001717, different, industry, working]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/careerguidance/1sgvdjw.md#c4"
+    char_span: [6803, 8812]
+    sentence_count: 13
+    key_terms: [years, aerospace, moved, job, commercial, executive, stability, building]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/careerguidance/1sgvdjw.md#c5"
+    char_span: [8814, 9559]
+    sentence_count: 7
+    key_terms: [control, getting, having, keep, conversations, anticipating, sailyourface, boredtiger2]
+    section: Comments
+    token_count: 186
 ---
-
 # my dad worked 35 years at one company and told me he doesn't know what the new version of career stability looks like. has anyone actually figured out what replaced the old playbook?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sgvdjw/my_dad_worked_35_years_at_one_company_and_told_me/)
-Posted by **Build_with_bob** · **32↑** · **24 comments**
+Posted by **Build_with_bob** · **33↑** · **24 comments**
 
 context: i'm 34, been in my industry 11 years, currently employed, reasonable salary, no immediate threat to my job. writing this because a conversation with my dad last month shifted something and i'm still trying to figure out if i'm thinking about it right.
 
@@ -54,8 +88,8 @@ i wrote up the filter questions i used to pick the niche because picking wrong i
 
 ## Comments
 
-- **mazz001717** (32↑): 3-5 years at each employer and 3-5 industries in your career.
-  - **Second_breakfastses** (15↑): I would argue if you’re in a specialized industry you can change companies within that industry or expand to a related scope of expertise, but completely changing industries would be detrimental.
+- **mazz001717** (33↑): 3-5 years at each employer and 3-5 industries in your career.
+  - **Second_breakfastses** (13↑): I would argue if you’re in a specialized industry you can change companies within that industry or expand to a related scope of expertise, but completely changing industries would be detrimental.
   - **CanAlwaysBeBetter** (4↑): I think it's more like 2 if you get a better offer and 6 if you're consistently moving up internally.
 
 
@@ -68,17 +102,17 @@ That's across 2 major industries/roles, 5-6 companies, and 5 internal promotions
 I have a close friend who over the same period has tried to do the classic work your way up at a company game and he's probably gotten 70% cumulative raises over the same period
   - **gnome_detector** (1↑): Industries - you mean like automotive, oil and gas, solar? Like these?
     - **mazz001717** (2↑): Yes, adjacent industries from your primary.  Still different industries all with separate trajectories
-- **kora-neko** (9↑): You’ve hit on a profound truth. In my late 50s, my 'playbook' has always been fluidity. I’ve changed companies five times because I learned early on that no company shines forever. History proves it: IBM was once 'Gulliver,' and AOL was the star of its era; today, they are relics. My first company was swallowed whole, and a division I led at my last job vanished just a year after I left. Stability is an illusion; adaptation is the only real security.
+- **kora-neko** (8↑): You’ve hit on a profound truth. In my late 50s, my 'playbook' has always been fluidity. I’ve changed companies five times because I learned early on that no company shines forever. History proves it: IBM was once 'Gulliver,' and AOL was the star of its era; today, they are relics. My first company was swallowed whole, and a division I led at my last job vanished just a year after I left. Stability is an illusion; adaptation is the only real security.
 
 Building a side income is a smart move, but I took a slightly different path. I realized that running my own business still meant I had to keep working to eat. More importantly, I’m not passionate about anything in particular—except for sleeping eight hours a day, traveling with my wife, and slacking off.
 
 My strategy was simpler: maximize income, minimize expenses, and funnel everything into the market. I focused on building a **'money-generating system'** rather than creating a new job for myself. Once that system is in place, the money keeps coming in regardless of whether you work or not. To me, that’s the only number that actually matters.
-- **AggravatingGap6070** (9↑): man your dad's answer would mess me up too 💀 but i think you nailed it with building something that travels with you - been doing similar thing in the military space and it's wild how much security it gives even when the income is still small compared to day job 🔥
+- **AggravatingGap6070** (8↑): man your dad's answer would mess me up too 💀 but i think you nailed it with building something that travels with you - been doing similar thing in the military space and it's wild how much security it gives even when the income is still small compared to day job 🔥
 - **hackrack** (8↑): 1. Self employment
 2. Jobs that require your physical presence
 3. Best: #1 + #2
   - **Yhml22** (1↑): Su n
-- **Savings_Income4829** (4↑): It's so individual, a lot depends on the field and growth, both vertically and horizontally. Starting out I'd look for the ability to jump either way every 2-3 years to try to find the area best for you. From there look for more vertical growth, also at this point maybe are starting families so stability is a big factor too. 
+- **Savings_Income4829** (5↑): It's so individual, a lot depends on the field and growth, both vertically and horizontally. Starting out I'd look for the ability to jump either way every 2-3 years to try to find the area best for you. From there look for more vertical growth, also at this point maybe are starting families so stability is a big factor too. 
 
 FWIW my trajectory
 

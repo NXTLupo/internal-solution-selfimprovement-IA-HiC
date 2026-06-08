@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1rlkkve.md
 url: "https://www.reddit.com/r/managers/comments/1rlkkve/how_do_you_engage_with_your_team_tools_for_support/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-26T12:54:23.683Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1rlkkve.md#c0"
+    char_span: [0, 2028]
+    sentence_count: 29
+    key_terms: [people, team, without, comments, everyone, managers, standups, because]
+    token_count: 486
 ---
-
 # How do you engage with your team? Tools for support.
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1rlkkve/how_do_you_engage_with_your_team_tools_for_support/)

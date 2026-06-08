@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1pgw7j9.md
 url: "https://www.reddit.com/r/jobs/comments/1pgw7j9/how_should_i_respond_to_this_email_despite_my/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,51 @@ flair: "Post-interview"
 extracted_at: "2026-05-22T21:35:36.539Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1pgw7j9.md#c0"
+    char_span: [0, 933]
+    sentence_count: 9
+    key_terms: [comments, manager, respond, stated, email, dangerous-sea8072, back, got]
+    token_count: 221
+  - id: "social-intelligence/reddit-deep/jobs/1pgw7j9.md#c1"
+    char_span: [948, 1322]
+    sentence_count: 2
+    key_terms: [dangerous-sea8072, inconsistent, unreliable, cautious, settling, smaller, agency, follow]
+    section: Comments
+    token_count: 103
+  - id: "social-intelligence/reddit-deep/jobs/1pgw7j9.md#c2"
+    char_span: [1324, 3218]
+    sentence_count: 14
+    key_terms: ["it's", "don't", month, job, take, pregnancy, whatever, process]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/jobs/1pgw7j9.md#c3"
+    char_span: [3220, 4808]
+    sentence_count: 10
+    key_terms: [months, timeline, supersecretspecialdm, being, leave, ago, let, forexisboring]
+    section: Comments
+    token_count: 378
+  - id: "social-intelligence/reddit-deep/jobs/1pgw7j9.md#c4"
+    char_span: [4810, 6899]
+    sentence_count: 19
+    key_terms: [job, pregnant, leave, like, need, take, don, against]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/jobs/1pgw7j9.md#c5"
+    char_span: [6901, 9036]
+    sentence_count: 22
+    key_terms: [position, ask, job, scam, work, money, start, back]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1pgw7j9.md#c6"
+    char_span: [9038, 10533]
+    sentence_count: 15
+    key_terms: [job, "they're", person, simple, ketolurkerhereagain, dangerous-sea8072, human-search-6114, find]
+    section: Comments
+    token_count: 381
 ---
-
 # How should I respond to this email despite my circumstances?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1pgw7j9/how_should_i_respond_to_this_email_despite_my/)

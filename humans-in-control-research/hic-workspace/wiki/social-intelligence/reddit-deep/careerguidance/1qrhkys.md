@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1qrhkys.md
 url: "https://www.reddit.com/r/careerguidance/comments/1qrhkys/end_of_career_guidance_should_i_seek_a_job/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -6,19 +7,41 @@ subreddit: "careerguidance"
 title: "End of career guidance: SHOULD I seek a job?"
 author: "OnlyThePhantomKnows"
 date: "2026-01-30T20:49:22.000Z"
-score: 5
-upvote_ratio: 0.86
+score: 4
+upvote_ratio: 0.83
 num_comments: 12
 flair: ""
-extracted_at: "2026-05-23T14:54:05.576Z"
+extracted_at: "2026-06-03T18:35:34.120Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1qrhkys.md#c0"
+    char_span: [0, 1727]
+    sentence_count: 21
+    key_terms: [job, careerguidance, lady, new, situation, comments, company, bother]
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/careerguidance/1qrhkys.md#c1"
+    char_span: [1729, 3539]
+    sentence_count: 26
+    key_terms: [bermuda, islands, environment, kids, work, researched, residency, bahamas]
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/careerguidance/1qrhkys.md#c2"
+    char_span: [3554, 5429]
+    sentence_count: 11
+    key_terms: [onlythephantomknows, investment, spanish, probably, question, speaking, health, living]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/careerguidance/1qrhkys.md#c3"
+    char_span: [5431, 5707]
+    sentence_count: 6
+    key_terms: [income, live, investments, retirement, alternate, residency, engineer, enough]
+    section: Comments
+    token_count: 74
 ---
-
 # End of career guidance: SHOULD I seek a job?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1qrhkys/end_of_career_guidance_should_i_seek_a_job/)
-Posted by **OnlyThePhantomKnows** · **5↑** · **12 comments**
+Posted by **OnlyThePhantomKnows** · **4↑** · **12 comments**
 
 So I have enough money to retire.  I have only worked intermittently (3-9 months a year) for a decade+ because  I am FI and I am good at my job and I enjoy it.
 

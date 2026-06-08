@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1nl5hdj.md
 url: "https://www.reddit.com/r/financialindependence/comments/1nl5hdj/reached_1m_net_worth_35m_and_35f_with_5_kids/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,68 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.703Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [cross_industry]
+industry_method: unclassified
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1nl5hdj.md#c0"
+    char_span: [0, 1479]
+    sentence_count: 9
+    key_terms: [financialindependence, work, assets, home, kids, comments, making, posted]
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/financialindependence/1nl5hdj.md#c1"
+    char_span: [1481, 2146]
+    sentence_count: 7
+    key_terms: [years, along, job, too, want, tremendously, accelerated, essentially]
+    token_count: 155
+  - id: "social-intelligence/reddit-deep/financialindependence/1nl5hdj.md#c2"
+    char_span: [2161, 3365]
+    sentence_count: 11
+    key_terms: [congratulations, eclectic7112, years, compounding, days, biggest, markets, rewards]
+    section: Comments
+    token_count: 319
+  - id: "social-intelligence/reddit-deep/financialindependence/1nl5hdj.md#c3"
+    char_span: [3367, 4979]
+    sentence_count: 18
+    key_terms: [market, been, through, crash, years, last, time, went]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/financialindependence/1nl5hdj.md#c4"
+    char_span: [4981, 6048]
+    sentence_count: 7
+    key_terms: [companies, company, provide, public, comp, lower-cost, utility, formal-flatworm-9032]
+    section: Comments
+    token_count: 236
+  - id: "social-intelligence/reddit-deep/financialindependence/1nl5hdj.md#c5"
+    char_span: [6050, 8016]
+    sentence_count: 17
+    key_terms: [congratulations, working, procedurethen, col, kids, like, pay, work]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/financialindependence/1nl5hdj.md#c6"
+    char_span: [8018, 9851]
+    sentence_count: 14
+    key_terms: [kids, though, procedurethen, years, definitely, everything, retirement, finally]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/financialindependence/1nl5hdj.md#c7"
+    char_span: [9854, 11453]
+    sentence_count: 15
+    key_terms: [kids, grandkids, select, travel, like, colleges, consider, family]
+    section: Comments
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/financialindependence/1nl5hdj.md#c8"
+    char_span: [11456, 13220]
+    sentence_count: 14
+    key_terms: [kids, college, funding, procedurethen, fire, children, expenses, adrywellofknowledge]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/financialindependence/1nl5hdj.md#c9"
+    char_span: [13222, 14962]
+    sentence_count: 18
+    key_terms: [college, kids, year, scholarships, early, parameters, community, wondering]
+    section: Comments
+    token_count: 427
 ---
-
 # Reached $1M Net Worth! (35M and 35F with 5 kids)
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1nl5hdj/reached_1m_net_worth_35m_and_35f_with_5_kids/)

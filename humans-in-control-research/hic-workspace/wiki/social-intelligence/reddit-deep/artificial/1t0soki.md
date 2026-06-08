@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1t0soki.md
 url: "https://www.reddit.com/r/artificial/comments/1t0soki/i_built_a_router_that_automatically_sends_your_ai/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,39 @@ flair: "Project"
 extracted_at: "2026-05-11T17:27:04.782Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1t0soki.md#c0"
+    char_span: [0, 1505]
+    sentence_count: 9
+    key_terms: [followloop, tasks, claude, model, app, cost, actual, automatically]
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/artificial/1t0soki.md#c1"
+    char_span: [1520, 3752]
+    sentence_count: 17
+    key_terms: [openrouter, route, routing, model, queeflatinahog, automatically, subscription, auto-router]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/artificial/1t0soki.md#c2"
+    char_span: [3754, 5576]
+    sentence_count: 18
+    key_terms: [queeflatinahog, openrouter, because, router, bot, does, difference, comment]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/artificial/1t0soki.md#c3"
+    char_span: [5578, 7886]
+    sentence_count: 16
+    key_terms: [model, complexity, coder, routing, classification, queeflatinahog, switchboard, confidence]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/artificial/1t0soki.md#c4"
+    char_span: [7888, 10074]
+    sentence_count: 9
+    key_terms: [models, tasks, frontier, routing, task, quality, classification, simple]
+    section: Comments
+    token_count: 457
 ---
-
 # I built a router that automatically sends your AI tasks to the most appropriate model to handle them at low cost - 9,200 tasks in, $21 saved at $0.14 actual cost
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1t0soki/i_built_a_router_that_automatically_sends_your_ai/)

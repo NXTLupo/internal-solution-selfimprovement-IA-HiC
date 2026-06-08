@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1t4dpn5.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1t4dpn5/6th_sem_engineering_student_lost_focus_due_to/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,15 @@ flair: "Career Advice"
 extracted_at: "2026-05-23T20:15:19.041Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1t4dpn5.md#c0"
+    char_span: [0, 932]
+    sentence_count: 6
+    key_terms: [engineeringstudents, focus, consistency, placements, comments, personal, issues, dsa]
+    token_count: 223
 ---
-
 # 6th sem engineering student, lost focus due to personal issues - need placement prep advice
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1t4dpn5/6th_sem_engineering_student_lost_focus_due_to/)

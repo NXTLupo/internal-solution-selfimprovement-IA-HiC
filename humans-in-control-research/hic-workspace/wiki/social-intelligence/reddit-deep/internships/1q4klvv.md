@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1q4klvv.md
 url: "https://www.reddit.com/r/internships/comments/1q4klvv/accounting_finance_internship_baf_student_seeking/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,15 @@ flair: "General"
 extracted_at: "2026-05-25T15:51:38.717Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1q4klvv.md#c0"
+    char_span: [0, 846]
+    sentence_count: 7
+    key_terms: [internships, accounting, internship, finance, india, practical, comments, student]
+    token_count: 199
 ---
-
 # Accounting / Finance Internship – BAF Student Seeking Opportunity (India / UAE).
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1q4klvv/accounting_finance_internship_baf_student_seeking/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-college/da238f4bbc.md
 url: "https://www.reddit.com/r/college/comments/1rc6fm0/can_i_take_classes_without_a_degree_in_mind/"
 url_hash: "da238f4bbc"
 kind: "article"
@@ -8,10 +9,22 @@ author: ""
 date: "2026-02-23T03:22:48.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-23T20:19:07.835393+00:00"
+extracted_at: "2026-06-03T03:12:46.866753+00:00"
 chars: 3086
+relevance: 30
+engagement_goal: "Generate a strategic analysis identifying actionable opportunities for Northeastern University to enhance experiential learning and co-op success. Focus the analysis on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development."
+chunks:
+  - id: "articles/reddit-deep-r-college/da238f4bbc.md#c0"
+    char_span: [0, 1476]
+    sentence_count: 10
+    key_terms: [college, child, development, take, time, want, psychology, currently]
+    token_count: 331
+  - id: "articles/reddit-deep-r-college/da238f4bbc.md#c1"
+    char_span: [1478, 3266]
+    sentence_count: 12
+    key_terms: [admissions, college, community, classes, seeking, degree, office, school]
+    token_count: 408
 ---
-
 # Can I take classes without a degree in mind?
 
 Source: [Reddit Deep: r/college](https://www.reddit.com/r/college/comments/1rc6fm0/can_i_take_classes_without_a_degree_in_mind/)
@@ -27,7 +40,7 @@ Many people do this while trying to figure out a major and you don’t need to b
 
 I would contact the admissions office for what every college you wish to do this at for better answers
 [11↑ LetterheadClassic306] you can absolutely do this. most schools let you enroll as a non-degree seeking student and just take classes that interest you. the credits will be on a transcript and usually transfer if you decide to pursue a degree later. i'd check with the admissions office at your local community college especially - they're usually set up for this and the cost is way lower. one class per semester is totally doable with a little one at home and keeps you moving forward without the pressure of picking a major right now.
-[4↑ DeskRider] You should be able to.  Check with the admissions office for the school you're considering.
+[3↑ DeskRider] You should be able to.  Check with the admissions office for the school you're considering.
 [2↑ hornybutired] All the colleges I've attended or taught at have allowed people to enroll in individual classes as non-degree seeking students. Talk to admissions.
 [2↑ PerpetuallyTired74] Go to a community college. You can literally take one class at a time. That’s what I did when I was a SAHM, until I knew I could handle more at a time. It took me four years to get my AA. Then I had to stop because I couldn’t afford to go to a university, nor did I have the time. I recently went back and got my bachelors in psych. Next goal is grad school for mental health counseling.
 

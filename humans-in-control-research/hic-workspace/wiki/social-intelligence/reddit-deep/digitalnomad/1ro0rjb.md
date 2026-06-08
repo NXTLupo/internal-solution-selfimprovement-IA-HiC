@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1ro0rjb.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1ro0rjb/how_are_people_starting_the_digital_nomad/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,56 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:56.724Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1ro0rjb.md#c0"
+    char_span: [0, 2242]
+    sentence_count: 18
+    key_terms: [lifestyle, digitalnomad, remote, comments, germany, different, long-term, starting]
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/digitalnomad/1ro0rjb.md#c1"
+    char_span: [2244, 3930]
+    sentence_count: 12
+    key_terms: [people, savings, income, something, building, nomading, started, honest]
+    token_count: 344
+  - id: "social-intelligence/reddit-deep/digitalnomad/1ro0rjb.md#c2"
+    char_span: [3945, 5307]
+    sentence_count: 9
+    key_terms: [gameover281997, border, month, don, runs, especially, countries, insurance]
+    section: Comments
+    token_count: 358
+  - id: "social-intelligence/reddit-deep/digitalnomad/1ro0rjb.md#c3"
+    char_span: [5309, 7251]
+    sentence_count: 14
+    key_terms: [month, prescription, usually, around, lots, apartment, extremely, because]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/digitalnomad/1ro0rjb.md#c4"
+    char_span: [7253, 9201]
+    sentence_count: 17
+    key_terms: [airbnb, cheaper, retirement, living, people, costs, month, rent]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/digitalnomad/1ro0rjb.md#c5"
+    char_span: [9203, 10373]
+    sentence_count: 8
+    key_terms: [south, savings, africa, europe, imaginationupbeat867, standard-building373, doing, local]
+    section: Comments
+    token_count: 304
+  - id: "social-intelligence/reddit-deep/digitalnomad/1ro0rjb.md#c6"
+    char_span: [10375, 12122]
+    sentence_count: 12
+    key_terms: [drippingsoy, place, rent, went, find, guy, like, building]
+    section: Comments
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/digitalnomad/1ro0rjb.md#c7"
+    char_span: [12124, 12587]
+    sentence_count: 3
+    key_terms: [live, halong, overwhelming, pharmaxhrist, affordable, nomading, november, problem]
+    section: Comments
+    token_count: 141
 ---
-
 # How are people starting the digital nomad lifestyle with only 5k in savings?
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1ro0rjb/how_are_people_starting_the_digital_nomad/)

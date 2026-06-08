@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1lslyhk.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1lslyhk/does_learning_a_foreign_language_like_mandarin/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-20T12:57:40.612Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lslyhk.md#c0"
+    char_span: [0, 772]
+    sentence_count: 5
+    key_terms: [cscareerquestions, comments, language, learning, mandarin, like, tech, collaboration]
+    token_count: 164
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lslyhk.md#c1"
+    char_span: [787, 2752]
+    sentence_count: 12
+    key_terms: [english, proficient, time, native, goldenpedro, languages, singapore, technical]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lslyhk.md#c2"
+    char_span: [2754, 4497]
+    sentence_count: 15
+    key_terms: [english-most-spoken-at-home-for-nearly-half-of-spore-residents-population-census, mandarin, english, career, global, like, companies, marketing]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lslyhk.md#c3"
+    char_span: [4499, 6453]
+    sentence_count: 15
+    key_terms: [english, mandarin, fluency, professional, learn, development, perspective, relatively]
+    section: Comments
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lslyhk.md#c4"
+    char_span: [6455, 7368]
+    sentence_count: 6
+    key_terms: [language, foreign, interest, english, thatmanwiththefedora, life, ways, communicating]
+    section: Comments
+    token_count: 207
 ---
-
 # Does learning a foreign language (like Mandarin) improve my odds in getting a job or advancing my career in tech?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1lslyhk/does_learning_a_foreign_language_like_mandarin/)

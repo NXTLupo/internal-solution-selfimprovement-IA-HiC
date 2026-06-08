@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1matdvi.md
 url: "https://www.reddit.com/r/college/comments/1matdvi/working_full_time_in_school/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,30 @@ subreddit: "college"
 title: "Working full time & in school"
 author: "ChersBeres"
 date: "2025-07-27T18:15:34.000Z"
-score: 6
-upvote_ratio: 0.88
+score: 7
+upvote_ratio: 0.9
 num_comments: 9
 flair: "Career/work"
-extracted_at: "2026-05-24T14:08:12.150Z"
+extracted_at: "2026-06-03T12:16:23.741Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1matdvi.md#c0"
+    char_span: [0, 1889]
+    sentence_count: 20
+    key_terms: ["i'm", "i've", working, degree, school, job, want, comments]
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/college/1matdvi.md#c1"
+    char_span: [1904, 3665]
+    sentence_count: 25
+    key_terms: [time, full, school, psychology, did, college, through, feel]
+    section: Comments
+    token_count: 449
 ---
-
 # Working full time & in school
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1matdvi/working_full_time_in_school/)
-Posted by **ChersBeres** · **6↑** · **9 comments**
+Posted by **ChersBeres** · **7↑** · **9 comments**
 
 Hi you all, I'm not sure if I'm looking for advice or validation, so I'll take anything. I'm 26 YO, in the process of getting my second degree: my parents refused to help me with FAFSA paperwork unless I did what they wanted me to do the first time around. Now that I'm an independent student, I'm going back to pursue science.
 

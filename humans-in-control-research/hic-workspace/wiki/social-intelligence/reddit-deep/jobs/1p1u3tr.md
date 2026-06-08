@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1p1u3tr.md
 url: "https://www.reddit.com/r/jobs/comments/1p1u3tr/i_feel_lost_with_my_career_as_a_programmer_and/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,20 @@ flair: "Applications"
 extracted_at: "2026-05-20T02:33:39.318Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1p1u3tr.md#c0"
+    char_span: [0, 1920]
+    sentence_count: 20
+    key_terms: [like, programming, don, feel, jobs, apps, job, programmer]
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/jobs/1p1u3tr.md#c1"
+    char_span: [1922, 3239]
+    sentence_count: 15
+    key_terms: [don, experience, like, co-op, feel, want, internship, because]
+    token_count: 298
 ---
-
 # I feel lost with my career as a programmer and don’t know where I fit
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1p1u3tr/i_feel_lost_with_my_career_as_a_programmer_and/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1ssnisd/mityalepitt_gap_bsmd_help_me_pick/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,57 @@ flair: "Advice"
 extracted_at: "2026-05-20T06:42:01.164Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [higher_ed, education, healthcare]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c0"
+    char_span: [0, 1259]
+    sentence_count: 11
+    key_terms: [yale, pitt, medical, school, applyingtocollege, mit, gap, pick]
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c1"
+    char_span: [1274, 3559]
+    sentence_count: 26
+    key_terms: [school, mit, medical, yale, research, undergraduate, med, take]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c2"
+    char_span: [3561, 5411]
+    sentence_count: 10
+    key_terms: [average, mit, medical, schools, range, application, disciplines, gpa]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c3"
+    char_span: [5413, 7528]
+    sentence_count: 7
+    key_terms: [med, degree, doctor, intelligent-web-8017, someone, school, opportunities, transaction]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c4"
+    char_span: [7530, 9509]
+    sentence_count: 8
+    key_terms: [school, mit, pitt, medical, reincarnatedbiscuits, program, good, med]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c5"
+    char_span: [9511, 11658]
+    sentence_count: 12
+    key_terms: [top, schools, yale, like, medical, med, mit, undergrads]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c6"
+    char_span: [11660, 13510]
+    sentence_count: 2
+    key_terms: [comment, getting, larp, deleted, program, access, making, school]
+    section: Comments
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c7"
+    char_span: [13512, 14101]
+    sentence_count: 4
+    key_terms: [research, early, years, pitt, ok-fishing609, relationships, competitive, connections]
+    section: Comments
+    token_count: 137
 ---
-
 # MIT/Yale/Pitt GAP BS/MD? Help me pick
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1ssnisd/mityalepitt_gap_bsmd_help_me_pick/)

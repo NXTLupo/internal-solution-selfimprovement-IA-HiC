@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1ldn1yg.md
 url: "https://www.reddit.com/r/college/comments/1ldn1yg/should_i_say_something/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-26T14:31:29.702Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1ldn1yg.md#c0"
+    char_span: [0, 2030]
+    sentence_count: 16
+    key_terms: [discussion, something, college, chegg, post, unit, reply, week]
+    token_count: 465
 ---
-
 # Should I say something?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ldn1yg/should_i_say_something/)

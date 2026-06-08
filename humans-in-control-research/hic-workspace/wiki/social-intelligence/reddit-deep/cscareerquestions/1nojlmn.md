@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1nojlmn.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1nojlmn/graduated_from_cs_in_april_do_bachelor_of/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: "New Grad"
 extracted_at: "2026-05-25T13:02:11.360Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nojlmn.md#c0"
+    char_span: [0, 1218]
+    sentence_count: 8
+    key_terms: [engineering, internship, software, development, graduated, cscareerquestions, bachelor, april]
+    token_count: 297
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nojlmn.md#c1"
+    char_span: [1233, 2237]
+    sentence_count: 7
+    key_terms: [throwaway053100, internship, already, degree, accomplished-win9630, apply, cscareerquestions, metalreflectslime]
+    section: Comments
+    token_count: 247
 ---
-
 # Graduated from CS in April. Do bachelor of Engineering to get internship May 2026, do Masters in Software Engineering, or drop out?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1nojlmn/graduated_from_cs_in_april_do_bachelor_of/)

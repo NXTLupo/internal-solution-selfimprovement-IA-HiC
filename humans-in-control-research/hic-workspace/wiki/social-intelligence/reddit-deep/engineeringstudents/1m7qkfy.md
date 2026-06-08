@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1m7qkfy.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1m7qkfy/any_engineering_students_looking_for/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Project Help"
 extracted_at: "2026-05-23T19:44:57.162Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1m7qkfy.md#c0"
+    char_span: [0, 764]
+    sentence_count: 6
+    key_terms: [experience, engineeringstudents, wanted, engineering, comments, students, looking, startup]
+    token_count: 166
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1m7qkfy.md#c1"
+    char_span: [779, 1309]
+    sentence_count: 5
+    key_terms: [investment, platform, startup, mrtophatlizard, different, scheduler, everyone, recycled]
+    section: Comments
+    token_count: 144
 ---
-
 # Any Engineering Students Looking For Internships/Experience?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1m7qkfy/any_engineering_students_looking_for/)

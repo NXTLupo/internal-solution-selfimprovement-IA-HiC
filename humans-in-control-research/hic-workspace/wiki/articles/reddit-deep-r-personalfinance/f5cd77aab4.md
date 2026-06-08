@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-personalfinance/f5cd77aab4.md
 url: "https://www.reddit.com/r/personalfinance/comments/1t4dcmn/broke_and_late_to_the_game/"
 url_hash: "f5cd77aab4"
 kind: "article"
@@ -10,8 +11,30 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:19:28.703024+00:00"
 chars: 6133
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-personalfinance/f5cd77aab4.md#c0"
+    char_span: [0, 2096]
+    sentence_count: 20
+    key_terms: [independence, financial, personalfinance, towards, income, start, "i've", like]
+    token_count: 487
+  - id: "articles/reddit-deep-r-personalfinance/f5cd77aab4.md#c1"
+    char_span: [2098, 4171]
+    sentence_count: 12
+    key_terms: [income, opportunities, month, job, get, love, includes, interest]
+    token_count: 504
+  - id: "articles/reddit-deep-r-personalfinance/f5cd77aab4.md#c2"
+    char_span: [4173, 5964]
+    sentence_count: 19
+    key_terms: [debt, save, flowchart, expenses, starter, budget, trying, "you're"]
+    token_count: 439
+  - id: "articles/reddit-deep-r-personalfinance/f5cd77aab4.md#c3"
+    char_span: [5966, 6294]
+    sentence_count: 2
+    key_terms: [income, toward, savings, strategies, repayment, higher, living, lower]
+    token_count: 90
 ---
-
 # Broke and Late to the game
 
 Source: [Reddit Deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1t4dcmn/broke_and_late_to_the_game/)

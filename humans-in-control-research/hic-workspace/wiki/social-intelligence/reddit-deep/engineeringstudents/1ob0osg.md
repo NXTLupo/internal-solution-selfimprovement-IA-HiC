@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1ob0osg.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1ob0osg/how_to_do_well_in_engineering_internships_as_a/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Career Help"
 extracted_at: "2026-05-14T18:16:49.038Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ob0osg.md#c0"
+    char_span: [0, 931]
+    sentence_count: 8
+    key_terms: [engineeringstudents, did, companies, interview, on-demand, comments, prepared, student]
+    token_count: 202
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ob0osg.md#c1"
+    char_span: [946, 3007]
+    sentence_count: 11
+    key_terms: [engineeringstudents, wiki, reddit, https, interview, questions, com, company]
+    section: Comments
+    token_count: 462
 ---
-
 # How to do well in Engineering Internships as a first-year student
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1ob0osg/how_to_do_well_in_engineering_internships_as_a/)

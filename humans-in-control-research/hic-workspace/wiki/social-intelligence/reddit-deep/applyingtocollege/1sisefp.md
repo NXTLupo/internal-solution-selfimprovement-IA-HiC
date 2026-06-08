@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1sisefp.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1sisefp/help_better_prestige_vs_better_fit/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,41 @@ subreddit: "applyingtocollege"
 title: "HELP: better prestige vs better fit"
 author: "Emotional_East_6859"
 date: "2026-04-11T19:26:36.000Z"
-score: 5
-upvote_ratio: 1
+score: 4
+upvote_ratio: 0.84
 num_comments: 31
 flair: "Advice"
-extracted_at: "2026-05-25T18:32:06.257Z"
+extracted_at: "2026-06-03T18:34:57.890Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sisefp.md#c0"
+    char_span: [0, 1673]
+    sentence_count: 2
+    key_terms: [smith, better, especially, applyingtocollege, prestige, somewhat, schools, great]
+    token_count: 381
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sisefp.md#c1"
+    char_span: [1675, 3060]
+    sentence_count: 1
+    key_terms: [smith, wes, like, myself, school, strong, psych, feel]
+    token_count: 305
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sisefp.md#c2"
+    char_span: [3075, 4752]
+    sentence_count: 15
+    key_terms: [smith, thank, wesleyan, school, pick, prestige, mopijy, trust]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sisefp.md#c3"
+    char_span: [4754, 6147]
+    sentence_count: 7
+    key_terms: [smith, thank, schools, prestigious, top-feeders-phd-programs, people, school, technical-macaron705]
+    section: Comments
+    token_count: 399
 ---
-
 # HELP: better prestige vs better fit
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1sisefp/help_better_prestige_vs_better_fit/)
-Posted by **Emotional_East_6859** · **5↑** · **31 comments**
+Posted by **Emotional_East_6859** · **4↑** · **31 comments**
 
 after a horrible rd round where i got rejected from most of my reaches, im deciding between bu, bc, smith, and wesleyan. i know that prestige/selectivity/avg stats aren’t everything, but im really struggling to put it aside, especially as everyone in my area is committing to amazing schools.
 
@@ -38,15 +61,15 @@ basically, if anyone has any advice on what to do in this situation, i’d great
   - **Commercial_Ad8072** (4↑): Agreed, completely.
   - **mopijy** (3↑): Same
   - **Emotional_East_6859** (2↑): this reassured me, thank you :)
-- **Weird_Illustrator845** (9↑): Trust yourself. You’ve thoughtfully narrowed down your terrific choices and know where you want to go. Especially considering very similar schools, college will be what you make it. Smith is a renowned school with a stellar alum network. Commit & don’t look back!
+- **Weird_Illustrator845** (7↑): Trust yourself. You’ve thoughtfully narrowed down your terrific choices and know where you want to go. Especially considering very similar schools, college will be what you make it. Smith is a renowned school with a stellar alum network. Commit & don’t look back!
   - **Emotional_East_6859** (2↑): this is very true, thank you so much!!
 - **hanc3n** (6↑): Non of them have a 'better' prestigie. They are abt the same go where u want
   - **Emotional_East_6859** (1↑): okay thank you!!
-- **Ok_Experience_5151** (5↑): Given your goals, I'd pick Smith or Wesleyan.  Between those two, you're not getting any bonus points for having attended Wesleyan when applying to doctoral programs.
+- **Ok_Experience_5151** (6↑): Given your goals, I'd pick Smith or Wesleyan.  Between those two, you're not getting any bonus points for having attended Wesleyan when applying to doctoral programs.
 
 Assuming they're all equally affordable, go to Smith and don't worry about it.
   - **Emotional_East_6859** (1↑): thank you! this helped a lot :)
-- **Ceorl_Lounge** (5↑): People who "know" will understand going to Smith. I'd pick fit over "prestige" most days though. Go to the best school you can afford... that also suits your academic needs.
+- **Ceorl_Lounge** (6↑): People who "know" will understand going to Smith. I'd pick fit over "prestige" most days though. Go to the best school you can afford... that also suits your academic needs.
   - **Emotional_East_6859** (2↑): thank you!!
 - **aquaticlemon** (4↑): Smith and Wesleyan are absolutely peer institutions to BU and BC. Go where you will thrive!
   - **mopijy** (2↑): Trust your gut, so smith or Wes. Would you be ok in an all women’s school? If so, pick smith. As others have said, iykyk, and smith has its own prestige and always will. 

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1py80ew.md
 url: "https://www.reddit.com/r/jobs/comments/1py80ew/i_am_quiting_do_i_have_to_personally_turn_in_my/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,57 @@ flair: "Leaving a job"
 extracted_at: "2026-05-25T13:03:11.724Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1py80ew.md#c0"
+    char_span: [0, 1657]
+    sentence_count: 14
+    key_terms: [laptop, desk, resignation, time, company, email, work, personally]
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/jobs/1py80ew.md#c1"
+    char_span: [1672, 3601]
+    sentence_count: 19
+    key_terms: [weeks, computer, company, laptop, employees, tracking, though, got]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/jobs/1py80ew.md#c2"
+    char_span: [3603, 5672]
+    sentence_count: 20
+    key_terms: [start, people, "it's", job, new, employment, obligated, december]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/jobs/1py80ew.md#c3"
+    char_span: [5674, 7213]
+    sentence_count: 9
+    key_terms: [never, another, company, manager, future, laptop, return, tisthetimetobelit2]
+    section: Comments
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/jobs/1py80ew.md#c4"
+    char_span: [7215, 9220]
+    sentence_count: 15
+    key_terms: [interview, exit, get, remembered, emotional, secretary, anyways, company]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/jobs/1py80ew.md#c5"
+    char_span: [9222, 11356]
+    sentence_count: 18
+    key_terms: [get, work, companies, equipment, company, manager, working, people]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1py80ew.md#c6"
+    char_span: [11103, 11717]
+    sentence_count: 4
+    key_terms: [documented, sure, want, documentation, masteraahs, supervisor, equipment, "couldn't"]
+    section: Comments
+    token_count: 149
+  - id: "social-intelligence/reddit-deep/jobs/1py80ew.md#c7"
+    char_span: [11722, 12419]
+    sentence_count: 4
+    key_terms: [resigning, somewhere, company, email, ijustworkhere000c, ok-willow-9145, definitely, equipment]
+    section: Comments
+    token_count: 179
 ---
-
 # I am quiting, do I have to personally turn in my work laptop or could I just leave it at my desk?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1py80ew/i_am_quiting_do_i_have_to_personally_turn_in_my/)

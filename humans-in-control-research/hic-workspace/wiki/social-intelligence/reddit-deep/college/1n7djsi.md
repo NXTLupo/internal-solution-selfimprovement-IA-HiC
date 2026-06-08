@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1n7djsi.md
 url: "https://www.reddit.com/r/college/comments/1n7djsi/should_i_walk_at_graduation/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,27 @@ flair: "Emotional health/coping/adulting"
 extracted_at: "2026-05-26T14:31:29.699Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1n7djsi.md#c0"
+    char_span: [0, 1752]
+    sentence_count: 9
+    key_terms: [graduation, school, college, need, struggling, comments, graduate, without]
+    token_count: 409
+  - id: "social-intelligence/reddit-deep/college/1n7djsi.md#c1"
+    char_span: [1767, 3491]
+    sentence_count: 16
+    key_terms: [walk, because, grandparents, life, own, emotional, events, little]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/college/1n7djsi.md#c2"
+    char_span: [3493, 4179]
+    sentence_count: 5
+    key_terms: [secret-falcon4357, "it's", like, walk, want, trippysakuta, graduation, personally]
+    section: Comments
+    token_count: 166
 ---
-
 # Should I walk at graduation?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1n7djsi/should_i_walk_at_graduation/)

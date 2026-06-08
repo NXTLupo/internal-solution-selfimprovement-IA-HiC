@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1s65vhq.md
 url: "https://www.reddit.com/r/findapath/comments/1s65vhq/need_help_deciding_what_to_study_for_my_future/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,51 @@ flair: "Findapath-College/Certs"
 extracted_at: "2026-05-22T15:13:18.835Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [education, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1s65vhq.md#c0"
+    char_span: [0, 1909]
+    sentence_count: 8
+    key_terms: [financially, "i'm", comments, future, architecture, years, successful, findapath]
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/findapath/1s65vhq.md#c1"
+    char_span: [1924, 2871]
+    sentence_count: 9
+    key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/findapath/1s65vhq.md#c2"
+    char_span: [2874, 4861]
+    sentence_count: 10
+    key_terms: [hauntingprompt1436, interest, fakehollow0902, help, life, experience, degrees, helpful]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/findapath/1s65vhq.md#c3"
+    char_span: [4863, 7152]
+    sentence_count: 15
+    key_terms: [architecture, decision, animals, fakehollow0902, skills, money, "it's", job]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/findapath/1s65vhq.md#c4"
+    char_span: [7154, 8803]
+    sentence_count: 5
+    key_terms: [work, substantialhandle124, high, passion, family, architecture, "it's", vet]
+    section: Comments
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/findapath/1s65vhq.md#c5"
+    char_span: [8805, 10690]
+    sentence_count: 13
+    key_terms: [opening-cantaloupe56, fakehollow0902, want, through, advice, future, starve, supply]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/findapath/1s65vhq.md#c6"
+    char_span: [10692, 12883]
+    sentence_count: 13
+    key_terms: [something, passion, sucks, eventually, being, fakehollow0902, people, architecture]
+    section: Comments
+    token_count: 486
 ---
-
 # Need help deciding what to study for my future (URGENT)
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1s65vhq/need_help_deciding_what_to_study_for_my_future/)

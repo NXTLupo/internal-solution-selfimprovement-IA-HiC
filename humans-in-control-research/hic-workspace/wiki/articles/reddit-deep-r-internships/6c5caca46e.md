@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-internships/6c5caca46e.md
 url: "https://www.reddit.com/r/internships/comments/1t84uj5/genuinely_running_out_of_options_so_reddit_it_is/"
 url_hash: "6c5caca46e"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T20:19:44.262275+00:00"
 chars: 3853
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-internships/6c5caca46e.md#c0"
+    char_span: [0, 1450]
+    sentence_count: 2
+    key_terms: ["i'm", internships, reddit, genuinely, anything, comments, projects, whatever]
+    token_count: 345
+  - id: "articles/reddit-deep-r-internships/6c5caca46e.md#c1"
+    char_span: [1452, 3389]
+    sentence_count: 15
+    key_terms: [people, get, because, engineering, internships, easy, "it's", work]
+    token_count: 451
+  - id: "articles/reddit-deep-r-internships/6c5caca46e.md#c2"
+    char_span: [3391, 4050]
+    sentence_count: 2
+    key_terms: [like, babies, people, build, caramelparking8382, get, jobs, need]
+    token_count: 150
 ---
-
 # genuinely running out of options so reddit it is
 
 Source: [Reddit Deep: r/internships](https://www.reddit.com/r/internships/comments/1t84uj5/genuinely_running_out_of_options_so_reddit_it_is/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1m7c7nn.md
 url: "https://www.reddit.com/r/jobs/comments/1m7c7nn/job_market_is_horrendous_us/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,87 @@ flair: "Job searching"
 extracted_at: "2026-05-24T14:10:06.656Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c0"
+    char_span: [0, 586]
+    sentence_count: 6
+    key_terms: [jobs, horrendous, comments, market, job, fishburger1997, insurmountable, applications]
+    token_count: 163
+  - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c1"
+    char_span: [601, 2608]
+    sentence_count: 21
+    key_terms: ["i'm", experience, young, back, "it's", pto, year, management]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c2"
+    char_span: [2358, 4374]
+    sentence_count: 15
+    key_terms: [retirement, years, father-in-law, get, experience, position, factory, forced]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c3"
+    char_span: [4165, 4467]
+    sentence_count: 3
+    key_terms: [upset-concentrate386, luck, everything, believe, control, correct, deleted, imagine]
+    section: Comments
+    token_count: 84
+  - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c4"
+    char_span: [4469, 6269]
+    sentence_count: 9
+    key_terms: [years, got, job, jobs, savings, get, believe, without]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c5"
+    char_span: [6049, 6282]
+    sentence_count: 2
+    key_terms: [ok-inspector9397, congressguy12, applications, indicative, interviews, anecdotes, congrats, ghosting]
+    section: Comments
+    token_count: 69
+  - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c6"
+    char_span: [6284, 8497]
+    sentence_count: 12
+    key_terms: [people, unemployment, great, news, too, unemployed, different, remaining]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c7"
+    char_span: [8499, 9473]
+    sentence_count: 12
+    key_terms: [car, couple, single, equivalent-durian-79, got, "i'm", zero, ok-inspector9397]
+    section: Comments
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c8"
+    char_span: [9475, 11401]
+    sentence_count: 16
+    key_terms: [balance, interviews, ceo, work, whine, bad, life, understand]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c9"
+    char_span: [11181, 12624]
+    sentence_count: 10
+    key_terms: [interviews, interviewed, ask, work, important, balance, culture, being]
+    section: Comments
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c10"
+    char_span: [12626, 14644]
+    sentence_count: 18
+    key_terms: [market, qualified, overqualified, transferable, been, "i'm", job, jobs]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c11"
+    char_span: [14646, 16641]
+    sentence_count: 12
+    key_terms: [jobs, interviews, per, applications, apply, alignment, "it's", job]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c12"
+    char_span: [16643, 17727]
+    sentence_count: 10
+    key_terms: [good, percent, doing, story, data, help, job, past]
+    section: Comments
+    token_count: 237
 ---
-
 # Job market is horrendous. (U.S.)
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1m7c7nn/job_market_is_horrendous_us/)

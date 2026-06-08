@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rm4rbc.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rm4rbc/im_a_political_science_prelaw_major_and_econ/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,39 @@ flair: "Advice"
 extracted_at: "2026-05-23T20:15:29.972Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rm4rbc.md#c0"
+    char_span: [0, 1026]
+    sentence_count: 6
+    key_terms: [school, careerguidance, experience, comments, options, don, gpa, law]
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/careerguidance/1rm4rbc.md#c1"
+    char_span: [1041, 3443]
+    sentence_count: 27
+    key_terms: [learn, experience, job, grades, "you're", dont, lack, confidence]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/careerguidance/1rm4rbc.md#c2"
+    char_span: [3445, 5484]
+    sentence_count: 15
+    key_terms: [like, passionate, work, politics, degree, good, law, want]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/careerguidance/1rm4rbc.md#c3"
+    char_span: [5486, 7805]
+    sentence_count: 16
+    key_terms: ["you're", understaffed, volunteering, "it's", everything, stabilizer, something, learning]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/careerguidance/1rm4rbc.md#c4"
+    char_span: [7810, 9456]
+    sentence_count: 7
+    key_terms: [successful-escape-74, need, people, since, different, getting, perfect, become]
+    section: Comments
+    token_count: 330
 ---
-
 # I’m a political science pre-law major and Econ minor, but have a mid GPA and no internship experience, what are some options for potential careers?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rm4rbc/im_a_political_science_prelaw_major_and_econ/)

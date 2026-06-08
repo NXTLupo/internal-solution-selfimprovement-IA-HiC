@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1qepc05.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1qepc05/d_burnout_from_the_hiring_process/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -6,19 +7,77 @@ subreddit: "machinelearning"
 title: "[D] Burnout from the hiring process"
 author: "RNRuben"
 date: "2026-01-16T19:16:28.000Z"
-score: 118
+score: 116
 upvote_ratio: 0.92
 num_comments: 52
 flair: "Discussion"
-extracted_at: "2026-05-11T17:27:06.571Z"
+extracted_at: "2026-05-31T21:49:57.029Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+research_goal: "Identify emerging AI design trends, skills, tools, platforms, and technical implementations that would  help a company's creative team to move beyond AI as a concepting aid and understand where AI-enabled tools, workflows and internal models can practically support design production, system testing, asset generation, governance and stakeholder confidence. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c0"
+    char_span: [0, 2189]
+    sentence_count: 14
+    key_terms: [research, companies, "i'm", interviews, get, frontier, machinelearning, "i've"]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c1"
+    char_span: [2191, 2970]
+    sentence_count: 7
+    key_terms: ["i'm", technical, research, process, "don't", gonna, get, researcher]
+    token_count: 184
+  - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c2"
+    char_span: [2985, 4667]
+    sentence_count: 16
+    key_terms: [companies, frontier, warning, expert, slayahheuw, expected, general, months]
+    section: Comments
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c3"
+    char_span: [4669, 6581]
+    sentence_count: 8
+    key_terms: ["it's", get, expectation, time, slayahheuw, experts, enough, even-inevitable-7243]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c4"
+    char_span: [6583, 7986]
+    sentence_count: 5
+    key_terms: [candidates, coding, ability, code, projects, entarko, metric, research]
+    section: Comments
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c5"
+    char_span: [7988, 10168]
+    sentence_count: 15
+    key_terms: [agent, different, important, questions, code, data, challenges, projects]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c6"
+    char_span: [10175, 11978]
+    sentence_count: 21
+    key_terms: [ask, company, design, "it's", always, people, interview, recruiter]
+    section: Comments
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c7"
+    char_span: [11981, 14076]
+    sentence_count: 15
+    key_terms: [market, "you're", understanding, top, everything, interviews, impacted, research]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c8"
+    char_span: [14078, 16290]
+    sentence_count: 10
+    key_terms: [engineering, research, people, competitive, too, interviews, something, academia]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c9"
+    char_span: [16037, 16616]
+    sentence_count: 5
+    key_terms: [engineering, something, coding, roles, round, tehfunkwagnalls, ilovecookies14, internships]
+    section: Comments
+    token_count: 143
 ---
-
 # [D] Burnout from the hiring process
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1qepc05/d_burnout_from_the_hiring_process/)
-Posted by **RNRuben** · **118↑** · **52 comments**
+Posted by **RNRuben** · **116↑** · **52 comments**
 
 I've been interviewing for research (some engineering) interships for the last 2 months, and I think I'm at a point of mental exhaustion from constant rejections and wasted time.
 
@@ -36,7 +95,7 @@ I'm severely burned out by this whole process, but time is running out. I love r
 
 ## Comments
 
-- **SlayahhEUW** (76↑): Hey, I am currently at one of the frontier companies in the LLM-field. Right now it's a really chaotic time. In general, the hiring of new grads/interns is down to about 20% of previous years. The reasoning from senior leadership are LLM models, we are encouraged to use LLMs for all tasks, and a senior with a couple of agent can iterate on ideas much faster and more accurate/meaningfully than any new hire. Every 6 months (down to 3-4 at some other frontier companies I have contacts on), you have an evaluation and might end up with a warning if you did not produce enough. Second warning is the last warning, you are out.
+- **SlayahhEUW** (78↑): Hey, I am currently at one of the frontier companies in the LLM-field. Right now it's a really chaotic time. In general, the hiring of new grads/interns is down to about 20% of previous years. The reasoning from senior leadership are LLM models, we are encouraged to use LLMs for all tasks, and a senior with a couple of agent can iterate on ideas much faster and more accurate/meaningfully than any new hire. Every 6 months (down to 3-4 at some other frontier companies I have contacts on), you have an evaluation and might end up with a warning if you did not produce enough. Second warning is the last warning, you are out.
 
 This means that the newly hired people are expected to be experts, and in general are expected to perform what before would have been a total outlier as an intern 5 years ago. You are supposed to be both a domain area expert, systems expert and programming expert.
 
@@ -45,16 +104,16 @@ I would recommend that you either:
 1. Learn to code really well by yourself, learn AI agents really well, and identify where they can help you and where they are wrong.
 2. Apply to academic positions. 
 3. Apply to less prestigious jobs. Small companies have R&D depts as well that are not as streamlined.
-  - **felolorocher** (37↑): Damn the culture seems cut throat if you’re being evaluated every 3-4 months. Must be team dependent? I’ve got some colleagues at one of the frontier labs and it’s definitely not like that although they aren’t working on LLMs per se
-    - **SlayahhEUW** (26↑): Yeah, the legacy teams do not have the same requirements on them. They are handling older libs that need bw compatibility so they cant vibe code things up the same way. 
+  - **felolorocher** (35↑): Damn the culture seems cut throat if you’re being evaluated every 3-4 months. Must be team dependent? I’ve got some colleagues at one of the frontier labs and it’s definitely not like that although they aren’t working on LLMs per se
+    - **SlayahhEUW** (28↑): Yeah, the legacy teams do not have the same requirements on them. They are handling older libs that need bw compatibility so they cant vibe code things up the same way. 
 
 Myself and all new hires are also on 2 year temporary contracts, and there is 1 permanent position(that still has the 6 month evaluations) that currently 5 ML engineers including me are fighting each other for, so if I dont get it I am out in a year as well. It's really kill or be killed with crazy amount of claude slop PRs 😅
   - **Even-Inevitable-7243** (13↑): As a relatively recent PhD grad from a "Top 20" US program, I find this expectation alarming. "Agentic AI" is really only a few years old. There simply are not many experts in using AI Agents to optimize any work-flow, much less frontier LLMs. No nascent field can truly have "experts". But I guess this is why hiring has been cut to 20% if that is the expectation and why everyone is on a temp contract.
     - **SlayahhEUW** (8↑): I hear you and I sadly don't see it getting better, I think we reached a point where the universities cannot adapt fast enough to what the industry wants, so it's mostly up to the individual to seek out their own modern education in their free time, and set their own boundaries about how and when to use the models because there is no guides on this apart from subjective blogs on HN, and at the same time they also still need to do the normal curriculum as well and get good grades from a top-tier uni in order to not have their CV routed to /dev/null directly.
 
 Hard times, but at the same time it still kind of runs, with this system you get smart people who adapt and keep up(which is arguably the most valued trait rn in my opinion) and then it's impossible for the company to say "let's go back to the old slow pace". I think when there is some kind of automated PR testing/merging/integration things are going to get cut again and it's unclear if there is a point to hire new grads at all.
-  - **Zeraphil** (5↑): How is “produce enough” being measured?
-    - **SlayahhEUW** (9↑): It's a soft value based on:
+  - **Zeraphil** (7↑): How is “produce enough” being measured?
+    - **SlayahhEUW** (10↑): It's a soft value based on:
 
 1) Projects that had a quantifiable impact (speed-ups, cost savings)  
 2) Projects that seniors liked (research that aligns with senior people's world perception and makes some metric they like better)  
@@ -66,14 +125,14 @@ Currently the biggest bottleneck is that so much code is produced but there is n
   - **XTXinverseXTY** (5↑): >and we are baffled by the coding ability of candidates
 
 excuse me, are you saying your candidates have bafflingly high or low ability?
-    - **entarko** (23↑): Low, lacking some very basic understanding of python behavior for instance.
+    - **entarko** (22↑): Low, lacking some very basic understanding of python behavior for instance.
   - **Hopeful_Pay_1615** (1↑): Just curious, what metric are you guys using to measure the candidates' coding ability? Is it Leetcode?
     - **entarko** (2↑): We don't do coding questions, or if we ever do (rarely), we do the coding, guided by the candidate. Most candidates are not able to live code, because of the stress of the interview, so we refrain from doing that. 
 
 Generally, it's either general questions like "what are type-hints? How do you use them? What is the goal of them?" or questions about python/pytorch behavior: "here is 3 lines of code, what will happen when I execute them? Why?"
   - **MRgabbar** (0↑): the same crap from all managers: "all candidates are unqualified" do you realize how ridiculous such statement is?
     - **entarko** (1↑): I am not a manager
-- **mrproteasome** (9↑): One important thing to consider is with the way the landscape is shifting with LLMs, its going to be more about agents and I suspect coding challenges are going to become agent challenges. I am intersecting with CAI in big pharma, and something basic I would look for is "create an agent that can match named things in user input to some KB".
+- **mrproteasome** (10↑): One important thing to consider is with the way the landscape is shifting with LLMs, its going to be more about agents and I suspect coding challenges are going to become agent challenges. I am intersecting with CAI in big pharma, and something basic I would look for is "create an agent that can match named things in user input to some KB".
   
 Prefacing this with I agree with you 100% the burnout is wild...
   
@@ -93,7 +152,7 @@ Example of one of mine: I made a CAI agent that can answer financial questions a
   
   
 Takes practice though; the specific tools and frameworks I use in my example were learned as part of my work and I would have no idea they existed otherwise (kind of).
-- **Itchy-Trash-2141** (8↑): Totally hear you. I got put on warning that I'm not producing enough at a company I'd like to call an "almost faang". So I went on the interview circuit. I landed a ton of interviews. I failed 6 out of 8. The two I passed were for self driving companies, so I highly recommend applying there, heh.
+- **Itchy-Trash-2141** (9↑): Totally hear you. I got put on warning that I'm not producing enough at a company I'd like to call an "almost faang". So I went on the interview circuit. I landed a ton of interviews. I failed 6 out of 8. The two I passed were for self driving companies, so I highly recommend applying there, heh.
 
 
 In my case it's not always clear what went wrong, but here are my observations:
@@ -115,8 +174,8 @@ In my case it's not always clear what went wrong, but here are my observations:
 
 
 I think it's a tough time, and they expect you to know everything about everything. Some people are better at memorization than others, maybe they do better.
-- **andrewsb8** (6↑): Are there any commonalities between the tasks in the technical screen where you are getting held up?
-  - **RNRuben** (15↑): Not really. Mistral made me try to find the bugs in the code, Anthropic had me implement a class fitting a spec. I'll see what that scientific simulation coding task the other company is gonna throw at me on Thursday. These are interviews. OAs were all over the place and are mostly a time issue.
+- **andrewsb8** (7↑): Are there any commonalities between the tasks in the technical screen where you are getting held up?
+  - **RNRuben** (13↑): Not really. Mistral made me try to find the bugs in the code, Anthropic had me implement a class fitting a spec. I'll see what that scientific simulation coding task the other company is gonna throw at me on Thursday. These are interviews. OAs were all over the place and are mostly a time issue.
     - **CadavreContent** (2↑): RemindMe! Friday
 - **ToHallowMySleep** (6↑): Reality check on the market right now.
 
@@ -138,11 +197,11 @@ The good news is that there is nothing wrong with being where you are, you haven
 
 Turn the question around - you're hiring an intern, and this guy is a BSc, only 1-2 years studying in ML, research-heavy but no big project to demonstrate turning that into value (NB, you just haven't said you have some), and is not a strong engineer. What would you tell this guy to work on, in order to hire him over someone else?
 - **hihey54** (17↑): If you "love research", why not aiming for a career in _academic research_?
-  - **RNRuben** (51↑): Money and the fact that academia seems to be even more competitive and failing at 30 with no industry experience or opportunity to pivot out is far more destructive.
-    - **chandlerbing_stats** (22↑): Yeah academia is way more competitive than industry. Additionally, there’s always the “publish or perish” dilemma
-    - **CuriousAIVillager** (8↑): As someone' whos about to be 30 who's contemplating on STARTING a Phd post masters... yikes lol. Though my master's is in Europe
+  - **RNRuben** (54↑): Money and the fact that academia seems to be even more competitive and failing at 30 with no industry experience or opportunity to pivot out is far more destructive.
+    - **chandlerbing_stats** (21↑): Yeah academia is way more competitive than industry. Additionally, there’s always the “publish or perish” dilemma
+    - **CuriousAIVillager** (7↑): As someone' whos about to be 30 who's contemplating on STARTING a Phd post masters... yikes lol. Though my master's is in Europe
 - **patternpeeker** (6↑): This is unfortunately very common right now, especially for people who sit between research and engineering. A lot of these interview loops are really testing how close your background is to their exact internal workflows, not raw ability, so repeated failures often mean mismatch rather than weakness. Getting labeled too researchy for engineering and too unfocused for niche research teams is a real structural trap, and it burns people out fast. If you can, it may help to slow down and be more selective, aiming for teams where the day to day work actually overlaps with what you have already done, not just the topic area. It is also okay to deprioritize interviews you already know are a bad fit, even if that feels risky. The fact that you are consistently getting interviews at serious places is still a strong signal, even if the offers have not materialized yet.
 - **MRgabbar** (3↑): 2 months, those a re rookie numbers. I have been searching over 18 months now, there are no jobs, STEM died as a field too many people in it, look something else to do do not waste your time in something no one cares or wants to pay anymore.
-- **ilovecookies14** (4↑): Have you looked into scientist roles rather than engineering roles?
+- **ilovecookies14** (3↑): Have you looked into scientist roles rather than engineering roles?
   - **RNRuben** (3↑): I have. Most of these positions are research internships, since the engineering is in brackets. But they all seemingly have at least one round of coding.
-    - **TehFunkWagnalls** (6↑): I feel you. Failed a coding round last week after being a python dev for 4 years. I’ve literally forgotten how to code in the past 12 months.
+    - **TehFunkWagnalls** (7↑): I feel you. Failed a coding round last week after being a python dev for 4 years. I’ve literally forgotten how to code in the past 12 months.

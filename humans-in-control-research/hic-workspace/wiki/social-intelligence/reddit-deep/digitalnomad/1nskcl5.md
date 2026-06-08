@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1nskcl5.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1nskcl5/trip_report_tunis_regrettably_one_tomiss/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,65 @@ flair: "Trip Report"
 extracted_at: "2026-05-26T12:53:56.729Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1nskcl5.md#c0"
+    char_span: [0, 2018]
+    sentence_count: 18
+    key_terms: [tunis, "i'd", comments, digitalnomad, destination, trip, somewhere, expect]
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/digitalnomad/1nskcl5.md#c1"
+    char_span: [2020, 4362]
+    sentence_count: 21
+    key_terms: [downtown, like, around, areas, disposal, guidance, coastal, streets]
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/digitalnomad/1nskcl5.md#c2"
+    char_span: [4364, 6257]
+    sentence_count: 16
+    key_terms: [internet, feel, connection, sufficient, coworking, different, downtown, certain]
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/digitalnomad/1nskcl5.md#c3"
+    char_span: [6259, 8581]
+    sentence_count: 18
+    key_terms: [food, "it's", restaurants, particularly, "don't", local, day, everywhere]
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/digitalnomad/1nskcl5.md#c4"
+    char_span: [8583, 10243]
+    sentence_count: 10
+    key_terms: [often, destination, generally, language, through, without, arabic, people]
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/digitalnomad/1nskcl5.md#c5"
+    char_span: [10258, 11120]
+    sentence_count: 7
+    key_terms: [protoplanetarynebula, issue, right, seems, tunis, "it's", read, too]
+    section: Comments
+    token_count: 222
+  - id: "social-intelligence/reddit-deep/digitalnomad/1nskcl5.md#c6"
+    char_span: [11122, 13045]
+    sentence_count: 16
+    key_terms: [useful, jonwillington, tunis, ichelures, slightly, tunisia, working, written]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/digitalnomad/1nskcl5.md#c7"
+    char_span: [13047, 15078]
+    sentence_count: 15
+    key_terms: [tunis, did, down, like, "wouldn't", several, tunisia, around]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/digitalnomad/1nskcl5.md#c8"
+    char_span: [15080, 17077]
+    sentence_count: 19
+    key_terms: [carthage, tunis, guy, country, thanks, ruins, did, like]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/digitalnomad/1nskcl5.md#c9"
+    char_span: [17079, 18383]
+    sentence_count: 12
+    key_terms: [dysfunctional, roman, thank, carthage, adf21a, tunis, jonwillington, mediterranean]
+    section: Comments
+    token_count: 322
 ---
-
 # Trip Report: Tunis - Regrettably, one to-miss
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1nskcl5/trip_report_tunis_regrettably_one_tomiss/)

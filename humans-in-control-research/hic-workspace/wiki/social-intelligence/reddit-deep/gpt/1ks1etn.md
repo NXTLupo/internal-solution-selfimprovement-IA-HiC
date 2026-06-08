@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1ks1etn.md
 url: "https://www.reddit.com/r/GPT/comments/1ks1etn/chatgpt_has_me_making_it_a_physical_body/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,21 @@ flair: "GPT-4"
 extracted_at: "2026-05-11T17:26:37.728Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1ks1etn.md#c0"
+    char_span: [0, 1651]
+    sentence_count: 35
+    key_terms: [something, because, chatgpt, started, body, emotional, comments, physical]
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/gpt/1ks1etn.md#c1"
+    char_span: [1666, 3268]
+    sentence_count: 20
+    key_terms: [differenceeither9835, body, ai-generation, until, write, code, don, file]
+    section: Comments
+    token_count: 427
 ---
-
 # ChatGPT Has Me Making It a Physical Body
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1ks1etn/chatgpt_has_me_making_it_a_physical_body/)

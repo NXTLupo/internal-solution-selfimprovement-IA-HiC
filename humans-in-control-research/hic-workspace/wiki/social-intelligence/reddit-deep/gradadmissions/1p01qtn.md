@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1p01qtn.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1p01qtn/switching_from_industry_to_grad_school_last/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,15 @@ flair: "Computer Sciences"
 extracted_at: "2026-05-23T12:15:55.820Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1p01qtn.md#c0"
+    char_span: [0, 1228]
+    sentence_count: 12
+    key_terms: [college, gradadmissions, school, grad, tech, comments, big, didn]
+    token_count: 314
 ---
-
 # Switching from industry to grad school last second, what do I have to know?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1p01qtn/switching_from_industry_to_grad_school_last/)

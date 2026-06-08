@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/ef2947ecbb.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1s24srg/what_was_the_tech_job_market_like_especially_for/"
 url_hash: "ef2947ecbb"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T20:20:05.339771+00:00"
 chars: 4082
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/ef2947ecbb.md#c0"
+    char_span: [0, 2189]
+    sentence_count: 14
+    key_terms: [job, market, people, years, cscareerquestions, comments, get, hard]
+    token_count: 513
+  - id: "articles/reddit-deep-r-cscareerquestions/ef2947ecbb.md#c1"
+    char_span: [2191, 4322]
+    sentence_count: 22
+    key_terms: [company, onsite, people, extremely, offshore, because, competitive, let]
+    token_count: 471
 ---
-
 # What was the tech job market like (especially for recent CS graduates) in 2016?
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1s24srg/what_was_the_tech_job_market_like_especially_for/)

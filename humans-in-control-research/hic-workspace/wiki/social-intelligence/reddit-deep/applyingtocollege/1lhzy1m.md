@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1lhzy1m/why_do_so_many_prelawpremed_people_on_here_care/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,57 @@ flair: "Discussion"
 extracted_at: "2026-05-23T14:54:48.681Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c0"
+    char_span: [0, 732]
+    sentence_count: 5
+    key_terms: [applyingtocollege, prelaw, prestigious, comments, prestige, decided, people, premed]
+    token_count: 164
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c1"
+    char_span: [747, 2527]
+    sentence_count: 11
+    key_terms: [applyingtocollege, undergrad, grad, school, maybe, recognition, attended, comments]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c2"
+    char_span: [2529, 4483]
+    sentence_count: 21
+    key_terms: [school, people, law, state, best, lot, went, undergrad]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c3"
+    char_span: [4485, 6268]
+    sentence_count: 13
+    key_terms: [work, law, prestige, school, big, good, lawyers, schools]
+    section: Comments
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c4"
+    char_span: [6270, 7880]
+    sentence_count: 7
+    key_terms: [schools, students, middle, scholarships, institution, aid, undergrad, because]
+    section: Comments
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c5"
+    char_span: [7882, 9021]
+    sentence_count: 8
+    key_terms: [colleges, top, law, students, undergraduate, elite, college, schools]
+    section: Comments
+    token_count: 251
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c6"
+    char_span: [9023, 10890]
+    sentence_count: 12
+    key_terms: [school, schools, top, state, come, grad, odds, undergrad]
+    section: Comments
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c7"
+    char_span: [10892, 11347]
+    sentence_count: 2
+    key_terms: [school, undergraduate, association, potentially, affordable, experience, rewarding, graduate]
+    section: Comments
+    token_count: 101
 ---
-
 # Why do so many prelaw/premed people on here care about prestige?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1lhzy1m/why_do_so_many_prelawpremed_people_on_here_care/)

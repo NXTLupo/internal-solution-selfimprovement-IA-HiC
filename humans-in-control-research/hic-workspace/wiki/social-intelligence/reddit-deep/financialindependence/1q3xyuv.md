@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1q3xyuv.md
 url: "https://www.reddit.com/r/financialindependence/comments/1q3xyuv/fire_update_one_year_ago_i_quit_my_job_with_a/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,66 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.702Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1q3xyuv.md#c0"
+    char_span: [0, 1875]
+    sentence_count: 7
+    key_terms: [https, com, imgur, financialindependence, sabbatical, travel, international, year]
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/financialindependence/1q3xyuv.md#c1"
+    char_span: [1877, 3495]
+    sentence_count: 3
+    key_terms: [days, vietnam, hcmc, malaysia, fiji, taipei, kauai, spent]
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/financialindependence/1q3xyuv.md#c2"
+    char_span: [3497, 5369]
+    sentence_count: 7
+    key_terms: [points, total, hotels, hyatt, spent, health, travel, certificates]
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/financialindependence/1q3xyuv.md#c3"
+    char_span: [5371, 6827]
+    sentence_count: 8
+    key_terms: [fire, get, billionaire, having, travel, "don't", able, back]
+    token_count: 314
+  - id: "social-intelligence/reddit-deep/financialindependence/1q3xyuv.md#c4"
+    char_span: [6842, 8417]
+    sentence_count: 19
+    key_terms: [job, bathroom, making, owning, update, pretty-balance-sheet, great, house]
+    section: Comments
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/financialindependence/1q3xyuv.md#c5"
+    char_span: [8419, 10307]
+    sentence_count: 14
+    key_terms: [points, doctorofcredit, people, solomongrumpy, lot, want, cheapb98, flights]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/financialindependence/1q3xyuv.md#c6"
+    char_span: [10310, 10534]
+    sentence_count: 4
+    key_terms: [business, points, class, costs, redemptions, extremely, talking, "that's"]
+    section: Comments
+    token_count: 61
+  - id: "social-intelligence/reddit-deep/financialindependence/1q3xyuv.md#c7"
+    char_span: [10537, 12397]
+    sentence_count: 16
+    key_terms: [credit, card, bathroom, points, hyatt, investments, spending, cards]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/financialindependence/1q3xyuv.md#c8"
+    char_span: [12142, 12814]
+    sentence_count: 10
+    key_terms: [investments, wife, did, survivorfan4545, whobethismight, significantly, sabbatical, currently]
+    section: Comments
+    token_count: 174
+  - id: "social-intelligence/reddit-deep/financialindependence/1q3xyuv.md#c9"
+    char_span: [12816, 13480]
+    sentence_count: 5
+    key_terms: [concerned, churning, start, did, find, likewhite0nrice, especially, experience]
+    section: Comments
+    token_count: 162
 ---
-
 # FIRE Update: One Year Ago I Quit My Job With a 935K NW - Here's How It's Going
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1q3xyuv/fire_update_one_year_ago_i_quit_my_job_with_a/)

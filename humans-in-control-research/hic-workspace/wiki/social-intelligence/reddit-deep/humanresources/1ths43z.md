@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1ths43z.md
 url: "https://www.reddit.com/r/humanresources/comments/1ths43z/mod_approved_academic_how_do_you_deal_with/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,45 @@ flair: "Policies & Procedures"
 extracted_at: "2026-05-23T12:15:41.519Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1ths43z.md#c0"
+    char_span: [0, 1586]
+    sentence_count: 7
+    key_terms: [qualtricsxmx4455njxw, scenarios, comments, humanresources, https, case, com, automated]
+    token_count: 358
+  - id: "social-intelligence/reddit-deep/humanresources/1ths43z.md#c1"
+    char_span: [1601, 3651]
+    sentence_count: 16
+    key_terms: [using, "i've", hiring, requirements, majorphaser, law, used, benefits]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/humanresources/1ths43z.md#c2"
+    char_span: [3656, 4474]
+    sentence_count: 5
+    key_terms: [californias-ai-hiring-rules-are-now-in-effectand-new-lawsuits-expand-employer-risk, "you're", hollandhart, https, com, law, www, recommendation]
+    section: Comments
+    token_count: 183
+  - id: "social-intelligence/reddit-deep/humanresources/1ths43z.md#c3"
+    char_span: [4476, 6424]
+    sentence_count: 11
+    key_terms: [act, qualtrics, gonebabythoughts, "it's", post, anonymous, familiar, rubber]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/humanresources/1ths43z.md#c4"
+    char_span: [6426, 8223]
+    sentence_count: 13
+    key_terms: [questions, use, resume, survey, recruiting, another, auditor, human]
+    section: Comments
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/humanresources/1ths43z.md#c5"
+    char_span: [8225, 9069]
+    sentence_count: 4
+    key_terms: [research, hiring, thoughts, insight, survey, thank, okay, use]
+    section: Comments
+    token_count: 211
 ---
-
 # Mod Approved - [Academic] How do you deal with controversial AI hiring recommendations? [N/A]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1ths43z/mod_approved_academic_how_do_you_deal_with/)

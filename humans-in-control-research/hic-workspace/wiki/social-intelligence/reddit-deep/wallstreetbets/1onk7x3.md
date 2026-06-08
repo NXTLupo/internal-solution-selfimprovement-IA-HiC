@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1onk7x3.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1onk7x3/why_the_bubble_narrative_is_a_generational_goog/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,50 @@ flair: "Gain"
 extracted_at: "2026-05-17T01:14:17.603Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, saas, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1onk7x3.md#c0"
+    char_span: [0, 2064]
+    sentence_count: 13
+    key_terms: [mag, bubble, narrative, goog, wallstreetbets, growth, generational, opportunity]
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1onk7x3.md#c1"
+    char_span: [2067, 2972]
+    sentence_count: 6
+    key_terms: [google, business, control, absurd, bubble, world, need, show]
+    token_count: 220
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1onk7x3.md#c2"
+    char_span: [2987, 3538]
+    sentence_count: 4
+    key_terms: [total, discord, https, wsb, dru-p-wiener, submissions, karmacave, visualmod]
+    section: Comments
+    token_count: 173
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1onk7x3.md#c3"
+    char_span: [3540, 5313]
+    sentence_count: 15
+    key_terms: [like, take, conviction, bubble, people, profit, calls, enter]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1onk7x3.md#c4"
+    char_span: [5315, 7017]
+    sentence_count: 12
+    key_terms: [kylenothumbs319, bubble, google, going, crashes, recover, shares, plays]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1onk7x3.md#c5"
+    char_span: [7019, 8732]
+    sentence_count: 10
+    key_terms: [google, data, seanpuppy, crawling, already, llm, use, web]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1onk7x3.md#c6"
+    char_span: [8734, 10374]
+    sentence_count: 7
+    key_terms: [trentcoolyak, bubble, buying, opportunity, data, sell, position, selling]
+    section: Comments
+    token_count: 481
 ---
-
 # Why the bubble narrative is a generational GOOG buying opportunity
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1onk7x3/why_the_bubble_narrative_is_a_generational_goog/)

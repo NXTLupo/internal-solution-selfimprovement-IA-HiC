@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1td0b8l.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1td0b8l/hot_take_about_cs_jobs_and_ai_taking_jobs/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,69 @@ flair: ""
 extracted_at: "2026-05-22T21:34:54.421Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1td0b8l.md#c0"
+    char_span: [0, 1147]
+    sentence_count: 4
+    key_terms: [jobs, cscareerquestions, majority, rather, comments, because, crisis, people]
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1td0b8l.md#c1"
+    char_span: [1162, 3193]
+    sentence_count: 15
+    key_terms: [because, people, "don't", business, economic, industry, pandemic, possible]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1td0b8l.md#c2"
+    char_span: [3195, 4913]
+    sentence_count: 18
+    key_terms: [productivity, companies, development, company, similar, larger, picked, "can't"]
+    section: Comments
+    token_count: 365
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1td0b8l.md#c3"
+    char_span: [4915, 7026]
+    sentence_count: 15
+    key_terms: [people, jobs, juniors, pressureappropriate, because, senior, furryballs239, fresh]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1td0b8l.md#c4"
+    char_span: [6784, 7280]
+    sentence_count: 4
+    key_terms: [junior, hired, chubbyvegantravels, unquestionably, furryballs239, apparently, swordlaker, continue]
+    section: Comments
+    token_count: 132
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1td0b8l.md#c5"
+    char_span: [7282, 8955]
+    sentence_count: 12
+    key_terms: [services, software, towards, macktheknife13, companies, existing, another, because]
+    section: Comments
+    token_count: 366
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1td0b8l.md#c6"
+    char_span: [8957, 10415]
+    sentence_count: 9
+    key_terms: [people, future, market, presentationitchy127, evening-living842, yet-to-be-defined, did, good]
+    section: Comments
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1td0b8l.md#c7"
+    char_span: [10417, 11642]
+    sentence_count: 7
+    key_terms: [people, because, new-drop-7414, like, new, take, knowledge, several]
+    section: Comments
+    token_count: 308
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1td0b8l.md#c8"
+    char_span: [11644, 13878]
+    sentence_count: 11
+    key_terms: [people, new, using, like, victimization, grads, able, code]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1td0b8l.md#c9"
+    char_span: [13880, 14548]
+    sentence_count: 6
+    key_terms: [like, experienced, want, instead, coding, people, right, works]
+    section: Comments
+    token_count: 151
 ---
-
 # Hot take about cs jobs and ai taking jobs
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1td0b8l/hot_take_about_cs_jobs_and_ai_taking_jobs/)

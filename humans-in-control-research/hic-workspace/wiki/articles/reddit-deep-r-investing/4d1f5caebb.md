@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-investing/4d1f5caebb.md
 url: "https://www.reddit.com/r/investing/comments/1mt30u8/people_expecting_a_crash_how_much_cash_are_you/"
 url_hash: "4d1f5caebb"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-16T21:00:31.332187+00:00"
 chars: 3517
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-investing/4d1f5caebb.md#c0"
+    char_span: [0, 1521]
+    sentence_count: 9
+    key_terms: [approximately, what-weve-learned-150-years-stock-market-crashes, accounts, expenses, recovery, dot-com, morningstar, cash]
+    token_count: 364
+  - id: "articles/reddit-deep-r-investing/4d1f5caebb.md#c1"
+    char_span: [1523, 3082]
+    sentence_count: 6
+    key_terms: [crash, financial, crisis, dot-com, march, years, ago, high]
+    token_count: 398
+  - id: "articles/reddit-deep-r-investing/4d1f5caebb.md#c2"
+    char_span: [3084, 3738]
+    sentence_count: 4
+    key_terms: [happened, paleontologistone919, steadfastequity, no-vehicle3229, underrated, investing, recession, "couldn't"]
+    token_count: 171
 ---
-
 # People expecting a crash, how much cash are you holding as a % of your assets?
 
 Source: [Reddit Deep: r/investing](https://www.reddit.com/r/investing/comments/1mt30u8/people_expecting_a_crash_how_much_cash_are_you/)

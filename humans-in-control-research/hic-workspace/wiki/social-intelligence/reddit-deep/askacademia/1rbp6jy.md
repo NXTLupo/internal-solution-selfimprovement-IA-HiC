@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1rbp6jy.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1rbp6jy/letter_for_bad_ex_pi/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,69 @@ flair: "Administrative"
 extracted_at: "2026-05-26T14:32:49.115Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c0"
+    char_span: [0, 1372]
+    sentence_count: 14
+    key_terms: [letter, askacademia, like, department, comments, personal, research, issues]
+    token_count: 308
+  - id: "social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c1"
+    char_span: [1387, 2594]
+    sentence_count: 8
+    key_terms: [letter, "didn't", never, negative, writing, write, did, funnymarzipan]
+    section: Comments
+    token_count: 283
+  - id: "social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c2"
+    char_span: [2596, 4747]
+    sentence_count: 11
+    key_terms: [institution, letter, totalcleanfbc, write, like, person, asked, candidate]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c3"
+    char_span: [4749, 6781]
+    sentence_count: 16
+    key_terms: [letter, tenure, ruslanglinka, back, want, students, against, decline]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c4"
+    char_span: [6783, 8055]
+    sentence_count: 9
+    key_terms: [challenges, letter, mentioning, evidence, faculty, helpful, issues, tenure]
+    section: Comments
+    token_count: 275
+  - id: "social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c5"
+    char_span: [8057, 10115]
+    sentence_count: 15
+    key_terms: [candidate, university, redacted, letters, write, department, including, recommend]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c6"
+    char_span: [10117, 11737]
+    sentence_count: 8
+    key_terms: ["advisor's", mentees, partner, advisor, productivity, case, academia, postdocs]
+    section: Comments
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c7"
+    char_span: [11739, 13742]
+    sentence_count: 20
+    key_terms: [letter, person, tenure, get, department, experience, vulnerable, different]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c8"
+    char_span: [13744, 15857]
+    sentence_count: 18
+    key_terms: [letter, like, misconduct, mentioned, behavior, possible, students, trainees]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/askacademia/1rbp6jy.md#c9"
+    char_span: [15859, 16360]
+    sentence_count: 6
+    key_terms: [write, dispassionate, persuasive, difficult, effective, incidents, objective, advising]
+    section: Comments
+    token_count: 107
 ---
-
 # Letter for bad ex PI
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1rbp6jy/letter_for_bad_ex_pi/)

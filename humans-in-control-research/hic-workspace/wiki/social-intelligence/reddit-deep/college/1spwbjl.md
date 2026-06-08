@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1spwbjl.md
 url: "https://www.reddit.com/r/college/comments/1spwbjl/anyone_took_a_gap_year_to_establish_residency/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,48 @@ subreddit: "college"
 title: "Anyone took a gap year to establish residency elsewhere?"
 author: "drainedguava"
 date: "2026-04-19T15:38:23.000Z"
-score: 33
-upvote_ratio: 0.91
+score: 36
+upvote_ratio: 0.93
 num_comments: 25
 flair: "USA"
-extracted_at: "2026-05-25T13:02:03.708Z"
+extracted_at: "2026-06-06T00:27:48.361Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1spwbjl.md#c0"
+    char_span: [0, 1262]
+    sentence_count: 9
+    key_terms: [college, residency, year, taking, establish, comments, graduate, better]
+    token_count: 286
+  - id: "social-intelligence/reddit-deep/college/1spwbjl.md#c1"
+    char_span: [1277, 3235]
+    sentence_count: 10
+    key_terms: [residency, school, illinois, animallover4321, chicago, housing, looking, tuition]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/college/1spwbjl.md#c2"
+    char_span: [3237, 5071]
+    sentence_count: 8
+    key_terms: [state, residency, resident, applying, schools, new, experience, something]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/college/1spwbjl.md#c3"
+    char_span: [5073, 7218]
+    sentence_count: 13
+    key_terms: [year, time, especially, graduated, something, bachelor, oklahoma, schools]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/college/1spwbjl.md#c4"
+    char_span: [7220, 7610]
+    sentence_count: 4
+    key_terms: [being, like, environment, internships, networking, finishing, interests, somewhere]
+    section: Comments
+    token_count: 80
 ---
-
 # Anyone took a gap year to establish residency elsewhere?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1spwbjl/anyone_took_a_gap_year_to_establish_residency/)
-Posted by **drainedguava** · **33↑** · **25 comments**
+Posted by **drainedguava** · **36↑** · **25 comments**
 
 (USA flair cause I’m not sure how residency works outside the states)
 
@@ -34,26 +64,26 @@ Is this a bad idea? While I’m not super enthused about taking an extra year to
 
 ## Comments
 
-- **slightlyobtrusivemom** (50↑): Make sure you really understand residency rules for wherever you want to transfer to. Just a year's worth of living there doesn't always cut it
-- **Animallover4321** (23↑): How does an extra year of housing in Chicago compare to 2 years of out of state tuition? It may not be as huge of a difference as you think. Can you be certain you’ll get into your choice of school?
+- **slightlyobtrusivemom** (51↑): Make sure you really understand residency rules for wherever you want to transfer to. Just a year's worth of living there doesn't always cut it
+- **Animallover4321** (22↑): How does an extra year of housing in Chicago compare to 2 years of out of state tuition? It may not be as huge of a difference as you think. Can you be certain you’ll get into your choice of school?
   - **drainedguava** (2↑): Out of state tuition for 2 years would be basically an extra $30,000, so a lot less than just living with a roommate for a year and not having any debt 
 
 The school I was looking at has a pretty high acceptance rate, and my GPA is very good (no ACT score cause of covid lol), but I suppose nothing is guaranteed
     - **Animallover4321** (9↑): I would highly recommend looking into housing costs in Chicago if you’re in  a LCOL area you could easily spend at least an extra 15 thousand over the course of the year (based off prices in Boston but I am sure Chicago is equally painful).  Sounds like it could still be worth it just be aware of the cost of housing  and like someone else said make sure there aren’t any other restrictions.
     - **very-awesomeusername** (2↑): Are you looking at UIC? I hope you are because the other two major universities are private and very expensive (as in it doesn’t matter if you have residency, tuition is the same whether or not you do)
-- **BullsAtBuffalo** (10↑): Illinois employers will hire Ohio graduates.  
+- **BullsAtBuffalo** (9↑): Illinois employers will hire Ohio graduates.  
 
 You don’t need to be studying in Illinois to get hired there…
 
 In fact, I know about 10 people who studied Urban Planning (grad school) at UIllinois-UC.   None of them live or work in Illinois.  They all moved away out of state right after graduation to work.
-- **BullsAtBuffalo** (8↑): FYI:  I had a friend that did this and was denied residency.  
+- **BullsAtBuffalo** (7↑): FYI:  I had a friend that did this and was denied residency.  
 
 Residency was established based on where you lived at high school (or possibly community college if earning an associates).
 
 The only exceptions were for bonofied residency establishment which were things like: your parents now live there, you married a resident of the state, you have worked for the same employer in the state for something like three years.
 
 It was specifically designed to prevent people moving in and establishing residency right before applying to college.
-  - **drainedguava** (3↑): Does it just depend on state or something? From what I was seeing at least in Illinois you need to be a resident for 12 months (domicile in illinois, paying taxes, voting, etc)
+  - **drainedguava** (4↑): Does it just depend on state or something? From what I was seeing at least in Illinois you need to be a resident for 12 months (domicile in illinois, paying taxes, voting, etc)
     - **BullsAtBuffalo** (4↑): Yes, all states have their own policies for determining who is charged what prices for
 State schools.
     - **jensonaj** (2↑): Its different depending on your age. If you’re 24 and under they based your residency on where your parents live as well, if you are over 24 that doesn’t apply.

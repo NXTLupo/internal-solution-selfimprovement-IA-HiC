@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1t3i1wg.md
 url: "https://www.reddit.com/r/internships/comments/1t3i1wg/what_companies_still_expect_interns_to_know_even/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "General"
 extracted_at: "2026-05-22T21:34:37.049Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce, ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1t3i1wg.md#c0"
+    char_span: [0, 1746]
+    sentence_count: 22
+    key_terms: [internships, postings, intern, skills, being, day, companies, comments]
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/internships/1t3i1wg.md#c1"
+    char_span: [1761, 4100]
+    sentence_count: 13
+    key_terms: [like, interns, documentation, tasks, low, work, enhancvapp, internship]
+    section: Comments
+    token_count: 499
 ---
-
 # What companies still expect interns to know even though AI does all of it
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1t3i1wg/what_companies_still_expect_interns_to_know_even/)

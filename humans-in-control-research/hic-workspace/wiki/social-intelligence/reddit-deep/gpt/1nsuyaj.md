@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1nsuyaj.md
 url: "https://www.reddit.com/r/GPT/comments/1nsuyaj/chat_gpt_custom_gpt_hallucination_issues/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,25 @@ flair: ""
 extracted_at: "2026-05-11T17:26:37.728Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1nsuyaj.md#c0"
+    char_span: [0, 2187]
+    sentence_count: 18
+    key_terms: [transcript, summary, validator, gpt, uploaded, case, dialogue, respond]
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/gpt/1nsuyaj.md#c1"
+    char_span: [2189, 4365]
+    sentence_count: 4
+    key_terms: [case, transcript, line, validator, taxonomy, section, blank, headers]
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/gpt/1nsuyaj.md#c2"
+    char_span: [4367, 4894]
+    sentence_count: 6
+    key_terms: [transcript, validator, output, names, never, case, file, unreadable]
+    token_count: 124
 ---
-
 # Chat GPT Custom GPT hallucination issues
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1nsuyaj/chat_gpt_custom_gpt_hallucination_issues/)

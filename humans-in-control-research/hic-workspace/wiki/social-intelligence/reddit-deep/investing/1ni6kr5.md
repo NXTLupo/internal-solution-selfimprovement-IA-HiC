@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1ni6kr5.md
 url: "https://www.reddit.com/r/investing/comments/1ni6kr5/article_why_are_stocks_setting_records_when_the/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,87 @@ flair: ""
 extracted_at: "2026-05-16T20:55:01.243Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, media, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c0"
+    char_span: [0, 1359]
+    sentence_count: 3
+    key_terms: [stock-market-dow-record-economy-jobs-inflation, inflation, cuts, rate, investing, business, comments, consumer]
+    token_count: 285
+  - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c1"
+    char_span: [1374, 3393]
+    sentence_count: 12
+    key_terms: [market, indicator, "it's", economy, forward, stock, depression, officially]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c2"
+    char_span: [3097, 3562]
+    sentence_count: 3
+    key_terms: [market, lower, rates, immodestpolitician, gerrymandarling, algorithm, companies, indicator]
+    section: Comments
+    token_count: 103
+  - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c3"
+    char_span: [3564, 5244]
+    sentence_count: 8
+    key_terms: [market, the-big-picture, sp500, steveslewis, shiller-pe, inflation, currency, weakness]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c4"
+    char_span: [5246, 6371]
+    sentence_count: 6
+    key_terms: [stock, currency, weakness, "they're", workers, collar, cause, like]
+    section: Comments
+    token_count: 263
+  - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c5"
+    char_span: [6373, 8330]
+    sentence_count: 20
+    key_terms: [people, less, service, retail, earnings, cancels, economy, costco]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c6"
+    char_span: [8332, 9243]
+    sentence_count: 6
+    key_terms: [stock, buybacks, company, shares, weeniswrinkle, share, artificial, higher]
+    section: Comments
+    token_count: 211
+  - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c7"
+    char_span: [9245, 11354]
+    sentence_count: 11
+    key_terms: [market, retail, buy, cash, "it's", traders, buying, stock]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c8"
+    char_span: [11037, 11615]
+    sentence_count: 4
+    key_terms: [market, buy, pump, counterparts, encourages, psychology, reinforces, afternoon]
+    section: Comments
+    token_count: 121
+  - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c9"
+    char_span: [11617, 13538]
+    sentence_count: 12
+    key_terms: [price, like, being, buying, market, prices, volume, institutions]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c10"
+    char_span: [13540, 15167]
+    sentence_count: 11
+    key_terms: [rising, going, stock, year, because, markets, dollar, future]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c11"
+    char_span: [15169, 17132]
+    sentence_count: 16
+    key_terms: [going, been, because, market, reddit, lookipickedausername, zestyclose-living-80, games]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c12"
+    char_span: [17134, 19138]
+    sentence_count: 17
+    key_terms: [discretionary, less, spending, market, top, worth, dollars, economy]
+    section: Comments
+    token_count: 471
 ---
-
 # Article: Why are stocks setting records when the economy feels down in the dumps?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1ni6kr5/article_why_are_stocks_setting_records_when_the/)

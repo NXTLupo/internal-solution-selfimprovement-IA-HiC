@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1r7yn4o.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1r7yn4o/which_is_the_worse_new_grad_job_market_20072009/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-20T03:56:10.737Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1r7yn4o.md#c0"
+    char_span: [0, 520]
+    sentence_count: 4
+    key_terms: [cscareerquestions, comments, marathonmarathon, millennials, perspective, reddit-deep, bootstraps, variations]
+    token_count: 141
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1r7yn4o.md#c1"
+    char_span: [535, 2361]
+    sentence_count: 8
+    key_terms: [years, graduated, highschool, job, software, got, tech, experience]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1r7yn4o.md#c2"
+    char_span: [2363, 3793]
+    sentence_count: 6
+    key_terms: [work, companies, decisions, different, covid, small, look, time]
+    section: Comments
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1r7yn4o.md#c3"
+    char_span: [3795, 5536]
+    sentence_count: 12
+    key_terms: [outsourcing, marathonmarathon, market, "don't", like, "true", immigrants, companies]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1r7yn4o.md#c4"
+    char_span: [5540, 7353]
+    sentence_count: 15
+    key_terms: [job, graduated, suffering, market, like, because, seniors, offers]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1r7yn4o.md#c5"
+    char_span: [7355, 9037]
+    sentence_count: 14
+    key_terms: [people, worked, years, outsourcing, find, "couldn't", because, decline]
+    section: Comments
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1r7yn4o.md#c6"
+    char_span: [9039, 10322]
+    sentence_count: 9
+    key_terms: [going, engineering, job, enrollment, computer, junior, market, skills]
+    section: Comments
+    token_count: 316
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1r7yn4o.md#c7"
+    char_span: [10324, 12375]
+    sentence_count: 17
+    key_terms: [masters, degree, like, engineering, people, got, "it's", went]
+    section: Comments
+    token_count: 483
 ---
-
 # Which is the worse new grad job market? 2007-2009? Or 2025-2026?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1r7yn4o/which_is_the_worse_new_grad_job_market_20072009/)

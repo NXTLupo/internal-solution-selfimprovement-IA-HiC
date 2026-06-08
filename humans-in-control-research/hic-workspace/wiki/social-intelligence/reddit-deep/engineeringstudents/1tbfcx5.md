@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1tbfcx5.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1tbfcx5/anyone_got_experience_with_keurig_dr_pepper_coop/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,15 @@ flair: "Discussion"
 extracted_at: "2026-05-22T23:33:47.039Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tbfcx5.md#c0"
+    char_span: [0, 771]
+    sentence_count: 6
+    key_terms: [engineeringstudents, comments, hirevue, co-op, manufacturing, goldenp00per, information, interactive]
+    token_count: 182
 ---
-
 # Anyone got experience with Keurig Dr. Pepper Co-op hirevue video?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1tbfcx5/anyone_got_experience_with_keurig_dr_pepper_coop/)

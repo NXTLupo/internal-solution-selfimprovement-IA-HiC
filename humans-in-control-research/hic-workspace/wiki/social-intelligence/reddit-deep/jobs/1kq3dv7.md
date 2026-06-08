@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1kq3dv7.md
 url: "https://www.reddit.com/r/jobs/comments/1kq3dv7/why_is_nobody_talking_about_how_many_entry_level/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,63 @@ flair: "Job searching"
 extracted_at: "2026-05-19T15:09:50.011Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1kq3dv7.md#c0"
+    char_span: [0, 813]
+    sentence_count: 7
+    key_terms: [jobs, comments, here, "it's", like, internationally, strawberry2828, outsourcing]
+    token_count: 187
+  - id: "social-intelligence/reddit-deep/jobs/1kq3dv7.md#c1"
+    char_span: [828, 2930]
+    sentence_count: 9
+    key_terms: [jobs, people, imhereforthemeta, entry, money, outsourcing, incredibly, americans]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1kq3dv7.md#c2"
+    char_span: [2671, 3890]
+    sentence_count: 6
+    key_terms: [jobs, qualifications, paying, customer, getting, service, ok-neighborhood2109, entry]
+    section: Comments
+    token_count: 277
+  - id: "social-intelligence/reddit-deep/jobs/1kq3dv7.md#c3"
+    char_span: [3892, 4328]
+    sentence_count: 5
+    key_terms: [people, stay, dave10293847, dishwashers, addiction, ambition, customer, pathetic]
+    section: Comments
+    token_count: 103
+  - id: "social-intelligence/reddit-deep/jobs/1kq3dv7.md#c4"
+    char_span: [4330, 6380]
+    sentence_count: 16
+    key_terms: [youburyitidigitup, charming-ebb-1981, field, outsourcing, jobs, eventually, outsourced, someone]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1kq3dv7.md#c5"
+    char_span: [6121, 6661]
+    sentence_count: 4
+    key_terms: [longer, grant, money, youburyitidigitup, contracted, developers, eventually, profitable]
+    section: Comments
+    token_count: 118
+  - id: "social-intelligence/reddit-deep/jobs/1kq3dv7.md#c6"
+    char_span: [6663, 7877]
+    sentence_count: 11
+    key_terms: [dancedifferent3029, people, unemployment, jobs, because, looking, count, don]
+    section: Comments
+    token_count: 277
+  - id: "social-intelligence/reddit-deep/jobs/1kq3dv7.md#c7"
+    char_span: [7879, 10087]
+    sentence_count: 8
+    key_terms: [workers, foreign, charming-ebb-1981, jobs, because, companies, away, aren]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1kq3dv7.md#c8"
+    char_span: [9777, 10260]
+    sentence_count: 2
+    key_terms: [american, jobs, neuroticknight, consolidated, backgrounds, capitalism, solidarity, corporate]
+    section: Comments
+    token_count: 98
 ---
-
 # Why is nobody talking about how many entry level jobs have been outsourced?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1kq3dv7/why_is_nobody_talking_about_how_many_entry_level/)

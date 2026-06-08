@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1lwypu3.md
 url: "https://www.reddit.com/r/GradSchool/comments/1lwypu3/how_to_navigate_gradschool_as_nontraditional/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,26 @@ flair: "Health & Work/Life Balance"
 extracted_at: "2026-05-22T21:35:36.521Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1lwypu3.md#c0"
+    char_span: [0, 2165]
+    sentence_count: 21
+    key_terms: [husband, course, summer, weeks, next, week, gradschool, situation]
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/gradschool/1lwypu3.md#c1"
+    char_span: [2167, 2511]
+    sentence_count: 6
+    key_terms: [mother-in-law, solidarity, streamline, implement, questions, seriously, delivery, schedule]
+    token_count: 76
+  - id: "social-intelligence/reddit-deep/gradschool/1lwypu3.md#c2"
+    char_span: [2526, 3771]
+    sentence_count: 10
+    key_terms: [grandparents, hazelstone37, something, someone, working, never, areptiledysfuction, good]
+    section: Comments
+    token_count: 310
 ---
-
 # How to navigate grad-school as nontraditional students?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1lwypu3/how_to_navigate_gradschool_as_nontraditional/)

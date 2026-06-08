@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1sna0da.md
 url: "https://www.reddit.com/r/deeplearning/comments/1sna0da/i_evolved_the_structure_of_llm_reasoning_chains/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.058Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1sna0da.md#c0"
+    char_span: [0, 1862]
+    sentence_count: 7
+    key_terms: [reasoning, evolutionary, tree-of-thought, evolved, hand-designed, deeplearning, dags, structures]
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/deeplearning/1sna0da.md#c1"
+    char_span: [1877, 3848]
+    sentence_count: 10
+    key_terms: [dags, random, parallelism, call-matched, nodes, node, baselines, branching]
+    section: Comments
+    token_count: 452
 ---
-
 # I evolved the structure of LLM reasoning chains using evolutionary algorithms
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1sna0da/i_evolved_the_structure_of_llm_reasoning_chains/)

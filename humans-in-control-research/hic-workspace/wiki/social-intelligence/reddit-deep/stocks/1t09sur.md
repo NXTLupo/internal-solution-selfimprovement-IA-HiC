@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1t09sur.md
 url: "https://www.reddit.com/r/stocks/comments/1t09sur/reddit_reports_69_jump_in_revenue_topping_analyst/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,69 @@ flair: "Company News"
 extracted_at: "2026-05-17T01:14:17.623Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [media, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1t09sur.md#c0"
+    char_span: [0, 2192]
+    sentence_count: 15
+    key_terms: [million, reddit, revenue, estimates, earnings, analyst, per, topping]
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/stocks/1t09sur.md#c1"
+    char_span: [2207, 4244]
+    sentence_count: 12
+    key_terms: [like, reddit, ads, because, redditors, comment, "they're", pretty]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1t09sur.md#c2"
+    char_span: [3967, 4880]
+    sentence_count: 5
+    key_terms: [reddit, marketing, comment, revenue, metric, click, ads, long]
+    section: Comments
+    token_count: 220
+  - id: "social-intelligence/reddit-deep/stocks/1t09sur.md#c3"
+    char_span: [4882, 6953]
+    sentence_count: 16
+    key_terms: [reddit, advertising, ads, advertisers, google, mlb-leakyleak, case, roas]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/stocks/1t09sur.md#c4"
+    char_span: [6955, 8306]
+    sentence_count: 9
+    key_terms: [users, reddit, ads, antimarketing, growth, never, most-animator-5743, don]
+    section: Comments
+    token_count: 339
+  - id: "social-intelligence/reddit-deep/stocks/1t09sur.md#c5"
+    char_span: [8308, 10134]
+    sentence_count: 8
+    key_terms: [buy, tried, like, mods, subs, desperate, always, better]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1t09sur.md#c6"
+    char_span: [9916, 11715]
+    sentence_count: 10
+    key_terms: [ads, newacceveryday420day, sure-caterpillar-263, reddit, gold, nice, platforms, position]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1t09sur.md#c7"
+    char_span: [11477, 12099]
+    sentence_count: 2
+    key_terms: [ads, quality, sure-caterpillar-263, year, jimhalpertsuncle, deadmancaulking, definitely, fortheus18]
+    section: Comments
+    token_count: 178
+  - id: "social-intelligence/reddit-deep/stocks/1t09sur.md#c8"
+    char_span: [12101, 13129]
+    sentence_count: 2
+    key_terms: [message, com, remindmebot, reddit, www, delete, https, compose]
+    section: Comments
+    token_count: 363
+  - id: "social-intelligence/reddit-deep/stocks/1t09sur.md#c9"
+    char_span: [13131, 13697]
+    sentence_count: 1
+    key_terms: [remindmebot, message, reddit, https, com, www, compose, subject]
+    section: Comments
+    token_count: 196
 ---
-
 # Reddit reports 69% jump in revenue, topping analyst estimates
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1t09sur/reddit_reports_69_jump_in_revenue_topping_analyst/)

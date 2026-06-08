@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1n3qvvr.md
 url: "https://www.reddit.com/r/GenZ/comments/1n3qvvr/why_i_think_gen_z_is_basically_dying_inside/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,81 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.763Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [workforce, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1n3qvvr.md#c0"
+    char_span: [0, 2164]
+    sentence_count: 19
+    key_terms: [gen, get, live, everywhere, impossible, comments, anxiety, climate]
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/genz/1n3qvvr.md#c1"
+    char_span: [2179, 2308]
+    sentence_count: 1
+    key_terms: [discord, automoderator, nwe6js5rh9, clicking, server, https, did, here]
+    section: Comments
+    token_count: 41
+  - id: "social-intelligence/reddit-deep/genz/1n3qvvr.md#c2"
+    char_span: [2311, 3797]
+    sentence_count: 3
+    key_terms: [no-construction-777, preview, format, revolution, https, width, jpeg, redd]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/genz/1n3qvvr.md#c3"
+    char_span: [3629, 3855]
+    sentence_count: 1
+    key_terms: [d9b6f806595a972e24e20f293e040b09d4f554e5, objectiveadvance8248, brilliant, accurate, preview, format, https, width]
+    section: Comments
+    token_count: 97
+  - id: "social-intelligence/reddit-deep/genz/1n3qvvr.md#c4"
+    char_span: [3857, 4896]
+    sentence_count: 3
+    key_terms: [revolution, riots, college, slyraks-2nd-choice, trashmanufacturer, led, lol, went]
+    section: Comments
+    token_count: 288
+  - id: "social-intelligence/reddit-deep/genz/1n3qvvr.md#c5"
+    char_span: [4898, 6157]
+    sentence_count: 10
+    key_terms: [recession, crash, like, revolution, reality, waiting, "you're", appropriate-food1757]
+    section: Comments
+    token_count: 292
+  - id: "social-intelligence/reddit-deep/genz/1n3qvvr.md#c6"
+    char_span: [6159, 7646]
+    sentence_count: 8
+    key_terms: ["children's", been, depression, economy, growing, numbers, waiting, people]
+    section: Comments
+    token_count: 329
+  - id: "social-intelligence/reddit-deep/genz/1n3qvvr.md#c7"
+    char_span: [7648, 9410]
+    sentence_count: 8
+    key_terms: ["i'm", mustachenchilada, top, revolution, expecting, political, college, similar]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/genz/1n3qvvr.md#c8"
+    char_span: [9412, 11345]
+    sentence_count: 12
+    key_terms: [crash, therevolutionwillnotbetelevised, put, inflation, economic, village-idiots-populists, "they're", stocks]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/genz/1n3qvvr.md#c9"
+    char_span: [11347, 12868]
+    sentence_count: 13
+    key_terms: [going, money, economic, "you're", fact, find, "it's", job]
+    section: Comments
+    token_count: 348
+  - id: "social-intelligence/reddit-deep/genz/1n3qvvr.md#c10"
+    char_span: [12870, 14871]
+    sentence_count: 16
+    key_terms: ["it's", need, different, economics, existence, mistakes, forward, someone]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/genz/1n3qvvr.md#c11"
+    char_span: [14650, 15159]
+    sentence_count: 1
+    key_terms: [culture, hugebeginning8404, cove-frolickr, frankincentss, stabilizers, millenials, positivity, dangerous]
+    section: Comments
+    token_count: 146
 ---
-
 # Why I Think Gen Z is Basically Dying Inside
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1n3qvvr/why_i_think_gen_z_is_basically_dying_inside/)

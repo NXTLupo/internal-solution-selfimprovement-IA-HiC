@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1swpus8.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1swpus8/is_it_worth_to_move_from_an_r1_high_rank/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,21 @@ flair: "Admissions -  please post in /r/gradadmissions, not here"
 extracted_at: "2026-05-26T14:32:49.125Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1swpus8.md#c0"
+    char_span: [0, 1466]
+    sentence_count: 12
+    key_terms: [university, field, phd, overall, ranking, askacademia, "i'm", too]
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/askacademia/1swpus8.md#c1"
+    char_span: [1481, 2812]
+    sentence_count: 10
+    key_terms: [program, academia, want, matters, reputation, prestige, popstarkirbys, ranking]
+    section: Comments
+    token_count: 339
 ---
-
 # Is it worth to move from an R1 high rank university (MS) to R2 lower overall ranking, but #1 in my specific field (PhD)?Field: Engineering; Location: US
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1swpus8/is_it_worth_to_move_from_an_r1_high_rank/)

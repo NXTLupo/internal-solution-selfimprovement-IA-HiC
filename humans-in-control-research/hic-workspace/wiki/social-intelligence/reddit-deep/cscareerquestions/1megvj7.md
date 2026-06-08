@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1megvj7.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1megvj7/advice_on_career_path_swe_aiml/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T19:45:00.921Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1megvj7.md#c0"
+    char_span: [0, 1043]
+    sentence_count: 8
+    key_terms: [experience, cscareerquestions, swe, dont, interview, comments, "master's", worked]
+    token_count: 254
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1megvj7.md#c1"
+    char_span: [1058, 1956]
+    sentence_count: 9
+    key_terms: [swe, especially, "you're", superb-education-992, genai, roles, bar, visa]
+    section: Comments
+    token_count: 214
 ---
-
 # Advice on career path SWE / AIML
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1megvj7/advice_on_career_path_swe_aiml/)

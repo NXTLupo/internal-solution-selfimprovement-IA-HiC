@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1slph2q.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1slph2q/ive_spent_years_building_ai_prompt_systems_for/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,31 @@ flair: "Prompt engineering "
 extracted_at: "2026-05-17T01:12:48.208Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1slph2q.md#c0"
+    char_span: [0, 2408]
+    sentence_count: 23
+    key_terms: [specific, failure, constraints, output, allocation, investment, real, research]
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/chatgpt/1slph2q.md#c1"
+    char_span: [2410, 5159]
+    sentence_count: 28
+    key_terms: [analysis, conclusion, model, financial, data, recommendation, conclusions, case]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/chatgpt/1slph2q.md#c2"
+    char_span: [5161, 7026]
+    sentence_count: 27
+    key_terms: [layer, output, weak, prompt, constraint, model, investment, framework]
+    token_count: 365
+  - id: "social-intelligence/reddit-deep/chatgpt/1slph2q.md#c3"
+    char_span: [7041, 8217]
+    sentence_count: 5
+    key_terms: [openai, please, conversation, image, post, r-chatgpt-1050422060352024636, subreddit, concerns]
+    section: Comments
+    token_count: 294
 ---
-
 # I've spent years building AI prompt systems for real investment research with real money behind it. Here are the 5 failure modes I see investors make and how to fix every one of them.
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1slph2q/ive_spent_years_building_ai_prompt_systems_for/)

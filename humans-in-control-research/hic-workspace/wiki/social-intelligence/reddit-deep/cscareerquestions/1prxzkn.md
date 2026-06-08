@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1prxzkn.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1prxzkn/seeking_careerinternship_advice/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 0.67
 num_comments: 2
 flair: ""
-extracted_at: "2026-05-23T19:45:00.916Z"
+extracted_at: "2026-06-03T12:16:59.545Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1prxzkn.md#c0"
+    char_span: [0, 1901]
+    sentence_count: 14
+    key_terms: [data, internship, roles, cscareerquestions, advice, graduating, analytics, something]
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1prxzkn.md#c1"
+    char_span: [1916, 2675]
+    sentence_count: 6
+    key_terms: [required, because, masters, d1g1tald0lph1n, competition, definitely, everything, experience]
+    section: Comments
+    token_count: 182
 ---
-
 # Seeking career/internship advice
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1prxzkn/seeking_careerinternship_advice/)

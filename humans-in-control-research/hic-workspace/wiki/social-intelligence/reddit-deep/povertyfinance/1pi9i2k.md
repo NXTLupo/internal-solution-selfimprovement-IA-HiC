@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1pi9i2k/affording_college_is_kind_of_crazy_right_now/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,81 @@ flair: "Budgeting/Saving/Investing/Spending"
 extracted_at: "2026-05-17T01:13:55.882Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c0"
+    char_span: [0, 1819]
+    sentence_count: 14
+    key_terms: [college, kind, povertyfinance, people, school, scholarships, costs, job]
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c1"
+    char_span: [1834, 2760]
+    sentence_count: 3
+    key_terms: ["that's", get, "it's", community, college, transit, people, school]
+    section: Comments
+    token_count: 232
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c2"
+    char_span: [2762, 4900]
+    sentence_count: 19
+    key_terms: [colleges, college, community, expensive, generations, free, like, amherst]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c3"
+    char_span: [4902, 6422]
+    sentence_count: 7
+    key_terms: [college, experience, cities, sports, opportunities, years, expensive, students]
+    section: Comments
+    token_count: 315
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c4"
+    char_span: [6424, 7416]
+    sentence_count: 6
+    key_terms: [college, community, education, experience, student, degree, lordofthereef, multi-million]
+    section: Comments
+    token_count: 221
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c5"
+    char_span: [7418, 9213]
+    sentence_count: 7
+    key_terms: [college, year, community, classes, parent, loans, get, government]
+    section: Comments
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c6"
+    char_span: [9215, 10596]
+    sentence_count: 13
+    key_terms: [don, scholarships, take, want, properly, college, degree, grants]
+    section: Comments
+    token_count: 324
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c7"
+    char_span: [10598, 11850]
+    sentence_count: 11
+    key_terms: [force, air, pay, decade, school, trying, money, years]
+    section: Comments
+    token_count: 294
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c8"
+    char_span: [11852, 13925]
+    sentence_count: 13
+    key_terms: [because, people, years, absolutely, consider, military, benefit, medical]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c9"
+    char_span: [13927, 15680]
+    sentence_count: 16
+    key_terms: [job, experiences, people, got, kaiservonrisk, great, time, definitely]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c10"
+    char_span: [15682, 17663]
+    sentence_count: 18
+    key_terms: [college, community, degree, get, help, classes, appointment, aid]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c11"
+    char_span: [17665, 19414]
+    sentence_count: 13
+    key_terms: [based, merit, school, need, income, experience, year, scholarships]
+    section: Comments
+    token_count: 390
 ---
-
 # Affording college is kind of crazy right now.
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1pi9i2k/affording_college_is_kind_of_crazy_right_now/)

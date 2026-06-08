@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1noeb6p.md
 url: "https://www.reddit.com/r/GenZ/comments/1noeb6p/gen_z_flex_culture_is_ruining_us_financially/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,63 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.767Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, retail]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c0"
+    char_span: [0, 2066]
+    sentence_count: 17
+    key_terms: [like, credit, money, people, financially, been, flex, comments]
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c1"
+    char_span: [2081, 4008]
+    sentence_count: 7
+    key_terms: [people, cars, month, debt, lifestyle, cheapest, deleted, discord]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c2"
+    char_span: [4018, 6534]
+    sentence_count: 15
+    key_terms: [consumption, status, marx, capitalism, social, production, sake, someone]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c3"
+    char_span: [6150, 6588]
+    sentence_count: 3
+    key_terms: [consumption, capitalism, critique, marx, authoritarian, explanatory, governments, prescribing]
+    section: Comments
+    token_count: 76
+  - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c4"
+    char_span: [6590, 7480]
+    sentence_count: 5
+    key_terms: [someone, propaganda, communism, communist, parroting, economic, spectrum, system]
+    section: Comments
+    token_count: 205
+  - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c5"
+    char_span: [7482, 9511]
+    sentence_count: 16
+    key_terms: [like, gen, income, people, money, capitalism, successful, investing]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c6"
+    char_span: [9513, 11409]
+    sentence_count: 14
+    key_terms: [chocolate, bar, picture, people, "it's", talking, point, whole]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c7"
+    char_span: [11411, 13295]
+    sentence_count: 15
+    key_terms: ["don't", people, instagram, anything, rich, successful, afford, couldn]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c8"
+    char_span: [13297, 14860]
+    sentence_count: 10
+    key_terms: [people, income, sustainable, thinking, because, certain, feeling, thought]
+    section: Comments
+    token_count: 336
 ---
-
 # Gen Z flex culture is ruining us financially
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1noeb6p/gen_z_flex_culture_is_ruining_us_financially/)

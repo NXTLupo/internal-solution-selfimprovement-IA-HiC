@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-managers/f1bc8c57bb.md
 url: "https://www.reddit.com/r/managers/comments/1o88xpd/no_more_remote_interviews/"
 url_hash: "f1bc8c57bb"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-26T12:55:51.111306+00:00"
 chars: 2085
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-managers/f1bc8c57bb.md#c0"
+    char_span: [0, 1948]
+    sentence_count: 16
+    key_terms: [interviews, interview, seen, through, remote, roles, brainwavecc, applicants]
+    token_count: 455
+  - id: "articles/reddit-deep-r-managers/f1bc8c57bb.md#c1"
+    char_span: [1950, 2230]
+    sentence_count: 3
+    key_terms: ["we'll-reimburse-you-later", model, employer-pre-paid, importantly, interviews, followed, "wouldn't", flying]
+    token_count: 65
 ---
-
 # No more remote interviews
 
 Source: [Reddit Deep: r/managers](https://www.reddit.com/r/managers/comments/1o88xpd/no_more_remote_interviews/)

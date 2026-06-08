@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1nrtvin.md
 url: "https://www.reddit.com/r/careerguidance/comments/1nrtvin/is_pursuing_computer_science_worth_it_in_2025/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,45 @@ flair: "Advice"
 extracted_at: "2026-05-25T15:52:13.112Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1nrtvin.md#c0"
+    char_span: [0, 998]
+    sentence_count: 9
+    key_terms: [careerguidance, comments, computer, pursuing, science, given, opportunities, astrophysics]
+    token_count: 239
+  - id: "social-intelligence/reddit-deep/careerguidance/1nrtvin.md#c1"
+    char_span: [1013, 2668]
+    sentence_count: 13
+    key_terms: [tech, people, industry, process, through, weeding, anyone, suitablesherbert6127]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/careerguidance/1nrtvin.md#c2"
+    char_span: [2670, 4799]
+    sentence_count: 14
+    key_terms: [everyone, time, years, long, different, else, wanted, doing]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/careerguidance/1nrtvin.md#c3"
+    char_span: [4802, 6908]
+    sentence_count: 12
+    key_terms: [doing, good, tech, "don't", programming, pp-doo-doo, companies, computer]
+    section: Comments
+    token_count: 516
+  - id: "social-intelligence/reddit-deep/careerguidance/1nrtvin.md#c4"
+    char_span: [6910, 9000]
+    sentence_count: 16
+    key_terms: [glittering-duck-634, better, future, tech, want, direction, industry, probably]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/careerguidance/1nrtvin.md#c5"
+    char_span: [9002, 9598]
+    sentence_count: 5
+    key_terms: [good, because, "doesn't", career, personality, absolutely, management, reasonable]
+    section: Comments
+    token_count: 122
 ---
-
 # Is Pursuing computer science worth it in 2025?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1nrtvin/is_pursuing_computer_science_worth_it_in_2025/)

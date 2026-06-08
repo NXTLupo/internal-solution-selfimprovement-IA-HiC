@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1tk1nmz.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1tk1nmz/brazilian_computer_engineering_student_looking/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -10,11 +11,22 @@ score: 0
 upvote_ratio: 0.5
 num_comments: 1
 flair: "Academic Advice"
-extracted_at: "2026-05-25T13:01:49.566Z"
+extracted_at: "2026-06-01T18:48:36.768Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tk1nmz.md#c0"
+    char_span: [0, 1070]
+    sentence_count: 8
+    key_terms: [hardware, engineeringstudents, computer, student, systems, acceleration, engineering, internships]
+    token_count: 218
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tk1nmz.md#c1"
+    char_span: [1085, 2088]
+    sentence_count: 6
+    key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
+    section: Comments
+    token_count: 225
 ---
-
 # Brazilian Computer Engineering Student Looking for Hardware Internship Opportunities Abroad — Any Advice?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1tk1nmz/brazilian_computer_engineering_student_looking/)

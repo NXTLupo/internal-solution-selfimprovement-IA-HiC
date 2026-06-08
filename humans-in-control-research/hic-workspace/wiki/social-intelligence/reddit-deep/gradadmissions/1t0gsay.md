@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1t0gsay.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1t0gsay/academic_dishonesty_how_to_move_forward/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,62 @@ flair: "General Advice"
 extracted_at: "2026-05-23T14:54:16.719Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1t0gsay.md#c0"
+    char_span: [0, 2106]
+    sentence_count: 13
+    key_terms: [university, gradadmissions, school, admissions, transcript, understand, comments, incident]
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/gradadmissions/1t0gsay.md#c1"
+    char_span: [2108, 2985]
+    sentence_count: 8
+    key_terms: [question, research, mistake, like, show, want, work, applicable]
+    token_count: 198
+  - id: "social-intelligence/reddit-deep/gradadmissions/1t0gsay.md#c2"
+    char_span: [3000, 5224]
+    sentence_count: 13
+    key_terms: [best, get, people, application, interview, question, college, forward]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/gradadmissions/1t0gsay.md#c3"
+    char_span: [5226, 7019]
+    sentence_count: 11
+    key_terms: [course, example, application, transcript, situation, student, higher, middle]
+    section: Comments
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/gradadmissions/1t0gsay.md#c4"
+    char_span: [7021, 9043]
+    sentence_count: 12
+    key_terms: [professor, ananthropolothology, did, academic, course, applications, transcripts, programs]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/gradadmissions/1t0gsay.md#c5"
+    char_span: [9045, 10997]
+    sentence_count: 16
+    key_terms: [personal, yourself, growth, thank, own, show, experience, professor]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/gradadmissions/1t0gsay.md#c6"
+    char_span: [10999, 12501]
+    sentence_count: 9
+    key_terms: [professor, relationship, class, outside, student, extend, grace, work]
+    section: Comments
+    token_count: 316
+  - id: "social-intelligence/reddit-deep/gradadmissions/1t0gsay.md#c7"
+    char_span: [12503, 13826]
+    sentence_count: 12
+    key_terms: [consider, thinking, sleep, mysterious-art8838, end, grow, like, cinnamonstixxxx]
+    section: Comments
+    token_count: 305
+  - id: "social-intelligence/reddit-deep/gradadmissions/1t0gsay.md#c8"
+    char_span: [13828, 15717]
+    sentence_count: 16
+    key_terms: [lie, get, "you're", admissions, applicant, "doesn't", offense, raiden-]
+    section: Comments
+    token_count: 434
 ---
-
 # Academic Dishonesty - How to Move Forward
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1t0gsay/academic_dishonesty_how_to_move_forward/)

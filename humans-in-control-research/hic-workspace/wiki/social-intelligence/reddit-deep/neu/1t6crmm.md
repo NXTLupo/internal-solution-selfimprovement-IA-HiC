@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1t6crmm.md
 url: "https://www.reddit.com/r/NEU/comments/1t6crmm/running_out_of_claude_credits_mahoraga_is_here/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -6,19 +7,41 @@ subreddit: "neu"
 title: "Running out of Claude credits? Mahoraga is here."
 author: "Own-Professional3092"
 date: "2026-05-07T14:48:50.000Z"
-score: 14
-upvote_ratio: 0.69
+score: 15
+upvote_ratio: 0.7
 num_comments: 25
 flair: "Co-op & Career"
-extracted_at: "2026-05-19T17:57:09.036Z"
+extracted_at: "2026-06-05T17:08:22.597Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1t6crmm.md#c0"
+    char_span: [0, 1846]
+    sentence_count: 15
+    key_terms: [claude, models, mahoraga, northeastern, local, run, honestly, "you're"]
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/neu/1t6crmm.md#c1"
+    char_span: [1848, 2296]
+    sentence_count: 6
+    key_terms: [ratio, llm-as-judge, appreciated, round-robin, evaluation, similarity, structural, embedding]
+    token_count: 113
+  - id: "social-intelligence/reddit-deep/neu/1t6crmm.md#c2"
+    char_span: [2311, 3577]
+    sentence_count: 10
+    key_terms: [own-professional3092, greedyworking1499, credits, claude, people, linkedin, premium, friend]
+    section: Comments
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/neu/1t6crmm.md#c3"
+    char_span: [3579, 4576]
+    sentence_count: 2
+    key_terms: [affectionate-net5939, credits, premium, enough, own-professional3092, shot-marketing-9227, limit, get]
+    section: Comments
+    token_count: 294
 ---
-
 # Running out of Claude credits? Mahoraga is here.
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1t6crmm/running_out_of_claude_credits_mahoraga_is_here/)
-Posted by **Own-Professional3092** · **14↑** · **25 comments**
+Posted by **Own-Professional3092** · **15↑** · **25 comments**
 
 Northeastern gives us 300 a month, 500 if you're lucky, and premium seats if you're really lucky. By no means is that a small amount; it really is a useful resource that all students should honestly be abusing. (not to cheat on your NUpath courses, but to learn!) 
 
@@ -38,8 +61,8 @@ Results, tables, and analysis is on the github. If you study CS/DS/AI, you proba
 
 ## Comments
 
-- **GreedyWorking1499** (7↑): How many people do you know run out of Claude credits monthly? Because I only know 1 (me)
-  - **Own-Professional3092** (5↑): A bunch of my friends are CS students, and we happened to have one guy who sweats on claude all day. Naturally, we all hopped on and we consistently run out of credits now.   
+- **GreedyWorking1499** (6↑): How many people do you know run out of Claude credits monthly? Because I only know 1 (me)
+  - **Own-Professional3092** (4↑): A bunch of my friends are CS students, and we happened to have one guy who sweats on claude all day. Naturally, we all hopped on and we consistently run out of credits now.   
   
 I know a bunch of people that request credits every month tho. People use it to create their own trading tools, all kinds of cool stuff.
     - **GreedyWorking1499** (3↑): That’s interesting. I’m the Claude guy of my friend group so I ran out but my closest friend only got to like $200 and we just graduated so we took hard classes.

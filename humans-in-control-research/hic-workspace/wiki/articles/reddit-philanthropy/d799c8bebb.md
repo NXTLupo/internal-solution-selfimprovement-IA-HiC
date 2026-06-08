@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-philanthropy/d799c8bebb.md
 url: "https://reddit.com/r/Philanthropy/comments/1n9btej/trump_administration_issued_a_stop_work_order_for/"
 url_hash: "d799c8bebb"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-04-29T18:56:35.612284+00:00"
 chars: 1139
+industries: [nonprofit]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-philanthropy/d799c8bebb.md#c0"
+    char_span: [0, 1426]
+    sentence_count: 5
+    key_terms: [cfc-letter-to-opm-09032025-final, cfc, nonprofits, administration, https, councilofnonprofits, www, campaign]
+    token_count: 316
 ---
-
 # Trump Administration issued a "stop work order" for the Combined Federal Campaign (CFC), a source of significant funding for nonprofit organizations
 
 Source: [reddit: Philanthropy](https://reddit.com/r/Philanthropy/comments/1n9btej/trump_administration_issued_a_stop_work_order_for/)

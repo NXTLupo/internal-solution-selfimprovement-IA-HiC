@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1t7vg3h.md
 url: "https://www.reddit.com/r/internships/comments/1t7vg3h/which_internship_would_be_better_for_an_ece/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "General"
 extracted_at: "2026-05-25T18:31:15.451Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1t7vg3h.md#c0"
+    char_span: [0, 757]
+    sentence_count: 6
+    key_terms: [internship, internships, comments, exposure, industry, stipend, atleos, better]
+    token_count: 186
+  - id: "social-intelligence/reddit-deep/internships/1t7vg3h.md#c1"
+    char_span: [772, 1256]
+    sentence_count: 1
+    key_terms: [isro, roles, core, name, interviewers, electronics, catsdayout, difference]
+    section: Comments
+    token_count: 125
 ---
-
 # Which internship would be better for an ECE student?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1t7vg3h/which_internship_would_be_better_for_an_ece/)

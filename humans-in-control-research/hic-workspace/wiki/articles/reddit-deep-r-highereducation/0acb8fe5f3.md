@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-highereducation/0acb8fe5f3.md
 url: "https://www.reddit.com/r/highereducation/comments/1s3ldr1/day_of_giving/"
 url_hash: "0acb8fe5f3"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T14:59:38.461216+00:00"
 chars: 3104
+industries: [higher_ed, fundraising, nonprofit]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-highereducation/0acb8fe5f3.md#c0"
+    char_span: [0, 2076]
+    sentence_count: 17
+    key_terms: [donate, employees, "it's", highereducation, because, donors, higher, money]
+    token_count: 491
+  - id: "articles/reddit-deep-r-highereducation/0acb8fe5f3.md#c1"
+    char_span: [2078, 3240]
+    sentence_count: 8
+    key_terms: [employees, asked, staff, not-for-profit, inappropriate, "institution's", organizations, participation]
+    token_count: 248
 ---
-
 # Day of giving?
 
 Source: [Reddit Deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1s3ldr1/day_of_giving/)

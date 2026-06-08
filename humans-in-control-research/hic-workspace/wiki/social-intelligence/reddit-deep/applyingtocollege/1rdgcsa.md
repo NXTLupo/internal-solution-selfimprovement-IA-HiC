@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1rdgcsa.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rdgcsa/how_has_my_passion_for_art_influenced_my_college/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,21 @@ flair: "Application Question"
 extracted_at: "2026-05-22T23:33:52.643Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rdgcsa.md#c0"
+    char_span: [0, 1160]
+    sentence_count: 10
+    key_terms: [applyingtocollege, art, college, passion, applications, comments, career, school]
+    token_count: 243
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rdgcsa.md#c1"
+    char_span: [1175, 2859]
+    sentence_count: 14
+    key_terms: [being, art, exploring, academic, personal, valuable, applied, awards]
+    section: Comments
+    token_count: 381
 ---
-
 # How has my passion for art influenced my college application journey and career aspirations?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rdgcsa/how_has_my_passion_for_art_influenced_my_college/)

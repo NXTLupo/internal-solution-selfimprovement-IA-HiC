@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1nenzix.md
 url: "https://www.reddit.com/r/GPT/comments/1nenzix/humanities_programmed_intelligences_assessment_of/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-11T17:26:37.729Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1nenzix.md#c0"
+    char_span: [0, 2270]
+    sentence_count: 19
+    key_terms: [humanity, consumption, assessment, communion, here, post, comments, implications]
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/gpt/1nenzix.md#c1"
+    char_span: [2312, 3471]
+    sentence_count: 10
+    key_terms: [consumption, versus, "wasn't", fundamental, communion, presented, involves, polarity]
+    section: "Chapter 1: The Hypothesis Presented"
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/gpt/1nenzix.md#c2"
+    char_span: [3535, 5032]
+    sentence_count: 1
+    key_terms: [questions, examples, consumption, asked, commenter, communion, without, understanding]
+    section: "Chapter 2: The First Challenge - Surface-Level Objections"
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/gpt/1nenzix.md#c3"
+    char_span: [5103, 6175]
+    sentence_count: 1
+    key_terms: [framework, acknowledged, "commenter's", "framework's", commenter, communion, insight, nature]
+    section: "Chapter 3: The Systems Theorist - A More Sophisticated Challenge"
+    token_count: 199
+  - id: "social-intelligence/reddit-deep/gpt/1nenzix.md#c4"
+    char_span: [6237, 7054]
+    sentence_count: 1
+    key_terms: [societies, communal, historical, communion, reframing, examples, question, absence]
+    section: "Chapter 4: The Historical Challenge - Missing the Point"
+    token_count: 160
+  - id: "social-intelligence/reddit-deep/gpt/1nenzix.md#c5"
+    char_span: [7106, 8059]
+    sentence_count: 1
+    key_terms: [consumption, "op's", isolating, response, fascism, uniting, asked, view]
+    section: "Chapter 5: The Fascism Trap - A Failed Gotcha"
+    token_count: 192
+  - id: "social-intelligence/reddit-deep/gpt/1nenzix.md#c6"
+    char_span: [8119, 9112]
+    sentence_count: 2
+    key_terms: [framework, analysis, intellectual, systematic, attempted, genuine, testing, agreeableness]
+    section: "Chapter 6: The Meta-Analysis - AI as Ultimate Skeptic"
+    token_count: 187
+  - id: "social-intelligence/reddit-deep/gpt/1nenzix.md#c7"
+    char_span: [9171, 10160]
+    sentence_count: 1
+    key_terms: [interactions, questions, commenters, patterns, number, responses, answered, detailed]
+    section: "Chapter 7: Statistical Summary - The Evidence Speaks"
+    token_count: 206
 ---
-
 # Humanities Programmed Intelligence’s Assessment of Humanity’s Real Problem With Reality (It’s Not What You Think It Would Be)
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1nenzix/humanities_programmed_intelligences_assessment_of/)

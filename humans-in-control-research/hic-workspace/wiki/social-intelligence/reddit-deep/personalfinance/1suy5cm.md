@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1suy5cm.md
 url: "https://www.reddit.com/r/personalfinance/comments/1suy5cm/help_me_figure_out_a_budget_savings_vs_free_money/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,21 @@ flair: "Budgeting"
 extracted_at: "2026-05-16T20:55:02.106Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1suy5cm.md#c0"
+    char_span: [0, 2095]
+    sentence_count: 12
+    key_terms: [savings, fun, account, currently, insurance, personalfinance, contributing, money]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/personalfinance/1suy5cm.md#c1"
+    char_span: [2110, 2867]
+    sentence_count: 6
+    key_terms: [yourself, expenses, whatever, numbers, picture, paying, massivedeparture9287, https]
+    section: Comments
+    token_count: 189
 ---
-
 # Help me figure out a budget (savings vs. free money allocation)
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1suy5cm/help_me_figure_out_a_budget_savings_vs_free_money/)

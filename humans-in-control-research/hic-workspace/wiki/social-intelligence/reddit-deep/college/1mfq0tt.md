@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1mfq0tt.md
 url: "https://www.reddit.com/r/college/comments/1mfq0tt/who_am_i_if_not_a_student/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,27 @@ flair: "Emotional health/coping/adulting"
 extracted_at: "2026-05-25T15:51:48.248Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1mfq0tt.md#c0"
+    char_span: [0, 845]
+    sentence_count: 8
+    key_terms: [school, comments, college, student, access, one-description4302, find, reassurance]
+    token_count: 215
+  - id: "social-intelligence/reddit-deep/college/1mfq0tt.md#c1"
+    char_span: [860, 2931]
+    sentence_count: 18
+    key_terms: [student, experience, one-description4302, get, time, college, school, being]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1mfq0tt.md#c2"
+    char_span: [2677, 3919]
+    sentence_count: 8
+    key_terms: [libraries, school, one-description4302, college, card, let, tap, visitor]
+    section: Comments
+    token_count: 324
 ---
-
 # Who am I if not a student
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1mfq0tt/who_am_i_if_not_a_student/)

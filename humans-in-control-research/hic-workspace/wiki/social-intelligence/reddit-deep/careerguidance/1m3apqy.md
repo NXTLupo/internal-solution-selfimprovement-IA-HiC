@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1m3apqy.md
 url: "https://www.reddit.com/r/careerguidance/comments/1m3apqy/18f_bad_high_school_grades_cant_afford_college/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,63 @@ score: 39
 upvote_ratio: 0.87
 num_comments: 73
 flair: ""
-extracted_at: "2026-05-26T14:32:49.167Z"
+extracted_at: "2026-06-06T17:42:15.259Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1m3apqy.md#c0"
+    char_span: [0, 1938]
+    sentence_count: 19
+    key_terms: [learning, country, college, careerguidance, good, lead, pay, want]
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/careerguidance/1m3apqy.md#c1"
+    char_span: [1940, 2698]
+    sentence_count: 10
+    key_terms: [something, remote, don, real, work, cybersecurity, independence, connections]
+    token_count: 158
+  - id: "social-intelligence/reddit-deep/careerguidance/1m3apqy.md#c2"
+    char_span: [2713, 4602]
+    sentence_count: 11
+    key_terms: [education, get, country, studying, online, cassiuswright, certificate, hospitality]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/careerguidance/1m3apqy.md#c3"
+    char_span: [4604, 6792]
+    sentence_count: 12
+    key_terms: [studying, exams, hard, enough, exam, different, properly, students]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/careerguidance/1m3apqy.md#c4"
+    char_span: [6794, 9162]
+    sentence_count: 11
+    key_terms: [mental, conditions, diagnosis, like, self-diagnosing, health, perspective, good]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/careerguidance/1m3apqy.md#c5"
+    char_span: [9164, 11391]
+    sentence_count: 13
+    key_terms: [cybersecurity, projects, free, get, certificate, following, isc2, courses]
+    section: Comments
+    token_count: 514
+  - id: "social-intelligence/reddit-deep/careerguidance/1m3apqy.md#c6"
+    char_span: [11393, 11894]
+    sentence_count: 5
+    key_terms: [support, customer, start, cybersecurity, jobspresso, adventure, attendant, languages]
+    section: Comments
+    token_count: 115
+  - id: "social-intelligence/reddit-deep/careerguidance/1m3apqy.md#c7"
+    char_span: [11896, 13829]
+    sentence_count: 13
+    key_terms: [always, did, get, "it's", marketing, security, finance, crimes]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/careerguidance/1m3apqy.md#c8"
+    char_span: [13831, 15138]
+    sentence_count: 7
+    key_terms: [country, month, free, life, usd, bunchitabonita, lifeinthesc, everything]
+    section: Comments
+    token_count: 326
 ---
-
 # 18F, bad high school grades, can’t afford college, live in a third world country, how can I build a real career and support my family?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1m3apqy/18f_bad_high_school_grades_cant_afford_college/)
@@ -40,7 +93,7 @@ Any advice, suggestions, or honest feedback would mean a lot to me. I want to bu
 
 ## Comments
 
-- **cassiuswright** (29↑): Tourism and hospitality will always need multilingual people. Aim for upscale
+- **cassiuswright** (27↑): Tourism and hospitality will always need multilingual people. Aim for upscale
   - **need_help_school** (2↑): I have family members in those fields, they don't pay well, which is why I plan on being a flight attendant
     - **cassiuswright** (18↑): Which you said you can't do now. So go get the customer service experience in tourism and hospitality in the interim
     - **DrakeoDaRLR** (1↑): Marry someone from a 1st world country
@@ -55,7 +108,7 @@ first of all: what exactly does "studying hard" mean? what you think of as study
 if you put in the hours, then you have the work ethic, which is good, but that means something else went wrong. why didn't studying work? are you studying in a way that clicks with your brain? are you eating properly, getting enough sleep? do you get severely anxious during exams and forget everything? do you have any mental health issues like depression or adhd that are holding you back? 
 
 these are important questions that you NEED to solve to be successful. think about it--- if it was enough to keep you down in high school, it'll be enough to keep you down in college, university, training, jobs, etc. the best thing you can invest in right noe is clearing whatever mental blockages you have, so that the next time you have the opportunity to prove your intelligence with grades or exam scores, you'll do better. good luck!
-  - **need_help_school** (4↑): Thank you for asking for more details about what I mean by “studying hard.” I realize that studying hard can mean very different things to different people, so I want to explain my situation clearly.
+  - **need_help_school** (3↑): Thank you for asking for more details about what I mean by “studying hard.” I realize that studying hard can mean very different things to different people, so I want to explain my situation clearly.
 
 For me, studying hard meant not just putting in hours but really understanding the material and practicing until I felt confident. Our program is quite long and demanding, and the finals cover many subjects over just three days. What makes it more difficult is that the exam structure changes often, so it’s hard to prepare consistently.
 
@@ -68,13 +121,13 @@ Regarding mental health, I haven’t been formally diagnosed with conditions lik
 From my perspective, even when you have the work ethic and put in the hours, external factors like family issues, changing exam formats, and emotional stress can seriously impact your performance. Studying isn’t just about time; it’s also about the environment, mental state, and support system.
 
 I appreciate your questions because they highlight important factors that affect success, and I’m trying to work through these challenges. Thank you again for your advice and understanding.
-    - **Inevitable-Bug7917** (6↑): You are clearly a very intelligent person.  The smartest people are those that ask questions and listen. You sound wise beyond your age. Don't let some bad grades define that.
+    - **Inevitable-Bug7917** (5↑): You are clearly a very intelligent person.  The smartest people are those that ask questions and listen. You sound wise beyond your age. Don't let some bad grades define that.
     - **autumnchiu** (3↑): really great introspection! i would definitely keep thinking about that exam anxiety and strategies you can use to mitigate it. there will definitely be other important, high pressure moments of your life like that one, and you want to be able to handle them with a clear mind. honestly, I've found martial arts to be a good way to learn to manage the pressure--- if you can keep your cool when someone is trying to punch you in the face, you'll be totally unfazed by a piece of paper, haha.
 
 while self-diagnosing is good to avoid from the perspective of medication and identity politics, if you do suspect you have any conditions, you can try to implement strategies that address those conditions, even without the diagnosis. for example, a suggestion i give to people with adhd is to rewrite or summarize readings as they go through a textbook, to help stay engaged and stop them from daydreaming and getting distracted. you can try to do stuff like that even if you don't have a "real" diagnosis.
 
 good luck with everything!! you're doing great :))
-- **Objective_Dog_4637** (8↑): Hey, so first of all you are incredibly brave for reaching out and asking for advice about your future, especially at a young age. You’re going to be just fine but it will be hard work, which I’m confident you can handle.
+- **Objective_Dog_4637** (7↑): Hey, so first of all you are incredibly brave for reaching out and asking for advice about your future, especially at a young age. You’re going to be just fine but it will be hard work, which I’m confident you can handle.
 
 Cybersecurity will take you at least 6-18 months to break into (1000 hours at around about 10 hours a week give or take, whatever you think you can handle, but 1000 hours total is probably the minimum). Once you get some certificates you will definitely have a shot. Focus on the following:
 
@@ -138,7 +191,7 @@ Start with what can earn you money now (languages), while steadily learning what
 You’re already on the right track. Keep going.
 
 If you ever want someone to look at your resume, profile, or portfolio then feel free to DM me. You’ve got this.
-  - **need_help_school** (6↑): Thank you so much, this is so helpful. I'll be looking through all the websites you recommended, and I wish you all the best in life
+  - **need_help_school** (5↑): Thank you so much, this is so helpful. I'll be looking through all the websites you recommended, and I wish you all the best in life
     - **Objective_Dog_4637** (3↑): Of course. I’m actually a principal engineer for one of the largest companies in the world so feel free to DM me any time. I’d be more than happy to help and get you set up with some stuff.
   - **InlineSkateAdventure** (1↑): Burp Suite has very good training. Probably need some preqreques though before getting into that.
   - **cheapo_warrior** (1↑): Thanks for the detailed response!

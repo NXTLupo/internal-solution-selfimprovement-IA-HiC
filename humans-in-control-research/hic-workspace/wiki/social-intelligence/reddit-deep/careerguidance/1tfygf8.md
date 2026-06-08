@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tfygf8.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tfygf8/fastest_entry_into_healthcare/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,45 @@ flair: "Advice"
 extracted_at: "2026-05-26T14:32:49.166Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [healthcare, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tfygf8.md#c0"
+    char_span: [0, 1784]
+    sentence_count: 7
+    key_terms: [get, healthcare, careerguidance, career, school, field, like, tech]
+    token_count: 405
+  - id: "social-intelligence/reddit-deep/careerguidance/1tfygf8.md#c1"
+    char_span: [1799, 2583]
+    sentence_count: 5
+    key_terms: [hospitals, programs, pay, short-staffed, jdrelentless, certificate, credentials, perpetually]
+    section: Comments
+    token_count: 165
+  - id: "social-intelligence/reddit-deep/careerguidance/1tfygf8.md#c2"
+    char_span: [2585, 4515]
+    sentence_count: 9
+    key_terms: [healthcare, job, poop, cna, eventually, hospital, college, medical]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/careerguidance/1tfygf8.md#c3"
+    char_span: [4517, 5800]
+    sentence_count: 13
+    key_terms: [get, programs, looking, years, "i'm", something, program, little]
+    section: Comments
+    token_count: 319
+  - id: "social-intelligence/reddit-deep/careerguidance/1tfygf8.md#c4"
+    char_span: [5802, 7769]
+    sentence_count: 18
+    key_terms: [healthcare, phlebotomy, like, beneficial-guess2140, entry, tech, places, certification]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/careerguidance/1tfygf8.md#c5"
+    char_span: [7771, 9405]
+    sentence_count: 23
+    key_terms: [cna, don, programs, because, college, medical, science, course]
+    section: Comments
+    token_count: 399
 ---
-
 # Fastest entry into healthcare?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tfygf8/fastest_entry_into_healthcare/)

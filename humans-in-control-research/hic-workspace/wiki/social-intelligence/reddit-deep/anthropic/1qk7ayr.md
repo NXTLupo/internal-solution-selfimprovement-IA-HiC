@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/anthropic/1qk7ayr.md
 url: "https://www.reddit.com/r/Anthropic/comments/1qk7ayr/degraded_performance_all_day_retry_connection/"
 kind: "social-post"
 source: "reddit-deep: r/anthropic"
@@ -13,8 +14,21 @@ flair: "Complaint:snoo_biblethump:"
 extracted_at: "2026-05-11T17:26:51.918Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, saas, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/anthropic/1qk7ayr.md#c0"
+    char_span: [0, 1133]
+    sentence_count: 11
+    key_terms: [performance, claude, connection, askuserquestion, code, day, "i've", too]
+    token_count: 280
+  - id: "social-intelligence/reddit-deep/anthropic/1qk7ayr.md#c1"
+    char_span: [1148, 1377]
+    sentence_count: 4
+    key_terms: [lowyieldbondfunds, down, optimismneeded, anthropic, anyone, around, cowork, today]
+    section: Comments
+    token_count: 77
 ---
-
 # Degraded Performance ALL DAY. "Retry connection", "AskUserQuestion SubAgent fails", "Prompt is too long" and "An error occurred while executing Claude Code."
 
 Source: [reddit-deep: r/anthropic](https://www.reddit.com/r/Anthropic/comments/1qk7ayr/degraded_performance_all_day_retry_connection/)

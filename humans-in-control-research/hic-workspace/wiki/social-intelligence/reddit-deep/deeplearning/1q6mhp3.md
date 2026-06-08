@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1q6mhp3.md
 url: "https://www.reddit.com/r/deeplearning/comments/1q6mhp3/best_ways_to_explain_what_an_llm_is_doing/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,50 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.056Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1q6mhp3.md#c0"
+    char_span: [0, 2341]
+    sentence_count: 18
+    key_terms: [self-attention, words, get, like, possible, sequence, encoder-decoder, output]
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/deeplearning/1q6mhp3.md#c1"
+    char_span: [2343, 2455]
+    sentence_count: 3
+    key_terms: [technology, describe, variants, thanks, works, bert, like]
+    token_count: 23
+  - id: "social-intelligence/reddit-deep/deeplearning/1q6mhp3.md#c2"
+    char_span: [2470, 4932]
+    sentence_count: 18
+    key_terms: [element, attention, set, output, transformations, matrix, rubber, build]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/deeplearning/1q6mhp3.md#c3"
+    char_span: [4934, 6884]
+    sentence_count: 9
+    key_terms: [data, training, transformer, parameter, size, explanation, "it's", dimensions]
+    section: Comments
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/deeplearning/1q6mhp3.md#c4"
+    char_span: [6886, 9229]
+    sentence_count: 20
+    key_terms: [scaling, learning, throwaway0134hdj, wahnsinnwanscene, meaning, understanding, intelligent, data]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/deeplearning/1q6mhp3.md#c5"
+    char_span: [8922, 9682]
+    sentence_count: 7
+    key_terms: [sentience, time, semblance, thought, data, "it's", self, differentiate]
+    section: Comments
+    token_count: 170
+  - id: "social-intelligence/reddit-deep/deeplearning/1q6mhp3.md#c6"
+    char_span: [9684, 10094]
+    sentence_count: 3
+    key_terms: [like, new, breakthroughs, architecture, intelligence, earthsworld, algorithms, currently]
+    section: Comments
+    token_count: 99
 ---
-
 # Best ways to explain what an LLM is doing?
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1q6mhp3/best_ways_to_explain_what_an_llm_is_doing/)

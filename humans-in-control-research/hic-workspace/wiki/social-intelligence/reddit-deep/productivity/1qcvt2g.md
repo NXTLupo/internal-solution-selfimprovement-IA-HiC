@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1qcvt2g.md
 url: "https://www.reddit.com/r/productivity/comments/1qcvt2g/apple_ecosystem_users_whats_your_ultimate/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,39 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:45.658Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1qcvt2g.md#c0"
+    char_span: [0, 1319]
+    sentence_count: 8
+    key_terms: [productivity, ecosystem, apple, apps, habits, full, comments, settings]
+    token_count: 296
+  - id: "social-intelligence/reddit-deep/productivity/1qcvt2g.md#c1"
+    char_span: [1334, 3191]
+    sentence_count: 3
+    key_terms: [apple, calendar, notes, academic-spread8477, reminders, tracking, combination, apps]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/productivity/1qcvt2g.md#c2"
+    char_span: [3193, 3958]
+    sentence_count: 2
+    key_terms: [use, different, calendar, specific, because, mundane-canary-5737, apple, event]
+    section: Comments
+    token_count: 167
+  - id: "social-intelligence/reddit-deep/productivity/1qcvt2g.md#c3"
+    char_span: [3960, 6161]
+    sentence_count: 20
+    key_terms: [use, todoist, reminders, calendar, apps, like, already, people]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/productivity/1qcvt2g.md#c4"
+    char_span: [5881, 6968]
+    sentence_count: 4
+    key_terms: [reminders, does, use, calendar, busycal, journal, ambitious-coyote389, tasks]
+    section: Comments
+    token_count: 262
 ---
-
 # Apple Ecosystem Users: What’s Your Ultimate Productivity Setup?
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1qcvt2g/apple_ecosystem_users_whats_your_ultimate/)

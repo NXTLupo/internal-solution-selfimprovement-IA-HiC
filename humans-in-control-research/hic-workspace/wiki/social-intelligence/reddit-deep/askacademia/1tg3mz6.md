@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1tg3mz6.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1tg3mz6/try_the_tt_job_market_or_bail/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,45 @@ flair: "Social Science"
 extracted_at: "2026-05-26T14:32:49.115Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce, government]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1tg3mz6.md#c0"
+    char_span: [0, 2182]
+    sentence_count: 16
+    key_terms: [job, market, academic, myself, askacademia, use, challenges, colleagues]
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/askacademia/1tg3mz6.md#c1"
+    char_span: [2197, 3085]
+    sentence_count: 8
+    key_terms: [get, job, jobs, everything, mrmcbussy, gurprofessional9534, apply, "won't"]
+    section: Comments
+    token_count: 240
+  - id: "social-intelligence/reddit-deep/askacademia/1tg3mz6.md#c2"
+    char_span: [3087, 4866]
+    sentence_count: 15
+    key_terms: [academia, through, years, location, already, program, lucky, makes]
+    section: Comments
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/askacademia/1tg3mz6.md#c3"
+    char_span: [4868, 5710]
+    sentence_count: 5
+    key_terms: [working, people, isaac-get-the-golem, begin, job, pronetolaughter, self-reflection, informational]
+    section: Comments
+    token_count: 210
+  - id: "social-intelligence/reddit-deep/askacademia/1tg3mz6.md#c4"
+    char_span: [5712, 7746]
+    sentence_count: 14
+    key_terms: [isaac-get-the-golem, faculty, market, publication, like, pubs, finishing, important]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/askacademia/1tg3mz6.md#c5"
+    char_span: [7748, 9784]
+    sentence_count: 16
+    key_terms: [publications, market, years, get, job, theravingbandit, departments, ago]
+    section: Comments
+    token_count: 480
 ---
-
 # Try the TT Job Market or Bail?
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1tg3mz6/try_the_tt_job_market_or_bail/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1mqydr4.md
 url: "https://www.reddit.com/r/OpenAI/comments/1mqydr4/gpt5_api_injects_hidden_instructions_with_your/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,39 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:05.350Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1mqydr4.md#c0"
+    char_span: [0, 1280]
+    sentence_count: 11
+    key_terms: [oververbosity, instructions, api, confirmed, analysis, comments, desired, injects]
+    token_count: 284
+  - id: "social-intelligence/reddit-deep/openai/1mqydr4.md#c1"
+    char_span: [1295, 2932]
+    sentence_count: 20
+    key_terms: [prompt, always, openai, kathilliana, api, car, gets, "it's"]
+    section: Comments
+    token_count: 378
+  - id: "social-intelligence/reddit-deep/openai/1mqydr4.md#c2"
+    char_span: [2934, 4841]
+    sentence_count: 10
+    key_terms: [katalogical, https, com, kathilliana, oververbosity, dashboard, chatgpt, harmony]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/openai/1mqydr4.md#c3"
+    char_span: [4845, 6781]
+    sentence_count: 10
+    key_terms: [oververbosity, prompt, stunning-ad-2433, capabilities, comparative, chatgpt, tableau, bullet]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/openai/1mqydr4.md#c4"
+    char_span: [6783, 7977]
+    sentence_count: 6
+    key_terms: [instructions, prompt, use, available, router, system, reverse-engineering, model]
+    section: Comments
+    token_count: 327
 ---
-
 # GPT-5 API injects hidden instructions with your prompts
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1mqydr4/gpt5_api_injects_hidden_instructions_with_your/)

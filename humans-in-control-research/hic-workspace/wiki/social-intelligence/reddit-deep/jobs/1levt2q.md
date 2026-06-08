@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1levt2q.md
 url: "https://www.reddit.com/r/jobs/comments/1levt2q/reddit_makes_it_seem_like_literally_every_job_is/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,81 @@ flair: "Career development"
 extracted_at: "2026-05-25T13:03:11.717Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1levt2q.md#c0"
+    char_span: [0, 2045]
+    sentence_count: 28
+    key_terms: [reddit, jobs, like, people, saturated, here, comments, get]
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/jobs/1levt2q.md#c1"
+    char_span: [2060, 4095]
+    sentence_count: 10
+    key_terms: [nursing, get, something, deleted, highest, nurses, people, havingsomedifficulty]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/jobs/1levt2q.md#c2"
+    char_span: [4097, 5719]
+    sentence_count: 18
+    key_terms: [getting, being, nearshoring, kids, tech, experience, offshoring, software]
+    section: Comments
+    token_count: 378
+  - id: "social-intelligence/reddit-deep/jobs/1levt2q.md#c3"
+    char_span: [5721, 7903]
+    sentence_count: 20
+    key_terms: [years, salaries, flooded, nursing, market, people, money, ago]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/jobs/1levt2q.md#c4"
+    char_span: [7905, 9954]
+    sentence_count: 13
+    key_terms: [people, white-collar-jobs-disappearing-2031221, applications, https, since, job-openings-and-labor-turnover, "i'm", jobs]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1levt2q.md#c5"
+    char_span: [9956, 12152]
+    sentence_count: 16
+    key_terms: [being, like, unemployment, people, tech, reddit, electricone55, been]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/jobs/1levt2q.md#c6"
+    char_span: [12154, 14070]
+    sentence_count: 12
+    key_terms: [people, job, through, get, because, deleted, being, going]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/jobs/1levt2q.md#c7"
+    char_span: [14072, 15549]
+    sentence_count: 9
+    key_terms: [experience, school, job, underpaid, teachers, "doesn't", teacher, hiring]
+    section: Comments
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/jobs/1levt2q.md#c8"
+    char_span: [15551, 17228]
+    sentence_count: 12
+    key_terms: [ideological, like, education, position, little, public, "you're", skilled-experienced]
+    section: Comments
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/jobs/1levt2q.md#c9"
+    char_span: [17230, 18587]
+    sentence_count: 11
+    key_terms: [food, fast, job, postings, looking, usually, either, matter]
+    section: Comments
+    token_count: 336
+  - id: "social-intelligence/reddit-deep/jobs/1levt2q.md#c10"
+    char_span: [18589, 20713]
+    sentence_count: 13
+    key_terms: [job, people, advice, always, field, get, high, post]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/jobs/1levt2q.md#c11"
+    char_span: [20716, 22157]
+    sentence_count: 13
+    key_terms: [teaching, jobs, english, get, teachers, areas, job, population]
+    section: Comments
+    token_count: 312
 ---
-
 # Reddit makes it seem like literally every job is “saturated”
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1levt2q/reddit_makes_it_seem_like_literally_every_job_is/)

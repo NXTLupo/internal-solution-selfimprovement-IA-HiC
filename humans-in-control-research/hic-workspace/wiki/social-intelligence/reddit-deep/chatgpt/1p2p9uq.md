@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1p2p9uq.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1p2p9uq/so_i_asked_chatgpt_who_would_you_save5_good/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,27 @@ flair: "Serious replies only :closed-ai:"
 extracted_at: "2026-05-17T01:12:48.212Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1p2p9uq.md#c0"
+    char_span: [0, 463]
+    sentence_count: 3
+    key_terms: [chatgpt, comments, https, png, dellevenjack, reddit-deep, criminals, situation]
+    token_count: 165
+  - id: "social-intelligence/reddit-deep/chatgpt/1p2p9uq.md#c1"
+    char_span: [478, 1588]
+    sentence_count: 7
+    key_terms: [please, automoderator, conversation, image, post, r-chatgpt-1050422060352024636, comments, concerns]
+    section: Comments
+    token_count: 277
+  - id: "social-intelligence/reddit-deep/chatgpt/1p2p9uq.md#c2"
+    char_span: [1591, 3123]
+    sentence_count: 12
+    key_terms: [hearts, save, criminals, billion, federal, society, budget, "didn't"]
+    section: Comments
+    token_count: 364
 ---
-
 # So I asked ChatGPT: ‘Who would you save—5 good people or 5 criminals?’ The response was not what I expected. What would you hope an AI chooses in that situation?
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1p2p9uq/so_i_asked_chatgpt_who_would_you_save5_good/)

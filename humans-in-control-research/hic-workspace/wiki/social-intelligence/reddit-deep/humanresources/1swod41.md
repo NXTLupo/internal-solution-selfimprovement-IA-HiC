@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1swod41.md
 url: "https://www.reddit.com/r/humanresources/comments/1swod41/leadership_development_training_ca_san_diego/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-23T12:15:41.533Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1swod41.md#c0"
+    char_span: [0, 1013]
+    sentence_count: 5
+    key_terms: [humanresources, manufacturing, small, development, supervisors, "i'm", leadership, comments]
+    token_count: 225
+  - id: "social-intelligence/reddit-deep/humanresources/1swod41.md#c1"
+    char_span: [1028, 3085]
+    sentence_count: 17
+    key_terms: [leaders, rolecompetitive5588, work, culture, peer, team, mentorship, transition]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/humanresources/1swod41.md#c2"
+    char_span: [3087, 5326]
+    sentence_count: 17
+    key_terms: [supervisors, time, coaching, training, manufacturing, development, post, real]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/humanresources/1swod41.md#c3"
+    char_span: [5328, 7710]
+    sentence_count: 15
+    key_terms: [training, leaders, leadership, situations, companies, frontline, in-person, question]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/humanresources/1swod41.md#c4"
+    char_span: [7712, 8460]
+    sentence_count: 3
+    key_terms: [executive-education, darden, programs, virginia, contact, https, teams, edu]
+    section: Comments
+    token_count: 162
 ---
-
 # Leadership Development Training [CA] - San Diego
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1swod41/leadership_development_training_ca_san_diego/)

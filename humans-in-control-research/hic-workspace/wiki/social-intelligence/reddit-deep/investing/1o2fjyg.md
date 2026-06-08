@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1o2fjyg.md
 url: "https://www.reddit.com/r/investing/comments/1o2fjyg/would_a_market_crash_after_a_hypothetical_ai/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-16T20:55:01.244Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1o2fjyg.md#c0"
+    char_span: [0, 1217]
+    sentence_count: 6
+    key_terms: [market, crash, investing, invest, month, eventually, comments, bubble]
+    token_count: 285
+  - id: "social-intelligence/reddit-deep/investing/1o2fjyg.md#c1"
+    char_span: [1232, 3273]
+    sentence_count: 17
+    key_terms: [market, invest, money, "i'm", saving, confusing, investing, floatingostrichs]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/investing/1o2fjyg.md#c2"
+    char_span: [3275, 5311]
+    sentence_count: 18
+    key_terms: [recover, market, burst, com, dot, time, investing, business]
+    section: Comments
+    token_count: 500
 ---
-
 # Would a market crash after a hypothetical AI bubble matter long-term for ETF investors?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1o2fjyg/would_a_market_crash_after_a_hypothetical_ai/)

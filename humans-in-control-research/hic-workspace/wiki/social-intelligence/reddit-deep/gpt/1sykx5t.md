@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1sykx5t.md
 url: "https://www.reddit.com/r/GPT/comments/1sykx5t/how_chatgpt_actually_serves_ads_here_is_the_full/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,31 @@ flair: ""
 extracted_at: "2026-05-11T17:26:37.722Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1sykx5t.md#c0"
+    char_span: [0, 2264]
+    sentence_count: 29
+    key_terms: [targeting, attribution, click, advertisers, ads, loop, comments, chatgpt]
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/gpt/1sykx5t.md#c1"
+    char_span: [2266, 4349]
+    sentence_count: 28
+    key_terms: [attribution, paying, right, essentially, cpc, get, conversion, discovery]
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/gpt/1sykx5t.md#c2"
+    char_span: [4351, 5500]
+    sentence_count: 15
+    key_terms: [sponsored, massive, network, privacy-conscious, dns, network-level, ad-blocking, blackholing]
+    token_count: 238
+  - id: "social-intelligence/reddit-deep/gpt/1sykx5t.md#c3"
+    char_span: [5515, 6120]
+    sentence_count: 4
+    key_terms: [mentiondesk, optimizing, discovery, better, organically, documented, visibility, effective]
+    section: Comments
+    token_count: 123
 ---
-
 # How ChatGPT actually serves ads. Here is the full attribution loop (and why you're burning $5/click)
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1sykx5t/how_chatgpt_actually_serves_ads_here_is_the_full/)

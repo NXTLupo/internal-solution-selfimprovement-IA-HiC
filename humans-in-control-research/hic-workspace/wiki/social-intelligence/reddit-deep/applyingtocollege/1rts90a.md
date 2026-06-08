@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1rts90a.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rts90a/what_the_hell_am_i_doing_wrong/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,45 @@ flair: "Emotional Support"
 extracted_at: "2026-05-23T12:15:36.216Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rts90a.md#c0"
+    char_span: [0, 1215]
+    sentence_count: 5
+    key_terms: [rejected, applyingtocollege, stevens, school, technology, waitlisted, institute, comments]
+    token_count: 328
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rts90a.md#c1"
+    char_span: [1230, 3122]
+    sentence_count: 19
+    key_terms: [people, decisions, get, posts, case, don, holy, surprising]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rts90a.md#c2"
+    char_span: [3124, 4147]
+    sentence_count: 9
+    key_terms: [admitted, reaches, rutgers, apply, state, full, ride, unc]
+    section: Comments
+    token_count: 249
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rts90a.md#c3"
+    char_span: [4149, 5197]
+    sentence_count: 7
+    key_terms: [good, luck, uva, bucknell, optional, waitlist, apprehensivesignal55, environmentactive325]
+    section: Comments
+    token_count: 328
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rts90a.md#c4"
+    char_span: [5199, 6753]
+    sentence_count: 11
+    key_terms: [schools, colleges, school, good, luck, nap, yesterday, amazing]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rts90a.md#c5"
+    char_span: [6755, 7435]
+    sentence_count: 10
+    key_terms: [competitive, admissions, safeties, schools, juniorreserve1560, jeonggukispretty, additional, appreciate]
+    section: Comments
+    token_count: 181
 ---
-
 # What the hell am I doing wrong
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rts90a/what_the_hell_am_i_doing_wrong/)

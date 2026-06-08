@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1mu0esz.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1mu0esz/getting_into_machine_learning_grad_school_with/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,21 @@ flair: "Applied Sciences"
 extracted_at: "2026-05-23T14:54:16.711Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce, ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1mu0esz.md#c0"
+    char_span: [0, 1156]
+    sentence_count: 9
+    key_terms: [getting, gradadmissions, application, year, comments, learning, software, machine]
+    token_count: 277
+  - id: "social-intelligence/reddit-deep/gradadmissions/1mu0esz.md#c1"
+    char_span: [1171, 1380]
+    sentence_count: 5
+    key_terms: [postbaccalaureate, application, otherwise, sna9py33, courses, depends, program, waiver]
+    section: Comments
+    token_count: 64
 ---
-
 # Getting into Machine Learning grad school with low gpa
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1mu0esz/getting_into_machine_learning_grad_school_with/)

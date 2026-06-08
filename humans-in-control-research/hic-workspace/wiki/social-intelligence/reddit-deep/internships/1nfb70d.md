@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1nfb70d.md
 url: "https://www.reddit.com/r/internships/comments/1nfb70d/is_relevant_work_experience_a_necessary_for/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "Applications"
 extracted_at: "2026-05-19T17:57:20.771Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1nfb70d.md#c0"
+    char_span: [0, 923]
+    sentence_count: 6
+    key_terms: [finance, spring, https, weeks, engineering, internships, work, experience]
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/internships/1nfb70d.md#c1"
+    char_span: [938, 1445]
+    sentence_count: 3
+    key_terms: [finance, makes, lot, wr3eckerlxix, engineering, wondering, probably, students]
+    section: Comments
+    token_count: 141
 ---
-
 # Is relevant work experience a necessary for spring weeks? Incoming first year (UK)
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1nfb70d/is_relevant_work_experience_a_necessary_for/)

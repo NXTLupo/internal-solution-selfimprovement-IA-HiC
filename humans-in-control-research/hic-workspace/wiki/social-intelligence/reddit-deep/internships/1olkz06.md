@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1olkz06.md
 url: "https://www.reddit.com/r/internships/comments/1olkz06/looking_for_a_cloud_engineering_internship_in/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,15 @@ flair: "General"
 extracted_at: "2026-05-25T15:51:38.718Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1olkz06.md#c0"
+    char_span: [0, 1280]
+    sentence_count: 3
+    key_terms: [cloud, internship, learning, germany, looking, international, development, engineering]
+    token_count: 308
 ---
-
 # Looking for a Cloud Engineering Internship in Germany (Exchange Student, Learning German)
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1olkz06/looking_for_a_cloud_engineering_internship_in/)

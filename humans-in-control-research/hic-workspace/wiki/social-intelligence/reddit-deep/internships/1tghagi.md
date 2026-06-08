@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1tghagi.md
 url: "https://www.reddit.com/r/internships/comments/1tghagi/preparing_for_my_first_software_engineering/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,30 @@ subreddit: "internships"
 title: "Preparing for My First Software Engineering Internship (Summer 2027), What Would You Do Differently?"
 author: "meetmeoffline"
 date: "2026-05-18T09:24:09.000Z"
-score: 5
-upvote_ratio: 1
+score: 4
+upvote_ratio: 0.84
 num_comments: 3
 flair: "General"
-extracted_at: "2026-05-23T12:15:55.800Z"
+extracted_at: "2026-06-06T00:27:36.095Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1tghagi.md#c0"
+    char_span: [0, 1200]
+    sentence_count: 6
+    key_terms: [software, internships, internship, differently, engineering, preparing, comments, projects]
+    token_count: 265
+  - id: "social-intelligence/reddit-deep/internships/1tghagi.md#c1"
+    char_span: [1215, 2237]
+    sentence_count: 13
+    key_terms: [interviews, applying, something, practice, projects, prachub, hiredu, https]
+    section: Comments
+    token_count: 242
 ---
-
 # Preparing for My First Software Engineering Internship (Summer 2027), What Would You Do Differently?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1tghagi/preparing_for_my_first_software_engineering/)
-Posted by **meetmeoffline** · **5↑** · **3 comments**
+Posted by **meetmeoffline** · **4↑** · **3 comments**
 
 Hey everyone,
 

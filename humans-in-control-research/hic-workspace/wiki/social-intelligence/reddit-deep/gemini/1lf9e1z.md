@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gemini/1lf9e1z.md
 url: "https://www.reddit.com/r/Gemini/comments/1lf9e1z/passkey_work_around/"
 kind: "social-post"
 source: "reddit-deep: r/gemini"
@@ -13,8 +14,33 @@ flair: "Discussion :Discussion:"
 extracted_at: "2026-05-11T17:27:04.758Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gemini/1lf9e1z.md#c0"
+    char_span: [0, 1729]
+    sentence_count: 13
+    key_terms: [gemini, login, passkey, stuck, able, app, browser, chrome]
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/gemini/1lf9e1z.md#c1"
+    char_span: [1744, 3526]
+    sentence_count: 16
+    key_terms: [passkey, mobile, app, device, device-specific, devices, create, auntietd]
+    section: Comments
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/gemini/1lf9e1z.md#c2"
+    char_span: [3529, 5322]
+    sentence_count: 21
+    key_terms: [auntietd, email, passkey, locked, account, gemini, hey, rooting]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gemini/1lf9e1z.md#c3"
+    char_span: [5089, 5347]
+    sentence_count: 5
+    key_terms: [iphone, locked, clarify, passkey, windows, laptop, thanks, brain]
+    section: Comments
+    token_count: 71
 ---
-
 # Passkey work around
 
 Source: [reddit-deep: r/gemini](https://www.reddit.com/r/Gemini/comments/1lf9e1z/passkey_work_around/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1s3o3eh.md
 url: "https://www.reddit.com/r/jobs/comments/1s3o3eh/how_to_get_a_decent_job_in_your_30s_when_you_have/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,33 @@ flair: "Job searching"
 extracted_at: "2026-05-24T14:10:06.654Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1s3o3eh.md#c0"
+    char_span: [0, 969]
+    sentence_count: 11
+    key_terms: [work, don, jobs, decent, experience, comments, college, feeling]
+    token_count: 246
+  - id: "social-intelligence/reddit-deep/jobs/1s3o3eh.md#c1"
+    char_span: [984, 2757]
+    sentence_count: 20
+    key_terms: [trades, work, experience, wage, anything, recommending, been, don]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/jobs/1s3o3eh.md#c2"
+    char_span: [2759, 4401]
+    sentence_count: 18
+    key_terms: [people, get, someone, trying, getting, degree, resume, doing]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/jobs/1s3o3eh.md#c3"
+    char_span: [4403, 6017]
+    sentence_count: 9
+    key_terms: [employment, work, programs, getting, without, working, degree, skills]
+    section: Comments
+    token_count: 387
 ---
-
 # How to get a decent job in your 30s when you have no prior work experience ?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1s3o3eh/how_to_get_a_decent_job_in_your_30s_when_you_have/)

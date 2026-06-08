@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rasxsm.md
 url: "https://www.reddit.com/r/internships/comments/1rasxsm/how_many_cold_applications_did_it_take_for_you_to/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -7,14 +8,37 @@ title: "How many cold applications did it take for you to land an internship? Ho
 author: "Next-Garbage9163"
 date: "2026-02-21T14:48:29.000Z"
 score: 23
-upvote_ratio: 1
+upvote_ratio: 0.94
 num_comments: 34
 flair: "General"
-extracted_at: "2026-05-19T17:57:20.783Z"
+extracted_at: "2026-06-03T17:59:52.566Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rasxsm.md#c0"
+    char_span: [0, 679]
+    sentence_count: 7
+    key_terms: [internships, applications, internship, comments, next-garbage9163, unfortunately, reddit-deep, applicants]
+    token_count: 162
+  - id: "social-intelligence/reddit-deep/internships/1rasxsm.md#c1"
+    char_span: [694, 2215]
+    sentence_count: 4
+    key_terms: [apps, hazeltail13, major, offer, conversion, internship, interview, something]
+    section: Comments
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/internships/1rasxsm.md#c2"
+    char_span: [2218, 4182]
+    sentence_count: 13
+    key_terms: [resume, tailor, resumes, applications, applying, applied, science, "didn't"]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/internships/1rasxsm.md#c3"
+    char_span: [4184, 5424]
+    sentence_count: 5
+    key_terms: [got, internships, applying, applied, months, offer, takes, askaltruistic4582]
+    section: Comments
+    token_count: 345
 ---
-
 # How many cold applications did it take for you to land an internship? How long do you wait to hear something back too?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rasxsm/how_many_cold_applications_did_it_take_for_you_to/)
@@ -24,8 +48,8 @@ I'm one of the late applicants unfortunately (Started around the first week of F
 
 ## Comments
 
-- **zacce** (10↑): took 500 apps (engineering)
-- **Hazeltail13** (7↑): i’m in the same boat. 2 callbacks out of ~30-50 apps. current callback rate is around 1-3% on my major, and offer conversion really depends but around .125- .1. also used my own exp which matched up
+- **zacce** (11↑): took 500 apps (engineering)
+- **Hazeltail13** (9↑): i’m in the same boat. 2 callbacks out of ~30-50 apps. current callback rate is around 1-3% on my major, and offer conversion really depends but around .125- .1. also used my own exp which matched up
 
 statistically speaking, there is a 63ish % chance of getting something after 500 apps and 90 or higher% after 1k. but that’s my major.
 
@@ -34,7 +58,7 @@ you can search subs for average rates and ofc your own experience. but unless yo
     - **Hazeltail13** (2↑): yeah so its probably about the same. you'd probably be better of focusing on a niche, & tailor your resume (make sure you have all the keywords and relevant projects) for each application) \^\^
   - **No-Suggestion-9433** (2↑): By getting something, do you mean being given an interview? Or are the stats including actually securing an offer?
     - **Hazeltail13** (2↑): securing an offer given you applied to x positions. i ran those numbers based on other people’s outcomes (non target or average schools) and general market interview to offer conversion rates.
-- **dinidusam** (4↑): My first internship was from a mutual connection, and that maybe after like, 250 apps? Maybe more? 
+- **dinidusam** (6↑): My first internship was from a mutual connection, and that maybe after like, 250 apps? Maybe more? 
 
 
 My second internship which I got recently was after say 250-300 apps, and that was from cold applying.

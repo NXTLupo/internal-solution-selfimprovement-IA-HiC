@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1rr3z6u.md
 url: "https://www.reddit.com/r/jobs/comments/1rr3z6u/stuck_between_job_security_and_career_growth_as_a/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,27 @@ flair: "Career development"
 extracted_at: "2026-05-25T13:03:11.719Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1rr3z6u.md#c0"
+    char_span: [0, 1540]
+    sentence_count: 12
+    key_terms: [job, jobs, developer, comments, learned, career, expect, growth]
+    token_count: 339
+  - id: "social-intelligence/reddit-deep/jobs/1rr3z6u.md#c1"
+    char_span: [1555, 3370]
+    sentence_count: 12
+    key_terms: [years, brainwavecc, financially, opportunity, stay, time, anything, sahand96]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/jobs/1rr3z6u.md#c2"
+    char_span: [3372, 5195]
+    sentence_count: 16
+    key_terms: [growth, market, job, new, months, notice, anything, risk]
+    section: Comments
+    token_count: 426
 ---
-
 # Stuck Between Job Security and Career Growth as a Junior Developer
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1rr3z6u/stuck_between_job_security_and_career_growth_as_a/)

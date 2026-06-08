@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rewske.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rewske/is_the_tech_job_market_is_recovering_narrative/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,69 @@ flair: "Meta"
 extracted_at: "2026-05-23T20:15:57.464Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rewske.md#c0"
+    char_span: [0, 857]
+    sentence_count: 7
+    key_terms: [cscareerquestions, narrative, comments, hiring, market, people, seeing, job]
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rewske.md#c1"
+    char_span: [872, 1588]
+    sentence_count: 5
+    key_terms: [jumping, offers, people, edwardstronghammer, keep, like, ship, remotejobseekers]
+    section: Comments
+    token_count: 161
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rewske.md#c2"
+    char_span: [1593, 3500]
+    sentence_count: 10
+    key_terms: [experience, recruiters, market, applying, resume, been, got, "i've"]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rewske.md#c3"
+    char_span: [3300, 5160]
+    sentence_count: 12
+    key_terms: [resume, applying, been, good, got, recruiters, reviewed, getting]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rewske.md#c4"
+    char_span: [5162, 6516]
+    sentence_count: 17
+    key_terms: [job, market, worse, been, got, jobs, everywhere, experience]
+    section: Comments
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rewske.md#c5"
+    char_span: [6518, 7370]
+    sentence_count: 8
+    key_terms: [boomers, job, ageism, market, substantial-elk4531, state, new, generational]
+    section: Comments
+    token_count: 219
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rewske.md#c6"
+    char_span: [7372, 8626]
+    sentence_count: 8
+    key_terms: [companies, deleted, recruiters, seriously, struggles, honestly, respond, almost]
+    section: Comments
+    token_count: 332
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rewske.md#c7"
+    char_span: [8628, 10402]
+    sentence_count: 13
+    key_terms: [interview, years, interviewer, incredible, perfection, questions, amazon, devops]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rewske.md#c8"
+    char_span: [10404, 12642]
+    sentence_count: 18
+    key_terms: [people, engineers, find, resumes, being, competitive, need, team]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rewske.md#c9"
+    char_span: [12644, 13165]
+    sentence_count: 7
+    key_terms: [market, being, mbathrowaway256, disappointment, opportunities, competitive, replacement, advertised]
+    section: Comments
+    token_count: 113
 ---
-
 # is the "tech job market is recovering" narrative actually true or are we just coping?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rewske/is_the_tech_job_market_is_recovering_narrative/)

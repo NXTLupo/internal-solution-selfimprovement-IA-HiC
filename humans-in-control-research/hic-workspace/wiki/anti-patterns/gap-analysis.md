@@ -1,4 +1,5 @@
 ---
+id: anti-patterns/gap-analysis.md
 title: "Gap Analysis Anti-Patterns"
 type: anti-pattern
 created: 2026-04-10
@@ -8,8 +9,56 @@ confidence: high
 status: active
 tags: [anti-patterns, gap-analysis, maturity-model, quality-gates]
 evidence_count: 0
+chunks:
+  - id: "anti-patterns/gap-analysis.md#c0"
+    char_span: [0, 2318]
+    sentence_count: 8
+    key_terms: [without, technology, data, governance, impact, gap, alternative, description]
+    section: "AP-GAP-01: Maturity Theater / AP-GAP-02: Uniform Target (Everything to Level 5) / AP-GAP-03: No Business Impact Quantification"
+    token_count: 484
+  - id: "anti-patterns/gap-analysis.md#c1"
+    char_span: [2387, 3008]
+    sentence_count: 5
+    key_terms: [cause, root, gaps, actions, independently, systemically, alternative, attribution]
+    section: "AP-GAP-04: Individual Gap Focus (Ignoring Root Cause Clusters)"
+    token_count: 137
+  - id: "anti-patterns/gap-analysis.md#c2"
+    char_span: [3054, 3606]
+    sentence_count: 4
+    key_terms: [transformational, strategic, tactical, quick, cdp, gaps, categorization, implementation]
+    section: "AP-GAP-05: Missing Remediation Timeline"
+    token_count: 123
+  - id: "anti-patterns/gap-analysis.md#c3"
+    char_span: [3647, 4252]
+    sentence_count: 3
+    key_terms: [recommendations, evidence, specific, universally-applicable, cause, gap, root, certification]
+    section: "AP-GAP-06: Generic Recommendations"
+    token_count: 129
+  - id: "anti-patterns/gap-analysis.md#c4"
+    char_span: [4292, 4789]
+    sentence_count: 7
+    key_terms: [high, gap, technology, severity, process, data, differentiation, prioritization]
+    section: "AP-GAP-07: All Gaps Same Severity"
+    token_count: 132
+  - id: "anti-patterns/gap-analysis.md#c5"
+    char_span: [4823, 5308]
+    sentence_count: 4
+    key_terms: [assessment, benchmarks, technology, industry, current, without, group, trend]
+    section: "AP-GAP-08: No Baseline Data"
+    token_count: 121
+  - id: "anti-patterns/gap-analysis.md#c6"
+    char_span: [5358, 5789]
+    sentence_count: 1
+    key_terms: [radar, initiatives, linked, chart, text, visualizations, independently, visualization]
+    section: "AP-GAP-09: Spider Chart Without Action Plan"
+    token_count: 80
+  - id: "anti-patterns/gap-analysis.md#c7"
+    char_span: [5842, 6445]
+    sentence_count: 4
+    key_terms: [phase, management, budget, change, budget-constrained, cdp, data, year]
+    section: "AP-GAP-10: Ignoring Organizational Constraints"
+    token_count: 129
 ---
-
 # Gap Analysis Anti-Patterns
 
 Known failure modes when generating CX gap analysis deliverables. Cross-reference: [[frameworks/gap-analysis]]

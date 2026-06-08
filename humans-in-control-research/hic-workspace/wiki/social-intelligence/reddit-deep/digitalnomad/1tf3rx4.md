@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1tf3rx4.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1tf3rx4/it_guy_worried_about_ai_taking_my_job_has_anyone/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,39 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:56.727Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1tf3rx4.md#c0"
+    char_span: [0, 2078]
+    sentence_count: 15
+    key_terms: [job, "i'm", something, digitalnomad, learn, month, skill, new]
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/digitalnomad/1tf3rx4.md#c1"
+    char_span: [2093, 3745]
+    sentence_count: 10
+    key_terms: [get, companies, something, personal, anxiety, because, become, people]
+    section: Comments
+    token_count: 405
+  - id: "social-intelligence/reddit-deep/digitalnomad/1tf3rx4.md#c2"
+    char_span: [3747, 5716]
+    sentence_count: 13
+    key_terms: ["you're", international-fly735, doing, work, anywhere, language, position, current]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/digitalnomad/1tf3rx4.md#c3"
+    char_span: [5718, 7539]
+    sentence_count: 9
+    key_terms: [situation, felixnoriel, back, get, "i'm", nomading, diving, remote]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/digitalnomad/1tf3rx4.md#c4"
+    char_span: [7541, 8145]
+    sentence_count: 4
+    key_terms: [environment, considered, certainly, competing, corporate, employers, including, marketing]
+    section: Comments
+    token_count: 136
 ---
-
 # IT guy worried about AI taking my job — has anyone successfully learned a new skill while nomading and pivoted careers?
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1tf3rx4/it_guy_worried_about_ai_taking_my_job_has_anyone/)

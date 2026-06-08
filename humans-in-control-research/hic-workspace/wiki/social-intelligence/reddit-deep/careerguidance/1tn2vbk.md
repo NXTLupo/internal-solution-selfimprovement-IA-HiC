@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tn2vbk.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tn2vbk/how_does_a_woman_break_into_finance_when_it_still/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,45 @@ flair: "Advice"
 extracted_at: "2026-05-26T14:32:49.164Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tn2vbk.md#c0"
+    char_span: [0, 2463]
+    sentence_count: 20
+    key_terms: [finance, experience, investment, roles, management, like, research, careerguidance]
+    token_count: 516
+  - id: "social-intelligence/reddit-deep/careerguidance/1tn2vbk.md#c1"
+    char_span: [2465, 4214]
+    sentence_count: 22
+    key_terms: [applications, networking, unconventional, top-ground22, club, appreciate, targeted, looking]
+    section: Comments
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/careerguidance/1tn2vbk.md#c2"
+    char_span: [4216, 6773]
+    sentence_count: 19
+    key_terms: [advice, networking, because, finance, generic, opportunities, applications, top-ground22]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1tn2vbk.md#c3"
+    char_span: [6438, 8793]
+    sentence_count: 18
+    key_terms: [experience, consulting, get, because, finance, people, top-ground22, competitive]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1tn2vbk.md#c4"
+    char_span: [8524, 10139]
+    sentence_count: 11
+    key_terms: [top-ground22, field, because, finance, advice, similarcomfortable69, asked, women]
+    section: Comments
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/careerguidance/1tn2vbk.md#c5"
+    char_span: [10141, 10929]
+    sentence_count: 8
+    key_terms: [entry, level, city, jobs, move, nyc, connection, personal]
+    section: Comments
+    token_count: 168
 ---
-
 # How Does a Woman Break Into Finance When It Still Feels Like a Boys’ Club?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tn2vbk/how_does_a_woman_break_into_finance_when_it_still/)

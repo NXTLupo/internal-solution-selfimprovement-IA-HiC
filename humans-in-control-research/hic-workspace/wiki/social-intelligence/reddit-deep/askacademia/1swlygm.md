@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1swlygm.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1swlygm/should_i_pursue_academia_in_history/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,45 @@ flair: "Humanities"
 extracted_at: "2026-05-26T14:32:49.118Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1swlygm.md#c0"
+    char_span: [0, 1889]
+    sentence_count: 17
+    key_terms: [history, get, top, pursue, school, academia, question, schools]
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/askacademia/1swlygm.md#c1"
+    char_span: [1904, 4065]
+    sentence_count: 19
+    key_terms: [job, academic, okay, history, exhausted-teacher789, top, pursue, tenure]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/askacademia/1swlygm.md#c2"
+    char_span: [3788, 5035]
+    sentence_count: 14
+    key_terms: [did, jobs, academic, because, history, paying, wouldn, years]
+    section: Comments
+    token_count: 290
+  - id: "social-intelligence/reddit-deep/askacademia/1swlygm.md#c3"
+    char_span: [5037, 7318]
+    sentence_count: 24
+    key_terms: [history, academic, job, someone, jobs, teach, get, guarantee]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/askacademia/1swlygm.md#c4"
+    char_span: [7320, 8907]
+    sentence_count: 4
+    key_terms: [phd, experience, teaching, school, transferrable, broadwaybean, internships, plus]
+    section: Comments
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/askacademia/1swlygm.md#c5"
+    char_span: [8909, 11136]
+    sentence_count: 12
+    key_terms: [history, sad-staff1734, drtonytiger, phd, oversupply, professors, professor, analyst]
+    section: Comments
+    token_count: 510
 ---
-
 # Should I pursue academia in history?
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1swlygm/should_i_pursue_academia_in_history/)

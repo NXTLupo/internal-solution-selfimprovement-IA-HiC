@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1lzvwgu/im_33_spent_6_years_becoming_a_software_engineer/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,69 @@ flair: ""
 extracted_at: "2026-05-23T12:16:24.373Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c0"
+    char_span: [0, 1845]
+    sentence_count: 20
+    key_terms: [cscareerquestions, market, job, like, building, comments, engineer, software]
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c1"
+    char_span: [1860, 3769]
+    sentence_count: 17
+    key_terms: [job, years, swe, year, certifications, adding, market, sales]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c2"
+    char_span: [3771, 5581]
+    sentence_count: 16
+    key_terms: [degree, cost, getting, industries, management, deleted, anyway, bullet]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c3"
+    char_span: [5583, 7591]
+    sentence_count: 15
+    key_terms: [great, engineer, degree, experience, masters, through, "it's", software]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c4"
+    char_span: [7593, 8360]
+    sentence_count: 3
+    key_terms: [degree, deleted, redact, conscious-secret-775, illustrious-pound266, wants, get, old]
+    section: Comments
+    token_count: 212
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c5"
+    char_span: [8362, 10145]
+    sentence_count: 13
+    key_terms: [degree, degrees, resume, absolutely, experience, masters, working, expire]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c6"
+    char_span: [10147, 11712]
+    sentence_count: 14
+    key_terms: [job, without, time, getting, years, developer, mid-level, undergrad]
+    section: Comments
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c7"
+    char_span: [11714, 13648]
+    sentence_count: 15
+    key_terms: [working, job, projects, market, quit, swe, yoe, eventually]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c8"
+    char_span: [13650, 14636]
+    sentence_count: 6
+    key_terms: [like, shit, mountain-lecture1000, klingonbuttmasseuse, mulberrylarge6375, "it's", swe, ssssspaghetto]
+    section: Comments
+    token_count: 262
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lzvwgu.md#c9"
+    char_span: [14638, 15990]
+    sentence_count: 10
+    key_terms: [pivoting, deleted, officer, career, degree, useful, background-rub-3017, carelesspackage1982]
+    section: Comments
+    token_count: 370
 ---
-
 # I’m 33, spent 6 years becoming a software engineer... now I'm stuck. Advice?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1lzvwgu/im_33_spent_6_years_becoming_a_software_engineer/)

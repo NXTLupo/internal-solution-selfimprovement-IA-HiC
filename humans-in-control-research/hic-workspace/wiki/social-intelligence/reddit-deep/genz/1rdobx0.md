@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1rdobx0.md
 url: "https://www.reddit.com/r/GenZ/comments/1rdobx0/elder_millennial_here_is_this_a_gen_z_thing_or_am/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,50 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.771Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [media]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1rdobx0.md#c0"
+    char_span: [0, 2087]
+    sentence_count: 30
+    key_terms: [later, together, like, gen, example, friend, weeks, millennial]
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/genz/1rdobx0.md#c1"
+    char_span: [2089, 2835]
+    sentence_count: 9
+    key_terms: [talking, younger, people, social, folks, compartmentalizing, like, acknowledging]
+    token_count: 159
+  - id: "social-intelligence/reddit-deep/genz/1rdobx0.md#c2"
+    char_span: [2850, 4664]
+    sentence_count: 19
+    key_terms: [group, like, facebook, online, "we've", basketball, completely, hypothesis]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/genz/1rdobx0.md#c3"
+    char_span: [4666, 6667]
+    sentence_count: 17
+    key_terms: ["didn't", smiled, back, like, odd, awkwardly, behavior, comments]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/genz/1rdobx0.md#c4"
+    char_span: [6669, 8248]
+    sentence_count: 8
+    key_terms: [remember, eachother, like, people, together, awkward, "didn't", memory]
+    section: Comments
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/genz/1rdobx0.md#c5"
+    char_span: [8251, 10157]
+    sentence_count: 11
+    key_terms: [people, recognize, someone, generational, "it's", remember, specific, problem]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/genz/1rdobx0.md#c6"
+    char_span: [10159, 10471]
+    sentence_count: 5
+    key_terms: [feel, like, try, relationships, transactional, regardless, airplanes, everyone]
+    section: Comments
+    token_count: 76
 ---
-
 # Elder millennial here is this a Gen Z thing or am I overthinking it?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1rdobx0/elder_millennial_here_is_this_a_gen_z_thing_or_am/)

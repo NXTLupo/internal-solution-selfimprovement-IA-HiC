@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-applyingtocollege/eddceca03e.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1sl3reu/how_do_you_get_over_the_prestige_factor_and/"
 url_hash: "eddceca03e"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-19T15:15:02.698298+00:00"
 chars: 4245
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-applyingtocollege/eddceca03e.md#c0"
+    char_span: [0, 2151]
+    sentence_count: 25
+    key_terms: [genuinely, school, everything, applyingtocollege, get, emory, "i'm", ucsd]
+    token_count: 467
+  - id: "articles/reddit-deep-r-applyingtocollege/eddceca03e.md#c1"
+    char_span: [2153, 4302]
+    sentence_count: 28
+    key_terms: [emory, better, campus, life-calligrapher156, upset-leader-4725, uga, prestige, school]
+    token_count: 512
+  - id: "articles/reddit-deep-r-applyingtocollege/eddceca03e.md#c2"
+    char_span: [4035, 4500]
+    sentence_count: 5
+    key_terms: [random, life-calligrapher156, don, universities, basketball, strangers, american, football]
+    token_count: 114
 ---
-
 # How do you get over the prestige factor and actually get excited about the school you committed to?
 
 Source: [Reddit Deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1sl3reu/how_do_you_get_over_the_prestige_factor_and/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1lgwvs8.md
 url: "https://www.reddit.com/r/college/comments/1lgwvs8/how_i_started_helping_other_students_with_coding/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-23T14:53:53.128Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1lgwvs8.md#c0"
+    char_span: [0, 1458]
+    sentence_count: 8
+    key_terms: [projects, helping, assignments, struggling, understand, comments, students, college]
+    token_count: 317
 ---
-
 # How I started helping other students with coding projects & assignments
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1lgwvs8/how_i_started_helping_other_students_with_coding/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1qjtqy2.md
 url: "https://www.reddit.com/r/internships/comments/1qjtqy2/secured_a_finance_internship_here_are_some_things/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,30 @@ subreddit: "internships"
 title: "Secured a finance internship here are some things I’ve learned"
 author: "ShadesofCool2005"
 date: "2026-01-22T12:52:51.000Z"
-score: 96
+score: 95
 upvote_ratio: 1
 num_comments: 10
 flair: "Interviews"
-extracted_at: "2026-05-25T18:31:15.450Z"
+extracted_at: "2026-06-03T17:24:13.597Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1qjtqy2.md#c0"
+    char_span: [0, 2363]
+    sentence_count: 12
+    key_terms: [interviewer, finance, try, learned, conversational, internships, role, internship]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/internships/1qjtqy2.md#c1"
+    char_span: [2365, 3370]
+    sentence_count: 8
+    key_terms: [congrats, appreciate, advice, "that's", alarmed-efficiency92, imaginationhopeful94, manufacturerkind7009, zestyclose-swing-329]
+    section: Comments
+    token_count: 269
 ---
-
 # Secured a finance internship here are some things I’ve learned
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1qjtqy2/secured_a_finance_internship_here_are_some_things/)
-Posted by **ShadesofCool2005** · **96↑** · **10 comments**
+Posted by **ShadesofCool2005** · **95↑** · **10 comments**
 
 I recently signed my offer for a finance internship at a big bank as a sophomore and here are some things I’ve learned during the recruitment process:
 
@@ -41,7 +53,7 @@ You guys got this. This process is long and arduous but don’t give up and keep
 ## Comments
 
 - **Impressive_Brain_978** (5↑): CONGRATS!! What firm, if you don't mind?
-  - **ShadesofCool2005** (9↑): Jpm!
+  - **ShadesofCool2005** (8↑): Jpm!
     - **Impressive_Brain_978** (4↑): That's incredible. Huge congrats on your success and hard work!!!
     - **starsandasteria_** (1↑): That's very impressive! Congrats! May I know the time period of your application and from what university are you from?
 - **ImaginationHopeful94** (2↑): thank you so much for your advice, would appreciate some sharings or maybe a post on networking and referrals!

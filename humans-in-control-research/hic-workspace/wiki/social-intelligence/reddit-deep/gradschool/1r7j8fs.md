@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1r7j8fs.md
 url: "https://www.reddit.com/r/GradSchool/comments/1r7j8fs/how_to_approach_reading_papers_with_a_mind_that/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,51 @@ flair: "Research"
 extracted_at: "2026-05-20T12:57:40.640Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1r7j8fs.md#c0"
+    char_span: [0, 1773]
+    sentence_count: 14
+    key_terms: [information, understand, problem, "don't", results, gradschool, literature, technique]
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/gradschool/1r7j8fs.md#c1"
+    char_span: [1788, 3903]
+    sentence_count: 20
+    key_terms: [good, read, paper, reading, write, idea, questions, abstract]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/gradschool/1r7j8fs.md#c2"
+    char_span: [3905, 5140]
+    sentence_count: 12
+    key_terms: [better, paper, been, get, identify, lacuna, fill, help]
+    section: Comments
+    token_count: 277
+  - id: "social-intelligence/reddit-deep/gradschool/1r7j8fs.md#c3"
+    char_span: [5142, 7408]
+    sentence_count: 15
+    key_terms: [questions, something, question, read, discipline, terrified, labmates, project]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1r7j8fs.md#c4"
+    char_span: [7112, 7945]
+    sentence_count: 7
+    key_terms: [highlight, something, helpful, papers, zotero, topic, communication, introduction]
+    section: Comments
+    token_count: 179
+  - id: "social-intelligence/reddit-deep/gradschool/1r7j8fs.md#c5"
+    char_span: [7947, 10197]
+    sentence_count: 24
+    key_terms: [papers, read, something, specific, yourself, methods, maybe, notes]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/gradschool/1r7j8fs.md#c6"
+    char_span: [10199, 10977]
+    sentence_count: 3
+    key_terms: [notes, paper, specific, context, did, approach, results, answer]
+    section: Comments
+    token_count: 171
 ---
-
 # How to approach reading papers with a mind that is too practical?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1r7j8fs/how_to_approach_reading_papers_with_a_mind_that/)

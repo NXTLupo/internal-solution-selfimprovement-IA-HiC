@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1q6igw3.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1q6igw3/p_reengineered_the_fuzzypattern_tsetlin_machine/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -13,8 +14,32 @@ flair: "Project"
 extracted_at: "2026-05-11T17:27:06.579Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1q6igw3.md#c0"
+    char_span: [0, 1859]
+    sentence_count: 6
+    key_terms: [training, tsetlin, faster, inference, machinelearning, implementation, fuzzy-pattern, optimizations]
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/machinelearning/1q6igw3.md#c1"
+    char_span: [1865, 2749]
+    sentence_count: 4
+    key_terms: [shall, https, com, prince, code, come, king, optimization]
+    token_count: 241
+  - id: "social-intelligence/reddit-deep/machinelearning/1q6igw3.md#c2"
+    char_span: [2764, 3809]
+    sentence_count: 5
+    key_terms: [symbolic-discrete, artemhnilov, plausible, generate, millions, model, cpu, hdc]
+    section: Comments
+    token_count: 275
+  - id: "social-intelligence/reddit-deep/machinelearning/1q6igw3.md#c3"
+    char_span: [3811, 4947]
+    sentence_count: 5
+    key_terms: [artemhnilov, character-level, tsetlin, generation, machines, binary, arxiv, https]
+    section: Comments
+    token_count: 304
 ---
-
 # [P] Re-engineered the Fuzzy-Pattern Tsetlin Machine from scratch: 10x faster training, 34x faster inference (32M+ preds/sec) & capable of text generation
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1q6igw3/p_reengineered_the_fuzzypattern_tsetlin_machine/)

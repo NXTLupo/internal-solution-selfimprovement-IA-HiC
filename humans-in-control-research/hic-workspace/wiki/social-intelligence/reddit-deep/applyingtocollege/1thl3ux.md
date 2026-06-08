@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1thl3ux.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1thl3ux/advice_needed_follow_my_heart_umich_engineering/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,47 @@ subreddit: "applyingtocollege"
 title: "Advice Needed: Follow My Heart (UMich Engineering) or My Head (NYU Stern)"
 author: "Naive_Substance_4375"
 date: "2026-05-19T12:13:57.000Z"
-score: 0
-upvote_ratio: 0.5
+score: 1
+upvote_ratio: 0.56
 num_comments: 31
 flair: "College Questions"
-extracted_at: "2026-05-25T18:32:06.254Z"
+extracted_at: "2026-06-03T18:34:57.887Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1thl3ux.md#c0"
+    char_span: [0, 2197]
+    sentence_count: 6
+    key_terms: [engineering, nyu, umich, stern, applyingtocollege, like, outcomes, already]
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1thl3ux.md#c1"
+    char_span: [2199, 3642]
+    sentence_count: 3
+    key_terms: [feel, like, nyu, employment, extremely, business, outcomes, program]
+    token_count: 323
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1thl3ux.md#c2"
+    char_span: [3657, 5449]
+    sentence_count: 13
+    key_terms: [engineering, different, michigan, making, school, good, engineers, undergrad]
+    section: Comments
+    token_count: 375
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1thl3ux.md#c3"
+    char_span: [5451, 7436]
+    sentence_count: 14
+    key_terms: [michigan, school, business, better, arbor, engineering, ann, math]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1thl3ux.md#c4"
+    char_span: [7438, 9318]
+    sentence_count: 19
+    key_terms: [grads, stern, tuition, better, family, full, usc, dominate]
+    section: Comments
+    token_count: 406
 ---
-
 # Advice Needed: Follow My Heart (UMich Engineering) or My Head (NYU Stern)
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1thl3ux/advice_needed_follow_my_heart_umich_engineering/)
-Posted by **Naive_Substance_4375** · **0↑** · **31 comments**
+Posted by **Naive_Substance_4375** · **1↑** · **31 comments**
 
 Hello everyone. Recently, I just got off the waitlist for NYU Stern’s Khubani BTE program. I’ve already committed to UMich Ann Arbor for Engineering, and frankly, I’m already really satisfied and excited about it, but am now wondering whether I should go to NYU instead (the cost will be around the same for both). To be honest, I’m still rather unsure of what I want to do in the future career-wise, and though I’ve always had a liking for tinkering with different things such as legos and 3D printing (hence choosing Engineering at UMich), when I was applying, Stern’s prestige stood out to me, and I wasn’t against getting a degree in business as well. 
 
@@ -65,7 +94,7 @@ This is a fundamental risk anywhere, but you can stack the odds in your favor by
 
 And it sounds to me like Michigan is clearly the better bet for you.
   - **Naive_Substance_4375** (1↑): Thank you so much for the thorough reply! I'm currently leaning towards Michigan as well.
-- **deluge_chase** (3↑): Michigan. Unless you need a big city. Because Ann Arbor ain’t that.
+- **deluge_chase** (4↑): Michigan. Unless you need a big city. Because Ann Arbor ain’t that.
   - **Naive_Substance_4375** (3↑): Ann Arbor is actually one of the reasons why I'd prefer to go to Michigan instead of NYU.
     - **deluge_chase** (4↑): OK, if you do not absolutely want a big city environment as others have said there are so many ways to launch a successful career and Michigan is a great degree so obviously go to Michigan.
 - **CorporateHobbyist** (5↑): I went to Michigan, majored in math, then worked in finance after graduating. Go to Michigan. Campus life is a lot better, and you'll actually learn something in the engineering college. Going to a business school, even a fancy one like Stern, will not be as impactful of a learning experience. Also, you can certainly get into finance without going into business school; I'd even make the argument that engineering would prepare you for that career path more than business since you learn tangible math modeling skills.

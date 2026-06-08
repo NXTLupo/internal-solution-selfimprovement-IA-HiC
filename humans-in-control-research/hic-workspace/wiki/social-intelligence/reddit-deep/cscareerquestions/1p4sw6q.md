@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1p4sw6q.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1p4sw6q/im_thinking_about_leaving_software_development/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,78 @@ subreddit: "cscareerquestions"
 title: "I’m thinking about leaving software development. With the layoffs and increasing outsourcing, I’m not sure what direction to take next."
 author: "Rmb8989"
 date: "2025-11-23T17:43:48.000Z"
-score: 359
+score: 360
 upvote_ratio: 0.93
-num_comments: 146
+num_comments: 150
 flair: ""
-extracted_at: "2026-05-18T14:15:34.435Z"
+extracted_at: "2026-06-06T17:43:22.943Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1p4sw6q.md#c0"
+    char_span: [0, 1744]
+    sentence_count: 12
+    key_terms: [enough, cscareerquestions, feel, job, software, years, outsourcing, been]
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1p4sw6q.md#c1"
+    char_span: [1759, 2809]
+    sentence_count: 8
+    key_terms: [interviews, rejection, postgres, get, net, filter-spam, frustrating, interviewed]
+    section: Comments
+    token_count: 232
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1p4sw6q.md#c2"
+    char_span: [2811, 4928]
+    sentence_count: 11
+    key_terms: [construction, "don't", constantly, experience, interviews, situation, brother, company]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1p4sw6q.md#c3"
+    char_span: [4930, 6870]
+    sentence_count: 17
+    key_terms: [years, market, companies, better, something, right, time, honestly]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1p4sw6q.md#c4"
+    char_span: [6872, 8350]
+    sentence_count: 9
+    key_terms: [engineer, software, people, technical, roles, years, engineers, because]
+    section: Comments
+    token_count: 336
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1p4sw6q.md#c5"
+    char_span: [8352, 9846]
+    sentence_count: 11
+    key_terms: [fire, like, forgotmynameeee, early, approach, retiring, pension, enough]
+    section: Comments
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1p4sw6q.md#c6"
+    char_span: [9848, 10849]
+    sentence_count: 7
+    key_terms: [fire, companies, pension, significant-leg1070, stopelectingwealthy, years, done, swe]
+    section: Comments
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1p4sw6q.md#c7"
+    char_span: [10851, 13003]
+    sentence_count: 20
+    key_terms: [healthcare, nursing, people, school, lot, different, lifestyle, expenses]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1p4sw6q.md#c8"
+    char_span: [13005, 14637]
+    sentence_count: 12
+    key_terms: [nursing, job, hospital, because, degree, hire, like, experience]
+    section: Comments
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1p4sw6q.md#c9"
+    char_span: [14639, 16159]
+    sentence_count: 14
+    key_terms: [software, years, contracting, performance, work, graduated, industry, because]
+    section: Comments
+    token_count: 365
 ---
-
 # I’m thinking about leaving software development. With the layoffs and increasing outsourcing, I’m not sure what direction to take next.
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1p4sw6q/im_thinking_about_leaving_software_development/)
-Posted by **Rmb8989** · **359↑** · **146 comments**
+Posted by **Rmb8989** · **360↑** · **150 comments**
 
 I’m 36 years old and have been a software developer for five years, with a BS in Computer Science. I’ve been trying to find a new job for over a year because I feel underpaid and undervalued where I am now. I’ve spent the last five years working with C# and SQL, but lately my boss has been complaining that I’m not working fast enough, and I’m starting to worry that I might get fired.
 
@@ -28,25 +88,25 @@ I don’t want a career where my job is at risk simply because I’m not “opti
 
 ## Comments
 
-- **filter-spam** (287↑): FWIW you’re not alone. Sadly I have no answers and I’m in a similar situation.
+- **filter-spam** (289↑): FWIW you’re not alone. Sadly I have no answers and I’m in a similar situation.
   - **Rmb8989** (104↑): I had two interviews with Robinhood and two with Rockstar Games, and both companies still have the job postings up on LinkedIn even six months later. Yesterday I interviewed for a lead role. I explained to the recruiter that I’m a backend developer with strong .NET and SQL experience, mainly focused on .NET. But during the interview they recorded me while giving me a coding challenge, and I didn’t perform well. They also asked a couple of Postgres questions I haven’t worked with Postgres in four years, and I had only briefly mentioned having used it in the past.
 
 It’s frustrating because when I apply constantly and study nonstop, I barely get any interviews and just get rejection after rejection. But when I take a break, focus on finishing tickets at work, and spend time with my wife and family, I start getting rusty and that’s exactly when one or two big interviews finally pop up, and I end up bombing them.
 
 It shouldn’t bother me, but it does get to me that my younger brother who genuinely believes the earth is flat is a project manager at a construction company making $250K, while I’m here struggling to land interviews and feeling stuck. It helps a little to know I’m not the only one going through this, especially with all the layoffs happening around the holidays. I’m starting to think maybe an analyst role with less coding might be a better direction.
-    - **ImportantSquirrel** (42↑): I'm in a similar situation as you. Overworked and underpaid, constantly in fear of layoffs, and want out. But I don't have any experience in anything else, and at my age I don't want to start at the bottom. It would be ideal if I could leverage my years of development experience into an unrelated role, but I can't figure out how.
-    - **Aazadan** (11↑): I don't know the situation with your brother, but a lot of construction companys have shady finances, and that 250k could be the pool he has for his time, materials he's buying out of it, potential extra labor being hired, contractor rates because he's paying more expenses, and so on.  So don't read too much into that 250k.
-    - **protomatterman** (5↑): I briefly worked in a construction office during the dot com bust. Believe me it’s far harder than you’d think. It’s very much a good ol’ boys culture and you need to be deeply embedded into it to make any real money. The stress is off the charts and they’re constantly working on the edge of legality.
+    - **ImportantSquirrel** (41↑): I'm in a similar situation as you. Overworked and underpaid, constantly in fear of layoffs, and want out. But I don't have any experience in anything else, and at my age I don't want to start at the bottom. It would be ideal if I could leverage my years of development experience into an unrelated role, but I can't figure out how.
+    - **Aazadan** (12↑): I don't know the situation with your brother, but a lot of construction companys have shady finances, and that 250k could be the pool he has for his time, materials he's buying out of it, potential extra labor being hired, contractor rates because he's paying more expenses, and so on.  So don't read too much into that 250k.
+    - **protomatterman** (4↑): I briefly worked in a construction office during the dot com bust. Believe me it’s far harder than you’d think. It’s very much a good ol’ boys culture and you need to be deeply embedded into it to make any real money. The stress is off the charts and they’re constantly working on the edge of legality.
     - **bradfordmaster** (3↑): Just one small note that a company like Robinhood isn't actually putting exact roles on their website, they will just have some generic swe profiles up basically forever, they won't close that if they hire someone. They'd rather just keep building a pipeline and likely have some openings somewhere unless it's a full hiring freeze
     - **SnooBeans1976** (0↑): >But when I take a break, focus on finishing tickets at work, and spend time with my wife and family, I start getting rusty and that’s exactly when one or two big interviews finally pop up, and I end up bombing them.
 
 You are probably doing something wrong. If you learn something, learn the basics forever. Losing the hold is normal and is a human trait. But that's why big companies give you ample time to brush up your skills. Take advantage of that.
-  - **sext-scientist** (21↑): > Sadly I have no answers and I’m in a similar situation.
+  - **sext-scientist** (20↑): > Sadly I have no answers and I’m in a similar situation.
 
 Save for 15 years and retire. Seriously. The market will get better in 3-4 years and there will be bank to make for a limited time then. Ride that out and retire to some magic place.
     - **filter-spam** (21↑): I can’t even plan 3 months out, nevermind 3 years.
-    - **zombawombacomba** (13↑): What do you think happens in 3-4 years to make the market better?
-    - **Rmb8989** (10↑): Yeah, I feel that in my bones it just sucks right now. I’m honestly hoping the AI bubble pops, because I think it will within the next few years. When it does, a lot of people who left tech will already be gone, and these AI companies will act surprised, like, “Who knew AI was just a tool and you can’t slash staff and burn out the rest?”
+    - **zombawombacomba** (14↑): What do you think happens in 3-4 years to make the market better?
+    - **Rmb8989** (11↑): Yeah, I feel that in my bones it just sucks right now. I’m honestly hoping the AI bubble pops, because I think it will within the next few years. When it does, a lot of people who left tech will already be gone, and these AI companies will act surprised, like, “Who knew AI was just a tool and you can’t slash staff and burn out the rest?”
 
 It’s not just AI, though it’s a combination of things: the recession, an influx of junior developers, and massive layoffs from FANG companies. Right now, it seems like some companies are using AI as an excuse to lay off workers, which just increases competition in the job market. At the same time, they’re hiring contractors and staffing firms because it’s cheaper to bring on temporary help.
 
@@ -56,7 +116,7 @@ You’re right I’ve been thinking about finding something where I can still pr
 AI is going to continue to get better, and so will offshoring. 
 
 It’s also a huge assumption to think software devs will still have jobs in 15 years.
-- **bennyboy_** (63↑): I know most people in this industry are shy and introverted, but if you don't mind talking to people, there's always a need for customer-facing technical people.  
+- **bennyboy_** (62↑): I know most people in this industry are shy and introverted, but if you don't mind talking to people, there's always a need for customer-facing technical people.  
 
 You could look into roles like Solutions Engineer/Architect, Professional Services Engineer, or Sales Engineer.  
 
@@ -65,34 +125,34 @@ These roles typically involve solving technical problems for customers, because 
 
 But you're a Software Developer, not a Sales Engineer, so your resume goes straight to the bin, because the 21 y/o HR lady clearly knows you're not qualified.
   - **June-Tralee** (1↑): Other titles along the same/similar career path include Systems Engineer and Software Systems Engineer. They provide design inputs to software engineers as well as to other types of engineers.
-- **ForgotMyNameeee** (98↑): most jobs are gonna suck. i recommend looking into FIRE. thats the most realistic way to get out of this loop
-  - **danintexas** (56↑): This is the answer. I am an ancient to Reddit standards. 50 years old. I have had like 5 full on careers at this point. It really sucks - specially during a bad economy but the grass is not greener on the other side. 
+- **ForgotMyNameeee** (100↑): most jobs are gonna suck. i recommend looking into FIRE. thats the most realistic way to get out of this loop
+  - **danintexas** (61↑): This is the answer. I am an ancient to Reddit standards. 50 years old. I have had like 5 full on careers at this point. It really sucks - specially during a bad economy but the grass is not greener on the other side. 
 
 Life is phases. Enjoy the good ones and head down during the bad ones.
-  - **TopNo6605** (19↑): Lol, sure the most realistic way to escape this is to become rich enough you don't need a job. Sounds good.
+  - **TopNo6605** (21↑): Lol, sure the most realistic way to escape this is to become rich enough you don't need a job. Sounds good.
     - **ForgotMyNameeee** (0↑): it is if u dont waste a lot of money
-  - **IWTLEverything** (18↑): This is my approach. Almost there. Just looking for a cash flowing business to acquire as an insurance policy.
-  - **te_krusty** (10↑): What is FIRE? Can’t find anything when I look it up
-    - **EmeraldxWeapon** (28↑): FIRE is like retiring early and quickly. There's a subreddit for it which goes into the math of it. Something like invest 50% or more of your income and after a certain timeframe 10-15 years the money coming from your investments should be enough to replace your income from your job.
-    - **anointedinliquor** (16↑): Financial Independence, Retire Early
-    - **ForgotMyNameeee** (13↑): retiring early. /r/fire
-  - **ablaut** (10↑): Yes, other professions call this a pension, but SWE and related roles need schemes like FIRE and OE to escape the madness. Imagine if SWEs organized and fought for benefits like a pension for themselves and every new engineer who comes after them? We might be living in a world where workers' organizations through solidarity wouldn't allow new technologies like LLMs to affect hiring and firing.
+  - **IWTLEverything** (19↑): This is my approach. Almost there. Just looking for a cash flowing business to acquire as an insurance policy.
+  - **te_krusty** (13↑): What is FIRE? Can’t find anything when I look it up
+    - **EmeraldxWeapon** (29↑): FIRE is like retiring early and quickly. There's a subreddit for it which goes into the math of it. Something like invest 50% or more of your income and after a certain timeframe 10-15 years the money coming from your investments should be enough to replace your income from your job.
+    - **anointedinliquor** (18↑): Financial Independence, Retire Early
+    - **ForgotMyNameeee** (14↑): retiring early. /r/fire
+  - **ablaut** (14↑): Yes, other professions call this a pension, but SWE and related roles need schemes like FIRE and OE to escape the madness. Imagine if SWEs organized and fought for benefits like a pension for themselves and every new engineer who comes after them? We might be living in a world where workers' organizations through solidarity wouldn't allow new technologies like LLMs to affect hiring and firing.
 
 Implicitly, FIRE and OE are a "fuck you I'm getting mine" approach to the way of things if you think about it, but that's just my opinion.
 
 "A society grows great when old men plant trees in whose shade they know they shall never sit."
-    - **ForgotMyNameeee** (13↑): id rather have a 401k match than a pension, and a pension takes 30 years for full benefit. u can retire in far less time if youre a swe
+    - **ForgotMyNameeee** (11↑): id rather have a 401k match than a pension, and a pension takes 30 years for full benefit. u can retire in far less time if youre a swe
     - **Significant-Leg1070** (1↑): I’m sick of this organizing rhetoric. Then companies would just offshore or nearshore faster than they already are. Covid showed companies that our jobs can be done remotely, and thus they can be done from anywhere by the lowest bidder.
+  - **StopElectingWealthy** (1↑): FIRE is not a job
   - **Neuromante** (-4↑): He's 36. There's no way those FIRE plans will work for him so late.
     - **Cunorix** (2↑): That is... absolutely not true lol. Yes he'll have to save more but he has 31 years. You may want to do some research on how FIRE works.
-  - **StopElectingWealthy** (0↑): FIRE is not a job
-- **TheBrinksTruck** (24↑): I’m a SWE and considering going to medical school. It’s always been a passion of mine as a I have a chronic autoimmune disorder.
+- **TheBrinksTruck** (25↑): I’m a SWE and considering going to medical school. It’s always been a passion of mine as a I have a chronic autoimmune disorder.
 
 Although I’m 25, it would be different if I was in my 30’s. I’ve also considered looking into trades/military.
   - **Duke_** (9↑): 30s is not too late for med school..
     - **TheBrinksTruck** (6↑): I agree but it would be a bit of a tougher choice for me personally
-  - **Late_Ad7566** (5↑): Or nursing.
-- **cy_kelly** (15↑): I've had the same conversation with myself, and one big thing you need to ask yourself is: what are your expenses, and what kind of lifestyle do you want? I'm a single dude living in a studio apartment in an MCOL area, and even if I do shack up with somebody, I don't want kids. So I can get by on a combo of tutoring, bartending, and adjuncting math/stats/CS courses rather comfortably. Even full time hours at the grocery co-op paying $20 an hour would fund my lifestyle and let me put some money away for retirement. The decision would be very different if I had a mortgage, two car payments, and childcare expenses.
+  - **Late_Ad7566** (6↑): Or nursing.
+- **cy_kelly** (16↑): I've had the same conversation with myself, and one big thing you need to ask yourself is: what are your expenses, and what kind of lifestyle do you want? I'm a single dude living in a studio apartment in an MCOL area, and even if I do shack up with somebody, I don't want kids. So I can get by on a combo of tutoring, bartending, and adjuncting math/stats/CS courses rather comfortably. Even full time hours at the grocery co-op paying $20 an hour would fund my lifestyle and let me put some money away for retirement. The decision would be very different if I had a mortgage, two car payments, and childcare expenses.
 - **WeHaveTheMeeps** (11↑): I am mini-fire at the moment and decided to try out a career in healthcare. Namely nursing though I may consider med school down the line.
 
 I lost my job exactly 2 weeks before my cohort started. 
@@ -119,12 +179,12 @@ Most any job you have will have plenty of things you dont like and would change.
 
 Cash them money checks.
   - **Rmb8989** (3↑): Yeah. One of my family members told me to just do contracting because his neighbor does it but he just gets contracting roles then outsource the work to other people and reverse engineers it. He makes alot of money that way.
-- **Whitchorence** (6↑): Here's what I suggest, spend some time looking at all the alternatives, realize that they are not really that much better and are worse in many ways, and return to your work with new contentment.
-- **MinuetInUrsaMajor** (5↑): >lately my boss has been complaining that I’m not working fast enough
+- **Whitchorence** (5↑): Here's what I suggest, spend some time looking at all the alternatives, realize that they are not really that much better and are worse in many ways, and return to your work with new contentment.
+- **MinuetInUrsaMajor** (4↑): >lately my boss has been complaining that I’m not working fast enough
 
 This sounds like a work culture issue.
 
 What industry? What's the pay?
   - **Rmb8989** (2↑): Software dev 5 years of experience 89k no bonus. Entertainment industry Software. I've worked there for few years now raises now we are doing bi yearly performance reviews. What made it okay was the yearly performance reviews in the past. Honestly I feel under paid, under valued at my job.
-- **ThePhysicist96** (3↑): My plan is to utilize my physics degree and get a master's in EE and get into RF/antenna engineering which is my obsession. I only went into software because I graduated during covid and had to find a job and I just taught myself to code and here I am 6 years later well paid but I hate software. I'm good at It but it's just boring. Literally nothing about ai interests me in any way.
+- **ThePhysicist96** (4↑): My plan is to utilize my physics degree and get a master's in EE and get into RF/antenna engineering which is my obsession. I only went into software because I graduated during covid and had to find a job and I just taught myself to code and here I am 6 years later well paid but I hate software. I'm good at It but it's just boring. Literally nothing about ai interests me in any way.
   - **MuchVegetable** (1↑): Me as well. Physics degree and graduated during covid. Have you thought of any other areas to go into?

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-internships/b6a0fba1c1.md
 url: "https://reddit.com/r/internships/comments/1s21qxy/are_undergrads_not_taught_how_to_interview_anymore/"
 url_hash: "b6a0fba1c1"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-14T12:25:30.305174+00:00"
 chars: 1102
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-internships/b6a0fba1c1.md#c0"
+    char_span: [0, 1293]
+    sentence_count: 9
+    key_terms: [interview, internship, internships, tell, position, students, anymore, program]
+    token_count: 278
 ---
-
 # Are undergrads not taught how to interview anymore?
 
 Source: [reddit: internships](https://reddit.com/r/internships/comments/1s21qxy/are_undergrads_not_taught_how_to_interview_anymore/)

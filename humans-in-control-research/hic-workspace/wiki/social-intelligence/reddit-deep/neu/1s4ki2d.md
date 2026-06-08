@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1s4ki2d.md
 url: "https://www.reddit.com/r/NEU/comments/1s4ki2d/quick_question_for_students_whove_subleased_before/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,15 @@ flair: "Housing & Dorms"
 extracted_at: "2026-05-19T15:08:27.153Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+industries: [higher_ed, real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1s4ki2d.md#c0"
+    char_span: [0, 1322]
+    sentence_count: 4
+    key_terms: [subleased, usually, people, appreciate, comments, someone, student, neu]
+    token_count: 299
 ---
-
 # Quick question for students who've subleased before
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1s4ki2d/quick_question_for_students_whove_subleased_before/)

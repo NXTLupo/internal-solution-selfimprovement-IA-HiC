@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/b7acbf7adf.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1t4tjg0/how_helpful_is_it_for_your_first_job_prospects_to/"
 url_hash: "b7acbf7adf"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-25T15:53:36.382880+00:00"
 chars: 994
+industries: [higher_ed, workforce, ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/b7acbf7adf.md#c0"
+    char_span: [0, 1261]
+    sentence_count: 6
+    key_terms: [experience, cscareerquestions, internship, comments, already, college, better, people]
+    token_count: 263
 ---
-
 # How helpful is it for your first job prospects to have experience in Machine Learning from an internship?
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1t4tjg0/how_helpful_is_it_for_your_first_job_prospects_to/)

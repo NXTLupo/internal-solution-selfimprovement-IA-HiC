@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tbgxc3.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tbgxc3/jobscareers_that_are_best_for_an_introvert_thats/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,39 @@ flair: "Advice"
 extracted_at: "2026-05-25T13:04:07.355Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tbgxc3.md#c0"
+    char_span: [0, 1572]
+    sentence_count: 15
+    key_terms: [careerguidance, like, comments, because, science, shelves, simple, strong]
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/careerguidance/1tbgxc3.md#c1"
+    char_span: [1587, 3004]
+    sentence_count: 12
+    key_terms: [like, instructions, good, look, components, repetitive, workplace, assembly]
+    section: Comments
+    token_count: 308
+  - id: "social-intelligence/reddit-deep/careerguidance/1tbgxc3.md#c2"
+    char_span: [3006, 5040]
+    sentence_count: 12
+    key_terms: [work, kyojur0, though, like, definitely, scott41373, inventory, nugget814]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1tbgxc3.md#c3"
+    char_span: [4785, 6966]
+    sentence_count: 19
+    key_terms: [like, always, being, "don't", dog, job, work, structured]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1tbgxc3.md#c4"
+    char_span: [6674, 7431]
+    sentence_count: 5
+    key_terms: [blacksockpaws, healthcare, support, pretty, principlewooden1621, being, did, tech]
+    section: Comments
+    token_count: 186
 ---
-
 # Jobs/careers that are best for an introvert that’s not skilled in math/science??
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tbgxc3/jobscareers_that_are_best_for_an_introvert_thats/)

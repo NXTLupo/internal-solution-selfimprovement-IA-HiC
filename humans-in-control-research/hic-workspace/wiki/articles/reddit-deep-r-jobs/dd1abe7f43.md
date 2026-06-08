@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-jobs/dd1abe7f43.md
 url: "https://www.reddit.com/r/jobs/comments/1tbz2vv/reality_check_interviews_are_about_being_liked/"
 url_hash: "dd1abe7f43"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T06:47:43.409931+00:00"
 chars: 2061
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-jobs/dd1abe7f43.md#c0"
+    char_span: [0, 1522]
+    sentence_count: 15
+    key_terms: [interviews, job, comments, normally, question, reality, started, answer]
+    token_count: 370
+  - id: "articles/reddit-deep-r-jobs/dd1abe7f43.md#c1"
+    char_span: [1524, 2261]
+    sentence_count: 12
+    key_terms: [zwicker101, buzzwords, "you're", dirty, game, "i'm", too, want]
+    token_count: 187
 ---
-
 # Reality Check: Interviews are about Being Liked, Not What You Know.
 
 Source: [Reddit Deep: r/jobs](https://www.reddit.com/r/jobs/comments/1tbz2vv/reality_check_interviews_are_about_being_liked/)

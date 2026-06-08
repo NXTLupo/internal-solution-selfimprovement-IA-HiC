@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-internships/3ef0bbb0aa.md
 url: "https://www.reddit.com/r/internships/comments/1skuc8o/do_i_ask_for_a_raise_on_my_internship/"
 url_hash: "3ef0bbb0aa"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-24T14:11:50.659904+00:00"
 chars: 2415
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-internships/3ef0bbb0aa.md#c0"
+    char_span: [0, 1234]
+    sentence_count: 10
+    key_terms: [internship, internships, work, graduate, job, prepared, applied, minimum]
+    token_count: 290
+  - id: "articles/reddit-deep-r-internships/3ef0bbb0aa.md#c1"
+    char_span: [1236, 2591]
+    sentence_count: 12
+    key_terms: [dry-remote826, top, complete, hospital, scared, match, worst, rank]
+    token_count: 325
 ---
-
 # Do I ask for a raise on my internship?
 
 Source: [Reddit Deep: r/internships](https://www.reddit.com/r/internships/comments/1skuc8o/do_i_ask_for_a_raise_on_my_internship/)

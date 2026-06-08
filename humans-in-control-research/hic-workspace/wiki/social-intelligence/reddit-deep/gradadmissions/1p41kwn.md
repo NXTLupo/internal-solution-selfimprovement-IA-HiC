@@ -10,9 +10,9 @@ score: 2
 upvote_ratio: 0.67
 num_comments: 5
 flair: "Engineering"
-extracted_at: "2026-05-24T14:10:06.606Z"
+extracted_at: "2026-06-06T23:23:15.591Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Can you get into grad school after working in industry if you had a low GPA and no research experience?
@@ -26,7 +26,7 @@ If someone has been working in industry for several years, can they get into a g
 
 ## Comments
 
-- **RH70475** (4↑): Yes.
+- **RH70475** (5↑): Yes.
 - **broedinger** (1↑): What master's programs and schools are you targeting? What was the ranking of your undergrad school?
   - **funmighthold** (1↑): Not sure of what schools I'd be targeting. Idk about the ranking but I went to community college then transfered to UIUC
     - **broedinger** (1↑): Ok, that's really awesome actually, UIUC is very well reputed for your major. The GPA will affect your admission chances to some extent though, so maybe you should take the GRE and try to score 320+, which will help offset your GPA. MSECE programs are less competitive than MSCS right now, so I think you should apply to a mix of programs - a few top 20 ones and a few lower ranked ones (20-60). You will need at least once academic letter of recommendation though, so try to get one from professors whose classes you did well in.

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1n7vjq8.md
 url: "https://www.reddit.com/r/investing/comments/1n7vjq8/agentic_ai_smallmidcap_stocks_to_invest_in/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.198Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, ai_research, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1n7vjq8.md#c0"
+    char_span: [0, 708]
+    sentence_count: 5
+    key_terms: [investing, agentic, comments, spicychickendeluxe, path, fundamentally, receptionist, information]
+    token_count: 176
 ---
-
 # Agentic AI Small/Mid-Cap Stocks To Invest In?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1n7vjq8/agentic_ai_smallmidcap_stocks_to_invest_in/)

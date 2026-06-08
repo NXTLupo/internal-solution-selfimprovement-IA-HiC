@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1soh8gy.md
 url: "https://www.reddit.com/r/careerguidance/comments/1soh8gy/25_and_no_real_job_experience_no_car_multiple/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,38 @@ flair: ""
 extracted_at: "2026-05-22T23:34:01.162Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1soh8gy.md#c0"
+    char_span: [0, 2319]
+    sentence_count: 12
+    key_terms: [careerguidance, career, entertainment, drive, never, felt, job, time]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/careerguidance/1soh8gy.md#c1"
+    char_span: [2321, 3719]
+    sentence_count: 11
+    key_terms: [job, get, medical, coding, people, certification, billing, without]
+    token_count: 302
+  - id: "social-intelligence/reddit-deep/careerguidance/1soh8gy.md#c2"
+    char_span: [3734, 6035]
+    sentence_count: 34
+    key_terms: [life, get, take, continue, yourself, excuses, learn, quit]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/careerguidance/1soh8gy.md#c3"
+    char_span: [6037, 8332]
+    sentence_count: 25
+    key_terms: [coding, medical, healthcare, get, lots, alwaysreturning, don, overnight]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/careerguidance/1soh8gy.md#c4"
+    char_span: [8334, 9154]
+    sentence_count: 9
+    key_terms: [coding, people, car, medical, reddit, job, jobs, mind]
+    section: Comments
+    token_count: 184
 ---
-
 # 25 and no real job experience, no car, multiple failed attempts at higher education, so now I have student loans with no degree, severe social anxiety and terrified that my life is going nowhere, where do I even start?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1soh8gy/25_and_no_real_job_experience_no_car_multiple/)

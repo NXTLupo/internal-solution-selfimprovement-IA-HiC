@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1rdqd4y.md
 url: "https://www.reddit.com/r/GenZ/comments/1rdqd4y/perks_of_being_a_single_man/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,27 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.770Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [media]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1rdqd4y.md#c0"
+    char_span: [0, 243]
+    sentence_count: 1
+    key_terms: [comments, comparisonpowerful, genz, reddit-deep, posted, reddit, single, source]
+    token_count: 73
+  - id: "social-intelligence/reddit-deep/genz/1rdqd4y.md#c1"
+    char_span: [258, 1092]
+    sentence_count: 4
+    key_terms: [women, discord, single, kids, grass-deficiency, automatically, automoderator, coolandcringe]
+    section: Comments
+    token_count: 209
+  - id: "social-intelligence/reddit-deep/genz/1rdqd4y.md#c2"
+    char_span: [1094, 2902]
+    sentence_count: 8
+    key_terms: [get, people, single, elderjavelin, men, situation, posting, promise]
+    section: Comments
+    token_count: 447
 ---
-
 # Perks of being a single man
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1rdqd4y/perks_of_being_a_single_man/)

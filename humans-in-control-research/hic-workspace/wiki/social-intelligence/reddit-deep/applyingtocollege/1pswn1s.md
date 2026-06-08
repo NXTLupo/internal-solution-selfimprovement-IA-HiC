@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1pswn1s.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1pswn1s/college_list_advice/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,39 @@ flair: "College Questions"
 extracted_at: "2026-05-20T02:31:57.185Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pswn1s.md#c0"
+    char_span: [0, 1572]
+    sentence_count: 7
+    key_terms: [schools, environmental, "i'm", applyingtocollege, policy, considering, suggestions, appreciate]
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pswn1s.md#c1"
+    char_span: [1587, 3789]
+    sentence_count: 13
+    key_terms: [environmental, impressive-tie-7385, schools, program, great, pygmyowl1, selective, studies]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pswn1s.md#c2"
+    char_span: [3494, 4725]
+    sentence_count: 7
+    key_terms: [environmental, school, impressive-tie-7385, science, connections, esf, want, definitely]
+    section: Comments
+    token_count: 288
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pswn1s.md#c3"
+    char_span: [4727, 6147]
+    sentence_count: 6
+    key_terms: [university, impressive-tie-7385, lacs, ucs, policy, umaine, supplements, list]
+    section: Comments
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pswn1s.md#c4"
+    char_span: [6149, 7087]
+    sentence_count: 6
+    key_terms: [impressive-tie-7385, wisconsin, sfdc2017, applied, abroad, policy, safety, school]
+    section: Comments
+    token_count: 244
 ---
-
 # College List Advice!!!
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1pswn1s/college_list_advice/)

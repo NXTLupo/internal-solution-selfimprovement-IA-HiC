@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1ps2ib2.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1ps2ib2/building_a_sub40g_wireless_mouse_at_16_roast_my/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,50 @@ flair: "Project Help"
 extracted_at: "2026-05-24T14:08:39.218Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ps2ib2.md#c0"
+    char_span: [0, 1862]
+    sentence_count: 2
+    key_terms: [engineeringstudents, https, comments, wireless, design, discord, sub-40g, nordic]
+    token_count: 519
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ps2ib2.md#c1"
+    char_span: [1864, 2893]
+    sentence_count: 2
+    key_terms: [firmware, development, feedback, chinese, looking, better, brands, design]
+    token_count: 223
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ps2ib2.md#c2"
+    char_span: [2908, 5019]
+    sentence_count: 17
+    key_terms: [cost, chinese, mouse, bom, good, supply, chain, cheap]
+    section: Comments
+    token_count: 516
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ps2ib2.md#c3"
+    char_span: [5023, 6954]
+    sentence_count: 15
+    key_terms: [bom, costs, cost, weight, want, components, reconsider, smoothmarx]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ps2ib2.md#c4"
+    char_span: [6956, 8114]
+    sentence_count: 9
+    key_terms: [competitive, going, mouse, desk, try, clayquartercake, manufacturing, lightweight]
+    section: Comments
+    token_count: 281
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ps2ib2.md#c5"
+    char_span: [8116, 10099]
+    sentence_count: 7
+    key_terms: [good, market, practicality, like, side, aspecially, probably, trix-one]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ps2ib2.md#c6"
+    char_span: [10101, 11965]
+    sentence_count: 2
+    key_terms: [like, trix-one, linux, "i'm", bhop2003, comments, exactly, become]
+    section: Comments
+    token_count: 463
 ---
-
 # Building a sub-40g wireless mouse at 16 - roast my design or help me build it
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1ps2ib2/building_a_sub40g_wireless_mouse_at_16_roast_my/)

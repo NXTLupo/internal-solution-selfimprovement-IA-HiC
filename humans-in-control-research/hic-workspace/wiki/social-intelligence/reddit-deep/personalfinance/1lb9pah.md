@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1lb9pah.md
 url: "https://www.reddit.com/r/personalfinance/comments/1lb9pah/giving_my_kids_money_in_their_young_adult_years/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,105 @@ flair: "Investing"
 extracted_at: "2026-05-16T20:55:02.101Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [fundraising, nonprofit]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c0"
+    char_span: [0, 1885]
+    sentence_count: 15
+    key_terms: [money, personalfinance, grandparents, inheritance, gave, year, investing, comments]
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c1"
+    char_span: [1900, 3932]
+    sentence_count: 11
+    key_terms: [college, scholarships, attached, family, school, going, state, scholarship]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c2"
+    char_span: [3934, 5523]
+    sentence_count: 14
+    key_terms: [college, get, like, however, student, tuition, people, particular-macaron35]
+    section: Comments
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c3"
+    char_span: [5525, 7697]
+    sentence_count: 20
+    key_terms: [college, scholarships, students, tuition, kids, need, generation, interest]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c4"
+    char_span: [7699, 9854]
+    sentence_count: 15
+    key_terms: [starting, scholarship, college, money, inheritance, fund, live, university]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c5"
+    char_span: [9856, 11240]
+    sentence_count: 16
+    key_terms: [big, furniture, parties, needed, beach, years, care, home]
+    section: Comments
+    token_count: 314
+  - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c6"
+    char_span: [11242, 13033]
+    sentence_count: 21
+    key_terms: [kids, like, anything, saving, money, got, mom, budgeting]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c7"
+    char_span: [13035, 13881]
+    sentence_count: 8
+    key_terms: [inheritance, degrees, "don't", slight-studio-7667, gave, huge, life, need]
+    section: Comments
+    token_count: 213
+  - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c8"
+    char_span: [13883, 15875]
+    sentence_count: 14
+    key_terms: [college, did, parents, school, debt, used, retirement, education]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c9"
+    char_span: [15582, 16511]
+    sentence_count: 8
+    key_terms: ["don't", car, care, give, got, want, lumberjack2008, nonresponsive]
+    section: Comments
+    token_count: 219
+  - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c10"
+    char_span: [16513, 17867]
+    sentence_count: 12
+    key_terms: [max, benefit, payout, costs, years, care, need, generally]
+    section: Comments
+    token_count: 339
+  - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c11"
+    char_span: [17869, 18611]
+    sentence_count: 4
+    key_terms: [long-term-care-insurance-rates, saving, thedrunkscientist, kids, pay, time, imperialbeach, associations]
+    section: Comments
+    token_count: 179
+  - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c12"
+    char_span: [18613, 20558]
+    sentence_count: 19
+    key_terms: [kids, insurance, week, family, funds, grandkids, memories, parents]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c13"
+    char_span: [20560, 22424]
+    sentence_count: 15
+    key_terms: [kids, college, "you're", kid, need, "bachelor's", definitely, disability]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c14"
+    char_span: [22426, 24266]
+    sentence_count: 14
+    key_terms: [parents, money, pay, received, account, because, "there's", caveat]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c15"
+    char_span: [24268, 25186]
+    sentence_count: 9
+    key_terms: [children, comments, parents, idea, like, take, year, craftasaurus]
+    section: Comments
+    token_count: 242
 ---
-
 # Giving my kids money in their young adult years instead of leaving an inheritance
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1lb9pah/giving_my_kids_money_in_their_young_adult_years/)

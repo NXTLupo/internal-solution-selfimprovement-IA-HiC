@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1mnduwh.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1mnduwh/anyone_else_just_not_care_anymore/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,57 @@ flair: "Rant"
 extracted_at: "2026-05-20T06:42:01.165Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mnduwh.md#c0"
+    char_span: [0, 1351]
+    sentence_count: 11
+    key_terms: [applyingtocollege, college, get, comments, fucking, parents, anyone, matter]
+    token_count: 320
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mnduwh.md#c1"
+    char_span: [1366, 3536]
+    sentence_count: 19
+    key_terms: [school, college, prestigious, been, too, professor, because, enough]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mnduwh.md#c2"
+    char_span: [3292, 5050]
+    sentence_count: 14
+    key_terms: [majors, applying, everyone, coding-ai-jobs-students, college, parent, recent, school]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mnduwh.md#c3"
+    char_span: [5052, 6032]
+    sentence_count: 8
+    key_terms: [maybe, parent, parents, little, signal-employer7240, good, hear, like]
+    section: Comments
+    token_count: 254
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mnduwh.md#c4"
+    char_span: [6034, 8157]
+    sentence_count: 16
+    key_terms: [got, college, process, relationship, don, far, good, kids]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mnduwh.md#c5"
+    char_span: [8159, 9468]
+    sentence_count: 9
+    key_terms: [journalism, maybe, want, school, wanted, start, "it's", example]
+    section: Comments
+    token_count: 280
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mnduwh.md#c6"
+    char_span: [9470, 10451]
+    sentence_count: 12
+    key_terms: [apply, college, looking, senior, submit, don, nj71recovered, opportunities]
+    section: Comments
+    token_count: 233
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mnduwh.md#c7"
+    char_span: [10453, 11539]
+    sentence_count: 11
+    key_terms: [going, schools, aromatic-swan-7379, tiny-albatross-948, fine, time, went, capabilities]
+    section: Comments
+    token_count: 293
 ---
-
 # Anyone else just not care anymore?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1mnduwh/anyone_else_just_not_care_anymore/)

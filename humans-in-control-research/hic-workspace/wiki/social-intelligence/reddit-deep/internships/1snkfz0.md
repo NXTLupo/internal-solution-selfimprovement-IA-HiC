@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1snkfz0.md
 url: "https://www.reddit.com/r/internships/comments/1snkfz0/juggling_two_offers_both_somewhat_unrelated_to_my/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 2
 flair: "General"
-extracted_at: "2026-05-22T13:32:14.565Z"
+extracted_at: "2026-06-03T18:34:48.712Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1snkfz0.md#c0"
+    char_span: [0, 1644]
+    sentence_count: 17
+    key_terms: [internship, recreation, major, support, direct, internships, work, experience]
+    token_count: 363
+  - id: "social-intelligence/reddit-deep/internships/1snkfz0.md#c1"
+    char_span: [1659, 2180]
+    sentence_count: 2
+    key_terms: [option, appropriate-tutor587, responsibility, experience, recreation, employers, political, something]
+    section: Comments
+    token_count: 113
 ---
-
 # Juggling two offers, both somewhat unrelated to my major
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1snkfz0/juggling_two_offers_both_somewhat_unrelated_to_my/)

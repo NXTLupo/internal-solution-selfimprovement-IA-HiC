@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rou3c0.md
 url: "https://www.reddit.com/r/internships/comments/1rou3c0/getting_an_internship_this_late_in_the_cycle/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,33 @@ flair: "General"
 extracted_at: "2026-05-20T02:30:49.748Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rou3c0.md#c0"
+    char_span: [0, 719]
+    sentence_count: 4
+    key_terms: [internship, internships, comments, getting, summer, cycle, late, reddit-deep]
+    token_count: 173
+  - id: "social-intelligence/reddit-deep/internships/1rou3c0.md#c1"
+    char_span: [734, 2512]
+    sentence_count: 8
+    key_terms: [summer, internship, companies, linkedin, major, internships, work, network]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/internships/1rou3c0.md#c2"
+    char_span: [2514, 4703]
+    sentence_count: 11
+    key_terms: [like, companies, internships, experience, programs, through, externship, applying]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/internships/1rou3c0.md#c3"
+    char_span: [4705, 5811]
+    sentence_count: 11
+    key_terms: [best-websites-to-find-internships-in-2026, linkedin, internships, applied, company, ask, here, codecareerstack]
+    section: Comments
+    token_count: 266
 ---
-
 # Getting an internship this late in the cycle
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rou3c0/getting_an_internship_this_late_in_the_cycle/)

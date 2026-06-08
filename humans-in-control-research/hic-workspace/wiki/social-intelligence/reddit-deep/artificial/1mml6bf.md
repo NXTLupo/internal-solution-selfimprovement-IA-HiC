@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1mml6bf.md
 url: "https://www.reddit.com/r/artificial/comments/1mml6bf/how_is_everyone_barely_talking_about_this_i_get/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,87 @@ flair: "Discussion"
 extracted_at: "2026-05-11T16:53:08.147Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c0"
+    char_span: [0, 1313]
+    sentence_count: 7
+    key_terms: [human, kill, artificial, developed, approval, comments, database, talking]
+    token_count: 281
+  - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c1"
+    char_span: [1328, 3527]
+    sentence_count: 9
+    key_terms: [value, values, casualties, systems, peppercruncher, being, "it's", autonomous]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c2"
+    char_span: [3529, 5450]
+    sentence_count: 10
+    key_terms: [israel-is-using-an-ai-system-to-find-targets-in-gaza-experts-say-its-just-the-st, points, doing, mean, real, islamists, remember, israel]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c3"
+    char_span: [5452, 7003]
+    sentence_count: 5
+    key_terms: [art, "it's", generators, industries, customers, original, training, artists]
+    section: Comments
+    token_count: 323
+  - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c4"
+    char_span: [7005, 9200]
+    sentence_count: 10
+    key_terms: [art, people, already, "don't", concerned, different, scenario, towards]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c5"
+    char_span: [9203, 10438]
+    sentence_count: 2
+    key_terms: [questions-and-answers-israeli-militarys-use-digital-tools-gaza, https, israel-using-ai-systems-to-plan-deadly-military-operations, israel-gaza-ai-database-hamas-airstrikes, post, www, targets, add]
+    section: Comments
+    token_count: 352
+  - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c6"
+    char_span: [10440, 12405]
+    sentence_count: 14
+    key_terms: [people, authenticity, use, wikipedia, conflict, citizen, underground-socialism, easily]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c7"
+    char_span: [12408, 14067]
+    sentence_count: 10
+    key_terms: [targeted, war, civilians, military, sources, strikes, random, "you've"]
+    section: Comments
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c8"
+    char_span: [14070, 15915]
+    sentence_count: 9
+    key_terms: [people, like, inevitable, terrorists, database, scenario, against, imagine]
+    section: Comments
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c9"
+    char_span: [15917, 17716]
+    sentence_count: 9
+    key_terms: [palantir, discourse, anti-ai, systems, consequences, like, real, tech]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c10"
+    char_span: [17722, 19893]
+    sentence_count: 25
+    key_terms: [people, etc, long, look, time, already, consequences, malevolent]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c11"
+    char_span: [19896, 21943]
+    sentence_count: 10
+    key_terms: [human, seconds, invest, "don't", want, target, life, time]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/artificial/1mml6bf.md#c12"
+    char_span: [21945, 23437]
+    sentence_count: 7
+    key_terms: [bombing, targets, system, casualties, analysts, civilian, previous, because]
+    section: Comments
+    token_count: 313
 ---
-
 # How is everyone barely talking about this? I get that AI stealing artists' commisions is bad, but Israel literally developed a database that can look at CCTV footage, determine someone deemed a terrorist from the database, and automatically launch a drone strike against them with min human approval.
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1mml6bf/how_is_everyone_barely_talking_about_this_i_get/)

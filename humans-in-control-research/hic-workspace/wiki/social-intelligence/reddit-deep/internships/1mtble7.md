@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1mtble7.md
 url: "https://www.reddit.com/r/internships/comments/1mtble7/from_no_interviews_to_internships_at_apple_and/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,35 @@ subreddit: "internships"
 title: "From no interviews to internships at Apple and Verizon"
 author: "Interesting_Two2977"
 date: "2025-08-18T03:53:20.000Z"
-score: 215
+score: 217
 upvote_ratio: 0.95
 num_comments: 13
 flair: "General"
-extracted_at: "2026-05-22T13:32:14.562Z"
+extracted_at: "2026-06-06T16:39:04.104Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1mtble7.md#c0"
+    char_span: [0, 2321]
+    sentence_count: 19
+    key_terms: [internships, projects, did, like, recruiters, applying, comments, watching]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/internships/1mtble7.md#c1"
+    char_span: [2323, 3440]
+    sentence_count: 14
+    key_terms: [experience, rejection, stories, folder, https, video, youtu, did]
+    token_count: 251
+  - id: "social-intelligence/reddit-deep/internships/1mtble7.md#c2"
+    char_span: [3455, 5132]
+    sentence_count: 9
+    key_terms: [ask, relevant-author3142, referral, kind-complex4635, internships, call, beforehand, referrals]
+    section: Comments
+    token_count: 423
 ---
-
 # From no interviews to internships at Apple and Verizon
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1mtble7/from_no_interviews_to_internships_at_apple_and/)
-Posted by **Interesting_Two2977** · **215↑** · **13 comments**
+Posted by **Interesting_Two2977** · **217↑** · **13 comments**
 
 Two years ago I was hunched over my laptop at 2 AM, tweaking one more bullet point and refreshing my inbox like it owed me money. I’d scrape together tiny projects, copy bits of code to get things working, and hit apply on anything that looked even remotely close. I was tired, frustrated, and convinced the system was stacked against me. Then something changed, not overnight, but because I learned to stop guessing and start following a map.
 
@@ -42,7 +59,7 @@ Pick one thing from this post and start today. Trust me, momentum compounds fast
 
 ## Comments
 
-- **Kind-Complex4635** (5↑): This is really Helpful, Thank you!!
+- **Kind-Complex4635** (4↑): This is really Helpful, Thank you!!
   - **Interesting_Two2977** (2↑): Absolutely! I don’t need internships anymore as I’m about to graduate so thought I’d share the sauce
     - **Kind-Complex4635** (3↑): Great! I am looking for 2026 summer internships,
 I will be starting my masters in data science at University of Maryland, and have been facing many rejections so this helped!

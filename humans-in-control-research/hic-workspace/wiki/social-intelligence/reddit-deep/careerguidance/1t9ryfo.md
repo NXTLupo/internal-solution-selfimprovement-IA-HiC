@@ -10,9 +10,9 @@ score: 12
 upvote_ratio: 1
 num_comments: 6
 flair: ""
-extracted_at: "2026-05-23T20:15:29.965Z"
+extracted_at: "2026-06-06T23:21:13.885Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # I’m 22, finishing my Marketing degree, and I’m scared of choosing the wrong career path. I could really use advice. How much should money, happiness, and long-term goals influence my decision at this stage?
@@ -56,15 +56,6 @@ I could really use advice. How much should money, happiness, and long-term goals
 
 ## Comments
 
-- **Straight_Idea_9546** (2↑): You don’t have to pick the forever path right now. Think in two tracks for the next 12 to 24 months. Track one, get a stable role that builds portable skills and pays the bills, ideally something marketing adjacent like content, social, or partnerships. Track two, stack sports specific experience on the side, volunteer with local clubs, run social for a youth team, help a semi pro or university program with email, sponsors, or game day ops. That combo keeps momentum and gives you stories for sports interviews later.  
-  
-Skip a master’s for now. In sports, experience and network matter more than the degree. If you want coursework, pick short certifications that help you ship work, Google Analytics, Meta ads, SQL basics, Canva, video editing, CRM like HubSpot. Build a small portfolio tied to sports, case studies, mock sponsorship deck for a local team, social calendar with metrics, a short video recap. Aim for internships, seasonal gigs, or match day roles, they’re often stepping stones.  
-  
-On the anxiety piece, ask for a 30, 60, 90 day plan in any new job and do weekly check ins. Keep a learning log, what you tried, result, next step, so you show progress even if you’re a slower starter.  
-  
-If transportation is tight, look for remote friendly roles. Job boards are noisy and full of ghost listings and recruiter spam, but I’ve had better luck with smaller newsletters, for example wfhaler​t sends out verified remote jobs by email like entry level admin, support, or marketing assistant, which can buy you income while you build the sports lane.  
-  
-As for money vs happiness, set a floor and a ceiling. Floor is what covers your share at home and savings. Ceiling is how many hours you’re willing to trade before it crowds out your sports projects. If the stable job clears the floor and gives you evenings and
 - **jloots** (2↑): You have more clarity than you think, you seem to know what you want, you just need to sequence it right.
 
 Take whatever decent job gets you stability now. It's not a trap, it's just step one. I've done the same thing and felt the same fear of getting stuck, you don't get stuck unless you stop moving.

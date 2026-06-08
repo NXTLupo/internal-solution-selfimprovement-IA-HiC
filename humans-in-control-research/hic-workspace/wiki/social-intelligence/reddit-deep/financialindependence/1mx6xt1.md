@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1mx6xt1.md
 url: "https://www.reddit.com/r/financialindependence/comments/1mx6xt1/15_years_to_25m_a_retrospective/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -6,19 +7,69 @@ subreddit: "financialindependence"
 title: "15 Years to $2.5M, a retrospective"
 author: "betagobbler"
 date: "2025-08-22T13:44:55.000Z"
-score: 414
+score: 412
 upvote_ratio: 0.88
 num_comments: 72
 flair: ""
-extracted_at: "2026-05-16T20:55:12.707Z"
+extracted_at: "2026-06-03T19:16:52.319Z"
 extraction_method: "praw-deep"
-research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+research_goal: "Provide a strategic analysis of the ROI of financial advice for individual investors in 2026, extrapolating on this theme by integrating current trends in finance, investing, and generational behavioral shifts."
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1mx6xt1.md#c0"
+    char_span: [0, 1718]
+    sentence_count: 8
+    key_terms: [financialindependence, investments, equity, retirement, comments, years, cash, path]
+    token_count: 516
+  - id: "social-intelligence/reddit-deep/financialindependence/1mx6xt1.md#c1"
+    char_span: [1720, 3434]
+    sentence_count: 14
+    key_terms: [allocation, funds, contributions, accounts, possible, assets, market, target]
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/financialindependence/1mx6xt1.md#c2"
+    char_span: [3436, 5490]
+    sentence_count: 21
+    key_terms: [interest, estate, commercial, class, money, real, started, foundational]
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/financialindependence/1mx6xt1.md#c3"
+    char_span: [5492, 7668]
+    sentence_count: 20
+    key_terms: [wifey, job, purchase, player, did, mode, shoutout, brought]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/financialindependence/1mx6xt1.md#c4"
+    char_span: [7670, 8915]
+    sentence_count: 9
+    key_terms: [job, total, betagobbler, comp, year, miserable, towards, thanks]
+    section: Comments
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/financialindependence/1mx6xt1.md#c5"
+    char_span: [8917, 10391]
+    sentence_count: 14
+    key_terms: [betagobbler, years, household, lifestyle, expenses, assets, retire, great]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/financialindependence/1mx6xt1.md#c6"
+    char_span: [10393, 11631]
+    sentence_count: 11
+    key_terms: [expenses, similar, income, pretty, elegant-resident6802, "don't", undercover-wizard, kids]
+    section: Comments
+    token_count: 309
+  - id: "social-intelligence/reddit-deep/financialindependence/1mx6xt1.md#c7"
+    char_span: [11633, 13522]
+    sentence_count: 10
+    key_terms: [betagobbler, retirement, comment, years, cash, investable, thinking, financialindependence]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/financialindependence/1mx6xt1.md#c8"
+    char_span: [13524, 14556]
+    sentence_count: 6
+    key_terms: [redact, deleted, earlyriser928, betagobbler, home, like, post, anonymized]
+    section: Comments
+    token_count: 273
 ---
-
 # 15 Years to $2.5M, a retrospective
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1mx6xt1/15_years_to_25m_a_retrospective/)
-Posted by **betagobbler** · **414↑** · **72 comments**
+Posted by **betagobbler** · **412↑** · **72 comments**
 
 **Preamble:** 
 
@@ -135,16 +186,16 @@ Just wanted to share the journey with some like minded folks. Wish you all the b
 ## Comments
 
 - **umlc** (46↑): Cool, how did your income evolve (if you’re ok to share) yoy? Has the savings rate changed?
-  - **betagobbler** (43↑): I don't have exact first job stats handy (it was 12+ years ago) but total comp ranged from $125k-$200k. I was miserable, working 60+ hour weeks.  [Here are second job stats](https://imgur.com/a/RFMaH8g), where I took a big pay cut to get generalist experience (and be less miserable).  Third job was a big raise and got me back towards the $200k mark.  Raises year over year have varied based on promotion timing, but after 6+ years my total comp for job three has slightly more than doubled.
+  - **betagobbler** (41↑): I don't have exact first job stats handy (it was 12+ years ago) but total comp ranged from $125k-$200k. I was miserable, working 60+ hour weeks.  [Here are second job stats](https://imgur.com/a/RFMaH8g), where I took a big pay cut to get generalist experience (and be less miserable).  Third job was a big raise and got me back towards the $200k mark.  Raises year over year have varied based on promotion timing, but after 6+ years my total comp for job three has slightly more than doubled.
     - **umlc** (10↑): Thanks for the insights, great job with the consistency. Also love the structured goals / objectives!
-    - **betagobbler** (19↑): Neglected to note Wifey's total comp bounced around a bit - but grew from \~$100k in 2013 to \~$200k+ last year.  She's been on a work break since January, which has been great, and might go back to work part time if the right opportunity presents itself.
-  - **ClutchDude** (14↑): EDIT: This comment was too mean. 
+    - **betagobbler** (20↑): Neglected to note Wifey's total comp bounced around a bit - but grew from \~$100k in 2013 to \~$200k+ last year.  She's been on a work break since January, which has been great, and might go back to work part time if the right opportunity presents itself.
+  - **ClutchDude** (15↑): EDIT: This comment was too mean. 
 
 My guess is somewhere from 80k to 180k with total household ~$220k
     - **betagobbler** (14↑): Didn't see the mean version, but it's all good my friend.  This sub is great - let's keep it that way.
-    - **pAul2437** (4↑): Household was more like 400k
-- **Confident_Jacket_344** (20↑): Hi, congrats on a milestone. I may have missed  it and can guesstimate on timing of jobs and school, but did you mention your ages?
-  - **betagobbler** (20↑): Thank you.  We're both 37 and our kids are 5 and 3.
+    - **pAul2437** (3↑): Household was more like 400k
+- **Confident_Jacket_344** (17↑): Hi, congrats on a milestone. I may have missed  it and can guesstimate on timing of jobs and school, but did you mention your ages?
+  - **betagobbler** (19↑): Thank you.  We're both 37 and our kids are 5 and 3.
     - **Confident_Jacket_344** (15↑): Great job! I am ten years older than you with two freeloaders around the same age.  Your numbers almost mirror where we were 10 years ago.
 - **Shoddy_Ad7511** (37↑): $300k annual expenses is very high. If your target is to retire at 50 you would need about $7.5 million of investable assets. This doesn’t include your residence. Personally I’d lower my expenses and retire 5-10 years earlier. But everyone has their own preferences
   - **betagobbler** (13↑): I don't disagree, we could go for an expense cut - but we're not looking for a lifestyle cut.  
@@ -154,10 +205,10 @@ Coincidentally, by my math, assuming we continue to put away ~$75k/yr and earn a
 If we were to put away $150k/yr, we'd hit it in 2037.  $250k/yr? 2035.  Some might make that trade (i.e. $175k/yr cheaper lifestyle for 5 years less work). I'm not sure we will - but it's a nice option to have!
 
 edit* changed from "I" to "we"
-    - **undercover-wizard** (9↑): The other thing to consider is that if you make permanent spending reductions, your fire number could go lower. Every $1000 a month you don't spend is $300k you don't need for retirement. Seems like you have the income to make whatever decision works for you, but I thought I would point that out.
-  - **molocasa** (6↑): Mortgage is in that which doesn’t fully count because it ends part way
+    - **undercover-wizard** (8↑): The other thing to consider is that if you make permanent spending reductions, your fire number could go lower. Every $1000 a month you don't spend is $300k you don't need for retirement. Seems like you have the income to make whatever decision works for you, but I thought I would point that out.
+  - **molocasa** (3↑): Mortgage is in that which doesn’t fully count because it ends part way
     - **Shoddy_Ad7511** (9↑): I can’t read his mind
-- **Elegant-Resident6802** (9↑): Very interesting. Also 37 with two kids 3&5, pretty similar trendline in earnings, home purchases etc. also an aggressive young saver with v similar wealth goals.
+- **Elegant-Resident6802** (10↑): Very interesting. Also 37 with two kids 3&5, pretty similar trendline in earnings, home purchases etc. also an aggressive young saver with v similar wealth goals.
 
 Big difference points... I live in a MCOL area, my wife stopped working entirely when we had our first kid, so we lost that high second income but incurred none of the day care expenses. Our expenses today are running about half of what yours are. I've always wondered where we'd be if things kept going on two incomes
 
@@ -166,20 +217,20 @@ NW is probably about 1.5M (500 RE equity, $1M Liquid, mostly brokerage and Roth)
 Congrats on the hard work and success! Great to see some like minded folks and guided approaches.
   - **betagobbler** (1↑): Thanks for the note and the kudos, wish you and your fam the best!
     - **Elegant-Resident6802** (1↑): Curious for 529. How much did you front load vs contribute to on a regular basis? I'm not trying to save for kids college to the detriment of my own retirement and enjoyment today, but am putting about 400/mo per kid in at the guidance of some calculators targeting 100% in state tuition coverage.
-- **mama_karmaa** (10↑): Off topic but I really enjoyed how you wrote.
+- **mama_karmaa** (11↑): Off topic but I really enjoyed how you wrote.
   - **betagobbler** (2↑): Thank you! This comment made my day. Love your username by the way.
 - **IamGeoMan** (9↑): What's the HHI the past 10 years?
-  - **betagobbler** (7↑): Answered in a [separate comment](https://www.reddit.com/r/financialindependence/comments/1mx6xt1/comment/na3mbmq/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button) \- TL;DR: $200k down to $70k then back up to $400k+.
-- **catsandtacos89** (3↑): A couple years less in the workforce but probably one of the closest current states to our situation that I’ve seen, so very much appreciate your view! We skew a little more towards investable assets and less in RE equity and cash. Very similar goals and targets with early retirement but have been running my modeling with Boldin and am thinking about a larger cash/fixed income glidepath as well have substantial needs for Roth conversions during the early retirement years to move away from high RMDs.
+  - **betagobbler** (8↑): Answered in a [separate comment](https://www.reddit.com/r/financialindependence/comments/1mx6xt1/comment/na3mbmq/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button) \- TL;DR: $200k down to $70k then back up to $400k+.
+- **catsandtacos89** (4↑): A couple years less in the workforce but probably one of the closest current states to our situation that I’ve seen, so very much appreciate your view! We skew a little more towards investable assets and less in RE equity and cash. Very similar goals and targets with early retirement but have been running my modeling with Boldin and am thinking about a larger cash/fixed income glidepath as well have substantial needs for Roth conversions during the early retirement years to move away from high RMDs.
   - **betagobbler** (1↑): Nice, there are dozens of us!
 
 I'd prefer more investable assets, since that's the bit that grows.  I keep thinking we'll spend cash on home projects but we haven't really gotten the ball rolling there.
-- **[deleted]** (5↑): versed wrench party wakeful escape resolute stupendous serious axiomatic rich
+- **[deleted]** (4↑): versed wrench party wakeful escape resolute stupendous serious axiomatic rich
 
  *This post was mass deleted and anonymized with [Redact](https://redact.dev/home)*
   - **Shoddy_Ad7511** (14↑): He has really high expenses. $200k is only 9 months of expenses
   - **betagobbler** (3↑): Probably too much, but helps us sleep at night (buffer against unexpected job loss).  Plus we might pursue a home renovation project or two.
-    - **[deleted]** (4↑): unpack elderly lavish repeat skirt narrow special grandiose rain kiss
+    - **[deleted]** (5↑): unpack elderly lavish repeat skirt narrow special grandiose rain kiss
 
  *This post was mass deleted and anonymized with [Redact](https://redact.dev/home)*
 - **earlyriser928** (3↑): Awesome synopsis and narrative. I like how you structured the post (giving things like objectives and clear breakdowns). Sounds like you all are set whatever you want to do in life. Cheers!

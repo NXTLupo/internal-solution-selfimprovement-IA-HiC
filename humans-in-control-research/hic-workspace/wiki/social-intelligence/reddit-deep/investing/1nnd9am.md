@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1nnd9am.md
 url: "https://www.reddit.com/r/investing/comments/1nnd9am/why_gold_is_about_to_take_a_stton_of_power_from/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-16T20:55:01.249Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, media]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1nnd9am.md#c0"
+    char_span: [0, 1682]
+    sentence_count: 7
+    key_terms: [gold, unemployment, dollar, government, anticipation, low, rate, rise]
+    token_count: 378
+  - id: "social-intelligence/reddit-deep/investing/1nnd9am.md#c1"
+    char_span: [1697, 3873]
+    sentence_count: 10
+    key_terms: [money, "it's", since, printing, been, gfc, gold, price]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/investing/1nnd9am.md#c2"
+    char_span: [3875, 4120]
+    sentence_count: 2
+    key_terms: [joeybananas18, bombmarley35, rickochetl, skyrocket, resuming, already, "there's", priced]
+    section: Comments
+    token_count: 76
+  - id: "social-intelligence/reddit-deep/investing/1nnd9am.md#c3"
+    char_span: [4122, 6053]
+    sentence_count: 17
+    key_terms: [dollars, gold, "it's", especially, hamburger, against, earning, nothing]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1nnd9am.md#c4"
+    char_span: [5790, 6705]
+    sentence_count: 6
+    key_terms: [hyperinflation, inflation, dollars, like, phoenixpolaris, yeahbuddy5000, particularly, absolutely]
+    section: Comments
+    token_count: 203
+  - id: "social-intelligence/reddit-deep/investing/1nnd9am.md#c5"
+    char_span: [6707, 7914]
+    sentence_count: 6
+    key_terms: [morgan-stanley-cio-favors-602020-portfolio-strategy-with-gold-inflation-hedge-2025-09-16, gold, inflation, markets, options, reuters, wealth, sillyalternative420]
+    section: Comments
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/investing/1nnd9am.md#c6"
+    char_span: [7916, 9807]
+    sentence_count: 14
+    key_terms: [gold, investment, inflation, value, price, speculation, considered, definition]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/investing/1nnd9am.md#c7"
+    char_span: [9809, 10653]
+    sentence_count: 7
+    key_terms: [debt, assets, gold, hard, like, governments, substantial, conditions]
+    section: Comments
+    token_count: 183
 ---
-
 # Why Gold Is About to Take a S**t-Ton of Power From the US Dollar
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1nnd9am/why_gold_is_about_to_take_a_stton_of_power_from/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1t7vuo7.md
 url: "https://www.reddit.com/r/deeplearning/comments/1t7vuo7/wrote_up_the_failure_modes_that_kept_breaking_my/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.052Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1t7vuo7.md#c0"
+    char_span: [0, 2382]
+    sentence_count: 13
+    key_terms: [retrieved, chunking, chunk, semantic, context, answer, search, system]
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/deeplearning/1t7vuo7.md#c1"
+    char_span: [2397, 3829]
+    sentence_count: 1
+    key_terms: [retrieval, u92yvvgajxe3utxz, because, issue, mbdijawx8xk, rag, completely, document]
+    section: Comments
+    token_count: 309
 ---
-
 # Wrote up the failure modes that kept breaking my RAG system: chunking, stale index, hybrid search, the works
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1t7vuo7/wrote_up_the_failure_modes_that_kept_breaking_my/)

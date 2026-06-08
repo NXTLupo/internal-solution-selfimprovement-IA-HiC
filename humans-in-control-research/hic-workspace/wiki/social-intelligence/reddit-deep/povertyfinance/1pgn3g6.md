@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1pgn3g6.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1pgn3g6/is_it_normal_to_feel_guilty_spending_money_even/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,45 @@ flair: "Budgeting/Saving/Investing/Spending"
 extracted_at: "2026-05-17T01:13:55.888Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pgn3g6.md#c0"
+    char_span: [0, 1981]
+    sentence_count: 18
+    key_terms: [everything, money, spending, something, like, povertyfinance, credit, brain]
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pgn3g6.md#c1"
+    char_span: [1996, 2614]
+    sentence_count: 7
+    key_terms: [need, clothing, budget, eating, bake, get, like, professional]
+    section: Comments
+    token_count: 144
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pgn3g6.md#c2"
+    char_span: [2616, 4179]
+    sentence_count: 16
+    key_terms: [therapy, deleted, saved, comfortable, because, feeling, always, people]
+    section: Comments
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pgn3g6.md#c3"
+    char_span: [4181, 6056]
+    sentence_count: 15
+    key_terms: [money, fun, because, lot, feel, household, spending, instead]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pgn3g6.md#c4"
+    char_span: [6058, 8060]
+    sentence_count: 22
+    key_terms: [money, spending, myself, needs, comfortable, financially, time, budgeting]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pgn3g6.md#c5"
+    char_span: [8062, 8238]
+    sentence_count: 1
+    key_terms: [yourself, choices, figure, honour, "you're", title, young, give]
+    section: Comments
+    token_count: 56
 ---
-
 # Is it normal to feel guilty spending money even when you can technically afford it?
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1pgn3g6/is_it_normal_to_feel_guilty_spending_money_even/)

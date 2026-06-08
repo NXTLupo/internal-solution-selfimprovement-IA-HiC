@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1lhfjdi.md
 url: "https://www.reddit.com/r/college/comments/1lhfjdi/feeling_discouraged_because_i_didnt_go_to_a_top/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-23T12:15:24.647Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1lhfjdi.md#c0"
+    char_span: [0, 943]
+    sentence_count: 9
+    key_terms: [college, comments, because, feeling, school, didn, feel, jobs]
+    token_count: 226
+  - id: "social-intelligence/reddit-deep/college/1lhfjdi.md#c1"
+    char_span: [958, 2802]
+    sentence_count: 19
+    key_terms: [school, oregon, people, state, went, university, matters, schools]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/college/1lhfjdi.md#c2"
+    char_span: [2804, 3637]
+    sentence_count: 10
+    key_terms: [university, people, sufficient-pen8406, best, job, name, went, connections]
+    section: Comments
+    token_count: 210
+  - id: "social-intelligence/reddit-deep/college/1lhfjdi.md#c3"
+    char_span: [3639, 4991]
+    sentence_count: 16
+    key_terms: [school, internship, comparing, getting, masters, signal-incident-5147, field, known]
+    section: Comments
+    token_count: 317
+  - id: "social-intelligence/reddit-deep/college/1lhfjdi.md#c4"
+    char_span: [4993, 6550]
+    sentence_count: 9
+    key_terms: [school, better, got, sometimes, probably, company, schools, league]
+    section: Comments
+    token_count: 357
 ---
-
 # Feeling discouraged because I didn’t go to a top school.
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1lhfjdi/feeling_discouraged_because_i_didnt_go_to_a_top/)

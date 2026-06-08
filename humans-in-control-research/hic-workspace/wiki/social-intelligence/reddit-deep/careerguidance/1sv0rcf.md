@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sv0rcf.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sv0rcf/would_it_be_bad_to_submit_a_2_weeks_notice/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,20 @@ flair: ""
 extracted_at: "2026-05-22T23:34:01.108Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sv0rcf.md#c0"
+    char_span: [0, 2103]
+    sentence_count: 21
+    key_terms: [internship, careerguidance, career, been, want, behavioral, everything, incredibly]
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/careerguidance/1sv0rcf.md#c1"
+    char_span: [2105, 3860]
+    sentence_count: 17
+    key_terms: [internship, part-time, want, unprofessional, opportunity, don, work, commitment]
+    token_count: 364
 ---
-
 # Would it be bad to submit a 2 weeks notice?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sv0rcf/would_it_be_bad_to_submit_a_2_weeks_notice/)

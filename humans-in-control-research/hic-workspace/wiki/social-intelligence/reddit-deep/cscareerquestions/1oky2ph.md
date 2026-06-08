@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1oky2ph.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1oky2ph/those_who_develop_chips_etc_what_was_your_career/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-25T18:32:49.822Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oky2ph.md#c0"
+    char_span: [0, 511]
+    sentence_count: 3
+    key_terms: [cscareerquestions, comments, seems, like, successfully, datanurse47, programming, reddit-deep]
+    token_count: 131
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oky2ph.md#c1"
+    char_span: [526, 2647]
+    sentence_count: 11
+    key_terms: [engineering, stayed, did, computer, hardware, masters, identity525601, people]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oky2ph.md#c2"
+    char_span: [2649, 4673]
+    sentence_count: 11
+    key_terms: [equal-suggestion3182, computer, engineering, hardware, chip, design, area, synthesize]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oky2ph.md#c3"
+    char_span: [4675, 5341]
+    sentence_count: 4
+    key_terms: [company, internship, design, firm-designer8863, chip, job, microcontrollers, optimization]
+    section: Comments
+    token_count: 144
 ---
-
 # Those who develop chips, etc what was your career path like?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1oky2ph/those_who_develop_chips_etc_what_was_your_career/)

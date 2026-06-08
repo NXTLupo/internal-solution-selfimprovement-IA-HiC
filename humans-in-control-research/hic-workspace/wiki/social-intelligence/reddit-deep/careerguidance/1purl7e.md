@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1purl7e.md
 url: "https://www.reddit.com/r/careerguidance/comments/1purl7e/21m_bba_student_cat_didnt_work_out_must_get_a_job/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 2
 upvote_ratio: 1
 num_comments: 1
 flair: ""
-extracted_at: "2026-05-22T15:13:18.805Z"
+extracted_at: "2026-06-03T18:35:34.138Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1purl7e.md#c0"
+    char_span: [0, 1853]
+    sentence_count: 12
+    key_terms: [graduation, career, analytics, guidance, careerguidance, alternative, internships, bba]
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/careerguidance/1purl7e.md#c1"
+    char_span: [1868, 2734]
+    sentence_count: 6
+    key_terms: [business, analyst, data, analytics, career, intern, maybe, good]
+    section: Comments
+    token_count: 187
 ---
-
 # 21M BBA student, CAT didn’t work out — must get a job after graduation. Need career guidance & options??
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1purl7e/21m_bba_student_cat_didnt_work_out_must_get_a_job/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1o95xnt.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1o95xnt/what_colleges_offer_fly_in_programs_for_admitted/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,15 @@ flair: "College Questions"
 extracted_at: "2026-05-24T14:08:39.595Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o95xnt.md#c0"
+    char_span: [0, 495]
+    sentence_count: 2
+    key_terms: [applyingtocollege, https, dkhmngcxqzb, com, www, instagram, comments, definitelynotalora]
+    token_count: 142
 ---
-
 # What colleges offer fly in programs for admitted students?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1o95xnt/what_colleges_offer_fly_in_programs_for_admitted/)

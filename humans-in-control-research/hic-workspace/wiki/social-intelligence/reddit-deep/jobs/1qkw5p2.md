@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1qkw5p2.md
 url: "https://www.reddit.com/r/jobs/comments/1qkw5p2/are_most_millenials_and_gen_z_underemployed/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -6,19 +7,77 @@ subreddit: "jobs"
 title: "Are most millenials and gen z underemployed?"
 author: "Fluid-Routine-8838"
 date: "2026-01-23T16:55:20.000Z"
-score: 529
+score: 530
 upvote_ratio: 0.94
-num_comments: 440
+num_comments: 439
 flair: "Qualifications"
-extracted_at: "2026-05-25T13:03:11.718Z"
+extracted_at: "2026-06-03T15:26:35.254Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Provide a strategic analysis for Northeastern University detailing opportunities to enhance experiential learning and co-op success, specifically across First Year Student Preparedness, 360 student profiles, advisor capabilities, and corporate partner development. Heavily cite and reference external articles, social media posts, and other external data to support themes and recommendations."
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c0"
+    char_span: [0, 1867]
+    sentence_count: 15
+    key_terms: [experience, entry, level, been, coworker, office, underemployed, high]
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c1"
+    char_span: [1869, 4153]
+    sentence_count: 14
+    key_terms: [years, work, get, jobs, underemployment, school, experiences, high]
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c2"
+    char_span: [4168, 5797]
+    sentence_count: 10
+    key_terms: [bakery, degree, engineering, get, sepsis, emergency-march-911, thats, years]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c3"
+    char_span: [5799, 7467]
+    sentence_count: 11
+    key_terms: [people, positions, because, science, degree, duties, remarkable-sand-5059, never]
+    section: Comments
+    token_count: 406
+  - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c4"
+    char_span: [7469, 8910]
+    sentence_count: 13
+    key_terms: [been, down, "i'm", making, years, sharkieshadooontt, high, job]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c5"
+    char_span: [8913, 10214]
+    sentence_count: 4
+    key_terms: [biotech, marketing, been, since, time, company, five0clocksomewhere, going]
+    section: Comments
+    token_count: 338
+  - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c6"
+    char_span: [10216, 12202]
+    sentence_count: 12
+    key_terms: [civilian-labor-force-participation-rate, unemployed, "i'm", jobs, overseas, people, underemployed, industries]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c7"
+    char_span: [11937, 12763]
+    sentence_count: 14
+    key_terms: [years, unemployed, worked, field, ago, job, last, thegoldenchad]
+    section: Comments
+    token_count: 201
+  - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c8"
+    char_span: [12765, 14086]
+    sentence_count: 9
+    key_terms: [degrees, around, millennials, genz, like, "bachelor's", graduated, degree]
+    section: Comments
+    token_count: 335
+  - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c9"
+    char_span: [14089, 15097]
+    sentence_count: 8
+    key_terms: [like, millennial, working, never, right, boat, did, end]
+    section: Comments
+    token_count: 233
 ---
-
 # Are most millenials and gen z underemployed?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1qkw5p2/are_most_millenials_and_gen_z_underemployed/)
-Posted by **Fluid-Routine-8838** · **529↑** · **440 comments**
+Posted by **Fluid-Routine-8838** · **530↑** · **439 comments**
 
 I'm curious if others experiences reflect my own. I've been working since high school but have been underemployed since graduating college towards the end of the 2010s. 
 
@@ -34,19 +93,19 @@ Curious about other millenials and gen z if you experience underemployment. I th
 
 ## Comments
 
-- **Myelo_Screed** (285↑): I have a degree in chemistry. Currently selling food
-  - **abracadammmbra** (86↑): My parents were friends with a guy who almost had a PHD in chemical engineering. His last semester he finally came to the conclusion he hated it. He became a baker and ran a very sucessful bakery. Even had some catering contracts with some big venues in his area. Unfortunately he got sepsis and died a few years back.
-    - **rocklare** (48↑): Damn. Goes to show that life doesn’t care about your plans. RIP to dude, at least he carved out his own path.
-    - **Emergency-March-911** (3↑): Did he die from sepsis because of his bakery I don’t know how any of this works.
-    - **yummylunch** (4↑): PhD --> opening a bakery is a running joke in the grad school community haha
+- **Myelo_Screed** (289↑): I have a degree in chemistry. Currently selling food
+  - **abracadammmbra** (85↑): My parents were friends with a guy who almost had a PHD in chemical engineering. His last semester he finally came to the conclusion he hated it. He became a baker and ran a very sucessful bakery. Even had some catering contracts with some big venues in his area. Unfortunately he got sepsis and died a few years back.
+    - **rocklare** (46↑): Damn. Goes to show that life doesn’t care about your plans. RIP to dude, at least he carved out his own path.
+    - **Emergency-March-911** (4↑): Did he die from sepsis because of his bakery I don’t know how any of this works.
+    - **yummylunch** (3↑): PhD --> opening a bakery is a running joke in the grad school community haha
     - **_Arlotte_** (1↑): Wow...
     - **ThatAtlasGuy** (1↑): yeah thats a good example of how paths arent linear at all. 
 
 dude found something he actually liked and made it work which is more than most people get. sad ending tho thats rough.
     - **Brown_Sugar_Espresso** (1↑): classic engineering to baking pipeline tbh
-  - **Odd-Reaction-9428** (65↑): M.A. in English. I’ve only landed retail jobs too.
+  - **Odd-Reaction-9428** (63↑): M.A. in English. I’ve only landed retail jobs too.
     - **TonytheNetworker** (13↑): God, that’s depressing. Years to get a college degree only to get a job you could’ve always gotten without one.
-    - **ClassicNo6622** (24↑): I'm not trying to be a dick, this is a serious question: what did you think you were going to do with a degree like that aside from maybe teach, which also doesn't pay that well?
+    - **ClassicNo6622** (21↑): I'm not trying to be a dick, this is a serious question: what did you think you were going to do with a degree like that aside from maybe teach, which also doesn't pay that well?
     - **SeasonedAdManager** (1↑): Are you tethered to your home country (usa?)?
 
 An MA will get you some good teaching roles in Asia. You’ll have an amazing quality of life too.
@@ -67,7 +126,7 @@ its rough and youre def not alone here.
 
 \- Signed a Recruiter that follows the job market
   - **SmOkDHoneybear** (26↑): This has been my biggest problem. I've had to change companies just to move up because the old guard just never steps down. The greed is strong. Im a high school drop out and it sounds like I'm doing just as good or better than a lot of these people w high level degrees. Very trippy.
-    - **ToughCorgi8107** (9↑): Same, I dropped out, got my GED, went into accounting and now I’m making the same or more as CPA’s my age.
+    - **ToughCorgi8107** (12↑): Same, I dropped out, got my GED, went into accounting and now I’m making the same or more as CPA’s my age.
     - **Sandybutthole604** (2↑): They do not. The majority of our sales team retired over the last couple years due to medical issues. They were 79, 86 and 73 respectively. The guy who replaced one of them is all excited for the role, he’s fucking 60.
     - **tmoney645** (2↑): All of my best pay bumps and "promotions" have been from moving to a new company. I do it every 5-6 years and it has been working pretty well for me so far.
     - **FlyLikeAnEarworm** (1↑): Lol why would they step down? Would you step down if you were making millions for not a lot of work?
@@ -78,32 +137,32 @@ Their kids are in their 40s and they still treat us like we are teenagers
 
 
 A lot of my colleagues have been laid off since 2024 in Biotech /biopharm sector
-  - **[deleted]** (16↑): yeah this field has always been ass in pay unless you had a nepo baby connect
+  - **[deleted]** (15↑): yeah this field has always been ass in pay unless you had a nepo baby connect
   - **Old_Promotion_7393** (10↑): I graduated with a biotech degree last year and it has been a miserable time since.
-    - **TrumpetOfDeath** (10↑): This is a very unfortunate time to be entering the biotech job market. I’m sorry
+    - **TrumpetOfDeath** (11↑): This is a very unfortunate time to be entering the biotech job market. I’m sorry
     - **Five0clocksomewhere** (1↑): Got my PHD in 2024, took a summer off to party. was NOT prepared for what awaited me in 2025…… pouring one out for you bud
   - **Moist_Ordinary6457** (3↑): I'm in biotech (non science role) and my company has been doing two rounds of layoffs each year since 2022
-- **CVotti** (54↑): I have my Bachelors in Marketing, currently working at the local grocery store so in a way, yes.
+- **CVotti** (53↑): I have my Bachelors in Marketing, currently working at the local grocery store so in a way, yes.
   - **Gonadosomething** (2↑): I was in corporate operations/e-commerce and was interested in going into marketing. One of the things my mentor told me while I was growing at the company was that when companies go through it, marketing is the first to get axed. I think right now, individuals like yourself and people looking to switch up (like me) are going to have a rough time when those that got laid off with years of experience are also competing for the same jobs.
 
 Do your best to network if you have the channels open to do so. Keep applying to roles even something like mailroom so you get your foot in the door. You’ll be talking to people and at some point the conversation will steer to your education. And then wahlah, now you have someone’s physical attention. Best wishes.
-- **I_demand_peanuts** (94↑): I'm unemployed.
-  - **mjc500** (39↑): Username checks out
+- **I_demand_peanuts** (97↑): I'm unemployed.
+  - **mjc500** (38↑): Username checks out
   - **Competitive_Use_3628** (8↑): I wouldn't say I'm underemployed, I'm working in the field I went to school for, and making the usual salary for someone in this position. The issue is the average salary for this position hasn't really risen in 15 years.
-- **[deleted]** (43↑): I'm currently unemployed. I can't make career progress because the industries I get jobs in keep laying people off.
+- **[deleted]** (40↑): I'm currently unemployed. I can't make career progress because the industries I get jobs in keep laying people off.
   - **One-League1685** (1↑): What industry?
     - **[deleted]** (1↑): What industries laid me off? Well, one didn't lay me off but it was mortgage and the other one was logistics but it was in saas.
-- **throwawayfromPA1701** (84↑): I'd love to see actual data on this because it is a good question that I believe the answer to is yes.
-  - **ur_moms_chode** (5↑): [https://www.bls.gov/emp/tables/civilian-labor-force-participation-rate.htm](https://www.bls.gov/emp/tables/civilian-labor-force-participation-rate.htm)
-    - **Standard_Finish_6535** (12↑): This says nothing about under employment
-- **noonie2020** (30↑): I’d say underpaid and overworked, the underemployed part comes from how horrible the job market is. People with phds are struggling to find jobs and the entry level jobs are being replaced with overseas staff, AI, or one employee doing 3 jobs
+- **throwawayfromPA1701** (80↑): I'd love to see actual data on this because it is a good question that I believe the answer to is yes.
+  - **ur_moms_chode** (4↑): [https://www.bls.gov/emp/tables/civilian-labor-force-participation-rate.htm](https://www.bls.gov/emp/tables/civilian-labor-force-participation-rate.htm)
+    - **Standard_Finish_6535** (11↑): This says nothing about under employment
+- **noonie2020** (33↑): I’d say underpaid and overworked, the underemployed part comes from how horrible the job market is. People with phds are struggling to find jobs and the entry level jobs are being replaced with overseas staff, AI, or one employee doing 3 jobs
   - **Ok_Regular8357** (1↑): Omg the overseas staff is real. I worked in academic publishing until I was laid off last year. 90% of job listings in that field are overseas. Americans and their expensive ass health insurance are too pricy to employ.
 - **thegoldenchad** (26↑): 38 years ago. I am unemployed now but made about $60k including my yearly bonus. I worked at bank. Started as a teller and had about 5 different roles in 15 years. Never wanted to be in middle management at all. I don’t like the taste of kissing a$$. 
 My last role, I was in the senior level of my department but it was really just glorified data entry. Anyone would do it if they have attention to detail. All with no degree. I just finished up my BA a few years ago in an unrelated field. I have no desire to ever return to financial industry. But of course, I’m unemployed, so if I get a job, I’ll take it.
 
 I will add that when I was a teller, all my coworkers had degrees. But none of them had degrees in finance at all. Most of them had degrees in history, hospitality, journalism, and communications. And we were all paid the same rate of $11.50 an hour back in 2010. We were all in our early 20’s.
-  - **tonofcolts** (5↑): That’s crazy! Most banks only start at around $15/hr now… 15 years later. Something has to change
-- **ElGordo1988** (22↑): This is sadly fairly common among both Millennials and GenZ. Maybe for Millennials not so much ***anymore*** since we have more age/work experience by now, but certainly for GenZ
+  - **tonofcolts** (4↑): That’s crazy! Most banks only start at around $15/hr now… 15 years later. Something has to change
+- **ElGordo1988** (20↑): This is sadly fairly common among both Millennials and GenZ. Maybe for Millennials not so much ***anymore*** since we have more age/work experience by now, but certainly for GenZ
 
 
 I know a number of GenZ relatives (cousins mostly) who recently graduated college in the last 2-3 years, but are stuck working as like a retail cashier or manual labor in some warehouse or similar (Amazon, etc) despite having a bachelor's degree
@@ -113,4 +172,4 @@ As for me personally I'm an elder Millennial in my late 30's, and back around 20
 
 
 If you didn't already have high social skills, good connections/nepotism, "in the right place at the right time" on your side chances are you went thru at least a brief stint of underemployment as a Millennial - I clearly remember multiple fellow Millennial college grads stuck working as like a restaurant server or bartender circa 2010-2013ish... so I'm not even embarrassed that I was working a similar $11/hour job, it seems like a lot of other Millennials were in the same boat as me
-  - **rocklare** (6↑): Did you end up breaking into cs? I’m in the exact same boat you were around 10 years ago. Just graduated from CS and struggling HARD to find an entry level job. I’m currently underemployed and barely able to save. Crazy how I busted my butt on this degree only to come out of it with nothing. Did you feel this sense of gloom and doom when you were going through it? It just feels like it’ll never end and the market will never get better. Although, you probably said the same thing back in 2010.
+  - **rocklare** (5↑): Did you end up breaking into cs? I’m in the exact same boat you were around 10 years ago. Just graduated from CS and struggling HARD to find an entry level job. I’m currently underemployed and barely able to save. Crazy how I busted my butt on this degree only to come out of it with nothing. Did you feel this sense of gloom and doom when you were going through it? It just feels like it’ll never end and the market will never get better. Although, you probably said the same thing back in 2010.

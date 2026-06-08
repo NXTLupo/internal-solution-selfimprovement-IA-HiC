@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1rj8xbf.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rj8xbf/how_to_cope_with_rejection/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,27 @@ flair: "Applied Sciences"
 extracted_at: "2026-05-20T03:56:10.754Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rj8xbf.md#c0"
+    char_span: [0, 1833]
+    sentence_count: 14
+    key_terms: [undergrad, schools, gradadmissions, enough, universities, field, admissions, committees]
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rj8xbf.md#c1"
+    char_span: [1848, 3666]
+    sentence_count: 15
+    key_terms: [applied, people, experience, decide, cycle, want, professors, rejected]
+    section: Comments
+    token_count: 408
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rj8xbf.md#c2"
+    char_span: [3671, 5653]
+    sentence_count: 14
+    key_terms: [programs, physics, chemistry, application, advisors, research, program, apply]
+    section: Comments
+    token_count: 423
 ---
-
 # How to cope with rejection?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rj8xbf/how_to_cope_with_rejection/)

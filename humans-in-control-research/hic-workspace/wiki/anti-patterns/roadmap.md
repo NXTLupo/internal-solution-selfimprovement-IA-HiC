@@ -1,4 +1,5 @@
 ---
+id: anti-patterns/roadmap.md
 title: "Roadmap Anti-Patterns"
 type: anti-pattern
 created: 2026-04-10
@@ -8,8 +9,62 @@ confidence: high
 status: active
 tags: [anti-patterns, roadmap, quality-gates]
 evidence_count: 0
+chunks:
+  - id: "anti-patterns/roadmap.md#c0"
+    char_span: [0, 2301]
+    sentence_count: 16
+    key_terms: [roadmap, confidence, delivery, outcomes, notification, uncertainty, data, specific]
+    section: "AP-ROADMAP-001: Feature Factory / AP-ROADMAP-002: Date Theater"
+    token_count: 447
+  - id: "anti-patterns/roadmap.md#c1"
+    char_span: [2337, 3320]
+    sentence_count: 7
+    key_terms: [review, cadence, roadmap, created, failure, history, process, updated]
+    section: "AP-ROADMAP-003: Never Updated"
+    token_count: 215
+  - id: "anti-patterns/roadmap.md#c2"
+    char_span: [3374, 4314]
+    sentence_count: 3
+    key_terms: [capacity, initiatives, unplanned, buffer, maintenance, allocation, incidents, strategic]
+    section: "AP-ROADMAP-004: No Capacity for Unexpected Work"
+    token_count: 192
+  - id: "anti-patterns/roadmap.md#c3"
+    char_span: [4370, 5299]
+    sentence_count: 2
+    key_terms: [infrastructure, roadmap, items, feature, technical, improvements, initiatives, debt]
+    section: "AP-ROADMAP-005: Missing Technical Debt Allocation"
+    token_count: 175
+  - id: "anti-patterns/roadmap.md#c4"
+    char_span: [5352, 6210]
+    sentence_count: 2
+    key_terms: [recommendation, items, engine, build, implementation, outcome-framed, personalized, alternative]
+    section: "AP-ROADMAP-006: Items as Features Not Problems"
+    token_count: 167
+  - id: "anti-patterns/roadmap.md#c5"
+    char_span: [6269, 7236]
+    sentence_count: 5
+    key_terms: [items, months, confidence, committed, planned, scoped, visual, next]
+    section: "AP-ROADMAP-007: No Confidence Levels on Future Items"
+    token_count: 206
+  - id: "anti-patterns/roadmap.md#c6"
+    char_span: [7279, 8290]
+    sentence_count: 4
+    key_terms: [subscription, management, redesign, payment, dependency, dependencies, external, blocked]
+    section: "AP-ROADMAP-008: Missing Dependencies"
+    token_count: 199
+  - id: "anti-patterns/roadmap.md#c7"
+    char_span: [8333, 9369]
+    sentence_count: 3
+    key_terms: [roadmap, different, strategic, detail, single, view, audiences, executive]
+    section: "AP-ROADMAP-009: Single Audience View"
+    token_count: 197
+  - id: "anti-patterns/roadmap.md#c8"
+    char_span: [9425, 10357]
+    sentence_count: 5
+    key_terms: [onboarding, criteria, success, completion, launch, evaluation, delivery, whether]
+    section: "AP-ROADMAP-010: No Success Metrics per Initiative"
+    token_count: 184
 ---
-
 # Roadmap Anti-Patterns
 
 Known failure modes in roadmap deliverables. Use as negative few-shot examples during generation to ensure roadmaps communicate strategy, uncertainty, and trade-offs rather than just timelines.

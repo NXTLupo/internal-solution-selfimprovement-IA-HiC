@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/eafee1beae.md
 url: "https://www.reddit.com/r/careerguidance/comments/1purl7e/21m_bba_student_cat_didnt_work_out_must_get_a_job/"
 url_hash: "eafee1beae"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T15:19:59.511887+00:00"
 chars: 2430
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/eafee1beae.md#c0"
+    char_span: [0, 1807]
+    sentence_count: 12
+    key_terms: [graduation, career, analytics, guidance, careerguidance, alternative, internships, bba]
+    token_count: 427
+  - id: "articles/reddit-deep-r-careerguidance/eafee1beae.md#c1"
+    char_span: [1809, 2690]
+    sentence_count: 6
+    key_terms: [business, analyst, data, analytics, career, intern, maybe, good]
+    token_count: 188
 ---
-
 # 21M BBA student, CAT didn’t work out — must get a job after graduation. Need career guidance & options??
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1purl7e/21m_bba_student_cat_didnt_work_out_must_get_a_job/)

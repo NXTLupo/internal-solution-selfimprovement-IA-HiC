@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1skh6l3.md
 url: "https://www.reddit.com/r/Professors/comments/1skh6l3/martin_peterson_philosophy_professor_at_texas_am/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,44 @@ flair: ""
 extracted_at: "2026-05-20T03:55:39.273Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1skh6l3.md#c0"
+    char_span: [0, 1972]
+    sentence_count: 12
+    key_terms: [texas, university, academic, freedom, martinpeterson, chair, dean, colleagues]
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/professors/1skh6l3.md#c1"
+    char_span: [1974, 2300]
+    sentence_count: 1
+    key_terms: [professor-banned-from-teaching-plato-excerpt-to-leave-texas-a-m-its-getting-worse, che-social, chronicle, article, https, com, utm, www]
+    token_count: 95
+  - id: "social-intelligence/reddit-deep/professors/1skh6l3.md#c2"
+    char_span: [2315, 3829]
+    sentence_count: 8
+    key_terms: [like, weirdonightowl, censorship, academics, teaching, shocked, martin, nopatnodontsitonthat]
+    section: Comments
+    token_count: 391
+  - id: "social-intelligence/reddit-deep/professors/1skh6l3.md#c3"
+    char_span: [3831, 5347]
+    sentence_count: 10
+    key_terms: [appointment, committee, president, academic, freedom, tenure, neckcomprehensive743, stand]
+    section: Comments
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/professors/1skh6l3.md#c4"
+    char_span: [5349, 7263]
+    sentence_count: 10
+    key_terms: [faculty, censorship, course, smu, the-case-against-reparations, academic, informal, specific]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/professors/1skh6l3.md#c5"
+    char_span: [7265, 8448]
+    sentence_count: 7
+    key_terms: [philosophy, faculty, universities, least, "didn't", filled, fight, "it's"]
+    section: Comments
+    token_count: 301
 ---
-
 # Martin Peterson, Philosophy professor at Texas A&M University, resigns in protest to join SMU
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1skh6l3/martin_peterson_philosophy_professor_at_texas_am/)

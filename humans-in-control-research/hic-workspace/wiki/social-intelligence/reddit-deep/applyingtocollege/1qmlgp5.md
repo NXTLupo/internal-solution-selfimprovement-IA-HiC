@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1qmlgp5.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1qmlgp5/does_skipping_a_grade_in_high_school_affect/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,45 @@ flair: "Application Question"
 extracted_at: "2026-05-22T23:33:52.624Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qmlgp5.md#c0"
+    char_span: [0, 1004]
+    sentence_count: 7
+    key_terms: [school, applyingtocollege, high, applications, grade, comments, students, college]
+    token_count: 223
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qmlgp5.md#c1"
+    char_span: [1019, 2957]
+    sentence_count: 13
+    key_terms: [grade, entrance, college, gifted, userwest-0317, different, advanced, everyone]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qmlgp5.md#c2"
+    char_span: [2959, 4588]
+    sentence_count: 11
+    key_terms: [school, mit, ago, high, too, year, experience, graduated]
+    section: Comments
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qmlgp5.md#c3"
+    char_span: [4590, 6783]
+    sentence_count: 10
+    key_terms: [less, time, top, year, because, admission, different, country]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qmlgp5.md#c4"
+    char_span: [6523, 6833]
+    sentence_count: 2
+    key_terms: [complicated, "you're", going, international, ilovecats39, birthday, overseas, college]
+    section: Comments
+    token_count: 77
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qmlgp5.md#c5"
+    char_span: [6836, 7192]
+    sentence_count: 5
+    key_terms: [students, guardianship, accommodate, complicated, supervision, especially, obviously, boarding]
+    section: Comments
+    token_count: 69
 ---
-
 # Does skipping a grade in high school affect college applications?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1qmlgp5/does_skipping_a_grade_in_high_school_affect/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/acbb262fbb.md
 url: "https://www.reddit.com/r/careerguidance/comments/1qrhkys/end_of_career_guidance_should_i_seek_a_job/"
 url_hash: "acbb262fbb"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T14:59:12.638621+00:00"
 chars: 4913
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/acbb262fbb.md#c0"
+    char_span: [0, 1667]
+    sentence_count: 21
+    key_terms: [job, careerguidance, lady, new, situation, company, bother, demand]
+    token_count: 448
+  - id: "articles/reddit-deep-r-careerguidance/acbb262fbb.md#c1"
+    char_span: [1669, 3479]
+    sentence_count: 26
+    key_terms: [bermuda, islands, environment, kids, work, researched, residency, bahamas]
+    token_count: 445
+  - id: "articles/reddit-deep-r-careerguidance/acbb262fbb.md#c2"
+    char_span: [3481, 5106]
+    sentence_count: 10
+    key_terms: [investment, onlythephantomknows, spanish, probably, question, speaking, health, living]
+    token_count: 392
 ---
-
 # End of career guidance: SHOULD I seek a job?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1qrhkys/end_of_career_guidance_should_i_seek_a_job/)

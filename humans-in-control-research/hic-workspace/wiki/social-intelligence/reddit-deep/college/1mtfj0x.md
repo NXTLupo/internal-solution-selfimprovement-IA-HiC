@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1mtfj0x.md
 url: "https://www.reddit.com/r/college/comments/1mtfj0x/anxious_new_university_student/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,48 @@ subreddit: "college"
 title: "Anxious New University Student"
 author: "DryAfternoon4038"
 date: "2025-08-18T07:41:43.000Z"
-score: 12
-upvote_ratio: 0.89
+score: 11
+upvote_ratio: 0.93
 num_comments: 7
 flair: "Emotional health/coping/adulting"
-extracted_at: "2026-05-23T12:15:24.670Z"
+extracted_at: "2026-06-05T16:17:48.498Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1mtfj0x.md#c0"
+    char_span: [0, 1994]
+    sentence_count: 18
+    key_terms: [college, been, feel, like, course, having, "don't", going]
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/college/1mtfj0x.md#c1"
+    char_span: [2009, 2344]
+    sentence_count: 3
+    key_terms: [take, specifically, falsedrive, electives, necessary, decently, algebra, already]
+    section: Comments
+    token_count: 79
+  - id: "social-intelligence/reddit-deep/college/1mtfj0x.md#c2"
+    char_span: [2346, 4392]
+    sentence_count: 29
+    key_terms: [voice, yourself, tell, already, friend, class, going, start]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1mtfj0x.md#c3"
+    char_span: [4111, 5235]
+    sentence_count: 14
+    key_terms: [voice, anxiety, louder, person, been, hard, less, work]
+    section: Comments
+    token_count: 262
+  - id: "social-intelligence/reddit-deep/college/1mtfj0x.md#c4"
+    char_span: [5237, 6133]
+    sentence_count: 10
+    key_terms: [yourself, already, usually, proven, feel, labs, work, unmanageable]
+    section: Comments
+    token_count: 196
 ---
-
 # Anxious New University Student
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1mtfj0x/anxious_new_university_student/)
-Posted by **DryAfternoon4038** · **12↑** · **7 comments**
+Posted by **DryAfternoon4038** · **11↑** · **7 comments**
 
 Hi, I've been at a community college for about 2.5 years, and I got an associates degree in Liberal Arts and Sciences this spring. I moved to a local university and I'm honestly scared and intimidated. I start classes in about a week, but I still feel like I just can't do it. I met with my advisor in June and they had set me up for Bio I (with lab), Gen Chem I (with lab), Intro to Clinical Immunology, and College Algebra (I'm majoring in Medical Laboratory Science). All of this totals up to 14 credits. During my time in community college, I once had a 16 credit course load, and I did fine, but they were mostly writing-based courses with one STEM class mixed in. I've been able to keep my GPA a 4.0 so far.
 

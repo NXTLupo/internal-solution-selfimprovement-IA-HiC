@@ -1,10 +1,16 @@
 ---
+id: known-gaps/README.md
 title: Known Gaps - Cross-Engagement Shortfall Log
 type: synthesis-index
 created: 2026-05-23
 exclude_from_compile: true
+chunks:
+  - id: "known-gaps/README.md#c0"
+    char_span: [0, 1441]
+    sentence_count: 6
+    key_terms: [engagements, shortfalls, topics, topic, scheduler, shortfall, detected, cross-engagement]
+    token_count: 298
 ---
-
 # Cross-Engagement Knowledge Shortfalls
 
 This directory accumulates coverage shortfalls detected across engagements. Each file in this directory is a topic (e.g., `donor-retention-rates.md`, `first-year-advisor-experience.md`); each occurrence inside a file is a session that hit the shortfall.

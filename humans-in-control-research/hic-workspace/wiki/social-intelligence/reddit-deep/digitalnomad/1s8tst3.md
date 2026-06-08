@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1s8tst3.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1s8tst3/illegal_exit_colombia/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,33 @@ flair: "Legal"
 extracted_at: "2026-05-26T12:53:56.730Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, government]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1s8tst3.md#c0"
+    char_span: [0, 2105]
+    sentence_count: 16
+    key_terms: [back, colombia, already, digitalnomad, being, kinda, come, days]
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/digitalnomad/1s8tst3.md#c1"
+    char_span: [2107, 3907]
+    sentence_count: 12
+    key_terms: [fine, colombia, problem, digitalnomad, days, trailtwist, scheduled, surgeries]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/digitalnomad/1s8tst3.md#c2"
+    char_span: [3909, 5727]
+    sentence_count: 11
+    key_terms: [passport, fine, visa, immigration, overstaying, days, exemptions, illegally]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/digitalnomad/1s8tst3.md#c3"
+    char_span: [5729, 7628]
+    sentence_count: 13
+    key_terms: [immigration, being, "it's", because, actual, freaky, papaya, paying]
+    section: Comments
+    token_count: 466
 ---
-
 # Illegal exit Colombia.
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1s8tst3/illegal_exit_colombia/)

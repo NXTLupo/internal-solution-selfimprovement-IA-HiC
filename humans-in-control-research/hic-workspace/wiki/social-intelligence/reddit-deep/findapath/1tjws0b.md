@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1tjws0b.md
 url: "https://www.reddit.com/r/findapath/comments/1tjws0b/i_feel_empty_ive_given_up_34f/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,63 @@ flair: "Findapath-Mindset Adjustment"
 extracted_at: "2026-05-25T13:04:07.388Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [retail, workforce, healthcare]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1tjws0b.md#c0"
+    char_span: [0, 1898]
+    sentence_count: 28
+    key_terms: [days, get, ive, job, like, findapath, comments, thought]
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/findapath/1tjws0b.md#c1"
+    char_span: [1913, 2860]
+    sentence_count: 9
+    key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/findapath/1tjws0b.md#c2"
+    char_span: [2863, 4216]
+    sentence_count: 8
+    key_terms: [bigbirdsbrain, brain, small, consistency, like, protecting, shrinking, something]
+    section: Comments
+    token_count: 308
+  - id: "social-intelligence/reddit-deep/findapath/1tjws0b.md#c3"
+    char_span: [4218, 6389]
+    sentence_count: 19
+    key_terms: [job, going, time, something, recovery, requires, yourself, getting]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/findapath/1tjws0b.md#c4"
+    char_span: [6391, 6829]
+    sentence_count: 5
+    key_terms: [get, "it's", unsustainable, organically, emptiness, flattened, approach, engaging]
+    section: Comments
+    token_count: 102
+  - id: "social-intelligence/reddit-deep/findapath/1tjws0b.md#c5"
+    char_span: [6831, 8440]
+    sentence_count: 20
+    key_terms: [start, ancientgreenthings, going, life, time, exercise, doing, thank]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/findapath/1tjws0b.md#c6"
+    char_span: [8442, 10545]
+    sentence_count: 15
+    key_terms: [people, university, psych, getting, counselling, life, experience, postgrad]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/findapath/1tjws0b.md#c7"
+    char_span: [10547, 12734]
+    sentence_count: 31
+    key_terms: [too, experience, like, relevant, don, jobs, late, something]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/findapath/1tjws0b.md#c8"
+    char_span: [12736, 13355]
+    sentence_count: 7
+    key_terms: [conscious-art3545, job, magicdragon3, presently, psychosis, something, attempts, because]
+    section: Comments
+    token_count: 162
 ---
-
 # I feel empty. I’ve given up. 34F
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1tjws0b/i_feel_empty_ive_given_up_34f/)

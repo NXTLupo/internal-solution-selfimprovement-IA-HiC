@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1qnr1un.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1qnr1un/should_i_send_a_follow_up_email_after_a_thank_you/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,15 @@ flair: "Physical Sciences"
 extracted_at: "2026-05-24T14:10:06.605Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qnr1un.md#c0"
+    char_span: [0, 1031]
+    sentence_count: 7
+    key_terms: [school, email, gradadmissions, follow, comments, month, thank, grad]
+    token_count: 251
 ---
-
 # should I send a follow up email after a thank you email post grad school interview?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1qnr1un/should_i_send_a_follow_up_email_after_a_thank_you/)

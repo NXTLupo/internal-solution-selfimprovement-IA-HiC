@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rwvql6/imo_actual_swes_would_be_super_high_in_demand_in/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,87 @@ flair: ""
 extracted_at: "2026-05-19T17:57:56.723Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c0"
+    char_span: [0, 1687]
+    sentence_count: 12
+    key_terms: [code, cscareerquestions, juniors, early, adoption, comments, almost, coding]
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c1"
+    char_span: [1702, 3790]
+    sentence_count: 11
+    key_terms: [capitalism, "don't", engineering, lolclempson, care, code, "it's", businesses]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c2"
+    char_span: [3792, 5618]
+    sentence_count: 6
+    key_terms: [quality, business, going, absolutely, customers, software, another, matters]
+    section: Comments
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c3"
+    char_span: [5620, 7898]
+    sentence_count: 8
+    key_terms: [models, reasons, prices, source, significantly, subscriptions, get, open]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c4"
+    char_span: [7900, 10384]
+    sentence_count: 20
+    key_terms: [companies, developers, development, customers, software, already, models, firms]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c5"
+    char_span: [10386, 12518]
+    sentence_count: 14
+    key_terms: [testing, code, debugging, done, speeds, communicating, communication, maybe]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c6"
+    char_span: [12520, 14434]
+    sentence_count: 14
+    key_terms: [code, job, people, learn, engineer, monkey, senior, doing]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c7"
+    char_span: [14436, 16638]
+    sentence_count: 16
+    key_terms: ["don't", questions, product, losing, people, screen, start, code]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c8"
+    char_span: [16640, 18748]
+    sentence_count: 20
+    key_terms: ["it's", skills, architecture, coding, "aren't", resume, good, need]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c9"
+    char_span: [18750, 20950]
+    sentence_count: 15
+    key_terms: [architecture, code, engineer, thinking, writing, foot, like, opus]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c10"
+    char_span: [20952, 22963]
+    sentence_count: 11
+    key_terms: [always, demand, amount, people, cope, adapting, industry, required]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c11"
+    char_span: [22965, 24480]
+    sentence_count: 12
+    key_terms: [cscareerquestions, companies, industry, college, company, juniors, working, agents]
+    section: Comments
+    token_count: 372
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rwvql6.md#c12"
+    char_span: [24482, 26207]
+    sentence_count: 20
+    key_terms: [code, start, someone, get, new, developers, companies, generates]
+    section: Comments
+    token_count: 366
 ---
-
 # IMO Actual SWEs would be super high in demand in 1-3 years.
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rwvql6/imo_actual_swes_would_be_super_high_in_demand_in/)

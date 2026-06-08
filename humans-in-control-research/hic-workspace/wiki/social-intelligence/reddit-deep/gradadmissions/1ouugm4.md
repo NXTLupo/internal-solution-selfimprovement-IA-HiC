@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1ouugm4.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1ouugm4/how_is_my_sop/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,21 @@ flair: "Social Sciences"
 extracted_at: "2026-05-22T23:33:50.659Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ouugm4.md#c0"
+    char_span: [0, 209]
+    sentence_count: 2
+    key_terms: [gradadmissions, comments, reddit-deep, everybody, posted, reddit, source, thanks]
+    token_count: 66
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ouugm4.md#c1"
+    char_span: [224, 966]
+    sentence_count: 4
+    key_terms: [language, want, because, study, person-first, specifically, stigmatizing, fulfillment]
+    section: Comments
+    token_count: 176
 ---
-
 # How is my SOP?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1ouugm4/how_is_my_sop/)

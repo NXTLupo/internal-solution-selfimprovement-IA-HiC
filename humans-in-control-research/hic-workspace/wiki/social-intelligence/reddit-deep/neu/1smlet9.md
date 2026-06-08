@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1smlet9.md
 url: "https://www.reddit.com/r/NEU/comments/1smlet9/we_built_lost_hound_to_you_find_your_lost_items/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "Campus Life"
 extracted_at: "2026-05-22T13:32:12.392Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1smlet9.md#c0"
+    char_span: [0, 1709]
+    sentence_count: 9
+    key_terms: [lost, something, post, thelostandhound, northeastern, hound, https, items]
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/neu/1smlet9.md#c1"
+    char_span: [1724, 2353]
+    sentence_count: 5
+    key_terms: [own, creator-ye-lamar, lostandhound, appreciate, definitely, efficiency, engagement, community]
+    section: Comments
+    token_count: 148
 ---
-
 # We built Lost & Hound to you find your lost items!
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1smlet9/we_built_lost_hound_to_you_find_your_lost_items/)

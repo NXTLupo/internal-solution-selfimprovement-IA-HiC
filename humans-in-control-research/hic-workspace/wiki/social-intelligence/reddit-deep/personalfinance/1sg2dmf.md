@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1sg2dmf.md
 url: "https://www.reddit.com/r/personalfinance/comments/1sg2dmf/mom_died_and_left_me_money_but_i_am_a_little_lost/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,87 @@ flair: "Planning"
 extracted_at: "2026-05-16T20:55:02.102Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c0"
+    char_span: [0, 1968]
+    sentence_count: 24
+    key_terms: [around, money, boyfriend, personalfinance, account, inheritance, debt, left]
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c1"
+    char_span: [1983, 4171]
+    sentence_count: 17
+    key_terms: [money, comments, hysa, read, yourself, until, bank, post]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c2"
+    char_span: [4173, 6265]
+    sentence_count: 18
+    key_terms: [money, bank, put, options, recommend, face, hysa, sitting]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c3"
+    char_span: [6267, 7318]
+    sentence_count: 7
+    key_terms: [alternate, something, checking, interest, account, t-bill, international-ant174, state]
+    section: Comments
+    token_count: 233
+  - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c4"
+    char_span: [7320, 9205]
+    sentence_count: 16
+    key_terms: [money, decisions, emotionally, inheritance, fund, hysa, year, financial]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c5"
+    char_span: [9207, 10456]
+    sentence_count: 12
+    key_terms: [wiki, personalfinance, money, windfall, account, reddit, boyfriend, grand]
+    section: Comments
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c6"
+    char_span: [10458, 12470]
+    sentence_count: 23
+    key_terms: [account, earn, interest, thattotal2020, funds, money, bank, get]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c7"
+    char_span: [12472, 14359]
+    sentence_count: 15
+    key_terms: [want, fidelity, put, retirement, paycheck, contribution, money, fund]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c8"
+    char_span: [14361, 16242]
+    sentence_count: 23
+    key_terms: [funds, american, years, hysa, high-interest-savings-to-get, yourself, express, million]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c9"
+    char_span: [16244, 17009]
+    sentence_count: 9
+    key_terms: [investing, someone, edward, people, funds, jones, find, year]
+    section: Comments
+    token_count: 187
+  - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c10"
+    char_span: [17011, 18848]
+    sentence_count: 11
+    key_terms: [funds, jitterbug26, rule, everything, interest, probably, america, through]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c11"
+    char_span: [18850, 20952]
+    sentence_count: 24
+    key_terms: [employer, better, banks, credit, people, unions, rates, retirement]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/personalfinance/1sg2dmf.md#c12"
+    char_span: [20954, 21810]
+    sentence_count: 11
+    key_terms: [max, roth, contribute, employer, don, irs, tax, year]
+    section: Comments
+    token_count: 238
 ---
-
 # Mom died and left me money, but I am a little lost with all my options.
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1sg2dmf/mom_died_and_left_me_money_but_i_am_a_little_lost/)

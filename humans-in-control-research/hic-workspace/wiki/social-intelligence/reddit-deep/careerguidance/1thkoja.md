@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1thkoja.md
 url: "https://www.reddit.com/r/careerguidance/comments/1thkoja/help_me_how_to_choose_career_path_based_on/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,15 @@ flair: "Education & Qualifications"
 extracted_at: "2026-05-23T20:15:29.972Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1thkoja.md#c0"
+    char_span: [0, 996]
+    sentence_count: 3
+    key_terms: [mainframe, project, career, careerguidance, choose, extraction, comments, existing]
+    token_count: 232
 ---
-
 # Help me how to choose career path based on experience ?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1thkoja/help_me_how_to_choose_career_path_based_on/)

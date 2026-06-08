@@ -1,4 +1,5 @@
 ---
+id: brand/layout-patterns.md
 title: "Layout Patterns Library"
 type: brand
 created: 2026-04-10
@@ -8,8 +9,91 @@ confidence: high
 status: active
 tags: [brand, layout, patterns, split-panel, section-divider, callout]
 evidence_count: 0
+chunks:
+  - id: "brand/layout-patterns.md#c0"
+    char_span: [0, 269]
+    sentence_count: 4
+    key_terms: [patterns, composition, layout, improvisation, deliverables, complete, freeform, multiple]
+    token_count: 52
+  - id: "brand/layout-patterns.md#c1"
+    char_span: [302, 2065]
+    sentence_count: 2
+    key_terms: [var, column, nxt-muted, evidence, content, divider, split-, data]
+    section: "Pattern 1: The Split Panel"
+    token_count: 476
+  - id: "brand/layout-patterns.md#c2"
+    char_span: [2067, 2411]
+    sentence_count: 1
+    key_terms: [evidence, column, pattern, body-length, screenshots, conclusion, paragraphs, contains]
+    section: "Pattern 1: The Split Panel"
+    token_count: 79
+  - id: "brand/layout-patterns.md#c3"
+    char_span: [2448, 4137]
+    sentence_count: 5
+    key_terms: [var, letter-spacing, text-transform, center, font-headline, color, major, font-family]
+    section: "Pattern 2: The Section Divider"
+    token_count: 430
+  - id: "brand/layout-patterns.md#c4"
+    char_span: [4139, 4844]
+    sentence_count: 6
+    key_terms: [section, title, text, number, counterclockwise, highlighting, intentional, chartreuse]
+    section: "Pattern 2: The Section Divider"
+    token_count: 167
+  - id: "brand/layout-patterns.md#c5"
+    char_span: [4888, 6386]
+    sentence_count: 4
+    key_terms: [var, recommendation-, font-family, font-size, recommendations, text-transform, font-headline, margin-bottom]
+    section: "Pattern 3: The Recommendation Callout"
+    token_count: 394
+  - id: "brand/layout-patterns.md#c6"
+    char_span: [6388, 7207]
+    sentence_count: 4
+    key_terms: [recommendation, headline, text, chartreuse, checkout, optional, maximum, flow]
+    section: "Pattern 3: The Recommendation Callout"
+    token_count: 195
+  - id: "brand/layout-patterns.md#c7"
+    char_span: [7243, 8924]
+    sentence_count: 2
+    key_terms: [var, font-family, evidence-, font-size, quotes, color, font-body, data]
+    section: "Pattern 4: The Evidence Block"
+    token_count: 443
+  - id: "brand/layout-patterns.md#c8"
+    char_span: [8926, 9809]
+    sentence_count: 5
+    key_terms: [evidence, blocks, source, content, text-xs, border, italic, quotes]
+    section: "Pattern 4: The Evidence Block"
+    token_count: 212
+  - id: "brand/layout-patterns.md#c9"
+    char_span: [9843, 11556]
+    sentence_count: 2
+    key_terms: [var, font-family, font-size, letter-spacing, number, color, stat-, margin-top]
+    section: "Pattern 5: The Stat Callout"
+    token_count: 448
+  - id: "brand/layout-patterns.md#c10"
+    char_span: [11558, 12310]
+    sentence_count: 5
+    key_terms: [stat, callouts, number, left-aligned, descriptor, retention, increase, maximum]
+    section: "Pattern 5: The Stat Callout"
+    token_count: 202
+  - id: "brand/layout-patterns.md#c11"
+    char_span: [12343, 13862]
+    sentence_count: 1
+    key_terms: [var, grid-matrix, border-bottom, color, font-family, background, comparison, structured]
+    section: "Pattern 6: The Grid Matrix"
+    token_count: 394
+  - id: "brand/layout-patterns.md#c12"
+    char_span: [13864, 15008]
+    sentence_count: 8
+    key_terms: [columns, header, visual, row, separation, highlight, borders, content]
+    section: "Pattern 6: The Grid Matrix"
+    token_count: 270
+  - id: "brand/layout-patterns.md#c13"
+    char_span: [15040, 16319]
+    sentence_count: 8
+    key_terms: [recommendation, evidence, patterns, panel, split, inside, appear, column]
+    section: Pattern Composition Rules
+    token_count: 272
 ---
-
 # Layout Patterns Library
 
 Six layout patterns form the complete composition system for NXT Humans deliverables. Every page, slide, or screen in any output MUST use one of these patterns or a composition of multiple patterns. No freeform layouts. No improvisation.

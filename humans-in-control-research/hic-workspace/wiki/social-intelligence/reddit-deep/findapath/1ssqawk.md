@@ -6,19 +6,19 @@ subreddit: "findapath"
 title: "I’d Rather Work a Warehouse Job Than Be a Software Engineer"
 author: "Friendly_Routine160"
 date: "2026-04-22T16:21:05.000Z"
-score: 213
+score: 212
 upvote_ratio: 0.9
 num_comments: 156
 flair: "Findapath-College/Certs"
-extracted_at: "2026-05-25T13:04:07.385Z"
+extracted_at: "2026-06-06T23:22:15.458Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # I’d Rather Work a Warehouse Job Than Be a Software Engineer
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1ssqawk/id_rather_work_a_warehouse_job_than_be_a_software/)
-Posted by **Friendly_Routine160** · **213↑** · **156 comments**
+Posted by **Friendly_Routine160** · **212↑** · **156 comments**
 
 Am I the only one who hates the corporate lifestyle?
 
@@ -38,33 +38,25 @@ Honestly, I feel like I’d rather work a warehouse job than sit at a desk progr
 
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/findapath) if you have any questions or concerns.*
-- **momentograms** (115↑): I don't think you're wrong. The corporate world can be very soul sucking and it isn't for everyone. If that's how you feel then maybe pivot and go into trades. Honestly there may be more future in a lot of those industries anyway. If you can already tell that you don't fit in with your peers in this line of work and that being in an office all day every day isn't for you then pivot now instead of going down a road that isn't right for you.
-  - **Friendly_Routine160** (12↑): Thanks for the reply
-What trade industries do you think is worth going into?
-    - **SmokeyWolf117** (11↑): A lot of this probably depends on where you live. If you live in union area then I’d say it’s not a bad move. You can go and get in with a union and then once you get licensed you can start your own business and make good money. Idk how it is for non union areas so I won’t make guesses at it. Electrician would be the way I would tell my son to go. Nursing is also a very in demand field and you can make good money there as well, I have a few friends both male and female doing that.
-    - **trademarktower** (20↑): Why don't you change majors to mechanical or electrical engineering.  You can work at a power plant or in a factory or building bridges or in defense.  If you get a professional engineering license you have a lot more job security even with AI. Governments require someone to verify the work.
-
-This would be much higher pay and status work than the typical trades job.
-    - **momentograms** (13↑): I would consider doing some market research. You could look into plumbing, electrical, HVAC. Depends on your interests and skill set. I would start looking into what trades are in demand in your area.
-- **0j0sDePerroAzul** (122↑): Talk to a warehouse worker first
-  - **Stoned_Embassy** (110↑): I'm a warehouse worker and doing everything I can to get my degree while working full time so I can stop working at warehouses lol
-    - **dissonaut69** (51↑): Yeah.. it can be just as monotonous and soulcrushing as working in an office. The vibes can also just be worse because lots of warehouse workers are unhappy and that rubs off on people.
+- **0j0sDePerroAzul** (123↑): Talk to a warehouse worker first
+  - **Stoned_Embassy** (106↑): I'm a warehouse worker and doing everything I can to get my degree while working full time so I can stop working at warehouses lol
+    - **dissonaut69** (56↑): Yeah.. it can be just as monotonous and soulcrushing as working in an office. The vibes can also just be worse because lots of warehouse workers are unhappy and that rubs off on people.
   - **Intelligent-Farm-861** (17↑): OP knows nothing and frankly it’s a bit demeaning to think warehouse workers just kick back and live it up compared to corporate grinders.
 
 When you’re in your forties spending eight hours driving forklifts, unloading containers and packing parcels you’ll long for a cushy office job that actually allows you to buy nice things. Some warehouse jobs are physically demanding, all are monotonous. You think you’ll enjoy the chance to switch off your brain, try doing it for forty hours a week. A city office is nowhere near as soul crushing as seeing the same shitty warehouse surrounded by other warehouses every single fucking day. You’re working with 20 year olds, some of whom you envy because they will be moving on to better things and some of whom you pity because one day they’ll be in their forties working in a warehouse too.
   - **DiverVisible3940** (8↑): I worked in hospitality for 15 years.  I have a corporate job now.  It's awesome.
   - **Same-Fun-5106** (3↑): Yeah. Working in warehouses for 3 years is why I took a loan out to learn tech..  there is a level of depression/despair in some of the lifers at a warehouse that made me realise I cant do thisnlkng term.
   - **Electrical-Law-4671** (1↑): Yes 100%, from my little personal experience working an accounting job and then switching to a warehouse job, I would go back if I could. I end my shift and the only thing I want to do is to just lie in bed and watch something, too exhausted to workout/cook/hang out with friends. Ofcourse maybe some people dont mind, but to me it feels soulsucking when I am too exhausted to do anything.
-- **Limp_Complaint7330** (34↑): There’s corporate everywhere. Have you actually worked a warehouse job?
-- **bassanaut** (31↑): Going to have to hard disagree on this one 
+- **Limp_Complaint7330** (31↑): There’s corporate everywhere. Have you actually worked a warehouse job?
+- **bassanaut** (30↑): Going to have to hard disagree on this one 
 
 You aren’t going to escape the corporate hell in most warehouses, and your multiple layers of bosses and supervisors will enforce the numerous policies and standards. Instead of nerdy coworkers you will be surrounded by methheads and felons. And instead of a non-physically demanding desk job, you will beat your body up doing physical and extremely monotonous tasks, and that will be your entire existence 
 
 YMMV, but I can only base my opinion on my own experience, and working in a warehouse was the most awful job I had
   - **snmnky9490** (3↑): Definitely agree as a former warehouse, retail, and service industry employee, but I feel like this is something many young guys don't understand until they've actually lived through it.
 - **Ok_Management4634** (20↑): It seems like the spring semester is almost over.  See if your college will let you take a gap year -- one year of no classes, but you can enroll in Fall 2027 if you want to.  Then work that year. You'll either be more motivated to finish college or never come back.. but this keeps your options open.
-- **Silent-Let9146** (21↑): Warehouse manager here. I help out with the physical stuff and manage the entry level employees. I’m high enough to still deal with corporate lifestyle and sucking up  but low enough to still work like a dog and not have high pay. Maybe you can hack the upward mobility but there’s no advancement in getting good at bottom level production, maybe beneficial to understand if you want to move up but hard work just makes you a hard worker.
-- **raj-koffie** (36↑): I hear what you are saying, but let me tell you about my experience.
+- **Silent-Let9146** (20↑): Warehouse manager here. I help out with the physical stuff and manage the entry level employees. I’m high enough to still deal with corporate lifestyle and sucking up  but low enough to still work like a dog and not have high pay. Maybe you can hack the upward mobility but there’s no advancement in getting good at bottom level production, maybe beneficial to understand if you want to move up but hard work just makes you a hard worker.
+- **raj-koffie** (37↑): I hear what you are saying, but let me tell you about my experience.
 
 I hate the corporate lifestyle. I worked as a software engineer, electrical engineer, researcher, and data scientist. I have a masters in engineering and a masters in deep learning. I got canned at the end of 2023 from my niche role at a startup. Lots of work culture issues at that last job. The CEO disliked me from the start, he was looking for an excuse to dump me for months. Coming back from a leave after having a new baby, I figured out they engineered me out of the system. I am also on the spectrum, so I have some challenges. I burnt out so bad that I feel like I lost skills, executive function and general intelligence.
 
@@ -76,8 +68,8 @@ It's a very physical job, my body is sore every day. I have to worry about long 
 
 Weighing one against the other, I would still prefer to be a software engineer to the blue collar job. I know I will always suck at the social stuff, but not having to constantly worry about money, my physical health, having intellectual stimulation, all of that is worth a lot. Note: I don't pretend that my experience generalizes to every software role or every blue collar role. My reality is not necessarily yours.
   - **paloma_paloma** (3↑): Super interesting take on this question! What was your initial experiences like when you started the blue collar job?
-- **enigT** (10↑): Are you sure the grass on the other side is greener?
-- **iiDust** (8↑): This is the problem with high school. They teach you all that conceptual crap from a bunch of subjects you may never use in your life, but no real world knowledge. If they could just mandate service hours at a retail place, a corporate job, or any other kind of work, people would be better equipped to tackle life after high school.
+- **enigT** (11↑): Are you sure the grass on the other side is greener?
+- **iiDust** (9↑): This is the problem with high school. They teach you all that conceptual crap from a bunch of subjects you may never use in your life, but no real world knowledge. If they could just mandate service hours at a retail place, a corporate job, or any other kind of work, people would be better equipped to tackle life after high school.
 
 Millions of college students waste time not knowing what to study or do as a profession. And you are one of them.
 
@@ -87,3 +79,4 @@ I'd suggest taking a gap semester, if you have the money, and just try to brains
 
 Good luck.
   - **Striking_Stay_9732** (2↑): You clearly don’t understand how careers are made. Someone has to give you a shot in something and you stick with it long term for it to develop into a career.
+- **Kind_Ad7989** (7↑): Tengo 21 años y llevo 8 meses en el sector, cada día pienso que me gustaría trabajar 1 semana en trabajos como repartidor de amazon, hostelería o mozo de almacén en cualquier sitio. Entiendo tu postura, pero creo que no hay cosas mucho más cómodas, o quizás lo pruebas y si te gusta. no lo sé

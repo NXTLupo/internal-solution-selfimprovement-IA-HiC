@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1nst6z3.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1nst6z3/considering_electrical_engineering_as_a_career/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -10,11 +11,28 @@ score: 3
 upvote_ratio: 1
 num_comments: 2
 flair: "Career Advice"
-extracted_at: "2026-05-22T15:11:44.444Z"
+extracted_at: "2026-06-01T18:48:36.792Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1nst6z3.md#c0"
+    char_span: [0, 1167]
+    sentence_count: 8
+    key_terms: [engineering, electrical, engineeringstudents, currently, graduates, comments, students, advice]
+    token_count: 250
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1nst6z3.md#c1"
+    char_span: [1182, 3319]
+    sentence_count: 36
+    key_terms: [engineering, degree, though, crazy, been, classes, college, comfortable]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1nst6z3.md#c2"
+    char_span: [3321, 4621]
+    sentence_count: 17
+    key_terms: [power, electricity, connection, graduate, industry, physics, degree, except]
+    section: Comments
+    token_count: 274
 ---
-
 # Considering Electrical Engineering as a career, looking for Advice from Students and Graduates
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1nst6z3/considering_electrical_engineering_as_a_career/)

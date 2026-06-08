@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1luhckt.md
 url: "https://www.reddit.com/r/college/comments/1luhckt/is_college_a_better_place_to_learn_languages_than/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,33 @@ flair: "Academic Life"
 extracted_at: "2026-05-25T15:51:48.245Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1luhckt.md#c0"
+    char_span: [0, 793]
+    sentence_count: 6
+    key_terms: [college, language, because, languages, comments, someone, better, school]
+    token_count: 176
+  - id: "social-intelligence/reddit-deep/college/1luhckt.md#c1"
+    char_span: [808, 2580]
+    sentence_count: 8
+    key_terms: [language, turbulent-artist961, learning, college, better, school, conversations, learn]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/college/1luhckt.md#c2"
+    char_span: [2582, 4843]
+    sentence_count: 12
+    key_terms: [college, school, high, language, french, no-professional-9618, learned, better]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/college/1luhckt.md#c3"
+    char_span: [4845, 6088]
+    sentence_count: 6
+    key_terms: [school, high, language, german, class, bad, did, professors]
+    section: Comments
+    token_count: 276
 ---
-
 # Is college a better place to learn languages than high school?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1luhckt/is_college_a_better_place_to_learn_languages_than/)

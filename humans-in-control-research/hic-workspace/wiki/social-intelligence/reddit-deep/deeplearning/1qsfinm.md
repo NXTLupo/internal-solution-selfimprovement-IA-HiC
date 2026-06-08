@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1qsfinm.md
 url: "https://www.reddit.com/r/deeplearning/comments/1qsfinm/clawbot_is_a_pretty_brutal_reminder_that_local/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.046Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1qsfinm.md#c0"
+    char_span: [0, 2166]
+    sentence_count: 13
+    key_terms: [agent, clawbot, agents, deeplearning, instructions, local, like, attackers]
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/deeplearning/1qsfinm.md#c1"
+    char_span: [2181, 4156]
+    sentence_count: 7
+    key_terms: [people, injection, diamondgeeezer, prompt, uneducated, clawdbot, docker, itself]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/deeplearning/1qsfinm.md#c2"
+    char_span: [3879, 4573]
+    sentence_count: 4
+    key_terms: [people, injection, clawdbot, prompt, data, automatically, misconfigured, uncontrolled]
+    section: Comments
+    token_count: 157
 ---
-
 # Clawbot is a pretty brutal reminder that “local agents” have a totally different security model than chatbots
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1qsfinm/clawbot_is_a_pretty_brutal_reminder_that_local/)

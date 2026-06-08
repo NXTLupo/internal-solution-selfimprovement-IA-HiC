@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1qdsvkj.md
 url: "https://www.reddit.com/r/Professors/comments/1qdsvkj/issues_with_commuters_in_department/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-14T18:17:21.701Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1qdsvkj.md#c0"
+    char_span: [0, 1226]
+    sentence_count: 7
+    key_terms: [department, faculty, colleagues, humanities, professors, commuters, comments, meetings]
+    token_count: 263
+  - id: "social-intelligence/reddit-deep/professors/1qdsvkj.md#c1"
+    char_span: [1241, 3181]
+    sentence_count: 16
+    key_terms: [person, meetings, people, mediaisdelicious, expectations, chair, chalonverse, zoom]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/professors/1qdsvkj.md#c2"
+    char_span: [3183, 5174]
+    sentence_count: 13
+    key_terms: [department, everyone, meetings, "they're", people, dept, fine, only-in-special-circumstances]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/professors/1qdsvkj.md#c3"
+    char_span: [5176, 6495]
+    sentence_count: 11
+    key_terms: [department, start, salaried, faculty, reason, remote, hours, maybe]
+    section: Comments
+    token_count: 317
+  - id: "social-intelligence/reddit-deep/professors/1qdsvkj.md#c4"
+    char_span: [6500, 8259]
+    sentence_count: 13
+    key_terms: [meetings, faculty, university, time, department, humanities, pretend, animus]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/professors/1qdsvkj.md#c5"
+    char_span: [8261, 9757]
+    sentence_count: 13
+    key_terms: [meetings, defense, important, kimber80, service, doing, log, phd]
+    section: Comments
+    token_count: 357
+  - id: "social-intelligence/reddit-deep/professors/1qdsvkj.md#c6"
+    char_span: [9759, 10622]
+    sentence_count: 5
+    key_terms: [people, being, "aren't", covid, doing, good, time, work]
+    section: Comments
+    token_count: 196
+  - id: "social-intelligence/reddit-deep/professors/1qdsvkj.md#c7"
+    char_span: [10624, 12795]
+    sentence_count: 23
+    key_terms: [service, people, home, tenure, being, "i'm", department, productive]
+    section: Comments
+    token_count: 502
 ---
-
 # issues with commuters in department
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1qdsvkj/issues_with_commuters_in_department/)

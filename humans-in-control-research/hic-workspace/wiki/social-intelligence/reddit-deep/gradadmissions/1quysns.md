@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1quysns.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1quysns/you_guys_cant_send_me_this_3_days_after_you/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,33 @@ flair: "Venting"
 extracted_at: "2026-05-22T23:33:50.671Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1quysns.md#c0"
+    char_span: [0, 320]
+    sentence_count: 1
+    key_terms: [gradadmissions, comments, reddit-deep, schools, posted, reddit, reject, source]
+    token_count: 95
+  - id: "social-intelligence/reddit-deep/gradadmissions/1quysns.md#c1"
+    char_span: [335, 1339]
+    sentence_count: 6
+    key_terms: [deleted, loser, better, funny, gays, like, lose, wait]
+    section: Comments
+    token_count: 266
+  - id: "social-intelligence/reddit-deep/gradadmissions/1quysns.md#c2"
+    char_span: [1341, 3098]
+    sentence_count: 9
+    key_terms: [school, email, loser, application, gay, especially, berkeley, students]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/gradadmissions/1quysns.md#c3"
+    char_span: [3101, 3665]
+    sentence_count: 5
+    key_terms: [communication, sucks, dick, kick, unlikely-ad2660, application, humiliation, melliferraa]
+    section: Comments
+    token_count: 135
 ---
-
 # You guys can’t send me this 3 days after you reject me ☹️
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1quysns/you_guys_cant_send_me_this_3_days_after_you/)

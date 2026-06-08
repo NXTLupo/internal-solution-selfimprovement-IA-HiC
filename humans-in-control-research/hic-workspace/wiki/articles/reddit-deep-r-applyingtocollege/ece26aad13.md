@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-applyingtocollege/ece26aad13.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rclq60/is_umd_computer_science_worth_100k_more_than/"
 url_hash: "ece26aad13"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T02:36:31.466964+00:00"
 chars: 4465
+industries: [higher_ed, education, workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-applyingtocollege/ece26aad13.md#c0"
+    char_span: [0, 1366]
+    sentence_count: 13
+    key_terms: [umd, alabama, applyingtocollege, career, opportunities, comments, computer, because]
+    token_count: 334
+  - id: "articles/reddit-deep-r-applyingtocollege/ece26aad13.md#c1"
+    char_span: [1369, 3293]
+    sentence_count: 13
+    key_terms: [education, take, money, lot, pay, rate, umd, difference]
+    token_count: 455
+  - id: "articles/reddit-deep-r-applyingtocollege/ece26aad13.md#c2"
+    char_span: [3295, 4676]
+    sentence_count: 8
+    key_terms: [umd, get, alabama, opportunities, job, motivated, students, average]
+    token_count: 308
 ---
-
 # Is UMD computer science worth $100k more than Alabama?
 
 Source: [Reddit Deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rclq60/is_umd_computer_science_worth_100k_more_than/)

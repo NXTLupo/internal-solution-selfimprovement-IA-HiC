@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1q9ewgn.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1q9ewgn/do_engineers_actually_know_how_to_code/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,45 @@ flair: "Discussion"
 extracted_at: "2026-05-22T21:34:47.625Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1q9ewgn.md#c0"
+    char_span: [0, 1008]
+    sentence_count: 9
+    key_terms: [engineeringstudents, year, engineers, comments, chatgpt, started, coding, bit]
+    token_count: 240
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1q9ewgn.md#c1"
+    char_span: [1023, 2755]
+    sentence_count: 13
+    key_terms: [coding, matlab, being, engineering, data, use, programmer, necessary]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1q9ewgn.md#c2"
+    char_span: [2757, 4565]
+    sentence_count: 10
+    key_terms: [led, thepowerfulpaet, arduino, digitalwrite, code, problem, voltage, "that's"]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1q9ewgn.md#c3"
+    char_span: [4567, 6634]
+    sentence_count: 10
+    key_terms: [people, anexcitedpanda, weakechoregion, codes, professors, chatgpt, instead, syntax]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1q9ewgn.md#c4"
+    char_span: [6636, 8563]
+    sentence_count: 15
+    key_terms: [code, using, different, something, programming, day, like, line]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1q9ewgn.md#c5"
+    char_span: [8565, 9901]
+    sentence_count: 11
+    key_terms: [write, specifically, code, use, matlab, school, "you're", "don't"]
+    section: Comments
+    token_count: 313
 ---
-
 # Do engineers actually know how to code?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1q9ewgn/do_engineers_actually_know_how_to_code/)

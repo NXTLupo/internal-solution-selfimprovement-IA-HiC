@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1oltiom.md
 url: "https://www.reddit.com/r/college/comments/1oltiom/i_wish_i_could_afford_college_on_my_own/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-17T01:12:59.142Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1oltiom.md#c0"
+    char_span: [0, 801]
+    sentence_count: 6
+    key_terms: [college, education, comments, mental, malaysiahemphill, self-education, environment, reddit-deep]
+    token_count: 204
+  - id: "social-intelligence/reddit-deep/college/1oltiom.md#c1"
+    char_span: [816, 2031]
+    sentence_count: 12
+    key_terms: [free, state, years, https, community, colleges, stanford, classes]
+    section: Comments
+    token_count: 317
 ---
-
 # I wish I could afford college on my own
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1oltiom/i_wish_i_could_afford_college_on_my_own/)

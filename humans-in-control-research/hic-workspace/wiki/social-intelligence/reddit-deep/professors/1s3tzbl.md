@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1s3tzbl.md
 url: "https://www.reddit.com/r/Professors/comments/1s3tzbl/should_our_program_defund_phd_students_using_ai/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,69 @@ flair: ""
 extracted_at: "2026-05-20T03:55:39.273Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1s3tzbl.md#c0"
+    char_span: [0, 2432]
+    sentence_count: 20
+    key_terms: [students, use, phd, evidence, faculty, funding, consequences, assignments]
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/professors/1s3tzbl.md#c1"
+    char_span: [2447, 4002]
+    sentence_count: 12
+    key_terms: [suspiciouslink1984, formal, source, "it's", like, multiple, students, copying]
+    section: Comments
+    token_count: 352
+  - id: "social-intelligence/reddit-deep/professors/1s3tzbl.md#c2"
+    char_span: [4004, 6178]
+    sentence_count: 18
+    key_terms: [funding, "it's", work, reference, withdrawn, language, required, students]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1s3tzbl.md#c3"
+    char_span: [5854, 6852]
+    sentence_count: 10
+    key_terms: [reference, feedback, language, original, students, checker, source, though]
+    section: Comments
+    token_count: 211
+  - id: "social-intelligence/reddit-deep/professors/1s3tzbl.md#c4"
+    char_span: [6854, 7500]
+    sentence_count: 7
+    key_terms: [grammar, without, boringhistoryfan, spellcheckers, suggestions, everything, archknits, detection]
+    section: Comments
+    token_count: 148
+  - id: "social-intelligence/reddit-deep/professors/1s3tzbl.md#c5"
+    char_span: [7502, 9819]
+    sentence_count: 22
+    key_terms: [through, been, exam, turn, work, discipline, understand, knowledge]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1s3tzbl.md#c6"
+    char_span: [9507, 10987]
+    sentence_count: 12
+    key_terms: [class, sentence, being, coherently, everything, confident, extremely, students]
+    section: Comments
+    token_count: 321
+  - id: "social-intelligence/reddit-deep/professors/1s3tzbl.md#c7"
+    char_span: [10989, 12895]
+    sentence_count: 11
+    key_terms: [going, use, students, student, academic, conduct, shocked, through]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/professors/1s3tzbl.md#c8"
+    char_span: [12897, 14886]
+    sentence_count: 18
+    key_terms: [software, chances, writing, undetectable, harsh, cite, acceptable, humanized]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/professors/1s3tzbl.md#c9"
+    char_span: [14889, 15432]
+    sentence_count: 3
+    key_terms: [guidance, students, rafaelleon2107, instruction, specificity, department, citations, defunding]
+    section: Comments
+    token_count: 123
 ---
-
 # Should our program defund PhD students using AI in their PhD writing assignments without citation?
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1s3tzbl/should_our_program_defund_phd_students_using_ai/)

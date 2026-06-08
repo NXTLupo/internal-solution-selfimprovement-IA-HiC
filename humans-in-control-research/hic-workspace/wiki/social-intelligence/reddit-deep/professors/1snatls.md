@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1snatls.md
 url: "https://www.reddit.com/r/Professors/comments/1snatls/venting_party/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -6,19 +7,94 @@ subreddit: "professors"
 title: "Venting Party"
 author: "Avid-Reader-1984"
 date: "2026-04-16T17:45:51.000Z"
-score: 161
+score: 159
 upvote_ratio: 0.93
-num_comments: 94
+num_comments: 92
 flair: "Rants / Vents"
-extracted_at: "2026-05-20T03:55:39.277Z"
+extracted_at: "2026-06-05T19:53:34.599Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1snatls.md#c0"
+    char_span: [0, 1253]
+    sentence_count: 10
+    key_terms: [students, problem, either, vent, professors, comments, "didn't", yours]
+    token_count: 316
+  - id: "social-intelligence/reddit-deep/professors/1snatls.md#c1"
+    char_span: [1255, 3086]
+    sentence_count: 21
+    key_terms: [inability, get, time, problem, behavior, conditioning, because, manage]
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/professors/1snatls.md#c2"
+    char_span: [3088, 5233]
+    sentence_count: 20
+    key_terms: [problem, people, want, students, get, stop, professors, difficult]
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/professors/1snatls.md#c3"
+    char_span: [5248, 5740]
+    sentence_count: 5
+    key_terms: [elitist, timetimeclock, maintaining, reputation, skullybonk, recommend, standards, devolved]
+    section: Comments
+    token_count: 133
+  - id: "social-intelligence/reddit-deep/professors/1snatls.md#c4"
+    char_span: [5742, 7769]
+    sentence_count: 16
+    key_terms: [students, elitist, expectations, intellectual, being, "don't", face, "i'm"]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1snatls.md#c5"
+    char_span: [7560, 8143]
+    sentence_count: 5
+    key_terms: [because, college, technical-elk-9277, been, gutfounderedgal, frankrizzo319, compliment, respectful]
+    section: Comments
+    token_count: 148
+  - id: "social-intelligence/reddit-deep/professors/1snatls.md#c6"
+    char_span: [8145, 8820]
+    sentence_count: 10
+    key_terms: [because, class, don, gtfo, hard, flabbergasted, assignments, assignment]
+    section: Comments
+    token_count: 161
+  - id: "social-intelligence/reddit-deep/professors/1snatls.md#c7"
+    char_span: [8822, 10672]
+    sentence_count: 12
+    key_terms: [students, because, being, want, elitist, student, anyone, equity]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/professors/1snatls.md#c8"
+    char_span: [10674, 11664]
+    sentence_count: 12
+    key_terms: [deadlines, students, headaches, multiple, years, get, hard, late]
+    section: Comments
+    token_count: 236
+  - id: "social-intelligence/reddit-deep/professors/1snatls.md#c9"
+    char_span: [11666, 13680]
+    sentence_count: 19
+    key_terms: [work, students, pennypatch2000, class, get, proactive, violation, semester]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/professors/1snatls.md#c10"
+    char_span: [13685, 15768]
+    sentence_count: 13
+    key_terms: [because, student, through, folder, class, step, completely, tutoring]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/professors/1snatls.md#c11"
+    char_span: [15771, 17767]
+    sentence_count: 20
+    key_terms: [students, life-education-8030, give, too, definitely, because, student, cannot]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/professors/1snatls.md#c12"
+    char_span: [17770, 17987]
+    sentence_count: 1
+    key_terms: [experience, retirement, absolute, reminded, students, teaching, college, retired]
+    section: Comments
+    token_count: 50
 ---
-
 # Venting Party
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1snatls/venting_party/)
-Posted by **Avid-Reader-1984** · **161↑** · **94 comments**
+Posted by **Avid-Reader-1984** · **159↑** · **92 comments**
 
 Friends,
 
@@ -51,26 +127,26 @@ In the worst case scenario of a firing, I know it would be hard to find another 
 
 ## Comments
 
-- **skullybonk** (118↑): I’ve been doing what you recommend for over 20 years and won’t change. I hold the line. But get this.
+- **skullybonk** (116↑): I’ve been doing what you recommend for over 20 years and won’t change. I hold the line. But get this.
 
 In my last review with my dean, she said I’m an “elitist”. She said I have a reputation among students and even some faculty of being, and I quote, “a hardass” and “an elitist.”
 
 Our meeting devolved from there, you bet it did.
-  - **TimeTimeClock** (54↑): If maintaining standards is elitist, then they should let me in the NBA already, I'm ready for the salary. 
+  - **TimeTimeClock** (55↑): If maintaining standards is elitist, then they should let me in the NBA already, I'm ready for the salary. 
 
 I am 5 ft tall, have no discernible ball skills OR aerobic stamina, AND I'm a woman, but can you JUST. STOP. BEING. ELITIST.
-  - **Avid-Reader-1984** (43↑): Yeah ... I don't know what to do with that other than say it's a shame that dumb people have been allowed into positions of power. I suppose expecting students to pass certification boards is elitist now, too.
-  - **AnnaT70** (28↑): I push students hard on their various "elitist" claims. They sometimes don't even know why they think it's bad.
-    - **FrankRizzo319** (5↑): Push them face to face so they can’t ask ChatGPT what to say.
+  - **Avid-Reader-1984** (38↑): Yeah ... I don't know what to do with that other than say it's a shame that dumb people have been allowed into positions of power. I suppose expecting students to pass certification boards is elitist now, too.
+  - **AnnaT70** (25↑): I push students hard on their various "elitist" claims. They sometimes don't even know why they think it's bad.
+    - **FrankRizzo319** (6↑): Push them face to face so they can’t ask ChatGPT what to say.
     - **SnowblindAlbino** (1↑): The media (and certain politicians) are always mocking "coastal elites" so I'm sure they pick that up, having no idea what it really means. What's wrong with being elite in any case? I'm sure they'd love to meet an "elite athlete." Being *elitist* is a meaningless epithet really, at least when it's attached to things like using the vocabulary of an educated person and expecting people involved in intellectual work to be, well, *intellectual* at times.
-  - **ivaorn** (14↑): How dare we give our students…expectations! Ahead of their chosen career paths where they will inevitably also face…expectations!
-    - **Jumpy_Relief_1792** (4↑): Ahhh but then students can feel justified in disengaging because you have now created an “unsafe learning environment” by (very very mildly) challenging their perceptions. 
+  - **ivaorn** (13↑): How dare we give our students…expectations! Ahead of their chosen career paths where they will inevitably also face…expectations!
+    - **Jumpy_Relief_1792** (3↑): Ahhh but then students can feel justified in disengaging because you have now created an “unsafe learning environment” by (very very mildly) challenging their perceptions. 
 When they inevitably fail to meet the standards to pass? It’s no longer their fault…they were simply setting healthy boundaries for their psychological safety.
 It’s the rare few that do this, but it causes no end of strife for everyone involved. Particularly for any staff that has gone out of their way to support them.
   - **Putertutor** (14↑): Now see, I take those kinds of comments as a compliment! I want to say "You're damned right I am!" But of course, I don't.
-    - **Technical-Elk-9277** (17↑): Because it’s horrible to have high standards. Sigh.
-  - **gutfounderedgal** (9↑): That could have been a respectful workplace complaint by you to HR.
-  - **FrankRizzo319** (9↑): I’ve been called this for saying some students would be better off going to a trade school. Their heart isn’t into the type of learning fostered in college. They’re here to please their parents, or because society says that you need a college degree to be somebody in life. 
+    - **Technical-Elk-9277** (15↑): Because it’s horrible to have high standards. Sigh.
+  - **gutfounderedgal** (12↑): That could have been a respectful workplace complaint by you to HR.
+  - **FrankRizzo319** (10↑): I’ve been called this for saying some students would be better off going to a trade school. Their heart isn’t into the type of learning fostered in college. They’re here to please their parents, or because society says that you need a college degree to be somebody in life. 
 
 And I have a reputation of being a “hard ass” too because I actually call students out for cheating. My colleagues look away and they are flabbergasted when I don’t. And I don’t give extra credit because you fucked around all semester and now want some BS assignment to pretend you learned something. GTFO.  
 
@@ -79,15 +155,14 @@ I have a student who is miserably failing my class - she’s attended 4 of 20 or
 One advantage to this reputation is that students who want and expect to slack off and get an A for it are less likely to take my electives.
     - **CountryZestyclose** (5↑): Am surprised you still have her around.  My syllabus says I can drop a student if absences are excessive and/or work is not being turned in.
     - **SnowblindAlbino** (2↑): Students that can't pass English 111 or Math 115 because they don't show up and don't do the work aren't going to do any better in WELD 100: Fundamentals of Welding or HVAC 120: Principles of System Balancing either.
-  - **gin_possum** (8↑): I don’t understand how your meeting devolved, when she opened with a series of compliments… I guess if you’re already an elitist there’s nowhere to go but down
-  - **BillsTitleBeforeIDie** (5↑): I'd take that as a compliment that I'm doing my job.  Using that term is just a manipulative attempt to shame you into lowering your standards.  Your dean is a fuckwit.
+  - **gin_possum** (6↑): I don’t understand how your meeting devolved, when she opened with a series of compliments… I guess if you’re already an elitist there’s nowhere to go but down
+  - **BillsTitleBeforeIDie** (3↑): I'd take that as a compliment that I'm doing my job.  Using that term is just a manipulative attempt to shame you into lowering your standards.  Your dean is a fuckwit.
   - **wharleeprof** (3↑): If anyone accuses me of being elitist, I'll pull the equity card on them. I have my "no exceptions for anyone" policy framed in terms of equity, transparency, and integrity. Basically I stick to policy because it's not equitable to have a hidden set of rules that are only there for certain students.
     - **PennyPatch2000** (1↑): Thank you! This is one benefit of half of my position being administrative. I don’t know any demographics of the students whose placement applications I am processing, all I know are policies, due dates, and how to use my reading skills to connect things together. It’s April. I’m tired. By now my mantra is, God gives grace, I’m merely human.
-- **warricd28** (43↑): Generous of you to say they want an A for trying. They want an A because they think they tried, when the effort they put in was less than that of a D student 10 years ago.
+- **warricd28** (41↑): Generous of you to say they want an A for trying. They want an A because they think they tried, when the effort they put in was less than that of a D student 10 years ago.
 
 But yes to pretty much all of this. For things like deadlines, I’ve actually become more of a hard ass over time. I would be nice to students 8-10 years ago when it was one here and there and one offs. When it became an avalanche from multiple students multiple times, I’m out. I can’t stand the idea of building in free late buffers, a couple get out of late freebies, etc. From a selfish standpoint I get that it can reduce your headaches. But it creates more headaches for other profs the students now expect to do this and it reinforces bad habits that will not fly in the real world.
-  - **Putertutor** (16↑): Meeting deadlines has always been my #1 requirement for the past 30+ years of teaching. I use an example from the real workplace about what happens when deadlines are not met. Deadlines are everywhere. The students need to realize that.
-    - **ElderTwunk** (5↑): I always get pushback from colleagues when I say “in the real world” when it comes to deadlines. I honestly think a lot of people who work in academia have no experience “in the real world.” I’ve worked in law, and I’ve worked in research administration. Not meeting a deadline has meant jail in some cases and the loss of millions of dollars in others.
+  - **Putertutor** (18↑): Meeting deadlines has always been my #1 requirement for the past 30+ years of teaching. I use an example from the real workplace about what happens when deadlines are not met. Deadlines are everywhere. The students need to realize that.
   - **FrankRizzo319** (8↑): “Dear Prof.,
 
 I tried sooooooo hard in your class. Is there any way you can bump my D up to a C-? 
@@ -95,13 +170,13 @@ I tried sooooooo hard in your class. Is there any way you can bump my D up to a 
 Sincerely,
 
 Bullshit Student who’d use lab computers to play fantasy football the moment course material got difficult”
-  - **NotMrChips** (5↑): Oh yes. If I had a nickel for every time one of them said "but I did all the work!" I could have a nice vacation this summer.
+  - **NotMrChips** (4↑): Oh yes. If I had a nickel for every time one of them said "but I did all the work!" I could have a nice vacation this summer.
     - **PennyPatch2000** (2↑): I had this one this week. “I did all the work” but failed to answer the big disclosure question on the application correctly that was noted as a serious ethical violation to answer incorrectly (in other words failed to disclose one very important fact ). Truth was later discovered. He said he must have “skimmed past that one”. Delayed his graduation by a semester, integrity violation.
   - **PennyPatch2000** (2↑): There should be rules about inflating grades. Some students do work hard for them and deserve the As. A lot do not. Life happens. Cs get degrees…. It used to be enough.
-- **Angry-Dragon-1331** (42↑): Have we considered feeding the problem children to mutated piranhas?
-  - **Avid-Reader-1984** (14↑): Modern problems require modern solutions.
+- **Angry-Dragon-1331** (39↑): Have we considered feeding the problem children to mutated piranhas?
+  - **Avid-Reader-1984** (16↑): Modern problems require modern solutions.
   - **RogueVictorian** (1↑): 😂
-- **zorandzam** (19↑): I have a couple of students right now who seem bent on not turning anything in, not coming to class, not coming to office hours, not talking to me before or after class or during class when I have them working in small groups and allow them to consult with me independently. I started to compose an email to one of them but then went, "No, I told her what to do. She's not doing it. And it's not my problem to hold some kind of intervention for her. She will either get proactive or fail." I am not a therapist, her boss, her mother, or her friend. I have 150 students this semester. I will focus on the ones who are thriving.
+- **zorandzam** (15↑): I have a couple of students right now who seem bent on not turning anything in, not coming to class, not coming to office hours, not talking to me before or after class or during class when I have them working in small groups and allow them to consult with me independently. I started to compose an email to one of them but then went, "No, I told her what to do. She's not doing it. And it's not my problem to hold some kind of intervention for her. She will either get proactive or fail." I am not a therapist, her boss, her mother, or her friend. I have 150 students this semester. I will focus on the ones who are thriving.
 
 Obviously if someone does get proactive and tries to turn things around, I will help them! But I'm *done* chasing them down.
   - **Vanier-is-a-HellHole** (2↑): Def agree -- chasing them never helps. They have to be motivated enough to do the work and/or do what's necessary to pass.
@@ -116,12 +191,12 @@ I'm tempted to make the damn thing my away message.
   - **givenmydruthers** (10↑): That's actually a good idea!
   - **lilswaswa** (5↑): i have mine linked in my signature [i only teach 2 classes rn]
   - **moooooopg** (3↑): Omg please do share with me so I can plagerze it
-- **Dennarb** (28↑): I'm having the worst semester I've ever had because of the points you made.
+- **Dennarb** (27↑): I'm having the worst semester I've ever had because of the points you made.
 
 Yesterday was the most infuriating office hours experience of my life. Had a student show up who has just completely stopped coming to class. They then wanted me to walk the step by step through how to complete their homework assignment. Of course giving just a general clarifying overview wasn't enough for them though; they wanted me to step them through everything in fine detail. Basically if I don't sit there and point at the fucking screen and spell out how to do shit word for fucking word, they're completely incapable of actually completing the work. 
 
 I had to tell them to go back to the course materials and try and figure it out for themselves, because I just don't have the time or energy to sit on their shoulder and guide them through literally every basic thing. Even shit as simple as "make a folder" required me to say "move your mouse here, right click, move over the make a new folder option, click, name the folder x" for them to actually get it done.
-  - **Avid-Reader-1984** (13↑): What gets me is that this student probably doesn’t even realize that this is not an acceptable use of office hours. They cannot skip class and expect private tutoring. 
+  - **Avid-Reader-1984** (14↑): What gets me is that this student probably doesn’t even realize that this is not an acceptable use of office hours. They cannot skip class and expect private tutoring. 
 
 
 I don’t even think the tutoring center would hold hands that much, but maybe they have directives to do so. 
@@ -135,8 +210,8 @@ Makes me think I should offer tutoring at 5x my rough hourly pay 😂
 
 Funny how my best students don't have any problems with the standards I set.
   - **R86Reddit** (9↑): But hey, at least enrollment is high, amirite?
-    - **Life-Education-8030** (3↑): At least I know Admissions doesn’t care how many we throw out. They just care about how many they bring in. Now it’s no pulse needed, just an open purse. WE are the evil ones! 🙄
-- **gutfounderedgal** (9↑): Every bullet point you wrote is bang on. I hold to these too.
+    - **Life-Education-8030** (7↑): At least I know Admissions doesn’t care how many we throw out. They just care about how many they bring in. Now it’s no pulse needed, just an open purse. WE are the evil ones! 🙄
+- **gutfounderedgal** (11↑): Every bullet point you wrote is bang on. I hold to these too.
 - **HunterSpecial1549** (8↑): >If a student keeps ignoring instructions, give them the zero.
 
 I agree on this part. 

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1n5eqkg.md
 url: "https://www.reddit.com/r/college/comments/1n5eqkg/i_feel_so_bad_spending_money/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,27 @@ flair: "Finances/financial aid"
 extracted_at: "2026-05-17T01:12:59.141Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1n5eqkg.md#c0"
+    char_span: [0, 1195]
+    sentence_count: 7
+    key_terms: ["i'm", money, college, parents, bad, feel, job, comments]
+    token_count: 294
+  - id: "social-intelligence/reddit-deep/college/1n5eqkg.md#c1"
+    char_span: [1210, 2944]
+    sentence_count: 18
+    key_terms: [expensive, get, like, parents, back, pay, potatoes, working]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/college/1n5eqkg.md#c2"
+    char_span: [2946, 4274]
+    sentence_count: 15
+    key_terms: [parents, job, get, like, anything, highlightfickle7290, otherwise-ruin-7808, happy]
+    section: Comments
+    token_count: 330
 ---
-
 # i feel so bad spending money
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1n5eqkg/i_feel_so_bad_spending_money/)

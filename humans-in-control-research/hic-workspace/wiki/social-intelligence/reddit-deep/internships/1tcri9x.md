@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1tcri9x.md
 url: "https://www.reddit.com/r/internships/comments/1tcri9x/we_analysed_6337_cold_emails_students_sent_for/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,41 @@ subreddit: "internships"
 title: "We analysed 6,337 cold emails students sent for internships. Here's what works in 2026"
 author: "Key_Reputation_4690"
 date: "2026-05-14T08:06:21.000Z"
-score: 267
+score: 275
 upvote_ratio: 0.99
-num_comments: 11
+num_comments: 13
 flair: "Applications"
-extracted_at: "2026-05-20T12:56:20.021Z"
+extracted_at: "2026-06-05T23:41:05.398Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1tcri9x.md#c0"
+    char_span: [0, 1648]
+    sentence_count: 12
+    key_terms: [internships, email, emails, reply, open, students, rates, words]
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/internships/1tcri9x.md#c1"
+    char_span: [1650, 2242]
+    sentence_count: 1
+    key_terms: [cold-email-data-study-students-2026, methodology, specific, replies, rates, industry-wide, under-counted, rinternships]
+    token_count: 131
+  - id: "social-intelligence/reddit-deep/internships/1tcri9x.md#c2"
+    char_span: [2257, 3641]
+    sentence_count: 8
+    key_terms: [vandan-karakasia, giphy, gif, internship, targeting, students, manager, emails]
+    section: Comments
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/internships/1tcri9x.md#c3"
+    char_span: [3643, 4344]
+    sentence_count: 6
+    key_terms: [quality, number, like, jesuslizardgoat, ablefeeling933, emailverifier, neverbounce, appreciate]
+    section: Comments
+    token_count: 156
 ---
-
 # We analysed 6,337 cold emails students sent for internships. Here's what works in 2026
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1tcri9x/we_analysed_6337_cold_emails_students_sent_for/)
-Posted by **Key_Reputation_4690** · **267↑** · **11 comments**
+Posted by **Key_Reputation_4690** · **275↑** · **13 comments**
 
 For the last 6 months we've been tracking what works in cold email outreach for internships. After analysing 6,337 emails sent by 200+ students between November 2025 and May 2026, a few patterns stood out clearly.
 
@@ -55,16 +78,16 @@ Happy to answer questions on methodology or specific findings.
 
 ## Comments
 
-- **vandan-karakasia** (52↑): Best thing that might work is maybe
+- **vandan-karakasia** (54↑): Best thing that might work is maybe
 
 ![gif](giphy|7xqRFGrGcC1UgZ6jUk)
   - **Key_Reputation_4690** (3↑): 😭 I agree
-    - **vandan-karakasia** (7↑): I am gonna sent. Some memes attached to my mails I think maybe the company just hire me as a mood lifter
+    - **vandan-karakasia** (8↑): I am gonna sent. Some memes attached to my mails I think maybe the company just hire me as a mood lifter
 
 ![gif](giphy|LBb735fuQwRKAVzN23)
   - **GarlicOk5827** (2↑): Yaa this should definitely work
   - **midnightrevvv** (1↑): ![gif](giphy|ILx3tjWgaP0cjUf0Wx)
-- **Ganningma** (20↑): To get an internship nowadays you have to beg them to toss a coin like a homeless guy 💔💔💔🥀🥀🥀
+- **Ganningma** (22↑): To get an internship nowadays you have to beg them to toss a coin like a homeless guy 💔💔💔🥀🥀🥀
 - **raruna461** (6↑): Honestly the under-100-word result doesn’t surprise me at all anymore. Students massively overestimate how much context strangers want from them in a first email. Most internship cold emails read like mini autobiographies written under extreme stress while the hiring manager is skimming inboxes between meetings trying to preserve the last fragments of their attention span.
 
 The part I found most interesting was the manager/director targeting. So many students default to emailing CEOs because it feels more important, but at bigger companies the CEO usually isn’t involved in intern hiring at all. You’re basically sending your carefully crafted email into the digital equivalent of a volcano. Shorter emails + targeting the actual decision maker probably explains a huge chunk of the difference by itself.

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/e2fda2f6ef.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rhqtso/why_are_students_pushed_to_pursue_professional/"
 url_hash: "e2fda2f6ef"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:40:51.302467+00:00"
 chars: 2515
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/e2fda2f6ef.md#c0"
+    char_span: [0, 786]
+    sentence_count: 7
+    key_terms: [college, careerguidance, school, students, reddit, entry, level, right]
+    token_count: 181
+  - id: "articles/reddit-deep-r-careerguidance/e2fda2f6ef.md#c1"
+    char_span: [788, 2743]
+    sentence_count: 12
+    key_terms: [years, bachelors, "it's", degree, school, scholarships, challenging, financially]
+    token_count: 490
 ---
-
 # Why are students pushed to pursue professional careers at such a young age?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rhqtso/why_are_students_pushed_to_pursue_professional/)

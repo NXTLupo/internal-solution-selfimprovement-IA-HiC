@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-productivity/1db1ceb8b4.md
 url: "https://reddit.com/r/productivity/comments/1nwpxac/i_tracked_every_distraction_i_had_for_7_days_here/"
 url_hash: "1db1ceb8b4"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-06T03:10:18.104321+00:00"
 chars: 939
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-productivity/1db1ceb8b4.md#c0"
+    char_span: [0, 1149]
+    sentence_count: 12
+    key_terms: [productivity, phone, distractions, distraction, switching, culprit, tracked, reddit]
+    token_count: 264
 ---
-
 # I tracked every distraction I had for 7 days, here is what shocked me
 
 Source: [reddit: productivity](https://reddit.com/r/productivity/comments/1nwpxac/i_tracked_every_distraction_i_had_for_7_days_here/)

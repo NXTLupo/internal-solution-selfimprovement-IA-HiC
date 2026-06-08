@@ -10,9 +10,9 @@ score: 1
 upvote_ratio: 1
 num_comments: 3
 flair: "Advice"
-extracted_at: "2026-05-23T20:15:29.968Z"
+extracted_at: "2026-06-06T23:21:13.889Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Career advice for getting into the medical field (RN path, no college experience yet)?

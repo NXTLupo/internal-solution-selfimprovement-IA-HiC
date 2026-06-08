@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1mgsgvf.md
 url: "https://www.reddit.com/r/investing/comments/1mgsgvf/should_younger_investors_focus_on_more_volatile/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-16T20:55:01.244Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1mgsgvf.md#c0"
+    char_span: [0, 791]
+    sentence_count: 8
+    key_terms: [percentage, investing, comments, momentum, growth, caps, etfs, long]
+    token_count: 203
+  - id: "social-intelligence/reddit-deep/investing/1mgsgvf.md#c1"
+    char_span: [806, 2705]
+    sentence_count: 13
+    key_terms: [risk, bestjaegerpilot, fun-sundae4060, stocks, concentration, investing, portfolio, accounts]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/investing/1mgsgvf.md#c2"
+    char_span: [2707, 4656]
+    sentence_count: 14
+    key_terms: [account, altruistic-buy8779, dividends, time, accounts, income, invest, years]
+    section: Comments
+    token_count: 465
 ---
-
 # Should younger investors focus on more volatile etfs? Not sector based but more growth and momentum ETFs? Also should I allocate my own percentage to small caps and international?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1mgsgvf/should_younger_investors_focus_on_more_volatile/)

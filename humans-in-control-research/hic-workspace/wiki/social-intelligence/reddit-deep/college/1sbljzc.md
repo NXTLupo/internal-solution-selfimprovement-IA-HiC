@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1sbljzc.md
 url: "https://www.reddit.com/r/college/comments/1sbljzc/changes_in_communications_teaching/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -10,11 +11,34 @@ score: 17
 upvote_ratio: 0.86
 num_comments: 14
 flair: ""
-extracted_at: "2026-05-26T14:31:29.697Z"
+extracted_at: "2026-06-03T17:24:19.134Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1sbljzc.md#c0"
+    char_span: [0, 2252]
+    sentence_count: 17
+    key_terms: [essay, argumentative, taught, communication, seems, voice, engineering, information]
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/college/1sbljzc.md#c1"
+    char_span: [2267, 4616]
+    sentence_count: 14
+    key_terms: [opposing, argumentative, perspectives, being, paper, like, teacher, defend]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/college/1sbljzc.md#c2"
+    char_span: [4618, 6787]
+    sentence_count: 7
+    key_terms: [time, classes, "you're", class, essay, assignments, "it's", expository]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/college/1sbljzc.md#c3"
+    char_span: [6789, 7206]
+    sentence_count: 4
+    key_terms: [defending, position, counterarguments, argumentation, discovering, articulate, influences, presenting]
+    section: Comments
+    token_count: 88
 ---
-
 # Changes in Communications Teaching
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1sbljzc/changes_in_communications_teaching/)

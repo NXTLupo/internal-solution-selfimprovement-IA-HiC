@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1kzdhcj.md
 url: "https://www.reddit.com/r/careerguidance/comments/1kzdhcj/my_60k_degree_got_me_here_still_being_told_i_lack/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-24T14:09:04.414Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1kzdhcj.md#c0"
+    char_span: [0, 1184]
+    sentence_count: 8
+    key_terms: [experience, careerguidance, degree, entry-level, practical, academic, comments, projects]
+    token_count: 274
+  - id: "social-intelligence/reddit-deep/careerguidance/1kzdhcj.md#c1"
+    char_span: [1199, 3169]
+    sentence_count: 15
+    key_terms: [job, experience, lot, phd, because, market, people, internships]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/careerguidance/1kzdhcj.md#c2"
+    char_span: [3172, 5252]
+    sentence_count: 11
+    key_terms: [internships, job, experience, degree, people, especially, privileged, undergrad]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1kzdhcj.md#c3"
+    char_span: [4965, 6349]
+    sentence_count: 9
+    key_terms: [experience, summer, applicants, employers, undergrad, resumes, always, enough]
+    section: Comments
+    token_count: 297
+  - id: "social-intelligence/reddit-deep/careerguidance/1kzdhcj.md#c4"
+    char_span: [6351, 8292]
+    sentence_count: 14
+    key_terms: [experience, internships, degree, been, here, job, absolutely, graduated]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/careerguidance/1kzdhcj.md#c5"
+    char_span: [8294, 10049]
+    sentence_count: 7
+    key_terms: [experience, job, internship, situation, deleted, getting, reality, market]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/careerguidance/1kzdhcj.md#c6"
+    char_span: [10051, 10802]
+    sentence_count: 7
+    key_terms: [experience, projects, market, tight, work, downinahole94, opportunities, especially]
+    section: Comments
+    token_count: 188
 ---
-
 # My $60k degree got me here: Still being told I lack "practical experience" for entry-level roles. Anyone else have this problem?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1kzdhcj/my_60k_degree_got_me_here_still_being_told_i_lack/)

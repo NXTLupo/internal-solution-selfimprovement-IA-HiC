@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1r7wzf5.md
 url: "https://www.reddit.com/r/productivity/comments/1r7wzf5/any_tools_that_actually_help_understand_accents/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,21 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:45.659Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1r7wzf5.md#c0"
+    char_span: [0, 954]
+    sentence_count: 8
+    key_terms: [accents, productivity, tools, understand, comments, meetings, issue, help]
+    token_count: 203
+  - id: "social-intelligence/reddit-deep/productivity/1r7wzf5.md#c1"
+    char_span: [969, 2537]
+    sentence_count: 11
+    key_terms: [accent, understanding, krisp, try, meetings, accents, meeting, indian]
+    section: Comments
+    token_count: 356
 ---
-
 # Any tools that actually help understand accents in remote meetings?
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1r7wzf5/any_tools_that_actually_help_understand_accents/)

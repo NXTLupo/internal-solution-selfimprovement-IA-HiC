@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1ns6q7q.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1ns6q7q/what_programming_career_path_should_i_focus_on/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-25T18:32:49.825Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ns6q7q.md#c0"
+    char_span: [0, 1922]
+    sentence_count: 21
+    key_terms: [lastiberianlynx, programming, https, gamedev, com, focus, cscareerquestions, youtube]
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ns6q7q.md#c1"
+    char_span: [1937, 3720]
+    sentence_count: 7
+    key_terms: [architecture, like, though, applications, niche, programming, need, gamedev]
+    section: Comments
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ns6q7q.md#c2"
+    char_span: [3722, 4202]
+    sentence_count: 5
+    key_terms: [gamedev, according-emu-8721, get, good, job, self-motivated, experience, learning]
+    section: Comments
+    token_count: 125
 ---
-
 # What programming career path should i focus on considering my current skills (C++ / JS / Gamedev) ?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1ns6q7q/what_programming_career_path_should_i_focus_on/)

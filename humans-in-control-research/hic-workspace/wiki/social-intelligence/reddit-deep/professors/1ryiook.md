@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1ryiook.md
 url: "https://www.reddit.com/r/Professors/comments/1ryiook/students_parent_contacted_me/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,57 @@ flair: "Service / Advising"
 extracted_at: "2026-05-20T03:55:39.266Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1ryiook.md#c0"
+    char_span: [0, 1483]
+    sentence_count: 13
+    key_terms: [professors, tutoring, "he's", been, "it's", including, "student's", comments]
+    token_count: 345
+  - id: "social-intelligence/reddit-deep/professors/1ryiook.md#c1"
+    char_span: [1498, 3002]
+    sentence_count: 12
+    key_terms: [authorization, parent, parents, conversations, involved, meeting, written, almost]
+    section: Comments
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/professors/1ryiook.md#c2"
+    char_span: [3004, 4828]
+    sentence_count: 19
+    key_terms: [student, students, college, parent, ferpa, colleagues, himself, female]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/professors/1ryiook.md#c3"
+    char_span: [4830, 6756]
+    sentence_count: 13
+    key_terms: [parent, email, account, student, ferpa, jaguaraugaj, university, contacted]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/professors/1ryiook.md#c4"
+    char_span: [6758, 8892]
+    sentence_count: 20
+    key_terms: [ferpa, student, email, waiver, leave, speak, "won't", verifiable]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/professors/1ryiook.md#c5"
+    char_span: [8894, 9509]
+    sentence_count: 6
+    key_terms: [asked, appropriate, assistance, boundaries, definitely, directions, disability, struggling]
+    section: Comments
+    token_count: 120
+  - id: "social-intelligence/reddit-deep/professors/1ryiook.md#c6"
+    char_span: [9511, 11543]
+    sentence_count: 14
+    key_terms: [email, contact, student, information, parent, discuss, however, administrative]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/professors/1ryiook.md#c7"
+    char_span: [11545, 12426]
+    sentence_count: 6
+    key_terms: [student, punishing, father, parent, life-education-8030, paper, dad, son]
+    section: Comments
+    token_count: 232
 ---
-
 # Student's Parent Contacted Me!😳
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1ryiook/students_parent_contacted_me/)

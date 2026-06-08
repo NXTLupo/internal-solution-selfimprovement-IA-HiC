@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1rl9k3r.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1rl9k3r/p_bypassing_coreml_to_natively_train_a_110m/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -6,19 +7,52 @@ subreddit: "machinelearning"
 title: "[P] Bypassing CoreML to natively train a 110M Transformer on the Apple Neural Engine (Orion)"
 author: "No_Gap_4296"
 date: "2026-03-05T05:51:36.000Z"
-score: 46
+score: 45
 upvote_ratio: 0.88
 num_comments: 14
 flair: "Project"
-extracted_at: "2026-05-11T17:27:06.577Z"
+extracted_at: "2026-05-31T21:49:57.053Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+research_goal: "Identify emerging AI design trends, skills, tools, platforms, and technical implementations that would  help a company's creative team to move beyond AI as a concepting aid and understand where AI-enabled tools, workflows and internal models can practically support design production, system testing, asset generation, governance and stakeholder confidence. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1rl9k3r.md#c0"
+    char_span: [0, 2006]
+    sentence_count: 13
+    key_terms: [training, recompilation, ane, step, entirely, machinelearning, program, runtime]
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/machinelearning/1rl9k3r.md#c1"
+    char_span: [2008, 4113]
+    sentence_count: 14
+    key_terms: [compiler, ane, hardware, training, undocumented, compilation, operation, pipeline]
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/machinelearning/1rl9k3r.md#c2"
+    char_span: [4115, 5423]
+    sentence_count: 11
+    key_terms: [compilation, weight, here, multi-step, mechramc, training, runtime, github]
+    token_count: 312
+  - id: "social-intelligence/reddit-deep/machinelearning/1rl9k3r.md#c3"
+    char_span: [5438, 7483]
+    sentence_count: 15
+    key_terms: [ane, operations, model, architecture, generalize, vocabulary, polyfill, channel]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/machinelearning/1rl9k3r.md#c4"
+    char_span: [7485, 9648]
+    sentence_count: 19
+    key_terms: [compilation, christinetyip, recompilation, interesting, ane, work, compiled, compiler]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/machinelearning/1rl9k3r.md#c5"
+    char_span: [9650, 10081]
+    sentence_count: 6
+    key_terms: [something, inference-only, on-device, gradient, overhead, training, clients, compile]
+    section: Comments
+    token_count: 108
 ---
-
 # [P] Bypassing CoreML to natively train a 110M Transformer on the Apple Neural Engine (Orion)
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1rl9k3r/p_bypassing_coreml_to_natively_train_a_110m/)
-Posted by **No_Gap_4296** · **46↑** · **14 comments**
+Posted by **No_Gap_4296** · **45↑** · **14 comments**
 
 UPDATE!
 

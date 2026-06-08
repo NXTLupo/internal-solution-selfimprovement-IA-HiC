@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1qz8lj6.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1qz8lj6/observation_people_who_get_acceptances_from_elite/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,69 @@ flair: "General Advice"
 extracted_at: "2026-05-23T14:54:16.718Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qz8lj6.md#c0"
+    char_span: [0, 1556]
+    sentence_count: 9
+    key_terms: [elite, gradadmissions, people, educational, observation, coaching, comments, question]
+    token_count: 338
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qz8lj6.md#c1"
+    char_span: [1571, 3769]
+    sentence_count: 18
+    key_terms: [been, research, anxious-silver12, presentation, field, demonstrate, work, university]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qz8lj6.md#c2"
+    char_span: [3771, 5866]
+    sentence_count: 18
+    key_terms: [program, someone, asked, look, questions, something, programs, another]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qz8lj6.md#c3"
+    char_span: [5868, 8005]
+    sentence_count: 13
+    key_terms: [students, prestigious, schools, applying, programs, research, good, application]
+    section: Comments
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qz8lj6.md#c4"
+    char_span: [8007, 10431]
+    sentence_count: 11
+    key_terms: [prestigious, people, universities, everyone, because, invited, program, scienceysturf]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qz8lj6.md#c5"
+    char_span: [10119, 11622]
+    sentence_count: 10
+    key_terms: [faculty, always, individuals, prestigious, applicants, questions, already, noticed]
+    section: Comments
+    token_count: 293
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qz8lj6.md#c6"
+    char_span: [11624, 13750]
+    sentence_count: 22
+    key_terms: ["i'm", school, field, want, department, certainly, undergrad, bullshit]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qz8lj6.md#c7"
+    char_span: [13752, 15687]
+    sentence_count: 11
+    key_terms: [field, language, learning, yourself, scholarship, lot, important, speaking]
+    section: Comments
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qz8lj6.md#c8"
+    char_span: [15690, 18039]
+    sentence_count: 14
+    key_terms: [background, being, new, different, probably, because, culture, learned]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qz8lj6.md#c9"
+    char_span: [18041, 19779]
+    sentence_count: 15
+    key_terms: [like, through, people, connections, networking, academia, wealthy, moonshine-bicicletta]
+    section: Comments
+    token_count: 373
 ---
-
 # Observation: people who get acceptances from elite programs seem to know exactly how to move a committee to a favorable decision. Can this skill be taught?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1qz8lj6/observation_people_who_get_acceptances_from_elite/)

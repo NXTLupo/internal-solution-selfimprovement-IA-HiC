@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rwylm5/accepted_to_dream_school_cant_afford/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,75 @@ flair: "Emotional Support"
 extracted_at: "2026-05-25T18:32:06.240Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c0"
+    char_span: [0, 1532]
+    sentence_count: 1
+    key_terms: [school, extremely, applyingtocollege, accepted, parents, afford, harvey, mudd]
+    token_count: 348
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c1"
+    char_span: [1547, 3561]
+    sentence_count: 14
+    key_terms: [kid, schools, pay, school, kids, financial, subreddit, accepted]
+    section: Comments
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c2"
+    char_span: [3563, 5667]
+    sentence_count: 14
+    key_terms: [parents, aid, merit, find, get, npc, acceptance, affordable]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c3"
+    char_span: [5669, 6490]
+    sentence_count: 6
+    key_terms: [offer, per, college, better, environmentactive325, like, pay, year]
+    section: Comments
+    token_count: 182
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c4"
+    char_span: [6492, 8012]
+    sentence_count: 12
+    key_terms: [cal, poly, engineering, options, experience, aerospace, college, looking]
+    section: Comments
+    token_count: 356
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c5"
+    char_span: [8014, 9922]
+    sentence_count: 18
+    key_terms: [mudd, excellent, through, degree, engineering, cal, poly, especially]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c6"
+    char_span: [9924, 12043]
+    sentence_count: 24
+    key_terms: [schools, college, unfortunately, good, jobs, kid, affordable, graduate]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c7"
+    char_span: [12045, 13071]
+    sentence_count: 13
+    key_terms: [college, california, harvey, don, got, let, mudd, preferences]
+    section: Comments
+    token_count: 236
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c8"
+    char_span: [13073, 15152]
+    sentence_count: 17
+    key_terms: [school, harvey, mudd, california, package, claremont, financial, college]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c9"
+    char_span: [14877, 16309]
+    sentence_count: 13
+    key_terms: [school, got, like, money, perfect, talking, harvey, people]
+    section: Comments
+    token_count: 326
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c10"
+    char_span: [16311, 17158]
+    sentence_count: 7
+    key_terms: [get, work, choices, schools, got, opportunities, therugwarrior, assignments]
+    section: Comments
+    token_count: 192
 ---
-
 # accepted to dream school- can’t afford
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rwylm5/accepted_to_dream_school_cant_afford/)

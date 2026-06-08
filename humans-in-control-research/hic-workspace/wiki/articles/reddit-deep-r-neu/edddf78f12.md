@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-neu/edddf78f12.md
 url: "https://www.reddit.com/r/NEU/comments/1sej5tn/help_im_scared/"
 url_hash: "edddf78f12"
 kind: "article"
@@ -8,10 +9,27 @@ author: ""
 date: "2026-04-07T02:18:39.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-19T18:02:07.032685+00:00"
+extracted_at: "2026-06-06T00:35:26.866871+00:00"
 chars: 3486
+relevance: 50
+engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "articles/reddit-deep-r-neu/edddf78f12.md#c0"
+    char_span: [0, 882]
+    sentence_count: 8
+    key_terms: [final, neu, year, comments, semester, student, reddit, scared]
+    token_count: 233
+  - id: "articles/reddit-deep-r-neu/edddf78f12.md#c1"
+    char_span: [884, 2960]
+    sentence_count: 8
+    key_terms: [fine, get, email, final, freshman, probably, yourself, america]
+    token_count: 512
+  - id: "articles/reddit-deep-r-neu/edddf78f12.md#c2"
+    char_span: [2684, 3599]
+    sentence_count: 13
+    key_terms: [transcript, finals, "don't", get, good, lot, certificate, explanation]
+    token_count: 227
 ---
-
 # HELP IM SCARED
 
 Source: [Reddit Deep: r/neu](https://www.reddit.com/r/NEU/comments/1sej5tn/help_im_scared/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1tjztov.md
 url: "https://www.reddit.com/r/GradSchool/comments/1tjztov/first_collab_paper_im_a_bit_jaded/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,45 @@ flair: "Professional"
 extracted_at: "2026-05-26T14:32:49.140Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1tjztov.md#c0"
+    char_span: [0, 963]
+    sentence_count: 9
+    key_terms: [person, gradschool, asterisk, comments, advisor, the-big-girl-daybook, paper, did]
+    token_count: 253
+  - id: "social-intelligence/reddit-deep/gradschool/1tjztov.md#c1"
+    char_span: [978, 1645]
+    sentence_count: 8
+    key_terms: [person, the-big-girl-daybook, means, internationality, corresponding, lemonprints, altogether, authorship]
+    section: Comments
+    token_count: 165
+  - id: "social-intelligence/reddit-deep/gradschool/1tjztov.md#c2"
+    char_span: [1647, 3804]
+    sentence_count: 15
+    key_terms: [paper, did, editing, authorship, research, lot, advisor, the-big-girl-daybook]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1tjztov.md#c3"
+    char_span: [3530, 4018]
+    sentence_count: 3
+    key_terms: [author, co-first, authors, usually, equal, "it's", used, corresponding]
+    section: Comments
+    token_count: 114
+  - id: "social-intelligence/reddit-deep/gradschool/1tjztov.md#c4"
+    char_span: [4020, 6009]
+    sentence_count: 11
+    key_terms: [final-authorship-agreement-supplement, authorship, author, research, the-big-girl-daybook, https, order, regulatory-affairs]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/gradschool/1tjztov.md#c5"
+    char_span: [6011, 6501]
+    sentence_count: 2
+    key_terms: [scorecard-for-determining-authorship, wp-content, scorecard-for-determining-, uploads, foreignadvantage5198, the-big-girl-daybook, https, tipec]
+    section: Comments
+    token_count: 138
 ---
-
 # First Collab Paper – I’m a bit jaded
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1tjztov/first_collab_paper_im_a_bit_jaded/)

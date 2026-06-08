@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1sh7gj5.md
 url: "https://www.reddit.com/r/GradSchool/comments/1sh7gj5/my_fiancee_just_barely_dropped_below_the/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,39 @@ flair: "Academics"
 extracted_at: "2026-05-25T13:04:07.341Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1sh7gj5.md#c0"
+    char_span: [0, 1298]
+    sentence_count: 12
+    key_terms: [class, semester, last, grade, got, help, "it's", assignment]
+    token_count: 309
+  - id: "social-intelligence/reddit-deep/gradschool/1sh7gj5.md#c1"
+    char_span: [1313, 3338]
+    sentence_count: 18
+    key_terms: [needs, assignment, grade, professor, academic, graduate, rubric, talk]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/gradschool/1sh7gj5.md#c2"
+    char_span: [3340, 4731]
+    sentence_count: 14
+    key_terms: ["can't", professor, partner, problem, solve, emotionally, tyuiopguyt, students]
+    section: Comments
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/gradschool/1sh7gj5.md#c3"
+    char_span: [4733, 6572]
+    sentence_count: 17
+    key_terms: [my-other-favorite-ww, reason, here, tyuiopguyt, advice, handle, record, entrepreneurhuge5008]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/gradschool/1sh7gj5.md#c4"
+    char_span: [6574, 7070]
+    sentence_count: 3
+    key_terms: [assignment, final, entire, class, extra, exam, prof, presentation]
+    section: Comments
+    token_count: 112
 ---
-
 # My fiancee just barely dropped below the threshold for her only class on the last assignment of the semester. Help?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1sh7gj5/my_fiancee_just_barely_dropped_below_the/)

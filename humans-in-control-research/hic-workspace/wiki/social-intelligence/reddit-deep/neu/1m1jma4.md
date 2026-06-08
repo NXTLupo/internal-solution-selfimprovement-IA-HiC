@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1m1jma4.md
 url: "https://www.reddit.com/r/NEU/comments/1m1jma4/can_you_join_clubs_like_student_value_fund_tamid/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 2
 flair: "general question"
-extracted_at: "2026-05-19T17:57:09.034Z"
+extracted_at: "2026-06-05T17:08:22.595Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1m1jma4.md#c0"
+    char_span: [0, 590]
+    sentence_count: 5
+    key_terms: [comments, oakland, campus, acrobatic-teach-9373, clubs, doing, tamid, neu]
+    token_count: 147
+  - id: "social-intelligence/reddit-deep/neu/1m1jma4.md#c1"
+    char_span: [605, 1277]
+    sentence_count: 9
+    key_terms: [clubs, club, business, possible, good, competitive, experiences, interesting]
+    section: Comments
+    token_count: 151
 ---
-
 # Can you join clubs like Student Value Fund & TAMID after doing first year at Oakland campus?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1m1jma4/can_you_join_clubs_like_student_value_fund_tamid/)

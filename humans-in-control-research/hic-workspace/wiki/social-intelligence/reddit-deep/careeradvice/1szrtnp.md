@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1szrtnp.md
 url: "https://www.reddit.com/r/careeradvice/comments/1szrtnp/i_never_prioritized_career_or_salary_growth_now_i/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.231Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1szrtnp.md#c0"
+    char_span: [0, 1252]
+    sentence_count: 16
+    key_terms: [careeradvice, didnt, job, obviously, comments, never, raise, start]
+    token_count: 306
+  - id: "social-intelligence/reddit-deep/careeradvice/1szrtnp.md#c1"
+    char_span: [1267, 3212]
+    sentence_count: 11
+    key_terms: [pay, mx5plus2cones, ask, job, around, better, design, productzestyclose968]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/careeradvice/1szrtnp.md#c2"
+    char_span: [3214, 5293]
+    sentence_count: 19
+    key_terms: [salary, conversation, start, pay, definitely, management, applying, "doesn't"]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/careeradvice/1szrtnp.md#c3"
+    char_span: [5295, 6801]
+    sentence_count: 13
+    key_terms: [employer, competitive, work, confident, another, company, "you've", based]
+    section: Comments
+    token_count: 316
+  - id: "social-intelligence/reddit-deep/careeradvice/1szrtnp.md#c4"
+    char_span: [6803, 8145]
+    sentence_count: 13
+    key_terms: ["it's", electrical, underpaid, "you're", range, years, area, been]
+    section: Comments
+    token_count: 298
+  - id: "social-intelligence/reddit-deep/careeradvice/1szrtnp.md#c5"
+    char_span: [8147, 9447]
+    sentence_count: 14
+    key_terms: [market, get, job, offers, raise, paid, adjustment, applying]
+    section: Comments
+    token_count: 315
 ---
-
 # I never prioritized career or salary growth now i learned im barely payed above entry despite 10 years experience and expanded responsibilities. How do i start to better myself.
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1szrtnp/i_never_prioritized_career_or_salary_growth_now_i/)

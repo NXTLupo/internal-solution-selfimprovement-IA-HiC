@@ -6,19 +6,19 @@ subreddit: "internships"
 title: "Lost Dream Internship Offer due to Visa Issues out of my Control, how to move on from this/next steps?"
 author: "Potential-Drag9761"
 date: "2026-03-17T15:05:55.000Z"
-score: 19
+score: 20
 upvote_ratio: 0.95
 num_comments: 11
 flair: "Offers"
-extracted_at: "2026-05-23T19:44:46.350Z"
+extracted_at: "2026-06-06T23:20:46.214Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Lost Dream Internship Offer due to Visa Issues out of my Control, how to move on from this/next steps?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rw93sa/lost_dream_internship_offer_due_to_visa_issues/)
-Posted by **Potential-Drag9761** · **19↑** · **11 comments**
+Posted by **Potential-Drag9761** · **20↑** · **11 comments**
 
 I'm currently in my third year of Hardware Engineering at a university in Canada. Thanks to God, this year, after numerous failed applications and a rough semester, I received an internship offer at my dream company in California (FAANG). Literally my dream come true and the salary was 2.5 times higher than my most recent highest paying internship. Not to mention perks like paid housing and flights. So I was very ecstatic. I got the offer, signed it, passed my background check, etc. All that was pending was my Visa (the J1 Intern Visa that the US has for interns).
 
@@ -34,7 +34,7 @@ I'm aware a lot of you might say: "This kid doesn't have a family to look after 
 
 ## Comments
 
-- **Sweet-Frosting4839** (4↑): that visa requirement is brutal and honestly not on you at all. j1 gets tangled up with so many random rules. look at companies that sponsor internships regularly and have experience with international students (think some fin companies, big tech offices outside us for now, or startups with actual visa support). it sucks but theyre out there
+- **Sweet-Frosting4839** (5↑): that visa requirement is brutal and honestly not on you at all. j1 gets tangled up with so many random rules. look at companies that sponsor internships regularly and have experience with international students (think some fin companies, big tech offices outside us for now, or startups with actual visa support). it sucks but theyre out there
 - **Appropriate-Tutor587** (3↑): You will be fine. Cry it out loud if you need to, but it won’t be the end of the world.
 Apply for other co-ops in Canada instead of the USA and also next time, don’t renege any offer for another one especially when the company knows it. It never ends well most of the time. 
 

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1o84jni.md
 url: "https://www.reddit.com/r/college/comments/1o84jni/i_feel_like_im_just_dragging_my_feet_on_a_path_im/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,32 @@ flair: "Emotional health/coping/adulting"
 extracted_at: "2026-05-26T14:31:29.699Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1o84jni.md#c0"
+    char_span: [0, 2150]
+    sentence_count: 34
+    key_terms: [college, get, "i'm", because, scholarship, got, week, year]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/college/1o84jni.md#c1"
+    char_span: [2152, 2197]
+    sentence_count: 2
+    key_terms: [anyone, relate, deal]
+    token_count: 11
+  - id: "social-intelligence/reddit-deep/college/1o84jni.md#c2"
+    char_span: [2212, 4258]
+    sentence_count: 27
+    key_terms: [through, "don't", degree, throwyaaydnks, thank, take, year, possible]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1o84jni.md#c3"
+    char_span: [3965, 4900]
+    sentence_count: 7
+    key_terms: [degree, college, finish, "don't", like, full-time, longer, school]
+    section: Comments
+    token_count: 194
 ---
-
 # I feel like I'm just dragging my feet on a path I'm being forced to take
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1o84jni/i_feel_like_im_just_dragging_my_feet_on_a_path_im/)

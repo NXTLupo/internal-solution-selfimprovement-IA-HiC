@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1mcop22.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1mcop22/i_quit_cs_and_im_300_happier/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,125 @@ subreddit: "cscareerquestions"
 title: "I quit CS and I’m 300% happier."
 author: "turnwol7"
 date: "2025-07-29T21:51:06.000Z"
-score: 4545
+score: 4540
 upvote_ratio: 0.92
 num_comments: 869
 flair: ""
-extracted_at: "2026-05-25T18:32:49.818Z"
+extracted_at: "2026-06-06T17:43:22.930Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c0"
+    char_span: [0, 1922]
+    sentence_count: 16
+    key_terms: [interviews, companies, cscareerquestions, personal, grind, guy, tech, comments]
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c1"
+    char_span: [1924, 2193]
+    sentence_count: 6
+    key_terms: [positively, commented, surprised, comments, everyone, negative, million, pressed]
+    token_count: 62
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c2"
+    char_span: [2208, 4211]
+    sentence_count: 17
+    key_terms: [like, interview, people, internship, technical, director, managers, because]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c3"
+    char_span: [4213, 5473]
+    sentence_count: 11
+    key_terms: [company, working, supply, interviews, ridiculous, exceeding, interview, applied]
+    section: Comments
+    token_count: 293
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c4"
+    char_span: [5475, 7332]
+    sentence_count: 19
+    key_terms: [https, time, corporate, fizzbuzz, archive, problem, without, coding]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c5"
+    char_span: [7334, 9620]
+    sentence_count: 17
+    key_terms: [companies, interview, people, like, years, programming, been, good]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c6"
+    char_span: [9623, 11471]
+    sentence_count: 8
+    key_terms: [people, personal, brand, merredditor, city, something, probably, office]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c7"
+    char_span: [11473, 13298]
+    sentence_count: 16
+    key_terms: [sales, commission, extremely, turnwol7, because, deleted, happier, someone]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c8"
+    char_span: [13300, 13810]
+    sentence_count: 2
+    key_terms: [genericusername71, real, especially, hotviolets, onyxengine, withdrawal, insulting, leisurely]
+    section: Comments
+    token_count: 136
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c9"
+    char_span: [13812, 15838]
+    sentence_count: 16
+    key_terms: [position, company, working, job, less, shit, work, year]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c10"
+    char_span: [15840, 17919]
+    sentence_count: 17
+    key_terms: [people, relationships, day, end, like, tech, software, attacks]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c11"
+    char_span: [17921, 19418]
+    sentence_count: 13
+    key_terms: [job, career, like, leaving, selling, sounds, presentationold9784, boats]
+    section: Comments
+    token_count: 389
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c12"
+    char_span: [19420, 21629]
+    sentence_count: 25
+    key_terms: [industry, "it's", like, tech, "can't", "don't", devs, job]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c13"
+    char_span: [21631, 23902]
+    sentence_count: 26
+    key_terms: [squarespace, companies, end, want, probably, sales, tech, enterprise]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c14"
+    char_span: [23904, 26020]
+    sentence_count: 20
+    key_terms: [industry, like, skills, tech, online, people, been, "it's"]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c15"
+    char_span: [26022, 27985]
+    sentence_count: 21
+    key_terms: [engineers, comfortable-tart7734, senior, call, work, interviews, onboarding, interview]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c16"
+    char_span: [27987, 29952]
+    sentence_count: 32
+    key_terms: [engineer, work, month, term, moonlighting, learn, contracting, "it's"]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mcop22.md#c17"
+    char_span: [29954, 32060]
+    sentence_count: 24
+    key_terms: ["it's", repeatable, month, valuable, business, scalable, turnwol7, selling]
+    section: Comments
+    token_count: 502
 ---
-
 # I quit CS and I’m 300% happier.
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1mcop22/i_quit_cs_and_im_300_happier/)
-Posted by **turnwol7** · **4545↑** · **869 comments**
+Posted by **turnwol7** · **4540↑** · **869 comments**
 
 I slaved 2 years in a IT dev program. 3 internships, hired full time as dev (then canned for being too junior), personal projects with real users, networking 2x per month at meetups, building a personal brand. Interviewing at some companies 5x times and getting rejected for another guy, 100’s of rejections, tons of ghost jobs and interviews with BS companies, interned for free at startups to get experience 75% which are bankrupt now, sent my personal information out to companies who probably just harvested my data now I get a ton of spam calls. Forced to grind Leetcode for interviews, and when I ask the senior if he had to do this he said “ nah I never had to grind Leetcode to start in 2010.
 
@@ -46,12 +153,12 @@ Edit *** I woke up to 1 million views on this. I’m surprised at the negative c
 
 ## Comments
 
-- **Glum_Worldliness4904** (738↑): I graduated back in 2013 with degree in math (Algerbraic geometry) and had to start Software Engineering career because of financial issues.
+- **Glum_Worldliness4904** (735↑): I graduated back in 2013 with degree in math (Algerbraic geometry) and had to start Software Engineering career because of financial issues.
 
 And what’s surprised me was that the interview at my first Junior (not an internship) PHP Dev position with literally 0 (zero) experience was just like “Hmmm, you look like you’re a good guy, you’re hired”.
 
 IDK how we ended up with all that ridiculous bs with multiple LC hard round and design twitter from scratch in 1 hour just to get a shitty internship.
-  - **Early-Surround7413** (70↑): Late 1990s. My first job interviews consisted of a phone interview with my future boss, who was a director. Then he wanted to meet me in person and talk to a couple of other people at the company, both managers. That happened a few days after the phone call. The 4 of us (me, director and 2 managers) went to lunch. Barely any technical questions, our conversation was more about tech in general, what I thought the internet would be like 10 years from now (I basically said Netflix would exist in its current form and I kick myself for not actually building it, lol, but I digress) and just general life. They were basically looking to see if I could fit in well and wasn't a crazy person.
+  - **Early-Surround7413** (71↑): Late 1990s. My first job interviews consisted of a phone interview with my future boss, who was a director. Then he wanted to meet me in person and talk to a couple of other people at the company, both managers. That happened a few days after the phone call. The 4 of us (me, director and 2 managers) went to lunch. Barely any technical questions, our conversation was more about tech in general, what I thought the internet would be like 10 years from now (I basically said Netflix would exist in its current form and I kick myself for not actually building it, lol, but I digress) and just general life. They were basically looking to see if I could fit in well and wasn't a crazy person.
 
 About a week later I got a FedEx with an offer.
 
@@ -64,15 +171,18 @@ I worked at amazon and I remembered I was appalled when I got there cause the co
 
 Now I work at a small company where I just interviewed the CEO and my manager. It was an easy, fairly informal interview. I love working at this company and all my coworkers are fantastic. Development is a breeze because it's well thought out
     - **dromance** (2↑): Amazon has bad code? 🤔 kinda hard to think that it’s true but you have so many people working on the same product….yeah a lot of bad code will make its way through
-  - **Skullclownlol** (36↑): > IDK how we ended up with all that ridiculous bs with multiple LC hard round and design twitter from scratch in 1 hour just to get a shitty internship.
+  - **Skullclownlol** (41↑): > IDK how we ended up with all that ridiculous bs with multiple LC hard round and design twitter from scratch in 1 hour just to get a shitty internship.
 
 Your experience in 2013: Demand exceeding supply.
 
 Now: Supply exceeding demand, and supply being flooded with inexperience.
-    - **[deleted]** (23↑): That’s true. I also started working in 2013. Applied to 1 company, was invited for the interview the next day and hired two days later. After a year my boss told me that they hired me because I was the only one who applied and the position was advertised for 3 months.
-    - **Illustrious-Pound266** (3↑): I remember a time when coding interviews weren't as ridiculous. Coding interviews were always there at some companies, for sure. But the bar and the difficulty just got ridiculously high.
+    - **[deleted]** (22↑): That’s true. I also started working in 2013. Applied to 1 company, was invited for the interview the next day and hired two days later. After a year my boss told me that they hired me because I was the only one who applied and the position was advertised for 3 months.
+    - **Illustrious-Pound266** (5↑): I remember a time when coding interviews weren't as ridiculous. Coding interviews were always there at some companies, for sure. But the bar and the difficulty just got ridiculously high.
 
 It used to be just fizzbuzz or reverse a string without using built-in functions. Pretty straightforward for most programmers imo. Now, it's "solve this dynamic programming graph problem in O(nlogn) time."
+  - **Accomplished_Deer_** (3↑): Capitalism. Back in the day CS was basically wizards. They were often outside the corporate bubble in a major way. At some point the companies didn't like this separation so now every part of it has been industrialized and brought under the typical corporate umbrella.
+  - **Douf_Ocus** (3↑): Being able to do Algerbraic geometry means you're smart enough to do (almost) all white collar jobs.
+  - **rco8786** (2↑): First started working in 2012. Interview for my first junior role was literally FizzBuzz and a ~30 minute conversation with the CTO to make sure I wasn’t a psychopath. It’s truly fucked however we ended up here.
   - **NewSchoolBoxer** (2↑): That was a good time to break in without a CS degree. Doesn't happen now. The problem is [overcrowding](https://archive.is/mPNcX). CS rose to be the #2 major at my university and it falls under ABET so it's no joke.
 
 HR gets over 100 applicants for every entry level position. Hiring decisions have to be defended. Filter by degree, throw them coding questions when 10 max are getting interviewed. Then some CS programs got [watered down](https://web.archive.org/web/20241117232629/https://www.reddit.com/r/theprimeagen/comments/1gqv4vc/teaching_computer_science_in_the_age_of_gippity/) to cater to the high enrollment versus flunk the bottom 25% or anyone with a bad work ethic.
@@ -95,26 +205,24 @@ What has changed in that time:
 - The applicant pool has grown, requiring SOME process to narrow things down. Many companies have responding by making the interview process more arduous.
 
 I also really want to emphasize that programming problems and LC were initially viewed as a great democratizer. Throughout history, we've relied heavily on network effects for hiring - if you don't know somebody or go to a top school, you aren't getting in. This was viewed as the way for outsiders who were capable to break in.
-  - **Accomplished_Deer_** (2↑): Capitalism. Back in the day CS was basically wizards. They were often outside the corporate bubble in a major way. At some point the companies didn't like this separation so now every part of it has been industrialized and brought under the typical corporate umbrella.
-  - **Douf_Ocus** (2↑): Being able to do Algerbraic geometry means you're smart enough to do (almost) all white collar jobs.
   - **KevinCarbonara** (2↑): > IDK how we ended up with all that ridiculous bs with multiple LC hard round and design twitter from scratch in 1 hour
 
 This has never been the standard. It was only ever at the big companies where you saw this.
-- **Al_Pallll** (1446↑): Posts like these let me breathe a little easier. I feel like we all get tunnel vision sometimes. It’s good to know that there are other paths available.
-  - **Adept_Carpet** (268↑): I've seen the ending of Office Space (person leaves tech for a seemingly menial job and is much happier) play out several times with people close to me. 
+- **Al_Pallll** (1445↑): Posts like these let me breathe a little easier. I feel like we all get tunnel vision sometimes. It’s good to know that there are other paths available.
+  - **Adept_Carpet** (269↑): I've seen the ending of Office Space (person leaves tech for a seemingly menial job and is much happier) play out several times with people close to me. 
 
 
 There's a reason they made a movie based on that concept 26 years ago, because even then it was a thing that happened all the time.
 
 
 You can decide to do what you love from the beginning, or try to do what you think you're supposed to do until finally the misery becomes too much.
-    - **merRedditor** (97↑): The scariest part about Office Space is how little has changed since it was released in the 1990s.
-    - **Kokoro87** (15↑): And not only tech, but there are quite some people leaving the city to become farmers or something else away from the city and people. Young me wanted nothing more than to live in a big city, but the older I get, the further away I want to move. I wouldn't mind a cabin, deep in the woods if I had access to Internet, electricity and all that basic shit.
-    - **ocient** (21↑): sooo what youre saying is, two chicks at the same time?
+    - **merRedditor** (94↑): The scariest part about Office Space is how little has changed since it was released in the 1990s.
+    - **Kokoro87** (16↑): And not only tech, but there are quite some people leaving the city to become farmers or something else away from the city and people. Young me wanted nothing more than to live in a big city, but the older I get, the further away I want to move. I wouldn't mind a cabin, deep in the woods if I had access to Internet, electricity and all that basic shit.
+    - **ocient** (20↑): sooo what youre saying is, two chicks at the same time?
     - **[deleted]** (4↑): And American beauty
     - **Servebotfrank** (2↑): What gets me is that if I could just work remote I would be much happier because while I like development I fucking **detest** being in the office. I don't know how people pretend to enjoy it.
-  - **merRedditor** (11↑): I'm out as soon as I find something else that can pay my rent and medical, which is not an easy ask unless I relocate, which I'm beyond ready to do.
-  - **m0viestar** (80↑): This post sounds like they burned them selves out before they even had a real job and probably have the wrong attitude for CS anyway especially if they're stoked about a sales gig.....
+  - **merRedditor** (10↑): I'm out as soon as I find something else that can pay my rent and medical, which is not an easy ask unless I relocate, which I'm beyond ready to do.
+  - **m0viestar** (78↑): This post sounds like they burned them selves out before they even had a real job and probably have the wrong attitude for CS anyway especially if they're stoked about a sales gig.....
 
 
 
@@ -125,47 +233,44 @@ I honestly can't tell if this is a parody post or not....
     - **yodog5** (35↑): "Personal brand" or whatever - man this is the fake shit I see business people making linkedin posts about. Sales people drive me up a wall.
 
 Good for OP that he found his calling. But there's a reason they say its not for everyone. Same with sales...
-    - **[deleted]** (22↑): So someone can’t enjoy sales and be cut out for CS? Only introverted nerds allowed? Lol
+    - **[deleted]** (24↑): So someone can’t enjoy sales and be cut out for CS? Only introverted nerds allowed? Lol
     - **Fluffy_Gold_7366** (2↑): The advice of YouTube tech gurus is to build a personal brand, that's how to stand out. What do you recommend?
-  - **turnwol7** (13↑): I just thought about what people would naturally ask me stuff about. And it was content and business stuff. So I made a communications resume and got an offer
+  - **turnwol7** (12↑): I just thought about what people would naturally ask me stuff about. And it was content and business stuff. So I made a communications resume and got an offer
   - **orionsgreatsky** (3↑): This
-  - **RecognitionSignal425** (1↑): >  tunnel vision 
-
-especially it's the Battletoads Turbo tunnel
   - **oupablo** (1↑): I would never feel comfortable at any job based 100% on commission. The fact that a company took 4 rounds interviews to hire someone that they wouldn't pay anything unless they made them money is baffling to me as well.
   - **Gandalf-and-Frodo** (1↑): Sales is basically always available because most people suck at it and it can be extremely stressful and low earning for many who try. I tried it and it was the worst and most low paying experience of my life. Even my EXTREMELY extroverted friend got burnt out within 6 months. YMMV.
-- **alpinebuzz** (38↑): This is the plot twist most bootcamp blogs don’t talk about - sometimes the grind isn’t worth it, and peace of mind pays better than any tech salary. Respect for choosing joy over prestige.
-  - **turnwol7** (8↑): Yea there is an IG reel with an interview with an Indian lady. The guys asks. What is some good life advice. She says “just because you work hard and do all the right things, doesn’t mean you’ll make it”
+- **alpinebuzz** (36↑): This is the plot twist most bootcamp blogs don’t talk about - sometimes the grind isn’t worth it, and peace of mind pays better than any tech salary. Respect for choosing joy over prestige.
+  - **turnwol7** (6↑): Yea there is an IG reel with an interview with an Indian lady. The guys asks. What is some good life advice. She says “just because you work hard and do all the right things, doesn’t mean you’ll make it”
 
 That’s true in my situation
-- **Bonzie_57** (836↑): I quit selling Jet Skis and Boats for 100% commission for CS and I’m 500% happier
-  - **[deleted]** (187↑): I took a break and just did doordash and xans for a year and was 1000% happier 
+- **Bonzie_57** (838↑): I quit selling Jet Skis and Boats for 100% commission for CS and I’m 500% happier
+  - **[deleted]** (191↑): I took a break and just did doordash and xans for a year and was 1000% happier 
 
 Like thing is probably only do it for a year though - also it’s not for the weak so maybe not do it
-    - **onyxengine** (81↑): Rofl tech burnout to leisurely drug use pipeline is real
-    - **hotviolets** (31↑): Gig work is soul sucking in its own way. Especially the insulting pay of most of the orders.
+    - **onyxengine** (84↑): Rofl tech burnout to leisurely drug use pipeline is real
+    - **hotviolets** (30↑): Gig work is soul sucking in its own way. Especially the insulting pay of most of the orders.
     - **genericusername71** (14↑): saving this comment to show my loved ones who claim they just want me to be happy, lets see if theyre real
-    - **[deleted]** (8↑): How did the withdrawal not kill you?
+    - **[deleted]** (7↑): How did the withdrawal not kill you?
 
 I was prescribed that shit and it was still hard.
   - **Prestigious_Sort4979** (39↑): I went from sales to CS for real and it was the best decision of my life. Work way less for more. Way less pressure to build a reputation or brand and to network. Literally dont understand at all where OP is coming from. Sales has a bunch of the same things he-she is complaining about and let’s not forget OP is getting paid $0. In a 100% commission job, you put so much work in which you get nothing.
-    - **Toobsboobsdoobs** (36↑): Op never actually worked in CS.. They had 2 years interviewing and internships. Not a whole lot of substance behind that testimony and
+    - **Toobsboobsdoobs** (37↑): Op never actually worked in CS.. They had 2 years interviewing and internships. Not a whole lot of substance behind that testimony and
     - **Lopsided-Ad-3225** (6↑): Depends on the company and team. How extended your team is, how many applications you're working on at one time. They can really make your life hell like in my last company it was a total shit show. YMMV I think the OP just had a horrible experience at their company. I've definitely been there.
-  - **turnwol7** (127↑): I read this comment and I’m 8000% happier so yea…
-    - **personal-abies8725** (37↑): I’m 28% happier after a recent CS move
+  - **turnwol7** (126↑): I read this comment and I’m 8000% happier so yea…
+    - **personal-abies8725** (35↑): I’m 28% happier after a recent CS move
   - **Neuromante** (7↑): You've reminded me of one guy in a shitty (CS-related) job I had. He worked there for a year, and as I got to know him, is past experience (On security, doing somewhat important stuff) didn't really checked out with the crap place we were working at (Public sector, filled with junior people from consulting agencies, the lowest tier type of work in my country). I was building a "case file" that he had taken the shit job just because he wanted to rest from more stressful jobs for a while, because even though he didn't have a degree, he felt like a very senior person that knew way too much for the position he was working at.
 
 So, I left the position, and a few months later (more or less at his 1 year mark) he did the same. I got invited to the farewell party and after a few too many beers I ask him if he had taken the position "to have a year of holidays."
 
 Motherfucker told me that that was exactly the case, and since I've been looking up at this as a career goal.
-  - **Jeferson9** (10↑): You can sell bridges for 1000% commission now
-  - **ailof-daun** (3↑): Like for real, your typical IT guy would be absolutely miserable in a sales position. This all post just makes me think OP made a mistake to begin with.
-  - **Lopsided-Ad-3225** (1↑): Right hahha never in a million years will this happen unless you're autistic and wanna live in a cube and never see the light of day again and socialize. That was one of the biggest issues when I was in software. Worked so many overnights and 10-12 hour days with no over time of course and weekends to finish features. No fan fare just have to get it done. Life was passing me by, lost so many female relationships from my lack of attention to just plain exhaustion at the end of my days. I'd almost have (and have had) many panic attacks and just had to shut off at the end of the day and take a nap or run etc. I couldn't deal with other people and try to talk to them because my brain was so fried at the end of every day thinking about complex ass applications just burning my brain it felt. 
+  - **Jeferson9** (7↑): You can sell bridges for 1000% commission now
+  - **ailof-daun** (4↑): Like for real, your typical IT guy would be absolutely miserable in a sales position. This all post just makes me think OP made a mistake to begin with.
+  - **Lopsided-Ad-3225** (2↑): Right hahha never in a million years will this happen unless you're autistic and wanna live in a cube and never see the light of day again and socialize. That was one of the biggest issues when I was in software. Worked so many overnights and 10-12 hour days with no over time of course and weekends to finish features. No fan fare just have to get it done. Life was passing me by, lost so many female relationships from my lack of attention to just plain exhaustion at the end of my days. I'd almost have (and have had) many panic attacks and just had to shut off at the end of the day and take a nap or run etc. I couldn't deal with other people and try to talk to them because my brain was so fried at the end of every day thinking about complex ass applications just burning my brain it felt. 
 
 
 
 7 years in my last software job and got laid of this feb. It sucked at first but by god I could finally think like a normal human being now. No more week long panic attacks, way less depression, I enjoy socializing now and have the mental energy to do so.
-- **Tekhed18** (54↑): Thanks for sharing this post. Tech as a whole has become toxic. Knowledge workers have become indentured servants and the competitive nature of the space has pushed people to form dysfunctional relationships with those they’d otherwise be good friends with. 
+- **Tekhed18** (56↑): Thanks for sharing this post. Tech as a whole has become toxic. Knowledge workers have become indentured servants and the competitive nature of the space has pushed people to form dysfunctional relationships with those they’d otherwise be good friends with. 
 
 People with advanced degrees and certs performing for interviews, taking interview tests like they’re back in high school. It’s unfortunate, but the market has figured out it can get away with it. 
 
@@ -175,24 +280,15 @@ I wish you the best. There is life after tech. Besides, coding for yourself is f
 Im a principal engineer have 10+ years experience in software engineering and i cant tell you how much ive grown to hate it. The work, the culture and cultist attitudes towards tech companies, languages, tools, brands. And all for what.  It’s fucking lame. I hate it.
 
 Im happy that you got out.
-  - **turnwol7** (3↑): I’ve been responding to all comments here. It’s about 70/30 positive. In reality I’m an average developer who has interest in learning. But I’m never going to pass FANNG style interviews. So I’ll just keep building for fun on the side
+  - **turnwol7** (5↑): I’ve been responding to all comments here. It’s about 70/30 positive. In reality I’m an average developer who has interest in learning. But I’m never going to pass FANNG style interviews. So I’ll just keep building for fun on the side
 - **olduvai_man** (454↑): There is no way in hell I would leave the salary and benefits of this career to be on commission selling boats and jet-ski's lol.
-  - **PresentationOld9784** (65↑): OP was unable to get a job in CS not leaving a job right?
+  - **PresentationOld9784** (64↑): OP was unable to get a job in CS not leaving a job right?
 
 Completely different story if he was leaving a good job vs taking a more achievable job to pay the bills.
     - **escaflow** (19↑): Yeah the title is a little misleading. 
 
 It’s more like “I quit pursuing CS career”
-  - **RevolutionaryGain823** (128↑): Yeah I’m happy for OP but for most people that would be a terrible idea lmao 
-
-If you’re a 20 something with no major debt or family obligations happy to house share with friends (or randos) OPs plans could be a cool way to have some adventures and develop useful life skills (sales/communications).
-
-If you’re a 40 something with a mortgage, wife and kids it’s an absolutely terrible idea. That might seem like stating the painfully obvious but I’ve seen guys get sucked in by obvious MLMs and abandon their careers/destroy their families lives
-    - **olduvai_man** (78↑): It's a terrible idea even for a 20-something. The idea that the market is too volatile to be a developer, but you want to sell boats and jet-skis on commission only is one helluva rationalization.
-
-This guy hasn't seen a recession clearly lol. Will be fired in about 3 seconds.
-    - **Prestigious_Sort4979** (3↑): Oddly I think it will help OP get a CS job later. Making it in sales is a big signal on transferable soft skills
-  - **m0viestar** (48↑): It sounds like they didn't even leave a career behind. It sounds like they couldn't get a real gig and decided selling boats was easier.
+  - **m0viestar** (45↑): It sounds like they didn't even leave a career behind. It sounds like they couldn't get a real gig and decided selling boats was easier.
   - **jawknee530i** (12↑): Yeah but did you look at your nephew playing and have an epiphany that caused readers to cringe into a black hole when they see it?
   - **Prestigious_Sort4979** (3↑): Unless I have room and board covered in which case…. yolo
     - **olduvai_man** (2↑): I'd still choose tech in that case.
@@ -200,7 +296,7 @@ This guy hasn't seen a recession clearly lol. Will be fired in about 3 seconds.
 I don't think there is a chance in hell I'd make more selling boats/jet-skis on commission than I do working in tech. You'd have to be in the top 1% of that group to match the tech wages.
   - **Individual_Author956** (3↑): Yeah, as much as my job can be frustrating at times, the last thing I want to change to is a commission-based sales job
   - **Fluffy_Gold_7366** (2↑): He's not leaving the salary
-- **Comfortable-Tart7734** (38↑): The whole industry has been feeding on its own grift for a while now.
+- **Comfortable-Tart7734** (42↑): The whole industry has been feeding on its own grift for a while now.
 
 Ever tried explaining SCRUM to someone who doesn't work in tech? They'll look at you like you take the short bus to the office.
 
@@ -229,7 +325,7 @@ They don't buy unit tests (not that I want to write them), but they're game for 
 My advice for anyone burning out in the tech industry is this. You probably see your skills and dedication to quality as an investment for a company. They probably see you as a cost center. So next time you get stressed by the nonsense, start thinking about how to apply what you know in ways that would help non-tech companies. Think outside the box. Then do the hard part and reach out to a few of them. You might be surprised at what you learn and end up with a whole new perspective on how all this really works.
 
 If nothing else, the experience will certainly help you write better Upwork proposals.
-  - **turnwol7** (13↑): This 3 years taught me how to grind with literally zero results lol. I probably wouldn’t have gone for a sales job without doing the tech thing for this long with no end in sight.
+  - **turnwol7** (14↑): This 3 years taught me how to grind with literally zero results lol. I probably wouldn’t have gone for a sales job without doing the tech thing for this long with no end in sight.
 
 The end goal is always the user or customer. Older businesses want stuff to work.
 
@@ -250,7 +346,7 @@ The major players in the "industry" are the ones deciding what is the game's nam
 But these skills are only useful in so far the "industry" creates an (artificial) demand for them, which is bad because their goals change over time. Eg: programming has been valued until the early 2000s, then it stagnated and now it seems employers are more interested in hiring AI jugglers.
 
 So tech-related skills are not universally valid for every epoch, unlike knowing how to plow the land, or how to build furniture. They are tied to a context which is ephemeral.
-  - **Illustrious-Pound266** (3↑): \>Thing is, it wasn't like this even 10 years ago. These are all problems the tech industry has created for itself.
+  - **Illustrious-Pound266** (4↑): \>Thing is, it wasn't like this even 10 years ago. These are all problems the tech industry has created for itself.
 
 Agreed. Sometimes, the industry needs to self-reflect. Like, people talk about leetcode style interviews as if it's God's law, that it must be done. No, it doesn't. It's self-imposed.
 
@@ -301,7 +397,7 @@ Or work on getting a few Upwork contracts. Treat the platform as a sales funnel 
 
   
 Edit: You could also call up a few consulting agencies and try to get them to hire you. They'll do the selling part and you'll do the tech part. Then when you quit, you'll have a decent network of previous clients to lean on.
-- **RuinAdventurous1931** (15↑): I’m happy you’re happy! I’m sorry so may of these comments are so rude.
-  - **turnwol7** (6↑): Life is an experiment
-- **[deleted]** (15↑): This is the type of wake up call people need to hear: there is a whole world out there with other things to do and tech really isn't all that important to lose your sleep over. It's the years of productivity propaganda that made the landscape as it is. It really warms up my heart that you found an alternative path and hopped off the miserable ship, may your days be blessed OP
+- **RuinAdventurous1931** (16↑): I’m happy you’re happy! I’m sorry so may of these comments are so rude.
+  - **turnwol7** (8↑): Life is an experiment
+- **[deleted]** (17↑): This is the type of wake up call people need to hear: there is a whole world out there with other things to do and tech really isn't all that important to lose your sleep over. It's the years of productivity propaganda that made the landscape as it is. It really warms up my heart that you found an alternative path and hopped off the miserable ship, may your days be blessed OP
   - **turnwol7** (4↑): Thanks for the good wishes bro. You never know what is coming down the pipeline in life when you focus on happiness. Have a great day 👍

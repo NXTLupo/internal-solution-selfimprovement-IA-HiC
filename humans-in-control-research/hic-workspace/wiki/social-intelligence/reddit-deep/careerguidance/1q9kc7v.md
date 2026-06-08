@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1q9kc7v.md
 url: "https://www.reddit.com/r/careerguidance/comments/1q9kc7v/should_i_stay_at_wfh_job_vs_20k_raise_with/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,57 @@ flair: "Advice"
 extracted_at: "2026-05-25T15:52:13.111Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1q9kc7v.md#c0"
+    char_span: [0, 2144]
+    sentence_count: 19
+    key_terms: [company, current, flexibility, role, careerguidance, job, new, comments]
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/careerguidance/1q9kc7v.md#c1"
+    char_span: [2146, 2775]
+    sentence_count: 4
+    key_terms: [pay, stay, bearwithabeard, comfortable, flexibility, opportunity, appreciate, supportive]
+    section: Comments
+    token_count: 163
+  - id: "social-intelligence/reddit-deep/careerguidance/1q9kc7v.md#c2"
+    char_span: [2777, 4355]
+    sentence_count: 18
+    key_terms: [bearwithabeard, opportunities, job, new, time, companies, negotiate, increase]
+    section: Comments
+    token_count: 380
+  - id: "social-intelligence/reddit-deep/careerguidance/1q9kc7v.md#c3"
+    char_span: [4357, 6523]
+    sentence_count: 17
+    key_terms: [flexibility, bearwithabeard, role, current, change, super, wfh, work]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1q9kc7v.md#c4"
+    char_span: [6280, 7496]
+    sentence_count: 9
+    key_terms: [going, commute, bearwithabeard, hours, week, tzukiyomi, job, role]
+    section: Comments
+    token_count: 324
+  - id: "social-intelligence/reddit-deep/careerguidance/1q9kc7v.md#c5"
+    char_span: [7498, 8269]
+    sentence_count: 7
+    key_terms: [reviews, yearly, cash, bearwithabeard, compensation, oldmamallama, flexibility, opportunity]
+    section: Comments
+    token_count: 186
+  - id: "social-intelligence/reddit-deep/careerguidance/1q9kc7v.md#c6"
+    char_span: [8271, 10289]
+    sentence_count: 16
+    key_terms: [work, being, home, working, kids, like, time, understand]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/careerguidance/1q9kc7v.md#c7"
+    char_span: [10291, 10821]
+    sentence_count: 3
+    key_terms: [good, home, job, comfortable, personally, childcare, something, flexible]
+    section: Comments
+    token_count: 130
 ---
-
 # Should I stay at WFH job vs $20k raise with in-office tradeoffs (new parent)?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1q9kc7v/should_i_stay_at_wfh_job_vs_20k_raise_with/)

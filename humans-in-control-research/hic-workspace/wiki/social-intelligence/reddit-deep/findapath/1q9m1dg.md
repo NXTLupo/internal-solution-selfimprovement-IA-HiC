@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1q9m1dg.md
 url: "https://www.reddit.com/r/findapath/comments/1q9m1dg/33m_im_very_behind_in_life_need_advise_and/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,55 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-22T15:13:18.836Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1q9m1dg.md#c0"
+    char_span: [0, 1918]
+    sentence_count: 19
+    key_terms: [getting, family, job, patient, since, spent, findapath, comments]
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/findapath/1q9m1dg.md#c1"
+    char_span: [1920, 3879]
+    sentence_count: 22
+    key_terms: [get, rent, car, need, paid, appartment, accident, roommate]
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/findapath/1q9m1dg.md#c2"
+    char_span: [3881, 4503]
+    sentence_count: 4
+    key_terms: [around, "i'm", "i've", something, been, like, electronics, maintaining]
+    token_count: 145
+  - id: "social-intelligence/reddit-deep/findapath/1q9m1dg.md#c3"
+    char_span: [4518, 5465]
+    sentence_count: 9
+    key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/findapath/1q9m1dg.md#c4"
+    char_span: [5468, 7434]
+    sentence_count: 13
+    key_terms: [help, desk, career, health, lemonchill24, get, like, look]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/findapath/1q9m1dg.md#c5"
+    char_span: [7436, 8884]
+    sentence_count: 15
+    key_terms: [like, nursing, additional, schooling, security, nurses, capital-trouble4468, familiar-green-6273]
+    section: Comments
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/findapath/1q9m1dg.md#c6"
+    char_span: [8886, 9619]
+    sentence_count: 9
+    key_terms: [tlie000, entry, level, like, flairpointsbot, learninearnin, considering, perspective]
+    section: Comments
+    token_count: 194
+  - id: "social-intelligence/reddit-deep/findapath/1q9m1dg.md#c7"
+    char_span: [9624, 11588]
+    sentence_count: 14
+    key_terms: [thank, door, uber, flairpointsbot, car, dash, get, job]
+    section: Comments
+    token_count: 489
 ---
-
 # 33M, I'm very "behind in life", need advise and perspective on some things.
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1q9m1dg/33m_im_very_behind_in_life_need_advise_and/)

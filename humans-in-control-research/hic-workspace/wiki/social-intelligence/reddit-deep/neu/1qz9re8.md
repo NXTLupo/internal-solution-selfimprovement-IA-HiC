@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1qz9re8.md
 url: "https://www.reddit.com/r/NEU/comments/1qz9re8/i_got_in/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -7,14 +8,31 @@ title: "i got in!"
 author: "Lazy_Historian_1887"
 date: "2026-02-08T14:05:19.000Z"
 score: 83
-upvote_ratio: 0.98
+upvote_ratio: 0.97
 num_comments: 35
 flair: "Admissions & Financial Aid"
-extracted_at: "2026-05-20T06:39:39.932Z"
+extracted_at: "2026-06-05T17:08:22.597Z"
 extraction_method: "praw-deep"
-research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1qz9re8.md#c0"
+    char_span: [0, 693]
+    sentence_count: 2
+    key_terms: [got, comments, decision, choose, neu, scholarships, specifically, reddit-deep]
+    token_count: 166
+  - id: "social-intelligence/reddit-deep/neu/1qz9re8.md#c1"
+    char_span: [708, 2859]
+    sentence_count: 15
+    key_terms: [london, program, schools, experience, boysenberrytime3143, captainwalnuts69, housing, opportunities]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/neu/1qz9re8.md#c2"
+    char_span: [2571, 4294]
+    sentence_count: 5
+    key_terms: ["it's", program, schools, london, imreallyscared2002, united-function282, parents, great]
+    section: Comments
+    token_count: 440
 ---
-
 # i got in!
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1qz9re8/i_got_in/)
@@ -28,12 +46,12 @@ also just curious about your overall experience and what helped you make your de
 
 ## Comments
 
-- **CaptainWalnuts69** (11↑): Congratulations!  Our daughter is just finishing up her year as a London Scholar and she loves it.
+- **CaptainWalnuts69** (12↑): Congratulations!  Our daughter is just finishing up her year as a London Scholar and she loves it.
   - **Lazy_Historian_1887** (3↑): thank you! that's really good to hear, she must be having such a cool experience. what has she liked most about the program?
     - **CaptainWalnuts69** (3↑): She loves being in London- the food, the history, the shows, the clubs, the markets. All of it.  The campus and housing are in great locations of central London.  She’s also liked meeting kids from other schools in the apartment / dorm.   There are kids from 3 London schools staying there.  Not just kids from Northeastern.
-- **BoysenberryTime3143** (10↑): I was in the London scholars program it was the best decision I ever made!
+- **BoysenberryTime3143** (9↑): I was in the London scholars program it was the best decision I ever made!
   - **Lazy_Historian_1887** (2↑): thank you! this is really encouraging to hear. what made it such a great experience for you?
-    - **BoysenberryTime3143** (4↑): The location is perfect! St Katherine’s dock is one of the safest and most beautiful parts of London. All of the housing is apartment style which is very unique for freshman housing. It’s also a really interesting environment where almost everyone is in the same boat, all freshman and new to London. Northeastern Boston is really so big so it was very valuable to make really good friends that year! All the professors are so nice. There are a lot of opportunities to travel, attend west end shows, go to soccer games offered through the school for free. I had an amazing experience and I mostly everyone I know through the program did as well. There are a couple of people that struggled with the grading style or having trouble making friends, but truly I really loved it!
+    - **BoysenberryTime3143** (3↑): The location is perfect! St Katherine’s dock is one of the safest and most beautiful parts of London. All of the housing is apartment style which is very unique for freshman housing. It’s also a really interesting environment where almost everyone is in the same boat, all freshman and new to London. Northeastern Boston is really so big so it was very valuable to make really good friends that year! All the professors are so nice. There are a lot of opportunities to travel, attend west end shows, go to soccer games offered through the school for free. I had an amazing experience and I mostly everyone I know through the program did as well. There are a couple of people that struggled with the grading style or having trouble making friends, but truly I really loved it!
 - **zahskis** (3↑): Got in two weeks ago, but I'm super nervous about the price... is this worth it chat..
   - **Lazy_Historian_1887** (2↑): literally same lol, i'm trying to figure out if it's worth it too. the price is definitely making me think twice but the london scholars program and co-op opportunities seem really solid. are you considering other schools or is neu your top choice rn?
     - **zahskis** (2↑): I'm waiting for some schools with decision dates in march, but NEU was my top for a long time. is it yours? it's definitely a great option but damn it's literally more expensive than harvard.

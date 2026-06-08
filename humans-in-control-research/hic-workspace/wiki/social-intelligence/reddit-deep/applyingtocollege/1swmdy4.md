@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1swmdy4.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1swmdy4/jealous/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,32 @@ flair: "Rant"
 extracted_at: "2026-05-20T06:42:01.168Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1swmdy4.md#c0"
+    char_span: [0, 1841]
+    sentence_count: 15
+    key_terms: ["didn't", get, schools, school, got, like, dream, did]
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1swmdy4.md#c1"
+    char_span: [1843, 3644]
+    sentence_count: 19
+    key_terms: ["i'm", like, college, "don't", ccs, good, "it's", understand]
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1swmdy4.md#c2"
+    char_span: [3659, 5307]
+    sentence_count: 9
+    key_terms: [schools, get, "you're", did, med, college, afford, school]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1swmdy4.md#c3"
+    char_span: [5309, 6896]
+    sentence_count: 8
+    key_terms: [school, college, schools, good, med, want, undergrad, premed]
+    section: Comments
+    token_count: 404
 ---
-
 # Jealous
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1swmdy4/jealous/)

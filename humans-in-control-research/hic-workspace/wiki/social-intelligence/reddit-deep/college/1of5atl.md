@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1of5atl.md
 url: "https://www.reddit.com/r/college/comments/1of5atl/4_eight_week_courses_instead_of_4_regular_courses/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-26T14:31:29.699Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1of5atl.md#c0"
+    char_span: [0, 516]
+    sentence_count: 3
+    key_terms: [courses, classes, week, comments, college, half, engineering, reddit-deep]
+    token_count: 133
+  - id: "social-intelligence/reddit-deep/college/1of5atl.md#c1"
+    char_span: [531, 2013]
+    sentence_count: 8
+    key_terms: [classes, easier, cragdragon511, did, good, time, week, semester]
+    section: Comments
+    token_count: 427
 ---
-
 # 4 eight week courses instead of 4 regular courses
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1of5atl/4_eight_week_courses_instead_of_4_regular_courses/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1lcn1og.md
 url: "https://www.reddit.com/r/college/comments/1lcn1og/is_community_college_the_better_option/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -10,11 +11,45 @@ score: 27
 upvote_ratio: 0.94
 num_comments: 49
 flair: "Finances/financial aid"
-extracted_at: "2026-05-25T13:02:03.712Z"
+extracted_at: "2026-06-05T17:08:16.181Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1lcn1og.md#c0"
+    char_span: [0, 2135]
+    sentence_count: 15
+    key_terms: [college, "i'm", community, "i'd", probably, tuition, able, help]
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/college/1lcn1og.md#c1"
+    char_span: [2137, 2633]
+    sentence_count: 3
+    key_terms: [having, thank, realistically, community, education, situation, judgment, terrible]
+    token_count: 109
+  - id: "social-intelligence/reddit-deep/college/1lcn1og.md#c2"
+    char_span: [2648, 3922]
+    sentence_count: 9
+    key_terms: [college, community, years, get, semester, liberal, turbulent-artist961, loans]
+    section: Comments
+    token_count: 293
+  - id: "social-intelligence/reddit-deep/college/1lcn1og.md#c3"
+    char_span: [3924, 5949]
+    sentence_count: 18
+    key_terms: [transfer, college, school, internships, live, experience, community, semester]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/college/1lcn1og.md#c4"
+    char_span: [5951, 7250]
+    sentence_count: 16
+    key_terms: [college, academic, take, experience, community, education, students, classes]
+    section: Comments
+    token_count: 283
+  - id: "social-intelligence/reddit-deep/college/1lcn1og.md#c5"
+    char_span: [7252, 8438]
+    sentence_count: 11
+    key_terms: [arts, college, liberal, degree, school, community, ildadof3, family]
+    section: Comments
+    token_count: 290
 ---
-
 # Is community college the better option?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1lcn1og/is_community_college_the_better_option/)
@@ -38,15 +73,15 @@ Sorry this so long, but thank you if you actually read this far, and thank you i
 
 - **MaadCity777** (36↑): Community college is a great option especially if you plan on transferring. The first two years are mostly general ed classes so you can get those out of the way, save money and give your self that time to get yourself right. I got my associates in liberal arts at CC and I am now about to graduate from a four year university. Don’t overthink it and best of luck
 - **Turbulent-Artist961** (22↑): 20,000 grand a semester is wild that’s a 160,000$ education plus interest you will be paying that off for decades. For some reference I get paid 3,000 every semester because I am poor lol (being poor kicks ass) Community college is fun and you will meet a lot of cool people the professors are chill and if you do well you can transfer basically anywhere. I was top of my class in community college and I had big name college recruiters reach out to me directly just begging me to apply.
-- **quietscribe77** (12↑): I went away for two years to a private liberal arts school. Drained my entire college savings on two years, and then transferred home to commute to a state college. I had to work 3 jobs to not take loans on.
+- **quietscribe77** (15↑): I went away for two years to a private liberal arts school. Drained my entire college savings on two years, and then transferred home to commute to a state college. I had to work 3 jobs to not take loans on.
 
 I wish someone sat me down when I was younger and explained the burden of student loans and having to work full time in college.
 
 The college experience is not worth 20 grand a semester, in fact I found it underwhelming. If you have a safe home to live in, and you get along with your parents I suggest staying home, you can always transfer after 2 years and go somewhere else if you hate it
   - **Emergency_School698** (3↑): This is great advice.  Take it!
 - **No-Professional-9618** (8↑): Community college could be a better option for you.  But not all classes may transfer. Be sure to check with your transfer counselor for details.
-- **Icy-Jump5440** (7↑): I have two very high stat kids who chose CC>transfer over T20. They are both very successful. One is a PhD student at a top tier program in physics, the other is graduating in Jan. with 3 offers (and counting) in finance. Both transferred to private SLACs and graduated with 0 student loan debt thanks to academic/merit scholarships and internships. If you decide to attend CC and transfer think of it as a strategy, not a concession. Be sure to take advantage of all internships and mentoring programs available and keep your GPA high. Best of luck.
-- **somanyaccounts4434** (5↑): I see a lot of students (I’m a professor) who do their first two years at a community college then transfer and graduate from the second school. You delay having the “college experience,” but you still can, by joining clubs and activities that bring you together with fellow students. 
+- **Icy-Jump5440** (9↑): I have two very high stat kids who chose CC>transfer over T20. They are both very successful. One is a PhD student at a top tier program in physics, the other is graduating in Jan. with 3 offers (and counting) in finance. Both transferred to private SLACs and graduated with 0 student loan debt thanks to academic/merit scholarships and internships. If you decide to attend CC and transfer think of it as a strategy, not a concession. Be sure to take advantage of all internships and mentoring programs available and keep your GPA high. Best of luck.
+- **somanyaccounts4434** (7↑): I see a lot of students (I’m a professor) who do their first two years at a community college then transfer and graduate from the second school. You delay having the “college experience,” but you still can, by joining clubs and activities that bring you together with fellow students. 
 
 The question you should ask, too, is whether you MUST go to the $20K/semester school. Is there a public university that has the same program that might not have the “name” but still has a good education?
   - **gardenpoet1537** (2↑): There definitely are! I live in NY so the state schools are pretty good. The only problem is that im having this realization really late in the year and I already took a gap year, so I dont want to delay school again. The cc has rolling admissions so I could start this fall.
@@ -56,7 +91,7 @@ Go to community college and get your academic feet wet.
 Take English, psychology and liberal arts or general education classes first. Those classes tend to transfer credit for credit and will satisfy academic requirements at four year.
 
 Take advantage of any educational/academic opportunities the school provides. Use this time to study and learn new things without the pressure of having to take student loans. Hang out with other students who want the same things as you do was while also enjoying the college experience.
-- **AcademicDark4705** (4↑): 20k a semester???? That is insane. That’s $160k in debt when you graduate. With interest you’d be paying hundreds of thousands. Absolutely do not go there you will never pay that off. I have like $20k in debt and even that is almost $300 a month minimum. Imagine having over $1000 you have to pay each month. Go to cc!
+- **AcademicDark4705** (5↑): 20k a semester???? That is insane. That’s $160k in debt when you graduate. With interest you’d be paying hundreds of thousands. Absolutely do not go there you will never pay that off. I have like $20k in debt and even that is almost $300 a month minimum. Imagine having over $1000 you have to pay each month. Go to cc!
 - **hornybutired** (3↑): Community college is a great option, though you will miss out on that "university experience" for a few years.
 
 That said, I'm of the opinion that *no* small, private, liberal arts college is worth it unless it is a straight up Ivy or Ivy adjacent. They mostly overcharge for a middling education. But they do have nice campuses, which is how the sell themselves to unsuspecting students and parents.

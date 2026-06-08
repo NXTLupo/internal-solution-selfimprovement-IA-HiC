@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1s7eq7i.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1s7eq7i/what_are_the_things_that_chatgpt_or_any_other_ai/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,27 @@ flair: "Gone Wild "
 extracted_at: "2026-05-17T01:12:48.208Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1s7eq7i.md#c0"
+    char_span: [0, 392]
+    sentence_count: 2
+    key_terms: [chatgpt, comments, reddit-deep, vibecoding, research, obvious, absurd, agents]
+    token_count: 115
+  - id: "social-intelligence/reddit-deep/chatgpt/1s7eq7i.md#c1"
+    char_span: [407, 2336]
+    sentence_count: 13
+    key_terms: [openai, please, conversation, image, post, r-chatgpt-1050422060352024636, everything, subreddit]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/chatgpt/1s7eq7i.md#c2"
+    char_span: [2338, 2722]
+    sentence_count: 3
+    key_terms: [work, parallelization, configurations, simultaneously, sub-agents, synthesize, different, storming]
+    section: Comments
+    token_count: 95
 ---
-
 # What are the things that  ChatGPT or any other AI tools / AI agents do that  save you an absurd amount of time (beside obvious ones such as vibecoding, deep research) ?
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1s7eq7i/what_are_the_things_that_chatgpt_or_any_other_ai/)

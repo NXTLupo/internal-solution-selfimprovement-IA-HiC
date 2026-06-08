@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1obdib6.md
 url: "https://www.reddit.com/r/college/comments/1obdib6/i_think_no_field_is_truly_safe_anymore_except/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-22T15:12:02.777Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1obdib6.md#c0"
+    char_span: [0, 1334]
+    sentence_count: 12
+    key_terms: [medicine, field, safe, bioengineering, seems, hard, everything, comments]
+    token_count: 297
+  - id: "social-intelligence/reddit-deep/college/1obdib6.md#c1"
+    char_span: [1349, 3104]
+    sentence_count: 10
+    key_terms: [finlandia1865, city, planners, always, planning, medical, student, workers]
+    section: Comments
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/college/1obdib6.md#c2"
+    char_span: [3106, 5364]
+    sentence_count: 13
+    key_terms: [being, medicine, field, medical, nearly, opportunities, right, back]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/college/1obdib6.md#c3"
+    char_span: [5366, 7528]
+    sentence_count: 18
+    key_terms: [medical, insurance, cdc, government, use, companies, treatment, journals]
+    section: Comments
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/college/1obdib6.md#c4"
+    char_span: [7530, 9617]
+    sentence_count: 17
+    key_terms: [what-student-loan-borrowers-need-to-know-about-the-big-beautiful-bill, research, people, hospitals, something, field, competitive, been]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/college/1obdib6.md#c5"
+    char_span: [9619, 10211]
+    sentence_count: 6
+    key_terms: [either, people, competitive, curriculars, importantly, automatic, candidate, generally]
+    section: Comments
+    token_count: 125
+  - id: "social-intelligence/reddit-deep/college/1obdib6.md#c6"
+    char_span: [10213, 12604]
+    sentence_count: 17
+    key_terms: [need, jobs, replaced, pharmaceutical, data, high, like, engineers]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/college/1obdib6.md#c7"
+    char_span: [12606, 12749]
+    sentence_count: 1
+    key_terms: [unemployment, individual, political, become, larger, rather, crime, issue]
+    section: Comments
+    token_count: 28
 ---
-
 # I think no field is truly safe anymore except medicine
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1obdib6/i_think_no_field_is_truly_safe_anymore_except/)

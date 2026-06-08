@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1plkvps.md
 url: "https://www.reddit.com/r/artificial/comments/1plkvps/whitecollar_layoffs_are_coming_at_a_scale_weve/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -6,19 +7,67 @@ subreddit: "artificial"
 title: "White-collar layoffs are coming at a scale we've never seen. Why is no one talking about this?"
 author: "chota-kaka"
 date: "2025-12-13T13:02:44.000Z"
-score: 4
-upvote_ratio: 0.52
+score: 1
+upvote_ratio: 0.5
 num_comments: 91
 flair: "Discussion"
-extracted_at: "2026-05-11T17:27:04.781Z"
+extracted_at: "2026-05-28T01:32:00.778Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+research_goal: "Identify a comprehensive new strategy for experiential learning for the AI era based on the collected data"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1plkvps.md#c0"
+    char_span: [0, 1781]
+    sentence_count: 37
+    key_terms: ["that's", takes, knowledge, time, work, artificial, different, workflows]
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/artificial/1plkvps.md#c1"
+    char_span: [1783, 3653]
+    sentence_count: 35
+    key_terms: [next, "couldn't", people, saying, years, "i'm", safe, happening]
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/artificial/1plkvps.md#c2"
+    char_span: [3668, 5483]
+    sentence_count: 19
+    key_terms: [job, krazyboi, because, forever, talking, longer, market, get]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/artificial/1plkvps.md#c3"
+    char_span: [5485, 6018]
+    sentence_count: 5
+    key_terms: [coders, college, better, coding, information, unprotected, notgalgon, sensitive]
+    section: Comments
+    token_count: 115
+  - id: "social-intelligence/reddit-deep/artificial/1plkvps.md#c4"
+    char_span: [6020, 8047]
+    sentence_count: 19
+    key_terms: [ijdelheidijdelheden, maybe, right, extrapolate, does, work, meaningful, knowledge]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/artificial/1plkvps.md#c5"
+    char_span: [7789, 9949]
+    sentence_count: 16
+    key_terms: [taking, meaningful, trash, art, tax, work, dishwasher, arguably]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/artificial/1plkvps.md#c6"
+    char_span: [9684, 10208]
+    sentence_count: 6
+    key_terms: [outrageous-crazy-253, time-traveler, completely, correcting, dishwasher, government, opposition, everybody]
+    section: Comments
+    token_count: 126
+  - id: "social-intelligence/reddit-deep/artificial/1plkvps.md#c7"
+    char_span: [10211, 12442]
+    sentence_count: 17
+    key_terms: [knowledge, internet, products, number, jobs, increase, going, labor]
+    section: Comments
+    token_count: 481
 ---
-
 # White-collar layoffs are coming at a scale we've never seen. Why is no one talking about this?
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1plkvps/whitecollar_layoffs_are_coming_at_a_scale_weve/)
-Posted by **chota-kaka** · **4↑** · **91 comments**
+Posted by **chota-kaka** · **1↑** · **91 comments**
 
 I keep seeing the same takes everywhere. "AI is just like the internet." "It's just another tool, like Excel was." "Every generation thinks their technology is special."
 
@@ -49,19 +98,19 @@ This sub does not allow cross posts. It was originally posted here: https://www.
 
 ## Comments
 
-- **krazyboi** (59↑): What do you mean, everybody is talking about it. It's the worst job market we've seen in forever.
-  - **ProsperityandNo** (7↑): Where are you based? I'm in Scotland and it's the worst job market I've ever seen. I'm usually a freelance Business Analyst in Financial services. Corporate Finance or Treasury or Investment Administration areas
-    - **krazyboi** (5↑): I am in the US but I moved to Korea this year. In both places, the job market is suffering.
+- **krazyboi** (57↑): What do you mean, everybody is talking about it. It's the worst job market we've seen in forever.
+  - **ProsperityandNo** (8↑): Where are you based? I'm in Scotland and it's the worst job market I've ever seen. I'm usually a freelance Business Analyst in Financial services. Corporate Finance or Treasury or Investment Administration areas
+    - **krazyboi** (4↑): I am in the US but I moved to Korea this year. In both places, the job market is suffering.
     - **HalastersCompass** (1↑): What's your average break in-between work?  Are you finding it is getting longer and longer.  Do you get much repeat business from clients.
 
 Apologies if this sounds forward, just trying to get more context.  Good luck btw
-  - **Superb_Raccoon** (2↑): You have seen in forever. My forever is longer than yours.
+  - **Superb_Raccoon** (3↑): You have seen in forever. My forever is longer than yours.
     - **krazyboi** (3↑): Ok
-- **Horror_Response_1991** (22↑): Quite literally everyone is talking about this.  Unless you’re talking about the government who won’t release the job numbers because they’re so bad they can’t even be faked.
+- **Horror_Response_1991** (21↑): Quite literally everyone is talking about this.  Unless you’re talking about the government who won’t release the job numbers because they’re so bad they can’t even be faked.
   - **Superb_Raccoon** (1↑): We know the rate. But the process used by the government is right out of the 30s. Send letters, hope people respond accurately, if at all.
 
 We know how many people get paychecks, pay taxes,  so we know the rate. ADPs numbers are based on that because they do payroll for a big chunk, enough to be a good metric for the rest of the economy.
-- **PeakNader** (8↑): Learn a trade is the new learn to code
+- **PeakNader** (7↑): Learn a trade is the new learn to code
   - **braincandybangbang** (3↑): Except learning to code is still a valuable skill. 
 
 I could be a Japanese translator using translation tech right now, but my inability to read or speak Japanese would be detrimental. I can never actually check the work. I may write something offensive because I've mistranslated something. 
@@ -72,11 +121,11 @@ Same with code. Hence why vibe coders are sending their private API codes and ot
 If you dont believe the continual improvement - thats fine - maybe AI levels off.  But if it doesnt coding will not be a good job choice for anyone.
   - **chewwydraper** (1↑): Ironically all my trade friends have been getting laid off lately too, I don’t know if saturating trades even more is the best advice for people lol
   - **Holyragumuffin** (1↑): And short-lived. AI will come for the trades. Motor AI has a data problem, not a model problem. And research labs are figuring out ways to boost data generation with a 5 year timeline at most. I’m so over people telling me they’ll just learn a trade. Definitely do not understand the technology is not limited to text/images and that scaling will solve fine motor skills with time.
-- **IJdelheidIJdelheden** (11↑): Actually, AI does *not* do the knowledge work, no matter how often it is repeated. It does help with knowledge work. You know, like Excel. Or the internet.
+- **IJdelheidIJdelheden** (10↑): Actually, AI does *not* do the knowledge work, no matter how often it is repeated. It does help with knowledge work. You know, like Excel. Or the internet.
   - **32SkyDive** (2↑): It does Not do it fully right now, but very easy to extrapolate that it will do so for at least a significant Part shortly
     - **IJdelheidIJdelheden** (3↑): Maybe. I'm not convinced LLMs can mimic other aspect of human cognition well enough soon to be able to, work in an office for example.
-    - **Limebird02** (-6↑): Agreed. Extrapolate gpt5.2 out 18 months and one or two breakthroughs and we have AGI. Maybe not now, although many experts are saying it's at their AGI level right now. In three or more years we will have super-intelligence. Game over. Extinction in less than 10 years from now.
-- **Embarrassed_Hawk_655** (6↑): I’m in 2 minds about it. If someone’s job can be automated, it probably should be so they can find something more meaningful to do. On the other hand, why is AI making art and not doing our taxes, taking the trash out and washing our dishes so we can do more meaningful stuff?
+    - **Limebird02** (-7↑): Agreed. Extrapolate gpt5.2 out 18 months and one or two breakthroughs and we have AGI. Maybe not now, although many experts are saying it's at their AGI level right now. In three or more years we will have super-intelligence. Game over. Extinction in less than 10 years from now.
+- **Embarrassed_Hawk_655** (8↑): I’m in 2 minds about it. If someone’s job can be automated, it probably should be so they can find something more meaningful to do. On the other hand, why is AI making art and not doing our taxes, taking the trash out and washing our dishes so we can do more meaningful stuff?
   - **lovetheoceanfl** (2↑): This right here.  It’s taking the things that make us human - creativity, thought, etc - and saddling us all with the mundane things that sap our humanity. No offense to the CPAs.
     - **Scotho** (7↑): Ai isn't taking away philosophy or art. Its taking away the ability to profit from art. Profiting from art doesnt make one human. Capitalism is the root of this problem.
   - **Limebird02** (2↑): More meaningful? That's the issue. We will have a billion poverty stricken bored and hungry humans. Some of them desperately trying to feed and house their children. Many of them left unmoored by the loss of their central work identity and unable to find meaning in what comes after.

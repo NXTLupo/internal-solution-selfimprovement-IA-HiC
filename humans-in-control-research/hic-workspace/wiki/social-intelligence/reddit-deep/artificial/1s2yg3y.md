@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1s2yg3y.md
 url: "https://www.reddit.com/r/artificial/comments/1s2yg3y/opensource_ai_system_on_a_500_gpu_outperforms/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,63 @@ flair: "News"
 extracted_at: "2026-05-11T17:27:04.773Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1s2yg3y.md#c0"
+    char_span: [0, 1437]
+    sentence_count: 11
+    key_terms: [atlas, consumer, infrastructure, https, model, com, artificial, benchmarks]
+    token_count: 341
+  - id: "social-intelligence/reddit-deep/artificial/1s2yg3y.md#c1"
+    char_span: [1452, 3633]
+    sentence_count: 16
+    key_terms: [pipeline, because, interesting, model, economics, inference, solution, number]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/artificial/1s2yg3y.md#c2"
+    char_span: [3635, 4574]
+    sentence_count: 8
+    key_terms: [verification, model, pass, plus, verifier, cost-per-correct-answer, because, lifting]
+    section: Comments
+    token_count: 217
+  - id: "social-intelligence/reddit-deep/artificial/1s2yg3y.md#c3"
+    char_span: [4576, 6342]
+    sentence_count: 5
+    key_terms: [best-of-n, comparing, inference, pass, generate-test-select, youre, question, papertrailml]
+    section: Comments
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/artificial/1s2yg3y.md#c4"
+    char_span: [6344, 8062]
+    sentence_count: 10
+    key_terms: [better, qm82wdict7m, inference, selection, failures, youtube, claude, scores]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/artificial/1s2yg3y.md#c5"
+    char_span: [8064, 10348]
+    sentence_count: 18
+    key_terms: [pipeline, benchmarks, different, repo, problems, scicode, livecodebench, methodology]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/artificial/1s2yg3y.md#c6"
+    char_span: [10350, 12138]
+    sentence_count: 13
+    key_terms: [claude, techniques, benchmark, developer, frontier, pipeline, around, repair]
+    section: Comments
+    token_count: 406
+  - id: "social-intelligence/reddit-deep/artificial/1s2yg3y.md#c7"
+    char_span: [12140, 13478]
+    sentence_count: 10
+    key_terms: [money, landscape, something, takeaway, similar, maybe, best, goal]
+    section: Comments
+    token_count: 318
+  - id: "social-intelligence/reddit-deep/artificial/1s2yg3y.md#c8"
+    char_span: [13480, 15098]
+    sentence_count: 13
+    key_terms: [intelligence, research, like, everywhere, different, something, whatever, general]
+    section: Comments
+    token_count: 358
 ---
-
 # Open-source AI system on a $500 GPU outperforms Claude Sonnet on coding benchmarks
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1s2yg3y/opensource_ai_system_on_a_500_gpu_outperforms/)

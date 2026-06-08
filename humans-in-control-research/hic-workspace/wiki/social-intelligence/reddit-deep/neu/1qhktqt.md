@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1qhktqt.md
 url: "https://www.reddit.com/r/NEU/comments/1qhktqt/advice_about_neu_from_someone_who_graduated_a_few/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -6,19 +7,40 @@ subreddit: "neu"
 title: "Advice about NEU from someone who graduated a few years ago."
 author: "Actual_Code_9048"
 date: "2026-01-19T23:43:15.000Z"
-score: 121
+score: 122
 upvote_ratio: 0.95
 num_comments: 6
 flair: "Advice & Experiences"
-extracted_at: "2026-05-26T14:30:23.758Z"
+extracted_at: "2026-06-06T00:27:19.933Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1qhktqt.md#c0"
+    char_span: [0, 1914]
+    sentence_count: 19
+    key_terms: [neu, people, being, years, job, experience, graduated, comments]
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/neu/1qhktqt.md#c1"
+    char_span: [1916, 4061]
+    sentence_count: 27
+    key_terms: [college, social, communities, bad, lot, nyc, experience, specific]
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/neu/1qhktqt.md#c2"
+    char_span: [4063, 4834]
+    sentence_count: 12
+    key_terms: ["don't", though, tough, "it's", corporations, engineering, especially, abilities]
+    token_count: 170
+  - id: "social-intelligence/reddit-deep/neu/1qhktqt.md#c3"
+    char_span: [4849, 5560]
+    sentence_count: 4
+    key_terms: [science, boston, independent-lab6410, minor, bulky-command9731, oweoyahdkcns18273, data, grad]
+    section: Comments
+    token_count: 190
 ---
-
 # Advice about NEU from someone who graduated a few years ago.
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1qhktqt/advice_about_neu_from_someone_who_graduated_a_few/)
-Posted by **Actual_Code_9048** · **121↑** · **6 comments**
+Posted by **Actual_Code_9048** · **122↑** · **6 comments**
 
 Nobody asked me to do this, but I randomly peek on this subreddit sometimes and
 
@@ -64,7 +86,7 @@ Cheers.
 
 - **Independent-Lab6410** (11↑): Big upvote from a finance grad with data science minor. Also very interesting take on Boston, never thought about it that way but pretty spot on.
 - **border-coffee** (5↑): Totally agree with you on Boston being weird socially post-college
-- **oweoyahdkcns18273** (5↑): Thank you for posting this. This subreddit & reddit in general can be so negative at times so this was cool to read.
-- **CheesyPanther** (4↑): As a recent Econ grad, I also emphasize getting a data science minor. It literally got me my job
+- **oweoyahdkcns18273** (4↑): Thank you for posting this. This subreddit & reddit in general can be so negative at times so this was cool to read.
+- **CheesyPanther** (3↑): As a recent Econ grad, I also emphasize getting a data science minor. It literally got me my job
 - **theproductdev** (2↑): Wasn’t sure if Morgan Stanley or Fidelity Sponsors
 - **Bulky-Command9731** (1↑): what do you think of cybersecurity ? will it get me anywhere ?

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1nqsaul.md
 url: "https://www.reddit.com/r/jobs/comments/1nqsaul/finally_landed_a_job_after_10_months_and_1000/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,32 @@ flair: "Job searching"
 extracted_at: "2026-05-22T21:35:36.550Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1nqsaul.md#c0"
+    char_span: [0, 1736]
+    sentence_count: 13
+    key_terms: [applications, months, job, jobs, life, comments, hopeless, toughest]
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/jobs/1nqsaul.md#c1"
+    char_span: [1738, 3898]
+    sentence_count: 14
+    key_terms: [unemployment, stay, thankful, friends, through, "don't", going, did]
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/jobs/1nqsaul.md#c2"
+    char_span: [3902, 5614]
+    sentence_count: 11
+    key_terms: [employers, linkedin, applications, question, serious, issues, people, tough-boysenberry324]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/jobs/1nqsaul.md#c3"
+    char_span: [5616, 6959]
+    sentence_count: 8
+    key_terms: [interviews, y-do-i-still-listen, did, congratulations, presentation, work, background, experience]
+    section: Comments
+    token_count: 370
 ---
-
 # Finally landed a job after 10 months and 1000+ applications. For anyone feeling hopeless, here's what I learned
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1nqsaul/finally_landed_a_job_after_10_months_and_1000/)

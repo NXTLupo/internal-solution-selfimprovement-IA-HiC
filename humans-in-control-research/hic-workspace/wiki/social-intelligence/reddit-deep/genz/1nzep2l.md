@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1nzep2l.md
 url: "https://www.reddit.com/r/GenZ/comments/1nzep2l/getting_older_made_me_realize_how_important_it_is/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,27 @@ flair: "Discussion"
 extracted_at: "2026-05-16T20:55:01.230Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1nzep2l.md#c0"
+    char_span: [0, 1080]
+    sentence_count: 9
+    key_terms: [relationship, money, comments, partner, realize, alternative-log-6091, genz, hard]
+    token_count: 252
+  - id: "social-intelligence/reddit-deep/genz/1nzep2l.md#c1"
+    char_span: [1095, 2167]
+    sentence_count: 8
+    key_terms: [partner, discord, people, talks, hard, fatcockroach002, automatically, automoderator]
+    section: Comments
+    token_count: 290
+  - id: "social-intelligence/reddit-deep/genz/1nzep2l.md#c2"
+    char_span: [2169, 3801]
+    sentence_count: 9
+    key_terms: [money, partner, like, different, something, breakups, honestly, bonding]
+    section: Comments
+    token_count: 384
 ---
-
 # Getting older made me realize how important it is to plan for the future with your partner
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1nzep2l/getting_older_made_me_realize_how_important_it_is/)

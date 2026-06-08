@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1moszgn.md
 url: "https://www.reddit.com/r/findapath/comments/1moszgn/i_want_to_work_with_animals_but_is_it_a_realistic/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,21 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-25T13:04:07.385Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1moszgn.md#c0"
+    char_span: [0, 855]
+    sentence_count: 9
+    key_terms: [want, animals, career, work, findapath, comments, pursuing, future]
+    token_count: 219
+  - id: "social-intelligence/reddit-deep/findapath/1moszgn.md#c1"
+    char_span: [870, 2747]
+    sentence_count: 18
+    key_terms: [thank, helpful, people, please, here, findapath, comments, everyone]
+    section: Comments
+    token_count: 434
 ---
-
 # I Want to Work With Animals, But Is It a Realistic Career Path?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1moszgn/i_want_to_work_with_animals_but_is_it_a_realistic/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1sqe81f.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1sqe81f/hi_guys_please_help_give_advice_in_choosing_uni/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,27 @@ flair: "Advice"
 extracted_at: "2026-05-25T18:32:06.258Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sqe81f.md#c0"
+    char_span: [0, 756]
+    sentence_count: 5
+    key_terms: [applyingtocollege, considering, currently, comments, schools, please, abt, help]
+    token_count: 201
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sqe81f.md#c1"
+    char_span: [771, 1631]
+    sentence_count: 4
+    key_terms: [columbia, science, saartemaster, degree, best, ivy, scpo, opportunities]
+    section: Comments
+    token_count: 234
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sqe81f.md#c2"
+    char_span: [1633, 3370]
+    sentence_count: 6
+    key_terms: [columbia, sciences, harvard, applyingtocollege, program, degree, universities, experience]
+    section: Comments
+    token_count: 479
 ---
-
 # Hi guys please help give advice in choosing uni
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1sqe81f/hi_guys_please_help_give_advice_in_choosing_uni/)

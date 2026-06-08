@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-college/92cedfbc64.md
 url: "https://www.reddit.com/r/college/comments/1qwtp6d/budgeting_college_debt/"
 url_hash: "92cedfbc64"
 kind: "article"
@@ -8,10 +9,27 @@ author: ""
 date: "2026-02-05T18:43:56.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-17T01:21:52.557617+00:00"
+extracted_at: "2026-06-02T17:24:03.099501+00:00"
 chars: 4374
+relevance: 55
+engagement_goal: "For a higher education institution, develop a strategic framework to increase donorship, giving, advancement, and alumni engagement, leveraging AI and digital marketing tactics. This framework must include a strategic narrative, industry analysis, competitive analysis, and opportunity analysis. Additionally, create a diverse set of 25 donor, student, alumni, and stakeholder personas, supported by evidence and quotes."
+chunks:
+  - id: "articles/reddit-deep-r-college/92cedfbc64.md#c0"
+    char_span: [0, 1102]
+    sentence_count: 11
+    key_terms: [college, big, experience, university, school, community, illinois, stadium]
+    token_count: 244
+  - id: "articles/reddit-deep-r-college/92cedfbc64.md#c1"
+    char_span: [1104, 2601]
+    sentence_count: 10
+    key_terms: [sports, illinois, school, state, big, definitely, fantastic, culture]
+    token_count: 349
+  - id: "articles/reddit-deep-r-college/92cedfbc64.md#c2"
+    char_span: [2603, 4511]
+    sentence_count: 10
+    key_terms: [school, program, experience, big, attend, going, debt, "it's"]
+    token_count: 407
 ---
-
 # Budgeting college debt
 
 Source: [Reddit Deep: r/college](https://www.reddit.com/r/college/comments/1qwtp6d/budgeting_college_debt/)
@@ -26,7 +44,7 @@ Thanks
 [5↑ viky_wiky] I go to Illinois state and chose it because of the price. I was also worried about the big school/sports feeling but Illinois state sports can definitely be big! Our football team just went to the national championships and our other sports are very dedicated people. If it comes down to money, Illinois state is a great choice of school.
 [1↑ External-Actuator] Thanks for the response, yeah I have a buddy that goes there but he’s not a big sports guy cause I was worried about this sort of the atmosphere and if the student section was a fun place to be during games  and I’ll be 21 when I am transferring, I know university of Iowa bar scene is pretty fantastic, but I don’t know what it’s like down there in Bloomington – normal
 [1↑ viky_wiky] As someone in the marching band as well it can be fantastic and a lot of fun! Our bar scene here is good especially with Pub 2. Personally I’m not 21 so I’m not an expert in that field that’s just what I heard from others.
-[4↑ SweetCosmicPope] My take is that you don't want to overindex on sports culture.  The whole reason you are going to school is to get an education and credentials that will hopefully help you to cultivate a successful career.
+[3↑ SweetCosmicPope] My take is that you don't want to overindex on sports culture.  The whole reason you are going to school is to get an education and credentials that will hopefully help you to cultivate a successful career.
 
 That being said, universities, no matter which one you go to, are expensive.  You should definitely go someplace that you feel has a culture and amenities that will make you happy for the 2 or 3 years you'll be there.  Sports may be one of those things for you.
 

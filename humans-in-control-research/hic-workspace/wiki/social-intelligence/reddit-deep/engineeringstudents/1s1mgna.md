@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1s1mgna.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1s1mgna/advice_and_suggestions_on_what_to_do_as_a/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -10,11 +11,34 @@ score: 3
 upvote_ratio: 1
 num_comments: 8
 flair: "Academic Advice"
-extracted_at: "2026-05-23T20:15:19.040Z"
+extracted_at: "2026-06-05T23:43:26.899Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1s1mgna.md#c0"
+    char_span: [0, 1066]
+    sentence_count: 10
+    key_terms: [engineeringstudents, semester, engineering, community, comments, college, student, spring]
+    token_count: 251
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1s1mgna.md#c1"
+    char_span: [1081, 3166]
+    sentence_count: 10
+    key_terms: [get, project, understanding, doing, something, started, python, learn]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1s1mgna.md#c2"
+    char_span: [3168, 5474]
+    sentence_count: 1
+    key_terms: [start, don, time, projects, college, getting, people, small]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1s1mgna.md#c3"
+    char_span: [5476, 6523]
+    sentence_count: 4
+    key_terms: [thankyou, mundanejudgment4013, feels, sleep, small, start, hefty-builder-1335, hear]
+    section: Comments
+    token_count: 255
 ---
-
 # Advice and suggestions on what to do As a first-year computer Engineering student!
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1s1mgna/advice_and_suggestions_on_what_to_do_as_a/)

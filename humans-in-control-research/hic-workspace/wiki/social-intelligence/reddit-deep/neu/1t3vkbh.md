@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1t3vkbh.md
 url: "https://www.reddit.com/r/NEU/comments/1t3vkbh/neu_oakland_single_vs_random_roommate_firstyear/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,22 @@ score: 2
 upvote_ratio: 0.75
 num_comments: 11
 flair: "Housing & Dorms"
-extracted_at: "2026-05-20T06:39:39.934Z"
+extracted_at: "2026-06-05T17:08:22.600Z"
 extraction_method: "praw-deep"
-research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1t3vkbh.md#c0"
+    char_span: [0, 1842]
+    sentence_count: 8
+    key_terms: [roommate, "i'm", neu, medical, oakland, random, condition, comments]
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/neu/1t3vkbh.md#c1"
+    char_span: [1857, 3592]
+    sentence_count: 11
+    key_terms: [single, dorms, friends, miathekoala, get, oakland, singles, minifridge]
+    section: Comments
+    token_count: 451
 ---
-
 # NEU Oakland: single vs. random roommate (first-year)
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1t3vkbh/neu_oakland_single_vs_random_roommate_firstyear/)

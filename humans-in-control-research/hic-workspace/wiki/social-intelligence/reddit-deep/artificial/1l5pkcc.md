@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1l5pkcc.md
 url: "https://www.reddit.com/r/artificial/comments/1l5pkcc/how_reliable_is_aigenerated_code_for_production/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,27 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:04.772Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1l5pkcc.md#c0"
+    char_span: [0, 975]
+    sentence_count: 8
+    key_terms: [ai-generated, code, artificial, production, blackbox, comments, reliable, review]
+    token_count: 228
+  - id: "social-intelligence/reddit-deep/artificial/1l5pkcc.md#c1"
+    char_span: [990, 2526]
+    sentence_count: 11
+    key_terms: [code, "it's", human, time, reliable, testing, working, verify]
+    section: Comments
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/artificial/1l5pkcc.md#c2"
+    char_span: [2528, 3290]
+    sentence_count: 7
+    key_terms: [code, people, "don't", product, etc, good, astronomical, expectations]
+    section: Comments
+    token_count: 165
 ---
-
 # How reliable is AI-generated code for production in 2025?
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1l5pkcc/how_reliable_is_aigenerated_code_for_production/)

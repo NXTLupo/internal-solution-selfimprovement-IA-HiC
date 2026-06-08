@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1np1lh5.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1np1lh5/how_bad_is_a_bad_gpa_when_it_comes_to_college/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,54 @@ flair: "Advice"
 extracted_at: "2026-05-22T23:33:52.647Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1np1lh5.md#c0"
+    char_span: [0, 1931]
+    sentence_count: 4
+    key_terms: [taking, applyingtocollege, calc, high, course, school, essentially, bad]
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1np1lh5.md#c1"
+    char_span: [1933, 3914]
+    sentence_count: 13
+    key_terms: [year, classes, teacher, academically, years, landscaping, calc, currently]
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1np1lh5.md#c2"
+    char_span: [3916, 5618]
+    sentence_count: 10
+    key_terms: [landscaping, years, year, basic, time, everything, business, "natty's"]
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1np1lh5.md#c3"
+    char_span: [5620, 7035]
+    sentence_count: 8
+    key_terms: [like, somewhat, school, application, applying, business, frankly, schools]
+    token_count: 318
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1np1lh5.md#c4"
+    char_span: [7050, 8141]
+    sentence_count: 7
+    key_terms: [applyingtocollege, essays, wiki, reddit, collegeessays, https, com, good]
+    section: Comments
+    token_count: 272
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1np1lh5.md#c5"
+    char_span: [8143, 10196]
+    sentence_count: 15
+    key_terms: [gpa, weighted, classes, school, unweighted, list, accepted, schools]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1np1lh5.md#c6"
+    char_span: [10198, 12123]
+    sentence_count: 18
+    key_terms: [like, school, core, get, good, gpa, flagship, courses]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1np1lh5.md#c7"
+    char_span: [12125, 13201]
+    sentence_count: 4
+    key_terms: [wanted, jvaloir-7261, finalist, college, frankly, apps, good, sure]
+    section: Comments
+    token_count: 295
 ---
-
 # How bad is a bad gpa when it comes to College Applications? (With some context if that truly helps)
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1np1lh5/how_bad_is_a_bad_gpa_when_it_comes_to_college/)

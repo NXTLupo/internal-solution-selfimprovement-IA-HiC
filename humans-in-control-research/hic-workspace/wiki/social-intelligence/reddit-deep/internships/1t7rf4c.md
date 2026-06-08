@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1t7rf4c.md
 url: "https://www.reddit.com/r/internships/comments/1t7rf4c/any_international_students_whove_gotten_a_summer/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,28 @@ score: 4
 upvote_ratio: 0.75
 num_comments: 21
 flair: "General"
-extracted_at: "2026-05-20T03:54:30.576Z"
+extracted_at: "2026-06-05T19:19:58.919Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1t7rf4c.md#c0"
+    char_span: [0, 595]
+    sentence_count: 4
+    key_terms: [gotten, international, internships, internship, comments, haven, love, popular-ad-3540]
+    token_count: 148
+  - id: "social-intelligence/reddit-deep/internships/1t7rf4c.md#c1"
+    char_span: [610, 2140]
+    sentence_count: 4
+    key_terms: [popular-ad-3540, international, internship, student, crimsonrageyt, experience, networking, doommedd]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/internships/1t7rf4c.md#c2"
+    char_span: [2142, 2686]
+    sentence_count: 4
+    key_terms: [draining, mentally, thought, bad, usa-job-hunt-swe, engineering, questioning, internship]
+    section: Comments
+    token_count: 145
 ---
-
 # Any International Students who’ve gotten a Summer Internship this year?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1t7rf4c/any_international_students_whove_gotten_a_summer/)
@@ -24,7 +42,7 @@ Hey guys, has any international student in the US gotten an internship? Sadly I 
 
 ## Comments
 
-- **CrimsonRageYT** (4↑): Im international student studying cs and got 8 offers this season with 1300 applicantions tho, so it is a number games
+- **CrimsonRageYT** (6↑): Im international student studying cs and got 8 offers this season with 1300 applicantions tho, so it is a number games
   - **Popular-Ad-3540** (1↑): Woah that’s insane!! Help me twin
     - **Popular-Ad-3540** (1↑): Also did you do the whole networking thing?
     - **CrimsonRageYT** (1↑): i would say for this summer, build out your resume, with projects and learn web dev with AI also do codepath, Extern to have some experience too, and networking, i make a lot of post on linkedin and make my work be known, that how i got people reaching out to me too

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1rfu5ou.md
 url: "https://www.reddit.com/r/findapath/comments/1rfu5ou/mexican_customs_compliance_professional_wanting/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,21 @@ flair: "Findapath-Career Change"
 extracted_at: "2026-05-25T13:04:07.381Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce, government]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1rfu5ou.md#c0"
+    char_span: [0, 329]
+    sentence_count: 2
+    key_terms: [findapath, comments, professional, reddit-deep, compliance, realistic, customs, explore]
+    token_count: 84
+  - id: "social-intelligence/reddit-deep/findapath/1rfu5ou.md#c1"
+    char_span: [344, 1654]
+    sentence_count: 10
+    key_terms: [thank, helpful, please, here, findapath, comments, everyone, guidance]
+    section: Comments
+    token_count: 294
 ---
-
 # Mexican customs compliance professional wanting to move to Europe – what realistic career paths should I explore?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1rfu5ou/mexican_customs_compliance_professional_wanting/)

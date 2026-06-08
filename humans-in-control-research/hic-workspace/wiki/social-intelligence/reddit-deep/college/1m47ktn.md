@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1m47ktn.md
 url: "https://www.reddit.com/r/college/comments/1m47ktn/where_are_you_working_to_live_on_your_own/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,33 @@ flair: "Finances/financial aid"
 extracted_at: "2026-05-17T01:12:59.142Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1m47ktn.md#c0"
+    char_span: [0, 685]
+    sentence_count: 4
+    key_terms: [college, working, time, comments, walmart, thereshaminthepci, full, live]
+    token_count: 169
+  - id: "social-intelligence/reddit-deep/college/1m47ktn.md#c1"
+    char_span: [700, 2720]
+    sentence_count: 12
+    key_terms: [scholarships, katekat0974, too, always, amazon, school, international, aid]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1m47ktn.md#c2"
+    char_span: [2488, 3546]
+    sentence_count: 12
+    key_terms: [job, tips, decent, jersey, office, pretty, shifts, major]
+    section: Comments
+    token_count: 274
+  - id: "social-intelligence/reddit-deep/college/1m47ktn.md#c3"
+    char_span: [3548, 4961]
+    sentence_count: 10
+    key_terms: [college, student, job, apartment, looking, tuition, making, offer]
+    section: Comments
+    token_count: 345
 ---
-
 # Where are you working to live on your own?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1m47ktn/where_are_you_working_to_live_on_your_own/)

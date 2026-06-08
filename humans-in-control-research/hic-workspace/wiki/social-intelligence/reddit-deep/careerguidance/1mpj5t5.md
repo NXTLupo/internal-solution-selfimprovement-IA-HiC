@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1mpj5t5.md
 url: "https://www.reddit.com/r/careerguidance/comments/1mpj5t5/learn_to_code_was_the_top_career_advice_over_15/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-20T12:56:27.152Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1mpj5t5.md#c0"
+    char_span: [0, 421]
+    sentence_count: 3
+    key_terms: [careerguidance, advice, career, aged, comments, reddit-deep, popular, common]
+    token_count: 117
+  - id: "social-intelligence/reddit-deep/careerguidance/1mpj5t5.md#c1"
+    char_span: [436, 1916]
+    sentence_count: 7
+    key_terms: [people, since, like, anymore, because, working, advice, hiring]
+    section: Comments
+    token_count: 381
+  - id: "social-intelligence/reddit-deep/careerguidance/1mpj5t5.md#c2"
+    char_span: [1918, 3304]
+    sentence_count: 12
+    key_terms: [get, "you're", braincovey32, good, like, interviews, hundreds, degrees]
+    section: Comments
+    token_count: 378
 ---
-
 # "Learn To Code" was the Top Career Advice over 15 years ago that has Not Aged Well. What other popular career advice has not aged well?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1mpj5t5/learn_to_code_was_the_top_career_advice_over_15/)

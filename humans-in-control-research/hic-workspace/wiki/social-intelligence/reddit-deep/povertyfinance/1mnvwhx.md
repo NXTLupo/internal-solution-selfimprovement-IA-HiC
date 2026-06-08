@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1mnvwhx.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1mnvwhx/should_i_ignore_medical_debt/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,56 @@ flair: "Debt/Loans/Credit"
 extracted_at: "2026-05-17T01:13:55.883Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [healthcare, financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1mnvwhx.md#c0"
+    char_span: [0, 1268]
+    sentence_count: 9
+    key_terms: [debt, medical, hospital, povertyfinance, ignore, comments, reported, minimum]
+    token_count: 299
+  - id: "social-intelligence/reddit-deep/povertyfinance/1mnvwhx.md#c1"
+    char_span: [1271, 2515]
+    sentence_count: 9
+    key_terms: [started, advice, years, limitations, hopefully, nursing, statute, thank]
+    token_count: 285
+  - id: "social-intelligence/reddit-deep/povertyfinance/1mnvwhx.md#c2"
+    char_span: [2530, 4169]
+    sentence_count: 14
+    key_terms: [debt, governor-hochul-signs-legislation-protect-patients-medical-debt, medical, collect, garnishments, wages, "i'm", pay]
+    section: Comments
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/povertyfinance/1mnvwhx.md#c3"
+    char_span: [4171, 5045]
+    sentence_count: 5
+    key_terms: [years, limitations, debt, visits, seen, inconveniences, reactivehelium, consequences]
+    section: Comments
+    token_count: 212
+  - id: "social-intelligence/reddit-deep/povertyfinance/1mnvwhx.md#c4"
+    char_span: [5047, 6589]
+    sentence_count: 12
+    key_terms: [balance, medical, right, years, collections, debt, paid, pay]
+    section: Comments
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/povertyfinance/1mnvwhx.md#c5"
+    char_span: [6591, 8409]
+    sentence_count: 9
+    key_terms: [debt, hospital, collections, bills, paying, going, bill, collection]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/povertyfinance/1mnvwhx.md#c6"
+    char_span: [8411, 10407]
+    sentence_count: 15
+    key_terms: [credit, debt, get, likely, report, assistance, collection, agencies]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/povertyfinance/1mnvwhx.md#c7"
+    char_span: [10409, 11203]
+    sentence_count: 4
+    key_terms: [questions, medical, legal, popularprompt2892, saw, work, attorney-client, clarification]
+    section: Comments
+    token_count: 185
 ---
-
 # Should I ignore medical debt?
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1mnvwhx/should_i_ignore_medical_debt/)

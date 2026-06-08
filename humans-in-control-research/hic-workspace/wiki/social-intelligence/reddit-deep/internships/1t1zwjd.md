@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1t1zwjd.md
 url: "https://www.reddit.com/r/internships/comments/1t1zwjd/i_give_up_on_internships/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,45 @@ score: 49
 upvote_ratio: 0.97
 num_comments: 34
 flair: "General"
-extracted_at: "2026-05-19T17:57:20.775Z"
+extracted_at: "2026-06-06T16:39:04.094Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1t1zwjd.md#c0"
+    char_span: [0, 1976]
+    sentence_count: 15
+    key_terms: [internships, enough, internship, been, feel, "i'm", comments, linkedin]
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/internships/1t1zwjd.md#c1"
+    char_span: [1978, 2349]
+    sentence_count: 3
+    key_terms: [summer, applications, bottled-up, currently, potential, somewhere, stressing, feelings]
+    token_count: 99
+  - id: "social-intelligence/reddit-deep/internships/1t1zwjd.md#c2"
+    char_span: [2364, 3588]
+    sentence_count: 9
+    key_terms: [companies, dialsoapbox, internships, students, company, apply, weeks, ago]
+    section: Comments
+    token_count: 280
+  - id: "social-intelligence/reddit-deep/internships/1t1zwjd.md#c3"
+    char_span: [3590, 5663]
+    sentence_count: 16
+    key_terms: [internship, "i'm", role, work, student, zettasyntax, grad, "couldn't"]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1t1zwjd.md#c4"
+    char_span: [5432, 6674]
+    sentence_count: 9
+    key_terms: [friends, publicinvention, opportunities, internships, robertlread, "i'm", internship, yourself]
+    section: Comments
+    token_count: 295
+  - id: "social-intelligence/reddit-deep/internships/1t1zwjd.md#c5"
+    char_span: [6676, 7999]
+    sentence_count: 7
+    key_terms: [iamanoob690, internship, internships, experience, sophomore, junior, resume, summer]
+    section: Comments
+    token_count: 346
 ---
-
 # I Give Up on Internships....
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1t1zwjd/i_give_up_on_internships/)
@@ -49,13 +84,13 @@ The extra students that got picked up was because i told my mentor their interns
 I know people in my class follow this sub so i don't want to give too much details about the exact email i used ( because  posted it to a class chat ), but it was just simple like above.
 - **FarObjective4137** (3↑): Same
 - **Royal_Winner_5049** (3↑): your a soph. not everyone has this opportunity. use it to build expierence outside of an internship. there should be plenty. even email people asking to do some free work on the side.
-- **zettasyntax** (3↑): No problem, everyone needs to vent. I hate the feelings of envy too. I'm a grad student and I have a little bit of work experience, but hard as I tried, I just couldn't land an internship. I didn't even get a single interview. I saw someone from my school (also a grad student) land my dream internship (a TPM role). I got rejected without even making it to the HireVue stage. I checked out their LinkedIn and other than volunteer work and a media internship during undergrad, I really couldn't understand how they were qualified for the role. The envy is ugly. Best of luck with your next internship season. I'm set to graduate this fall, so this was pretty much my last chance.
+- **zettasyntax** (4↑): No problem, everyone needs to vent. I hate the feelings of envy too. I'm a grad student and I have a little bit of work experience, but hard as I tried, I just couldn't land an internship. I didn't even get a single interview. I saw someone from my school (also a grad student) land my dream internship (a TPM role). I got rejected without even making it to the HireVue stage. I checked out their LinkedIn and other than volunteer work and a media internship during undergrad, I really couldn't understand how they were qualified for the role. The envy is ugly. Best of luck with your next internship season. I'm set to graduate this fall, so this was pretty much my last chance.
   - **Novel_Bother_8069** (3↑): Right there with you. Going through the same thing as a grad student, I can’t even put in applications anymore. And I graduate in December, so if I don’t have one by now, I don’t know what is going to happen after graduation
     - **zettasyntax** (1↑): I can't say I was being picky. I applied to internships that paid $21/hr and got rejected the same day for one of those. In my previous full-time role, I made roughly $45/hr. The work had nothing to do with what I studied though and the culture was awful (it was an Elon Musk company), so I left and went back to school. I figured an internship might be a way to get my foot in the door elsewhere and in a role related to what I'm studying, but no luck at all.
     - **RobertLRead** (1↑): If your interest falls in STEM r/publicinvention has really interesting Unpaid Internship opportunities
   - **IAmANoob690** (2↑): Thank you for this I'm glad to see I'm not the only one. Best of luck to you too I hope you get can a job 🙏🙏🙏
   - **RobertLRead** (2↑): Maybe the open source hardware projects at r/publicinvention could be the beginning of building your professional path
-- **Appropriate-Tutor587** (3↑): You are not your friends. Just because you are friends doesn’t mean you will all have the same opportunities at the same time, nope it doesn’t work this way!  
+- **Appropriate-Tutor587** (4↑): You are not your friends. Just because you are friends doesn’t mean you will all have the same opportunities at the same time, nope it doesn’t work this way!  
 You can have good grades in college, but some of your friends will always do better out there in the real world than you and vice versa. Focus on your own goals instead of comparing yourself to others. Also, why don’t you ask your friends how they landed their internships?  
 If you didn’t land an internship this year, it’s not the end of the world. Maybe next year you will land something. Meanwhile, you should be applying to summer undergraduate research program or summer jobs or any part time jobs on campus or retail or restaurant instead of just narrowing down yourself to internships.
 

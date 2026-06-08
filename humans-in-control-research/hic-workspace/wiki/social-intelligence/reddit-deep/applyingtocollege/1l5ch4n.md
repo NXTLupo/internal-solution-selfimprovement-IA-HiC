@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1l5ch4n/watching_my_friends_commit_financial_aid_fraud_to/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,81 @@ flair: "Financial Aid/Scholarships"
 extracted_at: "2026-05-24T14:08:39.594Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c0"
+    char_span: [0, 2094]
+    sentence_count: 24
+    key_terms: ["i'm", parents, university, applyingtocollege, college, school, independent, aid]
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c1"
+    char_span: [2109, 4331]
+    sentence_count: 10
+    key_terms: [homeless, get, individual, schools, student, verification, based, fafsa]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c2"
+    char_span: [4333, 5743]
+    sentence_count: 3
+    key_terms: [homelessness, considering, prove, difficult, homeless, student, cholitoburrito, independent]
+    section: Comments
+    token_count: 312
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c3"
+    char_span: [5745, 7483]
+    sentence_count: 12
+    key_terms: [parents, independent, incredibly, especially, difficult, income, doing, seems]
+    section: Comments
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c4"
+    char_span: [7485, 9595]
+    sentence_count: 12
+    key_terms: [independent, financial, fafsa, aid, aos, honestly, subsidized-unsubsidized, process]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c5"
+    char_span: [9364, 9793]
+    sentence_count: 3
+    key_terms: [student, independent, status, fafsa, aos, contribution, requirements, eligibility]
+    section: Comments
+    token_count: 104
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c6"
+    char_span: [9795, 10500]
+    sentence_count: 2
+    key_terms: [independent, appearance, homeless, status, being, court, circumstances, documentation]
+    section: Comments
+    token_count: 158
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c7"
+    char_span: [10502, 12204]
+    sentence_count: 10
+    key_terms: [income, court, money, rich, year, appearance, referring, families]
+    section: Comments
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c8"
+    char_span: [12206, 12854]
+    sentence_count: 5
+    key_terms: [telling, socioeconomic, differences, reinvested, resentment, sushiritto, financial, situation]
+    section: Comments
+    token_count: 154
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c9"
+    char_span: [12856, 14894]
+    sentence_count: 14
+    key_terms: [people, aid, something, billion, "doesn't", friends, getting, "they're"]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c10"
+    char_span: [14691, 15231]
+    sentence_count: 4
+    key_terms: [the-secret-irs-files-trove-of-never-before-seen-records-reveal-how-the-wealthiest-avoid-income-tax, propublica, article, billion, chatgpt, https, com, org]
+    section: Comments
+    token_count: 158
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1l5ch4n.md#c11"
+    char_span: [15233, 16831]
+    sentence_count: 11
+    key_terms: [definitely, billionaires, get, unrealized, difficult, loopholes, homeless, capital]
+    section: Comments
+    token_count: 358
 ---
-
 # watching my friends commit financial aid fraud to the tune of $100k+, and I'm furious
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1l5ch4n/watching_my_friends_commit_financial_aid_fraud_to/)

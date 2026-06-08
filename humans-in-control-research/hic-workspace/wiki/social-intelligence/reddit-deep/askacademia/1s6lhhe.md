@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1s6lhhe.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1s6lhhe/is_this_kind_of_behavior_during_a_faculty_campus/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,38 @@ flair: "STEM"
 extracted_at: "2026-05-26T14:32:49.124Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1s6lhhe.md#c0"
+    char_span: [0, 2315]
+    sentence_count: 19
+    key_terms: [whether, experience, asked, teaching, university, research, faculty, transferable]
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/askacademia/1s6lhhe.md#c1"
+    char_span: [2317, 3257]
+    sentence_count: 9
+    key_terms: [bothering, something, trying, conversations, interactions, experienced, interaction, interpreted]
+    token_count: 183
+  - id: "social-intelligence/reddit-deep/askacademia/1s6lhhe.md#c2"
+    char_span: [3272, 5079]
+    sentence_count: 16
+    key_terms: [lynxacceptable1490, experienced, candidate, committee, something, honestly, research, campus]
+    section: Comments
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/askacademia/1s6lhhe.md#c3"
+    char_span: [5081, 6416]
+    sentence_count: 10
+    key_terms: [unprofessional, people, search, committee, different, probably, nothing, chair]
+    section: Comments
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/askacademia/1s6lhhe.md#c4"
+    char_span: [6418, 8192]
+    sentence_count: 15
+    key_terms: [person, get, want, department, academia, prepositionstrander, being, chair]
+    section: Comments
+    token_count: 421
 ---
-
 # Is this kind of behavior during a faculty campus interview normal?
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1s6lhhe/is_this_kind_of_behavior_during_a_faculty_campus/)

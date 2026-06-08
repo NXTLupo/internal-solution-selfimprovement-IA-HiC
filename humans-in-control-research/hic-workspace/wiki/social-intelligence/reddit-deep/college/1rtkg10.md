@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1rtkg10.md
 url: "https://www.reddit.com/r/college/comments/1rtkg10/my_college_is_great_but_it_makes_me_sad_that_its/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,53 @@ subreddit: "college"
 title: "My college is great, but it makes me sad that it's in my hometown and feel like I'm missing out on the real college experience, what do I do?"
 author: "its_Ashton_13"
 date: "2026-03-14T14:11:44.000Z"
-score: 50
-upvote_ratio: 0.91
+score: 47
+upvote_ratio: 0.88
 num_comments: 26
 flair: ""
-extracted_at: "2026-05-25T15:51:48.250Z"
+extracted_at: "2026-06-03T03:09:04.078Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Generate a strategic analysis identifying actionable opportunities for Northeastern University to enhance experiential learning and co-op success. Focus the analysis on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development."
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1rtkg10.md#c0"
+    char_span: [0, 1708]
+    sentence_count: 8
+    key_terms: ["it's", wondering, keep, like, college, "i'm", family, get]
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/college/1rtkg10.md#c1"
+    char_span: [1710, 2739]
+    sentence_count: 6
+    key_terms: [like, "don't", family, get, "it's", "they're", change, people]
+    token_count: 251
+  - id: "social-intelligence/reddit-deep/college/1rtkg10.md#c2"
+    char_span: [2754, 4063]
+    sentence_count: 11
+    key_terms: [independent, learn, want, elsewhere, anyways, because, "they're", working]
+    section: Comments
+    token_count: 304
+  - id: "social-intelligence/reddit-deep/college/1rtkg10.md#c3"
+    char_span: [4065, 5295]
+    sentence_count: 7
+    key_terms: [college, own, experience, hometown, country, friends, school, doing]
+    section: Comments
+    token_count: 281
+  - id: "social-intelligence/reddit-deep/college/1rtkg10.md#c4"
+    char_span: [5297, 7254]
+    sentence_count: 19
+    key_terms: [college, experience, having, school, years, university, otherwise, married]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/college/1rtkg10.md#c5"
+    char_span: [7256, 8863]
+    sentence_count: 7
+    key_terms: [experience, friends, family, away, university, hometown, transfer, living]
+    section: Comments
+    token_count: 377
 ---
-
 # My college is great, but it makes me sad that it's in my hometown and feel like I'm missing out on the real college experience, what do I do?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1rtkg10/my_college_is_great_but_it_makes_me_sad_that_its/)
-Posted by **its_Ashton_13** · **50↑** · **26 comments**
+Posted by **its_Ashton_13** · **47↑** · **26 comments**
 
 I absolutely love my university, it's everything I've ever dreamt of, but I just hate that it's in my hometown, I've always wanted to get outta there and start somewhere new. And now it's not even about being reminded of my bad highschool memories and stuff, it's just like I keep wondering what it would be like not to live with my family, but in a shared student flat instead. I keep thinking about it like every day and it's making me go crazy. 
 
@@ -34,16 +69,16 @@ I don't know, I just keep overthinking it all, and it makes me miserable, so I r
 
 ## Comments
 
-- **ChocoKissses** (27↑): Honestly, you just explain it to them the same way that you explained it in the post. Nothing about what you said comes across as them being toxic or anything. You're just a growing adult who wants to learn how to be independent and that requires you to actually be independent, or at least to put yourself in a situation where you cannot easily rely on people to help you. If they're good parents, they're going to want you to learn how to do that anyways because you will eventually be a working adult who has to do that anyways. There's no guarantee that you're going to stay where you are now for your job and the last thing that you want to do is to learn how to be independent wild working in your career
+- **ChocoKissses** (26↑): Honestly, you just explain it to them the same way that you explained it in the post. Nothing about what you said comes across as them being toxic or anything. You're just a growing adult who wants to learn how to be independent and that requires you to actually be independent, or at least to put yourself in a situation where you cannot easily rely on people to help you. If they're good parents, they're going to want you to learn how to do that anyways because you will eventually be a working adult who has to do that anyways. There's no guarantee that you're going to stay where you are now for your job and the last thing that you want to do is to learn how to be independent wild working in your career
 - **trippapotamus** (28↑): Does your university do any sort of foreign study programs? That could be an option. You can always move after undergrad if elsewhere offers better opportunities, you’ll still be young. 
 
 It sounds like you have a supportive family, I’m not sure they’d assume they suck just because you want to venture out on your own a bit.
-  - **bluebird-1515** (4↑): Came here to say this. Study abroad/away Junior year. Maybe do a Master’s elsewhere since you’ll have little to no debt.
+  - **bluebird-1515** (5↑): Came here to say this. Study abroad/away Junior year. Maybe do a Master’s elsewhere since you’ll have little to no debt.
   - **littlemac564** (3↑): Yes. Save your money and do a year abroad. 
 
 If you don’t want to leave the country then look into doing a semester at a college in another state.
     - **its_Ashton_13** (2↑): I'm actually from Europe, but I've actually considered doing Erasmus and studying for a few months in a different country, but I also don't really wanna miss out on the classes here, in my current school and all the experiences with all the friends I finally managed to make, but idkkk.
-- **FriendsMade_MeDoIt** (5↑): I get where you’re coming from. My friends and I have joked about the hometown college dilemma a lot, and honestly, living on your own isn’t just about distance, it’s about the experience you create. Even if it’s still in your hometown, getting a shared flat could give you that independence and chance to grow without losing the support you love at home. You could frame it to your family as wanting to try managing your own space and responsibilities, not escaping them. It might feel weird at first, but sometimes creating your own little bubble is enough to get that college experience vibe.
+- **FriendsMade_MeDoIt** (6↑): I get where you’re coming from. My friends and I have joked about the hometown college dilemma a lot, and honestly, living on your own isn’t just about distance, it’s about the experience you create. Even if it’s still in your hometown, getting a shared flat could give you that independence and chance to grow without losing the support you love at home. You could frame it to your family as wanting to try managing your own space and responsibilities, not escaping them. It might feel weird at first, but sometimes creating your own little bubble is enough to get that college experience vibe.
 - **CIS_Professor** (3↑): 1. You're young and will have your entire life in front of you after you graduate. Be patient, finish your school, and then go do what it is you'd like to do.
 
 2. Or fuck it. Get off Reddit (and all social media), stop waffling and just go - anywhere.

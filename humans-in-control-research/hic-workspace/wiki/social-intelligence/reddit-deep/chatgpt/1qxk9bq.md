@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1qxk9bq.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1qxk9bq/til_openai_is_in_a_500b_partnership_with_the/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,56 @@ flair: "News 📰"
 extracted_at: "2026-05-17T01:12:48.208Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1qxk9bq.md#c0"
+    char_span: [0, 1617]
+    sentence_count: 6
+    key_terms: [president, administration, https, com, openai, openai-exec-becomes-top-trump-230342268, rapidresponse47, pro-innovation]
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/chatgpt/1qxk9bq.md#c1"
+    char_span: [1619, 1813]
+    sentence_count: 1
+    key_terms: [president-trump-positions-u-s-as-global-superpower-in-manufacturing, whitehouse, announcement, partnership, articles, softbank, openai, oracle]
+    token_count: 48
+  - id: "social-intelligence/reddit-deep/chatgpt/1qxk9bq.md#c2"
+    char_span: [1828, 3537]
+    sentence_count: 8
+    key_terms: [trump, president, solarpropietor, guy, r-chatgpt-1050422060352024636, everyone, discord, posted]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/chatgpt/1qxk9bq.md#c3"
+    char_span: [3539, 5552]
+    sentence_count: 12
+    key_terms: [starfleetdropout6, politics, remember, politicians, staggering, everyone, specific, standard]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/chatgpt/1qxk9bq.md#c4"
+    char_span: [5554, 7046]
+    sentence_count: 10
+    key_terms: [government, want, jumpedbylife, partnership, don, businesses, having, notaspacealieniswear]
+    section: Comments
+    token_count: 391
+  - id: "social-intelligence/reddit-deep/chatgpt/1qxk9bq.md#c5"
+    char_span: [7048, 8070]
+    sentence_count: 10
+    key_terms: [take, openai, local, apersonwhoexists1, boss, mob, various-loan2560, inauguration]
+    section: Comments
+    token_count: 286
+  - id: "social-intelligence/reddit-deep/chatgpt/1qxk9bq.md#c6"
+    char_span: [8072, 9990]
+    sentence_count: 11
+    key_terms: [anything, ea12baf706e880d4141d01740f53245eefbb1b95, chatgpt, legal, get, mrtorrence, knowledge, epstein]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1qxk9bq.md#c7"
+    char_span: [9719, 10338]
+    sentence_count: 4
+    key_terms: [claude, mrtorrence, chatgpt, gemini, others, americanasskicker, used, considering]
+    section: Comments
+    token_count: 166
 ---
-
 # TIL OpenAI is in a $500B partnership with the Trump Administration. "Thank you for being such a pro-business, pro-innovation President. It’s a very refreshing change." -Sam Altman
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1qxk9bq/til_openai_is_in_a_500b_partnership_with_the/)

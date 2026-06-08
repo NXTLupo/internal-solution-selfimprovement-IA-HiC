@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1stbo7s.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1stbo7s/i_had_a_research_internship_that_flew_me_abroad/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,36 @@ flair: "New Grad"
 extracted_at: "2026-05-23T20:15:57.476Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1stbo7s.md#c0"
+    char_span: [0, 1854]
+    sentence_count: 21
+    key_terms: [cgpa, cscareerquestions, projects, wrong, internships, full-stack, internship, understand]
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1stbo7s.md#c1"
+    char_span: [1856, 4131]
+    sentence_count: 33
+    key_terms: [ceo, loudly, months, office, "he'd", like, employee, startup]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1stbo7s.md#c2"
+    char_span: [4133, 6302]
+    sentence_count: 40
+    key_terms: [lpa, company, witch, recognition, allocation, interview, building, engineer]
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1stbo7s.md#c3"
+    char_span: [6304, 7819]
+    sentence_count: 17
+    key_terms: [get, "i'm", non-negotiable, load-bearing, assessments, opportunity, absolutely, allocation]
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1stbo7s.md#c4"
+    char_span: [7834, 8477]
+    sentence_count: 6
+    key_terms: [sureassociation9708, part, encouraging, indomitable, internship, employers, published, regionals]
+    section: Comments
+    token_count: 166
 ---
-
 # I had a research internship that flew me abroad, went to ICPC Regionals, and built full-stack projects from scratch. It still took me 10 months to get a job. The 2025 market is cooked and here's the full unhinged story. Long post. Worth it. Grab a snack.
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1stbo7s/i_had_a_research_internship_that_flew_me_abroad/)

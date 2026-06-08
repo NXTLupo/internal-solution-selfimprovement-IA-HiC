@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1ns8rmw.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1ns8rmw/which_career_in_cs_would_you_choose_if_you_were/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: "New Grad"
 extracted_at: "2026-05-25T18:32:49.826Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ns8rmw.md#c0"
+    char_span: [0, 709]
+    sentence_count: 7
+    key_terms: [cscareerquestions, comments, industry, career, etc, unavailabelle, reddit-deep, experience]
+    token_count: 182
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ns8rmw.md#c1"
+    char_span: [724, 2951]
+    sentence_count: 19
+    key_terms: [get, opt, like, projects, cloud, roles, engineering, job]
+    section: Comments
+    token_count: 497
 ---
-
 # Which career in CS would you choose if you were starting now on OPT? Software developer vs data analyst vs project manager vsscrum masters etc?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1ns8rmw/which_career_in_cs_would_you_choose_if_you_were/)

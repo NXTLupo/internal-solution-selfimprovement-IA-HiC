@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1ndj2wx.md
 url: "https://www.reddit.com/r/OpenAI/comments/1ndj2wx/the_ai_nerf_is_real/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,57 @@ flair: "Article"
 extracted_at: "2026-05-11T17:27:05.358Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1ndj2wx.md#c0"
+    char_span: [0, 1901]
+    sentence_count: 15
+    key_terms: [day, isitnerfed, code, quality, august, claude, openai, next]
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/openai/1ndj2wx.md#c1"
+    char_span: [1916, 3141]
+    sentence_count: 7
+    key_terms: [ambientocclusion, guardrails, response, already, imagine, latency, purple, black]
+    section: Comments
+    token_count: 310
+  - id: "social-intelligence/reddit-deep/openai/1ndj2wx.md#c2"
+    char_span: [3143, 4810]
+    sentence_count: 7
+    key_terms: [ambientocclusion, because, imagine, humans, models, challengesweaty4462, juicy, use]
+    section: Comments
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/openai/1ndj2wx.md#c3"
+    char_span: [4812, 6402]
+    sentence_count: 11
+    key_terms: [results, people, check, feel, gut, vibe, benchmarks, deleted]
+    section: Comments
+    token_count: 358
+  - id: "social-intelligence/reddit-deep/openai/1ndj2wx.md#c4"
+    char_span: [6404, 8347]
+    sentence_count: 14
+    key_terms: [models, deterministic, temperature, volatility, different, rorowhat, non-determinism-in-gpt-4, demand]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/openai/1ndj2wx.md#c5"
+    char_span: [8349, 8517]
+    sentence_count: 2
+    key_terms: [anthropic, status, feepingcreature, performance, follows, "that's", https, issue]
+    section: Comments
+    token_count: 45
+  - id: "social-intelligence/reddit-deep/openai/1ndj2wx.md#c6"
+    char_span: [8519, 10672]
+    sentence_count: 11
+    key_terms: [performance, claude, volatility, exbarboss, intensive, anything, resolved, quality]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/openai/1ndj2wx.md#c7"
+    char_span: [10346, 11032]
+    sentence_count: 5
+    key_terms: [ae1-tom-benchmark-2025, huggingface, performance, aidoctrine, reasoning, stability, datasets, tracking]
+    section: Comments
+    token_count: 161
 ---
-
 # The AI Nerf Is Real
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1ndj2wx/the_ai_nerf_is_real/)

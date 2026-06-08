@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1q9bcl9.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1q9bcl9/p_i_made_screen_vision_turn_any_confusing_ui_into/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -13,8 +14,21 @@ flair: "Project"
 extracted_at: "2026-05-11T17:27:06.579Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1q9bcl9.md#c0"
+    char_span: [0, 1571]
+    sentence_count: 5
+    key_terms: [screen, vision, https, source, bullmeza, machinelearning, local, app]
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/machinelearning/1q9bcl9.md#c1"
+    char_span: [1586, 2566]
+    sentence_count: 4
+    key_terms: [bullmeza, project, vision, agent, mindless-brainless, cool, goal, "it's"]
+    section: Comments
+    token_count: 269
 ---
-
 # [P] I made Screen Vision, turn any confusing UI into a step-by-step guide via screen sharing (open source)
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1q9bcl9/p_i_made_screen_vision_turn_any_confusing_ui_into/)

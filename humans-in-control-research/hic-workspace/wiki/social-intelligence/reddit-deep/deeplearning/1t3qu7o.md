@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1t3qu7o.md
 url: "https://www.reddit.com/r/deeplearning/comments/1t3qu7o/p_i_built_a_triton_kvcache_compression_engine/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,20 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.057Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1t3qu7o.md#c0"
+    char_span: [0, 1933]
+    sentence_count: 6
+    key_terms: [compression, omnistack-rs, users, benchmark, kernel, deeplearning, personalized, quantization]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/deeplearning/1t3qu7o.md#c1"
+    char_span: [1935, 2366]
+    sentence_count: 5
+    key_terms: [e0e0c9f092a84a00c56754322a66c07b457e1497, recommender-style, int4, png, a99y8bs9m7yg1, compression, convincing, benchmark]
+    token_count: 130
 ---
-
 # [P] I built a Triton KV-cache compression engine: 3.37x compression, 0.69ms P99 on an A10
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1t3qu7o/p_i_built_a_triton_kvcache_compression_engine/)

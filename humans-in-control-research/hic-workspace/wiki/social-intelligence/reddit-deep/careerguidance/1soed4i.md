@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1soed4i.md
 url: "https://www.reddit.com/r/careerguidance/comments/1soed4i/which_path_actually_makes_sense_for_the_future/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,75 @@ flair: ""
 extracted_at: "2026-05-20T02:32:24.871Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1soed4i.md#c0"
+    char_span: [0, 670]
+    sentence_count: 6
+    key_terms: [careerguidance, future, want, comments, makes, sense, reddit-deep, direction]
+    token_count: 166
+  - id: "social-intelligence/reddit-deep/careerguidance/1soed4i.md#c1"
+    char_span: [685, 1936]
+    sentence_count: 9
+    key_terms: [engineering, people, treatment, water, saturated, industry, starting, getting]
+    section: Comments
+    token_count: 291
+  - id: "social-intelligence/reddit-deep/careerguidance/1soed4i.md#c2"
+    char_span: [1938, 3518]
+    sentence_count: 12
+    key_terms: [stable, going, engineering, interests, nothing, career, "you're", money]
+    section: Comments
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/careerguidance/1soed4i.md#c3"
+    char_span: [3520, 4291]
+    sentence_count: 7
+    key_terms: [money, life, become, above, prettypuff405, collaborate, flexibility, bogleheads]
+    section: Comments
+    token_count: 191
+  - id: "social-intelligence/reddit-deep/careerguidance/1soed4i.md#c4"
+    char_span: [4293, 6390]
+    sentence_count: 11
+    key_terms: [get, experience, degree, skills, something, job, because, trades]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1soed4i.md#c5"
+    char_span: [6157, 6501]
+    sentence_count: 2
+    key_terms: [going, consultants, relatively, successful, understand, starting, already, because]
+    section: Comments
+    token_count: 89
+  - id: "social-intelligence/reddit-deep/careerguidance/1soed4i.md#c6"
+    char_span: [6505, 7308]
+    sentence_count: 5
+    key_terms: [because, medical, market, people, value, job, lot, safe]
+    section: Comments
+    token_count: 174
+  - id: "social-intelligence/reddit-deep/careerguidance/1soed4i.md#c7"
+    char_span: [7313, 9372]
+    sentence_count: 16
+    key_terms: [people, work, school, trades, unrealistic, mechanics, working, degree]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/careerguidance/1soed4i.md#c8"
+    char_span: [9374, 10888]
+    sentence_count: 13
+    key_terms: [people, ago, bad, work, year, completely, heating, school]
+    section: Comments
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/careerguidance/1soed4i.md#c9"
+    char_span: [10890, 12484]
+    sentence_count: 11
+    key_terms: [people, trades, construction, aren, new, skills, worked, adventurous-depth984]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/careerguidance/1soed4i.md#c10"
+    char_span: [12486, 13009]
+    sentence_count: 3
+    key_terms: [phonytoughcraybrave, going, inaccessible, environment, nakano-star, assembling, controlled, diagnosing]
+    section: Comments
+    token_count: 120
 ---
-
 # Which path actually makes sense for the future job market?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1soed4i/which_path_actually_makes_sense_for_the_future/)

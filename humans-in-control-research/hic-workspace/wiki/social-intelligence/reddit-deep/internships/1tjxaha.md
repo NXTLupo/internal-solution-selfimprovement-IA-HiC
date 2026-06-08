@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1tjxaha.md
 url: "https://www.reddit.com/r/internships/comments/1tjxaha/suggestions_for_internship_paths/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,16 @@ score: 3
 upvote_ratio: 1
 num_comments: 1
 flair: "General"
-extracted_at: "2026-05-23T12:15:55.810Z"
+extracted_at: "2026-06-03T18:34:48.711Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1tjxaha.md#c0"
+    char_span: [0, 1436]
+    sentence_count: 12
+    key_terms: [internships, policy, internship, suggestions, background, compliance, governance, financial]
+    token_count: 296
 ---
-
 # Suggestions for Internship Paths
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1tjxaha/suggestions_for_internship_paths/)

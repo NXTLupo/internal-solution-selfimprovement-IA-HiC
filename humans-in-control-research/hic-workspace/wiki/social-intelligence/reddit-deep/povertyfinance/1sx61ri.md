@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1sx61ri.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1sx61ri/financial_support_vs_financial_deception/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,44 @@ flair: "Misc Advice"
 extracted_at: "2026-05-17T01:13:55.886Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sx61ri.md#c0"
+    char_span: [0, 2413]
+    sentence_count: 16
+    key_terms: [event, money, savings, financial, milestone, povertyfinance, amount, credit]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sx61ri.md#c1"
+    char_span: [2415, 3812]
+    sentence_count: 11
+    key_terms: [budget, relationship, accepting, advantage, situation, hesitant, expense, someone]
+    token_count: 283
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sx61ri.md#c2"
+    char_span: [3827, 6006]
+    sentence_count: 22
+    key_terms: [people, afford, sacrifice, badtastingparsnip, need, little, information, definition]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sx61ri.md#c3"
+    char_span: [6008, 8155]
+    sentence_count: 16
+    key_terms: [money, sharing, "don't", badtastingparsnip, too, because, afford, differently]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sx61ri.md#c4"
+    char_span: [8157, 10349]
+    sentence_count: 19
+    key_terms: [credit, emergency, spending, discretionary, someone, something, card, because]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sx61ri.md#c5"
+    char_span: [10351, 12066]
+    sentence_count: 14
+    key_terms: [credit, like, willing, use, want, specific, paying, people]
+    section: Comments
+    token_count: 385
 ---
-
 # Financial support vs financial deception
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1sx61ri/financial_support_vs_financial_deception/)

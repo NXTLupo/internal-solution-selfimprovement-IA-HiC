@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1qzhwol.md
 url: "https://www.reddit.com/r/careeradvice/comments/1qzhwol/backend_net_dev_6_yrs_assigned_to_aigenerated/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.240Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [enterprise_it, ai_research, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1qzhwol.md#c0"
+    char_span: [0, 337]
+    sentence_count: 2
+    key_terms: [careeradvice, comments, ai-generated, halfdeadlock, reddit-deep, playwright, assigned, learning]
+    token_count: 98
 ---
-
 # Backend .NET dev (6+ yrs) assigned to AI-generated Playwright + React tests – good learning or career risk?
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1qzhwol/backend_net_dev_6_yrs_assigned_to_aigenerated/)

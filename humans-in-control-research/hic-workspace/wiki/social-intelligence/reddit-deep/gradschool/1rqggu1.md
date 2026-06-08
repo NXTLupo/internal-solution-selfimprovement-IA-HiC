@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1rqggu1.md
 url: "https://www.reddit.com/r/GradSchool/comments/1rqggu1/help_identifying_professional_training/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.332Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, healthcare]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1rqggu1.md#c0"
+    char_span: [0, 1290]
+    sentence_count: 11
+    key_terms: [certifications, professional, school, experience, gradschool, clinical, comments, pre-grad]
+    token_count: 274
+  - id: "social-intelligence/reddit-deep/gradschool/1rqggu1.md#c1"
+    char_span: [1305, 1639]
+    sentence_count: 1
+    key_terms: [confidentelevator239, cacrep-aligned, professionals, background, commitment, counseling, especially, scheduling]
+    section: Comments
+    token_count: 70
 ---
-
 # Help identifying professional training certifications for a pre-grad school/licensure mental health professional
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1rqggu1/help_identifying_professional_training/)

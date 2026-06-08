@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1s6tkcy.md
 url: "https://www.reddit.com/r/careerguidance/comments/1s6tkcy/at_36_with_13_years_in_tech_am_i_crazy_to/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,49 @@ flair: "Advice"
 extracted_at: "2026-05-25T15:52:13.110Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1s6tkcy.md#c0"
+    char_span: [0, 2082]
+    sentence_count: 22
+    key_terms: [work, careerguidance, feels, years, don, live, definitely, especially]
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/careerguidance/1s6tkcy.md#c1"
+    char_span: [2084, 4371]
+    sentence_count: 26
+    key_terms: [like, someone, feel, don, life, meaningful, sometimes, anything]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1s6tkcy.md#c2"
+    char_span: [4373, 4767]
+    sentence_count: 5
+    key_terms: [post, interesting, perspective, considered, discussion, relatively, published, yesterday]
+    token_count: 80
+  - id: "social-intelligence/reddit-deep/careerguidance/1s6tkcy.md#c3"
+    char_span: [4782, 6907]
+    sentence_count: 19
+    key_terms: [career, working, keep, long, time, financial, medicine, yourself]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/careerguidance/1s6tkcy.md#c4"
+    char_span: [6909, 9035]
+    sentence_count: 21
+    key_terms: [yourself, time, medicine, healthy, family, fulfillment, want, work]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/careerguidance/1s6tkcy.md#c5"
+    char_span: [9037, 11149]
+    sentence_count: 17
+    key_terms: [medical, like, try, medicine, always, school, volunteering, work]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/careerguidance/1s6tkcy.md#c6"
+    char_span: [11151, 12865]
+    sentence_count: 13
+    key_terms: [healthcare, computational, diagnostics, specialties, neurology, biology, degrees, matyyyy]
+    section: Comments
+    token_count: 396
 ---
-
 # At 36, with 13 years in tech, am I crazy to consider switching to medicine?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1s6tkcy/at_36_with_13_years_in_tech_am_i_crazy_to/)

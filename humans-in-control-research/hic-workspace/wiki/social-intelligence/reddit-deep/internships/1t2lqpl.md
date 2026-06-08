@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1t2lqpl.md
 url: "https://www.reddit.com/r/internships/comments/1t2lqpl/starting_my_first_internship_soon_any_advice/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,36 @@ subreddit: "internships"
 title: "Starting my first internship soon, any advice?"
 author: "PathAcceptable3119"
 date: "2026-05-03T13:38:57.000Z"
-score: 11
-upvote_ratio: 0.87
+score: 13
+upvote_ratio: 0.93
 num_comments: 13
 flair: "During the Internship"
-extracted_at: "2026-05-26T14:30:47.907Z"
+extracted_at: "2026-06-06T16:39:04.098Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1t2lqpl.md#c0"
+    char_span: [0, 1813]
+    sentence_count: 17
+    key_terms: [internships, internship, anything, pretty, day, first-year, comments, everyone]
+    token_count: 391
+  - id: "social-intelligence/reddit-deep/internships/1t2lqpl.md#c1"
+    char_span: [1828, 3586]
+    sentence_count: 11
+    key_terms: [pathacceptable3119, best, like, luck, team, good, time, prachub]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/internships/1t2lqpl.md#c2"
+    char_span: [3588, 4514]
+    sentence_count: 2
+    key_terms: [already, pathacceptable3119, intellectual, internships, opportunity, confidence, definitely, describing]
+    section: Comments
+    token_count: 222
 ---
-
 # Starting my first internship soon, any advice?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1t2lqpl/starting_my_first_internship_soon_any_advice/)
-Posted by **PathAcceptable3119** · **11↑** · **13 comments**
+Posted by **PathAcceptable3119** · **13↑** · **13 comments**
 
 I’m starting my first software engineering internship in a few days at a medium-sized tech company, and I’m honestly really excited to finally get some real industry experience. I’m a first-year student, so everything still feels pretty new to me, and I’m not entirely sure what to expect yet.
 
@@ -38,8 +56,6 @@ Thanks :)
   - **PathAcceptable3119** (2↑): Thanks and good luck!!
 - **nian2326076** (3↑): Internships are all about learning, so jump in and ask questions. Since it's mostly remote, make sure to stay in touch with your team. Set clear goals with your manager early on to know what's expected. Take notes during meetings to keep track of important info and tasks. Also, use this time to get familiar with the tools and workflows your team uses. The dinner sounds like a great chance to build rapport, so just be yourself and talk to your team leads. If you want some extra resources for improving your skills or interview prep later, [PracHub](https://prachub.com/?utm_source=reddit&utm_campaign=niancomment) is pretty useful. Good luck and enjoy the experience!
   - **PathAcceptable3119** (1↑): Thank you for the well thought out advice, I’ll keep everything in mind and do my best!!
-- **bootyhole_licker69** (2↑): ask a ton of questions, write stuff down, always say what you’re working on in standup, and share progress early instead of hiding stuckness. treat 1st week as learning, not proving. internship vibes are way nicer than hunting for any half decent job in this mess
-  - **PathAcceptable3119** (2↑): Thank you for the advice!
 - **shiv_2000** (2↑): Good luck, and I’m sure you’ll figure this out. It’s incredible that you landed one in your first year so I’m positive you got this! :))
   - **PathAcceptable3119** (1↑): That’s so kind of you to say, thank you!! I’ll do my best😁
 - **Few-Basil-337** (2↑): All the best

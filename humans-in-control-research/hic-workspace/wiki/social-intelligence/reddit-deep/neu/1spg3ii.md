@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1spg3ii.md
 url: "https://www.reddit.com/r/NEU/comments/1spg3ii/having_a_bad_time_financially_need_a_part_time_job/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "Campus Life"
 extracted_at: "2026-05-14T12:20:30.878Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1spg3ii.md#c0"
+    char_span: [0, 1286]
+    sentence_count: 10
+    key_terms: [oncampus, financially, job, time, comments, support, myself, right]
+    token_count: 309
+  - id: "social-intelligence/reddit-deep/neu/1spg3ii.md#c1"
+    char_span: [1301, 2681]
+    sentence_count: 7
+    key_terms: [get, relationship, good, professors, difficult, continue, rick-67, campus]
+    section: Comments
+    token_count: 387
 ---
-
 # Having a bad time Financially need a part time job
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1spg3ii/having_a_bad_time_financially_need_a_part_time_job/)

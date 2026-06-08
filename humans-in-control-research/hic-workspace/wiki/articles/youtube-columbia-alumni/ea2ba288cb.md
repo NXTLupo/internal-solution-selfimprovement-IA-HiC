@@ -1,4 +1,5 @@
 ---
+id: articles/youtube-columbia-alumni/ea2ba288cb.md
 url: "https://www.youtube.com/watch?v=03UiuCKKYEI"
 url_hash: "ea2ba288cb"
 kind: "article"
@@ -10,8 +11,90 @@ tier: 2
 method: "source-native"
 extracted_at: "2026-05-03T16:11:31.479377+00:00"
 chars: 30000
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c0"
+    char_span: [0, 181]
+    sentence_count: 1
+    key_terms: [youtube, columbia, journey, olympic, skating, alumni, expert, figure]
+    token_count: 49
+  - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c1"
+    char_span: [183, 2595]
+    sentence_count: 26
+    key_terms: [columbia, opened, sasha, today, door, skating, technologies, age]
+    token_count: 512
+  - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c2"
+    char_span: [2314, 4624]
+    sentence_count: 16
+    key_terms: [skating, energy, gymnastics, age, figure, school, homeschooled, early]
+    token_count: 512
+  - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c3"
+    char_span: [4305, 6590]
+    sentence_count: 18
+    key_terms: [experience, olympic, little, later, education, columbia, olympics, priority]
+    token_count: 512
+  - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c4"
+    char_span: [6267, 8465]
+    sentence_count: 21
+    key_terms: ["you're", program, going, year, injuries, performance, long, old]
+    token_count: 512
+  - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c5"
+    char_span: [8208, 10438]
+    sentence_count: 18
+    key_terms: [kind, career, going, night, performance, meaningful, mentorship, emotional]
+    token_count: 512
+  - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c6"
+    char_span: [10152, 12425]
+    sentence_count: 15
+    key_terms: [skating, figure, wonderful, kind, like, skaters, maybe, day]
+    token_count: 512
+  - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c7"
+    char_span: [12143, 14418]
+    sentence_count: 21
+    key_terms: [like, because, moscow, people, "you're", interesting, time, definitely]
+    token_count: 512
+  - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c8"
+    char_span: [14161, 16405]
+    sentence_count: 20
+    key_terms: ["you're", acting, person, words, away, like, put, vulnerable]
+    token_count: 512
+  - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c9"
+    char_span: [16147, 18368]
+    sentence_count: 25
+    key_terms: [like, kind, "you're", did, yourself, acting, autobiography, onion]
+    token_count: 512
+  - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c10"
+    char_span: [18075, 20267]
+    sentence_count: 18
+    key_terms: [kind, "you're", back, "i'm", getting, olympic, skating, opportunities]
+    token_count: 512
+  - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c11"
+    char_span: [19992, 22307]
+    sentence_count: 24
+    key_terms: [athletes, documentary, health, mental, time, olympic, issues, gold]
+    token_count: 512
+  - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c12"
+    char_span: [22036, 24246]
+    sentence_count: 19
+    key_terms: ["you're", because, day, like, athletes, friends, debate, "that's"]
+    token_count: 512
+  - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c13"
+    char_span: [23949, 26191]
+    sentence_count: 27
+    key_terms: [kind, people, athlete, career, mental, wanted, peers, "it's"]
+    token_count: 512
+  - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c14"
+    char_span: [25875, 28292]
+    sentence_count: 32
+    key_terms: [classes, columbia, class, professor, time, people, loved, definitely]
+    token_count: 512
+  - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c15"
+    char_span: [27975, 30183]
+    sentence_count: 30
+    key_terms: [columbia, "i'm", campus, back, because, classes, special, "you're"]
+    token_count: 495
 ---
-
 # Ask the Expert | Sasha Cohen ’16GS: My Journey to the Olympic Games and Life After Figure Skating
 
 Source: [YouTube: Columbia Alumni](https://www.youtube.com/watch?v=03UiuCKKYEI)

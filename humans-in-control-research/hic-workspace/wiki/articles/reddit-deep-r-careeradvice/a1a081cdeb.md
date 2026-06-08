@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careeradvice/a1a081cdeb.md
 url: "https://www.reddit.com/r/careeradvice/comments/1rf3sx3/how_are_you_protecting_your_career_from_ai/"
 url_hash: "a1a081cdeb"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T19:00:05.916611+00:00"
 chars: 1221
+industries: [workforce, ai_research]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-careeradvice/a1a081cdeb.md#c0"
+    char_span: [0, 1420]
+    sentence_count: 5
+    key_terms: [careeradvice, job, like, automation, comments, myself, reddit, mobile-temperature36]
+    token_count: 345
 ---
-
 # How are you protecting your career from AI automation?
 
 Source: [Reddit Deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1rf3sx3/how_are_you_protecting_your_career_from_ai/)

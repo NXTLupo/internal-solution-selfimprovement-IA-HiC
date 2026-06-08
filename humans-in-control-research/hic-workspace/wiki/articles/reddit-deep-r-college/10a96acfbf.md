@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-college/10a96acfbf.md
 url: "https://www.reddit.com/r/college/comments/1o0j3uz/the_2026_best_colleges_in_america_stanford_babson/"
 url_hash: "10a96acfbf"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T12:21:16.904929+00:00"
 chars: 1131
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-college/10a96acfbf.md#c0"
+    char_span: [0, 1348]
+    sentence_count: 6
+    key_terms: [best-colleges-america-2026-f64d590e, college, school, https, com, list, wsj, www]
+    token_count: 343
 ---
-
 # The 2026 Best Colleges in America: Stanford, Babson and Yale Take Top Spots
 
 Source: [Reddit Deep: r/college](https://www.reddit.com/r/college/comments/1o0j3uz/the_2026_best_colleges_in_america_stanford_babson/)

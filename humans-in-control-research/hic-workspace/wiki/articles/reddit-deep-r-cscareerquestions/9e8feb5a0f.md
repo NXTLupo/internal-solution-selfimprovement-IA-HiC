@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/9e8feb5a0f.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1kw5mrk/should_i_pursue_an_ms_in_cs_to_improve_my/"
 url_hash: "9e8feb5a0f"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T15:00:38.099869+00:00"
 chars: 3726
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/9e8feb5a0f.md#c0"
+    char_span: [0, 2173]
+    sentence_count: 16
+    key_terms: [internships, job, networking, better, cscareerquestions, personal, projects, chances]
+    token_count: 509
+  - id: "articles/reddit-deep-r-cscareerquestions/9e8feb5a0f.md#c1"
+    char_span: [2175, 3984]
+    sentence_count: 17
+    key_terms: [aspects, domains, masters, someone, person, illustrious-pound266, great, here]
+    token_count: 413
 ---
-
 # Should I pursue an MS in CS to improve my internship/job chances if I got zero internships during my BS?
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1kw5mrk/should_i_pursue_an_ms_in_cs_to_improve_my/)

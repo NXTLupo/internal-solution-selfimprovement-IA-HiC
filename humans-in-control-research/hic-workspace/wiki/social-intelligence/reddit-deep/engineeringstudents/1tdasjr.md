@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1tdasjr.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1tdasjr/any_advice_on_getting_an_internship_in_slc_as_a/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Career Advice"
 extracted_at: "2026-05-20T12:57:40.603Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tdasjr.md#c0"
+    char_span: [0, 733]
+    sentence_count: 5
+    key_terms: [engineeringstudents, internship, comments, student, school, sensitive-low-4359, high, engineering]
+    token_count: 179
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tdasjr.md#c1"
+    char_span: [748, 1090]
+    sentence_count: 1
+    key_terms: [internship, deluusonialbadger, integrators, programmers, integrator, undergrad, research, biotech]
+    section: Comments
+    token_count: 81
 ---
-
 # Any advice on getting an internship in SLC as a high school student?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1tdasjr/any_advice_on_getting_an_internship_in_slc_as_a/)

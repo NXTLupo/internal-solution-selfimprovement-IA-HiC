@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1tkd7xa.md
 url: "https://www.reddit.com/r/productivity/comments/1tkd7xa/what_is_your_personal_organization_system_for/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,33 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:45.652Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1tkd7xa.md#c0"
+    char_span: [0, 1445]
+    sentence_count: 6
+    key_terms: [productivity, use, system, organization, "i'm", reminders, comments, personal]
+    token_count: 321
+  - id: "social-intelligence/reddit-deep/productivity/1tkd7xa.md#c1"
+    char_span: [1460, 3343]
+    sentence_count: 13
+    key_terms: [text, plain, backlog, notion, system, emacs, files, topic]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/productivity/1tkd7xa.md#c2"
+    char_span: [3345, 5328]
+    sentence_count: 17
+    key_terms: [use, notes, note, todoist, obsidian, list, work, everything]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/productivity/1tkd7xa.md#c3"
+    char_span: [5330, 5789]
+    sentence_count: 5
+    key_terms: [list, productivity, integration, maintenance, everything, functional, mufenglabs, temporary]
+    section: Comments
+    token_count: 102
 ---
-
 # What is your personal organization system for "projects" and "tags"? What other tools do you use to organize and manage your life?
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1tkd7xa/what_is_your_personal_organization_system_for/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gemini/1nlfvf2.md
 url: "https://www.reddit.com/r/Gemini/comments/1nlfvf2/my_experience_signing_up_with_gemini_bonus/"
 kind: "social-post"
 source: "reddit-deep: r/gemini"
@@ -13,8 +14,33 @@ flair: "Discussion :Discussion:"
 extracted_at: "2026-05-11T16:52:32.576Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gemini/1nlfvf2.md#c0"
+    char_span: [0, 868]
+    sentence_count: 4
+    key_terms: [gemini, stablecoin, comments, platform, bonus, test, use, straightforward]
+    token_count: 216
+  - id: "social-intelligence/reddit-deep/gemini/1nlfvf2.md#c1"
+    char_span: [883, 1610]
+    sentence_count: 12
+    key_terms: [account, bank, transfer, digits, signed, send, wire, thejakernator]
+    section: Comments
+    token_count: 187
+  - id: "social-intelligence/reddit-deep/gemini/1nlfvf2.md#c2"
+    char_span: [1612, 3569]
+    sentence_count: 18
+    key_terms: ["don't", because, "you're", marketingmuted1411, get, promo, like, dikweeds]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gemini/1nlfvf2.md#c3"
+    char_span: [3332, 3704]
+    sentence_count: 3
+    key_terms: [sign, address, marketingmuted1411, take, ready-made, agreement, contracts, notarized]
+    section: Comments
+    token_count: 93
 ---
-
 # My experience signing up with Gemini (bonus available)
 
 Source: [reddit-deep: r/gemini](https://www.reddit.com/r/Gemini/comments/1nlfvf2/my_experience_signing_up_with_gemini_bonus/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1skjlzy.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1skjlzy/do_you_ever_plan_on_owning_a_house_asking_advice/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,45 @@ flair: "Free talk"
 extracted_at: "2026-05-17T01:13:55.888Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [real_estate, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1skjlzy.md#c0"
+    char_span: [0, 1407]
+    sentence_count: 5
+    key_terms: [credit, povertyfinance, asking, months, financially, financial, comments, advice]
+    token_count: 334
+  - id: "social-intelligence/reddit-deep/povertyfinance/1skjlzy.md#c1"
+    char_span: [1422, 3183]
+    sentence_count: 12
+    key_terms: [buy, naca, mortgage, through, going, https, month, offer]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/povertyfinance/1skjlzy.md#c2"
+    char_span: [3185, 5146]
+    sentence_count: 16
+    key_terms: [income, years, new, thinking, student, loans, downpayment, need]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/povertyfinance/1skjlzy.md#c3"
+    char_span: [5148, 6494]
+    sentence_count: 13
+    key_terms: [mortgage, get, overallcomplexities, great, month, paint, small, years]
+    section: Comments
+    token_count: 319
+  - id: "social-intelligence/reddit-deep/povertyfinance/1skjlzy.md#c4"
+    char_span: [6496, 8022]
+    sentence_count: 7
+    key_terms: [time, apartment, closing, partner, better, market, "you're", "don't"]
+    section: Comments
+    token_count: 352
+  - id: "social-intelligence/reddit-deep/povertyfinance/1skjlzy.md#c5"
+    char_span: [8024, 8800]
+    sentence_count: 6
+    key_terms: [enough, credits, investigate, costs, homes, home, time, work]
+    section: Comments
+    token_count: 173
 ---
-
 # Do you ever plan on owning a house? Asking advice
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1skjlzy/do_you_ever_plan_on_owning_a_house_asking_advice/)

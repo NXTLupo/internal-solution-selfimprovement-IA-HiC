@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tldces.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tldces/i_have_no_idea_what_my_career_could_be_after_an/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-25T13:04:07.361Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tldces.md#c0"
+    char_span: [0, 2019]
+    sentence_count: 14
+    key_terms: [career, like, jobs, careerguidance, degree, idea, take, positions]
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/careerguidance/1tldces.md#c1"
+    char_span: [2034, 3826]
+    sentence_count: 13
+    key_terms: [analyst, business, product, implementation, branch, roles, since, ops]
+    section: Comments
+    token_count: 385
 ---
-
 # I have no idea what my career could be after an entry level job, what should I do?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tldces/i_have_no_idea_what_my_career_could_be_after_an/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/32dd6acdf1.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1lcxe9a/5_months_into_corporate_life_and_im_genuinely/"
 url_hash: "32dd6acdf1"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T06:46:11.138679+00:00"
 chars: 3075
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/32dd6acdf1.md#c0"
+    char_span: [0, 1962]
+    sentence_count: 29
+    key_terms: [like, work, cscareerquestions, role, everything, comments, employed, backend]
+    token_count: 435
+  - id: "articles/reddit-deep-r-cscareerquestions/32dd6acdf1.md#c1"
+    char_span: [1964, 3290]
+    sentence_count: 7
+    key_terms: [definitely, company, altertableusernames, get, give, want, work, yetmorespacedust]
+    token_count: 323
 ---
-
 # 5 months into corporate life and I’m genuinely exhausted.
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1lcxe9a/5_months_into_corporate_life_and_im_genuinely/)

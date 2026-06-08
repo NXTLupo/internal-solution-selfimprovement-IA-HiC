@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1q98bei.md
 url: "https://www.reddit.com/r/careerguidance/comments/1q98bei/earlycareer_translator_slowly_turned_into_shadow/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,26 @@ flair: "Advice"
 extracted_at: "2026-05-22T23:34:01.090Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [manufacturing, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1q98bei.md#c0"
+    char_span: [0, 332]
+    sentence_count: 2
+    key_terms: [careerguidance, comments, l00k1ng4abetterl1fe, cross-cultural, early-career, opportunity, reddit-deep, translator]
+    token_count: 92
+  - id: "social-intelligence/reddit-deep/careerguidance/1q98bei.md#c1"
+    char_span: [334, 2680]
+    sentence_count: 17
+    key_terms: [work, without, management, translator, being, local, long-term, responsibilities]
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/careerguidance/1q98bei.md#c2"
+    char_span: [2695, 3192]
+    sentence_count: 3
+    key_terms: [imaginary-tax3580, scapegoated, experience, management, authority, long-term, something, managers]
+    section: Comments
+    token_count: 110
 ---
-
 # Early-career translator slowly turned into “shadow manager” in a cross-cultural factory — growth opportunity or red flag?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1q98bei/earlycareer_translator_slowly_turned_into_shadow/)

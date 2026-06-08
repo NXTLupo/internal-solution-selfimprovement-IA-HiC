@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1qxth9d.md
 url: "https://www.reddit.com/r/Professors/comments/1qxth9d/other_professors_students_come_to_me_to_learn/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-20T03:55:39.260Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1qxth9d.md#c0"
+    char_span: [0, 642]
+    sentence_count: 5
+    key_terms: [students, professors, comments, teacher, class, come, help, job]
+    token_count: 163
+  - id: "social-intelligence/reddit-deep/professors/1qxth9d.md#c1"
+    char_span: [657, 1124]
+    sentence_count: 3
+    key_terms: [professor-genxer, encourage, attend, office, hours, advantage, professor, semester]
+    section: Comments
+    token_count: 117
+  - id: "social-intelligence/reddit-deep/professors/1qxth9d.md#c2"
+    char_span: [1126, 3413]
+    sentence_count: 13
+    key_terms: [students, teach, instructor, math, tutoring, college, instructors, cool]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/professors/1qxth9d.md#c3"
+    char_span: [3415, 4869]
+    sentence_count: 10
+    key_terms: [students, student, office, colleague, help, "i'm", going, concepts]
+    section: Comments
+    token_count: 336
+  - id: "social-intelligence/reddit-deep/professors/1qxth9d.md#c4"
+    char_span: [4871, 5639]
+    sentence_count: 6
+    key_terms: [crisscrosscoyote, professor, exams, ask, qualitative, zoomtoastem, colleagues, othertimes]
+    section: Comments
+    token_count: 202
 ---
-
 # Other professor’s students come to me to learn
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1qxth9d/other_professors_students_come_to_me_to_learn/)

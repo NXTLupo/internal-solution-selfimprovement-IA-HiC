@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-claude/f363edafd7.md
 url: "https://reddit.com/r/claude/comments/1spef7j/my_full_claude_code_setup_after_months_of_daily/"
 url_hash: "f363edafd7"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T13:51:31.452942+00:00"
 chars: 4047
+industries: [ai_research, saas]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-claude/f363edafd7.md#c0"
+    char_span: [0, 2258]
+    sentence_count: 28
+    key_terms: [claude, memory, context, discipline, session, without, verification-before-completion, hard]
+    token_count: 500
+  - id: "articles/reddit-claude/f363edafd7.md#c1"
+    char_span: [2260, 4271]
+    sentence_count: 23
+    key_terms: [claude, verification-before-completion, claude-flow, github, memory, consultation, superpowers, code]
+    token_count: 493
 ---
-
 # My full Claude Code setup after months of daily use — context discipline, MCPs, memory, subagents
 
 Source: [reddit: claude](https://reddit.com/r/claude/comments/1spef7j/my_full_claude_code_setup_after_months_of_daily/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-personalfinance/feb1c9d9c9.md
 url: "https://www.reddit.com/r/personalfinance/comments/1pbz8tq/21_blew_most_of_my_internship_money_now_stressed/"
 url_hash: "feb1c9d9c9"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-16T21:00:08.169058+00:00"
 chars: 3858
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-personalfinance/feb1c9d9c9.md#c0"
+    char_span: [0, 2042]
+    sentence_count: 18
+    key_terms: [internship, savings, get, back, track, personalfinance, expense, around]
+    token_count: 500
+  - id: "articles/reddit-deep-r-personalfinance/feb1c9d9c9.md#c1"
+    char_span: [2044, 4114]
+    sentence_count: 17
+    key_terms: [savings, debt, pay, budget, credit, need, personalfinance, "you're"]
+    token_count: 506
 ---
-
 # 21 — Blew most of my internship money, now stressed about debt/savings. How do I get back on track?
 
 Source: [Reddit Deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1pbz8tq/21_blew_most_of_my_internship_money_now_stressed/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-machinelearning/cce859eccb.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1lh741j/d_rlgrpo_for_lossless_compression_of_text/"
 url_hash: "cce859eccb"
 kind: "article"
@@ -10,8 +11,30 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T17:35:39.848178+00:00"
 chars: 6677
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-machinelearning/cce859eccb.md#c0"
+    char_span: [0, 2081]
+    sentence_count: 12
+    key_terms: [compression, machinelearning, english, tokens, demonstration, model, capability, experiment]
+    token_count: 440
+  - id: "articles/reddit-deep-r-machinelearning/cce859eccb.md#c1"
+    char_span: [2083, 4446]
+    sentence_count: 19
+    key_terms: [model, language, compress, context, message, something, user, sample]
+    token_count: 513
+  - id: "articles/reddit-deep-r-machinelearning/cce859eccb.md#c2"
+    char_span: [4448, 5804]
+    sentence_count: 9
+    key_terms: [hidden, tokens, token, space, state, mapping, weights, states]
+    token_count: 286
+  - id: "articles/reddit-deep-r-machinelearning/cce859eccb.md#c3"
+    char_span: [5807, 6997]
+    sentence_count: 7
+    key_terms: [tokens, model, compression, dimensional, continuous, understand, radarsat1, thought]
+    token_count: 236
 ---
-
 # [D] RL/GRPO for lossless compression of text passages into 'least token representation', then using this emergent 'language' as the basis for reasoning instead of english
 
 Source: [Reddit Deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1lh741j/d_rlgrpo_for_lossless_compression_of_text/)

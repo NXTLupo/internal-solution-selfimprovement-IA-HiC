@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t0oa1t.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t0oa1t/im_25_and_i_dont_have_a_job_till_now_no/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-25T13:04:07.360Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t0oa1t.md#c0"
+    char_span: [0, 382]
+    sentence_count: 2
+    key_terms: [careerguidance, comments, hotpossibility8951, job, reddit-deep, experience, guidance, anybody]
+    token_count: 108
+  - id: "social-intelligence/reddit-deep/careerguidance/1t0oa1t.md#c1"
+    char_span: [397, 1968]
+    sentence_count: 6
+    key_terms: [basic, entry, start, data, job, confidence, something, customer]
+    section: Comments
+    token_count: 383
 ---
-
 # Im 25 and I dont have a job till now no experience nothing can anybody help me to get a job or tell me which skills should i learn in present time which is in demand?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t0oa1t/im_25_and_i_dont_have_a_job_till_now_no/)

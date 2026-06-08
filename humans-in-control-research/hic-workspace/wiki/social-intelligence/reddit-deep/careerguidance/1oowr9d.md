@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1oowr9d.md
 url: "https://www.reddit.com/r/careerguidance/comments/1oowr9d/future_career_with_remote_opportunities_and_advice/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-20T12:56:27.160Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1oowr9d.md#c0"
+    char_span: [0, 1330]
+    sentence_count: 11
+    key_terms: [future, get, careerguidance, design, remote, years, job, mechanical]
+    token_count: 308
+  - id: "social-intelligence/reddit-deep/careerguidance/1oowr9d.md#c1"
+    char_span: [1345, 1896]
+    sentence_count: 1
+    key_terms: [engineering, remote, roles, like, computational, opportunities, development, automation]
+    section: Comments
+    token_count: 110
 ---
-
 # Future Career with remote opportunities and advice?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1oowr9d/future_career_with_remote_opportunities_and_advice/)

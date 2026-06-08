@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1l0etrl.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1l0etrl/is_web_development_worth_it_in_2025/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,57 @@ flair: "Student"
 extracted_at: "2026-05-23T14:54:48.646Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l0etrl.md#c0"
+    char_span: [0, 1220]
+    sentence_count: 11
+    key_terms: [development, cscareerquestions, get, art, job, web, work, comments]
+    token_count: 284
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l0etrl.md#c1"
+    char_span: [1235, 1923]
+    sentence_count: 5
+    key_terms: [nothing, startup, years, age, laid, like, josephhabun, internship]
+    section: Comments
+    token_count: 185
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l0etrl.md#c2"
+    char_span: [1925, 3944]
+    sentence_count: 13
+    key_terms: [games, pixel, art, josephhabun, analytics, job, already, resume]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l0etrl.md#c3"
+    char_span: [3946, 6161]
+    sentence_count: 15
+    key_terms: [getting, development, been, get, tech, different, designer, industry]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l0etrl.md#c4"
+    char_span: [6163, 7806]
+    sentence_count: 9
+    key_terms: [healthcare, donate, experience, deleted, dangerous-nerve9309, fantastic-fun-3179, app, "it's"]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l0etrl.md#c5"
+    char_span: [7808, 9799]
+    sentence_count: 14
+    key_terms: [healthcare, software, career, people, engineering, back, job, miserable]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l0etrl.md#c6"
+    char_span: [9801, 11855]
+    sentence_count: 16
+    key_terms: [code, get, "it's", job, week, working, "don't", good]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l0etrl.md#c7"
+    char_span: [11857, 13399]
+    sentence_count: 5
+    key_terms: [definitely, modelcroissant, yoe, experience, engineer, problems, software, looking]
+    section: Comments
+    token_count: 395
 ---
-
 # Is web development worth it in 2025?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1l0etrl/is_web_development_worth_it_in_2025/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1muhcxn.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1muhcxn/am_i_on_the_right_track/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -10,11 +11,21 @@ score: 3
 upvote_ratio: 1
 num_comments: 1
 flair: "Student"
-extracted_at: "2026-05-20T03:56:10.732Z"
+extracted_at: "2026-06-06T16:39:04.113Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1muhcxn.md#c0"
+    char_span: [0, 2109]
+    sentence_count: 22
+    key_terms: [blockchain, school, cscareerquestions, work, agency, since, development, been]
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1muhcxn.md#c1"
+    char_span: [2114, 3799]
+    sentence_count: 19
+    key_terms: ["i'm", work, since, been, job, internship, anything, leetcode]
+    token_count: 381
 ---
-
 # Am I on the right track?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1muhcxn/am_i_on_the_right_track/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1qnopi8.md
 url: "https://www.reddit.com/r/college/comments/1qnopi8/what_info_do_you_want_at_a_career_fair/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-23T19:44:48.193Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1qnopi8.md#c0"
+    char_span: [0, 868]
+    sentence_count: 11
+    key_terms: [college, career, professional, info, want, comments, fair, help]
+    token_count: 205
+  - id: "social-intelligence/reddit-deep/college/1qnopi8.md#c1"
+    char_span: [883, 2412]
+    sentence_count: 8
+    key_terms: [metasequioa, field, student, organization, professional, help, work, employment]
+    section: Comments
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/college/1qnopi8.md#c2"
+    char_span: [2414, 4070]
+    sentence_count: 5
+    key_terms: [information, relocation, company, schools, website, basic, cause, "don't"]
+    section: Comments
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/college/1qnopi8.md#c3"
+    char_span: [4072, 4950]
+    sentence_count: 7
+    key_terms: [does, listings, starting, career, check, day, like, organization]
+    section: Comments
+    token_count: 196
 ---
-
 # What info do you want at a career fair?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1qnopi8/what_info_do_you_want_at_a_career_fair/)

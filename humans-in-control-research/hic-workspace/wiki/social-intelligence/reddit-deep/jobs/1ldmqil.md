@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1ldmqil.md
 url: "https://www.reddit.com/r/jobs/comments/1ldmqil/psa_dont_ignore_when_someone_offers_to_introduce/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,51 @@ flair: "Networking"
 extracted_at: "2026-05-25T13:03:11.723Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1ldmqil.md#c0"
+    char_span: [0, 1655]
+    sentence_count: 22
+    key_terms: [someone, "i'm", anyone, connections, introduce, comments, instead, never]
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/jobs/1ldmqil.md#c1"
+    char_span: [1670, 3039]
+    sentence_count: 15
+    key_terms: [job, former, "don't", networking, co-worker, friends, looking, superpomegranate7933]
+    section: Comments
+    token_count: 340
+  - id: "social-intelligence/reddit-deep/jobs/1ldmqil.md#c2"
+    char_span: [3041, 4157]
+    sentence_count: 11
+    key_terms: [job, applications, been, last, friend, people, thanossnapsslimjims, best]
+    section: Comments
+    token_count: 272
+  - id: "social-intelligence/reddit-deep/jobs/1ldmqil.md#c3"
+    char_span: [4159, 6316]
+    sentence_count: 17
+    key_terms: [job, been, get, years, purchasing, something, somewhere, because]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1ldmqil.md#c4"
+    char_span: [6052, 6317]
+    sentence_count: 2
+    key_terms: [visualcelery, business, cleaning, customer, complex, laundry, running, hired]
+    section: Comments
+    token_count: 65
+  - id: "social-intelligence/reddit-deep/jobs/1ldmqil.md#c5"
+    char_span: [6319, 8262]
+    sentence_count: 15
+    key_terms: [week, job, year, company, graphic, hiring, got, last]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/jobs/1ldmqil.md#c6"
+    char_span: [8264, 9049]
+    sentence_count: 7
+    key_terms: [cleaninfresno, networking, referring, generic, period, month, trial, no-investment8322]
+    section: Comments
+    token_count: 195
 ---
-
 # PSA: Don't ignore when someone offers to 'introduce you to someone'
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1ldmqil/psa_dont_ignore_when_someone_offers_to_introduce/)

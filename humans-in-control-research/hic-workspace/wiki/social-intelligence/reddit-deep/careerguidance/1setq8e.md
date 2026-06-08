@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1setq8e.md
 url: "https://www.reddit.com/r/careerguidance/comments/1setq8e/what_is_the_best_career_path_for_me_first_us_job/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,27 @@ score: 1
 upvote_ratio: 1
 num_comments: 2
 flair: ""
-extracted_at: "2026-05-25T18:32:57.394Z"
+extracted_at: "2026-06-06T16:39:04.123Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1setq8e.md#c0"
+    char_span: [0, 2126]
+    sentence_count: 7
+    key_terms: [business, job, company, careerguidance, stores, distribution, family-owned, brand]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/careerguidance/1setq8e.md#c1"
+    char_span: [2128, 2844]
+    sentence_count: 6
+    key_terms: [never, employers, worked, job, professionals, appreciated, challenging, specialized]
+    token_count: 151
+  - id: "social-intelligence/reddit-deep/careerguidance/1setq8e.md#c2"
+    char_span: [2859, 4198]
+    sentence_count: 6
+    key_terms: [background, experience, companies, looking, advice, roles, solid, did]
+    section: Comments
+    token_count: 255
 ---
-
 # What is the best career path for me? (First US job)
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1setq8e/what_is_the_best_career_path_for_me_first_us_job/)

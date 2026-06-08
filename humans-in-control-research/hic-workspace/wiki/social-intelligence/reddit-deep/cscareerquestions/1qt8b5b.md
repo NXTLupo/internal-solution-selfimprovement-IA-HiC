@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1qt8b5b.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1qt8b5b/earlycareer_backend_engineer_highpaying_python/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,27 @@ flair: "Experienced"
 extracted_at: "2026-05-23T12:16:24.327Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qt8b5b.md#c0"
+    char_span: [0, 1311]
+    sentence_count: 10
+    key_terms: [backend, cscareerquestions, roles, back-office, big, role, tech, experience]
+    token_count: 293
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qt8b5b.md#c1"
+    char_span: [1326, 2926]
+    sentence_count: 18
+    key_terms: [years, understanding, market, "it's", tech, learning, yourself, fintech]
+    section: Comments
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qt8b5b.md#c2"
+    char_span: [2928, 3629]
+    sentence_count: 4
+    key_terms: [experience, finance, being, clear, "don't", firms, big, tech]
+    section: Comments
+    token_count: 165
 ---
-
 # Early-career backend engineer: high-paying Python role vs long-term big tech growth
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1qt8b5b/earlycareer_backend_engineer_highpaying_python/)

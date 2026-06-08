@@ -6,19 +6,19 @@ subreddit: "internships"
 title: "Unlucky internship hunt"
 author: "Anonymouspersonnnnn"
 date: "2026-02-24T22:03:39.000Z"
-score: 39
-upvote_ratio: 0.94
+score: 40
+upvote_ratio: 0.95
 num_comments: 29
 flair: "Applications"
-extracted_at: "2026-05-26T14:30:47.906Z"
+extracted_at: "2026-06-06T23:20:46.209Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Unlucky internship hunt
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rdub5h/unlucky_internship_hunt/)
-Posted by **Anonymouspersonnnnn** · **39↑** · **29 comments**
+Posted by **Anonymouspersonnnnn** · **40↑** · **29 comments**
 
 For context im a sophomore)
 
@@ -40,10 +40,10 @@ Update/edit
 
 ## Comments
 
-- **Opening_Football6541** (6↑): you just gotta apply more man theres no way around it 😭 im at around 650 apps for summer with ~15 interviews so far
+- **Opening_Football6541** (8↑): you just gotta apply more man theres no way around it 😭 im at around 650 apps for summer with ~15 interviews so far
 - **Appropriate-Tutor587** (16↑): You should be sending in about 10-20 applications per day, 5 days in a week.
 My cousin did this for 8 months (May 2025-Jan 2026) since he was looking for a Fall co-op, a Spring co-op, and a summer internship. After sending in about 3000+ applications and going to weekly interviews, he FINALLY landed a summer internship last month.
-  - **Anonymouspersonnnnn** (7↑): I have classes, extracurriculars, and a social life 😭 I can submit maybe 5-10 applications a week
+  - **Anonymouspersonnnnn** (8↑): I have classes, extracurriculars, and a social life 😭 I can submit maybe 5-10 applications a week
     - **No-Opposite-4285** (2↑): Same. This is my average too. I do not really see more than this to even send. They are dwindling.
     - **twilight_sparkle7511** (1↑): Thas nothing bruh, u need to grind for it 5-10 a week is like one a day if ur spending 3 minutes a day for an internship no wonder u haven’t gotten anything
     - **No-Suggestion-9433** (-3↑): Boo-hoo everybody has those things and they still do it. If you're not willing to grind apps then stop complaining about not getting the results you want.

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1pvsjk2.md
 url: "https://www.reddit.com/r/NEU/comments/1pvsjk2/should_i_back_out_of_my_coop/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -7,14 +8,43 @@ title: "Should I back out of my co-op?"
 author: "Shot-Equal1148"
 date: "2025-12-26T01:53:06.000Z"
 score: 0
-upvote_ratio: 0.31
+upvote_ratio: 0.25
 num_comments: 18
 flair: "Co-op & Career"
-extracted_at: "2026-05-19T15:08:27.149Z"
+extracted_at: "2026-06-06T00:27:19.935Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1pvsjk2.md#c0"
+    char_span: [0, 1436]
+    sentence_count: 13
+    key_terms: [back, applicable, experience, comments, anyone, skills, doing, offer]
+    token_count: 332
+  - id: "social-intelligence/reddit-deep/neu/1pvsjk2.md#c1"
+    char_span: [1451, 2599]
+    sentence_count: 9
+    key_terms: [coop, program, co-op, advisor, nuworks, point, get, talk]
+    section: Comments
+    token_count: 285
+  - id: "social-intelligence/reddit-deep/neu/1pvsjk2.md#c2"
+    char_span: [2601, 4104]
+    sentence_count: 6
+    key_terms: [coop, future, goals, like, co-op, worth, aligning, honestly]
+    section: Comments
+    token_count: 345
+  - id: "social-intelligence/reddit-deep/neu/1pvsjk2.md#c3"
+    char_span: [4106, 5697]
+    sentence_count: 14
+    key_terms: [experience, different, wanted, coop, completely, learning, advisor, through]
+    section: Comments
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/neu/1pvsjk2.md#c4"
+    char_span: [5699, 7716]
+    sentence_count: 17
+    key_terms: [co-op, like, shot-equal1148, don, time, want, experience, negatives]
+    section: Comments
+    token_count: 478
 ---
-
 # Should I back out of my co-op?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1pvsjk2/should_i_back_out_of_my_coop/)
@@ -31,14 +61,14 @@ I would like to hear what others have tosay/past experiences. Did anyone have to
 ## Comments
 
 - **Bubbly_Following7930** (32↑): You need to talk to your advisor. Backing out of a coop is against policy and could jeopardize your ability to go on coop in the future.
-  - **Shot-Equal1148** (-10↑): Yes I did talk to my advisor. He said I would be banned from Nu works but not the co op program entirely.
-    - **twilight_sparkle7511** (8↑): Bro wtf does that even mean, so u can still do a co-op but you have to get it outside of Nuworks?? So literally the same as every other school, literally eliminating the entire point of the program. The reason the co-op program is good is bc of nuworks, that’s a specifed pool of jobs with companies northeastern has partnered with and sets aside openings for neu students. Ur basically elimating Northeasterns biggest selling point.
+  - **Shot-Equal1148** (-9↑): Yes I did talk to my advisor. He said I would be banned from Nu works but not the co op program entirely.
+    - **twilight_sparkle7511** (7↑): Bro wtf does that even mean, so u can still do a co-op but you have to get it outside of Nuworks?? So literally the same as every other school, literally eliminating the entire point of the program. The reason the co-op program is good is bc of nuworks, that’s a specifed pool of jobs with companies northeastern has partnered with and sets aside openings for neu students. Ur basically elimating Northeasterns biggest selling point.
 - **NameNumber7** (16↑): How is a coop / job for 6 months going to be so atrocious that you will have a mental breakdown. If this is your first co-op, take it. You get some money and just learn how to be an adult. My first coop was totally irrelevant to anything I wanted to do, but the pay was decent so I just pretended I was interested - this was actuarial work… lol.
 
 Truly, just try it, unless you are working at a slaughterhouse, I would go for the coop.
   - **Shot-Equal1148** (-5↑): Realistically, it won’t cause a metal breakdown. I’m more worried about it aligning with my future goals. The industry is not what I’m interested in and the skills are not really that important. I want to make money and everything but it just seems like I’m falsely backed into this decision which is honestly not the best for my future. I wish I could convince myself to just “suck it up” but I don’t know if that’s worth it.
-    - **babygrinchsmother** (8↑): it’s definitely still worth it. the point of co-op is experiential learning which mean learning from practice instead of theory. even if the co-op doesn’t align with your career goals, you will learn so much about the softer skills and lessons that accompany co-op like what it’s like to commute everyday and navigating full time work. it’s honestly not worth getting banned from nuworks because you don’t think it aligns with your longterm goals. my first coop didn’t align with mine but it was the launching pad for my second coop which helped me get my dream job post grad. suck it up.
-    - **NameNumber7** (5↑): You are worried about a future that may happen and you favor that over the present reality?
+    - **babygrinchsmother** (7↑): it’s definitely still worth it. the point of co-op is experiential learning which mean learning from practice instead of theory. even if the co-op doesn’t align with your career goals, you will learn so much about the softer skills and lessons that accompany co-op like what it’s like to commute everyday and navigating full time work. it’s honestly not worth getting banned from nuworks because you don’t think it aligns with your longterm goals. my first coop didn’t align with mine but it was the launching pad for my second coop which helped me get my dream job post grad. suck it up.
+    - **NameNumber7** (4↑): You are worried about a future that may happen and you favor that over the present reality?
 
 You need to just dive in, it sounds like you are anxious to do coop. “Aligning with future goals”, what if that employer who would enable that just doesn’t see an impressive coop resume since you backed out of it.
 
@@ -50,8 +80,8 @@ What are your “future goals” that are so violently different than going thro
 If you have high conviction that this co-op is truly irrelevant to your longer term pursuits AND it’ll impact your mental health negatively, it’s probably not worth it. I graduated many years ago so I can’t tell you if there is academic impact, but from an employer’s perspective there won’t be any consequences. Just be honest and respectful about why you need to rescind the accepted offer. 
 
 Also talk to your co-op advisor about how this will impact your academic schedule / graduation. Things like this do happen but you don’t want to make this a habit.
-  - **Shot-Equal1148** (-4↑): Thank you for your advice. Did you ever feel like the co op set you back in some way? Or made it so that you felt behind your peers? I am really worried about this co op draining my energy so that I can’t spend time building technical skills necessary for my desired profession (this is the only way I can justify it). With that logic I might as well not do it because a job is supposed to build your skills, I shouldn’t have to do work outside of work to offset my wasting time. I have talked to my advisor and he was pretty sympathetic to me, but was firm that I would be banned from using Nu works in the future. However, since it’s so late (supposed to start January 16th) I am afraid the consequences will be even worse.
-    - **_nikolasha** (8↑): At the time I definitely felt comparative in the ways you’re describing but nowadays I don’t view it that way at all. It was still a useful experience. I still learned during that co-op and developed a strong sense of what I wanted out of a company / career going forward. This career stuff is a long game, so I wouldn’t sweat it being misaligned if it’s your first co-op. Having some professional experience is really beneficial for the next round. 
+  - **Shot-Equal1148** (-2↑): Thank you for your advice. Did you ever feel like the co op set you back in some way? Or made it so that you felt behind your peers? I am really worried about this co op draining my energy so that I can’t spend time building technical skills necessary for my desired profession (this is the only way I can justify it). With that logic I might as well not do it because a job is supposed to build your skills, I shouldn’t have to do work outside of work to offset my wasting time. I have talked to my advisor and he was pretty sympathetic to me, but was firm that I would be banned from using Nu works in the future. However, since it’s so late (supposed to start January 16th) I am afraid the consequences will be even worse.
+    - **_nikolasha** (9↑): At the time I definitely felt comparative in the ways you’re describing but nowadays I don’t view it that way at all. It was still a useful experience. I still learned during that co-op and developed a strong sense of what I wanted out of a company / career going forward. This career stuff is a long game, so I wouldn’t sweat it being misaligned if it’s your first co-op. Having some professional experience is really beneficial for the next round. 
 
 Losing access to NUWorks sounds like it’d be rough. A lot of the NU value is the employer network, which I imagine that portal plays a non-trivial part in? 
 

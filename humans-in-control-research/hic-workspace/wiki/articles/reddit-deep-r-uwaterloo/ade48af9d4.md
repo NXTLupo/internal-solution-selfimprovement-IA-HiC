@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-uwaterloo/ade48af9d4.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1tj3bgw/waterloo_meng_ece_coop_or_mdsai_coop_any_current/"
 url_hash: "ade48af9d4"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-25T18:34:53.198297+00:00"
 chars: 1876
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-uwaterloo/ade48af9d4.md#c0"
+    char_span: [0, 2090]
+    sentence_count: 12
+    key_terms: [uwaterloo, co-op, mdsai, comments, current, reddit, admissions, roles]
+    token_count: 481
 ---
-
 # Waterloo MEng ECE Co-op or MDSAI Co-op: any current student thoughts?
 
 Source: [Reddit Deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1tj3bgw/waterloo_meng_ece_coop_or_mdsai_coop_any_current/)

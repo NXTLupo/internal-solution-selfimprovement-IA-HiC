@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1qpnugj.md
 url: "https://www.reddit.com/r/financialindependence/comments/1qpnugj/would_you_quit_in_my_shoes_deep_dive_stay_at_home/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,86 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.709Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1qpnugj.md#c0"
+    char_span: [0, 1956]
+    sentence_count: 14
+    key_terms: [home, expenses, financialindependence, income, retirement, quit, wife, working]
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/financialindependence/1qpnugj.md#c1"
+    char_span: [1958, 4163]
+    sentence_count: 12
+    key_terms: [market, retirement, sequence-of-returns, years, low, work, stock, rate]
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/financialindependence/1qpnugj.md#c2"
+    char_span: [4178, 5903]
+    sentence_count: 21
+    key_terms: [money, enough, "don't", "you're", fatheadlifter, relationship, years, "it's"]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/financialindependence/1qpnugj.md#c3"
+    char_span: [5905, 7808]
+    sentence_count: 20
+    key_terms: [time, want, wife, work, working, professional, relationship, "she's"]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/financialindependence/1qpnugj.md#c4"
+    char_span: [7810, 9384]
+    sentence_count: 9
+    key_terms: [one-mastodon-1063, expenses, great, currently, probably, unknown, working, enough]
+    section: Comments
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/financialindependence/1qpnugj.md#c5"
+    char_span: [9386, 11277]
+    sentence_count: 16
+    key_terms: [time, part, work, school, days, kids, stay-at-home, flexibility]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/financialindependence/1qpnugj.md#c6"
+    char_span: [11280, 11866]
+    sentence_count: 4
+    key_terms: [leave, experience, paternity, technicalblueberry32, kindergarten, significant, committing, different]
+    section: Comments
+    token_count: 145
+  - id: "social-intelligence/reddit-deep/financialindependence/1qpnugj.md#c7"
+    char_span: [11868, 13437]
+    sentence_count: 15
+    key_terms: [school, expenses, work, retire, health, want, insurance, "doesn't"]
+    section: Comments
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/financialindependence/1qpnugj.md#c8"
+    char_span: [13439, 14301]
+    sentence_count: 2
+    key_terms: [insurance, double, health, income, bit, long, proportionally, significantly]
+    section: Comments
+    token_count: 164
+  - id: "social-intelligence/reddit-deep/financialindependence/1qpnugj.md#c9"
+    char_span: [14303, 16333]
+    sentence_count: 11
+    key_terms: [year, time, technicalblueberry32, kids, expenses, nanarama6000, feel, full]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/financialindependence/1qpnugj.md#c10"
+    char_span: [16085, 16616]
+    sentence_count: 2
+    key_terms: [etc, time, intertubeluber, nanarama6000, permanently, activities, historical, retirement]
+    section: Comments
+    token_count: 131
+  - id: "social-intelligence/reddit-deep/financialindependence/1qpnugj.md#c11"
+    char_span: [16618, 18630]
+    sentence_count: 19
+    key_terms: [years, will-money-last-retire-early, https, intertubeluber, change, engaging-data, merit, need]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/financialindependence/1qpnugj.md#c12"
+    char_span: [18372, 18748]
+    sentence_count: 4
+    key_terms: [public, merit, state, less, year, uncomfortable, exceptional, depending]
+    section: Comments
+    token_count: 95
 ---
-
 # Would you quit in my shoes? Deep Dive - “Stay at home Dad FIRE”
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1qpnugj/would_you_quit_in_my_shoes_deep_dive_stay_at_home/)

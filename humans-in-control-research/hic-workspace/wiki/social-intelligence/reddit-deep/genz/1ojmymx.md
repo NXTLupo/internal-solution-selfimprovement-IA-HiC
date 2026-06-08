@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1ojmymx.md
 url: "https://www.reddit.com/r/GenZ/comments/1ojmymx/are_we_going_to_see_a_huge_spike_in_suicides_with/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,39 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.767Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [healthcare, ai_research, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1ojmymx.md#c0"
+    char_span: [0, 860]
+    sentence_count: 7
+    key_terms: [huge, comments, suicides, middle, going, spike, years, age]
+    token_count: 200
+  - id: "social-intelligence/reddit-deep/genz/1ojmymx.md#c1"
+    char_span: [875, 1319]
+    sentence_count: 2
+    key_terms: [discord, apartmentworried5692, automatically, automoderator, depressing, moderators, nwe6js5rh9, thegalator]
+    section: Comments
+    token_count: 123
+  - id: "social-intelligence/reddit-deep/genz/1ojmymx.md#c2"
+    char_span: [1321, 3438]
+    sentence_count: 12
+    key_terms: [people, get, friends, suicide, going, "i'm", lot, everything]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/genz/1ojmymx.md#c3"
+    char_span: [3166, 3516]
+    sentence_count: 3
+    key_terms: [making, improvements, everything, anything, drinking, exercise, judgiest, remedies]
+    section: Comments
+    token_count: 80
+  - id: "social-intelligence/reddit-deep/genz/1ojmymx.md#c4"
+    char_span: [3518, 5137]
+    sentence_count: 15
+    key_terms: [people, like, probably, alcohol, running, alive, "can't", drugs]
+    section: Comments
+    token_count: 434
 ---
-
 # Are we going to see a huge spike in suicides with Gen Z as they reach middle age?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1ojmymx/are_we_going_to_see_a_huge_spike_in_suicides_with/)

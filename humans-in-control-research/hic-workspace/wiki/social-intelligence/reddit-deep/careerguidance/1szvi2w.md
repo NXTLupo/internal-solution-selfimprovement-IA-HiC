@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1szvi2w.md
 url: "https://www.reddit.com/r/careerguidance/comments/1szvi2w/need_help_with_career_adviceworking_2_jobs/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-23T19:45:11.372Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1szvi2w.md#c0"
+    char_span: [0, 1290]
+    sentence_count: 10
+    key_terms: [work, longjumping-put9422, job, working, careerguidance, remediation, restoration, comments]
+    token_count: 330
 ---
-
 # Need help with career advice/working 2 jobs?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1szvi2w/need_help_with_career_adviceworking_2_jobs/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1siklef.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1siklef/prestigeranking_question/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,72 @@ subreddit: "applyingtocollege"
 title: "Prestige/Ranking question"
 author: "Memesaurusmex"
 date: "2026-04-11T14:30:05.000Z"
-score: 8
-upvote_ratio: 0.79
+score: 9
+upvote_ratio: 0.85
 num_comments: 63
 flair: "College Questions"
-extracted_at: "2026-05-23T19:45:32.281Z"
+extracted_at: "2026-06-03T18:34:57.884Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1siklef.md#c0"
+    char_span: [0, 1711]
+    sentence_count: 11
+    key_terms: [prestige, matter, people, saying, applyingtocollege, provided, ranking, school]
+    token_count: 365
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1siklef.md#c1"
+    char_span: [1726, 3855]
+    sentence_count: 19
+    key_terms: [school, otherwise-check-689, job, kid, career, purdue, world, real]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1siklef.md#c2"
+    char_span: [3857, 5955]
+    sentence_count: 17
+    key_terms: [get, looking, want, schools, school, difference, candidate, everyone]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1siklef.md#c3"
+    char_span: [5957, 7719]
+    sentence_count: 13
+    key_terms: [school, interview, applicant, attended, "doesn't", student, assume, experience]
+    section: Comments
+    token_count: 378
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1siklef.md#c4"
+    char_span: [7721, 9772]
+    sentence_count: 18
+    key_terms: [matters, because, people, "it's", prestige, career, memesaurusmex, intellectual]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1siklef.md#c5"
+    char_span: [9774, 12044]
+    sentence_count: 17
+    key_terms: [graduate, admissions, applyingtocollege, matters, career, matter, opportunities, undergraduate]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1siklef.md#c6"
+    char_span: [12046, 13592]
+    sentence_count: 11
+    key_terms: [undergraduate, career, experience, school, want, employers, important, academia]
+    section: Comments
+    token_count: 337
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1siklef.md#c7"
+    char_span: [13594, 15691]
+    sentence_count: 14
+    key_terms: [opportunities, prestige, memesaurusmex, schools, high, uncommon, universities, prestigious]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1siklef.md#c8"
+    char_span: [15693, 15957]
+    sentence_count: 2
+    key_terms: [circumstances, memesaurusmex, undergraduate, institution, attending, prestige, example, mistake]
+    section: Comments
+    token_count: 63
 ---
-
 # Prestige/Ranking question
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1siklef/prestigeranking_question/)
-Posted by **Memesaurusmex** · **8↑** · **63 comments**
+Posted by **Memesaurusmex** · **9↑** · **63 comments**
 
 I dont understand something. Im talking to people, looking at subreddits, getting advice from professionals, career advisors. Everyone is saying something different.   
 Some people when talking about undergrad applications say that "where you go for bachelor doesn't matter as much as masters/phd, its there the prestige and how elite the school matters".   
@@ -47,7 +101,7 @@ The difference between those two colleges does not matter.  I’m hiring the Pur
 And they corrected for "correlation not causation" if you're planning to go there.
   - **InterestProof1526** (1↑): No? People absolutely care where you go to school lmao. What is this revisionism?
   - **Memesaurusmex** (0↑): thank you for the cold water. ive been in realization for the last year now. thank you. (ps: i didnt hire any college advisors, just those from social media and family friends, my family is REALLY into academia)
-    - **Otherwise-Check-689** (4↑): It didn’t mean to sound harsh but a lot of students are looking at rankings and I get it.  You want to go to the best school you can. If you are looking at schools outside the Ivys then you really need to look at the outcomes of students in your field that have graduated. All schools publish this data. If you dive deep you can see the kids who excelled in the summers and during their off time went on to do great things or get great jobs. They set themselves apart and that is what employers want. A top school will get your foot in the door. If you are looking at the difference between cc and Purdue then yes that matters. If you are looking at the difference between Michigan and Purdue then no it doesn’t matter.
+    - **Otherwise-Check-689** (3↑): It didn’t mean to sound harsh but a lot of students are looking at rankings and I get it.  You want to go to the best school you can. If you are looking at schools outside the Ivys then you really need to look at the outcomes of students in your field that have graduated. All schools publish this data. If you dive deep you can see the kids who excelled in the summers and during their off time went on to do great things or get great jobs. They set themselves apart and that is what employers want. A top school will get your foot in the door. If you are looking at the difference between cc and Purdue then yes that matters. If you are looking at the difference between Michigan and Purdue then no it doesn’t matter.
 
 Look at schools that specialize in what you want to major in and can realistically get admitted to.  Then pick the one you will be happiest at for 4 years because if you are miserable your grades will suffer, you won’t want to do the important clubs and outside the classroom things that get you ahead of everyone else. Forget the rankings.
   - **RH70475** (0↑): ☝️

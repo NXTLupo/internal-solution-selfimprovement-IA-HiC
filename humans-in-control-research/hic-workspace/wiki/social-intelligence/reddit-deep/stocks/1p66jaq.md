@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1p66jaq.md
 url: "https://www.reddit.com/r/stocks/comments/1p66jaq/gold_may_have_the_strongest_bull_case_in_modern/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,130 @@ flair: "Crystal Ball Post"
 extracted_at: "2026-05-17T01:14:17.623Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c0"
+    char_span: [0, 1837]
+    sentence_count: 13
+    key_terms: [debt, trillion, maturities, because, saying, money, gold, isn]
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c1"
+    char_span: [1839, 3769]
+    sentence_count: 12
+    key_terms: [interest, debt, trillion, dollars, payments, budget, term, military]
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c2"
+    char_span: [3771, 5258]
+    sentence_count: 14
+    key_terms: [tmt-in-the-rear-view-how-did-our-2025-themes-pan-out, market, financial, inflation, debt, happens, barclays, interest]
+    token_count: 335
+  - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c3"
+    char_span: [5260, 7446]
+    sentence_count: 15
+    key_terms: [bubble, inflation, anyways, cost, real, companies, measuring, official]
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c4"
+    char_span: [7448, 9727]
+    sentence_count: 16
+    key_terms: [gold, country, taiwan, everything, stated, inflationary, time, financial]
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c5"
+    char_span: [9729, 10246]
+    sentence_count: 5
+    key_terms: [don, far, read, percentage, portfolio, positions, directly, entirely]
+    token_count: 120
+  - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c6"
+    char_span: [10261, 11908]
+    sentence_count: 8
+    key_terms: [gold, energy, higher, berkshire, horses, likely, silver, dangerous-lawyer-636]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c7"
+    char_span: [11910, 13791]
+    sentence_count: 12
+    key_terms: [gold, money, muugumo, gld, "i'm", men, diversify, asteroid]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c8"
+    char_span: [13479, 13825]
+    sentence_count: 3
+    key_terms: [gold, asteroid, mission, belt, interesting, asteroids, available, uncovered]
+    section: Comments
+    token_count: 71
+  - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c9"
+    char_span: [13828, 15930]
+    sentence_count: 12
+    key_terms: [phys, tax, collectibles, imactuallyatoaster, flat, gold, gains, hold]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c10"
+    char_span: [15644, 16385]
+    sentence_count: 2
+    key_terms: [own, tax, collectibles, ilikemygirltitties, imactuallyatoaster, file, gold, phys]
+    section: Comments
+    token_count: 188
+  - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c11"
+    char_span: [16387, 16504]
+    sentence_count: 1
+    key_terms: [thesis, exaggerations, significant, omissions, partially, analysis, critical, verdict]
+    section: Comments
+    token_count: 37
+  - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c12"
+    char_span: [16553, 18478]
+    sentence_count: 18
+    key_terms: [gold, interest, central, payments, trillion, federal, income, cbo]
+    section: "✅ CLAIMS THAT ARE **VERIFIED & ACCURATE**"
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c13"
+    char_span: [18533, 20549]
+    sentence_count: 19
+    key_terms: [trillion, debt, post, strategy, reddit, bills, invasion, issuance]
+    section: "⚠️ CLAIMS THAT ARE **MISLEADING OR EXAGGERATED**"
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c14"
+    char_span: [20551, 21923]
+    sentence_count: 2
+    key_terms: [claude, turkey, tonnes, gold, february, central, gemini, discountacrobatic356]
+    section: "⚠️ CLAIMS THAT ARE **MISLEADING OR EXAGGERATED**"
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c15"
+    char_span: [21925, 23971]
+    sentence_count: 9
+    key_terms: [debt, trillion, productivity, inflation, growth, data, gap, risk]
+    section: "⚠️ CLAIMS THAT ARE **MISLEADING OR EXAGGERATED**"
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c16"
+    char_span: [23973, 25526]
+    sentence_count: 7
+    key_terms: [mainstream, inflation, claude, methodology, shadowstats, take, debasement, seriously]
+    section: "⚠️ CLAIMS THAT ARE **MISLEADING OR EXAGGERATED**"
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c17"
+    char_span: [25528, 27107]
+    sentence_count: 7
+    key_terms: [turkey, trillion, debt, net, claude, tonnes, claim, data]
+    section: "⚠️ CLAIMS THAT ARE **MISLEADING OR EXAGGERATED**"
+    token_count: 379
+  - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c18"
+    char_span: [27109, 28829]
+    sentence_count: 10
+    key_terms: [inflation, debt, productivity, gap, growth, dominance, interest, printing]
+    section: "⚠️ CLAIMS THAT ARE **MISLEADING OR EXAGGERATED**"
+    token_count: 380
+  - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c19"
+    char_span: [28831, 30707]
+    sentence_count: 16
+    key_terms: [bullets, golden, taiwan, china, gold, better, trump, agreed]
+    section: "⚠️ CLAIMS THAT ARE **MISLEADING OR EXAGGERATED**"
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c20"
+    char_span: [30709, 32786]
+    sentence_count: 7
+    key_terms: [paper-savings-bonds-issues-redemptions-and-maturities-by-series, gold, savings-bonds-issues-redemptions-maturities-by-series, bonds, reserves, unfortunately, mathematical, certainty]
+    section: "⚠️ CLAIMS THAT ARE **MISLEADING OR EXAGGERATED**"
+    token_count: 498
 ---
-
 # Gold may have the strongest bull case in modern history
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1p66jaq/gold_may_have_the_strongest_bull_case_in_modern/)

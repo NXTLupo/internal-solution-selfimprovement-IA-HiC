@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1sg2jvm.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1sg2jvm/unemployed_junior_engineersnew_grads_would_you/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -7,14 +8,25 @@ title: "Unemployed junior engineers/new grads, would you work for free for a for
 author: "youTooMeTooToo"
 date: "2026-04-08T19:16:19.000Z"
 score: 0
-upvote_ratio: 0.29
+upvote_ratio: 0.27
 num_comments: 17
 flair: ""
-extracted_at: "2026-05-20T03:56:10.751Z"
+extracted_at: "2026-06-03T18:53:18.794Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sg2jvm.md#c0"
+    char_span: [0, 446]
+    sentence_count: 2
+    key_terms: [work, cscareerquestions, experience, comments, company, foreign, free, youtoometootoo]
+    token_count: 112
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sg2jvm.md#c1"
+    char_span: [461, 2302]
+    sentence_count: 13
+    key_terms: [work, free, job, experience, reboog711, projects, company, fucking]
+    section: Comments
+    token_count: 466
 ---
-
 # Unemployed junior engineers/new grads, would you work for free for a foreign company for work experience?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sg2jvm/unemployed_junior_engineersnew_grads_would_you/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1notpa6.md
 url: "https://www.reddit.com/r/jobs/comments/1notpa6/it_feels_impossible_to_find_an_entry_level_job/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -6,19 +7,48 @@ subreddit: "jobs"
 title: "It feels impossible to find an entry level job for my degree"
 author: "Kujobamjabi"
 date: "2025-09-23T21:17:03.000Z"
-score: 92
+score: 93
 upvote_ratio: 0.95
 num_comments: 66
 flair: "Applications"
-extracted_at: "2026-05-20T02:33:39.328Z"
+extracted_at: "2026-06-06T13:04:34.558Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1notpa6.md#c0"
+    char_span: [0, 929]
+    sentence_count: 18
+    key_terms: [entry, level, got, job, degree, manufacturing, find, business]
+    token_count: 229
+  - id: "social-intelligence/reddit-deep/jobs/1notpa6.md#c1"
+    char_span: [944, 2435]
+    sentence_count: 9
+    key_terms: [cooked, entrepreneurhuge5008, degrees, better, means, projects, entry, level]
+    section: Comments
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/jobs/1notpa6.md#c2"
+    char_span: [2438, 3716]
+    sentence_count: 10
+    key_terms: [sales, get, experience, job, company, managerial, laterally, positions]
+    section: Comments
+    token_count: 310
+  - id: "social-intelligence/reddit-deep/jobs/1notpa6.md#c3"
+    char_span: [3718, 5188]
+    sentence_count: 11
+    key_terms: [entry, level, sales, job, business, unrealistic, get, jobs]
+    section: Comments
+    token_count: 334
+  - id: "social-intelligence/reddit-deep/jobs/1notpa6.md#c4"
+    char_span: [5190, 7404]
+    sentence_count: 20
+    key_terms: [sales, because, "you're", something, job, took, relative, company]
+    section: Comments
+    token_count: 510
 ---
-
 # It feels impossible to find an entry level job for my degree
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1notpa6/it_feels_impossible_to_find_an_entry_level_job/)
-Posted by **Kujobamjabi** · **92↑** · **66 comments**
+Posted by **Kujobamjabi** · **93↑** · **66 comments**
 
 Just wanna sulk for a minute. Hoping some can relate. 
 I graduated in 2022 with a BS in business admin marketing and a communications minor. Couldn’t find an entry level job for my degree when I first got out. Got into manufacturing. Hated it. Got a nice two year sales job. Left. Got back into manufacturing cause it’s all that’s hiring. Hate it. And now I’m looking again. And there’s just. Nothing. On these job boards that are entry level and can actually lead to a long term career. At least nothing I can find. And I feel this trend will continue with the AI craze. Maybe I’m a doomer. 
@@ -27,22 +57,22 @@ Has anyone with business degrees had luck finding ANYTHING entry level for their
 
 ## Comments
 
-- **masticmystic2** (65↑): Entry level jobs seem to require three masters and 20 years experience. I wish someone would clue the companies in on what the term entry level means.
-  - **wright007** (18↑): It means they don't need you, they have better qualified candidates. Sadly, that's what it means.
+- **masticmystic2** (62↑): Entry level jobs seem to require three masters and 20 years experience. I wish someone would clue the companies in on what the term entry level means.
+  - **wright007** (19↑): It means they don't need you, they have better qualified candidates. Sadly, that's what it means.
   - **Zombie_Slayer1** (3↑): Wrong, What they want is a PHD but McDonald's pay.
     - **Diligent_Cover3368** (2↑): Nobody wants a phd
-- **Minute-Injury3471** (9↑): You aren’t the only one who feels this way. There are many of us out here with college degrees and are underemployed.
-- **EntrepreneurHuge5008** (7↑): I have a BS in Computer Science, a bit over 1 YOE, and I can’t land a single interview since I've started applying in May/June of this year.
+- **Minute-Injury3471** (10↑): You aren’t the only one who feels this way. There are many of us out here with college degrees and are underemployed.
+- **EntrepreneurHuge5008** (8↑): I have a BS in Computer Science, a bit over 1 YOE, and I can’t land a single interview since I've started applying in May/June of this year.
 
 Completing my MSCS in the next 1 - 1.5 years, so maybe an MSCS and a bit over 2 YOE will help.
-  - **DesignerYak4486** (4↑): Isn’t CS cooked bad?
-    - **EntrepreneurHuge5008** (3↑): Tech degrees are cooked.
-    - **[deleted]** (3↑): If CS is cooked then every degree is cooked. Looking at the 2025 major statistics CS still has under the median unemployment rate for all degrees and better 5 year outlook for both jobs and ibcone
+  - **DesignerYak4486** (5↑): Isn’t CS cooked bad?
+    - **EntrepreneurHuge5008** (5↑): Tech degrees are cooked.
+    - **[deleted]** (4↑): If CS is cooked then every degree is cooked. Looking at the 2025 major statistics CS still has under the median unemployment rate for all degrees and better 5 year outlook for both jobs and ibcone
   - **rkozik89** (1↑): Are you trying for internships? Also registering an LLC and reframing personal projects as business ventures looks better than side projects do on a resume. Since there's no HR they can't actually fact check any claims. Just be realistic and able to speak to the tasks you list.
 
 
 Also, fun fact, HR anywhere at most is going to confirm your dates of employment and job title. Anything beyond that opens them up to liability lawsuits if you don't get the job offer.
-- **newphonehudus** (13↑): You should try and get back in sales. You can use that job and experience either to laterally shift within the company or get to more managerial positions
+- **newphonehudus** (14↑): You should try and get back in sales. You can use that job and experience either to laterally shift within the company or get to more managerial positions
   - **Kujobamjabi** (3↑): That’s what I’m trying to do. But I’m struggling to get call backs even with that. Not to mention how difficult it is to find a halfway decent company. Just wish it was a little easier to break into the industry my degree is in:(
     - **NerminPeskovic** (2↑): Where are you located man. My friends is a sales district manager in Chicago. So, if you’re in the area, I can help you out.
   - **9-1-Holyshit** (2↑): Sales is just a fucking abysmal work experience though.

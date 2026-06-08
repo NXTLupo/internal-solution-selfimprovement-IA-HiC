@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1t9om0l.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1t9om0l/after_real_industry_and_student_experience_which/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,27 @@ flair: "Major Choice"
 extracted_at: "2026-05-25T18:32:19.206Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1t9om0l.md#c0"
+    char_span: [0, 1372]
+    sentence_count: 9
+    key_terms: [engineering, engineeringstudents, field, time, university, different, comments, everyone]
+    token_count: 289
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1t9om0l.md#c1"
+    char_span: [1387, 3532]
+    sentence_count: 16
+    key_terms: [engineeringstudents, wiki, please, reddit, https, com, posting, choose]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1t9om0l.md#c2"
+    char_span: [3534, 4621]
+    sentence_count: 11
+    key_terms: [job, work, going, vary, aerospace, companies, personal, company]
+    section: Comments
+    token_count: 236
 ---
-
 # After real industry and student experience, which engineering field stands out most?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1t9om0l/after_real_industry_and_student_experience_which/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1rtq16f/anyone_else_here_getting_a_second_bachelors/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,57 @@ flair: "Discussion"
 extracted_at: "2026-05-25T18:32:19.215Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c0"
+    char_span: [0, 1443]
+    sentence_count: 9
+    key_terms: [engineering, like, because, engineeringstudents, calculus, degree, differential, "i'm"]
+    token_count: 317
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c1"
+    char_span: [1458, 3631]
+    sentence_count: 19
+    key_terms: [engineering, degree, experience, justareddituser202, back, design, manufacturing, cad]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c2"
+    char_span: [3318, 4591]
+    sentence_count: 10
+    key_terms: ["bachelor's", students, degree, restrictions, engineering, science, school, back]
+    section: Comments
+    token_count: 261
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c3"
+    char_span: [4593, 6249]
+    sentence_count: 13
+    key_terms: ["i'm", engineering, privatetopics54492, get, schools, "bachelor's", transcript, college]
+    section: Comments
+    token_count: 379
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c4"
+    char_span: [6251, 7405]
+    sentence_count: 8
+    key_terms: [schools, internship, bachelors, electriccrabs, experience, getting, looking, degree]
+    section: Comments
+    token_count: 267
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c5"
+    char_span: [7407, 9580]
+    sentence_count: 12
+    key_terms: [engineering, masters, "bachelor's", back, bachelor, classes, degree, doing]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c6"
+    char_span: [9284, 10009]
+    sentence_count: 4
+    key_terms: ["bachelor's", engineering, get, year, capstone, masters, fluff, intro]
+    section: Comments
+    token_count: 157
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c7"
+    char_span: [10011, 11146]
+    sentence_count: 6
+    key_terms: [algebra, disastrous-pin-1617, college, years, trig, experience, technician, professor]
+    section: Comments
+    token_count: 267
 ---
-
 # Anyone else here getting a second bachelors because their first degree was useless ?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1rtq16f/anyone_else_here_getting_a_second_bachelors/)

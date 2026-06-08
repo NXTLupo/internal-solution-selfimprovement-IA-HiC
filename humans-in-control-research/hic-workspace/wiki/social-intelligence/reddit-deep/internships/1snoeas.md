@@ -6,19 +6,19 @@ subreddit: "internships"
 title: "[Update] Offer deadline tomorrow vs Fortune 100 still in play after my interview this week. What would you do?"
 author: "Tricky-Treat-3768"
 date: "2026-04-17T02:42:47.000Z"
-score: 3
-upvote_ratio: 0.72
+score: 2
+upvote_ratio: 0.67
 num_comments: 5
 flair: "Offers"
-extracted_at: "2026-05-22T21:34:37.052Z"
+extracted_at: "2026-06-06T23:20:46.222Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # [Update] Offer deadline tomorrow vs Fortune 100 still in play after my interview this week. What would you do?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1snoeas/update_offer_deadline_tomorrow_vs_fortune_100/)
-Posted by **Tricky-Treat-3768** · **3↑** · **5 comments**
+Posted by **Tricky-Treat-3768** · **2↑** · **5 comments**
 
 **\*\*UPDATE:** I ended up accepting Company A at the end of last week because of feedback on [my original post](https://www.reddit.com/r/internships/comments/1si889m/offer_deadline_tomorrow_vs_fortune_100_still_in/). I hadn’t heard back from Company B (Fortune 100) at the beginning of this week and assumed it was wraps. Then today, Company B reached out with an offer.
 
@@ -47,7 +47,7 @@ Am I completely delusional for wanting to decline Company A tomorrow just to wai
 ## Comments
 
 - **my_peen_is_clean** (7↑): take the fortune 100 and don’t feel bad about it, interns are super replaceable to them but that name on your resume actually moves the needle for you long term. i’d renege in a second. crazy how desperate everyone is for any offer now
-- **Appropriate-Tutor587** (4↑): “ I kinda wish I had trusted my gut and waited it out “ - This could have also led to a disappointment if you didn’t get an offer and had declined from company A. 
+- **Appropriate-Tutor587** (3↑): “ I kinda wish I had trusted my gut and waited it out “ - This could have also led to a disappointment if you didn’t get an offer and had declined from company A. 
 
 Just renege the offer with company A if you dont want it anymore. Congrats 🎉🎊🎈🍾
 - **GameStonks21** (2↑): just accept the offer, and if the other company comes through tell the first one something came up

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tgay9x.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tgay9x/feeling_very_lost_29_making_115k_a_year_in_a/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,45 @@ flair: "Advice"
 extracted_at: "2026-05-22T15:13:18.820Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tgay9x.md#c0"
+    char_span: [0, 1828]
+    sentence_count: 24
+    key_terms: [careerguidance, school, competitive, considering, back, job, like, professor]
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/careerguidance/1tgay9x.md#c1"
+    char_span: [1843, 2985]
+    sentence_count: 10
+    key_terms: [okaytouseatwork, people, need, comparing, yourself, denver, income, ilikesquirrrels1990]
+    section: Comments
+    token_count: 300
+  - id: "social-intelligence/reddit-deep/careerguidance/1tgay9x.md#c2"
+    char_span: [2987, 4482]
+    sentence_count: 19
+    key_terms: [job, high, pay, yrs, need, expensive, average, denver]
+    section: Comments
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/careerguidance/1tgay9x.md#c3"
+    char_span: [4484, 6533]
+    sentence_count: 14
+    key_terms: [ilikesquirrrels1990, research, job, get, already, example, making, tiktok]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1tgay9x.md#c4"
+    char_span: [6284, 6627]
+    sentence_count: 2
+    key_terms: [ilikesquirrrels1990, oversaturated, superfluous, impossible, companies, positions, realllly, research]
+    section: Comments
+    token_count: 100
+  - id: "social-intelligence/reddit-deep/careerguidance/1tgay9x.md#c5"
+    char_span: [6629, 8052]
+    sentence_count: 13
+    key_terms: [school, professional, admission, starting, family, ilikesquirrrels1990, great, years]
+    section: Comments
+    token_count: 344
 ---
-
 # Feeling very lost. 29, making $115k a year in a fluff role with no exit options. Going back to school seems impossible. Help?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tgay9x/feeling_very_lost_29_making_115k_a_year_in_a/)

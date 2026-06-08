@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1tjui6d.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1tjui6d/is_william_and_mary_worth_50kyear_as_an_instate/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,48 @@ subreddit: "applyingtocollege"
 title: "Is William and Mary worth 50k/year as an in-state transfer student?"
 author: "Square_Tap5076"
 date: "2026-05-21T19:05:44.000Z"
-score: 4
-upvote_ratio: 0.83
+score: 3
+upvote_ratio: 0.8
 num_comments: 26
 flair: "College Questions"
-extracted_at: "2026-05-23T19:45:32.284Z"
+extracted_at: "2026-06-03T18:34:57.890Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tjui6d.md#c0"
+    char_span: [0, 2187]
+    sentence_count: 17
+    key_terms: [especially, applyingtocollege, year, semester, cost, fall, community, difficult]
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tjui6d.md#c1"
+    char_span: [2202, 2384]
+    sentence_count: 4
+    key_terms: [state, grahal1968, talking, tuition, around, assume, loaded, fully]
+    section: Comments
+    token_count: 54
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tjui6d.md#c2"
+    char_span: [2386, 4084]
+    sentence_count: 13
+    key_terms: [in-state, sad-interaction-4622, school, universities, expensive, markvii88, transfer, cheaper]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tjui6d.md#c3"
+    char_span: [4086, 6142]
+    sentence_count: 14
+    key_terms: [years, schools, school, debt, med, transfer, because, option]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tjui6d.md#c4"
+    char_span: [6144, 6989]
+    sentence_count: 5
+    key_terms: [scholarships, schools, scholarship, definitely, virginia, options, money, got]
+    section: Comments
+    token_count: 175
 ---
-
 # Is William and Mary worth 50k/year as an in-state transfer student?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1tjui6d/is_william_and_mary_worth_50kyear_as_an_instate/)
-Posted by **Square_Tap5076** · **4↑** · **26 comments**
+Posted by **Square_Tap5076** · **3↑** · **26 comments**
 
 Hi! I recently graduated from community college with my Associates in Science, and I plan on transferring to William and Mary as a Junior this fall to major in neuroscience + minor in sociology on a pre-med track. I recently received my final financial aid package, and my family is expected to pay ~$50,000/year (I’m an in-state applicant).
 
@@ -36,13 +66,13 @@ Thank you 🤍!
 
 ## Comments
 
-- **grahal1968** (5↑): Tuition is around $20k/year for in state. Out of state is $47k. Are you talking about fully loaded cost? I assume this is for two years since you went to a CC?
+- **grahal1968** (6↑): Tuition is around $20k/year for in state. Out of state is $47k. Are you talking about fully loaded cost? I assume this is for two years since you went to a CC?
 
 Only you can decide if it’s worth it.
   - **Square_Tap5076** (1↑): Yeah, my COA is $50,000 but my Direct Costs is $47,000
     - **Sad-Interaction-4622** (2↑): So, you are attending out of state? Why not go to an in-state college?
-- **MarkVII88** (5↑): If your goal is pre-med, then I advise you to get your bachelor's degree at cheaply as possible. Just transfer to one of your in-state public universities. You'll be in sooo much less debt from medical school anyway. Don't add more by choosing an expensive bachelors.
-  - **Sad-Interaction-4622** (3↑): This IS in-state. $20K tuition is what it costs.
+- **MarkVII88** (6↑): If your goal is pre-med, then I advise you to get your bachelor's degree at cheaply as possible. Just transfer to one of your in-state public universities. You'll be in sooo much less debt from medical school anyway. Don't add more by choosing an expensive bachelors.
+  - **Sad-Interaction-4622** (5↑): This IS in-state. $20K tuition is what it costs.
     - **MarkVII88** (3↑): Are there any cheaper in-state public colleges or universities you could attend?
     - **hibbitydibbitytwo** (1↑): Norfolk State seems to have the lowest cost per credit hour
 - **Ok-Wrongdoer8061** (1↑): It’s a nice school, but if finances are going to be an issue, go to Tech.  Much cheaper.

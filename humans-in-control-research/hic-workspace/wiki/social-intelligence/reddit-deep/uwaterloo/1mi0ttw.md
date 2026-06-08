@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1mi0ttw.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1mi0ttw/campus_restaurant_ranking_after_5_years_experience/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,50 @@ flair: "Discussion"
 extracted_at: "2026-05-25T18:33:12.673Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1mi0ttw.md#c0"
+    char_span: [0, 1485]
+    sentence_count: 1
+    key_terms: [fried, rice, comments, value, pork, inflation, uwaterloo, mushroom]
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/uwaterloo/1mi0ttw.md#c1"
+    char_span: [1487, 2532]
+    sentence_count: 1
+    key_terms: [mid, pricey, edit, taste, added, sweet, food, chungchun]
+    token_count: 332
+  - id: "social-intelligence/reddit-deep/uwaterloo/1mi0ttw.md#c2"
+    char_span: [2547, 4543]
+    sentence_count: 12
+    key_terms: [restaurant, shinwa, baba, dysondexterity, grill, restaurants, been, wok]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/uwaterloo/1mi0ttw.md#c3"
+    char_span: [4545, 5283]
+    sentence_count: 4
+    key_terms: [pineapples, tahini, put, perchance, shawarma, chinese, theyre, baba]
+    section: Comments
+    token_count: 195
+  - id: "social-intelligence/reddit-deep/uwaterloo/1mi0ttw.md#c4"
+    char_span: [5285, 7141]
+    sentence_count: 11
+    key_terms: [better, "gol's", ipotato, "song's", grill, been, soopachris, mongolian]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/uwaterloo/1mi0ttw.md#c5"
+    char_span: [6860, 7655]
+    sentence_count: 6
+    key_terms: [soopachris, grill, baba, tier, bottomless, breakfast, coffee, "mel's"]
+    section: Comments
+    token_count: 211
+  - id: "social-intelligence/reddit-deep/uwaterloo/1mi0ttw.md#c6"
+    char_span: [7657, 8907]
+    sentence_count: 8
+    key_terms: [williams, chicken, kimchi, fried, "mel's", like, menu, shop]
+    section: Comments
+    token_count: 327
 ---
-
 # Campus restaurant ranking after 5 years experience
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1mi0ttw/campus_restaurant_ranking_after_5_years_experience/)

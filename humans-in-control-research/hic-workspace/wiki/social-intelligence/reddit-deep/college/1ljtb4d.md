@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1ljtb4d.md
 url: "https://www.reddit.com/r/college/comments/1ljtb4d/summer_internship/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,21 @@ flair: "Career/work"
 extracted_at: "2026-05-19T15:08:26.266Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1ljtb4d.md#c0"
+    char_span: [0, 549]
+    sentence_count: 1
+    key_terms: [internship, college, comments, hours, idk, time, week, flyingdiva88]
+    token_count: 152
+  - id: "social-intelligence/reddit-deep/college/1ljtb4d.md#c1"
+    char_span: [564, 1022]
+    sentence_count: 9
+    key_terms: [depends, good, home, certifiedowl8, experience, internship, consider, expenses]
+    section: Comments
+    token_count: 119
 ---
-
 # summer internship
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ljtb4d/summer_internship/)

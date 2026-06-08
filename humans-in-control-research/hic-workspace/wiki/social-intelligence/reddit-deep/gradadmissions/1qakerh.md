@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1qakerh.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1qakerh/whats_the_biggest_misconception_about_grad_school/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,39 @@ flair: "Venting"
 extracted_at: "2026-05-20T06:42:01.105Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qakerh.md#c0"
+    char_span: [0, 870]
+    sentence_count: 4
+    key_terms: [gradadmissions, admissions, comments, programs, school, grad, like, seem]
+    token_count: 193
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qakerh.md#c1"
+    char_span: [885, 2658]
+    sentence_count: 11
+    key_terms: [people, program, top, work, prestige, schools, phd, academia]
+    section: Comments
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qakerh.md#c2"
+    char_span: [2660, 4494]
+    sentence_count: 10
+    key_terms: [research, people, gurprofessional9534, academic, application, phd, admissions, potential]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qakerh.md#c3"
+    char_span: [4496, 6400]
+    sentence_count: 12
+    key_terms: [programs, faculty, professional, fit, help, committee, advisor, program]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qakerh.md#c4"
+    char_span: [6402, 7271]
+    sentence_count: 8
+    key_terms: [department, stats, fit, get, program, makes, like, specifically]
+    section: Comments
+    token_count: 191
 ---
-
 # What’s the biggest misconception about grad school admissions and where does it come from?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1qakerh/whats_the_biggest_misconception_about_grad_school/)

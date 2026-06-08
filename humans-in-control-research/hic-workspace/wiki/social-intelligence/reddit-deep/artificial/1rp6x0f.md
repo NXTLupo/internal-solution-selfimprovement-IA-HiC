@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1rp6x0f.md
 url: "https://www.reddit.com/r/artificial/comments/1rp6x0f/codegraphcontext_an_mcp_server_that_indexes_local/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,15 @@ flair: "Tutorial"
 extracted_at: "2026-05-11T16:53:08.151Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1rp6x0f.md#c0"
+    char_span: [0, 1860]
+    sentence_count: 11
+    key_terms: [codegraphcontext, code, playground, github, graph, https, agents, relationships]
+    token_count: 416
 ---
-
 # CodeGraphContext (An MCP server that indexes local code into a graph database) now has a website playground for experiments
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1rp6x0f/codegraphcontext_an_mcp_server_that_indexes_local/)

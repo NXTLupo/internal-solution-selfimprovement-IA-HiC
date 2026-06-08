@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1ph3eii.md
 url: "https://www.reddit.com/r/college/comments/1ph3eii/get_involved_in_research/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -10,11 +11,40 @@ score: 119
 upvote_ratio: 0.97
 num_comments: 16
 flair: "Career/work"
-extracted_at: "2026-05-25T13:02:03.711Z"
+extracted_at: "2026-06-06T17:42:15.227Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1ph3eii.md#c0"
+    char_span: [0, 1528]
+    sentence_count: 11
+    key_terms: [research, college, look, want, university, professor, undergrad, comments]
+    token_count: 366
+  - id: "social-intelligence/reddit-deep/college/1ph3eii.md#c1"
+    char_span: [1543, 2344]
+    sentence_count: 5
+    key_terms: [research, opportunities, undergraduate, university, programs, students, schools, someone]
+    section: Comments
+    token_count: 164
+  - id: "social-intelligence/reddit-deep/college/1ph3eii.md#c2"
+    char_span: [2346, 4609]
+    sentence_count: 11
+    key_terms: [research, opportunities, "i'm", college, coordinator, internships, good, non]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1ph3eii.md#c3"
+    char_span: [4313, 5245]
+    sentence_count: 8
+    key_terms: [research, "i'm", interested, recommend, college, "that's", small, help]
+    section: Comments
+    token_count: 204
+  - id: "social-intelligence/reddit-deep/college/1ph3eii.md#c4"
+    char_span: [5247, 6743]
+    sentence_count: 9
+    key_terms: [research, either, summer, opportunities, "i'm", like, programs, around]
+    section: Comments
+    token_count: 358
 ---
-
 # Get involved in research!!
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ph3eii/get_involved_in_research/)
@@ -32,7 +62,7 @@ Tldr: undergraduate research is a great step to a future in any career, and you 
 
 ## Comments
 
-- **Inkweaver0304** (6↑): Finally someone says it! As someone who has been involved in research for psych since I transferred from community college in 2021, up until now, and who just applied to PhD programs. RESEARCH IS SUCH AN IMPORTANT OPPORTUNITY TO SO MANY STUDENTS. I worked as a program coordinator at my university’s office of undergraduate research, and so many students would miss on opportunities or be unable to follow on their goals and dreams because they didn’t know about research or they thought just a good GPA would get them into grad schools or med schools.
+- **Inkweaver0304** (5↑): Finally someone says it! As someone who has been involved in research for psych since I transferred from community college in 2021, up until now, and who just applied to PhD programs. RESEARCH IS SUCH AN IMPORTANT OPPORTUNITY TO SO MANY STUDENTS. I worked as a program coordinator at my university’s office of undergraduate research, and so many students would miss on opportunities or be unable to follow on their goals and dreams because they didn’t know about research or they thought just a good GPA would get them into grad schools or med schools.
 
 Love research, it’s such a life changing experience, and there are so many opportunities and organizations that can support you if your own university doesn’t have an office of undergraduate research or programs for you. 
 
@@ -40,7 +70,7 @@ If you’re premed, DO RESEARCH, if you are comp sci  and complaining you can’
   - **Inkweaver0304** (2↑): Also gotta add- since I worked as a research admin and also coordinator, and also bee a journal reviewer, communicator and peer mentor for research also feel free to dm me if you have questions about getting started. This is my bread and butter and the thing I’m the biggest advocate for. If you’re international -or a non citizen in the U.S. with any sort of status- and looking for opportunities, I also have a list of research internships, scholarships and funding open to non citizens and internationals, tips and links to a lot of conferences, especially for those in Florida which is where I worked!
     - **frs-1122** (1↑): Hey! I'm not from the US and am keen to know more about RA positions overseas. Would it be okay if I knew more of the information that you've mentioned?
     - **WildCan8483** (1↑): hey i know this post is old by i would really appreciate if you shared the list with me, i am a non citizen and i've been looking for opportunities to make my resume look better so i can transfer to a good university
-- **DardS8Br** (10↑): I'm doing research my freshman year of college. I'm really hoping that it snowballs into good opportunities in the future :D
+- **DardS8Br** (9↑): I'm doing research my freshman year of college. I'm really hoping that it snowballs into good opportunities in the future :D
   - **appa1989** (3↑): That's amazing you are starting so early!! Best of luck!
 - **Chunfin** (6↑): I'm interested in learning more about how to gain research experience! I'm currently a community college student so the science department at my college doesn't invest in promoting research opporunities as compared to larger universities. Are there any resources or places that you recommend checking out for students that are interested in getting into the research field?
   - **appa1989** (3↑): Hi! That's a wonderful goal! I'm not so sure that there are large amounts of research being done at CC's, but I would recommend talking to a professor and seeing if they know anyone even doing a small bit of research or a small project that they might want help with. Apart from that I would prepare yourself well for transferring. Making your analytic skills good is always a bonus to help get into labs!

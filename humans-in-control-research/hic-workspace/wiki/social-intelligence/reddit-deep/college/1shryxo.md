@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1shryxo.md
 url: "https://www.reddit.com/r/college/comments/1shryxo/just_graduated_all_my_college_friends_left_the/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-25T15:51:48.246Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1shryxo.md#c0"
+    char_span: [0, 929]
+    sentence_count: 5
+    key_terms: [college, friends, social, went, graduated, comments, because, "i'm"]
+    token_count: 217
+  - id: "social-intelligence/reddit-deep/college/1shryxo.md#c1"
+    char_span: [944, 2512]
+    sentence_count: 17
+    key_terms: [people, bar, yourself, city, day, like, week, regular]
+    section: Comments
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/college/1shryxo.md#c2"
+    char_span: [2514, 4144]
+    sentence_count: 15
+    key_terms: [people, friends, like, new, something, probably, college, feeling]
+    section: Comments
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/college/1shryxo.md#c3"
+    char_span: [4147, 6073]
+    sentence_count: 14
+    key_terms: [people, friends, social, new, position, college, "there's", better]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/college/1shryxo.md#c4"
+    char_span: [6075, 6793]
+    sentence_count: 12
+    key_terms: [join, college, group, current, groups, young, club, cross-stitch]
+    section: Comments
+    token_count: 181
 ---
-
 # just graduated, all my college friends left the city. how do I start over?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1shryxo/just_graduated_all_my_college_friends_left_the/)

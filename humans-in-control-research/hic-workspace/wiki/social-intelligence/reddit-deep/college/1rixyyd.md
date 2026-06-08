@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1rixyyd.md
 url: "https://www.reddit.com/r/college/comments/1rixyyd/working_while_going_to_school_and_scheduling/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-25T15:51:48.250Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1rixyyd.md#c0"
+    char_span: [0, 1257]
+    sentence_count: 7
+    key_terms: [working, "i'm", college, online, available, classes, school, requirements]
+    token_count: 280
+  - id: "social-intelligence/reddit-deep/college/1rixyyd.md#c1"
+    char_span: [1272, 3140]
+    sentence_count: 12
+    key_terms: [job, time, classes, "it's", transfer, afford, school, full]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/college/1rixyyd.md#c2"
+    char_span: [3142, 5234]
+    sentence_count: 13
+    key_terms: [classes, working, time, credits, school, different, like, advisor]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/college/1rixyyd.md#c3"
+    char_span: [5236, 7256]
+    sentence_count: 19
+    key_terms: [classes, community, schedule, online, work, something, semester, transfer]
+    section: Comments
+    token_count: 438
 ---
-
 # Working while going to school and scheduling conflicts
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1rixyyd/working_while_going_to_school_and_scheduling/)

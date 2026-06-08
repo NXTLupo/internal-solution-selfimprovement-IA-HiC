@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tdtfhb.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tdtfhb/title_15_years_into_my_career_at_an_mnc_confused/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 0
 upvote_ratio: 0.5
 num_comments: 4
 flair: "Coworkers"
-extracted_at: "2026-05-25T13:04:07.361Z"
+extracted_at: "2026-06-03T17:59:52.592Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tdtfhb.md#c0"
+    char_span: [0, 1164]
+    sentence_count: 11
+    key_terms: [switching, careerguidance, career, years, experience, comments, confused, growth]
+    token_count: 274
+  - id: "social-intelligence/reddit-deep/careerguidance/1tdtfhb.md#c1"
+    char_span: [1179, 2264]
+    sentence_count: 3
+    key_terms: [expertwinter2709, got, pretty, depth, deep, good, sure, tech]
+    section: Comments
+    token_count: 252
 ---
-
 # Title: 1.5 Years Into My Career at an MNC — Confused Between Job Switching vs Deep Skill Building ?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tdtfhb/title_15_years_into_my_career_at_an_mnc_confused/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1rty69o.md
 url: "https://www.reddit.com/r/productivity/comments/1rty69o/how_do_you_deal_with_wanting_to_do_a_lot_but/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,33 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:45.651Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1rty69o.md#c0"
+    char_span: [0, 766]
+    sentence_count: 5
+    key_terms: [productivity, like, something, comments, professionstrong6563, doing, lot, reddit-deep]
+    token_count: 179
+  - id: "social-intelligence/reddit-deep/productivity/1rty69o.md#c1"
+    char_span: [781, 2462]
+    sentence_count: 19
+    key_terms: [day, burnout, like, need, tiny, minutes, matter, spiritual-courage-77]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/productivity/1rty69o.md#c2"
+    char_span: [2465, 4395]
+    sentence_count: 18
+    key_terms: [enough, everything, done, drinking, despite, water, day, feel]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/productivity/1rty69o.md#c3"
+    char_span: [4398, 6164]
+    sentence_count: 16
+    key_terms: [zent-productivity, habits, trying, want-too-much, https, been, work, described]
+    section: Comments
+    token_count: 443
 ---
-
 # How do you deal with wanting to do a lot but doing very little?
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1rty69o/how_do_you_deal_with_wanting_to_do_a_lot_but/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1qpxr5o.md
 url: "https://www.reddit.com/r/OpenAI/comments/1qpxr5o/gpt52_feels_less_like_a_tool_and_more_like_a/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,50 @@ flair: "Discussion"
 extracted_at: "2026-05-11T16:53:06.860Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1qpxr5o.md#c0"
+    char_span: [0, 1862]
+    sentence_count: 17
+    key_terms: [like, get, instead, people, feels, comments, memory, openai]
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/openai/1qpxr5o.md#c1"
+    char_span: [1866, 2626]
+    sentence_count: 6
+    key_terms: [doesn, feels, trust, like, pseudo-emotional, overprotective, hallucinates, apparently]
+    token_count: 167
+  - id: "social-intelligence/reddit-deep/openai/1qpxr5o.md#c2"
+    char_span: [2641, 3611]
+    sentence_count: 9
+    key_terms: [gaslighting, abuser, chatgpt, gemini, proof, lieutenant-columbo, org, time]
+    section: Comments
+    token_count: 260
+  - id: "social-intelligence/reddit-deep/openai/1qpxr5o.md#c3"
+    char_span: [3613, 5257]
+    sentence_count: 16
+    key_terms: [claude, "don't", "it's", like, because, problem, agree, medium-theme-4611]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/openai/1qpxr5o.md#c4"
+    char_span: [5259, 6142]
+    sentence_count: 7
+    key_terms: [being, jailbroken, because, better, "don't", care, like, encabulatorturbo]
+    section: Comments
+    token_count: 206
+  - id: "social-intelligence/reddit-deep/openai/1qpxr5o.md#c5"
+    char_span: [6144, 7990]
+    sentence_count: 13
+    key_terms: [code, line, changes, assist, works, app, web, explain]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/openai/1qpxr5o.md#c6"
+    char_span: [7992, 9854]
+    sentence_count: 11
+    key_terms: [explanation, been, like, arguing, change, myself, safety, switch]
+    section: Comments
+    token_count: 437
 ---
-
 # GPT-5.2 feels less like a tool and more like a patronizing hall monitor
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1qpxr5o/gpt52_feels_less_like_a_tool_and_more_like_a/)

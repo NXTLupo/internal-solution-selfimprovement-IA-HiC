@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1kv51rn.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1kv51rn/how_many_cs_co_ops_are_reserved_only_for_waterloo/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-25T18:33:12.666Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, education, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1kv51rn.md#c0"
+    char_span: [0, 497]
+    sentence_count: 3
+    key_terms: [uwaterloo, comments, waterloo, "there's", business-week4389, reddit-deep, percentage, companies]
+    token_count: 125
+  - id: "social-intelligence/reddit-deep/uwaterloo/1kv51rn.md#c1"
+    char_span: [512, 2237]
+    sentence_count: 13
+    key_terms: [waterloo, companies, number, like, reserve, headcount, students, nrgxlr8tr]
+    section: Comments
+    token_count: 452
 ---
-
 # How many CS co ops are reserved only for Waterloo students?
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1kv51rn/how_many_cs_co_ops_are_reserved_only_for_waterloo/)

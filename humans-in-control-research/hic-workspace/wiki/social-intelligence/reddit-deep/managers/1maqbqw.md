@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1maqbqw.md
 url: "https://www.reddit.com/r/managers/comments/1maqbqw/managers_would_you_approve_this/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,63 @@ flair: ""
 extracted_at: "2026-05-26T12:54:23.687Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c0"
+    char_span: [0, 1682]
+    sentence_count: 16
+    key_terms: [work, manager, employee, managers, approved, comments, pregnant, company]
+    token_count: 345
+  - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c1"
+    char_span: [1697, 3344]
+    sentence_count: 12
+    key_terms: [pregnant, leave, work, maternity, pregnancy, manager, affectionate-sir-784, comes]
+    section: Comments
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c2"
+    char_span: [3346, 5210]
+    sentence_count: 15
+    key_terms: [precedent, pregnant, start, women, decision, approve, deleted, manager]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c3"
+    char_span: [5212, 7201]
+    sentence_count: 13
+    key_terms: [deleted, redact, working, covid, home, anonymized, suggested, employee]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c4"
+    char_span: [7203, 9426]
+    sentence_count: 12
+    key_terms: [because, manager, someone, wfh, department, people, leave, permanently]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c5"
+    char_span: [9428, 9849]
+    sentence_count: 3
+    key_terms: [fair, everyone, accountability, precipitously, unambiguous, unreachable, standards, outlined]
+    section: Comments
+    token_count: 94
+  - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c6"
+    char_span: [9851, 11583]
+    sentence_count: 11
+    key_terms: [people, pregnant, village, consideration, leave, subjective, precedent, situation]
+    section: Comments
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c7"
+    char_span: [11585, 13671]
+    sentence_count: 10
+    key_terms: [precedent, employees, work, setting, like, wfh, productive, otherwise]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c8"
+    char_span: [13673, 14850]
+    sentence_count: 8
+    key_terms: [decent-historian-207, flexibility, ada, exemption, approved, workers, affectionate-sir-784, conscious-train-5816]
+    section: Comments
+    token_count: 294
 ---
-
 # Managers, would you approve this?
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1maqbqw/managers_would_you_approve_this/)

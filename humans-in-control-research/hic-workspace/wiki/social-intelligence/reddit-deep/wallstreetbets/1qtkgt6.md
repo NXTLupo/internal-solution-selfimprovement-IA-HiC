@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1qtkgt6.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1qtkgt6/sndk_mu_momentum_exhaustion/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,45 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:14:17.609Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, enterprise_it, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qtkgt6.md#c0"
+    char_span: [0, 1449]
+    sentence_count: 9
+    key_terms: [exhaustion, sndk, comments, wallstreetbets, puts, rsi, short-term, parabolic]
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qtkgt6.md#c1"
+    char_span: [1464, 1894]
+    sentence_count: 1
+    key_terms: [reasoning, higher, hit, "op's", rsi, sndk, ai-moderator, restrictions]
+    section: Comments
+    token_count: 145
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qtkgt6.md#c2"
+    char_span: [1896, 3435]
+    sentence_count: 7
+    key_terms: [jordanpeterson9, sndk, next, daxtaslapp, crayons, market, nvidia, aggravating-buy-1695]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qtkgt6.md#c3"
+    char_span: [3220, 3914]
+    sentence_count: 5
+    key_terms: [market, stocks, run, massaoogway69420, jordanpeterson9, mricedcafemocha, orchestrated, bottleneck]
+    section: Comments
+    token_count: 191
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qtkgt6.md#c4"
+    char_span: [3916, 5597]
+    sentence_count: 14
+    key_terms: [companies, being, infrastructure, openai, application, investments, back, llm]
+    section: Comments
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qtkgt6.md#c5"
+    char_span: [5599, 7017]
+    sentence_count: 9
+    key_terms: [infrastructure, productivity, power, investments, gen, bottleneck, multiple, market]
+    section: Comments
+    token_count: 314
 ---
-
 # 🌈🐻 $SNDK $MU - Momentum Exhaustion
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1qtkgt6/sndk_mu_momentum_exhaustion/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gemini/1lq9pjz.md
 url: "https://www.reddit.com/r/Gemini/comments/1lq9pjz/unable_to_login_without_passkey/"
 kind: "social-post"
 source: "reddit-deep: r/gemini"
@@ -13,8 +14,21 @@ flair: "Support:Support:"
 extracted_at: "2026-05-11T17:27:04.758Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gemini/1lq9pjz.md#c0"
+    char_span: [0, 825]
+    sentence_count: 11
+    key_terms: [gemini, comments, account, passkey, windows, access, edited, trying]
+    token_count: 225
+  - id: "social-intelligence/reddit-deep/gemini/1lq9pjz.md#c1"
+    char_span: [840, 2010]
+    sentence_count: 11
+    key_terms: [phone, passkey, gemini, shouldbeestudying, code, set, trapfiend, account]
+    section: Comments
+    token_count: 331
 ---
-
 # Unable to login without Passkey?
 
 Source: [reddit-deep: r/gemini](https://www.reddit.com/r/Gemini/comments/1lq9pjz/unable_to_login_without_passkey/)

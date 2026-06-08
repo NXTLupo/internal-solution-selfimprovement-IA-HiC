@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1qpj4ax.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1qpj4ax/warning_to_chatgpt_users/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,92 @@ flair: "Prompt engineering "
 extracted_at: "2026-05-17T01:12:48.206Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c0"
+    char_span: [0, 2070]
+    sentence_count: 23
+    key_terms: [conversation, chatgpt, something, chat, work, happened, month, seems]
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c1"
+    char_span: [2072, 3515]
+    sentence_count: 14
+    key_terms: [orphaned, projects, update, conversation, accessible, happened, chatgpt, memory]
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c2"
+    char_span: [3530, 4648]
+    sentence_count: 7
+    key_terms: [openai, please, conversation, image, post, r-chatgpt-1050422060352024636, subreddit, concerns]
+    section: Comments
+    token_count: 272
+  - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c3"
+    char_span: [4650, 5821]
+    sentence_count: 9
+    key_terms: [chat, projects, longer, performance, gpt, contextual, create, reasonablespinach717]
+    section: Comments
+    token_count: 277
+  - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c4"
+    char_span: [5823, 8129]
+    sentence_count: 14
+    key_terms: [chat, "it's", projects, threads, tokens, conversation, organization, model]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c5"
+    char_span: [7790, 9353]
+    sentence_count: 10
+    key_terms: [tokens, convo, model, chat, multiple, projects, browser, project]
+    section: Comments
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c6"
+    char_span: [9355, 10103]
+    sentence_count: 5
+    key_terms: [project, page, data, previous, chatgpt, create, longer, months]
+    section: Comments
+    token_count: 185
+  - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c7"
+    char_span: [10105, 12168]
+    sentence_count: 10
+    key_terms: [project, memory, thread, chat, messages, chats, pages, start]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c8"
+    char_span: [12170, 13410]
+    sentence_count: 6
+    key_terms: [project, chat, chats, memory, files, astrozombieinvader, desperate-poem7526, like]
+    section: Comments
+    token_count: 281
+  - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c9"
+    char_span: [13412, 14381]
+    sentence_count: 8
+    key_terms: [top, ms221988, illustrious-bid-2598, jazzlikeproject6274, bunkersmasher, peasantking, difference, especially]
+    section: Comments
+    token_count: 292
+  - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c10"
+    char_span: [14383, 16566]
+    sentence_count: 20
+    key_terms: [chat, context, long, chats, window, nodes, run, time]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c11"
+    char_span: [16568, 17480]
+    sentence_count: 8
+    key_terms: [thread, flag, ms221988, chatgpt, context, chats, data, "i'm"]
+    section: Comments
+    token_count: 237
+  - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c12"
+    char_span: [17482, 19596]
+    sentence_count: 13
+    key_terms: [conversation, important, anything, chatgpt, thread, chats, monacbfpcobmaoijgepedjklkpknponk, want]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/chatgpt/1qpj4ax.md#c13"
+    char_span: [19598, 20313]
+    sentence_count: 2
+    key_terms: [api, pricing, around, people, temporarykangaroo387, users, kind, wild]
+    section: Comments
+    token_count: 161
 ---
-
 # Warning to ChatGPT Users
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1qpj4ax/warning_to_chatgpt_users/)

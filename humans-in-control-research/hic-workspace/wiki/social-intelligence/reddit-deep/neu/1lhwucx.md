@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1lhwucx.md
 url: "https://www.reddit.com/r/NEU/comments/1lhwucx/can_ishould_i_reject_my_only_offer_at_the_end_of/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-13T14:57:39.792Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1lhwucx.md#c0"
+    char_span: [0, 1759]
+    sentence_count: 1
+    key_terms: [co-op, offer, searching, year, comments, received, company, illustriousking1166]
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/neu/1lhwucx.md#c1"
+    char_span: [1774, 3600]
+    sentence_count: 14
+    key_terms: [clubs, funkensteinsmeunster, isn, job, time, research, coop, full]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/neu/1lhwucx.md#c2"
+    char_span: [3602, 4970]
+    sentence_count: 2
+    key_terms: [co-op, company, back, date, another, certain, waiting, illustriousking1166]
+    section: Comments
+    token_count: 317
+  - id: "social-intelligence/reddit-deep/neu/1lhwucx.md#c3"
+    char_span: [4972, 6276]
+    sentence_count: 7
+    key_terms: [job, co-op, time, opportunity, experience, co-ops, people, few-engineering-890]
+    section: Comments
+    token_count: 324
 ---
-
 # can i/should i reject my only offer at the end of the co-op search cycle
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1lhwucx/can_ishould_i_reject_my_only_offer_at_the_end_of/)

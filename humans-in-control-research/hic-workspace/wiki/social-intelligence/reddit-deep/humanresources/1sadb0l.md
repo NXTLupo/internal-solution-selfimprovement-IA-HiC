@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1sadb0l.md
 url: "https://www.reddit.com/r/humanresources/comments/1sadb0l/what_onboarding_platform_do_you_recommend_thailand/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,27 @@ flair: "Learning & Development"
 extracted_at: "2026-05-23T12:15:41.534Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1sadb0l.md#c0"
+    char_span: [0, 1189]
+    sentence_count: 9
+    key_terms: [humanresources, work, onboarding, recommend, comments, months, ordinary-drummer-780, does]
+    token_count: 275
+  - id: "social-intelligence/reddit-deep/humanresources/1sadb0l.md#c1"
+    char_span: [1204, 2899]
+    sentence_count: 11
+    key_terms: [interactive, confluence, jira, employee, sites, use, work, checklists]
+    section: Comments
+    token_count: 386
+  - id: "social-intelligence/reddit-deep/humanresources/1sadb0l.md#c2"
+    char_span: [2901, 5013]
+    sentence_count: 13
+    key_terms: [automatically, ordinary-drummer-780, subreddit, location, please, moderators, onboarding, performed]
+    section: Comments
+    token_count: 507
 ---
-
 # What onboarding platform do you recommend? [Thailand]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1sadb0l/what_onboarding_platform_do_you_recommend_thailand/)

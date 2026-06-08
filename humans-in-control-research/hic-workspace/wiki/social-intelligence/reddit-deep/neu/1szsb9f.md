@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1szsb9f.md
 url: "https://www.reddit.com/r/NEU/comments/1szsb9f/bu2k_vs_neu5k/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -6,19 +7,36 @@ subreddit: "neu"
 title: "BU($2K) vs NEU($5k)"
 author: "Overall-Tart3639"
 date: "2026-04-30T10:35:50.000Z"
-score: 15
-upvote_ratio: 0.9
+score: 17
+upvote_ratio: 0.95
 num_comments: 26
 flair: "Advice & Experiences"
-extracted_at: "2026-05-19T17:57:09.036Z"
+extracted_at: "2026-06-06T00:27:19.931Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1szsb9f.md#c0"
+    char_span: [0, 941]
+    sentence_count: 5
+    key_terms: [neu, year, engineering, electrical, financial, comments, oakland, program]
+    token_count: 243
+  - id: "social-intelligence/reddit-deep/neu/1szsb9f.md#c1"
+    char_span: [956, 3142]
+    sentence_count: 13
+    key_terms: [engineering, tuition, northeastern, increase, scholarships, scholarship, accepted, probably]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/neu/1szsb9f.md#c2"
+    char_span: [3144, 5158]
+    sentence_count: 11
+    key_terms: [engineering, northeastern, students, campus, co-op, neu, want, difference]
+    section: Comments
+    token_count: 491
 ---
-
 # BU($2K) vs NEU($5k)
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1szsb9f/bu2k_vs_neu5k/)
-Posted by **Overall-Tart3639** · **15↑** · **26 comments**
+Posted by **Overall-Tart3639** · **17↑** · **26 comments**
 
 I was initially going to commit to Northeastern for electrical engineering as the tuition is only 5K for my first year in the Oakland campus, and then 7.5K a year when I transfer to the Boston campus, but yesterday, my BU financial aid appeal finally came back, and they gave me enough aid so that I would only have to pay about 1-2K per year. My family can afford the tuition for either school, but BU would, of course, be significantly less of a financial burden.
 
@@ -28,15 +46,15 @@ Any advice on what school to pick?
 
 ## Comments
 
-- **No-Strain-9571** (50↑): Consider that 3k is like one to three months of part time work, you can probably just choose the one you want to.
-  - **OffShorePanda97** (15↑): You’ll probably make money from coops in EE which should at least cover the difference in tuition.
+- **No-Strain-9571** (49↑): Consider that 3k is like one to three months of part time work, you can probably just choose the one you want to.
+  - **OffShorePanda97** (14↑): You’ll probably make money from coops in EE which should at least cover the difference in tuition.
 - **swimchris100** (24↑): Coop is  differentiator and Northeastern’s engineering program is historically a bit better than BUs. Northeastern also started as an engineering school and there’s some of its DNA that will always be that way.
-- **EquivalentNorth8735** (10↑): Don't forget the NU promise. It is likely that your financial aid at Northeastern is guaranteed for eight semesters and will increase as tuition increases. Can BU say the same? Are you likely to pay more there every year?
-  - **Overall-Tart3639** (5↑): My BU scholarship is good for the next 8 semesters as part of the BU Scholarship Assurance. It would increase if BU's tuition ever goes up.
+- **EquivalentNorth8735** (11↑): Don't forget the NU promise. It is likely that your financial aid at Northeastern is guaranteed for eight semesters and will increase as tuition increases. Can BU say the same? Are you likely to pay more there every year?
+  - **Overall-Tart3639** (4↑): My BU scholarship is good for the next 8 semesters as part of the BU Scholarship Assurance. It would increase if BU's tuition ever goes up.
     - **PromptResponsible123** (1↑): >It would increase ~~if~~  when BU's tuition ~~ever~~ goes up.
 
 Note that only a *"need-based scholarship"* from BU will keep pace with tuition increases; merit scholarships may not.  That is akin to NU's Promise, though it gives grants for need-based aid; our scholarships are merit-based and do not increase apace, likely the same as BU's merit scholarships.  Count on both institutions raising tuition annually!
-- **amberfc** (6↑): Obviously as an NEU student I’m biased but I would still pick Northeastern 
+- **amberfc** (8↑): Obviously as an NEU student I’m biased but I would still pick Northeastern 
 
 
 1. Personally I don’t think one year at Oakland before coming to Boston would be too bad although it would be more similar to coming in late as an NUin or transfer student
@@ -52,5 +70,5 @@ Note that only a *"need-based scholarship"* from BU will keep pace with tuition 
 - **CarrotWeasal546** (2↑): Many NEU students only take 6 sems of classes with 2 coops which would counter some of the cost difference. I do think NEU is the better engineering school
 - **turtlecap1324** (2↑): BU, co-op is no longer “guaranteed” like in the past, and rarely gives return offers. It’s not worth betting 4 years of your life, $12k, and a sorta worse school name for the hopes of a good co-op.
 - **Ok-Aerie9708** (3↑): I would pick BU because I would want the single campus experience with all my friends on the same timeline. BU also saves about $20k over the next four years.
-  - **langjie** (18↑): BU is a poor excuse for a "single campus". It's spread out over like 3 train stations on Comm Ave.
-    - **samirfreiha** (4↑): yeah but each end of the campus is maybe a mile away from eachother, instead of the 2700 or so miles between boston and oakland
+  - **langjie** (19↑): BU is a poor excuse for a "single campus". It's spread out over like 3 train stations on Comm Ave.
+    - **samirfreiha** (3↑): yeah but each end of the campus is maybe a mile away from eachother, instead of the 2700 or so miles between boston and oakland

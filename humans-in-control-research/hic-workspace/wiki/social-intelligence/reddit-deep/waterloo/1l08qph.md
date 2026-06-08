@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1l08qph.md
 url: "https://www.reddit.com/r/waterloo/comments/1l08qph/odd_job_in_waterloo_helping_me_make_juice/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.134Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce, cpg]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1l08qph.md#c0"
+    char_span: [0, 1380]
+    sentence_count: 3
+    key_terms: [juice, waterloo, someone, juicer, home, comments, veggies, fruits]
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/waterloo/1l08qph.md#c1"
+    char_span: [1395, 2588]
+    sentence_count: 4
+    key_terms: [deleted, help, juicers, minimum, pristine-version2069, curiouscoderspace, like, live]
+    section: Comments
+    token_count: 351
 ---
-
 # Odd Job In Waterloo: Helping me make juice
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1l08qph/odd_job_in_waterloo_helping_me_make_juice/)

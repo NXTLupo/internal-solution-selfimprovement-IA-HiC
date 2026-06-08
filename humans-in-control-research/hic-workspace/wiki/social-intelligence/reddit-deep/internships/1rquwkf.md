@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rquwkf.md
 url: "https://www.reddit.com/r/internships/comments/1rquwkf/students_who_landed_internships_what_question/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,36 @@ subreddit: "internships"
 title: "Students who landed internships: what question helped you stand out?"
 author: "HireMeEnergy_6767"
 date: "2026-03-11T14:14:02.000Z"
-score: 32
-upvote_ratio: 0.95
+score: 31
+upvote_ratio: 0.97
 num_comments: 10
 flair: "Interviews"
-extracted_at: "2026-05-23T14:53:57.170Z"
+extracted_at: "2026-06-03T17:24:13.599Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rquwkf.md#c0"
+    char_span: [0, 454]
+    sentence_count: 3
+    key_terms: [internships, comments, question, students, helped, landed, conversation, successfully]
+    token_count: 108
+  - id: "social-intelligence/reddit-deep/internships/1rquwkf.md#c1"
+    char_span: [469, 809]
+    sentence_count: 3
+    key_terms: [interviewer, job, mentioned, interview, questions, previous, focused, generic]
+    section: Comments
+    token_count: 73
+  - id: "social-intelligence/reddit-deep/internships/1rquwkf.md#c2"
+    char_span: [811, 2836]
+    sentence_count: 9
+    key_terms: [questions, interviewer, great, skills, conversation, ask, experience, sometimes]
+    section: Comments
+    token_count: 474
 ---
-
 # Students who landed internships: what question helped you stand out?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rquwkf/students_who_landed_internships_what_question/)
-Posted by **HireMeEnergy_6767** · **32↑** · **10 comments**
+Posted by **HireMeEnergy_6767** · **31↑** · **10 comments**
 
 For students who successfully landed internships:
 

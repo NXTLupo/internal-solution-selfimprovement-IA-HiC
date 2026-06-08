@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/workonline/1r8dz0k.md
 url: "https://www.reddit.com/r/WorkOnline/comments/1r8dz0k/online_work_ideas_for_someone_with_project/"
 kind: "social-post"
 source: "reddit-deep: r/workonline"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-26T12:53:45.647Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, saas, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/workonline/1r8dz0k.md#c0"
+    char_span: [0, 1246]
+    sentence_count: 10
+    key_terms: [work, online, coordination, background, operations, workonline, exploring, comments]
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/workonline/1r8dz0k.md#c1"
+    char_span: [1261, 1769]
+    sentence_count: 5
+    key_terms: [online, good, job, luck, work, opportunities, charmingiris, contracting]
+    section: Comments
+    token_count: 120
 ---
-
 # Online work ideas for someone with project coordination and digital skills (no degree)
 
 Source: [reddit-deep: r/workonline](https://www.reddit.com/r/WorkOnline/comments/1r8dz0k/online_work_ideas_for_someone_with_project/)

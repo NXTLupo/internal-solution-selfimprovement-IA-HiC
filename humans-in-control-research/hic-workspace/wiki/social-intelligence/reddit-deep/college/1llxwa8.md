@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1llxwa8.md
 url: "https://www.reddit.com/r/college/comments/1llxwa8/residency_requirements_for_working_adults/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,21 @@ flair: "Living Arrangements/roommates"
 extracted_at: "2026-05-23T12:15:24.672Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1llxwa8.md#c0"
+    char_span: [0, 1022]
+    sentence_count: 4
+    key_terms: [residency, requirements, requirement, college, live, comments, students, schools]
+    token_count: 223
+  - id: "social-intelligence/reddit-deep/college/1llxwa8.md#c1"
+    char_span: [1037, 1990]
+    sentence_count: 7
+    key_terms: [requirements, exception, residence, residency, colleges, location, require, always]
+    section: Comments
+    token_count: 231
 ---
-
 # Residency requirements for working adults
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1llxwa8/residency_requirements_for_working_adults/)

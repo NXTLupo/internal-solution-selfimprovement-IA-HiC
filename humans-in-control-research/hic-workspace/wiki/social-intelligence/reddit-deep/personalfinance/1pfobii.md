@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1pfobii.md
 url: "https://www.reddit.com/r/personalfinance/comments/1pfobii/how_do_i_become_financially_educated_how_to_start/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,39 @@ flair: "Planning"
 extracted_at: "2026-05-17T01:13:31.189Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1pfobii.md#c0"
+    char_span: [0, 875]
+    sentence_count: 13
+    key_terms: [personalfinance, start, financially, comments, educated, become, smart, thirdeyeskyward]
+    token_count: 233
+  - id: "social-intelligence/reddit-deep/personalfinance/1pfobii.md#c1"
+    char_span: [890, 2408]
+    sentence_count: 20
+    key_terms: [stocks, chemical-power8042, great, money, don, estate, build, extra]
+    section: Comments
+    token_count: 379
+  - id: "social-intelligence/reddit-deep/personalfinance/1pfobii.md#c2"
+    char_span: [2410, 4599]
+    sentence_count: 17
+    key_terms: [personalfinance, commontopics, watch, years, new, discussion, financial, approach]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/personalfinance/1pfobii.md#c3"
+    char_span: [4602, 6774]
+    sentence_count: 12
+    key_terms: [financial, book, personal, finance, faster, money, savvy, watch]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/personalfinance/1pfobii.md#c4"
+    char_span: [6776, 7563]
+    sentence_count: 8
+    key_terms: [investing, learn, savings, funds, index, left, read, diversification]
+    section: Comments
+    token_count: 178
 ---
-
 # How do I become financially educated? How to start?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1pfobii/how_do_i_become_financially_educated_how_to_start/)

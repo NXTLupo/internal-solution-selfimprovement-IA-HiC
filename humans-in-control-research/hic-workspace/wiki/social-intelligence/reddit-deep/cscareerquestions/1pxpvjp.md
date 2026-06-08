@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1pxpvjp.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1pxpvjp/is_tech_support_service_engineer_in_electrical/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: "Experienced"
 extracted_at: "2026-05-26T12:54:26.402Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pxpvjp.md#c0"
+    char_span: [0, 899]
+    sentence_count: 7
+    key_terms: [cscareerquestions, engineer, service, support, tech, electrical, comments, systems]
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pxpvjp.md#c1"
+    char_span: [914, 2092]
+    sentence_count: 5
+    key_terms: [engineering, like, software, epicfail1994, "i'm", role, sure, manager]
+    section: Comments
+    token_count: 281
 ---
-
 # Is Tech Support / Service Engineer in Electrical field a good career path or a dead end?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1pxpvjp/is_tech_support_service_engineer_in_electrical/)

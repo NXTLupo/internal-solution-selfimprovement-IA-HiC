@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1oeuwnd.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1oeuwnd/prefinal_year_undergrad_math_sci_comp_seeking/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,20 @@ flair: "Computational Sciences"
 extracted_at: "2026-05-22T23:33:50.660Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1oeuwnd.md#c0"
+    char_span: [0, 2326]
+    sentence_count: 9
+    key_terms: [scientific, chemistry, interdisciplinary, "i'm", learning, research, specific, gradadmissions]
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/gradadmissions/1oeuwnd.md#c1"
+    char_span: [2328, 3778]
+    sentence_count: 7
+    key_terms: [research, academic, niche, like, scientific, transition, alphafold, building]
+    token_count: 279
 ---
-
 # Pre-final year undergrad (Math & Sci Comp) seeking guidance: Research career in AI/ML for Physical/Biological Sciences
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1oeuwnd/prefinal_year_undergrad_math_sci_comp_seeking/)

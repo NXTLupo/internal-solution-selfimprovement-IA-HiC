@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1scafdn.md
 url: "https://www.reddit.com/r/GradSchool/comments/1scafdn/how_to_take_full_advantage_of_the_college/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.137Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1scafdn.md#c0"
+    char_span: [0, 1308]
+    sentence_count: 10
+    key_terms: [advantage, experience, take, full, time, gradschool, undergrad, comments]
+    token_count: 285
+  - id: "social-intelligence/reddit-deep/gradschool/1scafdn.md#c1"
+    char_span: [1323, 1761]
+    sentence_count: 3
+    key_terms: [campus, did, grad, snowblindalbino, environment, experience, undergrads, undergrad]
+    section: Comments
+    token_count: 97
+  - id: "social-intelligence/reddit-deep/gradschool/1scafdn.md#c2"
+    char_span: [1763, 4005]
+    sentence_count: 16
+    key_terms: [sports, volleyball, free, grad, lot, campus, improv, performances]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1scafdn.md#c3"
+    char_span: [3742, 5757]
+    sentence_count: 12
+    key_terms: [grad, students, going, student, free, "i'm", classmates, undergrad]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/gradschool/1scafdn.md#c4"
+    char_span: [5759, 7711]
+    sentence_count: 11
+    key_terms: [conferences, opportunities, relationships, grad, students, because, current, funding]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/gradschool/1scafdn.md#c5"
+    char_span: [7713, 8849]
+    sentence_count: 7
+    key_terms: [undergrad, grad, "didn't", school, experience, students, awkward, person]
+    section: Comments
+    token_count: 269
+  - id: "social-intelligence/reddit-deep/gradschool/1scafdn.md#c6"
+    char_span: [8851, 9935]
+    sentence_count: 7
+    key_terms: [students, school, free, grad, sometimes, study, miserablescrem, dustybuttocks]
+    section: Comments
+    token_count: 257
 ---
-
 # How to take full advantage of the ‘college experience’, as a grad student?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1scafdn/how_to_take_full_advantage_of_the_college/)

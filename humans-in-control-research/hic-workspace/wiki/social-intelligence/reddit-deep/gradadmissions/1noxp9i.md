@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1noxp9i.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1noxp9i/you_can_get_into_grad_school_with_a_low_gpa/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,54 @@ flair: "General Advice"
 extracted_at: "2026-05-23T14:54:16.721Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1noxp9i.md#c0"
+    char_span: [0, 2027]
+    sentence_count: 25
+    key_terms: [gpa, started, semester, gradadmissions, information, able, everything, university]
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/gradadmissions/1noxp9i.md#c1"
+    char_span: [2032, 4241]
+    sentence_count: 26
+    key_terms: [science, undergrad, "i'm", job, working, school, back, gpa]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/gradadmissions/1noxp9i.md#c2"
+    char_span: [4246, 6436]
+    sentence_count: 30
+    key_terms: [get, professors, "don't", ready, gpa, low, talk, "you're"]
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/gradadmissions/1noxp9i.md#c3"
+    char_span: [6438, 7771]
+    sentence_count: 16
+    key_terms: [get, "don't", grad, something, applying, yourself, execute, "you're"]
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/gradadmissions/1noxp9i.md#c4"
+    char_span: [7786, 9414]
+    sentence_count: 9
+    key_terms: [internationaldiary, got, topcryptographer5436, gpa, northwestern, universities, shot, experience]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/gradadmissions/1noxp9i.md#c5"
+    char_span: [9416, 11107]
+    sentence_count: 20
+    key_terms: [because, needed, get, professors, predictor, professor, statement, applying]
+    section: Comments
+    token_count: 386
+  - id: "social-intelligence/reddit-deep/gradadmissions/1noxp9i.md#c6"
+    char_span: [11109, 12854]
+    sentence_count: 22
+    key_terms: [get, university, professor, program, several, advice, helped, topcryptographer5436]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/gradadmissions/1noxp9i.md#c7"
+    char_span: [12856, 13768]
+    sentence_count: 6
+    key_terms: [school, gpa, grad, relationships, kimimariexo, analytical, professors, rejections]
+    section: Comments
+    token_count: 228
 ---
-
 # You CAN Get Into Grad School With A Low GPA
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1noxp9i/you_can_get_into_grad_school_with_a_low_gpa/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1oz6ne8.md
 url: "https://www.reddit.com/r/careeradvice/comments/1oz6ne8/26m_recruiter_should_i_learn_sqlpower_biai_to/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.245Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce, ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1oz6ne8.md#c0"
+    char_span: [0, 1010]
+    sentence_count: 7
+    key_terms: [recruiting, recruiter, careeradvice, learn, recruitment, data, sql, tech]
+    token_count: 266
 ---
-
 # 26M Recruiter — Should I Learn SQL/Power BI/AI to Switch Into Data or Tech Recruiting? Is It Too Late
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1oz6ne8/26m_recruiter_should_i_learn_sqlpower_biai_to/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1sqielx.md
 url: "https://www.reddit.com/r/GradSchool/comments/1sqielx/i_tried_getting_into_my_undergrad_uni_for_grad/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,39 @@ flair: "Admissions & Applications"
 extracted_at: "2026-05-26T14:32:49.138Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1sqielx.md#c0"
+    char_span: [0, 780]
+    sentence_count: 6
+    key_terms: [experience, gradschool, comments, getting, area, keepinitreal6562, paraprofessional, disabilities]
+    token_count: 180
+  - id: "social-intelligence/reddit-deep/gradschool/1sqielx.md#c1"
+    char_span: [795, 2862]
+    sentence_count: 10
+    key_terms: [research, experience, because, degree, universities, sense, down, own]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/gradschool/1sqielx.md#c2"
+    char_span: [2864, 5210]
+    sentence_count: 12
+    key_terms: [experience, undergrad, interdisciplinary, research, program, behavioral, programs, applied]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1sqielx.md#c3"
+    char_span: [4904, 6553]
+    sentence_count: 13
+    key_terms: [undergrad, professor, students, grad, university, program, school, requirements]
+    section: Comments
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/gradschool/1sqielx.md#c4"
+    char_span: [6555, 6909]
+    sentence_count: 2
+    key_terms: [gravitysrainbow1979, school, like, exclamation, everything, submission, empathize, instantly]
+    section: Comments
+    token_count: 90
 ---
-
 # I tried getting into my undergrad uni for grad school and got rejected. Is there a pattern going on.
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1sqielx/i_tried_getting_into_my_undergrad_uni_for_grad/)

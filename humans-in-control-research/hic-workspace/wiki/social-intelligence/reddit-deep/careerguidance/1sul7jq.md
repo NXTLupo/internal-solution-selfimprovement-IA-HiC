@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sul7jq.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sul7jq/cse_student_who_hates_coding_what_career_path/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 3
 upvote_ratio: 1
 num_comments: 6
 flair: "Education & Qualifications"
-extracted_at: "2026-05-23T20:15:29.967Z"
+extracted_at: "2026-06-03T18:53:36.152Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sul7jq.md#c0"
+    char_span: [0, 1660]
+    sentence_count: 12
+    key_terms: [coding, bachelor, cse, careerguidance, career, family, fields, master]
+    token_count: 380
+  - id: "social-intelligence/reddit-deep/careerguidance/1sul7jq.md#c1"
+    char_span: [1675, 3221]
+    sentence_count: 7
+    key_terms: [management, tech, business, coding, understanding, cherryred245, wizzlord2008, focus]
+    section: Comments
+    token_count: 327
 ---
-
 # CSE student who hates coding , what career path, second bachelor’s, or master’s options make sense for studying abroad?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sul7jq/cse_student_who_hates_coding_what_career_path/)

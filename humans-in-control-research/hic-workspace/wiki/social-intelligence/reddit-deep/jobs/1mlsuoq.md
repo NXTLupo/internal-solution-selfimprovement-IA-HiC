@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1mlsuoq.md
 url: "https://www.reddit.com/r/jobs/comments/1mlsuoq/i_want_to_be_honest_for_job_seekers/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,75 @@ flair: "Resumes/CVs"
 extracted_at: "2026-05-24T14:10:06.653Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1mlsuoq.md#c0"
+    char_span: [0, 1045]
+    sentence_count: 19
+    key_terms: [want, employed, take, comments, people, find, game, job]
+    token_count: 253
+  - id: "social-intelligence/reddit-deep/jobs/1mlsuoq.md#c1"
+    char_span: [1060, 2758]
+    sentence_count: 12
+    key_terms: [conversation, skill, job, open, set, recruiters, obvious, realize]
+    section: Comments
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/jobs/1mlsuoq.md#c2"
+    char_span: [2760, 3878]
+    sentence_count: 10
+    key_terms: [job, banner, reaching, having, pretty, turned, apprehensivesort9459, loudsheepherder5391]
+    section: Comments
+    token_count: 315
+  - id: "social-intelligence/reddit-deep/jobs/1mlsuoq.md#c3"
+    char_span: [3880, 5381]
+    sentence_count: 11
+    key_terms: [recruiter, banner, employed, manager, almost, trying, got, "i'm"]
+    section: Comments
+    token_count: 378
+  - id: "social-intelligence/reddit-deep/jobs/1mlsuoq.md#c4"
+    char_span: [5383, 6951]
+    sentence_count: 8
+    key_terms: [job, recruiters, unemployed, linkedin, deleted, someone, industry, managers]
+    section: Comments
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/jobs/1mlsuoq.md#c5"
+    char_span: [6953, 8986]
+    sentence_count: 18
+    key_terms: [job, linkedin, right, got, "it's", too, change, jobs]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1mlsuoq.md#c6"
+    char_span: [8710, 10821]
+    sentence_count: 19
+    key_terms: [right, job, recruiter, deleted, perfect, through, people, got]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1mlsuoq.md#c7"
+    char_span: [10484, 11791]
+    sentence_count: 12
+    key_terms: [experience, recruiters, managers, personal, biased, hiring, people, resume]
+    section: Comments
+    token_count: 272
+  - id: "social-intelligence/reddit-deep/jobs/1mlsuoq.md#c8"
+    char_span: [11793, 13562]
+    sentence_count: 14
+    key_terms: [matter, job, like, recruiters, candidate, downvoted, recruiter, employed]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/jobs/1mlsuoq.md#c9"
+    char_span: [13564, 15429]
+    sentence_count: 16
+    key_terms: [don, want, work, employed, banner, calls, miles, mississippi]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/jobs/1mlsuoq.md#c10"
+    char_span: [15431, 16223]
+    sentence_count: 6
+    key_terms: [linkedin, work, through, banner, found, care, set, used]
+    section: Comments
+    token_count: 187
 ---
-
 # I want to be honest for job seekers.
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1mlsuoq/i_want_to_be_honest_for_job_seekers/)

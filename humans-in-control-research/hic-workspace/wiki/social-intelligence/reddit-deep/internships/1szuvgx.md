@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1szuvgx.md
 url: "https://www.reddit.com/r/internships/comments/1szuvgx/8_real_lessons_i_learned_from_my_startup/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,47 @@ subreddit: "internships"
 title: "8 real lessons I learned from my startup internship"
 author: "shreyask_9"
 date: "2026-04-30T12:37:34.000Z"
-score: 34
-upvote_ratio: 0.88
-num_comments: 20
+score: 36
+upvote_ratio: 0.9
+num_comments: 21
 flair: "General"
-extracted_at: "2026-05-25T15:51:38.721Z"
+extracted_at: "2026-06-03T18:52:51.192Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1szuvgx.md#c0"
+    char_span: [0, 574]
+    sentence_count: 4
+    key_terms: [startup, internships, internship, comments, learned, lessons, real, considering]
+    token_count: 139
+  - id: "social-intelligence/reddit-deep/internships/1szuvgx.md#c1"
+    char_span: [576, 2946]
+    sentence_count: 21
+    key_terms: [everything, internship, build, like, environments, early-stage, time, work]
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/internships/1szuvgx.md#c2"
+    char_span: [2948, 4224]
+    sentence_count: 2
+    key_terms: [startup, like, internship, people, start-up, company, funding, trying]
+    section: Comments
+    token_count: 295
+  - id: "social-intelligence/reddit-deep/internships/1szuvgx.md#c3"
+    char_span: [4226, 5564]
+    sentence_count: 6
+    key_terms: [work, internship, community, leaving, manager, intern, slight-parking-7328, doing]
+    section: Comments
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/internships/1szuvgx.md#c4"
+    char_span: [5566, 6571]
+    sentence_count: 1
+    key_terms: [internship, founder, opportunity, monday, pure-woodpecker-994, main, team, try]
+    section: Comments
+    token_count: 230
 ---
-
 # 8 real lessons I learned from my startup internship
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1szuvgx/8_real_lessons_i_learned_from_my_startup/)
-Posted by **shreyask_9** · **34↑** · **20 comments**
+Posted by **shreyask_9** · **36↑** · **21 comments**
 
 Hey everyone, I wanted to share a few honest lessons from my recent startup internship that might help anyone considering early-stage/startup roles.
 
@@ -44,12 +73,10 @@ For anyone here who has done a startup or early-stage internship:
 
 ## Comments
 
-- **chocolate_asshole** (5↑): this is actually super accurate, my startup internship was 70 percent random stuff and 30 percent the thing i was “hired” for talking to everyone and sticking near the founders helped a ton would 100 percent do it again early in college
-  - **shreyask_9** (1↑): Yes you'll have the founder's mindset build if you spend 2 years into one founder's office. Your confidence and hunger to buidl a venture will shoot up
-- **tanvi_goyar_** (4↑): this is real startup learning not the polished version you leaned into chaos and extracted value which most people avoid i like how you turned messy work into signal i sometimes reflect like this using runable to sharpen insights
+- **tanvi_goyar_** (3↑): this is real startup learning not the polished version you leaned into chaos and extracted value which most people avoid i like how you turned messy work into signal i sometimes reflect like this using runable to sharpen insights
   - **shreyask_9** (1↑): Yes, I thought this is the right place to share among you all
     - **tanvi_goyar_** (1↑): yeah this is exactly the kind of space where this helps people a lot real startup experiences hit different because they show what the work is actually like not just the highlights really valuable share
-- **ArleyX949** (4↑): Noted ✍️
+- **ArleyX949** (3↑): Noted ✍️
 - **SpecialHamster6508** (1↑): What round of funding was the startup on? 
 
 I am joining a startup for an internship after their series c round and trying to get an idea if it would be something similar like this or not
@@ -70,3 +97,4 @@ You learn by doing, not just observing.
 Finally if the issue isn't solved, you can try for anohter internship, don't fall too much in love with the co.
     - **Complete_Raspberry36** (1↑): The problem is there is he is the only manger(and his brother is in our team and his wife is HR admin) to our team and also founder there is main founder he is also same there are building internal applications for last 1 years and they have some many bugs and the main founder told me complete it by friday or else dont come to office from monday which i completed by monday after applying 1000s jobs i got this internship opportunity what to do move on and try for another opportunity or what full confused
 - **Pure-Woodpecker-994** (1↑): the most unexpected thing i learnt is the structured thinking of startup founders vs an intern like myself, and theres only 1 answer absolute mistake diff, they've made so many more and thats what makes them so much more dangerous
+  - **shreyask_9** (1↑): yes, a tough internship will put your confidence on cloud 9

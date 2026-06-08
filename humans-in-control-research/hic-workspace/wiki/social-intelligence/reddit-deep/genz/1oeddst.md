@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1oeddst.md
 url: "https://www.reddit.com/r/GenZ/comments/1oeddst/why_does_every_part_of_adult_life_suddenly/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,57 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.770Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1oeddst.md#c0"
+    char_span: [0, 1739]
+    sentence_count: 18
+    key_terms: [credit, spending, people, adult, like, own, apartment, comments]
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/genz/1oeddst.md#c1"
+    char_span: [1754, 3716]
+    sentence_count: 16
+    key_terms: [credit, score, money, juliavalentine, "don't", bank, free, use]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/genz/1oeddst.md#c2"
+    char_span: [3718, 5081]
+    sentence_count: 12
+    key_terms: [credit, breaknecessary6940, laplongejr, european, because, curious, getting, borrow]
+    section: Comments
+    token_count: 340
+  - id: "social-intelligence/reddit-deep/genz/1oeddst.md#c3"
+    char_span: [5083, 7363]
+    sentence_count: 16
+    key_terms: [credit, someone, certain, behavior, designed, history, living, scores]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/genz/1oeddst.md#c4"
+    char_span: [7365, 8679]
+    sentence_count: 9
+    key_terms: [credit, cards, score, functioning, applies, digital, history, society]
+    section: Comments
+    token_count: 328
+  - id: "social-intelligence/reddit-deep/genz/1oeddst.md#c5"
+    char_span: [8681, 9563]
+    sentence_count: 5
+    key_terms: [credit, "don't", money, point, card, getting, kawaiiqueen21, essentially]
+    section: Comments
+    token_count: 211
+  - id: "social-intelligence/reddit-deep/genz/1oeddst.md#c6"
+    char_span: [9565, 11219]
+    sentence_count: 10
+    key_terms: [credit, "don't", trust, good, history, expect, benefit, paying]
+    section: Comments
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/genz/1oeddst.md#c7"
+    char_span: [11221, 12345]
+    sentence_count: 5
+    key_terms: [credit, "don't", trust, something, accept, phones, since, until]
+    section: Comments
+    token_count: 249
 ---
-
 # Why does every part of adult life suddenly require a credit score?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1oeddst/why_does_every_part_of_adult_life_suddenly/)

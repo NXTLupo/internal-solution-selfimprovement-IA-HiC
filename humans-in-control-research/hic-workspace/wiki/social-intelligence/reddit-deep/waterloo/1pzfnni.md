@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1pzfnni.md
 url: "https://www.reddit.com/r/waterloo/comments/1pzfnni/heroes_and_zeroes_in_2025/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.131Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [government, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1pzfnni.md#c0"
+    char_span: [0, 1270]
+    sentence_count: 6
+    key_terms: [https, ai-isnt-always-scary-uw-student-helps-families-save-money-on-groceries, waterloo, archive, people, nba3w, list, www]
+    token_count: 343
+  - id: "social-intelligence/reddit-deep/waterloo/1pzfnni.md#c1"
+    char_span: [1285, 2091]
+    sentence_count: 4
+    key_terms: [police, mistake, budget, wilmot, boo, gets, good, vote]
+    section: Comments
+    token_count: 211
+  - id: "social-intelligence/reddit-deep/waterloo/1pzfnni.md#c2"
+    char_span: [2093, 3273]
+    sentence_count: 6
+    key_terms: [heroes, skrimp, council, entire, rights, items, sure, counsellors]
+    section: Comments
+    token_count: 314
 ---
-
 # Heroes and zeroes in 2025
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1pzfnni/heroes_and_zeroes_in_2025/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1qfrsff.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1qfrsff/im_tired_of_the_just_live_below_your_means/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,51 @@ flair: "Vent/Rant (No Advice/Criticism!)"
 extracted_at: "2026-05-16T20:55:12.693Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qfrsff.md#c0"
+    char_span: [0, 1466]
+    sentence_count: 13
+    key_terms: [because, povertyfinance, comments, grindset, against, barrier, mindset, enough]
+    token_count: 339
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qfrsff.md#c1"
+    char_span: [1481, 3447]
+    sentence_count: 17
+    key_terms: [submitter, appropriate, advice, need, please, vents, vent, themselves]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qfrsff.md#c2"
+    char_span: [3449, 5083]
+    sentence_count: 16
+    key_terms: [advice, activities, because, sports, get, good, expenses, cheap]
+    section: Comments
+    token_count: 377
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qfrsff.md#c3"
+    char_span: [5085, 6604]
+    sentence_count: 8
+    key_terms: [point, baseline, income, vividpop2779, back, isn, certain, frugal]
+    section: Comments
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qfrsff.md#c4"
+    char_span: [6606, 8695]
+    sentence_count: 15
+    key_terms: [like, year, imamajesticseahorse, because, people, raises, organization, raise]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qfrsff.md#c5"
+    char_span: [8411, 9383]
+    sentence_count: 6
+    key_terms: [property, because, people, values, taxes, "it's", like, try]
+    section: Comments
+    token_count: 219
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qfrsff.md#c6"
+    char_span: [9385, 10445]
+    sentence_count: 10
+    key_terms: [leakingmoonlight, doctor, cptmorgantravel89, "it's", certification, facilities, retraining, t1m3wizard]
+    section: Comments
+    token_count: 276
 ---
-
 # I'm tired of the "just live below your means" grindset mindset bro advice
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1qfrsff/im_tired_of_the_just_live_below_your_means/)

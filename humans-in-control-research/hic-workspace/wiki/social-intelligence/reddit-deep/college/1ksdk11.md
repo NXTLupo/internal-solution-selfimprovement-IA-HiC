@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1ksdk11.md
 url: "https://www.reddit.com/r/college/comments/1ksdk11/falsely_accused_of_cheating_and_appeal_denied/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,44 @@ flair: ""
 extracted_at: "2026-05-22T23:33:39.795Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1ksdk11.md#c0"
+    char_span: [0, 2069]
+    sentence_count: 17
+    key_terms: [comments, professor, hearing, code, external, because, tolower, coding]
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/college/1ksdk11.md#c1"
+    char_span: [2071, 4206]
+    sentence_count: 17
+    key_terms: [code, assignments, professor, submitted, exam, hearing, appeal, course]
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/college/1ksdk11.md#c2"
+    char_span: [4221, 5972]
+    sentence_count: 15
+    key_terms: ["they'll", "you're", administrator, department, material, cheated, thanks, chair]
+    section: Comments
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/college/1ksdk11.md#c3"
+    char_span: [5974, 7993]
+    sentence_count: 15
+    key_terms: [appeal, process, through, credit, denied, board, class, grade]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/college/1ksdk11.md#c4"
+    char_span: [7995, 9698]
+    sentence_count: 12
+    key_terms: [help, process, dean, possible, provost, chair, been, need]
+    section: Comments
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/college/1ksdk11.md#c5"
+    char_span: [9700, 10974]
+    sentence_count: 7
+    key_terms: [legal, university, representation, like, moment, start, hard, use]
+    section: Comments
+    token_count: 304
 ---
-
 # Falsely accused of cheating and appeal denied. What do I do now?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ksdk11/falsely_accused_of_cheating_and_appeal_denied/)

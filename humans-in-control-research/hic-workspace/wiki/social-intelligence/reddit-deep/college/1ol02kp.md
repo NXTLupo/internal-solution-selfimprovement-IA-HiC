@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1ol02kp.md
 url: "https://www.reddit.com/r/college/comments/1ol02kp/unsure_what_to_do_with_my_current_pathway/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,21 @@ flair: "Academic Life"
 extracted_at: "2026-05-19T15:08:26.263Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1ol02kp.md#c0"
+    char_span: [0, 1410]
+    sentence_count: 11
+    key_terms: [like, comments, college, pathway, being, feels, years, certifications]
+    token_count: 294
+  - id: "social-intelligence/reddit-deep/college/1ol02kp.md#c1"
+    char_span: [1425, 2450]
+    sentence_count: 7
+    key_terms: [going, time, healthcare, different, people, historical-hand8091, impressionnext3445, code]
+    section: Comments
+    token_count: 260
 ---
-
 # Unsure what to do with my current pathway.
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ol02kp/unsure_what_to_do_with_my_current_pathway/)

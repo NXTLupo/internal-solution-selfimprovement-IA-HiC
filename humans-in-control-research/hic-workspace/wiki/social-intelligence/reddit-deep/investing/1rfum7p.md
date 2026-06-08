@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1rfum7p.md
 url: "https://www.reddit.com/r/investing/comments/1rfum7p/thoughts_on_my_current_portfolio_voo_nvda_amzn/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,32 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.194Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, ai_research, retail]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1rfum7p.md#c0"
+    char_span: [0, 1496]
+    sentence_count: 11
+    key_terms: [investing, wyfi, centers, data, voo, comments, current, looking]
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/investing/1rfum7p.md#c1"
+    char_span: [1498, 3685]
+    sentence_count: 10
+    key_terms: [power, interactions, electricity, through, across, development, like, smr]
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/investing/1rfum7p.md#c2"
+    char_span: [3700, 4792]
+    sentence_count: 10
+    key_terms: [power, like, reactor, someone, considerable, "wouldn't", decent, demand]
+    section: Comments
+    token_count: 260
+  - id: "social-intelligence/reddit-deep/investing/1rfum7p.md#c3"
+    char_span: [4794, 5826]
+    sentence_count: 9
+    key_terms: [oklo, smr, justanunknownauthor, rolls, royce, years, top, gold-whole1009]
+    section: Comments
+    token_count: 259
 ---
-
 # Thoughts on my current portfolio? ($VOO, $NVDA, $AMZN, and $SCHD.) …And which Ai stock should I go for? $TAC, $SMR, $WYFI, or $SOUN?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1rfum7p/thoughts_on_my_current_portfolio_voo_nvda_amzn/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1rruaix.md
 url: "https://www.reddit.com/r/GenZ/comments/1rruaix/successful_gen_z_mid20s_what_actually_helped_you/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,51 @@ flair: "Serious"
 extracted_at: "2026-05-16T20:55:01.232Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1rruaix.md#c0"
+    char_span: [0, 1541]
+    sentence_count: 15
+    key_terms: [life, around, mid-20s, trying, real, turn, successful, comments]
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/genz/1rruaix.md#c1"
+    char_span: [1556, 3437]
+    sentence_count: 16
+    key_terms: [later, prioritize, future, prioritizing, house, did, here, life]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/genz/1rruaix.md#c2"
+    char_span: [3439, 5175]
+    sentence_count: 16
+    key_terms: [like, money, car, investing, yourself, friends, purpose, future]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/genz/1rruaix.md#c3"
+    char_span: [5177, 7082]
+    sentence_count: 20
+    key_terms: [social, better, get, use, work, years, life, decompress]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/genz/1rruaix.md#c4"
+    char_span: [7087, 8299]
+    sentence_count: 12
+    key_terms: [got, home, advice, money, until, life, live, own]
+    section: Comments
+    token_count: 292
+  - id: "social-intelligence/reddit-deep/genz/1rruaix.md#c5"
+    char_span: [8301, 10133]
+    sentence_count: 21
+    key_terms: [friend, like, friends, instead, career, equity, having, planes]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/genz/1rruaix.md#c6"
+    char_span: [10135, 11324]
+    sentence_count: 6
+    key_terms: [friends, action, please, rules, genz, "i'd", automatically, automoderator]
+    section: Comments
+    token_count: 296
 ---
-
 # Successful Gen Z (mid-20s), what actually helped you turn things around?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1rruaix/successful_gen_z_mid20s_what_actually_helped_you/)

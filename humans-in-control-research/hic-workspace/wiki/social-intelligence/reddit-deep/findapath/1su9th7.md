@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1su9th7.md
 url: "https://www.reddit.com/r/findapath/comments/1su9th7/claude_vs_chatgpt_vs_google_ai_which_is_actually/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,27 @@ flair: "Findapath-College/Certs"
 extracted_at: "2026-05-22T15:13:18.835Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [ai_research, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1su9th7.md#c0"
+    char_span: [0, 1584]
+    sentence_count: 8
+    key_terms: [worth, learning, properly, career, trying, going, structured, findapath]
+    token_count: 348
+  - id: "social-intelligence/reddit-deep/findapath/1su9th7.md#c1"
+    char_span: [1599, 3867]
+    sentence_count: 19
+    key_terms: [thank, helpful, please, comments, everyone, guidance, helped, upvote]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/findapath/1su9th7.md#c2"
+    char_span: [3870, 4992]
+    sentence_count: 6
+    key_terms: [removed, reddit, prompts, learn, critical-pipe-8799, fit-ingenuity-2814, best, like]
+    section: Comments
+    token_count: 292
 ---
-
 # Claude vs ChatGPT vs Google AI, which is actually worth learning properly if I'm trying to build a career around it
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1su9th7/claude_vs_chatgpt_vs_google_ai_which_is_actually/)

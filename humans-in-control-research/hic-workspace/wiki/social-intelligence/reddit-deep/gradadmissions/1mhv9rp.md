@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1mhv9rp.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1mhv9rp/debilitating_stress_about_grad_school_admissions/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,21 @@ flair: "Biological Sciences"
 extracted_at: "2026-05-14T18:17:36.003Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1mhv9rp.md#c0"
+    char_span: [0, 2174]
+    sentence_count: 17
+    key_terms: ["i'm", lab, enough, experience, doing, wet, school, good]
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/gradadmissions/1mhv9rp.md#c1"
+    char_span: [2189, 3766]
+    sentence_count: 11
+    key_terms: ["i'm", plan, get, good, constantly, something, yourself, experts]
+    section: Comments
+    token_count: 375
 ---
-
 # Debilitating stress about grad school admissions
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1mhv9rp/debilitating_stress_about_grad_school_admissions/)

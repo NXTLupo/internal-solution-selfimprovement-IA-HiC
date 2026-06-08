@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1tihljw.md
 url: "https://www.reddit.com/r/GradSchool/comments/1tihljw/picking_your_grad_school/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,51 @@ flair: "Admissions & Applications"
 extracted_at: "2026-05-23T19:45:05.860Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1tihljw.md#c0"
+    char_span: [0, 1226]
+    sentence_count: 11
+    key_terms: [program, phd, work, gradschool, anywhere, comments, programs, research]
+    token_count: 290
+  - id: "social-intelligence/reddit-deep/gradschool/1tihljw.md#c1"
+    char_span: [1241, 2519]
+    sentence_count: 9
+    key_terms: [phd, work, program, study, time, interested, university, obtaining]
+    section: Comments
+    token_count: 270
+  - id: "social-intelligence/reddit-deep/gradschool/1tihljw.md#c2"
+    char_span: [2521, 4141]
+    sentence_count: 9
+    key_terms: [programs, phd, sometimes, institutions, like, interested, research, keeping]
+    section: Comments
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/gradschool/1tihljw.md#c3"
+    char_span: [4147, 6440]
+    sentence_count: 25
+    key_terms: [programs, research, interested, metallurgy, faculty, schools, member, people]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/gradschool/1tihljw.md#c4"
+    char_span: [6442, 8213]
+    sentence_count: 16
+    key_terms: [phd, want, profit, emotional-tough2780, program, careenbeemolly, school, work]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/gradschool/1tihljw.md#c5"
+    char_span: [8215, 10213]
+    sentence_count: 15
+    key_terms: [careenbeemolly, schools, emotional-tough2780, undergrad, like, "i'm", look, definitely]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/gradschool/1tihljw.md#c6"
+    char_span: [10215, 10428]
+    sentence_count: 3
+    key_terms: [get, assistantships, assistantship, assistant, research, teaching, offered, tuition]
+    section: Comments
+    token_count: 47
 ---
-
 # Picking your Grad school
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1tihljw/picking_your_grad_school/)

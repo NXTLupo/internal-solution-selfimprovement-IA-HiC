@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1pdab6x.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1pdab6x/struggling_to_stay_afloat_debt_piling_up_mortgage/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,56 @@ flair: "Debt/Loans/Credit"
 extracted_at: "2026-05-17T01:13:55.888Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pdab6x.md#c0"
+    char_span: [0, 1790]
+    sentence_count: 12
+    key_terms: [month, debt, povertyfinance, credit, don, need, accounts, comments]
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pdab6x.md#c1"
+    char_span: [1792, 1897]
+    sentence_count: 2
+    key_terms: [experiences, personal, forward, input, sound, best, dmps, does]
+    token_count: 23
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pdab6x.md#c2"
+    char_span: [1912, 3936]
+    sentence_count: 21
+    key_terms: [car, "you'll", debt, pay, everything, important, cheaper, enough]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pdab6x.md#c3"
+    char_span: [3938, 5806]
+    sentence_count: 13
+    key_terms: ["it's", "you're", big, hard, help, bankruptcy, yourself, already]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pdab6x.md#c4"
+    char_span: [5808, 7052]
+    sentence_count: 7
+    key_terms: ["don't", month, get, too, bankruptcy, questions, "it's", look]
+    section: Comments
+    token_count: 287
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pdab6x.md#c5"
+    char_span: [7054, 9532]
+    sentence_count: 27
+    key_terms: [hardship, payments, repayment, debt, minimums, because, credit, cash]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pdab6x.md#c6"
+    char_span: [9184, 11130]
+    sentence_count: 14
+    key_terms: [dmp, pay, credit, state, love-the-classics, get, need, new]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pdab6x.md#c7"
+    char_span: [11132, 12922]
+    sentence_count: 19
+    key_terms: [bankruptcy, consider, mortgage, cut, debt, essentials, expenses, interest]
+    section: Comments
+    token_count: 385
 ---
-
 # Struggling to stay afloat — debt piling up, mortgage behind, credit tanked — need realistic next steps
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1pdab6x/struggling_to_stay_afloat_debt_piling_up_mortgage/)

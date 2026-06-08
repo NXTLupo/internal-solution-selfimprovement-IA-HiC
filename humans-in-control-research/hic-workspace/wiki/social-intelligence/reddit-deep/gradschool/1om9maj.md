@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1om9maj.md
 url: "https://www.reddit.com/r/GradSchool/comments/1om9maj/36_gpa_in_junior_year_am_i_screwed_if_i_want_to/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-19T15:08:48.772Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+industries: [higher_ed, education, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1om9maj.md#c0"
+    char_span: [0, 1877]
+    sentence_count: 14
+    key_terms: [school, kinda, state, get, like, gradschool, leadership, something]
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/gradschool/1om9maj.md#c1"
+    char_span: [1892, 3425]
+    sentence_count: 13
+    key_terms: [university, applying, school, research, masters, people, grad, want]
+    section: Comments
+    token_count: 327
 ---
-
 # 3.6 GPA* in Junior Year - Am I screwed if I want to go somewhere like a T20?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1om9maj/36_gpa_in_junior_year_am_i_screwed_if_i_want_to/)

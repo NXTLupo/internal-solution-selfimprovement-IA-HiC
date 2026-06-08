@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-uwaterloo/b9ed4dac20.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1t1to0m/recently_got_transfer_offer_from_uchicago_and/"
 url_hash: "b9ed4dac20"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-25T18:34:53.198403+00:00"
 chars: 3934
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-uwaterloo/b9ed4dac20.md#c0"
+    char_span: [0, 2011]
+    sentence_count: 15
+    key_terms: [waterloo, uchicago, tech, math, network, want, reputation, uwaterloo]
+    token_count: 477
+  - id: "articles/reddit-deep-r-uwaterloo/b9ed4dac20.md#c1"
+    char_span: [2013, 4131]
+    sentence_count: 12
+    key_terms: [uchicago, waterloo, admissions, commissionrecent886, uwaterloo, prestige, chicago, school]
+    token_count: 486
 ---
-
 # Recently got transfer offer from UChicago and wondering
 
 Source: [Reddit Deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1t1to0m/recently_got_transfer_offer_from_uchicago_and/)

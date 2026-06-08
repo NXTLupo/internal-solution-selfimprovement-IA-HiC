@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1rczzn2.md
 url: "https://www.reddit.com/r/NEU/comments/1rczzn2/advice_on_the_nu_accelerate_class_offering/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,28 @@ score: 4
 upvote_ratio: 1
 num_comments: 7
 flair: "Advice & Experiences"
-extracted_at: "2026-05-12T20:58:42.351Z"
+extracted_at: "2026-06-06T00:27:19.936Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive digital strategy and engagement strategy for Northeastern, based on uploaded transcripts and external research, articles, youtube videos, data, etc., to be used in First-Year advising during orientation to help students identify opportunities and resources to support experiential learning in ways that will improve co-op readiness from day one. Intervention is needed to improve searcher outcomes by identifying skill gaps earlier than the first search semester, democratizing access to knowledge and resources, and enabling students to build competitive profiles and portfolios. Provide plenty of quotes and evidence to support the strategy from extracted research."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1rczzn2.md#c0"
+    char_span: [0, 944]
+    sentence_count: 2
+    key_terms: [global, international, introduction, pols, american, comments, class, neu]
+    token_count: 249
+  - id: "social-intelligence/reddit-deep/neu/1rczzn2.md#c1"
+    char_span: [959, 2795]
+    sentence_count: 10
+    key_terms: [classes, intro, took, american, english, session, summer, taking]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/neu/1rczzn2.md#c2"
+    char_span: [2797, 4763]
+    sentence_count: 21
+    key_terms: [classes, take, requirements, work, class, don, easy, like]
+    section: Comments
+    token_count: 463
 ---
-
 # Advice on the NU Accelerate Class Offering
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1rczzn2/advice_on_the_nu_accelerate_class_offering/)
@@ -43,7 +61,7 @@ Thanks!
 
 ## Comments
 
-- **Tumbleweed_Helpful** (4↑): I took first year writing and intro to the American healthcare system last summer in accelerate. Was pretty chill my English professor was a 100/10 and American healthcare system was one of those classes where it’s not hard just tedious/annoying but an easy A. Got 100s in both, I thought it was fine I took English full summer and intro to American second session, English we normally just had a discussion post or part of an assignment each week. For intro we had like 2 lectures to watch (her voice was really annoying) and anywhere between 2-4 discussion posts that were 3-4 sentences long due Friday 11:59 and two responses on Sunday 11:59, lowkey would watch the lectures whenever and sometimes start my discussions at 8-9pm on Friday and it was fine. A lot more chill than taking it in Boston from what I’ve heard from my friends. Both were major requirements for me
+- **Tumbleweed_Helpful** (6↑): I took first year writing and intro to the American healthcare system last summer in accelerate. Was pretty chill my English professor was a 100/10 and American healthcare system was one of those classes where it’s not hard just tedious/annoying but an easy A. Got 100s in both, I thought it was fine I took English full summer and intro to American second session, English we normally just had a discussion post or part of an assignment each week. For intro we had like 2 lectures to watch (her voice was really annoying) and anywhere between 2-4 discussion posts that were 3-4 sentences long due Friday 11:59 and two responses on Sunday 11:59, lowkey would watch the lectures whenever and sometimes start my discussions at 8-9pm on Friday and it was fine. A lot more chill than taking it in Boston from what I’ve heard from my friends. Both were major requirements for me
   - **StockTelephone11** (2↑): Thank you so much! I am looking at taking one for the whole summer session and another session A one. Since both classes start before I graduate from high school (I graduate mid-June) so I was just thinking if it will be crazy stressful.  
   
 Have you heard about other classes in the list above from those who have taken them? Wondering if other classes are also manageable too.

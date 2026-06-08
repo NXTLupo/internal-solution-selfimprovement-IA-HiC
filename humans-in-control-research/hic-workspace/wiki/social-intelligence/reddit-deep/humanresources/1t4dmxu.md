@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1t4dmxu.md
 url: "https://www.reddit.com/r/humanresources/comments/1t4dmxu/should_i_go_for_shrmcp_as_fresher_india/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T12:15:41.569Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1t4dmxu.md#c0"
+    char_span: [0, 1089]
+    sentence_count: 8
+    key_terms: [placement, humanresources, india, good, internship, comments, shrm-cp, taking]
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/humanresources/1t4dmxu.md#c1"
+    char_span: [1104, 2348]
+    sentence_count: 9
+    key_terms: [india, post, subreddit, company, value, does, job, work]
+    section: Comments
+    token_count: 307
 ---
-
 # Should I go for SHRM-CP ?? as fresher [INDIA]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1t4dmxu/should_i_go_for_shrmcp_as_fresher_india/)

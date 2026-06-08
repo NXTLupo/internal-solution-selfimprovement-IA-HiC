@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1l42ovh.md
 url: "https://www.reddit.com/r/highereducation/comments/1l42ovh/two_job_offers_and_i_dont_know_which_one_to_choose/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-23T14:53:59.515Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1l42ovh.md#c0"
+    char_span: [0, 1354]
+    sentence_count: 8
+    key_terms: [department, job, admissions, highereducation, administrative, heavy, comments, position]
+    token_count: 293
+  - id: "social-intelligence/reddit-deep/highereducation/1l42ovh.md#c1"
+    char_span: [1369, 2069]
+    sentence_count: 6
+    key_terms: [admissions, coordinator, project, good, brittleheartwarm, transferrable, comfortable, leadership]
+    section: Comments
+    token_count: 168
+  - id: "social-intelligence/reddit-deep/highereducation/1l42ovh.md#c2"
+    char_span: [2071, 3876]
+    sentence_count: 12
+    key_terms: [admissions, job, graduate, brittleheartwarm, applications, heart, department, leadership]
+    section: Comments
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/highereducation/1l42ovh.md#c3"
+    char_span: [3878, 5597]
+    sentence_count: 10
+    key_terms: [admissions, higher, like, brittleheartwarm, greengardentarot, certificate, want, positions]
+    section: Comments
+    token_count: 424
 ---
-
 # Two job offers and I don’t know which one to choose
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1l42ovh/two_job_offers_and_i_dont_know_which_one_to_choose/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1t5bqpv.md
 url: "https://www.reddit.com/r/GPT/comments/1t5bqpv/workspace_gpt_agents_keep_rendering_email_drafts/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-11T17:26:37.723Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1t5bqpv.md#c0"
+    char_span: [0, 1825]
+    sentence_count: 8
+    key_terms: [workspace, email, agents, rendering, formatting, agent, workflows, gpt]
+    token_count: 358
 ---
-
 # Workspace GPT Agents keep rendering email drafts as plain text instead of edit UI
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1t5bqpv/workspace_gpt_agents_keep_rendering_email_drafts/)

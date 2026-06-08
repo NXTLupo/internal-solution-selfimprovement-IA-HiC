@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1t2zajr.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1t2zajr/coop_stats_no_longer_updated_daily/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,21 @@ flair: "News"
 extracted_at: "2026-05-25T18:33:12.674Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1t2zajr.md#c0"
+    char_span: [0, 1286]
+    sentence_count: 4
+    key_terms: [employment, uwaterloo, co-operative-education, employment-statistics, co-op, stats, longer, https]
+    token_count: 299
+  - id: "social-intelligence/reddit-deep/uwaterloo/1t2zajr.md#c1"
+    char_span: [1301, 2990]
+    sentence_count: 5
+    key_terms: [accelerate, employment, potentialphotograph, after-cod-3047, power, rates, stats, removed]
+    section: Comments
+    token_count: 458
 ---
-
 # Co-op stats no longer updated daily
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1t2zajr/coop_stats_no_longer_updated_daily/)

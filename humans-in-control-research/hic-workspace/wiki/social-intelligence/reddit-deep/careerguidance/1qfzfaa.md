@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1qfzfaa.md
 url: "https://www.reddit.com/r/careerguidance/comments/1qfzfaa/bca_student_who_loves_price_comparison_cost/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 0.99
 num_comments: 2
 flair: ""
-extracted_at: "2026-05-22T21:34:47.971Z"
+extracted_at: "2026-06-03T18:53:36.170Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1qfzfaa.md#c0"
+    char_span: [0, 1146]
+    sentence_count: 8
+    key_terms: [careerguidance, comments, tracking, explore, student, career, paths, roles]
+    token_count: 250
+  - id: "social-intelligence/reddit-deep/careerguidance/1qfzfaa.md#c1"
+    char_span: [1161, 2245]
+    sentence_count: 6
+    key_terms: [analyst, pricing, roles, positions, entry-level, honestly, probably, bca]
+    section: Comments
+    token_count: 213
 ---
-
 # BCA student who loves price comparison & cost tracking — which career paths should I explore?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1qfzfaa/bca_student_who_loves_price_comparison_cost/)

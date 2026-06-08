@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1rjdoyx.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1rjdoyx/480k_mu_yolo_240k_in_margin/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,39 @@ flair: "YOLO"
 extracted_at: "2026-05-16T20:54:42.967Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rjdoyx.md#c0"
+    char_span: [0, 744]
+    sentence_count: 4
+    key_terms: [wallstreetbets, comments, reddit, https, com, www, comment, context]
+    token_count: 226
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rjdoyx.md#c1"
+    char_span: [759, 1956]
+    sentence_count: 3
+    key_terms: [margin, b8752deff856714be9b6bb23a2a035efdd1da62a, leveraged, leverage, discord, efficiencymaterial51, https, leaps]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rjdoyx.md#c2"
+    char_span: [1958, 3305]
+    sentence_count: 4
+    key_terms: [wallstreetbetscallss, thinking, shares, autisticgaybear69, fine, get, "it's", long]
+    section: Comments
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rjdoyx.md#c3"
+    char_span: [3307, 4306]
+    sentence_count: 4
+    key_terms: [d147926191796c9058d285ed63e9da6f8851b00b, cutlercares, undervalued, saying, substantial-big8008, "it's", png, content-pop-690]
+    section: Comments
+    token_count: 343
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rjdoyx.md#c4"
+    char_span: [4308, 5157]
+    sentence_count: 1
+    key_terms: [df368a307fda00f1dc73c85e4702a9766a96144f, going, down, therealarmament, banditcleaner2, sasfasasquatch, super-tendies, hitman133295]
+    section: Comments
+    token_count: 302
 ---
-
 # 480k MU YOLO (240k in margin)
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1rjdoyx/480k_mu_yolo_240k_in_margin/)

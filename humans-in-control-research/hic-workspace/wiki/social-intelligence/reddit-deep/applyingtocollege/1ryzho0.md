@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1ryzho0/t20_rankings_by_where_people_would_want_to_go/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,105 @@ subreddit: "applyingtocollege"
 title: "T20 Rankings by where people would want to go"
 author: "Intelligent-Web-8017"
 date: "2026-03-20T15:33:36.000Z"
-score: 71
+score: 67
 upvote_ratio: 0.76
-num_comments: 354
+num_comments: 349
 flair: "Discussion"
-extracted_at: "2026-05-25T18:32:06.229Z"
+extracted_at: "2026-06-03T17:24:34.889Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c0"
+    char_span: [0, 2116]
+    sentence_count: 17
+    key_terms: [people, schools, applyingtocollege, get, admitted, columbia, specific, caltech]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c1"
+    char_span: [2118, 4220]
+    sentence_count: 16
+    key_terms: [uchicago, schools, tier, cracked, people, get, "didn't", northwestern]
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c2"
+    char_span: [4222, 5820]
+    sentence_count: 3
+    key_terms: [tier, schools, school, edit, like, state, get, colleges]
+    token_count: 372
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c3"
+    char_span: [5822, 6831]
+    sentence_count: 1
+    key_terms: [cmu, ppl, gtech, because, getting, washu, got, like]
+    token_count: 244
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c4"
+    char_span: [6846, 8814]
+    sentence_count: 13
+    key_terms: [school, people, intelligent-web-8017, good, schools, life, time, want]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c5"
+    char_span: [8816, 10898]
+    sentence_count: 12
+    key_terms: [pretty, salary, school, happy, cmu, ppl, salaries, because]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c6"
+    char_span: [10902, 12796]
+    sentence_count: 10
+    key_terms: [intelligent-web-8017, georgia, tech, top, schools, engineering, berkeley, high]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c7"
+    char_span: [12579, 13092]
+    sentence_count: 3
+    key_terms: [engineering, tech, georgia, school, coast, uva, west, big-hat-7210]
+    section: Comments
+    token_count: 134
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c8"
+    char_span: [13094, 13407]
+    sentence_count: 2
+    key_terms: [humanities, georgia, majors, tech, terpgonnaball, acceptance, specified, nonsense]
+    section: Comments
+    token_count: 79
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c9"
+    char_span: [13409, 15282]
+    sentence_count: 11
+    key_terms: [collegetransitions, untowardadvance, dataverse, top-feeders-engineering, applied, https, com, stem]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c10"
+    char_span: [15284, 17165]
+    sentence_count: 17
+    key_terms: [untowardadvance, campus, terpgonnaball, state, kids, companies, students, applied]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c11"
+    char_span: [16956, 17263]
+    sentence_count: 3
+    key_terms: [campus, big, comparsion, facilities, investment, companies, berkeley, congrats]
+    section: Comments
+    token_count: 89
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c12"
+    char_span: [17265, 18432]
+    sentence_count: 7
+    key_terms: [school, applicants, georgia, after-excitement6234, intelligent-web-8017, cycle, least, yield]
+    section: Comments
+    token_count: 336
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c13"
+    char_span: [18434, 19890]
+    sentence_count: 7
+    key_terms: [campus, baltimore, jhu, neighborhood, "it's", like, part, location]
+    section: Comments
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c14"
+    char_span: [19892, 21326]
+    sentence_count: 5
+    key_terms: [real-focus-1, location, because, charles, cornell, hopkins, village, automatic-lobster987]
+    section: Comments
+    token_count: 370
 ---
-
 # T20 Rankings by where people would want to go
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1ryzho0/t20_rankings_by_where_people_would_want_to_go/)
-Posted by **Intelligent-Web-8017** · **71↑** · **354 comments**
+Posted by **Intelligent-Web-8017** · **67↑** · **349 comments**
 
 This is probably gonna be the best overall t20 ranking based off where people would rather attend especially if they would get into every college. I would say any t20 would have a quality education, some excel more in specific areas say in business or engineering but this really is dependent on that "aura factor". No hate to any specific college.
 
@@ -60,14 +147,14 @@ edit 5: no im not going to gtech. i got into a hypsm. this was just an unbiased 
 
 ## Comments
 
-- **dp3471** (33↑): why is jhu so high? have people been to baltimore?
+- **dp3471** (32↑): why is jhu so high? have people been to baltimore?
   - **PossibleCall1591** (4↑): Same with U Chicago….
-  - **Intelligent-Web-8017** (-2↑): if ur premed heavy then its very good. yes some locations are just mid but what can anyone do. you have to do with what you can in life.
+  - **Intelligent-Web-8017** (-3↑): if ur premed heavy then its very good. yes some locations are just mid but what can anyone do. you have to do with what you can in life.
 
 its still a very selective school
 
 edit: yea it has grade deflation and other stuff and is prob like hell but still its not a bad school. ir ur a cracked person and want the challenge its good. if u want a life and goon then go to a diff school.
-    - **SecretDevilsAdvocate** (10↑): jhu is a great med school, but a ton of premeds I know intentionally chose not to go. Baltimore objectively sucks and the atmosphere/culture is very intense. Combined w grade deflation, a lot of people choose other top schools
+    - **SecretDevilsAdvocate** (9↑): jhu is a great med school, but a ton of premeds I know intentionally chose not to go. Baltimore objectively sucks and the atmosphere/culture is very intense. Combined w grade deflation, a lot of people choose other top schools
 - **Only-Finish-3497** (12↑): Warning: this comment kind of misses the point, but this is still important. 
 
 UCLA grad here who had to choose between UCLA, Cal and Cornell.
@@ -78,39 +165,39 @@ Pick the school that you actually want to be at regardless of what USNWR or any 
   - **Intelligent-Web-8017** (2↑): yes that's true!
 
 the avg salaries are very comparable at top schools. going to harvard vs brown will not be any difference in ur salary. i literally know of ppl who went to community college making millions and ppl from stanford who cant find a job. also a lot depends on degree too
-    - **Only-Finish-3497** (6↑): There's *some* correlation between school name and salary, but it seems to be messy and I'm willing to bet a lot is driven by geography. So, for instance, I bet you dollars to donuts until a few years ago SFSU drove MASSIVELY above its weight in salaries because Bay Area tech companies were hiring devs out of there like crazy. I have a cousin who went to SFSU and ended up in Fintech and he now owns literal apartment buildings. Good for him!
+    - **Only-Finish-3497** (5↑): There's *some* correlation between school name and salary, but it seems to be messy and I'm willing to bet a lot is driven by geography. So, for instance, I bet you dollars to donuts until a few years ago SFSU drove MASSIVELY above its weight in salaries because Bay Area tech companies were hiring devs out of there like crazy. I have a cousin who went to SFSU and ended up in Fintech and he now owns literal apartment buildings. Good for him!
 
 The salary is only one component, though. 50% of physicians are burned out and crispy. Most of them are likely paid pretty well, but they're not "happy." 
 
 The reason I stress the importance of finding the school that fits you is because you will do so much more if you're happy somewhere. I know a dude who started his undergrad at Duke and *hated* it. He hated every stinking minute. So he transferred to Pomona College and found his home. He's now happy, does startup work, and figured himself out. But he had to be honest with himself that he needed a LAC and not a big research university.
-- **Dangerous-Advisor-31** (9↑): CMU mogs Gtech what are you on right now
+- **Dangerous-Advisor-31** (8↑): CMU mogs Gtech what are you on right now
   - **Intelligent-Web-8017** (2↑): i made both and gtech is better lmao. i know ppl who bsd their app and made cmu.
   - **After-Excitement6234** (2↑): no one favors CMU.
 - **Nearby_Task9041** (5↑): I think it is important to point out that while you might feel some INITIAL disappointment to not getting into a higher tier school (assuming you applied there in the first place), this feeling fades pretty quickly once you get into any of these T20's. Heck, even if you get into Georgetown or NYU or USC or Tulane, the overwhelming majority of kids who are actually there pretty quickly feel that is the absolute BEST place for them, and I'm not sure it is all cope.   
   
 In other words, once you find new best friends, or join clubs, or meet a potential spouse, all this "preference ranking" goes out the window. The main reason high school kids should focus on the Top 20 is because the private schools on that list are the ones that can afford need-blind admissions, meaning they will meet your family's full financial need (assuming you're domestic) and schools outside the Top 20 fall off pretty quickly in their ability to do that. Need-blind admissions is a luxury.
   - **Intelligent-Web-8017** (1↑): 100% i def agree!
-- **xwingdeliciousness** (5↑): Georgia is NOT T20
-  - **After-Excitement6234** (3↑): It's 3 for all engineering. And Top 1-4 in almost any engineering disciplines and #5 for CS. It has an 8% OOS acceptance rate and receives almost 60,000 OOS apps. Take that USNWR junk out of here. Look at a composite of all rankings. Definitely Top 20.
-  - **Intelligent-Web-8017** (3↑): idk for stem ig and cs it is. i got into better schools this is what i think
-- **OhtaniEnthusiast** (14↑): Berkeley and Georgia Tech should be tier 5
+- **xwingdeliciousness** (4↑): Georgia is NOT T20
+  - **After-Excitement6234** (4↑): It's 3 for all engineering. And Top 1-4 in almost any engineering disciplines and #5 for CS. It has an 8% OOS acceptance rate and receives almost 60,000 OOS apps. Take that USNWR junk out of here. Look at a composite of all rankings. Definitely Top 20.
+  - **Intelligent-Web-8017** (4↑): idk for stem ig and cs it is. i got into better schools this is what i think
+- **OhtaniEnthusiast** (13↑): Berkeley and Georgia Tech should be tier 5
   - **Automatic-Lobster987** (1↑): I think Berkeley could belong in tier 4 but yeah, I think Georgia Tech is too high.
   - **Intelligent-Web-8017** (2↑): eh i think more ppl esp oos cracked stem kids would rather go to berkley than a lot of the tier 5 schools. again i said its very comparable and it depends person to person
     - **fanficmilf6969** (13↑): Berkeley makes sense but Georgia Tech is rated way too high
-- **UntowardAdvance** (42↑): Hate to break it to the rest of the country, but Georgia Tech has zero traction among top students on the West Coast. Like ZERO *edit - FOR ANYONE NOT CS/engineering* UT - yes, but not GA Tech.  And even UT is just for kids who aiming for a state school who don’t get into their preferred UC, U Dub, Michigan, or UVA.
-  - **Big-Hat-7210** (18↑): disagree. im on the west coast and georgia tech is heavily desired for students pursuing engineering or cs. most people i know would choose georgia tech over UVA, UW (if engineering. if cs, less likely) but generally not mich/UCB/UCLA. It's somewhere around a top 5-10 public school on the west coast for cs/engineering.
+- **UntowardAdvance** (43↑): Hate to break it to the rest of the country, but Georgia Tech has zero traction among top students on the West Coast. Like ZERO *edit - FOR ANYONE NOT CS/engineering* UT - yes, but not GA Tech.  And even UT is just for kids who aiming for a state school who don’t get into their preferred UC, U Dub, Michigan, or UVA.
+  - **Big-Hat-7210** (19↑): disagree. im on the west coast and georgia tech is heavily desired for students pursuing engineering or cs. most people i know would choose georgia tech over UVA, UW (if engineering. if cs, less likely) but generally not mich/UCB/UCLA. It's somewhere around a top 5-10 public school on the west coast for cs/engineering.
 
 if you specified "for humanities majors," i would agree with you since I have met zero humanities majors who want to go to georgia tech or who even applied. physics/math/chem/bio seem to be in a middle ground.
   - **terpgonnaball** (9↑): lol nonsense. Top Firms love Georgia Tech hence the 8% OOS acceptance rate.
 
 [https://www.collegetransitions.com/dataverse/top-feeders-engineering/](https://www.collegetransitions.com/dataverse/top-feeders-engineering/)[https://www.collegetransitions.com/dataverse/top-feeders-tech/](https://www.collegetransitions.com/dataverse/top-feeders-tech/) (Silicon Valley)
     - **UntowardAdvance** (0↑): My comments is about gunner HS applicants- not specifically CS applicants. I wouldn’t be surprised if California was the most represented OOS kids at Georgia Tech. We have the largest population by far
-  - **namey-name-name** (4↑): This is just not remotely true lmaooo. For anyone doing CS Georgia tech is a top option. Every Bay Area kid I know applied there.
+  - **namey-name-name** (6↑): This is just not remotely true lmaooo. For anyone doing CS Georgia tech is a top option. Every Bay Area kid I know applied there.
     - **UntowardAdvance** (-2↑): Every Bay Area kid wanting CS? Cuz that’s all I’ll grant you
   - **tralfaz66** (14↑): As a 35 year veteran of Silicon Valley and a Tech grad  I can assure you Georgia Tech is a door opener.      There are a few better stem schools, but for the price it cant be beat.
-    - **UntowardAdvance** (0↑): Just telling you where kids apply - not the overall quality of the school.
+    - **UntowardAdvance** (-1↑): Just telling you where kids apply - not the overall quality of the school.
     - **terpgonnaball** (0↑): \+100
-  - **Intelligent-Web-8017** (11↑): im on the west coast and trust me that's not the case. its only good if ur a stem student who loves cs, engineering or smth like that. Gtech OOS is 8% and its also lower if u applied as a stem major. i do think more kids in cali would take berkley and ucla due to cost tho. thats why i only put gtech stem but ur acting like entire californai is the US which isnt the case it's 1 state. most of the cracked ppl are on the east coast.
+  - **Intelligent-Web-8017** (9↑): im on the west coast and trust me that's not the case. its only good if ur a stem student who loves cs, engineering or smth like that. Gtech OOS is 8% and its also lower if u applied as a stem major. i do think more kids in cali would take berkley and ucla due to cost tho. thats why i only put gtech stem but ur acting like entire californai is the US which isnt the case it's 1 state. most of the cracked ppl are on the east coast.
     - **Lastsentry** (9↑): As a Canadian student in CS. Back in high school, I was friend with many Olympiad people and people with crazy EC like founding a startup that actually profited.
 
 Many applied to UCLA, and the Ivies that are weak in CS.
@@ -130,8 +217,8 @@ Edit: Berkeley is 5, GT is 6.
   - **Exact_Project1734** (1↑): “many companies wouldn’t step foot on campus” 😭😭😭 sure, except for literally all of Big Tech, MBB, Big 4, top investment banks, startups, research labs/facilities….
 
 I really don’t understand people who say it isn’t a top school
-  - **Intelligent-Web-8017** (-3↑): im going to a hypsm pls stop ur cope
-    - **91210toATL** (2↑): Im coping but you made another ranking thread to boost your school? Lol.
+  - **Intelligent-Web-8017** (-2↑): im going to a hypsm pls stop ur cope
+    - **91210toATL** (4↑): Im coping but you made another ranking thread to boost your school? Lol.
   - **terpgonnaball** (0↑): At least if you post bitterness like this you can at least attempt to pretend to be credible. Last cycle Georgia Tech received approx 67,000 applications for admissions (more this cycle). Of those 67,000, 54,375 were from OOS applicants. Georgia Tech rejected approximately 92% of all OOS applicants.
     - **91210toATL** (3↑): Most students on campus, are instate. Compare test scores.
   - **After-Excitement6234** (0↑): What are you talking about? lol
@@ -154,8 +241,8 @@ But there is literally a neighborhood of multi-million dollar mansions on the no
 The primary commercial neighborhood next to JHU is Charles Village which has Starbucks, Barnes & Nobles, restaurants, bars, etc. It also has some of the most charming and colorful streets of Victorian homes that I've seen anywhere. But if you cross the boundary past Charles Village it does start to get sketchy. But that's not any different than Columbia, Chicago, Yale, Penn, etc.
   - **THEnesnes32** (1↑): maybe because jhu charges 94k a year if you don’t qualify for aid (story of my life istg I realllyyyy would have loved to go here)💔💔
   - **Automatic-Lobster987** (1↑): I actually heard someone from Emory say they chose it over Johns Hopkins because they thought it was too competitive and stressful (they were doing pre-med). But Johns Hopkins is still an amazing school and I think it does deserve to be in at least tier 4.
-- **Real-Focus-1** (5↑): Cornell getting way under ranked for literally no valid reason
-  - **CryptographerOwn9555** (6↑): Cornell's location/weather is terrible. so many kids just would not even apply for it bc of the location.
+- **Real-Focus-1** (7↑): Cornell getting way under ranked for literally no valid reason
+  - **CryptographerOwn9555** (5↑): Cornell's location/weather is terrible. so many kids just would not even apply for it bc of the location.
     - **Choice-Champion-1733** (3↑): And Boston and New Haven is so warm and sunny in the winter
   - **Intelligent-Web-8017** (1↑): true RD cornell is much harder than other colleges on that
 

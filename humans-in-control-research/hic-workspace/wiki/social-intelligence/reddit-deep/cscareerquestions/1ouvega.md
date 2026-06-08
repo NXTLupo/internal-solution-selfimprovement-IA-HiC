@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1ouvega.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1ouvega/new_grads_and_folks_looking_for_new_job_how_do/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-20T03:56:10.740Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ouvega.md#c0"
+    char_span: [0, 871]
+    sentence_count: 4
+    key_terms: [talent, cscareerquestions, comments, tonight, needed, miserable-corner-254, new, conversation]
+    token_count: 196
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ouvega.md#c1"
+    char_span: [886, 2607]
+    sentence_count: 11
+    key_terms: [trump-green-cards-gradutate-college, people, irresponsible, guy, fucking, damned, dumb, god]
+    section: Comments
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ouvega.md#c2"
+    char_span: [2609, 4074]
+    sentence_count: 15
+    key_terms: [party, against, deleted, action, bubble, h-1bs, least, parties]
+    section: Comments
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ouvega.md#c3"
+    char_span: [4076, 6017]
+    sentence_count: 8
+    key_terms: [people, ancient-carry-4796, h1b, america, "you're", worth, immigrants, countries]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ouvega.md#c4"
+    char_span: [6019, 8032]
+    sentence_count: 14
+    key_terms: [rankings, schools, https, best-global-universities, artificial-intelligence, education, best, com]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ouvega.md#c5"
+    char_span: [8034, 9905]
+    sentence_count: 10
+    key_terms: [best-global-universities, artificial-intelligence, https, "aren't", airankings, immigrants, education, rankings]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ouvega.md#c6"
+    char_span: [9907, 10518]
+    sentence_count: 3
+    key_terms: [people, means, "it's", says, victorsmonster, especially, sad-boi-97, interview]
+    section: Comments
+    token_count: 150
 ---
-
 # New grads and folks looking for new job- how do you feel about Trump's conversation with Laura Inghram tonight in where he stated America lacks talent and you can't just pick an unemployed person off the unemployment line to do the jobs foreign countries are creating due to big investments?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1ouvega/new_grads_and_folks_looking_for_new_job_how_do/)

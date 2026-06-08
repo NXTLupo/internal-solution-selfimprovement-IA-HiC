@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1n4afdy.md
 url: "https://www.reddit.com/r/investing/comments/1n4afdy/inherit_500k_do_you_buy_a_rental_invest_more_in/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,63 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.199Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c0"
+    char_span: [0, 883]
+    sentence_count: 12
+    key_terms: [buy, investing, long-term, something, comments, invest, rental, wealth]
+    token_count: 216
+  - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c1"
+    char_span: [898, 2422]
+    sentence_count: 12
+    key_terms: [management, years, company, rental, house, never, selling, tenants]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c2"
+    char_span: [2424, 3600]
+    sentence_count: 11
+    key_terms: [live, property, passive, people, fragrant-aide-3174, possible-trip-5299, got, like]
+    section: Comments
+    token_count: 303
+  - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c3"
+    char_span: [3602, 5369]
+    sentence_count: 11
+    key_terms: [passive, income, house, job, background, activity, credit, enough]
+    section: Comments
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c4"
+    char_span: [5371, 7447]
+    sentence_count: 13
+    key_terms: [people, work, passive, takes, stocks, complaining, maintenance, btc]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c5"
+    char_span: [7449, 8977]
+    sentence_count: 14
+    key_terms: [income, rental, year, people, maintenance, breakeven, interest, property]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c6"
+    char_span: [8979, 10167]
+    sentence_count: 11
+    key_terms: [people, did, voo, want, received, growth, money, years]
+    section: Comments
+    token_count: 314
+  - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c7"
+    char_span: [10169, 11111]
+    sentence_count: 6
+    key_terms: [years, inheritance, returns, "that's", stalkaturnedtyper, lot, need, put]
+    section: Comments
+    token_count: 252
+  - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c8"
+    char_span: [11113, 12799]
+    sentence_count: 15
+    key_terms: [estate, stocks, like, real, dumpitdog, property, requires, liquid]
+    section: Comments
+    token_count: 433
 ---
-
 # Inherit $500K: Do You Buy a Rental, Invest More in Stocks, or Do Something Else?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1n4afdy/inherit_500k_do_you_buy_a_rental_invest_more_in/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/futureofwork/1rr4dwh.md
 url: "https://www.reddit.com/r/FutureOfWork/comments/1rr4dwh/beyond_the_task_economy_why_the_future_belongs_to/"
 kind: "social-post"
 source: "reddit-deep: r/futureofwork"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-26T12:54:26.437Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/futureofwork/1rr4dwh.md#c0"
+    char_span: [0, 2073]
+    sentence_count: 12
+    key_terms: [machines, currently, sovereign, administrative, people, futureofwork, saas, apocalypse]
+    token_count: 457
 ---
-
 # Beyond the "Task" Economy: Why the future belongs to the Sovereign Operator.
 
 Source: [reddit-deep: r/futureofwork](https://www.reddit.com/r/FutureOfWork/comments/1rr4dwh/beyond_the_task_economy_why_the_future_belongs_to/)

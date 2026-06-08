@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-neu/a20dcd5dbb.md
 url: "https://www.reddit.com/r/NEU/comments/1o57erq/currently_the_worst_experience_ever_in_oakland/"
 url_hash: "a20dcd5dbb"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-19T18:02:07.032998+00:00"
 chars: 5334
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-neu/a20dcd5dbb.md#c0"
+    char_span: [0, 1941]
+    sentence_count: 20
+    key_terms: [everyone, here, northeastern, people, experience, year, friends, support]
+    token_count: 453
+  - id: "articles/reddit-deep-r-neu/a20dcd5dbb.md#c1"
+    char_span: [1943, 4148]
+    sentence_count: 24
+    key_terms: [experience, don, like, year, because, campus, people, whole]
+    token_count: 505
+  - id: "articles/reddit-deep-r-neu/a20dcd5dbb.md#c2"
+    char_span: [4150, 5528]
+    sentence_count: 11
+    key_terms: [explore, northeastern, bay, take, programs, "doesn't", campus, "don't"]
+    token_count: 298
 ---
-
 # Currently the worst experience ever in Oakland campus (yapping)
 
 Source: [Reddit Deep: r/neu](https://www.reddit.com/r/NEU/comments/1o57erq/currently_the_worst_experience_ever_in_oakland/)

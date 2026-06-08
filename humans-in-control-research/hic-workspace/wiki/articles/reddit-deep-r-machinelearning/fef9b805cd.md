@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-machinelearning/fef9b805cd.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1pwd8su/p_s2id_scale_invariant_image_diffuser_trained_on/"
 url_hash: "fef9b805cd"
 kind: "article"
@@ -10,8 +11,45 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T17:35:30.124869+00:00"
 chars: 12000
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-machinelearning/fef9b805cd.md#c0"
+    char_span: [0, 2075]
+    sentence_count: 11
+    key_terms: [machinelearning, image, kernels, models, reddit, architecture, found, https]
+    token_count: 485
+  - id: "articles/reddit-deep-r-machinelearning/fef9b805cd.md#c1"
+    char_span: [2077, 3876]
+    sentence_count: 14
+    key_terms: [resolution, information, image, s2id, although, training, trained, photo]
+    token_count: 430
+  - id: "articles/reddit-deep-r-machinelearning/fef9b805cd.md#c2"
+    char_span: [3878, 5533]
+    sentence_count: 7
+    key_terms: [time, png, b03a59cc5ee0b05803de88b5d1efe9e6d0a88c87, digits, images, augmentation, model, training]
+    token_count: 451
+  - id: "articles/reddit-deep-r-machinelearning/fef9b805cd.md#c3"
+    char_span: [5535, 6599]
+    sentence_count: 1
+    key_terms: [png, preview, format, https, width, auto, redd, webp]
+    token_count: 510
+  - id: "articles/reddit-deep-r-machinelearning/fef9b805cd.md#c4"
+    char_span: [6601, 8353]
+    sentence_count: 8
+    key_terms: [png, time, resolution, last, fd2d587da70cae59b6dd2163e4d977553921f92f, preview, results, better]
+    token_count: 463
+  - id: "articles/reddit-deep-r-machinelearning/fef9b805cd.md#c5"
+    char_span: [8355, 10666]
+    sentence_count: 17
+    key_terms: [model, coordinates, image, composition, data, coordinate, relative, pixels]
+    token_count: 512
+  - id: "articles/reddit-deep-r-machinelearning/fef9b805cd.md#c6"
+    char_span: [10668, 12380]
+    sentence_count: 15
+    key_terms: [information, resolution, different, mnist, invariance, textures, resolutions, especially]
+    token_count: 331
 ---
-
 # [P] S2ID: Scale Invariant Image Diffuser - trained on standard MNIST, generates 1024x1024 digits and at arbitrary aspect ratios with almost no artifacts at 6.1M parameters (Drastic code change and architectural improvement)
 
 Source: [Reddit Deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1pwd8su/p_s2id_scale_invariant_image_diffuser_trained_on/)

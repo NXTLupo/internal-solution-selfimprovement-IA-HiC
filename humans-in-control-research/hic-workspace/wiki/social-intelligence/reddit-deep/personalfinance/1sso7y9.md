@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1sso7y9.md
 url: "https://www.reddit.com/r/personalfinance/comments/1sso7y9/my_dad_put_my_name_on_a_storage_unit_years_ago/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,63 @@ flair: "Debt"
 extracted_at: "2026-05-16T20:55:02.102Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c0"
+    char_span: [0, 1413]
+    sentence_count: 10
+    key_terms: [name, account, never, unit, personalfinance, collections, dad, got]
+    token_count: 343
+  - id: "social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c1"
+    char_span: [1428, 3118]
+    sentence_count: 12
+    key_terms: [anything, did, wrong, dad, get, sign, permission, removed]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c2"
+    char_span: [3120, 4374]
+    sentence_count: 5
+    key_terms: [storage, dad, debt, company, "it's", collectors, contents, alanbly]
+    section: Comments
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c3"
+    char_span: [4376, 6016]
+    sentence_count: 16
+    key_terms: [probably, company, storage, years, been, property, already, trailer]
+    section: Comments
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c4"
+    char_span: [6018, 8045]
+    sentence_count: 16
+    key_terms: [dad, storage, financial, debt, auction, credit, collections, safetyman35]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c5"
+    char_span: [8047, 9789]
+    sentence_count: 15
+    key_terms: [storage, month, climate-controlled, area, unit, promotional, cost, pay]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c6"
+    char_span: [9791, 11255]
+    sentence_count: 20
+    key_terms: [debt, did, credit, report, prove, what-is-a-debt-validation-letter, earned, "don't"]
+    section: Comments
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c7"
+    char_span: [11257, 13392]
+    sentence_count: 18
+    key_terms: [company, collections, storage, unit, pay, signed, name, anything]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/personalfinance/1sso7y9.md#c8"
+    char_span: [13394, 14192]
+    sentence_count: 5
+    key_terms: [auction, debt, pay, satisfy, particular-step-9760, close, lock, take]
+    section: Comments
+    token_count: 197
 ---
-
 # My dad put my name on a storage unit years ago and now the account is in collections
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1sso7y9/my_dad_put_my_name_on_a_storage_unit_years_ago/)

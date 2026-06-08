@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1risisp.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1risisp/how_often_do_you_visit_family_in_usa_im/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,55 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:56.732Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1risisp.md#c0"
+    char_span: [0, 1741]
+    sentence_count: 15
+    key_terms: [cost, america, family, health, digitalnomad, asia, here, too]
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/digitalnomad/1risisp.md#c1"
+    char_span: [1743, 2837]
+    sentence_count: 8
+    key_terms: [like, parents, particularly, time, expensive, "can't", close, quite]
+    token_count: 247
+  - id: "social-intelligence/reddit-deep/digitalnomad/1risisp.md#c2"
+    char_span: [2839, 4353]
+    sentence_count: 15
+    key_terms: [asia, "it's", flight, hour, america, "i've", jet, lag]
+    token_count: 363
+  - id: "social-intelligence/reddit-deep/digitalnomad/1risisp.md#c3"
+    char_span: [4368, 6383]
+    sentence_count: 16
+    key_terms: [year, get, "i'd", twice, settingintentions, thanksgiving, time, conditions]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/digitalnomad/1risisp.md#c4"
+    char_span: [6385, 8270]
+    sentence_count: 15
+    key_terms: ["i'm", parents, years, bit, relationship, adult, like, realizing]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/digitalnomad/1risisp.md#c5"
+    char_span: [8272, 10353]
+    sentence_count: 22
+    key_terms: [parents, jetlag, settingintentions, least, money, visit, bobachonker, end]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/digitalnomad/1risisp.md#c6"
+    char_span: [10355, 12431]
+    sentence_count: 21
+    key_terms: [flight, hours, hour, business, because, class, sleep, get]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/digitalnomad/1risisp.md#c7"
+    char_span: [12433, 13792]
+    sentence_count: 11
+    key_terms: [settingintentions, asia, america, korea, maybe, considering, something, flights]
+    section: Comments
+    token_count: 332
 ---
-
 # How often do you visit family in USA? I'm struggling to decide visiting frequency (cost + jetlag)
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1risisp/how_often_do_you_visit_family_in_usa_im/)

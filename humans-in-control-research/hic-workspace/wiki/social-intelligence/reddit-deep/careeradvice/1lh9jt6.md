@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1lh9jt6.md
 url: "https://www.reddit.com/r/careeradvice/comments/1lh9jt6/what_i_learned_from_being_completely_lost_in_my/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,44 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.233Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1lh9jt6.md#c0"
+    char_span: [0, 2050]
+    sentence_count: 26
+    key_terms: [career, careeradvice, engineering, experiences, felt, different, comments, discover]
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/careeradvice/1lh9jt6.md#c1"
+    char_span: [2052, 2478]
+    sentence_count: 7
+    key_terms: [change, population, important, miserable, anything, complain, figuring, anyways]
+    token_count: 98
+  - id: "social-intelligence/reddit-deep/careeradvice/1lh9jt6.md#c2"
+    char_span: [2493, 3250]
+    sentence_count: 8
+    key_terms: [rather, taking, lonely-ad-5410, opportunities, experiences, exploration, comforting, completely]
+    section: Comments
+    token_count: 156
+  - id: "social-intelligence/reddit-deep/careeradvice/1lh9jt6.md#c3"
+    char_span: [3252, 5161]
+    sentence_count: 20
+    key_terms: ["master's", thank, internship, career, thanks, educationinformal376, purdueglobalofficial, reach]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careeradvice/1lh9jt6.md#c4"
+    char_span: [4907, 5533]
+    sentence_count: 5
+    key_terms: [technical, grades, thesis, build, credentials, engineering, suggestions, especially]
+    section: Comments
+    token_count: 134
+  - id: "social-intelligence/reddit-deep/careeradvice/1lh9jt6.md#c5"
+    char_span: [5535, 7169]
+    sentence_count: 16
+    key_terms: [path, try, reflection, expenses, industry, substack, applied, support]
+    section: Comments
+    token_count: 406
 ---
-
 # What I learned from being completely lost in my career
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1lh9jt6/what_i_learned_from_being_completely_lost_in_my/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1tl4mww.md
 url: "https://www.reddit.com/r/internships/comments/1tl4mww/internship_landed_eager_for_fall_2026_already/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,27 @@ flair: "General"
 extracted_at: "2026-05-25T15:51:38.720Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1tl4mww.md#c0"
+    char_span: [0, 541]
+    sentence_count: 5
+    key_terms: [internships, internship, comments, landed, summer, start, fall, reddit-deep]
+    token_count: 153
+  - id: "social-intelligence/reddit-deep/internships/1tl4mww.md#c1"
+    char_span: [556, 2480]
+    sentence_count: 9
+    key_terms: [fall, spring, appropriate-tutor587, graduation, internship, postings, later, internships]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/internships/1tl4mww.md#c2"
+    char_span: [2482, 3980]
+    sentence_count: 10
+    key_terms: [fall, start, internships, internship, different, september, already, companies]
+    section: Comments
+    token_count: 371
 ---
-
 # Internship landed -- eager for Fall 2026 already
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1tl4mww/internship_landed_eager_for_fall_2026_already/)

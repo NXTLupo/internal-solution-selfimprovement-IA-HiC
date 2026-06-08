@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1t01trm.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1t01trm/new_grad_here_does_it_hurt_my_career_to_start/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 0.67
 num_comments: 5
 flair: ""
-extracted_at: "2026-05-22T23:33:42.311Z"
+extracted_at: "2026-06-03T18:53:18.795Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t01trm.md#c0"
+    char_span: [0, 1195]
+    sentence_count: 12
+    key_terms: [bla, cscareerquestions, supply, chain, work, situation, comments, projects]
+    token_count: 298
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t01trm.md#c1"
+    char_span: [1210, 3204]
+    sentence_count: 12
+    key_terms: [title, supply, chain, job, official, resume, list, swe]
+    section: Comments
+    token_count: 440
 ---
-
 # New grad here, does it hurt my career to start with a CS-adjacent niche role (e.g. IT or supply chain)?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1t01trm/new_grad_here_does_it_hurt_my_career_to_start/)
@@ -34,7 +46,7 @@ When I apply to the next job, can I put SWE on my resume if my work was mostly d
 
 ## Comments
 
-- **dippatel21** (3↑): Taking an adjacent role like supply chain analyst won’t tank your path if you’re actually coding most days and shipping stuff. What hurts is a year of mostly meetings and spreadsheets, so ask what percent of your time will be building automation, doing code reviews, working in repos, and whether there’s a path to a SWE title in 6 to 12 months, ideally in writing. On the resume, don’t change the title to SWE, use the official title, then make the first line clear that you were the engineer building internal tools for supply chain and list the tech and outcomes. Quantify impact and keep artifacts, PRs, and docs so you can prove it later. If they balk on the title and the work turns out ops heavy, bail after 6 to 12 months with the experience you got.
+- **dippatel21** (5↑): Taking an adjacent role like supply chain analyst won’t tank your path if you’re actually coding most days and shipping stuff. What hurts is a year of mostly meetings and spreadsheets, so ask what percent of your time will be building automation, doing code reviews, working in repos, and whether there’s a path to a SWE title in 6 to 12 months, ideally in writing. On the resume, don’t change the title to SWE, use the official title, then make the first line clear that you were the engineer building internal tools for supply chain and list the tech and outcomes. Quantify impact and keep artifacts, PRs, and docs so you can prove it later. If they balk on the title and the work turns out ops heavy, bail after 6 to 12 months with the experience you got.
 - **lhorie** (2↑): From a zero-sum game perspective, yes, it hurts your career to start at a non-ideal place vs a more ideal place, since you then have to "catch up". It's better than not having a job though.
 
 As for next resumes, you don't actually need to write down the title. You could, for example, just list the company and tenure, then describe responsibilities in bullets.

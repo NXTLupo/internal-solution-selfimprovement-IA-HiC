@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1o7t4ye.md
 url: "https://www.reddit.com/r/jobs/comments/1o7t4ye/i_was_fired_and_i_dont_know_how_to_respond/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,57 @@ flair: "Onboarding"
 extracted_at: "2026-05-20T06:41:17.649Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1o7t4ye.md#c0"
+    char_span: [0, 1170]
+    sentence_count: 14
+    key_terms: [disheartening, bad, comments, clients, respond, civilsupermarket3359, fired, job]
+    token_count: 294
+  - id: "social-intelligence/reddit-deep/jobs/1o7t4ye.md#c1"
+    char_span: [1185, 2826]
+    sentence_count: 17
+    key_terms: [background, reference, respond, check, ask, person, worked, civilsupermarket3359]
+    section: Comments
+    token_count: 405
+  - id: "social-intelligence/reddit-deep/jobs/1o7t4ye.md#c2"
+    char_span: [2828, 4653]
+    sentence_count: 8
+    key_terms: [jobs, text, comments, ignore, places, thank, years, ambitious-boat8165]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/jobs/1o7t4ye.md#c3"
+    char_span: [4655, 6622]
+    sentence_count: 21
+    key_terms: [unemployment, jaded, like, business, trying, work, comments, negative]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/jobs/1o7t4ye.md#c4"
+    char_span: [6624, 7780]
+    sentence_count: 8
+    key_terms: [job, getting, respond, "you're", head-contribution679, live-juggernaut-221, "don't", fired]
+    section: Comments
+    token_count: 309
+  - id: "social-intelligence/reddit-deep/jobs/1o7t4ye.md#c5"
+    char_span: [7782, 9633]
+    sentence_count: 13
+    key_terms: [manipulative, fired, like, text, civilsupermarket3359, check, drive, leave]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/jobs/1o7t4ye.md#c6"
+    char_span: [9635, 11385]
+    sentence_count: 10
+    key_terms: [christian, performance, feedback, positive, received, deliver, until, job]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/jobs/1o7t4ye.md#c7"
+    char_span: [11387, 13229]
+    sentence_count: 14
+    key_terms: [communicate, performance, job, text, want, work, beautiful, religious]
+    section: Comments
+    token_count: 470
 ---
-
 # I was fired and I don’t know how to respond..
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1o7t4ye/i_was_fired_and_i_dont_know_how_to_respond/)

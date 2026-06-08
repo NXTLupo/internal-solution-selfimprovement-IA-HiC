@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1lerbhp.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1lerbhp/international_health_insurance_for_digital_nomads/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,21 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:56.720Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [financial_services]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1lerbhp.md#c0"
+    char_span: [0, 1878]
+    sentence_count: 12
+    key_terms: [coverage, insurance, emergency, deductible, don, need, recommendations, looking]
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/digitalnomad/1lerbhp.md#c1"
+    char_span: [1893, 2846]
+    sentence_count: 7
+    key_terms: [deductible, allianz, lot, insurances, coverage, directly, hospital, provider]
+    section: Comments
+    token_count: 231
 ---
-
 # International Health Insurance for Digital Nomads - High Deductible Emergency Coverage Needed
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1lerbhp/international_health_insurance_for_digital_nomads/)

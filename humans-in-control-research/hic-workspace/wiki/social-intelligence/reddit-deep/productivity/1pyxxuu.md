@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1pyxxuu.md
 url: "https://www.reddit.com/r/productivity/comments/1pyxxuu/productivity_isnt_about_discipline_its_about/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,33 @@ flair: "General Advice"
 extracted_at: "2026-05-26T12:53:45.660Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1pyxxuu.md#c0"
+    char_span: [0, 1098]
+    sentence_count: 10
+    key_terms: [productivity, better, alignment, comments, instead, avoid, feels, focus]
+    token_count: 225
+  - id: "social-intelligence/reddit-deep/productivity/1pyxxuu.md#c1"
+    char_span: [1113, 3199]
+    sentence_count: 17
+    key_terms: [discipline, readwithai, dews0, goals, value, alignment, goal, level]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/productivity/1pyxxuu.md#c2"
+    char_span: [3201, 5327]
+    sentence_count: 23
+    key_terms: [productivity, good, people, important, being, often, throughout, adherence]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/productivity/1pyxxuu.md#c3"
+    char_span: [5329, 7447]
+    sentence_count: 10
+    key_terms: [something, friction, instead, indexintuition, uncomfortable, productivity, real, automation]
+    section: Comments
+    token_count: 447
 ---
-
 # Productivity isn’t about discipline. It’s about value alignment
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1pyxxuu/productivity_isnt_about_discipline_its_about/)

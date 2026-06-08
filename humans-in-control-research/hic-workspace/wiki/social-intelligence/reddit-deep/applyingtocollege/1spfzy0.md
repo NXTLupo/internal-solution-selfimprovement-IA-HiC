@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1spfzy0.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1spfzy0/help_me_decide_uchicago_vs_berkeley_leaning/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,32 @@ flair: "Advice"
 extracted_at: "2026-05-23T12:15:36.217Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1spfzy0.md#c0"
+    char_span: [0, 1978]
+    sentence_count: 8
+    key_terms: [berkeley, applyingtocollege, nice, graduate, uchicago, kinda, major, quant]
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1spfzy0.md#c1"
+    char_span: [1980, 3858]
+    sentence_count: 22
+    key_terms: [quant, "i'm", "it's", chicago, feel, like, want, berkeley]
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1spfzy0.md#c2"
+    char_span: [3873, 5581]
+    sentence_count: 8
+    key_terms: [berkeley, conscious-secret-775, quant, berk, overrated, berkley, chicago, without]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1spfzy0.md#c3"
+    char_span: [5583, 5902]
+    sentence_count: 1
+    key_terms: [chicago, smart, berk, recommend, becoming, "they'll", better, easier]
+    section: Comments
+    token_count: 81
 ---
-
 # Help me Decide UChicago vs Berkeley (Leaning towards Berk)
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1spfzy0/help_me_decide_uchicago_vs_berkeley_leaning/)

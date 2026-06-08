@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1rq8tfx.md
 url: "https://www.reddit.com/r/personalfinance/comments/1rq8tfx/am_i_right_to_think_buying_a_house_would_be/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,33 @@ flair: "Housing"
 extracted_at: "2026-05-16T20:55:02.104Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1rq8tfx.md#c0"
+    char_span: [0, 969]
+    sentence_count: 9
+    key_terms: [personalfinance, comments, friend, little, intelligent-log-5755, house, right, small]
+    token_count: 242
+  - id: "social-intelligence/reddit-deep/personalfinance/1rq8tfx.md#c1"
+    char_span: [984, 2897]
+    sentence_count: 20
+    key_terms: [savings, pay, month, afford, house, rent, costs, going]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/personalfinance/1rq8tfx.md#c2"
+    char_span: [2899, 4811]
+    sentence_count: 10
+    key_terms: [income, dkgk1, house, kids, expenses, daycare, furnace, savings]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/personalfinance/1rq8tfx.md#c3"
+    char_span: [4813, 6589]
+    sentence_count: 13
+    key_terms: [house, mortgage, month, buy, around, costs, money, liquidretro]
+    section: Comments
+    token_count: 434
 ---
-
 # Am I right to think buying a house would be foolish right now?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1rq8tfx/am_i_right_to_think_buying_a_house_would_be/)

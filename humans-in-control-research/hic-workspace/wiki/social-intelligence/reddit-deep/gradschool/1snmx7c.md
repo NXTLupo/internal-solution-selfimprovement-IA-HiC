@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1snmx7c.md
 url: "https://www.reddit.com/r/GradSchool/comments/1snmx7c/this_is_how_they_get_you/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,39 @@ flair: "Fun & Humour"
 extracted_at: "2026-05-25T13:04:07.339Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1snmx7c.md#c0"
+    char_span: [0, 1394]
+    sentence_count: 8
+    key_terms: [sit-in-front-ofa-blank-wall-for-a-while-because-what, professor, program, gradschool, something, comments, semester, friends]
+    token_count: 319
+  - id: "social-intelligence/reddit-deep/gradschool/1snmx7c.md#c1"
+    char_span: [1409, 2368]
+    sentence_count: 5
+    key_terms: [read, dirtrepresentative9, "i've", like, talk, searchatlantis, bigfrondnicky, employment]
+    section: Comments
+    token_count: 261
+  - id: "social-intelligence/reddit-deep/gradschool/1snmx7c.md#c2"
+    char_span: [2370, 4601]
+    sentence_count: 15
+    key_terms: [intellectual, professor, interest, students, faculty, "that's", bigfrondnicky, peers]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1snmx7c.md#c3"
+    char_span: [4318, 4643]
+    sentence_count: 2
+    key_terms: [interested, classroom, primarily, classes, created, program, campus, gotten]
+    section: Comments
+    token_count: 76
+  - id: "social-intelligence/reddit-deep/gradschool/1snmx7c.md#c4"
+    char_span: [4645, 5998]
+    sentence_count: 7
+    key_terms: [like, interesting, find, professors, something, someone, always, texted]
+    section: Comments
+    token_count: 317
 ---
-
 # This is how they get you
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1snmx7c/this_is_how_they_get_you/)

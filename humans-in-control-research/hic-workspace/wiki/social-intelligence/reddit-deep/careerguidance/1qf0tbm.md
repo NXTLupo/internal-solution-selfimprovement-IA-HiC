@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1qf0tbm.md
 url: "https://www.reddit.com/r/careerguidance/comments/1qf0tbm/im_25_and_i_dont_have_a_career_yet_and_im_totally/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -6,19 +7,66 @@ subreddit: "careerguidance"
 title: "i’m 25 and i don’t have a career yet and i’m totally alone with no friends or support system, am i done for?"
 author: "smallworldofmine"
 date: "2026-01-17T02:33:06.000Z"
-score: 174
+score: 171
 upvote_ratio: 0.98
 num_comments: 91
 flair: "Advice"
-extracted_at: "2026-05-25T15:52:13.108Z"
+extracted_at: "2026-06-06T17:42:15.253Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1qf0tbm.md#c0"
+    char_span: [0, 1927]
+    sentence_count: 2
+    key_terms: [feel, like, careerguidance, connections, experience, comments, feelings, because]
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/careerguidance/1qf0tbm.md#c1"
+    char_span: [1942, 3424]
+    sentence_count: 17
+    key_terms: [people, get, life, gonna, reach, connection, yourself, connect]
+    section: Comments
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/careerguidance/1qf0tbm.md#c2"
+    char_span: [3426, 5774]
+    sentence_count: 8
+    key_terms: [abt, linkedin, street, interested, show, people, city, job]
+    section: Comments
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/careerguidance/1qf0tbm.md#c3"
+    char_span: [5776, 7283]
+    sentence_count: 27
+    key_terms: [referral, skills, messages, without, ask, job, time, experience]
+    section: Comments
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/careerguidance/1qf0tbm.md#c4"
+    char_span: [7285, 8998]
+    sentence_count: 13
+    key_terms: [imoldsoul, sammie-arellano, career, professional-fuel889, revolutionary-elk986, alone, fired, needs]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/careerguidance/1qf0tbm.md#c5"
+    char_span: [9000, 11073]
+    sentence_count: 14
+    key_terms: [something, going, knows, introverted, yourself, chatgpt, deleted, overall]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/careerguidance/1qf0tbm.md#c6"
+    char_span: [11075, 13177]
+    sentence_count: 26
+    key_terms: ["it's", job, task, experience, projects, chatgpt, outlier, someone]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/careerguidance/1qf0tbm.md#c7"
+    char_span: [13179, 13776]
+    sentence_count: 7
+    key_terms: [chatgpt, killing, trying, world, use, manipulated, perspective, manipulate]
+    section: Comments
+    token_count: 137
 ---
-
 # i’m 25 and i don’t have a career yet and i’m totally alone with no friends or support system, am i done for?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1qf0tbm/im_25_and_i_dont_have_a_career_yet_and_im_totally/)
-Posted by **smallworldofmine** · **174↑** · **91 comments**
+Posted by **smallworldofmine** · **171↑** · **91 comments**
 
 hi reddit, i’ve been sort of grappling with my feelings over the past few days and wanted to rant a little bit. i graduated from a good university a couple years ago with a degree in ui ux design, but unfortunately for me i didn’t make any lasting connections, in part because most of my schooling was online due to covid, and the rest due to me being very introverted… i feel like a complete loser for not putting more effort into meeting people and branching out, and now i’m really hitting dead ends when it comes to finding a job since all i hear is that networking is the prime thing that will land you one.
 
@@ -89,19 +137,19 @@ After 3,000 cold messages on LinkedIn if you don’t have a bite, sue me.
 After asking your sister’s boyfriend’s mom’s cousin who is the hiring manager, and that doesn’t work either, sue me.
 
 Now go hustle.
-- **imOldSoul** (41↑): I am 27 stuck in the same loop. I wish I can offer advise but this phase sucks a lot
-  - **xXd8d_UzrnameXx** (24↑): I'm 28 and now I have depression and anxiety because of this.
+- **imOldSoul** (43↑): I am 27 stuck in the same loop. I wish I can offer advise but this phase sucks a lot
+  - **xXd8d_UzrnameXx** (25↑): I'm 28 and now I have depression and anxiety because of this.
     - **imOldSoul** (3↑): 🤧😭
-  - **Street_Brilliant5216** (6↑): 30.
-  - **[deleted]** (7↑): Also 27 and same :(
-    - **imOldSoul** (6↑): I just hope that this too shall pass for us. 💫
+  - **Street_Brilliant5216** (5↑): 30.
+  - **[deleted]** (8↑): Also 27 and same :(
+    - **imOldSoul** (5↑): I just hope that this too shall pass for us. 💫
   - **Professional-Fuel889** (1↑): 25…lost my career in the film industry due to all the outsourcing and honestly…offing myself would be easier than trying to get into another career at this point….im in louisiana, there’s no jobs. So i spend all my time basically fantasizing about the life i almost  had right now
-- **sammie-arellano** (8↑): I’m 26 and just got fired from my dream job. Everyone moves on even when it loses the best of us, and that’s okay. Your efforts are best spent on yourself. Sleep a lot (your brain needs it), make art (your heart needs it) and read as much as you can, it will make you feel less alone to know that people have been grappling with these feelings of inadequacy and loneliness for centuries. You are right where you need to be.
+- **sammie-arellano** (9↑): I’m 26 and just got fired from my dream job. Everyone moves on even when it loses the best of us, and that’s okay. Your efforts are best spent on yourself. Sleep a lot (your brain needs it), make art (your heart needs it) and read as much as you can, it will make you feel less alone to know that people have been grappling with these feelings of inadequacy and loneliness for centuries. You are right where you need to be.
   - **sobeyondhelp** (2↑): 25 about to get fired too :,)
     - **sammie-arellano** (2↑): You have all my love and support; employers are assholes and most can’t improve
 - **career_gone** (6↑): Same here bro
-- **Hot-Problem2436** (15↑): You're one in 8 billion. Nothing really matters. Even those of us with everything are sad and alone. Do whatever you want.
-  - **Revolutionary-Elk986** (5↑): bruh moment
+- **Hot-Problem2436** (18↑): You're one in 8 billion. Nothing really matters. Even those of us with everything are sad and alone. Do whatever you want.
+  - **Revolutionary-Elk986** (6↑): bruh moment
 - **Ghawblin** (7↑): 32 here. Also massively introverted. Grew up in a small town, zero connections. 
 
 I am also a cybersecurity engineer.

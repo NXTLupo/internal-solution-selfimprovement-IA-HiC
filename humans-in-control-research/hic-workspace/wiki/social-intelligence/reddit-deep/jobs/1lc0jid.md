@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1lc0jid.md
 url: "https://www.reddit.com/r/jobs/comments/1lc0jid/hired_after_almost_4y_of_unemployment/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,39 @@ flair: "Career development"
 extracted_at: "2026-05-22T21:35:36.551Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1lc0jid.md#c0"
+    char_span: [0, 1899]
+    sentence_count: 18
+    key_terms: [job, jobs, applying, applications, pay, companies, anything, comments]
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/jobs/1lc0jid.md#c1"
+    char_span: [1914, 1960]
+    sentence_count: 1
+    key_terms: [congratulations, pushandtry]
+    section: Comments
+    token_count: 26
+  - id: "social-intelligence/reddit-deep/jobs/1lc0jid.md#c2"
+    char_span: [1962, 4016]
+    sentence_count: 14
+    key_terms: [lateworldliness2211, business, private, geocsw, appointments, "don't", care, own]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1lc0jid.md#c3"
+    char_span: [3757, 4457]
+    sentence_count: 4
+    key_terms: [own, moment, lateworldliness2211, nudniksphilkes, expectation, opportunity, businesses, eliminated]
+    section: Comments
+    token_count: 165
+  - id: "social-intelligence/reddit-deep/jobs/1lc0jid.md#c4"
+    char_span: [4459, 5708]
+    sentence_count: 7
+    key_terms: [lateworldliness2211, thank, congratulations, like, congrats, possible, always, years]
+    section: Comments
+    token_count: 366
 ---
-
 # Hired after almost 4y of unemployment
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1lc0jid/hired_after_almost_4y_of_unemployment/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1ryxt1t.md
 url: "https://www.reddit.com/r/humanresources/comments/1ryxt1t/shrm_vs_hrci_usa/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -7,14 +8,37 @@ title: "SHRM vs. HRCI [USA]"
 author: "Gavelkind00"
 date: "2026-03-20T14:30:29.000Z"
 score: 0
-upvote_ratio: 0.44
+upvote_ratio: 0.43
 num_comments: 16
 flair: "Career Development"
-extracted_at: "2026-05-23T12:15:41.562Z"
+extracted_at: "2026-06-06T17:42:52.454Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1ryxt1t.md#c0"
+    char_span: [0, 929]
+    sentence_count: 10
+    key_terms: [humanresources, certification, compliance, comments, company, either, hrci, shrm]
+    token_count: 215
+  - id: "social-intelligence/reddit-deep/humanresources/1ryxt1t.md#c1"
+    char_span: [944, 2690]
+    sentence_count: 13
+    key_terms: [hrci, shrm, kungsuhpanda, affirmative, take, compliance, definitely, action]
+    section: Comments
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/humanresources/1ryxt1t.md#c2"
+    char_span: [2692, 4313]
+    sentence_count: 10
+    key_terms: [course, hrci, prep, shrm, executive, everyone, company, manager]
+    section: Comments
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/humanresources/1ryxt1t.md#c3"
+    char_span: [4315, 5690]
+    sentence_count: 8
+    key_terms: [questions, hrstudypro, recommend, practice, recent, taking, found, years]
+    section: Comments
+    token_count: 320
 ---
-
 # SHRM vs. HRCI [USA]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1ryxt1t/shrm_vs_hrci_usa/)
@@ -28,8 +52,8 @@ My company does offer a reimbursement program for either SHRM or HRCI PHR certif
 
 - **KungSuhPanda** (17↑): HRCI by a mile would be my recommendation. If you are working with affirmative action compliance, you’ve hopefully noticed the shift in SHRM priorities over the past few years.
   - **Gavelkind00** (2↑): I definitely have. The AAP compliance niche has been heavily impacted by the new admin and political climate. This last year was a tsunami of change of legal precedent and SHRM has definitely indicated where they lean.
-    - **KungSuhPanda** (4↑): Then you should already know the answer. HRCI is highly respected and from personal experience I learned a lot more through them than SHRM. I used to love local SHRM chapters for networking and knowledge but on a national scale, the decline in standards is appalling.
-- **Nicolas_yo** (5↑): If you sign up for HRCI’s newsletter they often send promo codes for free “test insurance.” So if you fail you can take it again at no charge. I think only half of people pass it on their first attempt so it’s a good thing to have. I took it twice knowing I’d fail the first time. For my retake I crammed for two weeks on old YouTube study seminars, used the HRCI testing app the week before (free trial), and paid for pocket prep. I also bought some study materials from 2021 on eBay. 
+    - **KungSuhPanda** (5↑): Then you should already know the answer. HRCI is highly respected and from personal experience I learned a lot more through them than SHRM. I used to love local SHRM chapters for networking and knowledge but on a national scale, the decline in standards is appalling.
+- **Nicolas_yo** (4↑): If you sign up for HRCI’s newsletter they often send promo codes for free “test insurance.” So if you fail you can take it again at no charge. I think only half of people pass it on their first attempt so it’s a good thing to have. I took it twice knowing I’d fail the first time. For my retake I crammed for two weeks on old YouTube study seminars, used the HRCI testing app the week before (free trial), and paid for pocket prep. I also bought some study materials from 2021 on eBay. 
 
 You aren’t required to be a member or any other hooplah to take the test either.
 - **kelskelsea** (3↑): I haven't seen any job advertisements that require one vs the others so I don't think theres a wrong decision in which to take. HRCI has been certifying HR professionals for a lot longer than SHRM and SHRM has had some controversy, which is why I decided to go with HRCI. Since you work in affirmative action, I would probably recommend the HRCI, given SHRMs recent track record in DEI.
@@ -46,6 +70,5 @@ https://www.reddit.com/r/humanresources/s/UoDvMgx7NY
 
 I personally went with SHRM-CP three years ago because I found the questions to be more situational, while the PHR seemed more technical (knowing laws and regulation etc). But the latter might be more what you’re interested in or experienced with, so I’d recommend doing practice questions for each and potentially going with whichever feels easiest for you.
   - **Gavelkind00** (1↑): Thank you for taking the time to answer! I am cognizant of the recent political events with SHRM, but I wanted to take an objective look to both options. Do you have any recommendations for study resources?
-    - **zoeadele** (2↑): PocketPrep is the app you’ll see recommended here a lot and I found it incredibly helpful and credit it for helping me pass. That will be able to give you a good flavor for the types of questions, and then I’d recommend supplementing with practice tests which you can generally find online or in a book, sometimes free or with a fee.
+    - **zoeadele** (3↑): PocketPrep is the app you’ll see recommended here a lot and I found it incredibly helpful and credit it for helping me pass. That will be able to give you a good flavor for the types of questions, and then I’d recommend supplementing with practice tests which you can generally find online or in a book, sometimes free or with a fee.
     - **too_much_swag_** (2↑): I’m not OP but I agree with the people in that other thread they linked to that said even without the recent SHRM issues that HRCI is the better option. I’m taking my SPHR right now and I’m really liking [HRStudyPro](https://hrstudypro.com/) for studying. I got my PHR some years ago so now I’m getting the SPHR for more senior level roles. Feel free to reach out with any questions or advice.
-- **neelibilli** (1↑): If your company is covering it, both SHRM and PHR are solid choices and mostly come down to preference or job market expectations. They’re great for credibility, but pairing them with practical learning like AIHR can really help strengthen real-world HR skills.

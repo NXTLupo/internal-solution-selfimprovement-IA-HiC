@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1shdhee.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1shdhee/graduate_school_usc_ms_in_computer_science_game/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,21 @@ flair: "Computer Sciences"
 extracted_at: "2026-05-22T23:33:50.669Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1shdhee.md#c0"
+    char_span: [0, 506]
+    sentence_count: 3
+    key_terms: [computer, science, gradadmissions, development, comments, graduate, zookeepergamelazy589, game]
+    token_count: 118
+  - id: "social-intelligence/reddit-deep/gradadmissions/1shdhee.md#c1"
+    char_span: [521, 1753]
+    sentence_count: 6
+    key_terms: [games, game, sure, usc, design, conscious-secret-775, like, need]
+    section: Comments
+    token_count: 323
 ---
-
 # Graduate School: USC M.S in Computer Science Game Development or UCLA MS in Computer Science or UCSD MS in Computer Science
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1shdhee/graduate_school_usc_ms_in_computer_science_game/)

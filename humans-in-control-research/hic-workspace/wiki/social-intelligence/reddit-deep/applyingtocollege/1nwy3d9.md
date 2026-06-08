@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1nwy3d9/how_to_pick_a_school_for_engineering_if_youre_not/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,71 @@ subreddit: "applyingtocollege"
 title: "How to pick a school for engineering if you're not 100% on engineering?"
 author: "Eurydice227"
 date: "2025-10-03T12:43:47.000Z"
-score: 22
-upvote_ratio: 0.89
+score: 21
+upvote_ratio: 0.87
 num_comments: 95
 flair: "College Questions"
-extracted_at: "2026-05-23T12:15:36.215Z"
+extracted_at: "2026-06-05T18:53:26.944Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c0"
+    char_span: [0, 2243]
+    sentence_count: 18
+    key_terms: [engineering, schools, school, top, applyingtocollege, state, nationally, business]
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c1"
+    char_span: [2245, 2424]
+    sentence_count: 2
+    key_terms: [grandmother, identified, cornell, instate, matched, student, legacy, school]
+    token_count: 36
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c2"
+    char_span: [2439, 4646]
+    sentence_count: 13
+    key_terms: [engineering, major, schools, school, get, theeclecticgamer, "that's", apply]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c3"
+    char_span: [4343, 6351]
+    sentence_count: 18
+    key_terms: [engineering, school, tangouniform977, college, purdue, business, because, covered]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c4"
+    char_span: [6353, 8342]
+    sentence_count: 13
+    key_terms: [engineering, state, colleges-and-departments, including, business, liberal, chapel, school]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c5"
+    char_span: [8345, 10641]
+    sentence_count: 14
+    key_terms: [engineering, program, need, cornell, student, eurydice227, aid, year]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c6"
+    char_span: [10369, 11476]
+    sentence_count: 8
+    key_terms: [engineering, programs, cornell, ranking, student, colby-bates-bowdoin, aid, arts]
+    section: Comments
+    token_count: 261
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c7"
+    char_span: [11478, 13838]
+    sentence_count: 12
+    key_terms: [engineering, programs, schools, school, because, degree, top, admissions]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c8"
+    char_span: [13840, 15148]
+    sentence_count: 8
+    key_terms: [programs, institution, classmates, dartmouth, year, students, abroad, affiliate]
+    section: Comments
+    token_count: 281
 ---
-
 # How to pick a school for engineering if you're not 100% on engineering?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1nwy3d9/how_to_pick_a_school_for_engineering_if_youre_not/)
-Posted by **Eurydice227** · **22↑** · **95 comments**
+Posted by **Eurydice227** · **21↑** · **95 comments**
 
 My son is going to be a strong applicant based on the general stats of students accepted into good engineering programs.
 
@@ -53,22 +106,22 @@ Well matched for UNC and NC State as an instate student.
 ## Comments
 
 - **TheEclecticGamer** (32↑): I don't have a ton of advice, but one thing that stood out to me is that you should be careful about whether those other schools allow internal transfers. Not suggesting this as a school, but as an example, NYU does not allow internal transfers to their business school, or at least did not at one point.
-  - **Eurydice227** (19↑): These schools that tie you down like that give me so much anxiety! How is a 17 year old supposed to know?
+  - **Eurydice227** (18↑): These schools that tie you down like that give me so much anxiety! How is a 17 year old supposed to know?
     - **Ok_Experience_5151** (15↑): If the student enters as an engineering major then it's usually no problem to switch to something in the humanities.  It's the reverse that's often very difficult or impossible.
     - **FoolishConsistency17** (3↑): You can get a degree in one thing and work in a different field, or an adjacent one. An engineering major can get their MBA, or go into  Law school, or get a funded graduate program for Biology or Chemistry or physics or economics.
     - **TheEclecticGamer** (1↑): I don't have any off the top of my head but I could try to look, but I know some schools will do some sort of entrepreneurial concentration for engineering. My experience is more in the software engineering side but they would functionally do like a dual major advantage of that being that you could probably easily switch over into one or the other to that's the way you want to go. That might be more of a Bay area thing with all the startups
 - **Chemical_Result_6880** (15↑): Look, even at MIT, I had friends who started in aero / astro and ended up in music. Pick a university that has a range of choices, and one that doesn't make you apply directly into a major. I'm not saying you have to apply to MIT, but there are colleges with a broad range of majors, possibly your state flagship would be your best choice.
   - **Eurydice227** (2↑): Our state flagship has everything except a school of engineering! That's at one of the other state schools. I just updated my original post. MIT might be attractive in its creativity if it seemed realistic to get in at all!
     - **lutzlover** (9↑): We ALWAYS advise students who are leaning toward engineering to apply for engineering. It is really common that changing a major TO engineering is prohibited or highly unlikely at a whole bunch of schools. Many engineering programs have at least a few busines-related courses. My husband's engineering economics course covered easily what I covered in a full year of intermediate econ because the kids in engineering are already really strong in math and they could race through a lot of material.
-    - **Chemical_Result_6880** (4↑): You might be in Indiana, with their Purdue / IU split. Other than choosing IUIndy or Purdue Indy, I haven't got a lot of ideas for you that are instate / inexpensive / very good. You could look at UDayton; my son in law did aeromechanical there (had to turn down Rose Hulman because of the cost /lack of aid), but they have non engineering majors too. It's a great under the radar school. Use the NCES college navigator, college scorecard websites to find colleges, and look at each college's net price calculator. You will get more aid with two in college instead of just one.
+    - **Chemical_Result_6880** (5↑): You might be in Indiana, with their Purdue / IU split. Other than choosing IUIndy or Purdue Indy, I haven't got a lot of ideas for you that are instate / inexpensive / very good. You could look at UDayton; my son in law did aeromechanical there (had to turn down Rose Hulman because of the cost /lack of aid), but they have non engineering majors too. It's a great under the radar school. Use the NCES college navigator, college scorecard websites to find colleges, and look at each college's net price calculator. You will get more aid with two in college instead of just one.
     - **00JustKeepSwimming00** (1↑): How is he at math? Does he love it? If not, he's probably not an engineer. The fact that he enjoys AP Bio and Business tells me he is more towards social science or pure science. Maybe biology, biochemistry or psychology.
-- **tangouniform977** (9↑): What about Purdue or U Cincinnati or UMass Amherst or U Wisconsin?
-- **tangouniform977** (5↑): Make sure it's an ABET accredited program.  Pick a school that has lots of other options for majors if he wants to change.  Don't go to a specialized engineering school.
+- **tangouniform977** (8↑): What about Purdue or U Cincinnati or UMass Amherst or U Wisconsin?
+- **tangouniform977** (6↑): Make sure it's an ABET accredited program.  Pick a school that has lots of other options for majors if he wants to change.  Don't go to a specialized engineering school.
 - **[deleted]** (5↑): UIUC has a top engineering school and a very good business school. The out of state costs are also on the lower end (about 60-70k total I think). 
 
 Note that at state univs transferring between schools isn’t all that easy.
   - **serial_triathlete** (3↑): Also excellent, if often overlooked, humanities programs. 31 languages taught, for example.
-- **GotHeem16** (3↑): Purdue, Ohio State, Wisconsin, Iowa State etc. 
+- **GotHeem16** (5↑): Purdue, Ohio State, Wisconsin, Iowa State etc. 
 
 TBH, I’ve never heard of a “state school” that didn’t have either Liberal Arts or Business
   - **Eurydice227** (3↑): Here in NC, NC State has the engineering school, UNC Chapel Hill has the business and liberal arts schools.
@@ -90,13 +143,13 @@ Engineering is one of those fields where in today's market, you need a master's 
 With that said, have your kid enroll as an applied math and physics double major at UNC. If he dislikes the coursework in those majors, he will hate engineering anyways, at which point he can transfer to UNC's business program (and his gpa will skyrocket!). However, if he enjoys those two majors, he can always do a two year masters in any engineering discipline he wants to, at NC state (assuming NC state offers that particular engineering major). Problem solved.
 - **Grouchy-Display-457** (3↑): And make sure he starts out by taking gen eds and at least one course in each of the disciplines he's considering.
 - **tjarch_00** (3↑): It sure sounds like a need-blind liberal arts program that includes engineering classes (or partnerships with other schools that do offer engineering) could be a good fit. You can do the NPC's beforehand to gauge affordability. Regarding Cornell, I don't think a grandparent legacy would have any impact. In addition, he would have to apply to a specific school within l and be somewhat locked in to that going forward. But if he loves Cornell and absolutely wants to go there, that's a different story.
-  - **lutzlover** (6↑): In fifteen years of college counseling, I have had only one student follow through with transfer to an engineering program in a 3+2 program. By the time they are into their third year at the LAC, their willingness to change schools the next year really drops even if they are still quite interested in engineering. We no longer advise students to consider those programs if they have a significant interest in engineering while they are applying to college.
+  - **lutzlover** (4↑): In fifteen years of college counseling, I have had only one student follow through with transfer to an engineering program in a 3+2 program. By the time they are into their third year at the LAC, their willingness to change schools the next year really drops even if they are still quite interested in engineering. We no longer advise students to consider those programs if they have a significant interest in engineering while they are applying to college.
     - **Eurydice227** (1↑): I just posted this somewhere else on this thread too. This is what I have heard several times.
   - **Independent-Pie2818** (2↑): I always thought need-blind benefits people who need a lot of aid, and don’t want it to affect their admissions chances. Why would OP need it? (genuinely curious, not sarcasm)
     - **tjarch_00** (1↑): It also benefits middle class families that need some kind of aid. Need aware institutions could choose a full-pay student over another (identically qualified) student that needs any kind of aid, full or partial.
   - **Eurydice227** (1↑): We have a campus visit to Cornell scheduled next month, so we'll see. So far he picked based purely on engineering ranking and "everything else" ranking and on the hope he counted as a legacy. We haven't gotten so far to learn much about it beyond that. My husband, daughter, and I are all liberal arts, so we don't really know about how other kinds of schools work with locking you in to something. It's giving us anxiety!
-    - **tjarch_00** (4↑): You can also look into the 5 college consortium that includes Amherst/UMass and the Colby-Bates-Bowdoin partnerships. Colby just received a $150m gift for science/engineering programs.
-    - **CrafterSG88** (4↑): Cornell alum here - it is great choice if you are not quite what you want to do yet because it has strong programs in many areas. I had several friends who transferred in between engineering to arts & sciences or the hotel school (or vice versa).  
+    - **tjarch_00** (5↑): You can also look into the 5 college consortium that includes Amherst/UMass and the Colby-Bates-Bowdoin partnerships. Colby just received a $150m gift for science/engineering programs.
+    - **CrafterSG88** (3↑): Cornell alum here - it is great choice if you are not quite what you want to do yet because it has strong programs in many areas. I had several friends who transferred in between engineering to arts & sciences or the hotel school (or vice versa).  
 
 When I was selecting colleges, I was very clear that I did not want a school that was only strong in Engineering because I didn’t want to be surrounded by engineers and I wanted more options too. In the end, I graduated from the engineering school but majored in Operations Research instead of Chemical Engineering because it turned out that I was much better in math than in the sciences!
 

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/anthropic/1sdarjy.md
 url: "https://www.reddit.com/r/Anthropic/comments/1sdarjy/one_opus_prompt_in_claude_code_eats_through_an/"
 kind: "social-post"
 source: "reddit-deep: r/anthropic"
@@ -13,8 +14,45 @@ flair: "Complaint:snoo_biblethump:"
 extracted_at: "2026-05-11T17:26:51.909Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/anthropic/1sdarjy.md#c0"
+    char_span: [0, 292]
+    sentence_count: 1
+    key_terms: [anthropic, comments, reddit-deep, praxisog, session, through, claude, entire]
+    token_count: 84
+  - id: "social-intelligence/reddit-deep/anthropic/1sdarjy.md#c1"
+    char_span: [307, 1518]
+    sentence_count: 3
+    key_terms: [prompt, usage, hour, screenshot, exactly, limits, comfortable-egg-8680, snoomacaroons4454]
+    section: Comments
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/anthropic/1sdarjy.md#c2"
+    char_span: [1520, 2841]
+    sentence_count: 7
+    key_terms: [usage, send, message, idea, show, maybeliterally, non-documented, transparency]
+    section: Comments
+    token_count: 332
+  - id: "social-intelligence/reddit-deep/anthropic/1sdarjy.md#c3"
+    char_span: [2843, 4440]
+    sentence_count: 13
+    key_terms: [claude, prompt, context, through, usage, documented, multiplier, benchmark]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/anthropic/1sdarjy.md#c4"
+    char_span: [4442, 6073]
+    sentence_count: 9
+    key_terms: [like, pro, issues, limits, people, don, personal, curious]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/anthropic/1sdarjy.md#c5"
+    char_span: [6075, 7242]
+    sentence_count: 7
+    key_terms: [use, limits, get, like, pay, nothing, people, pperiesandsolos]
+    section: Comments
+    token_count: 285
 ---
-
 # One Opus prompt in Claude code eats through an entire pro plan session
 
 Source: [reddit-deep: r/anthropic](https://www.reddit.com/r/Anthropic/comments/1sdarjy/one_opus_prompt_in_claude_code_eats_through_an/)

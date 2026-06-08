@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/anthropic/1rx99dh.md
 url: "https://www.reddit.com/r/Anthropic/comments/1rx99dh/claude_cowork_just_got_the_1m_context_window/"
 kind: "social-post"
 source: "reddit-deep: r/anthropic"
@@ -13,8 +14,21 @@ flair: "Compliment:snoo_hearteyes:"
 extracted_at: "2026-05-11T17:26:51.915Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/anthropic/1rx99dh.md#c0"
+    char_span: [0, 268]
+    sentence_count: 1
+    key_terms: [anthropic, comments, coreyblake9000, reddit-deep, context, claude, cowork, posted]
+    token_count: 84
+  - id: "social-intelligence/reddit-deep/anthropic/1rx99dh.md#c1"
+    char_span: [283, 2112]
+    sentence_count: 13
+    key_terms: [context, claude, window, cowork, like, compacting, previous, suddenly]
+    section: Comments
+    token_count: 414
 ---
-
 # Claude CoWork just got the 1M Context Window
 
 Source: [reddit-deep: r/anthropic](https://www.reddit.com/r/Anthropic/comments/1rx99dh/claude_cowork_just_got_the_1m_context_window/)

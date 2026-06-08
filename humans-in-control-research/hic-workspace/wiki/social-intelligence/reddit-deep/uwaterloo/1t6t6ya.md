@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1t6t6ya.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1t6t6ya/which_laptop_do_any_current_waterloo_students_in/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,27 @@ flair: "Advice"
 extracted_at: "2026-05-25T18:33:12.663Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1t6t6ya.md#c0"
+    char_span: [0, 841]
+    sentence_count: 5
+    key_terms: [programs, recommend, uwaterloo, comments, students, waterloo, current, program]
+    token_count: 190
+  - id: "social-intelligence/reddit-deep/uwaterloo/1t6t6ya.md#c1"
+    char_span: [856, 2864]
+    sentence_count: 12
+    key_terms: [refurbished-excellent-asus-vivobook-s-15-oled-15-6-copilot-pc-laptop-cool-silver-snapdragon-x-plus-16gb-ram-512gb-ssd, laptop, refurbished, ram, macbook, coding, eng, fine]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/uwaterloo/1t6t6ya.md#c2"
+    char_span: [2866, 4879]
+    sentence_count: 10
+    key_terms: [uwaterloo, automoderator, moderators, message, please, admissions, questions, quality]
+    section: Comments
+    token_count: 497
 ---
-
 # Which laptop do any current Waterloo students in the programs Comp Eng, CS or CFM recommend?
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1t6t6ya/which_laptop_do_any_current_waterloo_students_in/)

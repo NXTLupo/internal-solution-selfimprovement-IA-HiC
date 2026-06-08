@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1lo9qxl.md
 url: "https://www.reddit.com/r/college/comments/1lo9qxl/the_only_piece_of_advice_you_need_to_succeed_in/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,70 @@ subreddit: "college"
 title: "The Only Piece of Advice You Need to Succeed in College"
 author: "LeadFair8530"
 date: "2025-06-30T15:00:24.000Z"
-score: 557
+score: 559
 upvote_ratio: 0.97
 num_comments: 53
 flair: ""
-extracted_at: "2026-05-25T15:51:48.247Z"
+extracted_at: "2026-06-06T00:27:48.357Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1lo9qxl.md#c0"
+    char_span: [0, 2033]
+    sentence_count: 20
+    key_terms: [college, assignments, readings, advice, hours, professors, worksheets, comments]
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/college/1lo9qxl.md#c1"
+    char_span: [2035, 3935]
+    sentence_count: 19
+    key_terms: [time, work, people, get, next, something, drinking, everyone]
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/college/1lo9qxl.md#c2"
+    char_span: [3937, 4824]
+    sentence_count: 9
+    key_terms: [etc, get, syllabus, written, times, edit, sure, tell]
+    token_count: 205
+  - id: "social-intelligence/reddit-deep/college/1lo9qxl.md#c3"
+    char_span: [4839, 6819]
+    sentence_count: 11
+    key_terms: [writing, center, assignments, resources, college, sweetcosmicpope, advice, going]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/college/1lo9qxl.md#c4"
+    char_span: [6821, 8769]
+    sentence_count: 16
+    key_terms: [good, alcohol, feel, kind, got, "he's", professors, different]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/college/1lo9qxl.md#c5"
+    char_span: [8771, 10467]
+    sentence_count: 15
+    key_terms: [profs, calc, going, hours, professor, majority, original, teaching]
+    section: Comments
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/college/1lo9qxl.md#c6"
+    char_span: [10469, 12460]
+    sentence_count: 23
+    key_terms: [material, mean, class, freshman, been, lectures, exam, prof]
+    section: Comments
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/college/1lo9qxl.md#c7"
+    char_span: [12463, 14584]
+    sentence_count: 13
+    key_terms: [optional, something, classes, dancesquared, great, smart, don, time]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/college/1lo9qxl.md#c8"
+    char_span: [14586, 15070]
+    sentence_count: 2
+    key_terms: [problems, students, feel, instructor, understand, confident, emphasize, professor]
+    section: Comments
+    token_count: 115
 ---
-
 # The Only Piece of Advice You Need to Succeed in College
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1lo9qxl/the_only_piece_of_advice_you_need_to_succeed_in/)
-Posted by **LeadFair8530** · **557↑** · **53 comments**
+Posted by **LeadFair8530** · **559↑** · **53 comments**
 
 Hello All,
 
@@ -83,13 +135,13 @@ I’m sure this seems a bit obvious but you would be surprised how long it takes
 
 ## Comments
 
-- **SweetCosmicPope** (153↑): Dad, and former college student, here.  This is excellent advice and absolutely correct.  I've given this same advice to my son that "optional" assignments are not optional, and to just get into a good habit of just doing your reading assignments and practice problems as you receive them, and going to office hours when he needs to.
+- **SweetCosmicPope** (155↑): Dad, and former college student, here.  This is excellent advice and absolutely correct.  I've given this same advice to my son that "optional" assignments are not optional, and to just get into a good habit of just doing your reading assignments and practice problems as you receive them, and going to office hours when he needs to.
 
 I'll probably show this to him so he can get this same advice from someone closer to his age and doesn't just disregard his dad talking to him.
 
 I'd add one thing that I've also told my son:  when you have writing assignments, take them to the writing center every time.  Even if you think you are the greatest writer since James Joyce, the writing center is a great failsafe to check your work and make sure it is formatted and flowing properly.
-  - **dancesquared** (36↑): As a former writing center director and huge proponent of them, thanks for the plug!
-  - **Kooky_Razzmatazz_348** (9↑): I think the writing center (and similar resources like tutors) are great resources for people that need them, but if I’m getting a 90+ in my writing assignments/doing well in the class without a tutor I’m not going to use these resources frequently.
+  - **dancesquared** (37↑): As a former writing center director and huge proponent of them, thanks for the plug!
+  - **Kooky_Razzmatazz_348** (8↑): I think the writing center (and similar resources like tutors) are great resources for people that need them, but if I’m getting a 90+ in my writing assignments/doing well in the class without a tutor I’m not going to use these resources frequently.
 
 Not trying to pick on the writing center here, I just think a big part of college is knowing which resources to use. If I used every resource I’d be spending so much time in tutoring/office hours/the writing center that I’d have no free time.
   - **AggressivePatience56** (1↑): My dad said something similar when I was in college. There are two rules you have to follow “study hard and have fun” 
@@ -98,18 +150,18 @@ Study hard was most important but emphasized to make room to have fun in my life
     - **SweetCosmicPope** (2↑): Agreed.  The whole point of him going away to college is to gain some independence and figure out who he is on his own.  I've strongly encouraged him to be active at school in whatever activities he is drawn to and to not be afraid of having new experiences.
 
 He's also been so heavily focused scholastically, he's never bothered dating so I told him it wouldn't hurt to find a girlfriend while he's there. lol
-- **alt-mswzebo** (54↑): This is great advice. Go to every class meeting. I think a lot of students fail because they listen to bad advice from their un-informed friends.
+- **alt-mswzebo** (55↑): This is great advice. Go to every class meeting. I think a lot of students fail because they listen to bad advice from their un-informed friends.
 
 Also, with regard to drinking - when you feel kind of good, stop.  That's all alcohol can do is make you feel kind of good. More alcohol won't make you feel better. More alcohol will in fact get rid of the kind of good feeling. Fill your cup with water when you feel kind of good.
   - **inflewants** (1↑): Yep @ the alcohol. Even better, know your limit in advance. 
 
 When you’re out drinking, it’s easy to convince yourself to have “one more” — but if you know in advance based on your size, metabolism, meals, & the number of hours, etc it’s much easier to  limit yourself.
-- **hornybutired** (60↑): Thank you for saying this. I'm glad a student - well, a former student, but not a professor, anyway - is the one to say it.
+- **hornybutired** (64↑): Thank you for saying this. I'm glad a student - well, a former student, but not a professor, anyway - is the one to say it.
 
 We really are trying to help y'all pass. 95% of us, anyway. We don't get paid more if we make you do more busywork or something. And trust, no one is giving out more shit they'll have to grade later just for shits and giggles. There's a method to this madness.
 
 This guy gets it.
-- **SwimmingVariation707** (24↑): this only works if u got good professors tho 😭 i had horrible professors my freshman year, and it was not listening to them that got me through the semester. one claimed that the textbook had all the answers to the assignments, just read through it… it in fact, had something completely different! made me even more confused! the textbook and what he was teaching were two different things, and some students including myself even got points off because of that. had to figure everything out on my own. it was like having to teach myself! this happened on more than one occasion too. 
+- **SwimmingVariation707** (21↑): this only works if u got good professors tho 😭 i had horrible professors my freshman year, and it was not listening to them that got me through the semester. one claimed that the textbook had all the answers to the assignments, just read through it… it in fact, had something completely different! made me even more confused! the textbook and what he was teaching were two different things, and some students including myself even got points off because of that. had to figure everything out on my own. it was like having to teach myself! this happened on more than one occasion too. 
 
 however, i would include, that u should ALWAYS advocate for urself. no one else will. and let urself adjust to the environment before going to join every single club, it will still be there, but filling up ur plate too soon is just gonna cause burn out.
   - **LeadFair8530** (4↑): As an edit to my original reply to this comment, i would say my original advice works with a range of good to okay profs. I had several profs i didnt like but the majority of crappy profs had easy classes. I had three that were so bad i was worried ab my grades.
@@ -138,8 +190,8 @@ I think this mostly covers the worst types of classes you’ll encounter. And to
   - **dancesquared** (3↑): 100% yes to your final paragraph.
 - **camohorse** (8↑): In my world, there’s no such thing as an optional assignment. Because of that, I get great grades and recognition from my profs! And, I have more time to do whatever the hell I wanna do.
 - **FunnyLoud3067** (7↑): Thank you for this. This is something I wish I knew during freshman year.
-- **Bungeesmom** (6↑): Use the library, the tutoring centers, and make sure you take at least two or three classes during university in something that peaks your interest.
-- **dancesquared** (25↑): Skimming, using summaries, and completing assignments strategically (based on point values and whether it’s required or optional) are all completely valid and smart ways to survive and thrive in college. Your advice sounds great (and mostly *is* great), but it can also lead to burnout if followed too strictly or taken to the extreme. 
+- **Bungeesmom** (9↑): Use the library, the tutoring centers, and make sure you take at least two or three classes during university in something that peaks your interest.
+- **dancesquared** (24↑): Skimming, using summaries, and completing assignments strategically (based on point values and whether it’s required or optional) are all completely valid and smart ways to survive and thrive in college. Your advice sounds great (and mostly *is* great), but it can also lead to burnout if followed too strictly or taken to the extreme. 
 
 Your advice seems to boil down to “work harder, not smarter,” yet most people recommend the converse. Obviously, striking a balance between working hard and working smart is best whenever possible, but don’t discount the benefit of smart learning strategies like skimming, consulting summaries, and prioritizing your time based on point values and whether something is required or optional.
 
@@ -147,5 +199,5 @@ Also, maybe it’s just me, but as a professor, I don’t mind if some students 
   - **Kooky_Razzmatazz_348** (3↑): I agree with this. If I can understand the material and get an A without doing “recommended” or “optional” stuff that’s what I’m doing. That gives me more time to work on classes I struggle with more and do extracurriculars. 
 
 For example if I understand a topic and feel confident in the homework problems for it (and do well on those problems) then I don’t feel the need to do an optional worksheet that has very similar questions.
-- **Due_Plantain204** (3↑): Professor here: A+ advice
-- **Vincent_Stats** (3↑): As a Business instructor, I always emphasize this to my students: if you follow the lectures and stay on track using my clear outlines, you’ll do well. Most students who do this earn at least a B+.
+- **Due_Plantain204** (4↑): Professor here: A+ advice
+- **Vincent_Stats** (5↑): As a Business instructor, I always emphasize this to my students: if you follow the lectures and stay on track using my clear outlines, you’ll do well. Most students who do this earn at least a B+.

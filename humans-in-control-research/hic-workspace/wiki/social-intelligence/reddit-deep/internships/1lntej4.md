@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1lntej4.md
 url: "https://www.reddit.com/r/internships/comments/1lntej4/advices_on_how_to_find_an_internship_out_of_the/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,27 @@ flair: "General"
 extracted_at: "2026-05-20T02:30:49.746Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1lntej4.md#c0"
+    char_span: [0, 654]
+    sentence_count: 6
+    key_terms: [internships, internship, comments, title, "i'm", need, connections, engineering]
+    token_count: 163
+  - id: "social-intelligence/reddit-deep/internships/1lntej4.md#c1"
+    char_span: [669, 2473]
+    sentence_count: 12
+    key_terms: [professors, etc, industry, applications, email, cold, internship, directors]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/internships/1lntej4.md#c2"
+    char_span: [2476, 2951]
+    sentence_count: 2
+    key_terms: [person, networking, messaging, questions, anywhere, compared, goodluck, interest]
+    section: Comments
+    token_count: 110
 ---
-
 # Advices on how to find an internship out of the blue!
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1lntej4/advices_on_how_to_find_an_internship_out_of_the/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1pxig8o.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1pxig8o/medellín_vs_bali_as_a_first_digital_nomad_base/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,39 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:56.733Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1pxig8o.md#c0"
+    char_span: [0, 1472]
+    sentence_count: 3
+    key_terms: [nomad, bali, digital, looking, people, digitalnomad, month, experiences]
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/digitalnomad/1pxig8o.md#c1"
+    char_span: [1487, 3308]
+    sentence_count: 24
+    key_terms: [bali, place, good, drugged, got, want, negatives, everyone]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/digitalnomad/1pxig8o.md#c2"
+    char_span: [3310, 4834]
+    sentence_count: 23
+    key_terms: [bali, want, better, been, get, take, advantage, working]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/digitalnomad/1pxig8o.md#c3"
+    char_span: [4836, 6626]
+    sentence_count: 32
+    key_terms: [worse, medellin, spiritno2533, people, death, going, city, time]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/digitalnomad/1pxig8o.md#c4"
+    char_span: [6628, 7440]
+    sentence_count: 9
+    key_terms: [better, bali, medellin, chatgpt, spanish, speak, openwidecomeinside, stay]
+    section: Comments
+    token_count: 218
 ---
-
 # Medellín vs Bali as a first digital nomad base: looking for real experiences 🙏
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1pxig8o/medellín_vs_bali_as_a_first_digital_nomad_base/)

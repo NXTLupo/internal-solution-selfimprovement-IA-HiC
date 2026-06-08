@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1sfxnau.md
 url: "https://www.reddit.com/r/managers/comments/1sfxnau/wfh_employee_lying_re_working_hours/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,171 @@ flair: ""
 extracted_at: "2026-05-26T12:54:23.628Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c0"
+    char_span: [0, 1489]
+    sentence_count: 15
+    key_terms: [working, managers, hours, application, work, activity, comments, employee]
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c1"
+    char_span: [1504, 3404]
+    sentence_count: 12
+    key_terms: [everything, because, asked, logs, productive, coworkers, monitored, computer]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c2"
+    char_span: [3406, 4290]
+    sentence_count: 6
+    key_terms: [available, clients, online, yeayoureadwhatiwrote, hours, never, boss, work]
+    section: Comments
+    token_count: 204
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c3"
+    char_span: [4292, 6257]
+    sentence_count: 11
+    key_terms: [manager, audit, reason, legal, time, approach, managers, company]
+    section: Comments
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c4"
+    char_span: [6259, 8213]
+    sentence_count: 10
+    key_terms: [office, people, "don't", wfh, work, company, privacy, expect]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c5"
+    char_span: [8215, 10356]
+    sentence_count: 15
+    key_terms: [job, working, learning, because, work, different, necessary, questions]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c6"
+    char_span: [10358, 12274]
+    sentence_count: 7
+    key_terms: [deliverables, clear, "don't", hours, "it's", employee, deliver, getting]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c7"
+    char_span: [12276, 13923]
+    sentence_count: 10
+    key_terms: [available, minutes, hours, contactable, day, work, required, desktop]
+    section: Comments
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c8"
+    char_span: [13925, 15092]
+    sentence_count: 11
+    key_terms: [always, done, meetings, official, getting, showing, worked, beneficial-touch6286]
+    section: Comments
+    token_count: 265
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c9"
+    char_span: [15094, 17004]
+    sentence_count: 12
+    key_terms: [work, day, someone, asking, "that's", hours, makes, state]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c10"
+    char_span: [17006, 18221]
+    sentence_count: 10
+    key_terms: [meeting, deliverable, keeping, running, camera, online, day, turning]
+    section: Comments
+    token_count: 297
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c11"
+    char_span: [18223, 20065]
+    sentence_count: 12
+    key_terms: [conversation, work, metrics, beachvball2016, good, use, want, software]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c12"
+    char_span: [20067, 22032]
+    sentence_count: 16
+    key_terms: [manager, performance, want, work, changes, warning, written, became]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c13"
+    char_span: [22034, 22860]
+    sentence_count: 7
+    key_terms: [always, dragondeeznutzaround, beach, given, knew, team, post-pandemic, conversation]
+    section: Comments
+    token_count: 188
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c14"
+    char_span: [22862, 24828]
+    sentence_count: 16
+    key_terms: [manager, work, releasal, already, done, revolutionarygain823, being, looks]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c15"
+    char_span: [24609, 24849]
+    sentence_count: 3
+    key_terms: [perspective, confirmation, overreacting, databeegood, fewowl5771, manager, "here's", agree]
+    section: Comments
+    token_count: 69
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c16"
+    char_span: [24852, 27272]
+    sentence_count: 23
+    key_terms: [colleague, application, supervisor, work, working, "colleague's", team, months]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c17"
+    char_span: [27274, 28698]
+    sentence_count: 11
+    key_terms: [deliverables, sometimes, employee, software, because, output, friendly-victory5517, doesn]
+    section: Comments
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c18"
+    char_span: [28702, 30917]
+    sentence_count: 17
+    key_terms: [issue, chance, "that's", based, being, like, work, employees]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c19"
+    char_span: [30919, 33154]
+    sentence_count: 13
+    key_terms: [productivity, culture, whatshouldwecallme, important, nothing, employee, because, clients]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c20"
+    char_span: [33156, 34300]
+    sentence_count: 9
+    key_terms: [emphasize, something, "they're", metric, unless, kingflamingohogwarts, throwawayawayawayy6, track]
+    section: Comments
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c21"
+    char_span: [34302, 35473]
+    sentence_count: 8
+    key_terms: [dreadpriratesbooty, employee, evidence, examples, meet, needsexyboots, availability, productivity]
+    section: Comments
+    token_count: 287
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c22"
+    char_span: [35475, 37456]
+    sentence_count: 16
+    key_terms: [teams, work, coffee, slack, day, walk, sometimes, exactly]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c23"
+    char_span: [37247, 37739]
+    sentence_count: 3
+    key_terms: [typing, teams, app, away, manhattansinks, purpleskyblues, installed, minimized]
+    section: Comments
+    token_count: 134
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c24"
+    char_span: [37741, 38644]
+    sentence_count: 7
+    key_terms: [office, probably, slack, far-obligation4055, peer-reviewed, deliverables, differently, illustrates]
+    section: Comments
+    token_count: 210
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c25"
+    char_span: [38646, 40572]
+    sentence_count: 10
+    key_terms: [work, getting, hours, accountable, everyone, working, office, people]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/managers/1sfxnau.md#c26"
+    char_span: [40574, 42419]
+    sentence_count: 19
+    key_terms: [getting, people, expectations, monitoring, probably, watching, someone, driven]
+    section: Comments
+    token_count: 426
 ---
-
 # WFH employee lying re working hours
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1sfxnau/wfh_employee_lying_re_working_hours/)

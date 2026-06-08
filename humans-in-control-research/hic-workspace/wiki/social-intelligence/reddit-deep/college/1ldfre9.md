@@ -6,19 +6,19 @@ subreddit: "college"
 title: "how to make peace that i can't have much as a very low-income student?"
 author: "neonjoji"
 date: "2025-06-17T06:09:30.000Z"
-score: 13
-upvote_ratio: 0.8
+score: 14
+upvote_ratio: 0.86
 num_comments: 6
 flair: "Emotional health/coping/adulting"
-extracted_at: "2026-05-26T14:31:29.701Z"
+extracted_at: "2026-06-06T23:23:15.573Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # how to make peace that i can't have much as a very low-income student?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ldfre9/how_to_make_peace_that_i_cant_have_much_as_a_very/)
-Posted by **neonjoji** · **13↑** · **6 comments**
+Posted by **neonjoji** · **14↑** · **6 comments**
 
 i've been attempting to get into a top private with the hopes of having practically everything covered for me, but that's not working out.
 
@@ -32,8 +32,8 @@ reading this back, i sound like i'm eight and whiny, lol. not my intention, thou
 
 ## Comments
 
-- **ExoticRegister7761** (14↑): We cant all be the cream of the crop. You'll get a degree, a position, and a career. Just keep trying to get internships, join clubs, and put 110% in on your projects. At least nobody can tell you you didn't try.
-- **Various-Maybe** (12↑): Every single day for the rest of your life, other people will have things you want because they are richer, better looking, more personable, smarter, etc etc etc
+- **ExoticRegister7761** (17↑): We cant all be the cream of the crop. You'll get a degree, a position, and a career. Just keep trying to get internships, join clubs, and put 110% in on your projects. At least nobody can tell you you didn't try.
+- **Various-Maybe** (11↑): Every single day for the rest of your life, other people will have things you want because they are richer, better looking, more personable, smarter, etc etc etc
 
 This is a great time in life to start managing those feelings and starting to overcome them. 
 

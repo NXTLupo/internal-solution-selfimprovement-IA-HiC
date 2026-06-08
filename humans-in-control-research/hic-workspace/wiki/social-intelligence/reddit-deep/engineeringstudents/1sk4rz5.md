@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1sk4rz5.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1sk4rz5/doubts_and_opportunities_as_a_student_studying_in/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,27 @@ flair: "Academic Advice"
 extracted_at: "2026-05-22T15:11:44.441Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sk4rz5.md#c0"
+    char_span: [0, 842]
+    sentence_count: 2
+    key_terms: [engineeringstudents, opportunities, engineering, "i'm", own, aerospace, comments, studying]
+    token_count: 194
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sk4rz5.md#c1"
+    char_span: [857, 2802]
+    sentence_count: 17
+    key_terms: [aerospace, engineering, work, country, chepetronix317, going, don, residency]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sk4rz5.md#c2"
+    char_span: [2804, 3582]
+    sentence_count: 7
+    key_terms: [study, countries, security, america, further, france, school, learn]
+    section: Comments
+    token_count: 172
 ---
-
 # Doubts and Opportunities as a Student studying in China Aerospace Engineering
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1sk4rz5/doubts_and_opportunities_as_a_student_studying_in/)

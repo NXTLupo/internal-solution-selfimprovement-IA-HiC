@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1rh60py.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1rh60py/cancel_your_chatgpt_plus_burn_their_compute_on/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,117 @@ flair: "News 📰"
 extracted_at: "2026-05-17T01:12:48.201Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1rh60py.md#c0"
+    char_span: [0, 2337]
+    sentence_count: 27
+    key_terms: [subscription, claude, because, chatgpt, cancel, right, company, openai]
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/chatgpt/1rh60py.md#c1"
+    char_span: [2352, 4121]
+    sentence_count: 11
+    key_terms: [memory, claude, conversation, data, chatgpt, export, openai, please]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/chatgpt/1rh60py.md#c2"
+    char_span: [4123, 6071]
+    sentence_count: 20
+    key_terms: [data, memory, subscriptions, takes, file, pro, situations, statement-department-of-war]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/chatgpt/1rh60py.md#c3"
+    char_span: [6073, 8106]
+    sentence_count: 12
+    key_terms: [department, national, because, claude, deploy, models, intelligence, war]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/chatgpt/1rh60py.md#c4"
+    char_span: [8108, 10130]
+    sentence_count: 13
+    key_terms: [surveillance, democratic, department, use, military, intelligence, mass, war]
+    section: Comments
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/chatgpt/1rh60py.md#c5"
+    char_span: [10132, 11996]
+    sentence_count: 15
+    key_terms: [autonomous, weapons, fully, links, work, grok, critical, defense]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/chatgpt/1rh60py.md#c6"
+    char_span: [11998, 13988]
+    sentence_count: 12
+    key_terms: [chats, data, archived, export, memory, mechahitler, work, uploaded]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1rh60py.md#c7"
+    char_span: [13706, 14145]
+    sentence_count: 4
+    key_terms: [memory, lot, important, claude, disappointing, switching, advanced, projects]
+    section: Comments
+    token_count: 101
+  - id: "social-intelligence/reddit-deep/chatgpt/1rh60py.md#c8"
+    char_span: [14147, 15142]
+    sentence_count: 7
+    key_terms: [claude, use, multiple, memory, super, grok, pro, surveillance]
+    section: Comments
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/chatgpt/1rh60py.md#c9"
+    char_span: [15144, 17148]
+    sentence_count: 11
+    key_terms: [account, data, delete, deleting, chatgpt, subscription, "can't", temporarily]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/chatgpt/1rh60py.md#c10"
+    char_span: [17150, 18156]
+    sentence_count: 3
+    key_terms: [anthropic-and-palantir-partner-to-bring-claude-ai-models-to-aws-for-u, peter, thiel, government-intelligence-and-defense-operations, https, remarkablelook5485, idrinkurmilksteak, pinestatewanderer]
+    section: Comments
+    token_count: 292
+  - id: "social-intelligence/reddit-deep/chatgpt/1rh60py.md#c11"
+    char_span: [18158, 20153]
+    sentence_count: 9
+    key_terms: [anthropic-and-palantir-partner-to-bring-claude-ai-models-to-aws-for-u, millionaires, government-intelligence-and-defense-operations, palantir, millionaire, good, vast, different]
+    section: Comments
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/chatgpt/1rh60py.md#c12"
+    char_span: [20155, 21944]
+    sentence_count: 14
+    key_terms: [unusable, last, like, sure, because, chatgpt, company, claude]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/chatgpt/1rh60py.md#c13"
+    char_span: [21946, 23369]
+    sentence_count: 9
+    key_terms: [like, yourself, reason, "you're", theflightlesspenguin, fluff, single-zombie-2019, "it's"]
+    section: Comments
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/chatgpt/1rh60py.md#c14"
+    char_span: [23371, 24828]
+    sentence_count: 14
+    key_terms: [anthropic-and-palantir-partner-to-bring-claude-ai-models-to-aws-for-u, government-intelligence-and-defense-operations, mookbrenner, anthropic, statement, palantir, company, making]
+    section: Comments
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/chatgpt/1rh60py.md#c15"
+    char_span: [24830, 26977]
+    sentence_count: 9
+    key_terms: [western, anthropic, "it's", claude, enough, taking, good, government]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/chatgpt/1rh60py.md#c16"
+    char_span: [26979, 28461]
+    sentence_count: 11
+    key_terms: [autonomous, weapons, fully, statement-comments-secretary-war, today, critical, defense, systems]
+    section: Comments
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/chatgpt/1rh60py.md#c17"
+    char_span: [28463, 29460]
+    sentence_count: 3
+    key_terms: [locasheen, because, claude, being, thank, like, wafflestrufflez, chaseballbat]
+    section: Comments
+    token_count: 260
 ---
-
 # Cancel your ChatGPT Plus, burn their compute on the way out, and switch to Claude
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1rh60py/cancel_your_chatgpt_plus_burn_their_compute_on/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1t9fnjo.md
 url: "https://www.reddit.com/r/GPT/comments/1t9fnjo/theyre_never_women_what_a_3_am_voice_note_reveals/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,25 @@ flair: ""
 extracted_at: "2026-05-11T17:26:37.722Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1t9fnjo.md#c0"
+    char_span: [0, 1739]
+    sentence_count: 14
+    key_terms: [like, "i'm", "they're", never, voice, women, gpt, guys]
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/gpt/1t9fnjo.md#c1"
+    char_span: [1741, 3947]
+    sentence_count: 26
+    key_terms: [became, "wasn't", women, fear, help, read, experience, "couldn't"]
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/gpt/1t9fnjo.md#c2"
+    char_span: [3949, 5375]
+    sentence_count: 19
+    key_terms: [conversation, without, "wasn't", night, experience, technical, "doesn't", design]
+    token_count: 296
 ---
-
 # "They're Never Women": What a 3 AM Voice Note Reveals About AI Design
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1t9fnjo/theyre_never_women_what_a_3_am_voice_note_reveals/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1oun47x.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1oun47x/will_an_old_bursar_balance_impact_applying_to/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,21 @@ flair: "General Advice"
 extracted_at: "2026-05-22T13:33:02.839Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1oun47x.md#c0"
+    char_span: [0, 805]
+    sentence_count: 5
+    key_terms: [gradadmissions, school, applying, comments, balance, grad, "i'm", nyu]
+    token_count: 189
+  - id: "social-intelligence/reddit-deep/gradadmissions/1oun47x.md#c1"
+    char_span: [820, 1794]
+    sentence_count: 8
+    key_terms: [credit, collections, financial, score, debt, get, "it's", try]
+    section: Comments
+    token_count: 209
 ---
-
 # Will an old bursar balance impact applying to grad school?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1oun47x/will_an_old_bursar_balance_impact_applying_to/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1necz4c.md
 url: "https://www.reddit.com/r/college/comments/1necz4c/september_is_national_campus_sexual_assault/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,76 @@ subreddit: "college"
 title: "September is National Campus Sexual Assault Awareness Month | 1 in 8 college students experience rape or sexual assault, meanwhile many don't understand consent | This is a tractable problem"
 author: "ILikeNeurons"
 date: "2025-09-11T16:13:16.000Z"
-score: 22
-upvote_ratio: 0.89
+score: 21
+upvote_ratio: 0.9
 num_comments: 7
 flair: ""
-extracted_at: "2026-05-26T14:31:29.700Z"
+extracted_at: "2026-06-06T17:42:15.231Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1necz4c.md#c0"
+    char_span: [0, 957]
+    sentence_count: 1
+    key_terms: [https, college, comments, facts-statistics-the-scope-of-the-problem, assault, cc8df92f64acb9141d6d8ef0d79d0ce2fe15, sexual, statistics-campus-sexual-violence]
+    token_count: 263
+  - id: "social-intelligence/reddit-deep/college/1necz4c.md#c1"
+    char_span: [959, 2886]
+    sentence_count: 2
+    key_terms: [https, com, www, is-this-comedy-monologue-a-rape-confession-updated-5834712, rapists-explain-themselves-on-reddit-and-we-should-listen, what-is-restorative-justice-definition-questions-circle, teenagers-learning-online-porn-literacy-sex-education, david-silverman-atheist-fired-sexual-misconduct]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1necz4c.md#c2"
+    char_span: [2614, 3110]
+    sentence_count: 2
+    key_terms: [what-is-restorative-justice-definition-questions-circle, rape, https, wikipedia, org, wiki, acquaintance, first-person]
+    token_count: 123
+  - id: "social-intelligence/reddit-deep/college/1necz4c.md#c3"
+    char_span: [3113, 4533]
+    sentence_count: 5
+    key_terms: [hnhjgy9a4thcjrpwdunyau1bea3xepmkycxoa1epgc5x5cer7cvxof1xxo6wmenj6bdqyrlxuz5uknrwt-vvubhkpsin47pn0zliefbck-cmx3gcgsqz, www, https, pdf, gay-panic-austin-james-miller-texas-man-cleared-murder-a8327261, sexual, consent, explicit]
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/college/1necz4c.md#c4"
+    char_span: [4535, 5328]
+    sentence_count: 3
+    key_terms: [sexual, articles, journals, sagepub, https, abs, com, doi]
+    token_count: 204
+  - id: "social-intelligence/reddit-deep/college/1necz4c.md#c5"
+    char_span: [5330, 7205]
+    sentence_count: 5
+    key_terms: [mythcommunication-its-not-that-they-dont-understand-they-just-dont-like-the-answer, https, com, repeat-rape-and-multiple-offending-among-undetected-rapists, policy-crime-definitions, sexual, rejections, doi]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1necz4c.md#c6"
+    char_span: [6985, 7411]
+    sentence_count: 2
+    key_terms: [repeat-rape-and-multiple-offending-among-undetected-rapists, physical, violence, https, wazumlbod5gdlm7qi, virtual-library, experienced, precautions]
+    token_count: 111
+  - id: "social-intelligence/reddit-deep/college/1necz4c.md#c7"
+    char_span: [7413, 8159]
+    sentence_count: 3
+    key_terms: [do-you-need-verbal-consent-for-holding-hands-kissing-sex-the-differences-between-men-and-women-may-s, dsfzmpguwuwayaxrvabuh9bjvhbme7yrtlbanwrhgets8blhvj-, https, www, consent, indicators, verbal, women]
+    token_count: 241
+  - id: "social-intelligence/reddit-deep/college/1necz4c.md#c8"
+    char_span: [8161, 10150]
+    sentence_count: 9
+    key_terms: [https, sexual, articles, www, edu, gov, ncbi, nih]
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/college/1necz4c.md#c9"
+    char_span: [10152, 12345]
+    sentence_count: 21
+    key_terms: [sexual, people, consent, assault, "didn't", though, canada-consent-understanding-metoo, men]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/college/1necz4c.md#c10"
+    char_span: [12347, 13841]
+    sentence_count: 11
+    key_terms: [assault, sexual, rape, greenhorror4252, ilikeneurons, fce40214d4be53aba902929a328e8e69, https, definition]
+    section: Comments
+    token_count: 399
 ---
-
 # September is National Campus Sexual Assault Awareness Month | 1 in 8 college students experience rape or sexual assault, meanwhile many don't understand consent | This is a tractable problem
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1necz4c/september_is_national_campus_sexual_assault/)
-Posted by **ILikeNeurons** · **22↑** · **7 comments**
+Posted by **ILikeNeurons** · **21↑** · **7 comments**
 
 Roughly [1 in 8 college students](https://rainn.org/facts-statistics-the-scope-of-the-problem/statistics-campus-sexual-violence/) experience rape or sexual assault. [Rape is one of the most severe of all traumas, causing multiple, long-term negative outcomes](https://pdfs.semanticscholar.org/38d2/cc8df92f64acb9141d6d8ef0d79d0ce2fe15.pdf), [regardless](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3262661/) of perpetrator [tactics](https://www.reddit.com/r/stoprape/comments/zyznhe/rape_is_so_common_in_part_because_so_many_people/?utm_source=share&utm_medium=web2x&context=3).
 
@@ -63,7 +121,7 @@ That is a tragic fact that can be corrected with education.
 - **GreenHorror4252** (-1↑): > Roughly 1 in 8 college students experience rape or sexual assault. 
 
 While I don't mean to downplay this issue, this statistic is incredibly misleading.  It is inflated by broadening the definition of "sexual assault" in order to make it look like a bigger problem than it actually is. This is unfair to the actual victims of rape or sexual assault, who get lumped in with much lesser offenses.
-  - **ILikeNeurons** (5↑): [About 1 in 6 women has been raped in her lifetime](https://www.rainn.org/statistics/victims-sexual-violence). 
+  - **ILikeNeurons** (4↑): [About 1 in 6 women has been raped in her lifetime](https://www.rainn.org/statistics/victims-sexual-violence). 
 
 [9% of college men have committed an act which fit the legal definition of rape](https://search.proquest.com/openview/fce40214d4be53aba902929a328e8e69/1?pq-origsite=gscholar&cbl=37398). That's roughly 1 in 11. 
 

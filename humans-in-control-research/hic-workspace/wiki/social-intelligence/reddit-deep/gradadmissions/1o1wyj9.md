@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1o1wyj9/banned_from_rmscs_for_sharing_my_honest/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,51 @@ flair: "Education"
 extracted_at: "2026-05-22T23:33:50.664Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c0"
+    char_span: [0, 2035]
+    sentence_count: 11
+    key_terms: [international, mscs, students, anymore, gradadmissions, market, people, don]
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c1"
+    char_span: [2037, 3704]
+    sentence_count: 6
+    key_terms: [utm, students, season, international, share, mscs, gradpilot, comments]
+    section: Comments
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c2"
+    char_span: [3706, 5476]
+    sentence_count: 11
+    key_terms: [countries, good, here, metronomyc, education, recommend, germany, getting]
+    section: Comments
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c3"
+    char_span: [5478, 7314]
+    sentence_count: 8
+    key_terms: [gradpilot, local, job, course, market, work, students, getting]
+    section: Comments
+    token_count: 406
+  - id: "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c4"
+    char_span: [7316, 8263]
+    sentence_count: 9
+    key_terms: [degree, get, everyone, without, years, hard, "it's", traditional]
+    section: Comments
+    token_count: 228
+  - id: "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c5"
+    char_span: [8267, 10346]
+    sentence_count: 15
+    key_terms: [job, students, international, needs, right, luck, generation, sympathy]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c6"
+    char_span: [10348, 11093]
+    sentence_count: 5
+    key_terms: [years, governmentok4147, iamthebananagod, internationals, international, such-mud-7276, everything, genuinely]
+    section: Comments
+    token_count: 194
 ---
-
 # Banned from r/MSCS for Sharing My Honest Experience — A Warning for International Students
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1o1wyj9/banned_from_rmscs_for_sharing_my_honest/)

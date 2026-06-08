@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1tckntq.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1tckntq/struggling_engineering_student_needs_advice/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,26 @@ flair: "Academic Advice"
 extracted_at: "2026-05-23T20:15:19.038Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tckntq.md#c0"
+    char_span: [0, 1903]
+    sentence_count: 14
+    key_terms: [hospitalization, year, transcript, engineeringstudents, junior, class, engineering, got]
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tckntq.md#c1"
+    char_span: [1905, 3174]
+    sentence_count: 20
+    key_terms: [like, job, mean, research, because, fucking, looking, several]
+    token_count: 288
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tckntq.md#c2"
+    char_span: [3189, 4358]
+    sentence_count: 8
+    key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
+    section: Comments
+    token_count: 266
 ---
-
 # Struggling Engineering student needs advice
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1tckntq/struggling_engineering_student_needs_advice/)

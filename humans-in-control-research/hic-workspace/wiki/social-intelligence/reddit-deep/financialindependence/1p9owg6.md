@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1p9owg6.md
 url: "https://www.reddit.com/r/financialindependence/comments/1p9owg6/milestone_achieved_900k/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,47 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.707Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1p9owg6.md#c0"
+    char_span: [0, 1898]
+    sentence_count: 5
+    key_terms: [total, financialindependence, assets, retirement, comments, account, liquid, hard]
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/financialindependence/1p9owg6.md#c1"
+    char_span: [1900, 3952]
+    sentence_count: 3
+    key_terms: [months, projection, nov, expected, insane, market, house, worth]
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/financialindependence/1p9owg6.md#c2"
+    char_span: [3954, 4498]
+    sentence_count: 1
+    key_terms: [engineer, software, associate, non-profit, assistant, position, actual, annual]
+    token_count: 200
+  - id: "social-intelligence/reddit-deep/financialindependence/1p9owg6.md#c3"
+    char_span: [4500, 5555]
+    sentence_count: 2
+    key_terms: [fire, aggresive, invested, average, rolling, income, month, goal]
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/financialindependence/1p9owg6.md#c4"
+    char_span: [5557, 6454]
+    sentence_count: 10
+    key_terms: [financialindependence, comments, reddit, https, com, www, previously, expensive]
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/financialindependence/1p9owg6.md#c5"
+    char_span: [6469, 7364]
+    sentence_count: 9
+    key_terms: [fimilestonesdeux, household, marriage, recent, been, keep, operating-on, progression]
+    section: Comments
+    token_count: 243
+  - id: "social-intelligence/reddit-deep/financialindependence/1p9owg6.md#c6"
+    char_span: [7366, 9182]
+    sentence_count: 12
+    key_terms: [fimilestonesdeux, taxes, protected, expenses, current, assets, remote, money]
+    section: Comments
+    token_count: 503
 ---
-
 # Milestone Achieved: $900k
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1p9owg6/milestone_achieved_900k/)

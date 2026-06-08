@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-openai/b7e6d4cb5d.md
 url: "https://www.reddit.com/r/OpenAI/comments/1mj78xy/just_a_reminder_that_the_context_window_in/"
 url_hash: "b7e6d4cb5d"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T17:30:33.912984+00:00"
 chars: 3873
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-openai/b7e6d4cb5d.md#c0"
+    char_span: [0, 2117]
+    sentence_count: 10
+    key_terms: [context, window, performance, models, openai, input, uniformly, comments]
+    token_count: 498
+  - id: "articles/reddit-deep-r-openai/b7e6d4cb5d.md#c1"
+    char_span: [2121, 4075]
+    sentence_count: 10
+    key_terms: [context, experience, gemini, tokens, conversation, been, use, amount]
+    token_count: 470
 ---
-
 # Just a reminder that the context window in ChatGPT Plus is still 32k…
 
 Source: [Reddit Deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1mj78xy/just_a_reminder_that_the_context_window_in/)

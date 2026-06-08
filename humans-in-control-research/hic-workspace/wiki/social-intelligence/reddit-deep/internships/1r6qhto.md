@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1r6qhto.md
 url: "https://www.reddit.com/r/internships/comments/1r6qhto/stop_doomscrolling_indeed_here_are_3_better_ways/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,41 @@ subreddit: "internships"
 title: "stop doomscrolling indeed. here are 3 better ways to find internships."
 author: "Suitable-Jelly-3693"
 date: "2026-02-17T00:03:39.000Z"
-score: 191
-upvote_ratio: 0.97
+score: 194
+upvote_ratio: 0.98
 num_comments: 20
 flair: "General"
-extracted_at: "2026-05-26T14:30:47.904Z"
+extracted_at: "2026-06-06T17:41:06.729Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1r6qhto.md#c0"
+    char_span: [0, 2034]
+    sentence_count: 2
+    key_terms: [internships, opportunities, company, email, linkedin, posted, search, https]
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/internships/1r6qhto.md#c1"
+    char_span: [2036, 3977]
+    sentence_count: 1
+    key_terms: [internships, com, internship, google, https, city, day, use]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/internships/1r6qhto.md#c2"
+    char_span: [3979, 5860]
+    sentence_count: 17
+    key_terms: [suitable-jelly-3693, emergency-mixture500, companies, thanks, opportunities, thank, job, work]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/internships/1r6qhto.md#c3"
+    char_span: [5862, 6060]
+    sentence_count: 2
+    key_terms: [temporary-poetry-362, competitions, experience, displayed, employers, mindsett7, seriously, multiple]
+    section: Comments
+    token_count: 51
 ---
-
 # stop doomscrolling indeed. here are 3 better ways to find internships.
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1r6qhto/stop_doomscrolling_indeed_here_are_3_better_ways/)
-Posted by **Suitable-Jelly-3693** · **191↑** · **20 comments**
+Posted by **Suitable-Jelly-3693** · **194↑** · **20 comments**
 
 if your internship search is just “linkedin + indeed + pray,” you’re leaving a huge number of opportunities on the table. also that's also what 99% of people are doing. most of those internships have been out for days before they even show up or are grossly saturated.  
   
@@ -105,7 +128,7 @@ the winning approach is:
 
 ## Comments
 
-- **Independent_Lion6056** (5↑): Thank you so much for sharing. It is really helpful specially like me who is currently looking for opportunities
+- **Independent_Lion6056** (7↑): Thank you so much for sharing. It is really helpful specially like me who is currently looking for opportunities
   - **Suitable-Jelly-3693** (1↑): You bet! Dm me if you have questions! I am always looking to help out!
 - **Emergency-Mixture500** (3↑): Thanks for this 🙏. I'm also in search for intership. 
 Hope this helps

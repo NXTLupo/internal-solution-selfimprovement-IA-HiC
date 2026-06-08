@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1p99tcz.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1p99tcz/how_is_it_possible_that_college_admissions_are_so/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,90 @@ subreddit: "applyingtocollege"
 title: "How is it possible that college admissions are so competitive and student performance is dropping by so much?"
 author: "Hot-Marionberry1983"
 date: "2025-11-28T23:45:52.000Z"
-score: 485
+score: 488
 upvote_ratio: 0.97
-num_comments: 278
+num_comments: 279
 flair: "Discussion"
-extracted_at: "2026-05-24T14:08:39.592Z"
+extracted_at: "2026-06-03T18:34:57.876Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p99tcz.md#c0"
+    char_span: [0, 1988]
+    sentence_count: 13
+    key_terms: [college, competitive, applyingtocollege, got, school, years, performance, get]
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p99tcz.md#c1"
+    char_span: [2003, 4184]
+    sentence_count: 15
+    key_terms: [students, top, distribution, get, high, kids, admissions, impressive]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p99tcz.md#c2"
+    char_span: [4186, 6418]
+    sentence_count: 17
+    key_terms: [students, school, counselor, formal-research4531, good, colleges, freshmen, guidance]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p99tcz.md#c3"
+    char_span: [6420, 8290]
+    sentence_count: 17
+    key_terms: [financial, students, aid, schools, admission, without, harvard, student]
+    section: Comments
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p99tcz.md#c4"
+    char_span: [8293, 9281]
+    sentence_count: 10
+    key_terms: [schools, high, yves-adele-harlow, school, valedictorian, class, measurementtop2885, top]
+    section: Comments
+    token_count: 277
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p99tcz.md#c5"
+    char_span: [9283, 10411]
+    sentence_count: 6
+    key_terms: [school, single, sat, average, depends, hot-marionberry1983, neither-phone-7264, agitated-cup-7109]
+    section: Comments
+    token_count: 315
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p99tcz.md#c6"
+    char_span: [10413, 12603]
+    sentence_count: 17
+    key_terms: [college, schools, impressive, inflation, get, sat, academic, grades]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p99tcz.md#c7"
+    char_span: [12605, 13929]
+    sentence_count: 5
+    key_terms: [average, schools, sat, public, massachusetts, statereport, high, sats]
+    section: Comments
+    token_count: 316
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p99tcz.md#c8"
+    char_span: [13931, 15821]
+    sentence_count: 10
+    key_terms: [schools, school, research, average, people, competitions, internships, high]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p99tcz.md#c9"
+    char_span: [15823, 17809]
+    sentence_count: 15
+    key_terms: [college, education, admissions, classes, private, people, undergraduate, difference]
+    section: Comments
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p99tcz.md#c10"
+    char_span: [17811, 19797]
+    sentence_count: 15
+    key_terms: [material, get, mit, classes, top, impression, personal, caltech]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p99tcz.md#c11"
+    char_span: [19799, 21159]
+    sentence_count: 8
+    key_terms: [software, executivewatch, highschools, engineer, college, better, number, school]
+    section: Comments
+    token_count: 352
 ---
-
 # How is it possible that college admissions are so competitive and student performance is dropping by so much?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1p99tcz/how_is_it_possible_that_college_admissions_are_so/)
-Posted by **Hot-Marionberry1983** · **485↑** · **278 comments**
+Posted by **Hot-Marionberry1983** · **488↑** · **279 comments**
 
 5 years ago, my brother applied to college. He was the valedictorian, got 1550 on his SAT, did varsity track and field, captained the science team, and got 5 on 9 AP exams -- all while working part-time. He didn't get into any Ivies - he ended up in the honors college at a solid state school, and is now working as a software engineer. In the past 5 years, I've seen a whole lot of stuff about student performance is drastically dropping, and that we're graduating students from high school that can't read. But I've also heard that college admissions have gotten so much more competitive over the past 5 years! I'm ranked #1 in my class, got 1590 on my SAT, captain the robotics team, am a class rep, worked part-time as a software engineer, got 5 on 11 AP exams (so far!), qualified for the AIME 3 times, and took 6 dual enrollment math and physics classes. And yet, my school's career counselor told me that my profile isn't competitive enough to get into top colleges, and that I should try applying to UNC Chapel Hill (which is out-of-state, so I can't get financial aid... lol).
 
@@ -29,18 +101,18 @@ Maybe I live in a weird bubble - my family is middle-class: my Dad went to colle
 
 ## Comments
 
-- **VariousJob4047** (493↑): There’s over 3 million high school grads each year. It’s entirely possible, and even reasonable, that 2.95 million students get less impressive over time while the top 50k stay as competitive.
-  - **yourlittlebirdie** (232↑): That’s exactly what is happening. 
+- **VariousJob4047** (491↑): There’s over 3 million high school grads each year. It’s entirely possible, and even reasonable, that 2.95 million students get less impressive over time while the top 50k stay as competitive.
+  - **yourlittlebirdie** (238↑): That’s exactly what is happening. 
 
 The kids at the top are as smart and accomplished as they’ve always been, if not more so. But the bottom 85% is much, much worse.
     - **piltdownman38** (64↑): But this is even happening at the University of California schools, which are highly selective.  It just indicates that the whole admissions process is badly broken.
-  - **CobaltCaterpillar** (46↑): There's a widening of the distribution.
+  - **CobaltCaterpillar** (44↑): There's a widening of the distribution.
 
 Look at sports:
 
 * You have kids fitter, higher performing, more advanced than ever before in various sports.
 * You have kids more sedentary, unfit, etc... than ever before.
-    - **WaterIll4397** (10↑): This is the "k shape economy" at work in America.
+    - **WaterIll4397** (9↑): This is the "k shape economy" at work in America.
   - **designandlearn** (5↑): Well said, much better than the way I tried to explain it!!
   - **ditchdiggergirl** (1↑): It is also possible that every single student has gotten less impressive, yet the top 1% is still the top 1%. By definition. 
 
@@ -48,7 +120,7 @@ Students aren’t being judged by some objective metric that is a bar only few c
 
 The top universities will continue to fill their seats with the best students they can get. If the quality declines they won’t admit fewer students, just weaker ones.
   - **throwaway1049764929** (1↑): Pareto distribution
-- **CTFDEverybody** (124↑): As a tutor for high school students, COVID + the transition to more tech based teaching created a huge dichotomy for students.
+- **CTFDEverybody** (125↑): As a tutor for high school students, COVID + the transition to more tech based teaching created a huge dichotomy for students.
 
 If you're motivated or already a good student, the tech made learning better with access to more resources.
 
@@ -58,7 +130,7 @@ I tutor in an affluent area, where kids bring Macs into their HS, and I don't ev
 
 The good students will still focus, but to everyone else, good luck.
   - **Hot-Marionberry1983** (21↑): Makes sense. ngl in the AP classes at my school no one has laptops in class at all, but in the regular classes yeah
-    - **louisianab** (27↑): apply for wherever you want. not every counselor does a good job.
+    - **louisianab** (26↑): apply for wherever you want. not every counselor does a good job.
     - **Formal-Research4531** (3↑): Fact:  Over 30% of freshmen at colleges are taking remedial classes (ie math and English) before taking college courses.  When you include community colleges, it is over 40% of freshmen.
 
 In other words, 30% to 40% of college freshmen graduated from high school without having basic math and English skills.
@@ -95,10 +167,10 @@ Bottom line:  if you can fully pay the load at an elite college, your chances of
 
 The admission process is broken.
     - **jehehrjdhfj** (1↑): Lwk me and my friends are the only ones in class that has their laptop out but we are all top performing kids😭
-- **Yves-Adele-Harlow** (92↑): There are one or more big achievers at every high school. There are many high schools.
-  - **Phssthp0kThePak** (50↑): There are high schools where any one of the top 100 would be smarter and more accomplished than the valedictorian at another school.
+- **Yves-Adele-Harlow** (96↑): There are one or more big achievers at every high school. There are many high schools.
+  - **Phssthp0kThePak** (46↑): There are high schools where any one of the top 100 would be smarter and more accomplished than the valedictorian at another school.
     - **Yves-Adele-Harlow** (2↑): Right, but it all sort of evens out. There are 27,000 high schools in the U.S. and 50,000 each who are recognized in some capacity by National Merit. The equivalent of 1 to 2 at each school. Some schools have like 50. Some schools have none. And so forth.
-  - **MeasurementTop2885** (5↑): Horrendously not true.  Clearly someone who has no idea what variation there is among high schools.
+  - **MeasurementTop2885** (6↑): Horrendously not true.  Clearly someone who has no idea what variation there is among high schools.
 
 Every class may have a valedictorian.  Most good HS’s don’t rank and some HS’s have over 200 valedictorians.  
 
@@ -106,9 +178,9 @@ Doesn’t at all mean there are big achievers everywhere.
     - **earsocks** (31↑): How can a single school have over 200 valedictorians?
   - **Hot-Marionberry1983** (-5↑): I've never met a single other person at my school who has an SAT above 1510
     - **Neither-Phone-7264** (32↑): I know multiple kids with 36s and 4.0s, and three with 1600s. Depends on the school, really.
-    - **Agitated-Cup-7109** (9↑): that might be something specifically related to your school
+    - **Agitated-Cup-7109** (10↑): that might be something specifically related to your school
     - **theabhster** (8↑): Just depends on your area, in schools in the Bay Area (California) a 1510 is a lot more common than you think
-    - **strawberlley** (5↑): my school average is around 1510-1520, there are many students with high scores. i do think there are a lot of other factors besides sat tho!
+    - **strawberlley** (6↑): my school average is around 1510-1520, there are many students with high scores. i do think there are a lot of other factors besides sat tho!
     - **No-Assist-8734** (1↑): Go learn what supply and demand is, then come back when you're educated enough. Has the average SAT score gotten higher or lower over the years? Ask yourself why. Ivy's have a limited number of seats, and every single year, more people are enrolling their kids into ivy prep. Just do the math bro, it's not that hard. 
 
 When I graduated around 2010, my valedictorian also got rejected from all Ivy's despite being a woman, so the situation would only get tougher from that time, not easier
@@ -138,7 +210,7 @@ The point wasn't that this is common but that it is common for people who are ap
     - **CaterpillarJungleGym** (1↑): NJ there is one public school and their average is 1382. A lot of magnet and votech schools though. Th  highest magnet school averages over 1500: https://nj1015.com/sat-scores-nj/
   - **Hot-Marionberry1983** (1↑): Ok, makes sense... but my issue of course is that I didn't know the research/internships/competitions existed until this year. I kind of lucked into getting an internship bc a grad student that TA'ed a dual enrollment class I was in liked me and put in a good word for me, and I will likely qualify for the USAMO in Feb this year assuming I'm able to get my AIME score up by 1-2 points. But like I had no clue that research was a thing people did until I looked at this sub
     - **Sad-Animator6846** (1↑): I don't think you're cooked at all. Many students who get into top colleges don't have research/internships/competitions (but you actually do). part-time work, leadership in robotics, USAMO (extremely impressive IMO) and an internship is an amazing set of ECs that justify aiming for HYPSM or similar colleges as long as you know they're reaches.
-- **tachyonicinstability** (43↑): Over the long term, as in the last several decades, college admissions is competitive because the number of students applying is increasing. This is a good thing because it means more people are going to college. 
+- **tachyonicinstability** (41↑): Over the long term, as in the last several decades, college admissions is competitive because the number of students applying is increasing. This is a good thing because it means more people are going to college. 
 
 At the same time, the number of seats at wealthy private schools hasn’t changed very much. Basic economics tells you that the “price of admissions has increased”. 
 
@@ -161,27 +233,27 @@ I did find a program that I think is best tailored to my personal goals (Dartmou
     - **tachyonicinstability** (16↑): I can’t speak to your personal experiences in depth, but I can share that MIT open courseware’s version of a class I have taught at a moderately selective public university covers less material for the same academic schedule. This is also the same material I have used in classes at a school with a similar level of selectivity to MIT. 
 
 I can also say that more generally, we know a lot about how the brain learns and retains information. It’s usually not a good idea to teach 3x the material in the same amount of time, even when teaching very bright and motivated students or those with pre-existing experience in a subject. Most complicated topics simply take a similar amount of time for everyone to learn and slower is often much better.
-    - **Satisest** (9↑): >the MIT class covers easily three times more content to the corresponding classes at the local private college 
+    - **Satisest** (13↑): >the MIT class covers easily three times more content to the corresponding classes at the local private college 
 
 This is a 100% accurate impression. At top schools like MIT, the classes are much faster paced and much more rigorous. People who claim that all schools teach the same material just don’t know.
-- **Electronic_Writer314** (34↑): "my school's career counselor told me that ..."
+- **Electronic_Writer314** (29↑): "my school's career counselor told me that ..."
 
 I encourage you not to listen to small minded people in life.  Do whatever inspires you.  There's no harm in finding out.  Don't live life in fear.  You have as much talent as anyone.
-- **Soccent06** (12↑): unc has some very good merit scholarships that come with some nice extras.
+- **Soccent06** (15↑): unc has some very good merit scholarships that come with some nice extras.
 
   
 And take what your college counselors  say with a huge grain of salt.  Ours repeatedly told us we could never get into a top 20.  Yet about 10 of our 395 graduating student did get in to top 20s.
-- **d_e_u_s** (21↑): Rich get richer and the poor get poorer
+- **d_e_u_s** (22↑): Rich get richer and the poor get poorer
 
 Smart get smarter and the dumb get dumber
 - **AshleyAinAK** (10↑): Curious what you are doing in high school as a ‘software engineer’?
   - **Hot-Marionberry1983** (11↑): Yeah sure. There's a local company that has contracts with several other local companies to do web development, and they hired me as a 1099 contractor
 
 The work isn't technical at all, but it pays way better than any job I could otherwise have
-    - **S1159P** (8↑): Probably better to characterise that as "software developer" or "programmer" rather than "software engineer".
+    - **S1159P** (7↑): Probably better to characterise that as "software developer" or "programmer" rather than "software engineer".
     - **Sufficient_Gur897** (3↑): hmmmm maybe something my kid should do after he gets his college applications done!
-- **ExecutiveWatch** (4↑): I means like 14k total ivy seats combined. Thats a helluva small number. Specially when theres 30k highschools in the us alone.
-  - **Responsible_Sea78** (5↑): And every star in the high school play thinks they're Marilyn Monroe or Brad Pitt.
+- **ExecutiveWatch** (7↑): I means like 14k total ivy seats combined. Thats a helluva small number. Specially when theres 30k highschools in the us alone.
+  - **Responsible_Sea78** (3↑): And every star in the high school play thinks they're Marilyn Monroe or Brad Pitt.
   - **Glarbleglorbo** (2↑): People always seem to forget that most expat Americans come back to do college in America.
 
 Singapore is ultra-competitive when it comes to American colleges.

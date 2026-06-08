@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sfyv29.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sfyv29/getting_fired_over_a_big_mistake_what_do_i_do/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-24T14:09:04.410Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sfyv29.md#c0"
+    char_span: [0, 1488]
+    sentence_count: 17
+    key_terms: [careerguidance, fired, work, comments, tomorrow, company, getting, right]
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/careerguidance/1sfyv29.md#c1"
+    char_span: [1503, 3432]
+    sentence_count: 20
+    key_terms: [mistake, mistakes, making, happen, professional, like, something, djfromnl]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/careerguidance/1sfyv29.md#c2"
+    char_span: [3434, 5214]
+    sentence_count: 9
+    key_terms: [negligent, tell, company, situation, tomorrow, happens, mistake, stress]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/careerguidance/1sfyv29.md#c3"
+    char_span: [5216, 6582]
+    sentence_count: 9
+    key_terms: [better, fired, training, hearing, mistake, please, sounds, cold-management-2168]
+    section: Comments
+    token_count: 356
+  - id: "social-intelligence/reddit-deep/careerguidance/1sfyv29.md#c4"
+    char_span: [6584, 8807]
+    sentence_count: 19
+    key_terms: [righteousaffair999, good, because, company, happen, people, maybe, intoxicated]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/careerguidance/1sfyv29.md#c5"
+    char_span: [8809, 11010]
+    sentence_count: 20
+    key_terms: [better, different, get, job, something, strengths, happened, mistakes]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/careerguidance/1sfyv29.md#c6"
+    char_span: [11012, 12697]
+    sentence_count: 22
+    key_terms: [because, better, pretty, burnedlaser, job, ended, right, young]
+    section: Comments
+    token_count: 434
 ---
-
 # Getting fired over a big mistake. What do I do?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sfyv29/getting_fired_over_a_big_mistake_what_do_i_do/)

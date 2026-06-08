@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1os2ln7.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1os2ln7/is_swesde_the_only_sensible_entry_point_into_any/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: "New Grad"
 extracted_at: "2026-05-25T18:32:49.825Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1os2ln7.md#c0"
+    char_span: [0, 1549]
+    sentence_count: 10
+    key_terms: [cscareerquestions, leetcode, etc, "i'm", university, solutions, comments, courses]
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1os2ln7.md#c1"
+    char_span: [1564, 2383]
+    sentence_count: 6
+    key_terms: [necessary, always, degree, etc, low, own, responsibility, incentivized]
+    section: Comments
+    token_count: 187
 ---
-
 # Is SWE/SDE the only sensible entry point into any other CS-related tech career?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1os2ln7/is_swesde_the_only_sensible_entry_point_into_any/)

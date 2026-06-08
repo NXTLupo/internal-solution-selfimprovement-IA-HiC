@@ -10,9 +10,9 @@ score: 1
 upvote_ratio: 1
 num_comments: 9
 flair: "General Advice"
-extracted_at: "2026-05-24T14:10:06.599Z"
+extracted_at: "2026-06-06T23:23:15.584Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Professional experience rather than academic experience in grad school applications
@@ -32,9 +32,5 @@ Does anyone have a similar pathway into their current program? Could anyone spea
 
 - **Mother-Click-4465** (2↑): Professional experience usually carries more weight than people think - committees know real-world skills translate better than just cramming theory
   - **Lonely-Program** (1↑): That’s good to hear, thanks!
-- **AlphaKnight48** (1↑): I leaned heavily on my professional experience this cycle, and it didn’t work out. I applied to thesis-based CS programs with \~3 years of software engineering experience at remote US startups. In the end, candidates with even modest research aligned with specific professors had the edge. So yeah
-  - **Lonely-Program** (1↑): I’m sorry to hear that, I wish you better luck in the next cycle! Thank you for sharing your experience :)
 - **Longjumping-Dingo175** (1↑): Yep. My bachelors in the humanities, and my masters in social sciences. I’m doing a PhD in STEM right now based on my 5 years on the job experience that put me on this path. It can work, but you need early and clear communication with the faculty you want to work with and make sure they’re understanding and willing.
   - **Lonely-Program** (1↑): Thanks for sharing! I’m applying for Fall 2027 so I  am getting an early start and reaching out the professors in the department as soon as I finish polishing my CV and talk with the grad program advisor. Glad to know that it worked out for you!
-- **NoSteak1123** (1↑): You are definitely an 'exceptional case'...don't let the requirements scare you off! Real-world results are a massive flex in grad apps. Since you're already working in the field, you might want to look into Betabox to help facilitate some even bigger hands-on projects. It's a cool way to show the committee that you aren't just 'working' in the field, but actively innovating in it. Go for it!
-  - **Lonely-Program** (1↑): Thanks for the reassurance and I’ll definitely look into that!

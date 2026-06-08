@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1ohipo8.md
 url: "https://www.reddit.com/r/managers/comments/1ohipo8/how_do_you_talk_to_an_employee_who_isnt_getting/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,116 @@ flair: ""
 extracted_at: "2026-05-26T12:54:23.632Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c0"
+    char_span: [0, 2206]
+    sentence_count: 20
+    key_terms: [craig, everyone, hours, been, else, "he's", responsibilities, sick]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c1"
+    char_span: [2208, 3929]
+    sentence_count: 19
+    key_terms: [get, work, someone, better, "can't", been, "he's", help]
+    token_count: 381
+  - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c2"
+    char_span: [3944, 6037]
+    sentence_count: 11
+    key_terms: [experience, "you're", leadership, level, role, conversation, flex, team]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c3"
+    char_span: [6042, 8056]
+    sentence_count: 14
+    key_terms: [craig, time, hours, performance, been, does, like, negatively]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c4"
+    char_span: [8061, 9109]
+    sentence_count: 4
+    key_terms: [experience, customer, others, lines, let, read, resourcefulness, straightforward]
+    section: Comments
+    token_count: 221
+  - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c5"
+    char_span: [9111, 10977]
+    sentence_count: 8
+    key_terms: [working, read, "don't", hours, lines, wants, employees, problem]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c6"
+    char_span: [10979, 13140]
+    sentence_count: 11
+    key_terms: [doing, needs, advancement, path, available, promotion, customer, employee]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c7"
+    char_span: [13142, 15343]
+    sentence_count: 14
+    key_terms: [employee, time, because, performance, people, completely, issue, "it's"]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c8"
+    char_span: [15345, 16624]
+    sentence_count: 7
+    key_terms: [time, performance, policy, "that's", strategically, conversation, flex, employees]
+    section: Comments
+    token_count: 265
+  - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c9"
+    char_span: [16626, 18202]
+    sentence_count: 10
+    key_terms: [hours, promotion, get, mean, schedule, metrics, skills, needs]
+    section: Comments
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c10"
+    char_span: [18204, 20207]
+    sentence_count: 12
+    key_terms: [customers, benefit, availability, performance, hours, meeting, cannot, significant]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c11"
+    char_span: [20209, 22450]
+    sentence_count: 14
+    key_terms: [being, "he's", understand, opportunities, hours, using, been, time]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c12"
+    char_span: [22116, 23231]
+    sentence_count: 8
+    key_terms: [choice, high-demand, management, approach, exposure, promoted, accomplishedblood515, being]
+    section: Comments
+    token_count: 239
+  - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c13"
+    char_span: [23233, 25404]
+    sentence_count: 16
+    key_terms: [response, opportunities, craig, development, like, time, schedule, exactly]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c14"
+    char_span: [25406, 27437]
+    sentence_count: 15
+    key_terms: [hours, time, like, experience, flex, craig, does, use]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c15"
+    char_span: [27439, 29746]
+    sentence_count: 30
+    key_terms: [work, people, day, life, like, became, making, coast]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c16"
+    char_span: [29748, 31729]
+    sentence_count: 16
+    key_terms: [company, policy, "he's", benefit, choices, hours, level, time]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/managers/1ohipo8.md#c17"
+    char_span: [31731, 32814]
+    sentence_count: 7
+    key_terms: [opportunities, craig, specializes, work, honestly, schedule, manager, problem]
+    section: Comments
+    token_count: 221
 ---
-
 # How Do You Talk to an Employee Who Isn't Getting Promoted Due to How They Use Benefits?
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1ohipo8/how_do_you_talk_to_an_employee_who_isnt_getting/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1rswe9j.md
 url: "https://www.reddit.com/r/GradSchool/comments/1rswe9j/in_grad_school_and_constantly_getting_berated_by/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,33 @@ flair: "Health & Work/Life Balance"
 extracted_at: "2026-05-23T20:15:44.987Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1rswe9j.md#c0"
+    char_span: [0, 1876]
+    sentence_count: 15
+    key_terms: [feel, talk, time, because, family, prioritize, etc, like]
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/gradschool/1rswe9j.md#c1"
+    char_span: [1891, 4197]
+    sentence_count: 15
+    key_terms: [educational, abuse, financial, college, people, dustybuttocks, great, find]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1rswe9j.md#c2"
+    char_span: [4199, 6440]
+    sentence_count: 12
+    key_terms: [going, "you're", emotionally, get, hard, "i'm", boundaries, prioritize]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/gradschool/1rswe9j.md#c3"
+    char_span: [6442, 7653]
+    sentence_count: 10
+    key_terms: [responsibilities, little, adult, time, problem, result, school, auroralorraine522]
+    section: Comments
+    token_count: 308
 ---
-
 # In grad school and constantly getting berated by family for being too busy to talk to them
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1rswe9j/in_grad_school_and_constantly_getting_berated_by/)

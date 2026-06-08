@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1lw3pj6.md
 url: "https://www.reddit.com/r/productivity/comments/1lw3pj6/whats_one_productive_habit_you_realised_was/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-26T12:53:45.652Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1lw3pj6.md#c0"
+    char_span: [0, 644]
+    sentence_count: 10
+    key_terms: [productivity, comments, habit, procrastinating, devmakasana, reddit-deep, everything, productive]
+    token_count: 159
+  - id: "social-intelligence/reddit-deep/productivity/1lw3pj6.md#c1"
+    char_span: [659, 1453]
+    sentence_count: 7
+    key_terms: ["i'll", time, work, cool-joke2996, block, day, like, timeblocking]
+    section: Comments
+    token_count: 204
+  - id: "social-intelligence/reddit-deep/productivity/1lw3pj6.md#c2"
+    char_span: [1455, 3112]
+    sentence_count: 9
+    key_terms: [procrastinating, finding, time, listened, planning, building-sandcastles, doing, right]
+    section: Comments
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/productivity/1lw3pj6.md#c3"
+    char_span: [3114, 5100]
+    sentence_count: 17
+    key_terms: [thinking, system, automatically, brain, book, like, time, too]
+    section: Comments
+    token_count: 479
 ---
-
 # What’s one “productive” habit you realised was secretly ruining your productivity?
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1lw3pj6/whats_one_productive_habit_you_realised_was/)

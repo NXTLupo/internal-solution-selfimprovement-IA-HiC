@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1r7zhei.md
 url: "https://www.reddit.com/r/careeradvice/comments/1r7zhei/looking_to_finally_transition_to_a_remote_career/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.238Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1r7zhei.md#c0"
+    char_span: [0, 1382]
+    sentence_count: 10
+    key_terms: [looking, careeradvice, completely, business, comments, everyone, software, remote]
+    token_count: 331
 ---
-
 # Looking to finally transition to a remote career, but my head is spinning — what’s actually worth learning in 2026?
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1r7zhei/looking_to_finally_transition_to_a_remote_career/)

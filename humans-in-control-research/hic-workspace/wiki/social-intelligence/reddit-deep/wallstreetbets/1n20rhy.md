@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1n20rhy.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1n20rhy/stay_loyal_fellow_regards/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,45 @@ flair: "Gain"
 extracted_at: "2026-05-16T20:54:42.966Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1n20rhy.md#c0"
+    char_span: [0, 626]
+    sentence_count: 4
+    key_terms: [wallstreetbets, losing, big, comments, regards, loyal, stay, reddit-deep]
+    token_count: 163
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1n20rhy.md#c1"
+    char_span: [641, 1738]
+    sentence_count: 1
+    key_terms: [millionaire, wsb, account, robboost330, post, bankrupt, discord, https]
+    section: Comments
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1n20rhy.md#c2"
+    char_span: [1740, 3077]
+    sentence_count: 10
+    key_terms: [trade, account, like, someone, ihaveterriblefriends, time-initiative-7769, start, cash]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1n20rhy.md#c3"
+    char_span: [3080, 4652]
+    sentence_count: 6
+    key_terms: [balls, calls, something, bufonia1, million, preview, always, muted-woodpecker-469]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1n20rhy.md#c4"
+    char_span: [4513, 5976]
+    sentence_count: 7
+    key_terms: [format, width, robboost330, auto, pjpg, webp, pending, preview]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1n20rhy.md#c5"
+    char_span: [5729, 6061]
+    sentence_count: 4
+    key_terms: [pending, timburgessthis, understand, investing, combined, entirety, winning, buying]
+    section: Comments
+    token_count: 90
 ---
-
 # Stay loyal, fellow regards
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1n20rhy/stay_loyal_fellow_regards/)

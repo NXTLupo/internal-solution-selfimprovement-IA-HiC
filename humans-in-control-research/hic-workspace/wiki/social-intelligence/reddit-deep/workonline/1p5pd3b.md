@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/workonline/1p5pd3b.md
 url: "https://www.reddit.com/r/WorkOnline/comments/1p5pd3b/struggling_to_find_remote_work_in_ontario_only/"
 kind: "social-post"
 source: "reddit-deep: r/workonline"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-26T12:53:45.648Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/workonline/1p5pd3b.md#c0"
+    char_span: [0, 1412]
+    sentence_count: 12
+    key_terms: [remote, find, work, english, ontario, workonline, comments, anyone]
+    token_count: 324
+  - id: "social-intelligence/reddit-deep/workonline/1p5pd3b.md#c1"
+    char_span: [1427, 1704]
+    sentence_count: 2
+    key_terms: [find, transcription, flaminggnats, companies, reporters, vivekaj12, american, anything]
+    section: Comments
+    token_count: 82
 ---
-
 # Struggling to Find Remote Work in Ontario — Only Speak English & Have MS. Any Advice?
 
 Source: [reddit-deep: r/workonline](https://www.reddit.com/r/WorkOnline/comments/1p5pd3b/struggling_to_find_remote_work_in_ontario_only/)

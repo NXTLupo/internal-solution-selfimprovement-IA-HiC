@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1r3i4nl.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1r3i4nl/to_senior_and_junior_engineering_students_do_you/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,27 @@ flair: "Discussion"
 extracted_at: "2026-05-20T12:57:40.600Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r3i4nl.md#c0"
+    char_span: [0, 1054]
+    sentence_count: 6
+    key_terms: [math, degree, engineering, engineeringstudents, year, comments, remember, learned]
+    token_count: 239
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r3i4nl.md#c1"
+    char_span: [1069, 3095]
+    sentence_count: 12
+    key_terms: [math, courses, calc, "you'll", specific, classes, fundamentals, level]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r3i4nl.md#c2"
+    char_span: [3097, 4334]
+    sentence_count: 7
+    key_terms: [need, building, materials, mechanics, something, equation, handbook, learned]
+    section: Comments
+    token_count: 288
 ---
-
 # To senior and junior engineering students, do you remember the math you learned at the start of the degree?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1r3i4nl/to_senior_and_junior_engineering_students_do_you/)

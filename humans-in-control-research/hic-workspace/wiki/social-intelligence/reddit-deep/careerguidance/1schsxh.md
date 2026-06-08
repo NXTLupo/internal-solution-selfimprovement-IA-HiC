@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1schsxh.md
 url: "https://www.reddit.com/r/careerguidance/comments/1schsxh/need_career_guidance_2nd_year_student_with_tech/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,16 @@ score: 1
 upvote_ratio: 1
 num_comments: 1
 flair: ""
-extracted_at: "2026-05-22T15:13:18.803Z"
+extracted_at: "2026-06-03T18:35:34.122Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1schsxh.md#c0"
+    char_span: [0, 2183]
+    sentence_count: 15
+    key_terms: [working, communication, experience, careerguidance, financially, tech, year, marketing]
+    token_count: 485
 ---
-
 # Need Career Guidance: 2nd Year Student with Tech + Freelance Experience but No Income Yet?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1schsxh/need_career_guidance_2nd_year_student_with_tech/)

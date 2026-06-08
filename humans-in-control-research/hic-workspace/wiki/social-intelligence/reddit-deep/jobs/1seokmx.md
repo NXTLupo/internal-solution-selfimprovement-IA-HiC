@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1seokmx.md
 url: "https://www.reddit.com/r/jobs/comments/1seokmx/how_do_you_get_experience_for_a_job_if_nobody/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -10,11 +11,46 @@ score: 113
 upvote_ratio: 0.97
 num_comments: 52
 flair: "Job searching"
-extracted_at: "2026-05-24T14:10:06.646Z"
+extracted_at: "2026-06-06T13:04:34.554Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1seokmx.md#c0"
+    char_span: [0, 1427]
+    sentence_count: 1
+    key_terms: [experience, applied, get, ghosted, because, dogs, job, jobs]
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/jobs/1seokmx.md#c1"
+    char_span: [1442, 3630]
+    sentence_count: 16
+    key_terms: [experience, applications, emailing, needed, keep, put, interviews, interview]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1seokmx.md#c2"
+    char_span: [3339, 4232]
+    sentence_count: 2
+    key_terms: [needed, availability, interviews, because, hours, put, time, went]
+    section: Comments
+    token_count: 202
+  - id: "social-intelligence/reddit-deep/jobs/1seokmx.md#c3"
+    char_span: [4235, 6149]
+    sentence_count: 18
+    key_terms: [get, work, working, random, worked, "you're", availability, did]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/jobs/1seokmx.md#c4"
+    char_span: [6151, 8378]
+    sentence_count: 23
+    key_terms: [experience, positions, live, mychemicalromantasy, "don't", food, job, getting]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/jobs/1seokmx.md#c5"
+    char_span: [8381, 9033]
+    sentence_count: 5
+    key_terms: [hiring, applications, confidently, opportunity, allnewat52, appreciate, businesses, especially]
+    section: Comments
+    token_count: 142
 ---
-
 # how do you get experience for a job if nobody will hire me because i lack working experience?? 😭
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1seokmx/how_do_you_get_experience_for_a_job_if_nobody/)
@@ -36,15 +72,15 @@ how do you get experience but nobody will hire you? i also can’t drive either 
 
 ## Comments
 
-- **DoloSteadyCruising** (43↑): Keep applying. Nothing happens if you stop. Just keep applying.
-- **Go_Big_Resumes** (27↑): This is the “entry-level trap”, they want experience to give experience. Start with volunteer work, family/friends gigs, or small freelancing. Show skills, even if it’s not paid. That counts as experience.
+- **DoloSteadyCruising** (48↑): Keep applying. Nothing happens if you stop. Just keep applying.
+- **Go_Big_Resumes** (28↑): This is the “entry-level trap”, they want experience to give experience. Start with volunteer work, family/friends gigs, or small freelancing. Show skills, even if it’s not paid. That counts as experience.
 - **OcelotOfTheForest** (15↑): Very normal experience starting out in employment. Even with experience, it's a numbers game. Maybe takes 50 to 100 applications to get some interviews happening with little to no exp. Reduces to 20 to 30 with a few years experience.
-  - **Canesfan252** (8↑): It's more than a numbers game. People think just throwing applications out there is going to land them a job tonight. If you don't write your resume right, employers computer systems will reject it.
+  - **Canesfan252** (7↑): It's more than a numbers game. People think just throwing applications out there is going to land them a job tonight. If you don't write your resume right, employers computer systems will reject it.
     - **ChorzioPaella3** (1↑): Fucking ATS filtering people out before anyone actually gets to see your CV you’ve worked on
-- **LakeofFire1994** (15↑): The job market right now genuinely sucks for entry level, just keep showing up in person following up the next day to the person you've talked to when you handed over the resume, and don't be afraid to apply even at places that haven't posted openings.
-- **Own_Assistant_2899** (16↑): So a few things - have you called anywhere back after putting in your applications to check their status? Or tried emailing someone ? 
+- **LakeofFire1994** (16↑): The job market right now genuinely sucks for entry level, just keep showing up in person following up the next day to the person you've talked to when you handed over the resume, and don't be afraid to apply even at places that haven't posted openings.
+- **Own_Assistant_2899** (15↑): So a few things - have you called anywhere back after putting in your applications to check their status? Or tried emailing someone ? 
 Have you had any interviews ? When you went to fill out an application what were you wearing ? Your first impression matters - so you need to be perfectly groomed, be wearing something that is not too revealing and be kind and caring. Is there anything you feel that could have led to you not getting an interview that you could put a finger on?
-  - **Dem0n1cD0g** (9↑): i have actually. i called back to two other places, i never thought about emailing because i thought calling is better than emailing, i’ve had one interview at DQ, everything went well but my availability was something i needed to change, at the time, i put such little hours because i didn’t know i needed to put in more hours (which i have fixed now) but they also said i needed to get better transportation even though DQ is 20 minutes away from my house, when i went in person to fill out applications, i dressed in jeans, a plain black t shirt and a jacket because it was kinda cold where i was, i don’t anything formal to wear at interviews unfortunately, and the only thing i can think of that has gotten me a few interviews was me being honest. i told them this is my first job but i am willing to learn how things work and i’m very loyal
+  - **Dem0n1cD0g** (10↑): i have actually. i called back to two other places, i never thought about emailing because i thought calling is better than emailing, i’ve had one interview at DQ, everything went well but my availability was something i needed to change, at the time, i put such little hours because i didn’t know i needed to put in more hours (which i have fixed now) but they also said i needed to get better transportation even though DQ is 20 minutes away from my house, when i went in person to fill out applications, i dressed in jeans, a plain black t shirt and a jacket because it was kinda cold where i was, i don’t anything formal to wear at interviews unfortunately, and the only thing i can think of that has gotten me a few interviews was me being honest. i told them this is my first job but i am willing to learn how things work and i’m very loyal
     - **Funny_Story_Bro** (3↑): You have to be as available as possible. They're reasonably going to book half as much time as you provide, but they always want full availability.
 
 
@@ -53,7 +89,7 @@ Pick up some clothes at the thrift store or borrow from a friend.
 
 
 That way you can get your foot in the door and your work ethic will hopefully get the manager to be flexible.
-- **72dragonses** (7↑): Take a crappy job? You're entry level. I worked at hotel front desks, did housekeeping, inventories for warehouses and convenience stores, swept gravel, bartended, did data entry for an oil company, was a newspaper reporter, all to pay the bills during and after college way before I settled into my career in IT. 
+- **72dragonses** (6↑): Take a crappy job? You're entry level. I worked at hotel front desks, did housekeeping, inventories for warehouses and convenience stores, swept gravel, bartended, did data entry for an oil company, was a newspaper reporter, all to pay the bills during and after college way before I settled into my career in IT. 
 
 Here's a tip: get used to working harder.
   - **Zestyclose-Turnip-88** (1↑): I've applied to all these places and never get anything back. How am I supposed to work harder when no one will hire me for work.
@@ -67,8 +103,8 @@ Bottom line is that I lived and breathed computers for a solid 2 years while wor
 Wasn't an easy path, and there were no guarantees. Honestly, I'd been such a hard worker in my life that if computers hadn't worked out for me, I would have pivoted into something else and worked just as hard there. 
 
 If you're looking for a secret, for me that's what it was. Hard work. Constant study on personal time. Constantly trying to better yourself. Best of luck to you.
-- **Impressive_Rest5252** (4↑): sometimes saying its your first job helps. i finally got hired  after i said that. it actually was my first job but i was in the same predicament as you no work experience no call backs
-- **MyChemicalRomantasy** (4↑): Have you tried the school district you live in? Food services and para positions are always hiring. Maybe even email your high school principal or any teachers that could put in a good word for you. The pay is abysmal, but it's better than nothing and gets you the experience you need. Also check out hospital cafeterias.
+- **Impressive_Rest5252** (5↑): sometimes saying its your first job helps. i finally got hired  after i said that. it actually was my first job but i was in the same predicament as you no work experience no call backs
+- **MyChemicalRomantasy** (5↑): Have you tried the school district you live in? Food services and para positions are always hiring. Maybe even email your high school principal or any teachers that could put in a good word for you. The pay is abysmal, but it's better than nothing and gets you the experience you need. Also check out hospital cafeterias.
   - **happens_sometimes** (2↑): Wow, dunno where you live but getting into the school district without experience or references can be hard and para positions actually pay decent where I am.
     - **MyChemicalRomantasy** (1↑): There are different types of paras where I live. Some require more experience and/or certifications than others, but there are positions you can get without experience. And there are no requirements to speak of in regards to food services. I don't know where you live, but your district's circumstances are definitely not the norm. Nationwide, paras are significantly underpaid the same way teachers are underpaid. And my comment addressed references.
 - **Funny_Story_Bro** (5↑): Unfortunately, not getting a reply is extremely normal. It's normal to apply for 20 jobs and only hear back to 1. Don't take it personally. Keep applying.
@@ -87,6 +123,6 @@ In the meantime, just keep putting applications into anything you can and you'll
 
 
 Watch out especially for any Hiring signs outside small businesses. I've seen "Hiring, Inquire Inside" plaques at the 7-Eleven at the gas station and a local restaurant, neither likely has online postings and just want to talk to you.
-- **AllNewAt52** (4↑): If you have the opportunity, volunteer somewhere - even part-time - where you can pick up theee skills.  Then after a bit you can confidently put down that you have experience.
+- **AllNewAt52** (3↑): If you have the opportunity, volunteer somewhere - even part-time - where you can pick up theee skills.  Then after a bit you can confidently put down that you have experience.
 
 In any case, many hiring managers appreciate someone wbo would go the extra mile to meet their objectives.

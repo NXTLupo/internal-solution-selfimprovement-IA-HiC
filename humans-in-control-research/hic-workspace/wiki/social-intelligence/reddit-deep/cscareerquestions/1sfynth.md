@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1sfynth.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1sfynth/if_the_cs_job_market_was_a_steak_how_cooked_would/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-20T02:33:39.307Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sfynth.md#c0"
+    char_span: [0, 369]
+    sentence_count: 3
+    key_terms: [cscareerquestions, market, comments, job, medium-rare, reddit-deep, cooked, posted]
+    token_count: 115
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sfynth.md#c1"
+    char_span: [384, 2136]
+    sentence_count: 10
+    key_terms: [compare, "can't", better, usd, because, getting, landing, normal]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sfynth.md#c2"
+    char_span: [2138, 2783]
+    sentence_count: 12
+    key_terms: ["that's", feb, baseline, closer, "we're", year, considerable, improvement]
+    section: Comments
+    token_count: 175
 ---
-
 # If the CS job market was a Steak, how cooked would it be?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sfynth/if_the_cs_job_market_was_a_steak_how_cooked_would/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1lcxe9a.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1lcxe9a/5_months_into_corporate_life_and_im_genuinely/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,45 @@ flair: "Student"
 extracted_at: "2026-05-26T12:54:26.426Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lcxe9a.md#c0"
+    char_span: [0, 1722]
+    sentence_count: 28
+    key_terms: [like, work, cscareerquestions, everything, comments, backend, project, months]
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lcxe9a.md#c1"
+    char_span: [1737, 3249]
+    sentence_count: 7
+    key_terms: [definitely, consider, employed, company, resume, taking, get, give]
+    section: Comments
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lcxe9a.md#c2"
+    char_span: [3251, 5235]
+    sentence_count: 13
+    key_terms: [onboarding, lol, "don't", job, need, constantly, management, something]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lcxe9a.md#c3"
+    char_span: [4974, 5775]
+    sentence_count: 4
+    key_terms: [job, something, applying, quitting, better, market, quiet, thank]
+    section: Comments
+    token_count: 199
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lcxe9a.md#c4"
+    char_span: [5777, 6474]
+    sentence_count: 3
+    key_terms: [big, tech, work, technical, people, darkflameshadowninja, snoochipmunks9977, experience]
+    section: Comments
+    token_count: 164
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lcxe9a.md#c5"
+    char_span: [6476, 8267]
+    sentence_count: 8
+    key_terms: [gpt, work, corporate, specific, chatgpt, deleted, effort, people]
+    section: Comments
+    token_count: 494
 ---
-
 # 5 months into corporate life and I’m genuinely exhausted.
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1lcxe9a/5_months_into_corporate_life_and_im_genuinely/)

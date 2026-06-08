@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1snzqx3.md
 url: "https://www.reddit.com/r/personalfinance/comments/1snzqx3/should_i_leave_a_higher_paying_job_for_a_boring/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,75 @@ flair: "Employment"
 extracted_at: "2026-05-16T20:55:02.105Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [government, policy]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1snzqx3.md#c0"
+    char_span: [0, 1797]
+    sentence_count: 14
+    key_terms: [personalfinance, work, government, comments, because, company, salary, feels]
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/personalfinance/1snzqx3.md#c1"
+    char_span: [1812, 3949]
+    sentence_count: 17
+    key_terms: [people, get, pension, better, good, "it's", take, work]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/personalfinance/1snzqx3.md#c2"
+    char_span: [3951, 5400]
+    sentence_count: 7
+    key_terms: [job, take, colleagues, current, relaxed, salary, best, day]
+    section: Comments
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/personalfinance/1snzqx3.md#c3"
+    char_span: [5402, 7408]
+    sentence_count: 20
+    key_terms: [job, stress, benefits, years, government, retirement, insurance, stability]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/personalfinance/1snzqx3.md#c4"
+    char_span: [7410, 9603]
+    sentence_count: 13
+    key_terms: [government, stability, job, too, seniority, get, pension, hire]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/personalfinance/1snzqx3.md#c5"
+    char_span: [9350, 9986]
+    sentence_count: 5
+    key_terms: [government, anything, federal, state, like, pool, year, administration]
+    section: Comments
+    token_count: 147
+  - id: "social-intelligence/reddit-deep/personalfinance/1snzqx3.md#c6"
+    char_span: [9988, 11679]
+    sentence_count: 16
+    key_terms: [get, paid, time, retirement, work, public, hours, weeks]
+    section: Comments
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/personalfinance/1snzqx3.md#c7"
+    char_span: [11681, 13701]
+    sentence_count: 19
+    key_terms: [job, time, government, state, years, pay, affording, reduction]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/personalfinance/1snzqx3.md#c8"
+    char_span: [13703, 15812]
+    sentence_count: 15
+    key_terms: [government, companies, private, stable, years, freezes, pension, savings]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/personalfinance/1snzqx3.md#c9"
+    char_span: [15814, 17694]
+    sentence_count: 19
+    key_terms: [get, job, government, sector, stable, "i'm", pension, worked]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/personalfinance/1snzqx3.md#c10"
+    char_span: [17696, 18250]
+    sentence_count: 5
+    key_terms: [hustle, job, company, public, sector, end, retirement, valuation]
+    section: Comments
+    token_count: 129
 ---
-
 # Should I leave a higher paying job for a boring government one just for the stability?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1snzqx3/should_i_leave_a_higher_paying_job_for_a_boring/)

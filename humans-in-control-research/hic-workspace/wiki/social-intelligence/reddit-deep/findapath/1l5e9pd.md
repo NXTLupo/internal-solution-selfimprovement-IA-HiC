@@ -6,19 +6,19 @@ subreddit: "findapath"
 title: "I did everything \"wrong.\" I have no regrets."
 author: "kiki_deli"
 date: "2025-06-07T06:32:29.000Z"
-score: 772
+score: 767
 upvote_ratio: 0.98
 num_comments: 69
 flair: "Offering Guidance Post"
-extracted_at: "2026-05-25T13:04:07.391Z"
+extracted_at: "2026-06-06T23:22:15.463Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # I did everything "wrong." I have no regrets.
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1l5e9pd/i_did_everything_wrong_i_have_no_regrets/)
-Posted by **kiki_deli** · **772↑** · **69 comments**
+Posted by **kiki_deli** · **767↑** · **69 comments**
 
 tl;dr - Dream big, dream small: whatever! Stay true to yourself and the path will find you.
 
@@ -90,7 +90,7 @@ You found your path because you stayed true to yourself AND because you took act
 I think too many people are looking for certainty and a specific roadmap to follow before they take action. Consequently, people often end up being paralyzed by indecision as they seek perfection and a clearly defined path forward. But when trying to find one's path in life, it's imperative to keep moving forward. Inaction breeds inertia. Rather, one must try lots of things. Gain experiences. Get out of one's comfort zone. Experiencing life and trying lots of different things will give you the information you need about yourself to figure out right path forward for you. Most of us, even those who are highly successful, often find their path through trial and error, with the winds of change and circumstances deflecting us in various paths along the way. That's normal, and it's an integral part to figuring out one's place in this world. But you can't do that staying still.
 
 Likewise, I think too many people let others define what success looks like. People want to have their cake and eat it too, but must of us need to make compromises in life. It would be great to have a job with a high salary, high prestige, great work-life balance, is low stress, aligns with our sense of purpose, is fun and adventurous, provides an outlet for creative expression, is in a great location, has an amazing boss and coworkers, is highly secure with outstanding benefits, provides ample opportunities for advancement, and is spiritually fulfilling. But for 99.999% of us, that job doesn't exist. That's why it's important to define our own version of success, to think about what we need most in our life to be happy, and to decide what we're willing to give up to have the things we want in life. It sounds like you've done just that.
-  - **kiki_deli** (6↑): This is such a good comment, I wish I could pin it to the top of the thread. 
+  - **kiki_deli** (7↑): This is such a good comment, I wish I could pin it to the top of the thread. 
 
 You’re right - I kept taking action and moving forward. I don’t know where I got it, because I’m not like my family, but I seem to have been born with an allergy to inauthenticity. There have been stretches of time where I had to just keep my head down and earn or learn, and I always saw it like a video game: I just need to re-do these levels enough times to save up coins to get to the next part. But virtually every time I tried too hard to be something I wasn’t, I felt terrible. I used that compass to find things that made me feel alive instead. 
 
@@ -98,9 +98,9 @@ Over the years I have heard people say stuff like “I wish I could ______ but I
     - **EXPL_Advisor** (5↑): Thanks! I think you're living an amazing life, albeit one with drawbacks. But most importantly, you're being authentic to yourself. I think that's something that a lot of people either struggle with due to comparing themselves to others (leaving them feeling like they are "behind") or chasing some idealized version of success that isn't authentic to themselves.
 
 As an amazing of a life you live, I have to admit that I don't think I'd be happy with your lifestyle. I value security, routine, and having a job that I truly love. I have those things, but I've given some things up too. I live in a state that I'm not super fond of. While I live comfortably, I don't make a ton of money. But I don't worry about money. I have time to pursue my many hobbies. And I can truly say that I look forward to work each day.
-- **Heart_one45** (12↑): Wow, I’d love to talk?! I can relate to so so much of what you said, though now I’m mid 30s and totally panicked. I’m struggling with the pivot, after being out of work for so long , and would love to move out of the country
+- **Heart_one45** (10↑): Wow, I’d love to talk?! I can relate to so so much of what you said, though now I’m mid 30s and totally panicked. I’m struggling with the pivot, after being out of work for so long , and would love to move out of the country
   - **kiki_deli** (5↑): Yeah send me a DM! I'd love to offer support and encouragement
-- **dawgoooooooo** (3↑): I love this so much, I’ve lived a similarly, and am now finding myself single with the world wide open again instead of stuck on the track. Haha I’m 37, looking for seasonal work in nature so I can get back to my roots and start making music again. Couldn’t be more excited or happy to start driving again!
+- **dawgoooooooo** (4↑): I love this so much, I’ve lived a similarly, and am now finding myself single with the world wide open again instead of stuck on the track. Haha I’m 37, looking for seasonal work in nature so I can get back to my roots and start making music again. Couldn’t be more excited or happy to start driving again!
   - **kiki_deli** (1↑): Yes to nature! And music! I’m happy you’re getting back out there
 - **[deleted]** (2↑): Thanks for sharing
 - **Phoenix_1622** (2↑): Wow, this is awesome! Didn't think there were people who thought similar to me. I also want to chase after experiences, not money (well, enough money to fund the experiences). My original plan was to go overseas with my mom, but I was so hung up on the traditional pathway and scared of my future if I didn't follow it, I chased college majors that "guaranteed success." That's what all my peers are doing. However, I actually didn't enjoy any of these majors or my life that much. I have moved a lot in my childhood, and I don't think I could ever settle in a place permanently before I go crazy, for now. Now I've decided to pursue an online degree and hopefully be overseas by the end of this year! It's scary and anxiety-inducing because I don't have an exact clue/plan what to do or what my future will look like, but I will not give this opportunity up. I don't want to work myself into a corner when I'm this young; if I do that, I think I will regret it.

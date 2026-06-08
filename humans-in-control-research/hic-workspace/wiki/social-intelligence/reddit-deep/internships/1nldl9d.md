@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1nldl9d.md
 url: "https://www.reddit.com/r/internships/comments/1nldl9d/remote_internship_for_students/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,36 @@ subreddit: "internships"
 title: "remote internship for students"
 author: "Wise_Proposal_3230"
 date: "2025-09-19T19:50:55.000Z"
-score: 18
-upvote_ratio: 0.76
+score: 19
+upvote_ratio: 0.77
 num_comments: 265
 flair: "General"
-extracted_at: "2026-05-25T15:51:38.718Z"
+extracted_at: "2026-06-01T18:48:35.717Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1nldl9d.md#c0"
+    char_span: [0, 661]
+    sentence_count: 5
+    key_terms: [internships, internship, comments, students, application, experiences, individuals, oppurtunity]
+    token_count: 152
+  - id: "social-intelligence/reddit-deep/internships/1nldl9d.md#c1"
+    char_span: [676, 2660]
+    sentence_count: 18
+    key_terms: [nobel, internship, tacoman9112012, because, coach, connections, get, like]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/internships/1nldl9d.md#c2"
+    char_span: [2662, 3225]
+    sentence_count: 2
+    key_terms: [interested, even-resident-8683, small-outside-4596, potential-key2141, coldcoffeepilado, communication, unsocialadult, internships]
+    section: Comments
+    token_count: 183
 ---
-
 # remote internship for students
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1nldl9d/remote_internship_for_students/)
-Posted by **Wise_Proposal_3230** · **18↑** · **265 comments**
+Posted by **Wise_Proposal_3230** · **19↑** · **265 comments**
 
 Internship oppurtunity for students or anyone looking to enhance their profile. It offers experiences that build resumes, develop leadership skills, and prepare individuals for the job market. It could also be a solid addition to a college application.
 
@@ -36,7 +54,7 @@ You will not get paid because Nobel is a non profit organization. Also, not a si
 I wanted to improve my communication, get some leadership experience, make some genuine connections, and, honestly, build my portfolio; I joined Nobel. I just wanted to share and contribute to the subreddit because I also received some internship opportunities here(in this subreddit) in the past.
 
 I think giving short answers fueled you with doubts and all.  So, I thought of clarifying your doubts. I'm not forcing you to join it. I just feel like sharing, so I shared it. It depends on you whether you want to have something good in your resume
-  - **Wise_Proposal_3230** (-3↑): But you might start earning by being a Nobel coach.Like there is a course Nobel coach (100% free) and after doing that You may can start earning . because  purose of Nobel is to make you life coach
+  - **Wise_Proposal_3230** (-2↑): But you might start earning by being a Nobel coach.Like there is a course Nobel coach (100% free) and after doing that You may can start earning . because  purose of Nobel is to make you life coach
     - **TacoMan9112012** (5↑): Sounds like a pyramid scheme, im out
     - **TacoMan9112012** (2↑): What's a Nobel coach
   - **Wise_Proposal_3230** (-4↑): Most of Internship for freshers are unpaid.So, You will not get any sum of money.Nor, you need to pay any money. It is remote internship which requires about 6hr of your time weekly .You will gain certificate after the first 2 month of your internship.

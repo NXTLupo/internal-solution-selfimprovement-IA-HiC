@@ -1,4 +1,5 @@
 ---
+id: frameworks/gap-analysis.md
 title: "Gap Analysis Framework Specification"
 type: framework
 created: 2026-04-10
@@ -8,8 +9,68 @@ confidence: high
 status: active
 tags: [gap-analysis, gartner, forrester, maturity-model, parasuraman]
 evidence_count: 0
+chunks:
+  - id: "frameworks/gap-analysis.md#c0"
+    char_span: [0, 1000]
+    sentence_count: 5
+    key_terms: [framework, organizational, model, optimized, quality, service, level, gap]
+    section: Canonical Foundations
+    token_count: 193
+  - id: "frameworks/gap-analysis.md#c1"
+    char_span: [1032, 3707]
+    sentence_count: 34
+    key_terms: [process, dimension, processes, description, continuous, skill, workforce, employee]
+    section: The 8 Required Dimensions
+    token_count: 507
+  - id: "frameworks/gap-analysis.md#c2"
+    char_span: [3709, 6210]
+    sentence_count: 34
+    key_terms: [data, quality, systems, customer, architecture, integration, operational, analytical]
+    section: The 8 Required Dimensions
+    token_count: 474
+  - id: "frameworks/gap-analysis.md#c3"
+    char_span: [6212, 8689]
+    sentence_count: 30
+    key_terms: [experience, customer, journey, behavioral, governance, defined, closed-loop, investment]
+    section: The 8 Required Dimensions
+    token_count: 456
+  - id: "frameworks/gap-analysis.md#c4"
+    char_span: [8691, 11093]
+    sentence_count: 28
+    key_terms: [customer, metrics, measurement, behavioral, centricity, culture, values, organization]
+    section: The 8 Required Dimensions
+    token_count: 447
+  - id: "frameworks/gap-analysis.md#c5"
+    char_span: [11139, 13715]
+    sentence_count: 10
+    key_terms: [gap, service, customer, definition, diagnostic, difference, questions, expectations]
+    section: "Parasuraman's 5 Gaps of Service Quality"
+    token_count: 445
+  - id: "frameworks/gap-analysis.md#c6"
+    char_span: [13756, 15802]
+    sentence_count: 3
+    key_terms: [gap, impact, current, target, state, dimension, typically, gaps]
+    section: Quality Gates and Scoring Protocol
+    token_count: 411
+  - id: "frameworks/gap-analysis.md#c7"
+    char_span: [15804, 16593]
+    sentence_count: 5
+    key_terms: [months, transformational, deploy, effort, redesign, requires, impact, cross-functional]
+    section: Quality Gates and Scoring Protocol
+    token_count: 160
+  - id: "frameworks/gap-analysis.md#c8"
+    char_span: [16613, 18049]
+    sentence_count: 12
+    key_terms: [without, level, dimension, target, organization, measurement, gap, root]
+    section: Anti-Patterns
+    token_count: 272
+  - id: "frameworks/gap-analysis.md#c9"
+    char_span: [18079, 19456]
+    sentence_count: 14
+    key_terms: [gap, gaps, anti-pattern, score, assumptions, dimensions, benchmark, framework]
+    section: Generation Instructions
+    token_count: 270
 ---
-
 # Gap Analysis Framework
 
 ## Canonical Foundations

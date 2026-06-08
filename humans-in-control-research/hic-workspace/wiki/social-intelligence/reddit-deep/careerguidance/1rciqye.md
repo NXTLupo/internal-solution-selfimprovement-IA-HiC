@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rciqye.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rciqye/to_those_with_established_careers_what_are_your/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-22T15:13:18.818Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rciqye.md#c0"
+    char_span: [0, 579]
+    sentence_count: 4
+    key_terms: [careerguidance, comments, prize-teaching5519, non-negotiables, established, reddit-deep, compromise, experience]
+    token_count: 146
+  - id: "social-intelligence/reddit-deep/careerguidance/1rciqye.md#c1"
+    char_span: [594, 2609]
+    sentence_count: 22
+    key_terms: [job, experience, non-negotiables, work, pay, non-negotiable, career, travel]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/careerguidance/1rciqye.md#c2"
+    char_span: [2611, 4529]
+    sentence_count: 12
+    key_terms: [match, years, objective-sky7312, like, pto, year, vesting, good]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1rciqye.md#c3"
+    char_span: [4265, 5053]
+    sentence_count: 5
+    key_terms: [consider, company, nedflanders304, match, good, because, best, outstanding]
+    section: Comments
+    token_count: 202
+  - id: "social-intelligence/reddit-deep/careerguidance/1rciqye.md#c4"
+    char_span: [5055, 5351]
+    sentence_count: 3
+    key_terms: [job, non-negotiable, cofonseca, important, outweighs, sometimes, benefits, leverage]
+    section: Comments
+    token_count: 78
+  - id: "social-intelligence/reddit-deep/careerguidance/1rciqye.md#c5"
+    char_span: [5353, 7449]
+    sentence_count: 9
+    key_terms: [non-negotiables, job, either, years, don, like, lot, companies]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/careerguidance/1rciqye.md#c6"
+    char_span: [7451, 8558]
+    sentence_count: 11
+    key_terms: [job, travel, step, work, because, title, wrong, get]
+    section: Comments
+    token_count: 251
 ---
-
 # To those with established careers: What are your absolute "non-negotiables" when choosing a company?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rciqye/to_those_with_established_careers_what_are_your/)

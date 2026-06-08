@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1qplarw.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1qplarw/im_about_to_graduate_in_may_i_have_no_internships/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,43 +7,84 @@ subreddit: "cscareerquestions"
 title: "I'm about to graduate in May. I have no internships or work experience in CS. How screwed am I?"
 author: "jigglinjimmy"
 date: "2026-01-28T19:27:29.000Z"
-score: 139
+score: 137
 upvote_ratio: 0.94
 num_comments: 66
 flair: "Student"
-extracted_at: "2026-05-26T14:31:41.250Z"
+extracted_at: "2026-06-05T19:52:48.707Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qplarw.md#c0"
+    char_span: [0, 715]
+    sentence_count: 8
+    key_terms: [cscareerquestions, internships, full-time, comments, classes, years, jigglinjimmy, reddit-deep]
+    token_count: 183
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qplarw.md#c1"
+    char_span: [730, 1708]
+    sentence_count: 8
+    key_terms: [internships, fucked, masters, pretty, point, job, pay, time]
+    section: Comments
+    token_count: 244
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qplarw.md#c2"
+    char_span: [1710, 3634]
+    sentence_count: 14
+    key_terms: [masters, people, projects, option, school, definitely, everyone, students]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qplarw.md#c3"
+    char_span: [3636, 5703]
+    sentence_count: 16
+    key_terms: [people, network, through, connections, connection, job, look, someone]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qplarw.md#c4"
+    char_span: [5708, 7425]
+    sentence_count: 5
+    key_terms: [tech, people, local, professionals, connections, necessarily, participate, cons]
+    section: Comments
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qplarw.md#c5"
+    char_span: [7428, 9344]
+    sentence_count: 16
+    key_terms: [job, company, get, jonasaxify, bootyhole, interview, getting, online]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qplarw.md#c6"
+    char_span: [9347, 10099]
+    sentence_count: 8
+    key_terms: [networking, don, like, internships, completely, experience, goosetower, recruiting]
+    section: Comments
+    token_count: 190
 ---
-
 # I'm about to graduate in May. I have no internships or work experience in CS. How screwed am I?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1qplarw/im_about_to_graduate_in_may_i_have_no_internships/)
-Posted by **jigglinjimmy** · **139↑** · **66 comments**
+Posted by **jigglinjimmy** · **137↑** · **66 comments**
 
 I spent the last 7 years working full-time in fast food and full-time classes most semesters for the past 4 years. I've made some fairly robust projects for classes, but not much outside of that. I failed to apply for internships because I didn't think I could fit them into my schedule, which I believe was a huge mistake. Is there any way to turn this around? I know the market is pretty bad right now.
 
 ## Comments
 
-- **RapidRoastingHam** (126↑): Go into a masters and do internships this time. They normally pay better than fast food.
-  - **thy_bucket_for_thee** (39↑): Telling OP to spend another $50-60k in schooling to get internships is just braindead.
+- **RapidRoastingHam** (122↑): Go into a masters and do internships this time. They normally pay better than fast food.
+  - **thy_bucket_for_thee** (40↑): Telling OP to spend another $50-60k in schooling to get internships is just braindead.
 
 At that point just volunteer at your nearest code for america branch:
 
 https://codeforamerica.org/
 
 Unless OP can attend graduate school for free, which is unlikely, there's no point in pursuing more costly education.
-    - **Poven45** (9↑): Georgia tech is like 10k for a masters I think. Fully online for cs. Could be interesting. Don’t know much about it tho
+    - **Poven45** (8↑): Georgia tech is like 10k for a masters I think. Fully online for cs. Could be interesting. Don’t know much about it tho
     - **Jaqen_Hgore** (1↑): Getting a job as a TA/RA should pay for it and is what the first commenter is probably mentioning. It’s a lot easier than a full time job but does require some networking
-- **[deleted]** (153↑): Ngl you’re pretty fucked. Good news is that everyone else is pretty fucked too, even those with internships (although they are slightly less fucked). 
+- **[deleted]** (151↑): Ngl you’re pretty fucked. Good news is that everyone else is pretty fucked too, even those with internships (although they are slightly less fucked). 
 
 Nothing you can do except keep trying. Try to delay graduation if that’s an option. Masters is another option.
   - **Upstairs-Party2870** (21↑): You know it’s bad when the good news is “everyone is fucked” .
-  - **FreePlantainMan** (16↑): This times 100. You're fucked as is (so is everyone else mostly), so go for grad school.
-    - **HelloIamGoge** (2↑): wtf would they do in grad school? Waste more time and money?
-  - **react_dev** (6↑): Masters is a bad option unless you produced some thesis out of it that’s substantial. Otherwise it’ll count against you or at best not matter at all… at least at my big tech
+  - **FreePlantainMan** (14↑): This times 100. You're fucked as is (so is everyone else mostly), so go for grad school.
+    - **HelloIamGoge** (1↑): wtf would they do in grad school? Waste more time and money?
+  - **react_dev** (8↑): Masters is a bad option unless you produced some thesis out of it that’s substantial. Otherwise it’ll count against you or at best not matter at all… at least at my big tech
     - **jobthrowawaywjxj** (6↑): Totally agree, if you do a masters for no reason than to kill time and don’t capitalize on it you will be looked at worse as you are no longer being compared to undergrads but to other masters students, early PhD students, and people with 1-2 YoE. That’s a harder game to stand out in as the people who get into phds are on average above the average level of people who did only bachelors degrees
-- **Fast_Nefariousness26** (33↑): I graduated in December 2024 with a CS degree, some mediocre (at best) school projects, zero internships, and no idea how to navigate the job market. Just a month ago I landed my first SWE job. There are definitely go guarantees, and it will likely take a while but its definitely not impossible. 
+- **Fast_Nefariousness26** (35↑): I graduated in December 2024 with a CS degree, some mediocre (at best) school projects, zero internships, and no idea how to navigate the job market. Just a month ago I landed my first SWE job. There are definitely go guarantees, and it will likely take a while but its definitely not impossible. 
 
 My advice would be to focus on 
 
@@ -52,7 +94,7 @@ My advice would be to focus on
 
   
 Definitely still apply to companies but don't spend too much time on it especially if you aren't getting much positive feedback. Your first job will most likely be from just knowing the right person (networking) and actually having something to show for your skills (projects). Good luck, and message me if you have any other questions I think my experience has made me somewhat of an expert in the subject lol.
-  - **jennanne123** (6↑): What does networking look like to you? I got my degree online so I don’t know many industry people in person. Would you recommend attending career fairs, or maybe reaching out to people online through job boards?
+  - **jennanne123** (5↑): What does networking look like to you? I got my degree online so I don’t know many industry people in person. Would you recommend attending career fairs, or maybe reaching out to people online through job boards?
     - **Fast_Nefariousness26** (5↑): Even if you feel like you don't know many industry people in person make an exhaustive list of everyone you know who might be in any way adjacent to the field you want to work in, even if not full in it. Even if they can't help you out immediately they will keep you in mind if they hear about opportunities. 
 
   
@@ -151,16 +193,16 @@ Personal recommendation:
   - **guruwiso** (1↑): They’re not joking.  When you go to MEPS they literally look at your bootyhole.
     - **JonaSaxify** (1↑): I had a doctor go finger deep into my anus and I moaned
 - **cballowe** (3↑): Your biggest challenge at the moment is that most employers do their recruiting of new grads between August and October for start dates at the end of the academic year.
-- **Weird-Ad-8776** (4↑): All of these people r wrong. You can be fine… If you have any sort of social skills. Just go into tech sales. Most of my buddies are in it and do very well.
+- **Weird-Ad-8776** (5↑): All of these people r wrong. You can be fine… If you have any sort of social skills. Just go into tech sales. Most of my buddies are in it and do very well.
 - **TurtleSandwich0** (10↑): "Sort candidates by months-of-internship descending"
 
 One thing you could do is spearfish a job.  Choose a job and company and get every skill and language required for that job. The next time that company posts the position you might be on the top of the stack because your resume so closely matches the job description. 
 
 Lying would help you get an interview, but it is unlikely you would get the job.
-  - **kinoing** (12↑): this might be the most clueless comment that I’ve ever seen, at least top 5
+  - **kinoing** (13↑): this might be the most clueless comment that I’ve ever seen, at least top 5
 
 
 If you think keyword matching is gonna put you “top of the stack” you are lost
-  - **No_Blood_5197** (10↑): Don’t do this
+  - **No_Blood_5197** (11↑): Don’t do this
 - **neverOddOrEv_n** (2↑): My man internships and work experience is the thing you need nowadays it’s the thing that can help you get your foot in the door if you don’t have strong networking. If it was like a decade ago it wouldn’t have been that bad but it’s basically like a shot in the dark now
 - **GooseTower** (2↑): I graduated in 2023 in a similar situation. I stopped applying online and just grinded out tech recruiting / social events in my area. You're probably not getting past ATS with your resume. I didn't for months. Got an interview within 2 weeks of that networking grind. YMMV. It's a completely different game.

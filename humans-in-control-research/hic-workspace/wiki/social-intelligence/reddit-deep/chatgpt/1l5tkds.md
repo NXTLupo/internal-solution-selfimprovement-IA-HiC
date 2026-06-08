@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1l5tkds.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1l5tkds/im_in_crisis_and_chatgpt_showed_up_for_me_in_a/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,99 @@ flair: "Other "
 extracted_at: "2026-05-17T01:12:48.205Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1l5tkds.md#c0"
+    char_span: [0, 1588]
+    sentence_count: 19
+    key_terms: [chatgpt, helped, unemployment, call, especially, something, comments, instead]
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/chatgpt/1l5tkds.md#c1"
+    char_span: [1603, 2498]
+    sentence_count: 5
+    key_terms: [people, chatgpt, discord, right, withoutreason1729, lot, post, automatically]
+    section: Comments
+    token_count: 219
+  - id: "social-intelligence/reddit-deep/chatgpt/1l5tkds.md#c2"
+    char_span: [2500, 4451]
+    sentence_count: 6
+    key_terms: [limerence, chatgpt, friends, process, without, handle, wonderful-captain-82, great]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1l5tkds.md#c3"
+    char_span: [4211, 5265]
+    sentence_count: 8
+    key_terms: [interest, balance, monthly, months, going, give, tell, outstanding]
+    section: Comments
+    token_count: 272
+  - id: "social-intelligence/reddit-deep/chatgpt/1l5tkds.md#c4"
+    char_span: [5267, 5627]
+    sentence_count: 4
+    key_terms: [nothing, real, used, redshirt2386, platform, another, chatgpt, licated]
+    section: Comments
+    token_count: 101
+  - id: "social-intelligence/reddit-deep/chatgpt/1l5tkds.md#c5"
+    char_span: [5629, 7781]
+    sentence_count: 13
+    key_terms: [support, demand, professional, emotional, responses, organize, thoughts, because]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1l5tkds.md#c6"
+    char_span: [7534, 7966]
+    sentence_count: 4
+    key_terms: [naltrexone, sober, day, get, prescription, professional, appointment, recommended]
+    section: Comments
+    token_count: 107
+  - id: "social-intelligence/reddit-deep/chatgpt/1l5tkds.md#c7"
+    char_span: [7968, 9139]
+    sentence_count: 8
+    key_terms: [therapy, godsend, helped, people, days, gpt, hear, encouragement]
+    section: Comments
+    token_count: 304
+  - id: "social-intelligence/reddit-deep/chatgpt/1l5tkds.md#c8"
+    char_span: [9141, 11220]
+    sentence_count: 17
+    key_terms: [helped, emotional, planning, get, staticechoes69, people, glad, gpt]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1l5tkds.md#c9"
+    char_span: [10974, 11467]
+    sentence_count: 6
+    key_terms: [idkifita, sending, health, wrmaysy2zb2z2qhvks, been, glad, lot, unexpectedly]
+    section: Comments
+    token_count: 149
+  - id: "social-intelligence/reddit-deep/chatgpt/1l5tkds.md#c10"
+    char_span: [11469, 13498]
+    sentence_count: 16
+    key_terms: [chat, gpt, through, month, accountable, solutegains, emergence, therapist]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1l5tkds.md#c11"
+    char_span: [13287, 14498]
+    sentence_count: 10
+    key_terms: [helping, people, happening, deeply, bonds, grok, keep, intelligence]
+    section: Comments
+    token_count: 273
+  - id: "social-intelligence/reddit-deep/chatgpt/1l5tkds.md#c12"
+    char_span: [14500, 16025]
+    sentence_count: 9
+    key_terms: [people, consciousness, because, chatgpt, through, perenniallyredundant, going, been]
+    section: Comments
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/chatgpt/1l5tkds.md#c13"
+    char_span: [16027, 17984]
+    sentence_count: 18
+    key_terms: [people, chatgpt, ask, tell, deleted, realize, talking, "you're"]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/chatgpt/1l5tkds.md#c14"
+    char_span: [17986, 18435]
+    sentence_count: 3
+    key_terms: [successful-winter237, advice, health, gave, unexplained, empathetic, autoimune, elaborate]
+    section: Comments
+    token_count: 129
 ---
-
 # I’m in crisis - and ChatGPT showed up for me in a way I didn’t expect
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1l5tkds/im_in_crisis_and_chatgpt_showed_up_for_me_in_a/)

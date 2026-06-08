@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1rf3sx3.md
 url: "https://www.reddit.com/r/careeradvice/comments/1rf3sx3/how_are_you_protecting_your_career_from_ai/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.237Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1rf3sx3.md#c0"
+    char_span: [0, 838]
+    sentence_count: 4
+    key_terms: [careeradvice, comments, hype, job, ai-resistant, engineering, reddit-deep, automation]
+    token_count: 222
+  - id: "social-intelligence/reddit-deep/careeradvice/1rf3sx3.md#c1"
+    char_span: [853, 1476]
+    sentence_count: 2
+    key_terms: [myself, mobile-temperature36, like, use, presentations, automations, combination, implemented]
+    section: Comments
+    token_count: 141
 ---
-
 # How are you protecting your career from AI automation?
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1rf3sx3/how_are_you_protecting_your_career_from_ai/)

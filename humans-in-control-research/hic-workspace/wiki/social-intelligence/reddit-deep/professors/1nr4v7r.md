@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1nr4v7r.md
 url: "https://www.reddit.com/r/Professors/comments/1nr4v7r/texas_tech_system_follows_angelo_state_in/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,56 @@ flair: ""
 extracted_at: "2026-05-14T18:17:21.714Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1nr4v7r.md#c0"
+    char_span: [0, 458]
+    sentence_count: 3
+    key_terms: [curriculum, professors, comments, follows, syllabi, reddit-deep, thesaltyace, transgender]
+    token_count: 112
+  - id: "social-intelligence/reddit-deep/professors/1nr4v7r.md#c1"
+    char_span: [460, 3193]
+    sentence_count: 18
+    key_terms: [compliance, universities, law, university, educational, system, state, texas]
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/professors/1nr4v7r.md#c2"
+    char_span: [3208, 5105]
+    sentence_count: 14
+    key_terms: [red, non-binary, state, texas, expression, intersex, pathway, people]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/professors/1nr4v7r.md#c3"
+    char_span: [5107, 7169]
+    sentence_count: 11
+    key_terms: [like, people, blue, intersex, because, gender, universities, state]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/professors/1nr4v7r.md#c4"
+    char_span: [7171, 8859]
+    sentence_count: 8
+    key_terms: [different, intersex, gender, right, community, socofrel, social, within]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/professors/1nr4v7r.md#c5"
+    char_span: [8861, 9375]
+    sentence_count: 2
+    key_terms: [cswe-statement-on-legislative-changes, educational, programs, presentationclean217, accreditation, heartbreaking, organizations, psychological]
+    section: Comments
+    token_count: 98
+  - id: "social-intelligence/reddit-deep/professors/1nr4v7r.md#c6"
+    char_span: [9377, 11583]
+    sentence_count: 15
+    key_terms: [apa, transgender, notmrchips, organization, professional, like, standards, statement]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1nr4v7r.md#c7"
+    char_span: [11311, 11699]
+    sentence_count: 3
+    key_terms: [puddingpast5862, adjustments, institution, supporting, companies, questions, avoiding, question]
+    section: Comments
+    token_count: 89
 ---
-
 # Texas Tech System follows Angelo State in demanding changes to curriculum and syllabi for transgender topics.
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1nr4v7r/texas_tech_system_follows_angelo_state_in/)

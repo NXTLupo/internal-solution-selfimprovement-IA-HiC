@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1okdvsm.md
 url: "https://www.reddit.com/r/GPT/comments/1okdvsm/ai_chatbots_are_sycophants_researchers_say_its/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,38 @@ flair: ""
 extracted_at: "2026-05-11T17:26:37.721Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1okdvsm.md#c0"
+    char_span: [0, 1948]
+    sentence_count: 9
+    key_terms: [sycophantic, mathematical, researchers, generating, dekoninck, statement, com, articles]
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/gpt/1okdvsm.md#c1"
+    char_span: [1950, 2252]
+    sentence_count: 1
+    key_terms: [https, d41586-025-03390-0, nature-202510, arxiv, articles, nature, com, doi]
+    token_count: 118
+  - id: "social-intelligence/reddit-deep/gpt/1okdvsm.md#c2"
+    char_span: [2267, 4033]
+    sentence_count: 12
+    key_terms: [back, "it's", ogthesamurai, roast, freylaverse, like, strengths, premise]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/gpt/1okdvsm.md#c3"
+    char_span: [4035, 5961]
+    sentence_count: 20
+    key_terms: [because, internal, research, premise, science, without, check, facts]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/gpt/1okdvsm.md#c4"
+    char_span: [5963, 6535]
+    sentence_count: 4
+    key_terms: [asked, science, times, complimenting, verification, personality, compliance, everything]
+    section: Comments
+    token_count: 159
 ---
-
 # AI chatbots are sycophants — researchers say it’s harming science
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1okdvsm/ai_chatbots_are_sycophants_researchers_say_its/)

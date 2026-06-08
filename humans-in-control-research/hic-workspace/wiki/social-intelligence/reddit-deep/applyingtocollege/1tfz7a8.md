@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1tfz7a8.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1tfz7a8/holy_cross_vs_georgetown/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -8,17 +9,34 @@ author: "ComprehensiveBig7667"
 date: "2026-05-17T19:27:30.000Z"
 score: 3
 upvote_ratio: 1
-num_comments: 36
+num_comments: 37
 flair: "Advice"
-extracted_at: "2026-05-25T18:32:06.252Z"
+extracted_at: "2026-06-03T02:22:51.254Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tfz7a8.md#c0"
+    char_span: [0, 1871]
+    sentence_count: 13
+    key_terms: [georgetown, cross, holy, applyingtocollege, opportunities, down, comments, semester]
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tfz7a8.md#c1"
+    char_span: [1886, 3656]
+    sentence_count: 16
+    key_terms: [school, georgetown, admission, graduate, want, interested, different, cross]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tfz7a8.md#c2"
+    char_span: [3658, 5689]
+    sentence_count: 9
+    key_terms: [georgetown, opportunities, school, comprehensivebig7667, debt, law, semester, alaaa88]
+    section: Comments
+    token_count: 490
 ---
-
 # Holy Cross Vs. Georgetown
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1tfz7a8/holy_cross_vs_georgetown/)
-Posted by **ComprehensiveBig7667** · **3↑** · **36 comments**
+Posted by **ComprehensiveBig7667** · **3↑** · **37 comments**
 
 Hi,
 
@@ -53,11 +71,11 @@ Thank you for your time!
 If it’s 50k total go to Georgetown and use your summers to work and pay down debt. It’s an incredible school. I went to UCLA and got to be a visiting student one semester and absolutely loved it. Wished I’d gone there.
 
 But 50k a year? Take the scholarship
-- **JellyfishFlaky5634** (8↑): I say Georgetown if only $50K more over four years.
-- **daphoon18** (4↑): Goergetown is fabulous for all of the programs you list. If it's 50k/4 yrs I'll definitely choose Georgetown. There are a lot of opportunities especially if you want to go to graduate school and may be interested in academia. 
+- **JellyfishFlaky5634** (9↑): I say Georgetown if only $50K more over four years.
+- **daphoon18** (5↑): Goergetown is fabulous for all of the programs you list. If it's 50k/4 yrs I'll definitely choose Georgetown. There are a lot of opportunities especially if you want to go to graduate school and may be interested in academia. 
 
 Having been sitting on the admission committee for many years, I can say that Georgetown's brand is also a big advantage when you apply for graduate school. Graduate school admission is very different from college admission. Totally different people handle the applications.
-- **unrelenting_dinosaur** (5↑): Before I read that you were interested in political science my immediate reaction was to tell you to go to Holy Cross. 
+- **unrelenting_dinosaur** (4↑): Before I read that you were interested in political science my immediate reaction was to tell you to go to Holy Cross. 
 
 But even now I still lean slightly that way… the debt could be worse, but if you want to pursue law, and go to grad school then your GPA is gonna matter a lot, and it will get quite hard to maintain if you’re already overworked.
 

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1sex3qc.md
 url: "https://www.reddit.com/r/findapath/comments/1sex3qc/did_your_high_school_provide_career_planning/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,21 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-25T13:04:07.380Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1sex3qc.md#c0"
+    char_span: [0, 776]
+    sentence_count: 4
+    key_terms: [school, findapath, comments, career, people, begin, did, high]
+    token_count: 180
+  - id: "social-intelligence/reddit-deep/findapath/1sex3qc.md#c1"
+    char_span: [791, 1923]
+    sentence_count: 10
+    key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
+    section: Comments
+    token_count: 248
 ---
-
 # Did your High School provide career planning classes and programs to help you explore and identify a career path, college or trade school info, and how to be independent after HS?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1sex3qc/did_your_high_school_provide_career_planning/)

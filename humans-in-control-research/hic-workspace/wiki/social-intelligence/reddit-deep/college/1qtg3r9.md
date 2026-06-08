@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1qtg3r9.md
 url: "https://www.reddit.com/r/college/comments/1qtg3r9/withdrawing_from_a_course_because_its_too_boring/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-17T01:12:59.138Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1qtg3r9.md#c0"
+    char_span: [0, 1068]
+    sentence_count: 10
+    key_terms: ["it's", college, credit, class, major, withdrawing, comments, because]
+    token_count: 259
+  - id: "social-intelligence/reddit-deep/college/1qtg3r9.md#c1"
+    char_span: [1083, 1396]
+    sentence_count: 2
+    key_terms: ["it's", waste, no-championship-4, time, emarialartayu, financially, transcript, withdrawal]
+    section: Comments
+    token_count: 93
+  - id: "social-intelligence/reddit-deep/college/1qtg3r9.md#c2"
+    char_span: [1398, 3362]
+    sentence_count: 17
+    key_terms: [time, class, hours, major, get, dropping, drop, definitely]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1qtg3r9.md#c3"
+    char_span: [3109, 3445]
+    sentence_count: 3
+    key_terms: [valuablemistake8521, class, definitely, miserable, something, changing, valuable, yourself]
+    section: Comments
+    token_count: 82
+  - id: "social-intelligence/reddit-deep/college/1qtg3r9.md#c4"
+    char_span: [3447, 4038]
+    sentence_count: 3
+    key_terms: [financial, square-tomorrow3837, aid, sure, cherrycokeee27, lower-ad-7109, especially, graduating]
+    section: Comments
+    token_count: 166
 ---
-
 # Withdrawing from a course because its too boring?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1qtg3r9/withdrawing_from_a_course_because_its_too_boring/)

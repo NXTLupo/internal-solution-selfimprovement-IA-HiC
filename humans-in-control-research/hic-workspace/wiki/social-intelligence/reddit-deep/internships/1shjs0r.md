@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1shjs0r.md
 url: "https://www.reddit.com/r/internships/comments/1shjs0r/i_got_rejected_for_an_unpaid_intern_position/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,42 @@ subreddit: "internships"
 title: "I got rejected for an unpaid intern position after 3 rounds of interview"
 author: "AGJDude"
 date: "2026-04-10T11:25:48.000Z"
-score: 109
+score: 112
 upvote_ratio: 0.98
 num_comments: 32
 flair: "General"
-extracted_at: "2026-05-23T14:53:57.164Z"
+extracted_at: "2026-06-06T17:41:06.728Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1shjs0r.md#c0"
+    char_span: [0, 1717]
+    sentence_count: 17
+    key_terms: [internships, interview, intern, "i'm", internship, companies, full-time, questions]
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/internships/1shjs0r.md#c1"
+    char_span: [1732, 3885]
+    sentence_count: 13
+    key_terms: [unpaid, time, get, internships, don, company, free, internship]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1shjs0r.md#c2"
+    char_span: [3668, 4792]
+    sentence_count: 5
+    key_terms: [video, give, interview, complete, answers, company, content, itself]
+    section: Comments
+    token_count: 263
+  - id: "social-intelligence/reddit-deep/internships/1shjs0r.md#c3"
+    char_span: [4796, 6016]
+    sentence_count: 7
+    key_terms: [round, confident, interview, skills, brandywinechemworks, areas, opportunities, capabilities]
+    section: Comments
+    token_count: 270
 ---
-
 # I got rejected for an unpaid intern position after 3 rounds of interview
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1shjs0r/i_got_rejected_for_an_unpaid_intern_position/)
-Posted by **AGJDude** · **109↑** · **32 comments**
+Posted by **AGJDude** · **112↑** · **32 comments**
 
 I don't know how to feel. I'm a third-year finance university student. I'm looking for a summer intern position. I have applied to a lot of companies and waiting to hear back from them. This one on the other hand, had a full-time offer in their hand if you're successful. I went through 2 interviews and a technical test but I got rejected.
 
@@ -32,14 +56,10 @@ Hopefully, everything will go well. I'm hoping to hear back from other companies
 
 ## Comments
 
-- **Objective-Bad-4447** (24↑): bro, really job competition is too much, even i got rejected from 4 unpaid internship. i also wanted to do internships in this summer. I think i have the same problem as you.
-  - **EuphoricFig6379** (3↑): Bro, where do you get information of such unpaid internships?
-    - **Particular_Ad3310** (1↑): Email your local institution, city, county or school district for information on internships
-  - **AGJDude** (2↑): I hope things get better for us, there are still a few more months until summer
 - **Fantastic_Smoke9501** (15↑): Do not stress on unpaid internships, they’re not worth the hassle. First you get used a lot aka working twice as a paid associate and you often don’t get a return offer.
   - **AGJDude** (2↑): You're right, I'm just mostly afraid of not getting a full-time job after my graduation you know? which is completely normal. However, I don't want to be unemployed for too long
     - **Fantastic_Smoke9501** (3↑): Yeah but you don’t need to do an unpaid internship to be employed. Most employers don’t ask for references from a specific employer on your resume. They just want references. So having  certain company on your resume doesn’t make you any better (especially if it’s unpaid). I recently got rejected for an unpaid position at the un and I was lowkey happy because it’s ridiculous to work full time in nyc for free. I don’t even get spare time to do something else for a little income. Only do unpaid if it’s part time and hybrid or remote. But keep in mind that unpaid internships RARELY lead to full time offer. They just be using people
-- **robertisaak** (7↑): Three rounds for an unpaid position is absolutely wild, the system is so broken right now. That's exactly why relying on applications alone doesn't cut it anymore. I switched to focusing on warm intros through Nepternship, Boardy, and Series So and started actually hearing back from real people instead of automated rejections.
+- **robertisaak** (6↑): Three rounds for an unpaid position is absolutely wild, the system is so broken right now. That's exactly why relying on applications alone doesn't cut it anymore. I switched to focusing on warm intros through Nepternship, Boardy, and Series So and started actually hearing back from real people instead of automated rejections.
 - **Appropriate-Tutor587** (3↑): It’s best to take a summer undergraduate research program or volunteer elsewhere than wasting your time and energy for an unpaid internship.
   - **Fantastic_Smoke9501** (0↑): Nah fr
 - **p8q8** (1↑): sometimes hr being late messes with your head more than you realize maybe try sending a quick note after your interview just to casually mention it could help a little theres free stuff like revorian you can use to get ready for next time just google some free tools like revorian and see what you find
@@ -53,3 +73,4 @@ Hopefully, everything will go well. I'm hoping to hear back from other companies
 Also, some of the questions that they ask are like round and round where they confuse you from different angles. Such experiences are also happening to me recently, but eventually, you will be able to tackle them for the future interviews as well. Once you know the areas that you are confused in or the area that you have less confidence, those areas can be improved in terms of gaining knowledge or by learning the skills, so that you are at least being some confident in the next interview rounds. But having a personal brand also will be necessary for the interviewer to know more about yourself. So just be calm and go ahead, just make sure that you have highly confident in your own skills and capabilities.
 - **NoEffort1983** (1↑): And my advisor think is all my fault, this lady is making me change my resume wordings to words I’ve used multiple times. She even said I’m doing myself a disservice when I’m working a 40hours a week job and another 30hours somewhere else just to stay in school.
 - **brandywinechemworks** (1↑): DM me. We're providing unpaid internship opportunities for the summer.
+- **khuz61** (1↑): uh buddy if I were you I would have declined to interview the second they asked for a 2nd round.

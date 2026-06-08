@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-jobs/9ccb932fdb.md
 url: "https://www.reddit.com/r/jobs/comments/1ti2i12/rejected_for_an_entry_level_job/"
 url_hash: "9ccb932fdb"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T02:42:29.292521+00:00"
 chars: 1743
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-jobs/9ccb932fdb.md#c0"
+    char_span: [0, 1892]
+    sentence_count: 22
+    key_terms: [resume, experience, job, strawberrydewdrops3, interview, did, degree, entry]
+    token_count: 450
 ---
-
 # Rejected for an entry level job
 
 Source: [Reddit Deep: r/jobs](https://www.reddit.com/r/jobs/comments/1ti2i12/rejected_for_an_entry_level_job/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rwcdge.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rwcdge/is_software_engineering_a_career_suicide/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -7,18 +8,47 @@ title: "Is software engineering a career suicide?"
 author: "bobberbobby02"
 date: "2026-03-17T17:01:30.000Z"
 score: 0
-upvote_ratio: 0.47
-num_comments: 71
+upvote_ratio: 0.44
+num_comments: 70
 flair: "Student"
-extracted_at: "2026-05-20T06:40:32.329Z"
+extracted_at: "2026-06-06T00:28:32.216Z"
 extraction_method: "praw-deep"
-research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rwcdge.md#c0"
+    char_span: [0, 744]
+    sentence_count: 6
+    key_terms: [engineering, cscareerquestions, career, tech, comments, industry, software, been]
+    token_count: 170
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rwcdge.md#c1"
+    char_span: [759, 2817]
+    sentence_count: 16
+    key_terms: [engineering, career, healthcare, cscareerquestions, job, message, degree, been]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rwcdge.md#c2"
+    char_span: [2819, 4694]
+    sentence_count: 13
+    key_terms: [engineering, people, because, get, displaced, graduate, physical, software]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rwcdge.md#c3"
+    char_span: [4696, 6711]
+    sentence_count: 17
+    key_terms: [years, getting, interviews, gold-flatworm-4313, software, senior, applications, competition]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rwcdge.md#c4"
+    char_span: [6713, 8106]
+    sentence_count: 11
+    key_terms: [people, like, career, firing, launch, "what's", miserable-corner-254, happyirishman633210]
+    section: Comments
+    token_count: 329
 ---
-
 # Is software engineering a career suicide?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rwcdge/is_software_engineering_a_career_suicide/)
-Posted by **bobberbobby02** · **0↑** · **71 comments**
+Posted by **bobberbobby02** · **0↑** · **70 comments**
 
 I am in my second year of a B.S in CS. I can still switch majors to another Engineering disciplines or focus on other skills. With how the tech industry been destroying itself, is it even worth it pursing this career in software engineering or any tech career in general? There hasn’t been one good thing about the tech industry since when I first entered college. The constant grind, competition, and lay off is so abnormal relative to other careers(engineering, finance, and accounting etc etc).
 
@@ -27,14 +57,14 @@ I am in my second year of a B.S in CS. I can still switch majors to another Engi
 - **AutoModerator** (1↑): If you find yourself in a difficult place in your life, we urge you to reach out to friends, family, and mental health professionals. Please check out the resources over at /r/depression, /r/anxiety, and /r/suicidewatch. Feel free to [contact the /r/CSCareerQuestions mods](https://www.reddit.com/message/compose?to=%2Fr%2Fcscareerquestions&subject=&message=) for more information or help.
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cscareerquestions) if you have any questions or concerns.*
-- **iLiveoffWelfare** (44↑): My wife works in marketing and hasn’t been able to find a new job after 6 months of applying. Everyone is suffering
+- **iLiveoffWelfare** (40↑): My wife works in marketing and hasn’t been able to find a new job after 6 months of applying. Everyone is suffering
   - **poggendorff** (14↑): Yeah aside from healthcare and the trades, the job market has been absolutely terrible.
     - **ClittoryHinton** (-4↑): So aside from jobs that are actually hard as fuck lol
-- **Dreadsin** (10↑): Unfortunately there are really no purely good career paths anymore. Pick your poison
+- **Dreadsin** (9↑): Unfortunately there are really no purely good career paths anymore. Pick your poison
   - **Relative_Baseball180** (5↑): Healthcare still works.
     - **jyajay2** (2↑): Assuming OP is from the US, there have been recent layoffs in healthcare as well
   - **Burning_magic** (-1↑): Sales will never be replaced. People will always prefer a real person to talk to then a robot.
-- **Won-Ton-Wonton** (37↑): Everything is career suicide right now.
+- **Won-Ton-Wonton** (34↑): Everything is career suicide right now.
 
 
 Everything.
@@ -62,8 +92,8 @@ Many engineering jobs (such as EE) require an engineering degree, of which, CS i
   - **beachysdan** (-2↑): But there are levels to this. AI will likely have displaced many more people from software engineering than from physical therapy 5 years from now. If you have other interests like physical therapy that has a better outlook imo
     - **Roareward** (0↑): Ok but if everyone follows this advice all those other careers fall apart as well. Always do what you are passionate about, figure out the rest as you go along. All job markets suck right now, it isn't the first time. Jobs aren't laying off because of AI, they are getting rid of the way over hiring they did during covid and they are pulling back because the US policies are in such flux they aren't predictable which causes companies to pull back. Are there too many people in the CS major, yeah, mostly because people chase money. Don't chase money. Sure try to pick a major that will at least earn you the median average income (41k-62k for college graduate age), if you are going to get a college degree, which should be done as cheaply as possible.
     - **AssignmentMammoth696** (-3↑): Exactly, software engineers will get displaced first, and other professions will probably hold out awhile longer than SWE's. But it's unsurprising people are on max cope levels in this sub.
-- **Gold-Flatworm-4313** (12↑): It's only suicide if you can't get in. Tech is very elitist right now especially at the junior level. You can't half ass it and you'll need to work at high level if you want to survive the high competition
-  - **eggshellwalker4** (6↑): So basically 90% of CS graduates will end up working at McDonald's when they graduate? The job market sucks ass in every occupation but maybe the OP should change careers if CS is getting hit the hardest out of all the occupations with no recovery in sight.
+- **Gold-Flatworm-4313** (11↑): It's only suicide if you can't get in. Tech is very elitist right now especially at the junior level. You can't half ass it and you'll need to work at high level if you want to survive the high competition
+  - **eggshellwalker4** (5↑): So basically 90% of CS graduates will end up working at McDonald's when they graduate? The job market sucks ass in every occupation but maybe the OP should change careers if CS is getting hit the hardest out of all the occupations with no recovery in sight.
 
 For me personally, I'm going to wait at least 6 months to see how the market will be by then. If there's still no hope of recovery then I'm probably going to switch from CS to EE.
     - **Gold-Flatworm-4313** (3↑): We don't have up to date stats but if we are basing it off 2024 data then CS is only slightly worse than others (while having 2x pay or something).
@@ -80,8 +110,8 @@ Our TDPs often don't even promote out of the junior role until 2-3 years in role
 - **cocol11** (6↑): I'm sorry are you trying to argue there is no competition and grind in... finance!? 
 
 You won't find any field without some sort of grind unless it doesn't pay well.
-- **Delicious_Crazy513** (4↑): yes
-- **Educational-Ideal880** (5↑): I think this might look very different depending on where you're standing.
+- **Delicious_Crazy513** (3↑): yes
+- **Educational-Ideal880** (6↑): I think this might look very different depending on where you're standing.
 
 If you're a student looking at Reddit, it can feel like the industry is collapsing: layoffs, competition, AI, people sending hundreds of applications.
 

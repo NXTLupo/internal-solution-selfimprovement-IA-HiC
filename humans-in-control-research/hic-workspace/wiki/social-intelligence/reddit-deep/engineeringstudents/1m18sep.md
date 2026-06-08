@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1m18sep.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1m18sep/career_advice_engineering_student_in_it_feeling/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,26 @@ flair: "Academic Advice"
 extracted_at: "2026-05-22T15:11:44.445Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1m18sep.md#c0"
+    char_span: [0, 2157]
+    sentence_count: 16
+    key_terms: [technical, engineeringstudents, project, career, engineering, path, management, comments]
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1m18sep.md#c1"
+    char_span: [2159, 2538]
+    sentence_count: 7
+    key_terms: [takes, time, experiences, management, seriously, switching, technical, honestly]
+    token_count: 83
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1m18sep.md#c2"
+    char_span: [2553, 3547]
+    sentence_count: 6
+    key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
+    section: Comments
+    token_count: 225
 ---
-
 # [Career Advice] Engineering student in IT – feeling lost
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1m18sep/career_advice_engineering_student_in_it_feeling/)

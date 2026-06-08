@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tfl1i5.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tfl1i5/how_to_change_career_path_after_working_as_a_tech/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-23T19:45:11.367Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tfl1i5.md#c0"
+    char_span: [0, 1363]
+    sentence_count: 11
+    key_terms: [consultant, tech, mba, role, careerguidance, get, want, work]
+    token_count: 323
+  - id: "social-intelligence/reddit-deep/careerguidance/1tfl1i5.md#c1"
+    char_span: [1378, 3172]
+    sentence_count: 6
+    key_terms: [consulting, management, mba, right, tech, background, definitely, operations]
+    section: Comments
+    token_count: 343
 ---
-
 # How to change career path after working as a tech consultant at B4 for 3 years ? Does MBA work or will it get me into management consulting role?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tfl1i5/how_to_change_career_path_after_working_as_a_tech/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1t7miiw.md
 url: "https://www.reddit.com/r/findapath/comments/1t7miiw/almost_a_doctor_what_would_you_do_in_my_shoes/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,38 @@ flair: "Findapath-Job Search Support"
 extracted_at: "2026-05-22T15:13:18.837Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [healthcare, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1t7miiw.md#c0"
+    char_span: [0, 2201]
+    sentence_count: 19
+    key_terms: [residency, medical, comfortable, pay, substitute, findapath, graduated, physician]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/findapath/1t7miiw.md#c1"
+    char_span: [2203, 2505]
+    sentence_count: 4
+    key_terms: [help, representative, background, researcher, coachable, physician, question, connect]
+    token_count: 70
+  - id: "social-intelligence/reddit-deep/findapath/1t7miiw.md#c2"
+    char_span: [2520, 3467]
+    sentence_count: 9
+    key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/findapath/1t7miiw.md#c3"
+    char_span: [3470, 5071]
+    sentence_count: 16
+    key_terms: [take, loans, confusing, tutoring, company, student, school, braveheart117]
+    section: Comments
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/findapath/1t7miiw.md#c4"
+    char_span: [5073, 6884]
+    sentence_count: 13
+    key_terms: [going, probably, hire, like, medical, residencies, regardless, something]
+    section: Comments
+    token_count: 427
 ---
-
 # Almost a doctor. What would you do in my shoes?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1t7miiw/almost_a_doctor_what_would_you_do_in_my_shoes/)

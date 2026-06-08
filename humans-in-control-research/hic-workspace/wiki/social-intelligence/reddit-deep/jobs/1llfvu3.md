@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1llfvu3.md
 url: "https://www.reddit.com/r/jobs/comments/1llfvu3/stop_treating_interviews_like_dating_this_isnt_a/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,127 @@ flair: "Applications"
 extracted_at: "2026-05-20T06:41:17.646Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c0"
+    char_span: [0, 2152]
+    sentence_count: 22
+    key_terms: ["i'm", because, trying, like, interviews, maybe, exhausted, get]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c1"
+    char_span: [2154, 4407]
+    sentence_count: 22
+    key_terms: [because, someone, being, times, else, deserves, everyone, number]
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c2"
+    char_span: [4409, 5584]
+    sentence_count: 11
+    key_terms: [someone, people, reason, tired, isn, like, candidate, rejection]
+    token_count: 257
+  - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c3"
+    char_span: [5599, 7418]
+    sentence_count: 14
+    key_terms: [feedback, job, fit, like, ones, candidates, "didn't", market]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c4"
+    char_span: [7421, 8514]
+    sentence_count: 7
+    key_terms: [interviews, job, get, interview, revealing, deleted, gotten, though]
+    section: Comments
+    token_count: 248
+  - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c5"
+    char_span: [8516, 10527]
+    sentence_count: 25
+    key_terms: [interview, job, insufferable, experience, interviews, someone, pricks, "i've"]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c6"
+    char_span: [10529, 12152]
+    sentence_count: 14
+    key_terms: [person, job, people, insufferable, charismatic, got, mean, candidate]
+    section: Comments
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c7"
+    char_span: [12154, 12676]
+    sentence_count: 2
+    key_terms: [hire, job, application, candidates, originally, qualified, withdrawn, position]
+    section: Comments
+    token_count: 129
+  - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c8"
+    char_span: [12678, 14474]
+    sentence_count: 14
+    key_terms: [job, interviews, cultural, because, person, personality, fit, get]
+    section: Comments
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c9"
+    char_span: [14476, 16469]
+    sentence_count: 21
+    key_terms: [people, job, companies, important, work, replaceable, don, need]
+    section: Comments
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c10"
+    char_span: [16471, 18639]
+    sentence_count: 24
+    key_terms: [people, skills, good, job, work, engineering, interviewer, get]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c11"
+    char_span: [18641, 20829]
+    sentence_count: 17
+    key_terms: [along, get, someone, people, job, need, work, pretending]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c12"
+    char_span: [20831, 22563]
+    sentence_count: 10
+    key_terms: [job, personality, going, deleted, someone, skills, along, get]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c13"
+    char_span: [22565, 24532]
+    sentence_count: 10
+    key_terms: [people, job, fit, being, interviews, deleted, keeping, someone]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c14"
+    char_span: [24534, 26503]
+    sentence_count: 21
+    key_terms: [get, job, team, coworker, qualifications, morale, people, best]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c15"
+    char_span: [26505, 28540]
+    sentence_count: 16
+    key_terms: [interview, because, people, care, interviews, questions, critical, thinking]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c16"
+    char_span: [28542, 30644]
+    sentence_count: 22
+    key_terms: [everyone, personality, cultural-afternoon72, like, coworker, people, constantly, genuinely]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c17"
+    char_span: [30646, 32081]
+    sentence_count: 12
+    key_terms: [people, interviews, team, work, "that's", because, company, person]
+    section: Comments
+    token_count: 323
+  - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c18"
+    char_span: [32083, 33724]
+    sentence_count: 10
+    key_terms: [job, interview, people, hiring, like, coworkers, everyone, friendly]
+    section: Comments
+    token_count: 365
+  - id: "social-intelligence/reddit-deep/jobs/1llfvu3.md#c19"
+    char_span: [33726, 35413]
+    sentence_count: 11
+    key_terms: [like, going, work, background, diversity, sounds, "team's", best]
+    section: Comments
+    token_count: 380
 ---
-
 # Stop treating interviews like dating. This isn’t a social club. It’s someone’s livelihood.
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1llfvu3/stop_treating_interviews_like_dating_this_isnt_a/)

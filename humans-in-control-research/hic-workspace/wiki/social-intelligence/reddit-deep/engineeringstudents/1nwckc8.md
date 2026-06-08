@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1nwckc8.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1nwckc8/every_questions_in_my_head_right_now_about/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 1
 flair: "Academic Advice"
-extracted_at: "2026-05-23T19:44:57.162Z"
+extracted_at: "2026-06-01T18:48:36.794Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1nwckc8.md#c0"
+    char_span: [0, 536]
+    sentence_count: 4
+    key_terms: [engineeringstudents, internship, questions, comments, effective-bit-8840, bsee, job, engineering]
+    token_count: 142
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1nwckc8.md#c1"
+    char_span: [551, 1552]
+    sentence_count: 6
+    key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
+    section: Comments
+    token_count: 226
 ---
-
 # Every questions in my head right now about engineering career path and first year job/internship.
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1nwckc8/every_questions_in_my_head_right_now_about/)

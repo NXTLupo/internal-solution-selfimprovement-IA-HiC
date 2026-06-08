@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1m5vzig.md
 url: "https://www.reddit.com/r/stocks/comments/1m5vzig/trump_media_djt_builds_2_billion_bitcoin_hoard_as/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -6,19 +7,94 @@ subreddit: "stocks"
 title: "Trump Media ($DJT) builds $2 billion bitcoin hoard, as cryptocurrency swells president’s net worth"
 author: "WinningWatchlist"
 date: "2025-07-21T21:43:34.000Z"
-score: 1557
+score: 1552
 upvote_ratio: 0.94
 num_comments: 268
 flair: ""
-extracted_at: "2026-05-17T01:14:17.621Z"
+extracted_at: "2026-06-03T19:16:52.353Z"
 extraction_method: "praw-deep"
-research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+research_goal: "Provide a strategic analysis of the ROI of financial advice for individual investors in 2026, extrapolating on this theme by integrating current trends in finance, investing, and generational behavioral shifts."
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c0"
+    char_span: [0, 2214]
+    sentence_count: 4
+    key_terms: [trump, cryptocurrency, president, bitcoin, media, world, billion, liberty]
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c1"
+    char_span: [2216, 4711]
+    sentence_count: 4
+    key_terms: [company, trump, crypto, investors, bitcoin, media, truth, financial]
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c2"
+    char_span: [4713, 5015]
+    sentence_count: 2
+    key_terms: [trump-djt-bitcoin-net-worth, https, cnbc, com, html, www, blockchain, companies]
+    token_count: 93
+  - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c3"
+    char_span: [5030, 5884]
+    sentence_count: 3
+    key_terms: [stocks, please, off-topic, political, specific, removed, reddit, "you're"]
+    section: Comments
+    token_count: 199
+  - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c4"
+    char_span: [5886, 7259]
+    sentence_count: 7
+    key_terms: [inflation, levels, "that's", didntlikedefaultname, "don't", point, secretacademic1654, head-recover-2920]
+    section: Comments
+    token_count: 344
+  - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c5"
+    char_span: [7261, 9111]
+    sentence_count: 9
+    key_terms: [head-recover-2920, buying, front, btc, bitcoin, running, fraud, late]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c6"
+    char_span: [9114, 9390]
+    sentence_count: 1
+    key_terms: ["isn't", tftisbetterthanlol, word, accomplishment, permissible, corruption, because, believe]
+    section: Comments
+    token_count: 72
+  - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c7"
+    char_span: [9392, 11394]
+    sentence_count: 12
+    key_terms: [prosecution, "he's", president, family, global, leader, people, trumps]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c8"
+    char_span: [11168, 12460]
+    sentence_count: 11
+    key_terms: [genius, problem, divest, steak, been, cash, djt, "he's"]
+    section: Comments
+    token_count: 332
+  - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c9"
+    char_span: [12462, 13817]
+    sentence_count: 10
+    key_terms: [sacrifice, president, especially, hold, everything, presidency, terrorist, benefits]
+    section: Comments
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c10"
+    char_span: [13819, 15448]
+    sentence_count: 7
+    key_terms: [liquidity, litterary, president, bitcoin, enough, street, though, "wasn't"]
+    section: Comments
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c11"
+    char_span: [15451, 17386]
+    sentence_count: 11
+    key_terms: [crypto, trump, president, business, invested, bitcoin, deleted, dollars]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/stocks/1m5vzig.md#c12"
+    char_span: [17388, 17527]
+    sentence_count: 2
+    key_terms: [guarantees, americans, decisions, business, interest, benefit, biemba, rather]
+    section: Comments
+    token_count: 33
 ---
-
 # Trump Media ($DJT) builds $2 billion bitcoin hoard, as cryptocurrency swells president’s net worth
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1m5vzig/trump_media_djt_builds_2_billion_bitcoin_hoard_as/)
-Posted by **WinningWatchlist** · **1557↑** · **268 comments**
+Posted by **WinningWatchlist** · **1552↑** · **268 comments**
 
 >Trump Media and Technology Group said Monday it has accumulated roughly $2 billion in bitcoin and related assets, as President Donald Trump’s highly lucrative pivot to cryptocurrency continues to grow his net worth while in office.
 
@@ -117,21 +193,21 @@ A new trend of all these companies that don't make money pivoting to being a "cr
 If you're interested in just politics, see our wiki on ["relevant subreddits"](https://www.reddit.com/r/stocks/wiki/index/#wiki_relevant_subreddits) and post to those Reddit communities instead without linking back here, thanks!
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/stocks) if you have any questions or concerns.*
-- **Head-Recover-2920** (699↑): So he’s front running Bitcoin. 
+- **Head-Recover-2920** (696↑): So he’s front running Bitcoin. 
 
 Purchases it with DJT and next he’ll announce a $100b treasury with the US government for BTC
-  - **ahoy_shitliner** (278↑): This is completely unreal.
+  - **ahoy_shitliner** (274↑): This is completely unreal.
     - **SecretAcademic1654** (2↑): Is it? Everyone been saying this would happen. Everybody knew the criminal would do this that's why they voted him in. People don't care about anything besides pumping the wallets and that's the reality others don't seem to get.
     - **_Reporting** (-1↑): Yeah but get on the boat or be stuck where you’re at
-  - **Didntlikedefaultname** (50↑): Or not purchasing it at all and just accepting it as bribes
-    - **Head-Recover-2920** (20↑): I thought you buy Trumpcoin to bribe him.
+  - **Didntlikedefaultname** (53↑): Or not purchasing it at all and just accepting it as bribes
+    - **Head-Recover-2920** (18↑): I thought you buy Trumpcoin to bribe him.
   - **Panthollow** (24↑): It's a blatant means for Russia and corporations to funnel cash directly into his pockets. This will come crashing down at some point. But like any bubble the question is how much money you can make it you time it right...
-    - **Responsible_Skill957** (8↑): This old fucker is gonna die at some point.  He could have done nothing his entire life and he would have been fine with what daddy gave him.
-  - **HistoricalTap2919** (13↑): Or he will convince the reserve to lower rates to stupid levels and cause hyper inflation, thus in return increasing bitcoins price to absurd levels
+    - **Responsible_Skill957** (10↑): This old fucker is gonna die at some point.  He could have done nothing his entire life and he would have been fine with what daddy gave him.
+  - **HistoricalTap2919** (14↑): Or he will convince the reserve to lower rates to stupid levels and cause hyper inflation, thus in return increasing bitcoins price to absurd levels
     - **DiscoBanane** (-3↑): Inflation doesn't increase prices if you adjust for inflation. 
 
 The only way to increase something's real price by printing is by buying that thing with printed money, like with the strategic reserve.
-  - **TheManFromTrawno** (4↑): A president’s got to have his exit liquidity. Denying him that would be unamerican.
+  - **TheManFromTrawno** (5↑): A president’s got to have his exit liquidity. Denying him that would be unamerican.
   - **shadowpawn** (4↑): Good to be the king
   - **xixi2** (3↑): So if you're so sure about that you have time now to get bitcoin
     - **Head-Recover-2920** (1↑): Please don’t give me financial advice
@@ -144,41 +220,41 @@ The treasury should be somewhere between $600-700bn based on mentioned budget-ne
 Let’s see what happens 
 
 Satoshi would hate what BTC has become
-  - **sabatoa** (0↑): No can say with any honesty that ANYONE buying BTC above $100k is front running lol
+  - **sabatoa** (2↑): No can say with any honesty that ANYONE buying BTC above $100k is front running lol
 
 It’s 3 years too late to front run btc.
-    - **Head-Recover-2920** (20↑): Ummm. When you can swipe a pen and initiate a $50b purchase of BTC with tax payer money a week after you bought $2b worth, that’s front running. 
+    - **Head-Recover-2920** (21↑): Ummm. When you can swipe a pen and initiate a $50b purchase of BTC with tax payer money a week after you bought $2b worth, that’s front running. 
 
 I know a financial advisor who was called into the boss’ office for buying SPY 2 hours before buying it for a large client, he had to explain how it was front running
 … the SPY!
     - **notapersonaltrainer** (4↑): I think you mean $0.1m.
     - **snek-jazz** (3↑): Bitcoiner for 12 years here. Was late when I first bought. The only constant has been people saying it's late.
-- **art-is-t** (642↑): This is historic fraud happening right before our eyes
-  - **C4rlos_D4nger** (245↑): I feel like this almost transcends fraud. Fraud to me involves some sort of deception; this is happening out in the open for anyone to see. It's naked graft.
+- **art-is-t** (640↑): This is historic fraud happening right before our eyes
+  - **C4rlos_D4nger** (246↑): I feel like this almost transcends fraud. Fraud to me involves some sort of deception; this is happening out in the open for anyone to see. It's naked graft.
 
 
 The real accomplishment isn't the scale of the graft; it's that he's somehow made it permissible.
-    - **otasi** (77↑): I believe the word you are looking for is corruption.
+    - **otasi** (80↑): I believe the word you are looking for is corruption.
     - **TFTisbetterthanLoL** (24↑): We need to make up a new word because fraud just isn't enough lol
 
 Dude's laughing in our face as he gifts himself unimaginable wealth for fun
-    - **D-F-B-81** (32↑): Nah, " We the people" let this happen.
+    - **D-F-B-81** (30↑): Nah, " We the people" let this happen.
     - **[deleted]** (12↑): They are debasing the dollar while profiting off Bitcoin.  Much worse than fraud
     - **fuzzybad** (3↑): We've regressed a bit since Jimmy Carter sold his peanut farm to avoid any possible conflict of interest.
     - **Charming_Squirrel_13** (3↑): I think he intends to destroy the USD as the global reserve currency, because now it financially benefits him. I'd have to imagine Trump is going to be in history books explaining how the US lost its spot as the global hegemon.
-  - **ahoy_shitliner** (52↑): By the end of trumps term the Trump family will have so much money the world will never see another world leader other than someone they appoint.
+  - **ahoy_shitliner** (51↑): By the end of trumps term the Trump family will have so much money the world will never see another world leader other than someone they appoint.
     - **herefromyoutube** (9↑): Vote for me ask president and I will give all Americans free healthcare by using Trumps frozen bank/crypto accounts.
     - **RedditIsDeadMoveOn** (-1↑): What are you saying? That money has corrupted how all of us pick our representatives?
-  - **maricc** (14↑): Agree. When the dust settles, perhaps many years from now, I sense this will be one of the top things people ask “how did they (we) let them get away with that?”
+  - **maricc** (15↑): Agree. When the dust settles, perhaps many years from now, I sense this will be one of the top things people ask “how did they (we) let them get away with that?”
     - **magpi3** (1↑): I think this is the question asked about every cult leader after the fact.
   - **BetImaginary4945** (9↑): Nah fraud eats this thing's breadcrumbs. This is plain RACKETEERING. The RICO act was created specifically for this case.
     - **boat_hamster** (1↑): Old Donny won't face prosecution for it. He's too old and sick, he'll be dead before prosecution could be brought. But I wonder if his family will be pursued? Once/if something resembling normalcy returns.
-- **oneluv_hug** (84↑): $DJT is just one huge grifting vehicle sponsored by his cultists and foreign buddies ran by his cronies. It's quite genius. Amd he can say he's not the one running it while he's president.
-  - **yung_splitta** (22↑): It’d be genius if it was somehow clandestine. This is just naked corruption and favor currying. Despite being out in the daylight, these stories will never be seen by your average MAGA voter. The genius part is the closed loop media infrastructure that the right wing has created.
+- **oneluv_hug** (85↑): $DJT is just one huge grifting vehicle sponsored by his cultists and foreign buddies ran by his cronies. It's quite genius. Amd he can say he's not the one running it while he's president.
+  - **yung_splitta** (21↑): It’d be genius if it was somehow clandestine. This is just naked corruption and favor currying. Despite being out in the daylight, these stories will never be seen by your average MAGA voter. The genius part is the closed loop media infrastructure that the right wing has created.
   - **eaglessoar** (1↑): It's down 40% ytd and doesn't pay a dividend hows it a gift? Is he selling shares? Using it as collateral for loans? Djt is just paying him cash?
-- **[deleted]** (699↑): Presidents and all elected officials should be required to divest from all asset classes. Cash and US treasuries only.
+- **[deleted]** (703↑): Presidents and all elected officials should be required to divest from all asset classes. Cash and US treasuries only.
   - **Delicious_Spot_3778** (59↑): This has been a problem since his first term. Good luck getting him to divest you stinky liberal. /s
-    - **AgentStockey** (4↑): This has been a problem way before Trump ever came into U.S. politics.
+    - **AgentStockey** (3↑): This has been a problem way before Trump ever came into U.S. politics.
   - **fatalrip** (21↑): I’ll allow total market index funds and no options trading.
     - **Business-Ad-5344** (2↑): even a steak dinner can massively influence decisions. that's why all the pharma companies buy doctors steak dinners.
 
@@ -197,15 +273,15 @@ this goes for senators too. Just sell everything, keep one home, and put it all 
 the honorable senators don't hold stocks, especially not VOO or VTI, and ESPECIALLY not VT.
 
 the most honorable senators will gladly fuck wall street up and die for Main Street while large cap like boeing tries to assassinate them and shit.
-  - **NotawoodpeckerOwner** (6↑): Don't worry, once the next Democrat gets in the Whitehouse Republicans will agree with you again. Pelosi act crowd now unsurprisingly quiet.
-  - **tots4scott** (26↑): We're so far past the republican party caring about any semblance of a conflict of interest or personal enrichment from the Office of the President of the United States.
+  - **NotawoodpeckerOwner** (7↑): Don't worry, once the next Democrat gets in the Whitehouse Republicans will agree with you again. Pelosi act crowd now unsurprisingly quiet.
+  - **tots4scott** (25↑): We're so far past the republican party caring about any semblance of a conflict of interest or personal enrichment from the Office of the President of the United States.
   - **Classic_Revolt** (3↑): Doesnt stop their kid from raking it in though. At this point we wpuld be better off having a presidential lottery for who should be the next president.
   - **snasna102** (3↑): Ahaha like you’re actually gonna expect accountability from your leaders… that’s not the America we all know!
     - **[deleted]** (2↑): The people need to rise up and demand it.
   - **bd1223** (2↑): Or a blind trust.
-  - **BlightedErgot32** (3↑): nah i think they should be allowed the thrift savings plan
-  - **Brokenandburnt** (1↑): Even though I have a small Bitcoin position, I wouldn't be terribly sad if a couple of whales just dumped their entire wallets.
-    - **PowerAsswash** (8↑): The market litterary won't allow it to happen. Liquidity dries up faster then the transactions can be handled.
+  - **BlightedErgot32** (4↑): nah i think they should be allowed the thrift savings plan
+  - **Brokenandburnt** (0↑): Even though I have a small Bitcoin position, I wouldn't be terribly sad if a couple of whales just dumped their entire wallets.
+    - **PowerAsswash** (7↑): The market litterary won't allow it to happen. Liquidity dries up faster then the transactions can be handled.
 
 
 Some Russian Oligarchs tried to liquidate millions of bitcoin over night when they were cutoff from the Swift-network. But there were no broker who could facilitate the deal, there litterary *wasn't enough liquidity*. There wasn't enough dollars (bagholders) available to buy what they were selling.
@@ -213,14 +289,14 @@ Some Russian Oligarchs tried to liquidate millions of bitcoin over night when th
 
 So it is likely it won't matter. If there's no liquidity then transactions/trades can't be done. And since all crime states that are the biggest whales (China, Russia) all went dollars they'd need *some fool to put up millions or even billions of dollars first, before they can pull the rug*. But surely no president would be that stupid?
   - **moutonbleu** (0↑): A balanced etf like AOA or AOR is fine in a blind trust
-- **MikeRizzo007** (202↑): People give them bitcoin and then trump gives them pardon’s, better tariffs, rights to buy land in the US and escape paying any taxes. We all knew it is now a pay to play system. Nothing gets down without a bribe to the king…..
-  - **Ok_Yak_2931** (42↑): He's a thug that learned from thugs.
-- **[deleted]** (206↑): This is corruption. Foreigners invested in it and trump passed this bill to reduce risk for investors. 
+- **MikeRizzo007** (203↑): People give them bitcoin and then trump gives them pardon’s, better tariffs, rights to buy land in the US and escape paying any taxes. We all knew it is now a pay to play system. Nothing gets down without a bribe to the king…..
+  - **Ok_Yak_2931** (41↑): He's a thug that learned from thugs.
+- **[deleted]** (209↑): This is corruption. Foreigners invested in it and trump passed this bill to reduce risk for investors. 
 
 
 https://www.reddit.com/r/DHAC/s/tmC9Z7hJxq
-- **AdditionalActuator81** (26↑): Hmm funny that his sons just invested in a bitcoin mining business too.
-- **Zwonder74** (30↑): The next 4 year will create the greatest wealth gap & resentment you will ever see as he siphons the value of the dollar from the American people (esp if he gets his puppet fed) to force the gov to buy more crypto, thereby raising the net worth of his current crypto empire. So if you don't have assets, crypto, or gold, you're future is looking grim due to hyperinflation. The wealth gap of this nation is going to be astronomical when his 4 years is done. Look into Ray Dalio's big cycle theory b/c Trump is accelerating it like never before.
+- **AdditionalActuator81** (27↑): Hmm funny that his sons just invested in a bitcoin mining business too.
+- **Zwonder74** (28↑): The next 4 year will create the greatest wealth gap & resentment you will ever see as he siphons the value of the dollar from the American people (esp if he gets his puppet fed) to force the gov to buy more crypto, thereby raising the net worth of his current crypto empire. So if you don't have assets, crypto, or gold, you're future is looking grim due to hyperinflation. The wealth gap of this nation is going to be astronomical when his 4 years is done. Look into Ray Dalio's big cycle theory b/c Trump is accelerating it like never before.
   - **[deleted]** (4↑): I would argue that most of the past 50+ years if you didn’t hold stocks, assets, real estate, etc then your future was grim.
 
 Investing is crucial to financial success.

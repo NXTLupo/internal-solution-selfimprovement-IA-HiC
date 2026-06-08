@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1s6axhq.md
 url: "https://www.reddit.com/r/careerguidance/comments/1s6axhq/anyone_have_any_career_guidance_advice/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-20T12:56:27.148Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1s6axhq.md#c0"
+    char_span: [0, 1596]
+    sentence_count: 14
+    key_terms: [want, something, looking, science, careerguidance, currently, undergrad, business]
+    token_count: 358
+  - id: "social-intelligence/reddit-deep/careerguidance/1s6axhq.md#c1"
+    char_span: [1611, 2847]
+    sentence_count: 7
+    key_terms: [consulting, business, commerce, product, science, degree, queens, get]
+    section: Comments
+    token_count: 290
 ---
-
 # Anyone have any career guidance advice?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1s6axhq/anyone_have_any_career_guidance_advice/)

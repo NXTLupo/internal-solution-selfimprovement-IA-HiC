@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1rsog6u.md
 url: "https://www.reddit.com/r/productivity/comments/1rsog6u/why_personal_development_becomes_frustrating/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,44 @@ flair: "General Advice"
 extracted_at: "2026-05-26T12:53:45.658Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1rsog6u.md#c0"
+    char_span: [0, 2201]
+    sentence_count: 26
+    key_terms: [business, productivity, development, years, personal, started, course, time]
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/productivity/1rsog6u.md#c1"
+    char_span: [2203, 3280]
+    sentence_count: 6
+    key_terms: [work, because, advice, people, subconscious, strategy, change, system]
+    token_count: 196
+  - id: "social-intelligence/reddit-deep/productivity/1rsog6u.md#c2"
+    char_span: [3295, 5624]
+    sentence_count: 20
+    key_terms: [inevitablesuccess44, naturally, something, work, because, people, cause, sense]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/productivity/1rsog6u.md#c3"
+    char_span: [5626, 7821]
+    sentence_count: 11
+    key_terms: [never, knowledge, independence, development, discipline, effective, financial, something]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/productivity/1rsog6u.md#c4"
+    char_span: [7823, 9678]
+    sentence_count: 15
+    key_terms: [habits, like, business, identity, problem, started, asking, atomic]
+    section: Comments
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/productivity/1rsog6u.md#c5"
+    char_span: [9680, 10584]
+    sentence_count: 9
+    key_terms: [work, learning, inevitablesuccess44, clearthinkinglab, productivity, development, interesting, everything]
+    section: Comments
+    token_count: 209
 ---
-
 # Why personal development becomes frustrating after a few years
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1rsog6u/why_personal_development_becomes_frustrating/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1tedzeg.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1tedzeg/university_of_michigan_vs_cornell_university/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,44 @@ flair: "College Questions"
 extracted_at: "2026-05-25T18:32:06.251Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tedzeg.md#c0"
+    char_span: [0, 1834]
+    sentence_count: 7
+    key_terms: [engineering, cornell, umich, applyingtocollege, comments, involvement, university, academics]
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tedzeg.md#c1"
+    char_span: [1836, 3640]
+    sentence_count: 5
+    key_terms: ["i'm", umich, cornell, scholarships, vibes, big, credits, outside]
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tedzeg.md#c2"
+    char_span: [3655, 5550]
+    sentence_count: 15
+    key_terms: [cornell, umich, engineering, like, ok-contract-756, better, reject, peers]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tedzeg.md#c3"
+    char_span: [5552, 7811]
+    sentence_count: 18
+    key_terms: [cornell, engineering, umich, better, sat, college, higher, school]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tedzeg.md#c4"
+    char_span: [7813, 9427]
+    sentence_count: 16
+    key_terms: [better, school, arbor, ann, "don't", management, cornell, hiking]
+    section: Comments
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tedzeg.md#c5"
+    char_span: [9429, 10389]
+    sentence_count: 9
+    key_terms: [cornell, kids, engineering, mich, prob, recently, wanted, specifically]
+    section: Comments
+    token_count: 212
 ---
-
 # University of Michigan vs. Cornell University Engineering (help a girl out!)
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1tedzeg/university_of_michigan_vs_cornell_university/)

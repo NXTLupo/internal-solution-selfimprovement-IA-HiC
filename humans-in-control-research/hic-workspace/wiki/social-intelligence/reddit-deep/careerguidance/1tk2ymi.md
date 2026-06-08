@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tk2ymi.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tk2ymi/data_science_career_at_43y/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,33 @@ flair: "Advice"
 extracted_at: "2026-05-26T14:32:49.165Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tk2ymi.md#c0"
+    char_span: [0, 1442]
+    sentence_count: 11
+    key_terms: [statistics, data, comments, starting, careerguidance, people, field, considering]
+    token_count: 317
+  - id: "social-intelligence/reddit-deep/careerguidance/1tk2ymi.md#c1"
+    char_span: [1457, 3325]
+    sentence_count: 14
+    key_terms: [age, data, plane-matter6583, science, "it's", role, looking, masters]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/careerguidance/1tk2ymi.md#c2"
+    char_span: [3327, 5288]
+    sentence_count: 6
+    key_terms: [understand, customers, effectively, like, need, gunpowder, scientist, existing]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/careerguidance/1tk2ymi.md#c3"
+    char_span: [5290, 6712]
+    sentence_count: 13
+    key_terms: [people, work, understand, knowledge, though, "don't", field, able]
+    section: Comments
+    token_count: 330
 ---
-
 # Data Science career at 43y?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tk2ymi/data_science_career_at_43y/)

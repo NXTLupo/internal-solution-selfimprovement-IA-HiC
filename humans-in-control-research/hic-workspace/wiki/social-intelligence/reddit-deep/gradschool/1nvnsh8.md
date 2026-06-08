@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1nvnsh8.md
 url: "https://www.reddit.com/r/GradSchool/comments/1nvnsh8/americans_and_their_relationship_with_math/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-22T21:35:36.522Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1nvnsh8.md#c0"
+    char_span: [0, 735]
+    sentence_count: 5
+    key_terms: [gradschool, comments, program, people, "don't", use, distribution, exponentials]
+    token_count: 169
+  - id: "social-intelligence/reddit-deep/gradschool/1nvnsh8.md#c1"
+    char_span: [750, 1637]
+    sentence_count: 8
+    key_terms: [exactly, years, job, math, old-parking8765, undereducated, engineering, graduating]
+    section: Comments
+    token_count: 224
+  - id: "social-intelligence/reddit-deep/gradschool/1nvnsh8.md#c2"
+    char_span: [1639, 3725]
+    sentence_count: 13
+    key_terms: [math, algebra, people, calculus, semester, because, school, taught]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/gradschool/1nvnsh8.md#c3"
+    char_span: [3727, 5657]
+    sentence_count: 18
+    key_terms: ["don't", "i'm", taught, conditioning, like, test, use, understood]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/gradschool/1nvnsh8.md#c4"
+    char_span: [5659, 7368]
+    sentence_count: 7
+    key_terms: [education, "it's", system, lot, algebra, because, problem, student]
+    section: Comments
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/gradschool/1nvnsh8.md#c5"
+    char_span: [7370, 8824]
+    sentence_count: 7
+    key_terms: [algebra, school, semester, grade, logarithms, geometry, graduate, because]
+    section: Comments
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/gradschool/1nvnsh8.md#c6"
+    char_span: [8826, 10219]
+    sentence_count: 2
+    key_terms: [everything, get, teacher, because, numbers, problem, "didn't", passed]
+    section: Comments
+    token_count: 307
+  - id: "social-intelligence/reddit-deep/gradschool/1nvnsh8.md#c7"
+    char_span: [10224, 11108]
+    sentence_count: 8
+    key_terms: [school, bio, high, statistics, calculus, required, program, level]
+    section: Comments
+    token_count: 216
 ---
-
 # Americans and their relationship with math
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1nvnsh8/americans_and_their_relationship_with_math/)

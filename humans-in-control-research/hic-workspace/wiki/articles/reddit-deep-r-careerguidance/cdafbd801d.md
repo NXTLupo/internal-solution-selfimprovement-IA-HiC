@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/cdafbd801d.md
 url: "https://www.reddit.com/r/careerguidance/comments/1mrapck/thought_i_landed_my_dream_job_with_a_millionaire/"
 url_hash: "cdafbd801d"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-19T18:03:28.092768+00:00"
 chars: 3490
+industries: [real_estate, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/cdafbd801d.md#c0"
+    char_span: [0, 1973]
+    sentence_count: 16
+    key_terms: [estate, real, nightlife, bartending, careerguidance, job, experience, developer]
+    token_count: 454
+  - id: "articles/reddit-deep-r-careerguidance/cdafbd801d.md#c1"
+    char_span: [1975, 3794]
+    sentence_count: 14
+    key_terms: [sue, fafnirthesteed, sales, development, like, pay, harassment, agreement]
+    token_count: 447
 ---
-
 # Thought I landed my dream job with a millionaire real estate developer, but it turned into a nightmare. How do I recover and build the career I want?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1mrapck/thought_i_landed_my_dream_job_with_a_millionaire/)

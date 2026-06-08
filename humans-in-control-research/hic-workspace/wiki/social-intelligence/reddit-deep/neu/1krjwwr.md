@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1krjwwr.md
 url: "https://www.reddit.com/r/NEU/comments/1krjwwr/premed_health_science_coop_with_no_summer_courses/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "academics"
 extracted_at: "2026-05-12T20:36:08.376Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1krjwwr.md#c0"
+    char_span: [0, 1868]
+    sentence_count: 11
+    key_terms: [pre-med, courses, science, health, classes, summer, co-ops, northeastern]
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/neu/1krjwwr.md#c1"
+    char_span: [1883, 2679]
+    sentence_count: 5
+    key_terms: [credit, experience, semester, summer, going, big, coop, get]
+    section: Comments
+    token_count: 189
 ---
-
 # Premed +Health Science + Co-op with no Summer courses?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1krjwwr/premed_health_science_coop_with_no_summer_courses/)

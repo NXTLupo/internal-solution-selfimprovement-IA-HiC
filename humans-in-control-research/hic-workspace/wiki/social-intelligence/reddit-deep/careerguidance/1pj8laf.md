@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1pj8laf.md
 url: "https://www.reddit.com/r/careerguidance/comments/1pj8laf/need_serious_personal_and_career_guidance_lost/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-20T12:56:27.157Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1pj8laf.md#c0"
+    char_span: [0, 1671]
+    sentence_count: 22
+    key_terms: [job, tech, anything, careerguidance, always, exams, engineering, govt]
+    token_count: 386
+  - id: "social-intelligence/reddit-deep/careerguidance/1pj8laf.md#c1"
+    char_span: [1686, 2423]
+    sentence_count: 5
+    key_terms: [projects, direct-structure-555, build, small, like, expectations, persistent, placements]
+    section: Comments
+    token_count: 181
 ---
-
 # Need serious personal and career guidance - lost all motivation. Any advice?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1pj8laf/need_serious_personal_and_career_guidance_lost/)

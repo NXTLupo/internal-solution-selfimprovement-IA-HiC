@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1nxaapw.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1nxaapw/first_year_mechanical_engineering_student_how_do/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Career Advice"
 extracted_at: "2026-05-14T18:16:49.038Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1nxaapw.md#c0"
+    char_span: [0, 528]
+    sentence_count: 5
+    key_terms: [engineeringstudents, internship, comments, "i'm", job, engineering, environment, reddit-deep]
+    token_count: 134
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1nxaapw.md#c1"
+    char_span: [543, 1108]
+    sentence_count: 5
+    key_terms: [companies, job, need, ones, year, apelikeartisan, application, experience]
+    section: Comments
+    token_count: 134
 ---
-
 # First year Mechanical Engineering student. How do I look for a summer job/internship?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1nxaapw/first_year_mechanical_engineering_student_how_do/)

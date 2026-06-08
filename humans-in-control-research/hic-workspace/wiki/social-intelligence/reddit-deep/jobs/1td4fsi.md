@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1td4fsi.md
 url: "https://www.reddit.com/r/jobs/comments/1td4fsi/is_this_question_legal_on_a_job_posting/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,57 @@ flair: "Applications"
 extracted_at: "2026-05-24T14:10:06.648Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1td4fsi.md#c0"
+    char_span: [0, 253]
+    sentence_count: 2
+    key_terms: [comments, jobs, maryjane7399420, reddit-deep, question, posting, posted, reddit]
+    token_count: 73
+  - id: "social-intelligence/reddit-deep/jobs/1td4fsi.md#c1"
+    char_span: [268, 1938]
+    sentence_count: 13
+    key_terms: [question, company, illegal, throwawayfrompa1701, organization, legal, "it's", retirement]
+    section: Comments
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/jobs/1td4fsi.md#c2"
+    char_span: [1940, 3576]
+    sentence_count: 9
+    key_terms: [company, work, christian, startup, people, throwawayfrompa1701, cult, don]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/jobs/1td4fsi.md#c3"
+    char_span: [3578, 5598]
+    sentence_count: 14
+    key_terms: [conservative, question, christian, cousin, company, "isn't", discourages, did]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/jobs/1td4fsi.md#c4"
+    char_span: [5600, 7639]
+    sentence_count: 10
+    key_terms: [question, lawyer, backgrounds, flag, different, sentence, company, grammar]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/jobs/1td4fsi.md#c5"
+    char_span: [7641, 9310]
+    sentence_count: 8
+    key_terms: [christian, question, process, answer, conservative, information, "it's", religious]
+    section: Comments
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/jobs/1td4fsi.md#c6"
+    char_span: [9312, 11073]
+    sentence_count: 8
+    key_terms: [conservative, question, company, accept, values, christian, business, religion]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/jobs/1td4fsi.md#c7"
+    char_span: [11075, 11996]
+    sentence_count: 5
+    key_terms: [retirement, planning, worded, large, point, fightinghellfish12, ivar-the-bonefull, ick]
+    section: Comments
+    token_count: 245
 ---
-
 # Is this question legal on a job posting?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1td4fsi/is_this_question_legal_on_a_job_posting/)

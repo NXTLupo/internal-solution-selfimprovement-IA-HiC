@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1qv7hxw.md
 url: "https://www.reddit.com/r/GenZ/comments/1qv7hxw/why_are_we_so_burnt_out_would_you_go_to_this/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,69 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.764Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1qv7hxw.md#c0"
+    char_span: [0, 728]
+    sentence_count: 7
+    key_terms: [working, comments, office, genz, hate, cool-cat-199, reddit-deep, personally]
+    token_count: 190
+  - id: "social-intelligence/reddit-deep/genz/1qv7hxw.md#c1"
+    char_span: [743, 1419]
+    sentence_count: 3
+    key_terms: [sinuheminem, discord, affectionate-nose176, month, rent, automatically, automoderator, cool-cat-199]
+    section: Comments
+    token_count: 205
+  - id: "social-intelligence/reddit-deep/genz/1qv7hxw.md#c2"
+    char_span: [1421, 3094]
+    sentence_count: 6
+    key_terms: [someone, sinuheminem, replies, psu632, dull-geologist-8204, ass, did, home]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/genz/1qv7hxw.md#c3"
+    char_span: [2865, 3235]
+    sentence_count: 1
+    key_terms: [rule, considering, investments, "malaysia's", confident, developed, inflation, becoming]
+    section: Comments
+    token_count: 93
+  - id: "social-intelligence/reddit-deep/genz/1qv7hxw.md#c4"
+    char_span: [3237, 4439]
+    sentence_count: 6
+    key_terms: [clanofcoolkids, months, resume, month, right, gap, like, rent]
+    section: Comments
+    token_count: 377
+  - id: "social-intelligence/reddit-deep/genz/1qv7hxw.md#c5"
+    char_span: [4441, 5905]
+    sentence_count: 7
+    key_terms: [wendysdrivethru, work, hour, spanish, resume, shots, bird, lmao]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/genz/1qv7hxw.md#c6"
+    char_span: [5907, 6954]
+    sentence_count: 7
+    key_terms: [malaysia, around, price, currencies, exploited, average, getting, point]
+    section: Comments
+    token_count: 291
+  - id: "social-intelligence/reddit-deep/genz/1qv7hxw.md#c7"
+    char_span: [6956, 8917]
+    sentence_count: 9
+    key_terms: [lower, people, exploitation, apartment, malaysia, working, dimethicone-silicate, below]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/genz/1qv7hxw.md#c8"
+    char_span: [8919, 10755]
+    sentence_count: 9
+    key_terms: [genx, average, boomers, people, person, stereotypical, millennials, bar]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/genz/1qv7hxw.md#c9"
+    char_span: [10757, 12552]
+    sentence_count: 15
+    key_terms: [the-king-of-cartoons, boomers, savings, working, coming, homes, whatever, hours]
+    section: Comments
+    token_count: 453
 ---
-
 # Why are we so burnt out? Would you go to this?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1qv7hxw/why_are_we_so_burnt_out_would_you_go_to_this/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1rwsh0t.md
 url: "https://www.reddit.com/r/NEU/comments/1rwsh0t/what_else_can_i_do_with_my_degree/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,27 @@ score: 5
 upvote_ratio: 0.78
 num_comments: 2
 flair: "Co-op & Career"
-extracted_at: "2026-05-19T15:08:27.153Z"
+extracted_at: "2026-06-05T19:19:55.805Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1rwsh0t.md#c0"
+    char_span: [0, 2290]
+    sentence_count: 10
+    key_terms: [immediate, because, "don't", start, application, companies, comments, projects]
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/neu/1rwsh0t.md#c1"
+    char_span: [2292, 3012]
+    sentence_count: 3
+    key_terms: [degree, "don't", given, roles, get, accomplished, northeastern, particularly]
+    token_count: 135
+  - id: "social-intelligence/reddit-deep/neu/1rwsh0t.md#c2"
+    char_span: [3027, 3953]
+    sentence_count: 8
+    key_terms: [northeastern, available, support, please, sounds, healthandwellness, call, edu]
+    section: Comments
+    token_count: 238
 ---
-
 # What else can I do with my degree?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1rwsh0t/what_else_can_i_do_with_my_degree/)
@@ -35,4 +52,4 @@ For urgent mental health support 24/7 call +1.877.233.9477.
 [Find@Northeastern](https://healthandwellness.northeastern.edu/findnortheastern/)
 
 It sounds like sounds like you’re having a challenging time and working very hard. Support is available - please reach out to me here through direct message, responding to this post, or emailing me directly k.moran@northeastern.edu.
-- **Willing_Ordinary_735** (4↑): Yes, i was in similar position as you. I was international cs major that graduated last year. DM if you want to chat it out.
+- **Willing_Ordinary_735** (3↑): Yes, i was in similar position as you. I was international cs major that graduated last year. DM if you want to chat it out.

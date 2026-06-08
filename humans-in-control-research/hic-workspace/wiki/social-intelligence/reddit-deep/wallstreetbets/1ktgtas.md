@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1ktgtas.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1ktgtas/wsb_in_the_news/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,33 @@ flair: "Shitpost"
 extracted_at: "2026-05-16T20:54:42.974Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, media]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ktgtas.md#c0"
+    char_span: [0, 266]
+    sentence_count: 3
+    key_terms: [wallstreetbets, comments, news, wsb, dylanologist, reddit-deep, stupidity, assigned]
+    token_count: 77
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ktgtas.md#c1"
+    char_span: [281, 1641]
+    sentence_count: 3
+    key_terms: [wife, wsb, degeneracy, marriage, discord, https, total, euphoric-bet-8577]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ktgtas.md#c2"
+    char_span: [1643, 3198]
+    sentence_count: 4
+    key_terms: [wealthsimple, emote, img, lol, post, because, called, brownbritishbrothers]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ktgtas.md#c3"
+    char_span: [3022, 4604]
+    sentence_count: 6
+    key_terms: [news, incidentsome4403, deleted, though, benzinga, article, reddit, tarheelsrule441]
+    section: Comments
+    token_count: 508
 ---
-
 # WSB in the news.
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1ktgtas/wsb_in_the_news/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1rx6x7u.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1rx6x7u/best_ways_to_meet_other_mature_dns_to_travel_with/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,45 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:56.734Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1rx6x7u.md#c0"
+    char_span: [0, 1569]
+    sentence_count: 10
+    key_terms: [travel, having, digitalnomad, comments, digital, looking, someone, working]
+    token_count: 378
+  - id: "social-intelligence/reddit-deep/digitalnomad/1rx6x7u.md#c1"
+    char_span: [1584, 3799]
+    sentence_count: 15
+    key_terms: [someone, lessmediamorelife, finding, people, rather, travel, connections, activities]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/digitalnomad/1rx6x7u.md#c2"
+    char_span: [3511, 3950]
+    sentence_count: 4
+    key_terms: [experiences, someone, want, realistically, interested, apartment, "couldn't", romantic]
+    section: Comments
+    token_count: 101
+  - id: "social-intelligence/reddit-deep/digitalnomad/1rx6x7u.md#c3"
+    char_span: [3952, 5718]
+    sentence_count: 13
+    key_terms: [coliving, people, rather, meet, together, friends, having, travel]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/digitalnomad/1rx6x7u.md#c4"
+    char_span: [5720, 7566]
+    sentence_count: 10
+    key_terms: [nomad, groups, people, june, country, around, cities, mexico]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/digitalnomad/1rx6x7u.md#c5"
+    char_span: [7568, 8811]
+    sentence_count: 13
+    key_terms: [lessmediamorelife, community, instead, usually, people, spaces, persistence0fmemory, stays]
+    section: Comments
+    token_count: 289
 ---
-
 # Best ways to meet other mature DNs to travel with
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1rx6x7u/best_ways_to_meet_other_mature_dns_to_travel_with/)

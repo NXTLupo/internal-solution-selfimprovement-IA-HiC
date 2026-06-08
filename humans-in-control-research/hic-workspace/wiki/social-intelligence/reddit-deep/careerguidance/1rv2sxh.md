@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rv2sxh.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rv2sxh/wanting_a_stable_job_along_with_pursuing_my/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 2
 upvote_ratio: 1
 num_comments: 1
 flair: ""
-extracted_at: "2026-05-23T14:54:05.580Z"
+extracted_at: "2026-06-03T18:35:34.125Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rv2sxh.md#c0"
+    char_span: [0, 579]
+    sentence_count: 2
+    key_terms: [careerguidance, photography, comments, stable, job, reddit-deep, literature, education]
+    token_count: 149
+  - id: "social-intelligence/reddit-deep/careerguidance/1rv2sxh.md#c1"
+    char_span: [594, 868]
+    sentence_count: 2
+    key_terms: [career, photography, education, fraught, hating, making, bills, craft]
+    section: Comments
+    token_count: 66
 ---
-
 # wanting a stable job along with pursuing my passion. any career guidance?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rv2sxh/wanting_a_stable_job_along_with_pursuing_my/)

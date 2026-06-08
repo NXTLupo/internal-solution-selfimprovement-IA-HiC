@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1skuc8o.md
 url: "https://www.reddit.com/r/internships/comments/1skuc8o/do_i_ask_for_a_raise_on_my_internship/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,27 @@ flair: "General"
 extracted_at: "2026-05-24T14:08:27.830Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1skuc8o.md#c0"
+    char_span: [0, 1289]
+    sentence_count: 10
+    key_terms: [internship, internships, work, graduate, job, comments, prepared, applied]
+    token_count: 307
+  - id: "social-intelligence/reddit-deep/internships/1skuc8o.md#c1"
+    char_span: [1304, 3344]
+    sentence_count: 17
+    key_terms: [dry-remote826, school, hospital, scared, hours, match, week, internship]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1skuc8o.md#c2"
+    char_span: [3072, 3645]
+    sentence_count: 6
+    key_terms: [school, hours, week, hospital, website, program, completing, internship]
+    section: Comments
+    token_count: 138
 ---
-
 # Do I ask for a raise on my internship?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1skuc8o/do_i_ask_for_a_raise_on_my_internship/)

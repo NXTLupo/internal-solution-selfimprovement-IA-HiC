@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1p1csbd.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1p1csbd/requesting_feedback_what_are_the_weak_areas_in_my/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,21 @@ flair: "Applied Sciences"
 extracted_at: "2026-05-22T23:33:50.658Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1p1csbd.md#c0"
+    char_span: [0, 405]
+    sentence_count: 2
+    key_terms: [gradadmissions, comments, https, no-chemistry-3354, biochemistry, reddit-deep, requesting, feedback]
+    token_count: 130
+  - id: "social-intelligence/reddit-deep/gradadmissions/1p1csbd.md#c1"
+    char_span: [420, 1087]
+    sentence_count: 7
+    key_terms: [research, paragraphs, fun-concentrate2992, no-chemistry-3354, get, like, main, want]
+    section: Comments
+    token_count: 161
 ---
-
 # Requesting feedback: What are the weak areas in my SOP for Biochemistry PhD?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1p1csbd/requesting_feedback_what_are_the_weak_areas_in_my/)

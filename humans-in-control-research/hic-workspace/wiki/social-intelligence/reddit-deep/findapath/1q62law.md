@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1q62law.md
 url: "https://www.reddit.com/r/findapath/comments/1q62law/does_anyone_else_feel_stuck_because_they_dont/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,21 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-22T15:13:18.824Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1q62law.md#c0"
+    char_span: [0, 319]
+    sentence_count: 1
+    key_terms: [findapath, comments, reddit-deep, because, student, anyone, career, choose]
+    token_count: 92
+  - id: "social-intelligence/reddit-deep/findapath/1q62law.md#c1"
+    char_span: [334, 1466]
+    sentence_count: 10
+    key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
+    section: Comments
+    token_count: 248
 ---
-
 # Does anyone else feel stuck because they don’t know how to choose a career path?(student)
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1q62law/does_anyone_else_feel_stuck_because_they_dont/)

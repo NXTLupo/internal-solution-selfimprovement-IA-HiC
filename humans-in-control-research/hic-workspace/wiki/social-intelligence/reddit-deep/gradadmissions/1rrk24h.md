@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1rrk24h.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rrk24h/informal_offer_rescinded_just_complaining_im/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,51 @@ flair: "Biological Sciences"
 extracted_at: "2026-05-20T03:56:10.762Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rrk24h.md#c0"
+    char_span: [0, 1728]
+    sentence_count: 18
+    key_terms: [gradadmissions, maybe, professor, comments, decision, because, contact, mid-may]
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rrk24h.md#c1"
+    char_span: [1743, 3670]
+    sentence_count: 13
+    key_terms: [probably, because, bullet, dodged, admin, been, like, definitely]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rrk24h.md#c2"
+    char_span: [3672, 5646]
+    sentence_count: 18
+    key_terms: [like, wait, want, professor, decision, yourself, choice, saying]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rrk24h.md#c3"
+    char_span: [5648, 7086]
+    sentence_count: 13
+    key_terms: [deadline, accepted, honestly, advisor, offer, been, give, "i'd"]
+    section: Comments
+    token_count: 338
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rrk24h.md#c4"
+    char_span: [7088, 8952]
+    sentence_count: 21
+    key_terms: [accept, offer, "i'd", play, unofficial, employers, contract, official]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rrk24h.md#c5"
+    char_span: [8954, 10349]
+    sentence_count: 13
+    key_terms: [choice, early, gave, someone, telling, offers, offer, didn]
+    section: Comments
+    token_count: 324
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rrk24h.md#c6"
+    char_span: [10351, 11690]
+    sentence_count: 10
+    key_terms: [minimumtelevision217, offer, accept, advice, blacklist, position, better, careful-while-7214]
+    section: Comments
+    token_count: 319
 ---
-
 # Informal offer rescinded. Just complaining. I'm tired of how decentralized the application process is.
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rrk24h/informal_offer_rescinded_just_complaining_im/)

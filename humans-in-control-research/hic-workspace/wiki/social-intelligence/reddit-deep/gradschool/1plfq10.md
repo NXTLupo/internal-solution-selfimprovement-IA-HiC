@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1plfq10.md
 url: "https://www.reddit.com/r/GradSchool/comments/1plfq10/got_caught_cheating_on_an_exam_years_ago_and_was/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.346Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1plfq10.md#c0"
+    char_span: [0, 931]
+    sentence_count: 9
+    key_terms: [got, gradschool, undergrad, cheating, comments, decision, caught, asked]
+    token_count: 226
+  - id: "social-intelligence/reddit-deep/gradschool/1plfq10.md#c1"
+    char_span: [946, 1150]
+    sentence_count: 1
+    key_terms: [dishonest, academically, answered, already, person, "you've", admit, tells]
+    section: Comments
+    token_count: 51
+  - id: "social-intelligence/reddit-deep/gradschool/1plfq10.md#c2"
+    char_span: [1152, 3307]
+    sentence_count: 17
+    key_terms: [program, since, lie, academic, learned, mistake, record, great]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1plfq10.md#c3"
+    char_span: [3047, 3722]
+    sentence_count: 4
+    key_terms: [learn, mistake, relationfearless5998, applications, especially, resilience, trutru1002, beautiful]
+    section: Comments
+    token_count: 156
+  - id: "social-intelligence/reddit-deep/gradschool/1plfq10.md#c4"
+    char_span: [3724, 5638]
+    sentence_count: 14
+    key_terms: [mistake, major, probably, people, dishonesty, submitted, academic, happens]
+    section: Comments
+    token_count: 436
 ---
-
 # Got caught cheating on an exam years ago and was reported, how screwed am I for grad admissions?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1plfq10/got_caught_cheating_on_an_exam_years_ago_and_was/)

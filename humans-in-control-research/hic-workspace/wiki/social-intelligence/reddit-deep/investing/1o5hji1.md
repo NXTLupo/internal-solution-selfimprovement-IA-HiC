@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1o5hji1.md
 url: "https://www.reddit.com/r/investing/comments/1o5hji1/retired_this_week_what_to_do_with_my_nvidia/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,81 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.195Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1o5hji1.md#c0"
+    char_span: [0, 1013]
+    sentence_count: 10
+    key_terms: [nervous, nvidia, investing, comments, retired, having, reddit, shares]
+    token_count: 239
+  - id: "social-intelligence/reddit-deep/investing/1o5hji1.md#c1"
+    char_span: [1028, 3180]
+    sentence_count: 12
+    key_terms: [order, price, filled, "you're", going, limit, stop, tax]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/investing/1o5hji1.md#c2"
+    char_span: [3182, 5126]
+    sentence_count: 13
+    key_terms: [nvidia, apple, bonds, world, nzproduce, equities, position, research]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/investing/1o5hji1.md#c3"
+    char_span: [5128, 7139]
+    sentence_count: 14
+    key_terms: [nvidia, portfolio, probably, international, premium-2025-8-31-money-metals, retirement, bubble, number]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/investing/1o5hji1.md#c4"
+    char_span: [7141, 7567]
+    sentence_count: 2
+    key_terms: [tax, sell, implications, accountant, advantaged, brokerages, decisions, typically]
+    section: Comments
+    token_count: 101
+  - id: "social-intelligence/reddit-deep/investing/1o5hji1.md#c5"
+    char_span: [7569, 9646]
+    sentence_count: 19
+    key_terms: [diversification, apple, get, companies, financing, circular, probably, others]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1o5hji1.md#c6"
+    char_span: [9372, 10715]
+    sentence_count: 11
+    key_terms: ["don't", income, tax, account, however, years, immediate-you-9372, get]
+    section: Comments
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/investing/1o5hji1.md#c7"
+    char_span: [10717, 12563]
+    sentence_count: 20
+    key_terms: [tax, dividend, like, sell, retirement, dividends, something, advisor]
+    section: Comments
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/investing/1o5hji1.md#c8"
+    char_span: [12565, 14700]
+    sentence_count: 20
+    key_terms: [options, good, stocks, comfortable, don, contractor, something, consider]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/investing/1o5hji1.md#c9"
+    char_span: [14702, 15459]
+    sentence_count: 7
+    key_terms: [ongoing, nvidia, paying, been, maid, rebalancing, investment, management]
+    section: Comments
+    token_count: 182
+  - id: "social-intelligence/reddit-deep/investing/1o5hji1.md#c10"
+    char_span: [15461, 17314]
+    sentence_count: 17
+    key_terms: [year, advisor, paying, funds, years, tax, too, account]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1o5hji1.md#c11"
+    char_span: [17060, 17707]
+    sentence_count: 5
+    key_terms: [premiums, advisor, opinion, nearing60andhappy, professional, pupulewailua, skyrocketing, medicare]
+    section: Comments
+    token_count: 164
 ---
-
 # Retired this week. What to do with my Nvidia
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1o5hji1/retired_this_week_what_to_do_with_my_nvidia/)

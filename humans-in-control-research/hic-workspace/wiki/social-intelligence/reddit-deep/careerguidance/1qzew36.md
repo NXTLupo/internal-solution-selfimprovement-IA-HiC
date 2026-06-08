@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1qzew36.md
 url: "https://www.reddit.com/r/careerguidance/comments/1qzew36/new_teller_at_a_small_credit_union_canada_with_a/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-20T12:56:27.152Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1qzew36.md#c0"
+    char_span: [0, 827]
+    sentence_count: 6
+    key_terms: [careerguidance, teller, background, comments, advice, credit, people, small]
+    token_count: 200
+  - id: "social-intelligence/reddit-deep/careerguidance/1qzew36.md#c1"
+    char_span: [842, 2817]
+    sentence_count: 18
+    key_terms: [employees, work, branch, departments, need, advance, members, answer]
+    section: Comments
+    token_count: 450
 ---
-
 # New teller at a small Credit Union (Canada) with a non-finance background, looking for guidance. Career advice?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1qzew36/new_teller_at_a_small_credit_union_canada_with_a/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1rmxued.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rmxued/a_word_of_caution_to_the_newly_admitted_phd/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,56 @@ flair: "Social Sciences"
 extracted_at: "2026-05-23T14:54:16.719Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rmxued.md#c0"
+    char_span: [0, 2228]
+    sentence_count: 16
+    key_terms: ["i'm", humanities, job, academia, getting, program, gradadmissions, market]
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rmxued.md#c1"
+    char_span: [2230, 2713]
+    sentence_count: 5
+    key_terms: [international, "don't", offer, grad, accomplished, tenure-track, perspective, sponsorship]
+    token_count: 96
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rmxued.md#c2"
+    char_span: [2728, 3149]
+    sentence_count: 5
+    key_terms: [emotional-benefit994, thank, devilinthedistrict, been, applicants, wasteland, honestly, prepared]
+    section: Comments
+    token_count: 116
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rmxued.md#c3"
+    char_span: [3151, 5168]
+    sentence_count: 13
+    key_terms: [been, years, devilinthedistrict, job, schools, several, market, teach]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rmxued.md#c4"
+    char_span: [4848, 5649]
+    sentence_count: 8
+    key_terms: [least, state, red, blue, live, teaching-focused, subdisciplinary, assistantship]
+    section: Comments
+    token_count: 176
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rmxued.md#c5"
+    char_span: [5651, 7069]
+    sentence_count: 10
+    key_terms: [get, "i'm", students, engineering, internships, positions, network, several]
+    section: Comments
+    token_count: 312
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rmxued.md#c6"
+    char_span: [7071, 8672]
+    sentence_count: 5
+    key_terms: [want, pinkaddict2003, career, job, phd, understand, expecting, industry]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rmxued.md#c7"
+    char_span: [8674, 10621]
+    sentence_count: 5
+    key_terms: [privilege, because, perhaps, someone, academia, research, careers, friends]
+    section: Comments
+    token_count: 437
 ---
-
 # A word of caution to the newly admitted PhD students about the state of academia/job market in social sciences/humanities
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rmxued/a_word_of_caution_to_the_newly_admitted_phd/)

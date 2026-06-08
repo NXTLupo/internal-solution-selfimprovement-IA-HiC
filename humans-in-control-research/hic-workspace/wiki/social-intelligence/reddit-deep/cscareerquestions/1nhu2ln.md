@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1nhu2ln/elon_muskled_tesla_sued_for_hiring_h1b_visa/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,63 @@ flair: ""
 extracted_at: "2026-05-26T12:54:26.389Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c0"
+    char_span: [0, 1219]
+    sentence_count: 5
+    key_terms: [lawsuit-says-musks-tesla-hires-visa-holders-instead-americans-so-it-can-pay-less-2025-09-12, holders, tesla, cscareerquestions, h1-b, visa, americans, citizens]
+    token_count: 314
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c1"
+    char_span: [1234, 2775]
+    sentence_count: 9
+    key_terms: [abledanger12, exploitative, "don't", work, volunteer, enough, intelligent-ad-1424, doesn]
+    section: Comments
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c2"
+    char_span: [2777, 4774]
+    sentence_count: 17
+    key_terms: [immigrants, american, exploitation, americans, harder, corporations, work, against]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c3"
+    char_span: [4776, 5943]
+    sentence_count: 7
+    key_terms: [accomplishments, people, exploitation, here, despite, "there's", reward, desperate-till-9228]
+    section: Comments
+    token_count: 277
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c4"
+    char_span: [5945, 7763]
+    sentence_count: 12
+    key_terms: [concern, "it's", tacos314, because, cheaper, company, others, point]
+    section: Comments
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c5"
+    char_span: [7765, 9141]
+    sentence_count: 8
+    key_terms: [h1b, elon, outsourced, companies, microsoft, amazon, google, recognitionsignal425]
+    section: Comments
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c6"
+    char_span: [9143, 10986]
+    sentence_count: 14
+    key_terms: [h1b, people, republicans, like, anything, abolish, against, believe]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c7"
+    char_span: [10989, 12998]
+    sentence_count: 15
+    key_terms: [cscareerquestionsin, american, people, etc, citizen, monkey, reddit, cscareerquestionscad]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c8"
+    char_span: [13000, 14240]
+    sentence_count: 8
+    key_terms: [american, capitalism, centered, market, reddit, insertsavvynamehere, throwaway0845reddit, "i'm"]
+    section: Comments
+    token_count: 351
 ---
-
 # Elon Musk-led Tesla sued for hiring H1-B visa holders over US citizens. Will other companies also be sued in the future?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1nhu2ln/elon_muskled_tesla_sued_for_hiring_h1b_visa/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1rhnsg1.md
 url: "https://www.reddit.com/r/investing/comments/1rhnsg1/iran_tensions_send_oil_soaring_fed_rate_cuts_now/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,63 @@ flair: ""
 extracted_at: "2026-05-16T20:55:01.240Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, energy, government]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1rhnsg1.md#c0"
+    char_span: [0, 1314]
+    sentence_count: 5
+    key_terms: [any-chance-the-fed-cuts-rates-this-year-is-evaporating-before-our-very-eyes-as-iran-tensions-raise-oil-prices-18978691, marketwatch, dailyinvestmentbrief, com, https, oil, investing, comments]
+    token_count: 315
+  - id: "social-intelligence/reddit-deep/investing/1rhnsg1.md#c1"
+    char_span: [1329, 3418]
+    sentence_count: 11
+    key_terms: [iran, strait, surrender, been, does, red, hormuz, monday]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/investing/1rhnsg1.md#c2"
+    char_span: [3420, 5562]
+    sentence_count: 14
+    key_terms: [future, priced, conflict, spectrum, dragged, change, events, expect]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/investing/1rhnsg1.md#c3"
+    char_span: [5564, 6543]
+    sentence_count: 7
+    key_terms: [insurance, whether, monday, strait, understanding, opportunity, companies, curiosity]
+    section: Comments
+    token_count: 225
+  - id: "social-intelligence/reddit-deep/investing/1rhnsg1.md#c4"
+    char_span: [6545, 8433]
+    sentence_count: 10
+    key_terms: [tech, continue, market, cut, oil, neffaddict, private, likely]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1rhnsg1.md#c5"
+    char_span: [8086, 9016]
+    sentence_count: 6
+    key_terms: [continue, stocks, international, european, private, no-understanding2406, going, "isn't"]
+    section: Comments
+    token_count: 217
+  - id: "social-intelligence/reddit-deep/investing/1rhnsg1.md#c6"
+    char_span: [9018, 10837]
+    sentence_count: 7
+    key_terms: [cash, market, down, got, conflict, futures, holding, weekend]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/investing/1rhnsg1.md#c7"
+    char_span: [10840, 11809]
+    sentence_count: 8
+    key_terms: [priced, oil, deleted, happen, improbablybetteratit, rocketlabbeatsspacex, going, gonna]
+    section: Comments
+    token_count: 308
+  - id: "social-intelligence/reddit-deep/investing/1rhnsg1.md#c8"
+    char_span: [11811, 13092]
+    sentence_count: 8
+    key_terms: [markets, weekend, weekend-oil---us-crude, higher, prices, carlosdangerwashere, means, insertclichehereok]
+    section: Comments
+    token_count: 353
 ---
-
 # Iran Tensions Send Oil Soaring, Fed Rate Cuts Now Seem Unlikely
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1rhnsg1/iran_tensions_send_oil_soaring_fed_rate_cuts_now/)

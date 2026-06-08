@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1qw1anr.md
 url: "https://www.reddit.com/r/college/comments/1qw1anr/graduating_early_vs_double_majoringdual_degree/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -7,14 +8,37 @@ title: "Graduating early vs double majoring/dual degree"
 author: "oxycat__"
 date: "2026-02-04T21:18:04.000Z"
 score: 7
-upvote_ratio: 0.99
+upvote_ratio: 0.89
 num_comments: 8
 flair: "Career/work"
-extracted_at: "2026-05-25T18:31:10.106Z"
+extracted_at: "2026-06-05T23:41:08.234Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1qw1anr.md#c0"
+    char_span: [0, 1577]
+    sentence_count: 13
+    key_terms: [data, science, major, "i'm", comments, graduate, because, college]
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/college/1qw1anr.md#c1"
+    char_span: [1592, 3880]
+    sentence_count: 16
+    key_terms: [major, additional, going, internships, original, projects, majors, experience]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/college/1qw1anr.md#c2"
+    char_span: [3882, 5716]
+    sentence_count: 13
+    key_terms: [graduate, major, school, requirements, opportunity, going, level, start]
+    section: Comments
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/college/1qw1anr.md#c3"
+    char_span: [5718, 8052]
+    sentence_count: 17
+    key_terms: [appropriate, internships, internship, outside, science, skills, early, major]
+    section: Comments
+    token_count: 502
 ---
-
 # Graduating early vs double majoring/dual degree
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1qw1anr/graduating_early_vs_double_majoringdual_degree/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1rp8iny.md
 url: "https://www.reddit.com/r/findapath/comments/1rp8iny/i_ranked_the_top_20_aiproof_careers_you_can_start/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,45 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-25T13:04:07.387Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [ai_research, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1rp8iny.md#c0"
+    char_span: [0, 1442]
+    sentence_count: 12
+    key_terms: [comments, careers, findapath, https, best-ai-proof-no-degree-careers, com, eta, jobs]
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/findapath/1rp8iny.md#c1"
+    char_span: [1457, 2404]
+    sentence_count: 9
+    key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/findapath/1rp8iny.md#c2"
+    char_span: [2407, 4340]
+    sentence_count: 11
+    key_terms: [like, care, work, elderly, health, poster, responsible-lunch552, dontfeedagalasponge]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/findapath/1rp8iny.md#c3"
+    char_span: [4342, 6195]
+    sentence_count: 11
+    key_terms: [people, dontfeedagalasponge, collectively, list, brahnbrahl, technician, mechanic, thinking]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/findapath/1rp8iny.md#c4"
+    char_span: [6198, 7807]
+    sentence_count: 11
+    key_terms: [dontfeedagalasponge, jobs, pay, officers, teach-xx, become, people, wooden-background107]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/findapath/1rp8iny.md#c5"
+    char_span: [7809, 8713]
+    sentence_count: 6
+    key_terms: [controller, traffic, apples, people, "don't", unknownunknowns11, air, get]
+    section: Comments
+    token_count: 231
 ---
-
 # I ranked the top 20 AI-proof careers you can start without a degree
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1rp8iny/i_ranked_the_top_20_aiproof_careers_you_can_start/)

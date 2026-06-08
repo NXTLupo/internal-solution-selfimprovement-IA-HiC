@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1o3vyqe.md
 url: "https://www.reddit.com/r/GradSchool/comments/1o3vyqe/how_do_i_stop_feeling_so_inferior_to_phd_students/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,33 @@ flair: "Health & Work/Life Balance"
 extracted_at: "2026-05-25T13:04:07.349Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1o3vyqe.md#c0"
+    char_span: [0, 1909]
+    sentence_count: 17
+    key_terms: [research, feel, phd, feeling, program, professional, roommates, like]
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/gradschool/1o3vyqe.md#c1"
+    char_span: [1924, 3711]
+    sentence_count: 24
+    key_terms: [different, phd, stop, "master's", yourself, industry-focused, because, student]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/gradschool/1o3vyqe.md#c2"
+    char_span: [3713, 5478]
+    sentence_count: 19
+    key_terms: [want, something, phd, thoughts, own, different, yourself, against]
+    section: Comments
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/gradschool/1o3vyqe.md#c3"
+    char_span: [5480, 7454]
+    sentence_count: 13
+    key_terms: [phd, experiences, different, "master's", yourself, jealous, masters, program]
+    section: Comments
+    token_count: 488
 ---
-
 # How do I stop feeling so inferior to PhD students as a current MS student?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1o3vyqe/how_do_i_stop_feeling_so_inferior_to_phd_students/)

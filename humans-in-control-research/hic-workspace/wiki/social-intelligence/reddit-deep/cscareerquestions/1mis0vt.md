@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1mis0vt/if_i_cant_get_a_tech_job_a_year_after_graduating/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,90 @@ subreddit: "cscareerquestions"
 title: "If I can’t get a tech job a year after graduating will my CS degree eventually become pointless?"
 author: "rjballer36O"
 date: "2025-08-06T01:50:25.000Z"
-score: 539
+score: 538
 upvote_ratio: 0.94
 num_comments: 175
 flair: ""
-extracted_at: "2026-05-22T21:34:54.417Z"
+extracted_at: "2026-06-06T17:43:22.941Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md#c0"
+    char_span: [0, 1611]
+    sentence_count: 9
+    key_terms: [cscareerquestions, job, degree, get, role, tech, anything, comments]
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md#c1"
+    char_span: [1626, 3650]
+    sentence_count: 15
+    key_terms: ["it's", answer, slow-bodybuilder-972, degree, people, resume, "that's", did]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md#c2"
+    char_span: [3652, 5671]
+    sentence_count: 12
+    key_terms: [market, question, hiring, people, get, job, time, candidate]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md#c3"
+    char_span: [5675, 7635]
+    sentence_count: 12
+    key_terms: [interviews, job, tech, getting, blah, role, graduated, "couldn't"]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md#c4"
+    char_span: [7637, 9365]
+    sentence_count: 8
+    key_terms: [years, tech, sharepoint, paradigms, because, answer, competitive-adagio18, maybe]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md#c5"
+    char_span: [9367, 11442]
+    sentence_count: 13
+    key_terms: [devops, software, coding, roles, commonsearchterm, people, admin, get]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md#c6"
+    char_span: [11444, 13434]
+    sentence_count: 12
+    key_terms: [projects, cscareerquestions, tech, astral902, mandatory, comments, industry, reddit]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md#c7"
+    char_span: [13211, 13492]
+    sentence_count: 3
+    key_terms: [share, cscareerquestions, commenter, subreddit, comments, learning, provided, valuable]
+    section: Comments
+    token_count: 76
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md#c8"
+    char_span: [13494, 13759]
+    sentence_count: 3
+    key_terms: [demonstrate, additional, completely, expertise, knowledge, employer, interest, comment]
+    section: Comments
+    token_count: 58
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md#c9"
+    char_span: [13761, 15726]
+    sentence_count: 8
+    key_terms: [applying, day, projects, resume, tailor, trying, least, rjballer36o]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md#c10"
+    char_span: [15728, 17469]
+    sentence_count: 17
+    key_terms: [job, junior, "you're", applications, cover, "won't", jobs, need]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mis0vt.md#c11"
+    char_span: [17471, 19268]
+    sentence_count: 17
+    key_terms: [job, getting, degree, get, here, year, friend, worked]
+    section: Comments
+    token_count: 412
 ---
-
 # If I can’t get a tech job a year after graduating will my CS degree eventually become pointless?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1mis0vt/if_i_cant_get_a_tech_job_a_year_after_graduating/)
-Posted by **rjballer36O** · **539↑** · **175 comments**
+Posted by **rjballer36O** · **538↑** · **175 comments**
 
 I was a meh student, solid GPA but definitely cut corners, I didn’t really specialize much in my CS and instead got a business minor as a fallback. 
 
@@ -30,7 +102,7 @@ Update: Today I finally got a job offer as a data specialist for a small company
 
 ## Comments
 
-- **Slow-Bodybuilder-972** (434↑): A CS degree will become less relevant the more tech experience you have, but in this case, it's a little bit different.
+- **Slow-Bodybuilder-972** (433↑): A CS degree will become less relevant the more tech experience you have, but in this case, it's a little bit different.
 
 It's not really a matter of it being outdated, this industry doesn't really change as quickly as people make out, I mean people talk about Python like it's the hot shit, I was using it professionally 25 years ago.
 
@@ -39,14 +111,14 @@ The bigger issue is that if your resume came across my desk, my first question i
 I would say, it's a really tough market out there ,especially for juniors, and if you were the runner up for a job, that's *good* sign.
 
 The last time we put out a job ad, we got 300 applicants, we would have had more if we hadn't taken the ad down. To get 6 interviews in a year, I actually think you're doing OK, and I wouldn't give up just yet.
-  - **eye-pine** (179↑): "The bigger issue is that if your resume came across my desk, my first question is why you did a CS degree, and then went into a non-tech role? And you need a solid answer for that."
+  - **eye-pine** (175↑): "The bigger issue is that if your resume came across my desk, my first question is why you did a CS degree, and then went into a non-tech role? And you need a solid answer for that."
 
 Would saying I needed money be a good enough answer? lol
-    - **Slow-Bodybuilder-972** (145↑): For me, yes, that's a good enough answer.
+    - **Slow-Bodybuilder-972** (143↑): For me, yes, that's a good enough answer.
 
 Most people are reasonable, they won't hold that against you.
     - **aeplus** (36↑): Yeah. It was not a perfect solution, but it was a workable solution given financial requirements. lol
-    - **PineappleLemur** (15↑): To some it will to others it going to be super negative because you "gave up the second things got hard" lol.
+    - **PineappleLemur** (16↑): To some it will to others it going to be super negative because you "gave up the second things got hard" lol.
 
 It purely depends on who you end up talking too.
 
@@ -58,7 +130,7 @@ That's why lying on your resume with ways no one can confirm is suggested. It's 
 I think if you tell most hiring managers how many applications you did and wasn't able to get anything but still needed to have insurance and pay bills thats reasonable.
 
 I think too people respect someone working somewhere rather than sitting at home doing nothing.
-    - **CIA--Bane** (7↑): No because tech jobs also pay money. 
+    - **CIA--Bane** (9↑): No because tech jobs also pay money. 
 
 What the question is getting at is “why were you unable to get a role in tech after graduating with a CS degree?”. The assumption is always you’re just bad at CS because while the market isn’t amazing juniors are still finding jobs so you must be below average. 
 
@@ -71,13 +143,13 @@ Interviewers and hiring processes vary wildly.
     - **DeOh** (1↑): Most recruiters and hiring managers aren't so out of touch with the current job market. I graduated in the worse economic crash in recent history in 2009 and so most of the time they didn't even ask. If they did I would assume they have no idea what's going on in the world.
   - **alanquinne** (38↑): Isn't this a weird question to ask candidates currently? This is an extremely tough market and everyone knows that.
     - **Illustrious-Pound266** (4↑): Well why aren't you beating the market? /S
-    - **NewChameleon** (12↑): not weird, this question can also be interpreted as, if you're not strong enough to break in the first time, what reason do I have that you're strong enough now? considering the time between your 1st attempt and now is spent at non-tech roles
+    - **NewChameleon** (10↑): not weird, this question can also be interpreted as, if you're not strong enough to break in the first time, what reason do I have that you're strong enough now? considering the time between your 1st attempt and now is spent at non-tech roles
   
 >This is an extremely tough market and everyone knows that. 
   
 not my concern from hiring perspective, we just want to hire the strongest candidate we possibly could, the one that is best fit for the team, whether or not the job market is "tough" is irrelevant, nobody is entitled to a job
     - **usererroralways** (3↑): Yeah, people like to hear rehearsed answers.
-    - **[deleted]** (2↑): I think it's a perfectly valid question, and the answer isn't just "I needed a job and I couldn't get a tech role initially". Others could have different reasons, and thr motivations behind those reasons can tell a lot to a recruiter.
+    - **[deleted]** (1↑): I think it's a perfectly valid question, and the answer isn't just "I needed a job and I couldn't get a tech role initially". Others could have different reasons, and thr motivations behind those reasons can tell a lot to a recruiter.
 
 And a lot of the times the question isn't just about ticking off checkboxes, but also getting to know you as a person. 
 
@@ -88,12 +160,12 @@ And a lot of the times the question isn't just about ticking off checkboxes, but
 vs
 
 "I was really interested in tech, that's why I majored in cs, and in particular I loved networks, when I graduated there were new and exciting improvements to TCP IP. However, due to xx blah blah blah"
-  - **LilianItachi** (8↑): I'd still say that the resume craft and getting interviews is the hardest part right now. Other than that interviews don't feel that hard after some leetcoding if you already built some projects. So getting those 6 interviews, as you said, looks OK for OP
+  - **LilianItachi** (7↑): I'd still say that the resume craft and getting interviews is the hardest part right now. Other than that interviews don't feel that hard after some leetcoding if you already built some projects. So getting those 6 interviews, as you said, looks OK for OP
   - **Codelyez** (5↑): Man… it’s crazy to think 6 interviews a year is considered okay. I know it is what it is, but still.
   - **SynthRogue** (4↑): The answer to why anyone applies to any job is I need money to live and if you think my skills will benefit your company then hire me. Otherwise don't. No need for a more grandiose explanation than that.
 
 It's not rocket science or quantum physics.
-  - **twnbay76** (16↑): just because an entire programming language didn't completely die out does doesn't mean the industry hasn't changed . Here's a few absolutely insane changes to python that pretty much renders your 2000 python utterly pointless:
+  - **twnbay76** (15↑): just because an entire programming language didn't completely die out does doesn't mean the industry hasn't changed . Here's a few absolutely insane changes to python that pretty much renders your 2000 python utterly pointless:
 
 - C extensions
 - pandas/numpy
@@ -121,18 +193,18 @@ Anyway I agree with everything else
 
 What’s actually a good answer to this because? It’s been 3 years and I kinda quit and coasted for a year to be perfectly honest.
   - **Competitive-Adagio18** (1↑): I think you might be over simplifying things. In this market or even a year from now, that resume is never making to your desk.
-- **[deleted]** (56↑): It will be hard to switch and within a couple years nearly impossible. I’d keep pushing.
+- **[deleted]** (54↑): It will be hard to switch and within a couple years nearly impossible. I’d keep pushing.
   - **Eridrus** (10↑): Yeah, the biggest issue is that skills do atrophy.
 
 If you stop coding for a year, you're going to be even less useful than a typical new grad.
     - **N0M0REG00DNAMES** (15↑): People on here always talk about this as if cs degrees don’t tend to get super theory heavy in the tail end anyway. Your actual coding experience is largely stemming from co-ops, internships, or research, and that’s exactly what student are having trouble getting now.
-- **MiserableProduce4011** (18↑): If you’ve been the runner up for a job, you’re almost there. Just keep pushing brother, you’ll make it soon 🙏
+- **MiserableProduce4011** (20↑): If you’ve been the runner up for a job, you’re almost there. Just keep pushing brother, you’ll make it soon 🙏
 - **commonsearchterm** (17↑): > I’ve kinda accepted I currently don’t have the skills for software development, but in my area even things like IT help desk, QA, and analyst roles are scarce and competitive.
 
 If you finished a cs degree you probably do
 
 IT and admin work is heavy on certs. If you get some software adjacent job like linux admin work, devops roles sre etc... CS will make you a lot stronger of a candidate. the level of coding is embarrasing
-  - **IllustriousHistorian** (10↑): QA, Analysts, and SRE/DevOps have really really changed over the last decade.  I mentioned that latter two in a different comment.  I wanted to say I agree on your DevOps take.  
+  - **IllustriousHistorian** (8↑): QA, Analysts, and SRE/DevOps have really really changed over the last decade.  I mentioned that latter two in a different comment.  I wanted to say I agree on your DevOps take.  
   
 DevOps has become a far more technical role over the last 5-10 year than this sub reddit gives credit.   You have some DevOps people who moved in from the old system admin type roles that didn't require programming outside of shell scripting.  Writing code for infra can be a real challenge; there is still plenty of opportunities for a good CS student.  You need to know k8s, aws, Docker, ELK, New Relic, and some coding to setup infra.
     - **xqk13** (1↑): I saw many people say that DevOps by definition can’t be a junior/new grad position, would you say that’s true?
@@ -140,36 +212,36 @@ DevOps has become a far more technical role over the last 5-10 year than this su
     - **commonsearchterm** (2↑): sre and devops roles get paid the same amount as swes
 
 working help desk can be the same pay as some crappy entry level swe jobs. its not down leveling
-- **Astral902** (77↑): Build some polished projects and publish them on github.
-  - **Amerikaner** (149↑): I think this is solid advice but it’s still ridiculous this is pretty much mandatory now. So many other professional jobs are behavioral interviews but in tech you have to build complicated projects for free and then go through the SAT repeatedly for the chance to land a job. And if you don’t love this work for free in your off time work ethic you’re a weirdo and unlikely to land anything. It’s fucking garbage.
-    - **Astral902** (44↑): I totally understand what you mean.. I agree with your points 100%...
-    - **MajorPayne1911** (18↑): Makes it very difficult for anyone trying to get into the industry without a prior background or interested in it. Making me severely question my current degree program in it.
+- **Astral902** (80↑): Build some polished projects and publish them on github.
+  - **Amerikaner** (152↑): I think this is solid advice but it’s still ridiculous this is pretty much mandatory now. So many other professional jobs are behavioral interviews but in tech you have to build complicated projects for free and then go through the SAT repeatedly for the chance to land a job. And if you don’t love this work for free in your off time work ethic you’re a weirdo and unlikely to land anything. It’s fucking garbage.
+    - **Astral902** (43↑): I totally understand what you mean.. I agree with your points 100%...
+    - **MajorPayne1911** (19↑): Makes it very difficult for anyone trying to get into the industry without a prior background or interested in it. Making me severely question my current degree program in it.
     - **Zerocrossing** (0↑): Not true at all. My carpenter can bring up pictures of his projects at the drop of a hat and is proud to do so. Same with nearly every contractor I’ve hired.
-    - **JohnDoe432187** (-6↑): And how many other fields pay like tech does?
+    - **JohnDoe432187** (-8↑): And how many other fields pay like tech does?
     - **[deleted]** (-2↑): If you’re not excited to do personal projects, I don’t see why you would be in this industry
-    - **TheNewOP** (-3↑): Eh, it was mandatory when I graduated 7+ years ago. It was how I got my first job, actually.
-    - **Waterstick13** (-11↑): Is kinda fair, no? If I hire a full time in home chef I'm gonna wanna see some of their food and probably try it first
-  - **NewSchoolBoxer** (14↑): That's [not going to help](https://www.reddit.com/r/cscareerquestions/comments/1cmnznt/do_employers_actually_look_at_the_github_in/) unless they [go viral](https://www.reddit.com/r/cscareerquestions/comments/1m3nbuy/ive_got_my_first_swe_job_this_side_project_helped/). Learning tech stacks is valuable but no need to share the code. I don't share mine.
-    - **crimlol** (37↑): Source you provided: a random commenter from this subreddit lmao
+    - **TheNewOP** (-6↑): Eh, it was mandatory when I graduated 7+ years ago. It was how I got my first job, actually.
+    - **Waterstick13** (-9↑): Is kinda fair, no? If I hire a full time in home chef I'm gonna wanna see some of their food and probably try it first
+  - **NewSchoolBoxer** (11↑): That's [not going to help](https://www.reddit.com/r/cscareerquestions/comments/1cmnznt/do_employers_actually_look_at_the_github_in/) unless they [go viral](https://www.reddit.com/r/cscareerquestions/comments/1m3nbuy/ive_got_my_first_swe_job_this_side_project_helped/). Learning tech stacks is valuable but no need to share the code. I don't share mine.
+    - **crimlol** (36↑): Source you provided: a random commenter from this subreddit lmao
 
 The point is also completely missed in that comment. It’s not that the employer is going to open your github, read your code, and then give you a job based on that. It’s simply that you have added an additional way to demonstrate your knowledge/interest/expertise. 
 
 It is only there for face value to recruiters but in interviews you have the opportunity to give more context and explanation yourself.
     - **decimeci** (2↑): Also doing something more complex than tutorial project would take a lot of time. Like too much time with questionable results, which additionally kills any motivation to do that.
 - **Romano16** (8↑): Did you get internships?
-  - **rjballer36O** (25↑): No, big mistake on my part for not doing that during my college summers I’m definitely aware of that now but what’s done is done
-    - **Romano16** (13↑): Time to start in IT Support.
-- **GooseRage** (38↑): Make a LinkedIn account and post projects and updates. How many applications are sending out a day?
-  - **rjballer36O** (13↑): I’m trying to send at least 5 out a day, but I try to update my resume and cover letter and tailor each of them to the job I’m applying for rather than just mass applying to everything. I have some school projects on my resume but I had to archive the repository (I believe some current students were trying to copy off my projects). My area also doesn’t seem to have the best market for entry-level tech jobs, more so than other places in the country, so just finding things to apply for can be difficult sometimes.
-    - **[deleted]** (25↑): You gotta move. Most jobs that are feasible are requiring office, meaning a reasonable commute to a big city. Not all but most. Your chances are 100% more applying for in person jobs.
-    - **storeboughtoaktree** (4↑): ngl you need to get those numbers way up. start applying to at least 50 a day. don't tailor that much. just use AI to help a little. still use your own words and just change a bullet point or two, recruiters will not read that much anyway.
+  - **rjballer36O** (27↑): No, big mistake on my part for not doing that during my college summers I’m definitely aware of that now but what’s done is done
+    - **Romano16** (12↑): Time to start in IT Support.
+- **GooseRage** (34↑): Make a LinkedIn account and post projects and updates. How many applications are sending out a day?
+  - **rjballer36O** (14↑): I’m trying to send at least 5 out a day, but I try to update my resume and cover letter and tailor each of them to the job I’m applying for rather than just mass applying to everything. I have some school projects on my resume but I had to archive the repository (I believe some current students were trying to copy off my projects). My area also doesn’t seem to have the best market for entry-level tech jobs, more so than other places in the country, so just finding things to apply for can be difficult sometimes.
+    - **[deleted]** (24↑): You gotta move. Most jobs that are feasible are requiring office, meaning a reasonable commute to a big city. Not all but most. Your chances are 100% more applying for in person jobs.
+    - **storeboughtoaktree** (0↑): ngl you need to get those numbers way up. start applying to at least 50 a day. don't tailor that much. just use AI to help a little. still use your own words and just change a bullet point or two, recruiters will not read that much anyway.
     - **MathmoKiwi** (1↑): > I’m trying to send at least 5 out a day, but I try to update my resume and cover letter and tailor each of them to the job I’m applying for rather than just mass applying to everything.
 
 Think about the top... let's say 5 "types of jobs" that you're applying for. Such as: IT Help Desk vs Junior "Full Stack" SWE vs Junior Front End SWE vs Junior Data Analyst vs Consumer Electronics Retail Sales 
 
 Then write a custom tailored CV and cover letter for each "type" of job you're applying for, one for each "type". Now when you apply for jobs you won't need to tweak your CV at all , and your cover letter will only need the smallest of small tweaks. This means you can double or even triple the rate at which you apply for jobs.
     - **yourjusticewarrior2** (1↑): 5 job applications a day is nothing. For a single company there can be 5 job applications. You should be shooting for 30+ minimum and DO NOT spend too much time on cover letters or altering your resume. As a student you likely dont' need to substitute experience so don't waste time on that imo
-- **NewSchoolBoxer** (11↑): CS, the curriculum is always being outdated. When I was a student, AWS/Azure/GCP cloud crap didn't exist, NoSQL was fringe as hell and front end was an elective. I had to learn all these on the job. In CS, you're always learning on the job. Java 7 was mainstream when I started, now I see companies using Java 14 or later. The degree teaches you CS theory and fundamentals and proves you have some work ethic and coding ability. University prestige matters greatly for your first job.
+- **NewSchoolBoxer** (10↑): CS, the curriculum is always being outdated. When I was a student, AWS/Azure/GCP cloud crap didn't exist, NoSQL was fringe as hell and front end was an elective. I had to learn all these on the job. In CS, you're always learning on the job. Java 7 was mainstream when I started, now I see companies using Java 14 or later. The degree teaches you CS theory and fundamentals and proves you have some work ethic and coding ability. University prestige matters greatly for your first job.
 
 You can cycle back to CS and be entry level. The consulting industry won't care if you did something else for years but won't count that work experience. I'm not sure the job market is going to be any better. Unless I see proof of CS declining below [100,000 degrees per year](https://archive.is/mPNcX) in North America, I just see the squeeze tightening.
 
@@ -181,7 +253,7 @@ Business minor, I think you saw that you can't list minors on job applications. 
 
 
 Yeah, the math just doesn't work out anymore. Some new grads will not get tech jobs. The numbers just aren't there.
-- **Dave3of5** (6↑): Your degree gets you in your first job that's about it really. The longer the time between you getting the degree and getting that first job the more and more that it's unlikely that you'll ever get a CS job.
+- **Dave3of5** (5↑): Your degree gets you in your first job that's about it really. The longer the time between you getting the degree and getting that first job the more and more that it's unlikely that you'll ever get a CS job.
 
 There is another approach here which is to build something yourself and use that as industry experience. Some kind of AI tool would be especially interesting to an employeer. That way the time between getting your degree and a job is extended as you can say you've been working on [Insert thing here].
 - **DeOh** (4↑): I graduated in 2009, in the aftermath of the worst economic crash. It took me 2 years to get a job in the field, but I worked processing returns for a year, after a year unemployed after graduation. TBH though that first job was gotten from a friend of a friend. It was the only referral that ever worked in my career and a crucial one at that as getting your foot in the door is the hardest part.

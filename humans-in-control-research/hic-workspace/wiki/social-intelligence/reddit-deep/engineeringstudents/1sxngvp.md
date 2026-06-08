@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1sxngvp.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1sxngvp/hiring_process_for_cnrl_engineering_coop_student/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Career Help"
 extracted_at: "2026-05-25T13:01:49.568Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sxngvp.md#c0"
+    char_span: [0, 642]
+    sentence_count: 6
+    key_terms: [engineering, engineeringstudents, student, positions, comments, process, hiring, cnrl]
+    token_count: 143
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sxngvp.md#c1"
+    char_span: [657, 1833]
+    sentence_count: 7
+    key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
+    section: Comments
+    token_count: 272
 ---
-
 # Hiring process for CNRL engineering co-op student positions?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1sxngvp/hiring_process_for_cnrl_engineering_coop_student/)

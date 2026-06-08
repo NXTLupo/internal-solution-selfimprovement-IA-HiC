@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1ksclxk.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1ksclxk/googl_calls_yolo_1_million_in_gains/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,33 @@ flair: "YOLO"
 extracted_at: "2026-05-17T01:14:17.606Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ksclxk.md#c0"
+    char_span: [0, 1154]
+    sentence_count: 7
+    key_terms: [calls, googl, https, com, imgur, wallstreetbets, comments, million]
+    token_count: 341
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ksclxk.md#c1"
+    char_span: [1169, 2657]
+    sentence_count: 7
+    key_terms: [money, step, wsb, small, percentage, fatc0bra1, capital, discord]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ksclxk.md#c2"
+    char_span: [2659, 4296]
+    sentence_count: 9
+    key_terms: [bought, trade, dip, yesterday, moopie45, comment, options, defiant-tailor-8979]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ksclxk.md#c3"
+    char_span: [4298, 5237]
+    sentence_count: 3
+    key_terms: [congrats, "didn't", google, today, swimming-tutor2729, jump, kmpitxhnkkitz, sensational]
+    section: Comments
+    token_count: 271
 ---
-
 # GOOGL Calls YOLO - $1 million in gains
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1ksclxk/googl_calls_yolo_1_million_in_gains/)

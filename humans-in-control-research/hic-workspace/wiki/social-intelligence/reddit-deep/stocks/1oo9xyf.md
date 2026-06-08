@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1oo9xyf.md
 url: "https://www.reddit.com/r/stocks/comments/1oo9xyf/markets_stocks_big_short_michael_burry_bet/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-17T01:14:17.621Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1oo9xyf.md#c0"
+    char_span: [0, 615]
+    sentence_count: 3
+    key_terms: [big-short-michael-burry-put-option-bet-palantir-nvidia-bubble-2025-11, stocks, burry, big, comments, palantir, against, markets]
+    token_count: 161
+  - id: "social-intelligence/reddit-deep/stocks/1oo9xyf.md#c1"
+    char_span: [630, 2420]
+    sentence_count: 10
+    key_terms: [utm, comment, people, https, share, com, scion-asset-management-llc, comments]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/stocks/1oo9xyf.md#c2"
+    char_span: [2422, 4306]
+    sentence_count: 15
+    key_terms: [positions, against, options, definitively, hedge, long, article, bearish]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/stocks/1oo9xyf.md#c3"
+    char_span: [4308, 6079]
+    sentence_count: 15
+    key_terms: [million, value, bubble, approximately, burry, right, put, puts]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/stocks/1oo9xyf.md#c4"
+    char_span: [6082, 7254]
+    sentence_count: 11
+    key_terms: ["it's", bubble, hundreds, "doesn't", dollars, crypto, money, tesla]
+    section: Comments
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/stocks/1oo9xyf.md#c5"
+    char_span: [7256, 8654]
+    sentence_count: 7
+    key_terms: [worth, puts, premium, expire, nvidia, people, specialist-neat4254, degen]
+    section: Comments
+    token_count: 418
 ---
-
 # Markets stocks 'Big Short' Michael Burry bet against Palantir and Nvidia
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1oo9xyf/markets_stocks_big_short_michael_burry_bet/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1mldvef.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1mldvef/full_send_at_36_has_anyone_else_done_it_and_not/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,62 @@ flair: "Lifestyle"
 extracted_at: "2026-05-26T12:53:56.729Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, retail]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mldvef.md#c0"
+    char_span: [0, 1931]
+    sentence_count: 16
+    key_terms: [years, back, everyone, selling, months, digitalnomad, great, everything]
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mldvef.md#c1"
+    char_span: [1933, 2300]
+    sentence_count: 5
+    key_terms: [understand, backstory, uprooting, grateful, position, mid-30s, problem, regrets]
+    token_count: 88
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mldvef.md#c2"
+    char_span: [2315, 3089]
+    sentence_count: 11
+    key_terms: [people, lot, want, tyler----durden, captainhector1, cost-efficient, furnishings, belongings]
+    section: Comments
+    token_count: 196
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mldvef.md#c3"
+    char_span: [3091, 4901]
+    sentence_count: 15
+    key_terms: [southeast, morrigan613, asia, costa, like, love, move, rica]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mldvef.md#c4"
+    char_span: [4903, 7161]
+    sentence_count: 16
+    key_terms: [southeast, relationships, asia, "you're", generally, people, disappointed, "don't"]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mldvef.md#c5"
+    char_span: [7163, 8680]
+    sentence_count: 13
+    key_terms: [want, probably, like, wherever, friends, living, people, seems]
+    section: Comments
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mldvef.md#c6"
+    char_span: [8682, 10407]
+    sentence_count: 13
+    key_terms: [life, business, back, live, long, take, belongings, something]
+    section: Comments
+    token_count: 408
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mldvef.md#c7"
+    char_span: [10409, 12361]
+    sentence_count: 16
+    key_terms: [years, abroad, since, back, expensive, excited, savings, storage]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mldvef.md#c8"
+    char_span: [12363, 12649]
+    sentence_count: 3
+    key_terms: [probability, globally, pandemic, wondered, against, biggest, deleted, "haven't"]
+    section: Comments
+    token_count: 76
 ---
-
 # 'Full Send' at 36: Has anyone else done it and not looked back?
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1mldvef/full_send_at_36_has_anyone_else_done_it_and_not/)

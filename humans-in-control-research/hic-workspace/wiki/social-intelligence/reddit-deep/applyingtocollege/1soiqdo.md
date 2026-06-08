@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1soiqdo.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1soiqdo/should_i_give_up_my_dream_school_for_a_cheap_in/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,33 @@ flair: "College Questions"
 extracted_at: "2026-05-20T12:57:06.073Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soiqdo.md#c0"
+    char_span: [0, 1445]
+    sentence_count: 11
+    key_terms: [school, umich, applyingtocollege, in-state, pharmacy, state, get, want]
+    token_count: 357
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soiqdo.md#c1"
+    char_span: [1460, 3525]
+    sentence_count: 18
+    key_terms: [years, debt, lot, college, school, "you'll", least, like]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soiqdo.md#c2"
+    char_span: [3527, 5373]
+    sentence_count: 14
+    key_terms: [school, state, umich, get, want, education, in-state, pharmacy]
+    section: Comments
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soiqdo.md#c3"
+    char_span: [5375, 6816]
+    sentence_count: 10
+    key_terms: [school, state, pharmacist, mph, people, imaginary-sherbet370, busy-particular5119, maybe]
+    section: Comments
+    token_count: 357
 ---
-
 # Should I give up my dream school for a cheap in state school
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1soiqdo/should_i_give_up_my_dream_school_for_a_cheap_in/)

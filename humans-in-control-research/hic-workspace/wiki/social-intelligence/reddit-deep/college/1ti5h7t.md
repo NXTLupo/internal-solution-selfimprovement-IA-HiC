@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1ti5h7t.md
 url: "https://www.reddit.com/r/college/comments/1ti5h7t/i_genuinely_didnt_expect_college_to_feel_this/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,21 @@ flair: "Making Friends"
 extracted_at: "2026-05-20T02:32:17.134Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1ti5h7t.md#c0"
+    char_span: [0, 937]
+    sentence_count: 1
+    key_terms: [college, people, genuinely, comments, friends, without, expect, random]
+    token_count: 198
+  - id: "social-intelligence/reddit-deep/college/1ti5h7t.md#c1"
+    char_span: [952, 2407]
+    sentence_count: 12
+    key_terms: [people, social, years, yourself, college, friends, desperatereality4584, sheepherdernext3196]
+    section: Comments
+    token_count: 352
 ---
-
 # I genuinely didn’t expect college to feel this socially isolating
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ti5h7t/i_genuinely_didnt_expect_college_to_feel_this/)

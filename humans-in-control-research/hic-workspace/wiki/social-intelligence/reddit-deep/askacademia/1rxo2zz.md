@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1rxo2zz.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1rxo2zz/im_an_religious_studies_major_and_i_want_to_be_a/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,51 @@ flair: "Humanities"
 extracted_at: "2026-05-26T14:32:49.120Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1rxo2zz.md#c0"
+    char_span: [0, 1099]
+    sentence_count: 8
+    key_terms: [studies, askacademia, "i'm", religious, buddhist, comments, japanese, research]
+    token_count: 259
+  - id: "social-intelligence/reddit-deep/askacademia/1rxo2zz.md#c1"
+    char_span: [1114, 2091]
+    sentence_count: 7
+    key_terms: [top, religious, programs, someone, studies, market, job, phd]
+    section: Comments
+    token_count: 227
+  - id: "social-intelligence/reddit-deep/askacademia/1rxo2zz.md#c2"
+    char_span: [2093, 4175]
+    sentence_count: 14
+    key_terms: [religious, studies, misfitmaterial, did, school, departments, top, university]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/askacademia/1rxo2zz.md#c3"
+    char_span: [3873, 4880]
+    sentence_count: 7
+    key_terms: [studies, heidelberg, buddhist, program, right, departments, feasibility, considered]
+    section: Comments
+    token_count: 218
+  - id: "social-intelligence/reddit-deep/askacademia/1rxo2zz.md#c4"
+    char_span: [4883, 5208]
+    sentence_count: 1
+    key_terms: [studies, heidelberg, transcultural, classical, languages, recommend, buddhist, building]
+    section: Comments
+    token_count: 69
+  - id: "social-intelligence/reddit-deep/askacademia/1rxo2zz.md#c5"
+    char_span: [5211, 7450]
+    sentence_count: 10
+    key_terms: [professors, incentive, buddhism, economic, because, bluebirdonline, field, plotthound1]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/askacademia/1rxo2zz.md#c6"
+    char_span: [7139, 7668]
+    sentence_count: 3
+    key_terms: [specifically, neoprimitiveoasis, bluebirdonline, connections, meditations, attractive, interested, interfaith]
+    section: Comments
+    token_count: 115
 ---
-
 # I'm an Religious Studies major and I want to be a professor
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1rxo2zz/im_an_religious_studies_major_and_i_want_to_be_a/)

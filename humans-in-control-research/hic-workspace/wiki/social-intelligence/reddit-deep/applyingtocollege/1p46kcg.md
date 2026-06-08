@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1p46kcg.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1p46kcg/putting_nslc_on_college_applications/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,21 @@ flair: "Application Question"
 extracted_at: "2026-05-22T23:33:52.655Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p46kcg.md#c0"
+    char_span: [0, 1510]
+    sentence_count: 10
+    key_terms: [applyingtocollege, applications, great, competition, look, nslc, activities, diplomacy]
+    token_count: 330
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p46kcg.md#c1"
+    char_span: [1525, 2458]
+    sentence_count: 3
+    key_terms: [nslc, impressive, acknowledge, scholarship, attendance, colleges, covered, mention]
+    section: Comments
+    token_count: 212
 ---
-
 # Putting NSLC on college applications?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1p46kcg/putting_nslc_on_college_applications/)

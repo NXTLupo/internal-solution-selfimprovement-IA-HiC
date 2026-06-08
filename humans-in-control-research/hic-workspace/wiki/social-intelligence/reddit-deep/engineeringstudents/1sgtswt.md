@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1sgtswt.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1sgtswt/mostly_done_with_my_degree_was_linear_algebra/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,39 @@ flair: "Discussion"
 extracted_at: "2026-05-24T14:08:39.230Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sgtswt.md#c0"
+    char_span: [0, 1809]
+    sentence_count: 10
+    key_terms: [algebra, linear, engineering, engineeringstudents, compute, degree, "don't", equations]
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sgtswt.md#c1"
+    char_span: [1824, 3214]
+    sentence_count: 7
+    key_terms: [did, fea, functions, spherical, infinite, algebra, cosine, linear]
+    section: Comments
+    token_count: 314
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sgtswt.md#c2"
+    char_span: [3216, 5134]
+    sentence_count: 10
+    key_terms: [algebra, linear, calculus, require, vectors, matlab, basic, never]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sgtswt.md#c3"
+    char_span: [5136, 5917]
+    sentence_count: 5
+    key_terms: [engineer, algebra, depends, working, design, linear, system, "that's"]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sgtswt.md#c4"
+    char_span: [5919, 7963]
+    sentence_count: 8
+    key_terms: [algebra, linear, necessary, need, calculus, "doesn't", count, doing]
+    section: Comments
+    token_count: 478
 ---
-
 # mostly done with my degree: was linear algebra really necessary?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1sgtswt/mostly_done_with_my_degree_was_linear_algebra/)

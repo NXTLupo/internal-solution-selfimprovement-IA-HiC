@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1pd3cx3.md
 url: "https://www.reddit.com/r/highereducation/comments/1pd3cx3/religious_zealot_shocked_when_belief_isnt_a_proxy/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -6,19 +7,57 @@ subreddit: "highereducation"
 title: "Religious zealot shocked when belief isn't a proxy for science"
 author: "rellotscire"
 date: "2025-12-03T12:53:52.000Z"
-score: 68
-upvote_ratio: 0.9
+score: 66
+upvote_ratio: 0.89
 num_comments: 26
 flair: ""
-extracted_at: "2026-05-22T15:13:18.741Z"
+extracted_at: "2026-06-05T23:42:16.772Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1pd3cx3.md#c0"
+    char_span: [0, 2076]
+    sentence_count: 6
+    key_terms: [fulnecky, psychology, religious, response, highereducation, article, assignment, university]
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/highereducation/1pd3cx3.md#c1"
+    char_span: [2078, 4649]
+    sentence_count: 13
+    key_terms: [article, assignment, university, reaction, students, instructor, findings, fulnecky]
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/highereducation/1pd3cx3.md#c2"
+    char_span: [4651, 6960]
+    sentence_count: 10
+    key_terms: [fulnecky, wrote, academic, process, student, paper, concerning, professors]
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/highereducation/1pd3cx3.md#c3"
+    char_span: [6962, 7876]
+    sentence_count: 4
+    key_terms: [law, assignment, instructor, professor, bluesky, college, wrote, constitutional]
+    token_count: 185
+  - id: "social-intelligence/reddit-deep/highereducation/1pd3cx3.md#c4"
+    char_span: [7891, 10138]
+    sentence_count: 10
+    key_terms: [article, whether, evidence, response, students, student, paper, assignment]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/highereducation/1pd3cx3.md#c5"
+    char_span: [10140, 11695]
+    sentence_count: 13
+    key_terms: [article, student, grade, personal, actual, prompt, using, done]
+    section: Comments
+    token_count: 343
+  - id: "social-intelligence/reddit-deep/highereducation/1pd3cx3.md#c6"
+    char_span: [11697, 12695]
+    sentence_count: 7
+    key_terms: [assignment, article, designed, teasing, "didn't", description, incorrectly, technically]
+    section: Comments
+    token_count: 222
 ---
-
 # Religious zealot shocked when belief isn't a proxy for science
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1pd3cx3/religious_zealot_shocked_when_belief_isnt_a_proxy/)
-Posted by **rellotscire** · **68↑** · **26 comments**
+Posted by **rellotscire** · **66↑** · **26 comments**
 
 **Oklahoma TA On Leave After Student Claims Religious Discrimination**  
 *By Emma Whitford*
@@ -74,9 +113,9 @@ Others online have called Fulnecky’s paper and resulting complaint a bad-faith
 - **mango_script** (55↑): At this point, I have to wonder why these students don’t just go to PragerU or some other religiously oriented school if they’re so determined to reject reality and empirical evidence in favor of their own biased worldview. The fact that the student is a *junior psychology* major who doesn’t think bullying (teasing) is a bad thing is extremely concerning.
 
 Like the TA stated, this student is welcome to their own beliefs provided they can justify them with empirically tested evidence—I.e., facts—and not feelings. Heinous behavior.
-  - **Iteration23** (25↑): The 7 mountains mandate commands them to “take over” educational institutions, etc.
+  - **Iteration23** (26↑): The 7 mountains mandate commands them to “take over” educational institutions, etc.
     - **Ok_Experience_5151** (12↑): She's a D1 athlete and likely also recognizes that a degree from OU is worth more than a degree from PragerU (which doesn't actually grant degrees).  That seems like a more probable explanation than the seven mountain stuff.
-- **[deleted]** (12↑): This headline would be funny if it wasn't the actual reason I left my doctoral program in religious studies. Teaching Intro to Christianity to first year students broke my spirit and will to teach.
+- **[deleted]** (13↑): This headline would be funny if it wasn't the actual reason I left my doctoral program in religious studies. Teaching Intro to Christianity to first year students broke my spirit and will to teach.
 - **eubie67** (-7↑): According to the article, the students' papers were intended to be graded on three criteria:
 
 * whether the paper showed a clear tie-in to the assigned article
@@ -93,9 +132,9 @@ What the TA should have done was give a legitimate grade based on the actual req
   - **vivikush** (4↑): I just saw the article about this in NYT. You’re being downvoted but you’re right—she did fulfill the prompt (regardless of if you agree with what she wrote). The fact that the professor refused to even grade it is a huge problem. I think the student is going to win in the end.
     - **Razorback_Ryan** (1↑): No she didn't. Nowhere in her paper does she cite anything. This is further evidence of the literacy epidemic America is facing.
   - **Pater_Aletheias** (6↑): Except there’s not a clear tie-in or reaction to the article at all. Nothing specific from the article is mentioned or analyzed. This student could have turned in exactly the same thing if the prompt was “what do you think about transgender acceptance?” She absolutely failed to follow the instructions.
-    - **Ok_Experience_5151** (6↑): "The article discussed peers using teasing as a means to enforce gender norms."
+    - **Ok_Experience_5151** (7↑): "The article discussed peers using teasing as a means to enforce gender norms."
 
 That seems like a reference to the actual content of the article.  I'm guessing the article presented teasing as a negative thing, but haven't read it so I can't be sure.  She spends the rest of her time presenting a (not especially thoughtful) defense of teasing as a means of enforcing gender norms.
   - **zorandzam** (3↑): I agree. I think the assignment needed to be MUCH better designed, frankly. What the student wrote was incredibly offensive and designed to provoke, but she didn't technically do the assignment incorrectly. At most, she didn't tie in to the article quite enough and so some points should be deducted depending on the rubric.
   - **RGVHound** (2↑): The TA is the person in this story who was being attacked for their identity and beliefs. Any claims about rubrics, assignment description, or grading is completing missing what's going on here, possibly on purpose.
-- **Warbird1944** (-12↑): I hear the words fact and science thrown about while this is a psychology class...
+- **Warbird1944** (-10↑): I hear the words fact and science thrown about while this is a psychology class...

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gemini/1ksv5wp.md
 url: "https://www.reddit.com/r/Gemini/comments/1ksv5wp/mixed_experience_with_passkey_and_suggestion_for/"
 kind: "social-post"
 source: "reddit-deep: r/gemini"
@@ -13,8 +14,21 @@ flair: "Discussion :Discussion:"
 extracted_at: "2026-05-11T16:52:32.578Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gemini/1ksv5wp.md#c0"
+    char_span: [0, 2582]
+    sentence_count: 14
+    key_terms: [passkey, account, security, settings, passwords, sign, considering, experience]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/gemini/1ksv5wp.md#c1"
+    char_span: [2597, 3111]
+    sentence_count: 2
+    key_terms: [passkey, infinitecontrol9574, key, indefinitely, specifically, generation, answering, presented]
+    section: Comments
+    token_count: 127
 ---
-
 # Mixed experience with passkey and suggestion for final configuration
 
 Source: [reddit-deep: r/gemini](https://www.reddit.com/r/Gemini/comments/1ksv5wp/mixed_experience_with_passkey_and_suggestion_for/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-gradschool/be7edc5cb3.md
 url: "https://www.reddit.com/r/GradSchool/comments/1r6ljt4/seeking_advice_on_gaining_research_experience/"
 url_hash: "be7edc5cb3"
 kind: "article"
@@ -10,8 +11,30 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T20:22:39.313766+00:00"
 chars: 6939
+industries: [higher_ed, education, workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-gradschool/be7edc5cb3.md#c0"
+    char_span: [0, 2340]
+    sentence_count: 20
+    key_terms: ["i'm", experience, research, background, currently, neuropsychology, skills, opportunity]
+    token_count: 487
+  - id: "articles/reddit-deep-r-gradschool/be7edc5cb3.md#c1"
+    char_span: [2342, 4272]
+    sentence_count: 19
+    key_terms: [research, opportunity, programs, catspoopinboxes, project, similar, found, lab]
+    token_count: 414
+  - id: "articles/reddit-deep-r-gradschool/be7edc5cb3.md#c2"
+    char_span: [4274, 6423]
+    sentence_count: 25
+    key_terms: [read, get, being, start, like, approaches, different, questions]
+    token_count: 462
+  - id: "articles/reddit-deep-r-gradschool/be7edc5cb3.md#c3"
+    char_span: [6425, 7171]
+    sentence_count: 9
+    key_terms: [interesting, science, satelliteabstract, bit, like, too, neuroendocrine, publications]
+    token_count: 163
 ---
-
 # Seeking advice on gaining research experience starting from a non-traditional background
 
 Source: [Reddit Deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1r6ljt4/seeking_advice_on_gaining_research_experience/)

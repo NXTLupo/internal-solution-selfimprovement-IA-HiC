@@ -6,19 +6,19 @@ subreddit: "cscareerquestions"
 title: "Is mixing CS and music a worthwhile idea?"
 author: "Lydialmao22"
 date: "2026-04-07T02:27:01.000Z"
-score: 4
-upvote_ratio: 0.63
+score: 6
+upvote_ratio: 0.69
 num_comments: 42
 flair: ""
-extracted_at: "2026-05-22T21:34:54.423Z"
+extracted_at: "2026-06-06T23:23:15.642Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Is mixing CS and music a worthwhile idea?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sejce2/is_mixing_cs_and_music_a_worthwhile_idea/)
-Posted by **Lydialmao22** · **4↑** · **42 comments**
+Posted by **Lydialmao22** · **6↑** · **42 comments**
 
 So my main passion is music, but I have a strong interest in math, programming, and design. I want to major in music, but I was thinking of double majoring in CS as well. I would love to work on music software/tech at some point. 
 

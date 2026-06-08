@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-povertyfinance/d6de05abe3.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1s214qw/some_poverty_finance_tips_for_pet_owners_for/"
 url_hash: "d6de05abe3"
 kind: "article"
@@ -10,8 +11,40 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:23:06.603072+00:00"
 chars: 10385
+industries: [financial_services, healthcare]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-povertyfinance/d6de05abe3.md#c0"
+    char_span: [0, 1834]
+    sentence_count: 14
+    key_terms: [care, financial, vet, low-cost, ability, routine, povertyfinance, need]
+    token_count: 427
+  - id: "articles/reddit-deep-r-povertyfinance/d6de05abe3.md#c1"
+    char_span: [1836, 3967]
+    sentence_count: 12
+    key_terms: [emergency, "don't", estimate, ask, savings, treatment, pet, afraid]
+    token_count: 490
+  - id: "articles/reddit-deep-r-povertyfinance/d6de05abe3.md#c2"
+    char_span: [3969, 5924]
+    sentence_count: 17
+    key_terms: [vet, care, get, pet, options, usually, comes, great]
+    token_count: 457
+  - id: "articles/reddit-deep-r-povertyfinance/d6de05abe3.md#c3"
+    char_span: [5926, 8108]
+    sentence_count: 14
+    key_terms: [euthanasia, treatment, vet, understand, financial, suffering, choice, limitations]
+    token_count: 447
+  - id: "articles/reddit-deep-r-povertyfinance/d6de05abe3.md#c4"
+    char_span: [8110, 9063]
+    sentence_count: 11
+    key_terms: [month, diagnosed, because, husband, cost, get, thrombocytopenia, hemangiosarcoma]
+    token_count: 233
+  - id: "articles/reddit-deep-r-povertyfinance/d6de05abe3.md#c5"
+    char_span: [9065, 10610]
+    sentence_count: 15
+    key_terms: [treatment, people, estimate, afford, happen, blood, cases, money]
+    token_count: 355
 ---
-
 # Some poverty finance tips for pet owners for being able to afford the vet.
 
 Source: [Reddit Deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1s214qw/some_poverty_finance_tips_for_pet_owners_for/)

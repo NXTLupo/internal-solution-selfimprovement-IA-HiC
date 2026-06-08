@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1ohwa9e.md
 url: "https://www.reddit.com/r/college/comments/1ohwa9e/advice_on_forming_relationships_with_professors/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-26T14:31:29.700Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1ohwa9e.md#c0"
+    char_span: [0, 1864]
+    sentence_count: 14
+    key_terms: [online, class, in-person, question, college, psych, been, does]
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/college/1ohwa9e.md#c1"
+    char_span: [1879, 2852]
+    sentence_count: 8
+    key_terms: [doing, lab, research, phd, knewtoff, because, program, around]
+    section: Comments
+    token_count: 236
 ---
-
 # Advice on forming relationships with professors after taking online courses
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ohwa9e/advice_on_forming_relationships_with_professors/)

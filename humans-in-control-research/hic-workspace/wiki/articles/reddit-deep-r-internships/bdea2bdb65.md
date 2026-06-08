@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-internships/bdea2bdb65.md
 url: "https://www.reddit.com/r/internships/comments/1s6lcqj/internships_advice_help_meng/"
 url_hash: "bdea2bdb65"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T12:19:59.520799+00:00"
 chars: 2330
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-internships/bdea2bdb65.md#c0"
+    char_span: [0, 2155]
+    sentence_count: 13
+    key_terms: [internships, applying, tracking, been, get, internship, tracker, helps]
+    token_count: 510
+  - id: "articles/reddit-deep-r-internships/bdea2bdb65.md#c1"
+    char_span: [2157, 2489]
+    sentence_count: 1
+    key_terms: [applications, productivity, completely, something, download, feeling, profile, resumes]
+    token_count: 75
 ---
-
 # Internships advice + help MEng
 
 Source: [Reddit Deep: r/internships](https://www.reddit.com/r/internships/comments/1s6lcqj/internships_advice_help_meng/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-applyingtocollege/c919bedd2b.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1mcaccy/psa_people_can_and_will_lie_on_reddit_shocker/"
 url_hash: "c919bedd2b"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T15:01:08.452602+00:00"
 chars: 1643
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-applyingtocollege/c919bedd2b.md#c0"
+    char_span: [0, 1852]
+    sentence_count: 9
+    key_terms: [people, essays, reddit, applyingtocollege, someone, scholargrade, post, comments]
+    token_count: 462
 ---
-
 # PSA: people can and will lie on Reddit (shocker!!!)
 
 Source: [Reddit Deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1mcaccy/psa_people_can_and_will_lie_on_reddit_shocker/)

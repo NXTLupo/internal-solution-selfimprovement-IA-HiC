@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1rc6fm0.md
 url: "https://www.reddit.com/r/college/comments/1rc6fm0/can_i_take_classes_without_a_degree_in_mind/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -7,14 +8,31 @@ title: "Can I take classes without a degree in mind?"
 author: "bimboerrorz"
 date: "2026-02-23T03:22:48.000Z"
 score: 25
-upvote_ratio: 0.87
+upvote_ratio: 0.89
 num_comments: 22
 flair: ""
-extracted_at: "2026-05-26T14:31:29.696Z"
+extracted_at: "2026-06-05T16:17:48.497Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1rc6fm0.md#c0"
+    char_span: [0, 1242]
+    sentence_count: 7
+    key_terms: [child, college, development, take, want, psychology, currently, something]
+    token_count: 282
+  - id: "social-intelligence/reddit-deep/college/1rc6fm0.md#c1"
+    char_span: [1257, 2886]
+    sentence_count: 13
+    key_terms: [admissions, college, community, time, colleges, office, especially, non-degree]
+    section: Comments
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/college/1rc6fm0.md#c2"
+    char_span: [2888, 4421]
+    sentence_count: 7
+    key_terms: [college, community, degree, want, non-degree, specific, transfer, classes]
+    section: Comments
+    token_count: 375
 ---
-
 # Can I take classes without a degree in mind?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1rc6fm0/can_i_take_classes_without_a_degree_in_mind/)
@@ -31,8 +49,8 @@ edit: I have been obsessed with child development and psychology since I was a c
 Many people do this while trying to figure out a major and you don’t need to be a full time student to be in college. 
 
 I would contact the admissions office for what every college you wish to do this at for better answers
-- **LetterheadClassic306** (11↑): you can absolutely do this. most schools let you enroll as a non-degree seeking student and just take classes that interest you. the credits will be on a transcript and usually transfer if you decide to pursue a degree later. i'd check with the admissions office at your local community college especially - they're usually set up for this and the cost is way lower. one class per semester is totally doable with a little one at home and keeps you moving forward without the pressure of picking a major right now.
-- **DeskRider** (5↑): You should be able to.  Check with the admissions office for the school you're considering.
+- **LetterheadClassic306** (12↑): you can absolutely do this. most schools let you enroll as a non-degree seeking student and just take classes that interest you. the credits will be on a transcript and usually transfer if you decide to pursue a degree later. i'd check with the admissions office at your local community college especially - they're usually set up for this and the cost is way lower. one class per semester is totally doable with a little one at home and keeps you moving forward without the pressure of picking a major right now.
+- **DeskRider** (4↑): You should be able to.  Check with the admissions office for the school you're considering.
 - **hornybutired** (2↑): All the colleges I've attended or taught at have allowed people to enroll in individual classes as non-degree seeking students. Talk to admissions.
 - **PerpetuallyTired74** (2↑): Go to a community college. You can literally take one class at a time. That’s what I did when I was a SAHM, until I knew I could handle more at a time. It took me four years to get my AA. Then I had to stop because I couldn’t afford to go to a university, nor did I have the time. I recently went back and got my bachelors in psych. Next goal is grad school for mental health counseling.
 

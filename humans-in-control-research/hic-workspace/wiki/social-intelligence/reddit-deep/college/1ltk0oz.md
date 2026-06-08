@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1ltk0oz.md
 url: "https://www.reddit.com/r/college/comments/1ltk0oz/should_i_keep_going_to_college_if_im_making_good/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-25T15:51:48.248Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1ltk0oz.md#c0"
+    char_span: [0, 920]
+    sentence_count: 9
+    key_terms: [college, money, good, comments, making, reason, been, don]
+    token_count: 225
+  - id: "social-intelligence/reddit-deep/college/1ltk0oz.md#c1"
+    char_span: [935, 3041]
+    sentence_count: 21
+    key_terms: [jobs, college, former-hospital-3656, back, good, get, grow, wehrmacht]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1ltk0oz.md#c2"
+    char_span: [2762, 4469]
+    sentence_count: 17
+    key_terms: [college, business, get, friends, going, money, connections, degree]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/college/1ltk0oz.md#c3"
+    char_span: [4471, 6572]
+    sentence_count: 13
+    key_terms: [like, college, something, degree, school, "you're", time, further]
+    section: Comments
+    token_count: 465
 ---
-
 # Should I keep going to college if I’m making good money already?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ltk0oz/should_i_keep_going_to_college_if_im_making_good/)

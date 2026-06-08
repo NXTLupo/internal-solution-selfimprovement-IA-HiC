@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t7vmwt.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t7vmwt/is_this_a_good_move/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,20 @@ flair: ""
 extracted_at: "2026-05-22T23:34:01.100Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t7vmwt.md#c0"
+    char_span: [0, 2231]
+    sentence_count: 17
+    key_terms: [design, company, role, manufacturing, work, product, careerguidance, visual]
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/careerguidance/1t7vmwt.md#c1"
+    char_span: [2233, 3493]
+    sentence_count: 11
+    key_terms: [role, salary, commute, company, leaving, design, people, engineering-focused]
+    token_count: 260
 ---
-
 # Is this a good move?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t7vmwt/is_this_a_good_move/)

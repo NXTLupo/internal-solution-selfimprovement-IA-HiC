@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1p60hst.md
 url: "https://www.reddit.com/r/stocks/comments/1p60hst/meta_and_google_discuss_tpu_deal_as_google/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,63 @@ flair: ""
 extracted_at: "2026-05-17T01:14:17.625Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1p60hst.md#c0"
+    char_span: [0, 2114]
+    sentence_count: 12
+    key_terms: [google, nvidia, meta, information, customers, data, tpus, meta-google-discuss-tpu-deal-233823637]
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/stocks/1p60hst.md#c1"
+    char_span: [2129, 3298]
+    sentence_count: 11
+    key_terms: [sold, deleted, pain474, "that's", translatorroyal1016, prudent-corgi3793, does, "it's"]
+    section: Comments
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/stocks/1p60hst.md#c2"
+    char_span: [3300, 4869]
+    sentence_count: 18
+    key_terms: [nvidia, tpus, support, buy, did, mass, sentiment, produce]
+    section: Comments
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/stocks/1p60hst.md#c3"
+    char_span: [4871, 6898]
+    sentence_count: 11
+    key_terms: [tpus, google, chips, clustered, nvidia, instructions, specialized, does]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/stocks/1p60hst.md#c4"
+    char_span: [6900, 8970]
+    sentence_count: 14
+    key_terms: [google, margins, business, chips, nvidia, cloud, tpus, margin]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/stocks/1p60hst.md#c5"
+    char_span: [8972, 10390]
+    sentence_count: 18
+    key_terms: [google, cloud, openai, bail, big, cost, like, tech]
+    section: Comments
+    token_count: 340
+  - id: "social-intelligence/reddit-deep/stocks/1p60hst.md#c6"
+    char_span: [10392, 11245]
+    sentence_count: 6
+    key_terms: [google, code, awkwardobjective5360, dragonflyweary9929, mathematical, interesting, investments, frameworks]
+    section: Comments
+    token_count: 220
+  - id: "social-intelligence/reddit-deep/stocks/1p60hst.md#c7"
+    char_span: [11247, 13123]
+    sentence_count: 24
+    key_terms: [understandingnew2810, nvidia, pytorch, tpus, google, big, cuda, cheaper]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/stocks/1p60hst.md#c8"
+    char_span: [13126, 13660]
+    sentence_count: 3
+    key_terms: [robotics, google, physical, been, tpu, used, invest0rnoob1, accustomed]
+    section: Comments
+    token_count: 141
 ---
-
 # Meta and Google discuss TPU deal as Google targets Nvidia’s lead
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1p60hst/meta_and_google_discuss_tpu_deal_as_google/)

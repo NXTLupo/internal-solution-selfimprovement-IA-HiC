@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1ow6wai.md
 url: "https://www.reddit.com/r/humanresources/comments/1ow6wai/why_is_talent_managment_na_treated_like_it_is/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-23T12:15:41.542Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c0"
+    char_span: [0, 906]
+    sentence_count: 5
+    key_terms: [humanresources, skills, talent, performance, evaluation, leadership, management, comments]
+    token_count: 185
+  - id: "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c1"
+    char_span: [921, 2797]
+    sentence_count: 17
+    key_terms: [talent, management, business, deliverables, development, succession, academic, working]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c2"
+    char_span: [2799, 3950]
+    sentence_count: 9
+    key_terms: [development, team, described, business, function, because, overlap, thought]
+    section: Comments
+    token_count: 260
+  - id: "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c3"
+    char_span: [3952, 6280]
+    sentence_count: 19
+    key_terms: [business, management, talent, people, generally, approach, solution, hrbps]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c4"
+    char_span: [6282, 7709]
+    sentence_count: 14
+    key_terms: [different, talent, "it's", job, management, business, thought, check]
+    section: Comments
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c5"
+    char_span: [7711, 10098]
+    sentence_count: 19
+    key_terms: [work, performance, consulting, "there's", "that's", consultants, academics, corporate]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c6"
+    char_span: [9788, 11060]
+    sentence_count: 13
+    key_terms: [sales, want, work, overall-possible-936, issue, don, conversations, anchorbend42]
+    section: Comments
+    token_count: 287
+  - id: "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c7"
+    char_span: [11064, 12902]
+    sentence_count: 22
+    key_terms: [management, talent, conversations, managers, because, knowing, performance, like]
+    section: Comments
+    token_count: 377
 ---
-
 # Why is Talent Managment [N/A] treated like it is?
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1ow6wai/why_is_talent_managment_na_treated_like_it_is/)

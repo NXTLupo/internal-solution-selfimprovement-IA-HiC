@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1mhskcg.md
 url: "https://www.reddit.com/r/GenZ/comments/1mhskcg/no_woman_ever_cucked_tech_bros_the_way_tech/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,62 @@ flair: "Rant"
 extracted_at: "2026-05-17T01:11:40.768Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [workforce, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1mhskcg.md#c0"
+    char_span: [0, 2500]
+    sentence_count: 24
+    key_terms: [tech, workers, companies, engineers, software, source, themselves, open]
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/genz/1mhskcg.md#c1"
+    char_span: [2503, 3069]
+    sentence_count: 10
+    key_terms: [resource, special, like, humiliating, copy-paste, demanding, affected, engineer]
+    token_count: 131
+  - id: "social-intelligence/reddit-deep/genz/1mhskcg.md#c2"
+    char_span: [3084, 4809]
+    sentence_count: 10
+    key_terms: [source, open, open-source, companies, tech, membership, software, discord]
+    section: Comments
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/genz/1mhskcg.md#c3"
+    char_span: [4811, 6712]
+    sentence_count: 15
+    key_terms: [people, industry, software, humans, engineers, experience, understand, companies]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/genz/1mhskcg.md#c4"
+    char_span: [6714, 8043]
+    sentence_count: 12
+    key_terms: [engineers, software, developers, replace, level, get, current, course]
+    section: Comments
+    token_count: 296
+  - id: "social-intelligence/reddit-deep/genz/1mhskcg.md#c5"
+    char_span: [8045, 10155]
+    sentence_count: 12
+    key_terms: [junior, "that's", companies, engineers, "i'm", "it's", due, work]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/genz/1mhskcg.md#c6"
+    char_span: [10157, 11494]
+    sentence_count: 7
+    key_terms: [people, engineers, replacing, engineer, software, less, draftsman, replace]
+    section: Comments
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/genz/1mhskcg.md#c7"
+    char_span: [11496, 13507]
+    sentence_count: 9
+    key_terms: [tech, companies, because, cutting, indians, nothing, always, stupid]
+    section: Comments
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/genz/1mhskcg.md#c8"
+    char_span: [13509, 13770]
+    sentence_count: 3
+    key_terms: [interest, rates, specifically, unprofitable, speculative, investment, companies, billions]
+    section: Comments
+    token_count: 56
 ---
-
 # No woman ever cucked tech bros the way tech companies just did
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1mhskcg/no_woman_ever_cucked_tech_bros_the_way_tech/)

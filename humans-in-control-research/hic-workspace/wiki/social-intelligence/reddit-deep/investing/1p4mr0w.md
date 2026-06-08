@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1p4mr0w.md
 url: "https://www.reddit.com/r/investing/comments/1p4mr0w/what_to_follow_for_us_stock_market_as_a_foreign/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-16T20:55:01.244Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1p4mr0w.md#c0"
+    char_span: [0, 1028]
+    sentence_count: 10
+    key_terms: [companies, follow, investing, investor, market, oportunities, etc, knowledge]
+    token_count: 238
+  - id: "social-intelligence/reddit-deep/investing/1p4mr0w.md#c1"
+    char_span: [1043, 2866]
+    sentence_count: 11
+    key_terms: [individual, stocks, "you're", etfs, small-caps, channels, earnings, exposure]
+    section: Comments
+    token_count: 432
 ---
-
 # What to follow for US Stock Market as a Foreign Investor
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1p4mr0w/what_to_follow_for_us_stock_market_as_a_foreign/)

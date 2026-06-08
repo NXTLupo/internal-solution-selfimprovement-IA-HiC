@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1nrv6ek.md
 url: "https://www.reddit.com/r/college/comments/1nrv6ek/ged_vs_adult_high_school_diploma_for_attending/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,41 @@ subreddit: "college"
 title: "GED vs Adult High School diploma for attending college?"
 author: "Future_Permission_40"
 date: "2025-09-27T13:24:41.000Z"
-score: 21
-upvote_ratio: 1
+score: 20
+upvote_ratio: 0.96
 num_comments: 18
 flair: ""
-extracted_at: "2026-05-26T14:31:29.699Z"
+extracted_at: "2026-06-06T17:42:15.228Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1nrv6ek.md#c0"
+    char_span: [0, 2059]
+    sentence_count: 16
+    key_terms: [school, college, diploma, high, information, transcripts, education, actual]
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/college/1nrv6ek.md#c1"
+    char_span: [2061, 2750]
+    sentence_count: 7
+    key_terms: [college, career, school, ged, take, work, appreciate, community]
+    token_count: 167
+  - id: "social-intelligence/reddit-deep/college/1nrv6ek.md#c2"
+    char_span: [2765, 4601]
+    sentence_count: 16
+    key_terms: [ged, get, through, community, college, dropped, school, got]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/college/1nrv6ek.md#c3"
+    char_span: [4603, 6231]
+    sentence_count: 15
+    key_terms: [school, high, college, ged, through, get, accredited, partially]
+    section: Comments
+    token_count: 411
 ---
-
 # GED vs Adult High School diploma for attending college?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1nrv6ek/ged_vs_adult_high_school_diploma_for_attending/)
-Posted by **Future_Permission_40** · **21↑** · **18 comments**
+Posted by **Future_Permission_40** · **20↑** · **18 comments**
 
 I haven’t found very much information on this topic, so I apologize ahead of time for the proceeding wall of text.
 
@@ -38,14 +61,14 @@ I truly do appreciate any help and advice you can provide on this topic.
 
 ## Comments
 
-- **shellexyz** (32↑): Do community colleges in Alabama have GED programs? Potentially much cheaper than one of the online options.
+- **shellexyz** (35↑): Do community colleges in Alabama have GED programs? Potentially much cheaper than one of the online options.
 
 I also think you’re overthinking the “embarrassment” of having a GED.
-  - **vesperIV** (3↑): This is a great answer. OP, look up your closest community college and get some info about your GED options. The AL CC system should be able to help you get caught up.
-- **james_d_rustles** (13↑): I dropped out of HS and got a GED. I also have my BS and MS in engineering from a highly ranked university after spending about 2 years at community college. Currently work in aerospace.
+  - **vesperIV** (2↑): This is a great answer. OP, look up your closest community college and get some info about your GED options. The AL CC system should be able to help you get caught up.
+- **james_d_rustles** (14↑): I dropped out of HS and got a GED. I also have my BS and MS in engineering from a highly ranked university after spending about 2 years at community college. Currently work in aerospace.
 
 Honestly I don’t think anyone has ever asked - by the time you get far enough along in college that you’re looking for work related to your field, nobody cares what you did/didn’t do in high school. The only times it has ever come up has been when I choose to mention it in conversation.
-- **Necessary_Baker_7458** (8↑): Both are fine. So long as you have one or the other it's all that is needed for most entry level employments. A ged just means you didn't go through the traditional academia institutions to get it and self studied for it. I know many people I went to school with that dropped out and in their late 20's got a ged to move onto better employment. I've worked with some people that dropped out of high school and still got a ba degree and still successfully did quite well for them selves. And others that never completed their ba degrees but gained the necessary skills to gain good income jobs from the education.
+- **Necessary_Baker_7458** (6↑): Both are fine. So long as you have one or the other it's all that is needed for most entry level employments. A ged just means you didn't go through the traditional academia institutions to get it and self studied for it. I know many people I went to school with that dropped out and in their late 20's got a ged to move onto better employment. I've worked with some people that dropped out of high school and still got a ba degree and still successfully did quite well for them selves. And others that never completed their ba degrees but gained the necessary skills to gain good income jobs from the education.
 - **Diligent_Lab2717** (7↑): Go through the local CC.  They are experienced with helping adults get their education and you’ll be prepared to start CC. 
 
 You may also find that there are more financial assistance programs available through the CC than through the private program you found. 

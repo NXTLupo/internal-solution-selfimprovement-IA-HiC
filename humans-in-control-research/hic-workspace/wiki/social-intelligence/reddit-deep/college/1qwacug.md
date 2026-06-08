@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1qwacug.md
 url: "https://www.reddit.com/r/college/comments/1qwacug/going_back_5_years_after_dropping_out/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,36 @@ subreddit: "college"
 title: "Going Back 5 Years after Dropping Out"
 author: "Objective_Life6292"
 date: "2026-02-05T03:34:37.000Z"
-score: 20
-upvote_ratio: 0.88
+score: 18
+upvote_ratio: 0.85
 num_comments: 13
 flair: "Academic Life"
-extracted_at: "2026-05-22T13:32:26.399Z"
+extracted_at: "2026-06-03T17:24:19.138Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1qwacug.md#c0"
+    char_span: [0, 2175]
+    sentence_count: 19
+    key_terms: [school, college, "i've", something, been, years, get, high]
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/college/1qwacug.md#c1"
+    char_span: [2190, 4392]
+    sentence_count: 15
+    key_terms: [school, dropping, back, because, classes, college, going, get]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/college/1qwacug.md#c2"
+    char_span: [4394, 6119]
+    sentence_count: 13
+    key_terms: [because, classes, subjects, years, back, advisor, college, intrest]
+    section: Comments
+    token_count: 403
 ---
-
 # Going Back 5 Years after Dropping Out
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1qwacug/going_back_5_years_after_dropping_out/)
-Posted by **Objective_Life6292** · **20↑** · **13 comments**
+Posted by **Objective_Life6292** · **18↑** · **13 comments**
 
 This has been weighing on my mind for a while, and I wanted to know if anyone had experience or any advice. 
 
@@ -31,11 +49,11 @@ I'm worried since I've been thinking about doing something medical related, and 
 ## Comments
 
 - **Confident_Concern_10** (8↑): Honestly I don’t blame you for dropping out when you did especially because you graduated high school and entered college during the peak of COVID and with all the other stuff going on in your life school was definitely overwhelming. I’m currently a sophomore and graduated high school in 2024 but if you now know what you want to do and go back to school for congrats and definitely stay focus. You’ll realize college isn’t for everyone straight out of high school and that you can finish college at any age.
-- **MightBeYourProfessor** (7↑): What past decisions are you referring to? Taking some classes and dropping out? This really won't affect you at all. I'm on grad school admissions, and the gap is clear and plain as day, and it is common for folks to realize something isn't what they want to do and to come back and do something different.
+- **MightBeYourProfessor** (6↑): What past decisions are you referring to? Taking some classes and dropping out? This really won't affect you at all. I'm on grad school admissions, and the gap is clear and plain as day, and it is common for folks to realize something isn't what they want to do and to come back and do something different.
 
 The only deal breaker is if you start again and you fuck up. You start again and you do well? That's what everyone is looking for.
   - **Objective_Life6292** (3↑): It's really comforting hearing this from someone who is directly involved in that type of stuff. I'm super excited to get an education and do the best at whatever I decide to do, so I'm glad this won't be a huge roadblock.
-- **smoltims** (4↑): It tells a better story to see a record like yours instead of a perfect straight-A no blemishes records. I don’t regret dropping out because if I didn’t, I would’ve failed a lot more classes and wasted thousands of dollars more than necessary.
+- **smoltims** (5↑): It tells a better story to see a record like yours instead of a perfect straight-A no blemishes records. I don’t regret dropping out because if I didn’t, I would’ve failed a lot more classes and wasted thousands of dollars more than necessary.
 
 Work on your mental health to avoid triggering breakdowns as much as possible (it’s impossible to completely avoid the a mental breakdown forever, trust me) and do well when you get back to school.
 

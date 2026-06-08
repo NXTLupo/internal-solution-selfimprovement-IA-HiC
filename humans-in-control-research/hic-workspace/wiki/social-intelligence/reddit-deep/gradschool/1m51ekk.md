@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1m51ekk.md
 url: "https://www.reddit.com/r/GradSchool/comments/1m51ekk/top_resources_as_a_grad_student/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-22T21:35:36.527Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1m51ekk.md#c0"
+    char_span: [0, 484]
+    sentence_count: 2
+    key_terms: [grad, gradschool, resources, comments, helped, communication, bagofdicksss, instructors]
+    token_count: 108
+  - id: "social-intelligence/reddit-deep/gradschool/1m51ekk.md#c1"
+    char_span: [499, 2372]
+    sentence_count: 13
+    key_terms: [similar, ipad, especially, everything, goodnotes, meetings, organize, readings]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/gradschool/1m51ekk.md#c2"
+    char_span: [2374, 4341]
+    sentence_count: 19
+    key_terms: ["don't", communication, get, like, time, use, especially, experiment]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/gradschool/1m51ekk.md#c3"
+    char_span: [4343, 5875]
+    sentence_count: 10
+    key_terms: [textbooks, digital, zotero, bagofdicksss, done, need, howtobegeo, google]
+    section: Comments
+    token_count: 382
 ---
-
 # Top Resources as a Grad Student
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1m51ekk/top_resources_as_a_grad_student/)

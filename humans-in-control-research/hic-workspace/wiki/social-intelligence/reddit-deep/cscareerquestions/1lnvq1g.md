@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1lnvq1g.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1lnvq1g/whats_a_good_tech_stack_in_this_market_to_learn/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,39 @@ flair: "New Grad"
 extracted_at: "2026-05-23T20:15:57.467Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lnvq1g.md#c0"
+    char_span: [0, 669]
+    sentence_count: 6
+    key_terms: [cscareerquestions, stack, job, comments, good, land, tech, neuromancer1337]
+    token_count: 164
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lnvq1g.md#c1"
+    char_span: [684, 2237]
+    sentence_count: 13
+    key_terms: [skills, "can't", communication, pass, tech, screen, interview, soft]
+    section: Comments
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lnvq1g.md#c2"
+    char_span: [2239, 4244]
+    sentence_count: 11
+    key_terms: [experience, get, jobs, live, people, skills, scale, probably]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lnvq1g.md#c3"
+    char_span: [4023, 5363]
+    sentence_count: 7
+    key_terms: [learn, stack, java, framework, agentic, london, comfortable-insect-7, spare-locksmith-2162]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lnvq1g.md#c4"
+    char_span: [5365, 5958]
+    sentence_count: 4
+    key_terms: [python, trainingvegetable949, justjustinintime, development, developing, enterprise, companies, protyping]
+    section: Comments
+    token_count: 164
 ---
-
 # Whats a good tech stack in this market to learn to land a job?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1lnvq1g/whats_a_good_tech_stack_in_this_market_to_learn/)

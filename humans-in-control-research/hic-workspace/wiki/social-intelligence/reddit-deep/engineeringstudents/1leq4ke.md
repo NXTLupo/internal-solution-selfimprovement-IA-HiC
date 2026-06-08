@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1leq4ke/stop_complaining_your_internship_for_not_doing/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,57 @@ flair: "Rant/Vent"
 extracted_at: "2026-05-22T15:11:44.446Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md#c0"
+    char_span: [0, 1285]
+    sentence_count: 13
+    key_terms: ["you're", engineeringstudents, company, doing, unimportant, work, companies, "company's"]
+    token_count: 278
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md#c1"
+    char_span: [1300, 3421]
+    sentence_count: 15
+    key_terms: [design, meaningful, complain, meetings, people, doing, like, work]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md#c2"
+    char_span: [3423, 4205]
+    sentence_count: 2
+    key_terms: [engineeringstudents, grown, internship, bitching, college, people, kruegerfishbabeblade, fried-potato-diccs]
+    section: Comments
+    token_count: 214
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md#c3"
+    char_span: [4207, 5594]
+    sentence_count: 9
+    key_terms: [meaningful, work, engineering, post, college, interns, design, intern]
+    section: Comments
+    token_count: 344
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md#c4"
+    char_span: [5596, 6956]
+    sentence_count: 11
+    key_terms: [business, project, approval, system, internship, meaningful, processes, together]
+    section: Comments
+    token_count: 309
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md#c5"
+    char_span: [6958, 9149]
+    sentence_count: 24
+    key_terms: [don, like, work, prove, get, experience, internship, engineer]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md#c6"
+    char_span: [9151, 10519]
+    sentence_count: 11
+    key_terms: [people, time, work, internship, workshop, getting, working, better]
+    section: Comments
+    token_count: 326
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md#c7"
+    char_span: [10522, 12351]
+    sentence_count: 21
+    key_terms: [useless, work, clearance, get, grateful, because, interns, intern]
+    section: Comments
+    token_count: 454
 ---
-
 # Stop complaining your internship for not doing something big
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1leq4ke/stop_complaining_your_internship_for_not_doing/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1qakjqm.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1qakjqm/a_comprehensive_monthly_checklist_for_college/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,26 @@ flair: "Advice"
 extracted_at: "2026-05-22T23:33:52.642Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qakjqm.md#c0"
+    char_span: [0, 2195]
+    sentence_count: 1
+    key_terms: [research, summer, academic, junior-year, spring, activities, begin, statement]
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qakjqm.md#c1"
+    char_span: [2197, 4569]
+    sentence_count: 1
+    key_terms: [early, essays, decision, applications, deadlines, continue, finalize, research]
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qakjqm.md#c2"
+    char_span: [4584, 5816]
+    sentence_count: 5
+    key_terms: [applyingtocollege, essays, wiki, related, reddit, collegeessays, https, com]
+    section: Comments
+    token_count: 324
 ---
-
 # A Comprehensive Monthly Checklist for College Applications– For Juniors Applying to Fall 2027
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1qakjqm/a_comprehensive_monthly_checklist_for_college/)

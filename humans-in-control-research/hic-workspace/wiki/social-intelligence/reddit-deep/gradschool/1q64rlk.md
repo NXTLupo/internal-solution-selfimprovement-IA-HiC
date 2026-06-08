@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1q64rlk.md
 url: "https://www.reddit.com/r/GradSchool/comments/1q64rlk/is_50k_in_undergrad_loans_a_bad_idea_if_i_want_to/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,45 @@ flair: "Finance"
 extracted_at: "2026-05-23T20:15:44.992Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1q64rlk.md#c0"
+    char_span: [0, 1049]
+    sentence_count: 7
+    key_terms: [undergrad, "i'm", gradschool, comments, college, paying, school, bad]
+    token_count: 260
+  - id: "social-intelligence/reddit-deep/gradschool/1q64rlk.md#c1"
+    char_span: [1064, 2899]
+    sentence_count: 13
+    key_terms: [amount, "that's", archaeology, "it's", job, academia, academic, industry]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/gradschool/1q64rlk.md#c2"
+    char_span: [2901, 5148]
+    sentence_count: 14
+    key_terms: [marine, field, lot, conservation, get, year, management, monitoring]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/gradschool/1q64rlk.md#c3"
+    char_span: [5150, 7003]
+    sentence_count: 13
+    key_terms: [program, working, assistance, "bachelor's", full-time, masters, hours, loans]
+    section: Comments
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/gradschool/1q64rlk.md#c4"
+    char_span: [7005, 9144]
+    sentence_count: 18
+    key_terms: [school, loans, undergrad, grad, field, state, down, like]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/gradschool/1q64rlk.md#c5"
+    char_span: [9146, 10851]
+    sentence_count: 7
+    key_terms: [grad, school, independent, experience, undergrad, familiar, students, cheaper]
+    section: Comments
+    token_count: 358
 ---
-
 # is $50k+ in undergrad loans a bad idea if I want to go to grad school?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1q64rlk/is_50k_in_undergrad_loans_a_bad_idea_if_i_want_to/)

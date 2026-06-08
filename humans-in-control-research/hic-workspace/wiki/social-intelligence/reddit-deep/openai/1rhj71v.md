@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1rhj71v.md
 url: "https://www.reddit.com/r/OpenAI/comments/1rhj71v/things_you_might_want_to_know_if_moving_to_claude/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,74 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:05.353Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c0"
+    char_span: [0, 2007]
+    sentence_count: 16
+    key_terms: [claude, chat, "i've", chats, usage, long, ago, something]
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c1"
+    char_span: [2009, 4358]
+    sentence_count: 22
+    key_terms: [claude, job, memory, something, chatgpt, details, asked, been]
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c2"
+    char_span: [4373, 4593]
+    sentence_count: 2
+    key_terms: [nickelchrome, situation, because, chatgpt, discuss, respect, stopped, claude]
+    section: Comments
+    token_count: 56
+  - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c3"
+    char_span: [4595, 6353]
+    sentence_count: 8
+    key_terms: [memory, incognito, chatgpt, accidentally, access, "that's", kindly-present-4867, lease]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c4"
+    char_span: [6072, 6642]
+    sentence_count: 4
+    key_terms: [incognito, memory, wish, optimismneeded, superb-ad3821, preferences, complaint, mentioned]
+    section: Comments
+    token_count: 135
+  - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c5"
+    char_span: [6644, 8545]
+    sentence_count: 15
+    key_terms: [claude, claudehomies, better, because, project, going, chat, good]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c6"
+    char_span: [8547, 10124]
+    sentence_count: 2
+    key_terms: [https, comments, claudehomies, sneakpeekbot, reddit, com, claude, redd]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c7"
+    char_span: [10126, 11966]
+    sentence_count: 15
+    key_terms: [claude, limits, claudehomies, limit, tier, free, hit, account]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c8"
+    char_span: [11968, 13731]
+    sentence_count: 10
+    key_terms: [like, "i've", went, work, claude, enough, feels, right]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c9"
+    char_span: [13733, 15656]
+    sentence_count: 14
+    key_terms: [spreadsheet, reference, like, project, chat, use, approach, switched]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c10"
+    char_span: [15658, 17333]
+    sentence_count: 10
+    key_terms: [claudehomies, claude, limits, usage, reddit, https, terms, com]
+    section: Comments
+    token_count: 426
 ---
-
 # Things you might want to know if moving to Claude
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1rhj71v/things_you_might_want_to_know_if_moving_to_claude/)

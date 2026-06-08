@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rsfhs0.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rsfhs0/first_developer_job_offer_but_condition_seem/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-22T23:34:01.116Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rsfhs0.md#c0"
+    char_span: [0, 1326]
+    sentence_count: 9
+    key_terms: [salary, developer, year, fresher, careerguidance, offer, help, job]
+    token_count: 313
+  - id: "social-intelligence/reddit-deep/careerguidance/1rsfhs0.md#c1"
+    char_span: [1341, 1834]
+    sentence_count: 5
+    key_terms: [employment, techytish, contract, cheap, noooo000oooo00, nevertheless, jameswjrose, terminating]
+    section: Comments
+    token_count: 132
 ---
-
 # First developer job offer but condition seem risky? Need advice ?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rsfhs0/first_developer_job_offer_but_condition_seem/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1nja7qs.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1nja7qs/my_dn_experience_has_lacked_meaning_and/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,57 @@ flair: "Meta"
 extracted_at: "2026-05-26T12:53:56.724Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1nja7qs.md#c0"
+    char_span: [0, 2036]
+    sentence_count: 20
+    key_terms: [experience, digitalnomad, "we're", consumption, subculture, comments, together, another]
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/digitalnomad/1nja7qs.md#c1"
+    char_span: [2051, 4453]
+    sentence_count: 13
+    key_terms: [different, purpose, places, nomading, digital, people, conversations, fulfillment]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/digitalnomad/1nja7qs.md#c2"
+    char_span: [4455, 6154]
+    sentence_count: 17
+    key_terms: [meaningful, build, co-living, something, real, people, spaces, communities]
+    section: Comments
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/digitalnomad/1nja7qs.md#c3"
+    char_span: [6156, 8031]
+    sentence_count: 18
+    key_terms: [conversations, like, resources, bringing, personal, friends, problem, issues]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/digitalnomad/1nja7qs.md#c4"
+    char_span: [8035, 9482]
+    sentence_count: 22
+    key_terms: ["you're", enjoying, doing, yourself, nomadic, change, people, being]
+    section: Comments
+    token_count: 372
+  - id: "social-intelligence/reddit-deep/digitalnomad/1nja7qs.md#c5"
+    char_span: [9484, 10934]
+    sentence_count: 13
+    key_terms: [meaning, find, yourself, cringe, people, "you're", like, meet]
+    section: Comments
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/digitalnomad/1nja7qs.md#c6"
+    char_span: [10936, 12821]
+    sentence_count: 15
+    key_terms: [part, people, life, meditation, concerns, question, ethical, being]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/digitalnomad/1nja7qs.md#c7"
+    char_span: [12823, 13511]
+    sentence_count: 12
+    key_terms: [meaningless, around, myself, world, use, meaningful, personally, gardening]
+    section: Comments
+    token_count: 159
 ---
-
 # My DN experience has lacked meaning and fraternity, and is hinged on constant consumption
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1nja7qs/my_dn_experience_has_lacked_meaning_and/)

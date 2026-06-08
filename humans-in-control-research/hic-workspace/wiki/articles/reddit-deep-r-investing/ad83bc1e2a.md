@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-investing/ad83bc1e2a.md
 url: "https://www.reddit.com/r/investing/comments/1t29rry/amd_earnings_are_upon_us_what_can_we_expect/"
 url_hash: "ad83bc1e2a"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:20:40.469740+00:00"
 chars: 3944
+industries: [financial_services, ai_research]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-investing/ad83bc1e2a.md#c0"
+    char_span: [0, 1543]
+    sentence_count: 11
+    key_terms: [amd, stocks, growth, likely, conviction, high, risk, investing]
+    token_count: 447
+  - id: "articles/reddit-deep-r-investing/ad83bc1e2a.md#c1"
+    char_span: [1545, 3019]
+    sentence_count: 20
+    key_terms: [probably, peloton, redistributed, redistribute, amd, own, portfolio, earnings]
+    token_count: 397
+  - id: "articles/reddit-deep-r-investing/ad83bc1e2a.md#c2"
+    char_span: [3021, 4129]
+    sentence_count: 11
+    key_terms: [advice, significantly, puzzleheaded-fly-658, money, today, years, amd, less]
+    token_count: 264
 ---
-
 # AMD earnings are upon us, what can we expect?
 
 Source: [Reddit Deep: r/investing](https://www.reddit.com/r/investing/comments/1t29rry/amd_earnings_are_upon_us_what_can_we_expect/)

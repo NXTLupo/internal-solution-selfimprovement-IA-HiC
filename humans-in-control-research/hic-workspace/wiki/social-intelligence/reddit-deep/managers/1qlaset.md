@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1qlaset.md
 url: "https://www.reddit.com/r/managers/comments/1qlaset/need_a_team_activity_for_connecting_the_manager/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-26T12:54:23.679Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1qlaset.md#c0"
+    char_span: [0, 734]
+    sentence_count: 7
+    key_terms: [managers, activity, team, centered, comments, reports, around, direct]
+    token_count: 165
+  - id: "social-intelligence/reddit-deep/managers/1qlaset.md#c1"
+    char_span: [749, 2546]
+    sentence_count: 11
+    key_terms: [managers, connect, team, activities, building, escape, office, person]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/managers/1qlaset.md#c2"
+    char_span: [2548, 3841]
+    sentence_count: 10
+    key_terms: [team, activity, random, silly, fact, food, guessing, manager]
+    section: Comments
+    token_count: 297
 ---
-
 # Need a team activity for connecting the manager with direct reports.
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1qlaset/need_a_team_activity_for_connecting_the_manager/)

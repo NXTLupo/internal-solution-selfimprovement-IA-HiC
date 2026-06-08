@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tlg7ou.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tlg7ou/itcorporate_life_doesnt_feel_right_what_should_i/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,78 @@ flair: "Advice"
 extracted_at: "2026-05-25T15:52:13.110Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c0"
+    char_span: [0, 1587]
+    sentence_count: 15
+    key_terms: ["i'm", life, time, engineer, careerguidance, "don't", stuck, feel]
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c1"
+    char_span: [1589, 3113]
+    sentence_count: 16
+    key_terms: ["i'm", like, started, people, topics, feel, constantly, technical]
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c2"
+    char_span: [3115, 5358]
+    sentence_count: 24
+    key_terms: [work, "i'm", switching, back, life, interest, studying, jobs]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c3"
+    char_span: [5360, 6980]
+    sentence_count: 19
+    key_terms: [life, time, feel, people, bit, "i'm", "it's", like]
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c4"
+    char_span: [6995, 8615]
+    sentence_count: 17
+    key_terms: [life, thoughts, deeper, relationships, find, journaling, question, mission]
+    section: Comments
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c5"
+    char_span: [8617, 10556]
+    sentence_count: 24
+    key_terms: ["you're", job, "don't", maybe, life, achievement, good, "i'm"]
+    section: Comments
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c6"
+    char_span: [10558, 12114]
+    sentence_count: 17
+    key_terms: [life, people, find, give, like, work, question, problem]
+    section: Comments
+    token_count: 337
+  - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c7"
+    char_span: [12116, 14228]
+    sentence_count: 19
+    key_terms: [company, different, "i'm", work, feeling, transformative, right, opportunity]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c8"
+    char_span: [14230, 16484]
+    sentence_count: 27
+    key_terms: [work, years, life, around, office, relationships, technological, moved]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c9"
+    char_span: [16486, 18709]
+    sentence_count: 21
+    key_terms: ["i'm", like, job, people, topics, feel, started, okimreloaded]
+    section: Comments
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c10"
+    char_span: [18711, 20848]
+    sentence_count: 19
+    key_terms: [like, feels, work, less, low, corporate, lifestyle, something]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c11"
+    char_span: [20852, 21905]
+    sentence_count: 8
+    key_terms: ["you're", achieve, outside, similar, advice, good, want, work]
+    section: Comments
+    token_count: 227
 ---
-
 # IT/corporate life doesn't feel right. What should I do with my life?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tlg7ou/itcorporate_life_doesnt_feel_right_what_should_i/)

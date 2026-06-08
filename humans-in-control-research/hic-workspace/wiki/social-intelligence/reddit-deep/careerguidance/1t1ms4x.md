@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t1ms4x.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t1ms4x/need_advice_for_switching_early_am_i_limiting_my/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,15 @@ flair: "Advice"
 extracted_at: "2026-05-23T12:15:46.635Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t1ms4x.md#c0"
+    char_span: [0, 1207]
+    sentence_count: 11
+    key_terms: [mainframe, technical, careerguidance, service-based, role, long-term, comments, staying]
+    token_count: 288
 ---
-
 # Need Advice for Switching Early - Am I Limiting My Career by Staying in Mainframe?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t1ms4x/need_advice_for_switching_early_am_i_limiting_my/)

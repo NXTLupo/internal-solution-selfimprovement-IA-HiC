@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1qqyt3u.md
 url: "https://www.reddit.com/r/careerguidance/comments/1qqyt3u/how_do_i_figure_out_a_stable_career_path_when_all/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.160Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1qqyt3u.md#c0"
+    char_span: [0, 1283]
+    sentence_count: 10
+    key_terms: [wildlife, careerguidance, competitive, pay, biologist, interests, comments, "that's"]
+    token_count: 288
+  - id: "social-intelligence/reddit-deep/careerguidance/1qqyt3u.md#c1"
+    char_span: [1298, 3242]
+    sentence_count: 15
+    key_terms: [work, wildlife, field, time, school, doing, "don't", environment]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/careerguidance/1qqyt3u.md#c2"
+    char_span: [3244, 5383]
+    sentence_count: 15
+    key_terms: ["you're", compromise, get, list, career, being, desk, good]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/careerguidance/1qqyt3u.md#c3"
+    char_span: [5385, 7814]
+    sentence_count: 23
+    key_terms: ["you'll", clients, time, get, example, work, construction, interesting]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/careerguidance/1qqyt3u.md#c4"
+    char_span: [7816, 9836]
+    sentence_count: 12
+    key_terms: [get, short, different, lot, want, people, work, example]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/careerguidance/1qqyt3u.md#c5"
+    char_span: [9838, 10806]
+    sentence_count: 9
+    key_terms: [want, day, fields, field, looks, get, like, sure]
+    section: Comments
+    token_count: 215
+  - id: "social-intelligence/reddit-deep/careerguidance/1qqyt3u.md#c6"
+    char_span: [10808, 13016]
+    sentence_count: 13
+    key_terms: [utility, design, field, find, epicuretrekker2, idea, work, everything]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/careerguidance/1qqyt3u.md#c7"
+    char_span: [13019, 14742]
+    sentence_count: 20
+    key_terms: [school, business, classes, field, high, jobs, marketing, whatever]
+    section: Comments
+    token_count: 406
 ---
-
 # How do I figure out a stable career path when all my interests are unrealistic?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1qqyt3u/how_do_i_figure_out_a_stable_career_path_when_all/)

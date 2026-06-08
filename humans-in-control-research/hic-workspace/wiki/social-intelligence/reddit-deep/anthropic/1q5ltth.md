@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/anthropic/1q5ltth.md
 url: "https://www.reddit.com/r/Anthropic/comments/1q5ltth/developer_uses_claude_code_and_has_an_existential/"
 kind: "social-post"
 source: "reddit-deep: r/anthropic"
@@ -13,8 +14,57 @@ flair: "Other"
 extracted_at: "2026-05-11T16:52:48.654Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, enterprise_it, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/anthropic/1q5ltth.md#c0"
+    char_span: [0, 285]
+    sentence_count: 1
+    key_terms: [anthropic, comments, existential, metaknowing, reddit-deep, developer, claude, crisis]
+    token_count: 77
+  - id: "social-intelligence/reddit-deep/anthropic/1q5ltth.md#c1"
+    char_span: [300, 1972]
+    sentence_count: 9
+    key_terms: [writing, code, abject-bandicoot8890, through, guidance, aspects, handle, allergictobullshit24]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/anthropic/1q5ltth.md#c2"
+    char_span: [1974, 3857]
+    sentence_count: 10
+    key_terms: [people, like, problem, complaining, code, else, part, everything]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/anthropic/1q5ltth.md#c3"
+    char_span: [3859, 6138]
+    sentence_count: 13
+    key_terms: [software, faster, programming, fun, part, ship, engineers, knowledge]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/anthropic/1q5ltth.md#c4"
+    char_span: [6140, 7935]
+    sentence_count: 13
+    key_terms: [need, agents, claude, code, plan, use, different, engineers]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/anthropic/1q5ltth.md#c5"
+    char_span: [7937, 10000]
+    sentence_count: 11
+    key_terms: [sixstringsoul, count, job, sure, time, electrical, mechanical, engineers]
+    section: Comments
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/anthropic/1q5ltth.md#c6"
+    char_span: [10002, 10859]
+    sentence_count: 4
+    key_terms: [cycle, diamonds-are-hard, help, own, time, clemenslode, absolutely, complexity]
+    section: Comments
+    token_count: 254
+  - id: "social-intelligence/reddit-deep/anthropic/1q5ltth.md#c7"
+    char_span: [10861, 11874]
+    sentence_count: 6
+    key_terms: [multiplication, coding, commercialcomputer15, never, code, thomastoindia, g4n0esp4r4n, programming]
+    section: Comments
+    token_count: 284
 ---
-
 # Developer uses Claude Code and has an existential crisis
 
 Source: [reddit-deep: r/anthropic](https://www.reddit.com/r/Anthropic/comments/1q5ltth/developer_uses_claude_code_and_has_an_existential/)

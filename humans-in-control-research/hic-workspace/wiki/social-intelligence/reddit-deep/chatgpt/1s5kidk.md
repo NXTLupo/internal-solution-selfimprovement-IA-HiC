@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1s5kidk.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1s5kidk/how_does_openai_plan_to_make_money_whats_the/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,39 @@ flair: "Other "
 extracted_at: "2026-05-17T01:12:48.205Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1s5kidk.md#c0"
+    char_span: [0, 1600]
+    sentence_count: 17
+    key_terms: [chatgpt, claude, model, gemini, models, openai, "what's", "can't"]
+    token_count: 375
+  - id: "social-intelligence/reddit-deep/chatgpt/1s5kidk.md#c1"
+    char_span: [1615, 2265]
+    sentence_count: 4
+    key_terms: [openai, conversation, image, post, r-chatgpt-1050422060352024636, chatgpt-shared-links-faq, discord, support]
+    section: Comments
+    token_count: 171
+  - id: "social-intelligence/reddit-deep/chatgpt/1s5kidk.md#c2"
+    char_span: [2268, 4227]
+    sentence_count: 12
+    key_terms: [chatgpt, claude, never, write, content, single, issue, spicy]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/chatgpt/1s5kidk.md#c3"
+    char_span: [4229, 5837]
+    sentence_count: 14
+    key_terms: [like, "true", scientific, absolute, honestly, workflow, gpt-pro, minutes]
+    section: Comments
+    token_count: 406
+  - id: "social-intelligence/reddit-deep/chatgpt/1s5kidk.md#c4"
+    char_span: [5839, 7743]
+    sentence_count: 12
+    key_terms: [hallucinated, integration, chatgpt, partner, google, safety, like, microsoft]
+    section: Comments
+    token_count: 489
 ---
-
 # How does OpenAI plan to make money? What's the incentive to even use ChatGPT anymore?
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1s5kidk/how_does_openai_plan_to_make_money_whats_the/)

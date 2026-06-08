@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1qmoixk.md
 url: "https://www.reddit.com/r/internships/comments/1qmoixk/summer_internship_hunt/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,48 @@ subreddit: "internships"
 title: "Summer internship hunt"
 author: "New-Carpenter-6300"
 date: "2026-01-25T16:58:04.000Z"
-score: 47
-upvote_ratio: 0.95
+score: 48
+upvote_ratio: 0.96
 num_comments: 30
 flair: "Applications"
-extracted_at: "2026-05-23T20:15:15.783Z"
+extracted_at: "2026-06-05T16:18:00.471Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1qmoixk.md#c0"
+    char_span: [0, 1366]
+    sentence_count: 4
+    key_terms: [job, january, resume, right, internships, internship, everybody, comments]
+    token_count: 304
+  - id: "social-intelligence/reddit-deep/internships/1qmoixk.md#c1"
+    char_span: [1381, 3149]
+    sentence_count: 10
+    key_terms: [recruiter, email, recruiters, directors, got, ghosted, manager, get]
+    section: Comments
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/internships/1qmoixk.md#c2"
+    char_span: [3151, 4644]
+    sentence_count: 9
+    key_terms: [analytics, got, applications, data, good, applied, jdwjxia, better]
+    section: Comments
+    token_count: 337
+  - id: "social-intelligence/reddit-deep/internships/1qmoixk.md#c3"
+    char_span: [4646, 6787]
+    sentence_count: 10
+    key_terms: [new-carpenter-6300, internship, international, got, internships, opportunity, yourself, applied]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1qmoixk.md#c4"
+    char_span: [6560, 6924]
+    sentence_count: 1
+    key_terms: [nationalbluebird3420, new-carpenter-6300, eventually, experience, interviews, jobright, messaged, company]
+    section: Comments
+    token_count: 92
 ---
-
 # Summer internship hunt
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1qmoixk/summer_internship_hunt/)
-Posted by **New-Carpenter-6300** · **47↑** · **30 comments**
+Posted by **New-Carpenter-6300** · **48↑** · **30 comments**
 
 Hey people,
 
@@ -35,7 +65,7 @@ Don't mind my English please.
 ## Comments
 
 - **electric_deer200** (23↑): Stop emailing recruiters start focusing on directors or manager of the team you want to join. Recruiters won't care. Have had better success in replies from reaching out to directors
-  - **New-Carpenter-6300** (3↑): Thankyou for the update but vp and director ignore just like hr
+  - **New-Carpenter-6300** (4↑): Thankyou for the update but vp and director ignore just like hr
   - **Pronoic_Lion** (1↑): what if one wants to NOT join startups? Ur advice is trash in that case.
     - **electric_deer200** (3↑): Nope I have had some luck when I email directors at F 500 they usually reply " I will pass your profile to the teams that are hiring." Or if they really like you they get a recruiter to follow up with an email to check fit and other logistics. Of course some ghosting is involved but some of them actually do put you in the pipeline 
 
@@ -46,7 +76,7 @@ I have got OA sometimes by emailing recruiters and they are like sending you an 
 Recently I reached out to a director of IT of a local company (who interviewed me last summer I got her email from the interview attendee email  they send ) whose process I failed last summer and she replied back and told me that she is waiting for budget approval and will probably have a intern spot in February posted and told me she has my file and will remember to reach out to me when she get approved for the intern. Same company I email the recruiter in charge and I get ghosted. This was also an MNC not a startup. 
 
 Personally have had much better response reaching out the higher people in heirachy because they have the discipline and tendency to reply to stuff as soon as they read it. Like it a habit these higher ranking people have even for grad applications my friend  used to email assistant professors and got no responses had better reply experience with the actual tenured and experienced proffesors who actually are good in the field and wanted good research students and he got interviews for grad school with them.
-- **jdwjxia** (6↑): I applied to about 80 jobs early when engineering internships got posted. Was reached out to by TSMC, got an offer from them. Stopped applying after receiving this offer. I got a surprise late interview from SpaceX that I thought went well, but didn’t lead to anything. Will be at TSMC for the summer.
+- **jdwjxia** (4↑): I applied to about 80 jobs early when engineering internships got posted. Was reached out to by TSMC, got an offer from them. Stopped applying after receiving this offer. I got a surprise late interview from SpaceX that I thought went well, but didn’t lead to anything. Will be at TSMC for the summer.
   - **Flaky_Passion6890** (2↑): Wow that's awesome congrats
   - **New-Carpenter-6300** (1↑): what do you think is their any still good chance to get summer internship still? like i am looking in data analytics or related analytics field and i am pursuing masters in applied data analytics.
     - **jdwjxia** (1↑): I’m not super familiar with data analytics, so take this with a grain of salt potentially. You’re not too late to apply by any means, but from what I’ve heard from my CS friends, most jobs get posted extremely early. Why’d you wait till November. Either way, since you did that, you need to be spamming applications whenever you have free time.
@@ -62,5 +92,4 @@ I looked at your profile. You seem to be an international student; do you need t
 - **OtherPressure3111** (2↑): I would email directors and start interview prep during this time what matters most is how you present yourself when the opportunity lands. I recc online resources such as https://internapp-sigma.vercel.app
 They have a free trial!
   - **New-Carpenter-6300** (1↑): Thanks for info mate
-- **Silent-Pain3206** (1↑): Are you in the uk?
 - **NationalBluebird3420** (1↑): jobright ai doesnt work half of the time. i feel they just have better ui, but their success rate is very low in terms of u getting job. i have used it, and it was bad experience. then i myself messaged people in the company and bingo they replied and i eventually got interviews.

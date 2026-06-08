@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1oazb07.md
 url: "https://www.reddit.com/r/personalfinance/comments/1oazb07/new_dad_freaking_out_how_in_the_hole_are_we/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,98 @@ flair: "Budgeting"
 extracted_at: "2026-05-17T01:13:31.186Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c0"
+    char_span: [0, 2007]
+    sentence_count: 7
+    key_terms: [car, personalfinance, daycare, going, been, bill, year, financial]
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c1"
+    char_span: [2009, 2331]
+    sentence_count: 2
+    key_terms: [money, different, elsewhere, diligent, honestly, strictly, looking, roughly]
+    token_count: 69
+  - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c2"
+    char_span: [2346, 3949]
+    sentence_count: 15
+    key_terms: [daycare, wife, mortgage, student, income, broke, debts, loans]
+    section: Comments
+    token_count: 408
+  - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c3"
+    char_span: [3951, 5272]
+    sentence_count: 14
+    key_terms: [childcare, far, year, council, "doesn't", family, does, home]
+    section: Comments
+    token_count: 341
+  - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c4"
+    char_span: [5274, 7131]
+    sentence_count: 20
+    key_terms: [daycare, years, job, congratulations, assets, raise, development, different]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c5"
+    char_span: [7133, 8022]
+    sentence_count: 8
+    key_terms: ["don't", food, budgeting, getting, stupid, penny, kind, need]
+    section: Comments
+    token_count: 214
+  - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c6"
+    char_span: [8024, 9402]
+    sentence_count: 8
+    key_terms: [baby, food, discounted, paycheck, daycare, rather, least, "we're"]
+    section: Comments
+    token_count: 324
+  - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c7"
+    char_span: [9404, 10300]
+    sentence_count: 7
+    key_terms: [savings, cushion, going, means, month, need, want, year]
+    section: Comments
+    token_count: 235
+  - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c8"
+    char_span: [10302, 11806]
+    sentence_count: 15
+    key_terms: [discretionary, funds, look, want, spending, daycare, looking, picture]
+    section: Comments
+    token_count: 335
+  - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c9"
+    char_span: [11808, 13599]
+    sentence_count: 14
+    key_terms: [daycare, childcare, care, "they're", cost, paying, "that's", replacement]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c10"
+    char_span: [13601, 15001]
+    sentence_count: 10
+    key_terms: [childcare, making, costs, "she's", wife, years, year, "you're"]
+    section: Comments
+    token_count: 343
+  - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c11"
+    char_span: [15003, 16979]
+    sentence_count: 15
+    key_terms: [been, job, people, keep, year, management, looking, income]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c12"
+    char_span: [16983, 18866]
+    sentence_count: 14
+    key_terms: [living, "you're", expenses, "don't", keep, helping, savings, income]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c13"
+    char_span: [18868, 20665]
+    sentence_count: 15
+    key_terms: [daycare, probably, being, care, good, discount, employee, benefit]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/personalfinance/1oazb07.md#c14"
+    char_span: [20667, 21769]
+    sentence_count: 13
+    key_terms: [job, finding, care, don, get, kids, time, outstanding]
+    section: Comments
+    token_count: 256
 ---
-
 # New dad freaking out ,How in the hole are we?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1oazb07/new_dad_freaking_out_how_in_the_hole_are_we/)

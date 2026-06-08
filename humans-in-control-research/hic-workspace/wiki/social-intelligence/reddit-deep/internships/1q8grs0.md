@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1q8grs0.md
 url: "https://www.reddit.com/r/internships/comments/1q8grs0/seeking_advice_on_finding_aiml_internships_as_a/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,16 @@ score: 1
 upvote_ratio: 1
 num_comments: 0
 flair: "Applications"
-extracted_at: "2026-05-20T12:56:20.016Z"
+extracted_at: "2026-06-05T19:19:58.912Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1q8grs0.md#c0"
+    char_span: [0, 271]
+    sentence_count: 1
+    key_terms: [internships, comments, antique-wish9622, reddit-deep, finding, seeking, student, advice]
+    token_count: 86
 ---
-
 # Seeking advice on finding AI/ML internships as a 2nd-year student
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1q8grs0/seeking_advice_on_finding_aiml_internships_as_a/)

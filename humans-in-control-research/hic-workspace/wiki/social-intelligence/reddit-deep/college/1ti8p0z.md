@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1ti8p0z.md
 url: "https://www.reddit.com/r/college/comments/1ti8p0z/degree_in_three_why_more_colleges_are_speeding_up/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,33 @@ flair: "North America"
 extracted_at: "2026-05-22T15:12:02.775Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1ti8p0z.md#c0"
+    char_span: [0, 611]
+    sentence_count: 3
+    key_terms: [college, graduation, colleges, comments, students, degree, increasingly, institutions]
+    token_count: 145
+  - id: "social-intelligence/reddit-deep/college/1ti8p0z.md#c1"
+    char_span: [626, 2633]
+    sentence_count: 12
+    key_terms: [engineering, understand, semester, because, degree, semesters, computer, required]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/college/1ti8p0z.md#c2"
+    char_span: [2635, 4702]
+    sentence_count: 13
+    key_terms: [people, education, "can't", credits, definitely, higher, specifically, well-rounded]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/college/1ti8p0z.md#c3"
+    char_span: [4704, 5839]
+    sentence_count: 7
+    key_terms: [colleges, shorter, student, degree, adapt, howdoievenenglish, help, certifications]
+    section: Comments
+    token_count: 249
 ---
-
 # Degree in three: Why more colleges are speeding up graduation timelines
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ti8p0z/degree_in_three_why_more_colleges_are_speeding_up/)

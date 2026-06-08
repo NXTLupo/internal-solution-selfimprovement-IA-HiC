@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1rfa26o.md
 url: "https://www.reddit.com/r/college/comments/1rfa26o/how_to_just_enjoy_college_more/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,51 @@ flair: "Emotional health/coping/adulting"
 extracted_at: "2026-05-17T01:12:59.135Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1rfa26o.md#c0"
+    char_span: [0, 1050]
+    sentence_count: 8
+    key_terms: [college, get, comments, enjoy, back, dont, dorm, find]
+    token_count: 255
+  - id: "social-intelligence/reddit-deep/college/1rfa26o.md#c1"
+    char_span: [1065, 2263]
+    sentence_count: 12
+    key_terms: [college, aceyaceyacey, get, job, already, reasons, seeing, leave]
+    section: Comments
+    token_count: 294
+  - id: "social-intelligence/reddit-deep/college/1rfa26o.md#c2"
+    char_span: [2265, 4345]
+    sentence_count: 7
+    key_terms: [trhlaslecna, been, leagues, better, assignments, semester, skipping, classes]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1rfa26o.md#c3"
+    char_span: [4098, 4346]
+    sentence_count: 1
+    key_terms: [regular-dirt2826, clearwaterrev, highschool, semester, terribly, anymore, instead, opinion]
+    section: Comments
+    token_count: 65
+  - id: "social-intelligence/reddit-deep/college/1rfa26o.md#c4"
+    char_span: [4348, 6043]
+    sentence_count: 14
+    key_terms: [school, semester, friends, grades, time, college, "it's", too]
+    section: Comments
+    token_count: 389
+  - id: "social-intelligence/reddit-deep/college/1rfa26o.md#c5"
+    char_span: [6046, 8443]
+    sentence_count: 14
+    key_terms: [school, college, commuter, harder, feel, connection, counseling, eventually]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/college/1rfa26o.md#c6"
+    char_span: [8445, 9331]
+    sentence_count: 9
+    key_terms: [activities, doing, social, enjoying, college, ideally, people, "that's"]
+    section: Comments
+    token_count: 198
 ---
-
 # How to just enjoy college more?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1rfa26o/how_to_just_enjoy_college_more/)

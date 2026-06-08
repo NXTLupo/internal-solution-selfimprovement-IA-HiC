@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1quur6g.md
 url: "https://www.reddit.com/r/stocks/comments/1quur6g/from_investing_to_gambling_the_state_of_us_stocks/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,63 @@ flair: ""
 extracted_at: "2026-05-17T01:14:17.619Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1quur6g.md#c0"
+    char_span: [0, 1183]
+    sentence_count: 10
+    key_terms: [stocks, like, market, increasingly, feels, comments, equities, isn]
+    token_count: 266
+  - id: "social-intelligence/reddit-deep/stocks/1quur6g.md#c1"
+    char_span: [1198, 3031]
+    sentence_count: 15
+    key_terms: [risk, like, buying, fundamentals, young, get, shit, time]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/stocks/1quur6g.md#c2"
+    char_span: [3033, 5024]
+    sentence_count: 16
+    key_terms: [money, want, netflix, buying, "you're", down, averaging, financial]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/stocks/1quur6g.md#c3"
+    char_span: [5027, 6795]
+    sentence_count: 12
+    key_terms: [trading, buying, covid, different, investing, little, prices, single]
+    section: Comments
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/stocks/1quur6g.md#c4"
+    char_span: [6798, 8544]
+    sentence_count: 7
+    key_terms: [market, momentum, trading, index, investors, liquidity, deleted, forget]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/stocks/1quur6g.md#c5"
+    char_span: [8546, 10490]
+    sentence_count: 16
+    key_terms: [market, right, years, buy, time, valuations, portfolio, because]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/stocks/1quur6g.md#c6"
+    char_span: [10492, 12209]
+    sentence_count: 16
+    key_terms: [changed, years, long, science, market, fundamentally, laws, old]
+    section: Comments
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/stocks/1quur6g.md#c7"
+    char_span: [12211, 14078]
+    sentence_count: 13
+    key_terms: [principles, parking-ad5909, market, money, investors, equities, correct, "doesn't"]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/stocks/1quur6g.md#c8"
+    char_span: [14080, 14966]
+    sentence_count: 8
+    key_terms: [market, trillion, stocks, money, years, been, flow, lot]
+    section: Comments
+    token_count: 212
 ---
-
 # From Investing to Gambling: The State of U.S. Stocks
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1quur6g/from_investing_to_gambling_the_state_of_us_stocks/)

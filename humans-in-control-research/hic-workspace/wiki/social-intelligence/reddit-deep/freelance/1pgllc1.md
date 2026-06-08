@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/freelance/1pgllc1.md
 url: "https://www.reddit.com/r/freelance/comments/1pgllc1/lpt_you_are_not_supposed_to_have_40_hoursweek_of/"
 kind: "social-post"
 source: "reddit-deep: r/freelance"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-26T12:53:48.702Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/freelance/1pgllc1.md#c0"
+    char_span: [0, 825]
+    sentence_count: 6
+    key_terms: [hours, regular, work, freelancer, freelance, billable, comments, employee]
+    token_count: 201
+  - id: "social-intelligence/reddit-deep/freelance/1pgllc1.md#c1"
+    char_span: [840, 2352]
+    sentence_count: 14
+    key_terms: [cover, equipment, time, hourly, freelancers, freelancer, jwellscfo, business]
+    section: Comments
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/freelance/1pgllc1.md#c2"
+    char_span: [2354, 4284]
+    sentence_count: 15
+    key_terms: [hours, time, working, hourly, compensation, rate, billable, package]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/freelance/1pgllc1.md#c3"
+    char_span: [4286, 6372]
+    sentence_count: 13
+    key_terms: [project, clients, hours, freelancer, calculate, rate, week, client]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/freelance/1pgllc1.md#c4"
+    char_span: [6374, 6466]
+    sentence_count: 1
+    key_terms: [week, dream, hours, been, get, "it's", like, part]
+    section: Comments
+    token_count: 27
 ---
-
 # LPT: You are not supposed to have 40 hours/week of billable work each week
 
 Source: [reddit-deep: r/freelance](https://www.reddit.com/r/freelance/comments/1pgllc1/lpt_you_are_not_supposed_to_have_40_hoursweek_of/)

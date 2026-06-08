@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1o19fov.md
 url: "https://www.reddit.com/r/careerguidance/comments/1o19fov/should_i_leave_my_job/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,40 @@ flair: ""
 extracted_at: "2026-05-22T23:34:01.142Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1o19fov.md#c0"
+    char_span: [0, 1802]
+    sentence_count: 21
+    key_terms: [company, careerguidance, years, phd, background, comments, however, present]
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/careerguidance/1o19fov.md#c1"
+    char_span: [1804, 3890]
+    sentence_count: 21
+    key_terms: [work, phd, person, been, team, brilliant, convinced, something]
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/careerguidance/1o19fov.md#c2"
+    char_span: [3892, 5983]
+    sentence_count: 28
+    key_terms: [feh, company, boss, promote, leave, years, been, suggested]
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/careerguidance/1o19fov.md#c3"
+    char_span: [5985, 7906]
+    sentence_count: 22
+    key_terms: [however, boss, time, occasions, feh, work, office, asked]
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/careerguidance/1o19fov.md#c4"
+    char_span: [7908, 9738]
+    sentence_count: 19
+    key_terms: [lunch, time, feedback, break, back, feh, get, understand]
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/careerguidance/1o19fov.md#c5"
+    char_span: [9740, 10209]
+    sentence_count: 7
+    key_terms: ["don't", start, days, time, blabbering, distancing, motivation, incident]
+    token_count: 112
 ---
-
 # Should I leave my job?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1o19fov/should_i_leave_my_job/)

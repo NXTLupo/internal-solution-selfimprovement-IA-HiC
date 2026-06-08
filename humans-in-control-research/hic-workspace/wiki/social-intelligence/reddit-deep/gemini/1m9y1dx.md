@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gemini/1m9y1dx.md
 url: "https://www.reddit.com/r/Gemini/comments/1m9y1dx/how_to_sign_into_your_gemini_account_if_you_are/"
 kind: "social-post"
 source: "reddit-deep: r/gemini"
@@ -13,8 +14,44 @@ flair: "Support:Support:"
 extracted_at: "2026-05-11T17:27:04.756Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gemini/1m9y1dx.md#c0"
+    char_span: [0, 1928]
+    sentence_count: 12
+    key_terms: [gemini, account, app, device, passkey, com, sign, access]
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/gemini/1m9y1dx.md#c1"
+    char_span: [1930, 2362]
+    sentence_count: 4
+    key_terms: [verification, need, authentication, unsuccessful, onboarding, two-factor, documents, submitted]
+    token_count: 91
+  - id: "social-intelligence/reddit-deep/gemini/1m9y1dx.md#c2"
+    char_span: [2377, 3459]
+    sentence_count: 8
+    key_terms: [deleted, authy, digit, gemini, having, issues, ticket, legal]
+    section: Comments
+    token_count: 281
+  - id: "social-intelligence/reddit-deep/gemini/1m9y1dx.md#c3"
+    char_span: [3461, 5609]
+    sentence_count: 15
+    key_terms: [crypto, professormediocre991, understand, withdrawal, users, platform, cryptocurrency, please]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/gemini/1m9y1dx.md#c4"
+    char_span: [5611, 7257]
+    sentence_count: 10
+    key_terms: [professormediocre991, iphone, thank, account, please, appreciate, code, scan]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/gemini/1m9y1dx.md#c5"
+    char_span: [7259, 8798]
+    sentence_count: 13
+    key_terms: [account, gemini, app, password, numbers, ticket, instructions, another]
+    section: Comments
+    token_count: 346
 ---
-
 # How to sign into your Gemini account if you are having issues logging on
 
 Source: [reddit-deep: r/gemini](https://www.reddit.com/r/Gemini/comments/1m9y1dx/how_to_sign_into_your_gemini_account_if_you_are/)

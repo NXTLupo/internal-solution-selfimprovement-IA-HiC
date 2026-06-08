@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1qgheyc.md
 url: "https://www.reddit.com/r/careerguidance/comments/1qgheyc/i_chose_to_study_it_and_learned_i_have_no_passion/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,27 @@ flair: "Advice"
 extracted_at: "2026-05-26T14:32:49.147Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1qgheyc.md#c0"
+    char_span: [0, 1566]
+    sentence_count: 21
+    key_terms: [investigations, school, careerguidance, shoplifters, associates, prevention, auditing, comments]
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/careerguidance/1qgheyc.md#c1"
+    char_span: [1581, 3791]
+    sentence_count: 18
+    key_terms: [security, analyst, work, background, compliance, roles, get, next-garbage9163]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/careerguidance/1qgheyc.md#c2"
+    char_span: [3793, 4928]
+    sentence_count: 10
+    key_terms: [spend, time, coding, people, hours, often, roles, like]
+    section: Comments
+    token_count: 254
 ---
-
 # I chose to study IT, and learned I have no passion for IT. Any other career paths based off my background?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1qgheyc/i_chose_to_study_it_and_learned_i_have_no_passion/)

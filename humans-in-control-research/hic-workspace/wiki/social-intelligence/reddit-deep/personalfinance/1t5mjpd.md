@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1t5mjpd.md
 url: "https://www.reddit.com/r/personalfinance/comments/1t5mjpd/saved_enough_to_outright_buy_a_truck_for_40k_in/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,69 @@ flair: "Auto"
 extracted_at: "2026-05-17T01:13:31.179Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c0"
+    char_span: [0, 1422]
+    sentence_count: 9
+    key_terms: [truck, account, buy, new, personalfinance, enough, investment, investing]
+    token_count: 329
+  - id: "social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c1"
+    char_span: [1437, 2881]
+    sentence_count: 11
+    key_terms: [new, truck, years, cost, depreciation, worth, selling, long]
+    section: Comments
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c2"
+    char_span: [2883, 3746]
+    sentence_count: 4
+    key_terms: [used, "you're", new, choice, saying, car, significantly, below-market]
+    section: Comments
+    token_count: 211
+  - id: "social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c3"
+    char_span: [3748, 5073]
+    sentence_count: 10
+    key_terms: [truck, car, instead, usually, price, get, keep, long]
+    section: Comments
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c4"
+    char_span: [5075, 6266]
+    sentence_count: 5
+    key_terms: [fleetadmiralcrunch, interest, money, cash, pay, predefined, because, finance]
+    section: Comments
+    token_count: 298
+  - id: "social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c5"
+    char_span: [6268, 8201]
+    sentence_count: 11
+    key_terms: [truck, interest, pay, money, finance, buy, math, invested]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c6"
+    char_span: [7947, 8679]
+    sentence_count: 7
+    key_terms: [pay, interest, investments, likely, therendevouswithfish, later, taxes, buy]
+    section: Comments
+    token_count: 175
+  - id: "social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c7"
+    char_span: [8682, 10358]
+    sentence_count: 4
+    key_terms: [want, market, debt, awful, great, maybe, spend, put]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c8"
+    char_span: [10360, 12398]
+    sentence_count: 17
+    key_terms: [truck, investments, money, get, trailer, times, car, need]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/personalfinance/1t5mjpd.md#c9"
+    char_span: [12400, 13090]
+    sentence_count: 8
+    key_terms: [money, financing, cash, interest, dealers, pay, flyinhawaiian58, ricofalltrades]
+    section: Comments
+    token_count: 161
 ---
-
 # Saved enough to outright buy a truck for $40k in an investment account. Should I touch it or not when financing my next truck?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1t5mjpd/saved_enough_to_outright_buy_a_truck_for_40k_in/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1rjazjz.md
 url: "https://www.reddit.com/r/GradSchool/comments/1rjazjz/selffunding_domestic_masters_students_you_need_to/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,44 @@ flair: ""
 extracted_at: "2026-05-22T21:35:36.526Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, financial_services, government]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1rjazjz.md#c0"
+    char_span: [0, 2206]
+    sentence_count: 12
+    key_terms: [loans, federal, summer, students, grandfathered, private, program, department]
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/gradschool/1rjazjz.md#c1"
+    char_span: [2208, 3250]
+    sentence_count: 7
+    key_terms: [program, loan, unemployed, repayment, increase, interest, private, "you're"]
+    token_count: 220
+  - id: "social-intelligence/reddit-deep/gradschool/1rjazjz.md#c2"
+    char_span: [3265, 4970]
+    sentence_count: 9
+    key_terms: [school, grad, job, time, programs, phd, everything, predatory]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/gradschool/1rjazjz.md#c3"
+    char_span: [4972, 5461]
+    sentence_count: 2
+    key_terms: [schools, careful-while-7214, "i'm", less, imperialagent120, flexibility, attendance, difference]
+    section: Comments
+    token_count: 120
+  - id: "social-intelligence/reddit-deep/gradschool/1rjazjz.md#c4"
+    char_span: [5463, 7323]
+    sentence_count: 14
+    key_terms: [grandfathered, program, aid, grad, june, financial, disburse, changes]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/gradschool/1rjazjz.md#c5"
+    char_span: [7325, 8864]
+    sentence_count: 12
+    key_terms: [students, financial, loan, private, grad, law, like, options]
+    section: Comments
+    token_count: 356
 ---
-
 # Self-funding domestic masters students, you NEED to research what's happening to federal loans and plan ahead !!
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1rjazjz/selffunding_domestic_masters_students_you_need_to/)

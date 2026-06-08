@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1q2ghe9.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1q2ghe9/not_sure_how_to_bridge_gap_in_experience_or_what/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,39 @@ flair: "Advice"
 extracted_at: "2026-05-25T18:33:12.674Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1q2ghe9.md#c0"
+    char_span: [0, 953]
+    sentence_count: 10
+    key_terms: [experience, high-level, uwaterloo, comments, securing, chances, improve, looking]
+    token_count: 242
+  - id: "social-intelligence/reddit-deep/uwaterloo/1q2ghe9.md#c1"
+    char_span: [968, 3147]
+    sentence_count: 15
+    key_terms: [projects, points, stretchedwasfresh, bullet, apply, take, externally, high-level]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/uwaterloo/1q2ghe9.md#c2"
+    char_span: [3149, 5061]
+    sentence_count: 18
+    key_terms: [quant, year, clean-ad-7364, mean, top, waterloo, results, unless]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/uwaterloo/1q2ghe9.md#c3"
+    char_span: [4828, 6104]
+    sentence_count: 8
+    key_terms: [striking-setting-560, quant, projects, put, especially, transcript, necessary, probably]
+    section: Comments
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/uwaterloo/1q2ghe9.md#c4"
+    char_span: [6106, 7172]
+    sentence_count: 6
+    key_terms: [good, learning, awards, concepts, section, "you're", funrecommendation298, misakamikasa10086]
+    section: Comments
+    token_count: 267
 ---
-
 # Not sure how to bridge gap in experience or what to do to improve my chances of securing a co-op
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1q2ghe9/not_sure_how_to_bridge_gap_in_experience_or_what/)

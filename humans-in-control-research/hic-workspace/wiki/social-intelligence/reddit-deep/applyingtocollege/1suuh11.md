@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1suuh11.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1suuh11/i_dont_have_any_extracurriculars_as_a_sophomore/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,42 @@ subreddit: "applyingtocollege"
 title: "I don't have any extracurriculars as a sophomore. Am I done for?"
 author: "RecognitionDue5675"
 date: "2026-04-24T22:34:52.000Z"
-score: 8
-upvote_ratio: 0.9
+score: 9
+upvote_ratio: 0.91
 num_comments: 35
 flair: "Advice"
-extracted_at: "2026-05-23T19:45:32.284Z"
+extracted_at: "2026-06-05T19:53:34.570Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1suuh11.md#c0"
+    char_span: [0, 2034]
+    sentence_count: 22
+    key_terms: [extracurriculars, school, "don't", volunteer, "i'm", summer, wanted, interested]
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1suuh11.md#c1"
+    char_span: [2036, 3253]
+    sentence_count: 4
+    key_terms: [care, colleges, taking, want, applied, brother, college, schools]
+    section: Comments
+    token_count: 311
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1suuh11.md#c2"
+    char_span: [3255, 5309]
+    sentence_count: 5
+    key_terms: [marching, people, band, lot, extracurriculars, love, percussion, programs]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1suuh11.md#c3"
+    char_span: [5311, 7419]
+    sentence_count: 18
+    key_terms: [good, get, everything, volunteer, schools, student, school, "don't"]
+    section: Comments
+    token_count: 500
 ---
-
 # I don't have any extracurriculars as a sophomore. Am I done for?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1suuh11/i_dont_have_any_extracurriculars_as_a_sophomore/)
-Posted by **RecognitionDue5675** · **8↑** · **35 comments**
+Posted by **RecognitionDue5675** · **9↑** · **35 comments**
 
 Hi! So, I'm a sophomore in high school, but I have no extracurriculars. I mean, I'm in writing club and an EAOP program at a university my school offers...but I don't think thats very outstanding to colleges. What I do have that would maybe count as extracurriculars are babysitting my nephew and helping my mom with her work.
 
@@ -36,14 +60,14 @@ Is this too bad even for a mid-tier university or college? I don't want to go to
 
 ## Comments
 
-- **S1159P** (15↑): Working to help support your low income family is an impressive EC.
-  - **Advanced_Gur_4612** (-6↑): Colleges don’t care thi
+- **S1159P** (16↑): Working to help support your low income family is an impressive EC.
+  - **Advanced_Gur_4612** (-4↑): Colleges don’t care thi
     - **Pitiful-Swim-2489** (2↑): bro yes they do  
 Taking care of my brother is gonna be one of the highlights of my app
 
 to OP, if you can connect taking care of ur family to why you want to pursue pre-med, that's super good and definitely something colleges care abt
     - **Wrong-Ad194** (2↑): they literally do??? deadass they will probably care more about you taking care of your sibling or your sick mother than being a president of a club and allat
-- **OverAmbition3448** (3↑): There never any done for. You sound interesting and a summer job is perfect.  Colleges love that!
+- **OverAmbition3448** (4↑): There never any done for. You sound interesting and a summer job is perfect.  Colleges love that!
 - **Maximum-Rest2294** (2↑): when i was in high school i wasn't in any clubs or anything. i just worked. i got into most of the schools i applied to.
 
 my brother had no extracurriculars at all and he got into all the schools he applied to. but he was also valedictorian.
@@ -53,7 +77,7 @@ if you want to do some extracurriculars, then go for it! but i feel like there's
  
 that being said, i got into boston college and umich, both regular decision and out-of-state!! dream big, but most importantly, do what you love. how much dedication and passion you have matters more than how long you’ve done it in my opinion, so don’t discount yourself just because you haven’t found the thing you love to do yet :)
   - **RecognitionDue5675** (1↑): Thank you!!! I saw that my school does offer marching band, but I was wondering if you think orchestra would also look good on my app? I think both seem really interesting, and I would love to learn an instrument. I would take both if I could, but I filled up my schedule for next year..
-- **Secret-County2938** (2↑): hey! I co-founded an online journal that focuses on the intersection between humanities and science (history of science/medicine). we’re looking for contributors to write for us, and we have room for promotion. feel free to dm or check out if you’re interested  
+- **Secret-County2938** (3↑): hey! I co-founded an online journal that focuses on the intersection between humanities and science (history of science/medicine). we’re looking for contributors to write for us, and we have room for promotion. feel free to dm or check out if you’re interested  
 
 https://www.scirejournal.com
 - **ResidentNo11** (1↑): All the things you describe at the start are extracurriculars. You don't need to be a stereotypical A2C student to get into a good school. And you don't need to be in the top 1% of schools in the whole US to have a good education and a good career. Lots of schools will take students with a profile like yours.

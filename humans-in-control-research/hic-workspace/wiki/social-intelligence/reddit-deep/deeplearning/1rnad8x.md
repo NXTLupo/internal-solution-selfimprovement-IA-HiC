@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1rnad8x.md
 url: "https://www.reddit.com/r/deeplearning/comments/1rnad8x/3_repos_you_should_know_if_youre_building_with/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.057Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1rnad8x.md#c0"
+    char_span: [0, 1793]
+    sentence_count: 7
+    key_terms: [rag, memory, https, knowledge, com, indexing, context, agents]
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/deeplearning/1rnad8x.md#c1"
+    char_span: [1808, 2563]
+    sentence_count: 4
+    key_terms: [agent, curious-visit3353, agentixlabs, giorgio1979, developing, important, knowledge, preferred]
+    section: Comments
+    token_count: 188
 ---
-
 # 3 repos you should know if you're building with RAG / AI agents
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1rnad8x/3_repos_you_should_know_if_youre_building_with/)

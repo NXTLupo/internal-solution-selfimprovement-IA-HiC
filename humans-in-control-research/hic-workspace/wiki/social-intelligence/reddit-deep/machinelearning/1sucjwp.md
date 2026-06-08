@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1sucjwp.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1sucjwp/new_optimizer_rose_low_vram_easy_to_use_great/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -6,19 +7,98 @@ subreddit: "machinelearning"
 title: "[New Optimizer] 🌹 Rose: low VRAM, easy to use, great results, Apache 2.0 [P]"
 author: "ECF630"
 date: "2026-04-24T11:05:37.000Z"
-score: 52
-upvote_ratio: 0.83
+score: 50
+upvote_ratio: 0.82
 num_comments: 35
 flair: "Project"
-extracted_at: "2026-05-11T17:27:06.571Z"
+extracted_at: "2026-05-29T22:52:03.630Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+research_goal: "Provide a strategic overview for a company's creative team on emerging AI design trends, skills, tools, platforms, and technical implementations. Focus on practical applications beyond concepting, specifically enabling design production, system testing, asset generation, governance, and stakeholder confidence."
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c0"
+    char_span: [0, 1566]
+    sentence_count: 12
+    key_terms: [rose, memory, machinelearning, low, benchmarks, optimizer, sometimes, comments]
+    token_count: 379
+  - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c1"
+    char_span: [1568, 2375]
+    sentence_count: 1
+    key_terms: [epoch, acc, avg, loss, hyperparameters, default, rose, text]
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c2"
+    char_span: [2377, 3447]
+    sentence_count: 1
+    key_terms: [epoch, acc, avg, loss, mnist, facebookresearch, hyperparameters, mannwhitneyu]
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c3"
+    char_span: [3449, 4560]
+    sentence_count: 2
+    key_terms: [result, rose, adamw, momentum, openai, adam, sgd, parameter-golf]
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c4"
+    char_span: [4562, 4988]
+    sentence_count: 6
+    key_terms: [memory, performance, optimizers, parameters, extremely, optimizer, strengths, detailed]
+    token_count: 100
+  - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c5"
+    char_span: [4990, 6436]
+    sentence_count: 1
+    key_terms: [step, bytes, "false", size, serialized, submission, model, total]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c6"
+    char_span: [6227, 6601]
+    sentence_count: 1
+    key_terms: [bytes, size, submission, total, int8, zlib, serialized, payload]
+    token_count: 126
+  - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c7"
+    char_span: [6603, 6924]
+    sentence_count: 1
+    key_terms: [args, rose, stabilize, params, "false", none, weight]
+    token_count: 85
+  - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c8"
+    char_span: [6926, 8369]
+    sentence_count: 1
+    key_terms: [step, bytes, "false", size, serialized, submission, model, total]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c9"
+    char_span: [8160, 8534]
+    sentence_count: 1
+    key_terms: [bytes, size, submission, total, int8, zlib, serialized, payload]
+    token_count: 126
+  - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c10"
+    char_span: [8536, 9206]
+    sentence_count: 6
+    key_terms: [mean, optional, update, stablediffusion, centralization, equivalently, comparisons, non-leading]
+    token_count: 241
+  - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c11"
+    char_span: [9221, 11237]
+    sentence_count: 15
+    key_terms: [adamw, muon, performance, memory, difference, mnist, "it's", test]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c12"
+    char_span: [10943, 12212]
+    sentence_count: 14
+    key_terms: [optimizer, muon, adamw, parameters, matrices, memory, "i've", "it's"]
+    section: Comments
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c13"
+    char_span: [12214, 13392]
+    sentence_count: 4
+    key_terms: [optimizer, day, post, whether, paper, vibes, write, age]
+    section: Comments
+    token_count: 329
+  - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c14"
+    char_span: [13394, 15129]
+    sentence_count: 13
+    key_terms: [people, work, "i'm", like, everything, optimizers, optimizer, seriously]
+    section: Comments
+    token_count: 433
 ---
-
 # [New Optimizer] 🌹 Rose: low VRAM, easy to use, great results, Apache 2.0 [P]
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1sucjwp/new_optimizer_rose_low_vram_easy_to_use_great/)
-Posted by **ECF630** · **52↑** · **35 comments**
+Posted by **ECF630** · **50↑** · **35 comments**
 
 Hello, World! I recently released a new PyTorch optimizer I've been researching and developing on my own for the last couple of years. It's named "Rose" in memory of my mother, who loved to hear about my discoveries and progress with AI.
 
@@ -213,18 +293,18 @@ D_i ← (1 − τ) · μ_R + τ · R_i  # lerp between global and local
 
 ## Comments
 
-- **lostmsu** (30↑): 45 lines of train logs, but no update rule in the post?
-  - **ECF630** (4↑): Good point, thanks. I've added it to the post.
-- **Jojanzing** (17↑): I see you've compared it against ~~SGD~~ AdamW on MNIST on a single training run using a single seed, and achieve a maximum performance difference of 0.04% Have you compared it across several runs / seeds to see if the difference is at all significant, and not just random noise?
-  - **ECF630** (5↑): Yes, performance is consistent across seeds. The MNIST test is Rose vs AdamW, not SGD. Fine-tuning the FLUX.1-dev (12B parameters) image diffusion model is showing excellent results. Performance is generally on-par or exceeds AdamW, but with the memory requirements of SGD. It also trains a bit "differently," since it is not momentum-based like most optimizers. If you look at training loss in that MNIST test, you'll see it's much higher with Rose, but accuracy is also on-par or higher than AdamW, which points to better generalization. Higher training loss also appears in other tests as well, such as with the aforementioned FLUX.1-dev fine-tuning, but nevertheless converges well.
+- **lostmsu** (29↑): 45 lines of train logs, but no update rule in the post?
+  - **ECF630** (6↑): Good point, thanks. I've added it to the post.
+- **Jojanzing** (18↑): I see you've compared it against ~~SGD~~ AdamW on MNIST on a single training run using a single seed, and achieve a maximum performance difference of 0.04% Have you compared it across several runs / seeds to see if the difference is at all significant, and not just random noise?
+  - **ECF630** (3↑): Yes, performance is consistent across seeds. The MNIST test is Rose vs AdamW, not SGD. Fine-tuning the FLUX.1-dev (12B parameters) image diffusion model is showing excellent results. Performance is generally on-par or exceeds AdamW, but with the memory requirements of SGD. It also trains a bit "differently," since it is not momentum-based like most optimizers. If you look at training loss in that MNIST test, you'll see it's much higher with Rose, but accuracy is also on-par or higher than AdamW, which points to better generalization. Higher training loss also appears in other tests as well, such as with the aforementioned FLUX.1-dev fine-tuning, but nevertheless converges well.
     - **Jojanzing** (7↑): Can you then share the results of those repeated runs, with a *non-parametric test (e.g. Mann-Whitney U test) to determine whether the difference is meaningful?
-- **MrRandom04** (8↑): How is it vs Muon and how is it vs AdamW / Muon on something harder than MNIST? Try FashionMNIST maybe?
-  - **lucellent** (5↑): Also curious about the comparison to Muon. For my projects optimizers barely differ in memory usage, it's not like you'd be saving tens of hundreds of thousands of VRAM anyway. Muon is the current SOTA.
+- **MrRandom04** (7↑): How is it vs Muon and how is it vs AdamW / Muon on something harder than MNIST? Try FashionMNIST maybe?
+  - **lucellent** (7↑): Also curious about the comparison to Muon. For my projects optimizers barely differ in memory usage, it's not like you'd be saving tens of hundreds of thousands of VRAM anyway. Muon is the current SOTA.
   - **ECF630** (3↑): It's not a direct competitor to Muon, it's more a replacement for AdamW. Even Muon needs AdamW or another optimizer to fill in the gaps, since it only works on 2D matrices. Also, memory requirements for Rose is simply parameters + gradients + temporary working memory, nothing else. Others have had success with Rose training large complex models such as LTX 2.3 (22B parameters) and FLUX.2-dev (32B).
     - **MrRandom04** (2↑): I've used Muon a lot; it's plain better than AdamW by a lot for most usecases. Most weight matrices are 2D-shaped anyways. I've also experimented with other optimizers. Like, the SOAP optimizer (with preconditioning set to 2 it actually beats Muon in my tests by a little) which is general.
-- **fan_is_ready** (7↑): Hmm, is this one of those AI research engines? Because 🌹🤷🏻‍♂️🤖
+- **fan_is_ready** (6↑): Hmm, is this one of those AI research engines? Because 🌹🤷🏻‍♂️🤖
   - **ECF630** (12↑): Do you mean a bot/agent? Nope. At least, I don't think so? Who knows in this crazy world anymore! 🤷🏻‍♂️😂 Also, this optimizer was *not* vibe-coded. AI-assisted, yes, but who doesn't do that these days. I'd also like to add, using range to normalize the gradient was 100% my idea and my own code. In fact, LLMs kept telling me it wouldn't work or that I was doing it all wrong.
-    - **Geighz** (2↑): Honestly yeah—I’m 100% with you on this 🤝😄🔥
+    - **Geighz** (3↑): Honestly yeah—I’m 100% with you on this 🤝😄🔥
 
 Doesn’t sound like a bot/agent to me either 🤖❌… but in this chaotic timeline who even knows anymore 😂🌍🤷🏻‍♂️💫
 

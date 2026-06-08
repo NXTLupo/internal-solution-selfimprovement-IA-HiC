@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rib4p8.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rib4p8/feeling_stuck_in_career_advice_needed/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,25 @@ flair: ""
 extracted_at: "2026-05-22T23:33:42.333Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rib4p8.md#c0"
+    char_span: [0, 1987]
+    sentence_count: 18
+    key_terms: [dont, company, stuck, cscareerquestions, microfrontends, legacy, being, job]
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rib4p8.md#c1"
+    char_span: [1989, 4037]
+    sentence_count: 16
+    key_terms: [work, job, engineering, dont, etc, different, something, finances]
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rib4p8.md#c2"
+    char_span: [4039, 4828]
+    sentence_count: 9
+    key_terms: [dont, time, stuck, job, jobs, additional, interested, recruiters]
+    token_count: 169
 ---
-
 # Feeling stuck in career. Advice needed.
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rib4p8/feeling_stuck_in_career_advice_needed/)

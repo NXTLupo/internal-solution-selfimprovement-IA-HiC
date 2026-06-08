@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-engineeringstudents/b36bbb9fc2.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1rezt4p/grad_schoolcareer_question/"
 url_hash: "b36bbb9fc2"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:39:47.756584+00:00"
 chars: 3485
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-engineeringstudents/b36bbb9fc2.md#c0"
+    char_span: [0, 1728]
+    sentence_count: 10
+    key_terms: [already, "i'm", engineeringstudents, "i'd", "it's", masters, school, undergrad]
+    token_count: 418
+  - id: "articles/reddit-deep-r-engineeringstudents/b36bbb9fc2.md#c1"
+    char_span: [1730, 3655]
+    sentence_count: 16
+    key_terms: [being, doing, "i'm", program, school, opportunity, grad, lot]
+    token_count: 456
 ---
-
 # grad school/career question
 
 Source: [Reddit Deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1rezt4p/grad_schoolcareer_question/)

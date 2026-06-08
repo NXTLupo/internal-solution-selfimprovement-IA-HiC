@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1ohwnw5.md
 url: "https://www.reddit.com/r/internships/comments/1ohwnw5/looking_for_internship_opportunities_to_gain/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,15 @@ flair: "General"
 extracted_at: "2026-05-26T14:30:47.899Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1ohwnw5.md#c0"
+    char_span: [0, 1251]
+    sentence_count: 7
+    key_terms: [data, experience, learning, real-world, building, intern, opportunities, understanding]
+    token_count: 278
 ---
-
 # Looking for internship opportunities to gain real-world experience in Data Science / AI
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1ohwnw5/looking_for_internship_opportunities_to_gain/)

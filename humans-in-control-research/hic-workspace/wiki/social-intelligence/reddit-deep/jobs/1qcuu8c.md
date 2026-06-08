@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1qcuu8c.md
 url: "https://www.reddit.com/r/jobs/comments/1qcuu8c/a_four_round_hiring_process_for_an_entrylevel_job/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -6,19 +7,47 @@ subreddit: "jobs"
 title: "A four round hiring process for an entry-level job feels excessive"
 author: "Weary-Hair-316"
 date: "2026-01-14T18:17:36.000Z"
-score: 95
+score: 91
 upvote_ratio: 0.97
 num_comments: 37
 flair: "Interviews"
-extracted_at: "2026-05-20T06:41:17.639Z"
+extracted_at: "2026-06-06T13:04:34.560Z"
 extraction_method: "praw-deep"
-research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1qcuu8c.md#c0"
+    char_span: [0, 2408]
+    sentence_count: 29
+    key_terms: [process, questions, entry-level, round, interview, hiring, role, time]
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/jobs/1qcuu8c.md#c1"
+    char_span: [2410, 3251]
+    sentence_count: 10
+    key_terms: [time, job, second-guessing, subscriptions, emotionally, entry-level, predictable, recommended]
+    token_count: 169
+  - id: "social-intelligence/reddit-deep/jobs/1qcuu8c.md#c2"
+    char_span: [3266, 5339]
+    sentence_count: 15
+    key_terms: [rounds, candidates, interviews, process, hiring, level, went, companies]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/jobs/1qcuu8c.md#c3"
+    char_span: [5344, 7283]
+    sentence_count: 18
+    key_terms: [interview, people, interviews, recruiter, job, rounds, entry, hired]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/jobs/1qcuu8c.md#c4"
+    char_span: [7285, 8418]
+    sentence_count: 8
+    key_terms: [interview, role, entry, level, required, hour, recruiter, morbidobsession6958]
+    section: Comments
+    token_count: 282
 ---
-
 # A four round hiring process for an entry-level job feels excessive
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1qcuu8c/a_four_round_hiring_process_for_an_entrylevel_job/)
-Posted by **Weary-Hair-316** · **95↑** · **37 comments**
+Posted by **Weary-Hair-316** · **91↑** · **37 comments**
 
 I applied for what was very clearly an entry-level role. The description said “0–2 years experience,” pay was modest, responsibilities were basic. I wasn’t expecting anything fancy, just a straightforward process where they figure out if I can do the job and move on.
 
@@ -44,15 +73,15 @@ Anyway. Lesson learned. Four rounds for an entry-level job is no longer somethin
 
 ## Comments
 
-- **TonyGuy1716** (36↑): Four rounds for an entry-level role is just corporate speedrunning how to lose good candidates.
+- **TonyGuy1716** (34↑): Four rounds for an entry-level role is just corporate speedrunning how to lose good candidates.
 
 They weren’t hiring, they were auditioning for a Netflix drama.
-  - **Dapper_Bag_2062** (6↑): Silly employers trying to
+  - **Dapper_Bag_2062** (4↑): Silly employers trying to
 Look important. It’s ridiculous what they want for $60k a year. That’s peanuts.
   - **NewChemical7130** (2↑): It’s on the higher end but 4 rounds is typical for large companies. A decade ago I was flown out for final round interviews for a few entry level roles including smaller companies but usually had a couple rounds prior to that.
 
 It kind of makes sense that they want to screen entry level candidates more since they have very little experience to point to.
-- **downtownlasd** (11↑): Honestly I think a lot of this is for them to say they’re in the hiring process but they’re not really following through on anyone
+- **downtownlasd** (12↑): Honestly I think a lot of this is for them to say they’re in the hiring process but they’re not really following through on anyone
 
 I just went three rounds for a senior position at a company with a national platform. It’s a role tailor made for my skill set and they told me this at every level of interview. 
 
@@ -62,13 +91,13 @@ Then things went dark over the holidays (expected). When I reached out this week
   
 I'd love to hear from a hiring manager on a team with a long interview process where no one gets selected. Seems like a waste of the candidates time, as well as the company's.
     - **downtownlasd** (2↑): Before that last job, I went through three rounds for an “account executive“ role, which involved a lot of cold calling. Good base salary good bonus program. My third interview was with a member of the founding family of the company and someone in the executive suite. That interview went extremely well. Then the recruiter called me and said that they wanted me to do three more rounds with three different people, lower than the chief people officer. Since every interview I had had involved the same questions from each person, I asked the recruiter if they could consolidate the next three people into a single zoom call, but they declined, so I withdrew.
-- **jeyroxs86** (11↑): That’s insanity, for entry level. I have only done interviews for entry level with like two people max and found out the next day I got hired.
-- **[deleted]** (18↑): The Pope got hired within 2 days.
+- **jeyroxs86** (10↑): That’s insanity, for entry level. I have only done interviews for entry level with like two people max and found out the next day I got hired.
+- **[deleted]** (14↑): The Pope got hired within 2 days.
 
 I don’t see why the hiring process is so lengthy for the rest of us.
   - **JuvoJobs** (2↑): This!!!!
-- **RogueCanadia** (9↑): Try 5. I had a bank here in Canada want me to do 5 interviews for a job that paid 42k a year. I noped at the 5th interview as I already took another job.
-- **Hungry_Ad_3661** (4↑): Yep. I did 3 rounds, granted 1 was the recruiter call. Then, the manager (my direct supervisor). Then, a 1.5hr series of interviews with 3 groups - some people in an adjacent department, my potential future coworkers, and the director. 
+- **RogueCanadia** (7↑): Try 5. I had a bank here in Canada want me to do 5 interviews for a job that paid 42k a year. I noped at the 5th interview as I already took another job.
+- **Hungry_Ad_3661** (3↑): Yep. I did 3 rounds, granted 1 was the recruiter call. Then, the manager (my direct supervisor). Then, a 1.5hr series of interviews with 3 groups - some people in an adjacent department, my potential future coworkers, and the director. 
 
 The director and I hit it off, and he mentioned that this was an entry level role. He pulled up some obscure job I did in college (loved it, but it was field irrelevant) and said he did something similar to support himself. Old school, get hired because he sees potential.
 

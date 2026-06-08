@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1pu7rty.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1pu7rty/received_a_withdrawal_email_from_waterloo/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,33 @@ flair: "Advice"
 extracted_at: "2026-05-25T18:33:12.671Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1pu7rty.md#c0"
+    char_span: [0, 328]
+    sentence_count: 2
+    key_terms: [uwaterloo, comments, waterloo, suspicious-group-368, reddit-deep, withdrawal, possible, received]
+    token_count: 88
+  - id: "social-intelligence/reddit-deep/uwaterloo/1pu7rty.md#c1"
+    char_span: [343, 2415]
+    sentence_count: 19
+    key_terms: [prestigious-brain259, like, time, because, appeal, university, withdrawal, failure]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/uwaterloo/1pu7rty.md#c2"
+    char_span: [2417, 3524]
+    sentence_count: 13
+    key_terms: [international, dept, academic, english, degree, kicked, "you're", "don't"]
+    section: Comments
+    token_count: 274
+  - id: "social-intelligence/reddit-deep/uwaterloo/1pu7rty.md#c3"
+    char_span: [3528, 4463]
+    sentence_count: 11
+    key_terms: [university, commercialzucchini19, sorry, day, end, bumblebee-glad, requirements, alternative]
+    section: Comments
+    token_count: 246
 ---
-
 # Received a withdrawal email from Waterloo
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1pu7rty/received_a_withdrawal_email_from_waterloo/)

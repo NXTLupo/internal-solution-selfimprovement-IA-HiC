@@ -7,18 +7,18 @@ title: "What fields to shift to?"
 author: "DifficultSession51"
 date: "2026-05-12T18:58:15.000Z"
 score: 0
-upvote_ratio: 0.19
-num_comments: 41
+upvote_ratio: 0.15
+num_comments: 42
 flair: ""
-extracted_at: "2026-05-22T21:34:54.422Z"
+extracted_at: "2026-06-06T23:23:15.641Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # What fields to shift to?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1tbb4jv/what_fields_to_shift_to/)
-Posted by **DifficultSession51** · **0↑** · **41 comments**
+Posted by **DifficultSession51** · **0↑** · **42 comments**
 
 It's no secret that over 90% of tech work will be automated and outsourced away by the end of this decade as AI models, infrastructure, workflow integration, etc continues to improve at a near exponential rate and as tech companies continue to expand offices and presence in developing countries (like India, Latin America, etc).
 
@@ -39,11 +39,11 @@ Are there are others in a similar situation, and what other fields you are consi
 ## Comments
 
 - **andhausen** (6↑): Damn you want a livable wage, safety from AI, and a decent job market? Thats wild. Those are totally unique requirements!
-  - **DifficultSession51** (1↑): Yes believe it or not at this point I only care about stability and quality of life. Any personal interests or preferences come second to that. 
+  - **DifficultSession51** (2↑): Yes believe it or not at this point I only care about stability and quality of life. Any personal interests or preferences come second to that. 
 
 Also the number of careers/jobs that fit those 3 basic requirements are shrinking by the day
     - **andhausen** (3↑): Surely you’re going to find the answer on this subreddit!!!
-- **Sprinkler-of-salt** (6↑): > It's no secret that over 90% of tech work will be automated and outsourced away by the end of this decade
+- **Sprinkler-of-salt** (5↑): > It's no secret that over 90% of tech work will be automated and outsourced away by the end of this decade
 
 I don’t know about “secret”, but… that’s certainly **not** a fact. It’s not even a *likely* outcome, IMO.
 
@@ -58,20 +58,27 @@ If you really believe the doom scenarios and you’re serious about changing car
     - **lhorie** (2↑): Normally you’d want to build up subject matter expertise rather than hop between vastly different specializations, since as you said, jumping means losing some SME wrt to relevance in the new area
 
 IMHO the difference between a senior job hopping into a mid level role vs one that becomes a staff eng has at least partially something to do with leverage of previously acquired skills
+  - **Medium_Newspaper9407** (1↑): I think lot of people jumping to worst case scenarios too quick. Yes AI is changing things but complete automation in few years seems bit extreme prediction
+
+  
+Real estate actually not bad idea if you have good social skills. My neighbor switched from programming to selling houses and he's doing pretty well now. Takes time to build client base though
+
+  
+For trades, plumbing and electrical work still need physical presence and problem solving that's hard to automate. Plus older workforce retiring means more opportunities coming up
 - **OkPosition4563** (3↑): My wife is a nurse. 80% of the IT people thinking about switching to healthcare wouldn't make it through a single day.
   - **DifficultSession51** (1↑): Yes I've heard it is an extremely demanding job, with long hours on your feet, and a lot of stress. 
 
 Unfortunately it's the only viable career I'm aware of that isn't in danger of being automated or outsourced, so there isn't much of a choice but to deal with all the challenges that come with nursing.
     - **OkPosition4563** (1↑): At least around here you can do a "trial day" in the hospitals. Do it. Be ready to handle shit, piss, blood and death all the time.
-- **subpar__** (7↑): If CS is in jeopardy, everything white collar will be too.
+- **[deleted]** (7↑): If CS is in jeopardy, everything white collar will be too.
   - **RegretNo6554** (1↑): people keep saying this but not every white collar job has enough public training data for models to be great in. programming will be the first to go eventually but may take way longer for anything else to fall.
-    - **subpar__** (1↑): Well. Maybe not yet. Maybe there will be new jobs to data train for old jobs
+    - **[deleted]** (1↑): Well. Maybe not yet. Maybe there will be new jobs to data train for old jobs
   - **DifficultSession51** (-3↑): I agree many white collar jobs are already being outsourced and automated. 
 
 Also it's not "if", but when. I'd actually argue CS is already in deep jeopardy. Just look at the other posts on this sub
-    - **bigbruhdude** (4↑): Not saying it’s not a bad job market but this sub has never been and will never be a good indicator of the job market. I’ve been looking at this sub since 2016 and the only time I saw a surge of positive posts was during the COVID hiring. even during that time there were doom and gloom posts.
-    - **subpar__** (1↑): Our goose is cooked
-  - **subpar__** (-1↑): Be a cop
+    - **bigbruhdude** (5↑): Not saying it’s not a bad job market but this sub has never been and will never be a good indicator of the job market. I’ve been looking at this sub since 2016 and the only time I saw a surge of positive posts was during the COVID hiring. even during that time there were doom and gloom posts.
+    - **[deleted]** (1↑): Our goose is cooked
+  - **[deleted]** (-1↑): Be a cop
 - **Icy_Cartographer5466** (5↑): You are catastrophizing
 - **Randromeda2172** (2↑): Start working farms
 - **TheCrowWhisperer3004** (2↑): anything where you have to do physical work.

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1kxt1ey.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1kxt1ey/how_do_parents_do_it/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,63 @@ flair: "Budgeting/Saving/Investing/Spending"
 extracted_at: "2026-05-17T01:13:55.883Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1kxt1ey.md#c0"
+    char_span: [0, 1063]
+    sentence_count: 15
+    key_terms: [daycare, povertyfinance, comments, husband, people, month, been, down]
+    token_count: 286
+  - id: "social-intelligence/reddit-deep/povertyfinance/1kxt1ey.md#c1"
+    char_span: [1078, 2321]
+    sentence_count: 12
+    key_terms: [assuming, daycare, money, home, childcare, morbie5, losing, school]
+    section: Comments
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/povertyfinance/1kxt1ey.md#c2"
+    char_span: [2323, 4149]
+    sentence_count: 16
+    key_terms: [month, internet, phones, home, medical, almost, income, people]
+    section: Comments
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/povertyfinance/1kxt1ey.md#c3"
+    char_span: [4151, 5104]
+    sentence_count: 7
+    key_terms: [month, credit, subscriptions, medical, working, worked, card, debt]
+    section: Comments
+    token_count: 230
+  - id: "social-intelligence/reddit-deep/povertyfinance/1kxt1ey.md#c4"
+    char_span: [5106, 6942]
+    sentence_count: 20
+    key_terms: [internet, daycare, "don't", never, years, electricity, cut, home]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/povertyfinance/1kxt1ey.md#c5"
+    char_span: [6944, 8880]
+    sentence_count: 16
+    key_terms: [daycare, month, free, kids, passes, extra, debt, work]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/povertyfinance/1kxt1ey.md#c6"
+    char_span: [8882, 10612]
+    sentence_count: 17
+    key_terms: [expenses, month, holytindertwig, ask, blessed, daycare, parents, bills]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/povertyfinance/1kxt1ey.md#c7"
+    char_span: [10614, 12783]
+    sentence_count: 17
+    key_terms: [daycare, work, money, years, back, food, kids, like]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/povertyfinance/1kxt1ey.md#c8"
+    char_span: [12785, 13766]
+    sentence_count: 7
+    key_terms: [daycare, working, pay, brilliant-flower-283, child, never, bill, cost]
+    section: Comments
+    token_count: 239
 ---
-
 # How do Parents do it?
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1kxt1ey/how_do_parents_do_it/)

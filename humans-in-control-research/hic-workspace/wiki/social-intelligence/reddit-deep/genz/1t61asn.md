@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1t61asn.md
 url: "https://www.reddit.com/r/GenZ/comments/1t61asn/how_do_i_stop_spending_all_of_my_money/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,33 @@ flair: "Advice"
 extracted_at: "2026-05-17T01:11:40.771Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1t61asn.md#c0"
+    char_span: [0, 615]
+    sentence_count: 5
+    key_terms: [comments, money, genz, like, time, reddit-deep, addiction, dopamine]
+    token_count: 161
+  - id: "social-intelligence/reddit-deep/genz/1t61asn.md#c1"
+    char_span: [630, 759]
+    sentence_count: 1
+    key_terms: [discord, automoderator, nwe6js5rh9, clicking, server, https, did, here]
+    section: Comments
+    token_count: 41
+  - id: "social-intelligence/reddit-deep/genz/1t61asn.md#c2"
+    char_span: [762, 2771]
+    sentence_count: 11
+    key_terms: [account, savings, bills, checking, automatically, pay, year, attractive]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/genz/1t61asn.md#c3"
+    char_span: [2525, 3868]
+    sentence_count: 10
+    key_terms: [savings, account, money, homeless, yungskeltal, put, checking, people]
+    section: Comments
+    token_count: 345
 ---
-
 # How do I stop spending all of my money?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1t61asn/how_do_i_stop_spending_all_of_my_money/)

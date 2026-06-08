@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tgkg79.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tgkg79/25_yo_feeling_lost_and_unsure_of_how_to_proceed/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,21 @@ score: 1
 upvote_ratio: 1
 num_comments: 0
 flair: "Advice"
-extracted_at: "2026-05-19T15:09:00.779Z"
+extracted_at: "2026-06-05T19:52:45.217Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tgkg79.md#c0"
+    char_span: [0, 1842]
+    sentence_count: 4
+    key_terms: [interview, job, careerguidance, years, appointment, management, different, comments]
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/careerguidance/1tgkg79.md#c1"
+    char_span: [1844, 3845]
+    sentence_count: 7
+    key_terms: [enough, been, going, feel, lost, role, experience, management]
+    token_count: 444
 ---
-
 # 25 y/o, feeling lost and unsure of how to proceed with my career & job search - should I go back to college?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tgkg79/25_yo_feeling_lost_and_unsure_of_how_to_proceed/)

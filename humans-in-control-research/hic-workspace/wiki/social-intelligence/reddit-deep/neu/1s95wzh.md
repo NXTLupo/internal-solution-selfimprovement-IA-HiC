@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1s95wzh.md
 url: "https://www.reddit.com/r/NEU/comments/1s95wzh/boston_university_or_northeastern_engineering/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -6,19 +7,42 @@ subreddit: "neu"
 title: "Boston University or Northeastern Engineering"
 author: "xhannahm"
 date: "2026-04-01T01:01:00.000Z"
-score: 6
-upvote_ratio: 0.69
+score: 7
+upvote_ratio: 0.73
 num_comments: 19
 flair: "Co-op & Career"
-extracted_at: "2026-05-19T17:57:09.040Z"
+extracted_at: "2026-06-05T17:08:22.599Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1s95wzh.md#c0"
+    char_span: [0, 919]
+    sentence_count: 8
+    key_terms: [northeastern, engineering, comments, commit, scared, going, study, neu]
+    token_count: 220
+  - id: "social-intelligence/reddit-deep/neu/1s95wzh.md#c1"
+    char_span: [934, 2342]
+    sentence_count: 5
+    key_terms: [engineering, probably, chemical, northeastern, everything, undergrad, ranked, chem]
+    section: Comments
+    token_count: 305
+  - id: "social-intelligence/reddit-deep/neu/1s95wzh.md#c2"
+    char_span: [2344, 4536]
+    sentence_count: 11
+    key_terms: [engineering, feel, northeastern, school, major, supported, like, academic]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/neu/1s95wzh.md#c3"
+    char_span: [4538, 4993]
+    sentence_count: 5
+    key_terms: [northeastern, engineering, campus, altruistic-trust907, here, handyhomeowner84, coldflame563, kindclick635]
+    section: Comments
+    token_count: 118
 ---
-
 # Boston University or Northeastern Engineering
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1s95wzh/boston_university_or_northeastern_engineering/)
-Posted by **xhannahm** · **6↑** · **19 comments**
+Posted by **xhannahm** · **7↑** · **19 comments**
 
 Sooo I got into both BU and Northeastern and I honestly don’t know where to commit. 
 
@@ -32,10 +56,10 @@ I’m going to both schools’ student admitted days to get a better feel but I�
 
 ## Comments
 
-- **swimchris100** (26↑): NU ranked 35th and BU ranked 48th by US News for undergrad engineering. I think that’s probably right, NU edging out BU historically for engineering. 
+- **swimchris100** (25↑): NU ranked 35th and BU ranked 48th by US News for undergrad engineering. I think that’s probably right, NU edging out BU historically for engineering. 
 
 Grade deflation at BU is real, but the academic rigor for engineering programs is pretty standard between institutions as long as you are in a BE program. Coop is a real advantage esp as in addition to the school on your resume you get to add Raytheon or wherever else you work. People being able to talk about those experiences in classes is really great too.
-- **trainofgravy** (12↑): Nu probably will end up cheaper funny enough
+- **trainofgravy** (11↑): Nu probably will end up cheaper funny enough
 - **Fit_Show_3347** (11↑): If you go to northeastern you can say “sucks to be you” to bu students (if you don’t get the pun sound it out)
 
 but in all seriousness do you prefer chemical engineering or something? based on everything i can find it looks like bu doesn’t have an undergrad degree for chemical engineering. is chem engineering your preference? because i feel like that should factor heavily into your considerations (idrk what the curriculum for bu mechanical engineering is but it must be relatively different from chem engineering?)
@@ -52,7 +76,7 @@ northeastern def cares way too much about reputation and acceptance rates and st
 - **_pinkstripes_** (3↑): I was a BU undergrad and am in NU FlexJD now. I like the vibes of NU better.
 
 My mechy friends from undergrad do seem happy with their educations though.
-- **coldflame563** (3↑): London will be awesome. Do it.
+- **coldflame563** (4↑): London will be awesome. Do it.
 - **KindClick635** (2↑): BU engineering is nowhere near as technical as Northeastern engineering. Northeastern will also help u set up ur career.
 - **HandyHomeowner84** (3↑): Former NU grad here. Def NU. Much better campus and campus life than BU.
 - **Altruistic-Trust907** (1↑): Co op is probably the deciding factor here!

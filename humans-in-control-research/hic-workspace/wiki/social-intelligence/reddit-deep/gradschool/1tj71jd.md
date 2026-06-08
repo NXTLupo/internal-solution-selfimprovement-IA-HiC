@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1tj71jd.md
 url: "https://www.reddit.com/r/GradSchool/comments/1tj71jd/planning_to_attend_a_grad_school_year_and_there/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,21 @@ flair: "Admissions & Applications"
 extracted_at: "2026-05-26T14:32:49.131Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1tj71jd.md#c0"
+    char_span: [0, 960]
+    sentence_count: 5
+    key_terms: [gradschool, admission, comments, planning, prepare, attend, study, tests]
+    token_count: 221
+  - id: "social-intelligence/reddit-deep/gradschool/1tj71jd.md#c1"
+    char_span: [975, 1376]
+    sentence_count: 1
+    key_terms: [time, consistency, applying, mornings, studying, tripsbut, country, matters]
+    section: Comments
+    token_count: 98
 ---
-
 # Planning to attend a Grad School year, and there is an Admission Test
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1tj71jd/planning_to_attend_a_grad_school_year_and_there/)

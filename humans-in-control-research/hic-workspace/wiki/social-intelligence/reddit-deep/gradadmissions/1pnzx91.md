@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1pnzx91.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1pnzx91/need_helpguidance_researching_for_a_grad_school/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,15 @@ flair: "Computer Sciences"
 extracted_at: "2026-05-20T03:56:10.766Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pnzx91.md#c0"
+    char_span: [0, 1306]
+    sentence_count: 12
+    key_terms: [gradadmissions, comments, science, around, asking, better, figure, apply]
+    token_count: 305
 ---
-
 # Need help/guidance researching for a grad school
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1pnzx91/need_helpguidance_researching_for_a_grad_school/)

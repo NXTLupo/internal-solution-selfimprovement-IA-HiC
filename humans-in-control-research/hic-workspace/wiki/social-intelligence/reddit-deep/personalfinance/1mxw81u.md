@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1mxw81u.md
 url: "https://www.reddit.com/r/personalfinance/comments/1mxw81u/just_found_out_about_a_secret_account_with_76k_in/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,87 @@ flair: "Other"
 extracted_at: "2026-05-17T01:13:31.179Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c0"
+    char_span: [0, 1897]
+    sentence_count: 11
+    key_terms: [dont, personalfinance, account, been, last, comments, withdraw, savings]
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c1"
+    char_span: [1912, 3981]
+    sentence_count: 16
+    key_terms: [money, time, account, thought, dad, lot, seriously, research]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c2"
+    char_span: [3983, 5882]
+    sentence_count: 20
+    key_terms: [dad, yourself, money, ask, hysa, investment, research, crypto]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c3"
+    char_span: [5884, 6734]
+    sentence_count: 7
+    key_terms: [wrong, dad, money, been, vulnerability, overwhelmed, recognizing, appreciate]
+    section: Comments
+    token_count: 194
+  - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c4"
+    char_span: [6736, 8337]
+    sentence_count: 11
+    key_terms: [did, kids, dad, something, wisely, facebookgivesmeangst, due-particular-2245, spend]
+    section: Comments
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c5"
+    char_span: [8339, 10264]
+    sentence_count: 11
+    key_terms: [dad, without, because, deleted, mention, father, manage, nenekpakaicombatboot]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c6"
+    char_span: [10005, 10596]
+    sentence_count: 1
+    key_terms: [dad, because, thenetworksdownagain, money, investments, immediate, mrlazyboy, somewhere]
+    section: Comments
+    token_count: 153
+  - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c7"
+    char_span: [10598, 12428]
+    sentence_count: 16
+    key_terms: [definitely, gold, silver, money, read, investing, because, crypto]
+    section: Comments
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c8"
+    char_span: [12431, 13873]
+    sentence_count: 15
+    key_terms: [silver, gold, people, buy, investment, property, assets, buying]
+    section: Comments
+    token_count: 324
+  - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c9"
+    char_span: [13875, 15986]
+    sentence_count: 22
+    key_terms: [crypto, gold, stock, portfolio, metals, money, bit, real]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c10"
+    char_span: [15988, 18028]
+    sentence_count: 15
+    key_terms: [interest, going, maybe, personalfinance, hecs, high, like, wiki]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c11"
+    char_span: [18030, 20126]
+    sentence_count: 19
+    key_terms: [shootinallmychisolm, podcasts, crypto, listen, money, good, own, investing]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c12"
+    char_span: [20128, 20785]
+    sentence_count: 11
+    key_terms: [retirement, account, nothing, invest, life, read, perspectives, considered]
+    section: Comments
+    token_count: 154
 ---
-
 # Just found out about a secret account with $76k in it, and I dont know what to do with it
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1mxw81u/just_found_out_about_a_secret_account_with_76k_in/)

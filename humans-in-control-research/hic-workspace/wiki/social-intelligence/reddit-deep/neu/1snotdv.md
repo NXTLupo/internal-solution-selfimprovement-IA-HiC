@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1snotdv.md
 url: "https://www.reddit.com/r/NEU/comments/1snotdv/should_i_move_to_sf_for_3rd_coop/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "Co-op & Career"
 extracted_at: "2026-05-12T20:58:42.346Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive digital strategy and engagement strategy for Northeastern, based on uploaded transcripts and external research, articles, youtube videos, data, etc., to be used in First-Year advising during orientation to help students identify opportunities and resources to support experiential learning in ways that will improve co-op readiness from day one. Intervention is needed to improve searcher outcomes by identifying skill gaps earlier than the first search semester, democratizing access to knowledge and resources, and enabling students to build competitive profiles and portfolios. Provide plenty of quotes and evidence to support the strategy from extracted research."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1snotdv.md#c0"
+    char_span: [0, 643]
+    sentence_count: 8
+    key_terms: [comments, co-op, temporarytaste1288, big, like, move, neu, year]
+    token_count: 177
+  - id: "social-intelligence/reddit-deep/neu/1snotdv.md#c1"
+    char_span: [658, 1868]
+    sentence_count: 8
+    key_terms: [redact, co-op, work, months, social, being, moved, never]
+    section: Comments
+    token_count: 321
 ---
-
 # Should I move to SF for 3rd co-op?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1snotdv/should_i_move_to_sf_for_3rd_coop/)

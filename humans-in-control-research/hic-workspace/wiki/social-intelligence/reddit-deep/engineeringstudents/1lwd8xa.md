@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1lwd8xa.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1lwd8xa/how_i_got_an_engineering_internship_with_a_31_gpa/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -6,19 +7,69 @@ subreddit: "engineeringstudents"
 title: "How I got an engineering internship with a 3.1 GPA and no experience"
 author: "Boskadoff"
 date: "2025-07-10T13:51:16.000Z"
-score: 974
+score: 964
 upvote_ratio: 0.96
 num_comments: 129
 flair: "Career Advice"
-extracted_at: "2026-05-25T18:32:19.209Z"
+extracted_at: "2026-06-06T17:43:22.920Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1lwd8xa.md#c0"
+    char_span: [0, 2086]
+    sentence_count: 13
+    key_terms: [internship, got, experience, applied, engineering, engineeringstudents, previous, company]
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1lwd8xa.md#c1"
+    char_span: [2088, 4171]
+    sentence_count: 21
+    key_terms: [applications, indeed, sitqxsiyhdb-tloz, company, resumes, people, resume, apply]
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1lwd8xa.md#c2"
+    char_span: [4173, 6368]
+    sentence_count: 36
+    key_terms: [resume, engineering, "don't", resumes, below, gpa, "it's", like]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1lwd8xa.md#c3"
+    char_span: [6370, 8593]
+    sentence_count: 21
+    key_terms: [programming, yourself, applications, take, want, internship, weaknesses, interview]
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1lwd8xa.md#c4"
+    char_span: [8608, 10070]
+    sentence_count: 13
+    key_terms: [gpa, internship, "it's", low, get, got, deleted, career]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1lwd8xa.md#c5"
+    char_span: [10072, 11729]
+    sentence_count: 9
+    key_terms: [being, experience, internship, boskadoff, relevant, without, formal-masterpiece-7, shadowbannedforlifee]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1lwd8xa.md#c6"
+    char_span: [11731, 13652]
+    sentence_count: 15
+    key_terms: [recruiters, company, engineering, haha, like, difference, experience, networking]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1lwd8xa.md#c7"
+    char_span: [13654, 15086]
+    sentence_count: 9
+    key_terms: [boskadoff, company, differs, section, skills, studio, visual, procrastinatewhynot]
+    section: Comments
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1lwd8xa.md#c8"
+    char_span: [15088, 17130]
+    sentence_count: 13
+    key_terms: [resume, skills, engineeringresumes, boskadoff, project, website, engineering, kind]
+    section: Comments
+    token_count: 512
 ---
-
 # How I got an engineering internship with a 3.1 GPA and no experience
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1lwd8xa/how_i_got_an_engineering_internship_with_a_31_gpa/)
-Posted by **Boskadoff** · **974↑** · **129 comments**
+Posted by **Boskadoff** · **964↑** · **129 comments**
 
 # Hi
 
@@ -140,29 +191,29 @@ I might edit the post and add more stuff as I remember it, but I'll post this fo
 
 ## Comments
 
-- **[deleted]** (401↑): How the hell is a 3.1 low? You talk about it like you got an internship without an education or something.
-  - **lazydictionary** (135↑): Yeah, 3.0 is a common minimum, so it's not exactly an anchor weighing them down.
-  - **Call555JackChop** (51↑): A lot of people on here make it like anything below a 4.0 you might as well go work at McDonalds
-  - **Funkit** (27↑): I had a 3.2 and got into the career field very easily. But nowadays it's a lot harder to get a job. I'm trying to move to get more money and it's been difficult to say the least
+- **[deleted]** (402↑): How the hell is a 3.1 low? You talk about it like you got an internship without an education or something.
+  - **lazydictionary** (137↑): Yeah, 3.0 is a common minimum, so it's not exactly an anchor weighing them down.
+  - **Call555JackChop** (50↑): A lot of people on here make it like anything below a 4.0 you might as well go work at McDonalds
+  - **Funkit** (30↑): I had a 3.2 and got into the career field very easily. But nowadays it's a lot harder to get a job. I'm trying to move to get more money and it's been difficult to say the least
   - **Boskadoff** (11↑): Yeah ig my peers were just beefed up, I always had to compete against a 3.5 average haha. Felt left out with my stats, so I assumed they were low. Glad it's considered ok  👍
     - **[deleted]** (8↑): Well GPA literally doesn't matter unless you get below a 3.0. Even then after you land your first job/internship it all becomes completely irrelevant regardless and you can just apply for whatever you want.
     - **ItsMeeMariooo_o** (4↑): Buddy, a 2.1 GPA is low. A 3.1 is not low. C'mon now. Lol
-- **Vivid_Chair8264** (218↑): I got my first internship with no experience and a 2.0 GPA. Went to a career fair and tried to be really personable. The company never asked for my GPA
-  - **yakimawashington** (77↑): Same. My GPA was between 2.0 and 2.9 my entire undergrad but didn't prevent three different employers from taking me on as an intern while I was in school.
+- **Vivid_Chair8264** (217↑): I got my first internship with no experience and a 2.0 GPA. Went to a career fair and tried to be really personable. The company never asked for my GPA
+  - **yakimawashington** (79↑): Same. My GPA was between 2.0 and 2.9 my entire undergrad but didn't prevent three different employers from taking me on as an intern while I was in school.
 
 Not to throw shade at OP, but OP's wall of text is a lot of extremely basic job/internship hunting practices without any real insight. OP is talking like they hold the secret to getting companies to forgive a 3.1 GPA when a very common cut-off is 3.0.
-    - **Vivid_Chair8264** (15↑): I agree, he’s probably very excited his hard work paid off, I don’t blame him for being eager.
-    - **Boskadoff** (15↑): I mostly wrote this up as a data point, like what I did and the results I got, but personally these skills were not intuitive for me, so I just wanted to write up what worked for me. But I gotchu, the title may be a lil clickbaity, mb 😭
-    - **Shadowbannedforlifee** (7↑): He’s trying to help
+    - **Vivid_Chair8264** (16↑): I agree, he’s probably very excited his hard work paid off, I don’t blame him for being eager.
+    - **Boskadoff** (14↑): I mostly wrote this up as a data point, like what I did and the results I got, but personally these skills were not intuitive for me, so I just wanted to write up what worked for me. But I gotchu, the title may be a lil clickbaity, mb 😭
+    - **Shadowbannedforlifee** (6↑): He’s trying to help
   - **Boskadoff** (14↑): Nice, congrats!! For sure, the human factor is very strong with jobs, being able to talk well def gets you far, you have a great skill sir o7
-  - **[deleted]** (4↑): Fake it till you make it? 
+  - **[deleted]** (2↑): Fake it till you make it? 
 
 Seems about right. I got my first internship without any relevant exp but I was (i think) very presentable
   - **Richstepper122** (1↑): I feel good. I’m going into year 3 with a 2.87. I be reading on these forums if you don’t have a 3.0 or higher you’re cooked.
   - **Formal-Masterpiece-7** (1↑): How was your CV/resume though?I'm tryna create mine
   - **Bubbly_Collection329** (1↑): could you elaborate on being "personable"
     - **Vivid_Chair8264** (1↑): I asked about the recruiters experience with their company, and also any fun projects they have or are working on. Tried to make it more of a conversation than just “I need job”.
-- **TedethLasso** (62↑): I hired an intern with actually no relevant experience and  is a freshman. 
+- **TedethLasso** (64↑): I hired an intern with actually no relevant experience and  is a freshman. 
 
 It doesn’t take all these crazy tricks or methods, just be a real person! Too many interviews for interns they come in like robots reciting lines. Just have a conversation with your interviewers and demonstrate your willingness to both make mistakes and learn!
   - **Boskadoff** (5↑): Yoo, its great to hear the opinion of a recruiter!
@@ -172,14 +223,14 @@ Yeah, I am not very aquianted with the recruiting side of things, I just got tol
 I heard of hires with lower GPA's, and I am very glad this post thread is supporting that data.
 
 Recruiters like you who do wholistic evalutation give us entry level engineers a chance, and for that you are a saint, thank you 😌🙏
-    - **TedethLasso** (9↑): Oh I’m not a recruiter haha, I’m also an engineer. We don’t use recruiters at our company (of course we have some talent pursuit individuals). 
+    - **TedethLasso** (8↑): Oh I’m not a recruiter haha, I’m also an engineer. We don’t use recruiters at our company (of course we have some talent pursuit individuals). 
 
 Our engineers do the interviewing and recruiting through a lot of networking. It builds amazing teams and culture. 
 
 I’m happy things worked out for you after a lot of hard work! 
 
 I graduated with a 3.5, and was offered jobs without applying. Networking is the name of the game. We rather hire someone we know who has potential and is good than a great person on paper that is a stranger
-- **moragdong** (147↑): I like how you have no experience then write a full pages of stuff you did that most people cant even do it here as engineer.
+- **moragdong** (148↑): I like how you have no experience then write a full pages of stuff you did that most people cant even do it here as engineer.
 
 Man, is the difference really that big?
   - **Boskadoff** (26↑): No company experience I meant, sorry 🥲, I basically just brute forced everything that I had remotely relevant to engineering to seem desirable haha. Not sure about the difference
@@ -187,20 +238,20 @@ Man, is the difference really that big?
 
 By difference i meant between USA and a third country world like mine.
     - **Range-Shoddy** (-6↑): Almost no internships require experience. Surely you know at least that? 🙄 This post is ridiculous.
-- **Minute_Juggernaut806** (25↑): my take away is you talk to a lot of recruiters
+- **Minute_Juggernaut806** (26↑): my take away is you talk to a lot of recruiters
   - **Boskadoff** (3↑): Kind of, I talked to 3, one from my old job not engineering related, and two from the company I was hired as an intern at.
-- **procrastinatewhynot** (6↑): Good job!! I always say this, when the ball starts rolling, it won’t stop!
+- **procrastinatewhynot** (7↑): Good job!! I always say this, when the ball starts rolling, it won’t stop!
   - **Boskadoff** (2↑): Thank you!!
-- **Quicksortontop** (7↑): I applied very seriously to two firms and got one of them. When i showed up to the interview the interviewer had my cover letter and CV printed out with lots of marker and sticky notes in them. I got direct questions about projects i had done. So it seems like it differs from company to company.
+- **Quicksortontop** (6↑): I applied very seriously to two firms and got one of them. When i showed up to the interview the interviewer had my cover letter and CV printed out with lots of marker and sticky notes in them. I got direct questions about projects i had done. So it seems like it differs from company to company.
   - **Boskadoff** (1↑): Oh wow, yeah I think only one of my interviews did that, but that means they were very interested in you. 
 
 And yes it definitely differs, most companies don't dig that deep though.
-- **RastamanEric** (16↑): Remove Excel, Word, power point, Visual studio and visual studio code from your skills section. Those are basic tools that are very useful for you to know how to use, but nothing to brag about. IMO it dilutes your real skills in that section and they’re rarely listed on experienced applicants resumes. 
+- **RastamanEric** (15↑): Remove Excel, Word, power point, Visual studio and visual studio code from your skills section. Those are basic tools that are very useful for you to know how to use, but nothing to brag about. IMO it dilutes your real skills in that section and they’re rarely listed on experienced applicants resumes. 
 
 Think of your skills section as bullet points on why you’re a good hire, and what makes you stand out. Knowing the Microsoft suite isn’t unique by any means in engineering work, but knowing something Solidworks/CAD carves you a space to be employable.
-  - **Visible_Ad9976** (18↑): Some jobs will filter you out or you don’t have their required skills on your resume
+  - **Visible_Ad9976** (17↑): Some jobs will filter you out or you don’t have their required skills on your resume
     - **Boskadoff** (5↑): ^^^ Yeah my justification exactly, curse you ATS 😩
-  - **lazydictionary** (10↑): Many job posts specifically request Office skills. And OP wasn't experienced when they used this resume. I don't think it's a waste for students to put Office skills on their resume.
+  - **lazydictionary** (9↑): Many job posts specifically request Office skills. And OP wasn't experienced when they used this resume. I don't think it's a waste for students to put Office skills on their resume.
 
 Visual studio and visual studio code are certainly not common for most students (or even most engineers?).
 - **Ok-Cockroach-3370** (3↑): Thanks for sharing! The more I read the more I understood that my fancy and goofy LaTex resume was kind of pants 😅.

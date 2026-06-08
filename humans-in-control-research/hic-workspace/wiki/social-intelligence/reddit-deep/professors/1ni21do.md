@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1ni21do.md
 url: "https://www.reddit.com/r/Professors/comments/1ni21do/uc_prepares_to_bend_the_knee/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,68 @@ flair: ""
 extracted_at: "2026-05-14T18:17:21.698Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c0"
+    char_span: [0, 2287]
+    sentence_count: 16
+    key_terms: [federal, billion, research, funding, university, following, against, support]
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c1"
+    char_span: [2289, 3802]
+    sentence_count: 15
+    key_terms: [university, community, across, state, california, together, mission, working]
+    token_count: 287
+  - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c2"
+    char_span: [3817, 5281]
+    sentence_count: 6
+    key_terms: [faculty, names, ubiquity75, berkeley, several, trying, beneficial-jump-3877, university-business]
+    section: Comments
+    token_count: 357
+  - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c3"
+    char_span: [5283, 7267]
+    sentence_count: 12
+    key_terms: [harvard, columbia, people, system, whole, believe, public, unfuckingbelievable]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c4"
+    char_span: [6998, 8743]
+    sentence_count: 10
+    key_terms: [enrollment, students, harvard, leaning, speech, system, beneficial-jump-3877, behind-the-scenes]
+    section: Comments
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c5"
+    char_span: [8745, 10441]
+    sentence_count: 7
+    key_terms: [speech, free, conservative, disparaged, leaning, popular, reality, cityofdestinyunbound]
+    section: Comments
+    token_count: 405
+  - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c6"
+    char_span: [10443, 11821]
+    sentence_count: 11
+    key_terms: [federal, demand, trump, federally-demanded, rinsedryrepeat, second-largest, long-standing, constitution]
+    section: Comments
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c7"
+    char_span: [11823, 13014]
+    sentence_count: 8
+    key_terms: [people, cityofdestinyunbound, being, fact, nocuzzlikeyea13, administration, darthjarjarjar, rinsedryrepeat]
+    section: Comments
+    token_count: 285
+  - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c8"
+    char_span: [13016, 15289]
+    sentence_count: 21
+    key_terms: [power, congressional, republicans, dems, democracy, essie7888, anything, serving]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c9"
+    char_span: [15291, 17204]
+    sentence_count: 18
+    key_terms: [don, ubiquity75, post, "i'm", harvard, supreme, behind, social]
+    section: Comments
+    token_count: 506
 ---
-
 # UC prepares to bend the knee....
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1ni21do/uc_prepares_to_bend_the_knee/)

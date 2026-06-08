@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1spfswo.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1spfswo/cmus_terrible_reputation/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,51 @@ flair: "Advice"
 extracted_at: "2026-05-23T12:15:36.202Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1spfswo.md#c0"
+    char_span: [0, 975]
+    sentence_count: 7
+    key_terms: [applyingtocollege, school, absolutely, comments, applied, "i'm", like, awittlebirby]
+    token_count: 226
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1spfswo.md#c1"
+    char_span: [990, 2588]
+    sentence_count: 15
+    key_terms: [cmu, school, point, comment, georgia, anyone, hairs, world]
+    section: Comments
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1spfswo.md#c2"
+    char_span: [2590, 3370]
+    sentence_count: 3
+    key_terms: [masters, schools, icy-statement8434, lot, top, harryandmaria, institution, misinformed]
+    section: Comments
+    token_count: 188
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1spfswo.md#c3"
+    char_span: [3372, 5383]
+    sentence_count: 16
+    key_terms: [cmu, school, ranked, like, schools, "i'm", time, cutthroat]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1spfswo.md#c4"
+    char_span: [5385, 6250]
+    sentence_count: 5
+    key_terms: [school, explodingchickenwing, mysterious-art8838, time, assignments, definitely, sumoman435, primarily]
+    section: Comments
+    token_count: 209
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1spfswo.md#c5"
+    char_span: [6252, 7734]
+    sentence_count: 6
+    key_terms: [prestige, cmu, competitive, finance, wharton, people, institutional, stern]
+    section: Comments
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1spfswo.md#c6"
+    char_span: [7736, 8470]
+    sentence_count: 5
+    key_terms: [cmu, school, turing, "it's", scs, edamamelaes, fsudad2021, boyfriend]
+    section: Comments
+    token_count: 216
 ---
-
 # CMU's terrible reputation
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1spfswo/cmus_terrible_reputation/)

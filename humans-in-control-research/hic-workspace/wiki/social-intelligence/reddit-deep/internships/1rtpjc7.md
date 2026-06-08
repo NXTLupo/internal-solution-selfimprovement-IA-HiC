@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rtpjc7.md
 url: "https://www.reddit.com/r/internships/comments/1rtpjc7/after_5_months_i_finally_got_an_offer/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,36 @@ subreddit: "internships"
 title: "After 5 months I finally got an offer"
 author: "PsychologicalCup6385"
 date: "2026-03-14T17:35:32.000Z"
-score: 65
+score: 63
 upvote_ratio: 0.98
 num_comments: 9
 flair: "Offers"
-extracted_at: "2026-05-23T19:44:46.349Z"
+extracted_at: "2026-06-05T19:52:26.147Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rtpjc7.md#c0"
+    char_span: [0, 1577]
+    sentence_count: 7
+    key_terms: [offer, interview, received, finally, internships, opportunity, experience, internship]
+    token_count: 352
+  - id: "social-intelligence/reddit-deep/internships/1rtpjc7.md#c1"
+    char_span: [1592, 3267]
+    sentence_count: 13
+    key_terms: [congratulations, psychologicalcup6385, offer, internship, searching, congrats, timeline, awesome]
+    section: Comments
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/internships/1rtpjc7.md#c2"
+    char_span: [3269, 4224]
+    sentence_count: 10
+    key_terms: [ghosted, couple, internship, something, getting, since, luck, paid]
+    section: Comments
+    token_count: 209
 ---
-
 # After 5 months I finally got an offer
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rtpjc7/after_5_months_i_finally_got_an_offer/)
-Posted by **PsychologicalCup6385** · **65↑** · **9 comments**
+Posted by **PsychologicalCup6385** · **63↑** · **9 comments**
 
 Title says it all. After 5 months of searching and applying almost every single day, I finally received an internship offer from a well-respected government agency in my area.
 

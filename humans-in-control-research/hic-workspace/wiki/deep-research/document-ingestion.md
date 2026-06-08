@@ -1,4 +1,5 @@
 ---
+id: deep-research/document-ingestion.md
 title: "User Document Ingestion & RAG Architecture"
 type: framework
 created: 2026-04-10
@@ -8,8 +9,44 @@ confidence: high
 status: active
 tags: [rag, document-upload, file-ingestion, corpus, base64, user-documents]
 evidence_count: 0
+chunks:
+  - id: "deep-research/document-ingestion.md#c0"
+    char_span: [0, 1402]
+    sentence_count: 4
+    key_terms: [base64-decoded, application, text, documents, plain, fileupload, base64-encoded, string]
+    section: Upload Interface
+    token_count: 300
+  - id: "deep-research/document-ingestion.md#c1"
+    char_span: [1428, 2868]
+    sentence_count: 6
+    key_terms: [corpus, collecteddatafiles, files, research, data, enabled, intelligence, step]
+    section: Corpus Construction
+    token_count: 337
+  - id: "deep-research/document-ingestion.md#c2"
+    char_span: [2887, 3607]
+    sentence_count: 1
+    key_terms: [file, type, files, unsupported, filename, function, sent, identification]
+    section: AI Ingestion
+    token_count: 175
+  - id: "deep-research/document-ingestion.md#c3"
+    char_span: [3646, 4971]
+    sentence_count: 12
+    key_terms: [wiki, evidence, data, sources, user-uploaded, files, documents, extracted]
+    section: How User Documents Feed the Wiki
+    token_count: 288
+  - id: "deep-research/document-ingestion.md#c4"
+    char_span: [5014, 5947]
+    sentence_count: 1
+    key_terms: [tier, reports, evidence, current, primary, client, user-uploaded, transcripts]
+    section: Evidence Quality from User Documents
+    token_count: 192
+  - id: "deep-research/document-ingestion.md#c5"
+    char_span: [5970, 6411]
+    sentence_count: 1
+    key_terms: [documents, user, sources-registry, social-intelligence, connector-catalog, credibility-tiers, data, research-fabric]
+    section: Cross-References
+    token_count: 97
 ---
-
 # User Document Ingestion & RAG Architecture
 
 This page documents how user-uploaded documents flow through the HiC Research platform, from drag-and-drop upload through corpus construction to AI analysis. User documents are a primary evidence source -- they represent client-specific data that no external connector can provide.

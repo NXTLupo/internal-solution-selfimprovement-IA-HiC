@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1o4oek8.md
 url: "https://www.reddit.com/r/GPT/comments/1o4oek8/i_just_launched_my_second_ai_product_a/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,20 @@ flair: "ChatGPT"
 extracted_at: "2026-05-11T17:26:37.728Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1o4oek8.md#c0"
+    char_span: [0, 1879]
+    sentence_count: 8
+    key_terms: [step, profit, financial, business-focused, interpretation, entrepreneurs, performance, data]
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/gpt/1o4oek8.md#c1"
+    char_span: [1881, 2754]
+    sentence_count: 5
+    key_terms: [eur, financial, revenue, table, business-specific, use, depreciation, reinvestment]
+    token_count: 217
 ---
-
 # I just launched my second AI product — a Business-Focused AI Toolkit for entrepreneurs.
 Would love your feedback — here’s one of the prompts inside 👇
 

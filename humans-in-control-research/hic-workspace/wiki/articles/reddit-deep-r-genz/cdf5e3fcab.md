@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-genz/cdf5e3fcab.md
 url: "https://www.reddit.com/r/GenZ/comments/1s4vcpi/credit_card_debt/"
 url_hash: "cdf5e3fcab"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-16T20:57:40.878549+00:00"
 chars: 2802
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-genz/cdf5e3fcab.md#c0"
+    char_span: [0, 1517]
+    sentence_count: 10
+    key_terms: [credit, card, debt, genz, poor, christmas, comments, discord]
+    token_count: 385
+  - id: "articles/reddit-deep-r-genz/cdf5e3fcab.md#c1"
+    char_span: [1519, 2921]
+    sentence_count: 7
+    key_terms: [debt, credit, people, card, get, bought, properobligation9779, like]
+    token_count: 333
 ---
-
 # Credit card debt
 
 Source: [Reddit Deep: r/genz](https://www.reddit.com/r/GenZ/comments/1s4vcpi/credit_card_debt/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1o2momf.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1o2momf/should_i_care_about_internships_if_im_doing/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: "Experienced"
 extracted_at: "2026-05-25T13:02:11.358Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o2momf.md#c0"
+    char_span: [0, 635]
+    sentence_count: 5
+    key_terms: [cscareerquestions, "i'm", comments, big, tech, internships, reddit-deep, experience]
+    token_count: 167
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o2momf.md#c1"
+    char_span: [650, 1702]
+    sentence_count: 5
+    key_terms: [internships, experience, opportunity, current, market, big, visa, maximum-okra3237]
+    section: Comments
+    token_count: 251
 ---
-
 # Should I care about internships if I'm doing master's, but have 3 years of big tech experience?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1o2momf/should_i_care_about_internships_if_im_doing/)

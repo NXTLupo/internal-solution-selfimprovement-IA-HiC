@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1r9ablq.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1r9ablq/what_are_the_core_areas_you_need_to_focus_on_in/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,21 @@ flair: "Application Question"
 extracted_at: "2026-05-22T23:33:52.638Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r9ablq.md#c0"
+    char_span: [0, 483]
+    sentence_count: 5
+    key_terms: [applyingtocollege, application, comments, process, focus, international, reddit-deep, experience]
+    token_count: 120
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r9ablq.md#c1"
+    char_span: [498, 2729]
+    sentence_count: 13
+    key_terms: [international, schools, undergrads, internationals, student, school, acceptance, story]
+    section: Comments
+    token_count: 509
 ---
-
 # What are the core areas you need to focus on in your college application process?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1r9ablq/what_are_the_core_areas_you_need_to_focus_on_in/)

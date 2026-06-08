@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1l7iir0.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1l7iir0/best_way_to_get_a_job_as_a_recent_cs_graduate/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,27 @@ flair: "New Grad"
 extracted_at: "2026-05-23T14:54:48.635Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l7iir0.md#c0"
+    char_span: [0, 876]
+    sentence_count: 7
+    key_terms: [cscareerquestions, internship, comments, nothing, advice, get, job, urbana-champaign]
+    token_count: 213
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l7iir0.md#c1"
+    char_span: [891, 1931]
+    sentence_count: 7
+    key_terms: [lcywcnrh8okrf36sgo8h, explain, don, projects, courses, sharing, bullet, google]
+    section: Comments
+    token_count: 292
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l7iir0.md#c2"
+    char_span: [1933, 3326]
+    sentence_count: 7
+    key_terms: [school, uiuc, companies, resources, linkedin, projects, network, resume]
+    section: Comments
+    token_count: 342
 ---
-
 # Best way to get a job as a recent CS graduate with no internship?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1l7iir0/best_way_to_get_a_job_as_a_recent_cs_graduate/)

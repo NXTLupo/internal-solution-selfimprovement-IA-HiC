@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1qbzx4c.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1qbzx4c/my_job_search_is_over_heres_what_i_learned/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -7,18 +8,53 @@ title: "My job search is over, here's what I learned"
 author: "UntrimmedBagel"
 date: "2026-01-13T18:59:34.000Z"
 score: 240
-upvote_ratio: 0.94
-num_comments: 87
+upvote_ratio: 0.95
+num_comments: 93
 flair: "Experienced"
-extracted_at: "2026-05-23T14:54:48.626Z"
+extracted_at: "2026-06-01T18:49:12.243Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qbzx4c.md#c0"
+    char_span: [0, 1592]
+    sentence_count: 14
+    key_terms: [people, cscareerquestions, applying, intermediate, job, comments, network, junior]
+    token_count: 386
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qbzx4c.md#c1"
+    char_span: [1607, 3428]
+    sentence_count: 14
+    key_terms: [post, friends, recruiters, network, untrimmedbagel, get, experience, linkedin]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qbzx4c.md#c2"
+    char_span: [3430, 5192]
+    sentence_count: 11
+    key_terms: [job, "you're", helpdesk, software, connections, development, importantsquirrel, getting]
+    section: Comments
+    token_count: 409
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qbzx4c.md#c3"
+    char_span: [5194, 7256]
+    sentence_count: 20
+    key_terms: [interview, networking, companies, untrimmedbagel, uncomfortable, experiences, another, getting]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qbzx4c.md#c4"
+    char_span: [7258, 9272]
+    sentence_count: 16
+    key_terms: [people, network, being, feels, networking, leetcode, degrees, someone]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qbzx4c.md#c5"
+    char_span: [9274, 10407]
+    sentence_count: 12
+    key_terms: [post, changes, comment, right, congratulations, untrimmedbagel, illustration, intermediate]
+    section: Comments
+    token_count: 242
 ---
-
 # My job search is over, here's what I learned
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1qbzx4c/my_job_search_is_over_heres_what_i_learned/)
-Posted by **UntrimmedBagel** · **240↑** · **87 comments**
+Posted by **UntrimmedBagel** · **240↑** · **93 comments**
 
 I'm a full-stack developer with ~3 YOE. Been jobless for almost 6 months. *Carefully* applied to hundreds of positions, many of which were junior/intermediate roles. My resume (and actual skill) is strong, but there are notable gaps that hurt my chances of making it through ATS/screening.
 
@@ -34,23 +70,23 @@ TLDR: Network, talk to people, embrace nepotism, and you will skip the line.
 
 ## Comments
 
-- **JazzlikeRest2917** (26↑): Thanks for the post, and congrats! But in my experience every time I try to network with recruiters they just tell me to go and apply on the website.
-  - **UntrimmedBagel** (11↑): Friends/family/colleagues > recruiters, in my experience
-    - **euortiz** (26↑): I’m the only person in my family and friend circle who’s in tech, no one around me is even remotely connected to it. I don’t think this is a rule that applies to everyone.
+- **JazzlikeRest2917** (24↑): Thanks for the post, and congrats! But in my experience every time I try to network with recruiters they just tell me to go and apply on the website.
+  - **UntrimmedBagel** (12↑): Friends/family/colleagues > recruiters, in my experience
+    - **euortiz** (25↑): I’m the only person in my family and friend circle who’s in tech, no one around me is even remotely connected to it. I don’t think this is a rule that applies to everyone.
     - **sade1212** (5↑): Ah fuck, can't believe I forgot to ask my uncle to get me a job at Nintendo!
   - **Necessary-Ring-6060** (2↑): recruiters, i think you need to specify why exactly you are reaching out, if you just say "hey i need this job" of course they will tell to visit the website and apply there, but if you say "Hey, i can solve this \[their main problem recently\]" then they will be more interested into hiring you because you are literally giving them free consultation of how to solve that instead of a generic application that gets blocked by ast.
 - **anonlegion01** (11↑): OP should write how to network instead of telling it's importance. Buddy, we get that, it's a KEY thing but mostly don't know how. Atleast idk.
-  - **UntrimmedBagel** (9↑): Replace "networking" with "making friends". Super similar concepts. If you've made friends in a professional capacity (e.g., at school or work), you've networked. Those people are in your network now. Make a LinkedIn account, search them up, and add them. That's step 1.
+  - **UntrimmedBagel** (8↑): Replace "networking" with "making friends". Super similar concepts. If you've made friends in a professional capacity (e.g., at school or work), you've networked. Those people are in your network now. Make a LinkedIn account, search them up, and add them. That's step 1.
 
 The last paragraph of my post explained what I did, vaguely. I just made one LinkedIn post explaining my situation, and privately asked my friends to give the post attention so it would get views. That part is important, because if you make a post and just *hope* it does well, good luck. Gotta cheese it a little bit.
 
 The earlier you are in your career, the harder this is, obviously. If you're a new grad, your best connections are your profs, fellow students who have jobs, and internship acquaintances. You can DM them and ask for advice, or if they know of anyone hiring. At more intermediate levels, you'll have had coworkers and higher-ups who you've hopefully impressed, and their support carries tons of weight.
-- **ImportantSquirrel** (66↑): Networking never worked for me. I've had various family and friends try to set up me up with IT Helpdesk positions because they don't know the difference between that and software development.
-  - **robert_zeh** (55↑): Getting a job in this economy is a matter of doing 100 things that each have a 2% chance of working. Don’t sell your family and friends short, this is how a lot of people get their jobs.
-  - **gman2093** (10↑): I started in it help desk while getting my degree. That and internships were helpful to get that first swe job.
-  - **hijinx_the_sage** (5↑): They may be getting you an IT Helpdesk job while you're looking for a software development job, but turning that IT Helpdesk job into a software development job you're looking for is your job.
+- **ImportantSquirrel** (67↑): Networking never worked for me. I've had various family and friends try to set up me up with IT Helpdesk positions because they don't know the difference between that and software development.
+  - **robert_zeh** (60↑): Getting a job in this economy is a matter of doing 100 things that each have a 2% chance of working. Don’t sell your family and friends short, this is how a lot of people get their jobs.
+  - **gman2093** (11↑): I started in it help desk while getting my degree. That and internships were helpful to get that first swe job.
+  - **hijinx_the_sage** (6↑): They may be getting you an IT Helpdesk job while you're looking for a software development job, but turning that IT Helpdesk job into a software development job you're looking for is your job.
     - **ImportantSquirrel** (3↑): Sure but if you're used to earning six figures as a software dev you're not gonna take a helpdesk job paying 50k unless you are desperate for money. I'd rather stay unemployed till the right opportunity comes up.
-  - **UntrimmedBagel** (21↑): Can definitely relate. My own family has sent me many irrelevant postings/connections, but there have been times when they find a gem. It's frustrating, but don't count them out. Your connections may have access to job postings that haven't made it public yet, the value in that is huge.
+  - **UntrimmedBagel** (20↑): Can definitely relate. My own family has sent me many irrelevant postings/connections, but there have been times when they find a gem. It's frustrating, but don't count them out. Your connections may have access to job postings that haven't made it public yet, the value in that is huge.
 
 If my recent networking hadn't worked out, I'd reach out to old college mates next. Catch up with an old friend, then sneak in the "by the way...". They could easily refer you to a job posting at their company, and you will completely skip the line and get an interview. For non-tech companies, getting the interview is *way* harder than passing it.
 - **UntrimmedBagel** (57↑): 2 hours after posting this, I landed another interview. It works folks.
@@ -61,12 +97,12 @@ If my recent networking hadn't worked out, I'd reach out to old college mates ne
 I also struggle with networking, but for me it always seems to boil down to just working well outside of my comfort level.  Which means, when I'm good and uncomfortable dealing with other esp new people, I know I am making progress!  Do searches for recruiters, then contact them and get uncomfortable!
 - **Thresher_XG** (5↑): Nice and congrats!
 - **papayon10** (6↑): Do you mind sharing your interview experiences at the companies that you received job offers from? Was it leetcode heavy? And what space are they in?
-  - **UntrimmedBagel** (22↑): The companies are from varying industries, none are big-tech or tech-only. All .NET shops. Ranges from startup vibes to big corporate. The interview experiences were largely positive, and not too difficult.
+  - **UntrimmedBagel** (20↑): The companies are from varying industries, none are big-tech or tech-only. All .NET shops. Ranges from startup vibes to big corporate. The interview experiences were largely positive, and not too difficult.
 
 I was approached by the startup, so it was conversational right from the start. Typical HR interview to begin, followed by take-home technical. Really impressed with the project they chose, perfect balance of difficulty and time-to-complete. It was a true end-to-end product with APIs, some parsing logic, testing, etc. Had to explain the project in another interview.
 
 The corporate ones were pretty standard. Hour long interview with HR and IT lead, alternating between behavioral and technical expertise questions. No curveballs. No LeetCode. No sys design.
-    - **yellajaket** (7↑): Where are these jobs located? I feel like leetcode is pretty mandatory for SF/NYC based roles
+    - **yellajaket** (9↑): Where are these jobs located? I feel like leetcode is pretty mandatory for SF/NYC based roles
 - **pacman2081** (2↑): Professional Networking means that there are people who know you from the classes you take and the jobs in the past you worked. It helps being a good student (even better being an excellent student), being a good co-worker/team player etc.
 - **Professional_Gas4000** (2↑): Has anyone heard of 6 degrees of separation? No 2 people in the world are separated by more than 6 degrees/relationships. Maybe none of the people you immediately know work in tech but guaranteed you know some who knows someone that works in Helpdesk, or is a network engineer, or system administrator for a high school, or maybe runs their own small web agency part time, or who knows,  is a full blown software developer at Harris County Federal Credit Union. Become someone who people talks well about you in the rooms you're not in and wants to spread the word for you that you're looking for a job.
   - **UntrimmedBagel** (1↑): I was thinking about this the whole time I wrote this post but had no idea what it was called!

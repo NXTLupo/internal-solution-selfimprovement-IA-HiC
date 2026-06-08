@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1s8knxt.md
 url: "https://www.reddit.com/r/personalfinance/comments/1s8knxt/mom_is_60k_in_debt_cant_pay_bills_and_relies_on/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,80 @@ flair: "Budgeting"
 extracted_at: "2026-05-17T01:13:31.175Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1s8knxt.md#c0"
+    char_span: [0, 1898]
+    sentence_count: 8
+    key_terms: [month, don, personalfinance, parents, income, source, groceries, comments]
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/personalfinance/1s8knxt.md#c1"
+    char_span: [1900, 2743]
+    sentence_count: 8
+    key_terms: [help, finances, however, smarter, advice, being, time, try]
+    token_count: 191
+  - id: "social-intelligence/reddit-deep/personalfinance/1s8knxt.md#c2"
+    char_span: [2758, 4551]
+    sentence_count: 12
+    key_terms: [credit, comments, prestigious-band3633, never, name, post, advice, freeze]
+    section: Comments
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/personalfinance/1s8knxt.md#c3"
+    char_span: [4553, 6564]
+    sentence_count: 25
+    key_terms: [don, desperate, thought, people, like, financial, situation, something]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/personalfinance/1s8knxt.md#c4"
+    char_span: [6324, 6653]
+    sentence_count: 4
+    key_terms: [different, situation, something, everyone, gunter5, hitting, problem, similar]
+    section: Comments
+    token_count: 87
+  - id: "social-intelligence/reddit-deep/personalfinance/1s8knxt.md#c5"
+    char_span: [6655, 8403]
+    sentence_count: 18
+    key_terms: [financial, take, because, money, terrible, parents, savings, anyone]
+    section: Comments
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/personalfinance/1s8knxt.md#c6"
+    char_span: [8405, 9257]
+    sentence_count: 11
+    key_terms: [doesn, change, wouldn, tough, love, magnoliasandmums, moyashimonrocket, dragon-queen]
+    section: Comments
+    token_count: 236
+  - id: "social-intelligence/reddit-deep/personalfinance/1s8knxt.md#c7"
+    char_span: [9259, 11332]
+    sentence_count: 15
+    key_terms: [money, grandparents, good, because, subsidizing, yourself, housing, answer]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/personalfinance/1s8knxt.md#c8"
+    char_span: [11334, 13049]
+    sentence_count: 16
+    key_terms: [yourself, "can't", good, example, better, credit, parent, great]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/personalfinance/1s8knxt.md#c9"
+    char_span: [13052, 15104]
+    sentence_count: 15
+    key_terms: ["i'm", universities, get, college, future, better, great, aid]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/personalfinance/1s8knxt.md#c10"
+    char_span: [15106, 16579]
+    sentence_count: 17
+    key_terms: [work, year, yourself, college, process, junior, parent, senior]
+    section: Comments
+    token_count: 344
+  - id: "social-intelligence/reddit-deep/personalfinance/1s8knxt.md#c11"
+    char_span: [16581, 17672]
+    sentence_count: 8
+    key_terms: [business, strongly, college, get, community, trades, "you'll", local]
+    section: Comments
+    token_count: 254
 ---
-
 # Mom is 60k in debt, can’t pay bills and relies on her parents yet spends $400 a month on Doordash. How can I help her?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1s8knxt/mom_is_60k_in_debt_cant_pay_bills_and_relies_on/)

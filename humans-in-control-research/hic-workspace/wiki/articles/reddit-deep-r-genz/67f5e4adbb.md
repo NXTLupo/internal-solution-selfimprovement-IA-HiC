@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-genz/67f5e4adbb.md
 url: "https://www.reddit.com/r/GenZ/comments/1niwyz8/spx6900_a_financialized_protest_for_genz/"
 url_hash: "67f5e4adbb"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:19:05.888269+00:00"
 chars: 4387
+industries: [financial_services, real_estate]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-genz/67f5e4adbb.md#c0"
+    char_span: [0, 2057]
+    sentence_count: 18
+    key_terms: [crypto, coin, meme, because, value, generations, genz, new]
+    token_count: 447
+  - id: "articles/reddit-deep-r-genz/67f5e4adbb.md#c1"
+    char_span: [2059, 3854]
+    sentence_count: 16
+    key_terms: [spx6900, financial, dissatisfaction, stopped, occupy, street, system, wall]
+    token_count: 419
+  - id: "articles/reddit-deep-r-genz/67f5e4adbb.md#c2"
+    char_span: [3856, 4555]
+    sentence_count: 1
+    key_terms: [pull, rug, future-bet4783, because, simple-designer-4121, lol, cs81jh434mpf1, investigate]
+    token_count: 217
 ---
-
 # SPX6900: A financialized protest for GenZ
 
 Source: [Reddit Deep: r/genz](https://www.reddit.com/r/GenZ/comments/1niwyz8/spx6900_a_financialized_protest_for_genz/)

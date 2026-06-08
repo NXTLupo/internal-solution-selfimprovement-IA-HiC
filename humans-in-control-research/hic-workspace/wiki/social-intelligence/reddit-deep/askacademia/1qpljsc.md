@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1qpljsc.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1qpljsc/advisor_informed_me_that_another_student_will_be/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,62 @@ flair: "STEM"
 extracted_at: "2026-05-26T14:32:49.120Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c0"
+    char_span: [0, 2242]
+    sentence_count: 17
+    key_terms: [project, thesis, student, advisor, participating, askacademia, publication, phd]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c1"
+    char_span: [2244, 2947]
+    sentence_count: 8
+    key_terms: [research, anyone, undergraduates, opportunities, appreciated, encountered, definitely, experience]
+    token_count: 147
+  - id: "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c2"
+    char_span: [2962, 4804]
+    sentence_count: 14
+    key_terms: [project, supervisor, phd, absolutely, defensive, something, because, nothing]
+    section: Comments
+    token_count: 391
+  - id: "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c3"
+    char_span: [4806, 7074]
+    sentence_count: 10
+    key_terms: [student, work, project, students, phd, advisor, masters, continue]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c4"
+    char_span: [7076, 8746]
+    sentence_count: 11
+    key_terms: [student, something, work, considering, project, advice, likely, bajablastfromthepast]
+    section: Comments
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c5"
+    char_span: [8748, 10360]
+    sentence_count: 10
+    key_terms: [thesis, advisor, project, bajablastfromthepast, student, phd, work, projects]
+    section: Comments
+    token_count: 357
+  - id: "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c6"
+    char_span: [10362, 12110]
+    sentence_count: 10
+    key_terms: [bajablastfromthepast, absolutely, collaborative, work, advisor, meeting, asking, person]
+    section: Comments
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c7"
+    char_span: [12112, 14338]
+    sentence_count: 12
+    key_terms: [work, student, phd, project, thesis, get, something, continue]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c8"
+    char_span: [14340, 15529]
+    sentence_count: 12
+    key_terms: [project, graduating, defense, thesis, bajablastfromthepast, going, understanding, dissertation]
+    section: Comments
+    token_count: 270
 ---
-
 # Advisor informed me that another student will be “participating in” my thesis project???
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1qpljsc/advisor_informed_me_that_another_student_will_be/)

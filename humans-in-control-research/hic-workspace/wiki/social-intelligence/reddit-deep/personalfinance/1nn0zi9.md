@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1nn0zi9.md
 url: "https://www.reddit.com/r/personalfinance/comments/1nn0zi9/should_i_sell_my_2016_corolla_to_pay_off_13000_in/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,39 @@ flair: "Debt"
 extracted_at: "2026-05-16T20:55:02.103Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1nn0zi9.md#c0"
+    char_span: [0, 1123]
+    sentence_count: 7
+    key_terms: [card, month, debt, personalfinance, credit, car, pay, save]
+    token_count: 273
+  - id: "social-intelligence/reddit-deep/personalfinance/1nn0zi9.md#c1"
+    char_span: [1138, 3036]
+    sentence_count: 15
+    key_terms: [car, live, public, transport, corolla, without, transportation, going]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/personalfinance/1nn0zi9.md#c2"
+    char_span: [3038, 4537]
+    sentence_count: 10
+    key_terms: [car, debt, need, credit, great, get, loan, transport]
+    section: Comments
+    token_count: 344
+  - id: "social-intelligence/reddit-deep/personalfinance/1nn0zi9.md#c3"
+    char_span: [4539, 6517]
+    sentence_count: 15
+    key_terms: [car, transfer, without, pay, sell, absolutely, roommates, yoooedwin]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/personalfinance/1nn0zi9.md#c4"
+    char_span: [6519, 6903]
+    sentence_count: 3
+    key_terms: [inconsistent, minimized, transport, provided, spending, struggle, numbers, selling]
+    section: Comments
+    token_count: 85
 ---
-
 # Should I sell my 2016 Corolla to pay off $13,000 in credit card debt and be able to start saving money?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1nn0zi9/should_i_sell_my_2016_corolla_to_pay_off_13000_in/)

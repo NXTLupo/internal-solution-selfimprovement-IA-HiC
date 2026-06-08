@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1t5hxu0.md
 url: "https://www.reddit.com/r/stocks/comments/1t5hxu0/intel_trading_at_a_119x_forward_pe_and_nobody_is/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,69 @@ flair: "Company Analysis"
 extracted_at: "2026-05-17T01:14:17.619Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1t5hxu0.md#c0"
+    char_span: [0, 1763]
+    sentence_count: 26
+    key_terms: [forward, intel, highest, semiconductor, stock, comments, trailing, company]
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/stocks/1t5hxu0.md#c1"
+    char_span: [1778, 3508]
+    sentence_count: 14
+    key_terms: [companies, profitable, sense, market, people, saying, effectively, been]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/stocks/1t5hxu0.md#c2"
+    char_span: [3510, 5443]
+    sentence_count: 10
+    key_terms: [demand, going, right, circle, handle, market, memory, perspective-parking]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/stocks/1t5hxu0.md#c3"
+    char_span: [5445, 6760]
+    sentence_count: 5
+    key_terms: [intel, market, american, billion, nvidia, agitatedstranger9698, nottakengreatname, big]
+    section: Comments
+    token_count: 317
+  - id: "social-intelligence/reddit-deep/stocks/1t5hxu0.md#c4"
+    char_span: [6762, 7768]
+    sentence_count: 7
+    key_terms: [got, started, reddit, stock, dollar-doge-coins, been, get, pablosanchezbb]
+    section: Comments
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/stocks/1t5hxu0.md#c5"
+    char_span: [7770, 9303]
+    sentence_count: 9
+    key_terms: [investors, ok-adeptness-5834, "it's", profitable, projected, amazon, growth, people]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/stocks/1t5hxu0.md#c6"
+    char_span: [9305, 11153]
+    sentence_count: 23
+    key_terms: [intel, appears, fabs, sold, "intel's", best, new, pat]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/stocks/1t5hxu0.md#c7"
+    char_span: [11155, 12725]
+    sentence_count: 11
+    key_terms: [intel, market, because, meloniousv2, fab, last, tsmc, win]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/stocks/1t5hxu0.md#c8"
+    char_span: [12727, 14052]
+    sentence_count: 10
+    key_terms: [sold, stupid, intel, thursday, holders, recover, factor, retail]
+    section: Comments
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/stocks/1t5hxu0.md#c9"
+    char_span: [14054, 14646]
+    sentence_count: 5
+    key_terms: [multiples, here, neighborhood, asset-light, goddamn7788, high-growth, numerically, absolutely]
+    section: Comments
+    token_count: 146
 ---
-
 # Intel trading at a ~119x forward P/E and nobody is talking about this
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1t5hxu0/intel_trading_at_a_119x_forward_pe_and_nobody_is/)

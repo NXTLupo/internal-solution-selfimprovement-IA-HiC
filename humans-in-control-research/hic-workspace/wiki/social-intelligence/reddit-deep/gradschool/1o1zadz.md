@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1o1zadz.md
 url: "https://www.reddit.com/r/GradSchool/comments/1o1zadz/i_am_being_targeted_to_leave_my_program/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.342Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1o1zadz.md#c0"
+    char_span: [0, 2021]
+    sentence_count: 16
+    key_terms: [program, professor, points, email, department, disability, gradschool, comments]
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/gradschool/1o1zadz.md#c1"
+    char_span: [2036, 3651]
+    sentence_count: 12
+    key_terms: [grading, objective, whether, effort, graded, grade, need, department]
+    section: Comments
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/gradschool/1o1zadz.md#c2"
+    char_span: [3653, 5815]
+    sentence_count: 18
+    key_terms: [subjective, "don't", because, grading, partial, credit, don, give]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/gradschool/1o1zadz.md#c3"
+    char_span: [5817, 7013]
+    sentence_count: 10
+    key_terms: [degree, completion, assistant, position, programs, advisor, likely, thesis]
+    section: Comments
+    token_count: 261
+  - id: "social-intelligence/reddit-deep/gradschool/1o1zadz.md#c4"
+    char_span: [7015, 8564]
+    sentence_count: 11
+    key_terms: ["don't", program, want, history, problematic, keep, absolutely, professor]
+    section: Comments
+    token_count: 337
+  - id: "social-intelligence/reddit-deep/gradschool/1o1zadz.md#c5"
+    char_span: [8566, 10681]
+    sentence_count: 12
+    key_terms: [students, program, issues, history, awards, degree, comes, leave]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/gradschool/1o1zadz.md#c6"
+    char_span: [10683, 11549]
+    sentence_count: 9
+    key_terms: [professor, something, program, course, letter, fair, free, like]
+    section: Comments
+    token_count: 197
+  - id: "social-intelligence/reddit-deep/gradschool/1o1zadz.md#c7"
+    char_span: [11551, 13070]
+    sentence_count: 12
+    key_terms: [professor, grade, department, recommend, unjustly, program, appeal, degree]
+    section: Comments
+    token_count: 319
 ---
-
 # I am being targeted to leave my program.
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1o1zadz/i_am_being_targeted_to_leave_my_program/)

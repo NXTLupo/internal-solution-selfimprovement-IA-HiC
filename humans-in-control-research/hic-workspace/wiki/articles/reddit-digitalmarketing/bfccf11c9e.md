@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-digitalmarketing/bfccf11c9e.md
 url: "https://reddit.com/r/DigitalMarketing/comments/1sqoema/a_prospect_just_told_me_they_cant_justify_my/"
 url_hash: "bfccf11c9e"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-04-29T17:25:06.487786+00:00"
 chars: 682
+industries: [retail, dtc]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-digitalmarketing/bfccf11c9e.md#c0"
+    char_span: [0, 927]
+    sentence_count: 1
+    key_terms: [digitalmarketing, tracking, reddit, told, reconciliation, spreadsheets, conversion, generating]
+    token_count: 210
 ---
-
 # A prospect just told me they can’t justify my retainer because "ai does the same thing for free now."
 
 Source: [reddit: digitalmarketing](https://reddit.com/r/DigitalMarketing/comments/1sqoema/a_prospect_just_told_me_they_cant_justify_my/)

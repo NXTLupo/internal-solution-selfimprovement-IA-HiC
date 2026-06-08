@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1qke8nr.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1qke8nr/viola_value_to_college_applications/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,27 @@ flair: "Application Question"
 extracted_at: "2026-05-22T23:33:52.639Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qke8nr.md#c0"
+    char_span: [0, 997]
+    sentence_count: 9
+    key_terms: [applyingtocollege, college, applications, viola, orchestra, comments, highly, school]
+    token_count: 223
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qke8nr.md#c1"
+    char_span: [1012, 3018]
+    sentence_count: 17
+    key_terms: [viola, prizerepublic5176, bluefloridadream, extracurriculars, college, schools, switch, music]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qke8nr.md#c2"
+    char_span: [3020, 5433]
+    sentence_count: 20
+    key_terms: [admissions, most-selective, viola, "it's", having, college, schools, school]
+    section: Comments
+    token_count: 511
 ---
-
 # viola value to college applications
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1qke8nr/viola_value_to_college_applications/)

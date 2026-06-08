@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1psrsq3.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1psrsq3/im_a_first_year_cs_student_and_im_already/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,53 @@ subreddit: "cscareerquestions"
 title: "I’m a first year CS student and I’m already exhausted and honestly losing hope"
 author: "Weekly_Ad5155"
 date: "2025-12-22T05:43:30.000Z"
-score: 6
-upvote_ratio: 0.58
+score: 2
+upvote_ratio: 0.53
 num_comments: 18
 flair: "Student"
-extracted_at: "2026-05-19T17:57:56.722Z"
+extracted_at: "2026-06-06T00:28:32.206Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psrsq3.md#c0"
+    char_span: [0, 2127]
+    sentence_count: 16
+    key_terms: [built, cscareerquestions, don, application, internships, comments, honestly, another]
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psrsq3.md#c1"
+    char_span: [2129, 2876]
+    sentence_count: 8
+    key_terms: [feels, keep, honestly, enough, contribute, everything, pretending, buzzwords]
+    token_count: 164
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psrsq3.md#c2"
+    char_span: [2891, 4030]
+    sentence_count: 8
+    key_terms: [internships, year, companies, hiring, "don't", good, keep, time]
+    section: Comments
+    token_count: 261
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psrsq3.md#c3"
+    char_span: [4034, 5745]
+    sentence_count: 16
+    key_terms: [internship, year, "you're", don, something, engineer, position, pressure]
+    section: Comments
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psrsq3.md#c4"
+    char_span: [5747, 7723]
+    sentence_count: 23
+    key_terms: [time, companies, everyone, people, skewed, non-technical, internships, need]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psrsq3.md#c5"
+    char_span: [7725, 9424]
+    sentence_count: 20
+    key_terms: [people, time, working, perspective, lot, companies, projects, yourself]
+    section: Comments
+    token_count: 369
 ---
-
 # I’m a first year CS student and I’m already exhausted and honestly losing hope
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1psrsq3/im_a_first_year_cs_student_and_im_already/)
-Posted by **Weekly_Ad5155** · **6↑** · **18 comments**
+Posted by **Weekly_Ad5155** · **2↑** · **18 comments**
 
 Using a burner account for this
 
@@ -34,19 +69,19 @@ I don’t even know what I’m asking for here. I guess I just want to know if a
 
 ## Comments
 
-- **[deleted]** (42↑): Companies don't like hiring freshmen and sophomores for internships because you're farther out from graduation (and hence less likely to join their company after your internship).
+- **[deleted]** (41↑): Companies don't like hiring freshmen and sophomores for internships because you're farther out from graduation (and hence less likely to join their company after your internship).
 
 Chillax, you got time. Keep your grades up and keep your eyes peeled for opportunities. If you are good, the offers *will* come. Yes hiring is in a downturn but this sub is still not a reflection of reality. Doomscrolling Reddit and adopting a defeatist attitude is not going to be good for your life.
   - **Tall_Requirement_192** (6↑): Honestly the hackathon thing hits hard - judges can be weirdly biased toward whatever's trendy rn. Your project sounds way more practical than half the ML demos that barely work outside the presentation
 
   
 Also yeah freshman internships are brutal, most companies just don't bother. Junior year is when things actually start opening up
-- **kevinossia** (35↑): Internships tend to be more of a third or fourth year thing.
-- **NewChameleon** (8↑): meh, I failed my 1st year CS classes and at the time, our department's academic advisor said to me "you know, maybe we made a mistake in our admission"
+- **kevinossia** (34↑): Internships tend to be more of a third or fourth year thing.
+- **NewChameleon** (7↑): meh, I failed my 1st year CS classes and at the time, our department's academic advisor said to me "you know, maybe we made a mistake in our admission"
   
 if I actually believed every negative nancy in my life, I would never be where I currently am
 - **Salutimhan** (12↑): Can't relate at all. The only pressure you have mentioned is lack of internship during your first year. You have 3 years left in Canada's top school. If I can be in your position I would just use the time to learn something I actually want to learn with no care for the most-job-ready-tech. You don't have much life-weight yet, utilize it.
-- **MarcableFluke** (11↑): I'd venture to guess that the vast majority of freshmen don't end up with internships. So if you're "losing hope" just because you're not in the let's say top 5% of CS students, you're going to have a really rough time. In this industry certainly, but probably in life in general.
+- **MarcableFluke** (10↑): I'd venture to guess that the vast majority of freshmen don't end up with internships. So if you're "losing hope" just because you're not in the let's say top 5% of CS students, you're going to have a really rough time. In this industry certainly, but probably in life in general.
 - **CappuccinoCodes** (8↑): 1st year student, I'm assuming no kids and under no professional pressure, and "truly burn out". Sorry, but it's hard to empathize.
 - **ASSQUATCH_23** (5↑): Take a break and be nice to yourself. If you truly love it, your interest will come back around.
 

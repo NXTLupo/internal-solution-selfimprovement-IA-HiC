@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1ssoqc3.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1ssoqc3/academic_prestige_ucla_vs_alumni_network_usc/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -10,11 +11,34 @@ score: 3
 upvote_ratio: 1
 num_comments: 27
 flair: "College Questions"
-extracted_at: "2026-05-23T12:15:36.235Z"
+extracted_at: "2026-06-01T18:49:57.452Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssoqc3.md#c0"
+    char_span: [0, 1784]
+    sentence_count: 11
+    key_terms: [ucla, usc, applyingtocollege, better, opportunities, enthusiastic, major, psychology]
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssoqc3.md#c1"
+    char_span: [1799, 3201]
+    sentence_count: 10
+    key_terms: [happycaterpillar2409, intelligent-poet-120, financial, usc, university-plans-to-cut-employee-benefits, pretty, great, students]
+    section: Comments
+    token_count: 344
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssoqc3.md#c2"
+    char_span: [3203, 4508]
+    sentence_count: 3
+    key_terms: [ucla, usc, intelligent-poet-120, popular-adagio7459, transfertotop25, schools, top, financial]
+    section: Comments
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssoqc3.md#c3"
+    char_span: [4510, 5851]
+    sentence_count: 17
+    key_terms: [usc, internships, ucla, everyone, research, classes, largely, almost]
+    section: Comments
+    token_count: 325
 ---
-
 # Academic Prestige (UCLA) vs. Alumni Network (USC)
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1ssoqc3/academic_prestige_ucla_vs_alumni_network_usc/)
@@ -42,11 +66,11 @@ Thank you.
 
 ## Comments
 
-- **ScholarGrade** (6↑): Those are both pretty prestigious and both have strong alumni networks.  I don't think either would be a bad choice.
+- **ScholarGrade** (7↑): Those are both pretty prestigious and both have strong alumni networks.  I don't think either would be a bad choice.
   - **Intelligent-Poet-120** (2↑): Yes, you are right, there is no wrong choice. That being said, I still want to be as considerate as possible when deciding.
 - **RenataDonata** (3↑): USC has a great alumni network, especially if you plan on staying in Southern CA. However the increasing cost at USC paired with the financial imperative to cut costs would give me pause. And while their psychology program is strong UCLA’s is in the top 10 in the nation.
 - **OryanSB** (2↑): My daughter was strongly considering USC before she got into Cal. I did hear that Thematic Option was pretty great and self-selecting (pretty much most people get in if they want to). The students on the SC subreddit were super helpful. Both great decisions, but different vibes for sure.
-- **HappyCaterpillar2409** (3↑): You're better off asking on the University's sub.
+- **HappyCaterpillar2409** (4↑): You're better off asking on the University's sub.
 
 I would choose UCLA not just for the prestige but because USC has been having financial issues and that's come at the cost of the students.
   - **Intelligent-Poet-120** (1↑): Yeah, I probably will. In terms of financial issues, what programs are they cutting down as a result?
@@ -55,11 +79,11 @@ I would choose UCLA not just for the prestige but because USC has been having fi
 Also read this post: [https://www.reddit.com/r/TransferToTop25/comments/1siqx8a/warning\_about\_transferring\_to\_usc/](https://www.reddit.com/r/TransferToTop25/comments/1siqx8a/warning_about_transferring_to_usc/)
   - **Brilliant-Durian-733** (1↑): UCLA has financial issues as well.
     - **HappyCaterpillar2409** (1↑): All schools have "financial issues" but private schools don't have the state government backing them up.
-- **keatonnap** (3↑): It obviously can vary across countries, but in general UCLA does not carry more international prestige. Having that as a driver to attend UCLA over USC is perplexing.
+- **keatonnap** (2↑): It obviously can vary across countries, but in general UCLA does not carry more international prestige. Having that as a driver to attend UCLA over USC is perplexing.
   - **Extension_Pop_5597** (1↑): Agree
-- **Popular-Adagio7459** (3↑): USC
+- **Popular-Adagio7459** (2↑): USC
   - **Intelligent-Poet-120** (1↑): May I ask why?
-    - **Popular-Adagio7459** (4↑): If you’re doing business, that alumni network will help you so much.
+    - **Popular-Adagio7459** (5↑): If you’re doing business, that alumni network will help you so much.
 - **No_Address_9670** (1↑): ucla unless it’s for films studies
   - **Intelligent-Poet-120** (1↑): Fair enough, thank you.
   - **cpcfax1** (0↑): Why?? UCLA, USC, and NYU Tisch have traditionally been the top 3 film schools in the entire country.

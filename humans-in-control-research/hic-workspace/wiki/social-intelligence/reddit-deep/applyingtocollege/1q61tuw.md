@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1q61tuw.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1q61tuw/anyone_have_experience_with_academy_of_art/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,15 @@ flair: "College Questions"
 extracted_at: "2026-05-24T14:08:39.594Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1q61tuw.md#c0"
+    char_span: [0, 800]
+    sentence_count: 8
+    key_terms: [university, applyingtocollege, program, pre-college, comments, academy, anyone, online]
+    token_count: 190
 ---
-
 # Anyone have experience with Academy of Art University’s online Pre-College program?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1q61tuw/anyone_have_experience_with_academy_of_art/)

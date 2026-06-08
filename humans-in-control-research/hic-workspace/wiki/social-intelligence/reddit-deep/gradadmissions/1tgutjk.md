@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1tgutjk.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1tgutjk/timing_for_emailing_pi_for_canada_usa_and_eu_as_a/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,15 @@ flair: "Engineering"
 extracted_at: "2026-05-22T23:33:50.671Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1tgutjk.md#c0"
+    char_span: [0, 512]
+    sentence_count: 5
+    key_terms: [gradadmissions, comments, graduate, canada, usa, reddit-deep, experience, wondering]
+    token_count: 141
 ---
-
 # Timing for Emailing PI for Canada, USA, and EU as a Prospect Graduate Student
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1tgutjk/timing_for_emailing_pi_for_canada_usa_and_eu_as_a/)

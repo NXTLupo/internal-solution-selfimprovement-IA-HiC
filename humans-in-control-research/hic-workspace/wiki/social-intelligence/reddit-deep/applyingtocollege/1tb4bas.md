@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1tb4bas.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1tb4bas/t20_college_rankings_new_and_improved/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -8,17 +9,67 @@ author: "Intelligent-Web-8017"
 date: "2026-05-12T15:04:26.000Z"
 score: 0
 upvote_ratio: 0.28
-num_comments: 123
+num_comments: 124
 flair: "Discussion"
-extracted_at: "2026-05-25T18:32:06.239Z"
+extracted_at: "2026-06-03T12:16:39.448Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tb4bas.md#c0"
+    char_span: [0, 1015]
+    sentence_count: 4
+    key_terms: [applyingtocollege, colleges, college, get, threshold, comments, honestly, unbiased]
+    token_count: 237
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tb4bas.md#c1"
+    char_span: [1017, 3315]
+    sentence_count: 17
+    key_terms: [best, good, lot, tier, business, overall, schools, school]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tb4bas.md#c2"
+    char_span: [3317, 5453]
+    sentence_count: 18
+    key_terms: [good, uchicago, cornell, get, northwestern, engineering, imo, "it's"]
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tb4bas.md#c3"
+    char_span: [5455, 6129]
+    sentence_count: 4
+    key_terms: [getting, terms, threshold, college, cracked, someone, ranked, get]
+    token_count: 149
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tb4bas.md#c4"
+    char_span: [6144, 7685]
+    sentence_count: 12
+    key_terms: [princeton, yale, list, mit, tier, stanford, glad-entrepreneur764, intelligent-web-8017]
+    section: Comments
+    token_count: 380
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tb4bas.md#c5"
+    char_span: [7687, 9096]
+    sentence_count: 11
+    key_terms: ["don't", methodology, yale, applicants, commonapp, applying, stanford, majors]
+    section: Comments
+    token_count: 310
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tb4bas.md#c6"
+    char_span: [9098, 10373]
+    sentence_count: 5
+    key_terms: [brown, intelligent-web-8017, uchicago, wharton, darty, particular, dartmouth, prestige]
+    section: Comments
+    token_count: 338
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tb4bas.md#c7"
+    char_span: [10375, 11257]
+    sentence_count: 1
+    key_terms: [intelligent-web-8017, university, school, silly, ecstatic-term-852, tier, unc, untowardadvance]
+    section: Comments
+    token_count: 240
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tb4bas.md#c8"
+    char_span: [11259, 12706]
+    sentence_count: 5
+    key_terms: [intelligent-web-8017, school, umich, tier, berkeley, columbia, caltech, spiritedad3855]
+    section: Comments
+    token_count: 409
 ---
-
 # T20 College Rankings (New and Improved)
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1tb4bas/t20_college_rankings_new_and_improved/)
-Posted by **Intelligent-Web-8017** · **0↑** · **123 comments**
+Posted by **Intelligent-Web-8017** · **0↑** · **124 comments**
 
 This is honestly going to be the best and most unbiased college t20 ranking that factors in everything from prestige to also threshold of getting in. I'm being completely unbiased and won't over rank/ under rank the college I'm attending but I want to preface by saying that I did get into most of these colleges this cycle (DM if you want proof) and this is just my own personal opinion but what I believe is relatively accurate especially when I was deciding between schools.
 
@@ -54,7 +105,7 @@ Just my opinion to be honest but also what I felt like in terms of if I would ge
 
 ## Comments
 
-- **Euphoric_Designer164** (18↑): Wow your so good at this!
+- **Euphoric_Designer164** (20↑): Wow your so good at this!
 
 I wonder what your take on ranks 143-167 are? Or is your only specialty top 20? Seems like a common niche here!
   - **Intelligent-Web-8017** (-1↑): haha
@@ -78,25 +129,25 @@ These lists where some kid just expresses their subjective feelings are not even
 i know more ppl picking stanford this year than yale
 
 HYP is just a reddit term at this point and yes mit and stanford have replaced them stop getting mad princeton is same as columbia upenn and yale
-- **LetLongjumping** (4↑): College prestige operates as a social shortcut laced with bias. It signals status far more than it delivers measurable, independent value. Thus a ranking that includes prestige is biased
-- **Abominable_fiancee** (6↑): funny how wharton is treated as its own school at this point
-  - **NiceUnparticularMan** (3↑): There are a lot of kids here whose current life goals make them venerate Wharton in particular.
+- **LetLongjumping** (5↑): College prestige operates as a social shortcut laced with bias. It signals status far more than it delivers measurable, independent value. Thus a ranking that includes prestige is biased
+- **dragonlax999** (9↑): Bro put dartmouth and brown over UChicago and NU
+  - **Mysterious-Tiger-748** (10↑): Fr 🥀 Cornell and u Chicago better than Dartmouth and brown
+    - **Intelligent-Web-8017** (0↑): cornell is good no doubt imo esp dyson and engineering id still take darty and brown over it tho
+  - **Intelligent-Web-8017** (0↑): i mean uchicago has ed2 along with all the other eas and stuff. uchicago is good but i wouldnt pick it over darty or brown tbh.
+    - **Rich_Art3152** (4↑): darty brown lover here huh
+- **Abominable_fiancee** (7↑): funny how wharton is treated as its own school at this point
+  - **NiceUnparticularMan** (4↑): There are a lot of kids here whose current life goals make them venerate Wharton in particular.
 
 Of course a lot of other kids don't have those life goals, and would have zero interest in going to Wharton.  They are just underrepresented in this particular community.
 
 The obvious conclusion is generic college rankings are silly, but I agree it is even sillier when someone decides that their personal life goals should dictate which undergrad school at Penn everyone should prefer.
   - **Intelligent-Web-8017** (-2↑): its the most distinguished sub section of any university hence why plus feel like the threshold to get in is way way higher
     - **UntowardAdvance** (1↑): It’s silly though to base a whole university on one school
-- **dragonlax999** (9↑): Bro put dartmouth and brown over UChicago and NU
-  - **Mysterious-Tiger-748** (10↑): Fr 🥀 Cornell and u Chicago better than Dartmouth and brown
-    - **Intelligent-Web-8017** (0↑): cornell is good no doubt imo esp dyson and engineering id still take darty and brown over it tho
-  - **Intelligent-Web-8017** (0↑): i mean uchicago has ed2 along with all the other eas and stuff. uchicago is good but i wouldnt pick it over darty or brown tbh.
-    - **Rich_Art3152** (5↑): darty brown lover here huh
 - **Extension_Pop_5597** (2↑): Unc but no USC?
   - **Intelligent-Web-8017** (1↑): u can appeal ur rejection and also simply not same caliber as these colleges
     - **Extension_Pop_5597** (1↑): 82% of UNC is in state. acceptance rate is 43%
 - **Ecstatic-Term-852** (2↑): Rice should be atleast tier 5
-- **iixxii25** (3↑): Columbia is same tier as Yale, Princeton and caltech?
+- **iixxii25** (4↑): Columbia is same tier as Yale, Princeton and caltech?
   - **Intelligent-Web-8017** (0↑): def. 
 
 much better cross admit against caltech. slightly edged by princeton. yale has decent edge over it but IMO columbia is the better school.

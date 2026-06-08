@@ -1,4 +1,5 @@
 ---
+id: articles/jina-reader/ce464d6bea.md
 url: "https://president.northeastern.edu/"
 url_hash: "ce464d6bea"
 kind: "article"
@@ -10,8 +11,39 @@ tier: 3
 method: "jina"
 extracted_at: "2026-04-22T14:09:06.000435+00:00"
 chars: 6988
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "articles/jina-reader/ce464d6bea.md#c0"
+    char_span: [0, 490]
+    sentence_count: 3
+    key_terms: [northeastern, president, https, edu, content, university, joseph, source]
+    token_count: 132
+  - id: "articles/jina-reader/ce464d6bea.md#c1"
+    char_span: [561, 2245]
+    sentence_count: 1
+    key_terms: [northeastern, president, https, edu, messages-writings, wp-content, image, category]
+    section: "[President Joseph E. Aoun](https://president.northeastern.edu/)"
+    token_count: 484
+  - id: "articles/jina-reader/ce464d6bea.md#c2"
+    char_span: [2247, 3562]
+    sentence_count: 2
+    key_terms: [northeastern, https, president, edu, com, www, how-ai-changes-science-and-how-it-doesnt, students-ai-proof-career-tips-ba96fd38]
+    section: "[President Joseph E. Aoun](https://president.northeastern.edu/)"
+    token_count: 384
+  - id: "articles/jina-reader/ce464d6bea.md#c3"
+    char_span: [3592, 5714]
+    sentence_count: 4
+    key_terms: [northeastern, president, education, https, edu, aoun, global, higher]
+    section: Presidential Priorities
+    token_count: 441
+  - id: "articles/jina-reader/ce464d6bea.md#c4"
+    char_span: [5716, 7086]
+    sentence_count: 1
+    key_terms: [northeastern, https, edu, www, com, president, northeasternu, burlington]
+    section: Presidential Priorities
+    token_count: 393
 ---
-
 # https://president.northeastern.edu/
 
 Source: [Jina Reader](https://president.northeastern.edu/)

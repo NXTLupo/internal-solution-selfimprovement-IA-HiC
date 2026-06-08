@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1q3zjy8.md
 url: "https://www.reddit.com/r/NEU/comments/1q3zjy8/llcs_northeastern_university_housing_advice_for/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,28 @@ score: 0
 upvote_ratio: 0.5
 num_comments: 9
 flair: "Housing & Dorms"
-extracted_at: "2026-05-19T17:57:09.034Z"
+extracted_at: "2026-06-06T00:27:19.937Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1q3zjy8.md#c0"
+    char_span: [0, 1106]
+    sentence_count: 6
+    key_terms: [college, llcs, year, comments, northeastern, inclusion, cultural, sciences]
+    token_count: 267
+  - id: "social-intelligence/reddit-deep/neu/1q3zjy8.md#c1"
+    char_span: [1121, 3142]
+    sentence_count: 8
+    key_terms: [llc, events, people, leaders, inclusion, pack, year, building]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/neu/1q3zjy8.md#c2"
+    char_span: [2892, 3533]
+    sentence_count: 6
+    key_terms: [llc, college, larger, majors, people, want, engineering, activities]
+    section: Comments
+    token_count: 155
 ---
-
 # LLCs Northeastern University + Housing Advice for First Year Students
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1q3zjy8/llcs_northeastern_university_housing_advice_for/)

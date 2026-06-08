@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1r6hrfj.md
 url: "https://www.reddit.com/r/jobs/comments/1r6hrfj/ibm_laid_off_thousands_of_senior_workers_in_2025/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -6,19 +7,59 @@ subreddit: "jobs"
 title: "IBM laid off thousands of senior workers in 2025 and is now tripling junior hires. If you think that's a feel-good story you're not reading it right."
 author: "mehere14"
 date: "2026-02-16T18:33:57.000Z"
-score: 1580
+score: 1586
 upvote_ratio: 0.97
-num_comments: 210
+num_comments: 211
 flair: "Article"
-extracted_at: "2026-05-24T14:10:06.652Z"
+extracted_at: "2026-06-06T13:04:34.561Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1r6hrfj.md#c0"
+    char_span: [0, 1988]
+    sentence_count: 25
+    key_terms: [entry-level, ibm, jobs, junior, people, "that's", experienced, week]
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/jobs/1r6hrfj.md#c1"
+    char_span: [1990, 2965]
+    sentence_count: 10
+    key_terms: [like, automate, saying, "you're", going, car, jobs, keep]
+    token_count: 196
+  - id: "social-intelligence/reddit-deep/jobs/1r6hrfj.md#c2"
+    char_span: [2980, 5054]
+    sentence_count: 13
+    key_terms: [reset, going, makes, get, efficiency, mortgage, perfect, better]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1r6hrfj.md#c3"
+    char_span: [4818, 5577]
+    sentence_count: 5
+    key_terms: [salary, reset, mortgage, security, lowest, prices, wonderfulvariation93, good]
+    section: Comments
+    token_count: 185
+  - id: "social-intelligence/reddit-deep/jobs/1r6hrfj.md#c4"
+    char_span: [5579, 7466]
+    sentence_count: 13
+    key_terms: [hiring, salaries, back, new, juniors, senior, alaskaexplorationgeo, available-range-5341]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/jobs/1r6hrfj.md#c5"
+    char_span: [7468, 9489]
+    sentence_count: 11
+    key_terms: [ibm, talent, earnings, company, senior, "don't", like, management]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1r6hrfj.md#c6"
+    char_span: [9214, 10665]
+    sentence_count: 8
+    key_terms: [appropriate-leg3965, fromafooltoawiseman, "don't", house, own, conversations, oz7tyubbs5sh6, appreciation]
+    section: Comments
+    token_count: 410
 ---
-
 # IBM laid off thousands of senior workers in 2025 and is now tripling junior hires. If you think that's a feel-good story you're not reading it right.
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1r6hrfj/ibm_laid_off_thousands_of_senior_workers_in_2025/)
-Posted by **mehere14** · **1580↑** · **210 comments**
+Posted by **mehere14** · **1586↑** · **211 comments**
 
 So two things happened this week that kind of broke my brain.
 
@@ -44,55 +85,55 @@ Anyone else feel like the ground is shifting under them faster than they can kee
 
 ## Comments
 
-- **ZacEfronButUgly** (86↑): AI is here now, and we’re not going back to a world where it doesn’t exist. Job definitions and responsibilities are clearly shifting, which makes tailoring your resume more important than ever. You can’t just send the same CV everywhere, you have to adjust your wording to match what the posting actually wants. In another [post ](https://www.reddit.com/r/RemoteWorkFromHome/comments/1pdjo8u/how_i_landed_2_remote_job_offers_in_2_months/)someone shared a prompt where you paste the job description and your resume into GPT and tailor it for free, it may not be perfect but it’s better than using outdated language. There will still be work out there, but in this transition a lot of people are going to get hurt, especially the unlucky ones or the ones still waiting for their break.
-- **memphisjones** (629↑): It’s a mass salary reset under the guise of AI efficiency
-  - **[deleted]** (66↑): I recently learned about this concept. It makes so much sense with the jobs I’m seeing listed. It definitely is a reset, and they’re getting away with it.
-    - **Peedee304** (18↑): Who's going to stop them?
-    - **Eemki** (-7↑): What is there to "not get away with" if everything they are doing is legal and in the spirit of capitalism?
-  - **mehere14** (161↑): Yeah this is the part that doesn't get enough attention. The AI narrative gives companies perfect cover. Nobody questions layoffs anymore if you say "AI efficiency" in the press release. But when you look at what IBM actually did - cut senior salaries and backfill with juniors at a fraction of the cost - that's not an AI strategy. That's a labor arbitrage play with better PR. The AI part is just the excuse that makes Wall Street clap.
+- **ZacEfronButUgly** (92↑): AI is here now, and we’re not going back to a world where it doesn’t exist. Job definitions and responsibilities are clearly shifting, which makes tailoring your resume more important than ever. You can’t just send the same CV everywhere, you have to adjust your wording to match what the posting actually wants. In another [post ](https://www.reddit.com/r/RemoteWorkFromHome/comments/1pdjo8u/how_i_landed_2_remote_job_offers_in_2_months/)someone shared a prompt where you paste the job description and your resume into GPT and tailor it for free, it may not be perfect but it’s better than using outdated language. There will still be work out there, but in this transition a lot of people are going to get hurt, especially the unlucky ones or the ones still waiting for their break.
+- **memphisjones** (633↑): It’s a mass salary reset under the guise of AI efficiency
+  - **[deleted]** (68↑): I recently learned about this concept. It makes so much sense with the jobs I’m seeing listed. It definitely is a reset, and they’re getting away with it.
+    - **Peedee304** (20↑): Who's going to stop them?
+    - **Eemki** (-8↑): What is there to "not get away with" if everything they are doing is legal and in the spirit of capitalism?
+  - **mehere14** (158↑): Yeah this is the part that doesn't get enough attention. The AI narrative gives companies perfect cover. Nobody questions layoffs anymore if you say "AI efficiency" in the press release. But when you look at what IBM actually did - cut senior salaries and backfill with juniors at a fraction of the cost - that's not an AI strategy. That's a labor arbitrage play with better PR. The AI part is just the excuse that makes Wall Street clap.
     - **Impossible_Camera302** (9↑): and avoids the legal problem...
   - **ralphdeonori** (54↑): They just need to reset rent and mortgage and good prices too. /s
     - **seajayacas** (-1↑): IBM can layoff workers and hire replacements.  But they do not have the power to reset rent and mortgage and good prices
   - **vegangoat** (30↑): Absolutely. I’m the youngest on my team and it feels like I have more job security because my salary is the lowest compared to the senior team members. My company laid off all middle managers this time last year and haven’t backfilled
-    - **truthnojustice** (14↑): Job security doesn't really exist anymore.   usually last in first out.  Companies can still find ways to trim even those with the lowest salary(its just a matter of how).
-  - **WonderfulVariation93** (19↑): >It’s a mass salary reset under the guise of AI efficiency
+    - **truthnojustice** (13↑): Job security doesn't really exist anymore.   usually last in first out.  Companies can still find ways to trim even those with the lowest salary(its just a matter of how).
+  - **WonderfulVariation93** (20↑): >It’s a mass salary reset under the guise of AI efficiency
 
 EXACTLY!  Salaries took a major jump during COVID so this is them resetting back to the projected amounts they forecasted for salaries in 2025-2026
     - **unionfrontX** (2↑): it bothers me that people just assume they have planned for contingency. they haven't, they are testing several theories based on "dark intellect" on all of us. without our consent.
   - **notoriousrdc** (6↑): Yep. And the few tech companies who are hiring full-time at senior level are offering 25%+ less than they were three years ago.
-  - **AlaskaExplorationGeo** (4↑): By how much are salaries shifting? (Downwards I presume?)
-  - **TadpoleNo8883** (18↑): This ⬆️
+  - **AlaskaExplorationGeo** (5↑): By how much are salaries shifting? (Downwards I presume?)
+  - **TadpoleNo8883** (16↑): This ⬆️
     - **InlineSkateAdventure** (27↑): They are hiring in VVVVLCOL areas (offshore). Not shy about it on their job pages.
   - **worstpartyever** (3↑): This is the reason right here
-- **sabautil** (23↑): Out with the old, wise, and expensive and in with the new, dumb, and cheap.
-- **wegster** (9↑): This isn't new ground for IBM - they did the same back in the aftermath of dot bust.
+- **sabautil** (21↑): Out with the old, wise, and expensive and in with the new, dumb, and cheap.
+- **wegster** (10↑): This isn't new ground for IBM - they did the same back in the aftermath of dot bust.
 
 Normal software/tech teams typically are something like 25% senior, 50% mid, 25% junior or some +/- thereof.  The job market was so bad they shifted nearly all hiring to contract other than direct-from-school, and many teams wound up at 10/20/70 or so.  Worse, they then promoted some of the juniors who had literally never delivered anything at all to customers, or created any revenue-generating products, into management.
 
 'What's old is new again.'  Just a different 'wrapper' IMO.  Even so, I doubt the juniors are going to get a fair shake on salary and overall comp, even if they shift back towards this type of hiring practice.  Kind of bad for everyone.
-- **Available-Range-5341** (16↑): I don't buy any of these narratives!  I was automating "data entry" jobs 15 years ago, how do such jobs even exist in the 2020s? I don't buy it. Especially at IBM
+- **Available-Range-5341** (15↑): I don't buy any of these narratives!  I was automating "data entry" jobs 15 years ago, how do such jobs even exist in the 2020s? I don't buy it. Especially at IBM
 
 So who knows what to believe
   - **Peliquin** (18↑): I'm with you. All the AI narratives don't reflect any kind of reality. The only sensible thing being said here is that if you never have jr talent you'll never have senior talent.
-    - **Peliquin** (7↑): And senior talent has to do the work, not just monitor AI doing the work to actually become senior talent.
+    - **Peliquin** (8↑): And senior talent has to do the work, not just monitor AI doing the work to actually become senior talent.
 - **Romano16** (25↑): Isn’t IBM pretty much a dying company at this point too?
-  - **Available-Range-5341** (32↑): it was, now they've been having great earnings reports so Wall St loves them again
+  - **Available-Range-5341** (34↑): it was, now they've been having great earnings reports so Wall St loves them again
     - **seajayacas** (1↑): Great earnings reports is what management is supposed to do.  If they don't, a new management team that can get it done will be brought in.
-    - **Helpmehelpyu_** (1↑): Pathetic
-  - **mehere14** (14↑): LOLLLL. They've been "dying" for like 20 years and somehow keep posting $60-70B in revenue. But I think that's actually what makes this more interesting, not less. If even a legacy company like IBM is rewriting every entry-level job description around AI workflows, imagine what companies that are actually aggressive about this are doing quietly. IBM is just the one saying it out loud.
-  - **FightingHellfish12** (7↑): lol, what makes you say that? They hit an all time high just 6 months ago.
+    - **Helpmehelpyu_** (2↑): Pathetic
+  - **mehere14** (15↑): LOLLLL. They've been "dying" for like 20 years and somehow keep posting $60-70B in revenue. But I think that's actually what makes this more interesting, not less. If even a legacy company like IBM is rewriting every entry-level job description around AI workflows, imagine what companies that are actually aggressive about this are doing quietly. IBM is just the one saying it out loud.
+  - **FightingHellfish12** (9↑): lol, what makes you say that? They hit an all time high just 6 months ago.
   - **elkirstino** (2↑): On the public computing side, sure. But they’re pretty well embedded into the military industrial complex from my understanding
   - **Haipul** (1↑): I think this is just a general misunderstanding of IBM, IBM is a solid company with strong revenue and earnings, it is just not at the edge anymore hence investors like it less than companies with growth potential
-- **vdubjb** (42↑): No country for old men/women
-  - **Tolopono** (19↑): Actually the country is only for them. The only industry hiring is hospital services and elder care and trump said he wants to keep home prices high so homeowners can have a higher net worth
-    - **KirkHawley** (-7↑): Tell me you don't own a house without telling me you don't own a house.
+- **vdubjb** (40↑): No country for old men/women
+  - **Tolopono** (20↑): Actually the country is only for them. The only industry hiring is hospital services and elder care and trump said he wants to keep home prices high so homeowners can have a higher net worth
+    - **KirkHawley** (-9↑): Tell me you don't own a house without telling me you don't own a house.
   - **misty_mustard** (15↑): This is an insanely on the nose metaphor for what’s going on in the US job market now. Gotta say, I have a new appreciation for it (and it’s already crème de la crème).
-- **Tee-Sequel** (8↑): Yeah and also what percent of these roles are opened onshore?
-- **Appropriate-Leg3965** (53↑): IBM is having junior devs talk to customers. Lolz. Sure.
-  - **Spare_Hornet** (40↑): I want to be a fly on the wall during those conversations. Actually, no I don’t. I’ve been there before, it’s a disaster.
-    - **Peliquin** (36↑): As a Product Manager/BA I really do until I realize that it would probably trigger a heart attack. it's a rare day I'd suggest that the people BUILDING the thing be in the room with the customer.
-  - **Aggressive_Till_8822** (18↑): ![gif](giphy|oz7tyUbBs5SH6)
+- **Tee-Sequel** (9↑): Yeah and also what percent of these roles are opened onshore?
+- **Appropriate-Leg3965** (54↑): IBM is having junior devs talk to customers. Lolz. Sure.
+  - **Spare_Hornet** (42↑): I want to be a fly on the wall during those conversations. Actually, no I don’t. I’ve been there before, it’s a disaster.
+    - **Peliquin** (34↑): As a Product Manager/BA I really do until I realize that it would probably trigger a heart attack. it's a rare day I'd suggest that the people BUILDING the thing be in the room with the customer.
+  - **Aggressive_Till_8822** (19↑): ![gif](giphy|oz7tyUbBs5SH6)
   - **sisoje_bre** (4↑): so what? they will learn. at least they are free of all the BS dogma
     - **Appropriate-Leg3965** (2↑): Riiight.
   - **Himera71** (3↑): Try sitting in on a meeting with offshore resources leading a discovery session. Painful for all parties involved.
-- **fromafooltoawiseman** (3↑): Sounds like an experiment taking place
+- **fromafooltoawiseman** (4↑): Sounds like an experiment taking place

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1rsrdnb.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1rsrdnb/i_am_at_the_point_where_i_tempted_to_shoplift_to/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,56 @@ flair: "Vent/Rant (No Advice/Criticism!)"
 extracted_at: "2026-05-16T20:55:12.687Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, retail]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rsrdnb.md#c0"
+    char_span: [0, 1658]
+    sentence_count: 10
+    key_terms: [time, povertyfinance, work, apartment, comments, thought, plasma, child]
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rsrdnb.md#c1"
+    char_span: [1660, 3549]
+    sentence_count: 13
+    key_terms: ["can't", because, buy, new, "i'm", work, year, everything]
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rsrdnb.md#c2"
+    char_span: [3564, 5188]
+    sentence_count: 16
+    key_terms: [submitter, appropriate, need, advice, vents, vent, emotional, situation]
+    section: Comments
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rsrdnb.md#c3"
+    char_span: [5190, 6908]
+    sentence_count: 16
+    key_terms: [wishlists, post, friends, amazon, hard, assistance, netill7423, something]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rsrdnb.md#c4"
+    char_span: [6910, 8709]
+    sentence_count: 10
+    key_terms: [work, food, mom, political, outreach, watching, friends, leaning]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rsrdnb.md#c5"
+    char_span: [8711, 9166]
+    sentence_count: 4
+    key_terms: [work, doing, environmental, canvassing, nonprofit, partially, political, something]
+    section: Comments
+    token_count: 101
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rsrdnb.md#c6"
+    char_span: [9168, 11218]
+    sentence_count: 26
+    key_terms: [get, school, never, pelotonyogi, hard, jail, job, craigslist]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rsrdnb.md#c7"
+    char_span: [11220, 11357]
+    sentence_count: 3
+    key_terms: [stealing, purpose, felony, please, reward, build, steal, best]
+    section: Comments
+    token_count: 34
 ---
-
 # I am at the point where I tempted to shoplift to be able to provide the basic necessities to my daughter
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1rsrdnb/i_am_at_the_point_where_i_tempted_to_shoplift_to/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1rncsyq.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rncsyq/mit_is_my_dream_school_i_need_advice/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,64 @@ subreddit: "applyingtocollege"
 title: "MIT is my dream school - I need advice"
 author: "Molly-Farag"
 date: "2026-03-07T15:31:05.000Z"
-score: 7
-upvote_ratio: 0.77
+score: 5
+upvote_ratio: 0.7
 num_comments: 29
 flair: "Advice"
-extracted_at: "2026-05-20T02:31:57.187Z"
+extracted_at: "2026-06-05T19:53:34.573Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rncsyq.md#c0"
+    char_span: [0, 2009]
+    sentence_count: 14
+    key_terms: ["i'm", engineering, year, college, applyingtocollege, classes, school, taking]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rncsyq.md#c1"
+    char_span: [2011, 4129]
+    sentence_count: 21
+    key_terms: [branch, school, elementary, spark, resources, schoolers, "i'm", want]
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rncsyq.md#c2"
+    char_span: [4131, 4684]
+    sentence_count: 4
+    key_terms: ["i'm", because, like, "that's", main, extracurriculars, valedictorians, competitions]
+    token_count: 139
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rncsyq.md#c3"
+    char_span: [4699, 6849]
+    sentence_count: 15
+    key_terms: [classes, molly-farag, better, hours, right, mit, time, work]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rncsyq.md#c4"
+    char_span: [6617, 8622]
+    sentence_count: 19
+    key_terms: [classes, time, work, experience, hours, week, homework, students]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rncsyq.md#c5"
+    char_span: [8624, 10598]
+    sentence_count: 13
+    key_terms: [essays, schools, aerospace, applyingtocollege, wiki, reddit, collegeessays, mitadmissions]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rncsyq.md#c6"
+    char_span: [10600, 11752]
+    sentence_count: 9
+    key_terms: [sat, awards, international, application, get, got, olympiad, automaticamoeba6897]
+    section: Comments
+    token_count: 284
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rncsyq.md#c7"
+    char_span: [11754, 13090]
+    sentence_count: 7
+    key_terms: [score, take, year, knowledge, obviously, because, courses, school]
+    section: Comments
+    token_count: 304
 ---
-
 # MIT is my dream school - I need advice
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rncsyq/mit_is_my_dream_school_i_need_advice/)
-Posted by **Molly-Farag** · **7↑** · **29 comments**
+Posted by **Molly-Farag** · **5↑** · **29 comments**
 
 (DISCLAIMER: I'm not asking about my chances of getting in, I'm just asking for advice on what I should do better. Also, I'm lowkey just ranting at this point lol)
 
@@ -62,16 +108,16 @@ Idk what to do because I want to get in so bad, but I feel like I'm not doing en
   - **Molly-Farag** (1↑): I'm taking 3 AP classes right now and the one with the most work is APWH. All the work I do is writing notes and reading a lot which takes me 2 hours a week tops. For AP chem, I just go through AP classroom videos before a test for like 2 hours (3 if I need to understand the topics better) and do a study guide. For APCSP it's just busy work watching CodeHS videos. I think the load is very light for me right now and I can definitely manage 6 APs.
   - **Kindly_Doughnut_2435** (1↑): AP classes do not immediately equate to more time consuming. I did 7 AP classes in junior year and had plenty of time to continue with EC's and socializing while still getting 7-8 hours of sleep a night. It really depends on the school, not the name of the class. Yes, in some schools AP classes are definitely very time consuming because teachers assign tons of homework. But it isn't like that for all schools, as I only ended up having like 1-2h of homework a week, and easily kept all A's in my classes.
     - **anothertimesink70** (3↑): Then you had a very unusual experience. I teach AP chem often, and to keep up with the curriculum on AP classroom, my students usually had 4-6 hours of chem homework per week, for example. That’s just going with the recommended pacing and curriculum. And that doesn’t include time to study. Students do very well on the test, so we know they’re prepared. I’ve never heard of a school where students taking 7 AP courses have 1 hr total of work outside of class per week. Our honors courses require more work than that. I’m not disputing your experience! I AM stating that it is very atypical and I wouldn’t count on having a similar experience elsewhere.
-- **elkrange** (6↑): Do not underestimate the time it may take to become a permanent resident. You need to talk with your parents about this now, because it may have a huge impact on your ability to afford college.
+- **elkrange** (4↑): Do not underestimate the time it may take to become a permanent resident. You need to talk with your parents about this now, because it may have a huge impact on your ability to afford college.
 
 For MIT and also top schools more generally, see [http://mitadmissions.org/blogs/entry/applying\_sideways](http://mitadmissions.org/blogs/entry/applying_sideways)
 
 There are many great schools that will get you where you want to go. Strive for MIT, but have plenty of less selective schools on your list.
-- **Zealousideal-Sky1121** (4↑): Do not underestimate the time it takes to be a permanent resident. This administration will take even longer because of immigration policies.
+- **Zealousideal-Sky1121** (3↑): Do not underestimate the time it takes to be a permanent resident. This administration will take even longer because of immigration policies.
 - **throwawaygremlins** (2↑): First question- are you a green card holder or US citizen or? Cuz it will be much harder as an intl.
   - **Molly-Farag** (1↑): Not yet. But I'll most likely have it before I start applying to college (hopefully).
     - **AC10021** (1↑): Another important thing to know regarding aerospace engineering is that the aerospace industry in the US is limited to US citizens only. (This always comes up when internationals want to apply to Purdue or whatever.) If you want to go into the aerospace industry as a non-US citizen, you will have to do so in your home country.
-- **00JustKeepSwimming00** (3↑): That's not how it works. You do your best. Apply to, say, 10 good schools that match your profile and interests. Out of the ones that accept you, you pick the best option.
+- **00JustKeepSwimming00** (4↑): That's not how it works. You do your best. Apply to, say, 10 good schools that match your profile and interests. Out of the ones that accept you, you pick the best option.
 
 There is no point in obsessing about a single school. There are like 1000 options. Any of the top 50-100 is very good.
 - **AutoModerator** (1↑): Hey there, I'm a bot and something you said made me think you might be looking for help!

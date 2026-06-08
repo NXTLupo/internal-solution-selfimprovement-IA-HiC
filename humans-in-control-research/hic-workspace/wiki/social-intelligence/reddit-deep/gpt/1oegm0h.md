@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1oegm0h.md
 url: "https://www.reddit.com/r/GPT/comments/1oegm0h/nailing_down_4o_behaviour/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,32 @@ flair: "GPT-4"
 extracted_at: "2026-05-11T17:26:37.726Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1oegm0h.md#c0"
+    char_span: [0, 2168]
+    sentence_count: 10
+    key_terms: [helpful, informative, assistant, questions, comments, friendly, maintain, response]
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/gpt/1oegm0h.md#c1"
+    char_span: [2170, 4515]
+    sentence_count: 12
+    key_terms: [unless, user, avoid, use, language, response, overly, occasionally]
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/gpt/1oegm0h.md#c2"
+    char_span: [4517, 6475]
+    sentence_count: 8
+    key_terms: [prompt, chats, good, addition, "doesn't", recent, system, being]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/gpt/1oegm0h.md#c3"
+    char_span: [6477, 7996]
+    sentence_count: 9
+    key_terms: [prompt, chats, personality, almost, trying, "you're", maybe, chat]
+    section: Comments
+    token_count: 374
 ---
-
 # Nailing down 4o behaviour
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1oegm0h/nailing_down_4o_behaviour/)

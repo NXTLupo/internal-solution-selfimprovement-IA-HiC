@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1pxhias.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1pxhias/advice_from_princeton_columbia_admit/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,45 @@ flair: "AMA"
 extracted_at: "2026-05-20T06:42:01.168Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pxhias.md#c0"
+    char_span: [0, 1003]
+    sentence_count: 6
+    key_terms: [applyingtocollege, princeton, questions, columbia, comments, advice, essays, senior-chipmunk5567]
+    token_count: 242
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pxhias.md#c1"
+    char_span: [1018, 1820]
+    sentence_count: 3
+    key_terms: [wrote, columbia, mission, ecstatic-sandwich398, senior-chipmunk5567, applyingtocollege, automatically, automoderator]
+    section: Comments
+    token_count: 206
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pxhias.md#c2"
+    char_span: [1822, 3053]
+    sentence_count: 10
+    key_terms: [humorous, supplementals, princeton, statement, columbia, personal, country, writing]
+    section: Comments
+    token_count: 316
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pxhias.md#c3"
+    char_span: [3055, 4089]
+    sentence_count: 6
+    key_terms: [columbia, senior-chipmunk5567, writing, successful, essays, acceptable-bet4705, get, like]
+    section: Comments
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pxhias.md#c4"
+    char_span: [4091, 6175]
+    sentence_count: 10
+    key_terms: [senior-chipmunk5567, specific, supplementals, did, essays, mentioned, professionaltakes, like]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pxhias.md#c5"
+    char_span: [5902, 6635]
+    sentence_count: 4
+    key_terms: [scores, decided, submit, test, submitting, senior-chipmunk5567, consulting, incredible]
+    section: Comments
+    token_count: 162
 ---
-
 # Advice from Princeton & Columbia admit!
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1pxhias/advice_from_princeton_columbia_admit/)

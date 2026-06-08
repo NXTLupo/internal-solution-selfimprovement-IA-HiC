@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gemini/1no3ayr.md
 url: "https://www.reddit.com/r/Gemini/comments/1no3ayr/referral_code_worked_for_me/"
 kind: "social-post"
 source: "reddit-deep: r/gemini"
@@ -13,8 +14,21 @@ flair: "Discussion :Discussion:"
 extracted_at: "2026-05-11T16:52:32.577Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gemini/1no3ayr.md#c0"
+    char_span: [0, 604]
+    sentence_count: 6
+    key_terms: [referral, gemini, code, comments, days, thejakernator, reddit-deep, experience]
+    token_count: 158
+  - id: "social-intelligence/reddit-deep/gemini/1no3ayr.md#c1"
+    char_span: [619, 1881]
+    sentence_count: 14
+    key_terms: [code, link, jscryptopia, days, get, questions, crypto, gemini]
+    section: Comments
+    token_count: 343
 ---
-
 # Referral Code Worked for Me
 
 Source: [reddit-deep: r/gemini](https://www.reddit.com/r/Gemini/comments/1no3ayr/referral_code_worked_for_me/)

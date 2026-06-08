@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1ptjgzf/is_publication_now_a_golden_standard_for_graduate/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,69 @@ flair: "General Advice"
 extracted_at: "2026-05-23T12:15:55.836Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c0"
+    char_span: [0, 2316]
+    sentence_count: 20
+    key_terms: [publication, graduate, students, training, already, college, gradadmissions, opportunities]
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c1"
+    char_span: [2331, 4308]
+    sentence_count: 16
+    key_terms: [students, programs, stereoisomer, people, graduate, training, years, less]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c2"
+    char_span: [4310, 6164]
+    sentence_count: 12
+    key_terms: [students, phd, want, don, get, pis, qualifies, graduate]
+    section: Comments
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c3"
+    char_span: [6166, 8382]
+    sentence_count: 12
+    key_terms: [assistimmediate8077, phd, interview, publication, like, experience, diversity, evidence]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c4"
+    char_span: [8384, 10561]
+    sentence_count: 10
+    key_terms: [students, because, nature, going, application, get, sure, statement]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c5"
+    char_span: [10563, 12402]
+    sentence_count: 10
+    key_terms: [phd, programs, publications, experience, undergrad, research, journal, working]
+    section: Comments
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c6"
+    char_span: [12404, 13361]
+    sentence_count: 12
+    key_terms: [publications, masters, meant, disadvantaged, darkerspirit, candidature, considered, delusional]
+    section: Comments
+    token_count: 238
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c7"
+    char_span: [13363, 15296]
+    sentence_count: 12
+    key_terms: [experience, assistimmediate8077, grad, publications, been, best, fit, get]
+    section: Comments
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c8"
+    char_span: [15298, 16851]
+    sentence_count: 10
+    key_terms: [research, publication, work, university, training, depends, student, career]
+    section: Comments
+    token_count: 345
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ptjgzf.md#c9"
+    char_span: [16853, 18384]
+    sentence_count: 6
+    key_terms: [school, publication, demonstrate, ppl, potential, programs, getting, masters]
+    section: Comments
+    token_count: 339
 ---
-
 # Is publication now a golden standard for graduate school admissions?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1ptjgzf/is_publication_now_a_golden_standard_for_graduate/)

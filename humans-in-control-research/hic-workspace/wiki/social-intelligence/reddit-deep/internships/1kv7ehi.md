@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1kv7ehi.md
 url: "https://www.reddit.com/r/internships/comments/1kv7ehi/dream_internship_vs_faang_opportunity_abroad_what/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,38 @@ flair: "Offers"
 extracted_at: "2026-05-22T23:33:35.392Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1kv7ehi.md#c0"
+    char_span: [0, 2120]
+    sentence_count: 13
+    key_terms: [internship, abroad, marketing, internships, opportunity, here, like, work]
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/internships/1kv7ehi.md#c1"
+    char_span: [2122, 4011]
+    sentence_count: 12
+    key_terms: [management, like, company, project, abroad, opportunities, feels, offer]
+    token_count: 401
+  - id: "social-intelligence/reddit-deep/internships/1kv7ehi.md#c2"
+    char_span: [4026, 5918]
+    sentence_count: 16
+    key_terms: [company, accomplished-bowl300, faang, like, abroad, relationship, great, long]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/internships/1kv7ehi.md#c3"
+    char_span: [5920, 8078]
+    sentence_count: 21
+    key_terms: [opportunities, abroad, work, hometown, kid-on-the-block, company, staying, city]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/internships/1kv7ehi.md#c4"
+    char_span: [8080, 9720]
+    sentence_count: 20
+    key_terms: [accomplished-bowl300, faang, opportunity, life, new, take, want, experience]
+    section: Comments
+    token_count: 395
 ---
-
 # Dream internship vs. FAANG opportunity abroad - what would you do?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1kv7ehi/dream_internship_vs_faang_opportunity_abroad_what/)

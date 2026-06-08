@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1lpxkiz.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1lpxkiz/dont_get_it/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,68 @@ flair: "Discussion"
 extracted_at: "2026-05-25T18:32:06.256Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lpxkiz.md#c0"
+    char_span: [0, 1444]
+    sentence_count: 7
+    key_terms: [college, applyingtocollege, get, success, education, comments, everyone, getting]
+    token_count: 345
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lpxkiz.md#c1"
+    char_span: [1446, 2521]
+    sentence_count: 7
+    key_terms: [college, decide, extraordinary, life, want, obsession, confused, yourself]
+    token_count: 242
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lpxkiz.md#c2"
+    char_span: [2536, 3312]
+    sentence_count: 7
+    key_terms: [believing, guarantee, college, point, state, "won't", life, post]
+    section: Comments
+    token_count: 198
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lpxkiz.md#c3"
+    char_span: [3314, 5338]
+    sentence_count: 10
+    key_terms: [schools, chocolategamer279, prestige, income, middle, lower, get, top]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lpxkiz.md#c4"
+    char_span: [5098, 6731]
+    sentence_count: 10
+    key_terms: [harvard, person, prestige, finance, school, odd-requirement-8134, agree, going]
+    section: Comments
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lpxkiz.md#c5"
+    char_span: [6733, 8181]
+    sentence_count: 12
+    key_terms: [get, state, flagships, grad, college, best, pay, flagship]
+    section: Comments
+    token_count: 336
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lpxkiz.md#c6"
+    char_span: [8183, 9731]
+    sentence_count: 8
+    key_terms: [people, advantage, career, end, "it's", like, want, something]
+    section: Comments
+    token_count: 336
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lpxkiz.md#c7"
+    char_span: [9733, 11545]
+    sentence_count: 6
+    key_terms: [effects, network, school, like, colleges, flagship, private, engineering]
+    section: Comments
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lpxkiz.md#c8"
+    char_span: [11547, 13515]
+    sentence_count: 7
+    key_terms: [people, deleted, enough, money, difference, average, afford, paying]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lpxkiz.md#c9"
+    char_span: [13517, 15774]
+    sentence_count: 16
+    key_terms: [college, selective, colleges, options, school, being, "won't", good]
+    section: Comments
+    token_count: 470
 ---
-
 # Don't Get It.
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1lpxkiz/dont_get_it/)

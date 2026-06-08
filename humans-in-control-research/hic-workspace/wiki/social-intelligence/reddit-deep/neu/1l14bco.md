@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1l14bco.md
 url: "https://www.reddit.com/r/NEU/comments/1l14bco/how_do_you_make_friends_as_a_transfer/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,45 @@ flair: "general question"
 extracted_at: "2026-05-26T14:30:23.761Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1l14bco.md#c0"
+    char_span: [0, 1554]
+    sentence_count: 14
+    key_terms: [friends, people, close, like, neu, something, comments, everyone]
+    token_count: 357
+  - id: "social-intelligence/reddit-deep/neu/1l14bco.md#c1"
+    char_span: [1569, 3510]
+    sentence_count: 17
+    key_terms: [snootigers4247, campus, people, class, group, meals, trips, fall]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/neu/1l14bco.md#c2"
+    char_span: [3303, 4192]
+    sentence_count: 8
+    key_terms: [major, snootigers4247, northeastern, transfer, friends, ambitiousinjury8817, feel, part]
+    section: Comments
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/neu/1l14bco.md#c3"
+    char_span: [4194, 6329]
+    sentence_count: 16
+    key_terms: [friends, meet, everyone, transfer, student, snootigers4247, events, people]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/neu/1l14bco.md#c4"
+    char_span: [6040, 6370]
+    sentence_count: 3
+    key_terms: [relationship, communicate, maintain, meetings, together, friends, outside, putting]
+    section: Comments
+    token_count: 74
+  - id: "social-intelligence/reddit-deep/neu/1l14bco.md#c5"
+    char_span: [6372, 7410]
+    sentence_count: 7
+    key_terms: [friends, studying, going, day, lot, acquaintances, conversations, non-college]
+    section: Comments
+    token_count: 250
 ---
-
 # How do you make friends as a transfer?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1l14bco/how_do_you_make_friends_as_a_transfer/)

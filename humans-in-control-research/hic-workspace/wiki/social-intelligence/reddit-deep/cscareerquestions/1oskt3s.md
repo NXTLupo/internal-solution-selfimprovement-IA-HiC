@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1oskt3s.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1oskt3s/about_to_start_school_for_cs_but_have_personal/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 0.67
 num_comments: 4
 flair: "Student"
-extracted_at: "2026-05-26T14:31:41.258Z"
+extracted_at: "2026-06-05T19:52:48.709Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oskt3s.md#c0"
+    char_span: [0, 673]
+    sentence_count: 8
+    key_terms: [cscareerquestions, start, internships, experience, applying, comments, personal, semester]
+    token_count: 151
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oskt3s.md#c1"
+    char_span: [688, 1627]
+    sentence_count: 5
+    key_terms: [luunnn, thanks, "you're", start, good, "it's", use, weak]
+    section: Comments
+    token_count: 213
 ---
-
 # About to start school for CS but have personal project experience already. Things like a Real-time messaging system that can handle multiple concurrent clients. How soon can I start applying for internships?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1oskt3s/about_to_start_school_for_cs_but_have_personal/)

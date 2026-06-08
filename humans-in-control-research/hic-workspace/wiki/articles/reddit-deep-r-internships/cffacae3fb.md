@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-internships/cffacae3fb.md
 url: "https://www.reddit.com/r/internships/comments/1tbih39/i_run_a_vc_fund_and_reviewed_271_apps_for_our/"
 url_hash: "cffacae3fb"
 kind: "article"
@@ -8,10 +9,22 @@ author: ""
 date: "2026-05-12T23:32:28.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-26T14:35:28.152567+00:00"
+extracted_at: "2026-06-05T19:21:10.168466+00:00"
 chars: 3098
+relevance: 68
+engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis.  "
+chunks:
+  - id: "articles/reddit-deep-r-internships/cffacae3fb.md#c0"
+    char_span: [0, 1897]
+    sentence_count: 16
+    key_terms: [internships, ama, career, ai-generated, attachments, like, internship, value-add]
+    token_count: 425
+  - id: "articles/reddit-deep-r-internships/cffacae3fb.md#c1"
+    char_span: [1899, 3313]
+    sentence_count: 8
+    key_terms: [personality, non-traditional, unique, education, examples, specific, person, showed]
+    token_count: 331
 ---
-
 # I run a VC fund and reviewed 271 apps for our summer internship. AMA.
 
 Source: [Reddit Deep: r/internships](https://www.reddit.com/r/internships/comments/1tbih39/i_run_a_vc_fund_and_reviewed_271_apps_for_our/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1tcn2tx.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1tcn2tx/21yo_cs_student_with_no_direction_need_career/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -7,14 +8,25 @@ title: "21yo CS student with no direction, need career advice"
 author: "presentnow0913"
 date: "2026-05-14T04:11:28.000Z"
 score: 5
-upvote_ratio: 1
+upvote_ratio: 0.86
 num_comments: 8
 flair: ""
-extracted_at: "2026-05-24T14:08:50.765Z"
+extracted_at: "2026-06-03T12:16:59.507Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tcn2tx.md#c0"
+    char_span: [0, 1301]
+    sentence_count: 8
+    key_terms: [cscareerquestions, career, comments, everyone, personal, studying, already, student]
+    token_count: 304
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tcn2tx.md#c1"
+    char_span: [1316, 2700]
+    sentence_count: 4
+    key_terms: [like, research, getting, systems, behind, people, being, build]
+    section: Comments
+    token_count: 319
 ---
-
 # 21yo CS student with no direction, need career advice
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1tcn2tx/21yo_cs_student_with_no_direction_need_career/)
@@ -30,7 +42,7 @@ tldr; What fields in CS are still doing relatively well in this situation? any a
 
 ## Comments
 
-- **manohar_18** (4↑): third year is nowhere near “too late” btw. half the people who look like they have everything figured out are also confused, they’re just louder online
+- **manohar_18** (5↑): third year is nowhere near “too late” btw. half the people who look like they have everything figured out are also confused, they’re just louder online
 
 you also don’t need some lifelong passion for “distributed systems” or whatever to build a good career. a lot of people grow into interests after they become decent at something
 

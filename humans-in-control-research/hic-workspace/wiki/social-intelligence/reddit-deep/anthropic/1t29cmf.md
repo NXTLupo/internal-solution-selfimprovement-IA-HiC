@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/anthropic/1t29cmf.md
 url: "https://www.reddit.com/r/Anthropic/comments/1t29cmf/to_all_my_claude_code_win11_bois_do_you_all_use/"
 kind: "social-post"
 source: "reddit-deep: r/anthropic"
@@ -13,8 +14,57 @@ flair: "Other"
 extracted_at: "2026-05-11T17:26:51.914Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, saas, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/anthropic/1t29cmf.md#c0"
+    char_span: [0, 959]
+    sentence_count: 6
+    key_terms: [claude, code, https, use, wsl2, powershell, anthropic, switching]
+    token_count: 245
+  - id: "social-intelligence/reddit-deep/anthropic/1t29cmf.md#c1"
+    char_span: [979, 2137]
+    sentence_count: 3
+    key_terms: [wsl2, docker, bash, use, powershell, terminate, instead, better]
+    section: The positives
+    token_count: 271
+  - id: "social-intelligence/reddit-deep/anthropic/1t29cmf.md#c2"
+    char_span: [2157, 3310]
+    sentence_count: 7
+    key_terms: [code, powershell, claude, wsl2, bash, here, use, distro]
+    section: The negatives
+    token_count: 277
+  - id: "social-intelligence/reddit-deep/anthropic/1t29cmf.md#c3"
+    char_span: [3325, 5243]
+    sentence_count: 19
+    key_terms: [powershell, works, projects, bash, claude, code, windows, using]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/anthropic/1t29cmf.md#c4"
+    char_span: [5246, 6483]
+    sentence_count: 9
+    key_terms: [space, free, virtual, disk, ram, wsl, "doesn't", claude]
+    section: Comments
+    token_count: 284
+  - id: "social-intelligence/reddit-deep/anthropic/1t29cmf.md#c5"
+    char_span: [6485, 8692]
+    sentence_count: 13
+    key_terms: [claude, windows, wsl, powershell, port, instance, because, through]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/anthropic/1t29cmf.md#c6"
+    char_span: [8432, 8897]
+    sentence_count: 2
+    key_terms: [windows, powershell, switching, therefore, commands, increase, inherent, juscuz96]
+    section: Comments
+    token_count: 105
+  - id: "social-intelligence/reddit-deep/anthropic/1t29cmf.md#c7"
+    char_span: [8899, 10076]
+    sentence_count: 8
+    key_terms: [wsl2, windows, side, smoother, doesn, going, happy, place]
+    section: Comments
+    token_count: 273
 ---
-
 # To all my Claude Code + Win11 bois: Do you all use WSL2 or a native Windows install? I'm a long time PowerShell developer so I use Pwsh, but lately I've been thinking about switching to WSL2 + Bash. Please confirm or deny my suspicions and evaluate my reasoning!
 
 Source: [reddit-deep: r/anthropic](https://www.reddit.com/r/Anthropic/comments/1t29cmf/to_all_my_claude_code_win11_bois_do_you_all_use/)

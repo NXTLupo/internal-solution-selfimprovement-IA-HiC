@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1kvwuqs.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1kvwuqs/how_to_turn_malaysias_100b_ghost_city_into_a/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,61 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:56.731Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1kvwuqs.md#c0"
+    char_span: [0, 1810]
+    sentence_count: 14
+    key_terms: [city, forest, digitalnomad, empty, skyscrapers, apartments, "malaysia's", comments]
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/digitalnomad/1kvwuqs.md#c1"
+    char_span: [1812, 3883]
+    sentence_count: 21
+    key_terms: [apartments, digital, living, prices, phase, city, real, singapore]
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/digitalnomad/1kvwuqs.md#c2"
+    char_span: [3885, 5769]
+    sentence_count: 17
+    key_terms: [month, singapore, country, project, nomads, considering, government, malaysian]
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/digitalnomad/1kvwuqs.md#c3"
+    char_span: [5784, 7433]
+    sentence_count: 8
+    key_terms: [suitable-junket-744, chatgpt, deleted, post, language, pangram, locals, native]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/digitalnomad/1kvwuqs.md#c4"
+    char_span: [7435, 9223]
+    sentence_count: 18
+    key_terms: [people, cheap, restaurants, "it's", singapore, already, "there's", forest]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/digitalnomad/1kvwuqs.md#c5"
+    char_span: [9225, 11150]
+    sentence_count: 17
+    key_terms: [like, "it's", apartment, machinationstudio, city, colambler, singapore, already]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/digitalnomad/1kvwuqs.md#c6"
+    char_span: [11152, 12953]
+    sentence_count: 13
+    key_terms: [digital, nearly-2000-digital-nomad-applicants-approved, nomads, malaysia, nomad, buildings, exactly, thestar]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/digitalnomad/1kvwuqs.md#c7"
+    char_span: [12955, 15012]
+    sentence_count: 15
+    key_terms: [singapore, city, maybe, place, trust, immigration, checkpoint, certainly]
+    section: Comments
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/digitalnomad/1kvwuqs.md#c8"
+    char_span: [15014, 15648]
+    sentence_count: 4
+    key_terms: [additional-baby5740, suitable-junket-744, nurseynurseygander, disruption, worthwhile, clustered, influence, cultural]
+    section: Comments
+    token_count: 164
 ---
-
 # How to turn Malaysia's $100B "ghost city" into a digital nomad hub
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1kvwuqs/how_to_turn_malaysias_100b_ghost_city_into_a/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1rh1czk.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rh1czk/do_language_skills_add_value_to_a_mathheavy/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,15 @@ flair: "Application Question"
 extracted_at: "2026-05-22T23:33:52.648Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rh1czk.md#c0"
+    char_span: [0, 925]
+    sentence_count: 7
+    key_terms: [applyingtocollege, language, application, math, math-heavy, comments, around, add]
+    token_count: 204
 ---
-
 # Do language skills add value to a math-heavy college application?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rh1czk/do_language_skills_add_value_to_a_mathheavy/)

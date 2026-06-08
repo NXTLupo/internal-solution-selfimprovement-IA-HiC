@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1qgm14t.md
 url: "https://www.reddit.com/r/NEU/comments/1qgm14t/lonliness_and_socializing/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -6,19 +7,48 @@ subreddit: "neu"
 title: "Lonliness and socializing"
 author: "deagolmylov"
 date: "2026-01-18T22:17:12.000Z"
-score: 20
-upvote_ratio: 0.96
+score: 22
+upvote_ratio: 1
 num_comments: 17
 flair: "Campus Life"
-extracted_at: "2026-05-20T06:39:39.935Z"
+extracted_at: "2026-06-03T18:34:36.367Z"
 extraction_method: "praw-deep"
-research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1qgm14t.md#c0"
+    char_span: [0, 671]
+    sentence_count: 5
+    key_terms: [socializing, neu, introvert, comments, disconnected, particularly, unsuccessful, deagolmylov]
+    token_count: 159
+  - id: "social-intelligence/reddit-deep/neu/1qgm14t.md#c1"
+    char_span: [686, 2914]
+    sentence_count: 26
+    key_terms: [friends, joining, deagolmylov, less, try, political, stressful, isolated]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/neu/1qgm14t.md#c2"
+    char_span: [2916, 3787]
+    sentence_count: 13
+    key_terms: [going, hey, like, classmates, classes, friends, saying, try]
+    section: Comments
+    token_count: 208
+  - id: "social-intelligence/reddit-deep/neu/1qgm14t.md#c3"
+    char_span: [3789, 5941]
+    sentence_count: 16
+    key_terms: [friends, grad, people, students, boston, point, deagolmylov, neu]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/neu/1qgm14t.md#c4"
+    char_span: [5631, 6823]
+    sentence_count: 16
+    key_terms: [students, bulky-challenge-7967, people, graduate, nowadays, culture, social, going]
+    section: Comments
+    token_count: 283
 ---
-
 # Lonliness and socializing
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1qgm14t/lonliness_and_socializing/)
-Posted by **deagolmylov** · **20↑** · **17 comments**
+Posted by **deagolmylov** · **22↑** · **17 comments**
 
 Hi everyone, I have found my last year at NEU as a grad student to be quite lonely despite attending a bunch of events and clubs. It seems that there's very few people who want to continue engaging with you outside of class and even when you do engagement with them they seem disconnected. As an introvert socializing has been particularly hard and mostly unsuccessful. 
 
@@ -27,11 +57,11 @@ I am curious if someone else has had that experience, especially as in introvert
 
 ## Comments
 
-- **Bright_Golf_6349** (7↑): I had the same experience tbh. But I myself isolated myself from others as I focused on job hunt and applications (international students) and my classmates did the same. Eventually everyone moved out of Boston after graduation.
+- **Bright_Golf_6349** (8↑): I had the same experience tbh. But I myself isolated myself from others as I focused on job hunt and applications (international students) and my classmates did the same. Eventually everyone moved out of Boston after graduation.
 
 
 Adult friendships are hard(fellow Grad student). Try joining E-board of a club or hangout with your project mates, housemates. This helped me!
-  - **deagolmylov** (5↑): Thanks for your reply! I haven't self isolated, though I get tempted to do so sometimes. The issue is that I do try to hangout with project mates and stuff but they often do not follow though with plans or never invite me to one.
+  - **deagolmylov** (4↑): Thanks for your reply! I haven't self isolated, though I get tempted to do so sometimes. The issue is that I do try to hangout with project mates and stuff but they often do not follow though with plans or never invite me to one.
 - **No_Dinner6795** (5↑): I think it’s quite a common thing among the college kids these days. Especially after COVID. Don’t worry, after you graduate or during your co-op, you’ll find a ton of friends at work. You’ll kinda have to because you’ll see the same people on a daily basis EVERY SINGLE DAY. Plus, you can always get a pet like a dog. 
 
 For now through, classes might be stressful for your peers. I highly suggest you seek friends outside of NEU. Try concerts, festivals, cinemas, and events like that. Also, highly recommend joining your local cultural/religious/political groups! Nothing bonds people better than the shared interests and hate for the other side XD

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tjnipo.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tjnipo/career_growth_opportunities_for_ssa_role/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-22T23:34:01.167Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tjnipo.md#c0"
+    char_span: [0, 541]
+    sentence_count: 4
+    key_terms: [careerguidance, opportunities, role, comments, growth, doomed-life, reddit-deep, experience]
+    token_count: 131
+  - id: "social-intelligence/reddit-deep/careerguidance/1tjnipo.md#c1"
+    char_span: [556, 1855]
+    sentence_count: 11
+    key_terms: [company, associate, manager, people, sales, outside, support, help]
+    section: Comments
+    token_count: 288
 ---
-
 # Career growth opportunities for SSA role?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tjnipo/career_growth_opportunities_for_ssa_role/)

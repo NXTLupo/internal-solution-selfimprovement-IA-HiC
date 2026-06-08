@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1ny4uhl.md
 url: "https://www.reddit.com/r/findapath/comments/1ny4uhl/im_27_with_no_job_experience_and_college_degree/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,33 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-22T15:13:18.835Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1ny4uhl.md#c0"
+    char_span: [0, 2089]
+    sentence_count: 21
+    key_terms: [because, "i'm", life, college, degree, skills, "don't", job]
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/findapath/1ny4uhl.md#c1"
+    char_span: [2104, 4192]
+    sentence_count: 15
+    key_terms: [degree, thank, get, tyyyu555, college, helpful, please, help]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/findapath/1ny4uhl.md#c2"
+    char_span: [4194, 6171]
+    sentence_count: 18
+    key_terms: [get, college, don, suggest, innit-bruh1184, school, anywhere, degree]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/findapath/1ny4uhl.md#c3"
+    char_span: [5906, 6697]
+    sentence_count: 10
+    key_terms: [get, job, experience, college, money, ask, find, scholarships]
+    section: Comments
+    token_count: 182
 ---
-
 # I'm 27 with no job experience and college degree and no skills, how do I restart?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1ny4uhl/im_27_with_no_job_experience_and_college_degree/)

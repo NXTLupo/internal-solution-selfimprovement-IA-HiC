@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-genz/cf043df5ec.md
 url: "https://www.reddit.com/r/GenZ/comments/1sym1f7/why_gen_z_are_buying_luxury_brands_so_much/"
 url_hash: "cf043df5ec"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:19:09.374238+00:00"
 chars: 2372
+industries: [retail]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-genz/cf043df5ec.md#c0"
+    char_span: [0, 1023]
+    sentence_count: 11
+    key_terms: [why-gen-z-buys-luxury-its-not-about-money-anymore-475f564580fc, https, comments, discord, brands, luxury, market, reddit]
+    token_count: 270
+  - id: "articles/reddit-deep-r-genz/cf043df5ec.md#c1"
+    char_span: [1026, 2544]
+    sentence_count: 12
+    key_terms: [cars, cavalier, clapped, toyotas, afford, brands, luxury, money]
+    token_count: 382
 ---
-
 # Why Gen Z are buying Luxury Brands so much?
 
 Source: [Reddit Deep: r/genz](https://www.reddit.com/r/GenZ/comments/1sym1f7/why_gen_z_are_buying_luxury_brands_so_much/)

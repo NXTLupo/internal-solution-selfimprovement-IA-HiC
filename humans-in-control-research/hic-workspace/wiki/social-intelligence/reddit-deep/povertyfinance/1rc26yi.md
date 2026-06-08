@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1rc26yi.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1rc26yi/debt_freenow_what/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,39 @@ flair: "Budgeting/Saving/Investing/Spending"
 extracted_at: "2026-05-17T01:13:55.888Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rc26yi.md#c0"
+    char_span: [0, 1646]
+    sentence_count: 15
+    key_terms: [mom, pay, povertyfinance, com, set, currently, comments, finally]
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rc26yi.md#c1"
+    char_span: [1661, 3445]
+    sentence_count: 14
+    key_terms: [savings, emmieh1287, populardata3890, capitalad4933, cover, retirement, emergency, included]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rc26yi.md#c2"
+    char_span: [3447, 4733]
+    sentence_count: 7
+    key_terms: [paying, emergency, fund, expenses, future, others, etc, food]
+    section: Comments
+    token_count: 286
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rc26yi.md#c3"
+    char_span: [4735, 6600]
+    sentence_count: 17
+    key_terms: [roth, months, emergency, fund, build, money, ira, put]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rc26yi.md#c4"
+    char_span: [6602, 8127]
+    sentence_count: 10
+    key_terms: [get, https, furniture, streaming, cheaper, qualify, making, screamingwhisper1720]
+    section: Comments
+    token_count: 390
 ---
-
 # Debt Free...Now what?
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1rc26yi/debt_freenow_what/)

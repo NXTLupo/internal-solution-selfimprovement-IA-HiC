@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1mk5rcv.md
 url: "https://www.reddit.com/r/careerguidance/comments/1mk5rcv/ece_vs_cse_in_tier3_college_better_future_option/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-22T23:34:01.148Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1mk5rcv.md#c0"
+    char_span: [0, 1546]
+    sentence_count: 9
+    key_terms: [ece, cse, college, careerguidance, better, engineering, placement, prospects]
+    token_count: 348
+  - id: "social-intelligence/reddit-deep/careerguidance/1mk5rcv.md#c1"
+    char_span: [1561, 2031]
+    sentence_count: 3
+    key_terms: [thoughtmiddle6765, self-learners, fundamentals, personalized, identifying, outperform, regardless, knowledge]
+    section: Comments
+    token_count: 102
 ---
-
 # ECE vs CSE in Tier-3 College, better future option?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1mk5rcv/ece_vs_cse_in_tier3_college_better_future_option/)

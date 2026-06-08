@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1pc1hnz.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1pc1hnz/i_got_my_cs_degree_because_of_chatgpt_how_can_i/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,63 @@ flair: "New Grad"
 extracted_at: "2026-05-23T14:54:48.648Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pc1hnz.md#c0"
+    char_span: [0, 1469]
+    sentence_count: 13
+    key_terms: [start, cscareerquestions, learning, because, chatgpt, "it's", tech, comments]
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pc1hnz.md#c1"
+    char_span: [1484, 3510]
+    sentence_count: 15
+    key_terms: [understand, learn, enough, whitchorence, "don't", group, didn, spoon-fed]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pc1hnz.md#c2"
+    char_span: [3512, 5297]
+    sentence_count: 11
+    key_terms: [software, stackoverflow, role, questions, overflow, chatgpt, scripts, forum]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pc1hnz.md#c3"
+    char_span: [5299, 5692]
+    sentence_count: 3
+    key_terms: [chemicalcube325, appreciate, changing, normally, replying, upcoming, changes, testing]
+    section: Comments
+    token_count: 91
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pc1hnz.md#c4"
+    char_span: [5694, 7752]
+    sentence_count: 8
+    key_terms: [grade, exam, passing, through, degree, matter, switchorganic, assignments]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pc1hnz.md#c5"
+    char_span: [7754, 9631]
+    sentence_count: 11
+    key_terms: [courses, "don't", self-taught, "it's", jobs, anything, computer, concepts]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pc1hnz.md#c6"
+    char_span: [9633, 10047]
+    sentence_count: 3
+    key_terms: [expecting, basics, junior, crud, understands, glassvase1, companies, developer]
+    section: Comments
+    token_count: 97
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pc1hnz.md#c7"
+    char_span: [10049, 12041]
+    sentence_count: 12
+    key_terms: [degree, back, because, school, years, went, realized, company]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pc1hnz.md#c8"
+    char_span: [11832, 13855]
+    sentence_count: 11
+    key_terms: [coding, use, going, tools, "don't", effectively, "it's", productive]
+    section: Comments
+    token_count: 475
 ---
-
 # I got my CS degree because of ChatGPT. How can I fix this and start over?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1pc1hnz/i_got_my_cs_degree_because_of_chatgpt_how_can_i/)

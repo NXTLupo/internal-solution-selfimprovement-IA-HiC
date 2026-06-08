@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1me7om8.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1me7om8/i_got_into_a_t5_schools_by_writing_naruto/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,27 @@ flair: "Advice"
 extracted_at: "2026-05-23T14:54:48.675Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1me7om8.md#c0"
+    char_span: [0, 1001]
+    sentence_count: 7
+    key_terms: [fanfiction, wrote, applyingtocollege, got, admission, comments, officers, college]
+    token_count: 271
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1me7om8.md#c1"
+    char_span: [1016, 2053]
+    sentence_count: 1
+    key_terms: [internationalgap2326, wrote, get, committeeeuphoric255, melodic-signature-45, south-highlight-1630, "don't", harry]
+    section: Comments
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1me7om8.md#c2"
+    char_span: [2055, 3105]
+    sentence_count: 4
+    key_terms: [writing, similar, fanfic, school, unique, apprehensive-mix4383, flamingoordinary2965, essay]
+    section: Comments
+    token_count: 304
 ---
-
 # I got into a T5 schools by writing Naruto fanfiction
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1me7om8/i_got_into_a_t5_schools_by_writing_naruto/)

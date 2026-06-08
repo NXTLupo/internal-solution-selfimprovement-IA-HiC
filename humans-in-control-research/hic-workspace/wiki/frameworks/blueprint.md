@@ -1,4 +1,5 @@
 ---
+id: frameworks/blueprint.md
 title: "Service Blueprint Framework Specification"
 type: framework
 created: 2026-04-10
@@ -8,8 +9,80 @@ confidence: high
 status: active
 tags: [blueprint, bitner, service-design, journey-map, shostack]
 evidence_count: 0
+chunks:
+  - id: "frameworks/blueprint.md#c0"
+    char_span: [0, 401]
+    sentence_count: 3
+    key_terms: [blueprint, service, anti-patterns, authoritative, specification, deliverable, methodology, generating]
+    section: Purpose
+    token_count: 65
+  - id: "frameworks/blueprint.md#c1"
+    char_span: [427, 3077]
+    sentence_count: 13
+    key_terms: [customer, actions, service, blueprint, systems, components, "shostack's", includes]
+    section: Canonical Framework
+    token_count: 511
+  - id: "frameworks/blueprint.md#c2"
+    char_span: [3079, 4430]
+    sentence_count: 8
+    key_terms: [line, customer, actions, backstage, interaction, experience, frontstage, visibility]
+    section: Canonical Framework
+    token_count: 241
+  - id: "frameworks/blueprint.md#c3"
+    char_span: [4451, 6940]
+    sentence_count: 2
+    key_terms: [emotional, step, time, lane, customer, documenting, measurement, technology]
+    section: Extended Lanes
+    token_count: 495
+  - id: "frameworks/blueprint.md#c4"
+    char_span: [6942, 7103]
+    sentence_count: 2
+    key_terms: [experience, transforms, blueprint, connects, directly, findings, research, diagram]
+    section: Extended Lanes
+    token_count: 27
+  - id: "frameworks/blueprint.md#c5"
+    char_span: [7138, 9636]
+    sentence_count: 6
+    key_terms: [customer, failure, blueprint, moments, point, truth, encounter, per]
+    section: Required Blueprint Structure
+    token_count: 486
+  - id: "frameworks/blueprint.md#c6"
+    char_span: [9656, 11536]
+    sentence_count: 7
+    key_terms: [customer, add, documented, interaction, identified, understand, point, emotional]
+    section: Quality Gates
+    token_count: 360
+  - id: "frameworks/blueprint.md#c7"
+    char_span: [11556, 14143]
+    sentence_count: 27
+    key_terms: [blueprint, customer, backstage, without, lane, emotional, actions, frontstage]
+    section: Anti-Patterns
+    token_count: 500
+  - id: "frameworks/blueprint.md#c8"
+    char_span: [14180, 15580]
+    sentence_count: 10
+    key_terms: [phase, customer, action, actions, frontstage, lanes, backstage, lines]
+    section: Blueprint Construction Process
+    token_count: 278
+  - id: "frameworks/blueprint.md#c9"
+    char_span: [15610, 17717]
+    sentence_count: 8
+    key_terms: [emotional, customer, benchmarks, step, time, lane, research, cross-reference]
+    section: Generation Instructions
+    token_count: 426
+  - id: "frameworks/blueprint.md#c10"
+    char_span: [17747, 19358]
+    sentence_count: 1
+    key_terms: [indicator, points, extended, lane, marked, actions, moments, accent]
+    section: Visualization Standards
+    token_count: 382
+  - id: "frameworks/blueprint.md#c11"
+    char_span: [19381, 19872]
+    sentence_count: 1
+    key_terms: [frameworks, blueprint, benchmarks, personas, actions, industry-specific, industry-standard, conversational]
+    section: Cross-References
+    token_count: 101
 ---
-
 # Service Blueprint Framework Specification
 
 ## Purpose

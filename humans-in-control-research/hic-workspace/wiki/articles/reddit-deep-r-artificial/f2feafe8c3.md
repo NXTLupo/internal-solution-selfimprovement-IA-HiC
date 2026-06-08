@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-artificial/f2feafe8c3.md
 url: "https://www.reddit.com/r/artificial/comments/1mlwunz/the_chatgpt_5_backlash_is_concerning/"
 url_hash: "f2feafe8c3"
 kind: "article"
@@ -10,8 +11,30 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T16:57:15.338015+00:00"
 chars: 7755
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-artificial/f2feafe8c3.md#c0"
+    char_span: [0, 1905]
+    sentence_count: 15
+    key_terms: [people, chatgpt, openai, reddit, use, artificial, attachment, concerning]
+    token_count: 431
+  - id: "articles/reddit-deep-r-artificial/f2feafe8c3.md#c1"
+    char_span: [1907, 4303]
+    sentence_count: 20
+    key_terms: [people, something, companionship, never, like, connection, situations, understand]
+    token_count: 501
+  - id: "articles/reddit-deep-r-artificial/f2feafe8c3.md#c2"
+    char_span: [4305, 6341]
+    sentence_count: 11
+    key_terms: [people, companionship, back, get, completely, companion, different, critique]
+    token_count: 460
+  - id: "articles/reddit-deep-r-artificial/f2feafe8c3.md#c3"
+    char_span: [6343, 7927]
+    sentence_count: 12
+    key_terms: [work, listen, information, been, gpt, something, annoyed, changes]
+    token_count: 381
 ---
-
 # The ChatGPT 5 Backlash Is Concerning.
 
 Source: [Reddit Deep: r/artificial](https://www.reddit.com/r/artificial/comments/1mlwunz/the_chatgpt_5_backlash_is_concerning/)

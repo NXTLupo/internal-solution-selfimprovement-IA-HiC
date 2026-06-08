@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1na2dn9.md
 url: "https://www.reddit.com/r/GradSchool/comments/1na2dn9/how_do_the_people_with_turbulent_undergrads_get/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-20T12:57:40.636Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1na2dn9.md#c0"
+    char_span: [0, 857]
+    sentence_count: 6
+    key_terms: [research, people, competitive, get, gradschool, comments, schools, grad]
+    token_count: 197
+  - id: "social-intelligence/reddit-deep/gradschool/1na2dn9.md#c1"
+    char_span: [872, 2584]
+    sentence_count: 13
+    key_terms: [work, experience, school, grad, time, undergrad, program, people]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/gradschool/1na2dn9.md#c2"
+    char_span: [2586, 4680]
+    sentence_count: 10
+    key_terms: [industry, get, letter, school, phd, recommendation, people, good]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/gradschool/1na2dn9.md#c3"
+    char_span: [4682, 6562]
+    sentence_count: 15
+    key_terms: [time, worked, undergrad, program, get, gpa, phd, grades]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/gradschool/1na2dn9.md#c4"
+    char_span: [6564, 8688]
+    sentence_count: 20
+    key_terms: [experience, masters, program, get, time, research, schools, people]
+    section: Comments
+    token_count: 468
 ---
-
 # How do the people with turbulent undergrads get into good grad schools?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1na2dn9/how_do_the_people_with_turbulent_undergrads_get/)

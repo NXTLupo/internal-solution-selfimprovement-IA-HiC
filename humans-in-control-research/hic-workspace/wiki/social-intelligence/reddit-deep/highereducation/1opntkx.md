@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1opntkx.md
 url: "https://www.reddit.com/r/highereducation/comments/1opntkx/higher_ed_communications_and_marketing_directors/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-23T14:53:59.506Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1opntkx.md#c0"
+    char_span: [0, 490]
+    sentence_count: 2
+    key_terms: [highereducation, comments, laura-growthspurt, communications, incorporated, prospective, reddit-deep, applicants]
+    token_count: 110
+  - id: "social-intelligence/reddit-deep/highereducation/1opntkx.md#c1"
+    char_span: [505, 2701]
+    sentence_count: 14
+    key_terms: [college, redghostorchid, change, higher, moving, school, martechnician, going]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/highereducation/1opntkx.md#c2"
+    char_span: [2439, 3395]
+    sentence_count: 6
+    key_terms: [school, communications, alumni, university, happening, marketing, towards, career]
+    section: Comments
+    token_count: 204
+  - id: "social-intelligence/reddit-deep/highereducation/1opntkx.md#c3"
+    char_span: [3397, 5090]
+    sentence_count: 13
+    key_terms: [departments, marketing, budgets, like, year, enrollment, experience, lifelong]
+    section: Comments
+    token_count: 345
 ---
-
 # Higher ed communications and marketing directors who have incorporated messaging around career outcomes this year, are you starting to see a positive shift in the perception of the college degree among your own students and prospective applicants?
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1opntkx/higher_ed_communications_and_marketing_directors/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1mzkhp7.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1mzkhp7/struggling_to_find_the_next_life_phase_as_a/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,33 @@ flair: "Lifestyle"
 extracted_at: "2026-05-26T12:53:56.720Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mzkhp7.md#c0"
+    char_span: [0, 1017]
+    sentence_count: 10
+    key_terms: [digital, digitalnomad, down, comments, country, however, nomads, settle]
+    token_count: 246
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mzkhp7.md#c1"
+    char_span: [1032, 3194]
+    sentence_count: 21
+    key_terms: [home, life, location, people, time, explorers, situation, changing]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mzkhp7.md#c2"
+    char_span: [3196, 5154]
+    sentence_count: 15
+    key_terms: [nomad, years, life, nomadism, months, traditional, foreigners-in-your-own-country, lifestyle]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mzkhp7.md#c3"
+    char_span: [5156, 5596]
+    sentence_count: 4
+    key_terms: [different, equivalent, everything, concerned, liquidity, wondering, dopamine, maggieyw]
+    section: Comments
+    token_count: 102
 ---
-
 # Struggling to find the next life phase as a digital nomad
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1mzkhp7/struggling_to_find_the_next_life_phase_as_a/)

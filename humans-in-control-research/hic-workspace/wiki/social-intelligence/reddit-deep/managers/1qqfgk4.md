@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1qqfgk4.md
 url: "https://www.reddit.com/r/managers/comments/1qqfgk4/time_off_rejected_employee_worked_remotely/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,51 @@ flair: "Not a Manager"
 extracted_at: "2026-05-26T12:54:23.670Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1qqfgk4.md#c0"
+    char_span: [0, 2064]
+    sentence_count: 26
+    key_terms: [yesterday, day, needed, done, pto, rejected, medical, boss]
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/managers/1qqfgk4.md#c1"
+    char_span: [2079, 2379]
+    sentence_count: 5
+    key_terms: [days, end, odd-present-354, balance, partial, working, sounds, trying]
+    section: Comments
+    token_count: 80
+  - id: "social-intelligence/reddit-deep/managers/1qqfgk4.md#c2"
+    char_span: [2381, 4286]
+    sentence_count: 14
+    key_terms: [like, get, raiderxx, usually, leader, take, work, yesterday]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/managers/1qqfgk4.md#c3"
+    char_span: [4288, 6074]
+    sentence_count: 23
+    key_terms: [request, bereavement, immediately, days, end, because, "i'm", time]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/managers/1qqfgk4.md#c4"
+    char_span: [6076, 7261]
+    sentence_count: 11
+    key_terms: [someone, day, fuck, worked, doing, need, take, bereavement]
+    section: Comments
+    token_count: 298
+  - id: "social-intelligence/reddit-deep/managers/1qqfgk4.md#c5"
+    char_span: [7263, 8440]
+    sentence_count: 7
+    key_terms: [boss, call, need, usually, phone, able, good, "i'm"]
+    section: Comments
+    token_count: 289
+  - id: "social-intelligence/reddit-deep/managers/1qqfgk4.md#c6"
+    char_span: [8442, 10092]
+    sentence_count: 20
+    key_terms: [day, boss, good, pto, next, take, time, work]
+    section: Comments
+    token_count: 424
 ---
-
 # Time off Rejected - Employee worked remotely
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1qqfgk4/time_off_rejected_employee_worked_remotely/)

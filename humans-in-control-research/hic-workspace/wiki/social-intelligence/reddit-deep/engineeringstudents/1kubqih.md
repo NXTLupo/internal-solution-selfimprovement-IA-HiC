@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1kubqih.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1kubqih/cant_find_a_job_as_an_aerospace_engineer_grad/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,63 @@ flair: "Career Help"
 extracted_at: "2026-05-24T14:08:39.235Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kubqih.md#c0"
+    char_span: [0, 1899]
+    sentence_count: 18
+    key_terms: [engineeringstudents, job, company, applications, "i'm", "i've", experience, aerospace]
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kubqih.md#c1"
+    char_span: [1914, 2046]
+    sentence_count: 1
+    key_terms: [engineeringresumes, shecosmique, reviewed, posting, resume, worth]
+    section: Comments
+    token_count: 34
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kubqih.md#c2"
+    char_span: [2048, 4179]
+    sentence_count: 18
+    key_terms: [someone, job, coding, ziprecruiter, engineering, experience, interviews, companies]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kubqih.md#c3"
+    char_span: [3917, 4313]
+    sentence_count: 4
+    key_terms: [change, iterations, rearranged, reviewers, multiple, probably, reviewed, someone]
+    section: Comments
+    token_count: 100
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kubqih.md#c4"
+    char_span: [4315, 6395]
+    sentence_count: 19
+    key_terms: [market, companies, job, contract, resume, applications, tough, don]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kubqih.md#c5"
+    char_span: [6397, 8596]
+    sentence_count: 20
+    key_terms: [school, nukerocketscientist, get, grad, industry, nuclear, tuition, state]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kubqih.md#c6"
+    char_span: [8598, 10972]
+    sentence_count: 24
+    key_terms: [resume, companies, handshake, job, possible, alot, help, experience]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kubqih.md#c7"
+    char_span: [10682, 11917]
+    sentence_count: 11
+    key_terms: [job, resume, technician, different, applying, advanced-guidance482, like, need]
+    section: Comments
+    token_count: 284
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kubqih.md#c8"
+    char_span: [11919, 13733]
+    sentence_count: 19
+    key_terms: [aerospace, engineering, job, resume, jobs, experience, industry, masters]
+    section: Comments
+    token_count: 426
 ---
-
 # Can’t find a job as an Aerospace Engineer grad.
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1kubqih/cant_find_a_job_as_an_aerospace_engineer_grad/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1qryi6l.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1qryi6l/chatgpt_ignores_custom_instructions_and_wont_stop/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,51 @@ flair: "Other "
 extracted_at: "2026-05-11T16:54:08.806Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1qryi6l.md#c0"
+    char_span: [0, 998]
+    sentence_count: 9
+    key_terms: ["it's", chatgpt, custom, "that's", instructions, times, something, structure]
+    token_count: 244
+  - id: "social-intelligence/reddit-deep/chatgpt/1qryi6l.md#c1"
+    char_span: [1013, 2082]
+    sentence_count: 12
+    key_terms: [r-chatgpt-1050422060352024636, patience, discord, vacuum, "you're", withoutreason1729, bad, been]
+    section: Comments
+    token_count: 316
+  - id: "social-intelligence/reddit-deep/chatgpt/1qryi6l.md#c2"
+    char_span: [2084, 3756]
+    sentence_count: 10
+    key_terms: [something, chatgpt, part, "that's", comprehensivefish880, haunting-detail2025, librarianrecent6145, ordinary-stable-290]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1qryi6l.md#c3"
+    char_span: [3523, 4353]
+    sentence_count: 8
+    key_terms: [instructions, want, something, almost, change, ordinary-stable-290, run, established]
+    section: Comments
+    token_count: 214
+  - id: "social-intelligence/reddit-deep/chatgpt/1qryi6l.md#c4"
+    char_span: [4355, 5932]
+    sentence_count: 10
+    key_terms: [something, stop, custom, instructions, instruction, guardrails, sentences, training]
+    section: Comments
+    token_count: 372
+  - id: "social-intelligence/reddit-deep/chatgpt/1qryi6l.md#c5"
+    char_span: [5934, 7780]
+    sentence_count: 14
+    key_terms: [gongalongas, paranoia, strawman, gravity, problem, change, more-explanation2032, quick]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/chatgpt/1qryi6l.md#c6"
+    char_span: [7782, 9261]
+    sentence_count: 5
+    key_terms: [openai, power, users, downvoted, thinking, format, google, charming-opening-437]
+    section: Comments
+    token_count: 349
 ---
-
 # ChatGPT ignores custom instructions, and won't stop using the asinine "that's not X; that's Y" structure in everything it writes.
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1qryi6l/chatgpt_ignores_custom_instructions_and_wont_stop/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1lw14yw.md
 url: "https://www.reddit.com/r/GradSchool/comments/1lw14yw/midlife_careerlocation_change_at_age_40_after_6/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,46 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.335Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1lw14yw.md#c0"
+    char_span: [0, 2032]
+    sentence_count: 12
+    key_terms: [courses, "i'm", gradschool, comments, career, having, nature, given]
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/gradschool/1lw14yw.md#c1"
+    char_span: [2034, 3458]
+    sentence_count: 6
+    key_terms: [been, programs, working, years, work, graduate, editing, several]
+    token_count: 297
+  - id: "social-intelligence/reddit-deep/gradschool/1lw14yw.md#c2"
+    char_span: [3460, 4593]
+    sentence_count: 8
+    key_terms: ["it's", year, graduation, living, travel, month, order, wales]
+    token_count: 265
+  - id: "social-intelligence/reddit-deep/gradschool/1lw14yw.md#c3"
+    char_span: [4595, 6849]
+    sentence_count: 18
+    key_terms: [work, australia, social, graduation, university, because, opportunities, find]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/gradschool/1lw14yw.md#c4"
+    char_span: [6851, 7956]
+    sentence_count: 6
+    key_terms: [lor, programs, prereqs, request, science, enough, close, since]
+    token_count: 260
+  - id: "social-intelligence/reddit-deep/gradschool/1lw14yw.md#c5"
+    char_span: [7958, 9773]
+    sentence_count: 11
+    key_terms: [work, options, science, "i'm", "can't", get, lab, interests]
+    token_count: 408
+  - id: "social-intelligence/reddit-deep/gradschool/1lw14yw.md#c6"
+    char_span: [9788, 10780]
+    sentence_count: 7
+    key_terms: [better, here, boston, whole, been, get, "it's", move]
+    section: Comments
+    token_count: 235
 ---
-
 # Mid-life Career/Location Change at age 40 after 6 years out of the workforce as a FT Caregiver to my mom with 2 primary cancers and dementia - Grad School or...?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1lw14yw/midlife_careerlocation_change_at_age_40_after_6/)

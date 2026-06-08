@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1sy5ae4.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1sy5ae4/how_do_faculty_view_nontraditional_applicants/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,39 @@ flair: "Humanities"
 extracted_at: "2026-05-26T14:32:49.120Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1sy5ae4.md#c0"
+    char_span: [0, 1430]
+    sentence_count: 9
+    key_terms: [askacademia, long, admissions, applicants, committees, humanities, references, academic]
+    token_count: 281
+  - id: "social-intelligence/reddit-deep/askacademia/1sy5ae4.md#c1"
+    char_span: [1445, 3371]
+    sentence_count: 17
+    key_terms: [professors, no-end-2710, graduate, years, exceptional, been, experience, references]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/askacademia/1sy5ae4.md#c2"
+    char_span: [3373, 4248]
+    sentence_count: 5
+    key_terms: [letters, recommendation, applicant, programs, history, read, significantly, applications]
+    section: Comments
+    token_count: 178
+  - id: "social-intelligence/reddit-deep/askacademia/1sy5ae4.md#c3"
+    char_span: [4250, 6407]
+    sentence_count: 16
+    key_terms: [different, ghztegju, research, letters, professional, thank, hear, long]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/askacademia/1sy5ae4.md#c4"
+    char_span: [6409, 6783]
+    sentence_count: 4
+    key_terms: [speak, ask, recommendation, professor, ghztegju, "master's", reaching, research]
+    section: Comments
+    token_count: 87
 ---
-
 # How do faculty view non-traditional applicants with long gaps before applying to PhDs?
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1sy5ae4/how_do_faculty_view_nontraditional_applicants/)

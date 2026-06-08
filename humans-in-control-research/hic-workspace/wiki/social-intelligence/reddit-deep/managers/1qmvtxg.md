@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1qmvtxg.md
 url: "https://www.reddit.com/r/managers/comments/1qmvtxg/need_advice_on_managing_up_while_protecting_my/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,33 @@ flair: "New Manager"
 extracted_at: "2026-05-26T12:54:23.681Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1qmvtxg.md#c0"
+    char_span: [0, 1721]
+    sentence_count: 15
+    key_terms: [manager, team, advice, need, protecting, comments, managers, believe]
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/managers/1qmvtxg.md#c1"
+    char_span: [1736, 3216]
+    sentence_count: 13
+    key_terms: [progress, need, take, situation, managing, probably, believe, manager]
+    section: Comments
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/managers/1qmvtxg.md#c2"
+    char_span: [3218, 5449]
+    sentence_count: 13
+    key_terms: [team, manager, need, underperforming, answer, appropriately, deliverables, environment]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/managers/1qmvtxg.md#c3"
+    char_span: [5451, 5735]
+    sentence_count: 1
+    key_terms: [stakeholders, appropriately, salvageable, management, supportive, deadlines, generally, tradeoff]
+    section: Comments
+    token_count: 52
 ---
-
 # Need advice on managing up while protecting my team
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1qmvtxg/need_advice_on_managing_up_while_protecting_my/)

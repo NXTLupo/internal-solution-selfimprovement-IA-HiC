@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1mmw6du.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1mmw6du/how_to_not_fall_behind_on_my_cs_career/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,69 @@ flair: "Student"
 extracted_at: "2026-05-22T23:33:42.313Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mmw6du.md#c0"
+    char_span: [0, 1533]
+    sentence_count: 11
+    key_terms: [cscareerquestions, "i've", important, comments, already, because, classes, nothing]
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mmw6du.md#c1"
+    char_span: [1548, 3674]
+    sentence_count: 13
+    key_terms: [knowledge, like, something, projects, project, simple, "you're", start]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mmw6du.md#c2"
+    char_span: [3676, 5728]
+    sentence_count: 5
+    key_terms: [get, project, myself, learn, application, everything, something, stevefuzz]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mmw6du.md#c3"
+    char_span: [5730, 7883]
+    sentence_count: 16
+    key_terms: [something, programming, because, since, app, don, like, important]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mmw6du.md#c4"
+    char_span: [7619, 7951]
+    sentence_count: 4
+    key_terms: ["you're", internships, concretely, investment, sophomores, "company's", freshman, priority]
+    section: Comments
+    token_count: 77
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mmw6du.md#c5"
+    char_span: [7953, 9532]
+    sentence_count: 13
+    key_terms: [get, something, projects, realistically, started, usually, people, resume]
+    section: Comments
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mmw6du.md#c6"
+    char_span: [9534, 11694]
+    sentence_count: 22
+    key_terms: [projects, "don't", code, public, especially, something, useful, "you're"]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mmw6du.md#c7"
+    char_span: [11696, 13927]
+    sentence_count: 15
+    key_terms: [programming, language, "it's", like, time, especially, knowledge, languages]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mmw6du.md#c8"
+    char_span: [13932, 15895]
+    sentence_count: 11
+    key_terms: [take, repositories, class, application, used, web, recommend, something]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mmw6du.md#c9"
+    char_span: [15897, 17232]
+    sentence_count: 10
+    key_terms: [big, understand, certified, knowledge, learning, started, around, friend]
+    section: Comments
+    token_count: 290
 ---
-
 # How to not fall behind on my cs career?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1mmw6du/how_to_not_fall_behind_on_my_cs_career/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-philanthropy/dacdbd06d9.md
 url: "https://reddit.com/r/Philanthropy/comments/1qnz6v4/gates_foundation_plans_to_give_away_9_billion_in/"
 url_hash: "dacdbd06d9"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-04-29T18:55:34.736114+00:00"
 chars: 750
+industries: [fundraising, nonprofit, workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-philanthropy/dacdbd06d9.md#c0"
+    char_span: [0, 1007]
+    sentence_count: 3
+    key_terms: [gates-foundation-budgets-9-billion-job-cuts-what-it-means-for-philanthropy, foundation, philanthropy, https, com, billion, fortune, reddit]
+    token_count: 244
 ---
-
 # Gates Foundation plans to give away $9 billion in 2026 to prepare for the 2045 closure while slashing hundreds of jobs
 
 Source: [reddit: Philanthropy](https://reddit.com/r/Philanthropy/comments/1qnz6v4/gates_foundation_plans_to_give_away_9_billion_in/)

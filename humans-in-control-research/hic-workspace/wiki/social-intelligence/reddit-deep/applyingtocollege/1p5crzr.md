@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1p5crzr.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1p5crzr/can_you_apply_to_community_college_and_back_out/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,27 @@ flair: "College Questions"
 extracted_at: "2026-05-20T12:57:06.064Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p5crzr.md#c0"
+    char_span: [0, 462]
+    sentence_count: 2
+    key_terms: [applyingtocollege, comments, college, apply, back, senior-ant-6565, consequence, reddit-deep]
+    token_count: 119
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p5crzr.md#c1"
+    char_span: [477, 1153]
+    sentence_count: 6
+    key_terms: [college, community, apply, sad-animator6846, consequences, application, absolutely, acceptance]
+    section: Comments
+    token_count: 150
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p5crzr.md#c2"
+    char_span: [1155, 2686]
+    sentence_count: 13
+    key_terms: [apply, school, submitting, high, like, deadlines, paperwork, college]
+    section: Comments
+    token_count: 363
 ---
-
 # can you apply to community college and back out after college admissions come out?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1p5crzr/can_you_apply_to_community_college_and_back_out/)

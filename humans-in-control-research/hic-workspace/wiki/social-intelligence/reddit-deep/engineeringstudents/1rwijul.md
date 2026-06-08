@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1rwijul.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1rwijul/sick_of_being_unable_to_get_an_internship/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,45 @@ flair: "Rant/Vent"
 extracted_at: "2026-05-25T18:32:19.219Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rwijul.md#c0"
+    char_span: [0, 1806]
+    sentence_count: 12
+    key_terms: [internships, engineeringstudents, connections, get, got, internship, interviews, comments]
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rwijul.md#c1"
+    char_span: [1821, 3567]
+    sentence_count: 20
+    key_terms: [resume, probably, better, apply, cycle, space, white, job]
+    section: Comments
+    token_count: 401
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rwijul.md#c2"
+    char_span: [3569, 5166]
+    sentence_count: 14
+    key_terms: [resume, semiconductors, industry, semiconductor, experience, don, put, coursework]
+    section: Comments
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rwijul.md#c3"
+    char_span: [5168, 6381]
+    sentence_count: 9
+    key_terms: [job, applying, nepotism, better, market, sucks, get, like]
+    section: Comments
+    token_count: 281
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rwijul.md#c4"
+    char_span: [6383, 8608]
+    sentence_count: 14
+    key_terms: [research, engineering, internships, positions, did, get, differentlow4875, don]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rwijul.md#c5"
+    char_span: [8610, 9947]
+    sentence_count: 10
+    key_terms: [engineering, work, interview, industry, personal, students, anyone, doesn]
+    section: Comments
+    token_count: 312
 ---
-
 # Sick of being unable to get an internship
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1rwijul/sick_of_being_unable_to_get_an_internship/)

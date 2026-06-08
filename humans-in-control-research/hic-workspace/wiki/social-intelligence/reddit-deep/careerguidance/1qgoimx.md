@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1qgoimx.md
 url: "https://www.reddit.com/r/careerguidance/comments/1qgoimx/anyone_able_to_give_some_advice_or_guidance_for_a/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,15 @@ flair: "Advice"
 extracted_at: "2026-05-20T12:56:27.154Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1qgoimx.md#c0"
+    char_span: [0, 947]
+    sentence_count: 7
+    key_terms: [timeshare, careerguidance, sales, years, marketing, comments, advice, switch]
+    token_count: 232
 ---
-
 # Anyone able to give some advice or guidance for a mid-career switch?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1qgoimx/anyone_able_to_give_some_advice_or_guidance_for_a/)

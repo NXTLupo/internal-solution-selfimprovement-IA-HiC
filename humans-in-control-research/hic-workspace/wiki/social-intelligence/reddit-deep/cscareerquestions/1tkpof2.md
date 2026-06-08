@@ -7,18 +7,18 @@ title: "Please help me decide between Trading vs Quant Tech"
 author: "Radder786"
 date: "2026-05-22T17:24:30.000Z"
 score: 2
-upvote_ratio: 0.67
-num_comments: 27
+upvote_ratio: 0.63
+num_comments: 28
 flair: ""
-extracted_at: "2026-05-22T21:34:54.424Z"
+extracted_at: "2026-06-06T23:23:15.644Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Please help me decide between Trading vs Quant Tech
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1tkpof2/please_help_me_decide_between_trading_vs_quant/)
-Posted by **Radder786** · **2↑** · **27 comments**
+Posted by **Radder786** · **2↑** · **28 comments**
 
 Choosing between a Graduate Trader role at a top European prop/HFT firm vs a Quant Tech internship at a top-tier quant hedge fund.
 
@@ -42,8 +42,8 @@ Any advice for a graduate starting their first job would be greatly appreciated.
 
 ## Comments
 
-- **Slow-Ruin1845** (5↑): Trading roles get way harder to break into later while quant tech skills transfer easier - your instinct is right about that graduate trader window closing fast
-- **PaperHandsTheDip** (3↑): Something to consider / put a little weight on is who you're going to meet at each company. More prestigious companies tend to get you a better network (not always).
+- **Slow-Ruin1845** (6↑): Trading roles get way harder to break into later while quant tech skills transfer easier - your instinct is right about that graduate trader window closing fast
+- **PaperHandsTheDip** (4↑): Something to consider / put a little weight on is who you're going to meet at each company. More prestigious companies tend to get you a better network (not always).
 
 Your network largely defines what opportunities are open for you a few years post graduation. Think 5-10 years down the road, not just the next job. Especially in a job market like todays - the way people get jobs is often by pinging their friends / people they've previously worked with. Your success rate will be 100x higher than anything else and also much more likely to be compatible. Do you know anything about the companies / culture / people working there? Put weight on that too as those will be the people you're adding to your network
 
@@ -52,7 +52,7 @@ Goodluck with whatever you choose!
     - **PaperHandsTheDip** (1↑): Networking isn't "we go for coffee and discuss" it's usually who you're directly working with. It's who sees your work, how you think, how productive you are, etc. As time goes on people move around / between different jobs (even industries), etc. The average engineer only stays with a company for \~2 years. You may even get bored / want something new and want to change roles.
 
 What usually happens is when that happens you reach out to your friends who moved around. Just chat with them in a friendly manner and explore what's out there. People you worked with that moved elsewhere. You'll get 100x better results than trying from a cold start and often if you get a new job / opportunity it comes from that. I've seen people move between tech & finance and back. There's heavy overlap with the guys in finance, tech, ai & many other related fields. I have friends in all 3 (started in tech myself)
-- **UgurcanSoruc** (2↑): your instinct is right. the graduate trader window at hft/prop firms is narrow and very hard to reenter once you're a couple of years out. quant tech skills from a top hedge fund travel well across finance and tech both.
+- **UgurcanSoruc** (3↑): your instinct is right. the graduate trader window at hft/prop firms is narrow and very hard to reenter once you're a couple of years out. quant tech skills from a top hedge fund travel well across finance and tech both.
 
 one more thing worth thinking about: the 6-month intern vs 12-month grad distinction matters too. the hedge fund role is still an internship. if it doesn't convert you're back in the job market sooner, which is a real risk if the window for trading roles has partially closed by then. i'd want to know the conversion rate before deciding.
   - **Radder786** (1↑): thank you that makes a lot of sense. the only thing being I can’t do both. I’m not getting those quant tech skills from a top hedge fund if I take the trader role right now. Is it possible for me to break back into quant if this year of trading doesn’t go well for me?

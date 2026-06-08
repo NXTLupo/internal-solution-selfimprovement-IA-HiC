@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1sdbmo2.md
 url: "https://www.reddit.com/r/GradSchool/comments/1sdbmo2/but_seriously_how_did_you_afford_to_live_while_in/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,63 @@ flair: "Health & Work/Life Balance"
 extracted_at: "2026-05-25T13:04:07.331Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c0"
+    char_span: [0, 905]
+    sentence_count: 11
+    key_terms: [school, did, live, job, gradschool, comments, savings, afford]
+    token_count: 239
+  - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c1"
+    char_span: [920, 2576]
+    sentence_count: 15
+    key_terms: [stipend, undergrad, godwinson4king, school, lower, big, job, jobs]
+    section: Comments
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c2"
+    char_span: [2578, 4308]
+    sentence_count: 6
+    key_terms: [stipend, phd, tuition, university, like, students, month, get]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c3"
+    char_span: [4311, 4737]
+    sentence_count: 2
+    key_terms: [stipends, notavalgrinder, unrealistic, completely, especially, everywhere, pressured, canadian]
+    section: Comments
+    token_count: 98
+  - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c4"
+    char_span: [4739, 6619]
+    sentence_count: 13
+    key_terms: [stipend, tuition, least, city, live, year, university, roommates]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c5"
+    char_span: [6410, 8254]
+    sentence_count: 14
+    key_terms: [loans, job, work, stipend, fellowship, financial, everyone, semester]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c6"
+    char_span: [8256, 9250]
+    sentence_count: 8
+    key_terms: [assistance, doing, phd, tuition, years, paying, entrepreneurhuge5008, "i'm"]
+    section: Comments
+    token_count: 246
+  - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c7"
+    char_span: [9252, 10625]
+    sentence_count: 13
+    key_terms: [outside, stipend, support, sacrifices, possible, masters, willing, without]
+    section: Comments
+    token_count: 341
+  - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c8"
+    char_span: [10627, 11417]
+    sentence_count: 4
+    key_terms: [devanclara, time, full, job, masters, studied, proud, until]
+    section: Comments
+    token_count: 246
 ---
-
 # But seriously, how did you afford to live while in grad school?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1sdbmo2/but_seriously_how_did_you_afford_to_live_while_in/)

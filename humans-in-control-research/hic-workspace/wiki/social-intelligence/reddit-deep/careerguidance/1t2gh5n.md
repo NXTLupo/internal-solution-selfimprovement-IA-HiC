@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t2gh5n.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t2gh5n/can_i_realistically_complete_acca_while_learning/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,26 @@ flair: "Advice"
 extracted_at: "2026-05-25T13:04:07.365Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t2gh5n.md#c0"
+    char_span: [0, 1968]
+    sentence_count: 16
+    key_terms: [acca, qualification, data, exemptions, structured, learning, careerguidance, master]
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/careerguidance/1t2gh5n.md#c1"
+    char_span: [1970, 2749]
+    sentence_count: 8
+    key_terms: [acca, complete, learning, focus, role, side, alternatively, internships]
+    token_count: 173
+  - id: "social-intelligence/reddit-deep/careerguidance/1t2gh5n.md#c2"
+    char_span: [2764, 3951]
+    sentence_count: 8
+    key_terms: [acca, exemptions, already, papers, legitimate-meat-2720, later, original-bus-6172, pay]
+    section: Comments
+    token_count: 281
 ---
-
 # Can I realistically complete ACCA while learning AI/Data skills, or should I commit to one path?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t2gh5n/can_i_realistically_complete_acca_while_learning/)

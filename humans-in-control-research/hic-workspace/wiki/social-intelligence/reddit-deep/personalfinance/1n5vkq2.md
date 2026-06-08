@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1n5vkq2.md
 url: "https://www.reddit.com/r/personalfinance/comments/1n5vkq2/my_parents_are_fine_right/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,110 @@ flair: "Retirement"
 extracted_at: "2026-05-17T01:13:31.182Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c0"
+    char_span: [0, 2089]
+    sentence_count: 17
+    key_terms: [financial, comments, personalfinance, planner, dad, situation, "wouldn't", finally]
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c1"
+    char_span: [2091, 3918]
+    sentence_count: 15
+    key_terms: [retire, did, "he's", need, attorney, planning, couple, friend]
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c2"
+    char_span: [3933, 5966]
+    sentence_count: 20
+    key_terms: ["don't", maybe, "he's", continuing, definitely, self-worth, position, working]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c3"
+    char_span: [5969, 8243]
+    sentence_count: 15
+    key_terms: [finances, working, retire, investments, talk, time, work, cognitive]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c4"
+    char_span: [7948, 9311]
+    sentence_count: 11
+    key_terms: [grandfather, everything, equipment, something, retired, energy, health, worked]
+    section: Comments
+    token_count: 306
+  - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c5"
+    char_span: [9313, 10832]
+    sentence_count: 9
+    key_terms: [socalization, retirement, something, structure, decline, retired, people, peanutneedsexercise]
+    section: Comments
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c6"
+    char_span: [10834, 12342]
+    sentence_count: 15
+    key_terms: [people, uncle, communities, day, retirement, until, years, ago]
+    section: Comments
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c7"
+    char_span: [12344, 14111]
+    sentence_count: 14
+    key_terms: [retirement, set, understand, difficult, working, worried, age, ass]
+    section: Comments
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c8"
+    char_span: [14113, 14944]
+    sentence_count: 4
+    key_terms: [retirement, spending, shift, years, down, slowdowntogodown, accumulating, comfortable]
+    section: Comments
+    token_count: 202
+  - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c9"
+    char_span: [14946, 17001]
+    sentence_count: 17
+    key_terms: [retirement, retired, able, sure, milestones, backwards, starting, anxiety]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c10"
+    char_span: [16774, 17142]
+    sentence_count: 3
+    key_terms: [salary, set, decreasing, gtobiast13, retirement, transition, emotional, shifting]
+    section: Comments
+    token_count: 91
+  - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c11"
+    char_span: [17144, 17190]
+    sentence_count: 1
+    key_terms: [insightful, consider, advice, great]
+    section: Comments
+    token_count: 9
+  - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c12"
+    char_span: [17192, 19323]
+    sentence_count: 16
+    key_terms: [retired, working, money, years, financially, age, retirement, believe]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c13"
+    char_span: [19018, 21233]
+    sentence_count: 11
+    key_terms: [work, working, get, "he's", start, back, care, long]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c14"
+    char_span: [20901, 22149]
+    sentence_count: 7
+    key_terms: [retirement, like, work, without, people, retire, fully, money]
+    section: Comments
+    token_count: 285
+  - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c15"
+    char_span: [22151, 23910]
+    sentence_count: 14
+    key_terms: [retirement, work, delivery, grocery, hobbies, husband, retired, retire]
+    section: Comments
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/personalfinance/1n5vkq2.md#c16"
+    char_span: [23912, 25354]
+    sentence_count: 11
+    key_terms: [need, estate, planner, take, involved, medicaid, financial, planning]
+    section: Comments
+    token_count: 355
 ---
-
 # My parents are fine, right?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1n5vkq2/my_parents_are_fine_right/)

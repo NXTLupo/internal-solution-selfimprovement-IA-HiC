@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1rz1bj9.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1rz1bj9/how_is_uwaterloo_cs_so_cracked/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-25T18:33:12.668Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1rz1bj9.md#c0"
+    char_span: [0, 534]
+    sentence_count: 4
+    key_terms: [uwaterloo, comments, students, waterloo, program, top, internships, outstanding]
+    token_count: 142
+  - id: "social-intelligence/reddit-deep/uwaterloo/1rz1bj9.md#c1"
+    char_span: [549, 1651]
+    sentence_count: 7
+    key_terms: [people, descendant, highschool, waterloo, coding, coded, never, prior]
+    section: Comments
+    token_count: 265
+  - id: "social-intelligence/reddit-deep/uwaterloo/1rz1bj9.md#c2"
+    char_span: [1653, 3465]
+    sentence_count: 9
+    key_terms: [experience, typically, courses, coding, lot, uni, work, hackathons]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/uwaterloo/1rz1bj9.md#c3"
+    char_span: [3467, 5495]
+    sentence_count: 10
+    key_terms: [students, research, output, year, cabbagemeister, people, co-op, department]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/uwaterloo/1rz1bj9.md#c4"
+    char_span: [5497, 6305]
+    sentence_count: 5
+    key_terms: [top, reputation, waterloo, courses, due-technician-2504, epfl, uoft, significantly]
+    section: Comments
+    token_count: 201
+  - id: "social-intelligence/reddit-deep/uwaterloo/1rz1bj9.md#c5"
+    char_span: [6307, 8319]
+    sentence_count: 10
+    key_terms: [waterloo, people, internships, students, cinnamoneyrolls, getting, school, combination]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/uwaterloo/1rz1bj9.md#c6"
+    char_span: [8322, 10459]
+    sentence_count: 16
+    key_terms: [waterloo, students, opportunities, better, get, because, coop, isn]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/uwaterloo/1rz1bj9.md#c7"
+    char_span: [10461, 10733]
+    sentence_count: 3
+    key_terms: [etc, professionalism, professionals, impressive, instacart, lazaridis, uwaterloo, fatdayuu]
+    section: Comments
+    token_count: 71
 ---
-
 # How is uwaterloo cs so cracked?
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1rz1bj9/how_is_uwaterloo_cs_so_cracked/)

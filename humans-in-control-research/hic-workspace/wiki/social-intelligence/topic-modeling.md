@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/topic-modeling.md
 title: "Topic Modeling & Semantic Analysis"
 type: framework
 created: 2026-04-10
@@ -8,8 +9,52 @@ confidence: high
 status: active
 tags: [topic-modeling, bertopic, semantic, pgvector, embeddings, clustering]
 evidence_count: 0
+industries: [ai_research, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/topic-modeling.md#c0"
+    char_span: [0, 1794]
+    sentence_count: 10
+    key_terms: [topic, documents, using, pipeline, clustering, c-tf-idf, modeling, hdbscan]
+    section: BERTopic Pipeline
+    token_count: 360
+  - id: "social-intelligence/topic-modeling.md#c1"
+    char_span: [1796, 3947]
+    sentence_count: 1
+    key_terms: [topic, posts, documents, subreddit, number, none, per, embeddings]
+    section: BERTopic Pipeline
+    token_count: 483
+  - id: "social-intelligence/topic-modeling.md#c2"
+    char_span: [3949, 5071]
+    sentence_count: 1
+    key_terms: [topic-model, int, api, topics, count, returns, cancel, sentiment]
+    section: BERTopic Pipeline
+    token_count: 292
+  - id: "social-intelligence/topic-modeling.md#c3"
+    char_span: [5098, 7180]
+    sentence_count: 7
+    key_terms: [subreddit, post, comment, models, content, returns, stores, vector]
+    section: pgvector Integration
+    token_count: 470
+  - id: "social-intelligence/topic-modeling.md#c4"
+    char_span: [7230, 8556]
+    sentence_count: 2
+    key_terms: [search, openai-compatible, via, context, claude, prompt, api, llm]
+    section: RAG (Retrieval-Augmented Generation) System
+    token_count: 324
+  - id: "social-intelligence/topic-modeling.md#c5"
+    char_span: [8585, 9274]
+    sentence_count: 1
+    key_terms: [wiki, theme, topic, embeddings, similarity, identify, provides, semantic]
+    section: Wiki Integration Rules
+    token_count: 116
+  - id: "social-intelligence/topic-modeling.md#c6"
+    char_span: [9297, 9677]
+    sentence_count: 1
+    key_terms: [social-intelligence, competitive, frameworks, analysis, social, topic, sentiment-pipeline, credibility-tiers]
+    section: Cross-References
+    token_count: 86
 ---
-
 # Topic Modeling & Semantic Analysis
 
 This page documents the BERTopic-powered topic modeling pipeline and the pgvector-backed semantic search system that together provide thematic analysis and retrieval-augmented generation (RAG) over indexed social data.

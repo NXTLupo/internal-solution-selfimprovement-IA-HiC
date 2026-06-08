@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1ozjjcd.md
 url: "https://www.reddit.com/r/waterloo/comments/1ozjjcd/suggestion_for_waterloo_dentist_for_chipped_tooth/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.134Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [healthcare]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1ozjjcd.md#c0"
+    char_span: [0, 582]
+    sentence_count: 4
+    key_terms: [tooth, waterloo, chipped, comments, dentist, front, good, recommendation]
+    token_count: 142
+  - id: "social-intelligence/reddit-deep/waterloo/1ozjjcd.md#c1"
+    char_span: [597, 1277]
+    sentence_count: 4
+    key_terms: [canigetahoeyeah, waterloo, dental, cartographerhot9174, dealt, positiveoutlook51, misdiagnosed, bratt4u2022]
+    section: Comments
+    token_count: 213
 ---
-
 # Suggestion for Waterloo dentist for chipped tooth
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1ozjjcd/suggestion_for_waterloo_dentist_for_chipped_tooth/)

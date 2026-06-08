@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rxd1hk/26_phd_app_results_and_my_application_process/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,70 @@ flair: "Biological Sciences"
 extracted_at: "2026-05-23T14:54:16.718Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c0"
+    char_span: [0, 1507]
+    sentence_count: 3
+    key_terms: [program, research, gradadmissions, school, application, lor, time, comments]
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c1"
+    char_span: [1509, 3880]
+    sentence_count: 13
+    key_terms: [research, programs, program, application, resources, because, writing, fields]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c2"
+    char_span: [3882, 5745]
+    sentence_count: 15
+    key_terms: [research, advice, interview, statement, asked, look, interested, mentioned]
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c3"
+    char_span: [5747, 8090]
+    sentence_count: 14
+    key_terms: [interview, questions, school, phd, question, ability, answers, gradadmissions]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c4"
+    char_span: [7797, 10191]
+    sentence_count: 15
+    key_terms: [questions, research, field, project, ability, pis, interviewing, asked]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c5"
+    char_span: [9903, 10252]
+    sentence_count: 4
+    key_terms: [field, interviewing, interested, questions, somewhere, memorize, possible, prepared]
+    token_count: 78
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c6"
+    char_span: [10267, 11671]
+    sentence_count: 10
+    key_terms: [phd, want, research, application, industry, prepared, explain, process]
+    section: Comments
+    token_count: 305
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c7"
+    char_span: [11673, 13211]
+    sentence_count: 6
+    key_terms: [interviews, definitely, people, programs, students, current, nervous, program]
+    section: Comments
+    token_count: 306
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c8"
+    char_span: [13213, 14881]
+    sentence_count: 10
+    key_terms: [ok-soup-3313, thank, congrats, holiday-metal1028, congratulations, great, information, best]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c9"
+    char_span: [14643, 14923]
+    sentence_count: 3
+    key_terms: [ok-soup-3313, thank, congratulations, recreational, activities, community, sdavistvs, students]
+    section: Comments
+    token_count: 87
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c10"
+    char_span: [14925, 15395]
+    sentence_count: 4
+    key_terms: [because, getting, did, time, understanding, specifically, definitely, experience]
+    section: Comments
+    token_count: 87
 ---
-
 # '26 PhD App Results and My Application Process
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rxd1hk/26_phd_app_results_and_my_application_process/)

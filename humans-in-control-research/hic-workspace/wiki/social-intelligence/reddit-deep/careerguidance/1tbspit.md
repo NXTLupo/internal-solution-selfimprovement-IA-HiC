@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tbspit.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tbspit/which_career_path_is_better_for_bsc_csit_students/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 4
 flair: "Advice"
-extracted_at: "2026-05-23T20:15:29.966Z"
+extracted_at: "2026-06-03T18:53:36.150Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tbspit.md#c0"
+    char_span: [0, 522]
+    sentence_count: 3
+    key_terms: [careerguidance, comments, career, cybersecurity, opportunities, poojasuthar, reddit-deep, difficulty]
+    token_count: 137
+  - id: "social-intelligence/reddit-deep/careerguidance/1tbspit.md#c1"
+    char_span: [537, 1804]
+    sentence_count: 1
+    key_terms: [data, need, entry, foundation, analytics, companies, different, probably]
+    section: Comments
+    token_count: 243
 ---
-
 # Which career path is better for bsc csit students currently in second year?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tbspit/which_career_path_is_better_for_bsc_csit_students/)
@@ -49,4 +61,3 @@ digital marketing is bit different path - less technical but still uses data ana
 
   
 if i was in second year, i'd probably focus in data analytics first to build solid foundation, then specialize later based on what interests you most after trying different areas.
-- **Acrobatic-Block2547** (1↑): I was in a similar spot and what helped was ignoring “which is best” and asking what work I actually enjoy day to day. I tried a bit of all four through small projects and internships: basic ML models, simple dashboards, a security lab, and running ads for a local shop. Data analytics felt like the best mix of logic and quick feedback, and it’s easier to break into than hardcore AI or security. I used things like Coursera and Kaggle for practice, then later used Brand24 and Pulse for Reddit to see what skills companies complain they can’t hire for. Pick one lane now, but keep basic skills in the others so you can pivot.

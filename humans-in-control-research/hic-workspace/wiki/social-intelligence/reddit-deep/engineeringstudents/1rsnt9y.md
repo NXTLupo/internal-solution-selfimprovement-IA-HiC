@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1rsnt9y.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1rsnt9y/student_2nd_year_civil_engineering_student/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,15 @@ flair: "Resume Help"
 extracted_at: "2026-05-20T12:57:40.607Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rsnt9y.md#c0"
+    char_span: [0, 1449]
+    sentence_count: 7
+    key_terms: [engineering, internship, engineeringstudents, f170b0957b364223ae5338c2ec39a948ffc3361f, student, infrastructure, civil, melbourne]
+    token_count: 364
 ---
-
 # [Student] 2nd Year Civil Engineering Student – Australia – Looking for Internship Resume Feedback
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1rsnt9y/student_2nd_year_civil_engineering_student/)

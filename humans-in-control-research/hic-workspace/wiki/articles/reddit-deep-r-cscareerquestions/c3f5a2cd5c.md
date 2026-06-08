@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/c3f5a2cd5c.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1tjvni0/i_joined_google_and_im_really_disappointed/"
 url_hash: "c3f5a2cd5c"
 kind: "article"
@@ -10,8 +11,30 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-26T12:57:23.476368+00:00"
 chars: 7922
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/c3f5a2cd5c.md#c0"
+    char_span: [0, 2155]
+    sentence_count: 21
+    key_terms: [onboarding, google, people, cscareerquestions, been, tech, industry, start]
+    token_count: 506
+  - id: "articles/reddit-deep-r-cscareerquestions/c3f5a2cd5c.md#c1"
+    char_span: [2157, 4072]
+    sentence_count: 17
+    key_terms: [people, document, industry, another, because, working, broken, update]
+    token_count: 404
+  - id: "articles/reddit-deep-r-cscareerquestions/c3f5a2cd5c.md#c2"
+    char_span: [4074, 6276]
+    sentence_count: 25
+    key_terms: [like, experience, different, problem, maybe, been, companies, documents]
+    token_count: 477
+  - id: "articles/reddit-deep-r-cscareerquestions/c3f5a2cd5c.md#c3"
+    char_span: [6278, 8120]
+    sentence_count: 14
+    key_terms: [different, worked, experience, ago, time, everyone, paperhandsthedip, google]
+    token_count: 428
 ---
-
 # I joined Google and I’m really disappointed
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1tjvni0/i_joined_google_and_im_really_disappointed/)

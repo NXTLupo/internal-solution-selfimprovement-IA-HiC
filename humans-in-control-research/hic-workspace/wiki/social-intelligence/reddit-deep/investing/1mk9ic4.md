@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1mk9ic4.md
 url: "https://www.reddit.com/r/investing/comments/1mk9ic4/atlantic_article_is_the_stock_market_overvalued/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,69 @@ flair: ""
 extracted_at: "2026-05-16T20:55:01.237Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, media]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1mk9ic4.md#c0"
+    char_span: [0, 1107]
+    sentence_count: 6
+    key_terms: [people, overvalued, stock, investing, because, companies, vwlk5mtds-akow8dwyudlxf98u, checking]
+    token_count: 280
+  - id: "social-intelligence/reddit-deep/investing/1mk9ic4.md#c1"
+    char_span: [1122, 3068]
+    sentence_count: 13
+    key_terms: [money, retirement, boomers, inflationary, like, passively, pouring, people]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/investing/1mk9ic4.md#c2"
+    char_span: [3070, 5035]
+    sentence_count: 11
+    key_terms: [boomers, money, market, stocks, pass, retirement, investors, selling]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/investing/1mk9ic4.md#c3"
+    char_span: [5037, 6744]
+    sentence_count: 11
+    key_terms: [investors, active, market, funds, passive, stocks, because, buying]
+    section: Comments
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/investing/1mk9ic4.md#c4"
+    char_span: [6746, 8652]
+    sentence_count: 14
+    key_terms: [overvalued, buying, companies, "i'm", market, stocks, money, article]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/investing/1mk9ic4.md#c5"
+    char_span: [8654, 10269]
+    sentence_count: 9
+    key_terms: [because, discovery, narrative, holdings, deleted, closer, being, large]
+    section: Comments
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/investing/1mk9ic4.md#c6"
+    char_span: [10271, 12053]
+    sentence_count: 9
+    key_terms: [investors, retail, market, like, passive, around, middle, saying]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/investing/1mk9ic4.md#c7"
+    char_span: [12055, 14242]
+    sentence_count: 18
+    key_terms: [price, profits, active, people, manipulation, share, value, reasonable]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/investing/1mk9ic4.md#c8"
+    char_span: [14244, 16437]
+    sentence_count: 18
+    key_terms: [funds, stock, individual, passive, active, market, companies, people]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/investing/1mk9ic4.md#c9"
+    char_span: [16439, 18476]
+    sentence_count: 13
+    key_terms: [people, investing, country, broker, invest, month, brokerage, probably]
+    section: Comments
+    token_count: 462
 ---
-
 # Atlantic article: Is the stock market overvalued because of the rise of passive investors?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1mk9ic4/atlantic_article_is_the_stock_market_overvalued/)

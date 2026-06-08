@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1nbkov2.md
 url: "https://www.reddit.com/r/careerguidance/comments/1nbkov2/ceo_just_told_me_to_look_for_another_jobwhat_to_do/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,63 @@ flair: ""
 extracted_at: "2026-05-24T14:09:04.414Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1nbkov2.md#c0"
+    char_span: [0, 1677]
+    sentence_count: 15
+    key_terms: [learning, another, careerguidance, break, job, take, want, comments]
+    token_count: 409
+  - id: "social-intelligence/reddit-deep/careerguidance/1nbkov2.md#c1"
+    char_span: [1692, 3845]
+    sentence_count: 19
+    key_terms: [job, voluntarily, domain, upskilling, time, yourself, always, next]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1nbkov2.md#c2"
+    char_span: [3522, 3926]
+    sentence_count: 4
+    key_terms: [always, job, accomplishments, interviewing, linkedin, surround, yourself, applies]
+    section: Comments
+    token_count: 84
+  - id: "social-intelligence/reddit-deep/careerguidance/1nbkov2.md#c3"
+    char_span: [3928, 5188]
+    sentence_count: 12
+    key_terms: [people, yourself, getting, started, "aren't", buying, right, sales]
+    section: Comments
+    token_count: 326
+  - id: "social-intelligence/reddit-deep/careerguidance/1nbkov2.md#c4"
+    char_span: [5190, 6916]
+    sentence_count: 13
+    key_terms: [business, data, analyst, background, companies, gathering, technical, engineer]
+    section: Comments
+    token_count: 380
+  - id: "social-intelligence/reddit-deep/careerguidance/1nbkov2.md#c5"
+    char_span: [6918, 8205]
+    sentence_count: 5
+    key_terms: [experience, "i'm", work, absolutely, because, oracle, trying, "you'll"]
+    section: Comments
+    token_count: 323
+  - id: "social-intelligence/reddit-deep/careerguidance/1nbkov2.md#c6"
+    char_span: [8207, 9573]
+    sentence_count: 12
+    key_terms: [get, feels, job, situation, business, company, dreams, going]
+    section: Comments
+    token_count: 345
+  - id: "social-intelligence/reddit-deep/careerguidance/1nbkov2.md#c7"
+    char_span: [9575, 11408]
+    sentence_count: 13
+    key_terms: [start, looking, star-gazer-007, revops, ceo, data, job, look]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/careerguidance/1nbkov2.md#c8"
+    char_span: [11410, 12994]
+    sentence_count: 18
+    key_terms: [pivot, tech, get, yourself, company, moment, code, data]
+    section: Comments
+    token_count: 377
 ---
-
 # CEO just told me to “look for another job”…What to do?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1nbkov2/ceo_just_told_me_to_look_for_another_jobwhat_to_do/)

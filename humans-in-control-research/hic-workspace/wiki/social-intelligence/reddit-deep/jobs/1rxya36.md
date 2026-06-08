@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1rxya36.md
 url: "https://www.reddit.com/r/jobs/comments/1rxya36/is_it_even_possible_to_find_a_job_in_2026/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,63 @@ flair: "Companies"
 extracted_at: "2026-05-25T13:03:11.723Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1rxya36.md#c0"
+    char_span: [0, 1835]
+    sentence_count: 13
+    key_terms: [experience, job, like, jobs, possible, willing, people, find]
+    token_count: 401
+  - id: "social-intelligence/reddit-deep/jobs/1rxya36.md#c1"
+    char_span: [1850, 3393]
+    sentence_count: 8
+    key_terms: [job, illegal, depending, glassdoor, interview, position, reddit, switch]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/jobs/1rxya36.md#c2"
+    char_span: [3395, 5285]
+    sentence_count: 19
+    key_terms: [job, no-professional-9618, congratulations, new, interviews, interview, applying, starting]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1rxya36.md#c3"
+    char_span: [5038, 7090]
+    sentence_count: 16
+    key_terms: [job, market, bubble, enough, making, people, posted, no-professional-9618]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1rxya36.md#c4"
+    char_span: [6863, 7825]
+    sentence_count: 6
+    key_terms: [rejection, linkedin, piece, work, thesonofdisaster, pleasuremysole, recommendation, personalized]
+    section: Comments
+    token_count: 243
+  - id: "social-intelligence/reddit-deep/jobs/1rxya36.md#c5"
+    char_span: [7827, 8937]
+    sentence_count: 16
+    key_terms: [baking, internship, benefits, finding, retail, no-professional-9618, dontfeedagalasponge, mfsqcbsookpbjtmvwz]
+    section: Comments
+    token_count: 286
+  - id: "social-intelligence/reddit-deep/jobs/1rxya36.md#c6"
+    char_span: [8939, 11057]
+    sentence_count: 9
+    key_terms: [lordglorkofuranus, economy, someone, trump, job, jobs, correct, baking]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1rxya36.md#c7"
+    char_span: [10845, 11372]
+    sentence_count: 3
+    key_terms: [reasons, benefitaromatic2005, major, lordglorkofuranus, rasta-ragamuffin, buildwithadrian, reshuffeled, collapsing]
+    section: Comments
+    token_count: 146
+  - id: "social-intelligence/reddit-deep/jobs/1rxya36.md#c8"
+    char_span: [11376, 13585]
+    sentence_count: 8
+    key_terms: [job, good, jobs, complete-cricket-351, amazing, "you're", board, got]
+    section: Comments
+    token_count: 505
 ---
-
 # Is it even possible to find a job in 2026?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1rxya36/is_it_even_possible_to_find_a_job_in_2026/)

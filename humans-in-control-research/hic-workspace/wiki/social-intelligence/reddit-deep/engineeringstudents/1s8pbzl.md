@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1s8pbzl.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1s8pbzl/am_i_overthinking_how_much_experience_you_need/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,27 @@ flair: "Academic Advice"
 extracted_at: "2026-05-22T23:33:47.040Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1s8pbzl.md#c0"
+    char_span: [0, 698]
+    sentence_count: 5
+    key_terms: [experience, engineeringstudents, comments, overthinking, reddit-deep, restaurants, florensic1, employers]
+    token_count: 165
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1s8pbzl.md#c1"
+    char_span: [713, 2184]
+    sentence_count: 14
+    key_terms: [freshman, experience, engineering, internships, get, like, year, vibrations]
+    section: Comments
+    token_count: 345
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1s8pbzl.md#c2"
+    char_span: [2186, 4432]
+    sentence_count: 13
+    key_terms: [experience, because, "you're", hired, college, graduation, interviews, interview]
+    section: Comments
+    token_count: 462
 ---
-
 # am i overthinking how much experience you need for a first co-op?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1s8pbzl/am_i_overthinking_how_much_experience_you_need/)

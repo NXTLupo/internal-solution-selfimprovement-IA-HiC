@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1p3zld1.md
 url: "https://www.reddit.com/r/jobs/comments/1p3zld1/job_hired_me_with_no_experience_in_field_now_im/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -6,19 +7,48 @@ subreddit: "jobs"
 title: "Job hired me with no experience in field,  now I’m drowning"
 author: "foul_tarnished92"
 date: "2025-11-22T17:54:48.000Z"
-score: 213
+score: 211
 upvote_ratio: 0.97
 num_comments: 70
 flair: "Career development"
-extracted_at: "2026-05-20T06:41:17.633Z"
+extracted_at: "2026-06-06T13:04:34.553Z"
 extraction_method: "praw-deep"
-research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1p3zld1.md#c0"
+    char_span: [0, 1936]
+    sentence_count: 11
+    key_terms: [experience, job, never, years, jobs, background, everything, insurance]
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/jobs/1p3zld1.md#c1"
+    char_span: [1951, 2761]
+    sentence_count: 5
+    key_terms: [internal, feeling, systems, front-photograph-542, lot, new, use, oliviapresteign]
+    section: Comments
+    token_count: 200
+  - id: "social-intelligence/reddit-deep/jobs/1p3zld1.md#c2"
+    char_span: [2763, 4254]
+    sentence_count: 12
+    key_terms: [use, interview, priority, started, front-photograph-542, chose, fast, good]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/jobs/1p3zld1.md#c3"
+    char_span: [4257, 6388]
+    sentence_count: 14
+    key_terms: [questions, lostsailorlivefree, extremely, important, company, mentor, theoverzealousengie, notes]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1p3zld1.md#c4"
+    char_span: [6044, 6932]
+    sentence_count: 11
+    key_terms: [tasks, coworkers, glittering-lime-7049, ask, keep, nerve-wracking, communication, comfortable]
+    section: Comments
+    token_count: 184
 ---
-
 # Job hired me with no experience in field,  now I’m drowning
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1p3zld1/job_hired_me_with_no_experience_in_field_now_im/)
-Posted by **foul_tarnished92** · **213↑** · **70 comments**
+Posted by **foul_tarnished92** · **211↑** · **70 comments**
 
 Background info - I just finally went back to school in my early 30s to finish my Business Management and Marketing degree and have started to apply for jobs where I thought I landed a super sweet gig. 
 My background includes being a writer/editor for the past 7 years with 5 years of general manager experience in a retail space. 
@@ -31,30 +61,30 @@ The question is - what do I do? I feel like I’m wasting everyone’s time with
 
 ## Comments
 
-- **OliviaPresteign** (290↑): It’s been a week: this is a normal feeling. You’ll figure it out.
-  - **Opposite_Ice3808** (59↑): Hang in there. Jobs are hard find.
-  - **Witty_Ladder8340** (23↑): I always spent the first month of a job feeling like the most stupid person ever. It all works out and I’ve succeeded to multiple promotions
-- **Front-Photograph-542** (134↑): I might get downvoted for this, but here’s something that genuinely helps a lot of people starting in a new field:
+- **OliviaPresteign** (286↑): It’s been a week: this is a normal feeling. You’ll figure it out.
+  - **Opposite_Ice3808** (58↑): Hang in there. Jobs are hard find.
+  - **Witty_Ladder8340** (24↑): I always spent the first month of a job feeling like the most stupid person ever. It all works out and I’ve succeeded to multiple promotions
+- **Front-Photograph-542** (137↑): I might get downvoted for this, but here’s something that genuinely helps a lot of people starting in a new field:
 
 If your company has any internal tools or AI systems, use them as a personal assistant to break down documents, terms, workflows, and acronyms (as long as it’s allowed).
 A lot of companies now have their own approved AI assistants specifically for internal use, and they’re incredibly helpful for learning new systems fast.
 
 Don’t be afraid to lean on those resources. They’re there to support you, not test you. This can take a huge amount of pressure off while you’re building your baseline knowledge.
-  - **JustAnotherFNC** (38↑): Yup, absolutely use AI *but be cautious* about running any company proprietary info through it.
+  - **JustAnotherFNC** (42↑): Yup, absolutely use AI *but be cautious* about running any company proprietary info through it.
     - **Front-Photograph-542** (21↑): Yep! But some are allowed for internal use.
   - **itsmicah64** (11↑): Fully agree. I just overheard my boss saying he used chat gpt to help him with a spreadsheet and some info and that made me feel way much better. I'm also new at a job where I have imposters syndrome but I'm figuring it out and will definitely turn to AI if I need help. Only 3 weeks in so far. OP they chose you for a reason, especially if you were clear with them in the interview. I also was transparent in the interview about some things I wasn't good at but they still chose me, so I always rest on that. Good luck and you'll do fine my friend 💯
   - **SAA1214** (1↑): Yup my sister started a new job and they literally told her to use ChatGPT or similar
 - **Accomplished_Emu_658** (21↑): You just started it can be like that.
-- **FRELNCER** (23↑): It sounds like you are trying to do everything 'first.' 
+- **FRELNCER** (21↑): It sounds like you are trying to do everything 'first.' 
 
 Make a list of tasks and prioritize. Use a decision matrix to identify easy/fast (quick wins) and high priority fast and slow. For the slow, but high priority, break down the steps that need to be done in order to get there.
 - **phelgmdounuts** (13↑): This is normal.
 
 
 I've moved sideways from one organisation to another ( even ended up doing less work) and I still went through a period of overwhelming disorientation
-- **Patsx5sb** (10↑): You didn’t work the Penski File?
+- **Patsx5sb** (9↑): You didn’t work the Penski File?
   - **foul_tarnished92** (7↑): ![gif](giphy|7Dk4apSbWKpZ6)
-- **TheOverzealousEngie** (10↑): you should contemplate that this is the only post I’ve seen in weeks that didn’t decry someone searching for a year and considering what ’giving up’ really looks like.
+- **TheOverzealousEngie** (9↑): you should contemplate that this is the only post I’ve seen in weeks that didn’t decry someone searching for a year and considering what ’giving up’ really looks like.
 - **lostsailorlivefree** (4↑): Can you find a mentor on the dl?
   - **foul_tarnished92** (8↑): This is something I have been actively looking to do. My uncle is an extremely successful financial advisor who owns his own company - but is extremely busy and hard to get ahold of. We have a call scheduled for tomorrow so I’m hoping he can help me gain some insight on how to proceed and succeed.
     - **lostsailorlivefree** (7↑): Have specific questions laid out as best you can- it’ll show you respect his time. To really impress him write up a brief index of questions and send it to him prior saying “just want to be efficient with your valuable time here are some questions/areas I could use a boost in”

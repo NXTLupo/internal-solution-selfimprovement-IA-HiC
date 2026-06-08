@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1tdtxns.md
 url: "https://www.reddit.com/r/internships/comments/1tdtxns/career_growth_with_small_steps/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "During the Internship"
 extracted_at: "2026-05-25T18:31:15.451Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1tdtxns.md#c0"
+    char_span: [0, 544]
+    sentence_count: 5
+    key_terms: [internships, comments, teaches, career, small, step, communication, opportunities]
+    token_count: 122
+  - id: "social-intelligence/reddit-deep/internships/1tdtxns.md#c1"
+    char_span: [559, 1161]
+    sentence_count: 4
+    key_terms: [full-time, internships, lot, eventually, corporate, best, micro-management, decisions]
+    section: Comments
+    token_count: 132
 ---
-
 # Career growth with small steps
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1tdtxns/career_growth_with_small_steps/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1klf53p.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1klf53p/d_had_an_ai_engineer_interview_recently_and_the/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -13,8 +14,51 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:06.572Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1klf53p.md#c0"
+    char_span: [0, 1430]
+    sentence_count: 6
+    key_terms: [engineering, machinelearning, models, prompt, tuning, fine-tuning, fine, interview]
+    token_count: 300
+  - id: "social-intelligence/reddit-deep/machinelearning/1klf53p.md#c1"
+    char_span: [1445, 2905]
+    sentence_count: 8
+    key_terms: [clearlycylindrical, models, domain-specific, tasks, train, understand, decoder, trained]
+    section: Comments
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/machinelearning/1klf53p.md#c2"
+    char_span: [2907, 5048]
+    sentence_count: 18
+    key_terms: [fine-tuning, model, fine, engineering, maintenance, "it's", learning, context]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/machinelearning/1klf53p.md#c3"
+    char_span: [5050, 7275]
+    sentence_count: 5
+    key_terms: [training, sparsevectormath, domain, distribution, model, engineering, performance, data]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/machinelearning/1klf53p.md#c4"
+    char_span: [7277, 9210]
+    sentence_count: 11
+    key_terms: [fine, fine-tuning, "it's", decision, tuning, "can't", coach, assessments]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/machinelearning/1klf53p.md#c5"
+    char_span: [9212, 10701]
+    sentence_count: 8
+    key_terms: [customer, product, prompt, model, experience, surprised, probably, deliver]
+    section: Comments
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/machinelearning/1klf53p.md#c6"
+    char_span: [10703, 12647]
+    sentence_count: 9
+    key_terms: [finetuning, model, performance, language, scalpel, compared, specific, because]
+    section: Comments
+    token_count: 410
 ---
-
 # [D] Had an AI Engineer interview recently and the startup wanted to fine-tune sub-80b parameter models for their platform, why?
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1klf53p/d_had_an_ai_engineer_interview_recently_and_the/)

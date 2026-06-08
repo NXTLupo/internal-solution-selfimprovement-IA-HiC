@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1krfosj.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1krfosj/rejected_from_coop_due_to_gpa_have_to_stop/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,50 @@ flair: "Rant/Vent"
 extracted_at: "2026-05-18T14:15:17.915Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1krfosj.md#c0"
+    char_span: [0, 2093]
+    sentence_count: 26
+    key_terms: [gpa, engineering, requirement, transcript, engineeringstudents, co-op, screening, year]
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1krfosj.md#c1"
+    char_span: [2098, 2474]
+    sentence_count: 5
+    key_terms: [seems, get, like, responsibility, internship, anything, assuming, nowadays]
+    token_count: 90
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1krfosj.md#c2"
+    char_span: [2489, 4530]
+    sentence_count: 17
+    key_terms: [wrong, emotions, companies, don, gpa, deleted, down, "it's"]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1krfosj.md#c3"
+    char_span: [4532, 5941]
+    sentence_count: 13
+    key_terms: ["it's", reality, normal, emotions, happened, because, feel, something]
+    section: Comments
+    token_count: 316
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1krfosj.md#c4"
+    char_span: [5943, 7876]
+    sentence_count: 21
+    key_terms: [gpa, "don't", interview, because, juscurious21, requirement, list, professors]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1krfosj.md#c5"
+    char_span: [7878, 9936]
+    sentence_count: 13
+    key_terms: [gpa, questions, applying, niggamusprime17, proficiencies, keep, like, experience]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1krfosj.md#c6"
+    char_span: [9940, 11404]
+    sentence_count: 13
+    key_terms: ["didn't", manufacturing, engineering, get, gpa, take, something, graduate]
+    section: Comments
+    token_count: 350
 ---
-
 # Rejected from Co-op due to GPA. Have to stop everything. Heads up if you're starting in engineering.
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1krfosj/rejected_from_coop_due_to_gpa_have_to_stop/)

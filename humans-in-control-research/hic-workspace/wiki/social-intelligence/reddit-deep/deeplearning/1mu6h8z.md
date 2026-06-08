@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1mu6h8z.md
 url: "https://www.reddit.com/r/deeplearning/comments/1mu6h8z/finetuning_a_code_generation_llm_on_bengali/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.045Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1mu6h8z.md#c0"
+    char_span: [0, 328]
+    sentence_count: 1
+    key_terms: [deeplearning, comments, recommendations, fine-tuning, reddit-deep, generation, resource, bengali]
+    token_count: 94
 ---
-
 # Fine-tuning a Code Generation LLM on Bengali Dataset - Need Model & Resource Recommendations
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1mu6h8z/finetuning_a_code_generation_llm_on_bengali/)

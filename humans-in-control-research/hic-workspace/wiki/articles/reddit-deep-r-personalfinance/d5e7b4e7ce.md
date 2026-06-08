@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-personalfinance/d5e7b4e7ce.md
 url: "https://www.reddit.com/r/personalfinance/comments/1l0zp0g/the_intelligent_investor_kinda_rewired_how_i/"
 url_hash: "d5e7b4e7ce"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:19:51.148057+00:00"
 chars: 3005
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-personalfinance/d5e7b4e7ce.md#c0"
+    char_span: [0, 2102]
+    sentence_count: 15
+    key_terms: [like, hold, time, personalfinance, updated, change, market, money]
+    token_count: 504
+  - id: "articles/reddit-deep-r-personalfinance/d5e7b4e7ce.md#c1"
+    char_span: [2105, 3220]
+    sentence_count: 7
+    key_terms: ["don't", read, market, else, too, depressive, forward, minutes]
+    token_count: 242
 ---
-
 # The Intelligent Investor kinda rewired how I think about money
 
 Source: [Reddit Deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1l0zp0g/the_intelligent_investor_kinda_rewired_how_i/)

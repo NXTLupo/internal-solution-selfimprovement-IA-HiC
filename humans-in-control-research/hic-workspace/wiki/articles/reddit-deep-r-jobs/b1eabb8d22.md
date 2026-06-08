@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-jobs/b1eabb8d22.md
 url: "https://www.reddit.com/r/jobs/comments/1palrsy/what_if_any_jobs_are_there_for_introverts_with_no/"
 url_hash: "b1eabb8d22"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T06:47:50.585040+00:00"
 chars: 961
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-jobs/b1eabb8d22.md#c0"
+    char_span: [0, 1170]
+    sentence_count: 8
+    key_terms: [experience, warehouse, jobs, comments, reddit, clock, entry, loser]
+    token_count: 323
 ---
-
 # What, if any, jobs are there for introverts with no skills or experience?
 
 Source: [Reddit Deep: r/jobs](https://www.reddit.com/r/jobs/comments/1palrsy/what_if_any_jobs_are_there_for_introverts_with_no/)

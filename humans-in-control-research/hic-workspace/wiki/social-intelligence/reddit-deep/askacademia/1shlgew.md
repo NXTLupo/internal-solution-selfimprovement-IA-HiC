@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1shlgew.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1shlgew/phd_at_nus_vs_restarting_in_the_us_worth/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,33 @@ flair: "STEM"
 extracted_at: "2026-05-26T14:32:49.127Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1shlgew.md#c0"
+    char_span: [0, 2097]
+    sentence_count: 10
+    key_terms: [phd, coursework, years, nus, research, askacademia, positioning, restarting]
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/askacademia/1shlgew.md#c1"
+    char_span: [2112, 4075]
+    sentence_count: 8
+    key_terms: [phd, ship, comments, student, reddit, https, com, need]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/askacademia/1shlgew.md#c2"
+    char_span: [4077, 5074]
+    sentence_count: 8
+    key_terms: [blackforestcheesecak, here, phd, living, lower, years, cost, communicating]
+    section: Comments
+    token_count: 239
+  - id: "social-intelligence/reddit-deep/askacademia/1shlgew.md#c3"
+    char_span: [5076, 7038]
+    sentence_count: 15
+    key_terms: [phd, connections, feel, advisor, lacking, always, longer, maybe]
+    section: Comments
+    token_count: 456
 ---
-
 # PhD at NUS vs restarting in the US — worth switching or should I stick it out?
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1shlgew/phd_at_nus_vs_restarting_in_the_us_worth/)

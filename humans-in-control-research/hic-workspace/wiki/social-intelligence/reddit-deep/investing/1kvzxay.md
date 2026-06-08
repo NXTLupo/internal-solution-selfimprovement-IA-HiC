@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1kvzxay.md
 url: "https://www.reddit.com/r/investing/comments/1kvzxay/ive_got_called_old_fashion_for_investing_in/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.193Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [manufacturing]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1kvzxay.md#c0"
+    char_span: [0, 558]
+    sentence_count: 3
+    key_terms: [stocks, investing, industrial, comments, old, moodyhighway, reddit-deep, absolutely]
+    token_count: 144
+  - id: "social-intelligence/reddit-deep/investing/1kvzxay.md#c1"
+    char_span: [573, 2635]
+    sentence_count: 11
+    key_terms: [companies, invest, aapl, boring, construction, tech, millions, charlie]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1kvzxay.md#c2"
+    char_span: [2422, 3570]
+    sentence_count: 10
+    key_terms: [money, company, companies, boring, value, "it's", investment, country]
+    section: Comments
+    token_count: 293
+  - id: "social-intelligence/reddit-deep/investing/1kvzxay.md#c3"
+    char_span: [3572, 4197]
+    sentence_count: 3
+    key_terms: [hold, buying, market, stocks, diversification, thegargageman, pinpointing, eventually]
+    section: Comments
+    token_count: 149
 ---
-
 # I've got called old fashion for investing in industrial stocks instead of all tech and ai stocks
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1kvzxay/ive_got_called_old_fashion_for_investing_in/)

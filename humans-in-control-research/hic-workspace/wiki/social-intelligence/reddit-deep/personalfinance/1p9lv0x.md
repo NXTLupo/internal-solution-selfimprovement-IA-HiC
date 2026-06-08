@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1p9lv0x.md
 url: "https://www.reddit.com/r/personalfinance/comments/1p9lv0x/23_5kmonth_posttax_75k_saved_how_should_i_be/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,21 @@ flair: "Taxes"
 extracted_at: "2026-05-17T01:13:31.183Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1p9lv0x.md#c0"
+    char_span: [0, 1626]
+    sentence_count: 15
+    key_terms: [month, isa, personalfinance, london, right, financial, comments, account]
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/personalfinance/1p9lv0x.md#c1"
+    char_span: [1641, 3473]
+    sentence_count: 8
+    key_terms: [personalfinance, questions, ukpersonalfinance, cash, automatically, automoderator, fund, wiki]
+    section: Comments
+    token_count: 444
 ---
-
 # 23, £5k/month post-tax, £75k saved — how should I be investing and structuring my finances?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1p9lv0x/23_5kmonth_posttax_75k_saved_how_should_i_be/)

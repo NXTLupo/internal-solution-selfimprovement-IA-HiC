@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1ta0e5s.md
 url: "https://www.reddit.com/r/findapath/comments/1ta0e5s/how_did_you_discover_what_youre_truly_good_at/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,39 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-22T15:13:18.837Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1ta0e5s.md#c0"
+    char_span: [0, 1679]
+    sentence_count: 15
+    key_terms: [good, did, life, people, relationship, feel, findapath, something]
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/findapath/1ta0e5s.md#c1"
+    char_span: [1694, 3735]
+    sentence_count: 16
+    key_terms: [good, thank, everyone, helpful, people, please, being, difference]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/findapath/1ta0e5s.md#c2"
+    char_span: [3737, 5995]
+    sentence_count: 17
+    key_terms: [interested, yourself, boredom, "you're", breakthrough, like, side, genuinely]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/findapath/1ta0e5s.md#c3"
+    char_span: [5997, 8172]
+    sentence_count: 20
+    key_terms: [people, started, myself, working, environments, never, head, draining]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/findapath/1ta0e5s.md#c4"
+    char_span: [8174, 10124]
+    sentence_count: 18
+    key_terms: [something, people, "i've", own, assessment, interested, different, everyone]
+    section: Comments
+    token_count: 464
 ---
-
 # How did you discover what you’re truly good at?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1ta0e5s/how_did_you_discover_what_youre_truly_good_at/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1q1n1iy.md
 url: "https://www.reddit.com/r/artificial/comments/1q1n1iy/legality_of_100_uncensored_chatbot/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,57 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:04.781Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1q1n1iy.md#c0"
+    char_span: [0, 2519]
+    sentence_count: 3
+    key_terms: [including, illegal, uncensored, refusal, someone, violent, non-consensual, write]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/artificial/1q1n1iy.md#c1"
+    char_span: [2534, 4120]
+    sentence_count: 10
+    key_terms: [people, png, internet, browser, censor, https, sued, web]
+    section: Comments
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/artificial/1q1n1iy.md#c2"
+    char_span: [4122, 6233]
+    sentence_count: 17
+    key_terms: [people, because, illegal, information, "don't", like, browser, use]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/artificial/1q1n1iy.md#c3"
+    char_span: [6235, 8004]
+    sentence_count: 12
+    key_terms: [information, llm, choose, responsible, get, user, work, cardiology]
+    section: Comments
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/artificial/1q1n1iy.md#c4"
+    char_span: [8006, 9884]
+    sentence_count: 15
+    key_terms: [aggressiveparty3355, information, instructions, wikipedia, argument, methamphetamine, believe, blocked]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/artificial/1q1n1iy.md#c5"
+    char_span: [9886, 12021]
+    sentence_count: 17
+    key_terms: ["it's", jurisdiction, illegal, offence, liability, criminal, company, person]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/artificial/1q1n1iy.md#c6"
+    char_span: [12023, 14031]
+    sentence_count: 14
+    key_terms: [illegal, law, attempt, myrddinemrys, liability, chatbot, deleted, obscene]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/artificial/1q1n1iy.md#c7"
+    char_span: [14033, 14263]
+    sentence_count: 2
+    key_terms: [intelligent, low-temperature-6962, corresponding, guaranteed, prosecuted, actions, "doesn't", intent]
+    section: Comments
+    token_count: 53
 ---
-
 # Legality of 100% uncensored chatbot
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1q1n1iy/legality_of_100_uncensored_chatbot/)

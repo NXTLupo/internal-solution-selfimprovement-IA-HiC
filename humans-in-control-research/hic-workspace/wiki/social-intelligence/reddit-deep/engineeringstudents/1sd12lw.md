@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1sd12lw.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1sd12lw/automotive_engineering_career_advice/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -10,11 +11,16 @@ score: 1
 upvote_ratio: 1
 num_comments: 0
 flair: "Academic Advice"
-extracted_at: "2026-05-23T20:15:19.045Z"
+extracted_at: "2026-06-01T18:48:36.780Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sd12lw.md#c0"
+    char_span: [0, 1107]
+    sentence_count: 6
+    key_terms: [automotive, engineeringstudents, electronics, "i'm", work, comments, always, maths]
+    token_count: 257
 ---
-
 # Automotive Engineering Career Advice
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1sd12lw/automotive_engineering_career_advice/)

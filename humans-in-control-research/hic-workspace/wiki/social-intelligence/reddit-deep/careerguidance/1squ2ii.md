@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1squ2ii.md
 url: "https://www.reddit.com/r/careerguidance/comments/1squ2ii/did_i_ruin_my_career_by_staying_too_long_at_my/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-19T17:57:31.304Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1squ2ii.md#c0"
+    char_span: [0, 407]
+    sentence_count: 3
+    key_terms: [careerguidance, comments, job, long, too, reddit-deep, happening, underpaid]
+    token_count: 112
+  - id: "social-intelligence/reddit-deep/careerguidance/1squ2ii.md#c1"
+    char_span: [422, 1900]
+    sentence_count: 16
+    key_terms: [job, title, new, stay, another, stayed, bump, ambitions]
+    section: Comments
+    token_count: 371
 ---
-
 # Did I ruin my career by staying too long at my first job?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1squ2ii/did_i_ruin_my_career_by_staying_too_long_at_my/)

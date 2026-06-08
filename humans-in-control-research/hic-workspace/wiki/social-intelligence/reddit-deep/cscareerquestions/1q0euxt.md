@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1q0euxt.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1q0euxt/could_the_cs_job_market_improve_in_a_couple_of/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-20T02:33:39.295Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q0euxt.md#c0"
+    char_span: [0, 512]
+    sentence_count: 2
+    key_terms: [cscareerquestions, market, comments, years, job, oversaturated, significantly, reddit-deep]
+    token_count: 126
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q0euxt.md#c1"
+    char_span: [527, 2395]
+    sentence_count: 15
+    key_terms: [money, happen, get, toy, anxiety, drauren, passion, bubble]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q0euxt.md#c2"
+    char_span: [2397, 4420]
+    sentence_count: 18
+    key_terms: [money, job, because, future, years, paid, tech, jimbo831]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q0euxt.md#c3"
+    char_span: [4422, 6428]
+    sentence_count: 12
+    key_terms: [people, learning, because, market, school, interested, don, skills]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q0euxt.md#c4"
+    char_span: [6430, 8624]
+    sentence_count: 17
+    key_terms: [software, time, enough, good, through, point, work, companies]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q0euxt.md#c5"
+    char_span: [8315, 9902]
+    sentence_count: 15
+    key_terms: [manufacturing, quixlequaxle, "don't", going, "it's", like, need, engineers]
+    section: Comments
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q0euxt.md#c6"
+    char_span: [9904, 10501]
+    sentence_count: 5
+    key_terms: [like, careers, career, pursue, post-secondary, snackatttack, considering, industry]
+    section: Comments
+    token_count: 144
 ---
-
 # Could the cs job market improve in a couple of years?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1q0euxt/could_the_cs_job_market_improve_in_a_couple_of/)

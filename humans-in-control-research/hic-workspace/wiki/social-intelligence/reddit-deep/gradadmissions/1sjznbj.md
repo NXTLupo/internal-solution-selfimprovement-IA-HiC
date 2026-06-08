@@ -7,12 +7,12 @@ title: "A wild grad school application experience"
 author: "DentistImpossible859"
 date: "2026-04-13T03:43:00.000Z"
 score: 35
-upvote_ratio: 0.96
+upvote_ratio: 0.97
 num_comments: 7
 flair: "Engineering"
-extracted_at: "2026-05-24T14:10:06.598Z"
+extracted_at: "2026-06-06T23:23:15.583Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # A wild grad school application experience

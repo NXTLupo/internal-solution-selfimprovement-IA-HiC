@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1ssype0.md
 url: "https://www.reddit.com/r/GradSchool/comments/1ssype0/is_grad_school_in_the_us_worth_it/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,51 @@ flair: "Fun & Humour"
 extracted_at: "2026-05-26T14:32:49.143Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1ssype0.md#c0"
+    char_span: [0, 1590]
+    sentence_count: 3
+    key_terms: [like, experience, college, master, school, doing, netherlands, back]
+    token_count: 365
+  - id: "social-intelligence/reddit-deep/gradschool/1ssype0.md#c1"
+    char_span: [1605, 3277]
+    sentence_count: 14
+    key_terms: [life, undergraduate, universities, movies, school, graduate, college, grad]
+    section: Comments
+    token_count: 348
+  - id: "social-intelligence/reddit-deep/gradschool/1ssype0.md#c2"
+    char_span: [3279, 5375]
+    sentence_count: 11
+    key_terms: [socializing, students, college, instead, parties, events, games, fail]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1ssype0.md#c3"
+    char_span: [5082, 5888]
+    sentence_count: 8
+    key_terms: [undergrad, events, school, state, big, grad, employability, retainer4491]
+    section: Comments
+    token_count: 190
+  - id: "social-intelligence/reddit-deep/gradschool/1ssype0.md#c4"
+    char_span: [5890, 8141]
+    sentence_count: 20
+    key_terms: [program, undergrads, school, time, research, student, people, maybe]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/gradschool/1ssype0.md#c5"
+    char_span: [8143, 9546]
+    sentence_count: 12
+    key_terms: [friends, club, difficult, parties, people, grad, research, masters]
+    section: Comments
+    token_count: 310
+  - id: "social-intelligence/reddit-deep/gradschool/1ssype0.md#c6"
+    char_span: [9548, 10953]
+    sentence_count: 13
+    key_terms: [friends, "it's", like, lot, work, people, group, fun]
+    section: Comments
+    token_count: 354
 ---
-
 # Is grad school in the US worth it?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1ssype0/is_grad_school_in_the_us_worth_it/)

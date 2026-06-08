@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1rdc1qm.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1rdc1qm/is_there_a_side_hustlejob_you_can_work_related_to/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Career Help"
 extracted_at: "2026-05-25T13:01:49.572Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rdc1qm.md#c0"
+    char_span: [0, 781]
+    sentence_count: 5
+    key_terms: [engineering, engineeringstudents, job, work, currently, comments, related, student]
+    token_count: 186
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rdc1qm.md#c1"
+    char_span: [796, 1893]
+    sentence_count: 8
+    key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
+    section: Comments
+    token_count: 259
 ---
-
 # Is there a side hustle/job you can work related to engineering field while still being a student?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1rdc1qm/is_there_a_side_hustlejob_you_can_work_related_to/)

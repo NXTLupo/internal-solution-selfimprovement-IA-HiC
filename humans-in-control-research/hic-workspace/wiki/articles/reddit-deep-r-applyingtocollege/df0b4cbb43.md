@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-applyingtocollege/df0b4cbb43.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1szl8e5/stanford_vs_mit_last_minute_very_split_unsure/"
 url_hash: "df0b4cbb43"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T12:21:38.656678+00:00"
 chars: 5921
+industries: [higher_ed, education, government]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-applyingtocollege/df0b4cbb43.md#c0"
+    char_span: [0, 2020]
+    sentence_count: 11
+    key_terms: [stanford, social, applyingtocollege, "i'm", less, schools, school, "i'd"]
+    token_count: 468
+  - id: "articles/reddit-deep-r-applyingtocollege/df0b4cbb43.md#c1"
+    char_span: [2022, 4148]
+    sentence_count: 9
+    key_terms: [culture, stanford, mit, sure, either, intellectual, admin, years]
+    token_count: 464
+  - id: "articles/reddit-deep-r-applyingtocollege/df0b4cbb43.md#c2"
+    char_span: [4150, 6164]
+    sentence_count: 11
+    key_terms: [stanford, scholarship, "i'm", taking, dod, commitment, potential, deeptech]
+    token_count: 481
 ---
-
 # Stanford vs. MIT (last minute, very split) + unsure whether to accept DOD scholarship
 
 Source: [Reddit Deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1szl8e5/stanford_vs_mit_last_minute_very_split_unsure/)

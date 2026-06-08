@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1pcfpqy/snap_will_be_a_2026_standout/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,67 @@ flair: "DD"
 extracted_at: "2026-05-16T20:54:42.976Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, media, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c0"
+    char_span: [0, 2162]
+    sentence_count: 11
+    key_terms: [storage, snap, users, wallstreetbets, mainly, like, investment, comments]
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c1"
+    char_span: [2164, 4660]
+    sentence_count: 17
+    key_terms: [snap, recently, capital, management, sponsored, billions, hardware, positive]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c2"
+    char_span: [4662, 5391]
+    sentence_count: 5
+    key_terms: [million, don, monetization, advertising, stock-based, conclusion, especially, management]
+    token_count: 162
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c3"
+    char_span: [5406, 6617]
+    sentence_count: 5
+    key_terms: [retarded, chix, content, discord, accomplished-exit822, https, total, bad]
+    section: Comments
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c4"
+    char_span: [6619, 8533]
+    sentence_count: 30
+    key_terms: [success, profits, looked, significantly, "don't", going, teams, good]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c5"
+    char_span: [8535, 10568]
+    sentence_count: 20
+    key_terms: [companies, users, been, company, "haven't", invest, vision, "don't"]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c6"
+    char_span: [10570, 12416]
+    sentence_count: 17
+    key_terms: [accomplished-exit822, revenue, regardo-8907, subscription, read, snap, increasing, addressed]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c7"
+    char_span: [12418, 12980]
+    sentence_count: 3
+    key_terms: [revenue, india, hospitalizedzombie, mill, comparison, regardless, something, earnings]
+    section: Comments
+    token_count: 147
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c8"
+    char_span: [12982, 14897]
+    sentence_count: 7
+    key_terms: [accomplished-exit822, apple, mediocredesigner88, gen, snap, get, life, set]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c9"
+    char_span: [14720, 14946]
+    sentence_count: 1
+    key_terms: [harrypottersmother, instagram, instead, tiktok, bro, bruh, does, gen]
+    section: Comments
+    token_count: 81
 ---
-
 # $SNAP will be a 2026 standout
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1pcfpqy/snap_will_be_a_2026_standout/)

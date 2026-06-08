@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-gradadmissions/af4ef3a8b8.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1ralva3/can_someone_review_my_sop_first_time_writing_it/"
 url_hash: "af4ef3a8b8"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:41:31.999112+00:00"
 chars: 3010
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-gradadmissions/af4ef3a8b8.md#c0"
+    char_span: [0, 1911]
+    sentence_count: 16
+    key_terms: [want, because, gradadmissions, neuroscience, sop, facilities, lfreddit23, paragraph]
+    token_count: 467
+  - id: "articles/reddit-deep-r-gradadmissions/af4ef3a8b8.md#c1"
+    char_span: [1913, 3262]
+    sentence_count: 12
+    key_terms: [program, experience, experiences, paragraph, interest, relevant, include, degree]
+    token_count: 273
 ---
-
 # Can someone review my SOP. First time writing it. It will be really helpful to get some feedback..
 
 Source: [Reddit Deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1ralva3/can_someone_review_my_sop_first_time_writing_it/)

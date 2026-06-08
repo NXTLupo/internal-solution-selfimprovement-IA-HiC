@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1oy8yq0/difference_between_low_acceptance_rate_liberal/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,66 @@ subreddit: "applyingtocollege"
 title: "Difference between low acceptance rate liberal art school v.s. prestigious school"
 author: "Ok_Fan_1046"
 date: "2025-11-16T01:35:23.000Z"
-score: 104
+score: 105
 upvote_ratio: 0.93
 num_comments: 68
 flair: "College Questions"
-extracted_at: "2026-05-25T18:32:06.248Z"
+extracted_at: "2026-06-03T02:22:51.252Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md#c0"
+    char_span: [0, 1772]
+    sentence_count: 14
+    key_terms: [acceptance, schools, applyingtocollege, universities, prestigious, recognition, does, low]
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md#c1"
+    char_span: [1787, 3763]
+    sentence_count: 15
+    key_terms: [prestige, known, school, get, lac, top, graduates, respected]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md#c2"
+    char_span: [3765, 5553]
+    sentence_count: 18
+    key_terms: [lacs, top, students, faculty, universities, student, per, endowments]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md#c3"
+    char_span: [5555, 7422]
+    sentence_count: 15
+    key_terms: [undergrads, different, tech, similar, feeder, people, universities, lacs]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md#c4"
+    char_span: [7424, 8732]
+    sentence_count: 21
+    key_terms: [schools, students, typically, grad, undergraduates, resources, programs, research]
+    section: Comments
+    token_count: 295
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md#c5"
+    char_span: [8734, 10845]
+    sentence_count: 19
+    key_terms: [schools, competitive, programs, look, ppl, want, academics, strengths]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md#c6"
+    char_span: [10847, 12633]
+    sentence_count: 20
+    key_terms: [school, class, students, university, resources, because, professional, lacs]
+    section: Comments
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md#c7"
+    char_span: [12635, 14449]
+    sentence_count: 16
+    key_terms: [college, smaller, school, relationships, lac, professors, professor, colleges]
+    section: Comments
+    token_count: 418
 ---
-
 # Difference between low acceptance rate liberal art school v.s. prestigious school
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1oy8yq0/difference_between_low_acceptance_rate_liberal/)
-Posted by **Ok_Fan_1046** · **104↑** · **68 comments**
+Posted by **Ok_Fan_1046** · **105↑** · **68 comments**
 
 I’m trying to understand a gap I keep seeing in college discussions.
 
@@ -42,11 +90,11 @@ If you get into a low-acceptance LAC that doesn’t have mainstream name recogni
 
 ## Comments
 
-- **drlsoccer08** (110↑): Top tier LAC’s usually have fantastic networks and career outlooks. Yes, it’s true many average Joe’s might not have heard of Barnard, W&L, Bowdoin, Middlebury etc. but people in white collar recruiting will know who they are. They are usually very well known and well respected in their fields, and have very large, very successful alumni bases that love to help out other graduates from their school. They are also very well respected within academia so many grads get into post grad programs. 
+- **drlsoccer08** (109↑): Top tier LAC’s usually have fantastic networks and career outlooks. Yes, it’s true many average Joe’s might not have heard of Barnard, W&L, Bowdoin, Middlebury etc. but people in white collar recruiting will know who they are. They are usually very well known and well respected in their fields, and have very large, very successful alumni bases that love to help out other graduates from their school. They are also very well respected within academia so many grads get into post grad programs. 
 
 I go to W&L and we have massive graduate networks in investment banking, the big 4 accounting firms and large consulting firms. 90% of graduates who apply to medical school get in.
   - **Zealousideal_Two_221** (7↑): This....
-- **Fickle_Emotion_7233** (46↑): LACs (the top 20-ish) have a lot of prestige in academia and in New England areas. Some are known feeders for jobs and some are known feeders into PhD programs. The student/faculty ratio is no joke: you will be known by your faculty. And you will get access to whatever you want at these schools: you won’t struggle to did a research position or a recommendation or an opportunity. Also, they have huge endowments that pay for lots of perks and lots of career connections. Alums are super excited to talk to you and help you. 
+- **Fickle_Emotion_7233** (41↑): LACs (the top 20-ish) have a lot of prestige in academia and in New England areas. Some are known feeders for jobs and some are known feeders into PhD programs. The student/faculty ratio is no joke: you will be known by your faculty. And you will get access to whatever you want at these schools: you won’t struggle to did a research position or a recommendation or an opportunity. Also, they have huge endowments that pay for lots of perks and lots of career connections. Alums are super excited to talk to you and help you. 
 
 For some students this is ideal. For some it’s not. 
 
@@ -71,14 +119,14 @@ However, random people on the street won’t have the same reaction to Pomona as
 That said, I don’t think people realize how small most of the T20 universities are. HYPSM all have under 8,000 undergrads. Most of the rest of the T20 are similar. That is not *that* different from the size of some LACs. Caltech gets listed among the research universities but it is truly tiny (under 1,000 undergrads). Cornell is bigger (more than 16,000 undergrads). Obviously Berkeley, UCLA, and UMichigan are significantly larger.
 
 5. Everyone has different factors that matter most to them. I know plenty of people who chose colleges like Williams or Swarthmore over Ivies and were very happy with their decisions. Only you can decide your priorities.
-  - **SpecialistBet4656** (5↑): Notre Dame has 8,000 undergrads, which shocks a lot of people who only know them as a football school.  (note, ND is not a liberal arts college)
+  - **SpecialistBet4656** (6↑): Notre Dame has 8,000 undergrads, which shocks a lot of people who only know them as a football school.  (note, ND is not a liberal arts college)
   - **KlammFromTheCastle** (0↑): Reed similar to Harvey Mudd here.
-    - **IvyBloomAcademics** (3↑): This resource (no affiliation) gives a decent list of the top feeder colleges for tech: https://www.collegetransitions.com/dataverse/top-feeders-tech/
+    - **IvyBloomAcademics** (4↑): This resource (no affiliation) gives a decent list of the top feeder colleges for tech: https://www.collegetransitions.com/dataverse/top-feeders-tech/
 
 Adjusted for the size of the student body, the top feeder schools for tech (in decreasing order) were found to be Mudd, Caltech, CMU, MIT, Olin, Stanford, Princeton, Georgia Tech, Rice, Berkeley, UCSD, Rose Hulman, Duke, UW Seattle, UIUC, Brown, Cornell, RIT, UW Tacoma, Penn, RPI, Pomona, Cooper Union, UMichigan, and Harvard.
 
 Reed is great, but I don’t see how it’s similar to Mudd as a tech feeder?
-- **Shot_Collection427** (18↑): This is a big post and not sure I will get to everything you asked, but will try. 
+- **Shot_Collection427** (19↑): This is a big post and not sure I will get to everything you asked, but will try. 
 
 First not all LACs are the same.  Just like all big schools aren’t the same (UVA is very different from OSU). For this, I will stick to the the top 10ish LACs (x - the service academies). You can look them up but Williams, Amherst, Swarthmore, Pomona, Barnard… 
 
@@ -99,12 +147,12 @@ For example, Middlebury College is know for its language programs.  They have ho
 
 If you look at her alumni of each of the schools on Wikipedia you will see the schools produce some really successful people.
     - **Loss-Gloomy** (3↑): D3 schools are less competitive athletically than big D1 programs, sure. But those D3 programs are still competitive and they recruit athletes. For instance, many D3 rosters for the coming fall are already full now. You will find D1 and D2 talent on some of these teams who wanted to focus more on academics and thus turned down D1 offers.
-- **Paul721** (5↑): International rankings are nearly 100% based on research at the graduate level. For an undergraduate what does that end up meaning? Not much to be honest beyond the name of the institution. 
+- **Paul721** (4↑): International rankings are nearly 100% based on research at the graduate level. For an undergraduate what does that end up meaning? Not much to be honest beyond the name of the institution. 
 
 LACs have much smaller class sizes. As in no 100+ student lectures. Class sizes like 20 or less. No dealing with TAs who may or may not have any idea how to teach anything.
 
 That all being said it depends what you want to end up doing. For straight engineering areas where a BS is enough I would never recommend the LAC route. If you need to go to grad school for your chosen field then LACs are an amazing way to go.
-- **Loss-Gloomy** (8↑): I went to one of these regional LACs.
+- **Loss-Gloomy** (9↑): I went to one of these regional LACs.
 
 1. Because my school had a large endowment, it had ridiculous resources. I had access to a million dollar software/hardware setup for film editing that only about 100 students used. The pianos were Steinways, the biology lab was world class. It was actually better than a big name university because undergrads had access to the resources and resources were often shared with a small group of relevant students.
 
@@ -115,10 +163,10 @@ That all being said it depends what you want to end up doing. For straight engin
 4. Smaller classes are amazing. You can form tight relationships with professors, class discussions with 8 students are more meaningful. 
 
 5. I chose my school over bigger name universities because I had taken courses at a large local university in high school and I could see the huge auditorium classes were not my best learning fit. My LAC offered 100% courses taught by professors, no TAs. My largest class ever was 40 students. I have no regrets.
-- **[deleted]** (17↑): One recent example, for what it's worth:  Zohran Mamdani earned a bachelor of arts degree from Bowdoin, a small private liberal arts college in Maine.  
+- **[deleted]** (18↑): One recent example, for what it's worth:  Zohran Mamdani earned a bachelor of arts degree from Bowdoin, a small private liberal arts college in Maine.  
 
 His father is a professor at Columbia.  His mother is a successful film director and producer.  With the benefit of their collective wisdom, he chose a liberal arts college.
-  - **Electronic_Being4746** (6↑): A study found that professor children disproportionately choose LAC’s.
+  - **Electronic_Being4746** (7↑): A study found that professor children disproportionately choose LAC’s.
 - **MaineMan1234** (3↑): I went to Stanford.  It was great. But looking back I would have benefitted from a LAC, with smaller classes and closer relationships with professors.  I knew the PhD students in my department (physics) very well, but professors were more focused on them than the undergrads.  If I had attended a smaller school with no PhD students, I would have had the opportunity for more research and closer relationships with profs.
 
 I work in the investment industry.  Any senior person in the industry who went to a top school knows all the other top schools.  We all looked at the LACs as well as the Ivies and other big name ones, when we were applying. I applied to Wesleyan and Swarthmore for example. Plus, when older, we all have gone through college searches for our own kids, who often are competitive, so we have a good sense for what schools are well regarded no matter how small.  

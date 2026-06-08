@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1svjpin.md
 url: "https://www.reddit.com/r/careerguidance/comments/1svjpin/aipowered_career_guidance_for_students_good_idea/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,16 @@ score: 1
 upvote_ratio: 1
 num_comments: 0
 flair: ""
-extracted_at: "2026-05-22T15:13:18.802Z"
+extracted_at: "2026-06-03T18:35:34.121Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1svjpin.md#c0"
+    char_span: [0, 990]
+    sentence_count: 5
+    key_terms: [career, guidance, students, idea, ai-powered, careerguidance, good, comments]
+    token_count: 209
 ---
-
 # “AI-powered career guidance for students — good idea or terrible idea?”
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1svjpin/aipowered_career_guidance_for_students_good_idea/)

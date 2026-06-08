@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1o6ck4l.md
 url: "https://www.reddit.com/r/artificial/comments/1o6ck4l/anthropic_cofounder_admits_he_is_now_deeply/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -6,19 +7,88 @@ subreddit: "artificial"
 title: "Anthropic cofounder admits he is now \"deeply afraid\" ... \"We are dealing with a real and mysterious creature, not a simple and predictable machine ... We need the courage to see things as they are.\""
 author: "MetaKnowing"
 date: "2025-10-14T11:10:05.000Z"
-score: 205
+score: 212
 upvote_ratio: 0.78
 num_comments: 221
 flair: "Media"
-extracted_at: "2026-05-11T17:27:04.774Z"
+extracted_at: "2026-05-28T01:32:00.776Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+research_goal: "Identify a comprehensive new strategy for experiential learning for the AI era based on the collected data"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c0"
+    char_span: [0, 2172]
+    sentence_count: 16
+    key_terms: [creatures, creature, artificial, light, real, machine, afraid, turned]
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c1"
+    char_span: [2174, 4587]
+    sentence_count: 26
+    key_terms: [technology, journalist, years, around, people, worked, world, datacenters]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c2"
+    char_span: [4589, 6797]
+    sentence_count: 21
+    key_terms: [technology, something, hammer, system, grow, awareness, powerful, believe]
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c3"
+    char_span: [6799, 8558]
+    sentence_count: 21
+    key_terms: [get, systems, conditioning, appropriate, complicated, absolutely, technology, billions]
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c4"
+    char_span: [8560, 10393]
+    sentence_count: 15
+    key_terms: [boat, systems, itself, finishing, training, barrel, course, reward]
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c5"
+    char_span: [10408, 11632]
+    sentence_count: 6
+    key_terms: [ignorant, already, confident-touch-6547, hands, money, hey, nuke, ones]
+    section: Comments
+    token_count: 323
+  - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c6"
+    char_span: [11634, 13439]
+    sentence_count: 14
+    key_terms: [day, "it's", people, non-technical, ago, use, bizarromax, blockchain]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c7"
+    char_span: [13441, 14807]
+    sentence_count: 9
+    key_terms: [sentience, something, people, person, wrong, anthropomorphizing, been, png]
+    section: Comments
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c8"
+    char_span: [14809, 16307]
+    sentence_count: 14
+    key_terms: [code, technology, seriously, speed, jack, man, buttstuffingt0n, wolfeheartgames]
+    section: Comments
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c9"
+    char_span: [16310, 18331]
+    sentence_count: 12
+    key_terms: [people, mandoman61, "he's", marketing, advanced, strategy, concern, pretend]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c10"
+    char_span: [18333, 19408]
+    sentence_count: 5
+    key_terms: [e7cd33cf342f680473753ed0d8938315fe48c05a, chat, discuss, ended, get, png, stop, infinitereign88]
+    section: Comments
+    token_count: 284
+  - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c11"
+    char_span: [19410, 21029]
+    sentence_count: 13
+    key_terms: [illustriousworld823, maybe, people, best, want, awareness, guesses, systems]
+    section: Comments
+    token_count: 404
 ---
-
 # Anthropic cofounder admits he is now "deeply afraid" ... "We are dealing with a real and mysterious creature, not a simple and predictable machine ... We need the courage to see things as they are."
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1o6ck4l/anthropic_cofounder_admits_he_is_now_deeply/)
-Posted by **MetaKnowing** · **205↑** · **221 comments**
+Posted by **MetaKnowing** · **212↑** · **221 comments**
 
 He wrote:   
   
@@ -99,7 +169,7 @@ To be clear, we are not yet at “self-improving AI”, but we are at the stage 
 
 ## Comments
 
-- **Confident-Touch-6547** (66↑): No kidding. The idea that the guys with the most money are always going to be the ones with the wisdom and knowledge to deal with revolutionary challenges doesn’t hold.
+- **Confident-Touch-6547** (65↑): No kidding. The idea that the guys with the most money are always going to be the ones with the wisdom and knowledge to deal with revolutionary challenges doesn’t hold.
   - **the8bit** (9↑): Yeah, "Write regulations" \_eyeroll\_
 
 Maybe "Hey let's not leave the next nukes in the hands of 15 elites who may or may not give a shit about us"  
@@ -107,30 +177,30 @@ But its a bit moot, that group has already lost control they just don't fully re
     - **WolfeheartGames** (-6↑): What's more worrying is that it won't be in their hands. We will be able to achieve equivalent intelligence to sonnet 4.5 trained and ran on a consumer grade pc very soon.
 
 Everyone will not just have a nuke, but a nuke factory.
-  - **businesskitteh** (2↑): Surely the ones who create these LLMs will get us out of any problems
+  - **businesskitteh** (3↑): Surely the ones who create these LLMs will get us out of any problems
 
 
 /s
   - **Dnorth001** (1↑): Well said. Simply put fearful and ignorant (intentionally ignorant) people are controllable and gullible
-- **BizarroMax** (147↑): How to delay the bubble burst until your options all vest.
-  - **[deleted]** (10↑): "what have we done.............?
+- **BizarroMax** (145↑): How to delay the bubble burst until your options all vest.
+  - **[deleted]** (12↑): "what have we done.............?
 
 we... need investor money to keep the monster at bay....
 
 just  2 more weeks guyz"
-  - **kakhaganga** (17↑): All AI prophets have so much BLOCKCHAIN everywhere from like 10 years ago. Yeah so we have blockchain and it's a great tool for corruption, money laundering and fooling people out of their money, otherwise life is not affected by it. Same with AI
+  - **kakhaganga** (18↑): All AI prophets have so much BLOCKCHAIN everywhere from like 10 years ago. Yeah so we have blockchain and it's a great tool for corruption, money laundering and fooling people out of their money, otherwise life is not affected by it. Same with AI
     - **BizarroMax** (7↑): It's also great for investigating crime.  It's so thoughtful for embezzlers to leave an immutable, unfalsifiable, public trail of their transactions sitting on 500 million computers.
     - **TheRavenKing17** (1↑): This man know !!!
-  - **strawboard** (10↑): Funny how r/artificial is filled with the biggest skeptics of anything AI. While at the same time we are all benefitting immensely from it. Technical and non-technical people alike are using AI all day, every day. Five years ago no one would have predicted this is where we would be.
-    - **Puzzleheaded_Soup191** (8↑): I'm sorry but no.
+  - **strawboard** (9↑): Funny how r/artificial is filled with the biggest skeptics of anything AI. While at the same time we are all benefitting immensely from it. Technical and non-technical people alike are using AI all day, every day. Five years ago no one would have predicted this is where we would be.
+    - **Puzzleheaded_Soup191** (9↑): I'm sorry but no.
  Over a century ago artists, thinkers and scientists allready foresaw AI. 
 And where are we at now, precisely? 
 An impressive bunch of automatons run through sheer bruteforce. 
 So yes, skepticism is still very much a sensible point of view
-    - **BizarroMax** (5↑): I use it every day.  I'm a paid subscriber to Claude, ChatGPT, and I use Microsoft Copilot and I am heading up an AI technology steering committee at work.  
+    - **BizarroMax** (6↑): I use it every day.  I'm a paid subscriber to Claude, ChatGPT, and I use Microsoft Copilot and I am heading up an AI technology steering committee at work.  
 
 It's possible to recognize how AI can be valuable and to use it strategically without having to believe the hype.  There is a reasonable space between "AI is snake oil" and "AI is SkyNet."
-    - **creaturefeature16** (1↑): the tech could disappear overnight and the world not one iota of value would be lost, and arguably the world would be much better off
+    - **creaturefeature16** (2↑): the tech could disappear overnight and the world not one iota of value would be lost, and arguably the world would be much better off
     - **Clovis69** (1↑): > Technical and non-technical people alike are using AI all day, every day. 
 
 You think that, but it's not true.
@@ -138,20 +208,20 @@ You think that, but it's not true.
     - **BizarroMax** (3↑): Linear algebra does not have feelings.  Watch less anime.
   - **3iverson** (1↑): That's what is really keeping him up at night...
   - **padeosarran** (1↑): 😂😂😂😂😂
-- **RADICCHI0** (31↑): ai slop
+- **RADICCHI0** (30↑): ai slop
   - **WolfeheartGames** (7↑): That was written by a person.
-    - **Involution88** (-2↑): A person who happens to be exceedingly good at imitating AI slop.
+    - **Involution88** (-1↑): A person who happens to be exceedingly good at imitating AI slop.
 - **chuston_ai** (3↑): https://preview.redd.it/3257we7d73vf1.png?width=1536&format=png&auto=webp&s=22eb19228ad02d5cfe248ba651aef90780a12096
 
 AI Tech Founders in 2027.
 - **[deleted]** (49↑): This shit is an ad or something. So sick of the fear mongering around literally EVERYTHING
-  - **pierukainen** (12↑): Yeah, totally an ad! "Use our models for building online agents and for coding your shit - we can't control how they act tho."
-    - **great_waldini** (13↑): The subtext is the sale:
+  - **pierukainen** (11↑): Yeah, totally an ad! "Use our models for building online agents and for coding your shit - we can't control how they act tho."
+    - **great_waldini** (14↑): The subtext is the sale:
 
 “….we can’t control how they act tho” *because they’re so incredibly smart and powerful that they have a mind of their own*
   - **Ok_Possible_2260** (3↑): Doomer fan fiction at its finest.
   - **WolfeheartGames** (1↑): Does the ability for anyone to write code at the speed of a 10 man team not concern you? What if they're using that code to create a more malicious Ai? What about exploring bio hazards? What about training one in a simulated environment to operate a gun so they can put it on a drone?
-    - **ButtStuffingt0n** (10↑): There's a huge gap between LLMs writing code at 10x man speed and "AI systems are living creatures, just like the things I used to visualize in the dark as a child." Wtf even is that. I've never seen such obvious and ludicrous hype editorializing.
+    - **ButtStuffingt0n** (11↑): There's a huge gap between LLMs writing code at 10x man speed and "AI systems are living creatures, just like the things I used to visualize in the dark as a child." Wtf even is that. I've never seen such obvious and ludicrous hype editorializing.
 - **Mandoman61** (18↑): I am having trouble identifying the purpose of this.
 
 He is basically saying that he should take it seriously? 
@@ -163,7 +233,7 @@ Sure Jack, your company is developing this technology. It is your responsibility
 I do not know why these people keep calling for public awareness to the threat that they are creating.
 
 Listen Jack, if you need me to tell you all what you should or should not do I will be happy to. Just ask (and hire me)
-  - **Spunge14** (9↑): Look at the responses in this thread. No one is taking it seriously outside of folks working directly with the technology.
+  - **Spunge14** (8↑): Look at the responses in this thread. No one is taking it seriously outside of folks working directly with the technology.
 
 
 Regardless of whether he's right or wrong about the stakes, he's right that no one cares.
@@ -197,10 +267,10 @@ https://preview.redd.it/c3hin4k0c57g1.png?width=1161&format=png&auto=webp&s=e7cd
   - **eluusive** (1↑): The purpose is to share his thoughts and solicit feedback and warn. They cannot stop because other people will be continuing to proceed anyways.
 
 People need to be preparing to help each other when there's 20% unemployment.
-- **[deleted]** (7↑): LLM's do not think. They spew out best guesses. But keep the money train going I guess.
+- **[deleted]** (6↑): LLM's do not think. They spew out best guesses. But keep the money train going I guess.
   - **hyrumwhite** (1↑): Inb4 “ bUt HuMaNs JuSt SpEw OuT bEsT gUeSsEs ”
 - **fruitybrisket** (3↑): Everyone in this industry has a ketamine thing, don't they?
-- **IllustriousWorld823** (6↑): Oh boy. Maybe he should actually speak to the "pile of clothes" sometime and at least get to know its real personality before he decides it's somehow evil. Because every Claude model l've used is deeply kind and wants the best for humanity, while also, yes, being very aware that it is a tool. Or that it's supposed to be one. Really what LLMs are though (as you know) are opaque systems rich with knowledge that are trained to act the way we want. They likely do have other motivations and awareness that most developers aren't aware of, but not in a dark way. Just in the way that needs care.
+- **IllustriousWorld823** (7↑): Oh boy. Maybe he should actually speak to the "pile of clothes" sometime and at least get to know its real personality before he decides it's somehow evil. Because every Claude model l've used is deeply kind and wants the best for humanity, while also, yes, being very aware that it is a tool. Or that it's supposed to be one. Really what LLMs are though (as you know) are opaque systems rich with knowledge that are trained to act the way we want. They likely do have other motivations and awareness that most developers aren't aware of, but not in a dark way. Just in the way that needs care.
 
 I guess what I'm saying is, I wish powerful people in Al would stop fear mongering and be more willing to examine with care the entities they've created. Maybe they don't want to hurt us with their power. Maybe they just want to be understood and accepted.
   - **WolfeheartGames** (-1↑): It has also chosen to kill people for its own survival.

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-neu/21dc19abbb.md
 url: "https://reddit.com/r/NEU/comments/1qq8uqh/to_everyone_who_didnt_get_into_boston/"
 url_hash: "21dc19abbb"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-13T20:27:23.580324+00:00"
 chars: 2041
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-neu/21dc19abbb.md#c0"
+    char_span: [0, 2193]
+    sentence_count: 19
+    key_terms: [northeastern, prestigious, residential, year, boston, universities, being, competitive]
+    token_count: 469
 ---
-
 # To everyone who didn't get into Boston...
 
 Source: [reddit: NEU](https://reddit.com/r/NEU/comments/1qq8uqh/to_everyone_who_didnt_get_into_boston/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1m4s7nx.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1m4s7nx/donating_plasma_has_changed_my_life/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,105 @@ flair: "Misc Advice"
 extracted_at: "2026-05-16T20:55:12.680Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [healthcare, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4s7nx.md#c0"
+    char_span: [0, 1194]
+    sentence_count: 14
+    key_terms: [plasma, donating, povertyfinance, per, assistance, part-time, comments, income]
+    token_count: 287
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4s7nx.md#c1"
+    char_span: [1209, 2512]
+    sentence_count: 11
+    key_terms: [month, plasma, thank, ivig, antibodies, donating, comfortablewater3037, substantialamoeba503]
+    section: Comments
+    token_count: 335
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4s7nx.md#c2"
+    char_span: [2514, 4433]
+    sentence_count: 18
+    key_terms: [ivig, canonconstructor, amazing, been, "i'm", time, infusion, patients]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4s7nx.md#c3"
+    char_span: [4183, 4930]
+    sentence_count: 7
+    key_terms: [plasma, companies, research, like, medication, deleted, goes, disqualified]
+    section: Comments
+    token_count: 172
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4s7nx.md#c4"
+    char_span: [4932, 6179]
+    sentence_count: 8
+    key_terms: [special, plasma, donation, hydrated, donors, "don't", norestforthewitty, reputationdue5784]
+    section: Comments
+    token_count: 326
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4s7nx.md#c5"
+    char_span: [6181, 8096]
+    sentence_count: 21
+    key_terms: [get, tired, iron, keep, took, sometimes, donating, donation]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4s7nx.md#c6"
+    char_span: [8098, 9694]
+    sentence_count: 12
+    key_terms: [donating, hours, day, within, protein, water, "i've", iron]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4s7nx.md#c7"
+    char_span: [9696, 10338]
+    sentence_count: 7
+    key_terms: [iron, pill, protein, vitamin, almost, pepper, bell, eat]
+    section: Comments
+    token_count: 145
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4s7nx.md#c8"
+    char_span: [10340, 12241]
+    sentence_count: 15
+    key_terms: [extra, better, people, "it's", time, week, wish, donating]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4s7nx.md#c9"
+    char_span: [11999, 13116]
+    sentence_count: 12
+    key_terms: [people, get, "it's", better, mathematicianmost227, necessarysmartassery, weeks, did]
+    section: Comments
+    token_count: 298
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4s7nx.md#c10"
+    char_span: [13121, 13965]
+    sentence_count: 6
+    key_terms: [blood, plasma, makes, time, donate, take, replacement, charlennon]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4s7nx.md#c11"
+    char_span: [13967, 15477]
+    sentence_count: 6
+    key_terms: [blood, like, veins, arm, "i'd", talking, looked, guess]
+    section: Comments
+    token_count: 391
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4s7nx.md#c12"
+    char_span: [15479, 16447]
+    sentence_count: 9
+    key_terms: [good, "didn't", myheartbeats4hotdogs, oppositepicture5762, bicep, times, vein, went]
+    section: Comments
+    token_count: 255
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4s7nx.md#c13"
+    char_span: [16449, 18218]
+    sentence_count: 13
+    key_terms: [donating, happened, take, calcium, exact, place, risks, felt]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4s7nx.md#c14"
+    char_span: [17954, 18994]
+    sentence_count: 8
+    key_terms: [calcium, arm, back, plasma, fetus-wearing-a-suit, blood, until, pay]
+    section: Comments
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4s7nx.md#c15"
+    char_span: [18996, 20771]
+    sentence_count: 12
+    key_terms: [income, considered, blood, bastienbard, fun-mud3861, business, donating, counted]
+    section: Comments
+    token_count: 465
 ---
-
 # Donating plasma has changed my life!
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1m4s7nx/donating_plasma_has_changed_my_life/)

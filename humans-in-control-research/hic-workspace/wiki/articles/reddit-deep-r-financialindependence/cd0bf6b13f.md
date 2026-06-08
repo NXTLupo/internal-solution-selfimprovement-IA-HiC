@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-financialindependence/cd0bf6b13f.md
 url: "https://www.reddit.com/r/financialindependence/comments/1qpnugj/would_you_quit_in_my_shoes_deep_dive_stay_at_home/"
 url_hash: "cd0bf6b13f"
 kind: "article"
@@ -10,8 +11,30 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-16T21:02:30.455532+00:00"
 chars: 8165
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-financialindependence/cd0bf6b13f.md#c0"
+    char_span: [0, 2023]
+    sentence_count: 14
+    key_terms: [home, expenses, financialindependence, income, retirement, case, quit, wife]
+    token_count: 501
+  - id: "articles/reddit-deep-r-financialindependence/cd0bf6b13f.md#c1"
+    char_span: [2025, 4315]
+    sentence_count: 13
+    key_terms: [retirement, work, market, years, low, rate, healthcare, withdrawal]
+    token_count: 507
+  - id: "articles/reddit-deep-r-financialindependence/cd0bf6b13f.md#c2"
+    char_span: [4317, 6308]
+    sentence_count: 26
+    key_terms: [money, years, want, wife, enough, relationship, "don't", "it's"]
+    token_count: 486
+  - id: "articles/reddit-deep-r-financialindependence/cd0bf6b13f.md#c3"
+    char_span: [6310, 8398]
+    sentence_count: 17
+    key_terms: [time, working, relationship, financially, "he's", wife, dependent, important]
+    token_count: 496
 ---
-
 # Would you quit in my shoes? Deep Dive - “Stay at home Dad FIRE”
 
 Source: [Reddit Deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1qpnugj/would_you_quit_in_my_shoes_deep_dive_stay_at_home/)

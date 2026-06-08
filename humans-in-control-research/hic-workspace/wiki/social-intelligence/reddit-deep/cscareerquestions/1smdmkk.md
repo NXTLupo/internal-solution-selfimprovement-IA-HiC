@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1smdmkk.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1smdmkk/should_i_renege_my_google_internship_to_work_at_a/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-26T14:31:41.274Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1smdmkk.md#c0"
+    char_span: [0, 2004]
+    sentence_count: 14
+    key_terms: [startup, google, internship, cscareerquestions, working, comp, down, get]
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1smdmkk.md#c1"
+    char_span: [2019, 4048]
+    sentence_count: 15
+    key_terms: [google, startup, thatsprettywild, avgvancouverperson, get, doing, competitive, anywhere]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1smdmkk.md#c2"
+    char_span: [4050, 5461]
+    sentence_count: 10
+    key_terms: [google, resume, "it's", anthropic, years, been, main, thatsprettywild]
+    section: Comments
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1smdmkk.md#c3"
+    char_span: [5463, 7175]
+    sentence_count: 10
+    key_terms: [thatsprettywild, google, startup, startups, product, "it's", tech, elaborate]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1smdmkk.md#c4"
+    char_span: [7177, 7485]
+    sentence_count: 2
+    key_terms: [google, thatsprettywild, equivalent, understand, question, somewhat, company, opposed]
+    section: Comments
+    token_count: 75
 ---
-
 # Should I renege my google internship to work at a startup FT?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1smdmkk/should_i_renege_my_google_internship_to_work_at_a/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rdf7xp.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rdf7xp/i_found_5000_dev_unique_jobs_after_analyzing_440k/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,52 @@ subreddit: "cscareerquestions"
 title: "I found 5000 dev unique jobs after analyzing 440k jobs on indeed this month"
 author: "voidwater1"
 date: "2026-02-24T12:42:40.000Z"
-score: 197
+score: 195
 upvote_ratio: 0.93
 num_comments: 42
 flair: ""
-extracted_at: "2026-05-26T14:31:41.274Z"
+extracted_at: "2026-06-06T13:04:13.563Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rdf7xp.md#c0"
+    char_span: [0, 1393]
+    sentence_count: 5
+    key_terms: [dev, jobs, cscareerquestions, pay, median, unique, role, disclosed]
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rdf7xp.md#c1"
+    char_span: [1395, 2340]
+    sentence_count: 2
+    key_terms: [median, senior, postings, direct, apply, staff, state, ats]
+    token_count: 401
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rdf7xp.md#c2"
+    char_span: [2342, 2628]
+    sentence_count: 1
+    key_terms: [disclosure, typescript, snowflake, mention, kotlin, median, python, spring]
+    token_count: 168
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rdf7xp.md#c3"
+    char_span: [2643, 4524]
+    sentence_count: 10
+    key_terms: [kotlin, day, java, job, jobs, average, surprising, seen]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rdf7xp.md#c4"
+    char_span: [4526, 6219]
+    sentence_count: 8
+    key_terms: [linkedin, indeed, postings, better, data, full, job, applying]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rdf7xp.md#c5"
+    char_span: [6221, 7053]
+    sentence_count: 5
+    key_terms: [voidwater1, hiring, offer, job, pristine-item680, lurkrrrrbrndnw, thr0waway12324, opportunities]
+    section: Comments
+    token_count: 236
 ---
-
 # I found 5000 dev unique jobs after analyzing 440k jobs on indeed this month
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rdf7xp/i_found_5000_dev_unique_jobs_after_analyzing_440k/)
-Posted by **voidwater1** · **197↑** · **42 comments**
+Posted by **voidwater1** · **195↑** · **42 comments**
 
 Hey this is some data I've found this week related to CS career, btw no AI or ads or promotion   
   
@@ -107,7 +141,7 @@ demand vs pay
 - **Oneok-Field** (77↑): Average day seen being 1 is crazy 
 
 Great analysis!
-  - **metalreflectslime** (18↑): > Average day seen being 1 is crazy
+  - **metalreflectslime** (15↑): > Average day seen being 1 is crazy
 
 What do you mean by this?
     - **sssauber** (37↑): Maybe that the job gets enough applicants in one day and gets deleted?
@@ -115,11 +149,11 @@ What do you mean by this?
 
 So active job seekers need to be checking job boards daily.
     - **orangetoadmike** (9↑): I read that as the average a job listing is up is only for a single day. That tracks with anecdotes I've heard, but it's still crazy. Total luck even finding openings you're the perfect fit for at that point.
-- **Daktic** (19↑): The MD ones are likely security clearance jobs, hence the high price tag. Curious the same stat is not replicated in VA.
+- **Daktic** (17↑): The MD ones are likely security clearance jobs, hence the high price tag. Curious the same stat is not replicated in VA.
 - **aitadiy** (14↑): Is it surprising that jobs focusing on Kotlin (which I assume is a proxy for Android app development) command such a higher median compensation versus jobs focusing on other languages/technologies?
-  - **N1ghtshade3** (12↑): I've seen a ton of companies that have replaced Java with Kotlin in the backend entirely so while all Android jobs are surely Kotlin these days, a surprising number of Kotlin jobs may not actually be Android-related.
-    - **aitadiy** (5↑): Interesting. Why does it command such a premium over Java? Is "modern Java" used disproportionately in some high-paying industry? Or is it just that most Java shops are "boring" businesses where cutting-edge IT isn't the focus and salaries are commensurately lower?
-  - **123throwawayhelpme** (5↑): As another commenter said my company is writing all new backend apps in Kotlin. It's seen as the modern Java here
+  - **N1ghtshade3** (13↑): I've seen a ton of companies that have replaced Java with Kotlin in the backend entirely so while all Android jobs are surely Kotlin these days, a surprising number of Kotlin jobs may not actually be Android-related.
+    - **aitadiy** (6↑): Interesting. Why does it command such a premium over Java? Is "modern Java" used disproportionately in some high-paying industry? Or is it just that most Java shops are "boring" businesses where cutting-edge IT isn't the focus and salaries are commensurately lower?
+  - **123throwawayhelpme** (6↑): As another commenter said my company is writing all new backend apps in Kotlin. It's seen as the modern Java here
   - **budding_gardener_1** (1↑): Pretty surprising, yeah. I honestly expected in the year of our lord 2026 that most company "apps" are:
 
 1. WebView wrappers around their website
@@ -132,13 +166,13 @@ So active job seekers need to be checking job boards daily.
     - **n4nandes** (3↑): The quality of LinkedIn's job finding feature has slowly deteriorated over time, though I do agree that it is better than the current state of Indeed.
 
 It's the lesser of the evils but still full of evil.
-  - **k_dubious** (6↑): Search on LinkedIn
+  - **k_dubious** (4↑): Search on LinkedIn
 
 Cross-check TC on levels.fyi
 
 Apply direct via company's website
   - **SouthernTop7** (4↑): I think linkedin doesn't allow third party software like crawlers/bots/extensions that scrape data.
-- **jesusonoro** (3↑): 31% remote is honestly higher than i expected with all the return to office noise lately. the avg days seen being 1.03 is wild though, means most postings either fill fast or get pulled. if you're not checking daily you're basically applying to ghost listings.
+- **jesusonoro** (4↑): 31% remote is honestly higher than i expected with all the return to office noise lately. the avg days seen being 1.03 is wild though, means most postings either fill fast or get pulled. if you're not checking daily you're basically applying to ghost listings.
   - **Gold-Flatworm-4313** (3↑): It's not that wild when you find out many job postings get like.... 1k applications in that first day lol. 
 
 While most of those 1k applications are trash, there's still enough "good ones" usually to fill the position.

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1r9mjrv.md
 url: "https://www.reddit.com/r/careerguidance/comments/1r9mjrv/understanding_people_in_real_life_what_a_ma/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,26 @@ flair: "Advice"
 extracted_at: "2026-05-22T23:34:01.126Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1r9mjrv.md#c0"
+    char_span: [0, 2831]
+    sentence_count: 20
+    key_terms: [psychology, applied, students, behaviour, psychological, undergraduate, program, social]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/careerguidance/1r9mjrv.md#c1"
+    char_span: [2833, 6076]
+    sentence_count: 19
+    key_terms: [psychology, applied, students, learning, academic, behaviour, subjects, undergraduate]
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/careerguidance/1r9mjrv.md#c2"
+    char_span: [6078, 6889]
+    sentence_count: 3
+    key_terms: [psychology, applied, undergraduate, students, degree, personal-bit-295, institutions, postgraduate]
+    section: Comments
+    token_count: 142
 ---
-
 # Understanding People in Real Life: What a MA Applied Psychology Degree Offers ?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1r9mjrv/understanding_people_in_real_life_what_a_ma/)

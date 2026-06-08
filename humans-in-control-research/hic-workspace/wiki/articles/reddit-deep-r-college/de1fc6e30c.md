@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-college/de1fc6e30c.md
 url: "https://www.reddit.com/r/college/comments/1qevr4j/is_it_worth_switching_to_business_accountingeven/"
 url_hash: "de1fc6e30c"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T12:19:08.477448+00:00"
 chars: 2133
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-college/de1fc6e30c.md#c0"
+    char_span: [0, 2354]
+    sentence_count: 17
+    key_terms: [accounting, college, internship, job, graduate, degree, "you'll", internships]
+    token_count: 511
 ---
-
 # Is it worth switching to business (accounting)even though I'm already a sophmore
 
 Source: [Reddit Deep: r/college](https://www.reddit.com/r/college/comments/1qevr4j/is_it_worth_switching_to_business_accountingeven/)

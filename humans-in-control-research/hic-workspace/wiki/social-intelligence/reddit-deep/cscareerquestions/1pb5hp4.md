@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1pb5hp4.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1pb5hp4/how_are_new_grads_finding_jobs/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,45 @@ flair: "New Grad"
 extracted_at: "2026-05-20T03:56:10.747Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pb5hp4.md#c0"
+    char_span: [0, 1016]
+    sentence_count: 9
+    key_terms: [cscareerquestions, finding, area, bay, jobs, comments, postings, posted]
+    token_count: 230
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pb5hp4.md#c1"
+    char_span: [1031, 1997]
+    sentence_count: 8
+    key_terms: [networking, get, network, connections, job, computer, linkedin, behind]
+    section: Comments
+    token_count: 213
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pb5hp4.md#c2"
+    char_span: [1999, 4020]
+    sentence_count: 13
+    key_terms: [jobs, better, people, job, linkedin, apply, been, find]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pb5hp4.md#c3"
+    char_span: [4022, 6235]
+    sentence_count: 19
+    key_terms: [jobs, looking, change, find, cannot, apply, days, job]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pb5hp4.md#c4"
+    char_span: [6237, 8450]
+    sentence_count: 13
+    key_terms: [already, job, jobs, applying, listings, because, instead, writing]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pb5hp4.md#c5"
+    char_span: [8452, 8927]
+    sentence_count: 5
+    key_terms: [luck, big, keep, economyspeed007, thereallostcost, stressedkid01, interviews, well-known]
+    section: Comments
+    token_count: 127
 ---
-
 # How are new grads finding jobs?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1pb5hp4/how_are_new_grads_finding_jobs/)

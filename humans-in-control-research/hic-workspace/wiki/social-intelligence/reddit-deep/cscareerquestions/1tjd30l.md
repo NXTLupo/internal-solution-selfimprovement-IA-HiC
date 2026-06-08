@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1tjd30l/actual_data_on_the_current_state_of_the_tech_job/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,83 @@ subreddit: "cscareerquestions"
 title: "Actual data on the current state of the tech job market"
 author: "SignificanceBulky162"
 date: "2026-05-21T07:27:55.000Z"
-score: 425
+score: 443
 upvote_ratio: 0.96
-num_comments: 108
+num_comments: 113
 flair: "New Grad"
-extracted_at: "2026-05-25T18:32:49.825Z"
+extracted_at: "2026-06-05T23:42:30.812Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c0"
+    char_span: [0, 2134]
+    sentence_count: 10
+    key_terms: [tech, employment, cscareerquestions, data, fred, million, series, ces6054150001]
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c1"
+    char_span: [2136, 3994]
+    sentence_count: 18
+    key_terms: [tech, employment, slump, worse, year, current, dot-com, history]
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c2"
+    char_span: [4009, 6019]
+    sentence_count: 12
+    key_terms: [engineers, anymore, demand, salary, companies, don, tech, work]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c3"
+    char_span: [6021, 7832]
+    sentence_count: 15
+    key_terms: [software, going, through, people, engineering, significant, engineers, illustrious-pound266]
+    section: Comments
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c4"
+    char_span: [7834, 10196]
+    sentence_count: 18
+    key_terms: [people, software, because, doing, years, engineers, get, getting]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c5"
+    char_span: [10198, 12471]
+    sentence_count: 16
+    key_terms: [software, engineering, demand, supply, india, development, traditional, "i've"]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c6"
+    char_span: [12474, 14821]
+    sentence_count: 15
+    key_terms: [software, development, industries, skill, world, professions, jobs, developers]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c7"
+    char_span: [14823, 16334]
+    sentence_count: 10
+    key_terms: [years, replace, like, time, engineers, recommend, software, society]
+    section: Comments
+    token_count: 336
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c8"
+    char_span: [16336, 17784]
+    sentence_count: 7
+    key_terms: [software, development, interest, zombawombacomba, horrendously, years, protecting, president]
+    section: Comments
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c9"
+    char_span: [17786, 19343]
+    sentence_count: 10
+    key_terms: [people, applications, productivity, increasing, recession, thousands, because, though]
+    section: Comments
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tjd30l.md#c10"
+    char_span: [19345, 21370]
+    sentence_count: 15
+    key_terms: [interest, software, country, unfortunately, rates, years, job, davidbasil]
+    section: Comments
+    token_count: 500
 ---
-
 # Actual data on the current state of the tech job market
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1tjd30l/actual_data_on_the_current_state_of_the_tech_job/)
-Posted by **SignificanceBulky162** · **425↑** · **108 comments**
+Posted by **SignificanceBulky162** · **443↑** · **113 comments**
 
 [https://fred.stlouisfed.org/series/ces6054150001](https://fred.stlouisfed.org/series/ces6054150001)
 
@@ -52,21 +117,21 @@ Tldr: current tech slump is real and is worse than 2008, but that's mostly becau
 
 ## Comments
 
-- **jesse_victoria** (99↑): I believe some of this as well is due to salary. Im sure that the overhiring also is with a premium salary when with such a glut of SWEs as you claim, there should be a downward pressure on salary at the entry level. Im sure the demand for the work being done hasnt mysteriously vanished but should be there at a lower salary
-  - **Hog_enthusiast** (82↑): It isn’t that mysterious, the demand for work being done has dropped for two reasons.
+- **jesse_victoria** (103↑): I believe some of this as well is due to salary. Im sure that the overhiring also is with a premium salary when with such a glut of SWEs as you claim, there should be a downward pressure on salary at the entry level. Im sure the demand for the work being done hasnt mysteriously vanished but should be there at a lower salary
+  - **Hog_enthusiast** (79↑): It isn’t that mysterious, the demand for work being done has dropped for two reasons.
 
 One, the startup economy crashed due to rising interest rates. You can’t make an app to put face filters on dogs and get 50 million in funding and hire 20 developers immediately anymore. There’s a whole class of bullshit non viable companies that don’t exist anymore.
 
 Two, companies don’t have money to burn and can’t buy software engineers as an investment anymore, or at least they don’t feel the need to. My first job out of college was working at a fortune 50 company that hired 2,000 new engineers over a few years just to signal to the market that they were more “tech focused” than their competitor. As engineers we barely had any work to do. It was a totally fake “demand”, so that demand has disappeared in the current era where doing layoffs makes your stock go up more than hiring.
-    - **terrany** (15↑): >companies don’t have money to burn and can’t buy software engineers as an investment anymore
+    - **terrany** (16↑): >companies don’t have money to burn and can’t buy software engineers as an investment anymore
 
 The latter half is most likely true, the first half is definitely not. We've just witnessed basically every medium size tech company+ and VC firm blow through or commit trillions of dollars with no tangible goal aside from labeling themselves as AI-native.
 
 This is following a period of the largest corporate tax cuts and 3 or even 4-digit % profits/stock increases we've seen in decades.
-    - **kingofthesqueal** (7↑): I think the startup thing is a reason for a lot of Big Tech layoffs as well, there use to be a fear at Google and co that every developer you hired was a potential competitor you squashed in the cradle.
+    - **kingofthesqueal** (8↑): I think the startup thing is a reason for a lot of Big Tech layoffs as well, there use to be a fear at Google and co that every developer you hired was a potential competitor you squashed in the cradle.
 
 With how hard it is the get funding for something outside of AI right now, Big Tech doesn’t have any fear that a group of 20 guys going through a lay off are gonna successfully be able to start a competing business.
-    - **jesse_victoria** (6↑): Very insightful analysis of demand, thank you
+    - **jesse_victoria** (5↑): Very insightful analysis of demand, thank you
     - **danintexas** (5↑): It is this simple. Been around for 20+ years and this is just a cycle. Sucks for so many people but ride it out. Keep working on your skills. IT is not dead.
     - **Big_Arrival_626** (1↑): Bro some of these banks and financial companies still hire engineers to not do any work 😭😭
 
@@ -75,14 +140,14 @@ With how hard it is the get funding for something outside of AI right now, Big T
 Out of curiosity, what did you even do all day?
   - **Illustrious-Pound266** (1↑): With AI, software engineering is cheap now.
     - **therealslimshady1234** (2↑): Not true. Bad software is cheap (think Fiverr, UpWork, etc). Good engineering is just as expensive as it always has been, or even more due to the insane token cost and low quality AI is asociated with.
-- **RelationshipIll9576** (63↑): Job count, while important, is just one aspect of what's going on. 
+- **RelationshipIll9576** (64↑): Job count, while important, is just one aspect of what's going on. 
 
 Software development is going through a significant shift in how it's done. People that are early adopters/on the cutting edge are largely just babysitting AI Agents and reviewing AI code slop. They aren't really touching code that often. 
 
 This brings up larger concerns in that in order to operate this way, the people with significant software dev experience do much better than new grads. We don't know how to handle this yet. Educational programs are very far behind on this and businesses are going to optimize for short-term gains that best suit them. It should not surprise us if we see the upcoming generation of software developers fall through the cracks and not be able to land jobs. 
 
 The other factor that we aren't talking about much yet -> with the nature of software development changing, will people that entered the field actually like what they end up doing? I know many seasoned developers that are getting super bored and depressed because what got them into the field isn't part of their day-to-day work these days. Complaints I'm hearing is that outsourcing all the labor to AI Agents to build for you is more like a management role than an actual software dev role. This is not what they've signed up for.
-  - **hurley_chisholm** (14↑): > Job count, while important, is just one aspect of what’s going on.
+  - **hurley_chisholm** (13↑): > Job count, while important, is just one aspect of what’s going on.
 
 Small correction: OP is talking about people employed in the industry, not job openings. Don’t want people getting confused.
   - **MagicBobert** (16↑): This is a very insightful comment.
@@ -92,8 +157,8 @@ It’s true, senior engineers can be more productive with AI because they know w
 And you’re also spot on that many seniors find this new way of working soul crushingly cold and boring. I myself am debating if I want to stay in tech or just fuck off into the sunset in a totally different field.
 
 There is a reckoning coming and it won’t be pretty. I suspect software quality will get steadily worse as experienced seniors filter out and more and more work is done by people who don’t have the experience to keep the AI’s output quality high. It won’t look like a productivity dip because features will keep getting shipped, they’ll just be riddled with bugs and broken abstractions that required even more slop to “fix”.
-    - **Chemical-Fault-7331** (7↑): I think we are going to see with software development what happened to journalism once corporate consolidation and the 24 hour news slot or took over. A detonation of fact based reporting in favor of opinion based reporting designed to get people emotionally engaged and not turn off the TV or stop doomscrolling.
-    - **RelationshipIll9576** (2↑): > But how we get junior engineers to that same level of guidance mastery without years of doing it by hand? Everyone I ask just shrugs. Nobody knows. 
+    - **Chemical-Fault-7331** (8↑): I think we are going to see with software development what happened to journalism once corporate consolidation and the 24 hour news slot or took over. A detonation of fact based reporting in favor of opinion based reporting designed to get people emotionally engaged and not turn off the TV or stop doomscrolling.
+    - **RelationshipIll9576** (3↑): > But how we get junior engineers to that same level of guidance mastery without years of doing it by hand? Everyone I ask just shrugs. Nobody knows. 
 
 I find this to be one of most concerning things. Every single person I've talked to comes up short. I'm also finding that mid-level engineers that are trying to mentor the upcoming leaders are running into problems as they can't figure out how to focus on what's actually needed. On top of that, I've been recruiting on college campuses and so many of them are just stuck in this traditional software engineering programs that aren't using AI to build software with so they have no idea how things can fit together. 
 
@@ -101,11 +166,10 @@ I've actually pitched to teach some college courses on software engineering with
 
 But maybe you are right - we'll just see a drop in software quality until people just learn from their mistakes (assuming it doesn't tank products and businesses).
   - **No-Project-2353** (3↑): I got into this cause I liked making games but liked putting food on the table more so I went webdev. AI coding isn’t much of a downgrade cause I didn’t  like web development to begin with.
-- **mikasfacelift** (28↑): You're only looking at one side. There are two parts of supply and demand. In 2000 or 2008, we weren't pumping out gazillions of CS grads, including from India.
-  - **Temporary-Version976** (12↑): India is the big one. Every company is moving their workforce to India right now and nobody is fighting for tech workers.
+- **mikasfacelift** (27↑): You're only looking at one side. There are two parts of supply and demand. In 2000 or 2008, we weren't pumping out gazillions of CS grads, including from India.
+  - **Temporary-Version976** (14↑): India is the big one. Every company is moving their workforce to India right now and nobody is fighting for tech workers.
   - **WorthPreference3266** (1↑): We have a greater supply of employees today, YET the number of employees is dropping every year. This means demand is simply falling. I don’t think you know what supply and demand is, did you think with less CS grads the numbers would look any different? It would look lower if anything.
-    - **Due_Salamander5403** (1↑): Headcount of employees has only dropped since 2023, so it's not "every year". We're talking about a recent drop in an industry that grew 360% since 1990. It's a blip in a huge success story.
-- **WhyYouLetRomneyWin** (103↑): Thanks for bringing data and facts!
+- **WhyYouLetRomneyWin** (102↑): Thanks for bringing data and facts!
 
 
 There have been other recessions. But this does *feel* worse. If the others were dips, this is a crash. 
@@ -115,7 +179,7 @@ I think part of everyones concern is that there is an existential feeling that t
 
 
 On a recent call with Boz, Metas CTO, he agreed that there was no guarantee of long term viability of software development. He seemed to be aware that this was a common feeling among employees.
-  - **YouMaySayIamADreamer** (53↑): software development may be all done by AI, but if that happens, the world will be a very different place.
+  - **YouMaySayIamADreamer** (59↑): software development may be all done by AI, but if that happens, the world will be a very different place.
 
 AI can produce code, no doubt, but what is missing is good decision making in the face of an enormous body of data and best practices, to design the code well. this AI cannot do well yet.
 
@@ -124,21 +188,21 @@ this is not a software development skill, decision making is a skill for all job
 so if software developers lose their jobs to AI, everyone else will too ! that would be a very different world... maybe a post scarcity society, maybe a dystopia where AI owners rule the world.   
   
 may we live in interesting times ! ahah
-    - **BathroomMaximum1721** (8↑): Many industries have seen employment shrink if you go back and look in the past 50 years, but other new industries and professions invariably have taken their place. 
+    - **BathroomMaximum1721** (9↑): Many industries have seen employment shrink if you go back and look in the past 50 years, but other new industries and professions invariably have taken their place. 
 
 If software developers are mostly replaced by AI, then the traditional software hubs such as Northern CA, San Diego, Seattle etc may suffer a major downturn in their economies and population. As other industries and professions arise, new cities will rise to prominence.
     - **Dzone64** (18↑): Agreed with most of this. Except that everyone will lose their job if we do. A huge part of why ai is threatening SEs so much is just because so much of our jobs is knowledge work, its all controlled from the terminal, and theirs only physical interaction with a small subset of our work and or peers. Robotics is lagging behind our software currently but it will likly eventually catch up too. Just might be a bit longer.
     - **pavilionaire2022** (7↑): Early LLMs were really good at knowledge retrieval and had only basic reasoning skill. Any supposed mathematical solutions usually turned out to be something nobody noticed was actually in its training data.
 
 I would say their reasoning ability has improved. Who's to say they won't unlock good judgment and decision making next? But then again, they might not.
-    - **No-District2404** (1↑): Theoretically yes, if it can replace software engineers, it can replace vast amount of the society specifically for cognitive oriented jobs. However it won’t replace everyone else immediately it will start with software engineers because at the moment all focus is on coding, which model codes better that’s all we talk about and that’s normal this sector develops the AI and at the same time we are the first hand consumers.
-  - **DroppinLoot** (18↑): Yup 5-6 years ago during the learn to code peak? I would have recommended anyone get in the field. Felt like its growth was infinite and it was the future. Today wouldn’t recommend it. Trying to figure out how I can retire in ten years and hoping I can navigate what the field will look like then
+    - **No-District2404** (2↑): Theoretically yes, if it can replace software engineers, it can replace vast amount of the society specifically for cognitive oriented jobs. However it won’t replace everyone else immediately it will start with software engineers because at the moment all focus is on coding, which model codes better that’s all we talk about and that’s normal this sector develops the AI and at the same time we are the first hand consumers.
+  - **DroppinLoot** (20↑): Yup 5-6 years ago during the learn to code peak? I would have recommended anyone get in the field. Felt like its growth was infinite and it was the future. Today wouldn’t recommend it. Trying to figure out how I can retire in ten years and hoping I can navigate what the field will look like then
     - **Vemyx** (8↑): Hell even 4 years ago it felt okay to recommend it. 5-6 years isn’t even a big number in career progression
-  - **TheGreatCookieBeast** (17↑): I would call it a proper collapse rather than a crash this time, a crash would have been much preferable. It seems like there is not one single trigger or event but rather an accumulation of things unravelling at a steady pace which has kept the markets sinking consistently over time with no obvious path to recovery. There is sickness and dysfunctional tendencies in all parts of society that relates to tech.
+  - **TheGreatCookieBeast** (20↑): I would call it a proper collapse rather than a crash this time, a crash would have been much preferable. It seems like there is not one single trigger or event but rather an accumulation of things unravelling at a steady pace which has kept the markets sinking consistently over time with no obvious path to recovery. There is sickness and dysfunctional tendencies in all parts of society that relates to tech.
 
 Even if this isn't the end of software engineering I'm not sure if I'd want to be a software engineer in a future with AI. In that future only simple application builders can thrive while people with skills, genuine interest and creative insight will suffer.
-    - **zombawombacomba** (19↑): It also doesn’t help that we have a horrendously bad president at the moment who has no interest in protecting workers and who is tanking the economy.
-    - **zombawombacomba** (3↑): It also doesn’t help that we have a horrendously bad president at the moment who has no interest in protecting workers and who is tanking the economy.
+    - **zombawombacomba** (20↑): It also doesn’t help that we have a horrendously bad president at the moment who has no interest in protecting workers and who is tanking the economy.
+    - **zombawombacomba** (5↑): It also doesn’t help that we have a horrendously bad president at the moment who has no interest in protecting workers and who is tanking the economy.
   - **Known-Garden-5013** (8↑): |On a recent call with Boz, Metas CTO, he agreed that there was no guarantee of long term viability of software development. He seemed to be aware that this was a common feeling among employees.
 
 \>Token seller says you need to buy more tokens
@@ -146,30 +210,26 @@ Even if this isn't the end of software engineering I'm not sure if I'd want to b
 
 ten years? try *one*
     - **WhyYouLetRomneyWin** (2↑): 🙉
+  - **Hog_enthusiast** (2↑): Exactly this. In 2023 I wasn’t that worried about the recession, I thought there would be a few hard years but things would always recover. Now I’m not sure at all.
   - **IamNobody85** (5↑): Software development will exist. If AI can develop itself (so a true AGI) then we are basically living in the world's shown in Wall-E. Watch the movie if you haven't.
 
 The job will definitely change though.
   - **TKInstinct** (2↑): The one thing I can say is that I guarantee you that every recession ever has had people say something akin to  "There have been other recessions. But this does feel worse." Has there ever been a recession ever where it felt ok or "better" than before?
     - **fiddysix_k** (3↑): This is my mentality. The times are tough, but there will be a gold mine at the end of it, in whatever form it holds, for those that can hang on. Most people itt are college kids or post grads, I can't take the "it's all over" rhetoric seriously. Though I do appreciate it, because it increases my value significantly long term.
-  - **Hog_enthusiast** (1↑): Exactly this. In 2023 I wasn’t that worried about the recession, I thought there would be a few hard years but things would always recover. Now I’m not sure at all.
 - **Appropriate_Rise9968** (12↑): I think that another reason it feels worse is that AI slop applications and resume review made it things very tedious for applicants and recruiters alike. People are not hearing back after thousands of applications because thousands of bots/agents are spamming the same sites with unqualified candidates hoping one would get lucky. The only way to find real lead these days is to know someone within the company you apply to.
-- **phonyToughCrayBrave** (7↑): It is increasing productivity. Companies so far have not found extra use of the productivity, so they are instead cutting jobs and increasing profits.
+- **phonyToughCrayBrave** (8↑): It is increasing productivity. Companies so far have not found extra use of the productivity, so they are instead cutting jobs and increasing profits.
   - **FeralWookie** (1↑): Bubbles are more fun when the projected future includes the need for a certain skill. I guess this one does they need infrastructure hourly workers. But for most of the professional community this is more of a burn.
 
 The sad part is we needed this excuse to seek more infrastucure that the country probably needs. It may actually be a great time in a few years to be a nuclear engineer if we can actually get some real power plants in this country and stop praying for fushion.
   - **davidbasil** (1↑): I think this is true. Most of the companies just don't hire any more, they mostly keep their staff.
 - **qwertydiy** (31↑): Believe it or not we are now at the point that jobs for tech (software development, data science and cyber at least maybe not so much in other roles) are actually on a steady increase finally despite all the doomerism. Kyle Cook from Web Dev made Simplified made a video about it.
-  - **bbcode4mev2** (15↑): I have 5 years xp. Got laid off from my last job October 2024. Travelled the world, moved across the country finished my BS CS and applied to over 500 jobs. Landed a fully remote DevOps role starting next month. Hoping everything goes well!
-    - **dataGuyThe8th** (1↑): Congratulations! It sounds like you were able to make the most of a tricky situation. Best of luck & enjoy the new role!
+  - **bbcode4mev2** (16↑): I have 5 years xp. Got laid off from my last job October 2024. Travelled the world, moved across the country finished my BS CS and applied to over 500 jobs. Landed a fully remote DevOps role starting next month. Hoping everything goes well!
+    - **dataGuyThe8th** (2↑): Congratulations! It sounds like you were able to make the most of a tricky situation. Best of luck & enjoy the new role!
+    - **-_--_-_--_----__** (2↑): That's so fuckin cool dude. Good job and good luck!
   - **Chekonjak** (6↑): Can confirm! I’m getting more interviews and even an offer I unfortunately had to decline. Backend dev, less than three years experience.
-- **PreparationAdvanced9** (5↑): I think interest rates are the real story. This is most prolonged interest rates hike period in our lifetimes and thus we are experiencing similar job losses. Software engineer unemployment is tied to interest rates because the best place to throw money when money is cheap is to automate aka software engineers
-- **Miamiconnectionexo** (2↑): came here to say something similar. you nailed it.
-- **FeralWookie** (2↑): This makes sense if a lot of software hiring was based off the belief, largely pushed by big tech, that there is endless software to write and we need as many people as possible to deal with it.
+- **PreparationAdvanced9** (7↑): I think interest rates are the real story. This is most prolonged interest rates hike period in our lifetimes and thus we are experiencing similar job losses. Software engineer unemployment is tied to interest rates because the best place to throw money when money is cheap is to automate aka software engineers
+- **lucifermorningstar7** (3↑): Thanks for the data, but unfortunately lived experience is different ( I know I know call it anecdotal, survivorship, sampling bias)
+- **pkpzp228** (3↑): > Claude is going to fuck us all in the ass
 
-Then AI coding picks up steam and the entire tech industry changes that narrative. Maybe in 2 years we won't need any coders. Slowly that takes root and every company starts getting real pessimistic about its head count. Most large cap companies are massively overstaffed if you consider the part of the company making most of the revenue.
-
-Spend on AI and using AI starts is easily increased by removing headcount which it is designed to make redundant. The narrative that I can let X% of my workforce go because AI can make us 2X% as efficient is as powerful as saying I can buy a $1 million dollar home because the tax break makes $70k of my income tax free.
-
-AIs current capabilities is almost irrelevant right now. The whole tech sectors narrative has pivoted from overall growth to we can be more efficient and AI investment and growth will get us there faster.
-
-The fact the most AI usage right now can't easily be tied to revenue for companies heavily investing in it probably makes things worse. You can invest in more people to work if you have no idea what your AI business strategy is or what combination of people + AI will make you money.
+I haven't seen that agent mode yet.
+  - **davidbasil** (2↑): I think that's someone's fantasy

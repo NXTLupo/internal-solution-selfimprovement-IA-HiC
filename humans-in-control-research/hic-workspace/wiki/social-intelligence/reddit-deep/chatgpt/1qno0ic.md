@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1qno0ic.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1qno0ic/i_just_cancelled_my_chatgpt_pro_subscription/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,51 @@ flair: "News 📰"
 extracted_at: "2026-05-17T01:12:48.201Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1qno0ic.md#c0"
+    char_span: [0, 1514]
+    sentence_count: 13
+    key_terms: [chatgpt, brockman, inauguration, subscription, last, cancelled, comments, feeling]
+    token_count: 339
+  - id: "social-intelligence/reddit-deep/chatgpt/1qno0ic.md#c1"
+    char_span: [1529, 3316]
+    sentence_count: 11
+    key_terms: [companies, google, inauguration, gave, anthropic, mistral, claude, donate]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/chatgpt/1qno0ic.md#c2"
+    char_span: [3318, 4269]
+    sentence_count: 5
+    key_terms: [time, companies, admin, money, trump, vance, waterrresistant, corporations]
+    section: Comments
+    token_count: 247
+  - id: "social-intelligence/reddit-deep/chatgpt/1qno0ic.md#c3"
+    char_span: [4271, 6169]
+    sentence_count: 18
+    key_terms: [amazon, brainlate4108, cloud, everything, nextcloud, storage, office, big]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/chatgpt/1qno0ic.md#c4"
+    char_span: [6171, 8031]
+    sentence_count: 13
+    key_terms: [trump-inauguration-donors-include-meta-amazon-target-delta-ford, openai-exec-becomes-top-trump-230342268, cringy, brainlate4108, point, ahr0chm6ly93d3cuz29vz2xllmnvbs8, companies, viable]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1qno0ic.md#c5"
+    char_span: [7866, 8696]
+    sentence_count: 5
+    key_terms: [openai-exec-becomes-top-trump-230342268, ahr0chm6ly93d3cuz29vz2xllmnvbs8, h2tzvhdismiqrv8ed8xkbxjjnqkg-, aqaaahoesof3wjwzh1oejws-, million, top, trilobyte-dev, endorsement]
+    section: Comments
+    token_count: 304
+  - id: "social-intelligence/reddit-deep/chatgpt/1qno0ic.md#c6"
+    char_span: [8698, 10043]
+    sentence_count: 6
+    key_terms: [openai-president-greg-brockman-trump-super-pac, last, ai-artificial-intelligence, night, cook, tim, longtrailenjoyer, sunshineseattle]
+    section: Comments
+    token_count: 357
 ---
-
 # I just cancelled my ChatGPT Pro subscription. Discovering Greg Brockman gave $25 million to Trump's Inauguration fund was just the last straw of many.
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1qno0ic/i_just_cancelled_my_chatgpt_pro_subscription/)

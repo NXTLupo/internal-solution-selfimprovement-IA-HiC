@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1s5xuxw.md
 url: "https://www.reddit.com/r/investing/comments/1s5xuxw/is_reddit_the_most_overlooked_growth_stock_in_the/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-16T20:55:01.239Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1s5xuxw.md#c0"
+    char_span: [0, 1033]
+    sentence_count: 7
+    key_terms: [reddit, platforms, growth, companies, investing, comments, revenue, market]
+    token_count: 254
+  - id: "social-intelligence/reddit-deep/investing/1s5xuxw.md#c1"
+    char_span: [1048, 3157]
+    sentence_count: 14
+    key_terms: [reddit, people, internet, monetize, like, real, answers, believe]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/investing/1s5xuxw.md#c2"
+    char_span: [3159, 5134]
+    sentence_count: 11
+    key_terms: [reddit, redditstock, getting, worse, people, https, com, www]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/investing/1s5xuxw.md#c3"
+    char_span: [5136, 6248]
+    sentence_count: 9
+    key_terms: [point, because, revenue, anonymoustimewaster, equivalent-oil-3692, price, livinghighandwise, year3000stankonia]
+    section: Comments
+    token_count: 292
+  - id: "social-intelligence/reddit-deep/investing/1s5xuxw.md#c4"
+    char_span: [6250, 8048]
+    sentence_count: 7
+    key_terms: [redditstock, reddit, wolfsbaneviking, growth, manipulation, https, com, risk]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/investing/1s5xuxw.md#c5"
+    char_span: [8050, 8414]
+    sentence_count: 4
+    key_terms: [assumptions, willingness, permanent, realistic, temporary, analysis, anything, drawdown]
+    section: Comments
+    token_count: 97
 ---
-
 # Is Reddit the most overlooked growth stock in the market?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1s5xuxw/is_reddit_the_most_overlooked_growth_stock_in_the/)

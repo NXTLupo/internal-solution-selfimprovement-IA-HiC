@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1mt7jwu.md
 url: "https://www.reddit.com/r/careerguidance/comments/1mt7jwu/ceo_told_me_to_start_looking_even_interview/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,44 @@ flair: "Advice"
 extracted_at: "2026-05-25T15:52:13.110Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1mt7jwu.md#c0"
+    char_span: [0, 2069]
+    sentence_count: 15
+    key_terms: [founder, careerguidance, work, comments, recently, looking, startup, working]
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/careerguidance/1mt7jwu.md#c1"
+    char_span: [2071, 3771]
+    sentence_count: 19
+    key_terms: [entry-level, consulting, advice, roles, analytical, analytics, off-cycle, possible]
+    token_count: 365
+  - id: "social-intelligence/reddit-deep/careerguidance/1mt7jwu.md#c2"
+    char_span: [3786, 5619]
+    sentence_count: 10
+    key_terms: [something, company, good, like, use, yeah, anything, figured]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/careerguidance/1mt7jwu.md#c3"
+    char_span: [5621, 6978]
+    sentence_count: 11
+    key_terms: [recommendation, job, like, letter, ask, get, contacts, provide]
+    section: Comments
+    token_count: 317
+  - id: "social-intelligence/reddit-deep/careerguidance/1mt7jwu.md#c4"
+    char_span: [6980, 8787]
+    sentence_count: 23
+    key_terms: [job, step, take, time, backward, company, looking, naughty]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/careerguidance/1mt7jwu.md#c5"
+    char_span: [8789, 10496]
+    sentence_count: 20
+    key_terms: [network, ask, find, like, experience, companies, traction, contact]
+    section: Comments
+    token_count: 392
 ---
-
 # CEO Told Me To Start Looking, Even Interview During Work, What Should I Do?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1mt7jwu/ceo_told_me_to_start_looking_even_interview/)

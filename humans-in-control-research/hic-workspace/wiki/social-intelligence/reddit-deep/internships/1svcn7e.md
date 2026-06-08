@@ -6,19 +6,19 @@ subreddit: "internships"
 title: "It's April and you still don't have a summer internship: Here's what to do ASAP"
 author: "TheCampusRecruiter"
 date: "2026-04-25T13:45:59.000Z"
-score: 262
+score: 263
 upvote_ratio: 0.99
 num_comments: 33
 flair: "Applications"
-extracted_at: "2026-05-26T14:30:47.902Z"
+extracted_at: "2026-06-06T23:20:46.206Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # It's April and you still don't have a summer internship: Here's what to do ASAP
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1svcn7e/its_april_and_you_still_dont_have_a_summer/)
-Posted by **TheCampusRecruiter** · **262↑** · **33 comments**
+Posted by **TheCampusRecruiter** · **263↑** · **33 comments**
 
 I've been in campus recruiting for two decades. Every spring I watch the same panic set in from students who missed the structured recruiting cycle and are overwhelmed and frustrated about finding anything.  
   
@@ -40,7 +40,7 @@ Happy to answer any questions.
 
 ## Comments
 
-- **Big-Maize-8874** (45↑): finance grad here. applied to around 300 postings, not a single call. connected with a bunch of recruiters, startup founders and professionals. got my resume reviewed by my university career centre and different career coaches too, but still no luck.
+- **Big-Maize-8874** (46↑): finance grad here. applied to around 300 postings, not a single call. connected with a bunch of recruiters, startup founders and professionals. got my resume reviewed by my university career centre and different career coaches too, but still no luck.
 
 honestly it feels really frustrating. not sure what else to do differently.
   - **FewDevice6957** (2↑): If you don’t have any referral or connection you’re 99.999% likely to be rejected, no matter how awesome your resume is. I can’t tell if recruiters these days are lazy or what’s going on, but it’s definitely becoming very connection dependent
@@ -54,9 +54,7 @@ Start having real conversations. I know it's uncomfortable. Pick 20 companies yo
   
 Career centers and coaches are helpful but they weren't in the room making decisions or in the DNA of the company. The strategy around your applications probably needs more work than the resume itself.
   - **PhillithJohnsonius** (1↑): I didn’t get internships until 2 years after graduation. Not related to my degree but whatever
-- **igotthis_man** (8↑): Just a load of bulshit. Ive reached out to everyone sent cold emails. Nothing I started applying for internships fall 2025 had 1 interview that was it. Hustle do this do that stop with load of bullshit. Try doing it yourself first and let us know how it goes.  Easy to say when you are doing the recruiting lmao
-- **robertisaak** (4↑): Don't beat yourself up. Cold apps are basically dead because AI tools blast every posting and recruiters mass reject anything without a referral attached. What's actually working right now is referral tools like Nepternship, Boardy, and Series So.
-  - **Numerous-Metal3013** (1↑): Wow does this help but how come a stranger refer us
+- **igotthis_man** (7↑): Just a load of bulshit. Ive reached out to everyone sent cold emails. Nothing I started applying for internships fall 2025 had 1 interview that was it. Hustle do this do that stop with load of bullshit. Try doing it yourself first and let us know how it goes.  Easy to say when you are doing the recruiting lmao
 - **Kalesmany** (2↑): Where do I go for networking?
   - **TheCampusRecruiter** (1↑): Use your existing network to talk to people.  99% of the time people at companies of interest will respond if they're an alumni of your college or high school.  Start there as a way to have something in common and then ask about their role and responsibilities.  Don't forget to create a tracker of all conversations and outreach.
 - **luke_brooooosky** (1↑): I didn’t have any real internships in college (graduated Dec 2025). I volunteered at a non-profit and put it on my resume. Also went to a bunch of networking events and talked to people face to face.  Was luckily able to find something in my field within 4 months, I know how lucky I am and I am extremely grateful. 
@@ -79,3 +77,4 @@ I want to believe that my international status is not the only thing making it h
 
 Some of what I'm asking is, perhaps, you need to rethink how your telling your story, demonstrating your interest, and how your skillset will translate in the internship/full time job you're seeking.  And if you blindly applied and got an interview, congrats! But I recommend trying to find people willing to have a conversation with you so they know a bit more about you before those interviews.  I hope this is helpful.
 - **ProfileHot8214** (1↑): I’m looking for marketing interns , outcome based payment, if it’s cool w ya apply at https://thecasepick.com
+- **Parking_Safety7895** (1↑): I wanna land a research internship in ML and DL domain , I have tried cold mailing literally every professor form the reputed institutes honestly no one replied ! not even rejection ! Professors don't even open the mail I sent. If there's any specific title which might work most of the times and which is tried and tested then please do lemme know .

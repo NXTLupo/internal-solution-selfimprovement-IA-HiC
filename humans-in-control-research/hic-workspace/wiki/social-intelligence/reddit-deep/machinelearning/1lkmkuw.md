@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1lkmkuw.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1lkmkuw/d_alarming_amount_of_schizoid_people_being/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -13,8 +14,67 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:06.570Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1lkmkuw.md#c0"
+    char_span: [0, 2001]
+    sentence_count: 6
+    key_terms: [people, machinelearning, project, around, experienced, implemented, sycophantic, "i've"]
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/machinelearning/1lkmkuw.md#c1"
+    char_span: [2004, 4552]
+    sentence_count: 6
+    key_terms: [people, personality, ideas, llm, chatbots, research, schizoid, world]
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/machinelearning/1lkmkuw.md#c2"
+    char_span: [4555, 4945]
+    sentence_count: 2
+    key_terms: [spelling, "i've", inconsistent, generations, implemented, potentially, completely, effective]
+    token_count: 69
+  - id: "social-intelligence/reddit-deep/machinelearning/1lkmkuw.md#c3"
+    char_span: [4960, 7056]
+    sentence_count: 11
+    key_terms: [people, delusions, chatgpt, "i'm", not-so-super-intelligent, beliefs, "they've", working]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/machinelearning/1lkmkuw.md#c4"
+    char_span: [7058, 8851]
+    sentence_count: 13
+    key_terms: [themselves, ask, get, chatgpt, summary, instance, whatever, "wouldn't"]
+    section: Comments
+    token_count: 389
+  - id: "social-intelligence/reddit-deep/machinelearning/1lkmkuw.md#c5"
+    char_span: [8853, 10727]
+    sentence_count: 6
+    key_terms: [being, bit, pedantry, people, kind, like, schizoid, thinking]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/machinelearning/1lkmkuw.md#c6"
+    char_span: [10730, 11900]
+    sentence_count: 5
+    key_terms: [llm, foundation, suggested, prompts, smarter, model, normal-context6877, data]
+    section: Comments
+    token_count: 261
+  - id: "social-intelligence/reddit-deep/machinelearning/1lkmkuw.md#c7"
+    char_span: [11903, 13385]
+    sentence_count: 9
+    key_terms: [chatgpt-mental-health-crises, system, subs, futurism, schizoid, claims, person, https]
+    section: Comments
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/machinelearning/1lkmkuw.md#c8"
+    char_span: [13387, 14130]
+    sentence_count: 5
+    key_terms: [godisawomaniser, argumentative, conversation, delusional, sycophancy, alignment, indicates, practical]
+    section: Comments
+    token_count: 177
+  - id: "social-intelligence/reddit-deep/machinelearning/1lkmkuw.md#c9"
+    char_span: [14132, 15651]
+    sentence_count: 4
+    key_terms: [people, religious, godisawomaniser, chatgpt-ai-chatbots-conspiracies, https, completely, themselves, themachinetookshape]
+    section: Comments
+    token_count: 382
 ---
-
 # [D] Alarming amount of schizoid people being validated by LLMs, anyone else experienced this?
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1lkmkuw/d_alarming_amount_of_schizoid_people_being/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sg41zm.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sg41zm/questioning_my_choice_to_study_health_sciences/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Education & Qualifications"
 extracted_at: "2026-05-25T18:32:57.393Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sg41zm.md#c0"
+    char_span: [0, 938]
+    sentence_count: 6
+    key_terms: [sciences, health, careerguidance, field, study, jobs, comments, careers]
+    token_count: 214
+  - id: "social-intelligence/reddit-deep/careerguidance/1sg41zm.md#c1"
+    char_span: [953, 2405]
+    sentence_count: 7
+    key_terms: [health, people, coordinator, informatics, interviews, companies, insurance, clinical]
+    section: Comments
+    token_count: 276
 ---
-
 # Questioning my choice to study health sciences for graduate degree. What are some good careers paths/jobs in this field?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sg41zm/questioning_my_choice_to_study_health_sciences/)

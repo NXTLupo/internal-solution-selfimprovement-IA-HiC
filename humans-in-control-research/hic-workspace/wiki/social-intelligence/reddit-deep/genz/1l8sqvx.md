@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1l8sqvx.md
 url: "https://www.reddit.com/r/GenZ/comments/1l8sqvx/finishing_college_at_29_and_wife_just_started_at/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,39 @@ flair: "Discussion"
 extracted_at: "2026-05-16T20:55:01.230Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1l8sqvx.md#c0"
+    char_span: [0, 1742]
+    sentence_count: 17
+    key_terms: [school, college, high, get, "i'm", community, comments, honestly]
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/genz/1l8sqvx.md#c1"
+    char_span: [1757, 3663]
+    sentence_count: 10
+    key_terms: [like, been, school, business, computer, honestly, discord, getting]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/genz/1l8sqvx.md#c2"
+    char_span: [3665, 5619]
+    sentence_count: 8
+    key_terms: [university, college, degree, community, phaustiantheodicy, love, music, opportunity]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/genz/1l8sqvx.md#c3"
+    char_span: [5621, 7236]
+    sentence_count: 11
+    key_terms: [college, better, graduate, debt, good, everyone, getting, masters]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/genz/1l8sqvx.md#c4"
+    char_span: [7238, 7809]
+    sentence_count: 4
+    key_terms: [faithlessnesscute204, college, masters, years, tarchival-sage, corporate, desperate, compared]
+    section: Comments
+    token_count: 169
 ---
-
 # Finishing College at 29 and wife just started at 27
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1l8sqvx/finishing_college_at_29_and_wife_just_started_at/)

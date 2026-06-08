@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1mnnprh.md
 url: "https://www.reddit.com/r/GPT/comments/1mnnprh/example_of_all_gpt5_reasoning_effort_levels/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,20 @@ flair: "ChatGPT"
 extracted_at: "2026-05-11T17:26:37.730Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1mnnprh.md#c0"
+    char_span: [0, 1187]
+    sentence_count: 2
+    key_terms: [verbosity, effort, high, low, medium, gpt-5, response, minimal]
+    token_count: 343
+  - id: "social-intelligence/reddit-deep/gpt/1mnnprh.md#c1"
+    char_span: [1198, 2769]
+    sentence_count: 5
+    key_terms: [convo-lang, https, current, learn, electrons, reasoning-effort, voltage, github]
+    token_count: 368
 ---
-
 # Example of all GPT-5 Reasoning Effort Levels
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1mnnprh/example_of_all_gpt5_reasoning_effort_levels/)

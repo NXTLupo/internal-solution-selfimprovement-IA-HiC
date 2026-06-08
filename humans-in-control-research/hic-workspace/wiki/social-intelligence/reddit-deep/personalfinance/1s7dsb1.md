@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1s7dsb1.md
 url: "https://www.reddit.com/r/personalfinance/comments/1s7dsb1/got_myself_into_a_84_month_car_loan_of_42k/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,56 @@ flair: "Auto"
 extracted_at: "2026-05-16T20:55:02.106Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1s7dsb1.md#c0"
+    char_span: [0, 2107]
+    sentence_count: 15
+    key_terms: [payments, month, car, personalfinance, months, comments, another, payment]
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/personalfinance/1s7dsb1.md#c1"
+    char_span: [2109, 2373]
+    sentence_count: 3
+    key_terms: [appreciated, recoverable, financial, genuinely, decision, feedback, terrible, advice]
+    token_count: 58
+  - id: "social-intelligence/reddit-deep/personalfinance/1s7dsb1.md#c2"
+    char_span: [2388, 4393]
+    sentence_count: 14
+    key_terms: [comments, get, last, vehicle, down, pay, post, absolutely]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/personalfinance/1s7dsb1.md#c3"
+    char_span: [4395, 5712]
+    sentence_count: 12
+    key_terms: [get, underwater, possible, "doesn't", driving, likely, "you're", "it's"]
+    section: Comments
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/personalfinance/1s7dsb1.md#c4"
+    char_span: [5715, 6569]
+    sentence_count: 5
+    key_terms: [average-car-loan-interest-rates-by-credit-score, car, situation, proposed, solution, balance, beneficialchemist874, loan]
+    section: Comments
+    token_count: 219
+  - id: "social-intelligence/reddit-deep/personalfinance/1s7dsb1.md#c5"
+    char_span: [6571, 8748]
+    sentence_count: 17
+    key_terms: [get, paying, better, income, months, agree, month, car]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/personalfinance/1s7dsb1.md#c6"
+    char_span: [8503, 9028]
+    sentence_count: 4
+    key_terms: [car, like, attractive, situation, something, payments, sensible, cheaper]
+    section: Comments
+    token_count: 137
+  - id: "social-intelligence/reddit-deep/personalfinance/1s7dsb1.md#c7"
+    char_span: [9030, 9778]
+    sentence_count: 7
+    key_terms: [extra, towards, money, until, gen, loan, pay, answerguru]
+    section: Comments
+    token_count: 188
 ---
-
 # Got myself into a 84 month car loan of $42K, feeling financial pressure as I try to grow in life
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1s7dsb1/got_myself_into_a_84_month_car_loan_of_42k/)

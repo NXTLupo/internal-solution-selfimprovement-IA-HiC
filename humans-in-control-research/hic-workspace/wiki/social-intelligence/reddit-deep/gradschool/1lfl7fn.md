@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1lfl7fn.md
 url: "https://www.reddit.com/r/GradSchool/comments/1lfl7fn/what_finally_tipped_the_scales_and_made_you/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.343Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1lfl7fn.md#c0"
+    char_span: [0, 780]
+    sentence_count: 5
+    key_terms: [school, gradschool, comments, deciding, cinnamontopography, did, grad, "i'm"]
+    token_count: 189
+  - id: "social-intelligence/reddit-deep/gradschool/1lfl7fn.md#c1"
+    char_span: [795, 2794]
+    sentence_count: 13
+    key_terms: [cinnamontopography, undergrad, like, around, people, school, wanted, years]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1lfl7fn.md#c2"
+    char_span: [2584, 3669]
+    sentence_count: 6
+    key_terms: [research, waited, position, country, getting, having, school, zooz00]
+    section: Comments
+    token_count: 286
+  - id: "social-intelligence/reddit-deep/gradschool/1lfl7fn.md#c3"
+    char_span: [3671, 5590]
+    sentence_count: 20
+    key_terms: [degree, school, program, professional, back, job, life, promotion]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/gradschool/1lfl7fn.md#c4"
+    char_span: [5592, 7103]
+    sentence_count: 13
+    key_terms: [school, grad, jobs, paralegal, research, program, someone, family]
+    section: Comments
+    token_count: 343
+  - id: "social-intelligence/reddit-deep/gradschool/1lfl7fn.md#c5"
+    char_span: [7105, 8880]
+    sentence_count: 13
+    key_terms: [school, undergrad, back, years, went, graduate, article, classes]
+    section: Comments
+    token_count: 420
 ---
-
 # What finally tipped the scales and made you decide to go to grad school?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1lfl7fn/what_finally_tipped_the_scales_and_made_you/)

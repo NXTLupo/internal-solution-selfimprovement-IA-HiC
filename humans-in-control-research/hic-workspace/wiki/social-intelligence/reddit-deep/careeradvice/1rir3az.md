@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1rir3az.md
 url: "https://www.reddit.com/r/careeradvice/comments/1rir3az/how_are_you_personally_handling_ai_career_anxiety/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.231Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1rir3az.md#c0"
+    char_span: [0, 818]
+    sentence_count: 8
+    key_terms: [career, careeradvice, comments, anxiety, people, right, reddit-deep, collecting]
+    token_count: 192
+  - id: "social-intelligence/reddit-deep/careeradvice/1rir3az.md#c1"
+    char_span: [833, 2919]
+    sentence_count: 13
+    key_terms: [people, replaceable, get, questions, designer, judgment, option, being]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/careeradvice/1rir3az.md#c2"
+    char_span: [2921, 4369]
+    sentence_count: 18
+    key_terms: [anxiety, displacement, automatable, assessment, building, industry, instead, started]
+    section: Comments
+    token_count: 304
+  - id: "social-intelligence/reddit-deep/careeradvice/1rir3az.md#c3"
+    char_span: [4371, 5491]
+    sentence_count: 8
+    key_terms: [replaceable, framework, anxiety, seeing, share, implementations, anewfoundmatt, professions]
+    section: Comments
+    token_count: 259
 ---
-
 # How are you personally handling AI career anxiety right now?
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1rir3az/how_are_you_personally_handling_ai_career_anxiety/)

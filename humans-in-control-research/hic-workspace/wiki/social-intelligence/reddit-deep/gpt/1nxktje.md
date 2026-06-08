@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1nxktje.md
 url: "https://www.reddit.com/r/GPT/comments/1nxktje/memory_allocation_vs_chat_length/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T17:26:37.727Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1nxktje.md#c0"
+    char_span: [0, 1348]
+    sentence_count: 13
+    key_terms: [chat, gpt, different, memory, allocation, beginning, efficient, comments]
+    token_count: 336
+  - id: "social-intelligence/reddit-deep/gpt/1nxktje.md#c1"
+    char_span: [1363, 1855]
+    sentence_count: 5
+    key_terms: [dausone, specs, definitely, experience, according, extremely, seriously, switching]
+    section: Comments
+    token_count: 151
 ---
-
 # Memory allocation vs chat length.
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1nxktje/memory_allocation_vs_chat_length/)

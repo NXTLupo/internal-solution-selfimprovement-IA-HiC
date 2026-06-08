@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1t3imnx.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1t3imnx/deciding_between_cambridge_and_tu_delft_for/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,31 @@ flair: "Applied Sciences"
 extracted_at: "2026-05-22T23:33:50.646Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1t3imnx.md#c0"
+    char_span: [0, 1200]
+    sentence_count: 6
+    key_terms: [chemistry, deciding, program, gradadmissions, want, comments, continue, having]
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/gradadmissions/1t3imnx.md#c1"
+    char_span: [1202, 2510]
+    sentence_count: 3
+    key_terms: [chemistry, learning, research, based, entirely, industry, degree, useful]
+    token_count: 278
+  - id: "social-intelligence/reddit-deep/gradadmissions/1t3imnx.md#c2"
+    char_span: [2512, 3912]
+    sentence_count: 7
+    key_terms: [program, like, masters, degree, engineering, experiences, netherlands, cambridge]
+    token_count: 303
+  - id: "social-intelligence/reddit-deep/gradadmissions/1t3imnx.md#c3"
+    char_span: [3927, 6144]
+    sentence_count: 6
+    key_terms: [engineering, degree, program, chemistry, chemical, masters, people, university]
+    section: Comments
+    token_count: 462
 ---
-
 # Deciding between Cambridge and TU Delft for chemistry masters program, HELP
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1t3imnx/deciding_between_cambridge_and_tu_delft_for/)

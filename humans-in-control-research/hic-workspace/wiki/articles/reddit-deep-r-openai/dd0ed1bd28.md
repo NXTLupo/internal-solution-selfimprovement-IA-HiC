@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-openai/dd0ed1bd28.md
 url: "https://www.reddit.com/r/OpenAI/comments/1n205h4/gpt5_pro_breaking_itself_after_reasoning_for_30/"
 url_hash: "dd0ed1bd28"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T17:32:17.591474+00:00"
 chars: 738
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-openai/dd0ed1bd28.md#c0"
+    char_span: [0, 968]
+    sentence_count: 6
+    key_terms: [traditional-let-856, loops, offontangent, shivansh12t, reasoning, schedules, comments, thoughts]
+    token_count: 266
 ---
-
 # GPT-5 pro breaking itself after reasoning for 30+ minutes? Did it reach full context window?
 
 Source: [Reddit Deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1n205h4/gpt5_pro_breaking_itself_after_reasoning_for_30/)

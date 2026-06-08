@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-askacademia/f8f5dab35c.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1n7y1zm/how_is_experiential_learning_viewed_in_higher/"
 url_hash: "f8f5dab35c"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-26T14:35:20.073514+00:00"
 chars: 2019
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-askacademia/f8f5dab35c.md#c0"
+    char_span: [0, 2230]
+    sentence_count: 12
+    key_terms: [experiential, experience, learning, relevant, internship, applied, program, organization]
+    token_count: 472
 ---
-
 # How is experiential learning viewed in higher levels of academia?
 
 Source: [Reddit Deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1n7y1zm/how_is_experiential_learning_viewed_in_higher/)

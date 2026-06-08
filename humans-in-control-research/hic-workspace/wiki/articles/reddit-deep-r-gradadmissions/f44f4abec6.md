@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-gradadmissions/f44f4abec6.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1pp3ifw/master_list_of_interview_questions/"
 url_hash: "f44f4abec6"
 kind: "article"
@@ -10,8 +11,35 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:41:25.741164+00:00"
 chars: 10831
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-gradadmissions/f44f4abec6.md#c0"
+    char_span: [0, 1773]
+    sentence_count: 11
+    key_terms: [repost, questions, reddit, phd, gradadmissions, school, migorrortis96, https]
+    token_count: 419
+  - id: "articles/reddit-deep-r-gradadmissions/f44f4abec6.md#c1"
+    char_span: [1775, 4344]
+    sentence_count: 1
+    key_terms: [research, institution, program, interests, questions, work, funding, project]
+    token_count: 508
+  - id: "articles/reddit-deep-r-gradadmissions/f44f4abec6.md#c2"
+    char_span: [4346, 6337]
+    sentence_count: 6
+    key_terms: [research, teaching, experience, lab, disagreement, combination, did, time]
+    token_count: 414
+  - id: "articles/reddit-deep-r-gradadmissions/f44f4abec6.md#c3"
+    char_span: [6339, 8705]
+    sentence_count: 1
+    key_terms: [research, students, program, grad, advisor, working, people, environment]
+    token_count: 511
+  - id: "articles/reddit-deep-r-gradadmissions/f44f4abec6.md#c4"
+    char_span: [8707, 11006]
+    sentence_count: 10
+    key_terms: [students, lab, questions, program, interview, projects, research, thank]
+    token_count: 512
 ---
-
 # Master List of Interview Questions
 
 Source: [Reddit Deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1pp3ifw/master_list_of_interview_questions/)

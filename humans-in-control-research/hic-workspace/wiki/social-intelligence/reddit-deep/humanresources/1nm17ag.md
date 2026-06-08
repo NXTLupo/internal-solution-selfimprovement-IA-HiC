@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1nm17ag.md
 url: "https://www.reddit.com/r/humanresources/comments/1nm17ag/how_are_you_planning_around_the_new_100k_h1b_fee/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,51 @@ flair: "Strategic Planning"
 extracted_at: "2026-05-23T12:15:41.516Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1nm17ag.md#c0"
+    char_span: [0, 1019]
+    sentence_count: 8
+    key_terms: [humanresources, strategic, comments, planning, around, cost, h-1b, new]
+    token_count: 256
+  - id: "social-intelligence/reddit-deep/humanresources/1nm17ag.md#c1"
+    char_span: [1034, 2064]
+    sentence_count: 6
+    key_terms: [company, anyone, canada, right, "we're", rto, humanresources, low-tackle2543]
+    section: Comments
+    token_count: 295
+  - id: "social-intelligence/reddit-deep/humanresources/1nm17ag.md#c2"
+    char_span: [2066, 4172]
+    sentence_count: 13
+    key_terms: [healthcare, going, deleted, "it's", labelwhore, hospitals, anything, already]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/humanresources/1nm17ag.md#c3"
+    char_span: [3918, 4656]
+    sentence_count: 5
+    key_terms: [country, work, employees, options, office, keep, unfortunately, asynchronous]
+    section: Comments
+    token_count: 184
+  - id: "social-intelligence/reddit-deep/humanresources/1nm17ag.md#c4"
+    char_span: [4658, 5513]
+    sentence_count: 6
+    key_terms: [question, spending, program, often, rlyjustheretolurk, hunterofshadows, goodvibezone, professional]
+    section: Comments
+    token_count: 220
+  - id: "social-intelligence/reddit-deep/humanresources/1nm17ag.md#c5"
+    char_span: [5515, 7138]
+    sentence_count: 12
+    key_terms: [epi-comment-on-prevailing-wage-levels-determination-for-h-1b-visas-and-permanent-labor-certifications-for-green-cards, software-engineer-ew2xrn7q23, https, salaries, software, job-titles, prevailing, companies]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/humanresources/1nm17ag.md#c6"
+    char_span: [7140, 8987]
+    sentence_count: 9
+    key_terms: [visa, pay, green, leave, eligibility, fees, employees, important]
+    section: Comments
+    token_count: 490
 ---
-
 # How are you planning around the new $100K H-1B fee? [N/A]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1nm17ag/how_are_you_planning_around_the_new_100k_h1b_fee/)

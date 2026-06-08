@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1sl11ho.md
 url: "https://www.reddit.com/r/artificial/comments/1sl11ho/about_mythos_ai/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,49 @@ flair: "Cybersecurity"
 extracted_at: "2026-05-11T17:27:04.782Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1sl11ho.md#c0"
+    char_span: [0, 2404]
+    sentence_count: 28
+    key_terms: [vulnerabilities, cost, exploit, mythos, found, bug, chaining, vulnerability]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/artificial/1sl11ho.md#c1"
+    char_span: [2406, 5089]
+    sentence_count: 23
+    key_terms: [going, report, doing, security, humans, mythos, triage, vulnerability]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/artificial/1sl11ho.md#c2"
+    char_span: [5091, 6908]
+    sentence_count: 21
+    key_terms: [anthropic, models, people, field, understand, technical, question, security]
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/artificial/1sl11ho.md#c3"
+    char_span: [6923, 9013]
+    sentence_count: 17
+    key_terms: [opinion, mythos, "don't", analysts, judgment, year-old, because, openbsd]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/artificial/1sl11ho.md#c4"
+    char_span: [9015, 10385]
+    sentence_count: 3
+    key_terms: [read, gonna, definitely, acrolith, detector, people, solid, write]
+    section: Comments
+    token_count: 379
+  - id: "social-intelligence/reddit-deep/artificial/1sl11ho.md#c5"
+    char_span: [10387, 11663]
+    sentence_count: 1
+    key_terms: [manager, officer, director, engineer, chief, marketing, product, analyst]
+    section: Comments
+    token_count: 244
+  - id: "social-intelligence/reddit-deep/artificial/1sl11ho.md#c6"
+    char_span: [11665, 13266]
+    sentence_count: 10
+    key_terms: [integer, improvement, conditions, overflow, security, mythos, subtle, far-eagle7029]
+    section: Comments
+    token_count: 396
 ---
-
 # about mythos AI
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1sl11ho/about_mythos_ai/)

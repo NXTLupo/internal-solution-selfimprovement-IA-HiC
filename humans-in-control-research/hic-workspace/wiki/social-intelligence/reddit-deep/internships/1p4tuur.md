@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1p4tuur.md
 url: "https://www.reddit.com/r/internships/comments/1p4tuur/anyone_looking_for_internships_in_bangalore/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,27 @@ flair: "Applications"
 extracted_at: "2026-05-25T18:31:15.449Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1p4tuur.md#c0"
+    char_span: [0, 1502]
+    sentence_count: 8
+    key_terms: [looking, internships, bangalore, startup, people, want, incubation, building]
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/internships/1p4tuur.md#c1"
+    char_span: [1517, 2899]
+    sentence_count: 2
+    key_terms: [g5utergtjrrcre5na, gupshup123, interested, please, below, learn, fill, form]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/internships/1p4tuur.md#c2"
+    char_span: [2901, 3437]
+    sentence_count: 1
+    key_terms: [g5utergtjrrcre5na, gupshup123, interested, forms, https, gle, please, below]
+    section: Comments
+    token_count: 199
 ---
-
 # Anyone looking for Internships in Bangalore? (Founder's Office)
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1p4tuur/anyone_looking_for_internships_in_bangalore/)

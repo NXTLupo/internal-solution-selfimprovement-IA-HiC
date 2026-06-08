@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1sx7pz2.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1sx7pz2/how_much_does_gpa_matter_as_an_engineer_when/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Career Help"
 extracted_at: "2026-05-25T13:01:49.569Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sx7pz2.md#c0"
+    char_span: [0, 1288]
+    sentence_count: 1
+    key_terms: [engineeringstudents, gpa, time, comments, engineer, because, finding, degree]
+    token_count: 303
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sx7pz2.md#c1"
+    char_span: [1303, 1784]
+    sentence_count: 5
+    key_terms: [differentiate, gpa, matters, job, engineering, irrelevant, themselves, employers]
+    section: Comments
+    token_count: 104
 ---
-
 # how much does gpa matter as an engineer when finding a job/internship
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1sx7pz2/how_much_does_gpa_matter_as_an_engineer_when/)

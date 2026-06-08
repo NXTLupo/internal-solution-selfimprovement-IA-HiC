@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1s4iq3i.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1s4iq3i/to_the_students_worried_about_ai_a_3question_test/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,38 @@ flair: "Academic Advice"
 extracted_at: "2026-05-25T13:01:49.563Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1s4iq3i.md#c0"
+    char_span: [0, 2466]
+    sentence_count: 27
+    key_terms: [physical, engineering, engineeringstudents, comments, architectures, environments, power, test]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1s4iq3i.md#c1"
+    char_span: [2468, 2963]
+    sentence_count: 3
+    key_terms: [how-to-build-a-career-that-ai-cant, substack, ranjeethsid, https, com, full, here, ios]
+    token_count: 139
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1s4iq3i.md#c2"
+    char_span: [2978, 4653]
+    sentence_count: 10
+    key_terms: [engineeringstudents, newsprofessional8065, wiki, https, com, please, reddit, automoderator]
+    section: Comments
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1s4iq3i.md#c3"
+    char_span: [4655, 6047]
+    sentence_count: 11
+    key_terms: [calculus, results, problem, google, pretty, "don't", been, cal]
+    section: Comments
+    token_count: 348
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1s4iq3i.md#c4"
+    char_span: [6049, 7032]
+    sentence_count: 6
+    key_terms: [engineering, jesuslizardgoat, article, someone, claude, newsprofessional8065, interdisciplinary, certification]
+    section: Comments
+    token_count: 231
 ---
-
 # To the students worried about AI: A 3-question test for your engineering career
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1s4iq3i/to_the_students_worried_about_ai_a_3question_test/)

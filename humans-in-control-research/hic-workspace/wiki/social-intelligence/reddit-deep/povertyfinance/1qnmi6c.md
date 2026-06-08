@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1qnmi6c.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1qnmi6c/i_dont_see_a_way_out_anymore/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,61 @@ flair: "Housing/Shelter/Standard of Living"
 extracted_at: "2026-05-17T01:13:55.887Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qnmi6c.md#c0"
+    char_span: [0, 1736]
+    sentence_count: 12
+    key_terms: [povertyfinance, live, work, comments, income, living, online, people]
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qnmi6c.md#c1"
+    char_span: [1738, 3840]
+    sentence_count: 14
+    key_terms: [students, house, pay, having, whilst, open, room, completely]
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qnmi6c.md#c2"
+    char_span: [3842, 6036]
+    sentence_count: 21
+    key_terms: [ive, afford, cant, don, rejected, applied, get, interview]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qnmi6c.md#c3"
+    char_span: [6051, 8065]
+    sentence_count: 24
+    key_terms: [get, isn, people, offer, back, dog, job, transport]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qnmi6c.md#c4"
+    char_span: [8067, 8983]
+    sentence_count: 8
+    key_terms: [situation, because, obvious, people, summer, case, dont, work]
+    section: Comments
+    token_count: 219
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qnmi6c.md#c5"
+    char_span: [8985, 11036]
+    sentence_count: 30
+    key_terms: [work, service, certification, find, help, need, situation, something]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qnmi6c.md#c6"
+    char_span: [11038, 12081]
+    sentence_count: 6
+    key_terms: [nyc-restaurants-use-zoom-cashiers-from-philippines, redfluttermao, work, option, https, accommodations, di2w578mvrfg1, neighbouring]
+    section: Comments
+    token_count: 305
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qnmi6c.md#c7"
+    char_span: [12084, 14141]
+    sentence_count: 15
+    key_terms: [exchange, work, thank, english, working, immediate, somewhere, volunteer]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qnmi6c.md#c8"
+    char_span: [13863, 14268]
+    sentence_count: 4
+    key_terms: [school, offer, dog, let, housekeeper, restaurant, translater, caretaker]
+    section: Comments
+    token_count: 92
 ---
-
 # I don’t see a way out anymore.
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1qnmi6c/i_dont_see_a_way_out_anymore/)

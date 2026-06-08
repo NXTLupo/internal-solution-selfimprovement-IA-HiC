@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1nopbhh.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1nopbhh/10_years_ago_my_net_worth_was_0/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,33 @@ flair: "Gain"
 extracted_at: "2026-05-16T20:54:42.969Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1nopbhh.md#c0"
+    char_span: [0, 1041]
+    sentence_count: 4
+    key_terms: [gains, wallstreetbets, big, combined, comments, lucky, plays, years]
+    token_count: 295
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1nopbhh.md#c1"
+    char_span: [1056, 2267]
+    sentence_count: 5
+    key_terms: [get, hard, hump, past, deleted, hitting, discord, https]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1nopbhh.md#c2"
+    char_span: [2269, 3040]
+    sentence_count: 8
+    key_terms: [shares, big-baller-47, man, port, boston-bets, deceptifob, dudermagee, depending]
+    section: Comments
+    token_count: 243
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1nopbhh.md#c3"
+    char_span: [3042, 4513]
+    sentence_count: 17
+    key_terms: [company, years, kids, put, through, retail, school, money]
+    section: Comments
+    token_count: 414
 ---
-
 # 10 Years ago my net worth was $0
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1nopbhh/10_years_ago_my_net_worth_was_0/)

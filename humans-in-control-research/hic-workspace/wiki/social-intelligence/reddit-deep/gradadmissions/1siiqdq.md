@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1siiqdq.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1siiqdq/gpa_inflation_is_destroying_useful_information/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,50 @@ flair: "Venting"
 extracted_at: "2026-05-23T14:54:16.716Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1siiqdq.md#c0"
+    char_span: [0, 2042]
+    sentence_count: 14
+    key_terms: [students, gpa, information, applicants, inflation, gpas, gradadmissions, school]
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/gradadmissions/1siiqdq.md#c1"
+    char_span: [2047, 2967]
+    sentence_count: 6
+    key_terms: [programs, lawschooladmissions, comments, responses, masters, schools, social, research-oriented]
+    token_count: 212
+  - id: "social-intelligence/reddit-deep/gradadmissions/1siiqdq.md#c2"
+    char_span: [2982, 4974]
+    sentence_count: 16
+    key_terms: [student, grading, gpa, programs, faintedheart, grade, get, hard]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/gradadmissions/1siiqdq.md#c3"
+    char_span: [4976, 6640]
+    sentence_count: 6
+    key_terms: [like, students, grad, experience, themselves, research, failure, school]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/gradadmissions/1siiqdq.md#c4"
+    char_span: [6642, 8632]
+    sentence_count: 14
+    key_terms: [gpa, essays, factor, applicants, instructions, application, admissions, individual]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/gradadmissions/1siiqdq.md#c5"
+    char_span: [8634, 10266]
+    sentence_count: 10
+    key_terms: [get, gpa, programs, jewishtigerpup, international, grade, grad, applicants]
+    section: Comments
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/gradadmissions/1siiqdq.md#c6"
+    char_span: [10268, 11761]
+    sentence_count: 11
+    key_terms: [research, school, class, grade, means, gpa, proyects, because]
+    section: Comments
+    token_count: 383
 ---
-
 # GPA Inflation is Destroying Useful Information for Adcoms
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1siiqdq/gpa_inflation_is_destroying_useful_information/)

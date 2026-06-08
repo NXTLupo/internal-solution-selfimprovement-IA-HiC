@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1pob7td.md
 url: "https://www.reddit.com/r/GradSchool/comments/1pob7td/how_normal_is_it_to_be_thrown_to_the_wolves/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-23T20:15:44.993Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1pob7td.md#c0"
+    char_span: [0, 1183]
+    sentence_count: 9
+    key_terms: [program, dissertation, gradschool, comments, teaching, thrown, wolves, inevitable-falcon-96]
+    token_count: 267
+  - id: "social-intelligence/reddit-deep/gradschool/1pob7td.md#c1"
+    char_span: [1198, 3470]
+    sentence_count: 14
+    key_terms: [department, program, like, someone, effectively, institution, been, help]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/gradschool/1pob7td.md#c2"
+    char_span: [3472, 5818]
+    sentence_count: 25
+    key_terms: [research, questions, own, program, writing, accessibility, dissertation, field]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/gradschool/1pob7td.md#c3"
+    char_span: [5820, 6861]
+    sentence_count: 12
+    key_terms: [depend, specific, humanities, programs, enough, skills, topics, teach]
+    section: Comments
+    token_count: 224
+  - id: "social-intelligence/reddit-deep/gradschool/1pob7td.md#c4"
+    char_span: [6863, 8752]
+    sentence_count: 12
+    key_terms: [writing, research, graduate, program, course, skills, year, themselves]
+    section: Comments
+    token_count: 405
+  - id: "social-intelligence/reddit-deep/gradschool/1pob7td.md#c5"
+    char_span: [8754, 10101]
+    sentence_count: 6
+    key_terms: [workshops, advisor, writing, qualitative, concrete, drafting, training, methods]
+    section: Comments
+    token_count: 250
 ---
-
 # How Normal is it to be Thrown to the Wolves??
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1pob7td/how_normal_is_it_to_be_thrown_to_the_wolves/)

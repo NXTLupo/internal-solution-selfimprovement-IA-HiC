@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1mht21b.md
 url: "https://www.reddit.com/r/college/comments/1mht21b/in_defense_of_student_loans/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,42 @@ subreddit: "college"
 title: "In Defense of Student Loans"
 author: "Zealousideal-Pea-220"
 date: "2025-08-04T23:17:45.000Z"
-score: 24
-upvote_ratio: 0.81
+score: 26
+upvote_ratio: 0.83
 num_comments: 10
 flair: "Finances/financial aid"
-extracted_at: "2026-05-23T12:15:24.664Z"
+extracted_at: "2026-06-03T18:52:37.174Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1mht21b.md#c0"
+    char_span: [0, 1965]
+    sentence_count: 12
+    key_terms: [loans, extremely, year, college, subsidized, comments, research, schedule]
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/college/1mht21b.md#c1"
+    char_span: [1980, 4102]
+    sentence_count: 13
+    key_terms: [loans, people, take, zealousideal-pea-220, subsidized, situation, taking, issue]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/college/1mht21b.md#c2"
+    char_span: [4104, 6263]
+    sentence_count: 17
+    key_terms: [loans, people, university, freshman, private, years, financial, communal]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/college/1mht21b.md#c3"
+    char_span: [6265, 6840]
+    sentence_count: 5
+    key_terms: [universities, smaller, class, sizes, universites, auditorium, orientated, amenities]
+    section: Comments
+    token_count: 120
 ---
-
 # In Defense of Student Loans
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1mht21b/in_defense_of_student_loans/)
-Posted by **Zealousideal-Pea-220** · **24↑** · **10 comments**
+Posted by **Zealousideal-Pea-220** · **26↑** · **10 comments**
 
 Crazy title, I know. Hear me out though.
 
@@ -38,10 +62,10 @@ I feel so much happier to not have this weight around my feet and while I unders
 
 ## Comments
 
-- **Animallover4321** (46↑): The problem isn’t a few thousand a year in subsidized loans the issue becomes when kids take out 90 grand in loans and will spend most of their life repaying them. I’m a millianial I have seem how devastating those types of private loans can be.
+- **Animallover4321** (50↑): The problem isn’t a few thousand a year in subsidized loans the issue becomes when kids take out 90 grand in loans and will spend most of their life repaying them. I’m a millianial I have seem how devastating those types of private loans can be.
   - **two_three_five_eigth** (9↑): Yep - as long as you stick to public loans, and keep it  under 40k for all 4 years you'll be fine.  It's people that borrow 100k+ that make headlines though.
   - **Zealousideal-Pea-220** (5↑): Trust me I understand and that’s part of the reason why I was so paralyzed to take out loans in the first place too. I grew up listening to those horror stories. This is applying to people in a similar position as me where loans will help them finish college in a more comfortable position.
-- **[deleted]** (9↑): I'm in the same boat with taking out only subsidized loans, but our situation is extremely rare. Most students take out non-subsidized loans or private loans with predator levels of interest for an over priced education where wages haven't caught up. Not to mention if you change degrees or have to take and extra year you are left with debt for classes you didn't need which often happens. This loan situation is the best case scenario.
+- **[deleted]** (10↑): I'm in the same boat with taking out only subsidized loans, but our situation is extremely rare. Most students take out non-subsidized loans or private loans with predator levels of interest for an over priced education where wages haven't caught up. Not to mention if you change degrees or have to take and extra year you are left with debt for classes you didn't need which often happens. This loan situation is the best case scenario.
   - **Zealousideal-Pea-220** (3↑): Yes absolutely understand that is the case for most people- however people who are in our situation might not realize they can actually improve their personal finances by taking this route.
     - **[deleted]** (3↑): Fair
 - **Atsubaki** (5↑): Taking subsidized loans isn't an issue if you are financially disciplined. If you take the money and you leave it in a HYSA and treat it as an emergency fund, it's arguably free funds. When you replay groups of them they show up on your credit report and you can access some nicer cards with much better rates. The issue begins when peeps start spending the money on dumb shit they dont need like consoles and gaming PC's.

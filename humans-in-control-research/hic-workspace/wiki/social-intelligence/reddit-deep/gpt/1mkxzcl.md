@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1mkxzcl.md
 url: "https://www.reddit.com/r/GPT/comments/1mkxzcl/does_anyone_know_what_the_ide_shown_in_the/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-11T17:26:37.729Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1mkxzcl.md#c0"
+    char_span: [0, 786]
+    sentence_count: 4
+    key_terms: [presentation, gpt-5, code, comments, official, anyone, https, demo]
+    token_count: 229
 ---
-
 # Does anyone know what the IDE shown in the official GPT-5 demo is? Is it available?
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1mkxzcl/does_anyone_know_what_the_ide_shown_in_the/)

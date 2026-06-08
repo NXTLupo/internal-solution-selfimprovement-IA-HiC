@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1t8dim4.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1t8dim4/should_i_take_precalculus_in_the_fall/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,33 @@ flair: "Academic Advice"
 extracted_at: "2026-05-22T21:34:47.629Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1t8dim4.md#c0"
+    char_span: [0, 1756]
+    sentence_count: 11
+    key_terms: [precalc, engineering, engineeringstudents, pretty, guys, professor, comments, algebra]
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1t8dim4.md#c1"
+    char_span: [1771, 3437]
+    sentence_count: 11
+    key_terms: [engineeringstudents, wiki, please, reddit, next-explanation321, https, com, automoderator]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1t8dim4.md#c2"
+    char_span: [3439, 4800]
+    sentence_count: 11
+    key_terms: ["that's", discipline, algebra, precalc, engineering, time, different, college]
+    section: Comments
+    token_count: 328
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1t8dim4.md#c3"
+    char_span: [4802, 6615]
+    sentence_count: 12
+    key_terms: [algebra, college, next-explanation321, doing, semester, precalc, summer, sithlord73991]
+    section: Comments
+    token_count: 452
 ---
-
 # Should I take Precalculus in the Fall?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1t8dim4/should_i_take_precalculus_in_the_fall/)

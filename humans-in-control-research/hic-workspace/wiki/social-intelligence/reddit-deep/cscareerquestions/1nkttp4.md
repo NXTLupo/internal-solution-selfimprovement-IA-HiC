@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1nkttp4.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1nkttp4/nobody_tells_you_this_but_social_skills_are/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,72 @@ subreddit: "cscareerquestions"
 title: "Nobody tells you this, but social skills are TRAINABLE like a language"
 author: "Formal_Asparagus_119"
 date: "2025-09-19T04:17:07.000Z"
-score: 527
+score: 518
 upvote_ratio: 0.92
 num_comments: 118
 flair: ""
-extracted_at: "2026-05-22T13:32:46.169Z"
+extracted_at: "2026-06-02T17:48:41.586Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nkttp4.md#c0"
+    char_span: [0, 1720]
+    sentence_count: 10
+    key_terms: [social, skills, cscareerquestions, comments, practice, introverted, networking, language]
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nkttp4.md#c1"
+    char_span: [1735, 3764]
+    sentence_count: 12
+    key_terms: [people, vocabulary, book, common, failedgradadmissions, basics, names, etiquette]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nkttp4.md#c2"
+    char_span: [3766, 5759]
+    sentence_count: 7
+    key_terms: [deleted, people, personality, food, actionable, mentioned, manners, service]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nkttp4.md#c3"
+    char_span: [5761, 7478]
+    sentence_count: 9
+    key_terms: [skills, something, ask, awkward, mentor, social, lot, mentioned]
+    section: Comments
+    token_count: 377
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nkttp4.md#c4"
+    char_span: [7480, 9610]
+    sentence_count: 15
+    key_terms: [introverted, social, extroverted, people, training, because, reddit, skills]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nkttp4.md#c5"
+    char_span: [9612, 11365]
+    sentence_count: 12
+    key_terms: [skills, social, engineering, talking, smooth, good, like, concepts]
+    section: Comments
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nkttp4.md#c6"
+    char_span: [11367, 13384]
+    sentence_count: 13
+    key_terms: [people, skills, different, presentations, good, like, environments, intelligence]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nkttp4.md#c7"
+    char_span: [13386, 15098]
+    sentence_count: 9
+    key_terms: [acordeonphx, people, post, rayzorium, something, talking, anyone, course]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nkttp4.md#c8"
+    char_span: [15101, 16623]
+    sentence_count: 7
+    key_terms: [conversation, person, did, far, connection, question, because, choose]
+    section: Comments
+    token_count: 364
 ---
-
 # Nobody tells you this, but social skills are TRAINABLE like a language
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1nkttp4/nobody_tells_you_this_but_social_skills_are/)
-Posted by **Formal_Asparagus_119** · **527↑** · **118 comments**
+Posted by **Formal_Asparagus_119** · **518↑** · **118 comments**
 
 When I was younger, my family moved constantly. I was always the “new kid” and extremely introverted. People decided who I was before I had a chance to show them. Later on in life at internships and then at work I still carried that same feeling of “im just not good with people.”
 
@@ -34,7 +88,7 @@ Curious if anyone else here has deliberately “trained” their social skills f
 
 ## Comments
 
-- **FailedGradAdmissions** (178↑): Sir this is a Wendys,  
+- **FailedGradAdmissions** (176↑): Sir this is a Wendys,  
 
 Jokes aside, yeah you can improve your soft skills. It’s an old book but more relevant than ever, go read How to Win Friends and Influence People. Tons of basics and “common sense” that isn’t as common as it should be. 
 
@@ -43,7 +97,7 @@ Basics like remembering people’s names, eye contact, letting them talk, learni
 
 I've also found, as a general rule, that a lot of things that are either common sense or taken for granted are just things that most people don't do, and so doing so can give you a leg up socially because the bar is lower than you'd expect. Another example is vocabulary; A vibrant and large vocabulary is often a common trait amongst successful people, as well as a measurable show of intelligence (and more to the point of soft skills, it's a great way to show *other* people your intellect by being an effective communicator). But most people stop building their vocabulary in their 20's, despite words being the main tool of thinking for those of us with an internal monologue.
     - **FailedGradAdmissions** (5↑): Completely agreed, for those looking to expand their vocabulary. Check out Anki, spaced repetition makes it super easy.
-  - **IWTLEverything** (37↑): Just don’t use people’s names as frequently as suggested in that book. I hate when salespeople say my name every other sentence because the book told them people’s names are the “most beautiful sound in the world” to them.
+  - **IWTLEverything** (39↑): Just don’t use people’s names as frequently as suggested in that book. I hate when salespeople say my name every other sentence because the book told them people’s names are the “most beautiful sound in the world” to them.
   - **EasyLowHangingFruit** (5↑): I'd highly recommend to learn some manners/etiquette and specially from [Emily Post's Etiquette](https://a.co/d/8IrDnCq).
 
 If you could only read a paragraph from this book, it'd definitely should be this one:
@@ -54,15 +108,15 @@ If you could only read a paragraph from this book, it'd definitely should be thi
 working in food service (fast food -> waffle house type place -> bar) for 5+ years while attending school made my relatively introverted self comfortable with talking to randoms I have nothing in common with.
   - **Formal_Asparagus_119** (3↑): thank you for the book recommendation
   - **caffeinthescene** (1↑): I read this book as a kid and it was helpful to me.  I put a lot of practice into getting over my shyness and putting myself out there even if I was uncomfortable.  It worked.
-- **irishninja62** (81↑): >Nobody tells you this  
+- **irishninja62** (87↑): >Nobody tells you this  
    
 Really? I feel Ike I see it mentioned weekly in this sub, either in the OP or a highly upvoted top-level comment. Unfortunately, no one ever has any actionable advice.   
    
 Edit: typo
   - **[deleted]** (28↑): What people mostly say is "you can teach hard skills but not soft skills/personality", and that is a very toxic and gatekeeping attitude.
-    - **Antique_Pin5266** (5↑): What they are really trying to say is, if you are an asshole / stubborn, you will likely be so for the rest of your life, and people don't want to deal with that
+    - **Antique_Pin5266** (6↑): What they are really trying to say is, if you are an asshole / stubborn, you will likely be so for the rest of your life, and people don't want to deal with that
     - **TopNo6605** (0↑): It's usually the people who got where they are strictly based off of ass-kissing that say that, as if they have some God-given amazing personality that nobody else can learn.
-  - **Formal_Asparagus_119** (3↑): does anyone have actionable tips beyond those that have been mentioned so far?
+  - **Formal_Asparagus_119** (4↑): does anyone have actionable tips beyond those that have been mentioned so far?
     - **[deleted]** (2↑): I got good enough at it working in food service, it's all about body language and listening
 
 being quiet isn't bad. just ask people about their interests, maybe they picked up a hobby where you spent time years back or something. ask if they are reading anything or watching a tv show, ask about characters in media.
@@ -70,7 +124,7 @@ being quiet isn't bad. just ask people about their interests, maybe they picked 
 even just go to bars and talk to randoms about nothing. it's awkward at first, have some bs excuse (yeah my friend is out of town or whatever) if people ask why you're by yourself. you don't have to tell anyone something or do something you're uncomfortable with, just enjoy time for what it is.
     - **[deleted]** (1↑): Try hitting on women in public. These should be fairly correlated skill skills
   - **Less-Fondant-3054** (1↑): You see it mentioned here because this is specifically a space for asking/venting about it.  But outside of spaces like this, like say in the world of education and child rearing where it would be most valuable, it's not talked about.
-- **mustgodeeper** (31↑): 2 caveats
+- **mustgodeeper** (32↑): 2 caveats
 
 I think its more difficult to mentor/train another in social skills. For technical skills someone typically is assigned to help mentor and onboard and teach you/docs to read etc. Having to mentor someones social skills is a lot more awkward and I doubt anyone wants to explicitly be told they need to do that. So a lot is on the individual if they know they need to grow that area and practice it themselves
 
@@ -79,9 +133,9 @@ And then with technical skills there’s a lot of room to make mistakes and fail
 It’s definitely not untrainable but trickier
   - **tcpWalker** (8↑): If you are not training social skills you are not mentoring, IMHO. Mentoring includes both social and technical elements.
   - **Fluffy_Yesterday_468** (1↑): For any type of training the recipient has to be open to it. People are often less open to soft skills training.
-  - **Formal_Asparagus_119** (-1↑): its trickier but id argue more transformative for career success
-    - **mustgodeeper** (2↑): I don’t disagree on that, I don’t think my comment would be an argument against why it’s important
-- **whathaveicontinued** (8↑): I mean literally every post on Reddit tells you this lol.
+  - **Formal_Asparagus_119** (-2↑): its trickier but id argue more transformative for career success
+    - **mustgodeeper** (4↑): I don’t disagree on that, I don’t think my comment would be an argument against why it’s important
+- **whathaveicontinued** (6↑): I mean literally every post on Reddit tells you this lol.
 
 Anyway, I was always a weird nerd, hung around nerds, shy non-popular guys etc. But because I was always great at sport and athletic I would hang around jocks and even gangsters so I learned how to get along with alot of different people.
 
@@ -113,7 +167,7 @@ If you’re looking at practicing a specific skill like oration, I would try cop
 You have to actually like people.  This field attracts misanthropes that even if they had the skills wouldn't use them by choice.
 - **AcordeonPhx** (7↑): Man some of these comments come off super weird and unnatural.
   - **software_engiweer** (3↑): Why do you think that, AcordeonPhx? AcordeonPhx, I'm really interested in your valued perspective and diverse experience, would you care to elaborate? *intense eye contact with scary big grin*
-- **rayzorium** (9↑): god I hate the way LLMs write this type of stuff
+- **rayzorium** (8↑): god I hate the way LLMs write this type of stuff
   - **Toasted_FlapJacks** (3↑): That's what you got from this?
     - **rayzorium** (5↑): Social skills being learnable is common sense, and solutions are probably crammed down the throat anyone who needs to hear it by advertisers anyway. It *is* important to know for anyone who doesn't already, of course, but virtually no one is learning it for the first time from this post.
 
@@ -122,7 +176,7 @@ Still, everyone learns something for the first time and there may be a slightly 
 If it was OP's own words I would never roast it, but an AI written blog post is not worth your defense.
     - **Ok-Entertainer-1414** (4↑): Yeah look at OP's post history
     - **cachehit_** (1↑): Immediately jumped out to me as LLM generated tbh
-- **[deleted]** (7↑): Shhhh, you’ll piss off the basement dwellers!
+- **[deleted]** (9↑): Shhhh, you’ll piss off the basement dwellers!
 
 It works indeed, a lot of people on Reddit can’t fathom the idea of talking for talking sake.
 
@@ -133,8 +187,8 @@ Edit: didnt even notice this was on a CS sub lol, but of course it is
 
 
 Yes, this empty conversation with prescribed, scripted answers did indeed need to happen.
-    - **[deleted]** (4↑): Well, there’s a bunch of ways to have gone about this and have a decently pleasant conversation. Whoever started the convo could’ve seen the other person’s demeanor and choose what they say based off of that. For example, if I see a buddy of mine who’s looking a bit down, I’ll say “shit day today?” or if they’re happy, I say “enjoying today so far?” I choose these because it gives them a question they can easily support or refute the claim I’m making. Also, it’s a bit more narrow of a question, while “how’s it going” is very open ended
-    - **motherthrowee** (2↑): it did though, it served its purpose. the actual unspoken conversation that was had here was something along the lines of "do you want to talk?" "nah" "ok"
+    - **[deleted]** (5↑): Well, there’s a bunch of ways to have gone about this and have a decently pleasant conversation. Whoever started the convo could’ve seen the other person’s demeanor and choose what they say based off of that. For example, if I see a buddy of mine who’s looking a bit down, I’ll say “shit day today?” or if they’re happy, I say “enjoying today so far?” I choose these because it gives them a question they can easily support or refute the claim I’m making. Also, it’s a bit more narrow of a question, while “how’s it going” is very open ended
+    - **motherthrowee** (4↑): it did though, it served its purpose. the actual unspoken conversation that was had here was something along the lines of "do you want to talk?" "nah" "ok"
     - **Less-Fondant-3054** (2↑): Yes it did indeed.  Because as small as it is it established a connection between you and the other person.  
 
 Or you can keep to your holier-than-thou "I only speak of intelligent matters" egotism and watch as far less technically capable people pass you by on the career ladder and survive layoffs that you don't.  Unless you are in the Linus Torvalds tier your tech skills are common and easily found and replaced.

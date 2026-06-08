@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1n5rij2.md
 url: "https://www.reddit.com/r/college/comments/1n5rij2/how_do_people_in_my_situation_save_money_while/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-17T01:12:59.133Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1n5rij2.md#c0"
+    char_span: [0, 774]
+    sentence_count: 6
+    key_terms: [because, college, full-time, comments, student, campus, "i'm", move]
+    token_count: 180
+  - id: "social-intelligence/reddit-deep/college/1n5rij2.md#c1"
+    char_span: [789, 2261]
+    sentence_count: 9
+    key_terms: [ancientnoise1757, applied, parents, doing, fafsa, room, semester, college]
+    section: Comments
+    token_count: 356
+  - id: "social-intelligence/reddit-deep/college/1n5rij2.md#c2"
+    char_span: [2263, 3177]
+    sentence_count: 10
+    key_terms: [work, "didn't", though, radiant-pianist-3596, back, did, duty, got]
+    section: Comments
+    token_count: 228
+  - id: "social-intelligence/reddit-deep/college/1n5rij2.md#c3"
+    char_span: [3179, 5124]
+    sentence_count: 14
+    key_terms: [work, school, doing, shifts, car, hrs, semester, campus]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1n5rij2.md#c4"
+    char_span: [4881, 5522]
+    sentence_count: 6
+    key_terms: [car, college, parents, paying, people, coachinteresting7125, lot, rent]
+    section: Comments
+    token_count: 160
+  - id: "social-intelligence/reddit-deep/college/1n5rij2.md#c5"
+    char_span: [5524, 7032]
+    sentence_count: 14
+    key_terms: [campus, maintenancelazy, parents, living, maybe, tuition, common, family]
+    section: Comments
+    token_count: 360
 ---
-
 # How do people in my situation save money while being a full-time student?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1n5rij2/how_do_people_in_my_situation_save_money_while/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1pk4n8a.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1pk4n8a/breaking_openai_releases_gpt_52/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,57 @@ flair: "News 📰"
 extracted_at: "2026-05-11T16:54:08.819Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1pk4n8a.md#c0"
+    char_span: [0, 1250]
+    sentence_count: 6
+    key_terms: [gpt-5, model, previous, chatgpt, general, best, especially, accuracy]
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/chatgpt/1pk4n8a.md#c1"
+    char_span: [1265, 2500]
+    sentence_count: 5
+    key_terms: [like, versions, r-chatgpt-1050422060352024636, remember, discord, windows, people, atworkwasalreadytake]
+    section: Comments
+    token_count: 348
+  - id: "social-intelligence/reddit-deep/chatgpt/1pk4n8a.md#c2"
+    char_span: [2502, 4199]
+    sentence_count: 18
+    key_terms: ["it's", reasoning, context, gemini, reallllly, million, prompts, openai]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/chatgpt/1pk4n8a.md#c3"
+    char_span: [4201, 5745]
+    sentence_count: 11
+    key_terms: [better, gemini, "don't", benchmarks, distance, chatgpt, someacanthocephala17, least]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/chatgpt/1pk4n8a.md#c4"
+    char_span: [5747, 6250]
+    sentence_count: 1
+    key_terms: [better, gemini, currently, justwalkingalonghere, "it's", pro, ultrababyvegeta, godofpumpkins]
+    section: Comments
+    token_count: 149
+  - id: "social-intelligence/reddit-deep/chatgpt/1pk4n8a.md#c5"
+    char_span: [6252, 7984]
+    sentence_count: 6
+    key_terms: [like, guardrails, instant, red286, brave-turnover-522, not-insignificant, age, "it's"]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/chatgpt/1pk4n8a.md#c6"
+    char_span: [7986, 9605]
+    sentence_count: 10
+    key_terms: [ultrababyvegeta, shit, teenager, improve, introductionsouth513, knows, model, good]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/chatgpt/1pk4n8a.md#c7"
+    char_span: [9607, 10355]
+    sentence_count: 8
+    key_terms: [provide, sources, longer, get, misinterpreting, functionality, bullshitting, approaching]
+    section: Comments
+    token_count: 190
 ---
-
 # BREAKING: OpenAi releases GPT 5.2
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1pk4n8a/breaking_openai_releases_gpt_52/)

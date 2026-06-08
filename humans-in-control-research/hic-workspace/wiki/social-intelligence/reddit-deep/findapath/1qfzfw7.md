@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1qfzfw7.md
 url: "https://www.reddit.com/r/findapath/comments/1qfzfw7/bca_student_who_loves_price_comparison_cost/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,21 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-25T13:04:07.383Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1qfzfw7.md#c0"
+    char_span: [0, 308]
+    sentence_count: 2
+    key_terms: [findapath, comments, reddit-deep, comparison, tracking, explore, faiz506, student]
+    token_count: 84
+  - id: "social-intelligence/reddit-deep/findapath/1qfzfw7.md#c1"
+    char_span: [323, 1455]
+    sentence_count: 10
+    key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
+    section: Comments
+    token_count: 248
 ---
-
 # BCA student who loves price comparison & cost tracking — which career paths should I explore?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1qfzfw7/bca_student_who_loves_price_comparison_cost/)

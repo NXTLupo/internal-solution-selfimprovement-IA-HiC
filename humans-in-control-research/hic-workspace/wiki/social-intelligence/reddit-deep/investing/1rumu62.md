@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1rumu62.md
 url: "https://www.reddit.com/r/investing/comments/1rumu62/dumping_unprofitable_startups_onto_pensions_at/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.198Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1rumu62.md#c0"
+    char_span: [0, 1432]
+    sentence_count: 5
+    key_terms: [investors, seasoning, pensions, dumping, requirements, unprofitable, index, price]
+    token_count: 310
+  - id: "social-intelligence/reddit-deep/investing/1rumu62.md#c1"
+    char_span: [1447, 2206]
+    sentence_count: 4
+    key_terms: [pension, funds, index, tiny, "vc's", lemmingswag, assurances, responders]
+    section: Comments
+    token_count: 190
+  - id: "social-intelligence/reddit-deep/investing/1rumu62.md#c2"
+    char_span: [2208, 4092]
+    sentence_count: 13
+    key_terms: [doing, buy, profitable, impacted, country, indexes, without, public]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/investing/1rumu62.md#c3"
+    char_span: [4094, 6256]
+    sentence_count: 15
+    key_terms: [profitable, spacex, questionable, people, paperwork, "it's", believe, money]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/investing/1rumu62.md#c4"
+    char_span: [6258, 8394]
+    sentence_count: 12
+    key_terms: [spacex, billion, like, increased, valuation, company, dollars, market]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/investing/1rumu62.md#c5"
+    char_span: [8396, 9623]
+    sentence_count: 9
+    key_terms: [openai, better, infinitely, anything, somehow, claude, hoping, offers]
+    section: Comments
+    token_count: 280
+  - id: "social-intelligence/reddit-deep/investing/1rumu62.md#c6"
+    char_span: [9625, 11137]
+    sentence_count: 11
+    key_terms: [inclusion, seasoning, wework, funds, index, price, analytickai, ipo]
+    section: Comments
+    token_count: 316
 ---
-
 # Dumping Unprofitable Startups onto Pensions at Inflated Valuations (SpaceX/OpenAI)
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1rumu62/dumping_unprofitable_startups_onto_pensions_at/)

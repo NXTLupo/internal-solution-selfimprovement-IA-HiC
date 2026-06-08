@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1ok2kp2.md
 url: "https://www.reddit.com/r/college/comments/1ok2kp2/im_a_3rd_year_engineering_student_but_feel_lost/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -10,11 +11,22 @@ score: 3
 upvote_ratio: 0.81
 num_comments: 7
 flair: "Career/work"
-extracted_at: "2026-05-25T18:31:10.106Z"
+extracted_at: "2026-06-05T23:41:08.248Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1ok2kp2.md#c0"
+    char_span: [0, 1739]
+    sentence_count: 10
+    key_terms: [business, engineering, like, master, something, comments, software, college]
+    token_count: 391
+  - id: "social-intelligence/reddit-deep/college/1ok2kp2.md#c1"
+    char_span: [1754, 3690]
+    sentence_count: 12
+    key_terms: [business, research, industry, degree, cheap-kaleidoscope91, good, "i've", want]
+    section: Comments
+    token_count: 440
 ---
-
 # I’m a 3rd year Engineering student but feel lost about what to do for my Master’s (Software Engineering or Business)?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ok2kp2/im_a_3rd_year_engineering_student_but_feel_lost/)

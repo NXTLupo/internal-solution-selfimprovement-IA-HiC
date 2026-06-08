@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1r8gcs7.md
 url: "https://www.reddit.com/r/internships/comments/1r8gcs7/i_analyzed_53744_internships_entrylevel_jobs_to/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,45 @@ subreddit: "internships"
 title: "I analyzed 53,744 internships + entry-level jobs to find what skills employers actually ask for. Here's what to learn (and where)"
 author: "Technical-Machine-76"
 date: "2026-02-18T21:44:52.000Z"
-score: 73
-upvote_ratio: 0.95
+score: 71
+upvote_ratio: 0.94
 num_comments: 4
 flair: "General"
-extracted_at: "2026-05-25T18:31:15.451Z"
+extracted_at: "2026-06-06T16:39:04.108Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1r8gcs7.md#c0"
+    char_span: [0, 1768]
+    sentence_count: 9
+    key_terms: [internships, excel, python, engineering, entry-level, learn, sql, skills]
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/internships/1r8gcs7.md#c1"
+    char_span: [1770, 3674]
+    sentence_count: 10
+    key_terms: [https, python, com, finance, automatetheboringstuff, learn, data, "it's"]
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/internships/1r8gcs7.md#c2"
+    char_span: [3676, 5791]
+    sentence_count: 12
+    key_terms: [https, com, free, sql, learn, salesforce, figma, python]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/internships/1r8gcs7.md#c3"
+    char_span: [5793, 6778]
+    sentence_count: 4
+    key_terms: [listings, infrastructure, skills, transformers, overthewire, pay, valuation, learning]
+    token_count: 280
+  - id: "social-intelligence/reddit-deep/internships/1r8gcs7.md#c4"
+    char_span: [6793, 7570]
+    sentence_count: 4
+    key_terms: [technical-machine-76, internshipdaily, skills-demand, analysis, insights, specific, skills, confident-pianist391]
+    section: Comments
+    token_count: 196
 ---
-
 # I analyzed 53,744 internships + entry-level jobs to find what skills employers actually ask for. Here's what to learn (and where)
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1r8gcs7/i_analyzed_53744_internships_entrylevel_jobs_to/)
-Posted by **Technical-Machine-76** · **73↑** · **4 comments**
+Posted by **Technical-Machine-76** · **71↑** · **4 comments**
 
 **BLUF - What to learn based on your field:**
 

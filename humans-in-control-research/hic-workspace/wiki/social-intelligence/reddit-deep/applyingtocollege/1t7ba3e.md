@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1t7ba3e.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1t7ba3e/parents_refuse_to_fund_me_going_to_college/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,39 @@ flair: "Financial Aid/Scholarships"
 extracted_at: "2026-05-23T19:45:32.281Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t7ba3e.md#c0"
+    char_span: [0, 1869]
+    sentence_count: 17
+    key_terms: [college, applyingtocollege, parents, guess, learn, don, want, depressive]
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t7ba3e.md#c1"
+    char_span: [1884, 3984]
+    sentence_count: 9
+    key_terms: [yourself, year, insurance, work, college, parents, get, good]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t7ba3e.md#c2"
+    char_span: [3986, 5541]
+    sentence_count: 15
+    key_terms: [college, grades, parents, final, don, pay, education, formal-research4531]
+    section: Comments
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t7ba3e.md#c3"
+    char_span: [5543, 7649]
+    sentence_count: 14
+    key_terms: [college, parents, "you're", going, loan, pay, immediate, behavior]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t7ba3e.md#c4"
+    char_span: [7652, 7985]
+    sentence_count: 4
+    key_terms: [parents, scholarships, reasonable, community, education, seemingly, seriously, applying]
+    section: Comments
+    token_count: 66
 ---
-
 # Parents refuse to fund me going to college
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1t7ba3e/parents_refuse_to_fund_me_going_to_college/)

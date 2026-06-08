@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/04cfaeea3a.md
 url: "https://www.reddit.com/r/careerguidance/comments/1lpjoqi/what_are_the_best_skills_for_a_high_school/"
 url_hash: "04cfaeea3a"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T15:20:04.864545+00:00"
 chars: 2384
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/04cfaeea3a.md#c0"
+    char_span: [0, 2030]
+    sentence_count: 18
+    key_terms: [learn, valuable, student, careerguidance, matter, school, skills, summer]
+    token_count: 464
+  - id: "articles/reddit-deep-r-careerguidance/04cfaeea3a.md#c1"
+    char_span: [2032, 2651]
+    sentence_count: 6
+    key_terms: [looking, fluffypreparation150, grads, ideas, find, get, path, self-reflect]
+    token_count: 131
 ---
-
 # What are the best skills for a high school student to learn over the summer that can actually help in life and career?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1lpjoqi/what_are_the_best_skills_for_a_high_school/)

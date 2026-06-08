@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1stqqah.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1stqqah/by_the_time_i_have_graduated_i_will_have_3_years/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -10,11 +11,22 @@ score: 2
 upvote_ratio: 0.75
 num_comments: 14
 flair: ""
-extracted_at: "2026-05-25T15:52:30.667Z"
+extracted_at: "2026-06-05T23:42:30.804Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1stqqah.md#c0"
+    char_span: [0, 667]
+    sentence_count: 3
+    key_terms: [cscareerquestions, comments, learning, machine, worried, deliverables, engineering, reddit-deep]
+    token_count: 161
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1stqqah.md#c1"
+    char_span: [682, 2012]
+    sentence_count: 3
+    key_terms: [team, offer, company, return, "you're", happyirishman633210, markzuccsforeskin, here]
+    section: Comments
+    token_count: 353
 ---
-
 # by the time I have graduated I will have 3 years of full-time internship experience with 2.5 of those being a data engineer and the rest as a machine learning engineering intern. in normal conditions I would not be worried about finding a job but the market sucks... so should I be worried?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1stqqah/by_the_time_i_have_graduated_i_will_have_3_years/)
@@ -24,7 +36,7 @@ I have real deliverables and some pretty big projects I have had ownership for. 
 
 ## Comments
 
-- **MarkZuccsForeskin** (5↑): You're better off than most but until you hold that signed offer letter you're in the same boat as everyone else
+- **MarkZuccsForeskin** (4↑): You're better off than most but until you hold that signed offer letter you're in the same boat as everyone else
   - **Parking_Anteater943** (2↑): love the name bro XD
 - **NewChameleon** (2↑): yes
   - **Parking_Anteater943** (1↑): bummer guess ill keep networking! DX

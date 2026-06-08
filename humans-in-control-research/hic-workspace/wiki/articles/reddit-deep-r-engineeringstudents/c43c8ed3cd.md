@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-engineeringstudents/c43c8ed3cd.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1rjx3a5/is_a_strategy_analytics_internship_worth_it/"
 url_hash: "c43c8ed3cd"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T13:03:02.133388+00:00"
 chars: 1199
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-engineeringstudents/c43c8ed3cd.md#c0"
+    char_span: [0, 1438]
+    sentence_count: 6
+    key_terms: [engineering, internship, engineeringstudents, related, supply, chain, role, experience]
+    token_count: 297
 ---
-
 # is a Strategy & Analytics internship worth it? (Mechanical Engineering student)
 
 Source: [Reddit Deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1rjx3a5/is_a_strategy_analytics_internship_worth_it/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1ocfdrb.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1ocfdrb/need_career_advice_25_years_in_rpa_uipath_ibm/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,20 @@ flair: ""
 extracted_at: "2026-05-23T19:45:00.916Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ocfdrb.md#c0"
+    char_span: [0, 2057]
+    sentence_count: 9
+    key_terms: [automation, uipath, automations, rpa, years, cscareerquestions, data, next]
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ocfdrb.md#c1"
+    char_span: [2059, 2256]
+    sentence_count: 2
+    key_terms: [future-proof, experiences, automation, long-term, resources, building, insights, personal]
+    token_count: 43
 ---
-
 # Need Career Advice - 2.5 Years in RPA (UiPath, IBM WatsonX) and Looking for a Clear Roadmap Ahead
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1ocfdrb/need_career_advice_25_years_in_rpa_uipath_ibm/)

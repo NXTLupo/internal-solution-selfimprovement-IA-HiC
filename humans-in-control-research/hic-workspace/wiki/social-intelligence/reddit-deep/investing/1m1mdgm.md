@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1m1mdgm.md
 url: "https://www.reddit.com/r/investing/comments/1m1mdgm/what_stocks_are_you_currently_buying_and_why/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.200Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1m1mdgm.md#c0"
+    char_span: [0, 682]
+    sentence_count: 6
+    key_terms: [investing, stocks, currently, comments, buying, primesclipper, importantly, reddit-deep]
+    token_count: 158
+  - id: "social-intelligence/reddit-deep/investing/1m1mdgm.md#c1"
+    char_span: [697, 2327]
+    sentence_count: 10
+    key_terms: ["that's", mean, difference, companies, thetreece, expense, winners, market]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/investing/1m1mdgm.md#c2"
+    char_span: [2329, 3742]
+    sentence_count: 8
+    key_terms: [ucore-launches-us-department-of-defense-funded-18-4-million-fsu9dwx9ou4h, uuraf, jeffumopolis, definitely, because, bought, illustrious-coat3532, arrnf]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/investing/1m1mdgm.md#c3"
+    char_span: [3744, 5480]
+    sentence_count: 9
+    key_terms: [revenue, asts, louisiana, discount, because, deleted, million, bisonduckalltheway15]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/investing/1m1mdgm.md#c4"
+    char_span: [5482, 6617]
+    sentence_count: 7
+    key_terms: [year, expected, due, catalyst, events, growth, based, amat]
+    section: Comments
+    token_count: 281
+  - id: "social-intelligence/reddit-deep/investing/1m1mdgm.md#c5"
+    char_span: [6619, 7346]
+    sentence_count: 2
+    key_terms: [lunr, year, comments, reddit, negative-river-2865, https, asts, bbai]
+    section: Comments
+    token_count: 241
 ---
-
 # What stocks are you currently buying and why?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1m1mdgm/what_stocks_are_you_currently_buying_and_why/)

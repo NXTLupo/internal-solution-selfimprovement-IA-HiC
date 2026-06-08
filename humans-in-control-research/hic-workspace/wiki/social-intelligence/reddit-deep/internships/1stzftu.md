@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1stzftu.md
 url: "https://www.reddit.com/r/internships/comments/1stzftu/startup_internship_vs_research/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "General"
 extracted_at: "2026-05-23T12:15:55.794Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1stzftu.md#c0"
+    char_span: [0, 722]
+    sentence_count: 4
+    key_terms: [research, startup, internships, experience, internship, comments, robotics, company]
+    token_count: 167
+  - id: "social-intelligence/reddit-deep/internships/1stzftu.md#c1"
+    char_span: [737, 1513]
+    sentence_count: 8
+    key_terms: [research, program, appropriate-tutor587, insti, hour, per, take, year]
+    section: Comments
+    token_count: 230
 ---
-
 # Startup internship vs Research
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1stzftu/startup_internship_vs_research/)

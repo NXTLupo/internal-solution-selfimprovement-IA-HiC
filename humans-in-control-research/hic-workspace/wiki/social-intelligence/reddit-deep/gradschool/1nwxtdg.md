@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1nwxtdg.md
 url: "https://www.reddit.com/r/GradSchool/comments/1nwxtdg/us_grad_students_would_you_still_have_chosen_to/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,45 @@ flair: "Academics"
 extracted_at: "2026-05-22T21:35:36.517Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, education, manufacturing]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1nwxtdg.md#c0"
+    char_span: [0, 1214]
+    sentence_count: 7
+    key_terms: [schools, applying, students, school, cut, gradschool, comments, federal]
+    token_count: 279
+  - id: "social-intelligence/reddit-deep/gradschool/1nwxtdg.md#c1"
+    char_span: [1229, 3112]
+    sentence_count: 13
+    key_terms: [pdxmusselcat, phd, government, research, applied, program, student, funded]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/gradschool/1nwxtdg.md#c2"
+    char_span: [3114, 5199]
+    sentence_count: 13
+    key_terms: [access, better, redact, elsewhere, quality, tall-cat-8890, anonymized, mentorship]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/gradschool/1nwxtdg.md#c3"
+    char_span: [5201, 6950]
+    sentence_count: 10
+    key_terms: [tall-cat-8890, redact, thesistears, anonymized, fearless, literate, deleted, funding]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/gradschool/1nwxtdg.md#c4"
+    char_span: [6952, 9176]
+    sentence_count: 13
+    key_terms: [germany, programs, phd, masters, france, applying, abroad, living]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/gradschool/1nwxtdg.md#c5"
+    char_span: [9178, 10289]
+    sentence_count: 5
+    key_terms: [birddogtx, graduate, because, deleted, program, redact, school, get]
+    section: Comments
+    token_count: 283
 ---
-
 # US grad students, would you still have chosen to go to a US school in 2025?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1nwxtdg/us_grad_students_would_you_still_have_chosen_to/)

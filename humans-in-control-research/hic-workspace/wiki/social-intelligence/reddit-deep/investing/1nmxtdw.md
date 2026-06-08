@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1nmxtdw.md
 url: "https://www.reddit.com/r/investing/comments/1nmxtdw/im_up_518_on_one_of_my_stocks/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.198Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1nmxtdw.md#c0"
+    char_span: [0, 838]
+    sentence_count: 7
+    key_terms: [stocks, investing, "i'm", comments, consider, started, buying, oklo]
+    token_count: 210
+  - id: "social-intelligence/reddit-deep/investing/1nmxtdw.md#c1"
+    char_span: [853, 2639]
+    sentence_count: 16
+    key_terms: [company, take, yourself, another, believe, depends, kicking, revenue]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/investing/1nmxtdw.md#c2"
+    char_span: [2641, 4282]
+    sentence_count: 12
+    key_terms: [bought, share, years, next, take, deleted, friends, course]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/investing/1nmxtdw.md#c3"
+    char_span: [4284, 5546]
+    sentence_count: 12
+    key_terms: [sell, stocks, speculative, get, principle, "wouldn't", company, selling]
+    section: Comments
+    token_count: 358
+  - id: "social-intelligence/reddit-deep/investing/1nmxtdw.md#c4"
+    char_span: [5548, 7440]
+    sentence_count: 15
+    key_terms: [environmentcareful71, total, pay, year, portfolio, changed, company, million]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1nmxtdw.md#c5"
+    char_span: [7204, 7548]
+    sentence_count: 3
+    key_terms: [credit, limit, comfortable, remaining, strategy, capital, however, hoping]
+    section: Comments
+    token_count: 96
 ---
-
 # I'm up 518% on one of my stocks
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1nmxtdw/im_up_518_on_one_of_my_stocks/)

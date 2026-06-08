@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1lnxgdg.md
 url: "https://www.reddit.com/r/financialindependence/comments/1lnxgdg/looking_back_on_twenty_years_of_early_retirement/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,101 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.700Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [cross_industry]
+industry_method: unclassified
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c0"
+    char_span: [0, 2152]
+    sentence_count: 14
+    key_terms: [financialindependence, towards, something, fire, get, time, comments, early]
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c1"
+    char_span: [2154, 4274]
+    sentence_count: 20
+    key_terms: [fire, geographical, etc, life, work, possible, balance, company]
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c2"
+    char_span: [4276, 6189]
+    sentence_count: 11
+    key_terms: [don, fire, something, retired, career, living, rather, gotta]
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c3"
+    char_span: [6191, 7872]
+    sentence_count: 16
+    key_terms: [worth, "i'm", fortnite, playing, through, coffee, great, years]
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c4"
+    char_span: [7874, 10038]
+    sentence_count: 25
+    key_terms: [hearing, aids, "i've", like, people, traditional, away, fifty-six]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c5"
+    char_span: [10040, 11006]
+    sentence_count: 8
+    key_terms: [yogaballcactus, free, "i'm", hearing, "money's", frank, gonna, tight]
+    section: Comments
+    token_count: 246
+  - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c6"
+    char_span: [11008, 12747]
+    sentence_count: 11
+    key_terms: [years, post, adventure, downsides, depleted, successful-try-8506, been, chop]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c7"
+    char_span: [12749, 14734]
+    sentence_count: 14
+    key_terms: [alcohol, part, drugs, stay, time, definitely, something, anything]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c8"
+    char_span: [14736, 16823]
+    sentence_count: 13
+    key_terms: [impact, myself, lives, like, important, thousands, directly, realized]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c9"
+    char_span: [16825, 18378]
+    sentence_count: 15
+    key_terms: ["didn't", work, because, purpose, choice, frankl, bring, found]
+    section: Comments
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c10"
+    char_span: [18380, 20333]
+    sentence_count: 14
+    key_terms: [something, meaning, gives, hope, like, question, project, having]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c11"
+    char_span: [20336, 21275]
+    sentence_count: 11
+    key_terms: [hard, yourself, "you've", "don't", gotta, hours, day, get]
+    section: Comments
+    token_count: 235
+  - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c12"
+    char_span: [21277, 23251]
+    sentence_count: 13
+    key_terms: [medical, health, insurance, comfortable, frustration, "it's", retirement, understand]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c13"
+    char_span: [23253, 25214]
+    sentence_count: 18
+    key_terms: [years, did, million, "don't", withdrawals, insurance, portfolio, started]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c14"
+    char_span: [25216, 27487]
+    sentence_count: 14
+    key_terms: [fire, raise, lifestyle, did, sounds, environment, been, obligation]
+    section: Comments
+    token_count: 514
+  - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c15"
+    char_span: [27489, 29492]
+    sentence_count: 18
+    key_terms: ["it's", season, good, life, thoughts, higher, phase, plane]
+    section: Comments
+    token_count: 448
 ---
-
 # Looking back on twenty years of early retirement.
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1lnxgdg/looking_back_on_twenty_years_of_early_retirement/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1m55axo.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1m55axo/for_those_of_you_who_are_tired_of_chatgpt_glazing/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,75 @@ flair: "Prompt engineering "
 extracted_at: "2026-05-11T16:54:08.815Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1m55axo.md#c0"
+    char_span: [0, 956]
+    sentence_count: 9
+    key_terms: [chatgpt, comments, praise, conversational, underdeveloped, complimenting, exceptionally, collaborator]
+    token_count: 219
+  - id: "social-intelligence/reddit-deep/chatgpt/1m55axo.md#c1"
+    char_span: [971, 2122]
+    sentence_count: 6
+    key_terms: [chatgpt, please, conversation, image, blah, post, r-chatgpt-1050422060352024636, concerns]
+    section: Comments
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/chatgpt/1m55axo.md#c2"
+    char_span: [2125, 4002]
+    sentence_count: 16
+    key_terms: [informative, idea, advanced, dickhead, question, because, history, reasons]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/chatgpt/1m55axo.md#c3"
+    char_span: [4004, 5613]
+    sentence_count: 2
+    key_terms: [post, time, honestly, straightforward, reddit, get, because, chatgpt]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/chatgpt/1m55axo.md#c4"
+    char_span: [5615, 7513]
+    sentence_count: 12
+    key_terms: [sacred, sometimes, everything, already, people, propheticutterances, thesympatheticdevil, great]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/chatgpt/1m55axo.md#c5"
+    char_span: [7515, 8306]
+    sentence_count: 5
+    key_terms: [glazing, hilarious, because, vegetable-industry32, instructions, multitasking, narcissistic, wonder-woman]
+    section: Comments
+    token_count: 194
+  - id: "social-intelligence/reddit-deep/chatgpt/1m55axo.md#c6"
+    char_span: [8308, 10150]
+    sentence_count: 7
+    key_terms: [personalization, instructions, chatgpt, need, settings, specific, default, writing]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/chatgpt/1m55axo.md#c7"
+    char_span: [10152, 11995]
+    sentence_count: 15
+    key_terms: [lesusisjord, referencing, "i've", "it's", language, because, dashes, matter]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/chatgpt/1m55axo.md#c8"
+    char_span: [11997, 13497]
+    sentence_count: 18
+    key_terms: [better, "that's", right, blah, feel, get, like, anything]
+    section: Comments
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/chatgpt/1m55axo.md#c9"
+    char_span: [13499, 15291]
+    sentence_count: 17
+    key_terms: [asleep-fisherman2452, rolling, whose, comment, talking, reddit, knows, "i'm"]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/chatgpt/1m55axo.md#c10"
+    char_span: [15293, 16019]
+    sentence_count: 6
+    key_terms: ["it's", post, too, enthusiastically, conversational, preferences, understands, completely]
+    section: Comments
+    token_count: 191
 ---
-
 # For those of you who are tired of ChatGPT glazing you every second sentence
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1m55axo/for_those_of_you_who_are_tired_of_chatgpt_glazing/)

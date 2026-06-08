@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1svq2pe.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1svq2pe/weird_textures_watermarks/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,57 @@ flair: "Other "
 extracted_at: "2026-05-11T16:54:08.811Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1svq2pe.md#c0"
+    char_span: [0, 871]
+    sentence_count: 7
+    key_terms: [image, textures, chatgpt, diffusion, comments, control, images, stable]
+    token_count: 206
+  - id: "social-intelligence/reddit-deep/chatgpt/1svq2pe.md#c1"
+    char_span: [886, 2401]
+    sentence_count: 8
+    key_terms: [isaacbunny, https, gonsalves, preview, format, width, auto, jpeg]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/chatgpt/1svq2pe.md#c2"
+    char_span: [2403, 4177]
+    sentence_count: 11
+    key_terms: [image, spiral, reminds, https, disposition, art, isaacbunny, rob-gonsalves-tuttart]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1svq2pe.md#c3"
+    char_span: [4179, 5581]
+    sentence_count: 7
+    key_terms: [image, spiral-optical-illusion-image-generation-stable-diffusion, black-white-hypnotic-spiral-background-600nw-2558980603, https, like, generate, prompt, looks]
+    section: Comments
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/chatgpt/1svq2pe.md#c4"
+    char_span: [5583, 7156]
+    sentence_count: 4
+    key_terms: [images, mountain-singer1764, multiple, earlier, https, gregpeden, chatgpt, example]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/chatgpt/1svq2pe.md#c5"
+    char_span: [7158, 8869]
+    sentence_count: 10
+    key_terms: [chat, definitely, images, chatgpt, scratch, gemini, prompt, sketch]
+    section: Comments
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/chatgpt/1svq2pe.md#c6"
+    char_span: [8871, 9266]
+    sentence_count: 2
+    key_terms: [preview, format, dualclassfightermage, thatisverytrue54321, https, width, auto, jpeg]
+    section: Comments
+    token_count: 167
+  - id: "social-intelligence/reddit-deep/chatgpt/1svq2pe.md#c7"
+    char_span: [9268, 10784]
+    sentence_count: 6
+    key_terms: [spiral-optical-illusion-image-generation-stable-diffusion, like, image, diffusion, generated, monster, images, stable]
+    section: Comments
+    token_count: 386
 ---
-
 # Weird textures = watermarks
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1svq2pe/weird_textures_watermarks/)

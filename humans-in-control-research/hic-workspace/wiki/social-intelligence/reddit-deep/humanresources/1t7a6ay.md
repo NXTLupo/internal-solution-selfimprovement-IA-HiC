@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1t7a6ay.md
 url: "https://www.reddit.com/r/humanresources/comments/1t7a6ay/aphr_study_materials_hrci_prep_worth_it_ga/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,27 @@ flair: "Career Development"
 extracted_at: "2026-05-23T12:15:41.556Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1t7a6ay.md#c0"
+    char_span: [0, 1444]
+    sentence_count: 9
+    key_terms: [prep, aphr, hrci, materials, official, humanresources, study, worth]
+    token_count: 365
+  - id: "social-intelligence/reddit-deep/humanresources/1t7a6ay.md#c1"
+    char_span: [1459, 3159]
+    sentence_count: 18
+    key_terms: [hrci, like, recommendations, itskitsuhun, ok-exam8271, aphr, especially, expensive]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/humanresources/1t7a6ay.md#c2"
+    char_span: [3161, 3446]
+    sentence_count: 4
+    key_terms: [didn, experience, materials, everyone, purchase, company, nothing, passing]
+    section: Comments
+    token_count: 69
 ---
-
 # aPHR Study Materials / HRCI Prep Worth It? [GA]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1t7a6ay/aphr_study_materials_hrci_prep_worth_it_ga/)

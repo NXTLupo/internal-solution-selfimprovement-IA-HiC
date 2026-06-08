@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1ppytgc.md
 url: "https://www.reddit.com/r/GradSchool/comments/1ppytgc/gre_not_accepted_anymore_so_how_can_i_balance_out/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,62 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.144Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c0"
+    char_span: [0, 1830]
+    sentence_count: 15
+    key_terms: ["i'm", undergrad, bosses, big, gre, tech, coursework, gradschool]
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c1"
+    char_span: [1832, 2232]
+    sentence_count: 3
+    key_terms: ["don't", accept, prove, gre, demonstrate, dejected, material, mistakes]
+    token_count: 93
+  - id: "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c2"
+    char_span: [2247, 4229]
+    sentence_count: 12
+    key_terms: [experience, gpa, programs, research, program, schools, school, demonstrate]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c3"
+    char_span: [4231, 5964]
+    sentence_count: 12
+    key_terms: [experience, statement, research, purpose, personal, get, sure, something]
+    section: Comments
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c4"
+    char_span: [5966, 8151]
+    sentence_count: 20
+    key_terms: [research, good, program, don, experience, admitted, planning, probably]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c5"
+    char_span: [8153, 10106]
+    sentence_count: 13
+    key_terms: [c159cc55-b4ad-730f-9d45-7abfef0d8feb, experience, lowiqtrader, iamanairplaneiswear, gre, optional, program-info, standardized]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c6"
+    char_span: [9901, 10374]
+    sentence_count: 4
+    key_terms: [experience, ad-730f-9d45-7abfef0d8feb, relevant, never, gre, publications, lowiqtrader, difference]
+    section: Comments
+    token_count: 137
+  - id: "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c7"
+    char_span: [10376, 12668]
+    sentence_count: 5
+    key_terms: [program, research, people, get, programs, writing, good, sop]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c8"
+    char_span: [12673, 13168]
+    sentence_count: 6
+    key_terms: [get, lors, prestigiouscarob5450, gpa, try, accommodating, application, lowiqtrader]
+    section: Comments
+    token_count: 131
 ---
-
 # GRE not accepted anymore, so how can I balance out a bad GPA?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1ppytgc/gre_not_accepted_anymore_so_how_can_i_balance_out/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1s7plcu.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1s7plcu/here_are_a_few_things_ive_been_through_hope_it/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,27 @@ flair: "Budgeting/Saving/Investing/Spending"
 extracted_at: "2026-05-17T01:13:55.887Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1s7plcu.md#c0"
+    char_span: [0, 1604]
+    sentence_count: 7
+    key_terms: [povertyfinance, bank, card, comments, without, called, credit, calls]
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/povertyfinance/1s7plcu.md#c1"
+    char_span: [1619, 2851]
+    sentence_count: 11
+    key_terms: [people, internet, money, spend, budgeting, little, mobile, congratulations]
+    section: Comments
+    token_count: 291
+  - id: "social-intelligence/reddit-deep/povertyfinance/1s7plcu.md#c2"
+    char_span: [2853, 4526]
+    sentence_count: 10
+    key_terms: [money, like, transfers, vanguard, account, people, doing, great]
+    section: Comments
+    token_count: 427
 ---
-
 # Here are a few things i’ve been through. hope it helps give you some perspective.
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1s7plcu/here_are_a_few_things_ive_been_through_hope_it/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-internships/cc10f56baf.md
 url: "https://www.reddit.com/r/internships/comments/1t1zwjd/i_give_up_on_internships/"
 url_hash: "cc10f56baf"
 kind: "article"
@@ -8,10 +9,27 @@ author: ""
 date: "2026-05-02T19:51:40.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-19T18:01:30.650178+00:00"
+extracted_at: "2026-06-06T16:41:04.261050+00:00"
 chars: 5209
+relevance: 52
+engagement_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "articles/reddit-deep-r-internships/cc10f56baf.md#c0"
+    char_span: [0, 2174]
+    sentence_count: 17
+    key_terms: [internships, been, enough, internship, applications, feel, "i'm", "i've"]
+    token_count: 503
+  - id: "articles/reddit-deep-r-internships/cc10f56baf.md#c1"
+    char_span: [2179, 3516]
+    sentence_count: 10
+    key_terms: [companies, dialsoapbox, internships, students, company, apply, weeks, ago]
+    token_count: 302
+  - id: "articles/reddit-deep-r-internships/cc10f56baf.md#c2"
+    char_span: [3518, 5362]
+    sentence_count: 16
+    key_terms: [internship, role, work, student, zettasyntax, grad, "i'm", "couldn't"]
+    token_count: 442
 ---
-
 # I Give Up on Internships....
 
 Source: [Reddit Deep: r/internships](https://www.reddit.com/r/internships/comments/1t1zwjd/i_give_up_on_internships/)
@@ -44,6 +62,6 @@ The extra students that got picked up was because i told my mentor their interns
 I know people in my class follow this sub so i don't want to give too much details about the exact email i used ( because  posted it to a class chat ), but it was just simple like above.
 [3↑ FarObjective4137] Same
 [3↑ Royal_Winner_5049] your a soph. not everyone has this opportunity. use it to build expierence outside of an internship. there should be plenty. even email people asking to do some free work on the side.
-[3↑ zettasyntax] No problem, everyone needs to vent. I hate the feelings of envy too. I'm a grad student and I have a little bit of work experience, but hard as I tried, I just couldn't land an internship. I didn't even get a single interview. I saw someone from my school (also a grad student) land my dream internship (a TPM role). I got rejected without even making it to the HireVue stage. I checked out their LinkedIn and other than volunteer work and a media internship during undergrad, I really couldn't understand how they were qualified for the role. The envy is ugly. Best of luck with your next internship season. I'm set to graduate this fall, so this was pretty much my last chance.
+[4↑ zettasyntax] No problem, everyone needs to vent. I hate the feelings of envy too. I'm a grad student and I have a little bit of work experience, but hard as I tried, I just couldn't land an internship. I didn't even get a single interview. I saw someone from my school (also a grad student) land my dream internship (a TPM role). I got rejected without even making it to the HireVue stage. I checked out their LinkedIn and other than volunteer work and a media internship during undergrad, I really couldn't understand how they were qualified for the role. The envy is ugly. Best of luck with your next internship season. I'm set to graduate this fall, so this was pretty much my last chance.
 [3↑ Novel_Bother_8069] Right there with you. Going through the same thing as a grad student, I can’t even put in applications anymore. And I graduate in December, so if I don’t have one by now, I don’t know what is going to happen after graduation
 [1↑ zettasyntax] I can't say I was being picky. I applied to internships that paid $21/hr and got rejected the same day for one of those. In my previous full-time role, I made roughly $45/hr. The work had nothing to do with what I studied though and the culture was awful (it was an Elon Musk company), so I left and went back to school. I figured an internship might be a way to get my foot in the door elsewhere and in a role related to what I'm studying, but no luck at all.

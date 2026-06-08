@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1kw9blz.md
 url: "https://www.reddit.com/r/internships/comments/1kw9blz/should_i_take_a_business_development_internship/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "Applications"
 extracted_at: "2026-05-25T13:01:40.290Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1kw9blz.md#c0"
+    char_span: [0, 1129]
+    sentence_count: 7
+    key_terms: [finance, internship, development, internships, business, corporate, financial, unrelated]
+    token_count: 230
+  - id: "social-intelligence/reddit-deep/internships/1kw9blz.md#c1"
+    char_span: [1144, 1734]
+    sentence_count: 3
+    key_terms: [internship, business, bigger, good, unfortunately, corporations, experiences, expertise]
+    section: Comments
+    token_count: 148
 ---
-
 # Should I Take a Business Development Internship If It Doesn’t Align with My Finance Career Goals?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1kw9blz/should_i_take_a_business_development_internship/)

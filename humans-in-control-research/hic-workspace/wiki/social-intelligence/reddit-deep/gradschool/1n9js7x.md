@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1n9js7x.md
 url: "https://www.reddit.com/r/GradSchool/comments/1n9js7x/i_looked_at_the_thesis_example_sent_to_me_and_i/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-22T21:35:36.528Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1n9js7x.md#c0"
+    char_span: [0, 754]
+    sentence_count: 9
+    key_terms: [thesis, gradschool, breakdown, comments, example, quarter, almost, mental]
+    token_count: 191
+  - id: "social-intelligence/reddit-deep/gradschool/1n9js7x.md#c1"
+    char_span: [769, 1132]
+    sentence_count: 3
+    key_terms: [pages, like, boltvnderhuge, bibliography, dissertation, spreadsheets, discussion, archknits]
+    section: Comments
+    token_count: 96
+  - id: "social-intelligence/reddit-deep/gradschool/1n9js7x.md#c2"
+    char_span: [1134, 3068]
+    sentence_count: 14
+    key_terms: [thesis, masters, xoxowoman06, long, helpful, length, longer, trying]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1n9js7x.md#c3"
+    char_span: [2828, 3424]
+    sentence_count: 7
+    key_terms: [did, examples, question, present, larger, themostperfectofcats, local, information]
+    section: Comments
+    token_count: 131
+  - id: "social-intelligence/reddit-deep/gradschool/1n9js7x.md#c4"
+    char_span: [3426, 5279]
+    sentence_count: 18
+    key_terms: [writing, paper, like, masters, program, thesis, department, discussion]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/gradschool/1n9js7x.md#c5"
+    char_span: [5281, 7196]
+    sentence_count: 14
+    key_terms: [thesis, pages, write, page, research, requirements, got, need]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/gradschool/1n9js7x.md#c6"
+    char_span: [7198, 9400]
+    sentence_count: 28
+    key_terms: [work, methods, results, hypotheses, pages, already, figures, similar]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/gradschool/1n9js7x.md#c7"
+    char_span: [9402, 9769]
+    sentence_count: 4
+    key_terms: ["you'll", get, good, everything, examples, finished, probably, provided]
+    section: Comments
+    token_count: 91
 ---
-
 # I looked at the thesis example sent to me and I almost had a mental breakdown
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1n9js7x/i_looked_at_the_thesis_example_sent_to_me_and_i/)

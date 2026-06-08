@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1rdk8cj.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1rdk8cj/i_attended_my_first_career_fair_as_an_employer/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -6,19 +7,76 @@ subreddit: "engineeringstudents"
 title: "I attended my first career fair as an employer - heres some of my thoughts"
 author: "braveheart18"
 date: "2026-02-24T16:04:23.000Z"
-score: 998
+score: 991
 upvote_ratio: 0.98
 num_comments: 76
 flair: "Career Advice"
-extracted_at: "2026-05-25T18:32:19.209Z"
+extracted_at: "2026-06-06T17:43:22.919Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rdk8cj.md#c0"
+    char_span: [0, 1814]
+    sentence_count: 18
+    key_terms: [career, engineeringstudents, resumes, electrical, comments, thoughts, making, great]
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rdk8cj.md#c1"
+    char_span: [1817, 3835]
+    sentence_count: 22
+    key_terms: ["don't", projects, conversation, company, resume, take, work, experience]
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rdk8cj.md#c2"
+    char_span: [3838, 4302]
+    sentence_count: 5
+    key_terms: [school, temperatures, traditional, professors, structures, curiosity, interview, compared]
+    token_count: 103
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rdk8cj.md#c3"
+    char_span: [4317, 6228]
+    sentence_count: 17
+    key_terms: [get, students, company, ikishenno, because, sooner, engineeringstudents, helps]
+    section: Comments
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rdk8cj.md#c4"
+    char_span: [6230, 7793]
+    sentence_count: 13
+    key_terms: [interviewing, experience, "don't", like, try, conversation, going, engineering]
+    section: Comments
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rdk8cj.md#c5"
+    char_span: [7796, 9463]
+    sentence_count: 16
+    key_terms: [pitch, questions, interviewing, ask, elevator, company, chance, nearly]
+    section: Comments
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rdk8cj.md#c6"
+    char_span: [9465, 11649]
+    sentence_count: 26
+    key_terms: [someone, conversation, programming, get, like, talk, tip, candidates]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rdk8cj.md#c7"
+    char_span: [11651, 13651]
+    sentence_count: 15
+    key_terms: [recruiters, coursework, recruiter, put, logical-angle212, because, courses, design]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rdk8cj.md#c8"
+    char_span: [13653, 15563]
+    sentence_count: 15
+    key_terms: [people, internship, year, like, experience, necessary, otherwise, personal]
+    section: Comments
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rdk8cj.md#c9"
+    char_span: [15565, 17235]
+    sentence_count: 13
+    key_terms: [company, people, nervousness, companies, recruiter, students, advice, google]
+    section: Comments
+    token_count: 386
 ---
-
 # I attended my first career fair as an employer - heres some of my thoughts
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1rdk8cj/i_attended_my_first_career_fair_as_an_employer/)
-Posted by **braveheart18** · **998↑** · **76 comments**
+Posted by **braveheart18** · **991↑** · **76 comments**
 
 I have a BS in Electrical Engineering. Graduated 2014
 
@@ -80,13 +138,13 @@ I get that school is tough. Things happen, midterms stack on top of each other, 
 - **lazydictionary** (1↑): Reminder that this sub has a guide for entry-level and internship job hunting, which echoes many of the points made in OP's post.
 
 https://reddit.com/r/EngineeringStudents/comments/1qi55xz/my_engineering_internship_and_entrylevel_job/
-- **ikishenno** (145↑): Super helpful. Thank you. Do you have any advice on how students can learn what potential careers are out there? It’s typically the same X job functions that we hear about. But engineering offers so much more than that. 
+- **ikishenno** (148↑): Super helpful. Thank you. Do you have any advice on how students can learn what potential careers are out there? It’s typically the same X job functions that we hear about. But engineering offers so much more than that. 
 
 How do we know where to look for something we don’t know exists? Eg the company/role you’re in
-  - **braveheart18** (50↑): I would check indeed jobs for your biggest local city. These may not be jobs you are qualified for yet, but you can see what kinds of skills are actually valued by employers in your area.
-    - **ikishenno** (3↑): Powerful! Thank you.
-  - **Environmental_Year14** (11↑): [Civil/Structural] Ask companies if you can visit their offices. It will give you the chance to get a feel for the company and see what kind of work they do. Plus even if you don't like the company, you get to network with everyone in the office. Just make sure to call ahead and ask when a good day would be. Any student who does this would stand out big time at hiring.
-- **eekoman47** (46↑): Want to chime in as another “employer” - only a few years out of school assisting with recruitment/interviewing/etc.
+  - **braveheart18** (49↑): I would check indeed jobs for your biggest local city. These may not be jobs you are qualified for yet, but you can see what kinds of skills are actually valued by employers in your area.
+    - **ikishenno** (4↑): Powerful! Thank you.
+  - **Environmental_Year14** (13↑): [Civil/Structural] Ask companies if you can visit their offices. It will give you the chance to get a feel for the company and see what kind of work they do. Plus even if you don't like the company, you get to network with everyone in the office. Just make sure to call ahead and ask when a good day would be. Any student who does this would stand out big time at hiring.
+- **eekoman47** (43↑): Want to chime in as another “employer” - only a few years out of school assisting with recruitment/interviewing/etc.
 
 A HUGE +1 on the relax comment. Because of my being younger, I almost immediately utilize a more relaxed tone with students to let them know the vibe is not as tense as they might think - and it honestly really helps. I feel like I get genuine conversation way sooner - and students stop telling me they are interested in literally anything. I can get to the bottom of where their true interests lie sooner - and that really helps because we can both focus in on trying to align them with a role.
 
@@ -94,7 +152,7 @@ The resume - in an interview setting, I glance at it. Conciseness is great. What
 
 
 OP - I’d be curious your experience with try to get genuine conversation going. I think a disconnect can really exist - especially when the employers start to become less aligned with universities or students (HR interviewing engineers, 35 year career engineering lead interviewing a sophomore, etc).
-  - **braveheart18** (22↑): > OP - I’d be curious your experience with try to get genuine conversation going.
+  - **braveheart18** (19↑): > OP - I’d be curious your experience with try to get genuine conversation going.
 
 
 I try to avoid questions like "what do you want to do?" because I know many of them don't know yet. I also don't want them to think Im searching for a specific answer when I'm not. 
@@ -108,7 +166,7 @@ I do think its important to have engineers interviewing engineering applicants. 
 
 **Edit**: I will also start talking about me and my company. Ill talk about some projects im working on and industries we serve to give them an opportunity to ask more questions, which generally tells your where their interests lie.
     - **fakemoose** (3↑): I’ve previously asked if there’s anything they *don’t* want to do. Figuring that out was, for me, one of the most valuable parts of internships.
-  - **Senior-Dog-9735** (8↑): In my experience conversations went better when I spoke first and did my elevator pitch. It gave them a chance to tailor their elevator pitch to what we do. It did not always work because sometimes they stick to the script they have in their mind.  Before I get into what they do or how they are I try to keep it transactional in a way so its easier for someone to follow.
+  - **Senior-Dog-9735** (9↑): In my experience conversations went better when I spoke first and did my elevator pitch. It gave them a chance to tailor their elevator pitch to what we do. It did not always work because sometimes they stick to the script they have in their mind.  Before I get into what they do or how they are I try to keep it transactional in a way so its easier for someone to follow.
 
 An example.  
 1. You do handshake greeting  
@@ -120,8 +178,8 @@ An example.
 - **cantuseasingleone** (19↑): I’m a non trad student(nearly 40 now) with a varied bunch of “careers” behind me(race cars, cancer treatment, small business owner, electronics tech, etc). Nearly every job at least some level of coding/machining/electrical design or repair. 
 
 I get that none of my jobs are a true 1:1 relevance to engineering but given the breadth of my work history I have no idea how to narrow down a resume. Or there some allowances for older students.
-  - **braveheart18** (20↑): For someone in your position I would expect a 2 page resume. You are obviously in a different situation compared to most applicants and sounds like it would be very interesting to get to know you.
-- **Nobl36** (18↑): Some additions from someone who also hires. I graduated 2017. BS in electrical as well.
+  - **braveheart18** (21↑): For someone in your position I would expect a 2 page resume. You are obviously in a different situation compared to most applicants and sounds like it would be very interesting to get to know you.
+- **Nobl36** (17↑): Some additions from someone who also hires. I graduated 2017. BS in electrical as well.
 
 PLCs are the bread and butter of industry. From oil rigs to bottling plants. It is everything, and not nearly enough people know of its existence, or how to program in it. 
 
@@ -140,8 +198,8 @@ Results don’t have to be “problem solved” where everything was happily eve
 Example: “This resulted in a much bigger design flaw being found, and the project was shelved until the design flaw was resolved.” 
 
 Perfectly valid and a good result. Bonus points if you can follow it up with theories on how it might be solved.
-- **Logical-Angle212** (8↑): I remember recently attending a career fair and a recruiter was pretty adamant that I need to put relevant courses on my resume. Maybe it’s just recruiter preference with that one?
-  - **braveheart18** (12↑): Maybe I should elaborate. Don't put Calc 1, Calc 2, Phsyics, Circuits lab, blah blah blah. Every single person has taken those. If you have a microcontroller elective then I would like to see that, but it can also just go down in the skills section.
+- **Logical-Angle212** (7↑): I remember recently attending a career fair and a recruiter was pretty adamant that I need to put relevant courses on my resume. Maybe it’s just recruiter preference with that one?
+  - **braveheart18** (11↑): Maybe I should elaborate. Don't put Calc 1, Calc 2, Phsyics, Circuits lab, blah blah blah. Every single person has taken those. If you have a microcontroller elective then I would like to see that, but it can also just go down in the skills section.
     - **Logical-Angle212** (2↑): I’ve heard so many opinions on this and it feels like all recruiters want different things out of a resume (specifically regarding courses)… Maybe it is major/company specific?
 
 The recruiter I talked to took my resume, skimmed it over in about 3 seconds, and asked where my coursework was. I told him that I just neglected to put it on because I thought that experience was more valuable to recruiters. He said that experience is the “foot in the door” with getting an internship because companies know that they’re gonna have to teach you everything either way. According to him, he just wanted to see that I knew fundamentals. In my case (CompE) he wanted to see a digital logic class and my schools electrical engineering fundamentals class, which I didn’t have listed.
@@ -167,7 +225,7 @@ Convincing the recruiter that you actually are knowledgeable and have interest i
   - **john_hascall** (2↑): Nervousness is pretty common. I think many students have a (or a few) companies that they really want to work for (usually big splashy names like Blue Origin, Google, SpaceX, Tesla, etc so they see the career fair the first filter to crush their dreams.
 
 If you're one of these students, my advice is to start at companies with just one or two people at the booth. Even if you have no idea what they do. If possible listen to the rep's answers to the people in front of you or use the wait to google to find out a bit about the company. With a bit of knowledge and no stakes you can hopefully experience some positive interactions and conquer your nervousness. And who knows maybe you'll find out that they're doing some really cool stuff at Weyland-Yutani or wherever.
-- **inorite234** (6↑): Rule 3 will get your foot in the door in a lot.of places.  You'll still need to be competent, but it will help elevate you above your competition. 
+- **inorite234** (7↑): Rule 3 will get your foot in the door in a lot.of places.  You'll still need to be competent, but it will help elevate you above your competition. 
 
 Such great advice overall.
 - **CasuallyExploding88** (5↑): the research point is underrated. Five minutes on a company’s website can completely change how you’re perceived

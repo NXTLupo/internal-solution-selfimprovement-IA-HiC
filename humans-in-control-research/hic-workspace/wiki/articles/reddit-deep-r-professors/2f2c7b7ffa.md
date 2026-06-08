@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-professors/2f2c7b7ffa.md
 url: "https://www.reddit.com/r/Professors/comments/1ryiook/students_parent_contacted_me/"
 url_hash: "2f2c7b7ffa"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T04:05:09.215717+00:00"
 chars: 3892
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-professors/2f2c7b7ffa.md#c0"
+    char_span: [0, 2293]
+    sentence_count: 19
+    key_terms: [authorization, professors, parent, tutoring, "he's", advice, conversations, class]
+    token_count: 508
+  - id: "articles/reddit-deep-r-professors/2f2c7b7ffa.md#c1"
+    char_span: [2295, 4050]
+    sentence_count: 17
+    key_terms: [student, college, students, parent, adult, ferpa, himself, meeting]
+    token_count: 414
 ---
-
 # Student's Parent Contacted Me!😳
 
 Source: [Reddit Deep: r/professors](https://www.reddit.com/r/Professors/comments/1ryiook/students_parent_contacted_me/)

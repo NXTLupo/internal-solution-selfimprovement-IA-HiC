@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1peq5tc.md
 url: "https://www.reddit.com/r/personalfinance/comments/1peq5tc/as_advised_from_my_previous_post_getting_my/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,21 @@ flair: "Retirement"
 extracted_at: "2026-05-17T01:13:31.184Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1peq5tc.md#c0"
+    char_span: [0, 394]
+    sentence_count: 1
+    key_terms: [personalfinance, comments, post, investments-any, variationno4602, appreciated, reddit-deep, retirement]
+    token_count: 96
+  - id: "social-intelligence/reddit-deep/personalfinance/1peq5tc.md#c1"
+    char_span: [409, 1628]
+    sentence_count: 4
+    key_terms: [personalfinance, retirement, portfolio, thejontorrweno, fund, wiki, down, easy]
+    section: Comments
+    token_count: 301
 ---
-
 # As advised from my previous post  getting my finances in order and working to catch up on my retirement savings- See my investments-any feedback is appreciated
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1peq5tc/as_advised_from_my_previous_post_getting_my/)

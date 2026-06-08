@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-internships/1f541cfbee.md
 url: "https://www.reddit.com/r/internships/comments/1sbyrck/internships_arent_a_numbers_game/"
 url_hash: "1f541cfbee"
 kind: "article"
@@ -8,10 +9,42 @@ author: ""
 date: "2026-04-04T03:42:50.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-26T14:35:25.448119+00:00"
+extracted_at: "2026-06-06T17:46:47.027460+00:00"
 chars: 9452
+relevance: 50
+engagement_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "articles/reddit-deep-r-internships/1f541cfbee.md#c0"
+    char_span: [0, 2140]
+    sentence_count: 11
+    key_terms: [job, experience, internships, internship, aerospace, uah, company, cfd]
+    token_count: 497
+  - id: "articles/reddit-deep-r-internships/1f541cfbee.md#c1"
+    char_span: [2142, 4145]
+    sentence_count: 15
+    key_terms: [fraternity, email, friend, told, because, works, connections, interview]
+    token_count: 461
+  - id: "articles/reddit-deep-r-internships/1f541cfbee.md#c2"
+    char_span: [4147, 6343]
+    sentence_count: 15
+    key_terms: [school, people, companies, connections, engineering, fraternity, aerospace, recommend]
+    token_count: 455
+  - id: "articles/reddit-deep-r-internships/1f541cfbee.md#c3"
+    char_span: [6345, 8656]
+    sentence_count: 15
+    key_terms: [get, connections, because, working, hypnotic8008, clubs, email, definitely]
+    token_count: 512
+  - id: "articles/reddit-deep-r-internships/1f541cfbee.md#c4"
+    char_span: [8386, 8685]
+    sentence_count: 2
+    key_terms: [eveninginevitable240, get, hard, applications, normally, personal, projects, through]
+    token_count: 72
+  - id: "articles/reddit-deep-r-internships/1f541cfbee.md#c5"
+    char_span: [8687, 9618]
+    sentence_count: 10
+    key_terms: [connections, "it's", portfolio, something, building, skills, "you're", get]
+    token_count: 193
 ---
-
 # Internships aren’t a numbers game
 
 Source: [Reddit Deep: r/internships](https://www.reddit.com/r/internships/comments/1sbyrck/internships_arent_a_numbers_game/)
@@ -49,8 +82,8 @@ Before this (I’m an out of state student), I was about to go home and work for
 All in all, this was a huge word salad begging you guys to do anything in your power to make connections. They’re extremely valuable and the only efficient way to get a job in this job market. Once you land one good role, your chances of getting hired with merit alone skyrocket. I still heavily recommend doing personal projects, doing well in school, and doing university extracurriculars, however joining things that let you meet people or be around people that work in a field similar to what you want to do can boost your chances heavily so that when you are invited for an interview your personal projects and such can shine.
 
 --- TOP COMMENTS ---
-[14↑ Snxwz_] Any advice on getting connections though? I feel like my friends around me are all new to everything and struggling to find internships themselves...and my parents and I don't really have connections to companies that are hiring...
-[7↑ Hypnotic8008] It’s really dependent on the school you go to. I chose UAH specifically for this reason as I’m an out of state student where aerospace is virtually non existent. UAH is at the heart of Huntsville, and Huntsville is the heart of aerospace. So the the chances of making an aerospace connection out in the open are decent if you know where to look.
+[15↑ Snxwz_] Any advice on getting connections though? I feel like my friends around me are all new to everything and struggling to find internships themselves...and my parents and I don't really have connections to companies that are hiring...
+[6↑ Hypnotic8008] It’s really dependent on the school you go to. I chose UAH specifically for this reason as I’m an out of state student where aerospace is virtually non existent. UAH is at the heart of Huntsville, and Huntsville is the heart of aerospace. So the the chances of making an aerospace connection out in the open are decent if you know where to look.
 
 I wouldn’t recommend this at every school, but joining a fraternity or honors society could help. I say “wouldn’t recommend” as most fraternities have horrible hazing practices or aren’t engineering related. UAH is an engineering school so I got lucky, basically everyone in my fraternity is an engineer and because it’s an engineering school the fraternity life is very different from huge SEC schools.
 

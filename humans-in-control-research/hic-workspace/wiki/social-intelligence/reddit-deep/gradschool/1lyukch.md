@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1lyukch.md
 url: "https://www.reddit.com/r/GradSchool/comments/1lyukch/please_give_advice_for_future_grad_school/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,27 @@ flair: "Admissions & Applications"
 extracted_at: "2026-05-26T14:32:49.135Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1lyukch.md#c0"
+    char_span: [0, 1257]
+    sentence_count: 14
+    key_terms: [lab, want, advice, year, gradschool, sometimes, comments, another]
+    token_count: 287
+  - id: "social-intelligence/reddit-deep/gradschool/1lyukch.md#c1"
+    char_span: [1272, 2976]
+    sentence_count: 15
+    key_terms: [different, experience, toxic, lab, phd, researcher, recommend, undergrad]
+    section: Comments
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/gradschool/1lyukch.md#c2"
+    char_span: [2978, 4596]
+    sentence_count: 13
+    key_terms: [good, phd, lab, stay, better, don, get, interests]
+    section: Comments
+    token_count: 386
 ---
-
 # Please give advice for future grad school admissions
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1lyukch/please_give_advice_for_future_grad_school/)

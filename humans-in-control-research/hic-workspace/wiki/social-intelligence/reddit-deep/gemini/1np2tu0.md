@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gemini/1np2tu0.md
 url: "https://www.reddit.com/r/Gemini/comments/1np2tu0/urgent_help_with_fiat_withdrawal/"
 kind: "social-post"
 source: "reddit-deep: r/gemini"
@@ -13,8 +14,21 @@ flair: "Support:Support:"
 extracted_at: "2026-05-11T17:27:04.758Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gemini/1np2tu0.md#c0"
+    char_span: [0, 645]
+    sentence_count: 4
+    key_terms: [account, gemini, help, withdrawal, comments, kindunderstanding615, fiat, instruction]
+    token_count: 158
+  - id: "social-intelligence/reddit-deep/gemini/1np2tu0.md#c1"
+    char_span: [660, 932]
+    sentence_count: 1
+    key_terms: [kindunderstanding615, attorneyadvice, fiat, thejakernator, gpayrupn7, referral, abarath, credit]
+    section: Comments
+    token_count: 93
 ---
-
 # Urgent!! Help with Fiat withdrawal
 
 Source: [reddit-deep: r/gemini](https://www.reddit.com/r/Gemini/comments/1np2tu0/urgent_help_with_fiat_withdrawal/)

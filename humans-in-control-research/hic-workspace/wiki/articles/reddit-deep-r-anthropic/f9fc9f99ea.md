@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-anthropic/f9fc9f99ea.md
 url: "https://www.reddit.com/r/Anthropic/comments/1rh5nzg/the_pentagon_blacklisted_anthropic_for_refusing/"
 url_hash: "f9fc9f99ea"
 kind: "article"
@@ -10,8 +11,51 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T17:32:41.811812+00:00"
 chars: 11026
+industries: [government, policy, ai_research]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-anthropic/f9fc9f99ea.md#c0"
+    char_span: [0, 1727]
+    sentence_count: 17
+    key_terms: [anthropic, openai-strikes-deal-with-pentagon-hours-after-rival-anthropic-was-blacklisted-by-trump, pentagon, hegseth-declares-anthropic-supply-chain-risk, openai, signed, surveillance, hours]
+    token_count: 378
+  - id: "articles/reddit-deep-r-anthropic/f9fc9f99ea.md#c1"
+    char_span: [1747, 3842]
+    sentence_count: 5
+    key_terms: [anthropic, dario-amodei-says-he-cannot-in-good-conscience-bow-to-pentagons-demands-over-ai-use-in-military, ap-report-hegseth-warns-anthropic-to-let-the-military-use-companys-ai-tech-as-it-sees-fit, https, com, www, statement-department-of-war, anthropic-pentagon-supply-chain-risk-claude]
+    section: What happened
+    token_count: 497
+  - id: "articles/reddit-deep-r-anthropic/f9fc9f99ea.md#c2"
+    char_span: [3867, 5311]
+    sentence_count: 4
+    key_terms: [congress-not-the-pentagon-or-anthropic-should-set-military-ai-rules, pentagon-threat-blacklist-anthropic-ai-experts-raise-concerns, anthropic-ceo-stands-firm-as-pentagon-deadline-looms, https, what-the-ndaa-means-for-ai-and-cybersecurity, fascsa, defensescoop, designation]
+    section: The legal problems
+    token_count: 360
+  - id: "articles/reddit-deep-r-anthropic/f9fc9f99ea.md#c3"
+    char_span: [5335, 6498]
+    sentence_count: 3
+    key_terms: [openai-strikes-deal-with-pentagon-hours-after-rival-anthropic-was-blacklisted-by-trump, anthropic, openai-announces-pentagon-deal-after-trump-bans-anthropic, https, cnn, deal, www, principles]
+    section: The same-day deal
+    token_count: 269
+  - id: "articles/reddit-deep-r-anthropic/f9fc9f99ea.md#c4"
+    char_span: [6521, 8148]
+    sentence_count: 3
+    key_terms: [https, silicon-valley-ai-leaders-launch-100m-leading-future-super-pac, openais-sam-altman-warned-america-trump-now-partnering, openai-ups-its-lobbying-efforts-nearly-seven-fold, com, www, money-politics-roundup-october-2025, trump-aligned]
+    section: Follow the money
+    token_count: 479
+  - id: "articles/reddit-deep-r-anthropic/f9fc9f99ea.md#c5"
+    char_span: [8150, 9538]
+    sentence_count: 9
+    key_terms: [former, openai-expands-leadership-team-with-high-profile-former-government-officials, why-british-politicians-are-flocking-to-american-tech-giants, security, openai-expands-chatgpt-work-federal-government, https, national, policy]
+    section: Follow the money / The revolving door
+    token_count: 351
+  - id: "articles/reddit-deep-r-anthropic/f9fc9f99ea.md#c6"
+    char_span: [9568, 11366]
+    sentence_count: 7
+    key_terms: [trump-ai-czar-is-trying-to-take-down-anthropic-ai-2000672709, chatgpt, gizmodo, claude, justbrowsinandvibin, conversations, being, "don't"]
+    section: The White House AI czar
+    token_count: 468
 ---
-
 # The Pentagon blacklisted Anthropic for refusing to remove surveillance safeguards. Hours later, OpenAI signed a deal keeping those same safeguards. I pulled the primary sources. Here's what I found.
 
 Source: [Reddit Deep: r/anthropic](https://www.reddit.com/r/Anthropic/comments/1rh5nzg/the_pentagon_blacklisted_anthropic_for_refusing/)

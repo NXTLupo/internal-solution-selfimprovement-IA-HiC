@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1swahju.md
 url: "https://www.reddit.com/r/college/comments/1swahju/how_do_i_move_out_while_still_trying_to_achieve/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-17T01:12:59.138Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1swahju.md#c0"
+    char_span: [0, 1939]
+    sentence_count: 13
+    key_terms: [college, move, "don't", studies, hours, money, give, "i'm"]
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/college/1swahju.md#c1"
+    char_span: [1954, 3815]
+    sentence_count: 14
+    key_terms: [work, school, don, full, time, year, personally, snelephant]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/college/1swahju.md#c2"
+    char_span: [3817, 5788]
+    sentence_count: 10
+    key_terms: [going, until, got, roommates, honestly, syestiax, because, friends]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/college/1swahju.md#c3"
+    char_span: [5790, 6813]
+    sentence_count: 23
+    key_terms: [school, immediately, day, anything, classes, college, through, loans]
+    section: Comments
+    token_count: 242
 ---
-
 # How do I move out while still trying to achieve college
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1swahju/how_do_i_move_out_while_still_trying_to_achieve/)

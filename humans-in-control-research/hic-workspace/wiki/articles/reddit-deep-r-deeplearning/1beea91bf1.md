@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-deeplearning/1beea91bf1.md
 url: "https://www.reddit.com/r/deeplearning/comments/1sez7d0/i_built_a_functional_cognitive_engine_sovereign/"
 url_hash: "1beea91bf1"
 kind: "article"
@@ -10,8 +11,30 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T17:34:12.601006+00:00"
 chars: 6618
+industries: [ai_research]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-deeplearning/1beea91bf1.md#c0"
+    char_span: [0, 1778]
+    sentence_count: 6
+    key_terms: [affective, cognitive, consciousness, architecture, deeplearning, state, real, nutshells1]
+    token_count: 393
+  - id: "articles/reddit-deep-r-deeplearning/1beea91bf1.md#c1"
+    char_span: [1780, 4422]
+    sentence_count: 16
+    key_terms: [universe, probabilistic, recursive, pocket, within, hypothesis, simulation, indistinguishable]
+    token_count: 501
+  - id: "articles/reddit-deep-r-deeplearning/1beea91bf1.md#c2"
+    char_span: [4424, 6315]
+    sentence_count: 9
+    key_terms: [probabilistic, indistinguishability, epistemic, inference, indistinguishable, through, supset, level]
+    token_count: 434
+  - id: "articles/reddit-deep-r-deeplearning/1beea91bf1.md#c3"
+    char_span: [6320, 6960]
+    sentence_count: 14
+    key_terms: ["it's", application, experiences, personality, continuous, eventually, personally, dictating]
+    token_count: 134
 ---
-
 # I Built a Functional Cognitive Engine: Sovereign cognitive architecture — real IIT 4.0 φ, residual-stream affective steering, self-dreaming identity, 1Hz heartbeat. 100% local on Apple Silicon
 
 Source: [Reddit Deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1sez7d0/i_built_a_functional_cognitive_engine_sovereign/)

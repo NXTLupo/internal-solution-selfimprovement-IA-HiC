@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1lcaehv.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1lcaehv/finally_profitable_after_8_years_and_losing_30k/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,51 @@ flair: "Gain"
 extracted_at: "2026-05-17T01:14:17.602Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1lcaehv.md#c0"
+    char_span: [0, 835]
+    sentence_count: 9
+    key_terms: [wallstreetbets, contracts, comments, selling, month, been, construction, reddit-deep]
+    token_count: 233
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1lcaehv.md#c1"
+    char_span: [850, 1866]
+    sentence_count: 6
+    key_terms: [mustang, wsb, maxsablosky, discord, https, total, years, buys]
+    section: Comments
+    token_count: 337
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1lcaehv.md#c2"
+    char_span: [1869, 2436]
+    sentence_count: 3
+    key_terms: [car, options, worth, panzerkomadant, sy3zok38867f1, sergealberta, depreciates, investments]
+    section: Comments
+    token_count: 178
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1lcaehv.md#c3"
+    char_span: [2438, 4255]
+    sentence_count: 10
+    key_terms: [car, mustang, money, taxes, value, profitable, probably, deleted]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1lcaehv.md#c4"
+    char_span: [4069, 5424]
+    sentence_count: 3
+    key_terms: [month, mustang, people, mobile-brilliant-376, years, luzzi5luvmywatches, returnofwanksta567, croutonianemperor]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1lcaehv.md#c5"
+    char_span: [5426, 7102]
+    sentence_count: 13
+    key_terms: [day, profitable, scalping, strategy, isreal, strict, organicartichoke7298, lucky]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1lcaehv.md#c6"
+    char_span: [7104, 7382]
+    sentence_count: 2
+    key_terms: [strumtralescent, bombaygoing, downgrade, uniball38, arrives, altima, months, season]
+    section: Comments
+    token_count: 93
 ---
-
 # Finally profitable after 8 years and losing 30k. Hang in there boys.
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1lcaehv/finally_profitable_after_8_years_and_losing_30k/)

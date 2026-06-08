@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-internships/abb2509dfc.md
 url: "https://www.reddit.com/r/internships/comments/1t49lw4/looking_for_remote_full_stack_or_backend/"
 url_hash: "abb2509dfc"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T19:49:07.437938+00:00"
 chars: 1807
+industries: [saas, enterprise_it, workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-internships/abb2509dfc.md#c0"
+    char_span: [0, 2000]
+    sentence_count: 8
+    key_terms: [internships, backend, stack, looking, applications, https, com, paid]
+    token_count: 486
 ---
-
 # Looking for remote Full Stack or Backend Internships
 
 Source: [Reddit Deep: r/internships](https://www.reddit.com/r/internships/comments/1t49lw4/looking_for_remote_full_stack_or_backend/)

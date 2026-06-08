@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1ra0q3t.md
 url: "https://www.reddit.com/r/artificial/comments/1ra0q3t/how_is_your_team_managing_comprehension_of/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,27 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:04.763Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1ra0q3t.md#c0"
+    char_span: [0, 2090]
+    sentence_count: 10
+    key_terms: [code, ai-generated, comprehension, team, artificial, interested, codebase, comments]
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/artificial/1ra0q3t.md#c1"
+    char_span: [2105, 4429]
+    sentence_count: 18
+    key_terms: [architecture, code, difficult-sugar-4862, available-knee9983, implementation, understanding, team, convention]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/artificial/1ra0q3t.md#c2"
+    char_span: [4431, 6560]
+    sentence_count: 13
+    key_terms: [code, add, technically, like, generated, treating, because, anyone]
+    section: Comments
+    token_count: 481
 ---
-
 # How is your team managing comprehension of AI-generated code?
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1ra0q3t/how_is_your_team_managing_comprehension_of/)

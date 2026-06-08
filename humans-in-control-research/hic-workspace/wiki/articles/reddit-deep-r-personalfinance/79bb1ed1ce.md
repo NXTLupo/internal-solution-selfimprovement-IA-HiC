@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-personalfinance/79bb1ed1ce.md
 url: "https://www.reddit.com/r/personalfinance/comments/1psrd4q/i_am_currently_fighting_cancer_do_i_spend_most_of/"
 url_hash: "79bb1ed1ce"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-16T21:02:47.439036+00:00"
 chars: 4526
+industries: [financial_services, healthcare]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-personalfinance/79bb1ed1ce.md#c0"
+    char_span: [0, 2065]
+    sentence_count: 19
+    key_terms: [personalfinance, debt, currently, comments, savings, financial, insurance, subreddit]
+    token_count: 491
+  - id: "articles/reddit-deep-r-personalfinance/79bb1ed1ce.md#c1"
+    char_span: [2067, 4280]
+    sentence_count: 17
+    key_terms: [life, money, years, debt, get, need, finances, memories]
+    token_count: 505
+  - id: "articles/reddit-deep-r-personalfinance/79bb1ed1ce.md#c2"
+    char_span: [4282, 4781]
+    sentence_count: 5
+    key_terms: [accountability, exponentially, financially, "everyone's", protecting, well-being, important, finances]
+    token_count: 104
 ---
-
 # I am currently fighting cancer, do I spend most of my savings to help get my wife lower her debt?
 
 Source: [Reddit Deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1psrd4q/i_am_currently_fighting_cancer_do_i_spend_most_of/)

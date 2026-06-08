@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1rksxzk.md
 url: "https://www.reddit.com/r/college/comments/1rksxzk/25_credits_short_of_graduation_final_semester/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,54 @@ subreddit: "college"
 title: "2-5 credits short of graduation - final semester"
 author: "amarbummer"
 date: "2026-03-04T18:15:04.000Z"
-score: 23
-upvote_ratio: 0.81
+score: 26
+upvote_ratio: 0.85
 num_comments: 28
 flair: "Academic Life"
-extracted_at: "2026-05-22T23:33:39.806Z"
+extracted_at: "2026-06-05T18:52:54.645Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1rksxzk.md#c0"
+    char_span: [0, 1283]
+    sentence_count: 12
+    key_terms: [credits, school, short, experience, graduation, comments, semester, college]
+    token_count: 304
+  - id: "social-intelligence/reddit-deep/college/1rksxzk.md#c1"
+    char_span: [1298, 2477]
+    sentence_count: 8
+    key_terms: [work, option, full, time, amarbummer, semester, classes, credits]
+    section: Comments
+    token_count: 312
+  - id: "social-intelligence/reddit-deep/college/1rksxzk.md#c2"
+    char_span: [2479, 3483]
+    sentence_count: 8
+    key_terms: [credit, clep, english, modernstates, composition, exam, "haven't", course]
+    section: Comments
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/college/1rksxzk.md#c3"
+    char_span: [3485, 5544]
+    sentence_count: 20
+    key_terms: [credits, school, classes, accept, check, class, clep, semester]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1rksxzk.md#c4"
+    char_span: [5279, 5723]
+    sentence_count: 4
+    key_terms: [credits, semester, empirepie499, weekly-ad353, lalalanari, academics, learning, overview]
+    section: Comments
+    token_count: 128
+  - id: "social-intelligence/reddit-deep/college/1rksxzk.md#c5"
+    char_span: [5725, 6167]
+    sentence_count: 1
+    key_terms: [credit, "you've", letterheadclassic306, independent, definitely, department, everywhere, experience]
+    section: Comments
+    token_count: 90
 ---
-
 # 2-5 credits short of graduation - final semester
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1rksxzk/25_credits_short_of_graduation_final_semester/)
-Posted by **amarbummer** · **23↑** · **28 comments**
+Posted by **amarbummer** · **26↑** · **28 comments**
 
 Hope this is the right place for this. 
 
@@ -30,9 +66,9 @@ So now, I’m 2-5 credits short (depending on exactly how many credits they give
 
 ## Comments
 
-- **Pretty_Baseball_6056** (84↑): You realized after the add deadline in your "final semester" that you were 11 credits short? How did you only realize then? That's almost a full semesters worth of classes.
-- **old-town-guy** (22↑): Would it be possible to take the electives at a local cc or online, and transfer the credits in? There are a few (sketchy?) schools with 8-week classes, maybe that’d work, letting you graduate on time.
-  - **ebf6** (4↑): There are usually independent study courses that you can enroll in anytime and work at your own (reasonable) pace.
+- **Pretty_Baseball_6056** (82↑): You realized after the add deadline in your "final semester" that you were 11 credits short? How did you only realize then? That's almost a full semesters worth of classes.
+- **old-town-guy** (23↑): Would it be possible to take the electives at a local cc or online, and transfer the credits in? There are a few (sketchy?) schools with 8-week classes, maybe that’d work, letting you graduate on time.
+  - **ebf6** (6↑): There are usually independent study courses that you can enroll in anytime and work at your own (reasonable) pace.
     - **hornybutired** (2↑): I know of no accredited college that offers such things.
     - **amarbummer** (2↑): I asked about this, but unfortunately this doesn’t seem to be an option
   - **amarbummer** (2↑): This is an option I had asked my advisor about. It’s not a bad option, but between working full time (and more, as my work entails a lot of arduous long-term project work) + full time school, I’m worried about burn out. However I’m really not in a position to be picky, so this might be the move
@@ -40,7 +76,7 @@ So now, I’m 2-5 credits short (depending on exactly how many credits they give
 
 Time to grow up and do what it takes.
 - **Homerun_9909** (12↑): Ask if they would grant CLEP credit.  You can look into taking a CLEP exam that would give you credit for a class you haven't taken. You can check out [modernstates.org](http://modernstates.org) if you need to study for it, Something like humanities might be doable if you haven't had that class, but did take history, art, etc.
-  - **amarbummer** (2↑): Glad you mentioned it. I had asked about CLEP exams, and they said it is a valid transfer credit. Does it have to be in a course I have not yet taken classes for? I.e., if I’ve fulfilled my English requirements in college courses, will I not be able to use an English CLEP exam?
+  - **amarbummer** (3↑): Glad you mentioned it. I had asked about CLEP exams, and they said it is a valid transfer credit. Does it have to be in a course I have not yet taken classes for? I.e., if I’ve fulfilled my English requirements in college courses, will I not be able to use an English CLEP exam?
     - **Homerun_9909** (4↑): This totally depends on the rules at your school.  Most schools will not let you repeat a course with a CLEP exam.  So if you have say English Composition credit, and the CLEP English Composition would count for that credit the school will likely not allow you credit for it.   
 
 Also something else to make sure you know.  How many of the last how many hours have to be taken at your school.  Many schools require say 24 or the last 30 hours to be taken there.

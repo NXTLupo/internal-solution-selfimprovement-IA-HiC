@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/7a93dc6dac.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1m4dv4r/this_sub_4_years_ago_cs_jobs_will_never_be/"
 url_hash: "7a93dc6dac"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-19T15:13:44.303170+00:00"
 chars: 2790
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/7a93dc6dac.md#c0"
+    char_span: [0, 2075]
+    sentence_count: 12
+    key_terms: [cscareerquestions, saturated, people, comments, reddit, https, trend, com]
+    token_count: 501
+  - id: "articles/reddit-deep-r-cscareerquestions/7a93dc6dac.md#c1"
+    char_span: [2077, 3065]
+    sentence_count: 4
+    key_terms: [because, "you're", "you've", right, "it's", keep, backtoworkedward, overcorrecting]
+    token_count: 235
 ---
-
 # This sub 4 years ago: "CS jobs will never be saturated". Why did so many people here think it wasn't gonna be saturated?
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1m4dv4r/this_sub_4_years_ago_cs_jobs_will_never_be/)

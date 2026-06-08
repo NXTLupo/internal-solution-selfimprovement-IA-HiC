@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1s7gqg6.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1s7gqg6/can_electrical_engineers_do_computer_science_jobs/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,42 @@ subreddit: "cscareerquestions"
 title: "Can electrical engineers do computer science jobs? How much different is CS and EE when it comes to CS knowledge?"
 author: "eggshellwalker4"
 date: "2026-03-30T04:27:21.000Z"
-score: 7
-upvote_ratio: 0.62
+score: 5
+upvote_ratio: 0.59
 num_comments: 43
 flair: ""
-extracted_at: "2026-05-22T21:34:54.423Z"
+extracted_at: "2026-06-05T18:53:25.703Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s7gqg6.md#c0"
+    char_span: [0, 1012]
+    sentence_count: 6
+    key_terms: [cscareerquestions, jobs, comments, market, comes, "don't", major, end]
+    token_count: 246
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s7gqg6.md#c1"
+    char_span: [1027, 1940]
+    sentence_count: 7
+    key_terms: [jobs, switching, like, majors, safety, guaranteed, strongly, systems]
+    section: Comments
+    token_count: 231
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s7gqg6.md#c2"
+    char_span: [1942, 3762]
+    sentence_count: 7
+    key_terms: [grads, data-shows-surprising-rebound-tech-141608296, unemployment, engineering, programming, jobs, like, rate]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s7gqg6.md#c3"
+    char_span: [3764, 5699]
+    sentence_count: 13
+    key_terms: [hardware, personalityexact337, great, xascrimson, testing, better, collar, enjoy]
+    section: Comments
+    token_count: 494
 ---
-
 # Can electrical engineers do computer science jobs? How much different is CS and EE when it comes to CS knowledge?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1s7gqg6/can_electrical_engineers_do_computer_science_jobs/)
-Posted by **eggshellwalker4** · **7↑** · **43 comments**
+Posted by **eggshellwalker4** · **5↑** · **43 comments**
 
 As a current CS student, it's hard to accept that I may have wasted time taking CS courses if the future of this industry is uncertain when it comes to job stability. I was thinking of switching my major to EE, since I've heard that it's a major that can do CS jobs but CS majors cannot do EE jobs.
 
@@ -26,7 +50,7 @@ Ideally I want to do SWE jobs but the new grads are struggling in this market, a
 
 ## Comments
 
-- **Beautiful-Parsley-24** (32↑): There's overlap - jobs like embedded systems, signal processing, guidance, navigation, perception and controls, can be done by either CS or EE.
+- **Beautiful-Parsley-24** (37↑): There's overlap - jobs like embedded systems, signal processing, guidance, navigation, perception and controls, can be done by either CS or EE.
 
 On the other hand - jobs like power systems fall strongly in the EE corner. OTOH, jobs like compiler design fall strongly into the CS bucket.
 - **Jcampuzano2** (19↑): CS is still the more direct path to SWE, while EE is more hardware-focused. Switching majors for “safety” isn’t guaranteed to help, so if you want SWE, you’re better off staying in CS and building projects and experience.
@@ -36,10 +60,10 @@ When it feels like half of CS majors are switching to E&E "for safety" then I wo
 - **vzq** (25↑): CS jobs? No. Development jobs? Absolutely.
 
 There is remarkably little actual computer science in programming jobs.
-  - **Pristine-Item680** (13↑): Which is funny because I think about 70% of CS students treat the schooling as SWE job training
+  - **Pristine-Item680** (15↑): Which is funny because I think about 70% of CS students treat the schooling as SWE job training
     - **SamurottX** (1↑): It gives you the background to learn the job training parts fast, and enough practical experience where you're not coming in blind. I was interviewing new grads earlier this year and there was a clear difference between the CS grads and the people that took a less technical degree like MIS. I think that if a new grad feels like they've "never learned anything useful", they probably brute forced assignments (or cheated) and didn't focus on gaining a fundamental understanding.
 - **RageFucker_** (3↑): Yes. Some of the best software devs I know are EE grads and not all of them are in embedded.
-- **SanityAsymptote** (11↑): [Tech hiring is actually up 11% year over year](https://finance.yahoo.com/news/data-shows-surprising-rebound-tech-141608296.html) and while [recent CS grads have a higher than average, 7% unemployment rate, their underemployment rate is pretty low at 19.1%.](https://www.newyorkfed.org/research/college-labor-market#--:explore:outcomes-by-major) that means that 93% of CS grads are getting jobs after school, and ~74% of CS grads are getting jobs in their field.
+- **SanityAsymptote** (9↑): [Tech hiring is actually up 11% year over year](https://finance.yahoo.com/news/data-shows-surprising-rebound-tech-141608296.html) and while [recent CS grads have a higher than average, 7% unemployment rate, their underemployment rate is pretty low at 19.1%.](https://www.newyorkfed.org/research/college-labor-market#--:explore:outcomes-by-major) that means that 93% of CS grads are getting jobs after school, and ~74% of CS grads are getting jobs in their field.
 
 
 Also, it sounds more like you're talking about Computer Engineering, not electrical engineering. CompEs usually learn some programming skills but rarely get too far into data structures or systems design. They're more hardware focused and actually have a slightly higher unemployment rate than CS grads for roughly the same pay.

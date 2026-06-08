@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1pueejh.md
 url: "https://www.reddit.com/r/college/comments/1pueejh/professional_internship_requires_academic_credit/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,21 @@ flair: "Academic Life"
 extracted_at: "2026-05-23T12:15:24.658Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1pueejh.md#c0"
+    char_span: [0, 631]
+    sentence_count: 6
+    key_terms: [college, professional, internship, comments, requires, credit, richbeautiful5156, don]
+    token_count: 138
+  - id: "social-intelligence/reddit-deep/college/1pueejh.md#c1"
+    char_span: [646, 1621]
+    sentence_count: 5
+    key_terms: [advisor, internships, either, randomacademaniac, head, international, chocokissses, independent]
+    section: Comments
+    token_count: 241
 ---
-
 # Professional internship requires academic credit, but I don’t have a class that fits—what are my options?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1pueejh/professional_internship_requires_academic_credit/)

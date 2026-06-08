@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1sv3cnm.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1sv3cnm/how_would_you_build_an_automated_commentary/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -6,19 +7,36 @@ subreddit: "machinelearning"
 title: "How would you build an automated commentary engine for daily trade attribution at scale? [R]"
 author: "Problemsolver_11"
 date: "2026-04-25T05:30:46.000Z"
-score: 2
-upvote_ratio: 0.56
+score: 4
+upvote_ratio: 0.62
 num_comments: 7
 flair: "Research"
-extracted_at: "2026-05-11T17:27:06.578Z"
+extracted_at: "2026-05-29T20:20:45.885Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+research_goal: "Provide a strategic overview for a company's creative team detailing emerging AI design trends, essential skills, practical tools, relevant platforms, and technical implementations. Focus on how these elements move beyond AI as a concepting aid to practically support design production, system testing, asset generation, governance, and stakeholder confidence."
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1sv3cnm.md#c0"
+    char_span: [0, 1938]
+    sentence_count: 11
+    key_terms: [attribution, machinelearning, automatically, deterministic, trade, llm, commentary, precision]
+    token_count: 408
+  - id: "social-intelligence/reddit-deep/machinelearning/1sv3cnm.md#c1"
+    char_span: [1953, 4281]
+    sentence_count: 21
+    key_terms: [deterministic, llm, spot, hallucinated, verification, calculation, determinism, challenge]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/machinelearning/1sv3cnm.md#c2"
+    char_span: [4283, 6035]
+    sentence_count: 13
+    key_terms: [model, use, data, language, specific, natural, handle, output]
+    section: Comments
+    token_count: 360
 ---
-
 # How would you build an automated commentary engine for daily trade attribution at scale? [R]
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1sv3cnm/how_would_you_build_an_automated_commentary/)
-Posted by **Problemsolver_11** · **2↑** · **7 comments**
+Posted by **Problemsolver_11** · **4↑** · **7 comments**
 
 Hey everyone,
 

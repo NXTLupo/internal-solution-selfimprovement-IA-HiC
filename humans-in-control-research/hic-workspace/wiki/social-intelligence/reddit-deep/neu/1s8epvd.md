@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1s8epvd.md
 url: "https://www.reddit.com/r/NEU/comments/1s8epvd/postgrad_jobs_prelaw/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,15 @@ flair: "Co-op & Career"
 extracted_at: "2026-05-13T23:02:38.917Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1s8epvd.md#c0"
+    char_span: [0, 1123]
+    sentence_count: 5
+    key_terms: [interviewed, job, jobs, graduating, comments, rejected, anyone, co-op]
+    token_count: 270
 ---
-
 # Post-grad jobs Pre-Law
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1s8epvd/postgrad_jobs_prelaw/)

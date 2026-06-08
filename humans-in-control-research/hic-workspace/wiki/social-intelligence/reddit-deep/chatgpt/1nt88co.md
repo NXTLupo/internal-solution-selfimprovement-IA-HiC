@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1nt88co.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1nt88co/my_wife_wont_know_she_wont_know/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,51 @@ flair: "Funny "
 extracted_at: "2026-05-11T16:54:08.811Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1nt88co.md#c0"
+    char_span: [0, 424]
+    sentence_count: 1
+    key_terms: [chatgpt, comments, wife, won, charlesonchain, reddit-deep, counsellor, agreeing]
+    token_count: 123
+  - id: "social-intelligence/reddit-deep/chatgpt/1nt88co.md#c1"
+    char_span: [439, 1175]
+    sentence_count: 5
+    key_terms: [r-chatgpt-1050422060352024636, discord, https, withoutreason1729, png, post, automatically, d139fw4pi4sf1]
+    section: Comments
+    token_count: 213
+  - id: "social-intelligence/reddit-deep/chatgpt/1nt88co.md#c2"
+    char_span: [1177, 2666]
+    sentence_count: 5
+    key_terms: [watch, ned, wife, reminded, husband, mother, drsheldonlcooperphd, redditzphkngarbage]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/chatgpt/1nt88co.md#c3"
+    char_span: [2668, 4364]
+    sentence_count: 9
+    key_terms: [a65727b6e233fed0cddea7de22076f9c9f38a1d2, charlesonchain, side, tell, anywhere, husband, preview, format]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1nt88co.md#c4"
+    char_span: [4096, 4604]
+    sentence_count: 2
+    key_terms: [mateship, wikipedia, boring, nights, extrinsicpalpitation, pinkonehasbeenchosen, https, fri]
+    section: Comments
+    token_count: 132
+  - id: "social-intelligence/reddit-deep/chatgpt/1nt88co.md#c5"
+    char_span: [4606, 6218]
+    sentence_count: 6
+    key_terms: [marriage, advice, pillow, considered, emotional, penny1974, fucking, always]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/chatgpt/1nt88co.md#c6"
+    char_span: [6220, 7932]
+    sentence_count: 7
+    key_terms: [instructions, couch, settings, deleted, glaring, redact, found, app]
+    section: Comments
+    token_count: 480
 ---
-
 # My wife won’t know she won’t know
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1nt88co/my_wife_wont_know_she_wont_know/)

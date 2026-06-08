@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1t3dfr3.md
 url: "https://www.reddit.com/r/NEU/comments/1t3dfr3/ms_cs_align_boston_anyone_actually_received/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,15 @@ flair: "Admissions & Financial Aid"
 extracted_at: "2026-05-26T14:30:23.760Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1t3dfr3.md#c0"
+    char_span: [0, 853]
+    sentence_count: 7
+    key_terms: [received, boston, automatically, international, scholarships, considered, excellence, academic]
+    token_count: 182
 ---
-
 # MS CS Align (Boston) – Anyone actually received International Academic Excellence / CPS Leaders & Scholars?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1t3dfr3/ms_cs_align_boston_anyone_actually_received/)

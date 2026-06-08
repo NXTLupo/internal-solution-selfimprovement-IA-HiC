@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1t2nlcp.md
 url: "https://www.reddit.com/r/GenZ/comments/1t2nlcp/what_are_you_doing_in_your_20s_to_beat_the/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,33 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.770Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1t2nlcp.md#c0"
+    char_span: [0, 1623]
+    sentence_count: 13
+    key_terms: [remote, "i'm", job, independence, doing, financial, comments, economy]
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/genz/1t2nlcp.md#c1"
+    char_span: [1638, 2803]
+    sentence_count: 3
+    key_terms: [discord, remote, warm-pollution-1804, years, good, got, like, work]
+    section: Comments
+    token_count: 314
+  - id: "social-intelligence/reddit-deep/genz/1t2nlcp.md#c2"
+    char_span: [2805, 4002]
+    sentence_count: 12
+    key_terms: [people, rent, work, company, parents, living, saving, bayouboybussybusters]
+    section: Comments
+    token_count: 307
+  - id: "social-intelligence/reddit-deep/genz/1t2nlcp.md#c3"
+    char_span: [4004, 5144]
+    sentence_count: 7
+    key_terms: [truck, rackingupthemiles, "it's", job, week, fit-rhubarb-7820, cye0by6j4yyg1, particularly]
+    section: Comments
+    token_count: 290
 ---
-
 # What are you doing in your 20s to beat the garbage economy we've been given?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1t2nlcp/what_are_you_doing_in_your_20s_to_beat_the/)

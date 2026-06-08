@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1ti1qsc.md
 url: "https://www.reddit.com/r/NEU/comments/1ti1qsc/finding_a_coop_was_never_supposed_to_be_easy/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,40 @@ score: 60
 upvote_ratio: 0.77
 num_comments: 18
 flair: "Co-op & Career"
-extracted_at: "2026-05-26T14:30:23.756Z"
+extracted_at: "2026-06-06T00:27:19.930Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1ti1qsc.md#c0"
+    char_span: [0, 1757]
+    sentence_count: 16
+    key_terms: [northeastern, co-op, co-ops, guaranteed, never, get, instead, half]
+    token_count: 389
+  - id: "social-intelligence/reddit-deep/neu/1ti1qsc.md#c1"
+    char_span: [1772, 3744]
+    sentence_count: 13
+    key_terms: [co-ops, program, student, masters, master, northeastern, experience, internship]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/neu/1ti1qsc.md#c2"
+    char_span: [3746, 6159]
+    sentence_count: 20
+    key_terms: [students, international, guaranteed, graduate, student, feels, makes, sense]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/neu/1ti1qsc.md#c3"
+    char_span: [6161, 8413]
+    sentence_count: 20
+    key_terms: [northeastern, co-op, internationals, students, international, undergraduate, grad, "it's"]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/neu/1ti1qsc.md#c4"
+    char_span: [8415, 9404]
+    sentence_count: 4
+    key_terms: [applications, feel, employers, number, saying, negotiationcute5341, being, level]
+    section: Comments
+    token_count: 231
 ---
-
 # Finding a co-op was never supposed to be easy
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1ti1qsc/finding_a_coop_was_never_supposed_to_be_easy/)
@@ -36,19 +66,19 @@ I feel for the people who couldn’t get co-ops, but the process was never desig
 
 ## Comments
 
-- **SeaProtection1173** (26↑): I don’t think anyone expected co-ops to be easy to find, but nobody expected it to be this difficult in the current job market. Students come to NEU for the co-op program after all, and so are probably taken aback by how little opportunities there are given their initial expectations.
+- **SeaProtection1173** (28↑): I don’t think anyone expected co-ops to be easy to find, but nobody expected it to be this difficult in the current job market. Students come to NEU for the co-op program after all, and so are probably taken aback by how little opportunities there are given their initial expectations.
 
 I think only around 40% of my peers were able to secure co-ops in my masters program. I struggled really hard to land my internship and I know it was more due to luck than anything I did. Had to settle for unpaid as well because there was no other option.
-  - **Scary_Competition_11** (4↑): Okay so this is a different issue to what I was addressing. Northeastern’s masters program feels like a complete scam. For undergrads co-ops are mandatory, for masters they aren’t. And northeastern also isn’t as well known for their master’s program. 
+  - **Scary_Competition_11** (7↑): Okay so this is a different issue to what I was addressing. Northeastern’s masters program feels like a complete scam. For undergrads co-ops are mandatory, for masters they aren’t. And northeastern also isn’t as well known for their master’s program. 
 
 Honestly if you’re a master’s student, I think co-ops aren’t even that useful. The master’s degree itself already provides the same extra jndustry validation. You would probably be better off at a more grad student oriented school.
     - **strix_2819** (3↑): This ain't true as an international student our previous experience is not acknowledged as much conpared to a person with US experience
-- **SinkAccomplished1073** (19↑): just do a project and show that you actually have some interest in the stuff you're applying to
-- **ChilllFam** (16↑): No one is complaining about co-ops not being a guarantee though. I got one by the skin of my teeth and I’m blessed for it BUT I have full stack projects that are in production, have a prior internship, and participated in student research. You can’t tell me with a straight face that I’m not willing to be trained and haven’t spent the time to become qualified enough if I can accomplish all those things on my own time.
+- **SinkAccomplished1073** (18↑): just do a project and show that you actually have some interest in the stuff you're applying to
+- **ChilllFam** (14↑): No one is complaining about co-ops not being a guarantee though. I got one by the skin of my teeth and I’m blessed for it BUT I have full stack projects that are in production, have a prior internship, and participated in student research. You can’t tell me with a straight face that I’m not willing to be trained and haven’t spent the time to become qualified enough if I can accomplish all those things on my own time.
   - **Scary_Competition_11** (13↑): Yeah that’s an oversight on my part I should have also mentioned now much the current job market matters.
 
 In a bad market co-ops will be harder to get. Though I have seen a plethora of comments of ppl complaining that co-ops aren’t guaranteed. Somehow they believe it’s even possible for them to be guaranteed.
-- **strix_2819** (6↑): I am from COE, a graduate ECE student, and I understand that finding coops is neither guaranteed nor easy. I was fortunate enough to secure one at the very last moment through LinkedIn, but from an international student’s perspective, the numbers being presented do not reflect reality. From what I have personally seen, less than 50% of graduate students actually end up securing coops, and many of the ones who do are taking unpaid positions. Fortunately, mine is paid.
+- **strix_2819** (4↑): I am from COE, a graduate ECE student, and I understand that finding coops is neither guaranteed nor easy. I was fortunate enough to secure one at the very last moment through LinkedIn, but from an international student’s perspective, the numbers being presented do not reflect reality. From what I have personally seen, less than 50% of graduate students actually end up securing coops, and many of the ones who do are taking unpaid positions. Fortunately, mine is paid.
 
 The coop class itself honestly feels unnecessary, especially considering most colleges except Khoury have to pay an additional 2 grand for it. I genuinely do not understand why Khoury students are exempt from it while everyone else has to pay. That policy makes no sense to me. A lot of the assignments feel pointless and disconnected from what students actually need, and the attendance policies are overly strict. Even being a minute late can result in a tardy. Maybe domestic students see more value in the course, but for many international students the question is whether it is worth the money, and in my opinion it is not because most of what they teach is common sense.
 

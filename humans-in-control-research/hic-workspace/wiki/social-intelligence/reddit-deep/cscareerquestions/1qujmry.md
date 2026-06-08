@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1qujmry.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1qujmry/any_good_temporary_jobs_worth_looking_for_while/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,45 @@ flair: "Experienced"
 extracted_at: "2026-05-23T14:54:48.626Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qujmry.md#c0"
+    char_span: [0, 1008]
+    sentence_count: 10
+    key_terms: [cscareerquestions, overqualified, something, comments, "i'd", job, jobs, low]
+    token_count: 238
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qujmry.md#c1"
+    char_span: [1023, 3037]
+    sentence_count: 17
+    key_terms: [experience, job, bar, work, tech, worked, college, mention]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qujmry.md#c2"
+    char_span: [3039, 5228]
+    sentence_count: 15
+    key_terms: [autonomous, abowlofnicerice, certifications, admental1387, contracting, engineering, did, like]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qujmry.md#c3"
+    char_span: [4972, 5519]
+    sentence_count: 7
+    key_terms: [drive, test, autonomous, robotaxis, gave, overqualified, collection, companies]
+    section: Comments
+    token_count: 144
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qujmry.md#c4"
+    char_span: [5521, 6860]
+    sentence_count: 9
+    key_terms: [experience, therealbigback91, entry-level, stressful, murky-elderberry-761, "don't", prior, residentad132]
+    section: Comments
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qujmry.md#c5"
+    char_span: [6862, 8169]
+    sentence_count: 12
+    key_terms: [did, interview, needed, school, mysterious-rock-7754, chill, maybe, since]
+    section: Comments
+    token_count: 308
 ---
-
 # Any good temporary jobs worth looking for while searching for my next full-time CS job?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1qujmry/any_good_temporary_jobs_worth_looking_for_while/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1lj7qt1.md
 url: "https://www.reddit.com/r/findapath/comments/1lj7qt1/thirdyear_bba_student_confused_about_marketing/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,21 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-22T15:13:18.824Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1lj7qt1.md#c0"
+    char_span: [0, 1223]
+    sentence_count: 10
+    key_terms: [marketing, like, roles, internships, ads, findapath, comments, strategy]
+    token_count: 279
+  - id: "social-intelligence/reddit-deep/findapath/1lj7qt1.md#c1"
+    char_span: [1238, 2906]
+    sentence_count: 13
+    key_terms: [thank, helpful, please, able, good, help, findapath, comments]
+    section: Comments
+    token_count: 395
 ---
-
 # Third-year BBA student confused about marketing career path – need advice
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1lj7qt1/thirdyear_bba_student_confused_about_marketing/)

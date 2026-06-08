@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1t4kkco.md
 url: "https://www.reddit.com/r/financialindependence/comments/1t4kkco/fire_update_38_no_home_one_toddler_37m_nw/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,50 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.705Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1t4kkco.md#c0"
+    char_span: [0, 1727]
+    sentence_count: 10
+    key_terms: [financialindependence, comments, reddit, update, https, com, www, fire]
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/financialindependence/1t4kkco.md#c1"
+    char_span: [1729, 2448]
+    sentence_count: 2
+    key_terms: [assets, etfs, international, continuing, treasuries, breakdown, portfolio, rebalance]
+    token_count: 305
+  - id: "social-intelligence/reddit-deep/financialindependence/1t4kkco.md#c2"
+    char_span: [2463, 4366]
+    sentence_count: 13
+    key_terms: [years, equities, mortgage, capital, coming, living, regret, salary]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/financialindependence/1t4kkco.md#c3"
+    char_span: [4368, 6176]
+    sentence_count: 16
+    key_terms: [cycle, end, market, treasuries, legitosaurusrex, predict, months, ago]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/financialindependence/1t4kkco.md#c4"
+    char_span: [6178, 7617]
+    sentence_count: 11
+    key_terms: [lolkkthxbye, stock, "i've", individual, reading, income, "you're", ok-psychology7619]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/financialindependence/1t4kkco.md#c5"
+    char_span: [7619, 9441]
+    sentence_count: 12
+    key_terms: [partner, lolkkthxbye, working, income, keep, risk, mrandr01d, benefits]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/financialindependence/1t4kkco.md#c6"
+    char_span: [9443, 10036]
+    sentence_count: 7
+    key_terms: [did, adding, april, solomongrumpy, compounding, impressive, portfolio, accounts]
+    section: Comments
+    token_count: 177
 ---
-
 # FIRE Update: 38, no home, one toddler, $3.7M N/W
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1t4kkco/fire_update_38_no_home_one_toddler_37m_nw/)

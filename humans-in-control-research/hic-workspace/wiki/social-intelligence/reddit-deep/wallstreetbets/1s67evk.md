@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1s67evk.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1s67evk/control_the_control_the_universe_diplomacy/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,56 @@ flair: "Discussion"
 extracted_at: "2026-05-16T20:54:42.968Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, energy, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1s67evk.md#c0"
+    char_span: [0, 2148]
+    sentence_count: 18
+    key_terms: [already, going, wallstreetbets, production, countries, diplomacy, expensive, comments]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1s67evk.md#c1"
+    char_span: [2150, 2912]
+    sentence_count: 6
+    key_terms: [down, inflation, delta, slv, infrastracture, fundamentals, disconnect, overstated]
+    token_count: 189
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1s67evk.md#c2"
+    char_span: [2927, 4230]
+    sentence_count: 4
+    key_terms: [years, tldr, oil, discord, total, fuk, too, wsb]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1s67evk.md#c3"
+    char_span: [4232, 5784]
+    sentence_count: 12
+    key_terms: [going, oil, everything, ethanol, market, people, south-attorney-5209, leftoverofferings]
+    section: Comments
+    token_count: 379
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1s67evk.md#c4"
+    char_span: [5786, 7886]
+    sentence_count: 17
+    key_terms: [war, offline, infrastructure, people, facilities, different, inventory, sanctions]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1s67evk.md#c5"
+    char_span: [7888, 8643]
+    sentence_count: 4
+    key_terms: [offline, facilities, damage, minor, days, hit, oil, port]
+    section: Comments
+    token_count: 158
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1s67evk.md#c6"
+    char_span: [8645, 10447]
+    sentence_count: 9
+    key_terms: [oil, venezuela, infrastructure, casino, thesis, being, get, png]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1s67evk.md#c7"
+    char_span: [10177, 11003]
+    sentence_count: 4
+    key_terms: [oil, buy, venezuelan, getting, energy, tinim9, long, sell]
+    section: Comments
+    token_count: 219
 ---
-
 # Control the 🛢️ control the universe: diplomacy affecting the market and bear thesis
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1s67evk/control_the_control_the_universe_diplomacy/)

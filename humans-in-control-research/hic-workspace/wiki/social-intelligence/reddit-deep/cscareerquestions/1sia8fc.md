@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1sia8fc.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1sia8fc/seo_tech_developer_vs_summer_internship/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-19T15:09:23.380Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sia8fc.md#c0"
+    char_span: [0, 504]
+    sentence_count: 3
+    key_terms: [cscareerquestions, internship, developer, comments, through, summer, seo, tech]
+    token_count: 128
 ---
-
 # SEO Tech Developer vs. Summer Internship
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sia8fc/seo_tech_developer_vs_summer_internship/)

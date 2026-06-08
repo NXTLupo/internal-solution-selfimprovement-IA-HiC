@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1mrxspz.md
 url: "https://www.reddit.com/r/careerguidance/comments/1mrxspz/should_i_accept_counter_offer_after_presenting/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.163Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1mrxspz.md#c0"
+    char_span: [0, 1390]
+    sentence_count: 8
+    key_terms: [current, like, careerguidance, opportunity, feel, aerospace, choosing, comments]
+    token_count: 319
+  - id: "social-intelligence/reddit-deep/careerguidance/1mrxspz.md#c1"
+    char_span: [1405, 3030]
+    sentence_count: 13
+    key_terms: [respect, answer, place, stay, question, new, want, counter]
+    section: Comments
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/careerguidance/1mrxspz.md#c2"
+    char_span: [3032, 5371]
+    sentence_count: 12
+    key_terms: [commute, current, systems, family, years, good, job, life]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/careerguidance/1mrxspz.md#c3"
+    char_span: [5373, 6473]
+    sentence_count: 8
+    key_terms: [anything, decision, future, raises, value, did, pay, year]
+    section: Comments
+    token_count: 245
+  - id: "social-intelligence/reddit-deep/careerguidance/1mrxspz.md#c4"
+    char_span: [6475, 7820]
+    sentence_count: 11
+    key_terms: [higher, offer, new, increase, current, sense, hcol, rent]
+    section: Comments
+    token_count: 335
+  - id: "social-intelligence/reddit-deep/careerguidance/1mrxspz.md#c5"
+    char_span: [7822, 9778]
+    sentence_count: 13
+    key_terms: [offer, company, keep, because, counter, years, job, aerospace]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/careerguidance/1mrxspz.md#c6"
+    char_span: [9780, 10767]
+    sentence_count: 7
+    key_terms: [professional, current, asking, career, enjoy, looking-to-improve, good, "it's"]
+    section: Comments
+    token_count: 229
 ---
-
 # Should I accept counter offer after presenting resignation letter?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1mrxspz/should_i_accept_counter_offer_after_presenting/)

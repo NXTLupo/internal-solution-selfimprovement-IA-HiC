@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1nfgwjb.md
 url: "https://www.reddit.com/r/OpenAI/comments/1nfgwjb/within_20_min_codexcli_with_gpt5_high_made/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,51 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:05.357Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1nfgwjb.md#c0"
+    char_span: [0, 1175]
+    sentence_count: 7
+    key_terms: [gpt5-thinking-proof-of-concept-nes-emulator, healthy-nebula-3603, https, png, emulator, preview, format, github]
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/openai/1nfgwjb.md#c1"
+    char_span: [1190, 2807]
+    sentence_count: 5
+    key_terms: [healthy-nebula-3603, gpt5-thinking-proof-of-concept-nes-emulator, interesting, github, code, like, emascars, deliver]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/openai/1nfgwjb.md#c2"
+    char_span: [2812, 4801]
+    sentence_count: 16
+    key_terms: [impossible, distribution, impressive, better, beyond, claude, pretty, though]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/openai/1nfgwjb.md#c3"
+    char_span: [4803, 6371]
+    sentence_count: 11
+    key_terms: [sleeperagentm, code, behavior, iterate, results, bubble, pretty, unless]
+    section: Comments
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/openai/1nfgwjb.md#c4"
+    char_span: [6373, 8014]
+    sentence_count: 5
+    key_terms: [healthy-nebula-3603, gpt5-thinking-proof-of-concept-nes-emulator, training, data, because, probably, github, source]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/openai/1nfgwjb.md#c5"
+    char_span: [7815, 9567]
+    sentence_count: 10
+    key_terms: [gpt5-thinking-proof-of-concept-nes-emulator, healthy-nebula-3603, emulators, implementation, github, source, lang, open]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/openai/1nfgwjb.md#c6"
+    char_span: [9569, 10011]
+    sentence_count: 1
+    key_terms: [personal-bathroom-94, healthy-nebula-3603, png, ymx1ytmx8tof1, dependencies, implementing, external, internet]
+    section: Comments
+    token_count: 153
 ---
-
 # Within 20 min codex-cli with GPT-5 high made working NES emulator in pure c!
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1nfgwjb/within_20_min_codexcli_with_gpt5_high_made/)

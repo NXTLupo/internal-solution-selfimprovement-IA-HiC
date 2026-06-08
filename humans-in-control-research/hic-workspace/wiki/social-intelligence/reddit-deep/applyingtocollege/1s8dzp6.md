@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1s8dzp6/ive_never_been_so_disappointed/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,72 @@ subreddit: "applyingtocollege"
 title: "I've never been so disappointed"
 author: "holyheckball"
 date: "2026-03-31T04:54:56.000Z"
-score: 56
-upvote_ratio: 0.9
+score: 60
+upvote_ratio: 0.92
 num_comments: 110
 flair: "Rant"
-extracted_at: "2026-05-23T19:45:32.278Z"
+extracted_at: "2026-06-05T19:53:34.566Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c0"
+    char_span: [0, 1844]
+    sentence_count: 18
+    key_terms: [school, applyingtocollege, "i've", like, nothing, applications, disappointed, been]
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c1"
+    char_span: [1859, 3924]
+    sentence_count: 23
+    key_terms: [financial, aid, parents, get, schools, out-of-state, endowments, benefits]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c2"
+    char_span: [3926, 6111]
+    sentence_count: 19
+    key_terms: [school, enough, kids, because, parents, income, state, understand]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c3"
+    char_span: [6113, 7956]
+    sentence_count: 11
+    key_terms: [right, getting, opportunities, being, dumb, plan, schools, better]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c4"
+    char_span: [7958, 9538]
+    sentence_count: 16
+    key_terms: [harvard, parents, wealthy, family, financial, situation, yourself, believe]
+    section: Comments
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c5"
+    char_span: [9540, 11362]
+    sentence_count: 17
+    key_terms: [parents, tuition, got, paid, understand, athlete, average, despite]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c6"
+    char_span: [11364, 13114]
+    sentence_count: 18
+    key_terms: [get, pay, school, professional, gonna, internships, best, grad]
+    section: Comments
+    token_count: 408
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c7"
+    char_span: [13116, 14867]
+    sentence_count: 16
+    key_terms: [college, school, going, aid, end, however, schools, feels]
+    section: Comments
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c8"
+    char_span: [14870, 15566]
+    sentence_count: 10
+    key_terms: [school, going, electrical-bed-7836, state, get, good, "i'm", work]
+    section: Comments
+    token_count: 170
 ---
-
 # I've never been so disappointed
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1s8dzp6/ive_never_been_so_disappointed/)
-Posted by **holyheckball** · **56↑** · **110 comments**
+Posted by **holyheckball** · **60↑** · **110 comments**
 
 I know I'm being dramatic, and I know I should be thankful for what I have, but it's hard to be positive sometimes.
 
@@ -32,11 +86,11 @@ That's all, thanks for listening.
 
 ## Comments
 
-- **zeusprod** (25↑): The most competitive schools, such as Harvard, have very generous financial aid. What colleges did you get into that you can't afford? Unless your parents are wealthy but refuse to pay, or unless you didn't apply for financial aid, you should have gotten financial aid letters. Are you sure you checked the portals for financial aid info? Something in this post simply does not add up.
+- **zeusprod** (26↑): The most competitive schools, such as Harvard, have very generous financial aid. What colleges did you get into that you can't afford? Unless your parents are wealthy but refuse to pay, or unless you didn't apply for financial aid, you should have gotten financial aid letters. Are you sure you checked the portals for financial aid info? Something in this post simply does not add up.
   - **holyheckball** (12↑): My parents do make quite a bit, but cannot support me through college.
 
 For privacy reasons, I'm not going to disclose exactly what I applied to, but all out-of-state schools left >$60k in tuition and fees annually, even after financial aid and scholarships
-    - **newtonianfig** (17↑): Right. Because they're out-of-state schools. That's the way it works.
+    - **newtonianfig** (18↑): Right. Because they're out-of-state schools. That's the way it works.
     - **throwawaygremlins** (2↑): So the issue is money and not the ability to get in.  I’m SO sorry.
 
 Were you hoping to win some more merit? Or your parents changed their minds about paying for college?  
@@ -57,22 +111,22 @@ Also a state school is not an elite private school. Elite privates have higher l
 
 I’ve been involved in this for over 25 years.
     - **zeusprod** (1↑): It seems his parents have the money and just feel it isn't their role to pay it.
-- **jrsygirlsdontpumpgas** (18↑): It’s ok to take some time to grieve a visions of what college would look like that is not going happen. 
+- **jrsygirlsdontpumpgas** (17↑): It’s ok to take some time to grieve a visions of what college would look like that is not going happen. 
 
 I think there are many kids across the country right now being hit with the realty that many top school are becoming accessible to only the very rich, the lower middle class and below, people dumb enough to take on hundreds of thousand in debt, and athletes. 
 
 What is not ok - is to wallow in this feeling for so long that not enjoying your stare school becomes a self fulfilling prophecy.   
 
 Also - other peoples reactions… that you just need to ignore - if these people are too dumb to realize you are making a smart choice financially … why do you care?
-- **Much-Strawberry-7750** (7↑): what’s your choices right now? i bet they’re pretty good schools!
-- **Nearby_Task9041** (7↑): I felt I have read a lot of these types of posts the past few days. Look, it stings right now, but you will get over it. And yes, getting into one of the fancy elites would have been a better, more cushy undergrad experience, but so what? The cards didn't come up for you this time, and so make the best of your Plan B. You can still have a super successful life with your second choice. 
+- **Much-Strawberry-7750** (8↑): what’s your choices right now? i bet they’re pretty good schools!
+- **Nearby_Task9041** (6↑): I felt I have read a lot of these types of posts the past few days. Look, it stings right now, but you will get over it. And yes, getting into one of the fancy elites would have been a better, more cushy undergrad experience, but so what? The cards didn't come up for you this time, and so make the best of your Plan B. You can still have a super successful life with your second choice. 
 
 Both things can be true: your Plan A would have been better   AND   you will learn to love your Plan B and the opportunities it offers.
-- **Suitable-Bug-156** (21↑): "Dumb kid from eng class is going to Duke for football" 
+- **Suitable-Bug-156** (20↑): "Dumb kid from eng class is going to Duke for football" 
 With how condescending you are being, serves you 100% right.
-  - **Rookium** (5↑): Being a recruited athlete to a Power 5 D1 school requires arguably more work than being a good student and getting into a t20
-    - **Packing-Tape-Man** (12↑): Overcorrection. I would just leave it that both are major accomplishments. The "NARP" who gets into a T20 academically also likely have to be exceptional at something outside of the classroom too.
-    - **Bubbly_Relief_891** (6↑): I know athletes going to Harvard, MIT, and Yale who would never have gotten in without sports. They are not dumb, but they are also nowhere near the typical profile for those schools.
+  - **Rookium** (6↑): Being a recruited athlete to a Power 5 D1 school requires arguably more work than being a good student and getting into a t20
+    - **Packing-Tape-Man** (11↑): Overcorrection. I would just leave it that both are major accomplishments. The "NARP" who gets into a T20 academically also likely have to be exceptional at something outside of the classroom too.
+    - **Bubbly_Relief_891** (4↑): I know athletes going to Harvard, MIT, and Yale who would never have gotten in without sports. They are not dumb, but they are also nowhere near the typical profile for those schools.
   - **holyheckball** (1↑): You're right, my emotions were getting the best of me. I'm sure he worked extremely hard for his athletic opportunities.
 
 It still stings to know chatgpt and a wealthy family are supporting him towards a better school
@@ -98,7 +152,7 @@ I wrote too much OP but the fact that you called him dumb because he doesn't exc
   - **Electrical-Bed-7836** (0↑): One you should understand her frustration unless you are that dumb athlete that got in. Two she's not 100%wrong i know lots of "athletes" that were very average if not below and got free rides to good schools. Believe me politics have its ways... now it is not a generality. And there are very deserving athlete students.
 Again I think your comment was unnecessary in her grief. You always tend to say things you don't necessarily mean or you wouldn't say in different circumstances...
 I understand her feelings and im not a student.
-- **Ok_Experience_5151** (9↑): >I remember I cried for weeks when I lost my 4.0.
+- **Ok_Experience_5151** (8↑): >I remember I cried for weeks when I lost my 4.0.
 
 👉🌾
   - **bubblegummerr** (2↑): 🌿 this may have worked 🌱 better😭

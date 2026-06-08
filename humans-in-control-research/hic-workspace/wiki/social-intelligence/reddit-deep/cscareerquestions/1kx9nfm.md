@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1kx9nfm.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1kx9nfm/midlevel_to_seniors_what_are_you_doing_to/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,63 @@ flair: "Experienced"
 extracted_at: "2026-05-20T12:57:40.625Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kx9nfm.md#c0"
+    char_span: [0, 1959]
+    sentence_count: 23
+    key_terms: [cscareerquestions, been, get, "i'm", long, new, comments, product]
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kx9nfm.md#c1"
+    char_span: [1974, 3470]
+    sentence_count: 8
+    key_terms: [goat, kubernetes, faang, become, farmer, something, probably, demand]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kx9nfm.md#c2"
+    char_span: [3472, 5629]
+    sentence_count: 9
+    key_terms: [companies, devs, squarespace, kubernetes, wordpress, opportunities, replacing, replaced]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kx9nfm.md#c3"
+    char_span: [5631, 7519]
+    sentence_count: 12
+    key_terms: [companies, engineers, code, because, investors, help, job, work]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kx9nfm.md#c4"
+    char_span: [7521, 9002]
+    sentence_count: 9
+    key_terms: [people, jobs, transition, business, career, period, broad-cranberry-9050, going]
+    section: Comments
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kx9nfm.md#c5"
+    char_span: [9004, 10864]
+    sentence_count: 13
+    key_terms: [companies, machine-learning-ai-and-bots-oreilly-2025-books, widgets, debugging, deleted, instead, realize, without]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kx9nfm.md#c6"
+    char_span: [10866, 12250]
+    sentence_count: 12
+    key_terms: [understand, like, tools, something, software, deleted, project, working]
+    section: Comments
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kx9nfm.md#c7"
+    char_span: [12252, 14319]
+    sentence_count: 15
+    key_terms: [replace, design, productivity, significant, "i'm", job, developers, problem]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kx9nfm.md#c8"
+    char_span: [14321, 14987]
+    sentence_count: 6
+    key_terms: [job, next, old, interesting, programming, algorithms, procedural, different]
+    section: Comments
+    token_count: 167
 ---
-
 # Mid-level to Seniors: What are you doing to future-proof?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1kx9nfm/midlevel_to_seniors_what_are_you_doing_to/)

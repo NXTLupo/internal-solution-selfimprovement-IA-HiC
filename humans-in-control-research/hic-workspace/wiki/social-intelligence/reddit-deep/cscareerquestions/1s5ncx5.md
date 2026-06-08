@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1s5ncx5.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1s5ncx5/final_year_of_unsw_cs_no_projects_internships_not/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,36 @@ subreddit: "cscareerquestions"
 title: "Final year of UNSW cs, no projects, internships not really sure where to go from here"
 author: "Fun_Measurement1128"
 date: "2026-03-28T01:45:24.000Z"
-score: 4
-upvote_ratio: 0.63
+score: 2
+upvote_ratio: 0.57
 num_comments: 13
 flair: "Student"
-extracted_at: "2026-05-19T17:57:56.722Z"
+extracted_at: "2026-06-05T17:08:55.594Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s5ncx5.md#c0"
+    char_span: [0, 1811]
+    sentence_count: 7
+    key_terms: [cscareerquestions, here, uni, knowledge, comments, projects, already, getting]
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s5ncx5.md#c1"
+    char_span: [1826, 3814]
+    sentence_count: 21
+    key_terms: [something, "don't", done, get, job, use, projects, already]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s5ncx5.md#c2"
+    char_span: [3816, 5043]
+    sentence_count: 6
+    key_terms: [referral, already, nothing, meaningrealistic5561, job, fundamentals, comfortable, interesting]
+    section: Comments
+    token_count: 255
 ---
-
 # Final year of UNSW cs, no projects, internships not really sure where to go from here
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1s5ncx5/final_year_of_unsw_cs_no_projects_internships_not/)
-Posted by **Fun_Measurement1128** · **4↑** · **13 comments**
+Posted by **Fun_Measurement1128** · **2↑** · **13 comments**
 
 Hello, I am a UNSW cs student who’s kind of just been chugging along like a moron instead of setting myself up for the future and now I’m here.
 
@@ -37,7 +55,7 @@ I see resumes here of people with fantastic resumes, with hundreds  rejections, 
 
 ## Comments
 
-- **longk_snek** (5↑): You got this.  I had no internships when I graduated but still got a decent job with a far worse school than you.  Many people here are either doomposting or way too picky.  I would recommend projects, for sure.  Doesn't have to be super fancy, and with AI its a lot easier to get started with something substantial these days.  Having projects on your resume with real keywords helps immensely with hearing back and getting selected for interviews.  I would look into what is common on job apps and use those technologies.  Personally I built some stuff with C#, postgres, java+springboot, react, etc.
+- **longk_snek** (4↑): You got this.  I had no internships when I graduated but still got a decent job with a far worse school than you.  Many people here are either doomposting or way too picky.  I would recommend projects, for sure.  Doesn't have to be super fancy, and with AI its a lot easier to get started with something substantial these days.  Having projects on your resume with real keywords helps immensely with hearing back and getting selected for interviews.  I would look into what is common on job apps and use those technologies.  Personally I built some stuff with C#, postgres, java+springboot, react, etc.
 
 Don't trust what everyone on reddit is saying (even me, I suppose).  But I will say that you can do it if I can.  And it's not as bad as many are saying.
   - **g---e** (2↑): the hard part I have is coming up with a project that has a use case, that isn't already done by someone else. I don't have any problems to solve -\_-

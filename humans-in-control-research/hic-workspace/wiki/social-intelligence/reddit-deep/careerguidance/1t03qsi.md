@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t03qsi.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t03qsi/graduated_15_years_ago_dont_want_to_work_a/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 2
 upvote_ratio: 1
 num_comments: 3
 flair: "Advice"
-extracted_at: "2026-05-25T18:32:57.389Z"
+extracted_at: "2026-06-03T17:59:52.599Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t03qsi.md#c0"
+    char_span: [0, 1215]
+    sentence_count: 13
+    key_terms: [corporate, don, careerguidance, times, want, graduated, comments, forever]
+    token_count: 310
+  - id: "social-intelligence/reddit-deep/careerguidance/1t03qsi.md#c1"
+    char_span: [1230, 3287]
+    sentence_count: 18
+    key_terms: [passion, step, discover, help, look, experience, personal, yourself]
+    section: Comments
+    token_count: 459
 ---
-
 # Graduated 1.5 years ago, don’t want to work a corporate job anymore, please help me find a career path?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t03qsi/graduated_15_years_ago_dont_want_to_work_a/)

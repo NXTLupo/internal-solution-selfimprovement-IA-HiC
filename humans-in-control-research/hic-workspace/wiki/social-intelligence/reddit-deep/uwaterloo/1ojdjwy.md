@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1ojdjwy.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1ojdjwy/i_built_glassdoor_for_uwaterloo_students/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,21 @@ flair: "Co-op"
 extracted_at: "2026-05-25T18:33:12.676Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1ojdjwy.md#c0"
+    char_span: [0, 610]
+    sentence_count: 2
+    key_terms: [uwaterloo, students, glassdoor, goosedoor, comments, built, com, exploitative]
+    token_count: 147
+  - id: "social-intelligence/reddit-deep/uwaterloo/1ojdjwy.md#c1"
+    char_span: [625, 1971]
+    sentence_count: 6
+    key_terms: [east-contract-9378, an1malcross1ng97, great, shopify, levels, independent-crew9790, puzzleheadeddrive692, snoosuggestions7200]
+    section: Comments
+    token_count: 413
 ---
-
 # I built GlassDoor for UWaterloo students
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1ojdjwy/i_built_glassdoor_for_uwaterloo_students/)

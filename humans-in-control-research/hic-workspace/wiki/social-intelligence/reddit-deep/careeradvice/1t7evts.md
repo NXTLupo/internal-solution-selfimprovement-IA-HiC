@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1t7evts.md
 url: "https://www.reddit.com/r/careeradvice/comments/1t7evts/ai_interview_successes/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.235Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1t7evts.md#c0"
+    char_span: [0, 570]
+    sentence_count: 4
+    key_terms: [interview, careeradvice, comments, additionally, reddit-deep, appreciate, experience, interested]
+    token_count: 136
+  - id: "social-intelligence/reddit-deep/careeradvice/1t7evts.md#c1"
+    char_span: [585, 1206]
+    sentence_count: 6
+    key_terms: [measurable, assistant, interview, questions, conflict, headline, practice, sentence]
+    section: Comments
+    token_count: 149
 ---
-
 # AI Interview Successes
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1t7evts/ai_interview_successes/)

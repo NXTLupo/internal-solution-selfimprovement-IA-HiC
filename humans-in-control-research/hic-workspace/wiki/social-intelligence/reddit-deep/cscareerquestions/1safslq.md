@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1safslq.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1safslq/a_year_and_a_half_of_internship_experience_with/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: "Student"
 extracted_at: "2026-05-20T02:33:39.315Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1safslq.md#c0"
+    char_span: [0, 2174]
+    sentence_count: 17
+    key_terms: [internship, years, full-time, cscareerquestions, semester, already, company, since]
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1safslq.md#c1"
+    char_span: [2176, 2773]
+    sentence_count: 4
+    key_terms: [being, done, time, possibilities, burstawesome, attractive, exhausting, pairstrong]
+    section: Comments
+    token_count: 135
 ---
-
 # A year and a half of internship experience with two years left until graduation. Could I already start looking for a full-time job?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1safslq/a_year_and_a_half_of_internship_experience_with/)

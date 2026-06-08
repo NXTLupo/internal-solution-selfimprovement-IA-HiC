@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/b70f5cd7eb.md
 url: "https://www.reddit.com/r/careerguidance/comments/1thkoja/help_me_how_to_choose_career_path_based_on/"
 url_hash: "b70f5cd7eb"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T20:21:55.724359+00:00"
 chars: 731
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/b70f5cd7eb.md#c0"
+    char_span: [0, 935]
+    sentence_count: 3
+    key_terms: [mainframe, project, career, careerguidance, choose, extraction, existing, another]
+    token_count: 212
 ---
-
 # Help me how to choose career path based on experience ?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1thkoja/help_me_how_to_choose_career_path_based_on/)

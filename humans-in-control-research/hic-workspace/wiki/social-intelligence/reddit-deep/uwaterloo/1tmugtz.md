@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1tmugtz.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1tmugtz/i_got_it_into_waterloo_health_sci_for_the_regular/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-25T18:33:12.664Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1tmugtz.md#c0"
+    char_span: [0, 347]
+    sentence_count: 2
+    key_terms: [uwaterloo, comments, reddit-deep, possible, waterloo, program, regular, version]
+    token_count: 97
 ---
-
 # I got it into Waterloo health sci for the regular program, is it possible for me to switch into the co-op version?
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1tmugtz/i_got_it_into_waterloo_health_sci_for_the_regular/)

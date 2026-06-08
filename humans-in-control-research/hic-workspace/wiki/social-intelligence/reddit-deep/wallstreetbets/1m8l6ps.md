@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1m8l6ps/amd_857k_yolo/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,69 @@ flair: "YOLO"
 extracted_at: "2026-05-16T20:54:42.980Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c0"
+    char_span: [0, 336]
+    sentence_count: 1
+    key_terms: [wallstreetbets, comments, https, png, qz69a51q1xef1, brilliantzen, reddit-deep, incoming]
+    token_count: 134
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c1"
+    char_span: [351, 1222]
+    sentence_count: 1
+    key_terms: [wallstreetbets, comments, reddit, https, com, www, total, submissions]
+    section: Comments
+    token_count: 310
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c2"
+    char_span: [1224, 2885]
+    sentence_count: 3
+    key_terms: [https, d7df9c2c51418a47f5d6b9de5a1096f0fa93529c, deleted, "that's", money, wsb, discord, preview]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c3"
+    char_span: [2887, 3504]
+    sentence_count: 2
+    key_terms: [c5b8dc31744b257da0af5be05b758add9a392c08, dcb4df5da838b69b583a4f2b6b1768cfd3ba49ef, preview, format, https, width, bearychristmas223, amd]
+    section: Comments
+    token_count: 242
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c4"
+    char_span: [3506, 5256]
+    sentence_count: 31
+    key_terms: [amd, intel, "they're", cheaper, buying, chips, money, "it's"]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c5"
+    char_span: [5258, 6785]
+    sentence_count: 31
+    key_terms: [amd, market, nvda, gets, blackwell, cheaper, bigger, matter]
+    section: Comments
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c6"
+    char_span: [6790, 8445]
+    sentence_count: 13
+    key_terms: [b69709ef0197a5a395e0b1158ade07705cb4b968, wallstreetbets, https, amd, comments, valhalla, willing, "nvda's"]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c7"
+    char_span: [8447, 9440]
+    sentence_count: 10
+    key_terms: [companies, memory, shovel, terms, glitteringlock9791, amd, rack, infrastructures]
+    section: Comments
+    token_count: 228
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c8"
+    char_span: [9442, 11065]
+    sentence_count: 15
+    key_terms: [amd, electricity, products, competitive, deleted, thesis, agree, money]
+    section: Comments
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1m8l6ps.md#c9"
+    char_span: [11067, 12187]
+    sentence_count: 9
+    key_terms: [amd, nvidia, buy, inverse, parity, price, good, look]
+    section: Comments
+    token_count: 286
 ---
-
 # AMD $857K YOLO
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1m8l6ps/amd_857k_yolo/)

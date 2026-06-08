@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1sbh71m.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1sbh71m/unable_to_calmly_discuss_finances_with_my_partner/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,62 @@ flair: "Misc Advice"
 extracted_at: "2026-05-17T01:13:55.883Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c0"
+    char_span: [0, 2162]
+    sentence_count: 18
+    key_terms: [truck, need, povertyfinance, comments, brother, instead, license, partner]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c1"
+    char_span: [2164, 4355]
+    sentence_count: 19
+    key_terms: [money, feel, get, want, brother, mental, "don't", away]
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c2"
+    char_span: [4357, 6457]
+    sentence_count: 32
+    key_terms: [partner, get, please, "you're", spent, down, "i'm", talk]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c3"
+    char_span: [6459, 7943]
+    sentence_count: 19
+    key_terms: [start, budget, world, like, definitely, patience, because, husband]
+    section: Comments
+    token_count: 343
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c4"
+    char_span: [7945, 10084]
+    sentence_count: 13
+    key_terms: [psychiatrist, like, talkiatry, therapy, meds, through, afford, "wasn't"]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c5"
+    char_span: [10086, 12127]
+    sentence_count: 11
+    key_terms: [people, probably, money, start, regulations, get, like, try]
+    section: Comments
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c6"
+    char_span: [12129, 14057]
+    sentence_count: 9
+    key_terms: [want, goals, financial, generally, dynamic, partner, quarter, therapy]
+    section: Comments
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c7"
+    char_span: [14059, 15568]
+    sentence_count: 18
+    key_terms: [thehitmanbravo, trauma, definitely, brother, mothers, therapy, mother, knows]
+    section: Comments
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c8"
+    char_span: [15570, 16918]
+    sentence_count: 9
+    key_terms: [money, financial, "you're", something, partner, trying, being, learn]
+    section: Comments
+    token_count: 298
 ---
-
 # Unable to calmly discuss finances with my partner and it is slowly killing us. How do I move past the financial trauma I was caused in order to make our conversations more productive?
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1sbh71m/unable_to_calmly_discuss_finances_with_my_partner/)

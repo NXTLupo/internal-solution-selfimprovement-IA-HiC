@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1r1b3gl.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1r1b3gl/i_got_tired_of_chatgpt_forgetting_everything_so_i/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,49 @@ flair: "Educational Purpose Only "
 extracted_at: "2026-05-17T01:12:48.206Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1r1b3gl.md#c0"
+    char_span: [0, 345]
+    sentence_count: 2
+    key_terms: [chatgpt, comments, bangmypussy, reddit-deep, everything, forgetting, decisions, remembers]
+    token_count: 105
+  - id: "social-intelligence/reddit-deep/chatgpt/1r1b3gl.md#c1"
+    char_span: [347, 2396]
+    sentence_count: 21
+    key_terms: [memory, athena, claude, intelligence, drive, linux, permissions, remembers]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1r1b3gl.md#c2"
+    char_span: [2134, 3159]
+    sentence_count: 12
+    key_terms: [athena-public, winstonkoh87, something, adaptive, latency, github, openai, build]
+    token_count: 265
+  - id: "social-intelligence/reddit-deep/chatgpt/1r1b3gl.md#c3"
+    char_span: [3174, 3825]
+    sentence_count: 4
+    key_terms: [openai, conversation, image, post, r-chatgpt-1050422060352024636, chatgpt-shared-links-faq, discord, support]
+    section: Comments
+    token_count: 172
+  - id: "social-intelligence/reddit-deep/chatgpt/1r1b3gl.md#c4"
+    char_span: [3828, 5578]
+    sentence_count: 8
+    key_terms: [bangmypussy, because, context, good, "couldn't", username, thanks, environmental-cap979]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/chatgpt/1r1b3gl.md#c5"
+    char_span: [5580, 7117]
+    sentence_count: 8
+    key_terms: [bangmypussy, chat, work, because, ctotheg, memory, tokens, users]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/chatgpt/1r1b3gl.md#c6"
+    char_span: [7119, 7615]
+    sentence_count: 4
+    key_terms: [bangmypussy, winwunwon, chat, starroverride, compelling, experience, suspicious, rewritten]
+    section: Comments
+    token_count: 148
 ---
-
 # I got tired of ChatGPT forgetting everything, so I built it a "Save Game" feature. 1,000+ sessions later, it remembers my decisions from 2 months ago.
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1r1b3gl/i_got_tired_of_chatgpt_forgetting_everything_so_i/)

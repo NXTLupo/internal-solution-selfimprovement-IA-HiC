@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1o8szk0.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1o8szk0/r_plain_english_outperforms_json_for_llm_tool/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -6,19 +7,64 @@ subreddit: "machinelearning"
 title: "[R] Plain English outperforms JSON for LLM tool calling: +18pp accuracy, -70% variance"
 author: "tekToks"
 date: "2025-10-17T05:30:35.000Z"
-score: 132
+score: 131
 upvote_ratio: 0.94
 num_comments: 31
 flair: "Research"
-extracted_at: "2026-05-11T17:27:06.575Z"
+extracted_at: "2026-05-31T21:49:57.044Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+research_goal: "Identify emerging AI design trends, skills, tools, platforms, and technical implementations that would  help a company's creative team to move beyond AI as a concepting aid and understand where AI-enabled tools, workflows and internal models can practically support design production, system testing, asset generation, governance and stakeholder confidence. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1o8szk0.md#c0"
+    char_span: [0, 2212]
+    sentence_count: 6
+    key_terms: [tool, structured, language, natural, format, https, tools, json]
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/machinelearning/1o8szk0.md#c1"
+    char_span: [2214, 4295]
+    sentence_count: 11
+    key_terms: [tool, relevant, nlt, example, assessment, accuracy, finished, thinking]
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/machinelearning/1o8szk0.md#c2"
+    char_span: [4297, 6568]
+    sentence_count: 12
+    key_terms: [tool, structured, training, model, selection, nlt, accuracy, reduced]
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/machinelearning/1o8szk0.md#c3"
+    char_span: [6583, 8407]
+    sentence_count: 13
+    key_terms: [structured, json, outputs, markdown, gemini, output, random, performance]
+    section: Comments
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/machinelearning/1o8szk0.md#c4"
+    char_span: [8409, 10076]
+    sentence_count: 10
+    key_terms: [tool, output, parameters, accuracy, language, natural, undoubtedly, case]
+    section: Comments
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/machinelearning/1o8szk0.md#c5"
+    char_span: [10078, 12186]
+    sentence_count: 11
+    key_terms: [tool, parameters, tools, pass, reasoning, language, practice, natural]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/machinelearning/1o8szk0.md#c6"
+    char_span: [12188, 14516]
+    sentence_count: 16
+    key_terms: [paper, tool, skills, json, calling, "anthropic's", interesting, "it's"]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/machinelearning/1o8szk0.md#c7"
+    char_span: [14519, 15803]
+    sentence_count: 8
+    key_terms: [tool, especially, benchmark, calling, tektoks, format, inputs, string]
+    section: Comments
+    token_count: 305
 ---
-
 # [R] Plain English outperforms JSON for LLM tool calling: +18pp accuracy, -70% variance
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1o8szk0/r_plain_english_outperforms_json_for_llm_tool/)
-Posted by **tekToks** · **132↑** · **31 comments**
+Posted by **tekToks** · **131↑** · **31 comments**
 
 **TL;DR:** Tool-call accuracy in LLMs can be significantly improved by using natural language instead of JSON-defined schemas (\~+18 percentage points across 6,400 trials and 10 models), while simultaneously reducing variance by 70% and token overhead by 31%. We introduce Natural Language Tools (NLT), a simple framework that decouples tool selection from response generation and eliminates programmatic format constraints and extends tool calling to models even without tool-call support.
 
@@ -125,7 +171,7 @@ One of the authors here, happy to answer any questions about experimental design
 
 ## Comments
 
-- **here_we_go_beep_boop** (46↑): Great work. We use tool calling and json structured output extensively, and have seen examples where natural language queries (via ChatGPT) outperform the same taks when presented as structured outputs.
+- **here_we_go_beep_boop** (45↑): Great work. We use tool calling and json structured output extensively, and have seen examples where natural language queries (via ChatGPT) outperform the same taks when presented as structured outputs.
 
 I got so sick of begging the LLM for a rigorous output format that structured outputs felt like a safe haven, although even then some of our more complex use cases surfaced examples where we still get json schema violations from the model (gpt4o). To the extent that we validate returned json and requery if necessary, increasing temperature and adding a random nonce to the prompt to bypass caching.
 
@@ -151,21 +197,21 @@ Can you please elaborate on this? In my mind, this should not be possible, you a
 I suspect if you try to expand this work to "full" tool use, the picture will be less rosy. You will either have to deal with "translating" the much more complex natural language into a precise set of parameters (undoubtedly a lossy endeavour that will hurt the accuracy to some extent, unless you implement it with the LLM itself as a separate "reasoning step", in which case any accuracy gain would arguably just be due to having inserted an additional reasoning step, rather than "tool use through natural language"), or alternatively, you could basically only pick the tool with this method, then output the exact parameters verbatim -- in either case, I expect the "magical" accuracy gain will mostly vanish.
 
 But even if it only really helps in simpler cases, the idea that the typical method is overkill and "harmful" for simpler tool use is still useful. If nothing else, a hybrid system of sorts could get you the best of both worlds (easy wins when they are possible, current system when not)
-  - **[deleted]** (4↑): I think you’re right that the real advantage here probably comes from removing unnecessary structure when the task doesn’t require precision — not from some deep breakthrough in reasoning. For more complex cases, you’d likely need a parser or intermediate reasoning step anyway, which could eat into the gains.
-- **luckylixi** (18↑): How do you pass parameters to the tools?
+  - **[deleted]** (3↑): I think you’re right that the real advantage here probably comes from removing unnecessary structure when the task doesn’t require precision — not from some deep breakthrough in reasoning. For more complex cases, you’d likely need a parser or intermediate reasoning step anyway, which could eat into the gains.
+- **luckylixi** (17↑): How do you pass parameters to the tools?
   - **tekToks** (-6↑): In this study, we looked at parameterless tool-selection only (i.e. choose the right tool) rather than parameters. Our goal was to isolate the "tool selection" mechanism, as many tools act as triggers for actions in agents.  
   
 In practice, we've found that you can absolutely pass parameters in natural language while gaining similar benefits, and there are a few ways to implement that. But we've yet to rigorously assess these!
     - **PeJaybird** (7↑): Correct me if Im wrong, but in your stage2 proposal, you mentioned specifically tool execution? So, is your experiment on only tool call or tool use as a whole?
-    - **jsaugust** (3↑): Can you say more about what you've found in practice? Being able to extract and pass parameters to tools is pretty fundamental to agentic approaches.
+    - **jsaugust** (2↑): Can you say more about what you've found in practice? Being able to extract and pass parameters to tools is pretty fundamental to agentic approaches.
 - **msbosssauce** (9↑): I wonder if you read the rebuttal for Tam's paper (https://blog.dottxt.ai/say-what-you-mean.html)
   - **tekToks** (5↑): I have! Their perspective was a reason we tested perturbed inputs. Prompt engineering allows for pretty remarkable task-specific improvements, and we didn't want any differences to be down to that alone
 
 Of course, more work is needed to go further than "may" or "suggests". Perturbations might encode any underlying "optimization" for natural language, leaving structured outputs diminished ([a paper on similar phenomena](https://arxiv.org/abs/2310.18512)). 
 
 Further, while we define the baseline as "structured tool calls" in the paper for convenience, NLT is still in line with the .txt team's views on structured tool calling being immensely valuable. It's simply a structure defined without programmatic syntax!
-- **L43** (5↑): As a “more readable json”, does yaml work better?
-  - **tekToks** (8↑): Good question! The "Let Me Speak Freely" paper I linked would suggest "better, but not as good as more natural outputs", but we've never tested YAML specifically.
+- **L43** (4↑): As a “more readable json”, does yaml work better?
+  - **tekToks** (7↑): Good question! The "Let Me Speak Freely" paper I linked would suggest "better, but not as good as more natural outputs", but we've never tested YAML specifically.
 
 Keep in mind, we're comparing NLT against each model provider's inbuilt tool call functionality, which isn't necessarily JSON. 
 
@@ -186,7 +232,7 @@ Eg "format candidate in the following:
     "Max_height": integer # 999 if mising
     "Highest_education" string # options are [college, university, post-grad]
     }
-  - **tekToks** (4↑): We didn't test that specifically, but from the data, there are hints it might carry over, especially with some open source models!
+  - **tekToks** (3↑): We didn't test that specifically, but from the data, there are hints it might carry over, especially with some open source models!
 
 For example, Llama 4 Scout would sometimes get the "right tool", but would forget to use its inbuilt function call capability, and instead output the JSON schema as a message 😅
 

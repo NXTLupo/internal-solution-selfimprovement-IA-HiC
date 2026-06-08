@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1qvof46.md
 url: "https://www.reddit.com/r/OpenAI/comments/1qvof46/i_switched_from_chatgpt_to_gemini_for_the_context/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,15 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:05.357Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1qvof46.md#c0"
+    char_span: [0, 1652]
+    sentence_count: 17
+    key_terms: [chatgpt, gemini, extensions, queue, projects, browser, openai, ahmdidjajeicoopcdpablhecokaepofl]
+    token_count: 412
 ---
-
 # I switched from ChatGPT to Gemini for the context window, but the UI felt ancient. So I built an extension to fix it.
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1qvof46/i_switched_from_chatgpt_to_gemini_for_the_context/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1ma2mmz.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1ma2mmz/phd_stipends_quality_of_life_and_effect_on_your/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,57 @@ flair: "Humanities"
 extracted_at: "2026-05-26T14:32:49.116Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c0"
+    char_span: [0, 1544]
+    sentence_count: 14
+    key_terms: [phd, been, "i'm", always, askacademia, grad, academia, comments]
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c1"
+    char_span: [1559, 3086]
+    sentence_count: 11
+    key_terms: [people, parents, kids, phd, undergrad, everyone, programs, students]
+    section: Comments
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c2"
+    char_span: [3088, 4876]
+    sentence_count: 15
+    key_terms: [being, month, student, connectfroot, able, get, plus, save]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c3"
+    char_span: [4878, 6583]
+    sentence_count: 13
+    key_terms: [like, parents, loans, undergrad, stipend, student, educated-professional, people]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c4"
+    char_span: [6585, 8327]
+    sentence_count: 13
+    key_terms: [phd, stipend, working, never, starting, because, program, salary]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c5"
+    char_span: [8329, 10175]
+    sentence_count: 13
+    key_terms: [programs, stipend, people, places, school, years, "it's", looking]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c6"
+    char_span: [10177, 12091]
+    sentence_count: 16
+    key_terms: [school, grad, month, rent, hours, ect, insurance, however]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c7"
+    char_span: [12093, 13690]
+    sentence_count: 13
+    key_terms: [pensions, salaries, abroad, school, system, though, get, grad]
+    section: Comments
+    token_count: 379
 ---
-
 # PhD Stipends, quality of life, and effect on your department/students
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1ma2mmz/phd_stipends_quality_of_life_and_effect_on_your/)

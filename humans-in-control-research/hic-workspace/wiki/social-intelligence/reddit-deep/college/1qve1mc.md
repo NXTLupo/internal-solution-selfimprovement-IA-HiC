@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1qve1mc.md
 url: "https://www.reddit.com/r/college/comments/1qve1mc/how_often_do_people_get_internships_by_you_know/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,36 @@ subreddit: "college"
 title: "How often do people get internships by, you know, finding a listing online, and not through connections?"
 author: "Intrepid_Arrival5151"
 date: "2026-02-04T03:53:14.000Z"
-score: 30
-upvote_ratio: 0.88
+score: 31
+upvote_ratio: 0.89
 num_comments: 11
 flair: ""
-extracted_at: "2026-05-26T14:31:29.697Z"
+extracted_at: "2026-06-05T19:52:16.891Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1qve1mc.md#c0"
+    char_span: [0, 695]
+    sentence_count: 3
+    key_terms: [college, comments, through, get, opportunities, upperclassmen, connections, internships]
+    token_count: 161
+  - id: "social-intelligence/reddit-deep/college/1qve1mc.md#c1"
+    char_span: [710, 2632]
+    sentence_count: 10
+    key_terms: [internships, got, school, going, internship, companies, applying, industry]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/college/1qve1mc.md#c2"
+    char_span: [2634, 5025]
+    sentence_count: 16
+    key_terms: [connections, internships, internship, companies, got, online, listings, college]
+    section: Comments
+    token_count: 512
 ---
-
 # How often do people get internships by, you know, finding a listing online, and not through connections?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1qve1mc/how_often_do_people_get_internships_by_you_know/)
-Posted by **Intrepid_Arrival5151** · **30↑** · **11 comments**
+Posted by **Intrepid_Arrival5151** · **31↑** · **11 comments**
 
 Sorry for my cynicism, but it almost seems like something only on paper and not really in practice, not even just uncommon, for interns to have gotten their spot through some other way besides knowing a guy.
 
@@ -26,11 +44,11 @@ I'm already a community college student who's not gonna be able to build a large
 
 ## Comments
 
-- **baknotnice** (26↑): If it makes you feel any better, I got my first and only internship at a professional sports league without having any knowledge of the sport or any connections in the industry, which I parlayed into a full time role in a different area of the industry.
+- **baknotnice** (24↑): If it makes you feel any better, I got my first and only internship at a professional sports league without having any knowledge of the sport or any connections in the industry, which I parlayed into a full time role in a different area of the industry.
 
 Regardless of what you do, I’d recommend you: build a portfolio, put yourself out there, advocate for yourself.
 - **Italian___stallionn** (13↑): Many. I landed all 3 of my internships through online listings. Best advice is to speak to your advisors to see what companies are known to hire from your school more frequently and if your school does a career fair go to that as well
-- **k5ylee** (5↑): That’s how I got mine. Look in places that aren’t near where you live too if you have the means to find housing during internships. Also being one of the first applicants on a posted listing has helped me tremendously.
+- **k5ylee** (4↑): That’s how I got mine. Look in places that aren’t near where you live too if you have the means to find housing during internships. Also being one of the first applicants on a posted listing has helped me tremendously.
 - **Brief_Criticism_492** (2↑): I got mine applying online. I went to an info session from the guy who runs the program when he visited the school but he probably didn't remember my name (if he was even the one going through applications). 
 
 I'd also say 90% of my "networking" has just been going to professor's office hours, then hearing from them about where they suggest I apply to and asking if they've heard of any cool opportunities (and asking them to write letters of rec where applicable). Not at all the same as actually knowing people at the companies you apply for, but still much better than going to the internet and applying to random shit

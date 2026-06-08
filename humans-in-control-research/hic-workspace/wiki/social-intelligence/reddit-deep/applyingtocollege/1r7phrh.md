@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1r7phrh.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1r7phrh/if_i_have_zero_work_experience_how_much_will_this/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,21 @@ flair: "Application Question"
 extracted_at: "2026-05-22T23:33:52.641Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r7phrh.md#c0"
+    char_span: [0, 970]
+    sentence_count: 9
+    key_terms: [application, experience, applyingtocollege, time, work, currently, comments, school]
+    token_count: 244
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r7phrh.md#c1"
+    char_span: [985, 1951]
+    sentence_count: 7
+    key_terms: [experience, application, work, consider, schools, having, reader, help]
+    section: Comments
+    token_count: 222
 ---
-
 # If I have zero work experience, how much will this affect my application?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1r7phrh/if_i_have_zero_work_experience_how_much_will_this/)

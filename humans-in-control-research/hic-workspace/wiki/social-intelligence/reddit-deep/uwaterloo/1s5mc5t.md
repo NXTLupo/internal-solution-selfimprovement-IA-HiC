@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1s5mc5t.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1s5mc5t/incoming_waterloo_cs_students_questions/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-25T18:33:12.670Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1s5mc5t.md#c0"
+    char_span: [0, 2261]
+    sentence_count: 19
+    key_terms: [waterloo, international, co-op, student, "i'm", tuition, questions, math]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/uwaterloo/1s5mc5t.md#c1"
+    char_span: [2263, 3947]
+    sentence_count: 16
+    key_terms: [waterloo, culture, austin, program, international, co-op, here, situation]
+    section: Comments
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/uwaterloo/1s5mc5t.md#c2"
+    char_span: [3949, 5909]
+    sentence_count: 4
+    key_terms: [ucla, waterloo, students, cinnamoneyrolls, school, major, environment, big]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/uwaterloo/1s5mc5t.md#c3"
+    char_span: [5682, 6100]
+    sentence_count: 2
+    key_terms: [youtube, still-engineering768, https, watch, com, ucla, www, metaphorically]
+    section: Comments
+    token_count: 122
+  - id: "social-intelligence/reddit-deep/uwaterloo/1s5mc5t.md#c4"
+    char_span: [6102, 8247]
+    sentence_count: 15
+    key_terms: [get, waterloo, job, "there's", pretty, coops, big, tech]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/uwaterloo/1s5mc5t.md#c5"
+    char_span: [8249, 9964]
+    sentence_count: 10
+    key_terms: [admissions, uwaterloo, please, automoderator, moderators, message, around, reddit]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/uwaterloo/1s5mc5t.md#c6"
+    char_span: [9966, 11969]
+    sentence_count: 18
+    key_terms: [coop, austin, because, better, cooked, waterlooworks, waterloo, cracked]
+    section: Comments
+    token_count: 474
 ---
-
 # Incoming waterloo cs student's questions
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1s5mc5t/incoming_waterloo_cs_students_questions/)

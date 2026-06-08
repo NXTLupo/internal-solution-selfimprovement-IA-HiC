@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1podzv7.md
 url: "https://www.reddit.com/r/Professors/comments/1podzv7/tough_exams_or_have_we_just_fallen_so_far/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,63 @@ flair: ""
 extracted_at: "2026-05-14T18:17:21.712Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1podzv7.md#c0"
+    char_span: [0, 1128]
+    sentence_count: 11
+    key_terms: [basic, comments, things-you-should-learn-in-high-school, level, assessments, professors, students, content]
+    token_count: 261
+  - id: "social-intelligence/reddit-deep/professors/1podzv7.md#c1"
+    char_span: [1143, 2985]
+    sentence_count: 15
+    key_terms: [faculty, students, admin, terrified, get, student, evals, exam]
+    section: Comments
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/professors/1podzv7.md#c2"
+    char_span: [2987, 4785]
+    sentence_count: 14
+    key_terms: [education, students, because, universities, being, retention, college, florida]
+    section: Comments
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/professors/1podzv7.md#c3"
+    char_span: [4787, 6872]
+    sentence_count: 12
+    key_terms: [student, going, semester, students, despite, too, professor, woefully]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/professors/1podzv7.md#c4"
+    char_span: [6874, 8777]
+    sentence_count: 8
+    key_terms: [classes, boss, went, because, undergraduate, "i'm", curriculum, university]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/professors/1podzv7.md#c5"
+    char_span: [8779, 10451]
+    sentence_count: 8
+    key_terms: [class, students, courses, "they're", week, sequencing, chemistry, committee]
+    section: Comments
+    token_count: 408
+  - id: "social-intelligence/reddit-deep/professors/1podzv7.md#c6"
+    char_span: [10455, 12230]
+    sentence_count: 14
+    key_terms: [different, like, students, problem, course, assessments, upper-level, quiz]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/professors/1podzv7.md#c7"
+    char_span: [12232, 13933]
+    sentence_count: 7
+    key_terms: [physics, application, curve, exam, professors, material, because, learned]
+    section: Comments
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/professors/1podzv7.md#c8"
+    char_span: [13935, 15775]
+    sentence_count: 17
+    key_terms: [physics, physicists, professors, part, knowledge, attracts, awardees, students]
+    section: Comments
+    token_count: 386
 ---
-
 # Tough exams, or have we just fallen so far?
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1podzv7/tough_exams_or_have_we_just_fallen_so_far/)

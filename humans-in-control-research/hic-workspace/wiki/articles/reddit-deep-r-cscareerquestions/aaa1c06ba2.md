@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/aaa1c06ba2.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1nwoaa9/who_here_has_run_into_those_companies_that_fake/"
 url_hash: "aaa1c06ba2"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T04:02:13.250184+00:00"
 chars: 3392
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/aaa1c06ba2.md#c0"
+    char_span: [0, 986]
+    sentence_count: 6
+    key_terms: [experience, cscareerquestions, fake, get, here, background, companies, adding]
+    token_count: 224
+  - id: "articles/reddit-deep-r-cscareerquestions/aaa1c06ba2.md#c1"
+    char_span: [988, 3253]
+    sentence_count: 7
+    key_terms: [companies, experience, consultancy, years, get, someone, consultancies, least]
+    token_count: 512
+  - id: "articles/reddit-deep-r-cscareerquestions/aaa1c06ba2.md#c2"
+    char_span: [3003, 3659]
+    sentence_count: 5
+    key_terms: [experience, years, legitimate-mostlet, gandalf-and-frodo, like, megaascizorr, suggestions, occupation]
+    token_count: 160
 ---
-
 # Who here has run into those companies that fake CS experience and background checks to get you $100K+ jobs?
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1nwoaa9/who_here_has_run_into_those_companies_that_fake/)

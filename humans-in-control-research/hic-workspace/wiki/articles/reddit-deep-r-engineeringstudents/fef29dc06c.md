@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-engineeringstudents/fef29dc06c.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1prw3an/tips_for_engineering_students_wanting_those/"
 url_hash: "fef29dc06c"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T15:18:42.310789+00:00"
 chars: 4407
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-engineeringstudents/fef29dc06c.md#c0"
+    char_span: [0, 980]
+    sentence_count: 6
+    key_terms: [engineeringstudents, aerospace, startup, important, engineer, reddit, school, going]
+    token_count: 205
+  - id: "articles/reddit-deep-r-engineeringstudents/fef29dc06c.md#c1"
+    char_span: [982, 3235]
+    sentence_count: 20
+    key_terms: [experience, engineers, something, thermal, internships, important, job, because]
+    token_count: 473
+  - id: "articles/reddit-deep-r-engineeringstudents/fef29dc06c.md#c2"
+    char_span: [3237, 4636]
+    sentence_count: 11
+    key_terms: [internships, important, because, always, clubs, "don't", gottatrusttheengr, get]
+    token_count: 312
 ---
-
 # Tips for engineering students wanting those aerospace startup careers
 
 Source: [Reddit Deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1prw3an/tips_for_engineering_students_wanting_those/)

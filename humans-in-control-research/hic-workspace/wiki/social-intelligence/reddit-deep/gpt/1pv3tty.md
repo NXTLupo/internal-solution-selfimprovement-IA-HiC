@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1pv3tty.md
 url: "https://www.reddit.com/r/GPT/comments/1pv3tty/i_really_wish_openai_was_more_in_line_with_the/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,32 @@ flair: "ChatGPT"
 extracted_at: "2026-05-11T17:26:37.724Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1pv3tty.md#c0"
+    char_span: [0, 2291]
+    sentence_count: 16
+    key_terms: [gpt, something, tool, response, instead, openai, effectiveness, like]
+    token_count: 517
+  - id: "social-intelligence/reddit-deep/gpt/1pv3tty.md#c1"
+    char_span: [2294, 3562]
+    sentence_count: 9
+    key_terms: [frustration, gpt, used, clearly, ask, didn, human-centered, meaning-making]
+    token_count: 284
+  - id: "social-intelligence/reddit-deep/gpt/1pv3tty.md#c2"
+    char_span: [3577, 4776]
+    sentence_count: 5
+    key_terms: [guardrails, asking, overzealous, pretty, honest-quality-6422, local, don, hit]
+    section: Comments
+    token_count: 320
+  - id: "social-intelligence/reddit-deep/gpt/1pv3tty.md#c3"
+    char_span: [4778, 6998]
+    sentence_count: 19
+    key_terms: [gpt, because, responsible, mirror, back, code, like, llm]
+    section: Comments
+    token_count: 508
 ---
-
 # I really wish OpenAI was more in line with the output on this GPT-5.2 response.
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1pv3tty/i_really_wish_openai_was_more_in_line_with_the/)

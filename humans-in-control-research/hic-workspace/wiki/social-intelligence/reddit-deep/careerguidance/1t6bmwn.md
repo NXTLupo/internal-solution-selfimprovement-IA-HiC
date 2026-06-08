@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t6bmwn.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t6bmwn/what_careers_do_you_actually_recommend/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,39 @@ flair: "Advice"
 extracted_at: "2026-05-25T15:52:13.108Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6bmwn.md#c0"
+    char_span: [0, 1072]
+    sentence_count: 4
+    key_terms: [careerguidance, suggestions, something, comments, careers, decent, day, good]
+    token_count: 241
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6bmwn.md#c1"
+    char_span: [1087, 2930]
+    sentence_count: 10
+    key_terms: [job, work, recession, get, proof, find, meaningful, difficult]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6bmwn.md#c2"
+    char_span: [2932, 4609]
+    sentence_count: 15
+    key_terms: [social, work, opportunities, coordination, good, lcsw, clinical, because]
+    section: Comments
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6bmwn.md#c3"
+    char_span: [4611, 6200]
+    sentence_count: 8
+    key_terms: [people, nursing, find, job, losing, stuck, years, feel]
+    section: Comments
+    token_count: 363
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6bmwn.md#c4"
+    char_span: [6202, 8049]
+    sentence_count: 14
+    key_terms: [therapy, people, lot, work, rewarding, mountain, patience, sitting]
+    section: Comments
+    token_count: 420
 ---
-
 # What careers do you actually recommend?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t6bmwn/what_careers_do_you_actually_recommend/)

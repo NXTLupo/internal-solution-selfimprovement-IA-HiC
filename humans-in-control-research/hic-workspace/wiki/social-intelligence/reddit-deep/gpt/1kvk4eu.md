@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1kvk4eu.md
 url: "https://www.reddit.com/r/GPT/comments/1kvk4eu/openai_just_revealed_how_real_companies_use_gpt/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,32 @@ flair: "ChatGPT"
 extracted_at: "2026-05-11T17:26:37.727Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1kvk4eu.md#c0"
+    char_span: [0, 2204]
+    sentence_count: 14
+    key_terms: [gpt, customer, support, visuals, emails, used, recruiting, collected]
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/gpt/1kvk4eu.md#c1"
+    char_span: [2206, 3122]
+    sentence_count: 5
+    key_terms: [tasks, work, file, full, pdf, personalization, support-heavy, productivity]
+    token_count: 227
+  - id: "social-intelligence/reddit-deep/gpt/1kvk4eu.md#c2"
+    char_span: [3137, 4872]
+    sentence_count: 13
+    key_terms: [fine-tuning, model, gpt, source, like, weights, architecture, ok-layer741]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/gpt/1kvk4eu.md#c3"
+    char_span: [4874, 5261]
+    sentence_count: 2
+    key_terms: [https, gpt-4o-fine-tuning, fine-tuning, openai, arxiv, index, physical-golf4247, abs]
+    section: Comments
+    token_count: 128
 ---
-
 # OpenAI Just Revealed How Real Companies Use GPT - Here's Where to Start
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1kvk4eu/openai_just_revealed_how_real_companies_use_gpt/)

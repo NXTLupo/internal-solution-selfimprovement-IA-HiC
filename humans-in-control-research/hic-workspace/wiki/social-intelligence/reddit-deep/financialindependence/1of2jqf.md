@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1of2jqf.md
 url: "https://www.reddit.com/r/financialindependence/comments/1of2jqf/carpenter_ready_to_hang_it_up_am_i_ready_give_it/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.712Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [cross_industry]
+industry_method: unclassified
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1of2jqf.md#c0"
+    char_span: [0, 1739]
+    sentence_count: 15
+    key_terms: [financialindependence, wife, years, done, healthcare, comments, straight, already]
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/financialindependence/1of2jqf.md#c1"
+    char_span: [1754, 2864]
+    sentence_count: 6
+    key_terms: [change, going, knows, helion16, lifetime, question, pension, people]
+    section: Comments
+    token_count: 293
+  - id: "social-intelligence/reddit-deep/financialindependence/1of2jqf.md#c2"
+    char_span: [2866, 4906]
+    sentence_count: 14
+    key_terms: [pension, living, month, cost, don, life, live, sure]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/financialindependence/1of2jqf.md#c3"
+    char_span: [4679, 5839]
+    sentence_count: 7
+    key_terms: [month, expenses, investments, anything, pension, retire, remarkable-proof-566, never]
+    section: Comments
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/financialindependence/1of2jqf.md#c4"
+    char_span: [5841, 7527]
+    sentence_count: 10
+    key_terms: [expenses, pension, "you're", retirement, replace, whether, thewaterisboiling10, like]
+    section: Comments
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/financialindependence/1of2jqf.md#c5"
+    char_span: [7530, 9523]
+    sentence_count: 18
+    key_terms: [work, pension, investments, like, want, noright2bedepressed, cover, "won't"]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/financialindependence/1of2jqf.md#c6"
+    char_span: [9525, 10094]
+    sentence_count: 7
+    key_terms: [expenses, year, non-carpenters, deductibles, applicable, healthcare, accounted, carpenter]
+    section: Comments
+    token_count: 142
 ---
-
 # Carpenter ready to hang it up.  Am I ready?  Give it to me straight…
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1of2jqf/carpenter_ready_to_hang_it_up_am_i_ready_give_it/)

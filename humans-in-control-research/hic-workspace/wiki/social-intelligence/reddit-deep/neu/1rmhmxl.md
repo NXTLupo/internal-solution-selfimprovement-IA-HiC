@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1rmhmxl.md
 url: "https://www.reddit.com/r/NEU/comments/1rmhmxl/cell_and_molecular_biology_mcb/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "Academics"
 extracted_at: "2026-05-13T18:45:41.304Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [higher_ed, life_sciences]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1rmhmxl.md#c0"
+    char_span: [0, 554]
+    sentence_count: 4
+    key_terms: [opportunities, neu, molecular, comments, biology, cell, pharmaceuticals, northeastern]
+    token_count: 135
+  - id: "social-intelligence/reddit-deep/neu/1rmhmxl.md#c1"
+    char_span: [569, 1836]
+    sentence_count: 7
+    key_terms: [programrequirementstext, northeastern, undergraduate, experience, joshi1381, cell-molecular-biology-bs, academic, because]
+    section: Comments
+    token_count: 314
 ---
-
 # Cell and Molecular Biology MCB
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1rmhmxl/cell_and_molecular_biology_mcb/)

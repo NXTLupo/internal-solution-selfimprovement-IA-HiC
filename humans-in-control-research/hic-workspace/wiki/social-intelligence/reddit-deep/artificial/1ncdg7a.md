@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1ncdg7a.md
 url: "https://www.reddit.com/r/artificial/comments/1ncdg7a/robinhoods_ceo_says_majority_of_its_new_code_is/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,21 @@ flair: "News"
 extracted_at: "2026-05-11T17:27:04.770Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1ncdg7a.md#c0"
+    char_span: [0, 287]
+    sentence_count: 1
+    key_terms: [artificial, comments, ai-generated, metaknowing, reddit-deep, "robinhood's", majority, posted]
+    token_count: 84
+  - id: "social-intelligence/reddit-deep/artificial/1ncdg7a.md#c1"
+    char_span: [302, 1673]
+    sentence_count: 7
+    key_terms: [code, deleted, people, hello, world, boilerplate, like, automated]
+    section: Comments
+    token_count: 378
 ---
-
 # Robinhood's CEO Says Majority of Its New Code Is AI-Generated
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1ncdg7a/robinhoods_ceo_says_majority_of_its_new_code_is/)

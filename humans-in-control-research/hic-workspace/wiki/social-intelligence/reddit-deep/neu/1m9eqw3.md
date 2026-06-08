@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1m9eqw3.md
 url: "https://www.reddit.com/r/NEU/comments/1m9eqw3/thinking_of_joining_neu_cs_align_as_a_career/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,32 @@ flair: ""
 extracted_at: "2026-05-13T14:57:39.792Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [higher_ed, education, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1m9eqw3.md#c0"
+    char_span: [0, 1140]
+    sentence_count: 6
+    key_terms: [align, program, neu, currently, comments, total, more-bandicoot8016, cost]
+    token_count: 291
+  - id: "social-intelligence/reddit-deep/neu/1m9eqw3.md#c1"
+    char_span: [1142, 2391]
+    sentence_count: 12
+    key_terms: [opportunities, co-op, background, return, given, offer, terms, international]
+    token_count: 305
+  - id: "social-intelligence/reddit-deep/neu/1m9eqw3.md#c2"
+    char_span: [2406, 3845]
+    sentence_count: 8
+    key_terms: [northeastern, tech, seattle, boston, international, companies, students, because]
+    section: Comments
+    token_count: 303
+  - id: "social-intelligence/reddit-deep/neu/1m9eqw3.md#c3"
+    char_span: [3847, 4820]
+    sentence_count: 11
+    key_terms: [australia, discounts, campuses, frontsatisfaction152, more-bandicoot8016, tech, mealdifficult207, unfortunately]
+    section: Comments
+    token_count: 246
 ---
-
 # Thinking of joining NEU CS Align as a career switcher — is the cost worth it in 2027–2028?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1m9eqw3/thinking_of_joining_neu_cs_align_as_a_career/)

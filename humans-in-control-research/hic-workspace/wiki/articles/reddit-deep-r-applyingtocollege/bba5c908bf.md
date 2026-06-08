@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-applyingtocollege/bba5c908bf.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1msmk3v/it_actually_all_worked_out/"
 url_hash: "bba5c908bf"
 kind: "article"
@@ -10,8 +11,30 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T02:37:44.704080+00:00"
 chars: 7645
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-applyingtocollege/bba5c908bf.md#c0"
+    char_span: [0, 2023]
+    sentence_count: 18
+    key_terms: [applying, schools, applyingtocollege, state, like, yale, disclosure, december]
+    token_count: 505
+  - id: "articles/reddit-deep-r-applyingtocollege/bba5c908bf.md#c1"
+    char_span: [2025, 3792]
+    sentence_count: 20
+    key_terms: [interview, "i'm", like, selected, stanford, college, acres, forty]
+    token_count: 385
+  - id: "articles/reddit-deep-r-applyingtocollege/bba5c908bf.md#c2"
+    char_span: [3794, 6070]
+    sentence_count: 13
+    key_terms: [engineering, college, biomedical, rejected, scholar, honors, neuroscience, scholarship]
+    token_count: 553
+  - id: "articles/reddit-deep-r-applyingtocollege/bba5c908bf.md#c3"
+    char_span: [6072, 7813]
+    sentence_count: 11
+    key_terms: [rejected, scholarship, day, research, didn, like, time, foundation]
+    token_count: 427
 ---
-
 # It (Actually) All Worked Out.
 
 Source: [Reddit Deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1msmk3v/it_actually_all_worked_out/)

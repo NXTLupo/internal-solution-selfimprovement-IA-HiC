@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1njla5c.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1njla5c/waterlooworks_megathread_winter_2026/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,27 @@ flair: "Co-op"
 extracted_at: "2026-05-25T18:33:12.667Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, education, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1njla5c.md#c0"
+    char_span: [0, 2025]
+    sentence_count: 10
+    key_terms: [blacklist, candidates, uwaterloo, salaries, co-operative-education, experience, https, mod]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/uwaterloo/1njla5c.md#c1"
+    char_span: [2040, 3843]
+    sentence_count: 4
+    key_terms: [playstation, shoddy-preparation11, throwaway6996696969, woninshot, got, adeptdegree9962, assessments, com]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/uwaterloo/1njla5c.md#c2"
+    char_span: [3646, 4005]
+    sentence_count: 1
+    key_terms: [anyone, shoddy-preparation11, back, hear, howardwang0315, serenelmuss314, beetlekicker, assessments]
+    section: Comments
+    token_count: 118
 ---
-
 # WaterlooWorks Megathread (Winter 2026)
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1njla5c/waterlooworks_megathread_winter_2026/)

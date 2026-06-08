@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-deeplearning/8dc40ddb6f.md
 url: "https://www.reddit.com/r/deeplearning/comments/1ssmul0/are_multiagent_ai_systems_actually_better_at/"
 url_hash: "8dc40ddb6f"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T17:29:52.199709+00:00"
 chars: 4382
+industries: [ai_research]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-deeplearning/8dc40ddb6f.md#c0"
+    char_span: [0, 1819]
+    sentence_count: 15
+    key_terms: [multi-agent, agents, hallucinations, deeplearning, model, does, asking, reddit]
+    token_count: 387
+  - id: "articles/reddit-deep-r-deeplearning/8dc40ddb6f.md#c1"
+    char_span: [1821, 4083]
+    sentence_count: 2
+    key_terms: [hallucinations, different, get, gets, llm, better, models, model]
+    token_count: 474
+  - id: "articles/reddit-deep-r-deeplearning/8dc40ddb6f.md#c2"
+    char_span: [4088, 4621]
+    sentence_count: 2
+    key_terms: [whether, keep, programmatically, conversations, professional, satisfactory, evaluations, necroforest]
+    token_count: 106
 ---
-
 # Are multi-agent AI systems actually better at reducing hallucinations, or just more complex?
 
 Source: [Reddit Deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1ssmul0/are_multiagent_ai_systems_actually_better_at/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/fe881b2faa.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1prxzkn/seeking_careerinternship_advice/"
 url_hash: "fe881b2faa"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T19:49:10.822568+00:00"
 chars: 2439
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/fe881b2faa.md#c0"
+    char_span: [0, 2126]
+    sentence_count: 17
+    key_terms: [data, roles, internship, cscareerquestions, advice, pivot, swe, top]
+    token_count: 500
+  - id: "articles/reddit-deep-r-cscareerquestions/fe881b2faa.md#c1"
+    char_span: [2128, 2615]
+    sentence_count: 2
+    key_terms: [required, because, d1g1tald0lph1n, competition, everything, experience, understand, difficult]
+    token_count: 105
 ---
-
 # Seeking career/internship advice
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1prxzkn/seeking_careerinternship_advice/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1sfwp2r.md
 url: "https://www.reddit.com/r/personalfinance/comments/1sfwp2r/got_a_2000_tax_refund_do_i_wipe_out_3_small/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,86 @@ flair: "Debt"
 extracted_at: "2026-05-16T20:55:02.102Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c0"
+    char_span: [0, 1940]
+    sentence_count: 14
+    key_terms: [utilization, card, credit, put, personalfinance, cards, down, completely]
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c1"
+    char_span: [1942, 2611]
+    sentence_count: 4
+    key_terms: [monthly, balance, interest, card, apr, utilizations, individual, attacking]
+    token_count: 197
+  - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c2"
+    char_span: [2626, 4452]
+    sentence_count: 14
+    key_terms: [interest, monthly, balance, card, transfer, apr, debt, cards]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c3"
+    char_span: [4454, 6039]
+    sentence_count: 13
+    key_terms: [interest, pay, transfer, credit, big, ones, put, remaining]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c4"
+    char_span: [6041, 8052]
+    sentence_count: 17
+    key_terms: [interest, debt, highest, rate, address, because, getting, optimal]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c5"
+    char_span: [8054, 10369]
+    sentence_count: 18
+    key_terms: [debt, interest, avalanche, snowball, because, highest, method, keep]
+    section: Comments
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c6"
+    char_span: [10371, 12294]
+    sentence_count: 15
+    key_terms: [month, pay, interest, debt, credit, paying, cards, card]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c7"
+    char_span: [12296, 14360]
+    sentence_count: 13
+    key_terms: [interest, pay, balance, smaller, credit, debts, money, get]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c8"
+    char_span: [14362, 15355]
+    sentence_count: 4
+    key_terms: [interest, problem, advice, situation, spending, highest, credit, enough]
+    section: Comments
+    token_count: 240
+  - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c9"
+    char_span: [15357, 17340]
+    sentence_count: 21
+    key_terms: [cards, interest, highest, credit, debt, payments, biggest, paying]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c10"
+    char_span: [17342, 19247]
+    sentence_count: 15
+    key_terms: [interest, money, debt, "it's", like, mental, agree, cards]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c11"
+    char_span: [19249, 21141]
+    sentence_count: 18
+    key_terms: [interest, cards, card, rate, credit, month, rates, pay]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/personalfinance/1sfwp2r.md#c12"
+    char_span: [21143, 21699]
+    sentence_count: 4
+    key_terms: [purchases, new, interest, balance, steps, ireallyhateoatmeal, paid, subsequently]
+    section: Comments
+    token_count: 131
 ---
-
 # Got a $2,000 tax refund. Do I wipe out 3 small maxed-out cards or put a massive dent in my biggest one?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1sfwp2r/got_a_2000_tax_refund_do_i_wipe_out_3_small/)

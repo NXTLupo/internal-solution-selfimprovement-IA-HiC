@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1p8txvj.md
 url: "https://www.reddit.com/r/stocks/comments/1p8txvj/is_anyone_else_noticing_this_weird_shift_between/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,75 @@ flair: "Company Discussion"
 extracted_at: "2026-05-17T01:14:17.625Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [enterprise_it, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1p8txvj.md#c0"
+    char_span: [0, 1399]
+    sentence_count: 4
+    key_terms: [apple-stock-price-record-big-tech-reshuffle-nvidia-google-fd283097, apple-vs-nvidia-ai-strategy-tech-leadership-shift, https, com, articles, baptistaresearch, www, alphabet]
+    token_count: 344
+  - id: "social-intelligence/reddit-deep/stocks/1p8txvj.md#c1"
+    char_span: [1414, 3384]
+    sentence_count: 16
+    key_terms: [alphabet, nvidia, openai, portfolio, percentage, revolution, different, umbrella]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/stocks/1p8txvj.md#c2"
+    char_span: [3386, 5526]
+    sentence_count: 12
+    key_terms: [google, tpus, used, hardware, training, nvidia, run, networking]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/stocks/1p8txvj.md#c3"
+    char_span: [5528, 7392]
+    sentence_count: 12
+    key_terms: [google, profitable, saying, search, like, openai, "it's", because]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/stocks/1p8txvj.md#c4"
+    char_span: [7394, 9589]
+    sentence_count: 19
+    key_terms: [apple, gemini, profit-taking, something, everyone, because, chatgpt, started]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/stocks/1p8txvj.md#c5"
+    char_span: [9591, 11611]
+    sentence_count: 9
+    key_terms: [vanilaagorila, apple, been, long, anything, earnings, follower, remember]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1p8txvj.md#c6"
+    char_span: [11361, 11640]
+    sentence_count: 3
+    key_terms: [coffeemaster000, dazedwriter, discussing, anything, features, behind, closed, middle]
+    section: Comments
+    token_count: 71
+  - id: "social-intelligence/reddit-deep/stocks/1p8txvj.md#c7"
+    char_span: [11642, 11872]
+    sentence_count: 1
+    key_terms: [one-blacksmith-4654, noise, short-term, playlists, happened, switched, lookout, mostly]
+    section: Comments
+    token_count: 62
+  - id: "social-intelligence/reddit-deep/stocks/1p8txvj.md#c8"
+    char_span: [11876, 13793]
+    sentence_count: 10
+    key_terms: [apple, investment, quarter, around, saying, shares, one-blacksmith-4654, afinanacialadvisor]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1p8txvj.md#c9"
+    char_span: [13543, 14024]
+    sentence_count: 2
+    key_terms: [one-blacksmith-4654, apple, researchok8516, uncertainty, investment, kingofwale, narratives, currently]
+    section: Comments
+    token_count: 136
+  - id: "social-intelligence/reddit-deep/stocks/1p8txvj.md#c10"
+    char_span: [14026, 15869]
+    sentence_count: 15
+    key_terms: [nvidia, alphabet, company, apple, dividend, everyone, products, "they've"]
+    section: Comments
+    token_count: 447
 ---
-
 # Is Anyone Else Noticing This Weird Shift Between Apple, Nvidia, and Alphabet Lately?
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1p8txvj/is_anyone_else_noticing_this_weird_shift_between/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1syijtm.md
 url: "https://www.reddit.com/r/internships/comments/1syijtm/cs_student_getting_final_round_interviews_but_no/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "Interviews"
 extracted_at: "2026-05-19T15:08:33.806Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1syijtm.md#c0"
+    char_span: [0, 1582]
+    sentence_count: 8
+    key_terms: [internships, interviews, data, getting, final, accelerated, analytics, something]
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/internships/1syijtm.md#c1"
+    char_span: [1597, 3136]
+    sentence_count: 9
+    key_terms: [interviews, multiple, practice, rounds, banggbangtan, final, often, questions]
+    section: Comments
+    token_count: 340
 ---
-
 # CS student getting final round interviews but no offers — what am I doing wrong?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1syijtm/cs_student_getting_final_round_interviews_but_no/)

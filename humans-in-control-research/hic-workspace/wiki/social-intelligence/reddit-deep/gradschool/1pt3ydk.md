@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1pt3ydk.md
 url: "https://www.reddit.com/r/GradSchool/comments/1pt3ydk/grad_school_researchers_what_are_some_of_your/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,21 @@ flair: "Research"
 extracted_at: "2026-05-19T15:08:48.775Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1pt3ydk.md#c0"
+    char_span: [0, 701]
+    sentence_count: 5
+    key_terms: [year, gradschool, resources, scholarly, comments, writing, thesis, hangrydicappucino]
+    token_count: 159
+  - id: "social-intelligence/reddit-deep/gradschool/1pt3ydk.md#c1"
+    char_span: [716, 959]
+    sentence_count: 2
+    key_terms: [writing, dissertation, hangrydicappucino, "belcher's", misandrya, articles, "bolker's", thankyou]
+    section: Comments
+    token_count: 68
 ---
-
 # Grad School Researchers: What are some of your recommended resources on scholarly writing for thesis and journal submissions?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1pt3ydk/grad_school_researchers_what_are_some_of_your/)

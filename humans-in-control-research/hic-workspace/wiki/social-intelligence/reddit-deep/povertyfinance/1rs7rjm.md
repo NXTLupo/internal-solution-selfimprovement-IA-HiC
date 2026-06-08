@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1rs7rjm.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1rs7rjm/unemployed_31m_zero_income_cant_get_a_real_job/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,56 @@ flair: "Debt/Loans/Credit"
 extracted_at: "2026-05-16T20:55:12.683Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [workforce, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rs7rjm.md#c0"
+    char_span: [0, 1891]
+    sentence_count: 13
+    key_terms: [job, povertyfinance, right, years, keep, pay, struggling, unemployed]
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rs7rjm.md#c1"
+    char_span: [1893, 3712]
+    sentence_count: 12
+    key_terms: [pay, around, debt, another, credit, "can't", house, month]
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rs7rjm.md#c2"
+    char_span: [3727, 5610]
+    sentence_count: 18
+    key_terms: [making, dui, good, got, year, another, because, driving]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rs7rjm.md#c3"
+    char_span: [5612, 7610]
+    sentence_count: 23
+    key_terms: [need, place, job, money, rent, opportunity, car, don]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rs7rjm.md#c4"
+    char_span: [7612, 9925]
+    sentence_count: 16
+    key_terms: ["i'm", myself, debt, appreciate, definitely, hopefully, accident, spending]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rs7rjm.md#c5"
+    char_span: [9927, 11799]
+    sentence_count: 18
+    key_terms: [get, job, unconventional, conventional, yourself, points, skills, "you're"]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rs7rjm.md#c6"
+    char_span: [11801, 12864]
+    sentence_count: 11
+    key_terms: [back, car, life, happening, ownership, gig-work, because, "isn't"]
+    section: Comments
+    token_count: 229
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rs7rjm.md#c7"
+    char_span: [12866, 14550]
+    sentence_count: 15
+    key_terms: [get, months, work, important, somewhere, driving, income, places]
+    section: Comments
+    token_count: 405
 ---
-
 # Unemployed (31m), zero income, can't get a "real" job right now, struggling to pay off debts. Best advice?
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1rs7rjm/unemployed_31m_zero_income_cant_get_a_real_job/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1su4wj7.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1su4wj7/choosing_between_yale_and_carnegie_mellon_for_cs/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,59 @@ subreddit: "applyingtocollege"
 title: "Choosing between Yale and Carnegie Mellon for CS"
 author: "Broc_olimanx"
 date: "2026-04-24T04:02:08.000Z"
-score: 1
-upvote_ratio: 0.55
+score: 3
+upvote_ratio: 0.64
 num_comments: 53
 flair: "Advice"
-extracted_at: "2026-05-25T18:32:06.247Z"
+extracted_at: "2026-06-03T12:16:39.476Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1su4wj7.md#c0"
+    char_span: [0, 1757]
+    sentence_count: 10
+    key_terms: [yale, cmu, applyingtocollege, schools, school, lot, technical, berkeley]
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1su4wj7.md#c1"
+    char_span: [1759, 2554]
+    sentence_count: 4
+    key_terms: [research, pretty, opportunities, yale, resources, school, interdisciplinary, "i'm"]
+    token_count: 167
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1su4wj7.md#c2"
+    char_span: [2569, 4185]
+    sentence_count: 10
+    key_terms: [yale, top-colleges-high-paying-careers-finance-tech-consulting-d1c22601, yale-make-historic-investment-engineering-lower-hillhouse-avenue, wall-street-journals-2025-best-colleges-in-america, yale-announces-150-million-support-leadership-ai, https, cmu, news]
+    section: Comments
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1su4wj7.md#c3"
+    char_span: [4187, 6145]
+    sentence_count: 10
+    key_terms: [mit, salary, top-colleges-high-paying-jobs-software-5ce461f8, scorecard, top, yale, college, cmu]
+    section: Comments
+    token_count: 516
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1su4wj7.md#c4"
+    char_span: [6147, 8378]
+    sentence_count: 14
+    key_terms: [yale, interdisciplinary, cmu, lost-source-830, program, tradeoffs, doctoral, graduate]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1su4wj7.md#c5"
+    char_span: [8380, 9860]
+    sentence_count: 6
+    key_terms: [phd, yale, cmu, because, technical, better, career, people]
+    section: Comments
+    token_count: 352
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1su4wj7.md#c6"
+    char_span: [9862, 11937]
+    sentence_count: 6
+    key_terms: [yale, cmu, phd, berkeley, probably, research, want, princeton]
+    section: Comments
+    token_count: 504
 ---
-
 # Choosing between Yale and Carnegie Mellon for CS
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1su4wj7/choosing_between_yale_and_carnegie_mellon_for_cs/)
-Posted by **Broc_olimanx** · **1↑** · **53 comments**
+Posted by **Broc_olimanx** · **3↑** · **53 comments**
 
 I was lucky enough to be admitted to both Yale and CMU's School of Computer Science (I also got into Berkeley CDSS for CS in-state but I'm not considering it anymore), but I've been torn over this decision for a couple months now. I'm currently leaning Yale.
 
@@ -40,7 +81,7 @@ My own factors
 
 ## Comments
 
-- **Satisest** (16↑): Based on your post, Yale defintely looks like the move here. 
+- **Satisest** (14↑): Based on your post, Yale defintely looks like the move here. 
 
 While it’s true that CS at CMU is stronger than CS at Yale, that’s pretty much the only thing that’s stronger at CMU. As you noted, Yale provides strong enough CS training that starting salaries are the same. In contrast to your take on later career salaries, a WSJ analysis found that Yale grads out-earn CMU grads at 10 years post-graduation in the tech industry. Yale is also making a massive $1.5B investment in engineering and CS, including a new complex of buildings to house SEAS (central building opening next year), expansion of the CS faculty by 30%, and a major focus on AI and quantum computing.  
 
@@ -122,4 +163,4 @@ this doesn’t really make sense at all.
 first, most people in cs usually change their mind on doing a phd. you might not like research enough to want to do it 5 years full-time as a phd student. and if you have the chops to get into berkeley or CMU for a cs phd, you could probably also get a job in industry paying 200k+, so the opportunity cost of the phd would literally be in the millions. 
 
 second, if you value doing interesting research as an undergrad (if you don’t, why do you want to do a phd?), both berkeley and cmu >>>>> yale. that is the area where you’ll see the single greatest disparity.
-- **Additional-Newt9383** (1↑): I believe CMU CSC is much much better than Yale CS which is not know for its STEM.
+- **Additional-Newt9383** (0↑): I believe CMU CSC is much much better than Yale CS which is not know for its STEM.

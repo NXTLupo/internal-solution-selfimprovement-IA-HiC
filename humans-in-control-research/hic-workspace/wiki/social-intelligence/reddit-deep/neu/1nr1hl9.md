@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1nr1hl9.md
 url: "https://www.reddit.com/r/NEU/comments/1nr1hl9/neu_ms_csdsai_programs_scholarships_pacing_coops/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -6,19 +7,24 @@ subreddit: "neu"
 title: "NEU MS CS/DS/AI programs — scholarships, pacing, co-ops?"
 author: "NoUnderstanding4132"
 date: "2025-09-26T13:33:34.000Z"
-score: 5
-upvote_ratio: 1
+score: 4
+upvote_ratio: 0.84
 num_comments: 1
 flair: "Academics"
-extracted_at: "2026-05-11T18:53:05.495Z"
+extracted_at: "2026-06-03T00:55:32.011Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1nr1hl9.md#c0"
+    char_span: [0, 1067]
+    sentence_count: 7
+    key_terms: [neu, programs, competitive, comments, students, program, co-ops, nounderstanding4132]
+    token_count: 277
 ---
-
 # NEU MS CS/DS/AI programs — scholarships, pacing, co-ops?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1nr1hl9/neu_ms_csdsai_programs_scholarships_pacing_coops/)
-Posted by **NoUnderstanding4132** · **5↑** · **1 comments**
+Posted by **NoUnderstanding4132** · **4↑** · **1 comments**
 
 Hey all,
 

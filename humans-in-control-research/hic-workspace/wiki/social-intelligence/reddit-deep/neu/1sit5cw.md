@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1sit5cw.md
 url: "https://www.reddit.com/r/NEU/comments/1sit5cw/nyc_scholars/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -6,19 +7,48 @@ subreddit: "neu"
 title: "NYC Scholars"
 author: "New-Language-6515"
 date: "2026-04-11T19:55:17.000Z"
-score: 8
+score: 7
 upvote_ratio: 1
 num_comments: 10
 flair: "Admissions & Financial Aid"
-extracted_at: "2026-05-26T14:30:23.757Z"
+extracted_at: "2026-06-05T17:08:22.601Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1sit5cw.md#c0"
+    char_span: [0, 786]
+    sentence_count: 9
+    key_terms: [neu, comments, scholars, students, program, student, new-language-6515, nyc]
+    token_count: 195
+  - id: "social-intelligence/reddit-deep/neu/1sit5cw.md#c1"
+    char_span: [801, 2992]
+    sentence_count: 19
+    key_terms: [nyc, honestly, scholars, friends, parents, program, student, campus]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/neu/1sit5cw.md#c2"
+    char_span: [2994, 3424]
+    sentence_count: 4
+    key_terms: [activities, opportunities, convenient, companies, different, neu-based, starbucks, baseball]
+    section: Comments
+    token_count: 98
+  - id: "social-intelligence/reddit-deep/neu/1sit5cw.md#c3"
+    char_span: [3426, 5762]
+    sentence_count: 19
+    key_terms: [students, student, classes, engineering, like, opportunities, got, mmc]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/neu/1sit5cw.md#c4"
+    char_span: [5495, 6446]
+    sentence_count: 12
+    key_terms: [something, campus, did, like, scholar, boston, familiar-being-4981, nyc]
+    section: Comments
+    token_count: 230
 ---
-
 # NYC Scholars
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1sit5cw/nyc_scholars/)
-Posted by **New-Language-6515** · **8↑** · **10 comments**
+Posted by **New-Language-6515** · **7↑** · **10 comments**
 
 Is anyone a student in the NYC Scholars program? I'm an incoming freshman that was accepted to this program. I can’t go to any of the info sessions due to schedule conflicts, but I’m visiting the Upper East Side soon, so I was going to check out the campus. What is the student experience like? Is there a lot of mixing with Marymount students or are NEU students kinda isolated from the rest of the college? How’s the meal plan (I heard it‘s UberEats ☠️)? Also, does being in the city help with internship or co-op opportunities even though it’s only for one year? I have so many questions lol. Any response is helpful!
 

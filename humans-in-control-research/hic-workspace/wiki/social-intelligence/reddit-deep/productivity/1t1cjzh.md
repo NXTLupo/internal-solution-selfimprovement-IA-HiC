@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1t1cjzh.md
 url: "https://www.reddit.com/r/productivity/comments/1t1cjzh/what_actually_makes_a_productivity_system_stick/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,27 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:45.657Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1t1cjzh.md#c0"
+    char_span: [0, 709]
+    sentence_count: 4
+    key_terms: [productivity, long-term, something, comments, system, stick, too, emersonblaketkl]
+    token_count: 158
+  - id: "social-intelligence/reddit-deep/productivity/1t1cjzh.md#c1"
+    char_span: [724, 2876]
+    sentence_count: 11
+    key_terms: [productivity, progress, system, easy, planning, trigger, like, simplicity]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/productivity/1t1cjzh.md#c2"
+    char_span: [2878, 4525]
+    sentence_count: 13
+    key_terms: [system, friction, productivity, the-30m-promise, working, time, utm, planning]
+    section: Comments
+    token_count: 388
 ---
-
 # What actually makes a productivity system stick long-term?
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1t1cjzh/what_actually_makes_a_productivity_system_stick/)

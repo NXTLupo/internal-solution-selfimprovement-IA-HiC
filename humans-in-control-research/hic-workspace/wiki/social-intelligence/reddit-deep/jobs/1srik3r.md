@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1srik3r.md
 url: "https://www.reddit.com/r/jobs/comments/1srik3r/there_is_no_more_entry_level_jobs/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -6,19 +7,54 @@ subreddit: "jobs"
 title: "there is no more entry level jobs!!"
 author: "Remarkable-Sand-5059"
 date: "2026-04-21T09:24:30.000Z"
-score: 69
+score: 70
 upvote_ratio: 0.93
 num_comments: 38
 flair: "Companies"
-extracted_at: "2026-05-20T02:33:39.326Z"
+extracted_at: "2026-06-06T13:04:34.556Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1srik3r.md#c0"
+    char_span: [0, 1265]
+    sentence_count: 10
+    key_terms: [generation, jobs, experience, comments, little, people, system, remarkable-sand-5059]
+    token_count: 286
+  - id: "social-intelligence/reddit-deep/jobs/1srik3r.md#c1"
+    char_span: [1280, 3270]
+    sentence_count: 16
+    key_terms: [car, work, mechanic, like, man, old, want, interested]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/jobs/1srik3r.md#c2"
+    char_span: [3274, 4736]
+    sentence_count: 6
+    key_terms: [remarkable-sand-5059, experience, "you're", entry, issue, level, different, mechanic]
+    section: Comments
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/jobs/1srik3r.md#c3"
+    char_span: [4738, 5838]
+    sentence_count: 7
+    key_terms: [remarkable-sand-5059, work, problem, labor, today, using, free, quit]
+    section: Comments
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/jobs/1srik3r.md#c4"
+    char_span: [5840, 7545]
+    sentence_count: 13
+    key_terms: [remarkable-sand-5059, free, "i'm", life, requiring, training, because, happens]
+    section: Comments
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/jobs/1srik3r.md#c5"
+    char_span: [7547, 9267]
+    sentence_count: 13
+    key_terms: [training, work, companies, free, like, "aren't", paying, get]
+    section: Comments
+    token_count: 408
 ---
-
 # there is no more entry level jobs!!
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1srik3r/there_is_no_more_entry_level_jobs/)
-Posted by **Remarkable-Sand-5059** · **69↑** · **38 comments**
+Posted by **Remarkable-Sand-5059** · **70↑** · **38 comments**
 
 I’m a trainee car mechanic, but my manager at work doesn’t care about training me. Instead, he uses me as a general worker for all kinds of tasks. I’ve noticed that many people from my generation who are trying to enter the job market are facing the same issue. Companies no longer prioritize fresh graduates; they want people with senior-level experience, yet they offer little to no pay and still classify these roles as entry-level jobs.
 
@@ -30,11 +66,11 @@ thanx for everyone who commented thank you very much <3
 
 ## Comments
 
-- **jskrummy** (23↑): Thats just mechanic shop bs, they hire trainees. Then get mad when they don't know something and have to actually teach them. Some shops and mechanics are terrible teachers they say they want a new guy to teach good habits to but in reality they want some they can unload all they're bs diag on while they soak up all the gravy
-  - **Remarkable-Sand-5059** (5↑): I swear this is what’s happening. I keep asking hem to give me work, but he doesn’t. He only gives me small tasks like changing tires, doing a service, or changing oil simple things. Even though I’ve shown him that I’m interested and that I’m learning at home about car electronics and engines, and that I’m enrolled in courses for diagnosing car faults, he still doesn’t give me opportunities.
+- **jskrummy** (22↑): Thats just mechanic shop bs, they hire trainees. Then get mad when they don't know something and have to actually teach them. Some shops and mechanics are terrible teachers they say they want a new guy to teach good habits to but in reality they want some they can unload all they're bs diag on while they soak up all the gravy
+  - **Remarkable-Sand-5059** (4↑): I swear this is what’s happening. I keep asking hem to give me work, but he doesn’t. He only gives me small tasks like changing tires, doing a service, or changing oil simple things. Even though I’ve shown him that I’m interested and that I’m learning at home about car electronics and engines, and that I’m enrolled in courses for diagnosing car faults, he still doesn’t give me opportunities.
 
 There seems to be some kind of greed for money in him; it feels like he wants to hold me back. What’s ironic is that he’s an old man, around 70 years old I’m surprised by him. At his age, he should have wisdom. He sees that I’m a young man at the beginning of my career; he should be teaching me and supporting me. He’s an old man he’s not going to take money with him to the grave.
-    - **Serious-Top9613** (3↑): It sounds like poor management tbh. My dad’s a retired mechanic (74), but taught me (who’s not even interested in car mechanics) how to change a tyre and do oil changes on my own car (because he won’t be around forever to do them and just wants me to be self-sufficient - his words).
+    - **Serious-Top9613** (5↑): It sounds like poor management tbh. My dad’s a retired mechanic (74), but taught me (who’s not even interested in car mechanics) how to change a tyre and do oil changes on my own car (because he won’t be around forever to do them and just wants me to be self-sufficient - his words).
     - **S31J41** (1↑): How long have you been working there? How busy are you? Are you able to watch him work or do you have other things to do?
     - **Due_Honeydew_2285** (1↑): He DOES want to hold you back, but it’s not personal. They’re afraid you’ll take their work away. I’ve worked with those kinds of senior techs and they’re some of the worst people to work with.
 - **Moist_Ordinary6457** (3↑): Not European, but mechanic is one of the few careers where formal education isn't particularly important. 
@@ -47,8 +83,6 @@ My brother is an 18yo mechanic and he's had to acquire his knowledge by making f
 ETA he also got booted from several jobs because they didn't want to train him, but he still learned new skills there
   - **Remarkable-Sand-5059** (1↑): no problem i quit today f that he using me as free labor
 - **SwitchCaseGreen** (1↑): This is not a you issue nor is this a generational issue.  This is a societal issue that has been going on since the mid 70's.  Employers no longer want to train people for fear of those folks dragging up and heading off to greener pastures.  In order to save money, they're demanding 5 years of experience for entry level jobs that pays entry level pay.  In the end, the only way a newbie can get the training and experience they need is to do it on their own or to drag up and head off to a better paying job.
-  - **Remarkable-Sand-5059** (1↑): no problem i quit today f that he using me as free labor
-- **szansky** (1↑): the era of cheap money end. Now they do not want to teach you. I'm sorry.
   - **Remarkable-Sand-5059** (1↑): no problem i quit today f that he using me as free labor
 - **Ok-Sink-8875** (1↑): different field but same generation and same feeling honestly. marketing, Europe, and the entry level experience paradox is just as real. you're supposed to be learning and instead you're being used because you're the cheapest option and can't push back yet.
 
@@ -65,7 +99,7 @@ Then again, that may be all of them. We’re losing “full time - pay your bill
 - **HurryMundane5867** (1↑): I'm in the US and see receptionist jobs requiring experience beyond the title, paying $20 an hour and requiring a bachelor's degree. The job market is catastrophically bad.
   - **Remarkable-Sand-5059** (1↑): no problem i quit today f that he using me as free labor
 - **IFear_NoMan** (-7↑): I'm going to share with you my view as a senior. If I'm about to teach you anything, I need to make sure that you don't come back and bite me in the ass. Because in reality, it happens 99%, people pay back favor with betrayal. What is in it, if we are teaching you? Everything in life is an exchange, you have to hold something at your end. Please think about that.
-  - **Old_Faithlessness623** (3↑): What did the person training you get?
+  - **Old_Faithlessness623** (5↑): What did the person training you get?
   - **Red-dragon186** (3↑): This seems like a classic example of an older guy (Boomer I bet) hogging up the knowledge because he's afraid the newer guy will surpass him. 
 
 This happens far too much.

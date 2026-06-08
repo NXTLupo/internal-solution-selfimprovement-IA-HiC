@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1s6lcqj.md
 url: "https://www.reddit.com/r/internships/comments/1s6lcqj/internships_advice_help_meng/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "General"
 extracted_at: "2026-05-23T12:15:55.811Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1s6lcqj.md#c0"
+    char_span: [0, 750]
+    sentence_count: 9
+    key_terms: [internships, been, applying, internship, comments, advice, career, guys]
+    token_count: 182
+  - id: "social-intelligence/reddit-deep/internships/1s6lcqj.md#c1"
+    char_span: [765, 2578]
+    sentence_count: 5
+    key_terms: [tracking, get, helps, something, tracker, working, applications, responses]
+    section: Comments
+    token_count: 437
 ---
-
 # Internships advice + help MEng
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1s6lcqj/internships_advice_help_meng/)

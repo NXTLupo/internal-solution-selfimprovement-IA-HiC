@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1nbnn15.md
 url: "https://www.reddit.com/r/college/comments/1nbnn15/roomate_isnt_going_to_class/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,75 @@ flair: ""
 extracted_at: "2026-05-17T01:12:59.132Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1nbnn15.md#c0"
+    char_span: [0, 1715]
+    sentence_count: 1
+    key_terms: [classes, college, attend, doesn, going, feel, get, room]
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/college/1nbnn15.md#c1"
+    char_span: [1730, 3954]
+    sentence_count: 13
+    key_terms: [students, time, college, lecture, attend, like, disability, materials]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/college/1nbnn15.md#c2"
+    char_span: [3956, 4544]
+    sentence_count: 5
+    key_terms: ["don't", attend, get, accommodations, communication, professors, different, important]
+    section: Comments
+    token_count: 136
+  - id: "social-intelligence/reddit-deep/college/1nbnn15.md#c3"
+    char_span: [4546, 6696]
+    sentence_count: 13
+    key_terms: [class, help, grade, work, year, assaulted, professor, something]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1nbnn15.md#c4"
+    char_span: [6424, 7317]
+    sentence_count: 9
+    key_terms: [help, tutoring, resources, health, mental, expensivebutterfly93, plan, accountability]
+    section: Comments
+    token_count: 192
+  - id: "social-intelligence/reddit-deep/college/1nbnn15.md#c5"
+    char_span: [7319, 9356]
+    sentence_count: 21
+    key_terms: [got, college, friends, did, get, like, adjustment, services]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/college/1nbnn15.md#c6"
+    char_span: [9358, 11009]
+    sentence_count: 23
+    key_terms: [because, skipped, "i'd", homework, support, enough, final, exam]
+    section: Comments
+    token_count: 378
+  - id: "social-intelligence/reddit-deep/college/1nbnn15.md#c7"
+    char_span: [11011, 12977]
+    sentence_count: 15
+    key_terms: [back, went, suspension, college, through, though, doing, going]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/college/1nbnn15.md#c8"
+    char_span: [12979, 14731]
+    sentence_count: 19
+    key_terms: [college, freshman, year, diagnosed, bipolar, time, roommate, doing]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/college/1nbnn15.md#c9"
+    char_span: [14733, 16962]
+    sentence_count: 9
+    key_terms: [classes, okperformance1758, time, college, people, sometimes, semester, enough]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1nbnn15.md#c10"
+    char_span: [16688, 18574]
+    sentence_count: 19
+    key_terms: [like, doing, too, roommate, responsibility, feel, "doesn't", routine]
+    section: Comments
+    token_count: 436
 ---
-
 # Roomate isn’t going to class
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1nbnn15/roomate_isnt_going_to_class/)

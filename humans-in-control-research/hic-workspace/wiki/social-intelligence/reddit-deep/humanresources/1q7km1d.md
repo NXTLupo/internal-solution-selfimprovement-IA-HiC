@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1q7km1d.md
 url: "https://www.reddit.com/r/humanresources/comments/1q7km1d/desperately_needing_hr_suggestions_for_blue/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -10,11 +11,46 @@ score: 7
 upvote_ratio: 1
 num_comments: 26
 flair: ""
-extracted_at: "2026-05-23T12:15:41.557Z"
+extracted_at: "2026-06-06T17:42:52.452Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1q7km1d.md#c0"
+    char_span: [0, 979]
+    sentence_count: 8
+    key_terms: [humanresources, suggestions, want, engagement, comments, company, collar, morale]
+    token_count: 226
+  - id: "social-intelligence/reddit-deep/humanresources/1q7km1d.md#c1"
+    char_span: [994, 1795]
+    sentence_count: 12
+    key_terms: [get, follow, swimming-moment-5315, small, ask, lordcommander55, importantly, afterwards]
+    section: Comments
+    token_count: 202
+  - id: "social-intelligence/reddit-deep/humanresources/1q7km1d.md#c2"
+    char_span: [1797, 3721]
+    sentence_count: 18
+    key_terms: [work, people, regularly, employee, showing, collar, easier, floor]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/humanresources/1q7km1d.md#c3"
+    char_span: [3723, 5837]
+    sentence_count: 16
+    key_terms: [like, ask, wellness, member, give, team, work, interviews]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/humanresources/1q7km1d.md#c4"
+    char_span: [5839, 7976]
+    sentence_count: 26
+    key_terms: [work, want, recognition, people, doing, jobs, post, team]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/humanresources/1q7km1d.md#c5"
+    char_span: [7978, 9895]
+    sentence_count: 12
+    key_terms: [staff, supervisors, day, like, workers, collar, contributions, students]
+    section: Comments
+    token_count: 390
 ---
-
 # Desperately Needing HR Suggestions for Blue Collar Individuals [GA]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1q7km1d/desperately_needing_hr_suggestions_for_blue/)
@@ -29,7 +65,7 @@ A Tired HR girlie.
 
 ## Comments
 
-- **lordcommander55** (39↑): It's pretty tricky with blue collar jobs to increase engagement.  All they truly care about is money and being treated right.  What i found has worked best ia getting out there on a regular basis and talking with them. Get to know them.  And most importantly, follow through with what you say you're going to do no matter how small it is.  They ask for a certain of PPE, get it! They have a question, answer it within 24 hours.   Always follow up and check in with them afterwards to see how things are working.   If you can't get them what they ask for, let them know and why.  In the summer, we also go to every site and BBQ them lunch.   Small things go along way. Don't bs them or they'll never trust you or go to you again.
+- **lordcommander55** (40↑): It's pretty tricky with blue collar jobs to increase engagement.  All they truly care about is money and being treated right.  What i found has worked best ia getting out there on a regular basis and talking with them. Get to know them.  And most importantly, follow through with what you say you're going to do no matter how small it is.  They ask for a certain of PPE, get it! They have a question, answer it within 24 hours.   Always follow up and check in with them afterwards to see how things are working.   If you can't get them what they ask for, let them know and why.  In the summer, we also go to every site and BBQ them lunch.   Small things go along way. Don't bs them or they'll never trust you or go to you again.
   - **Swimming-Moment-5315** (3↑): Agreed! 
 
 I would also add teaching people about their benefits, making sure their feedback is being considered, and showing that you care about their future. I think because of the physical dangers associated with most blue collar work, it’s much easier for this type of employee to feel replaceable.
@@ -39,12 +75,12 @@ I would also add teaching people about their benefits, making sure their feedbac
 - **Leilani3317** (21↑): Blue collar folks (in my experience) respond really well to people who show up and display care and curiosity about their work. Your presence tells them that they matter. If not to the company, to you. Tour the facility. Walk the floors. I used to go to the heating plant regularly and chat with the workers, ask them about their families, their hobbies, even technical questions about their work. How does this machine work, where’d you learn that, etc. They loved it
   - **VF-41** (7↑): I’ll second this. Get on the floor- shake hands, kiss babies. Have those conversations. It will do wonders. I was in light manufacturing for 3 years.
   - **aura-1000** (2↑): Yes! Asking about how their day is going, letting them complain, and learning more about what they like (at work and their personal lives)—basically treating them as any other coworker makes them feel seen. I make notes after I talk to each employee about what we talked about so that I can follow up with them the next time I see them (how was that movie? did you ever finish that game? did they give you that new equipment?), and it surprises them and makes it easier for them to reach out to us when they need to.
-- **Sampaikun** (9↑): It depends on your people. Go out on the floor and talk to people. Do a walkaround in the morning just saying hi, how are you doing, is there anything I can help you with.
+- **Sampaikun** (8↑): It depends on your people. Go out on the floor and talk to people. Do a walkaround in the morning just saying hi, how are you doing, is there anything I can help you with.
 
 When you build the rapport, ask them about possible things that you want to do for them and get their opinions. Work with executive management for a budget on employee wellness. A nice simple company wide lunch is easy, plan volunteer opportunities and grant VTO during slower seasons, etc. Long term benefits are harder to implement but what I've seen work well is looking into 3rd party wellness programs. You can try to nab benefits like discounted gym memberships, movie tickets, etc. 
 
 This works a lot better when employees are content but if the work environment is already low, focus on trying to fix core issues first then focus on wellness.
-- **Hunterofshadows** (11↑): Bring them a fat stack of candy bars and ask them what would make them feel appreciated without the answer being more money. 
+- **Hunterofshadows** (10↑): Bring them a fat stack of candy bars and ask them what would make them feel appreciated without the answer being more money. 
 
 If you can code switch and drop some swear words, that would help
 - **benzbuilder05** (3↑): I might have commented on a post like this in the past.. I started as a refrigeration technician ( blue collar).. moved into auto manufacturing for 15 plus years ( 5 as a regular team member - blue collar/ 10 as a supervisor) before later switching careers into HR.. one thing I noticed when I was a team member was leadership/ HR that just showed up; to take pictures and kiss babies or when something was wrong or someone was getting fired!! Like others have suggested walk the floor, feel everyone out.. I would walk around and find a commonality,  we could tell the hr reps that didn't give a damn about us vs the ones that would at least give us a fair shake! When I was a team member I wanted a rep I could trust ( if I had an issue with a supervisor, he/ she wouldn't throw me under the bus!!), would give me an honest answer.. and another perspective on things and  lastly would follow through on their word!! Everything else was icing on the cake 🍰.

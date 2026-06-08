@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1pp2r6v.md
 url: "https://www.reddit.com/r/productivity/comments/1pp2r6v/i_realized_productivity_wasnt_my_problem_energy/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,39 @@ flair: "General Advice"
 extracted_at: "2026-05-26T12:53:45.653Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [energy]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1pp2r6v.md#c0"
+    char_span: [0, 1500]
+    sentence_count: 12
+    key_terms: [productivity, energy, wasn, something, comments, optimize, instead, started]
+    token_count: 334
+  - id: "social-intelligence/reddit-deep/productivity/1pp2r6v.md#c1"
+    char_span: [1515, 1912]
+    sentence_count: 1
+    key_terms: [aggravating-ant-3077, color-coded, half-assed, calendars, tracking, battery, finally, focused]
+    section: Comments
+    token_count: 100
+  - id: "social-intelligence/reddit-deep/productivity/1pp2r6v.md#c2"
+    char_span: [1914, 3966]
+    sentence_count: 11
+    key_terms: [energy, spoons, productive, tasks, "i'll", time, spoonfuls, analogy]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/productivity/1pp2r6v.md#c3"
+    char_span: [3701, 4175]
+    sentence_count: 3
+    key_terms: [aggravating-ant-3077, time-blocking, unfortunately, environment, interesting, assumption, dashboard, concepts]
+    section: Comments
+    token_count: 105
+  - id: "social-intelligence/reddit-deep/productivity/1pp2r6v.md#c4"
+    char_span: [4177, 5804]
+    sentence_count: 10
+    key_terms: [energy, get, coins, "i'm", lot, listening, instead, systems]
+    section: Comments
+    token_count: 397
 ---
-
 # I realized productivity wasn’t my problem energy management was
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1pp2r6v/i_realized_productivity_wasnt_my_problem_energy/)

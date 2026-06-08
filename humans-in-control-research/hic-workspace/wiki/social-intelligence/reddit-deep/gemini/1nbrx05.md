@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gemini/1nbrx05.md
 url: "https://www.reddit.com/r/Gemini/comments/1nbrx05/security_hold_question/"
 kind: "social-post"
 source: "reddit-deep: r/gemini"
@@ -13,8 +14,21 @@ flair: "Support:Support:"
 extracted_at: "2026-05-11T17:27:04.757Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gemini/1nbrx05.md#c0"
+    char_span: [0, 1229]
+    sentence_count: 12
+    key_terms: [withdraw, gemini, security, account, cryptocurrency, able, hold, comments]
+    token_count: 262
+  - id: "social-intelligence/reddit-deep/gemini/1nbrx05.md#c1"
+    char_span: [1244, 2175]
+    sentence_count: 8
+    key_terms: [account, crypto, thebackupkid, response, support, future, ticket, fiat]
+    section: Comments
+    token_count: 221
 ---
-
 # Security hold question
 
 Source: [reddit-deep: r/gemini](https://www.reddit.com/r/Gemini/comments/1nbrx05/security_hold_question/)

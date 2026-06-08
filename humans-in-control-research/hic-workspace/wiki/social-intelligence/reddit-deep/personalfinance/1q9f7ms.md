@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1q9f7ms.md
 url: "https://www.reddit.com/r/personalfinance/comments/1q9f7ms/budget_assist_points_of_concern_debt_savings_long/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,53 @@ flair: "Budgeting"
 extracted_at: "2026-05-16T20:55:02.109Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1q9f7ms.md#c0"
+    char_span: [0, 1721]
+    sentence_count: 3
+    key_terms: [savings, pay, account, funds, net, personalfinance, budget, contribution]
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/personalfinance/1q9f7ms.md#c1"
+    char_span: [1725, 3498]
+    sentence_count: 7
+    key_terms: [bills, monthly, per, category, paycheck, spending, grocery, total]
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/personalfinance/1q9f7ms.md#c2"
+    char_span: [3502, 4993]
+    sentence_count: 2
+    key_terms: [paycheck, savings, fund, per, buffer, roth, recommendations, tattoo]
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/personalfinance/1q9f7ms.md#c3"
+    char_span: [4997, 6753]
+    sentence_count: 10
+    key_terms: [credit, care, irs, savings, card, get, checking, payments]
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/personalfinance/1q9f7ms.md#c4"
+    char_span: [6757, 7516]
+    sentence_count: 8
+    key_terms: [tattoo, "don't", total, over-budgeted, additionally, technically, ballparked, compensate]
+    token_count: 183
+  - id: "social-intelligence/reddit-deep/personalfinance/1q9f7ms.md#c5"
+    char_span: [7531, 9708]
+    sentence_count: 16
+    key_terms: [budget, roth, savings, fund, "it's", expenses, minimum, anticipating]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/personalfinance/1q9f7ms.md#c6"
+    char_span: [9710, 11740]
+    sentence_count: 16
+    key_terms: [personalfinance, job, pay, experience, budgeting, currently, potential, something]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/personalfinance/1q9f7ms.md#c7"
+    char_span: [11743, 12547]
+    sentence_count: 8
+    key_terms: [housing, costs, area, down, math, yeah, downpayment, potentially]
+    section: Comments
+    token_count: 180
 ---
-
 # Budget Assist: Points of Concern - Debt + Savings [Long Post]
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1q9f7ms/budget_assist_points_of_concern_debt_savings_long/)

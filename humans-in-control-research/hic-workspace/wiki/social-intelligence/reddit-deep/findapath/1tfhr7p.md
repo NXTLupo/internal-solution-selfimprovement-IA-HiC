@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1tfhr7p.md
 url: "https://www.reddit.com/r/findapath/comments/1tfhr7p/i_spent_my_20s_panicking_because_my_dream_career/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,33 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-25T13:04:07.391Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1tfhr7p.md#c0"
+    char_span: [0, 1985]
+    sentence_count: 34
+    key_terms: ["didn't", work, never, good, "i'd", like, plan, because]
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/findapath/1tfhr7p.md#c1"
+    char_span: [2000, 2947]
+    sentence_count: 9
+    key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/findapath/1tfhr7p.md#c2"
+    char_span: [2950, 4802]
+    sentence_count: 9
+    key_terms: [good, anything, get, man, something, treating, through, people]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/findapath/1tfhr7p.md#c3"
+    char_span: [4574, 5311]
+    sentence_count: 6
+    key_terms: [get, understating, echospacezz, necessarily, no-desk560, something, sometimes, almassri]
+    section: Comments
+    token_count: 203
 ---
-
 # I spent my 20s panicking because my dream career didn't work out. Turns out I never needed the dream.
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1tfhr7p/i_spent_my_20s_panicking_because_my_dream_career/)

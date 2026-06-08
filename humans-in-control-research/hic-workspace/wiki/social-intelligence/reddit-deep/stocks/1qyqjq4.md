@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1qyqjq4.md
 url: "https://www.reddit.com/r/stocks/comments/1qyqjq4/trump_administration_equity_stakes_pose_risks_to/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,68 @@ flair: ""
 extracted_at: "2026-05-17T01:14:17.623Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [government, policy, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c0"
+    char_span: [0, 2229]
+    sentence_count: 6
+    key_terms: [administration, companies, government, trump-equity-stakes-pose-these-risks-to-us-companies-and-markets, stakes, trump, lincicome, business]
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c1"
+    char_span: [2231, 2828]
+    sentence_count: 2
+    key_terms: [government, stakes, trump, administration, intervention, accelerates, distasteful, enterprise]
+    token_count: 112
+  - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c2"
+    char_span: [2843, 4370]
+    sentence_count: 6
+    key_terms: [stocks, free, markets, please, off-topic, political, specific, capping]
+    section: Comments
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c3"
+    char_span: [4372, 6009]
+    sentence_count: 14
+    key_terms: [republicans, market, party, free, capitalism, democracy, democrat, wonderful-sail-1126]
+    section: Comments
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c4"
+    char_span: [6011, 7836]
+    sentence_count: 14
+    key_terms: [socialism, trump, benefit, corporatism, people, run, government, corporate]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c5"
+    char_span: [7838, 9950]
+    sentence_count: 12
+    key_terms: [market, trust, bailouts, equity, reason, government, trillion, finance-mcp-001]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c6"
+    char_span: [9711, 10532]
+    sentence_count: 3
+    key_terms: [corporations, government, username, fascism, running, checks, headpaleontologist40, mountain-detail-8213]
+    section: Comments
+    token_count: 218
+  - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c7"
+    char_span: [10534, 12736]
+    sentence_count: 15
+    key_terms: [companies, socialism, fascism, corporations, intervention, "don't", republicans, "it's"]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c8"
+    char_span: [12738, 14674]
+    sentence_count: 18
+    key_terms: [question, answer, people, public, corporations, crown, hate, maga]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c9"
+    char_span: [14676, 15929]
+    sentence_count: 12
+    key_terms: [people, government, companies, getting, "that's", doing, right, trump]
+    section: Comments
+    token_count: 283
 ---
-
 # Trump administration equity stakes pose risks to U.S. companies and markets
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1qyqjq4/trump_administration_equity_stakes_pose_risks_to/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1ne1vwk.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1ne1vwk/struggling_with_debt_and_low_income/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,21 @@ flair: "Budgeting/Saving/Investing/Spending"
 extracted_at: "2026-05-16T20:55:12.692Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1ne1vwk.md#c0"
+    char_span: [0, 1055]
+    sentence_count: 9
+    key_terms: [povertyfinance, unfortunately, sometimes, comments, reddit, thank, live, non-essential]
+    token_count: 252
+  - id: "social-intelligence/reddit-deep/povertyfinance/1ne1vwk.md#c1"
+    char_span: [1070, 2947]
+    sentence_count: 13
+    key_terms: [healthcare, don, budgetgpt, noxelblue, universal, control, cutting, deleted]
+    section: Comments
+    token_count: 474
 ---
-
 # Struggling with debt and low income
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1ne1vwk/struggling_with_debt_and_low_income/)

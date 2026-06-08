@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1kvv24j.md
 url: "https://www.reddit.com/r/Professors/comments/1kvv24j/aichatgpt_related_question_what_are_your_thoughts/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,69 @@ flair: "Advice / Support"
 extracted_at: "2026-05-14T18:17:21.708Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1kvv24j.md#c0"
+    char_span: [0, 2154]
+    sentence_count: 15
+    key_terms: [professors, comments, learning, students, writing, usage, care, themselves]
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/professors/1kvv24j.md#c1"
+    char_span: [2169, 2817]
+    sentence_count: 6
+    key_terms: [skills, use, college, learned, prestigious-survey67, learn, frankrizzo319, unfortunately]
+    section: Comments
+    token_count: 167
+  - id: "social-intelligence/reddit-deep/professors/1kvv24j.md#c2"
+    char_span: [2819, 5136]
+    sentence_count: 20
+    key_terms: [cheating, useful, basic, example, writing, complications, base, absolutely]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/professors/1kvv24j.md#c3"
+    char_span: [5138, 6671]
+    sentence_count: 12
+    key_terms: [cheating, blaming, unauthorized, generative, professors, students, learned, others]
+    section: Comments
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/professors/1kvv24j.md#c4"
+    char_span: [6673, 7693]
+    sentence_count: 7
+    key_terms: [students, choosing, immoral, inevitability, cheat, pretending, unethical, military]
+    section: Comments
+    token_count: 227
+  - id: "social-intelligence/reddit-deep/professors/1kvv24j.md#c5"
+    char_span: [7695, 9621]
+    sentence_count: 16
+    key_terms: [option, strawberryearlgreyy, class, drawing, subject, assessments, assignments, need]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/professors/1kvv24j.md#c6"
+    char_span: [9623, 11127]
+    sentence_count: 11
+    key_terms: [going, real, students, thinking, "they'll", expect, trying, https]
+    section: Comments
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/professors/1kvv24j.md#c7"
+    char_span: [11129, 13418]
+    sentence_count: 13
+    key_terms: [students, because, people, assessments, "it's", assessment, incentives, learning]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1kvv24j.md#c8"
+    char_span: [13110, 13822]
+    sentence_count: 8
+    key_terms: [assessment, "it's", accountability, institutions, universities, behavioral, committees, department]
+    section: Comments
+    token_count: 152
+  - id: "social-intelligence/reddit-deep/professors/1kvv24j.md#c9"
+    char_span: [13824, 15684]
+    sentence_count: 13
+    key_terms: [demonstrated, "don't", lot, integrity, academic, students, because, certify]
+    section: Comments
+    token_count: 435
 ---
-
 # AI/ChatGPT Related Question: What are your thoughts on people who tell us that it's our fault and we "just need to get used to" this level of academic dishonesty?
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1kvv24j/aichatgpt_related_question_what_are_your_thoughts/)

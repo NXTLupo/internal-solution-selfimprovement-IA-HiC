@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1kmnhbw.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1kmnhbw/freshman_materials_engineering_student_tries/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Sankey Diagram"
 extracted_at: "2026-05-14T18:16:49.037Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kmnhbw.md#c0"
+    char_span: [0, 1804]
+    sentence_count: 12
+    key_terms: [applying, engineeringstudents, started, didn, get, year, internship, comments]
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kmnhbw.md#c1"
+    char_span: [1819, 3901]
+    sentence_count: 16
+    key_terms: [engineeringstudents, experience, wiki, position, please, reddit, https, application]
+    section: Comments
+    token_count: 465
 ---
-
 # Freshman materials engineering student tries their luck with getting an internship…
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1kmnhbw/freshman_materials_engineering_student_tries/)

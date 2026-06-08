@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-applyingtocollege/a8bdb30ffd.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1qe113j/my_parents_think_im_being_dramatic_about_how/"
 url_hash: "a8bdb30ffd"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T13:03:43.067341+00:00"
 chars: 4289
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-applyingtocollege/a8bdb30ffd.md#c0"
+    char_span: [0, 1691]
+    sentence_count: 13
+    key_terms: [get, admissions, applyingtocollege, "i'm", college, parents, "don't", explaining]
+    token_count: 370
+  - id: "articles/reddit-deep-r-applyingtocollege/a8bdb30ffd.md#c1"
+    char_span: [1693, 3613]
+    sentence_count: 24
+    key_terms: [hopeful-force-2147, different, year, little, got, peak, sat, newspaper]
+    token_count: 505
+  - id: "articles/reddit-deep-r-applyingtocollege/a8bdb30ffd.md#c2"
+    char_span: [3615, 4556]
+    sentence_count: 8
+    key_terms: [the-demographic-cliff-is-overblown, eduvantis, people, class, https, sucks, com, fake]
+    token_count: 245
 ---
-
 # My parents think I'm being dramatic about how competitive college admissions is now and it's driving me insane
 
 Source: [Reddit Deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1qe113j/my_parents_think_im_being_dramatic_about_how/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1sfqp45.md
 url: "https://www.reddit.com/r/GradSchool/comments/1sfqp45/giving_up_a_fullyfunded_2yr_masters_degree_midway/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,33 @@ flair: "Admissions & Applications"
 extracted_at: "2026-05-26T14:32:49.144Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [fundraising, nonprofit]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1sfqp45.md#c0"
+    char_span: [0, 1582]
+    sentence_count: 13
+    key_terms: [degree, "master's", program, fully-funded, friend, pursue, offer, opportunity]
+    token_count: 356
+  - id: "social-intelligence/reddit-deep/gradschool/1sfqp45.md#c1"
+    char_span: [1597, 3038]
+    sentence_count: 9
+    key_terms: [international, like, applicants, education, reaching, shithole, "wouldn't", degree]
+    section: Comments
+    token_count: 311
+  - id: "social-intelligence/reddit-deep/gradschool/1sfqp45.md#c2"
+    char_span: [3040, 4848]
+    sentence_count: 8
+    key_terms: [masters, programs, program, one-year, student, school, situation, american]
+    section: Comments
+    token_count: 409
+  - id: "social-intelligence/reddit-deep/gradschool/1sfqp45.md#c3"
+    char_span: [4850, 6109]
+    sentence_count: 7
+    key_terms: [masters, year, programs, general, degree, people, super, value]
+    section: Comments
+    token_count: 297
 ---
-
 # Giving up a fully-funded 2yr master's degree midway to pursue a 1yr master's in the US?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1sfqp45/giving_up_a_fullyfunded_2yr_masters_degree_midway/)

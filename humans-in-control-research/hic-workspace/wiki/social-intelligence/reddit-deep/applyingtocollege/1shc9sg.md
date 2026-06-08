@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1shc9sg.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1shc9sg/message_to_all_internationals_and_anyone_who/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,32 @@ flair: "Emotional Support"
 extracted_at: "2026-05-23T14:54:48.681Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1shc9sg.md#c0"
+    char_span: [0, 2079]
+    sentence_count: 7
+    key_terms: [applyingtocollege, columbia, school, year, comments, regional, harvard, program]
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1shc9sg.md#c1"
+    char_span: [2081, 4001]
+    sentence_count: 16
+    key_terms: [did, get, because, something, admitted, freshman, however, process]
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1shc9sg.md#c2"
+    char_span: [4016, 6034]
+    sentence_count: 15
+    key_terms: [bergkauz-pfeifen579, essays, applyingtocollege, wiki, reddit, collegeessays, https, place]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1shc9sg.md#c3"
+    char_span: [6036, 7457]
+    sentence_count: 9
+    key_terms: [bergkauz-pfeifen579, applyingtocollege, automatically, international, bot, admissions, moderators, performed]
+    section: Comments
+    token_count: 375
 ---
-
 # Message to all Internationals and anyone who started late
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1shc9sg/message_to_all_internationals_and_anyone_who/)

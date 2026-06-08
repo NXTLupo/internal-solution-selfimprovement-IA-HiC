@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tlpe7l.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tlpe7l/no_internships_no_connections_no_corporate/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,15 @@ flair: "Education & Qualifications"
 extracted_at: "2026-05-23T20:15:29.968Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tlpe7l.md#c0"
+    char_span: [0, 1586]
+    sentence_count: 21
+    key_terms: [business, operations, dizzy-turnip-350, nothing, careerguidance, internships, procurement, real]
+    token_count: 366
 ---
-
 # No internships, no connections, no corporate experience. Built a real business anyway. Now trying to break in. Anyone else on this path?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tlpe7l/no_internships_no_connections_no_corporate/)

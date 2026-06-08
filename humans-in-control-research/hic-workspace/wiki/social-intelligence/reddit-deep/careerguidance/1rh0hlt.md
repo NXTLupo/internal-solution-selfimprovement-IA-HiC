@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rh0hlt.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rh0hlt/whats_your_job_what_did_you_learn_to_get_it_key/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-25T18:32:57.396Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rh0hlt.md#c0"
+    char_span: [0, 386]
+    sentence_count: 5
+    key_terms: [careerguidance, comments, homework, career, skills, "what's", learn, tasks]
+    token_count: 116
+  - id: "social-intelligence/reddit-deep/careerguidance/1rh0hlt.md#c1"
+    char_span: [401, 1474]
+    sentence_count: 4
+    key_terms: [skills, being, management, company, getting, learned, good, role]
+    section: Comments
+    token_count: 229
 ---
-
 # What's your job? What did you learn to get it? Key skills/tasks? (For CBT career homework)
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rh0hlt/whats_your_job_what_did_you_learn_to_get_it_key/)

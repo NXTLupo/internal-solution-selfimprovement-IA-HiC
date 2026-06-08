@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1ppyl2l.md
 url: "https://www.reddit.com/r/college/comments/1ppyl2l/realizing_college_is_less_about_classes_and_more/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,39 @@ flair: "Social Life"
 extracted_at: "2026-05-17T01:12:59.134Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1ppyl2l.md#c0"
+    char_span: [0, 1349]
+    sentence_count: 12
+    key_terms: [college, feel, like, comments, instead, enough, feels, money]
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/college/1ppyl2l.md#c1"
+    char_span: [1364, 3171]
+    sentence_count: 14
+    key_terms: [class, time, calendar, done, work, homework, get, assignment]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/college/1ppyl2l.md#c2"
+    char_span: [3173, 4402]
+    sentence_count: 5
+    key_terms: [time, course, per, week, work, calendar, semester, credits]
+    section: Comments
+    token_count: 299
+  - id: "social-intelligence/reddit-deep/college/1ppyl2l.md#c3"
+    char_span: [4404, 6413]
+    sentence_count: 10
+    key_terms: [college, people, like, post, week, especially, described, semester]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/college/1ppyl2l.md#c4"
+    char_span: [6415, 7031]
+    sentence_count: 4
+    key_terms: [college, figure, learn, ok-culture-7141, foundation, ourselves, adulting, prepares]
+    section: Comments
+    token_count: 161
 ---
-
 # Realizing college is less about classes and more about figuring stuff out as you go
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ppyl2l/realizing_college_is_less_about_classes_and_more/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1sm31hb.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1sm31hb/career_pivot_advice_from_warehouse_management_to/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 0.99
 num_comments: 2
 flair: "Career Advice"
-extracted_at: "2026-05-23T20:15:19.043Z"
+extracted_at: "2026-06-01T18:48:36.777Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sm31hb.md#c0"
+    char_span: [0, 2140]
+    sentence_count: 16
+    key_terms: [engineering, school, flexibility, career, engineeringstudents, warehouse, programming, path]
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sm31hb.md#c1"
+    char_span: [2155, 3565]
+    sentence_count: 10
+    key_terms: [force, programming, "it's", controller, experience, spacecraft, satellite, something]
+    section: Comments
+    token_count: 294
 ---
-
 # Career Pivot Advice: From Warehouse Management to Engineering (NASA Goal) — Best Path While Working?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1sm31hb/career_pivot_advice_from_warehouse_management_to/)

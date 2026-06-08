@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1t8obv2.md
 url: "https://www.reddit.com/r/NEU/comments/1t8obv2/indian_student_confused_about_northeastern_msba/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "Global & Study Abroad"
 extracted_at: "2026-05-22T13:32:12.388Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1t8obv2.md#c0"
+    char_span: [0, 1778]
+    sentence_count: 14
+    key_terms: [analytics, business, students, northeastern, current, honest, international, bba]
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/neu/1t8obv2.md#c1"
+    char_span: [1793, 3837]
+    sentence_count: 13
+    key_terms: [here, get, market, job, forums, issue, place, roles]
+    section: Comments
+    token_count: 497
 ---
-
 # Indian student confused about Northeastern MSBA (Fall 2026) – Need honest reality check
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1t8obv2/indian_student_confused_about_northeastern_msba/)

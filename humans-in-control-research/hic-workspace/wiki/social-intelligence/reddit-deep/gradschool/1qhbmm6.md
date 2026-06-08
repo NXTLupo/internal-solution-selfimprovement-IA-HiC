@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1qhbmm6.md
 url: "https://www.reddit.com/r/GradSchool/comments/1qhbmm6/how_does_one_actually_start_a_grad_school/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,33 @@ flair: "Admissions & Applications"
 extracted_at: "2026-05-26T14:32:49.141Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1qhbmm6.md#c0"
+    char_span: [0, 1955]
+    sentence_count: 17
+    key_terms: [like, because, start, statement, science, answer, environmental, application]
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/gradschool/1qhbmm6.md#c1"
+    char_span: [1970, 3972]
+    sentence_count: 6
+    key_terms: [program, statement, undergrad, research, professional, help, text, applying]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/gradschool/1qhbmm6.md#c2"
+    char_span: [3974, 6181]
+    sentence_count: 9
+    key_terms: [paragraph, research, interested, subject, good, talk, interest, overview]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/gradschool/1qhbmm6.md#c3"
+    char_span: [6183, 6991]
+    sentence_count: 4
+    key_terms: [story, creative, program, disastrous-pair-9466, short, prestigious, specializes, internship]
+    section: Comments
+    token_count: 212
 ---
-
 # How does one actually start a grad school personal statement? Like, literally start it.
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1qhbmm6/how_does_one_actually_start_a_grad_school/)

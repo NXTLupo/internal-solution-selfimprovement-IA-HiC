@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1ohe59d.md
 url: "https://www.reddit.com/r/GPT/comments/1ohe59d/evaluating_a_number_of_llm_services/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,35 @@ flair: ""
 extracted_at: "2026-05-11T17:26:37.727Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1ohe59d.md#c0"
+    char_span: [0, 1863]
+    sentence_count: 12
+    key_terms: [post, llm, "it's", comparison, comments, services, training, chatgpt]
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/gpt/1ohe59d.md#c1"
+    char_span: [1865, 3810]
+    sentence_count: 12
+    key_terms: [instructions, mistral-agents, gpt5, "i'm", llm, main, chattygpt, political]
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/gpt/1ohe59d.md#c2"
+    char_span: [3812, 5908]
+    sentence_count: 19
+    key_terms: [does, bulletpoints, using, note, response, chatgpt, headers, mistral]
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/gpt/1ohe59d.md#c3"
+    char_span: [5910, 8137]
+    sentence_count: 21
+    key_terms: [ethnicity, chatgpt, information, mistral, response, choice, though, image]
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/gpt/1ohe59d.md#c4"
+    char_span: [8139, 10205]
+    sentence_count: 18
+    key_terms: [ethnicity, perfectly, provides, chatgpt, gemini, images, interestingly, asked]
+    token_count: 470
 ---
-
 # Evaluating a number of LLM Services
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1ohe59d/evaluating_a_number_of_llm_services/)

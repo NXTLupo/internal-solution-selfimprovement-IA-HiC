@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-futureofwork/bda1b7def4.md
 url: "https://reddit.com/r/FutureOfWork/comments/1s60vt3/advising_on_ai_while_still_figuring_it_out/"
 url_hash: "bda1b7def4"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-06T03:10:12.626795+00:00"
 chars: 570
+industries: [ai_research, enterprise_it, workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-futureofwork/bda1b7def4.md#c0"
+    char_span: [0, 756]
+    sentence_count: 6
+    key_terms: [futureofwork, proficiency, ourselves, clients, reddit, own, transformation, productivity]
+    token_count: 162
 ---
-
 # Advising on AI while still figuring it out ourselves
 
 Source: [reddit: futureofwork](https://reddit.com/r/FutureOfWork/comments/1s60vt3/advising_on_ai_while_still_figuring_it_out/)

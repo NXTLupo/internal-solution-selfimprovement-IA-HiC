@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1kjzh57.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1kjzh57/chatgpt_should_have_clickable_personality_controls/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,32 @@ flair: "Prompt engineering "
 extracted_at: "2026-05-11T16:54:08.803Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1kjzh57.md#c0"
+    char_span: [0, 2184]
+    sentence_count: 14
+    key_terms: [chatgpt, persona, something, "i'm", "i've", behavior, people, prompt]
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/chatgpt/1kjzh57.md#c1"
+    char_span: [2186, 3502]
+    sentence_count: 9
+    key_terms: [within, experience, wonderful, persona, openai, "you're", makes, day]
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/chatgpt/1kjzh57.md#c2"
+    char_span: [3517, 5078]
+    sentence_count: 10
+    key_terms: [openai, please, prompt, conversation, image, post, concerns, chatgpt-shared-links-faq]
+    section: Comments
+    token_count: 401
+  - id: "social-intelligence/reddit-deep/chatgpt/1kjzh57.md#c3"
+    char_span: [5080, 5714]
+    sentence_count: 5
+    key_terms: [instructions, custom, conversation, use, seabearsfoam, instruction, personality, scaffolding]
+    section: Comments
+    token_count: 147
 ---
-
 # ChatGPT should have clickable personality controls
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1kjzh57/chatgpt_should_have_clickable_personality_controls/)

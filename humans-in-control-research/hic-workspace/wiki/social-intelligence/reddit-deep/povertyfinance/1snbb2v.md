@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1snbb2v.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1snbb2v/how_do_people_do_this/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,75 @@ flair: "Free talk"
 extracted_at: "2026-05-16T20:55:12.690Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [workforce, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1snbb2v.md#c0"
+    char_span: [0, 941]
+    sentence_count: 13
+    key_terms: ["i'm", povertyfinance, lucky, apartment, comments, student, budget, "didn't"]
+    token_count: 237
+  - id: "social-intelligence/reddit-deep/povertyfinance/1snbb2v.md#c1"
+    char_span: [956, 3040]
+    sentence_count: 18
+    key_terms: [people, roommates, cushion, doing, get, corners, poverty, savings]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1snbb2v.md#c2"
+    char_span: [3042, 3499]
+    sentence_count: 6
+    key_terms: [job, possible, fuck, requirements, education, cheapest, listings, training]
+    section: Comments
+    token_count: 102
+  - id: "social-intelligence/reddit-deep/povertyfinance/1snbb2v.md#c3"
+    char_span: [3501, 5855]
+    sentence_count: 25
+    key_terms: [finances, like, figure, dad, got, help, mom, tech]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1snbb2v.md#c4"
+    char_span: [5595, 5989]
+    sentence_count: 7
+    key_terms: [figure, shit, beagleguy26, experience, knowledge, advanced, continue, leverage]
+    section: Comments
+    token_count: 96
+  - id: "social-intelligence/reddit-deep/povertyfinance/1snbb2v.md#c5"
+    char_span: [5991, 6767]
+    sentence_count: 6
+    key_terms: [thenletskeepdancing, down, trickle, advice, people, competitive-work-382, "don't", creditcontentmaker]
+    section: Comments
+    token_count: 220
+  - id: "social-intelligence/reddit-deep/povertyfinance/1snbb2v.md#c6"
+    char_span: [6769, 8378]
+    sentence_count: 8
+    key_terms: [insurance, rising--dawn, cover, offer, plans, until, cost, plan]
+    section: Comments
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/povertyfinance/1snbb2v.md#c7"
+    char_span: [8380, 9110]
+    sentence_count: 6
+    key_terms: [coverage, urgent, care, get, plan, time, appointments, prescription]
+    section: Comments
+    token_count: 161
+  - id: "social-intelligence/reddit-deep/povertyfinance/1snbb2v.md#c8"
+    char_span: [9112, 10692]
+    sentence_count: 12
+    key_terms: [insurance, coverage, enrollment, medication, probably, partner, budget, enroll]
+    section: Comments
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/povertyfinance/1snbb2v.md#c9"
+    char_span: [10694, 11848]
+    sentence_count: 15
+    key_terms: [month, don, buy, categories, utilities, lastunbannedaccount, money, spend]
+    section: Comments
+    token_count: 316
+  - id: "social-intelligence/reddit-deep/povertyfinance/1snbb2v.md#c10"
+    char_span: [11850, 13224]
+    sentence_count: 9
+    key_terms: [chicken, living, people, comfortable, beef, live, roommates, electric]
+    section: Comments
+    token_count: 355
 ---
-
 # How do people do this???
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1snbb2v/how_do_people_do_this/)

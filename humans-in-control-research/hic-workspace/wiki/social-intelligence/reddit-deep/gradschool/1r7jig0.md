@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1r7jig0.md
 url: "https://www.reddit.com/r/GradSchool/comments/1r7jig0/how_much_does_your_averagegpa_typically_improve/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.141Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1r7jig0.md#c0"
+    char_span: [0, 1038]
+    sentence_count: 7
+    key_terms: [degree, gradschool, graduate, "master's", program, undergraduate, experience, typically]
+    token_count: 231
+  - id: "social-intelligence/reddit-deep/gradschool/1r7jig0.md#c1"
+    char_span: [1053, 2849]
+    sentence_count: 16
+    key_terms: [undergrad, college, school, grad, courses, because, classes, program]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/gradschool/1r7jig0.md#c2"
+    char_span: [2851, 4329]
+    sentence_count: 5
+    key_terms: [gpa, school, lasixsteroidsabx, "master's", lot, wondering, ireland, matters]
+    section: Comments
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/gradschool/1r7jig0.md#c3"
+    char_span: [4331, 6265]
+    sentence_count: 16
+    key_terms: [gpa, undergrad, graduate, school, grad, different, graduated, location]
+    section: Comments
+    token_count: 496
 ---
-
 # How much does your average/GPA typically improve in a master's degree program?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1r7jig0/how_much_does_your_averagegpa_typically_improve/)

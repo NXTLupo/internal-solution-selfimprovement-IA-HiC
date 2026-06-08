@@ -1,4 +1,5 @@
 ---
+id: methodologies/research-fabric.md
 title: "Research Fabric Orchestration"
 type: framework
 created: 2026-04-10
@@ -8,8 +9,55 @@ confidence: high
 status: active
 tags: [research-fabric, orchestration, methodology, pipeline]
 evidence_count: 0
+chunks:
+  - id: "methodologies/research-fabric.md#c0"
+    char_span: [0, 493]
+    sentence_count: 3
+    key_terms: [research, orchestration, researchfabricorchestrator, services, fabric, source, data, methodexecutor]
+    token_count: 101
+  - id: "methodologies/research-fabric.md#c1"
+    char_span: [522, 2826]
+    sentence_count: 20
+    key_terms: [sources, search, phase, research, reviews, goal, function, papers]
+    section: Orchestration Pipeline
+    token_count: 517
+  - id: "methodologies/research-fabric.md#c2"
+    char_span: [2828, 4223]
+    sentence_count: 10
+    key_terms: [items, function, relevance, content, scoring, phase, score, extraction]
+    section: Orchestration Pipeline
+    token_count: 339
+  - id: "methodologies/research-fabric.md#c3"
+    char_span: [4262, 6090]
+    sentence_count: 12
+    key_terms: [applicable, pipeline, required, ingest, lenses, stages, product, framework]
+    section: The Seven Research Methodologies
+    token_count: 454
+  - id: "methodologies/research-fabric.md#c4"
+    char_span: [6092, 6784]
+    sentence_count: 3
+    key_terms: [segmentation, wiki, applicable, synthesis, pipeline, required, driver, lenses]
+    section: The Seven Research Methodologies
+    token_count: 161
+  - id: "methodologies/research-fabric.md#c5"
+    char_span: [6816, 7540]
+    sentence_count: 1
+    key_terms: [stage, methodology, stageid, output, getavailableoutputs, completedstages, interpretations, previousresults]
+    section: Method Executor Interface
+    token_count: 147
+  - id: "methodologies/research-fabric.md#c6"
+    char_span: [7573, 8296]
+    sentence_count: 2
+    key_terms: [user, checkpoint, narrative, personas, review, stages, themes, methodology-specific]
+    section: Human-in-the-Loop Pipeline
+    token_count: 161
+  - id: "methodologies/research-fabric.md#c7"
+    char_span: [8325, 8734]
+    sentence_count: 1
+    key_terms: [wiki, deep-research, research, methodology-specific, analytical-lenses, cross-references, knowledge-graph, research-modes]
+    section: Wiki Integration Rules
+    token_count: 89
 ---
-
 # Research Fabric Orchestration
 
 The Research Fabric is the central orchestration layer that ties together deep

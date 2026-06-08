@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1t1gjxx.md
 url: "https://www.reddit.com/r/NEU/comments/1t1gjxx/do_i_need_to_meet_an_advisor_before_registering/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 0.67
 num_comments: 6
 flair: "Advice & Experiences"
-extracted_at: "2026-05-19T17:57:09.046Z"
+extracted_at: "2026-06-05T17:08:22.602Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1t1gjxx.md#c0"
+    char_span: [0, 907]
+    sentence_count: 7
+    key_terms: [register, classes, registration, registering, meet, comments, advisor, email]
+    token_count: 223
+  - id: "social-intelligence/reddit-deep/neu/1t1gjxx.md#c1"
+    char_span: [922, 2269]
+    sentence_count: 8
+    key_terms: [register, semester, classes, courses, need, take, want, joshi1381]
+    section: Comments
+    token_count: 325
 ---
-
 # do I need to meet an advisor before registering for classes?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1t1gjxx/do_i_need_to_meet_an_advisor_before_registering/)

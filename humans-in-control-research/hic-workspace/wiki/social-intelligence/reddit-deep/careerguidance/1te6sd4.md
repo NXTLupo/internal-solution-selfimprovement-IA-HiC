@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1te6sd4.md
 url: "https://www.reddit.com/r/careerguidance/comments/1te6sd4/struggling_to_find_a_job_after_almost_2_year/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,32 @@ score: 1
 upvote_ratio: 1
 num_comments: 7
 flair: ""
-extracted_at: "2026-05-23T14:54:05.574Z"
+extracted_at: "2026-06-06T13:03:37.354Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1te6sd4.md#c0"
+    char_span: [0, 1127]
+    sentence_count: 9
+    key_terms: [careerguidance, career, family, experience, business, comments, details, almost]
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/careerguidance/1te6sd4.md#c1"
+    char_span: [1129, 3305]
+    sentence_count: 7
+    key_terms: [feel, break, ive, analyst, career, been, manager, resume]
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/careerguidance/1te6sd4.md#c2"
+    char_span: [3307, 4973]
+    sentence_count: 7
+    key_terms: [operations, financial, analyst, hospitality, global, position, company, career]
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/careerguidance/1te6sd4.md#c3"
+    char_span: [4988, 6547]
+    sentence_count: 10
+    key_terms: [roles, experience, point, like, financial, psytrense, targeting, anything]
+    section: Comments
+    token_count: 353
 ---
-
 # Struggling to find a job after almost 2 year career break despite decent experience. Guidance on how to position myself ?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1te6sd4/struggling_to_find_a_job_after_almost_2_year/)

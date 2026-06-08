@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1qm2wl8.md
 url: "https://www.reddit.com/r/internships/comments/1qm2wl8/are_you_an_eager_driven_coachable_sales_person_or/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "General"
 extracted_at: "2026-05-25T18:31:15.453Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1qm2wl8.md#c0"
+    char_span: [0, 963]
+    sentence_count: 4
+    key_terms: [sales, companies, internships, tech, candidates, connecting, placements, successful]
+    token_count: 215
+  - id: "social-intelligence/reddit-deep/internships/1qm2wl8.md#c1"
+    char_span: [978, 1250]
+    sentence_count: 2
+    key_terms: [rough-manager-172, acanthisittano6174, originally, finishing, carolina, relocate, willing, kindly]
+    section: Comments
+    token_count: 91
 ---
-
 # Are you an eager, driven, coachable, sales person or looking to get better breakout into a successful career - would be learning from a proven VP sales connecting with top tech companies and candidates for placements
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1qm2wl8/are_you_an_eager_driven_coachable_sales_person_or/)

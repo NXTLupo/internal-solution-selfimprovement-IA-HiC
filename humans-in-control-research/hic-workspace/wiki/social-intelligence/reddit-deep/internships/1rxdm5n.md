@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rxdm5n.md
 url: "https://www.reddit.com/r/internships/comments/1rxdm5n/anyone_know_where_i_can_find_reliable/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "General"
 extracted_at: "2026-05-20T02:30:49.744Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rxdm5n.md#c0"
+    char_span: [0, 358]
+    sentence_count: 3
+    key_terms: [internships, comments, abroad, endlessethann, international, opportunities, reddit-deep, internship]
+    token_count: 99
+  - id: "social-intelligence/reddit-deep/internships/1rxdm5n.md#c1"
+    char_span: [373, 1525]
+    sentence_count: 6
+    key_terms: [internship, endlessethann, asia, placement, europe, outrageousgazelle210, sweet-frosting4839, day]
+    section: Comments
+    token_count: 293
 ---
-
 # Anyone know where I can find reliable international internship opportunities?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rxdm5n/anyone_know_where_i_can_find_reliable/)

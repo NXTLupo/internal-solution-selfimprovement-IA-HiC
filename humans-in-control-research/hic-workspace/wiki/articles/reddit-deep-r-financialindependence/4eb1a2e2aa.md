@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-financialindependence/4eb1a2e2aa.md
 url: "https://www.reddit.com/r/financialindependence/comments/1o35dfg/year_update_after_1m_laid_off/"
 url_hash: "4eb1a2e2aa"
 kind: "article"
@@ -10,8 +11,45 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-16T21:01:55.211795+00:00"
 chars: 8112
+industries: [workforce, financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-financialindependence/4eb1a2e2aa.md#c0"
+    char_span: [0, 517]
+    sentence_count: 4
+    key_terms: [financialindependence, reddit, comments, update, https, since, com, www]
+    token_count: 148
+  - id: "articles/reddit-deep-r-financialindependence/4eb1a2e2aa.md#c1"
+    char_span: [519, 2569]
+    sentence_count: 20
+    key_terms: [went, snowboarding, did, got, job, back, been, feel]
+    token_count: 512
+  - id: "articles/reddit-deep-r-financialindependence/4eb1a2e2aa.md#c2"
+    char_span: [2258, 3744]
+    sentence_count: 9
+    key_terms: [because, current, interesting, feel, like, live, work, decided]
+    token_count: 354
+  - id: "articles/reddit-deep-r-financialindependence/4eb1a2e2aa.md#c3"
+    char_span: [3749, 4853]
+    sentence_count: 1
+    key_terms: [history, breakdown, employer, income, faang, match, last, new]
+    token_count: 450
+  - id: "articles/reddit-deep-r-financialindependence/4eb1a2e2aa.md#c4"
+    char_span: [4855, 5803]
+    sentence_count: 1
+    key_terms: [employer, match, tax, spreadsheets, rollover, sharing, google, https]
+    token_count: 447
+  - id: "articles/reddit-deep-r-financialindependence/4eb1a2e2aa.md#c5"
+    char_span: [5805, 7919]
+    sentence_count: 18
+    key_terms: [points, individual, year, stocks, being, hotel, understand, winkahpack]
+    token_count: 501
+  - id: "articles/reddit-deep-r-financialindependence/4eb1a2e2aa.md#c6"
+    char_span: [7921, 8293]
+    sentence_count: 2
+    key_terms: [points, spend, confident-income, user-no-relation, depreciating, manufactured, accumulate, transfers]
+    token_count: 84
 ---
-
 # Year Update after $1M: Laid Off
 
 Source: [Reddit Deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1o35dfg/year_update_after_1m_laid_off/)

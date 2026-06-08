@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-workonline/a9f9cf9bc7.md
 url: "https://www.reddit.com/r/WorkOnline/comments/1q5lf2l/beginner_coder_video_editor_can_i_start_getting/"
 url_hash: "a9f9cf9bc7"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-26T12:56:40.100990+00:00"
 chars: 1206
+industries: [workforce, education]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-workonline/a9f9cf9bc7.md#c0"
+    char_span: [0, 1430]
+    sentence_count: 11
+    key_terms: [basic, get, clients, ratings, skills, short, small, tasks]
+    token_count: 339
 ---
-
 # Beginner coder & video editor — can I start getting clients with basic skills?
 
 Source: [Reddit Deep: r/workonline](https://www.reddit.com/r/WorkOnline/comments/1q5lf2l/beginner_coder_video_editor_can_i_start_getting/)

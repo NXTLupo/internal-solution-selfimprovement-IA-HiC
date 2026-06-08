@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-gpt/bf9d63edae.md
 url: "https://www.reddit.com/r/GPT/comments/1mygprf/codex_is_delete_chatroom_supported_beyond_archive/"
 url_hash: "bf9d63edae"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T17:33:34.745758+00:00"
 chars: 650
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-gpt/bf9d63edae.md#c0"
+    char_span: [0, 863]
+    sentence_count: 9
+    key_terms: [delete, data, cancer, codex, gpt, archive, "haven't", reddit]
+    token_count: 233
 ---
-
 # Codex: is Delete chat/room supported (beyond Archive)? - IP & Copyright Cancer.
 
 Source: [Reddit Deep: r/gpt](https://www.reddit.com/r/GPT/comments/1mygprf/codex_is_delete_chatroom_supported_beyond_archive/)

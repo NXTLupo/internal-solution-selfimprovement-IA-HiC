@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1lyv1j4.md
 url: "https://www.reddit.com/r/college/comments/1lyv1j4/for_those_who_learned_a_language_in_college_what/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,21 @@ flair: "Academic Life"
 extracted_at: "2026-05-25T13:02:03.702Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1lyv1j4.md#c0"
+    char_span: [0, 349]
+    sentence_count: 2
+    key_terms: [college, comments, wild-purple5517, reddit-deep, experience, languages, compared, language]
+    token_count: 92
+  - id: "social-intelligence/reddit-deep/college/1lyv1j4.md#c1"
+    char_span: [364, 1722]
+    sentence_count: 14
+    key_terms: [high, people, school, class, words, lot, akamduckie, classroom]
+    section: Comments
+    token_count: 300
 ---
-
 # For those who learned a language in college, what was your experience like?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1lyv1j4/for_those_who_learned_a_language_in_college_what/)

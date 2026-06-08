@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1p1ggo1.md
 url: "https://www.reddit.com/r/OpenAI/comments/1p1ggo1/gpt51_codex_max_no_more_context_window_limit/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,39 @@ flair: "News"
 extracted_at: "2026-05-11T17:27:05.352Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1p1ggo1.md#c0"
+    char_span: [0, 601]
+    sentence_count: 1
+    key_terms: [codex, gpt-5, max, comments, context, openai, window, temperatureno3082]
+    token_count: 159
+  - id: "social-intelligence/reddit-deep/openai/1p1ggo1.md#c1"
+    char_span: [616, 2415]
+    sentence_count: 13
+    key_terms: [high, windows, performance, medium, codex, auto-compaction, without, model]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/openai/1p1ggo1.md#c2"
+    char_span: [2417, 3283]
+    sentence_count: 5
+    key_terms: [agent, windows, around, code, full, better, issues, codex]
+    section: Comments
+    token_count: 225
+  - id: "social-intelligence/reddit-deep/openai/1p1ggo1.md#c3"
+    char_span: [3286, 5224]
+    sentence_count: 15
+    key_terms: [windows, codex, wsl, works, context, coding, understanding, real]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/openai/1p1ggo1.md#c4"
+    char_span: [4979, 5456]
+    sentence_count: 3
+    key_terms: [use, dumb, tool, panic-compact, understanding, auto-compact, explorations, satoshinotme]
+    section: Comments
+    token_count: 118
 ---
-
 # GPT-5.1 Codex Max - No more context window limit
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1p1ggo1/gpt51_codex_max_no_more_context_window_limit/)

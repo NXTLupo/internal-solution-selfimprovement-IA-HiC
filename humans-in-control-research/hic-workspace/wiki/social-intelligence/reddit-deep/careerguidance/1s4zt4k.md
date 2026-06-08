@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1s4zt4k.md
 url: "https://www.reddit.com/r/careerguidance/comments/1s4zt4k/bsc_cs_student_23m_facing_financial_crisis_what/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-22T21:34:47.968Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1s4zt4k.md#c0"
+    char_span: [0, 1419]
+    sentence_count: 12
+    key_terms: [science, careerguidance, career, skills, agriculture, bsc, financial, long-term]
+    token_count: 341
+  - id: "social-intelligence/reddit-deep/careerguidance/1s4zt4k.md#c1"
+    char_span: [1434, 3806]
+    sentence_count: 15
+    key_terms: [problems, skills, solve, specific, agriculture, freelancing, feeling-cell-2264, want]
+    section: Comments
+    token_count: 501
 ---
-
 # BSc CS Student (23M) facing financial crisis. What high-demand skills should I learn now for immediate freelancing and long-term career ?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1s4zt4k/bsc_cs_student_23m_facing_financial_crisis_what/)

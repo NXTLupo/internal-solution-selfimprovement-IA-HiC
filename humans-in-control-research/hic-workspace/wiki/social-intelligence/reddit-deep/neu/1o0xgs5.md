@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1o0xgs5.md
 url: "https://www.reddit.com/r/NEU/comments/1o0xgs5/is_the_school_worth_the_price/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,33 @@ flair: "Campus Life"
 extracted_at: "2026-05-18T13:18:36.387Z"
 extraction_method: "praw-deep"
 research_goal: "Generate a slide-ready consulting report for NXT Humans, structured as an Executive Summary, Meeting Guardrails and Validation Criteria, Ideas to Retire or Reframe, Five CLR-Dependent Recommendations, Five Non-CLR Recommendations, Recommended Prioritization, and Suggested Next Steps for NXT Humans. This report must present 10 practical, AI-enabled recommendations for Northeastern University's first-year students to improve co-op and experiential learning readiness. Five recommendations must leverage CLR data and infrastructure, and five must be valuable independently of CLR. Each recommendation requires a title, description, rationale for first-year students and co-op readiness, explanation of CLR dependency/independence, execution within Northeastern's existing experiential learning stack, integration with Microsoft Copilot/365/Teams/SharePoint/Power Automate/Power BI for cost reduction, key stakeholders, implementation steps, risks, and explicit validation against Liz and Jen’s guardrails (cost containment, Microsoft ecosystem, no new platforms, advisor/student burden, AI-enabled, practical). The report should also summarize Liz and Jen’s priorities and non-starters, core design principles, and previous NXT Humans ideas to retire or reframe. Output the #recommendations #NU in this format, including tables comparing implementation complexity, student impact, Microsoft/Copilot fit, dependency, stakeholder burden, and strategic alignment."
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1o0xgs5.md#c0"
+    char_span: [0, 487]
+    sentence_count: 4
+    key_terms: [school, comments, bad, neu, experiences, perspective, reddit-deep, maintained]
+    token_count: 123
+  - id: "social-intelligence/reddit-deep/neu/1o0xgs5.md#c1"
+    char_span: [502, 2485]
+    sentence_count: 18
+    key_terms: [school, experience, state, college, schools, opportunities, worth, good]
+    section: Comments
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/neu/1o0xgs5.md#c2"
+    char_span: [2487, 2887]
+    sentence_count: 3
+    key_terms: [community, nervous-hair-2107, administration, incompetent, shoretel230, completely, experience, american]
+    section: Comments
+    token_count: 101
+  - id: "social-intelligence/reddit-deep/neu/1o0xgs5.md#c3"
+    char_span: [2890, 4708]
+    sentence_count: 14
+    key_terms: [buildings, price, worth, financial, depends, newness, program, cities]
+    section: Comments
+    token_count: 429
 ---
-
 # Is the school worth the price?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1o0xgs5/is_the_school_worth_the_price/)

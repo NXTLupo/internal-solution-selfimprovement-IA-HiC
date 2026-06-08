@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1lnudw5.md
 url: "https://www.reddit.com/r/GradSchool/comments/1lnudw5/midphd_and_its_looking_like_ive_made_a_huge/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,39 @@ flair: "Professional"
 extracted_at: "2026-05-23T19:45:05.859Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1lnudw5.md#c0"
+    char_span: [0, 1857]
+    sentence_count: 17
+    key_terms: [research, papers, gradschool, returning, seriously, comments, thoughts, become]
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/gradschool/1lnudw5.md#c1"
+    char_span: [1872, 3774]
+    sentence_count: 22
+    key_terms: [research, phd, "you're", opportunities, find, job, like, lot]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/gradschool/1lnudw5.md#c2"
+    char_span: [3779, 5211]
+    sentence_count: 12
+    key_terms: [phd, "don't", want, year, decide, finish, "you're", human-anything5295]
+    section: Comments
+    token_count: 353
+  - id: "social-intelligence/reddit-deep/gradschool/1lnudw5.md#c3"
+    char_span: [5213, 7306]
+    sentence_count: 14
+    key_terms: [balance, through, time, hobbies, like, need, outdoorsy, research]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/gradschool/1lnudw5.md#c4"
+    char_span: [7308, 7718]
+    sentence_count: 2
+    key_terms: [environment, institution, counsellor, realistic, academia, consider, entering, students]
+    section: Comments
+    token_count: 89
 ---
-
 # Mid-PhD and it's looking like I've made a huge mistake choosing to do a PhD
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1lnudw5/midphd_and_its_looking_like_ive_made_a_huge/)

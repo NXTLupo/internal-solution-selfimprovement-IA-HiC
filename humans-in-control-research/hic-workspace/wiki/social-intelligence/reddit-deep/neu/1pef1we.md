@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1pef1we.md
 url: "https://www.reddit.com/r/NEU/comments/1pef1we/roast_my_resume_applying_for_new_grad_roles_but/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "Co-op & Career"
 extracted_at: "2026-05-20T06:39:39.940Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1pef1we.md#c0"
+    char_span: [0, 707]
+    sentence_count: 5
+    key_terms: [resume, comments, https, grad, neu, new, png, androidslash]
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/neu/1pef1we.md#c1"
+    char_span: [722, 1676]
+    sentence_count: 2
+    key_terms: [androidslash, oddactive2516, experience, fatkitty72, technical, template, skills, impossible-medium204]
+    section: Comments
+    token_count: 289
 ---
-
 # Roast my Resume: Applying for new grad roles but not getting any calls
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1pef1we/roast_my_resume_applying_for_new_grad_roles_but/)

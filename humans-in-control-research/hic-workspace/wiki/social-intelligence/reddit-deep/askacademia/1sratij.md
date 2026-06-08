@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1sratij.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1sratij/navigating_autism_not_adhd_in_academiaphd_program/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,57 @@ flair: "Interpersonal Issues"
 extracted_at: "2026-05-26T14:32:49.116Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1sratij.md#c0"
+    char_span: [0, 2257]
+    sentence_count: 16
+    key_terms: [friends, people, struggle, don, around, constantly, adhd, like]
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/askacademia/1sratij.md#c1"
+    char_span: [2259, 3755]
+    sentence_count: 17
+    key_terms: [people, sunflowerstar4429, nuerodivergent, layers, onion, closeness, interact, "that's"]
+    section: Comments
+    token_count: 356
+  - id: "social-intelligence/reddit-deep/askacademia/1sratij.md#c2"
+    char_span: [3758, 5781]
+    sentence_count: 14
+    key_terms: [inappropriate, like, mean, anything, conversations, group, jokes, too]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/askacademia/1sratij.md#c3"
+    char_span: [5783, 8096]
+    sentence_count: 14
+    key_terms: [friends, great-associate-9016, colleagues, feel, people, information, necessarily, exceptions]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/askacademia/1sratij.md#c4"
+    char_span: [8099, 9718]
+    sentence_count: 14
+    key_terms: ["didn't", social, job, autistic, advisor, because, issues, intra-departmental]
+    section: Comments
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/askacademia/1sratij.md#c5"
+    char_span: [9720, 11939]
+    sentence_count: 10
+    key_terms: [neurodivergent, people, social, great-associate-9016, like, because, never, grad]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/askacademia/1sratij.md#c6"
+    char_span: [11668, 13704]
+    sentence_count: 15
+    key_terms: [people, social, great-associate-9016, rules, autism, others, jokes, interacting]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/askacademia/1sratij.md#c7"
+    char_span: [13706, 14989]
+    sentence_count: 9
+    key_terms: [great-associate-9016, social, feel, practicing, something, better, groups, people]
+    section: Comments
+    token_count: 290
 ---
-
 # navigating autism (not ADHD) in academia/phd program?
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1sratij/navigating_autism_not_adhd_in_academiaphd_program/)

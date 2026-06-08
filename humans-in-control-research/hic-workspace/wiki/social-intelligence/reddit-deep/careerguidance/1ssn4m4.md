@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1ssn4m4.md
 url: "https://www.reddit.com/r/careerguidance/comments/1ssn4m4/need_career_guidance_after_bca/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,20 @@ flair: ""
 extracted_at: "2026-05-22T23:34:01.114Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1ssn4m4.md#c0"
+    char_span: [0, 2210]
+    sentence_count: 14
+    key_terms: [coding, option, competitive, development, interest, careerguidance, career, doing]
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/careerguidance/1ssn4m4.md#c1"
+    char_span: [2212, 3079]
+    sentence_count: 4
+    key_terms: [confusion, practical, another, whether, career, want, undervaluing, comfortable]
+    token_count: 189
 ---
-
 # NEED CAREER  GUIDANCE AFTER BCA?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1ssn4m4/need_career_guidance_after_bca/)

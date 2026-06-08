@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1sxl43c.md
 url: "https://www.reddit.com/r/Professors/comments/1sxl43c/university_professors_disturbed_to_find_their/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -10,11 +11,45 @@ score: 180
 upvote_ratio: 0.97
 num_comments: 45
 flair: ""
-extracted_at: "2026-05-14T18:17:21.706Z"
+extracted_at: "2026-06-06T16:39:04.355Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1sxl43c.md#c0"
+    char_span: [0, 2076]
+    sentence_count: 6
+    key_terms: [students-are-being-treated-like-guinea-pigs-inside-an-ai-powered-private-school, university, whats-the-point-of-school-when-ai-can-do-your-homework, professors, https, lectures, faculty, without]
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/professors/1sxl43c.md#c1"
+    char_span: [2078, 2905]
+    sentence_count: 3
+    key_terms: [asu-atomic-ai-modules-arizona-state-university, learning, asu, https, instructure, www, management, atomic]
+    token_count: 183
+  - id: "social-intelligence/reddit-deep/professors/1sxl43c.md#c2"
+    char_span: [2920, 4650]
+    sentence_count: 19
+    key_terms: [down, faculty, online, own, university, contract, material, content]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/professors/1sxl43c.md#c3"
+    char_span: [4652, 5210]
+    sentence_count: 3
+    key_terms: [need, better, collectorcardandcoin, thisunis20characters, helpful-orchid2710, like, ctenophorever, definitely]
+    section: Comments
+    token_count: 156
+  - id: "social-intelligence/reddit-deep/professors/1sxl43c.md#c4"
+    char_span: [5212, 7174]
+    sentence_count: 9
+    key_terms: [faculty, canvas, asu, own, case, "it's", credential, because]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/professors/1sxl43c.md#c5"
+    char_span: [7176, 7630]
+    sentence_count: 5
+    key_terms: [likeness, wow, fighterpilottim, shiny-mango624, simultaneously, universities, instruction, notmrchips]
+    section: Comments
+    token_count: 130
 ---
-
 # University Professors Disturbed to Find Their Lectures Chopped Up and Turned Into AI Slop
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1sxl43c/university_professors_disturbed_to_find_their/)
@@ -32,39 +67,39 @@ Read now: [https://www.404media.co/asu-atomic-ai-modules-arizona-state-universit
 
 ## Comments
 
-- **wedontliveonce** (135↑): Idiotic. I'd be taking all my content down and not teaching online anymore.
+- **wedontliveonce** (137↑): Idiotic. I'd be taking all my content down and not teaching online anymore.
   - **AgentPendergash** (32↑): You clearly don’t work at ASU. There is no “taking down” here. All the content is the property of ASU. We do not own it and they can do as they wish. It is on the cloud. The faculty are too scattered and scared to mobilize against the law engine that protects the University.
-    - **gamecat89** (11↑): Yep. There is no take down. The material is so spread out and divided among servers you'd never get it all. Plus you don't own it anyways. Some schools in across the world are using my material thanks to Cintanna.
-  - **NotMrChips** (12↑): I've taught online for 5 years. My stuff is up in approximately 17 courses. The mere thought....
+    - **gamecat89** (10↑): Yep. There is no take down. The material is so spread out and divided among servers you'd never get it all. Plus you don't own it anyways. Some schools in across the world are using my material thanks to Cintanna.
+  - **NotMrChips** (10↑): I've taught online for 5 years. My stuff is up in approximately 17 courses. The mere thought....
     - **Shiny-Mango624** (5↑): 15 years for me, I have hundreds of hours of recordings. So much of it is on YouTube, ugh. I guess I should take that down?!
-- **Flashy-Share8186** (103↑): so should we all go to our faculty unions and make sure that Canvas cannot do this on our own campuses?
-  - **tongmengjia** (182↑): This is exactly why we fought hard for IP rights in our last contract. Admin acted holier than thou during negotiations, how could we dare suggest they'd use our recorded lectures without our permission? 
+- **Flashy-Share8186** (102↑): so should we all go to our faculty unions and make sure that Canvas cannot do this on our own campuses?
+  - **tongmengjia** (181↑): This is exactly why we fought hard for IP rights in our last contract. Admin acted holier than thou during negotiations, how could we dare suggest they'd use our recorded lectures without our permission? 
 
 Three months after the contract was inked I caught my dean offering a course using my online materials without even telling me. I filed a grievance, he offered me **$150** to resolve it (not even kidding). Escalated to upper admin, university counsel was incredulous, I walked away with $11k, plus guaranteed time in our next faculty meeting to explain to my colleagues what a lying POS the dean was *right in front of his face*.
 
 Unionize, comrades.
-    - **CollectorCardandCoin** (40↑): I need a better emoji than a mere "upvote" for this.
-    - **z74al** (37↑): I feel like I need a cigarette after reading this. Holy shit that was good
-    - **Ctenophorever** (14↑): Meanwhile my union folded like a cheap suit - “well if you make something as part of your job it belongs to the college….”
-    - **Helpful-Orchid2710** (12↑): I need more details on this story!!!
-    - **ThisUNis20characters** (11↑): This post is better than any superhero movie.  I’d definitely buy your comic book.  
+    - **CollectorCardandCoin** (41↑): I need a better emoji than a mere "upvote" for this.
+    - **z74al** (35↑): I feel like I need a cigarette after reading this. Holy shit that was good
+    - **Ctenophorever** (15↑): Meanwhile my union folded like a cheap suit - “well if you make something as part of your job it belongs to the college….”
+    - **Helpful-Orchid2710** (10↑): I need more details on this story!!!
+    - **ThisUNis20characters** (10↑): This post is better than any superhero movie.  I’d definitely buy your comic book.  
 
 In case that sounds like sarcasm, it 100% isn’t. You just made my day.
   - **JonBenet_Palm** (14↑): It's not Canvas that's done it; it's ASU. Canvas is technically [open source software](https://github.com/instructure/canvas-lms) that's shaped by how it's implemented. ASU has chosen to create an ecosystem they can easily scrape, create some kind of toolset to do the scraping, and contractually obligate their faculty to allow this. (ASU faculty do not own their IP.)
     - **Flashy-Share8186** (3↑): Oh I meant, because my school uses Canvas, should I let my union know I want safeguards against this in my contract
-- **siraolo** (22↑): Does it also scrape from hyperlinks? I don't post my lectures directy on Canvas but just link to my own personal drive.
+- **siraolo** (20↑): Does it also scrape from hyperlinks? I don't post my lectures directy on Canvas but just link to my own personal drive.
   - **Expensive-Mention-90** (1↑): Ditto, and wondering the same thing
-- **RepresentativeMinds** (29↑): Honestly, this will be more reason to keep letting them do it. It shows how deficient AI is and makes a stronger case for professors. Let them shoot themselves in the foot and pay money on AI slop so they can learn their lesson
-  - **Ok_Mycologist_5942** (21↑): Can it be a case where those purchasing it cannot recognize that it is strung together nonsense because they are only looking for a credit or a credential?
-    - **MagentaMango51** (10↑): This is what I think… the content isn’t for real students. It’s for those who want a credential and are just going to have AI do the work anyway so why even bother with a faculty member or curriculum when you can fake it and rake in money.
+- **RepresentativeMinds** (28↑): Honestly, this will be more reason to keep letting them do it. It shows how deficient AI is and makes a stronger case for professors. Let them shoot themselves in the foot and pay money on AI slop so they can learn their lesson
+  - **Ok_Mycologist_5942** (22↑): Can it be a case where those purchasing it cannot recognize that it is strung together nonsense because they are only looking for a credit or a credential?
+    - **MagentaMango51** (11↑): This is what I think… the content isn’t for real students. It’s for those who want a credential and are just going to have AI do the work anyway so why even bother with a faculty member or curriculum when you can fake it and rake in money.
   - **NutellaDeVil** (5↑): Don't underestimate the extent to which some people will be perfectly fine with mediocre "slop".
 - **gamecat89** (30↑): I mean, this is what happens when faculty don’t own their own IP. I’m at ASU and knew about this - but knew there was nothing we could do about it.
-- **NoPatNoDontSitonThat** (11↑): Research: "AI inhibits our ability to think critically and retain information."
+- **NoPatNoDontSitonThat** (12↑): Research: "AI inhibits our ability to think critically and retain information."
 
 Universities and Schools: "Let's use AI to do all of our instruction."
-- **z74al** (9↑): Oh fuck no
+- **z74al** (7↑): Oh fuck no
 - **fighterpilottim** (5↑): You know the university is making money off of this.
-- **Shiny-Mango624** (6↑): Wow. I'm simultaneously both shook and not surprised. But wow. Literally stole their likeness, tho. I saw on the news today that Taylor Swift TM her likeness, so I guess that's where we are.
+- **Shiny-Mango624** (5↑): Wow. I'm simultaneously both shook and not surprised. But wow. Literally stole their likeness, tho. I saw on the news today that Taylor Swift TM her likeness, so I guess that's where we are.
 - **NotMrChips** (3↑): "your AI learning partner..."
 
 🤢

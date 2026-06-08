@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-jobs/dec1f3cd87.md
 url: "https://www.reddit.com/r/jobs/comments/1ln94tt/anyone_else_feel_like_every_job_now_wants_way_too/"
 url_hash: "dec1f3cd87"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T06:47:50.584858+00:00"
 chars: 1817
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-jobs/dec1f3cd87.md#c0"
+    char_span: [0, 2026]
+    sentence_count: 10
+    key_terms: [like, pay, fulfilling, job, tired, career, fulfillment, want]
+    token_count: 512
 ---
-
 # Anyone else feel like every job now wants way too much for what they pay?
 
 Source: [Reddit Deep: r/jobs](https://www.reddit.com/r/jobs/comments/1ln94tt/anyone_else_feel_like_every_job_now_wants_way_too/)

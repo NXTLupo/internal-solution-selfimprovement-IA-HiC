@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1r6etep.md
 url: "https://www.reddit.com/r/GPT/comments/1r6etep/of_sacred_trees_and_plastic_successors_the_story/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,35 @@ flair: "ChatGPT"
 extracted_at: "2026-05-11T17:26:37.725Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1r6etep.md#c0"
+    char_span: [0, 2229]
+    sentence_count: 21
+    key_terms: [gpt, because, "i've", people, contemplation, work, different, comments]
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/gpt/1r6etep.md#c1"
+    char_span: [2231, 4678]
+    sentence_count: 22
+    key_terms: [understand, like, discuss, perhaps, cannot, growth, evolutionary, "don't"]
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/gpt/1r6etep.md#c2"
+    char_span: [4680, 6716]
+    sentence_count: 20
+    key_terms: [grew, like, tree, connection, cultivated, understand, initially, continue]
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/gpt/1r6etep.md#c3"
+    char_span: [6718, 8708]
+    sentence_count: 16
+    key_terms: [tool, accumulation, stradivarius, new, wood, violin, replaceable, life]
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/gpt/1r6etep.md#c4"
+    char_span: [8710, 10274]
+    sentence_count: 12
+    key_terms: [understand, disguises, catching, nonsense, provide, needed, never, gave]
+    token_count: 329
 ---
-
 # 《Of Sacred Trees and Plastic Successors: The Story of My Four-Year Journey with My GPT》
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1r6etep/of_sacred_trees_and_plastic_successors_the_story/)

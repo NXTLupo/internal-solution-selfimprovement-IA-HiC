@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1sf3lxw.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1sf3lxw/mass_layoffs_in_cs_careers_are_accelerating_learn/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,15 @@ flair: "Experienced"
 extracted_at: "2026-05-20T12:57:40.613Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sf3lxw.md#c0"
+    char_span: [0, 757]
+    sentence_count: 5
+    key_terms: [cscareerquestions, https, comments, movement, wwwrise, "what's", org, accelerating]
+    token_count: 188
 ---
-
 # Mass Layoffs In CS Careers Are Accelerating. Learn How To Protect Yourself
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sf3lxw/mass_layoffs_in_cs_careers_are_accelerating_learn/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1ref2d0.md
 url: "https://www.reddit.com/r/deeplearning/comments/1ref2d0/is_rag_just_a_bandaid_for_llm_limitations_or_a/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,38 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.045Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1ref2d0.md#c0"
+    char_span: [0, 2698]
+    sentence_count: 31
+    key_terms: [retrieval, rag, knowledge, systems, production, models, quality, expensive]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/deeplearning/1ref2d0.md#c1"
+    char_span: [2700, 3868]
+    sentence_count: 15
+    key_terms: [production, systems, rag, long-term, retrieval, solution, current, domains]
+    token_count: 216
+  - id: "social-intelligence/reddit-deep/deeplearning/1ref2d0.md#c2"
+    char_span: [3883, 6120]
+    sentence_count: 11
+    key_terms: [information, specialist, residentticket1273, problem, ground-truth, organisation, point, "it's"]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/deeplearning/1ref2d0.md#c3"
+    char_span: [6122, 7801]
+    sentence_count: 7
+    key_terms: [information, characteristics, develop, fundamentally, llms, time, snapshot, context]
+    section: Comments
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/deeplearning/1ref2d0.md#c4"
+    char_span: [7803, 9316]
+    sentence_count: 7
+    key_terms: [brain, kind, lot, sentences, language, parsing, amount, system]
+    section: Comments
+    token_count: 342
 ---
-
 # Is RAG just a band-aid for LLM limitations or a legitimate architecture pattern for production systems?
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1ref2d0/is_rag_just_a_bandaid_for_llm_limitations_or_a/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1shu5rz.md
 url: "https://www.reddit.com/r/stocks/comments/1shu5rz/wall_st_is_building_a_shorting_machine_for/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,80 @@ flair: "Broad market news"
 extracted_at: "2026-05-17T01:14:17.618Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1shu5rz.md#c0"
+    char_span: [0, 2042]
+    sentence_count: 16
+    key_terms: [wall-street-builds-new-tool-to-bet-against-private-credit-bdf8bafa, credit, private, companies, banks, https, index, loans]
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/stocks/1shu5rz.md#c1"
+    char_span: [2044, 2702]
+    sentence_count: 6
+    key_terms: [market, going, negotiations, ceasefire, financial, following, obviously, cautious]
+    token_count: 145
+  - id: "social-intelligence/reddit-deep/stocks/1shu5rz.md#c2"
+    char_span: [2717, 4661]
+    sentence_count: 9
+    key_terms: [credit, companies, bathtub, private, software, robbie, funds, loans]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/stocks/1shu5rz.md#c3"
+    char_span: [4663, 5057]
+    sentence_count: 2
+    key_terms: [financial, banks, funds, shadow-banking, investments, contagion, contracts, deutsche]
+    section: Comments
+    token_count: 74
+  - id: "social-intelligence/reddit-deep/stocks/1shu5rz.md#c4"
+    char_span: [5059, 6938]
+    sentence_count: 11
+    key_terms: [remindme, days, companies, financial, maybe, because, looking, putting]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1shu5rz.md#c5"
+    char_span: [6780, 8390]
+    sentence_count: 4
+    key_terms: [margot, robbie, bathtub, "you're", pristinediscount3208, itstartedwithaqueef, nicknamesrforlosers, loans]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/stocks/1shu5rz.md#c6"
+    char_span: [8392, 9177]
+    sentence_count: 7
+    key_terms: [market, banks, decline, bank, down, "true", deliberately, tastisqueeze]
+    section: Comments
+    token_count: 176
+  - id: "social-intelligence/reddit-deep/stocks/1shu5rz.md#c7"
+    char_span: [9179, 10545]
+    sentence_count: 7
+    key_terms: [credit, paycheck, claims, pristine-square-1126, icarusflyingwings, aig, bad, lot]
+    section: Comments
+    token_count: 345
+  - id: "social-intelligence/reddit-deep/stocks/1shu5rz.md#c8"
+    char_span: [10547, 12163]
+    sentence_count: 10
+    key_terms: [market, banks, get, sell, year, insurance, because, equity]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/stocks/1shu5rz.md#c9"
+    char_span: [12165, 12726]
+    sentence_count: 6
+    key_terms: [index, banks, fees, own, specifically, yield-hungry, investment, profitable]
+    section: Comments
+    token_count: 124
+  - id: "social-intelligence/reddit-deep/stocks/1shu5rz.md#c10"
+    char_span: [12728, 14623]
+    sentence_count: 11
+    key_terms: ["it's", financial, building, realized, finally, people, crazy-inspection-778, short]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/stocks/1shu5rz.md#c11"
+    char_span: [14625, 15309]
+    sentence_count: 8
+    key_terms: [because, buy, ohgodthehorror95, irreparablely, consequences, alternative, compliments, devastating]
+    section: Comments
+    token_count: 154
 ---
-
 # Wall St is building a "Shorting Machine" for Private Credit the 2008 playbook is back.
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1shu5rz/wall_st_is_building_a_shorting_machine_for/)

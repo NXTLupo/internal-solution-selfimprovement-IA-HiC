@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1ovqifz.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1ovqifz/there_she_goes/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,33 @@ flair: "Loss"
 extracted_at: "2026-05-17T01:14:17.612Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ovqifz.md#c0"
+    char_span: [0, 648]
+    sentence_count: 11
+    key_terms: [wallstreetbets, comments, goes, hard, life, like, too, reddit-deep]
+    token_count: 176
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ovqifz.md#c1"
+    char_span: [663, 2015]
+    sentence_count: 4
+    key_terms: [average, https, goes, sometimes, sooumy154, discord, bought, anymanufacturer6465]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ovqifz.md#c2"
+    char_span: [2017, 3708]
+    sentence_count: 11
+    key_terms: [earnings, sooumy154, like, rioferdy838, coreweave, november, company, people]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ovqifz.md#c3"
+    char_span: [3710, 5152]
+    sentence_count: 5
+    key_terms: [sooumy154, down, like, november, options, bought, shares, march]
+    section: Comments
+    token_count: 427
 ---
-
 # There she goes
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1ovqifz/there_she_goes/)

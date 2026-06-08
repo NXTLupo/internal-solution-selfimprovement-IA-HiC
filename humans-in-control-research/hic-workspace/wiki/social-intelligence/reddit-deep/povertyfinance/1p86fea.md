@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1p86fea.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1p86fea/happy_thanksgiving_after_3_years_of_tracking/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,45 @@ flair: "Budgeting/Saving/Investing/Spending"
 extracted_at: "2026-05-16T20:55:12.698Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1p86fea.md#c0"
+    char_span: [0, 706]
+    sentence_count: 9
+    key_terms: [povertyfinance, thanksgiving, comments, tracking, finally, "i'm", richardbrandon2, reddit-deep]
+    token_count: 173
+  - id: "social-intelligence/reddit-deep/povertyfinance/1p86fea.md#c1"
+    char_span: [721, 2563]
+    sentence_count: 12
+    key_terms: [went, years, apartment, deposit, percent, living, people, common-tradition-123]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/povertyfinance/1p86fea.md#c2"
+    char_span: [2565, 2863]
+    sentence_count: 3
+    key_terms: [card, gift, job, somewhere, compared, getting, "haven't", husband]
+    section: Comments
+    token_count: 81
+  - id: "social-intelligence/reddit-deep/povertyfinance/1p86fea.md#c3"
+    char_span: [2865, 4704]
+    sentence_count: 16
+    key_terms: [parents, house, neighborhood, makes, month, apartment, interest, deleted]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1p86fea.md#c4"
+    char_span: [4483, 5294]
+    sentence_count: 6
+    key_terms: [cute-consequence-184, disability, laundry, dreamsservedsoft, tfelsemanresuon, recommending, notoriously, affording]
+    section: Comments
+    token_count: 204
+  - id: "social-intelligence/reddit-deep/povertyfinance/1p86fea.md#c5"
+    char_span: [5296, 7212]
+    sentence_count: 17
+    key_terms: [rent, because, dollar, grown, house, kids, another, hundred]
+    section: Comments
+    token_count: 490
 ---
-
 # Happy Thanksgiving! After 3 years of tracking every penny, finally understand why I'm broke
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1p86fea/happy_thanksgiving_after_3_years_of_tracking/)

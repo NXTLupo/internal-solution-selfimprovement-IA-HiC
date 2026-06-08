@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1sez7d0.md
 url: "https://www.reddit.com/r/deeplearning/comments/1sez7d0/i_built_a_functional_cognitive_engine_sovereign/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.048Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1sez7d0.md#c0"
+    char_span: [0, 1240]
+    sentence_count: 4
+    key_terms: [affective, cognitive, consciousness, architecture, deeplearning, state, real, comments]
+    token_count: 261
+  - id: "social-intelligence/reddit-deep/deeplearning/1sez7d0.md#c1"
+    char_span: [1255, 3758]
+    sentence_count: 11
+    key_terms: [probabilistic, universe, hypothesis, recursive, pocket, simulation, epistemic, simulated]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/deeplearning/1sez7d0.md#c2"
+    char_span: [3760, 5463]
+    sentence_count: 12
+    key_terms: [universe, probabilistic, within, indistinguishability, epistemic, indistinguishable, via, define]
+    section: Comments
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/deeplearning/1sez7d0.md#c3"
+    char_span: [5465, 7070]
+    sentence_count: 17
+    key_terms: ["it's", state, inference, prompting, substrate, actively, bryany97, certain]
+    section: Comments
+    token_count: 365
 ---
-
 # I Built a Functional Cognitive Engine: Sovereign cognitive architecture — real IIT 4.0 φ, residual-stream affective steering, self-dreaming identity, 1Hz heartbeat. 100% local on Apple Silicon
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1sez7d0/i_built_a_functional_cognitive_engine_sovereign/)

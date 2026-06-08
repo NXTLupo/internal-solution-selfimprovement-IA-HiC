@@ -6,19 +6,19 @@ subreddit: "gradadmissions"
 title: "Do grad school mail physical admission letters these days?"
 author: "Fun_Knee_9232"
 date: "2026-03-07T02:04:10.000Z"
-score: 12
-upvote_ratio: 1
+score: 11
+upvote_ratio: 0.93
 num_comments: 9
 flair: "General Advice"
-extracted_at: "2026-05-24T14:10:06.600Z"
+extracted_at: "2026-06-06T23:23:15.584Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Do grad school mail physical admission letters these days?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rmxb31/do_grad_school_mail_physical_admission_letters/)
-Posted by **Fun_Knee_9232** · **12↑** · **9 comments**
+Posted by **Fun_Knee_9232** · **11↑** · **9 comments**
 
 I remembered in undergrad schools mailed me hard copy of admission letters and small little gifts. (Even one school rejected me mailed a free T-shirt, even though its wayyyyy too big)  
 Should I expect anything mailed from grad school admission? Or do we only receive emails?

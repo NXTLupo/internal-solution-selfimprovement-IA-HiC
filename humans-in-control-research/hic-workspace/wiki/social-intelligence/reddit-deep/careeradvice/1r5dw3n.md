@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1r5dw3n.md
 url: "https://www.reddit.com/r/careeradvice/comments/1r5dw3n/advice_for_an_18yearold_lost_on_career_low_grades/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.239Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1r5dw3n.md#c0"
+    char_span: [0, 1659]
+    sentence_count: 15
+    key_terms: ["i'm", career, careeradvice, jobs, background, generation, something, comments]
+    token_count: 433
 ---
-
 # Advice for an 18-Year-Old Lost on Career: Low Grades, Self-Doubt, AI Fears—Open to Anything!
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1r5dw3n/advice_for_an_18yearold_lost_on_career_low_grades/)

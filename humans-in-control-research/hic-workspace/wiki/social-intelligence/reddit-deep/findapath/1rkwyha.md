@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1rkwyha.md
 url: "https://www.reddit.com/r/findapath/comments/1rkwyha/what_career_would_you_recommend_for_a_30yearold/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,21 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-25T13:04:07.382Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1rkwyha.md#c0"
+    char_span: [0, 324]
+    sentence_count: 2
+    key_terms: [findapath, comments, ok-definition-1922, reddit-deep, experience, immigrant, recommend, year-old]
+    token_count: 92
+  - id: "social-intelligence/reddit-deep/findapath/1rkwyha.md#c1"
+    char_span: [339, 1471]
+    sentence_count: 10
+    key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
+    section: Comments
+    token_count: 248
 ---
-
 # What career would you recommend for a 30-year-old immigrant in the US with no work experience?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1rkwyha/what_career_would_you_recommend_for_a_30yearold/)

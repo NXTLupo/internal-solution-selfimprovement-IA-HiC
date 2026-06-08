@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1r1jctt.md
 url: "https://www.reddit.com/r/GradSchool/comments/1r1jctt/should_i_drop_out/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,51 @@ flair: "Health & Work/Life Balance"
 extracted_at: "2026-05-20T12:57:40.642Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, policy, government]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1r1jctt.md#c0"
+    char_span: [0, 1168]
+    sentence_count: 16
+    key_terms: [semester, gradschool, comments, school, "don't", back, drop, full]
+    token_count: 278
+  - id: "social-intelligence/reddit-deep/gradschool/1r1jctt.md#c1"
+    char_span: [1183, 3276]
+    sentence_count: 18
+    key_terms: [school, time, full, grad, like, semester, health, work]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/gradschool/1r1jctt.md#c2"
+    char_span: [3278, 5445]
+    sentence_count: 20
+    key_terms: [school, researchplaceholder, professor, yourself, "you're", extra, smart, "i'm"]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1r1jctt.md#c3"
+    char_span: [5449, 6576]
+    sentence_count: 12
+    key_terms: [already, classes, take, potential, thinking, feeling, person, school]
+    section: Comments
+    token_count: 245
+  - id: "social-intelligence/reddit-deep/gradschool/1r1jctt.md#c4"
+    char_span: [6578, 8621]
+    sentence_count: 10
+    key_terms: [semester, classes, gf20xx, don, half, "i'm", take, dropped]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1r1jctt.md#c5"
+    char_span: [8407, 8783]
+    sentence_count: 4
+    key_terms: [white-footedwitch, circumstances, showmenemelda, counseling, roykeymite, depending, therapist, consider]
+    section: Comments
+    token_count: 109
+  - id: "social-intelligence/reddit-deep/gradschool/1r1jctt.md#c6"
+    char_span: [8786, 9566]
+    sentence_count: 15
+    key_terms: [help, time, burn, get, need, take, professional, absolutely]
+    section: Comments
+    token_count: 189
 ---
-
 # Should I drop out?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1r1jctt/should_i_drop_out/)

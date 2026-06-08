@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1ld6dot.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1ld6dot/a_close_friend_confessed_she_almost_fell_into/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,113 @@ flair: "Gone Wild "
 extracted_at: "2026-05-17T01:12:48.210Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c0"
+    char_span: [0, 1773]
+    sentence_count: 11
+    key_terms: [chatgpt, told, friend, feedback, information, attached, comments, because]
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c1"
+    char_span: [1775, 3427]
+    sentence_count: 12
+    key_terms: [soul, lifetime, told, family, generational, past, contracts, chatgpt]
+    token_count: 352
+  - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c2"
+    char_span: [3429, 5775]
+    sentence_count: 16
+    key_terms: [chatgpt, told, because, psychosis, connect, deleted, evolved, energy]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c3"
+    char_span: [5777, 8052]
+    sentence_count: 14
+    key_terms: [chatgpt, because, conversation, friend, people, conversations, asked, screenshots]
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c4"
+    char_span: [8054, 9438]
+    sentence_count: 16
+    key_terms: [chatgpt, believe, people, ask, deep, conversations, conversation, occasionally]
+    token_count: 303
+  - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c5"
+    char_span: [9453, 11435]
+    sentence_count: 10
+    key_terms: [chatgpt, conversation, please, image, post, r-chatgpt-1050422060352024636, distorted, generally]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c6"
+    char_span: [11437, 13413]
+    sentence_count: 7
+    key_terms: [people, friend, "doesn't", help, remember, "what's", desperateastronaut65, "don't"]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c7"
+    char_span: [13415, 15313]
+    sentence_count: 4
+    key_terms: [shit, "i'm", something, because, believe, months, weird, ass]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c8"
+    char_span: [15315, 17120]
+    sentence_count: 7
+    key_terms: [push, yeah, delusions, spiritual, chatgpt, coming, based, thats]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c9"
+    char_span: [17122, 18665]
+    sentence_count: 11
+    key_terms: [academic, personal, chatgpt, deleted, always, people, "don't", icyinformation8272]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c10"
+    char_span: [18667, 20403]
+    sentence_count: 7
+    key_terms: [spiritual, like, soul, answer, here, something, garbage, someone]
+    section: Comments
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c11"
+    char_span: [20405, 22502]
+    sentence_count: 12
+    key_terms: [conversation, particular, statement, catching, question, response, broader, chatgpt]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c12"
+    char_span: [22221, 22506]
+    sentence_count: 3
+    key_terms: [someone, sarmsgoblinchaser, conversation, encouraging, particular, question, response, exactly]
+    section: Comments
+    token_count: 66
+  - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c13"
+    char_span: [22508, 24158]
+    sentence_count: 11
+    key_terms: [delusion, chatgpt, friend, conversations, like, esoteric, exactly, people]
+    section: Comments
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c14"
+    char_span: [24160, 24957]
+    sentence_count: 2
+    key_terms: [ai-spiritual-delusions-destroying-human-relationships-1235330175, chatgpt-ai-chatbots-conspiracies, friend, freshcompetition6513, https, com, www, culture-features]
+    section: Comments
+    token_count: 206
+  - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c15"
+    char_span: [24959, 26875]
+    sentence_count: 10
+    key_terms: [chatgpt, readings, tarot, like, understand, chatgpt-users-delusions, talking, youtube]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c16"
+    char_span: [26877, 28469]
+    sentence_count: 11
+    key_terms: [no-nefariousness956, sunsunsun2023, conversation, model, "it's", detailed, deleted, latent]
+    section: Comments
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/chatgpt/1ld6dot.md#c17"
+    char_span: [28471, 29000]
+    sentence_count: 3
+    key_terms: [been, subreddits, people, going, heat8596558, apocalypse, revelation, recommend]
+    section: Comments
+    token_count: 121
 ---
-
 # A close friend confessed she almost fell into ChatGPT delusion last week
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1ld6dot/a_close_friend_confessed_she_almost_fell_into/)

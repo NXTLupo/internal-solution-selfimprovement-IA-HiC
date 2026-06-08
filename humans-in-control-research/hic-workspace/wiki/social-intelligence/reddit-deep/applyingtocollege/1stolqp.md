@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1stolqp.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1stolqp/parent_of_a_soon_to_be_9th_grader_what_do_you/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,99 @@ flair: "Discussion"
 extracted_at: "2026-05-20T12:57:06.069Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [education, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c0"
+    char_span: [0, 1007]
+    sentence_count: 7
+    key_terms: [school, applyingtocollege, high, differently, comments, parent, known, character-put8660]
+    token_count: 235
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c1"
+    char_span: [1022, 2257]
+    sentence_count: 19
+    key_terms: [college, "don't", university, teenagers, yourself, perfect, figure, please]
+    section: Comments
+    token_count: 286
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c2"
+    char_span: [2259, 4399]
+    sentence_count: 20
+    key_terms: [year, school, high, highschool, academics, computer, already, college]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c3"
+    char_span: [4401, 6752]
+    sentence_count: 19
+    key_terms: [college, school, interests, schools, major, high, life, math]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c4"
+    char_span: [6754, 8312]
+    sentence_count: 17
+    key_terms: [laundry, social, knows, video, etc, son, take, college]
+    section: Comments
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c5"
+    char_span: [8314, 10325]
+    sentence_count: 14
+    key_terms: [kids, get, top, laundry, prepare, schools, "aren't", plenty]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c6"
+    char_span: [10327, 11969]
+    sentence_count: 22
+    key_terms: [good, advice, knows, etc, themselves, college, family, great]
+    section: Comments
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c7"
+    char_span: [11971, 13271]
+    sentence_count: 13
+    key_terms: [college, school, life, road, resilience, themselves, strengths, another]
+    section: Comments
+    token_count: 283
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c8"
+    char_span: [13274, 15209]
+    sentence_count: 12
+    key_terms: [kid, aid, college, parents, schools, school, senior, years]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c9"
+    char_span: [15211, 17158]
+    sentence_count: 9
+    key_terms: [private, school, merit, because, student, citizenships, scholarships, loans]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c10"
+    char_span: [17160, 18963]
+    sentence_count: 18
+    key_terms: [college, sports, financial, good, competitive, aid, kid, internet]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c11"
+    char_span: [18965, 21084]
+    sentence_count: 20
+    key_terms: [school, something, classes, spanish, child, coa, year, colleges]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c12"
+    char_span: [21086, 22291]
+    sentence_count: 9
+    key_terms: [outcome, balance, passion, school, place, find, get, got]
+    section: Comments
+    token_count: 278
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c13"
+    char_span: [22293, 24048]
+    sentence_count: 14
+    key_terms: [interested, direction, begin, child, let, too, activities, different]
+    section: Comments
+    token_count: 380
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c14"
+    char_span: [24050, 25151]
+    sentence_count: 8
+    key_terms: [tax, college, interest, money, years, jellyfishflaky5634, "i'm", save]
+    section: Comments
+    token_count: 270
 ---
-
 # Parent of a soon to be 9th grader - what do you wish you had known or done differently in high school?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1stolqp/parent_of_a_soon_to_be_9th_grader_what_do_you/)

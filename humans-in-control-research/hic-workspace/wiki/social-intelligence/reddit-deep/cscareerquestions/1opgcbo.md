@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1opgcbo.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1opgcbo/would_double_majoring_with_cs_increase_your/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-20T02:33:39.308Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1opgcbo.md#c0"
+    char_span: [0, 319]
+    sentence_count: 2
+    key_terms: [cscareerquestions, comments, job, reddit-deep, increase, majoring, chances, getting]
+    token_count: 85
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1opgcbo.md#c1"
+    char_span: [334, 2415]
+    sentence_count: 19
+    key_terms: [useful, double, sub, job, jobs, fintech, science, "there's"]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1opgcbo.md#c2"
+    char_span: [2417, 4229]
+    sentence_count: 16
+    key_terms: [degree, get, job, like, "you'll", jobs, math, definitely]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1opgcbo.md#c3"
+    char_span: [4231, 6280]
+    sentence_count: 16
+    key_terms: [work, taught, like, use, masters, math, technical, classes]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1opgcbo.md#c4"
+    char_span: [6282, 6916]
+    sentence_count: 7
+    key_terms: [get, communication, universities, tuckfrump69, experience, interested, internship, interviews]
+    section: Comments
+    token_count: 140
 ---
-
 # Would double majoring with CS increase your chances of getting a cs job in this job market?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1opgcbo/would_double_majoring_with_cs_increase_your/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1pgav5a.md
 url: "https://www.reddit.com/r/waterloo/comments/1pgav5a/where_do_people_in_waterloo_actually_get_mental/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.128Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [healthcare, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1pgav5a.md#c0"
+    char_span: [0, 1189]
+    sentence_count: 9
+    key_terms: [waterloo, mental-health, psychologist, assessments, adhd, referrals, comments, helpful]
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/waterloo/1pgav5a.md#c1"
+    char_span: [1204, 2656]
+    sentence_count: 11
+    key_terms: [children-youth-families, assessment, definitely, services, therapy, through, cmhaww, search]
+    section: Comments
+    token_count: 357
+  - id: "social-intelligence/reddit-deep/waterloo/1pgav5a.md#c2"
+    char_span: [2658, 4890]
+    sentence_count: 23
+    key_terms: [psychiatrist, free, therapy, health, trying, visits, insurances, like]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/waterloo/1pgav5a.md#c3"
+    char_span: [4892, 6980]
+    sentence_count: 7
+    key_terms: [get, help, assessment, medication, therapist, able, started, therapy]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/waterloo/1pgav5a.md#c4"
+    char_span: [6982, 7055]
+    sentence_count: 1
+    key_terms: [options, process, speed, yours, pay, want]
+    section: Comments
+    token_count: 19
 ---
-
 # Where do people in Waterloo actually get mental health/ADHD help?
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1pgav5a/where_do_people_in_waterloo_actually_get_mental/)

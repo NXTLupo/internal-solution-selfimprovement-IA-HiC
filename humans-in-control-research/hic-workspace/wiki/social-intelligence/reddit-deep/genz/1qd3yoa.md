@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1qd3yoa.md
 url: "https://www.reddit.com/r/GenZ/comments/1qd3yoa/what_is_your_retirement_number/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,33 @@ flair: "Discussion"
 extracted_at: "2026-05-16T20:55:01.231Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1qd3yoa.md#c0"
+    char_span: [0, 909]
+    sentence_count: 7
+    key_terms: [number, comments, million, never, ordinary-fish-9791, dont, genz, guys]
+    token_count: 219
+  - id: "social-intelligence/reddit-deep/genz/1qd3yoa.md#c1"
+    char_span: [924, 2572]
+    sentence_count: 15
+    key_terms: [get, hopefully, inflation, probably, discord, embarrassed-lab4446, coins, ordinary-fish-9791]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/genz/1qd3yoa.md#c2"
+    char_span: [2574, 3135]
+    sentence_count: 4
+    key_terms: [cow, cattle, tangouniform2020, restaurants, eventually, operations, butchered, depending]
+    section: Comments
+    token_count: 144
+  - id: "social-intelligence/reddit-deep/genz/1qd3yoa.md#c3"
+    char_span: [3137, 4700]
+    sentence_count: 11
+    key_terms: [like, youchasechickens, tarchival-sage, work, retirement, industry, retiring, another]
+    section: Comments
+    token_count: 433
 ---
-
 # What is your retirement number?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1qd3yoa/what_is_your_retirement_number/)

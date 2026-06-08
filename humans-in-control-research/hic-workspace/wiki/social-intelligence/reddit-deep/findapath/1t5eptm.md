@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1t5eptm.md
 url: "https://www.reddit.com/r/findapath/comments/1t5eptm/25yo_no_job_work_experience_career_gaps_and/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,44 @@ flair: "Findapath-Mindset Adjustment"
 extracted_at: "2026-05-25T13:04:07.377Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1t5eptm.md#c0"
+    char_span: [0, 2116]
+    sentence_count: 17
+    key_terms: [job, "i'm", because, career, having, home, "i've", life]
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/findapath/1t5eptm.md#c1"
+    char_span: [2121, 4251]
+    sentence_count: 16
+    key_terms: ["i've", life, like, "don't", did, felt, "i'm", experience]
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/findapath/1t5eptm.md#c2"
+    char_span: [4266, 6050]
+    sentence_count: 10
+    key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, nessarin]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/findapath/1t5eptm.md#c3"
+    char_span: [6053, 8059]
+    sentence_count: 20
+    key_terms: [like, activities, been, everything, interests, situation, comment, feeling]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/findapath/1t5eptm.md#c4"
+    char_span: [8061, 10060]
+    sentence_count: 8
+    key_terms: [felt, life, like, thoughts, someone, started, helped, inside]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/findapath/1t5eptm.md#c5"
+    char_span: [10062, 12323]
+    sentence_count: 18
+    key_terms: [pretty, therapy, job, like, time, yourself, correct, degree]
+    section: Comments
+    token_count: 509
 ---
-
 # 25yo, no job, work experience, career gaps and aimless career trajectory. How do I find my way forward? Is there a way?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1t5eptm/25yo_no_job_work_experience_career_gaps_and/)

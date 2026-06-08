@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1p5br2y.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1p5br2y/too_entitled/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,56 @@ flair: "Rant"
 extracted_at: "2026-05-23T12:15:36.209Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p5br2y.md#c0"
+    char_span: [0, 1946]
+    sentence_count: 20
+    key_terms: [school, feel, applyingtocollege, high, because, entire, being, grade]
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p5br2y.md#c1"
+    char_span: [1948, 2324]
+    sentence_count: 5
+    key_terms: [school, too, illiterate, indecisive, motivation, ambitious, selective, sentences]
+    token_count: 87
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p5br2y.md#c2"
+    char_span: [2339, 4230]
+    sentence_count: 16
+    key_terms: [college, school, scholarship, interested, professors, literary, optional, students]
+    section: Comments
+    token_count: 409
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p5br2y.md#c3"
+    char_span: [4232, 6462]
+    sentence_count: 13
+    key_terms: [school, students, student, experience, college, state, law, t40]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p5br2y.md#c4"
+    char_span: [6464, 8335]
+    sentence_count: 12
+    key_terms: [schools, school, visual-course-9560, abjecthope9889, public, gpa, high, "it's"]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p5br2y.md#c5"
+    char_span: [8338, 9832]
+    sentence_count: 12
+    key_terms: [abjecthope9889, school, definitely, like, post, applied, thank, came]
+    section: Comments
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p5br2y.md#c6"
+    char_span: [9834, 11417]
+    sentence_count: 13
+    key_terms: [school, experience, abjecthope9889, opportunities, colleges, students, uchicago, college]
+    section: Comments
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p5br2y.md#c7"
+    char_span: [11419, 13587]
+    sentence_count: 16
+    key_terms: [school, college, graduated, engineering, son, flagship, prepared, program]
+    section: Comments
+    token_count: 480
 ---
-
 # Too Entitled?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1p5br2y/too_entitled/)

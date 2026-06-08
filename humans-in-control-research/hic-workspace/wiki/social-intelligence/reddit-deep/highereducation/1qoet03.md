@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1qoet03.md
 url: "https://www.reddit.com/r/highereducation/comments/1qoet03/a_general_strike_in_higher_ed/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-22T15:13:18.739Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1qoet03.md#c0"
+    char_span: [0, 1572]
+    sentence_count: 14
+    key_terms: [strike, students, highereducation, general, higher, making, participate, education]
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/highereducation/1qoet03.md#c1"
+    char_span: [1587, 3561]
+    sentence_count: 17
+    key_terms: [institution, protesting, faculty, power, students, leaders, protest, without]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/highereducation/1qoet03.md#c2"
+    char_span: [3563, 4203]
+    sentence_count: 6
+    key_terms: [strike, down, general, workers, "that's", diaphoniusdaintydude, non-participation, shut]
+    section: Comments
+    token_count: 157
+  - id: "social-intelligence/reddit-deep/highereducation/1qoet03.md#c3"
+    char_span: [4205, 6391]
+    sentence_count: 10
+    key_terms: [universities, strike, probably, impact, situation, something, scenario, because]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/highereducation/1qoet03.md#c4"
+    char_span: [6393, 6752]
+    sentence_count: 2
+    key_terms: [strike, everything, inherently, mentioned, minizara2, economic, everyone, semester]
+    section: Comments
+    token_count: 86
 ---
-
 # A general strike in higher ed?
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1qoet03/a_general_strike_in_higher_ed/)

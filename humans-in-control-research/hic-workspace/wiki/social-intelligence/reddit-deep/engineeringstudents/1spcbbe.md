@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1spcbbe.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1spcbbe/senior_engineering_student_deciding_between/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,27 @@ flair: "Career Advice"
 extracted_at: "2026-05-25T13:01:49.565Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1spcbbe.md#c0"
+    char_span: [0, 2585]
+    sentence_count: 13
+    key_terms: [startup, university, engineering, potentially, boston, engineeringstudents, been, lab]
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1spcbbe.md#c1"
+    char_span: [2600, 4318]
+    sentence_count: 11
+    key_terms: [startup, sbron8, especially, elsewhere, options, boston, equity, patent]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1spcbbe.md#c2"
+    char_span: [4320, 4782]
+    sentence_count: 3
+    key_terms: [experience, "doesn't", illustrious-limit160, worth, anywhere, benefit, company, startup]
+    section: Comments
+    token_count: 117
 ---
-
 # Senior engineering student: deciding between joining a lab spinoff startup or pursuing other career paths? (also want to leave Boston)
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1spcbbe/senior_engineering_student_deciding_between/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1sxng39.md
 url: "https://www.reddit.com/r/investing/comments/1sxng39/my_portfolio_hits_ath_today_but_i_feel_uneasy/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.197Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1sxng39.md#c0"
+    char_span: [0, 653]
+    sentence_count: 8
+    key_terms: [portfolio, investing, comments, today, ath, hits, plan, concentrated]
+    token_count: 162
+  - id: "social-intelligence/reddit-deep/investing/1sxng39.md#c1"
+    char_span: [668, 1742]
+    sentence_count: 6
+    key_terms: [stubbornly, euphoric, overly, hulksinvinciblepants, right, ass, been, big]
+    section: Comments
+    token_count: 290
+  - id: "social-intelligence/reddit-deep/investing/1sxng39.md#c2"
+    char_span: [1744, 3759]
+    sentence_count: 12
+    key_terms: [market, once-in-a-lifetime, global, people, money, overbought, overvalued, extremely]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/investing/1sxng39.md#c3"
+    char_span: [3761, 5813]
+    sentence_count: 4
+    key_terms: [once-in-a-lifetime, once-in-a-decade, global, democratic, spike, electoral, massive, process]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/investing/1sxng39.md#c4"
+    char_span: [5815, 6321]
+    sentence_count: 3
+    key_terms: [invest, ath, market, people, crash, chrishall86432, statistically, diversified]
+    section: Comments
+    token_count: 121
+  - id: "social-intelligence/reddit-deep/investing/1sxng39.md#c5"
+    char_span: [6323, 8299]
+    sentence_count: 19
+    key_terms: [market, portfolio, always, term, year, funds, stock, years]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1sxng39.md#c6"
+    char_span: [8106, 9140]
+    sentence_count: 10
+    key_terms: [market, buy, cash, cornerone238, always, prefecture-level-sz, usernameiwontregret, bulk]
+    section: Comments
+    token_count: 295
+  - id: "social-intelligence/reddit-deep/investing/1sxng39.md#c7"
+    char_span: [9142, 9422]
+    sentence_count: 1
+    key_terms: [applied-philosophy-the-shiller-pe-and-sp-500-returns, stocks, market-outlook, institutional, personally, short-term, insights, because]
+    section: Comments
+    token_count: 78
 ---
-
 # My portfolio hits ATH today. But I feel uneasy
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1sxng39/my_portfolio_hits_ath_today_but_i_feel_uneasy/)

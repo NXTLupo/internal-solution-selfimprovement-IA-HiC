@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-gradadmissions/3bcceb062f.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rlb46k/i_got_in/"
 url_hash: "3bcceb062f"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T12:21:52.107757+00:00"
 chars: 530
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-gradadmissions/3bcceb062f.md#c0"
+    char_span: [0, 656]
+    sentence_count: 5
+    key_terms: [common-payment9984, emeraldmeetsauburn, like, congratulations, profile, gradadmissions, "bro's", comments]
+    token_count: 202
 ---
-
 # I got in!!!
 
 Source: [Reddit Deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rlb46k/i_got_in/)

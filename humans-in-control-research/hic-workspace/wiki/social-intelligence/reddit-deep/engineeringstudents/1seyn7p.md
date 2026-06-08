@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1seyn7p.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1seyn7p/second_year_chem_eng_student_struggling_to_land/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 4
 flair: "Academic Advice"
-extracted_at: "2026-05-20T12:57:40.605Z"
+extracted_at: "2026-06-03T03:10:18.413Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Generate a strategic analysis identifying actionable opportunities for Northeastern University to enhance experiential learning and co-op success. Focus the analysis on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development."
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1seyn7p.md#c0"
+    char_span: [0, 1050]
+    sentence_count: 9
+    key_terms: [internship, engineeringstudents, year, interviews, comments, student, advice, trying]
+    token_count: 234
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1seyn7p.md#c1"
+    char_span: [1065, 2120]
+    sentence_count: 8
+    key_terms: [take, experience, internship, resume, summer, kinda, thank, look]
+    section: Comments
+    token_count: 253
 ---
-
 # Second year Chem Eng student struggling to land first internship — any advice?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1seyn7p/second_year_chem_eng_student_struggling_to_land/)

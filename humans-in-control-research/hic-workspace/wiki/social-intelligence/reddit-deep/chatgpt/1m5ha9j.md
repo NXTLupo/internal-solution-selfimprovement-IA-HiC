@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1m5ha9j.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1m5ha9j/i_turned_chatgpt_into_warren_buffett_with_a_40000/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,86 @@ flair: "Prompt engineering "
 extracted_at: "2026-05-11T16:54:08.812Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c0"
+    char_span: [0, 1943]
+    sentence_count: 8
+    key_terms: [meta-prompt, explained, response, chatgpt, warren, asked, buy, earnings]
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c1"
+    char_span: [1945, 2235]
+    sentence_count: 2
+    key_terms: [metapromptjc, people-inside-prompts, warren, conversations, engineered, buffet, github, having]
+    token_count: 87
+  - id: "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c2"
+    char_span: [2250, 3273]
+    sentence_count: 4
+    key_terms: [post, r-chatgpt-1050422060352024636, discord, never, years, withoutreason1729, "i'm", like]
+    section: Comments
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c3"
+    char_span: [3275, 4144]
+    sentence_count: 5
+    key_terms: [look, buffet, simple-carpenter2361, saved, yachtswithpyramids, find, s1n0d3utscht3k, f4vyz58438ef1]
+    section: Comments
+    token_count: 291
+  - id: "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c4"
+    char_span: [4146, 5776]
+    sentence_count: 7
+    key_terms: [removed, watermark, buffett, prompt, remove, warren, tell, beginning]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c5"
+    char_span: [5778, 7267]
+    sentence_count: 5
+    key_terms: [watermark, prompt, response, appear, thethoccnessmonster, whyaminotstudying, notanelonfan2024, bennyskateboard]
+    section: Comments
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c6"
+    char_span: [7269, 8349]
+    sentence_count: 9
+    key_terms: [gpt, prompt, watermark, applied, cringe, chats, using, originaltwatcunt]
+    section: Comments
+    token_count: 286
+  - id: "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c7"
+    char_span: [8351, 10147]
+    sentence_count: 7
+    key_terms: [like, nothing, prompt, works, gpt, understand, character, language]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c8"
+    char_span: [9919, 11832]
+    sentence_count: 12
+    key_terms: [humans, convince, someone, always, robots, "that's", skeptical-speculator, get]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c9"
+    char_span: [11607, 12166]
+    sentence_count: 4
+    key_terms: [clothespinkingpin, knowing-narrative, hallucinations, collective, connected, gravityvt, jonoczall, salvation]
+    section: Comments
+    token_count: 169
+  - id: "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c10"
+    char_span: [12168, 13750]
+    sentence_count: 7
+    key_terms: [people, been, did, millions, because, fragile, thought, brains]
+    section: Comments
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c11"
+    char_span: [13753, 15786]
+    sentence_count: 15
+    key_terms: [advice, warren, works, going, right, get, like, use]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/chatgpt/1m5ha9j.md#c12"
+    char_span: [15788, 16412]
+    sentence_count: 3
+    key_terms: [question, implementation, fundamentals, fascinating, perceptions, conceptual, automated, different]
+    section: Comments
+    token_count: 134
 ---
-
 # I turned ChatGPT into Warren Buffett with a 40,000 character Meta-Prompt. Just asked it about buying SPY at all-time highs. The response gave me chills.
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1m5ha9j/i_turned_chatgpt_into_warren_buffett_with_a_40000/)

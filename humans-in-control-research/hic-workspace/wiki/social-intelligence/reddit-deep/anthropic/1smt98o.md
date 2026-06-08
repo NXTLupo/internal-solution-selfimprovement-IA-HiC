@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/anthropic/1smt98o.md
 url: "https://www.reddit.com/r/Anthropic/comments/1smt98o/how_can_i_get_this_deal_on_claude_team_plan_i/"
 kind: "social-post"
 source: "reddit-deep: r/anthropic"
@@ -13,8 +14,21 @@ flair: "Other"
 extracted_at: "2026-05-11T16:52:48.661Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, saas, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/anthropic/1smt98o.md#c0"
+    char_span: [0, 330]
+    sentence_count: 2
+    key_terms: [anthropic, comments, claude, team, development, reddit-deep, posted, reddit]
+    token_count: 94
+  - id: "social-intelligence/reddit-deep/anthropic/1smt98o.md#c1"
+    char_span: [345, 1051]
+    sentence_count: 3
+    key_terms: [anthropic, pricing, non, goodstacks, company, profit, vxmjcf, valuable-account-362]
+    section: Comments
+    token_count: 202
 ---
-
 # How can I get this deal on Claude Team Plan? I have a development team using Claude Code and also want these deals
 
 Source: [reddit-deep: r/anthropic](https://www.reddit.com/r/Anthropic/comments/1smt98o/how_can_i_get_this_deal_on_claude_team_plan_i/)

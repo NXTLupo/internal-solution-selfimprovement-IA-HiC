@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1syt6qw.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1syt6qw/anyone_else_just_totally_unenthused_and_burned/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,51 @@ flair: "College Questions"
 extracted_at: "2026-05-25T18:32:06.258Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1syt6qw.md#c0"
+    char_span: [0, 1667]
+    sentence_count: 13
+    key_terms: [college, feel, like, swarthmore, applyingtocollege, decision, because, committed]
+    token_count: 386
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1syt6qw.md#c1"
+    char_span: [1682, 4041]
+    sentence_count: 15
+    key_terms: [friends, school, campus, clubs, feel, kids, whatever, college]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1syt6qw.md#c2"
+    char_span: [4043, 5997]
+    sentence_count: 12
+    key_terms: [college, family, good, belongings, students, friends, leaving, drive]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1syt6qw.md#c3"
+    char_span: [5999, 7199]
+    sentence_count: 8
+    key_terms: [break, college, home, spring, summer, aren, bus, hour]
+    section: Comments
+    token_count: 265
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1syt6qw.md#c4"
+    char_span: [7201, 9465]
+    sentence_count: 20
+    key_terms: [college, swarthmore, instinct, friends, around, kids, new, activities]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1syt6qw.md#c5"
+    char_span: [9467, 11456]
+    sentence_count: 12
+    key_terms: [felt, college, process, alone, feels, days, committing, choosing]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1syt6qw.md#c6"
+    char_span: [11458, 12236]
+    sentence_count: 5
+    key_terms: [school, work, comes, dream, ago, anticlimactic, international, flexibility]
+    section: Comments
+    token_count: 183
 ---
-
 # Anyone else just totally unenthused and burned out by the time you have to make a decision on which college to go to?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1syt6qw/anyone_else_just_totally_unenthused_and_burned/)

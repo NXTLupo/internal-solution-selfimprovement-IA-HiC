@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1sjnd0j.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1sjnd0j/details_on_my_low_gpa_acceptance/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,48 @@ flair: "Biological Sciences"
 extracted_at: "2026-05-23T12:15:55.844Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sjnd0j.md#c0"
+    char_span: [0, 1550]
+    sentence_count: 1
+    key_terms: [gradadmissions, comments, reddit, https, com, www, honestly, school]
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sjnd0j.md#c1"
+    char_span: [1552, 3147]
+    sentence_count: 1
+    key_terms: [lab, saw, work, completely, everything, masters, running, asked]
+    token_count: 358
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sjnd0j.md#c2"
+    char_span: [3149, 5251]
+    sentence_count: 3
+    key_terms: [get, show, little, publications, care, didn, don, real]
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sjnd0j.md#c3"
+    char_span: [5253, 5662]
+    sentence_count: 1
+    key_terms: [don, yourself, need, everything, different, everyone, positive, thinking]
+    token_count: 89
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sjnd0j.md#c4"
+    char_span: [5677, 6620]
+    sentence_count: 5
+    key_terms: [feel, gpa, undergrad, never, super, thank, glitteringpeaches, been]
+    section: Comments
+    token_count: 236
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sjnd0j.md#c5"
+    char_span: [6622, 8635]
+    sentence_count: 15
+    key_terms: [undergrad, did, got, phd, thank, get, gpa, like]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sjnd0j.md#c6"
+    char_span: [8360, 9144]
+    sentence_count: 7
+    key_terms: [completely, support, been, gpa, hope, phd, year, inspectornaive2]
+    section: Comments
+    token_count: 189
 ---
-
 # details on my low gpa acceptance
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1sjnd0j/details_on_my_low_gpa_acceptance/)

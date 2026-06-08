@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1thou91.md
 url: "https://www.reddit.com/r/careerguidance/comments/1thou91/bcom_graduate_confused_about_career_path_mba_job/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,16 @@ score: 1
 upvote_ratio: 1
 num_comments: 1
 flair: "India "
-extracted_at: "2026-05-25T18:32:57.389Z"
+extracted_at: "2026-06-03T17:59:52.597Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1thou91.md#c0"
+    char_span: [0, 1460]
+    sentence_count: 9
+    key_terms: [analytics, bcom, like, mba, careerguidance, people, cybersecurity, immediately]
+    token_count: 319
 ---
-
 # BCom graduate confused about career path – MBA, job, or skill courses?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1thou91/bcom_graduate_confused_about_career_path_mba_job/)

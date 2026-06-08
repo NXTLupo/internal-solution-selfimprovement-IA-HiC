@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1skdv75.md
 url: "https://www.reddit.com/r/college/comments/1skdv75/professional_etiquette_for_contacting_professors/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-25T15:51:48.251Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1skdv75.md#c0"
+    char_span: [0, 760]
+    sentence_count: 7
+    key_terms: [own, professors, comments, college, school, "i'm", professional, appropriate]
+    token_count: 169
+  - id: "social-intelligence/reddit-deep/college/1skdv75.md#c1"
+    char_span: [775, 2932]
+    sentence_count: 16
+    key_terms: [ask, office, reach, research, hours, appropriate, professors, question]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1skdv75.md#c2"
+    char_span: [2631, 3641]
+    sentence_count: 5
+    key_terms: [reaching, specific, office, email, professional, salutations, appreciate, completely]
+    section: Comments
+    token_count: 230
 ---
-
 # Professional etiquette for contacting professors
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1skdv75/professional_etiquette_for_contacting_professors/)

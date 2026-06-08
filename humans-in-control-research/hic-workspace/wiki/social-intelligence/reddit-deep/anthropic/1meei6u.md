@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/anthropic/1meei6u.md
 url: "https://www.reddit.com/r/Anthropic/comments/1meei6u/to_all_those_who_whine_complain_and_got_pissed_off/"
 kind: "social-post"
 source: "reddit-deep: r/anthropic"
@@ -13,8 +14,69 @@ flair: ""
 extracted_at: "2026-05-11T17:26:51.921Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/anthropic/1meei6u.md#c0"
+    char_span: [0, 843]
+    sentence_count: 7
+    key_terms: [anthropic, comments, engineer, code, "it's", comfortable, reddit-deep, absolutely]
+    token_count: 208
+  - id: "social-intelligence/reddit-deep/anthropic/1meei6u.md#c1"
+    char_span: [858, 1941]
+    sentence_count: 7
+    key_terms: [writing, productivity, stackowoflow, engineer, frontend, projects, backend, "don't"]
+    section: Comments
+    token_count: 269
+  - id: "social-intelligence/reddit-deep/anthropic/1meei6u.md#c2"
+    char_span: [1943, 3898]
+    sentence_count: 11
+    key_terms: [requirements, delegate, comment, opus, interface, comments, web3xcss, "haven't"]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/anthropic/1meei6u.md#c3"
+    char_span: [3900, 5515]
+    sentence_count: 11
+    key_terms: [context, quality, results, design, typing, lines, tests, code]
+    section: Comments
+    token_count: 341
+  - id: "social-intelligence/reddit-deep/anthropic/1meei6u.md#c4"
+    char_span: [5517, 7356]
+    sentence_count: 12
+    key_terms: [code, claude, work, implementation, ask, day, use, addicted]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/anthropic/1meei6u.md#c5"
+    char_span: [7358, 9236]
+    sentence_count: 14
+    key_terms: [use, stackowoflow, claude, chatgpt, write, get, approaches, sometimes]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/anthropic/1meei6u.md#c6"
+    char_span: [9238, 11162]
+    sentence_count: 13
+    key_terms: [like, people, treat, get, discussing, human-like, backend, context]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/anthropic/1meei6u.md#c7"
+    char_span: [11164, 13245]
+    sentence_count: 20
+    key_terms: [claude, get, repositories, use, "don't", tests, complaining, like]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/anthropic/1meei6u.md#c8"
+    char_span: [13247, 15114]
+    sentence_count: 11
+    key_terms: [missing, here, plan, beginning, totally, design, ok-adhesiveness-4141, "don't"]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/anthropic/1meei6u.md#c9"
+    char_span: [15116, 16322]
+    sentence_count: 8
+    key_terms: [mistakes, rewarded, crayola, deleted, design, people, redact, build]
+    section: Comments
+    token_count: 282
 ---
-
 # To all those who whine, complain, and got pissed off
 
 Source: [reddit-deep: r/anthropic](https://www.reddit.com/r/Anthropic/comments/1meei6u/to_all_those_who_whine_complain_and_got_pissed_off/)

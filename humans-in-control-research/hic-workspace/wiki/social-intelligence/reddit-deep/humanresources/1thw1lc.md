@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1thw1lc.md
 url: "https://www.reddit.com/r/humanresources/comments/1thw1lc/hr_network_ca_nationwide/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T12:15:41.568Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1thw1lc.md#c0"
+    char_span: [0, 2102]
+    sentence_count: 8
+    key_terms: [professionals, convenience, retail, challenges, locations, humanresources, multi-location, gas]
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/humanresources/1thw1lc.md#c1"
+    char_span: [2117, 3170]
+    sentence_count: 8
+    key_terms: [post, subreddit, discord, mundane-jump-7546, work, gonebabythoughts, humanresources, multi-location]
+    section: Comments
+    token_count: 258
 ---
-
 # HR Network - [CA] & Nationwide
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1thw1lc/hr_network_ca_nationwide/)

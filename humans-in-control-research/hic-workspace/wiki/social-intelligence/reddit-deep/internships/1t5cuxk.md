@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1t5cuxk.md
 url: "https://www.reddit.com/r/internships/comments/1t5cuxk/finally_got_an_internship/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,30 @@ subreddit: "internships"
 title: "Finally got an internship 🙌"
 author: "Responsible_Bag2403"
 date: "2026-05-06T13:24:44.000Z"
-score: 6
+score: 7
 upvote_ratio: 1
 num_comments: 12
 flair: "General"
-extracted_at: "2026-05-25T18:31:15.450Z"
+extracted_at: "2026-06-06T17:41:06.730Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1t5cuxk.md#c0"
+    char_span: [0, 905]
+    sentence_count: 7
+    key_terms: [internships, got, healthcare, marketing, comments, selected, analyst, fast-growing]
+    token_count: 204
+  - id: "social-intelligence/reddit-deep/internships/1t5cuxk.md#c1"
+    char_span: [920, 1428]
+    sentence_count: 3
+    key_terms: [addazzling9105, beautiful-year-1945, clg, did, wow, nipseytrapper, applicants, internship]
+    section: Comments
+    token_count: 170
 ---
-
 # Finally got an internship 🙌
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1t5cuxk/finally_got_an_internship/)
-Posted by **Responsible_Bag2403** · **6↑** · **12 comments**
+Posted by **Responsible_Bag2403** · **7↑** · **12 comments**
 
 Recently got selected as a Marketing Analyst intern at Orange Health Labs after competing against 150+ students, and apparently only 1 person got selected and somehow that ended up being me.
 
@@ -36,9 +48,6 @@ Would genuinely love to hear honest experiences before starting.
 
 ## Comments
 
-- **bootyhole_licker69** (2↑): nice, congrats man thats a solid w and good cash for a student just focus on learning as much as you can and padding that resume early
-  - **Responsible_Bag2403** (1↑): Thanks a lot buddy 
-Btw i like ur username 😂😂
 - **nipseytrapper** (1↑): Where did you land the internship? I mean by maybe a platform or referral?
   - **Responsible_Bag2403** (1↑): Clg placements
 - **Beautiful-Year-1945** (1↑): congrats dude. really happy for you

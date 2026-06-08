@@ -6,19 +6,19 @@ subreddit: "cscareerquestions"
 title: "Landed Meta and Coinbase offers after spending nearly a year getting rejected"
 author: "Left_Relationship240"
 date: "2026-02-27T07:24:22.000Z"
-score: 213
+score: 217
 upvote_ratio: 0.83
 num_comments: 93
 flair: ""
-extracted_at: "2026-05-26T12:54:26.429Z"
+extracted_at: "2026-06-06T23:23:15.633Z"
 extraction_method: "praw-deep"
-research_goal: "Identify emerging needs in the remote work sector."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Landed Meta and Coinbase offers after spending nearly a year getting rejected
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rg03si/landed_meta_and_coinbase_offers_after_spending/)
-Posted by **Left_Relationship240** · **213↑** · **93 comments**
+Posted by **Left_Relationship240** · **217↑** · **93 comments**
 
 Hey everyone,
 
@@ -90,11 +90,11 @@ Finally after sharing, question time, I'm wondering which companies should I pic
 
 ## Comments
 
-- **Intuitive31** (75↑): Hire to pip. Meta is likely going to have another round of layoffs in 4 months - due to super intelligent labs high capex. Coinbase stock is down 45% over last 6 months.
-  - **_176_** (41↑): > Coinbase stock is down 45% over last 6 months
+- **Intuitive31** (72↑): Hire to pip. Meta is likely going to have another round of layoffs in 4 months - due to super intelligent labs high capex. Coinbase stock is down 45% over last 6 months.
+  - **_176_** (42↑): > Coinbase stock is down 45% over last 6 months
 
 I think Coinbase stock trades with a high correlation to the price of Bitcoin. Bitcoin is down ~50% in the last 6 months and so it Coinbase.
-  - **Left_Relationship240** (19↑): Honestly, after being laid off last time, I couldn't get ride of the feeling that I could easily get laid off again. Especially with Meta's hire to pip culture.
+  - **Left_Relationship240** (18↑): Honestly, after being laid off last time, I couldn't get ride of the feeling that I could easily get laid off again. Especially with Meta's hire to pip culture.
     - **ShustOne** (3↑): I had the same feeling after my layoff, but the next job stuck well for me. I hope it's the same for you in your current journey.
   - **[deleted]** (4↑): Coinbase is a loser long term because Crypto is technically valueless.
     - **Fwellimort** (0↑): Crypto is da FuTuRe BrO! D
@@ -104,39 +104,39 @@ I think Coinbase stock trades with a high correlation to the price of Bitcoin. B
 The culture is broken. People treat their own teammates like competition, every project turns into a scope war, and performance reviews are designed as a zero-sum game where someone has to lose for another to win.
 - **31415926532718281828** (32↑): What’s your question?
   - **Left_Relationship240** (-2↑): I'm wondering which companies should I pick if anyone's familiar with their culture or worked in one of them before. Does anyone know which one has better WLB? I honestly value WLB a lot more than compensation. Thanks a lot, any information is really appreciated
-    - **Fwellimort** (48↑): Both shit tier WLB.
-    - **v0idstar_** (13↑): applies to name brand churn companies and values wlb over comp... lol??
+    - **Fwellimort** (50↑): Both shit tier WLB.
+    - **v0idstar_** (14↑): applies to name brand churn companies and values wlb over comp... lol??
     - **thefreakyorange** (2↑): If that's your goal, I'd take whichever team match best aligns with your past experience so you get a paycheck that isn't overwhelming to keep up with, and keep interviewing on the side with less intense companies.
-- **Weak_Company4067** (27↑): i have friends that work at both, it’ll be a grind but meta culture is something to take into consideration
-  - **Left_Relationship240** (3↑): Thanks for sharing! And just curious between Meta and Coinbase, which company’s culture does your friend like more?
+- **Weak_Company4067** (26↑): i have friends that work at both, it’ll be a grind but meta culture is something to take into consideration
+  - **Left_Relationship240** (2↑): Thanks for sharing! And just curious between Meta and Coinbase, which company’s culture does your friend like more?
 - **papayon10** (8↑): What kind of company did you work at before?
-  - **Left_Relationship240** (-16↑): I started working at a really small started up, and then worked at one of the faang company
-    - **karolik** (13↑): You were part of faang already
+  - **Left_Relationship240** (-15↑): I started working at a really small started up, and then worked at one of the faang company
+    - **karolik** (11↑): You were part of faang already
 - **ChadFullStack** (8↑): Take the highest TC, both companies are the worst for stability and toxic work culture.
   - **Left_Relationship240** (2↑): Thanks! I appreciate the advice. Yeah, seems like both of these companies have pretty toxic culture and bad WLB. If I can't get WLB anyways, might as well go for the highest TC
 - **Beardactal** (13↑): Kinda insane that even for a fresh senior type of level (8 yoe) it takes so much effort to get anything. I wonder if doctors or lawyers need this much effort in the job market process. Maybe as a 5 yoe developer myself should consider a different career path if CS is this cooked.
   - **Left_Relationship240** (3↑): Honestly this market feels a lot tougher maybe because of all the laid off. Even though it worked out this time, but part of me is always worried about this career path too or getting laid off again
-- **AndAuri** (61↑): Everytime I read stories like this I expect a link to an ad somewhere and once again I was right.
+- **AndAuri** (60↑): Everytime I read stories like this I expect a link to an ad somewhere and once again I was right.
   - **dipsy_98** (17↑): Where is it?
-    - **[deleted]** (10↑): Leetcode
-  - **fz-09** (25↑): Are you talking about the links to Grokking and Leetcode? Both super popular and helpful interview prep resources that we should all know about. I really don't think OP was trying to shill.
+    - **[deleted]** (9↑): Leetcode
+  - **fz-09** (26↑): Are you talking about the links to Grokking and Leetcode? Both super popular and helpful interview prep resources that we should all know about. I really don't think OP was trying to shill.
     - **Toasted_FlapJacks** (20↑): A reddit subculture is an obsession to "prove I'm right". Here OP provides useful info to those struggling with getting offers, yet u/AndAuri only cares to see if the post is an "ad", useful content be damned.
 
 I see the same on posts where people suspect that it was written with AI, because they spotted an em dash. Was the post useful? Who cares when you proved your assumption to be right.
     - **Left_Relationship240** (2↑): Thanks a lot pointing that out. I was sharing after a long time of struggling and almost giving up, and was hoping someone at a similar situation could find this helpful, but then I saw the top comment...
 
 So glad to see some common sense in this thread.  Yeah, I really didn't think Leetcode or Grokking need to be sold by me
-  - **illicity_** (7↑): Neither leetcode nor grokking cares about the traffic from reddit. It’s a drop in the ocean to them. This post is not an ad
+  - **illicity_** (8↑): Neither leetcode nor grokking cares about the traffic from reddit. It’s a drop in the ocean to them. This post is not an ad
     - **[deleted]** (-1↑): Have you opened those links tho?
 
 Do it and you'll see they refer to other tools
-  - **ShustOne** (3↑): How is this an ad? I checked the links and they don't appear to make OP money in any way
-  - **JohnnyboyKCB** (3↑): Grokking ___ is one of the most popular resources for interview prep??
+  - **ShustOne** (4↑): How is this an ad? I checked the links and they don't appear to make OP money in any way
+  - **JohnnyboyKCB** (2↑): Grokking ___ is one of the most popular resources for interview prep??
     - **fz-09** (1↑): Yes, it's commonly recommended.
     - **rapsonravish** (1↑): It's fallen out of popularity recently but it used to be the main resource for design
-- **nonofyobeesness** (8↑): Nice job! If you don’t have FANG on your resume, I recommend Meta. It’ll open a lot of doors in the future. Otherwise, pick the one with the best team/mobility for your career growth.
+- **nonofyobeesness** (6↑): Nice job! If you don’t have FANG on your resume, I recommend Meta. It’ll open a lot of doors in the future. Otherwise, pick the one with the best team/mobility for your career growth.
   - **Left_Relationship240** (1↑): Thanks! I appreciate the recommendation. Yeah sure, with Meta's brand, maybe picking it would be better for my career path overall
-- **financebrosky** (5↑): look, this is a good post but you're in the wrong sub telling this story. r/cscareerquestions is for software engineers and you clearly crushed it there. meta and coinbase system design rounds are brutal so props for grinding those out.the only thing i'd add that might help others: don't just do side projects to fill a gap, make sure they're actually relevant to the role you're interviewing for. hiring managers can smell resume filler a mile away. and for behavioral, yeah the values alignment thing works but keep your stories short and specific  -  nobody wants a five minute story about the time you collaborated.
+- **financebrosky** (4↑): look, this is a good post but you're in the wrong sub telling this story. r/cscareerquestions is for software engineers and you clearly crushed it there. meta and coinbase system design rounds are brutal so props for grinding those out.the only thing i'd add that might help others: don't just do side projects to fill a gap, make sure they're actually relevant to the role you're interviewing for. hiring managers can smell resume filler a mile away. and for behavioral, yeah the values alignment thing works but keep your stories short and specific  -  nobody wants a five minute story about the time you collaborated.
   - **Left_Relationship240** (1↑): Yeah, agreed, this is probably the wrong sub lol. Thanks a lot for still sharing your tips and advice! Yeah true, for each example story, I'd say try to practice with friend or talk out loud to make sure they are explained clearly yet not too long.
 - **samuraisam** (2↑): Did you interview for a general job req at CB or for a specific team? I worked there for 3 years. Can't give feedback on Meta but can on Coinbase - team/department matters a lot. DM me if you don't want to share in public.
   - **Left_Relationship240** (1↑): Thank you so much! Really appreciate it🙏 I will DM you

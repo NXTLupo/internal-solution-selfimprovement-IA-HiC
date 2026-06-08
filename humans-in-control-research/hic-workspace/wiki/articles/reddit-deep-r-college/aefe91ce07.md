@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-college/aefe91ce07.md
 url: "https://www.reddit.com/r/college/comments/1oi6if8/stuck_and_would_like_advice/"
 url_hash: "aefe91ce07"
 kind: "article"
@@ -10,8 +11,30 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T14:57:56.012246+00:00"
 chars: 6034
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-college/aefe91ce07.md#c0"
+    char_span: [0, 1887]
+    sentence_count: 14
+    key_terms: [through, classes, college, going, care, like, academic, brother]
+    token_count: 444
+  - id: "articles/reddit-deep-r-college/aefe91ce07.md#c1"
+    char_span: [1889, 3448]
+    sentence_count: 16
+    key_terms: [degree, get, business, advisor, school, like, understand, because]
+    token_count: 350
+  - id: "articles/reddit-deep-r-college/aefe91ce07.md#c2"
+    char_span: [3451, 5090]
+    sentence_count: 12
+    key_terms: [going, something, get, degree, school, path, business, another]
+    token_count: 377
+  - id: "articles/reddit-deep-r-college/aefe91ce07.md#c3"
+    char_span: [5093, 6181]
+    sentence_count: 10
+    key_terms: [university, undergrad, transfer, applied, credits, grades, people, school]
+    token_count: 253
 ---
-
 # Stuck and would like advice
 
 Source: [Reddit Deep: r/college](https://www.reddit.com/r/college/comments/1oi6if8/stuck_and_would_like_advice/)

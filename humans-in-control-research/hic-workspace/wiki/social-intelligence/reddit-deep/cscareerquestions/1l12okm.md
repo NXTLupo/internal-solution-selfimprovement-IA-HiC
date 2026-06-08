@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1l12okm.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1l12okm/32_wondering_if_going_to_school_for_cs_makes/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,69 @@ flair: ""
 extracted_at: "2026-05-22T23:33:42.308Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l12okm.md#c0"
+    char_span: [0, 1718]
+    sentence_count: 16
+    key_terms: [school, "i'm", degree, cscareerquestions, like, job, work, situation]
+    token_count: 406
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l12okm.md#c1"
+    char_span: [1733, 3838]
+    sentence_count: 21
+    key_terms: [work, studying, enjoy, older, sadly, like, disability, in-person]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l12okm.md#c2"
+    char_span: [3840, 5740]
+    sentence_count: 18
+    key_terms: [courses, get, employment, college, advice, career, enough, market]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l12okm.md#c3"
+    char_span: [5742, 7732]
+    sentence_count: 12
+    key_terms: [time, college, pretty, skills, collegepayoff, hearulemaking, https, get]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l12okm.md#c4"
+    char_span: [7734, 9510]
+    sentence_count: 16
+    key_terms: [because, job, market, degree, people, switch, trying, "i'm"]
+    section: Comments
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l12okm.md#c5"
+    char_span: [9512, 11703]
+    sentence_count: 22
+    key_terms: ["i'm", "you're", "it's", work, degree, "don't", major, job]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l12okm.md#c6"
+    char_span: [11705, 13923]
+    sentence_count: 25
+    key_terms: [cs50, project, connections, help, odin, problem-solving, dev, "i'm"]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l12okm.md#c7"
+    char_span: [13925, 16103]
+    sentence_count: 25
+    key_terms: [get, love, career, money, big, game, help, like]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l12okm.md#c8"
+    char_span: [16105, 17106]
+    sentence_count: 7
+    key_terms: [game, like, studios, pragmatic-but-positive, always, skills, visual, enjoy]
+    section: Comments
+    token_count: 226
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l12okm.md#c9"
+    char_span: [17108, 19062]
+    sentence_count: 19
+    key_terms: [people, got, "i'm", "it's", job, everything, experience, internship]
+    section: Comments
+    token_count: 457
 ---
-
 # 32, wondering if going to school for CS makes sense in my situation? Any advice appreciated!
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1l12okm/32_wondering_if_going_to_school_for_cs_makes/)

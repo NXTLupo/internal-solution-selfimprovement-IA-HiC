@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1rgwezy.md
 url: "https://www.reddit.com/r/NEU/comments/1rgwezy/neu_ms_robotics_cs_concentration_vs_ms_cs/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,15 @@ flair: "Advice & Experiences"
 extracted_at: "2026-05-26T14:30:23.764Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1rgwezy.md#c0"
+    char_span: [0, 1722]
+    sentence_count: 21
+    key_terms: [robotics, concentration, quite, scholarship, mscs, neu, comments, received]
+    token_count: 396
 ---
-
 # NEU MS Robotics (CS concentration) vs MS CS?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1rgwezy/neu_ms_robotics_cs_concentration_vs_ms_cs/)

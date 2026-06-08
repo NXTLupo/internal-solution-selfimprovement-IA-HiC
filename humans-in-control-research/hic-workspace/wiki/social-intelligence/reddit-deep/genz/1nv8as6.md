@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1nv8as6.md
 url: "https://www.reddit.com/r/GenZ/comments/1nv8as6/how_loaded_these_billionaires_bastards_are_is/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,45 @@ flair: "Political"
 extracted_at: "2026-05-17T01:11:40.766Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1nv8as6.md#c0"
+    char_span: [0, 1344]
+    sentence_count: 17
+    key_terms: [elon, comments, filled, health, earns, genz, paid, per]
+    token_count: 343
+  - id: "social-intelligence/reddit-deep/genz/1nv8as6.md#c1"
+    char_span: [1359, 3094]
+    sentence_count: 6
+    key_terms: [eclecticevergreen, working, value, hard, multiple, discord, enough, months]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/genz/1nv8as6.md#c2"
+    char_span: [3096, 4385]
+    sentence_count: 6
+    key_terms: [gilded, billionaires, age, symptom, assets, wealth, mega-billionaires, buy]
+    section: Comments
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/genz/1nv8as6.md#c3"
+    char_span: [4388, 6460]
+    sentence_count: 18
+    key_terms: [debt, down, wealth, redistributed, billionaires, means, musk, contribute]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/genz/1nv8as6.md#c4"
+    char_span: [6463, 8143]
+    sentence_count: 15
+    key_terms: [individuals, politicians, political, economic-political-social, fairness, getting, always, people]
+    section: Comments
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/genz/1nv8as6.md#c5"
+    char_span: [8145, 10192]
+    sentence_count: 11
+    key_terms: [down, another, dollars, market, people, essentially, theoretical, like]
+    section: Comments
+    token_count: 488
 ---
-
 # How LOADED these billionaires bastards are is CRAZY.
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1nv8as6/how_loaded_these_billionaires_bastards_are_is/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1tl7le7/what_does_even_harvard_do_better_than_stanford/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,57 @@ flair: "Discussion"
 extracted_at: "2026-05-24T14:08:39.597Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c0"
+    char_span: [0, 1242]
+    sentence_count: 14
+    key_terms: [stanford, better, harvard, applyingtocollege, school, prestigious, considered, comments]
+    token_count: 271
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c1"
+    char_span: [1257, 2911]
+    sentence_count: 7
+    key_terms: [harvard, yale, stanford, ppl, princeton, columbia, big, mit]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c2"
+    char_span: [2913, 4908]
+    sentence_count: 14
+    key_terms: [harvard, stanford, coast, east, power, reach, like, definitely]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c3"
+    char_span: [4910, 7046]
+    sentence_count: 18
+    key_terms: [stanford, law, perfect, social, great, engineering, like, different]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c4"
+    char_span: [7048, 8290]
+    sentence_count: 6
+    key_terms: [college-cross-admit-comparison, university, harvard, parchment, school, bush, american, stanford]
+    section: Comments
+    token_count: 307
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c5"
+    char_span: [8292, 9770]
+    sentence_count: 15
+    key_terms: [harvard, stanford, cultural-risk-6667, iit, student, schools, family, insane]
+    section: Comments
+    token_count: 381
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c6"
+    char_span: [9772, 11889]
+    sentence_count: 8
+    key_terms: [stanford, harvard, scholars, produces, rhodes, opportunities, postgraduate, scholarship]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tl7le7.md#c7"
+    char_span: [11891, 13672]
+    sentence_count: 13
+    key_terms: [stanford, harvard, politics, law, want, first-degree-colleges-of-congresspeople, strong, definitely]
+    section: Comments
+    token_count: 473
 ---
-
 # What does even Harvard do better than Stanford?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1tl7le7/what_does_even_harvard_do_better_than_stanford/)

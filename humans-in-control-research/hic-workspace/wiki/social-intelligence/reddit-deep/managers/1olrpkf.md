@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1olrpkf.md
 url: "https://www.reddit.com/r/managers/comments/1olrpkf/need_advice_on_moving_from_ic_to_manager_while/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,63 @@ flair: "New Manager"
 extracted_at: "2026-05-26T12:54:23.676Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1olrpkf.md#c0"
+    char_span: [0, 891]
+    sentence_count: 8
+    key_terms: [team, managers, close, comments, manager, always, dull-calligrapher-25, did]
+    token_count: 210
+  - id: "social-intelligence/reddit-deep/managers/1olrpkf.md#c1"
+    char_span: [906, 2402]
+    sentence_count: 13
+    key_terms: [promoted, "i've", successful, change, dull-calligrapher-25, teams, traps, new]
+    section: Comments
+    token_count: 336
+  - id: "social-intelligence/reddit-deep/managers/1olrpkf.md#c2"
+    char_span: [2404, 4545]
+    sentence_count: 21
+    key_terms: [team, get, job, work, everything, something, good, take]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/managers/1olrpkf.md#c3"
+    char_span: [4547, 6279]
+    sentence_count: 16
+    key_terms: [team, time, manager, lot, take, thought, couple, dull-calligrapher-25]
+    section: Comments
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/managers/1olrpkf.md#c4"
+    char_span: [6281, 8029]
+    sentence_count: 20
+    key_terms: [team, dull-calligrapher-25, preferential, don, give, treatment, members, awhile]
+    section: Comments
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/managers/1olrpkf.md#c5"
+    char_span: [8031, 10136]
+    sentence_count: 25
+    key_terms: [management, new, people, old, responsibilities, focus, great, "it's"]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/managers/1olrpkf.md#c6"
+    char_span: [10138, 12286]
+    sentence_count: 24
+    key_terms: [management, training, standards, team, members, always, people, goals]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/managers/1olrpkf.md#c7"
+    char_span: [12288, 14437]
+    sentence_count: 21
+    key_terms: ["you're", relationship, doing, new, training, change, lonely, longer]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/managers/1olrpkf.md#c8"
+    char_span: [14439, 15986]
+    sentence_count: 17
+    key_terms: [friendship, new, friends, succeed, part, work, manager, honest]
+    section: Comments
+    token_count: 350
 ---
-
 # Need advice on moving from IC to Manager, while being close friends with my team.
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1olrpkf/need_advice_on_moving_from_ic_to_manager_while/)

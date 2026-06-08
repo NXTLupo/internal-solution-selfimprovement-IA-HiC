@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1qbqvb4.md
 url: "https://www.reddit.com/r/careeradvice/comments/1qbqvb4/linkedin_just_dropped_its_jobs_on_the_rise_report/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,68 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.236Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c0"
+    char_span: [0, 2352]
+    sentence_count: 16
+    key_terms: [sales, people, roles, data, work, report, careeradvice, jobs]
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c1"
+    char_span: [2354, 2732]
+    sentence_count: 2
+    key_terms: [initiatives, coordinate, prioritize, alongside, companies, deadlines, desperate, genuinely]
+    token_count: 77
+  - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c2"
+    char_span: [2747, 4097]
+    sentence_count: 7
+    key_terms: [management, people, project, answer, redact, professionallet4612, "don't", tasks]
+    section: Comments
+    token_count: 311
+  - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c3"
+    char_span: [4100, 6036]
+    sentence_count: 9
+    key_terms: [going, project, management, people, stakeholder, engineer, philosopherstoned12, professionallet4612]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c4"
+    char_span: [5800, 6854]
+    sentence_count: 7
+    key_terms: [people, sales, important, project, professionallet4612, scale, buy, deal]
+    section: Comments
+    token_count: 249
+  - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c5"
+    char_span: [6856, 8862]
+    sentence_count: 9
+    key_terms: [sales, person, customer, somecontext346, wednesday, coming, flight, intake]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c6"
+    char_span: [8864, 10843]
+    sentence_count: 13
+    key_terms: [management, project, code, "it's", austin1975, developers, offshoring, security]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c7"
+    char_span: [10845, 12774]
+    sentence_count: 11
+    key_terms: [management, project, construction, coordinator, professionallet4612, role, degree, lab]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c8"
+    char_span: [12776, 14879]
+    sentence_count: 11
+    key_terms: [people, like, jobs, data, annotation, engineer, project, without]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c9"
+    char_span: [14881, 16390]
+    sentence_count: 8
+    key_terms: ["i'm", find, expected, market, trying, good, work, mechanical]
+    section: Comments
+    token_count: 346
 ---
-
 # LinkedIn just dropped its “Jobs on the Rise” report again, and it raises an uncomfortable question about where careers are actually headed
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1qbqvb4/linkedin_just_dropped_its_jobs_on_the_rise_report/)

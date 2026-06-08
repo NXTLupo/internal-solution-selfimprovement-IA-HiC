@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1njm1g6.md
 url: "https://www.reddit.com/r/college/comments/1njm1g6/theres_too_many_bad_faith_arguments_about_college/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-25T15:51:48.246Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1njm1g6.md#c0"
+    char_span: [0, 806]
+    sentence_count: 7
+    key_terms: [college, comments, going, reddit, bro, kids, tell, good-ground523]
+    token_count: 194
+  - id: "social-intelligence/reddit-deep/college/1njm1g6.md#c1"
+    char_span: [821, 2333]
+    sentence_count: 10
+    key_terms: [education, college, scam, cost, here, university, students, curious]
+    section: Comments
+    token_count: 365
+  - id: "social-intelligence/reddit-deep/college/1njm1g6.md#c2"
+    char_span: [2335, 4429]
+    sentence_count: 19
+    key_terms: [going, people, college, money, degree, cost, investment, university]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/college/1njm1g6.md#c3"
+    char_span: [4431, 5494]
+    sentence_count: 4
+    key_terms: [scam, education, because, "they're", increasingly-fascist, odd-marionberry5999, job, lies]
+    section: Comments
+    token_count: 249
+  - id: "social-intelligence/reddit-deep/college/1njm1g6.md#c4"
+    char_span: [5497, 7695]
+    sentence_count: 6
+    key_terms: [degree, people, bisexualspikespiegel, "doesn't", badgroundnoise, tech, undergrad, college]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1njm1g6.md#c5"
+    char_span: [7411, 8170]
+    sentence_count: 5
+    key_terms: [people, college, arts, liberal, mean, badgroundnoise, indoctrination, complaining]
+    section: Comments
+    token_count: 186
+  - id: "social-intelligence/reddit-deep/college/1njm1g6.md#c6"
+    char_span: [8172, 10401]
+    sentence_count: 13
+    key_terms: [people, lot, government, different, college, gravity--falls, universities, data]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/college/1njm1g6.md#c7"
+    char_span: [10403, 10988]
+    sentence_count: 4
+    key_terms: [everyone, college, work, engineering, progressing, significant, graduating, investment]
+    section: Comments
+    token_count: 131
 ---
-
 # There’s too many bad faith arguments about college on Reddit.
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1njm1g6/theres_too_many_bad_faith_arguments_about_college/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1qjgfev.md
 url: "https://www.reddit.com/r/GradSchool/comments/1qjgfev/denied_from_grad_school_any_hope_ever/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,56 @@ flair: "Admissions & Applications"
 extracted_at: "2026-05-23T19:45:05.860Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1qjgfev.md#c0"
+    char_span: [0, 1864]
+    sentence_count: 18
+    key_terms: [because, denied, school, graduate, application, been, department, gradschool]
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/gradschool/1qjgfev.md#c1"
+    char_span: [1866, 2380]
+    sentence_count: 4
+    key_terms: [years, experience, because, did, like, admissions, qualified, academic]
+    token_count: 121
+  - id: "social-intelligence/reddit-deep/gradschool/1qjgfev.md#c2"
+    char_span: [2395, 3927]
+    sentence_count: 16
+    key_terms: [certification, publications, plan, work, community, anything, graduate, relevant]
+    section: Comments
+    token_count: 363
+  - id: "social-intelligence/reddit-deep/gradschool/1qjgfev.md#c3"
+    char_span: [3929, 6142]
+    sentence_count: 23
+    key_terms: [program, accepted, applied, great, ehimherenow, challenges, community, completed]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1qjgfev.md#c4"
+    char_span: [5850, 7181]
+    sentence_count: 9
+    key_terms: [got, time, challenges, academic, through, until, years, get]
+    section: Comments
+    token_count: 303
+  - id: "social-intelligence/reddit-deep/gradschool/1qjgfev.md#c5"
+    char_span: [7183, 9305]
+    sentence_count: 16
+    key_terms: [major, time, graduate, program, higher, engineering, gpa, struggled]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/gradschool/1qjgfev.md#c6"
+    char_span: [9307, 11598]
+    sentence_count: 16
+    key_terms: [programs, school, get, knowledge, undergrad, got, grad, want]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1qjgfev.md#c7"
+    char_span: [11600, 13832]
+    sentence_count: 13
+    key_terms: [research, grad, school, got, publications, field, years, get]
+    section: Comments
+    token_count: 492
 ---
-
 # Denied From Grad School. Any Hope? Ever?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1qjgfev/denied_from_grad_school_any_hope_ever/)

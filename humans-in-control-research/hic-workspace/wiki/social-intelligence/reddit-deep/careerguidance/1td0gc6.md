@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1td0gc6.md
 url: "https://www.reddit.com/r/careerguidance/comments/1td0gc6/is_a_95_really_it/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,75 @@ flair: "Advice"
 extracted_at: "2026-05-20T02:32:24.884Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1td0gc6.md#c0"
+    char_span: [0, 353]
+    sentence_count: 3
+    key_terms: [careerguidance, comments, straight-rock8in, reddit-deep, thankful, advice, market, posted]
+    token_count: 106
+  - id: "social-intelligence/reddit-deep/careerguidance/1td0gc6.md#c1"
+    char_span: [368, 910]
+    sentence_count: 4
+    key_terms: [difficult, get, degrees, showersneakers, otherwise, advanced, business, finances]
+    section: Comments
+    token_count: 124
+  - id: "social-intelligence/reddit-deep/careerguidance/1td0gc6.md#c2"
+    char_span: [912, 2962]
+    sentence_count: 13
+    key_terms: [business, job, everyone, having, normal, people, stops, get]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/careerguidance/1td0gc6.md#c3"
+    char_span: [2964, 4793]
+    sentence_count: 15
+    key_terms: [job, become, right, work, passion, collar, gossip, having]
+    section: Comments
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/careerguidance/1td0gc6.md#c4"
+    char_span: [4795, 6491]
+    sentence_count: 6
+    key_terms: [living, something, people, creative, paycheck, pursuing, wealthy, "weren't"]
+    section: Comments
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/careerguidance/1td0gc6.md#c5"
+    char_span: [6493, 8275]
+    sentence_count: 6
+    key_terms: [business, work, hours, week, starting, running, someone, weeks]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1td0gc6.md#c6"
+    char_span: [8088, 8531]
+    sentence_count: 2
+    key_terms: [weeks, characterblood5310, week, straight-rock8in, daydreaming, freelancing, definitely, something]
+    section: Comments
+    token_count: 127
+  - id: "social-intelligence/reddit-deep/careerguidance/1td0gc6.md#c7"
+    char_span: [8533, 10413]
+    sentence_count: 13
+    key_terms: [corporate, lot, people, being, pivotcareer, give, soft, work]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/careerguidance/1td0gc6.md#c8"
+    char_span: [10415, 11590]
+    sentence_count: 9
+    key_terms: [modern, trade, work, survive, people, passthemacandcheese, suspicious-oil-5890, life]
+    section: Comments
+    token_count: 296
+  - id: "social-intelligence/reddit-deep/careerguidance/1td0gc6.md#c9"
+    char_span: [11592, 13408]
+    sentence_count: 16
+    key_terms: ["don't", miserable, people, hours, lucky, industrialization, feel, "it's"]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/careerguidance/1td0gc6.md#c10"
+    char_span: [13410, 14142]
+    sentence_count: 11
+    key_terms: [work, hours, relevant-train5317, life, lot, alternative, jacktwoguns, struggling]
+    section: Comments
+    token_count: 188
 ---
-
 # is a 9-5 really it?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1td0gc6/is_a_95_really_it/)

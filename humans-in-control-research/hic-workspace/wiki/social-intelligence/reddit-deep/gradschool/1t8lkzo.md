@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1t8lkzo.md
 url: "https://www.reddit.com/r/GradSchool/comments/1t8lkzo/where_do_people_track_grad_school_decisions/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.343Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1t8lkzo.md#c0"
+    char_span: [0, 594]
+    sentence_count: 5
+    key_terms: [gradschool, comments, people, orangespectre, communities, reddit-deep, applicants, subreddits]
+    token_count: 134
+  - id: "social-intelligence/reddit-deep/gradschool/1t8lkzo.md#c1"
+    char_span: [609, 1996]
+    sentence_count: 5
+    key_terms: [results, right, find, decision, better, people, season, sluntcrossintheroad]
+    section: Comments
+    token_count: 353
 ---
-
 # Where do people track grad school decisions during decision season?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1t8lkzo/where_do_people_track_grad_school_decisions/)

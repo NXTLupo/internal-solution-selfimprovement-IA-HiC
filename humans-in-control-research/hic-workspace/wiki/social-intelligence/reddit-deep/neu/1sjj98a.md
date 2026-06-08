@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1sjj98a.md
 url: "https://www.reddit.com/r/NEU/comments/1sjj98a/failed_to_get_coop_for_first_fall_cycle_am_i/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -6,32 +7,55 @@ subreddit: "neu"
 title: "Failed to get Co-op for first fall cycle, am I cooked?"
 author: "okaybrowhat"
 date: "2026-04-12T16:32:32.000Z"
-score: 22
-upvote_ratio: 0.9
+score: 24
+upvote_ratio: 0.95
 num_comments: 26
 flair: "Co-op & Career"
-extracted_at: "2026-05-19T17:57:09.037Z"
+extracted_at: "2026-06-06T00:27:19.931Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1sjj98a.md#c0"
+    char_span: [0, 887]
+    sentence_count: 6
+    key_terms: [co-op, cycle, comments, honestly, classes, haven, fall, feel]
+    token_count: 225
+  - id: "social-intelligence/reddit-deep/neu/1sjj98a.md#c1"
+    char_span: [902, 2529]
+    sentence_count: 14
+    key_terms: [okaybrowhat, interviews, back, got, co-op, did, feel, get]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/neu/1sjj98a.md#c2"
+    char_span: [2531, 3837]
+    sentence_count: 8
+    key_terms: [e6b69c77a6d89d86075f50a0f9910f83880c8480, co-ops, find, undergrad, someone, around, school, co-op]
+    section: Comments
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/neu/1sjj98a.md#c3"
+    char_span: [3839, 5882]
+    sentence_count: 21
+    key_terms: [positions, get, swe, number, don, let, definitely, extremely]
+    section: Comments
+    token_count: 495
 ---
-
 # Failed to get Co-op for first fall cycle, am I cooked?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1sjj98a/failed_to_get_coop_for_first_fall_cycle_am_i/)
-Posted by **okaybrowhat** · **22↑** · **26 comments**
+Posted by **okaybrowhat** · **24↑** · **26 comments**
 
 Hey guys, I’m a second year CS major who currently hasn’t secured a Co-op for the fall cycle. It’s been affecting my mental health so badly I can barely make classes and wake up because I feel so humiliated and not enough for this university. The culture makes me feel so stressed about the fact I haven’t gotten a co-op and probably won’t this cycle, meaning I won’t be able to do two co-ops. If honestly feels like the end of my SWE career and Idk what to do. Do yall have any advice or words of wisdom on how to just not let this weigh me down so much and also places I can possible gain SWE experience bc honestly, classes haven’t done much for me.
 
 ## Comments
 
-- **Potential_Fox_2313** (24↑): I got my co-op in May as a swe intern. Most of my friends got their coops late into the summer, I think you’ll be okay.
-  - **okaybrowhat** (5↑): That makes me feel a bit better, I’m just worried I’m not qualified enough but I guess that’s how a lot of people feel
+- **Potential_Fox_2313** (26↑): I got my co-op in May as a swe intern. Most of my friends got their coops late into the summer, I think you’ll be okay.
+  - **okaybrowhat** (7↑): That makes me feel a bit better, I’m just worried I’m not qualified enough but I guess that’s how a lot of people feel
   - **okaybrowhat** (1↑): When did you hear back about interview for those co-ops? Good to know it’s not too late
 - **GreedyWorking1499** (10↑): Hey, I failed 3 times! It’s ok
-  - **Idk0810** (8↑): Same. Finally secured the best one i've ever dreamed of! You'll do fine, just continue ti apply, network and talor your resume if needed
+  - **Idk0810** (7↑): Same. Finally secured the best one i've ever dreamed of! You'll do fine, just continue ti apply, network and talor your resume if needed
   - **okaybrowhat** (5↑): Were you able to get one eventually? That’s good to know if so, makes me feel better. I suppose u can always appeal for two in a row if need be too bc I want to do two but it’s nice to see it doesn’t always work out first time but it isn’t the end
 - **AggressiveTruck123** (6↑): Never give up I found one in June
-- **Expert_Sail2677** (4↑): I got my 1st co-op in mid-June last year! It’s not too late to get one for this cycle :)
+- **Expert_Sail2677** (5↑): I got my 1st co-op in mid-June last year! It’s not too late to get one for this cycle :)
   - **okaybrowhat** (3↑): Good to hear! When did you hear back about interviews for that offer?
     - **Expert_Sail2677** (1↑): I believe my interview was on June 10th and I heard back on June 13th! That was quicker than I expected. I had done 8 interviews at that point and most of them did not get back to me at all 😅
 - **Infamous_Lake_3112** (3↑): i failed my first search. I got my co-op within the last month of my second search. Throughout the 10 months of unemployment, I think I had about 4 total interviews—yeah pretty grim stuff.

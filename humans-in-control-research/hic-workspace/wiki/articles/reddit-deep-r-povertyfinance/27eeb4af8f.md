@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-povertyfinance/27eeb4af8f.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1sleijx/car_stolen_on_day_3_in_a_new_city_1000_miles_away/"
 url_hash: "27eeb4af8f"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:22:53.849573+00:00"
 chars: 4110
+industries: [workforce, financial_services, insurance]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-povertyfinance/27eeb4af8f.md#c0"
+    char_span: [0, 2080]
+    sentence_count: 16
+    key_terms: [like, car, feel, povertyfinance, "don't", money, financially, home]
+    token_count: 490
+  - id: "articles/reddit-deep-r-povertyfinance/27eeb4af8f.md#c1"
+    char_span: [2082, 4003]
+    sentence_count: 15
+    key_terms: [car, found, stolen, crack, dogshaveears, time, underneath, yesterday]
+    token_count: 455
+  - id: "articles/reddit-deep-r-povertyfinance/27eeb4af8f.md#c2"
+    char_span: [4005, 4381]
+    sentence_count: 6
+    key_terms: [stolen, back, long, seat, helpitgrow, something, somewhere, hennessy]
+    token_count: 95
 ---
-
 # Car stolen on day 3 in a new city 1000 miles away from home. Move back or tough it out? What are even my options...
 
 Source: [Reddit Deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1sleijx/car_stolen_on_day_3_in_a_new_city_1000_miles_away/)

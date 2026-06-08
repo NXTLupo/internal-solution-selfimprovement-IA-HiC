@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1qospij.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1qospij/rant_mle_career_paths_keeping_up_with_tech/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,31 @@ flair: ""
 extracted_at: "2026-05-25T18:32:49.824Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qospij.md#c0"
+    char_span: [0, 1697]
+    sentence_count: 18
+    key_terms: [cscareerquestions, code, stop, exhausting, practices, comments, studying, reading]
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qospij.md#c1"
+    char_span: [1699, 3680]
+    sentence_count: 17
+    key_terms: [don, get, leetcode, supposed, documentation, wanna, sure, engineers]
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qospij.md#c2"
+    char_span: [3682, 4450]
+    sentence_count: 9
+    key_terms: [good, working, seems, get, keep, mle, work, professionals]
+    token_count: 180
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qospij.md#c3"
+    char_span: [4465, 6202]
+    sentence_count: 11
+    key_terms: [established, learning, software, yourself, tooling, without, effort, moving]
+    section: Comments
+    token_count: 388
 ---
-
 # [Rant] MLE Career Paths + "keeping up" with tech
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1qospij/rant_mle_career_paths_keeping_up_with_tech/)

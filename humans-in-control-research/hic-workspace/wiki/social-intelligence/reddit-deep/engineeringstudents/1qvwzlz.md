@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1qvwzlz.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1qvwzlz/being_able_to_code_is_still_a_godtier_skill_for/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,50 @@ flair: "Career Advice"
 extracted_at: "2026-05-25T18:32:19.212Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qvwzlz.md#c0"
+    char_span: [0, 1954]
+    sentence_count: 10
+    key_terms: [engineers, code, engineering, coding, engineeringstudents, been, "i've", software]
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qvwzlz.md#c1"
+    char_span: [1956, 3264]
+    sentence_count: 8
+    key_terms: [code, engineering, already, "doesn't", "you're", learn, job, like]
+    token_count: 274
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qvwzlz.md#c2"
+    char_span: [3279, 5226]
+    sentence_count: 18
+    key_terms: [coding, because, everything, snowsharkk, anything, struggle, concept, course]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qvwzlz.md#c3"
+    char_span: [5228, 6987]
+    sentence_count: 10
+    key_terms: [coding, "you'll", one-liners, lines, understating, unexplained, code, part]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qvwzlz.md#c4"
+    char_span: [6989, 8965]
+    sentence_count: 13
+    key_terms: [logic, code, good, together, knowing, put, work, especially]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qvwzlz.md#c5"
+    char_span: [8967, 10898]
+    sentence_count: 13
+    key_terms: [class, programming, work, because, engineering, like, definitely, aerospace]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qvwzlz.md#c6"
+    char_span: [10900, 13093]
+    sentence_count: 13
+    key_terms: [coding, code, use, vibe, netninja, youtube, engineering, acceptable]
+    section: Comments
+    token_count: 509
 ---
-
 # Being able to code is still a god-tier skill for engineers (and vibe coding is not)
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1qvwzlz/being_able_to_code_is_still_a_godtier_skill_for/)

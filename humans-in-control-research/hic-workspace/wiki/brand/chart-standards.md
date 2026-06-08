@@ -1,4 +1,5 @@
 ---
+id: brand/chart-standards.md
 title: "Data Visualization & Chart Standards"
 type: brand
 created: 2026-04-10
@@ -8,8 +9,50 @@ confidence: high
 status: active
 tags: [brand, charts, data-viz, mckinsey, zelazny]
 evidence_count: 0
+chunks:
+  - id: "brand/chart-standards.md#c0"
+    char_span: [0, 1031]
+    sentence_count: 5
+    key_terms: [chart, conclusion, title, visualization, satisfaction, data, standards, customer]
+    section: "The Zelazny Principle: Conclusion-First Charts"
+    token_count: 235
+  - id: "brand/chart-standards.md#c1"
+    char_span: [1064, 3286]
+    sentence_count: 1
+    key_terms: [across, comparison, relationship, categories, comparing, showing, chart, time]
+    section: Chart Type Selection Guide
+    token_count: 497
+  - id: "brand/chart-standards.md#c2"
+    char_span: [3288, 5050]
+    sentence_count: 12
+    key_terms: [chart, bar, horizontal, pie, compare, comparison, perspective, distortion]
+    section: Chart Type Selection Guide
+    token_count: 382
+  - id: "brand/chart-standards.md#c3"
+    char_span: [5091, 6772]
+    sentence_count: 4
+    key_terms: [nxt-muted, series, category, color, conclusion, highlight, nxt-chartreuse, use]
+    section: Functional Color System for Charts
+    token_count: 449
+  - id: "brand/chart-standards.md#c4"
+    char_span: [6798, 8147]
+    sentence_count: 8
+    key_terms: [gridlines, labels, data, y-axis, chart, bar, charts, horizontal]
+    section: Axis and Grid Rules
+    token_count: 355
+  - id: "brand/chart-standards.md#c5"
+    char_span: [8180, 9391]
+    sentence_count: 11
+    key_terms: [source, include, chart, data, date, internal, reviews, reader]
+    section: Source Citations on Charts
+    token_count: 329
+  - id: "brand/chart-standards.md#c6"
+    char_span: [9428, 10527]
+    sentence_count: 1
+    key_terms: [chart, charts, insight, maximum, labels, brand, title, axis]
+    section: Chart Implementation Checklist
+    token_count: 261
 ---
-
 # Data Visualization & Chart Standards
 
 All data visualization in NXT Humans deliverables follows McKinsey and Gene Zelazny standards. Every chart exists to communicate a specific conclusion. If the chart does not have a conclusion, it does not belong in the deliverable.

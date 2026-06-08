@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-digitalnomad/d5bc2fcd47.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1nja7qs/my_dn_experience_has_lacked_meaning_and/"
 url_hash: "d5bc2fcd47"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-26T12:55:50.449608+00:00"
 chars: 5489
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-digitalnomad/d5bc2fcd47.md#c0"
+    char_span: [0, 1984]
+    sentence_count: 20
+    key_terms: [experience, digitalnomad, "we're", consumption, subculture, together, another, believe]
+    token_count: 438
+  - id: "articles/reddit-deep-r-digitalnomad/d5bc2fcd47.md#c1"
+    char_span: [1986, 4384]
+    sentence_count: 13
+    key_terms: [different, purpose, places, nomading, digital, people, conversations, fulfillment]
+    token_count: 493
+  - id: "articles/reddit-deep-r-digitalnomad/d5bc2fcd47.md#c2"
+    char_span: [4386, 5720]
+    sentence_count: 15
+    key_terms: [meaningful, something, real, people, build, capitalize, privileged, co-living]
+    token_count: 323
 ---
-
 # My DN experience has lacked meaning and fraternity, and is hinged on constant consumption
 
 Source: [Reddit Deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1nja7qs/my_dn_experience_has_lacked_meaning_and/)

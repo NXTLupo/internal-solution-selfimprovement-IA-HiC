@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1litxs4.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1litxs4/psa_from_college_upperclassman_go_private/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,80 @@ flair: "Financial Aid/Scholarships"
 extracted_at: "2026-05-23T19:45:32.279Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c0"
+    char_span: [0, 1940]
+    sentence_count: 14
+    key_terms: [private, school, schools, year, college, applyingtocollege, paying, upperclassman]
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c1"
+    char_span: [1942, 3446]
+    sentence_count: 14
+    key_terms: [schools, because, private, school, opportunities, scholarships, major, truly]
+    token_count: 323
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c2"
+    char_span: [3461, 4519]
+    sentence_count: 5
+    key_terms: [applyingtocollege, comments, lawrence, enough, reddit, https, com, old]
+    section: Comments
+    token_count: 239
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c3"
+    char_span: [4521, 5926]
+    sentence_count: 9
+    key_terms: [schools, colleges, prestige, juniata, scandal, gold-dragonfly-2174, sarah, fischervonneumann]
+    section: Comments
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c4"
+    char_span: [5928, 7998]
+    sentence_count: 13
+    key_terms: [research, workingclassprep, selective, students, schools, opportunities, scholarship, endowments]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c5"
+    char_span: [8000, 8529]
+    sentence_count: 3
+    key_terms: [professors, schools, respectfully, universities, instruction, recruiting, conducted, familiar]
+    section: Comments
+    token_count: 118
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c6"
+    char_span: [8531, 10911]
+    sentence_count: 19
+    key_terms: [colleges, endowments, aid, private, state, endowment, financial, year]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c7"
+    char_span: [10595, 12267]
+    sentence_count: 12
+    key_terms: [schools, minutes, school, cost, time, financial, in-state, private]
+    section: Comments
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c8"
+    char_span: [12269, 14254]
+    sentence_count: 17
+    key_terms: [college, private, students, student, tuition, colby-sawyer, great, merit]
+    section: Comments
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c9"
+    char_span: [14256, 16512]
+    sentence_count: 14
+    key_terms: [scholarships, schools, merit, endowment, gpa, private, struggling, published]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c10"
+    char_span: [16514, 17507]
+    sentence_count: 8
+    key_terms: [endowment, school, student, million, private, schools, number, years]
+    section: Comments
+    token_count: 217
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1litxs4.md#c11"
+    char_span: [17509, 19213]
+    sentence_count: 9
+    key_terms: [scholarships, merit, state, school, schools, aid, year, guaranteed]
+    section: Comments
+    token_count: 411
 ---
-
 # PSA from College upperclassman: GO PRIVATE!
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1litxs4/psa_from_college_upperclassman_go_private/)

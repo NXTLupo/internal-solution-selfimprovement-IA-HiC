@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1sjxwtu.md
 url: "https://www.reddit.com/r/internships/comments/1sjxwtu/international_students_in_the_usa_with_previous/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,27 @@ score: 3
 upvote_ratio: 0.8
 num_comments: 2
 flair: "General"
-extracted_at: "2026-05-26T14:30:47.897Z"
+extracted_at: "2026-06-06T13:03:30.725Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1sjxwtu.md#c0"
+    char_span: [0, 1952]
+    sentence_count: 7
+    key_terms: [internship, summer, international, unpaid, usa, stipend, opportunities, scholarships]
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/internships/1sjxwtu.md#c1"
+    char_span: [1954, 2382]
+    sentence_count: 3
+    key_terms: [international, students, advice, anyone, opportunities, scholatships, appreciated, expenses]
+    token_count: 90
+  - id: "social-intelligence/reddit-deep/internships/1sjxwtu.md#c2"
+    char_span: [2397, 3879]
+    sentence_count: 21
+    key_terms: [internship, research, school, summer, like, look, professors, understand]
+    section: Comments
+    token_count: 325
 ---
-
 # INTERNATIONAL STUDENTS IN THE USA WITH PREVIOUS REU/INTERNSHIP EXPERIENCE; Give me External funds/grants/scholarships/opportunities i can apply to for summer this to fund my unpaid internship!
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1sjxwtu/international_students_in_the_usa_with_previous/)

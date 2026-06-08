@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1suvooa.md
 url: "https://www.reddit.com/r/NEU/comments/1suvooa/melvin_hall_boston/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,33 @@ score: 88
 upvote_ratio: 0.98
 num_comments: 10
 flair: "Housing & Dorms"
-extracted_at: "2026-05-19T17:57:09.039Z"
+extracted_at: "2026-06-05T17:08:22.599Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1suvooa.md#c0"
+    char_span: [0, 2045]
+    sentence_count: 25
+    key_terms: [melvin, people, quite, rooms, room, year, underneath, bathrooms]
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/neu/1suvooa.md#c1"
+    char_span: [2047, 2972]
+    sentence_count: 11
+    key_terms: [melvin, floor, gender, husky, card, residence, requires, people]
+    token_count: 222
+  - id: "social-intelligence/reddit-deep/neu/1suvooa.md#c2"
+    char_span: [2987, 4878]
+    sentence_count: 13
+    key_terms: [floor, melvin, loved, area, room, honestly, sitting, living]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/neu/1suvooa.md#c3"
+    char_span: [4628, 4905]
+    sentence_count: 1
+    key_terms: [staff, sequencestatic, maintenance, anything, cleaning, friends, sitting, always]
+    section: Comments
+    token_count: 72
 ---
-
 # Melvin Hall (Boston)
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1suvooa/melvin_hall_boston/)
@@ -44,7 +67,7 @@ I’ve attached some photos of Melvin’s layout. Melvin‘s address is 90 The F
 
 ## Comments
 
-- **motleykat** (17↑): I LOVED living in Melvin on the second floor. I had a single but I know some doubles can be a bit cramped. The location is incredible, I loved being able to walk around the fens and being on the edge of campus
+- **motleykat** (18↑): I LOVED living in Melvin on the second floor. I had a single but I know some doubles can be a bit cramped. The location is incredible, I loved being able to walk around the fens and being on the edge of campus
 - **kevinng7** (7↑): the floor IS the common area... half way through the first semester, we kinda all stopped giving a fuck and sitting our pajamas and bare skin on that nasty ass carpet.
 if melvin is still cultural inclusiom and you happen to live on the 5th floor and its still all gender, have so much fun. we were practically a family on that floor.
   - **Due_Independent_3224** (1↑): Hanging out on the floor area makes a ton of sense! My floor wasn’t as connected as I would’ve hoped (at least for me). I knew a lot of people, but I never got super close with anyone on the floor. I really wish I did 😕

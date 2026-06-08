@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1splljs.md
 url: "https://www.reddit.com/r/GradSchool/comments/1splljs/how_did_you_pay_rent_during_grad_school/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,21 @@ flair: "Finance"
 extracted_at: "2026-05-23T20:15:44.988Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1splljs.md#c0"
+    char_span: [0, 421]
+    sentence_count: 3
+    key_terms: [necessities, pay, rent, gradschool, comments, school, did, grad]
+    token_count: 108
+  - id: "social-intelligence/reddit-deep/gradschool/1splljs.md#c1"
+    char_span: [436, 1914]
+    sentence_count: 8
+    key_terms: [worked, loans, campus, time, program, student, working, unlikelyrainstorm]
+    section: Comments
+    token_count: 411
 ---
-
 # How did you pay rent during grad school??
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1splljs/how_did_you_pay_rent_during_grad_school/)

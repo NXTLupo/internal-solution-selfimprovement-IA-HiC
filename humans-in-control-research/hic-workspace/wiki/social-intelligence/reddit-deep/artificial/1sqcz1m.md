@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1sqcz1m.md
 url: "https://www.reddit.com/r/artificial/comments/1sqcz1m/researchers_gave_1222_people_ai_assistants_then/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,57 @@ flair: "News"
 extracted_at: "2026-05-11T16:53:08.152Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c0"
+    char_span: [0, 1886]
+    sentence_count: 10
+    key_terms: [ai-boiling-frog-cognition-study, people, https, cognitive, minutes, effect, performance, researchers]
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c1"
+    char_span: [1901, 3271]
+    sentence_count: 7
+    key_terms: [because, study, interesting, experiment, motivation, available, internet, probably]
+    section: Comments
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c2"
+    char_span: [3273, 5112]
+    sentence_count: 15
+    key_terms: [motivation, dependant, "it's", minutes, better, obliterated, get, gps]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c3"
+    char_span: [5114, 7210]
+    sentence_count: 13
+    key_terms: [motivation, backhoe, effect, study, hole, "it's", tool, minutes]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c4"
+    char_span: [7212, 9256]
+    sentence_count: 10
+    key_terms: [reading, study, experiments, work, original, effects, forward, lowered]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c5"
+    char_span: [9258, 11426]
+    sentence_count: 15
+    key_terms: [work, higher, level, calculator, minutes, productivity, engagement, cognitive]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c6"
+    char_span: [11428, 13490]
+    sentence_count: 17
+    key_terms: [offloaded, civil-interaction-76, thinking, direction, process, without, people, never]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c7"
+    char_span: [13492, 13837]
+    sentence_count: 3
+    key_terms: [gamers, build, synthesize, underlying, understand, bothering, insights, extends]
+    section: Comments
+    token_count: 76
 ---
-
 # Researchers gave 1,222 people AI assistants, then took them away after 10 minutes. Performance crashed below the control group and people stopped trying. UCLA, MIT, Oxford, and Carnegie Mellon call it the "boiling frog" effect.
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1sqcz1m/researchers_gave_1222_people_ai_assistants_then/)

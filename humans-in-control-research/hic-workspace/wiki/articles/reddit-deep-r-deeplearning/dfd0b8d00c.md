@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-deeplearning/dfd0b8d00c.md
 url: "https://www.reddit.com/r/deeplearning/comments/1t2vyn4/3iatlas_diagnostic_run_on_a_transformer_dnn_via/"
 url_hash: "dfd0b8d00c"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T17:34:49.960132+00:00"
 chars: 5576
+industries: [ai_research]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-deeplearning/dfd0b8d00c.md#c0"
+    char_span: [0, 2119]
+    sentence_count: 12
+    key_terms: [transformer, interfaces, orientation, diagnostic, invariants, scope, contract, architecture]
+    token_count: 494
+  - id: "articles/reddit-deep-r-deeplearning/dfd0b8d00c.md#c1"
+    char_span: [2121, 3860]
+    sentence_count: 9
+    key_terms: [transformer, intelligence, invariants, invariant, attention, lens, model, explicitly]
+    token_count: 417
+  - id: "articles/reddit-deep-r-deeplearning/dfd0b8d00c.md#c2"
+    char_span: [3862, 5785]
+    sentence_count: 10
+    key_terms: [transformer, intelligence, attention, diagnostic, gradient, sensing, weights, system]
+    token_count: 448
 ---
-
 # 3I-ATLAS diagnostic run on a Transformer DNN (via Manus AI)
 
 Source: [Reddit Deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1t2vyn4/3iatlas_diagnostic_run_on_a_transformer_dnn_via/)

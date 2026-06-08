@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1l4xlwk/taipei_is_overrated_as_a_digital_nomad_destination/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,99 @@ flair: "Lifestyle"
 extracted_at: "2026-05-26T12:53:56.721Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c0"
+    char_span: [0, 1553]
+    sentence_count: 11
+    key_terms: [food, taipei, digitalnomad, nomad, destination, "i'm", diversity, something]
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c1"
+    char_span: [1568, 3829]
+    sentence_count: 20
+    key_terms: [taiwanese, taiwan, fried, world, orderliness, food, love, countries]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c2"
+    char_span: [3831, 5335]
+    sentence_count: 10
+    key_terms: [food, taiwanese, taiwan, been, diversity, diverse, biased, cities]
+    section: Comments
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c3"
+    char_span: [5337, 6990]
+    sentence_count: 15
+    key_terms: [store, taipei, bangkok, own, better, "didn't", liked, incredible]
+    section: Comments
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c4"
+    char_span: [6993, 8500]
+    sentence_count: 15
+    key_terms: [taipei, better, people, like, less, something, tourists, bangkok]
+    section: Comments
+    token_count: 345
+  - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c5"
+    char_span: [8502, 10249]
+    sentence_count: 15
+    key_terms: [climbing, the-cities-with-the-most-green-space-around-the-world, amazing, quality, taipei, taiwan, small, here]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c6"
+    char_span: [10251, 11731]
+    sentence_count: 24
+    key_terms: [better, food, taipei, everywhere, like, thailand, parks, bkk]
+    section: Comments
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c7"
+    char_span: [11733, 13825]
+    sentence_count: 16
+    key_terms: [bangkok, taipei, enough, city, forget, onsens, don, like]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c8"
+    char_span: [13827, 15898]
+    sentence_count: 17
+    key_terms: [taipei, completely, green, like, the-cities-with-the-most-green-space-around-the-world, space, food, japanese]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c9"
+    char_span: [15900, 17945]
+    sentence_count: 16
+    key_terms: [food, thailand, taipei, taiwan, bangkok, markets, night, like]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c10"
+    char_span: [17947, 20104]
+    sentence_count: 23
+    key_terms: [food, night, taiwanese, trap, mexican, outside, tourist, market]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c11"
+    char_span: [20106, 21675]
+    sentence_count: 9
+    key_terms: [taiwan, housing, taipei, excitement, whollacsek, according, expensive, canada]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c12"
+    char_span: [21677, 23514]
+    sentence_count: 12
+    key_terms: [digital, destination, taiwan, "it's", never, nomad, here, time]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c13"
+    char_span: [23516, 25184]
+    sentence_count: 11
+    key_terms: [expensive, markets, taipei, taiwan, cheap, restaurants, like, thailand]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/digitalnomad/1l4xlwk.md#c14"
+    char_span: [25186, 27104]
+    sentence_count: 14
+    key_terms: [japan, taiwan, fake, ability, better, speak, take, politeness]
+    section: Comments
+    token_count: 432
 ---
-
 # Taipei is overrated as a digital nomad destination
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1l4xlwk/taipei_is_overrated_as_a_digital_nomad_destination/)

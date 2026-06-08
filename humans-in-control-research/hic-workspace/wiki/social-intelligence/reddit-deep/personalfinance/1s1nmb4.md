@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1s1nmb4.md
 url: "https://www.reddit.com/r/personalfinance/comments/1s1nmb4/is_it_really_that_bad_to_cancel_credit_cards/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,50 @@ flair: "Credit"
 extracted_at: "2026-05-17T01:13:31.187Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c0"
+    char_span: [0, 2011]
+    sentence_count: 16
+    key_terms: [month, personalfinance, credit, paying, cards, years, car, cut]
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c1"
+    char_span: [2013, 2778]
+    sentence_count: 9
+    key_terms: [credit, everyone, become, thanks, cards, cut, huge, difference]
+    token_count: 184
+  - id: "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c2"
+    char_span: [2793, 4496]
+    sentence_count: 9
+    key_terms: [credit, cards, card, score, getting, cancel, worse, debt]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c3"
+    char_span: [4498, 5626]
+    sentence_count: 11
+    key_terms: [credit, score, accounts, typical-pollution459, cards, close, keep, utilization]
+    section: Comments
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c4"
+    char_span: [5628, 7646]
+    sentence_count: 15
+    key_terms: [credit, score, card, use, access, freeze, "don't", using]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c5"
+    char_span: [7648, 9581]
+    sentence_count: 14
+    key_terms: [credit, cards, comments, impact, reddit, https, com, personalfinance]
+    section: Comments
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c6"
+    char_span: [9583, 10949]
+    sentence_count: 15
+    key_terms: [credit, cards, score, important, accounts, without, cancel, db-cooperonthebeach]
+    section: Comments
+    token_count: 316
 ---
-
 # Is it really THAT bad to cancel credit cards?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1s1nmb4/is_it_really_that_bad_to_cancel_credit_cards/)

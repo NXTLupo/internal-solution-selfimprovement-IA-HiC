@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1mjbpyc.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1mjbpyc/to_help_me_save_money_i_had_chatgpt_start/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,45 @@ flair: "Other "
 extracted_at: "2026-05-17T01:12:48.201Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1mjbpyc.md#c0"
+    char_span: [0, 674]
+    sentence_count: 5
+    key_terms: [save, chatgpt, comments, dollar, money, gold, want, callmejimmilton]
+    token_count: 176
+  - id: "social-intelligence/reddit-deep/chatgpt/1mjbpyc.md#c1"
+    char_span: [689, 1844]
+    sentence_count: 6
+    key_terms: [https, a67df99152969d796f9f11b204d9826f971f9f51, callmejimmilton, please, conversation, image, post, r-chatgpt-1050422060352024636]
+    section: Comments
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/chatgpt/1mjbpyc.md#c2"
+    char_span: [1846, 2573]
+    sentence_count: 2
+    key_terms: [street-inevitable358, worth-reputation3450, https, like, dp0q5rdq4ghf1, hudsonatheart, u4b1wjrfhipww, amplepostage]
+    section: Comments
+    token_count: 278
+  - id: "social-intelligence/reddit-deep/chatgpt/1mjbpyc.md#c3"
+    char_span: [2575, 3858]
+    sentence_count: 7
+    key_terms: [bank, a1dce0e12ca09ba3cf40047f07a76735c680e1d9, c7a3a75c8fc85e13284810261c337676b5d81501, callmejimmilton, preview, format, https, width]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/chatgpt/1mjbpyc.md#c4"
+    char_span: [3860, 5327]
+    sentence_count: 7
+    key_terms: [gold, f583246cd8b1daa2dc38b3db64e4fcaaca9378bf, callmejimmilton, thepoormassager, years, "it's", put, poptarts]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/chatgpt/1mjbpyc.md#c5"
+    char_span: [5329, 6349]
+    sentence_count: 5
+    key_terms: [image, gold, economicaljacket, b4d586075d99eaeb203857b2b083e99da40e7e7f, fe44e9ab67b88ef91f5edf655d945b9d1fbd9515, coin, represents, generate]
+    section: Comments
+    token_count: 339
 ---
-
 # To help me save money, I had ChatGPT start visualizing my wealth. Now all I want to do is save!
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1mjbpyc/to_help_me_save_money_i_had_chatgpt_start/)

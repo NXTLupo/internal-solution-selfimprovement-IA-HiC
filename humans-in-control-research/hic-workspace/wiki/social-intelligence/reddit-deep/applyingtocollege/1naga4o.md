@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1naga4o.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1naga4o/warning_about_this_sub_humans_actually_exist/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,50 @@ flair: "Advice"
 extracted_at: "2026-05-23T19:45:32.278Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1naga4o.md#c0"
+    char_span: [0, 2244]
+    sentence_count: 35
+    key_terms: [kid, selective, accepted, amazing, school, applyingtocollege, sub, private]
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1naga4o.md#c1"
+    char_span: [2246, 2878]
+    sentence_count: 13
+    key_terms: [school, face, time, fulfilling, education, selective, something, accepted]
+    token_count: 150
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1naga4o.md#c2"
+    char_span: [2893, 4448]
+    sentence_count: 16
+    key_terms: [schools, school, get, state, selective, transfer, people, apply]
+    section: Comments
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1naga4o.md#c3"
+    char_span: [4450, 5232]
+    sentence_count: 3
+    key_terms: [law, school, hahahahahahaha, national-level, non-selective, well-regarded, absolutely, fellowship]
+    section: Comments
+    token_count: 203
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1naga4o.md#c4"
+    char_span: [5234, 7308]
+    sentence_count: 23
+    key_terms: [college, fordham, school, northwestern, fit, confident, important, instead]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1naga4o.md#c5"
+    char_span: [7310, 9097]
+    sentence_count: 14
+    key_terms: [applying, favorite, sub, college, acceptance, colleges, probably, profiles]
+    section: Comments
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1naga4o.md#c6"
+    char_span: [9099, 10426]
+    sentence_count: 10
+    key_terms: [skiing, colleges, figure, comfortablepractice5, famous-college-essay, found, never, littlerootvillager]
+    section: Comments
+    token_count: 334
 ---
-
 # WARNING ABOUT THIS SUB! Humans Actually Exist
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1naga4o/warning_about_this_sub_humans_actually_exist/)

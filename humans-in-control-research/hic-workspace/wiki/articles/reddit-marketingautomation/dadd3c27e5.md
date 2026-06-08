@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-marketingautomation/dadd3c27e5.md
 url: "https://reddit.com/r/MarketingAutomation/comments/1r6alr1/recommended_tools_for_marketing_automation/"
 url_hash: "dadd3c27e5"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-04-21T04:40:15.381388+00:00"
 chars: 658
+industries: [retail, dtc]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-marketingautomation/dadd3c27e5.md#c0"
+    char_span: [0, 849]
+    sentence_count: 5
+    key_terms: [marketingautomation, automation, marketing, workflows, others, reddit, tools, feel]
+    token_count: 176
 ---
-
 # Recommended tools for marketing automation?
 
 Source: [reddit: marketingautomation](https://reddit.com/r/MarketingAutomation/comments/1r6alr1/recommended_tools_for_marketing_automation/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1oi6if8.md
 url: "https://www.reddit.com/r/college/comments/1oi6if8/stuck_and_would_like_advice/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -10,11 +11,33 @@ score: 1
 upvote_ratio: 1
 num_comments: 8
 flair: ""
-extracted_at: "2026-05-26T14:31:29.700Z"
+extracted_at: "2026-06-05T23:41:08.247Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1oi6if8.md#c0"
+    char_span: [0, 1935]
+    sentence_count: 14
+    key_terms: [through, classes, college, going, care, like, academic, comments]
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/college/1oi6if8.md#c1"
+    char_span: [1937, 3063]
+    sentence_count: 14
+    key_terms: [advisor, degree, like, business, because, screwed, school, didn]
+    token_count: 256
+  - id: "social-intelligence/reddit-deep/college/1oi6if8.md#c2"
+    char_span: [3078, 5151]
+    sentence_count: 15
+    key_terms: [get, degree, school, "you're", going, something, path, business]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/college/1oi6if8.md#c3"
+    char_span: [5154, 6255]
+    sentence_count: 10
+    key_terms: [university, undergrad, transfer, applied, credits, grades, people, school]
+    section: Comments
+    token_count: 259
 ---
-
 # Stuck and would like advice
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1oi6if8/stuck_and_would_like_advice/)

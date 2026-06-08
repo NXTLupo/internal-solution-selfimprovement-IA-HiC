@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1tbts44.md
 url: "https://www.reddit.com/r/personalfinance/comments/1tbts44/70k_sitting_in_my_hysa_how_do_i_stop_hoarding/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,81 @@ flair: "Investing"
 extracted_at: "2026-05-17T01:13:31.179Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c0"
+    char_span: [0, 1763]
+    sentence_count: 17
+    key_terms: [cash, taxable, brokerage, personalfinance, nursing, setup, hysa, currently]
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c1"
+    char_span: [1778, 3483]
+    sentence_count: 15
+    key_terms: [brokerage, investingnerd2020, vti, account, taxable, broker, invest, funds]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c2"
+    char_span: [3485, 4641]
+    sentence_count: 11
+    key_terms: [market, american, exposure, international, small, stock, investingnerd2020, businesses]
+    section: Comments
+    token_count: 271
+  - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c3"
+    char_span: [4643, 6402]
+    sentence_count: 15
+    key_terms: [emergency, paycheck, account, taxable, invest, months, automatically, pay]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c4"
+    char_span: [6404, 6997]
+    sentence_count: 5
+    key_terms: [money, start, idea, bivolion13, eventually, everything, downturns, investing]
+    section: Comments
+    token_count: 141
+  - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c5"
+    char_span: [6999, 8781]
+    sentence_count: 10
+    key_terms: [school, nursing, time, community, expenses, because, college, recover]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c6"
+    char_span: [8783, 9419]
+    sentence_count: 6
+    key_terms: [program, free, hospital, "daughter's", presumably, bachelors, bassfartz, full-time]
+    section: Comments
+    token_count: 170
+  - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c7"
+    char_span: [9421, 10862]
+    sentence_count: 8
+    key_terms: [keep, college, going, next, community, schooling, planning, nursing]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c8"
+    char_span: [10864, 12923]
+    sentence_count: 22
+    key_terms: [tax, like, hsa, account, invest, advantaged, california, hsas]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c9"
+    char_span: [12925, 14305]
+    sentence_count: 9
+    key_terms: [going, taxes, need, probably, growth, invest, "you're", rollingprobablecause]
+    section: Comments
+    token_count: 340
+  - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c10"
+    char_span: [14307, 16249]
+    sentence_count: 15
+    key_terms: [hsa, market, funds, gains, cash, accounts, invest, money]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c11"
+    char_span: [16251, 17884]
+    sentence_count: 9
+    key_terms: [hsa-earnings-taxable-in-california, need, california, accounts, loko8765, vanguard, federal, taxable]
+    section: Comments
+    token_count: 416
 ---
-
 # ~$70k sitting in my HYSA; how do I stop hoarding this cash?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1tbts44/70k_sitting_in_my_hysa_how_do_i_stop_hoarding/)

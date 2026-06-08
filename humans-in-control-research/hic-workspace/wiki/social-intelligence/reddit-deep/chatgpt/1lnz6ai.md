@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1lnz6ai.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1lnz6ai/chatgpt_generated_an_image_completely_different/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,33 @@ flair: "Educational Purpose Only "
 extracted_at: "2026-05-11T16:54:08.814Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1lnz6ai.md#c0"
+    char_span: [0, 351]
+    sentence_count: 1
+    key_terms: [chatgpt, comments, image, reddit-deep, completely, njdevil202, different, generated]
+    token_count: 92
+  - id: "social-intelligence/reddit-deep/chatgpt/1lnz6ai.md#c1"
+    char_span: [366, 947]
+    sentence_count: 5
+    key_terms: [conversation, image, post, r-chatgpt-1050422060352024636, chatgpt-shared-links-faq, discord, openai, please]
+    section: Comments
+    token_count: 155
+  - id: "social-intelligence/reddit-deep/chatgpt/1lnz6ai.md#c2"
+    char_span: [950, 2408]
+    sentence_count: 8
+    key_terms: ["that's", a4ae39ca7a006039d80b77f13f1467d35e852237, chatgpt, subverted, "wouldn't", prompt, marketinginteresting, maybe]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/chatgpt/1lnz6ai.md#c3"
+    char_span: [2410, 4105]
+    sentence_count: 8
+    key_terms: ["subject's", did, "it'll", laugh, quite, bukkakelord, examination, "it's"]
+    section: Comments
+    token_count: 414
 ---
-
 # ChatGPT generated an image COMPLETELY different from a very specific prompt
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1lnz6ai/chatgpt_generated_an_image_completely_different/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/c9c5ff3c4f.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1sqe4oc/people_whove_transitioned_from_a_cs_career_to_a/"
 url_hash: "c9c5ff3c4f"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T12:21:01.127254+00:00"
 chars: 2166
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/c9c5ff3c4f.md#c0"
+    char_span: [0, 1739]
+    sentence_count: 10
+    key_terms: [cscareerquestions, want, yourself, "don't", "i'm", job, government, comments]
+    token_count: 390
+  - id: "articles/reddit-deep-r-cscareerquestions/c9c5ff3c4f.md#c1"
+    char_span: [1742, 2414]
+    sentence_count: 4
+    key_terms: [developer, software, special, nullpointerjunkie, god, like, look, step]
+    token_count: 176
 ---
-
 # People who've transitioned from a CS career to a mudane job, how did you pitch yourself?
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sqe4oc/people_whove_transitioned_from_a_cs_career_to_a/)

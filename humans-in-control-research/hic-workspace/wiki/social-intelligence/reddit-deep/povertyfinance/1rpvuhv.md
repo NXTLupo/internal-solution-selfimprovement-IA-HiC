@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1rpvuhv/student_loans_absolutely_ruined_my_life/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,68 @@ flair: "Debt/Loans/Credit"
 extracted_at: "2026-05-16T20:55:12.684Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c0"
+    char_span: [0, 1140]
+    sentence_count: 4
+    key_terms: [school, loans, job, college, povertyfinance, grad, comments, parents]
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c1"
+    char_span: [1142, 2374]
+    sentence_count: 9
+    key_terms: [job, month, pay, getting, afford, myself, people, trying]
+    token_count: 278
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c2"
+    char_span: [2389, 3369]
+    sentence_count: 5
+    key_terms: [public, physical-vapor, loans, work, forgiven, history, service, degree]
+    section: Comments
+    token_count: 275
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c3"
+    char_span: [3371, 5528]
+    sentence_count: 11
+    key_terms: [student, discharged, loans, administration, public, trying, discharge, payment]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c4"
+    char_span: [5530, 7272]
+    sentence_count: 9
+    key_terms: [loans, lender, credit, bankruptcy, student, circumstances, discharged, co-signer]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c5"
+    char_span: [7274, 9291]
+    sentence_count: 27
+    key_terms: [loans, school, didn, loan, bankruptcy, financial, interest, military]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c6"
+    char_span: [9293, 11134]
+    sentence_count: 29
+    key_terms: [loan, loans, garnishment, didn, like, per, manageable, something]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c7"
+    char_span: [11136, 13262]
+    sentence_count: 30
+    key_terms: [year, abroad, moving, option, jobs, visa, countries, undergrad]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c8"
+    char_span: [13264, 14468]
+    sentence_count: 8
+    key_terms: [private, loans, don, students, paying, job, pay, side]
+    section: Comments
+    token_count: 291
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c9"
+    char_span: [14470, 16476]
+    sentence_count: 17
+    key_terms: [school, expensive, time, throwaway098424, degree, state, cost, get]
+    section: Comments
+    token_count: 489
 ---
-
 # Student loans absolutely ruined my life
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1rpvuhv/student_loans_absolutely_ruined_my_life/)

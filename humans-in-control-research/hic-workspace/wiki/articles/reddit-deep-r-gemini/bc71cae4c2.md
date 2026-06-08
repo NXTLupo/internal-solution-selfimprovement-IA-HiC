@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-gemini/bc71cae4c2.md
 url: "https://www.reddit.com/r/Gemini/comments/1no3ayr/referral_code_worked_for_me/"
 url_hash: "bc71cae4c2"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T16:58:39.988677+00:00"
 chars: 1664
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-gemini/bc71cae4c2.md#c0"
+    char_span: [0, 1809]
+    sentence_count: 19
+    key_terms: [code, gemini, referral, days, get, link, crypto, trade]
+    token_count: 478
 ---
-
 # Referral Code Worked for Me
 
 Source: [Reddit Deep: r/gemini](https://www.reddit.com/r/Gemini/comments/1no3ayr/referral_code_worked_for_me/)

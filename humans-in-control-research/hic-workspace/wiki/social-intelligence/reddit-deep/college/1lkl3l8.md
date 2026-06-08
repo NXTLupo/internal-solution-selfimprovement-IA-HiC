@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1lkl3l8.md
 url: "https://www.reddit.com/r/college/comments/1lkl3l8/dropping_out/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-22T13:32:26.397Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1lkl3l8.md#c0"
+    char_span: [0, 1086]
+    sentence_count: 5
+    key_terms: [college, dont, find, anything, comments, dropping, already, advice]
+    token_count: 260
+  - id: "social-intelligence/reddit-deep/college/1lkl3l8.md#c1"
+    char_span: [1101, 2506]
+    sentence_count: 6
+    key_terms: [semesters, major, like, change, rather, time, graduate, advisor]
+    section: Comments
+    token_count: 357
+  - id: "social-intelligence/reddit-deep/college/1lkl3l8.md#c2"
+    char_span: [2508, 4660]
+    sentence_count: 11
+    key_terms: [college, want, classes, get, degree, major, definitely, something]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1lkl3l8.md#c3"
+    char_span: [4392, 4661]
+    sentence_count: 1
+    key_terms: [get, department, involved, semester, upcoming, because, college, emails]
+    section: Comments
+    token_count: 65
+  - id: "social-intelligence/reddit-deep/college/1lkl3l8.md#c4"
+    char_span: [4663, 6726]
+    sentence_count: 9
+    key_terms: [college, classes, being, point, like, currently, political, anything]
+    section: Comments
+    token_count: 463
 ---
-
 # Dropping out
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1lkl3l8/dropping_out/)

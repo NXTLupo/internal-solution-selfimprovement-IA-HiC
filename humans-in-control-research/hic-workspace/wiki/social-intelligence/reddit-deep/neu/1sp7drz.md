@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1sp7drz.md
 url: "https://www.reddit.com/r/NEU/comments/1sp7drz/northeastern_data_analytics_60k_coop_vs_scranton/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,22 @@ score: 0
 upvote_ratio: 0.4
 num_comments: 4
 flair: "Academics"
-extracted_at: "2026-05-19T17:57:09.033Z"
+extracted_at: "2026-06-06T00:27:19.935Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1sp7drz.md#c0"
+    char_span: [0, 2130]
+    sentence_count: 7
+    key_terms: [northeastern, engineering, analytics, software, co-op, data, scranton, trying]
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/neu/1sp7drz.md#c1"
+    char_span: [2145, 2525]
+    sentence_count: 3
+    key_terms: [levzn, else, like, few-lawyer3707, gooseclimber, engineering, personally, analytics]
+    section: Comments
+    token_count: 108
 ---
-
 # Northeastern Data Analytics (60k, co-op) vs Scranton Software Engineering (30k) after failing MS CS — what should I choose?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1sp7drz/northeastern_data_analytics_60k_coop_vs_scranton/)

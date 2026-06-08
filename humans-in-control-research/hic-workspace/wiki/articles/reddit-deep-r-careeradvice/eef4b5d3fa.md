@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careeradvice/eef4b5d3fa.md
 url: "https://www.reddit.com/r/careeradvice/comments/1lh9jt6/what_i_learned_from_being_completely_lost_in_my/"
 url_hash: "eef4b5d3fa"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T18:59:07.908914+00:00"
 chars: 4093
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-careeradvice/eef4b5d3fa.md#c0"
+    char_span: [0, 2166]
+    sentence_count: 30
+    key_terms: [career, careeradvice, engineering, experiences, felt, different, discover, startups]
+    token_count: 504
+  - id: "articles/reddit-deep-r-careeradvice/eef4b5d3fa.md#c1"
+    char_span: [2168, 4297]
+    sentence_count: 22
+    key_terms: [career, thank, understand, rather, taking, educationinformal376, point, reach]
+    token_count: 510
 ---
-
 # What I learned from being completely lost in my career
 
 Source: [Reddit Deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1lh9jt6/what_i_learned_from_being_completely_lost_in_my/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/ad7b1ba7d5.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1opgcbo/would_double_majoring_with_cs_increase_your/"
 url_hash: "ad7b1ba7d5"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T02:41:07.520498+00:00"
 chars: 2640
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/ad7b1ba7d5.md#c0"
+    char_span: [0, 2028]
+    sentence_count: 18
+    key_terms: [double, useful, job, cscareerquestions, sub, fintech, "there's", work]
+    token_count: 492
+  - id: "articles/reddit-deep-r-cscareerquestions/ad7b1ba7d5.md#c1"
+    char_span: [2030, 2887]
+    sentence_count: 5
+    key_terms: [get, jobs, like, specific, outside, "you'll", labor, econ]
+    token_count: 191
 ---
-
 # Would double majoring with CS increase your chances of getting a cs job in this job market?
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1opgcbo/would_double_majoring_with_cs_increase_your/)

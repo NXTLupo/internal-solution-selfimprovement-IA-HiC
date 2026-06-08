@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1mbfxne.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1mbfxne/trading_same_day_expiring_contracts_using_my/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,69 @@ flair: "Gain"
 extracted_at: "2026-05-17T01:14:17.599Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [fundraising, nonprofit]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mbfxne.md#c0"
+    char_span: [0, 948]
+    sentence_count: 8
+    key_terms: [trading, day, comments, wallstreetbets, contracts, portfolio, everyday, expiring]
+    token_count: 255
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mbfxne.md#c1"
+    char_span: [963, 1702]
+    sentence_count: 5
+    key_terms: [lose, wsb, red, discord, genius, https, total, contentsimple1275]
+    section: Comments
+    token_count: 247
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mbfxne.md#c2"
+    char_span: [1704, 3327]
+    sentence_count: 8
+    key_terms: [leverage, deleted, million, success, enough, tryna, "you'd", georgesdantonsnose]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mbfxne.md#c3"
+    char_span: [3151, 4909]
+    sentence_count: 11
+    key_terms: [month, down, another, back, give, high, lol, spy]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mbfxne.md#c4"
+    char_span: [4678, 4989]
+    sentence_count: 2
+    key_terms: [spy, roundupinthesky, cooperative, coordinated, grandfather, insurance, compared, subtract]
+    section: Comments
+    token_count: 91
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mbfxne.md#c5"
+    char_span: [4991, 6326]
+    sentence_count: 6
+    key_terms: [return, inflation, better, market, "that's", terms, guy, last]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mbfxne.md#c6"
+    char_span: [6328, 6993]
+    sentence_count: 5
+    key_terms: [trading, toasterbath-survivor, until, jye4bcslymff1, professionals, thecinemagod, steamroller, garaunteed]
+    section: Comments
+    token_count: 211
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mbfxne.md#c7"
+    char_span: [6995, 8555]
+    sentence_count: 8
+    key_terms: [eventually, trade, spy, time, portfolio, congrats, success, entire]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mbfxne.md#c8"
+    char_span: [8557, 10323]
+    sentence_count: 18
+    key_terms: [stop, loss, "there's", avatarofindifference, expertconsideration8, thebourbonoftruth, poem, spy]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mbfxne.md#c9"
+    char_span: [10325, 11367]
+    sentence_count: 5
+    key_terms: [drain, right, day, down, god, wsb, banditcleaner2, czpiei13emff1]
+    section: Comments
+    token_count: 308
 ---
-
 # Trading same day expiring contracts using my entire portfolio everyday is giving me a 100% win rate
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1mbfxne/trading_same_day_expiring_contracts_using_my/)

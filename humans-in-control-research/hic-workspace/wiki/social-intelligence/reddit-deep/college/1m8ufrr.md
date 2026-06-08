@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1m8ufrr.md
 url: "https://www.reddit.com/r/college/comments/1m8ufrr/what_options_are_available/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -10,11 +11,39 @@ score: 0
 upvote_ratio: 0.4
 num_comments: 8
 flair: "USA"
-extracted_at: "2026-05-25T18:31:10.107Z"
+extracted_at: "2026-06-03T17:24:19.149Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1m8ufrr.md#c0"
+    char_span: [0, 1997]
+    sentence_count: 18
+    key_terms: [disorder, got, classes, scholarships, never, personality, try, comments]
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/college/1m8ufrr.md#c1"
+    char_span: [1999, 3190]
+    sentence_count: 12
+    key_terms: [been, good, help, try, apparently, transcript, "don't", since]
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/college/1m8ufrr.md#c2"
+    char_span: [3205, 5038]
+    sentence_count: 14
+    key_terms: [psychology, requires, required, psychologist, coursework, hours, courses, credit]
+    section: Comments
+    token_count: 379
+  - id: "social-intelligence/reddit-deep/college/1m8ufrr.md#c3"
+    char_span: [5043, 7189]
+    sentence_count: 16
+    key_terms: [college, school, jayybirdd22, professions, back, "i'm", take, seriously]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/college/1m8ufrr.md#c4"
+    char_span: [7191, 8345]
+    sentence_count: 10
+    key_terms: [college, stuffed, animal, family, grants, free, get, step]
+    section: Comments
+    token_count: 266
 ---
-
 # What options are available?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1m8ufrr/what_options_are_available/)

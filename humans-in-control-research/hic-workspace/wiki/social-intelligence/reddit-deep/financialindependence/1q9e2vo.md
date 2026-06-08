@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1q9e2vo.md
 url: "https://www.reddit.com/r/financialindependence/comments/1q9e2vo/stuck_in_money_talk_loop_with_spouse/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,86 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.704Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1q9e2vo.md#c0"
+    char_span: [0, 1939]
+    sentence_count: 5
+    key_terms: [spouse, financialindependence, anyone, years, life, respective, comments, dislike]
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/financialindependence/1q9e2vo.md#c1"
+    char_span: [1941, 2961]
+    sentence_count: 10
+    key_terms: [expense, partner, course, people, fire, actionnable, benchmarked, possibility]
+    token_count: 238
+  - id: "social-intelligence/reddit-deep/financialindependence/1q9e2vo.md#c2"
+    char_span: [2976, 4654]
+    sentence_count: 15
+    key_terms: [travel, wants, situation, like, says, without, relationship, joint]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/financialindependence/1q9e2vo.md#c3"
+    char_span: [4656, 6620]
+    sentence_count: 20
+    key_terms: [finances, assets, spouse, joint, understand, committed, different, separate]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/financialindependence/1q9e2vo.md#c4"
+    char_span: [6622, 8649]
+    sentence_count: 10
+    key_terms: [partner, like, "i'm", marriage, divorce, sounds, world, financially]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/financialindependence/1q9e2vo.md#c5"
+    char_span: [8410, 8795]
+    sentence_count: 5
+    key_terms: [marriage, don, "i'm", currently, otherwise, finances, separate, spending]
+    section: Comments
+    token_count: 103
+  - id: "social-intelligence/reddit-deep/financialindependence/1q9e2vo.md#c6"
+    char_span: [8797, 10663]
+    sentence_count: 18
+    key_terms: [partner, ours, everything, account, started, thought, tastes, though]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/financialindependence/1q9e2vo.md#c7"
+    char_span: [10667, 12060]
+    sentence_count: 8
+    key_terms: [spouse, retired, wife, completely, subreddit, living, "wasn't", doing]
+    section: Comments
+    token_count: 311
+  - id: "social-intelligence/reddit-deep/financialindependence/1q9e2vo.md#c8"
+    char_span: [12062, 13928]
+    sentence_count: 11
+    key_terms: [jointed, relationship, years, personnal, retiring, partner, minisephirot, investment]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/financialindependence/1q9e2vo.md#c9"
+    char_span: [13930, 15925]
+    sentence_count: 18
+    key_terms: [expenses, fire, inheritance, spouse, like, probably, financially, find]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/financialindependence/1q9e2vo.md#c10"
+    char_span: [15927, 18013]
+    sentence_count: 13
+    key_terms: [significantly, fire, divorce, years, assumptions, does, goal, "it's"]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/financialindependence/1q9e2vo.md#c11"
+    char_span: [18015, 19598]
+    sentence_count: 11
+    key_terms: [independent, hit, finances, mego1989, because, savings, working, frugal]
+    section: Comments
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/financialindependence/1q9e2vo.md#c12"
+    char_span: [19600, 21646]
+    sentence_count: 24
+    key_terms: [travel, part, leave, fire, wife, financial, solutions, decision]
+    section: Comments
+    token_count: 474
 ---
-
 # Stuck in money talk loop with spouse
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1q9e2vo/stuck_in_money_talk_loop_with_spouse/)

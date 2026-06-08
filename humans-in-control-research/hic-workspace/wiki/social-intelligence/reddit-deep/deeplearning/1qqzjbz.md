@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1qqzjbz.md
 url: "https://www.reddit.com/r/deeplearning/comments/1qqzjbz/i_spent_6_months_mapping_100k_multiturn_agentic/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.052Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1qqzjbz.md#c0"
+    char_span: [0, 1682]
+    sentence_count: 13
+    key_terms: [context, deeplearning, instructions, jailbreaks, injection, assembly, comments, patterns]
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/deeplearning/1qqzjbz.md#c1"
+    char_span: [1697, 2107]
+    sentence_count: 1
+    key_terms: [sample, interesting, objective-searching, work, vagueinquietude, various-fun-978, idesireawill, drdoomc17]
+    section: Comments
+    token_count: 157
 ---
-
 # I spent 6 months mapping 100k "multi-turn" agentic jailbreaks. Here’s what I learned about the "Context Injection" loophole.
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1qqzjbz/i_spent_6_months_mapping_100k_multiturn_agentic/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1t8ndq2.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1t8ndq2/taking_an_unpaid_internship_with_no_experience/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,27 @@ flair: "Career Advice"
 extracted_at: "2026-05-22T23:33:47.026Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1t8ndq2.md#c0"
+    char_span: [0, 1296]
+    sentence_count: 9
+    key_terms: [experience, internship, engineeringstudents, unpaid, like, work, comments, everyone]
+    token_count: 296
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1t8ndq2.md#c1"
+    char_span: [1311, 2919]
+    sentence_count: 12
+    key_terms: [research, undergraduate, internship, something, minimum, looked, opportunities, tortoise4132]
+    section: Comments
+    token_count: 336
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1t8ndq2.md#c2"
+    char_span: [2922, 4347]
+    sentence_count: 9
+    key_terms: [experience, internship, summer, "you're", like, especially, freshman, company]
+    section: Comments
+    token_count: 314
 ---
-
 # Taking an unpaid internship with no experience
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1t8ndq2/taking_an_unpaid_internship_with_no_experience/)

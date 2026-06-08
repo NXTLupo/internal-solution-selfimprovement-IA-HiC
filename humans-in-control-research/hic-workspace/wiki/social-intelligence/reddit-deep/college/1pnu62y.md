@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1pnu62y.md
 url: "https://www.reddit.com/r/college/comments/1pnu62y/how_to_network_with_professors_without_being_weird/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,33 @@ flair: "Social Life"
 extracted_at: "2026-05-26T14:31:29.698Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1pnu62y.md#c0"
+    char_span: [0, 1476]
+    sentence_count: 3
+    key_terms: [professors, "i'm", college, network, being, weird, composition, "i've"]
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/college/1pnu62y.md#c1"
+    char_span: [1491, 3460]
+    sentence_count: 15
+    key_terms: [office, class, hours, related, ask, talk, introduce, professor]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/college/1pnu62y.md#c2"
+    char_span: [3462, 5561]
+    sentence_count: 22
+    key_terms: [class, recommendation, office, professors, hours, touch, remember, students]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/college/1pnu62y.md#c3"
+    char_span: [5566, 7914]
+    sentence_count: 19
+    key_terms: [recommendation, professors, class, research, students, related, doing, write]
+    section: Comments
+    token_count: 482
 ---
-
 # how to network with professors without being weird?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1pnu62y/how_to_network_with_professors_without_being_weird/)

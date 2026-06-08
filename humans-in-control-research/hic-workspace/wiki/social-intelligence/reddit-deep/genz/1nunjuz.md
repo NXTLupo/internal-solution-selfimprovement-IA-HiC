@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1nunjuz.md
 url: "https://www.reddit.com/r/GenZ/comments/1nunjuz/financial_literacy_among_our_generation_should_be/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,51 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.770Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1nunjuz.md#c0"
+    char_span: [0, 1337]
+    sentence_count: 12
+    key_terms: [money, start, comments, talking, whether, reddit, bucks, adamantheusenigma]
+    token_count: 320
+  - id: "social-intelligence/reddit-deep/genz/1nunjuz.md#c1"
+    char_span: [1352, 2905]
+    sentence_count: 8
+    key_terms: [money, interest, deltaforce632, account, because, discord, earning, person]
+    section: Comments
+    token_count: 378
+  - id: "social-intelligence/reddit-deep/genz/1nunjuz.md#c2"
+    char_span: [2907, 4566]
+    sentence_count: 9
+    key_terms: [interest, got, employed, personal, question, finance, teacher, answer]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/genz/1nunjuz.md#c3"
+    char_span: [4568, 5465]
+    sentence_count: 7
+    key_terms: [business, having, taxes, "i'm", need, self, non-traditional, penguintheyeti]
+    section: Comments
+    token_count: 203
+  - id: "social-intelligence/reddit-deep/genz/1nunjuz.md#c4"
+    char_span: [5475, 7468]
+    sentence_count: 8
+    key_terms: [money, foxwyrd, responsibility, people, going, "it's", retirement, financial]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/genz/1nunjuz.md#c5"
+    char_span: [7470, 8913]
+    sentence_count: 11
+    key_terms: [thecitizenxane, reality, telling, impressivepapercut, adamantheusenigma, own, put, work]
+    section: Comments
+    token_count: 381
+  - id: "social-intelligence/reddit-deep/genz/1nunjuz.md#c6"
+    char_span: [8915, 9935]
+    sentence_count: 2
+    key_terms: [thecitizenxane, greater, purpose, swimmingbarracuda182, naive, point, grandchildren, mqzcoihs1esf1]
+    section: Comments
+    token_count: 307
 ---
-
 # Financial literacy among our generation should be the #1 thing on our minds
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1nunjuz/financial_literacy_among_our_generation_should_be/)

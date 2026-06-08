@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1mfe4t2.md
 url: "https://www.reddit.com/r/college/comments/1mfe4t2/going_to_college_after_3_year_gap/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,27 @@ flair: "Social Life"
 extracted_at: "2026-05-22T13:32:26.397Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1mfe4t2.md#c0"
+    char_span: [0, 1010]
+    sentence_count: 10
+    key_terms: [college, year, comments, anyone, soggy-inspector-2851, going, able, age]
+    token_count: 251
+  - id: "social-intelligence/reddit-deep/college/1mfe4t2.md#c1"
+    char_span: [1025, 2933]
+    sentence_count: 25
+    key_terms: [college, classes, friends, started, people, cares, get, lifelong]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/college/1mfe4t2.md#c2"
+    char_span: [2935, 4114]
+    sentence_count: 11
+    key_terms: [people, soggy-inspector-2851, age, college, friends, though, years, back]
+    section: Comments
+    token_count: 315
 ---
-
 # Going to college after 3 year gap…
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1mfe4t2/going_to_college_after_3_year_gap/)

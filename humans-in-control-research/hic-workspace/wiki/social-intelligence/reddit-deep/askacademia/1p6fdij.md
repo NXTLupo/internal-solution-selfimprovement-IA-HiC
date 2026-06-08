@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1p6fdij.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1p6fdij/academia_vs_corporate_why_does_the_workload_feel/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,51 @@ flair: "Undergraduate - please post in /r/College, not here"
 extracted_at: "2026-05-26T14:32:49.112Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1p6fdij.md#c0"
+    char_span: [0, 1251]
+    sentence_count: 12
+    key_terms: [askacademia, corporate, different, academia, academic, comments, people, model]
+    token_count: 283
+  - id: "social-intelligence/reddit-deep/askacademia/1p6fdij.md#c1"
+    char_span: [1266, 3330]
+    sentence_count: 17
+    key_terms: [research, lab, organization, build, academics, corporate, academic, because]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/askacademia/1p6fdij.md#c2"
+    char_span: [3332, 5322]
+    sentence_count: 10
+    key_terms: [successful, lab, business, entrepreneur, being, small, like, mentorship]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/askacademia/1p6fdij.md#c3"
+    char_span: [5324, 7124]
+    sentence_count: 16
+    key_terms: [need, someone, startup, presenting, long-term, strategy, "doesn't", experts]
+    section: Comments
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/askacademia/1p6fdij.md#c4"
+    char_span: [7126, 9092]
+    sentence_count: 12
+    key_terms: [learn, academia, company, project, comparable, corporate, identify, research]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/askacademia/1p6fdij.md#c5"
+    char_span: [9094, 11097]
+    sentence_count: 14
+    key_terms: [good, difference, defined, people, been, less, experience, company]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/askacademia/1p6fdij.md#c6"
+    char_span: [11099, 11596]
+    sentence_count: 3
+    key_terms: [different, pressure, takes, day, work, experience, percentage, understand]
+    section: Comments
+    token_count: 100
 ---
-
 # Academia vs. Corporate . Why does the workload feel so different?
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1p6fdij/academia_vs_corporate_why_does_the_workload_feel/)

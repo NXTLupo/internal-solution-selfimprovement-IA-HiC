@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1p9vccy.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1p9vccy/openai_isnt_making_moneybut_come_on/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,57 @@ flair: "Worry"
 extracted_at: "2026-05-17T01:12:48.204Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1p9vccy.md#c0"
+    char_span: [0, 1192]
+    sentence_count: 9
+    key_terms: [openai, money, ads, like, comments, chatgpt, twitter, making]
+    token_count: 304
+  - id: "social-intelligence/reddit-deep/chatgpt/1p9vccy.md#c1"
+    char_span: [1207, 2187]
+    sentence_count: 3
+    key_terms: [browser, r-chatgpt-1050422060352024636, discord, product, truman, beautiful-homework47, withoutreason1729, post]
+    section: Comments
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/chatgpt/1p9vccy.md#c2"
+    char_span: [2189, 3040]
+    sentence_count: 5
+    key_terms: [thegoldengoober, flakylion5449, theta-sigma45, conversation, naptasticly, installing, shootzilla, rewatched]
+    section: Comments
+    token_count: 272
+  - id: "social-intelligence/reddit-deep/chatgpt/1p9vccy.md#c3"
+    char_span: [3042, 4909]
+    sentence_count: 9
+    key_terms: [ads, like, personal, friend, preferable, something, anybody, banners]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/chatgpt/1p9vccy.md#c4"
+    char_span: [4911, 6041]
+    sentence_count: 5
+    key_terms: [conversation, advertise, products, thinking, already, content, giving, karmaagriculturalist]
+    section: Comments
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/chatgpt/1p9vccy.md#c5"
+    char_span: [6043, 8055]
+    sentence_count: 16
+    key_terms: [ads, people, subscriptions, going, documentary, obviously, cheaper, bubble]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/chatgpt/1p9vccy.md#c6"
+    char_span: [8057, 9867]
+    sentence_count: 6
+    key_terms: [tetris, enshittified, point, like, want, redditors, anymore, crackle]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/chatgpt/1p9vccy.md#c7"
+    char_span: [9869, 11224]
+    sentence_count: 4
+    key_terms: [d2467a8dc9e65c21269b8227f257bf66750bcae4, giphy, gif, old, accounts, fit-possibility-4248, pleasenteravaliduser, responsible-sky-1336]
+    section: Comments
+    token_count: 458
 ---
-
 # OpenAI isn't making money...but come on
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1p9vccy/openai_isnt_making_moneybut_come_on/)

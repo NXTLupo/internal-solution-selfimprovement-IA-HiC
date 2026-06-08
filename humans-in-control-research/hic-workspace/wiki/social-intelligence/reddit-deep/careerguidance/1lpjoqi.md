@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1lpjoqi.md
 url: "https://www.reddit.com/r/careerguidance/comments/1lpjoqi/what_are_the_best_skills_for_a_high_school/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -7,14 +8,25 @@ title: "What are the best skills for a high school student to learn over the sum
 author: "Hot_Profession1352"
 date: "2025-07-02T01:48:06.000Z"
 score: 4
-upvote_ratio: 0.84
+upvote_ratio: 1
 num_comments: 5
 flair: "Advice"
-extracted_at: "2026-05-22T21:34:47.975Z"
+extracted_at: "2026-06-03T12:16:56.358Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1lpjoqi.md#c0"
+    char_span: [0, 1157]
+    sentence_count: 9
+    key_terms: [student, careerguidance, school, summer, learn, high, comments, career]
+    token_count: 265
+  - id: "social-intelligence/reddit-deep/careerguidance/1lpjoqi.md#c1"
+    char_span: [1172, 2735]
+    sentence_count: 16
+    key_terms: [looking, matter, get, creative, valuable, editing, fluffypreparation150, being]
+    section: Comments
+    token_count: 360
 ---
-
 # What are the best skills for a high school student to learn over the summer that can actually help in life and career?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1lpjoqi/what_are_the_best_skills_for_a_high_school/)

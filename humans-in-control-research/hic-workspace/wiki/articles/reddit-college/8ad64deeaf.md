@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-college/8ad64deeaf.md
 url: "https://reddit.com/r/college/comments/1oc8xdk/missed_class_due_to_religious_obligation/"
 url_hash: "8ad64deeaf"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-12T15:08:06.082462+00:00"
 chars: 1236
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-college/8ad64deeaf.md#c0"
+    char_span: [0, 1415]
+    sentence_count: 10
+    key_terms: [alternative, assignment, religious, obligation, college, class, event, week]
+    token_count: 322
 ---
-
 # Missed class due to religious obligation; professor gave 0
 
 Source: [reddit: college](https://reddit.com/r/college/comments/1oc8xdk/missed_class_due_to_religious_obligation/)

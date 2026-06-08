@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1s5g9vv.md
 url: "https://www.reddit.com/r/investing/comments/1s5g9vv/dow_jones_nasdaq_composite_close_in_10_correction/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,50 @@ flair: ""
 extracted_at: "2026-05-16T20:55:01.246Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1s5g9vv.md#c0"
+    char_span: [0, 1441]
+    sentence_count: 9
+    key_terms: [market, record, last, correction, industries, composite, investing, comments]
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/investing/1s5g9vv.md#c1"
+    char_span: [1443, 2169]
+    sentence_count: 2
+    key_terms: [currently, down, topped, big, etc, oct, pre-earnings, ai-adjacent]
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/investing/1s5g9vv.md#c2"
+    char_span: [2184, 3190]
+    sentence_count: 5
+    key_terms: [get, "it's", shicken684, markets, numbers, redact, going, posts]
+    section: Comments
+    token_count: 270
+  - id: "social-intelligence/reddit-deep/investing/1s5g9vv.md#c3"
+    char_span: [3192, 4668]
+    sentence_count: 7
+    key_terms: [inflation, likely, going, rates, johnbrownserection, methylphenidateman, able, cash]
+    section: Comments
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/investing/1s5g9vv.md#c4"
+    char_span: [4677, 5410]
+    sentence_count: 2
+    key_terms: [insanely, popular, product, nvidia, infinite-4-a-moment, methylphenidateman, got, use]
+    section: Comments
+    token_count: 193
+  - id: "social-intelligence/reddit-deep/investing/1s5g9vv.md#c5"
+    char_span: [5412, 7299]
+    sentence_count: 12
+    key_terms: [high, correction, record, "i'm", week, alfb63, hot, comparison]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1s5g9vv.md#c6"
+    char_span: [7056, 7863]
+    sentence_count: 8
+    key_terms: [curious-zucchini763, buying, happen, vandownbytheriver63, high, sell, use, week]
+    section: Comments
+    token_count: 223
 ---
-
 # Dow Jones & NASDAQ Composite close in -10% correction territory
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1s5g9vv/dow_jones_nasdaq_composite_close_in_10_correction/)

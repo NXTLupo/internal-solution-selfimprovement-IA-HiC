@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1r8hwiy.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1r8hwiy/screaming_crying_throwing_up/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,33 @@ flair: "Engineering"
 extracted_at: "2026-05-22T23:33:50.666Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1r8hwiy.md#c0"
+    char_span: [0, 541]
+    sentence_count: 4
+    key_terms: [gradadmissions, comments, ananamuffin, reddit-deep, everything, incredibly, screaming, grateful]
+    token_count: 154
+  - id: "social-intelligence/reddit-deep/gradadmissions/1r8hwiy.md#c1"
+    char_span: [556, 1293]
+    sentence_count: 7
+    key_terms: [congrats, contractually, international, ananamuffin, no-test6484, scholarship, canobeesus, deductions]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/gradadmissions/1r8hwiy.md#c2"
+    char_span: [1295, 3065]
+    sentence_count: 16
+    key_terms: [congrats, ananamuffin, phd, tutornervous8312, congratulations, engineering, saw, time]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1r8hwiy.md#c3"
+    char_span: [2838, 3221]
+    sentence_count: 4
+    key_terms: [interview, congratulations, ananamuffin, congratsss, interviews, motivating, contacted, september]
+    section: Comments
+    token_count: 104
 ---
-
 # SCREAMING CRYING THROWING UP
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1r8hwiy/screaming_crying_throwing_up/)

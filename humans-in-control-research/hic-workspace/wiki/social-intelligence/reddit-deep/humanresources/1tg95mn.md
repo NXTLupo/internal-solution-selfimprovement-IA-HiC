@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1tg95mn.md
 url: "https://www.reddit.com/r/humanresources/comments/1tg95mn/hr_certification_united_states/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-23T12:15:41.555Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1tg95mn.md#c0"
+    char_span: [0, 958]
+    sentence_count: 6
+    key_terms: [certification, been, humanresources, comments, little, opportunities, consistently, organization]
+    token_count: 206
+  - id: "social-intelligence/reddit-deep/humanresources/1tg95mn.md#c1"
+    char_span: [973, 3152]
+    sentence_count: 18
+    key_terms: ["you're", strategically, prove, cert, post, sphr, work, somewhere]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/humanresources/1tg95mn.md#c2"
+    char_span: [3154, 3341]
+    sentence_count: 2
+    key_terms: [humanresources, automatically, moderators, performed, questions, subreddit, concerns, compose]
+    section: Comments
+    token_count: 41
 ---
-
 # HR Certification [United States]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1tg95mn/hr_certification_united_states/)

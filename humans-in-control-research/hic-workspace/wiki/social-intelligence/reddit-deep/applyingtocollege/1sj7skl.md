@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1sj7skl.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1sj7skl/whats_the_courses_we_need_to_learn_to_apply_for/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-20T12:57:06.060Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sj7skl.md#c0"
+    char_span: [0, 417]
+    sentence_count: 1
+    key_terms: [applyingtocollege, comments, courses, reddit-deep, olympiads, colleges, language, country]
+    token_count: 113
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sj7skl.md#c1"
+    char_span: [432, 1341]
+    sentence_count: 8
+    key_terms: [sat, require, years, necessary, research, schools, school, glad-entrepreneur764]
+    section: Comments
+    token_count: 229
 ---
-
 # Whats the courses we need to learn to apply for Usa colleges 💔
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1sj7skl/whats_the_courses_we_need_to_learn_to_apply_for/)

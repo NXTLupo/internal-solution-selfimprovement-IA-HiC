@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-philanthropy/6b9ffaaada.md
 url: "https://reddit.com/r/Philanthropy/comments/1se5z8t/i_built_a_free_nonprofit_salary_benchmarking_tool/"
 url_hash: "6b9ffaaada"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-04-29T18:58:00.236730+00:00"
 chars: 649
+industries: [nonprofit]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-philanthropy/6b9ffaaada.md#c0"
+    char_span: [0, 858]
+    sentence_count: 7
+    key_terms: [nonprofit-compensation, salary, nonprofit, benchmarking, philanthropy, https, grantledger, data]
+    token_count: 196
 ---
-
 # I built a free nonprofit salary benchmarking tool using IRS 990 data
 
 Source: [reddit: Philanthropy](https://reddit.com/r/Philanthropy/comments/1se5z8t/i_built_a_free_nonprofit_salary_benchmarking_tool/)

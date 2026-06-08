@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1pswp8c.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1pswp8c/built_a_flight_booking_tool_struggling_to_find/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,57 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:56.719Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1pswp8c.md#c0"
+    char_span: [0, 1741]
+    sentence_count: 16
+    key_terms: [booking, feedback, details, flight, digitalnomad, "i'm", struggling, community]
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/digitalnomad/1pswp8c.md#c1"
+    char_span: [1756, 3426]
+    sentence_count: 19
+    key_terms: [like, booking, problem, google, autofill, "doesn't", people, travel]
+    section: Comments
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/digitalnomad/1pswp8c.md#c2"
+    char_span: [3428, 5424]
+    sentence_count: 14
+    key_terms: [airline, travelers, directly, booking, support, through, trust, midomidito]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/digitalnomad/1pswp8c.md#c3"
+    char_span: [5426, 7568]
+    sentence_count: 28
+    key_terms: ["it's", service, midomidito, time, nolatearrivals, enough, everyone, websites]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/digitalnomad/1pswp8c.md#c4"
+    char_span: [7289, 7964]
+    sentence_count: 6
+    key_terms: [midomidito, period, route, home, png, i5b9bzqgqq8g1, compelling, anything]
+    section: Comments
+    token_count: 193
+  - id: "social-intelligence/reddit-deep/digitalnomad/1pswp8c.md#c5"
+    char_span: [7966, 9320]
+    sentence_count: 16
+    key_terms: [booking, flights, journey, search, immediately, book, show, alliance]
+    section: Comments
+    token_count: 292
+  - id: "social-intelligence/reddit-deep/digitalnomad/1pswp8c.md#c6"
+    char_span: [9322, 11323]
+    sentence_count: 23
+    key_terms: [transparent, "it's", like, too, booking, website, especially, midomidito]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/digitalnomad/1pswp8c.md#c7"
+    char_span: [11326, 12129]
+    sentence_count: 3
+    key_terms: [different, because, booking, process, service, "don't", book, time]
+    section: Comments
+    token_count: 172
 ---
-
 # Built a flight booking tool, struggling to find traction. Need your honest feedback
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1pswp8c/built_a_flight_booking_tool_struggling_to_find/)

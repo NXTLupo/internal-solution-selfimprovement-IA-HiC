@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rfph6p.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rfph6p/need_advice_struggling_after_mass_layoff_and/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,50 @@ flair: ""
 extracted_at: "2026-05-22T23:33:42.280Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rfph6p.md#c0"
+    char_span: [0, 1827]
+    sentence_count: 14
+    key_terms: [struggling, since, cscareerquestions, got, layoff, been, "i've", work]
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rfph6p.md#c1"
+    char_span: [1829, 2605]
+    sentence_count: 7
+    key_terms: [feel, "master's", "don't", field, comfortably, unmotivated, experience, meaningful]
+    token_count: 171
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rfph6p.md#c2"
+    char_span: [2620, 3739]
+    sentence_count: 8
+    key_terms: [rapidroastingham, jobs, engineer, already, summary, tester, foo-bar-nlogn-100, good]
+    section: Comments
+    token_count: 272
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rfph6p.md#c3"
+    char_span: [3741, 5677]
+    sentence_count: 11
+    key_terms: [resume, "don't", development, experience, something, directly, against, summary]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rfph6p.md#c4"
+    char_span: [5679, 7542]
+    sentence_count: 23
+    key_terms: [work, "don't", important, been, resume, building, projects, problem]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rfph6p.md#c5"
+    char_span: [7544, 8351]
+    sentence_count: 6
+    key_terms: [something, getting, figure, like, soul, overwhelming, swe-oriented, essentially]
+    section: Comments
+    token_count: 186
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rfph6p.md#c6"
+    char_span: [8353, 9708]
+    sentence_count: 13
+    key_terms: [cacahuatez, this-is-uncomfortable, amfonthewestcoast, help, "it's", job, lot, tcs]
+    section: Comments
+    token_count: 357
 ---
-
 # Need Advice - Struggling after mass layoff and feeling lost in my career
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rfph6p/need_advice_struggling_after_mass_layoff_and/)

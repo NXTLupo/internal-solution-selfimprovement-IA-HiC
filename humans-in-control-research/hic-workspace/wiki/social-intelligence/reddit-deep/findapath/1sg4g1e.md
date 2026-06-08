@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1sg4g1e.md
 url: "https://www.reddit.com/r/findapath/comments/1sg4g1e/wasted_4_years_of_college_in_survival_mode_dec/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,38 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-22T15:13:18.836Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1sg4g1e.md#c0"
+    char_span: [0, 1908]
+    sentence_count: 23
+    key_terms: [hours, skills, assignments, week, work, zero, currently, findapath]
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/findapath/1sg4g1e.md#c1"
+    char_span: [1910, 2818]
+    sentence_count: 12
+    key_terms: [job, want, myself, strong, since, tired, gig, hard]
+    token_count: 225
+  - id: "social-intelligence/reddit-deep/findapath/1sg4g1e.md#c2"
+    char_span: [2833, 4312]
+    sentence_count: 10
+    key_terms: [thank, helpful, please, help, findapath, comments, everyone, guidance]
+    section: Comments
+    token_count: 344
+  - id: "social-intelligence/reddit-deep/findapath/1sg4g1e.md#c3"
+    char_span: [4316, 6250]
+    sentence_count: 21
+    key_terms: [gpa, build, degree, fundamentals, opportunity, like, principles, employer]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/findapath/1sg4g1e.md#c4"
+    char_span: [6252, 6792]
+    sentence_count: 3
+    key_terms: [use, iodinekaiju83, okokcoolguy, brainstorm, situation, syndromes, honestly, imposter]
+    section: Comments
+    token_count: 146
 ---
-
 # Wasted 4 years of college in survival mode. Dec 2025 CS Grad with zero skills, actually faked my way through the degree. Need a reset.
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1sg4g1e/wasted_4_years_of_college_in_survival_mode_dec/)

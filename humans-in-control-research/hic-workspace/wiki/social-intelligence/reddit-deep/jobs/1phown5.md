@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1phown5.md
 url: "https://www.reddit.com/r/jobs/comments/1phown5/help_with_deciding_a_student_job_opportunity/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,15 @@ flair: "Post-interview"
 extracted_at: "2026-05-22T21:35:36.540Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1phown5.md#c0"
+    char_span: [0, 1232]
+    sentence_count: 10
+    key_terms: [job, got, library, front, hours, today, desk, don]
+    token_count: 287
 ---
-
 # Help with deciding a student job opportunity
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1phown5/help_with_deciding_a_student_job_opportunity/)

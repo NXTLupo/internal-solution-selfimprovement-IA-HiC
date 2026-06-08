@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1rng43y.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1rng43y/venting_robinhood_screwed_up_my_tax_lots_and_now/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,45 @@ flair: "Loss"
 extracted_at: "2026-05-17T01:14:17.605Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rng43y.md#c0"
+    char_span: [0, 1755]
+    sentence_count: 16
+    key_terms: [tax, "i'm", leg, lots, messaged, instead, wallstreetbets, debit]
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rng43y.md#c1"
+    char_span: [1770, 2856]
+    sentence_count: 10
+    key_terms: [choose, mortgage, options, capital, discord, gains, total, years]
+    section: Comments
+    token_count: 315
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rng43y.md#c2"
+    char_span: [2858, 4523]
+    sentence_count: 9
+    key_terms: [robinhood, problem, someone, alwaysnevernotwrong, sea-advertising8372, thenicestredditor, case, don]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rng43y.md#c3"
+    char_span: [4375, 5919]
+    sentence_count: 9
+    key_terms: [account, picklerickletv, lots, tax, another, getting, support, broker]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rng43y.md#c4"
+    char_span: [5923, 7491]
+    sentence_count: 12
+    key_terms: [schwab, contract, fills, money, assignments, commissions, pay, platform]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rng43y.md#c5"
+    char_span: [7493, 9134]
+    sentence_count: 16
+    key_terms: [options, like, afterwards, contracts, adjusted, fidelity, basstid, believe]
+    section: Comments
+    token_count: 436
 ---
-
 # Venting - Robinhood screwed up my tax lots and now I'm out $10,000+
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1rng43y/venting_robinhood_screwed_up_my_tax_lots_and_now/)

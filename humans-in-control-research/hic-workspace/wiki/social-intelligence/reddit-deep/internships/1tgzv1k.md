@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1tgzv1k.md
 url: "https://www.reddit.com/r/internships/comments/1tgzv1k/are_universities_teaching_enough_practical_skills/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,22 @@ score: 2
 upvote_ratio: 0.75
 num_comments: 3
 flair: "General"
-extracted_at: "2026-05-23T14:53:57.171Z"
+extracted_at: "2026-06-05T18:53:04.654Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1tgzv1k.md#c0"
+    char_span: [0, 1117]
+    sentence_count: 8
+    key_terms: [students, internships, experience, practical, universities, feel, confidence, understand]
+    token_count: 218
+  - id: "social-intelligence/reddit-deep/internships/1tgzv1k.md#c1"
+    char_span: [1132, 1445]
+    sentence_count: 1
+    key_terms: [exoticmuffin13, internships, completely, confidence, practical, emphasis, exposure, learning]
+    section: Comments
+    token_count: 80
 ---
-
 # Are universities teaching enough practical skills to students?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1tgzv1k/are_universities_teaching_enough_practical_skills/)

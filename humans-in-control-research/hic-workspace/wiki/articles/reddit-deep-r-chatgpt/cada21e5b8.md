@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-chatgpt/cada21e5b8.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1ovafq9/i_won_full_custody_with_no_lawyer_thanks_to/"
 url_hash: "cada21e5b8"
 kind: "article"
@@ -10,8 +11,30 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:18:59.406837+00:00"
 chars: 7279
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-chatgpt/cada21e5b8.md#c0"
+    char_span: [0, 1939]
+    sentence_count: 13
+    key_terms: [chatgpt, custody, full, years, back, lawyer, time, testament]
+    token_count: 442
+  - id: "articles/reddit-deep-r-chatgpt/cada21e5b8.md#c1"
+    char_span: [1941, 4228]
+    sentence_count: 18
+    key_terms: [comments, believe, chatgpt, mother, circumstances, court, been, case]
+    token_count: 488
+  - id: "articles/reddit-deep-r-chatgpt/cada21e5b8.md#c2"
+    char_span: [4230, 5594]
+    sentence_count: 10
+    key_terms: [lawyer, please, conversation, image, post, r-chatgpt-1050422060352024636, attorneys, concerns]
+    token_count: 336
+  - id: "articles/reddit-deep-r-chatgpt/cada21e5b8.md#c3"
+    char_span: [5596, 7467]
+    sentence_count: 18
+    key_terms: [research, chatgpt, clients, better, gemini, deep, hallucinations, bad]
+    token_count: 440
 ---
-
 # I Won Full Custody With No Lawyer Thanks to ChatGPT.
 
 Source: [Reddit Deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1ovafq9/i_won_full_custody_with_no_lawyer_thanks_to/)

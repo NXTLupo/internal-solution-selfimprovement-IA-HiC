@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1sdieuq.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1sdieuq/r_reference_model_free_behavioral_discovery_of/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -13,8 +14,26 @@ flair: "Research"
 extracted_at: "2026-05-11T17:27:06.581Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1sdieuq.md#c0"
+    char_span: [0, 1871]
+    sentence_count: 5
+    key_terms: [model, known-origin, reference, organisms, machinelearning, layers, method, activations]
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/machinelearning/1sdieuq.md#c1"
+    char_span: [1873, 4189]
+    sentence_count: 3
+    key_terms: [topics, reference-free-behavioral-discovery, model, rlhf, factory, farming, planted, topic-specific]
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/machinelearning/1sdieuq.md#c2"
+    char_span: [4191, 5644]
+    sentence_count: 1
+    key_terms: [rip-it-out-by-the-roots, layer, behaviors, different, something, auditing, behavior, bmarti44]
+    section: Comments
+    token_count: 311
 ---
-
 # [R] Reference model free behavioral discovery of AudiBench model organisms via Probe-Mediated Adaptive Auditing
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1sdieuq/r_reference_model_free_behavioral_discovery_of/)

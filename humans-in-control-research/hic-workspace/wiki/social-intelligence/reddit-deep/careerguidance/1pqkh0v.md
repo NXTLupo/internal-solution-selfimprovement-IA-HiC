@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1pqkh0v.md
 url: "https://www.reddit.com/r/careerguidance/comments/1pqkh0v/my_manger_recruits_people_to_senior_positions/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,38 @@ flair: "Advice"
 extracted_at: "2026-05-25T13:04:07.358Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1pqkh0v.md#c0"
+    char_span: [0, 2058]
+    sentence_count: 15
+    key_terms: [planning, project, experience, health, careerguidance, senior, organisation, pay]
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/careerguidance/1pqkh0v.md#c1"
+    char_span: [2060, 2478]
+    sentence_count: 5
+    key_terms: [job, pay, work, development, experience, increase, probably, question]
+    token_count: 95
+  - id: "social-intelligence/reddit-deep/careerguidance/1pqkh0v.md#c2"
+    char_span: [2493, 4603]
+    sentence_count: 19
+    key_terms: [counter-offer, opportunities, offer, replacement, don, hire, look, take]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/careerguidance/1pqkh0v.md#c3"
+    char_span: [4605, 6285]
+    sentence_count: 18
+    key_terms: [company, never, justme39908, red, learning, because, sooner, plans]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/careerguidance/1pqkh0v.md#c4"
+    char_span: [6287, 7618]
+    sentence_count: 17
+    key_terms: [job, start, find, red, applying, another, company, better]
+    section: Comments
+    token_count: 322
 ---
-
 # My manger recruits people to senior positions without experience yet I cannot get a pay rise. Should I stay for skill development or look for another job?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1pqkh0v/my_manger_recruits_people_to_senior_positions/)

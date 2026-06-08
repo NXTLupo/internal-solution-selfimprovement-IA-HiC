@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-humanresources/e6ffbc2d99.md
 url: "https://www.reddit.com/r/humanresources/comments/1s4k68q/what_ai_is_everyone_using_for_the_best_help/"
 url_hash: "e6ffbc2d99"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T12:22:22.696181+00:00"
 chars: 4542
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-humanresources/e6ffbc2d99.md#c0"
+    char_span: [0, 2118]
+    sentence_count: 11
+    key_terms: [information, use, using, chatgpt, humanresources, consistently, broad, tools]
+    token_count: 485
+  - id: "articles/reddit-deep-r-humanresources/e6ffbc2d99.md#c1"
+    char_span: [2120, 4427]
+    sentence_count: 18
+    key_terms: [use, claude, recommend, model, without, constantly, drafting, policies]
+    token_count: 504
+  - id: "articles/reddit-deep-r-humanresources/e6ffbc2d99.md#c2"
+    char_span: [4429, 4768]
+    sentence_count: 4
+    key_terms: ["don't", setup, need, structures, analytics, questions, embedded, already]
+    token_count: 73
 ---
-
 # What AI is everyone using for the best help across broad HR functions? [N/A]
 
 Source: [Reddit Deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1s4k68q/what_ai_is_everyone_using_for_the_best_help/)

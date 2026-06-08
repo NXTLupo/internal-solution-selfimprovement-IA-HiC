@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1r22krf.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1r22krf/uc_berkeley_mims_vs_cmu_mcds/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,20 @@ flair: "Computer Sciences"
 extracted_at: "2026-05-22T23:33:50.653Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1r22krf.md#c0"
+    char_span: [0, 2111]
+    sentence_count: 8
+    key_terms: [engineering, science, data, https, berkeley, mcds, www, master]
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/gradadmissions/1r22krf.md#c1"
+    char_span: [2113, 4200]
+    sentence_count: 9
+    key_terms: [courses, significantly, tuition, engineering, gsi, berkeley, semester, getting]
+    token_count: 462
 ---
-
 # UC Berkeley MIMS VS CMU MCDS
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1r22krf/uc_berkeley_mims_vs_cmu_mcds/)

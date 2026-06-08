@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1p76tes.md
 url: "https://www.reddit.com/r/OpenAI/comments/1p76tes/safety_mismatch_in_large_context_windows_when/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,21 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:05.358Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1p76tes.md#c0"
+    char_span: [0, 1866]
+    sentence_count: 9
+    key_terms: [safety, script, high-context, model, safety-mismatch-in-large-context, reasoning, comments, delusion]
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/openai/1p76tes.md#c1"
+    char_span: [1881, 2153]
+    sentence_count: 1
+    key_terms: [safety-mismatch-in-large-context, showwelcomeonshare, rozsatundeai, rationalise, alignment, mismatch, substack, context]
+    section: Comments
+    token_count: 76
 ---
-
 # Safety Mismatch in Large Context Windows: When Alignment Forces GPT to Rationalise a Wrong Premise
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1p76tes/safety_mismatch_in_large_context_windows_when/)

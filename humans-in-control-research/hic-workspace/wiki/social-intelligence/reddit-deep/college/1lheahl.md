@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1lheahl.md
 url: "https://www.reddit.com/r/college/comments/1lheahl/were_you_able_to_get_financial_aidstudent_loans/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,15 @@ flair: "Finances/financial aid"
 extracted_at: "2026-05-20T06:39:33.102Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1lheahl.md#c0"
+    char_span: [0, 1078]
+    sentence_count: 5
+    key_terms: [program, online, able, financial, situation, comments, college, housing]
+    token_count: 248
 ---
-
 # Were you able to get financial aid/student loans for housing?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1lheahl/were_you_able_to_get_financial_aidstudent_loans/)

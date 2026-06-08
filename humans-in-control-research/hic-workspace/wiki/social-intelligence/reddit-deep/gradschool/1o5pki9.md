@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1o5pki9.md
 url: "https://www.reddit.com/r/GradSchool/comments/1o5pki9/for_those_who_changed_careers_after_15_years_and/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-19T15:08:48.774Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1o5pki9.md#c0"
+    char_span: [0, 339]
+    sentence_count: 2
+    key_terms: [gradschool, comments, ohlawdhetreading, reddit-deep, full-time, careers, changed, posted]
+    token_count: 99
+  - id: "social-intelligence/reddit-deep/gradschool/1o5pki9.md#c1"
+    char_span: [354, 2334]
+    sentence_count: 18
+    key_terms: [career, skills, different, call, did, ohlawdhetreading, trick-love-4571, center]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/gradschool/1o5pki9.md#c2"
+    char_span: [2336, 3241]
+    sentence_count: 6
+    key_terms: [current, management, operations, program, field, data, feel, ohlawdhetreading]
+    section: Comments
+    token_count: 198
+  - id: "social-intelligence/reddit-deep/gradschool/1o5pki9.md#c3"
+    char_span: [3243, 5137]
+    sentence_count: 18
+    key_terms: [school, grad, because, program, deathschlager, expectations, "i'm", industry]
+    section: Comments
+    token_count: 435
 ---
-
 # For those who changed careers after 15+ years and went back to full-time grad school — how did it work out?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1o5pki9/for_those_who_changed_careers_after_15_years_and/)

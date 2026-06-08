@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1sskiy4.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1sskiy4/i_asked_chatgpt_to_generate_an_image_of_typical/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,33 @@ flair: "Funny "
 extracted_at: "2026-05-11T16:54:08.803Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1sskiy4.md#c0"
+    char_span: [0, 278]
+    sentence_count: 1
+    key_terms: [chatgpt, comments, reddit, image, reddit-deep, generate, typical, posted]
+    token_count: 85
+  - id: "social-intelligence/reddit-deep/chatgpt/1sskiy4.md#c1"
+    char_span: [293, 1687]
+    sentence_count: 6
+    key_terms: [openai, please, conversation, image, legs, post, r-chatgpt-1050422060352024636, subreddit]
+    section: Comments
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/chatgpt/1sskiy4.md#c2"
+    char_span: [1689, 2657]
+    sentence_count: 3
+    key_terms: [topconcentrate8484, png, cb4dc8655fdd49f291653534ba2a7a770fad399b, preview, format, https, width, auto]
+    section: Comments
+    token_count: 408
+  - id: "social-intelligence/reddit-deep/chatgpt/1sskiy4.md#c3"
+    char_span: [2659, 3838]
+    sentence_count: 2
+    key_terms: [lol, giphy, get, gif, people, reddit, jkcnenkriqxqbe8e49, telemonoskidin5000]
+    section: Comments
+    token_count: 399
 ---
-
 # I asked ChatGPT to generate an image of "Typical Reddit User"
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1sskiy4/i_asked_chatgpt_to_generate_an_image_of_typical/)

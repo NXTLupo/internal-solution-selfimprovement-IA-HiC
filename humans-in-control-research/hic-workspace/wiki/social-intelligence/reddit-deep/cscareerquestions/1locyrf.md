@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1locyrf.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1locyrf/16_yo_in_uk_is_software_engineering_a_good_career/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,39 @@ flair: "Student"
 extracted_at: "2026-05-25T13:02:11.357Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1locyrf.md#c0"
+    char_span: [0, 1033]
+    sentence_count: 6
+    key_terms: [cscareerquestions, computer, science, "i'm", currently, comments, software, career]
+    token_count: 244
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1locyrf.md#c1"
+    char_span: [1048, 3042]
+    sentence_count: 15
+    key_terms: [better, people, years, get, "it's", like, lot, something]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1locyrf.md#c2"
+    char_span: [3044, 5043]
+    sentence_count: 23
+    key_terms: [junior, roles, engineering, like, stay, tech, considered, engineers]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1locyrf.md#c3"
+    char_span: [5045, 7152]
+    sentence_count: 22
+    key_terms: [job, passion, programming, did, degree, "don't", programmers, developer]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1locyrf.md#c4"
+    char_span: [7154, 8254]
+    sentence_count: 8
+    key_terms: [market, years, educationalmud5010, earn, "he's", job, next, donut-disastrous]
+    section: Comments
+    token_count: 264
 ---
-
 # 16 y/o in UK, is software engineering a good career path for me?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1locyrf/16_yo_in_uk_is_software_engineering_a_good_career/)

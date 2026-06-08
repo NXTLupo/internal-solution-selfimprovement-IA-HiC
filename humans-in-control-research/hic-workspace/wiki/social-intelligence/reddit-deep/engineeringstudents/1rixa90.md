@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1rixa90.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1rixa90/is_it_worth_it_to_apply_for_internships_as_a/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,27 @@ flair: "Discussion"
 extracted_at: "2026-05-25T18:32:19.222Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rixa90.md#c0"
+    char_span: [0, 876]
+    sentence_count: 4
+    key_terms: [internships, engineeringstudents, apply, comments, freshman, public-hamster-9224, taken, worth]
+    token_count: 202
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rixa90.md#c1"
+    char_span: [891, 2882]
+    sentence_count: 15
+    key_terms: [summer, experience, apply, burstawesome, internships, get, definitely, internship]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rixa90.md#c2"
+    char_span: [2884, 4329]
+    sentence_count: 11
+    key_terms: [freshman, year, resume, learn, internship, companies, research, summer]
+    section: Comments
+    token_count: 325
 ---
-
 # Is it worth it to apply for internships as a freshman?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1rixa90/is_it_worth_it_to_apply_for_internships_as_a/)

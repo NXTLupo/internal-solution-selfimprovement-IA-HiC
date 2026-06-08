@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1rb13yh.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1rb13yh/how_i_paid_off_16k_in_student_debt_in_10_months/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,38 @@ flair: "Debt/Loans/Credit"
 extracted_at: "2026-05-17T01:13:55.880Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rb13yh.md#c0"
+    char_span: [0, 1948]
+    sentence_count: 26
+    key_terms: [months, month, debt, povertyfinance, toward, loans, left, paid]
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rb13yh.md#c1"
+    char_span: [1950, 2394]
+    sentence_count: 8
+    key_terms: [celebrated, avalanche, illinois, michigan, snowball, timeline, together, whatever]
+    token_count: 97
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rb13yh.md#c2"
+    char_span: [2409, 4348]
+    sentence_count: 30
+    key_terms: [money, debt, increase, focused, income, method, people, loans]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rb13yh.md#c3"
+    char_span: [4350, 6206]
+    sentence_count: 9
+    key_terms: [emergency, debt, fund, synocrat, paying, low, investment, something]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rb13yh.md#c4"
+    char_span: [5994, 7295]
+    sentence_count: 13
+    key_terms: [expenses, easy-active-1546, car, keep, congrats, adorable-suspect-810, costs, month]
+    section: Comments
+    token_count: 346
 ---
-
 # How I paid off $16k in student debt in 10 months on a $48k salary
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1rb13yh/how_i_paid_off_16k_in_student_debt_in_10_months/)

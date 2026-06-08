@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1tdckco.md
 url: "https://www.reddit.com/r/internships/comments/1tdckco/help_choosing_between_offers/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "Offers"
 extracted_at: "2026-05-23T12:15:55.803Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1tdckco.md#c0"
+    char_span: [0, 1470]
+    sentence_count: 14
+    key_terms: [internship, work, automotive, experience, environmental, manufacturing, offer, similar]
+    token_count: 305
+  - id: "social-intelligence/reddit-deep/internships/1tdckco.md#c1"
+    char_span: [1485, 2902]
+    sentence_count: 5
+    key_terms: [plant, culture, processing, food, working, impact, manufacturing, automotive]
+    section: Comments
+    token_count: 312
 ---
-
 # Help choosing between offers
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1tdckco/help_choosing_between_offers/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1m36uys.md
 url: "https://www.reddit.com/r/findapath/comments/1m36uys/i_am_25_years_old_and_i_feel_like_i_failed_at_my/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,61 @@ flair: "Findapath-Mindset Adjustment"
 extracted_at: "2026-05-22T15:13:18.833Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1m36uys.md#c0"
+    char_span: [0, 1557]
+    sentence_count: 14
+    key_terms: [like, years, never, feel, findapath, comments, version, around]
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/findapath/1m36uys.md#c1"
+    char_span: [1559, 3824]
+    sentence_count: 21
+    key_terms: [want, photography, automation, confidence, ambitions, emergency, martial, streams]
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/findapath/1m36uys.md#c2"
+    char_span: [3828, 4435]
+    sentence_count: 6
+    key_terms: [discipline, afraid, work, accountability, relentless, structure, willpower, ambition]
+    token_count: 137
+  - id: "social-intelligence/reddit-deep/findapath/1m36uys.md#c3"
+    char_span: [4450, 6095]
+    sentence_count: 13
+    key_terms: [thank, helpful, please, administered, adhd, findapath, comments, everyone]
+    section: Comments
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/findapath/1m36uys.md#c4"
+    char_span: [6097, 7629]
+    sentence_count: 16
+    key_terms: [yourself, proud, debt, changing, remember, future, subject-situation272, focus]
+    section: Comments
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/findapath/1m36uys.md#c5"
+    char_span: [7631, 9593]
+    sentence_count: 29
+    key_terms: [get, start, work, sleep, recommend, job, better, credit]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/findapath/1m36uys.md#c6"
+    char_span: [9595, 11496]
+    sentence_count: 16
+    key_terms: [money, student, going, start, attention, account, working, anyway]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/findapath/1m36uys.md#c7"
+    char_span: [11498, 13099]
+    sentence_count: 14
+    key_terms: [field, skill, felt, life, accounting, something, decision, another]
+    section: Comments
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/findapath/1m36uys.md#c8"
+    char_span: [13101, 13780]
+    sentence_count: 7
+    key_terms: [focus, salt-technology-9702, get, good, plan, hypercritical, distractions, everything]
+    section: Comments
+    token_count: 163
 ---
-
 # I am 25 years old and I feel like I failed at my chances to succeed in life. What should I do?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1m36uys/i_am_25_years_old_and_i_feel_like_i_failed_at_my/)

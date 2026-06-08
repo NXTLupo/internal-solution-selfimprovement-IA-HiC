@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1sqdrqg.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1sqdrqg/sgocr_a_spatiallygrounded_ocrfocused_pipeline_v1/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -13,8 +14,20 @@ flair: "Project"
 extracted_at: "2026-05-11T17:27:06.574Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1sqdrqg.md#c0"
+    char_span: [0, 1702]
+    sentence_count: 6
+    key_terms: [spatially-grounded, text, machinelearning, dataset, verification, flash, https, model]
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/machinelearning/1sqdrqg.md#c1"
+    char_span: [1704, 2542]
+    sentence_count: 5
+    key_terms: [looking, process, hyperparameter-searchy, less, loop, human-grounded, autoresearch, bootstrapped]
+    token_count: 170
 ---
-
 # SGOCR: A Spatially-Grounded OCR-focused Pipeline & V1 Dataset [P]
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1sqdrqg/sgocr_a_spatiallygrounded_ocrfocused_pipeline_v1/)

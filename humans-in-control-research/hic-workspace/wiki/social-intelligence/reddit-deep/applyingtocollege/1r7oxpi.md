@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1r7oxpi.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1r7oxpi/at_the_risk_of_sounding_snobby_private_college_is/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,39 @@ flair: "Fluff"
 extracted_at: "2026-05-23T12:15:36.206Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r7oxpi.md#c0"
+    char_span: [0, 1641]
+    sentence_count: 12
+    key_terms: [schools, berkeley, "i'm", prestigious, applyingtocollege, deciding, college, private]
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r7oxpi.md#c1"
+    char_span: [1656, 3750]
+    sentence_count: 28
+    key_terms: [school, private, university, sometimes, better, agree, end, fit]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r7oxpi.md#c2"
+    char_span: [3752, 5314]
+    sentence_count: 15
+    key_terms: [austin, better, people, definitely, experience, getting, important-quit-9354, agree]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r7oxpi.md#c3"
+    char_span: [5316, 6711]
+    sentence_count: 10
+    key_terms: [education, independent, big, experience, evidence, college, private, schools]
+    section: Comments
+    token_count: 318
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r7oxpi.md#c4"
+    char_span: [6713, 7941]
+    sentence_count: 1
+    key_terms: [private, universities, top, university, different, coddling, college, special]
+    section: Comments
+    token_count: 283
 ---
-
 # At the Risk of Sounding Snobby, Private College is *Mostly* a Better Option Than Public IMO.
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1r7oxpi/at_the_risk_of_sounding_snobby_private_college_is/)

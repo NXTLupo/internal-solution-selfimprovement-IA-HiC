@@ -6,19 +6,19 @@ subreddit: "jobs"
 title: "I’m going to lose it"
 author: "Daliflowers46"
 date: "2026-03-05T21:53:07.000Z"
-score: 99
+score: 98
 upvote_ratio: 0.95
 num_comments: 64
 flair: "Job searching"
-extracted_at: "2026-05-22T21:35:36.547Z"
+extracted_at: "2026-06-06T23:23:15.612Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # I’m going to lose it
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1rluyqa/im_going_to_lose_it/)
-Posted by **Daliflowers46** · **99↑** · **64 comments**
+Posted by **Daliflowers46** · **98↑** · **64 comments**
 
 I have applied to at least 200 jobs since 2023.
 
@@ -42,11 +42,11 @@ Thanks for everyone’s insight!
 
 - **RuleTheOne** (60↑): It’s ridiculous that so many people are going through this simultaneously, I wonder at what point did this start happening in the market?
   - **Xenomex79** (17↑): And it’ll only get worse before it even remotely gets better. More and more layoffs happening, AI uprising, and inflation continuing to increase
-  - **Adventurous-State940** (16↑): Their vote.
+  - **Adventurous-State940** (15↑): Their vote.
     - **DaughterOfDemeter23** (2↑): ![gif](giphy|3ohc12cy8AerHN2u8U)
   - **QuesoMeHungry** (2↑): We started to have a turn around after Covid, once the momentum built, people decided to halt all of that momentum over false promises in November 2024.
 - **HappyIrishman633210** (28↑): Up until I was thirty I always said it was a mistake to have dreams. The reality is most of us don’t get to chose what we do we just find our niche within whatever opportunities come our way. I found myself in a job I was completely unengaged, uninterested in when people I was close to started dying (happens to us all eventually) and burnt out incredibly quickly to the point I felt brain damaged and handed in my resignation to try going back to school. Now I think it’s a balance. Take any role you can get but also continue applying and using your skills towards what you want to do.
-- **MangoDouble3259** (18↑): Only piece advice would be volume > feedback loop > itterate.
+- **MangoDouble3259** (17↑): Only piece advice would be volume > feedback loop > itterate.
 
 
 Market is terrible rn no way sugar coating it. Way worse 2023 rn. I think best thing you can do is just out your head down and apply 15-25 apps day regardless of location, maybe positions you deem lesser or new field  but better pay or avenue to long term career, etc.
@@ -56,12 +56,12 @@ Once you start least get some hits, interviews, etc their are measurable metrics
 
 It's not going to be fun. It will be miserable, but eod this is market we are in. Makes you feel better it took me solid 300+ apps get my 1st internship. From their it got better as each new job became more easier acquire/better as I got older.
   - **Daliflowers46** (2↑): I find it so incredibly hard to do 1 -2 a day after a 8-9 hr workday let alone 15-25. I feel grateful to have money coming in but conflicted like I’ll never have the time to pursue actual new jobs and opportunities because of the exhaustion from the job I hate. I don’t want to be unemployed but feel like you can give it so much more energy in changing ur circumstances than trying to balance both.
-- **SmoothTraderr** (9↑): Yeah it's crazy.
-- **Conscious-Solid9491** (7↑): 200 is low man. Especially over a 3 year span.
+- **SmoothTraderr** (8↑): Yeah it's crazy.
+- **Conscious-Solid9491** (6↑): 200 is low man. Especially over a 3 year span.
 
 ![gif](giphy|YmQLj2KxaNz58g7Ofg)
   - **Daliflowers46** (3↑): I’ve been employed throughout and stop applying at some points, especially when I started a new job becuase I was hoping I’d like it enough. But in the months I have been and the months of unemployment I have no luck in getting any jobs I’m slightly interested in.
-- **StarkAspirations0842** (10↑): Entry level hasn't been real since 2008.
+- **StarkAspirations0842** (9↑): Entry level hasn't been real since 2008.
   - **edvek** (4↑): People need to expand their search and look into public sector work. Yes it's not fancy and the pay can be meh, but it's very different than private sector.
 
 I work in environmental public health and our inspector positions are 100% truly, honest to God, entry level. They require 0 experience but does require a degree and 30 credits in science. This is not weird and super common in this field because a lot of agency require you to get your REHS at some point which you can get after some experience in the field. We fully train all of are inspectors even if you have 30 years of experience. It just means you're probably trained faster but you still go through the process.
@@ -69,7 +69,7 @@ I work in environmental public health and our inspector positions are 100% truly
 I will also note we struggle to hire people because almost no one applied and those that do, don't respond to interviews or decline. I've had people decline offers when they are still unemployed for some reason... Oh and our department is actually shielded from all this funding nonsense because we are self funded, so we don't get lay offs because of lack of money.
   - **lissybeau** (1↑): Definitely not at a major publisher like Penguin
 - **Few-Painting-8096** (10↑): 200 jobs in 3 years isn’t very much at all. I used to apply to 50 jobs a week. LinkedIn easy apply. It’s one click.
-  - **fitm3** (3↑): Even on company sites it’s like 1-5 minute max most the time with how they parse the resume for most details being pulled out.   Spend even an hour a day applying and you end up with a ton.
+  - **fitm3** (4↑): Even on company sites it’s like 1-5 minute max most the time with how they parse the resume for most details being pulled out.   Spend even an hour a day applying and you end up with a ton.
     - **Few-Painting-8096** (4↑): I’m just saying I was applying to about 1,200 to 1,500 jobs a month. I had a ton of interviews and I’ve had many jobs. They’re out there. Just gotta want it.
     - **Daliflowers46** (1↑): Maybe I’m putting too much effort into cover letters, they usually take me 20 mins to edit and then there’s short questions sometimes.
   - **Daliflowers46** (3↑): Always felt like those were useless or never get looked at. I usually try to apply on the company sites.

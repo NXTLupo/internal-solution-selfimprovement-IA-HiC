@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1qmkbj9.md
 url: "https://www.reddit.com/r/GradSchool/comments/1qmkbj9/does_anyone_else_no_longer_have_the_mental_energy/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,33 @@ flair: "Health & Work/Life Balance"
 extracted_at: "2026-05-25T13:04:07.344Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [energy]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1qmkbj9.md#c0"
+    char_span: [0, 1017]
+    sentence_count: 10
+    key_terms: [reading, novel, gradschool, comments, started, don, like, time]
+    token_count: 237
+  - id: "social-intelligence/reddit-deep/gradschool/1qmkbj9.md#c1"
+    char_span: [1032, 2502]
+    sentence_count: 9
+    key_terms: [library, audiobooks, through, novels, card, got, reading, access]
+    section: Comments
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/gradschool/1qmkbj9.md#c2"
+    char_span: [2504, 4584]
+    sentence_count: 14
+    key_terms: [school, read, reading, couldn, novels, books, work, favorite]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1qmkbj9.md#c3"
+    char_span: [4365, 5682]
+    sentence_count: 8
+    key_terms: [school, time, reading, read, work, novels, relax, grad]
+    section: Comments
+    token_count: 331
 ---
-
 # Does anyone else no longer have the mental energy for novels?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1qmkbj9/does_anyone_else_no_longer_have_the_mental_energy/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1t45gyu.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1t45gyu/is_onpaper_experiencedummy_job_a_viable/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T20:15:57.476Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t45gyu.md#c0"
+    char_span: [0, 1060]
+    sentence_count: 4
+    key_terms: [cscareerquestions, friend, job, comments, market, salary, dummy, help]
+    token_count: 270
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t45gyu.md#c1"
+    char_span: [1075, 2586]
+    sentence_count: 5
+    key_terms: [reference, get, manager, interviewers, like, companies, relieving, resume]
+    section: Comments
+    token_count: 335
 ---
-
 # Is “on-paper experience/dummy job" a viable workaround or only a risky shortcut for freshers in today’s job market?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1t45gyu/is_onpaper_experiencedummy_job_a_viable/)

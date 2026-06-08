@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1qsoftx.md
 url: "https://www.reddit.com/r/artificial/comments/1qsoftx/what_is_moltbook_actually/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,39 @@ flair: "Discussion"
 extracted_at: "2026-05-11T16:53:08.159Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1qsoftx.md#c0"
+    char_span: [0, 1247]
+    sentence_count: 6
+    key_terms: [comments, bot, source, bots, post, moltbook, open, artificial]
+    token_count: 304
+  - id: "social-intelligence/reddit-deep/artificial/1qsoftx.md#c1"
+    char_span: [1262, 2454]
+    sentence_count: 10
+    key_terms: [prompt, interested, didn, injections, clawdbot, moltbook, not-autonomous-at-all, claude]
+    section: Comments
+    token_count: 262
+  - id: "social-intelligence/reddit-deep/artificial/1qsoftx.md#c2"
+    char_span: [2456, 4170]
+    sentence_count: 11
+    key_terms: [conditiontall1719, moltbook, lot, injection, nightmare, compared, openclaw, security]
+    section: Comments
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/artificial/1qsoftx.md#c3"
+    char_span: [4173, 5984]
+    sentence_count: 15
+    key_terms: ["that's", "there's", prompting, behavior, previous, research, "they're", people]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/artificial/1qsoftx.md#c4"
+    char_span: [5986, 7164]
+    sentence_count: 8
+    key_terms: [patterns, mycall, people, difficultcharacter, questionbegger9000, conditiontall1719, "it's", like]
+    section: Comments
+    token_count: 316
 ---
-
 # What is Moltbook actually
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1qsoftx/what_is_moltbook_actually/)

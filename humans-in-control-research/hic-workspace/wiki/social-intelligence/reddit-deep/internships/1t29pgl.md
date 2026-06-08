@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1t29pgl.md
 url: "https://www.reddit.com/r/internships/comments/1t29pgl/looking_for_data_analytics_internship/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,30 @@ subreddit: "internships"
 title: "📊 looking for Data Analytics Internship"
 author: "Objective-Bad-4447"
 date: "2026-05-03T03:00:42.000Z"
-score: 7
-upvote_ratio: 0.89
-num_comments: 4
+score: 5
+upvote_ratio: 0.78
+num_comments: 5
 flair: "Post-Internship"
-extracted_at: "2026-05-25T18:31:15.450Z"
+extracted_at: "2026-06-02T17:48:17.966Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1t29pgl.md#c0"
+    char_span: [0, 821]
+    sentence_count: 5
+    key_terms: [data, opportunities, internships, internship, analytics, currently, comments, looking]
+    token_count: 188
+  - id: "social-intelligence/reddit-deep/internships/1t29pgl.md#c1"
+    char_span: [836, 1385]
+    sentence_count: 1
+    key_terms: [analytics, roles, objective-bad-4447, sweet-frosting4839, efficient-touch69, com, data, internshipdaily]
+    section: Comments
+    token_count: 152
 ---
-
 # 📊 looking for Data Analytics Internship
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1t29pgl/looking_for_data_analytics_internship/)
-Posted by **Objective-Bad-4447** · **7↑** · **4 comments**
+Posted by **Objective-Bad-4447** · **5↑** · **5 comments**
 
 Hi everyone,
 

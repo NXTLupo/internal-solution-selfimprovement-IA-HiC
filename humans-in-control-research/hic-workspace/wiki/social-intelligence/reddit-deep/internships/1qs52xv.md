@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1qs52xv.md
 url: "https://www.reddit.com/r/internships/comments/1qs52xv/virtual_internships_vs_onsite_internships_what/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,15 @@ flair: "Applications"
 extracted_at: "2026-05-25T18:31:15.454Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1qs52xv.md#c0"
+    char_span: [0, 1574]
+    sentence_count: 7
+    key_terms: [internships, virtual, benefits-of-virtual-internships-malaysia, experiences, especially, comments, learning, on-site]
+    token_count: 350
 ---
-
 # Virtual internships vs on-site internships — what actually helps with career readiness?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1qs52xv/virtual_internships_vs_onsite_internships_what/)

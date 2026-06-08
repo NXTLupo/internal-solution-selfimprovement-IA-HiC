@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1taijjj.md
 url: "https://www.reddit.com/r/internships/comments/1taijjj/stuck_deciding_whether_to_stay_at_after/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,22 @@ score: 3
 upvote_ratio: 1
 num_comments: 2
 flair: "Post-Internship"
-extracted_at: "2026-05-22T21:34:37.051Z"
+extracted_at: "2026-06-05T18:53:04.655Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1taijjj.md#c0"
+    char_span: [0, 1637]
+    sentence_count: 13
+    key_terms: [internship, internships, part-time, stay, firm, fmcg, got, different]
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/internships/1taijjj.md#c1"
+    char_span: [1652, 2124]
+    sentence_count: 4
+    key_terms: [next, guaranteed, summer, appropriate-tutor587, hereisouttasight, internships, considered, graduation]
+    section: Comments
+    token_count: 111
 ---
-
 # Stuck deciding whether to stay at after internship or leave for the unknown
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1taijjj/stuck_deciding_whether_to_stay_at_after/)

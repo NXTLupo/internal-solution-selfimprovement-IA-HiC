@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1q3cmyi.md
 url: "https://www.reddit.com/r/stocks/comments/1q3cmyi/what_does_trump_really_want_with_venezuela_here/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,92 @@ flair: "Industry Discussion"
 extracted_at: "2026-05-17T01:14:17.618Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [government, policy, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c0"
+    char_span: [0, 2229]
+    sentence_count: 18
+    key_terms: [interesting, trump, gold, oil, through, stocks, china, potentially]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c1"
+    char_span: [2231, 2545]
+    sentence_count: 3
+    key_terms: [believe, etfs, investments, personally, something, although, anything, probably]
+    token_count: 64
+  - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c2"
+    char_span: [2560, 3169]
+    sentence_count: 2
+    key_terms: [stocks, off-topic, political, specific, removed, please, reddit, "you're"]
+    section: Comments
+    token_count: 138
+  - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c3"
+    char_span: [3171, 4701]
+    sentence_count: 6
+    key_terms: [nike, maduro, monday, captured, stocks, calls, extension-pick8310, thiglebeaglemingle]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c4"
+    char_span: [4703, 6200]
+    sentence_count: 7
+    key_terms: [perspective, expensive, bananas, always, banana, financialaccess8343, amazing-jury-6886, "i'm"]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c5"
+    char_span: [6203, 8102]
+    sentence_count: 11
+    key_terms: [venezuelas-resource-paradox-critical-minerals-oil-and-the-price-of-mismanagement, china, minerals, defense, stocks, investornews, oil, venezuela]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c6"
+    char_span: [8104, 8903]
+    sentence_count: 6
+    key_terms: [absolutely, chevron, fields, valero, longjumpingjoke2700, drill, get, risk]
+    section: Comments
+    token_count: 221
+  - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c7"
+    char_span: [8905, 10729]
+    sentence_count: 13
+    key_terms: [oil, ding, venezuela, reserves, company, control, brics, going]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c8"
+    char_span: [10513, 10730]
+    sentence_count: 1
+    key_terms: [oil, howyadoinbud, different, another, company, canada, mostly, people]
+    section: Comments
+    token_count: 65
+  - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c9"
+    char_span: [10732, 11271]
+    sentence_count: 3
+    key_terms: [oil, money, term, compensated, contracted, economical, difficult, expensive]
+    section: Comments
+    token_count: 117
+  - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c10"
+    char_span: [11273, 13176]
+    sentence_count: 14
+    key_terms: [oil, like, refineries, venezuelan, venezuela, process, refined, diesel]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c11"
+    char_span: [13178, 14800]
+    sentence_count: 9
+    key_terms: [venezuela, china, gold, oil, russia, supply, gravescd, probably]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c12"
+    char_span: [14802, 16918]
+    sentence_count: 15
+    key_terms: [injuryindependent287, china, anything, people, economically, never, trump, american]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1q3cmyi.md#c13"
+    char_span: [16661, 17711]
+    sentence_count: 8
+    key_terms: [trump, russia, point, mixedprophet, opportunity, absolutely, narcissism, attempted]
+    section: Comments
+    token_count: 261
 ---
-
 # What does Trump really want with Venezuela? Here are the Best Takes and stocks
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1q3cmyi/what_does_trump_really_want_with_venezuela_here/)

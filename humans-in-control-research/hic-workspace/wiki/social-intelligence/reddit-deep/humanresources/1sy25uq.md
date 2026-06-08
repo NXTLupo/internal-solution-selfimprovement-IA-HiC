@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1sy25uq.md
 url: "https://www.reddit.com/r/humanresources/comments/1sy25uq/jobs_in_hr_that_involve_travel_na/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T12:15:41.553Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1sy25uq.md#c0"
+    char_span: [0, 1014]
+    sentence_count: 7
+    key_terms: [humanresources, travel, singapore, comments, continue, involve, people, inner-appearance-602]
+    token_count: 247
+  - id: "social-intelligence/reddit-deep/humanresources/1sy25uq.md#c1"
+    char_span: [1029, 2930]
+    sentence_count: 12
+    key_terms: [travel, work, company, campus, people, "you're", international, local]
+    section: Comments
+    token_count: 469
 ---
-
 # Jobs in HR that involve travel? [N/A]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1sy25uq/jobs_in_hr_that_involve_travel_na/)

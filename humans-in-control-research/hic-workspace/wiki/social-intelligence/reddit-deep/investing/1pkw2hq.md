@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1pkw2hq.md
 url: "https://www.reddit.com/r/investing/comments/1pkw2hq/chairman_jerome_powell_has_ended_quantitative/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,63 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.199Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, government]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c0"
+    char_span: [0, 1496]
+    sentence_count: 7
+    key_terms: [quantitative, stocks, increasing, short-term, tightening, financial, investing, liquidity]
+    token_count: 307
+  - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c1"
+    char_span: [1511, 3469]
+    sentence_count: 16
+    key_terms: [labor, continue, assets, demand, wealth, increasing, inflation, position]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c2"
+    char_span: [3471, 5493]
+    sentence_count: 16
+    key_terms: [people, work, been, home, someone, equity, some-palpitation-314, asset]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c3"
+    char_span: [5495, 7376]
+    sentence_count: 7
+    key_terms: [median, people, shakeandbakethatcake, worth, wealth, net, retirement, inflation]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c4"
+    char_span: [7378, 9264]
+    sentence_count: 13
+    key_terms: [quantitative, understandingthin40, short, duration, spending, easing, making, professional]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c5"
+    char_span: [9266, 10440]
+    sentence_count: 11
+    key_terms: [bank, quantity, quantitative, money, commercial, directly, original, specific]
+    section: Comments
+    token_count: 275
+  - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c6"
+    char_span: [10442, 12210]
+    sentence_count: 8
+    key_terms: [bank, central, buying, end, financial, western, crisis, easing]
+    section: Comments
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c7"
+    char_span: [12212, 14418]
+    sentence_count: 12
+    key_terms: [short, market, reserve-management-reinvestment-purchases-faq, different, fed, end, "it's", last]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c8"
+    char_span: [14420, 14984]
+    sentence_count: 5
+    key_terms: [barkinginthestreet, illustrations, no-block-2095, commentators, injections, liquidity, replacing, tightened]
+    section: Comments
+    token_count: 149
 ---
-
 # Chairman Jerome Powell, has ended quantitative tightening (QT) and started a program of purchasing short-term Treasury bills, which some market commentators view as a new phase of quantitative easing (QE).
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1pkw2hq/chairman_jerome_powell_has_ended_quantitative/)

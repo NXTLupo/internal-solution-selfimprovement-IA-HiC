@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1nlrfov.md
 url: "https://www.reddit.com/r/productivity/comments/1nlrfov/realized_i_am_stuck_in_the_productivity_trap/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,33 @@ flair: "General Advice"
 extracted_at: "2026-05-26T12:53:45.655Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1nlrfov.md#c0"
+    char_span: [0, 1157]
+    sentence_count: 9
+    key_terms: [productivity, need, everything, comments, special-succotash688, crazy, stuck, been]
+    token_count: 274
+  - id: "social-intelligence/reddit-deep/productivity/1nlrfov.md#c1"
+    char_span: [1172, 2307]
+    sentence_count: 8
+    key_terms: [productivity, new, myself, competitionitchy6170, inevitable-pen-6411, focus, month, abject-kitchen3198]
+    section: Comments
+    token_count: 299
+  - id: "social-intelligence/reddit-deep/productivity/1nlrfov.md#c2"
+    char_span: [2309, 4204]
+    sentence_count: 14
+    key_terms: [productivity, tasks, day, need, subconscious, flow, instead, programmerfickle1469]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/productivity/1nlrfov.md#c3"
+    char_span: [4206, 6364]
+    sentence_count: 17
+    key_terms: [like, because, productivity, pulandoagain, app, feel, list, need]
+    section: Comments
+    token_count: 509
 ---
-
 # Realized I am stuck in the productivity trap
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1nlrfov/realized_i_am_stuck_in_the_productivity_trap/)

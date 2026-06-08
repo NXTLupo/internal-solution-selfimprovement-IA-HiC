@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1sxm84s.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1sxm84s/electrical_engineering_senior_35_gpa_1/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Sankey Diagram"
 extracted_at: "2026-05-22T23:33:47.029Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sxm84s.md#c0"
+    char_span: [0, 459]
+    sentence_count: 2
+    key_terms: [engineeringstudents, engineering, comments, sankey, cherryspacepie, reddit-deep, electrical, internship]
+    token_count: 122
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sxm84s.md#c1"
+    char_span: [474, 1502]
+    sentence_count: 7
+    key_terms: [engineeringstudents, wiki, please, reddit, https, com, www, tadpoleeffective2307]
+    section: Comments
+    token_count: 246
 ---
-
 # Electrical Engineering Senior | 3.5 GPA | 1 Engineering Internship | Got rejected from an interview for once so I made a sankey. Yes I use the resources on campus to improve my resumé/prepare for things
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1sxm84s/electrical_engineering_senior_35_gpa_1/)

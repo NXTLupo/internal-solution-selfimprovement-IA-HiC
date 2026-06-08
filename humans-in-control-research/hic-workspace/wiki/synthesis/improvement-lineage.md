@@ -1,11 +1,9 @@
 
-## 2026-05-26T01:53:01.392Z · journey · f_1779759438023
+## 2026-06-08T05:28:24.525Z · themes · themes_1780896504525
 
-**Quality down 9 points (now 71/100) — investigating 1 newly-applied rule(s).**
+**Quality down 5 points (now 63/100). No new rules this run; corpus or context regressed.**
 
-Overall: 71/100 (prior 80/100, delta -9)
+Overall: 63/100 (prior 68/100, delta -5)
 
-Regressed: Citation diversity (-50), Self-referential (-6).
-Rules applied for the first time this run:
-  • Make the language free of jargon and AI slop, and make it clear.
-Carried-over rules (3): "Updated Slide 12: layout" needs attention: 5 user edits detected (avg delta: 24 chars).; "source_curation" requires more accuracy. Review factual claims and specificity in this field.; Add more details and clean up the output..
+Regressed: Citation diversity (-33), Banned phrases (-5).
+Carried-over rules (4): When generating personas persona-quote section, use verbatim excerpts directly from user research interviews because generic quotes undermine authenticity and fail to capture the distinctive voice and genuine perspective of actual users. (source: 5 feedback signals, confidence 0.85); When generating personas persona-quote section, use verbatim excerpts from actual user research because generic or fabricated quotes lack authenticity and fail to capture the genuine voice of the user. (source: 5 feedback signals, confidence 0.85); When generating roadmap horizon-now section, ensure every horizon item has a specific quantified success metric with baseline and timeframe. (source: 4 feedback signals from learning-pass simulation)….

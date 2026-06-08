@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1njj9sw.md
 url: "https://www.reddit.com/r/internships/comments/1njj9sw/1700_applications_1_offer_13_months_of_struggling/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,27 @@ score: 109
 upvote_ratio: 0.97
 num_comments: 11
 flair: "Offers"
-extracted_at: "2026-05-25T18:31:15.452Z"
+extracted_at: "2026-06-03T18:34:48.713Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1njj9sw.md#c0"
+    char_span: [0, 2097]
+    sentence_count: 19
+    key_terms: [job, applications, internships, interview, applying, minutes, through, resume]
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/internships/1njj9sw.md#c1"
+    char_span: [2099, 3207]
+    sentence_count: 21
+    key_terms: [chatgpt, resume, job, yourself, because, cover, didn, good]
+    token_count: 271
+  - id: "social-intelligence/reddit-deep/internships/1njj9sw.md#c2"
+    char_span: [3222, 4382]
+    sentence_count: 12
+    key_terms: [graduating, did, betteroutbidder, dagmercleftjaw, flaky-knee2278, advertisement, entertainment, unfortunately]
+    section: Comments
+    token_count: 304
 ---
-
 # 1700+ applications, 1 offer, 13 Months of Struggling
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1njj9sw/1700_applications_1_offer_13_months_of_struggling/)

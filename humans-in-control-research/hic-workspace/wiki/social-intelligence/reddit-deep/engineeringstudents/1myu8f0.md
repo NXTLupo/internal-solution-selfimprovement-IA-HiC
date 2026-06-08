@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1myu8f0.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1myu8f0/what_is_the_best_advice_you_could_give_to_a/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,39 @@ flair: "Academic Advice"
 extracted_at: "2026-05-23T20:15:19.041Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1myu8f0.md#c0"
+    char_span: [0, 407]
+    sentence_count: 3
+    key_terms: [engineeringstudents, comments, accomplished-bit8214, engineering, reddit-deep, freshman, honestly, nowadays]
+    token_count: 106
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1myu8f0.md#c1"
+    char_span: [422, 2280]
+    sentence_count: 14
+    key_terms: [classes, engineering, got, year, freshman, because, despite, decent]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1myu8f0.md#c2"
+    char_span: [2282, 3973]
+    sentence_count: 18
+    key_terms: [time, recruiters, dont, schedule, study, take, companies, freshman]
+    section: Comments
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1myu8f0.md#c3"
+    char_span: [3975, 6071]
+    sentence_count: 16
+    key_terms: [college, "don't", engineering, program, abet, get, "it's", work]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1myu8f0.md#c4"
+    char_span: [6073, 6960]
+    sentence_count: 7
+    key_terms: [class, get, classes, better, plan, work, necessarily, professors]
+    section: Comments
+    token_count: 201
 ---
-
 # What is the best advice you could give to a freshman engineering student?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1myu8f0/what_is_the_best_advice_you_could_give_to_a/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1lzcaqn.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1lzcaqn/possibly_unpopular_opinion_getting_into_a_top/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,33 @@ flair: "Discussion"
 extracted_at: "2026-05-23T14:54:48.679Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lzcaqn.md#c0"
+    char_span: [0, 1460]
+    sentence_count: 8
+    key_terms: [admissions, applyingtocollege, getting, advice, school, videos, cycle, get]
+    token_count: 320
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lzcaqn.md#c1"
+    char_span: [1475, 1829]
+    sentence_count: 3
+    key_terms: [opinion, people, admissions, unpopular, college, advantage, bodross23, gullible]
+    section: Comments
+    token_count: 85
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lzcaqn.md#c2"
+    char_span: [1831, 3982]
+    sentence_count: 11
+    key_terms: [great, college, people, got, extracurriculars, essays, essay, money]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lzcaqn.md#c3"
+    char_span: [3728, 5205]
+    sentence_count: 6
+    key_terms: [low-agency2539, great, kids, coaches, players, rarely, sure, yourlittlebirdie]
+    section: Comments
+    token_count: 349
 ---
-
 # (Possibly) Unpopular Opinion: Getting into a top school alone doesn't magically make you a college admissions expert.
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1lzcaqn/possibly_unpopular_opinion_getting_into_a_top/)

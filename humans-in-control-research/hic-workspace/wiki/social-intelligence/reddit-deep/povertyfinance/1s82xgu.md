@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1s82xgu.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1s82xgu/how_to_tell_a_friend_that_im_too_broke_for_our/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,38 @@ flair: "Misc Advice"
 extracted_at: "2026-05-16T20:55:12.698Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1s82xgu.md#c0"
+    char_span: [0, 1952]
+    sentence_count: 15
+    key_terms: [friendship, together, time, because, work, povertyfinance, neighborhood, class]
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/povertyfinance/1s82xgu.md#c1"
+    char_span: [1954, 2641]
+    sentence_count: 8
+    key_terms: ["i'm", situation, coffee, too, understanding, comfortable, embarrassed, financial]
+    token_count: 155
+  - id: "social-intelligence/reddit-deep/povertyfinance/1s82xgu.md#c2"
+    char_span: [2656, 4196]
+    sentence_count: 13
+    key_terms: [like, "don't", don, friend, honest, enough, simple, no-needleworker-1519]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/povertyfinance/1s82xgu.md#c3"
+    char_span: [4198, 5557]
+    sentence_count: 7
+    key_terms: [brief-finding-895, friend, good, appetizers, friends, afford, budget, lookwhatyoumademed0]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/povertyfinance/1s82xgu.md#c4"
+    char_span: [5559, 7448]
+    sentence_count: 12
+    key_terms: [budget, going, don, together, because, hanging, afford, person]
+    section: Comments
+    token_count: 505
 ---
-
 # How to tell a friend that I'm too broke for our hang outs?
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1s82xgu/how_to_tell_a_friend_that_im_too_broke_for_our/)

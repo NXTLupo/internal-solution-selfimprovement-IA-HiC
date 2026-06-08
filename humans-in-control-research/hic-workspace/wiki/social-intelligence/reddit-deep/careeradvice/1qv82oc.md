@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1qv82oc.md
 url: "https://www.reddit.com/r/careeradvice/comments/1qv82oc/what_actually_gets_people_promoted_quickly_and/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,59 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.235Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c0"
+    char_span: [0, 2421]
+    sentence_count: 20
+    key_terms: [people, promotion, doesn, promoted, nobody, relationships, careeradvice, consistently]
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c1"
+    char_span: [2423, 4619]
+    sentence_count: 33
+    key_terms: [people, promotion, want, everything, start, boss, don, get]
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c2"
+    char_span: [4621, 6936]
+    sentence_count: 31
+    key_terms: [people, company, companies, here, need, work, getting, doesn]
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c3"
+    char_span: [6938, 9178]
+    sentence_count: 22
+    key_terms: [promoted, people, politics, get, company, loyalty, leave, don]
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c4"
+    char_span: [9180, 10274]
+    sentence_count: 23
+    key_terms: [people, got, ready, real, won, feedback, politics, reality]
+    token_count: 237
+  - id: "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c5"
+    char_span: [10289, 12048]
+    sentence_count: 9
+    key_terms: [people, being, likable, extremely, nothing, working, artistic-staff-8611, enjoy]
+    section: Comments
+    token_count: 405
+  - id: "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c6"
+    char_span: [12050, 13960]
+    sentence_count: 12
+    key_terms: [get, being, management, important, network, advice, around, either]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c7"
+    char_span: [13962, 15415]
+    sentence_count: 14
+    key_terms: [promotion, get, role, work, co-worker, effective, recommend, promoted]
+    section: Comments
+    token_count: 343
+  - id: "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c8"
+    char_span: [15417, 16103]
+    sentence_count: 2
+    key_terms: [enough, material-dream-4976, cases, ladyfisherbuckeye, boss, vivalajester1114, unfortunately, starting]
+    section: Comments
+    token_count: 200
 ---
-
 # What actually gets people promoted quickly (and what doesn’t)
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1qv82oc/what_actually_gets_people_promoted_quickly_and/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-gradadmissions/d0b5f3ddbe.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1q8fe68/how_i_got_into_a_mechanical_engineering_phd_with/"
 url_hash: "d0b5f3ddbe"
 kind: "article"
@@ -10,8 +11,40 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:41:31.999112+00:00"
 chars: 10390
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-gradadmissions/d0b5f3ddbe.md#c0"
+    char_span: [0, 2014]
+    sentence_count: 9
+    key_terms: [university, video, engineering, mechanical, gpa, phd, applied, florida]
+    token_count: 488
+  - id: "articles/reddit-deep-r-gradadmissions/d0b5f3ddbe.md#c1"
+    char_span: [2016, 4342]
+    sentence_count: 21
+    key_terms: [get, because, school, information, interested, demanding, applying, invested]
+    token_count: 512
+  - id: "articles/reddit-deep-r-gradadmissions/d0b5f3ddbe.md#c2"
+    char_span: [4344, 6483]
+    sentence_count: 17
+    key_terms: [professor, years, degree, field, get, phd, possible, research]
+    token_count: 495
+  - id: "articles/reddit-deep-r-gradadmissions/d0b5f3ddbe.md#c3"
+    char_span: [6485, 7483]
+    sentence_count: 6
+    key_terms: [how-i-got-into-a-mechanical-engineering-phd-with-a-3-2-gpa-v0-x8s28hkaci8g1, fd090cf201fb6f8ff17ed3e11ef960d8560687bf, mech, preview, format, based, https, width]
+    token_count: 290
+  - id: "articles/reddit-deep-r-gradadmissions/d0b5f3ddbe.md#c4"
+    char_span: [7485, 9373]
+    sentence_count: 25
+    key_terms: [research, accepted, schools, experience, professor, undergrad, school, application]
+    token_count: 447
+  - id: "articles/reddit-deep-r-gradadmissions/d0b5f3ddbe.md#c5"
+    char_span: [9375, 10638]
+    sentence_count: 9
+    key_terms: [boskadoff, thank, university, professor, congrats, school, though, study]
+    token_count: 317
 ---
-
 # how i got into a mechanical engineering PhD with a 3.2 gpa (and other suboptimal credentials)
 
 Source: [Reddit Deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1q8fe68/how_i_got_into_a_mechanical_engineering_phd_with/)

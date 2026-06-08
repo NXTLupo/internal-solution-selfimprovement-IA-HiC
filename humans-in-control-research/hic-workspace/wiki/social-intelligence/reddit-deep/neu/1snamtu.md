@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1snamtu.md
 url: "https://www.reddit.com/r/NEU/comments/1snamtu/cps_admissions/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "Admissions & Financial Aid"
 extracted_at: "2026-05-26T14:30:23.760Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1snamtu.md#c0"
+    char_span: [0, 579]
+    sentence_count: 3
+    key_terms: [college, northeastern, professional, university, comments, studies, cps, neu]
+    token_count: 127
+  - id: "social-intelligence/reddit-deep/neu/1snamtu.md#c1"
+    char_span: [594, 1394]
+    sentence_count: 6
+    key_terms: [professional, degree, mobile-finding-3779, time, wateryphoenix750, instructional, international, professionals]
+    section: Comments
+    token_count: 169
 ---
-
 # CPS admissions
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1snamtu/cps_admissions/)

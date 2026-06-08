@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1q9q2az.md
 url: "https://www.reddit.com/r/internships/comments/1q9q2az/mscs_international_student_here_struggling_with/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,15 @@ flair: "General"
 extracted_at: "2026-05-20T12:56:20.016Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1q9q2az.md#c0"
+    char_span: [0, 320]
+    sentence_count: 3
+    key_terms: [internships, comments, international, reddit-deep, struggling, student, advice, posted]
+    token_count: 87
 ---
-
 # MSCS International Student here - Struggling with Summer 2026 Internships. Any advice?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1q9q2az/mscs_international_student_here_struggling_with/)

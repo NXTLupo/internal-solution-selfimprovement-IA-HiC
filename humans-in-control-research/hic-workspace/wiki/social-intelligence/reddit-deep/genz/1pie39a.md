@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1pie39a.md
 url: "https://www.reddit.com/r/GenZ/comments/1pie39a/im_convinced_half_of_gen_z_looks_rich_online_but/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,33 @@ flair: "Discussion"
 extracted_at: "2026-05-16T20:55:01.231Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1pie39a.md#c0"
+    char_span: [0, 2295]
+    sentence_count: 25
+    key_terms: [credit, payments, like, because, online, looks, feel, half]
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/genz/1pie39a.md#c1"
+    char_span: [2310, 4363]
+    sentence_count: 13
+    key_terms: [people, parents, social, media, important, article, because, boomers]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/genz/1pie39a.md#c2"
+    char_span: [4365, 6070]
+    sentence_count: 7
+    key_terms: [checking, "you're", buttons, savings, "that's", "don't", lowinteraction9422, "i'm"]
+    section: Comments
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/genz/1pie39a.md#c3"
+    char_span: [6075, 6832]
+    sentence_count: 6
+    key_terms: [people, getting, rich, too, buy-film-return, occasionally, needs-based, jadams0108]
+    section: Comments
+    token_count: 180
 ---
-
 # I’m convinced half of Gen Z looks rich online but is secretly drowning in BNPL debt
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1pie39a/im_convinced_half_of_gen_z_looks_rich_online_but/)

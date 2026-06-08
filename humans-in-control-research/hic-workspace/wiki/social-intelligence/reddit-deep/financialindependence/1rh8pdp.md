@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1rh8pdp.md
 url: "https://www.reddit.com/r/financialindependence/comments/1rh8pdp/new_advisor_short_circuited_about_fire/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,86 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.701Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c0"
+    char_span: [0, 1886]
+    sentence_count: 16
+    key_terms: [financialindependence, years, retire, financial, comments, expenses, question, assumes]
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c1"
+    char_span: [1888, 2501]
+    sentence_count: 4
+    key_terms: [expensive, dont, like, assumptions, comprehend, platitudes, admission, ludicrous]
+    token_count: 152
+  - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c2"
+    char_span: [2516, 4533]
+    sentence_count: 11
+    key_terms: [retirement, years, one-mastodon-1063, thewealthyhealthy, work, mattresses, lowering, stuffing]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c3"
+    char_span: [4312, 5388]
+    sentence_count: 5
+    key_terms: [thewealthyhealthy, mattresses, retirement, financial, exchange, dollars, people, notacommunistburner]
+    section: Comments
+    token_count: 272
+  - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c4"
+    char_span: [5390, 7440]
+    sentence_count: 14
+    key_terms: [retirement, spend, conservative, low, like, people, worth, year]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c5"
+    char_span: [7196, 7952]
+    sentence_count: 6
+    key_terms: [people, money, spend, problem, types, conscious-potat0, solomongrumpy, understanding]
+    section: Comments
+    token_count: 200
+  - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c6"
+    char_span: [7955, 9534]
+    sentence_count: 21
+    key_terms: [planning, retirement, taxes, maybe, financial, advisors, guidance, crushed]
+    section: Comments
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c7"
+    char_span: [9536, 11422]
+    sentence_count: 9
+    key_terms: [retirement, taxes, people, maybe, possible, concept, advice, income]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c8"
+    char_span: [11424, 13488]
+    sentence_count: 16
+    key_terms: [dad, like, advisor, people, "he's", town, predicted, advisors]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c9"
+    char_span: [13490, 14599]
+    sentence_count: 6
+    key_terms: [retirement, "would've", retired, barely, early, worth, thewealthyhealthy, been]
+    section: Comments
+    token_count: 278
+  - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c10"
+    char_span: [14601, 15822]
+    sentence_count: 9
+    key_terms: [tax, tell, somewhat, mutual, report, funds, place, need]
+    section: Comments
+    token_count: 274
+  - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c11"
+    char_span: [15825, 17419]
+    sentence_count: 9
+    key_terms: [financial, consult, planning, advice, estate, mostly, parent, people]
+    section: Comments
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/financialindependence/1rh8pdp.md#c12"
+    char_span: [17421, 18538]
+    sentence_count: 5
+    key_terms: [financial, good, years, different, advisor, advice, thewealthyhealthy, cpa]
+    section: Comments
+    token_count: 267
 ---
-
 # New advisor short circuited about FIRE
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1rh8pdp/new_advisor_short_circuited_about_fire/)

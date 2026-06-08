@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-openai/e1ab923faa.md
 url: "https://www.reddit.com/r/OpenAI/comments/1ndj2wx/the_ai_nerf_is_real/"
 url_hash: "e1ab923faa"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T17:32:14.163776+00:00"
 chars: 2824
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-openai/e1ab923faa.md#c0"
+    char_span: [0, 1848]
+    sentence_count: 15
+    key_terms: [day, isitnerfed, code, quality, august, claude, openai, next]
+    token_count: 462
+  - id: "articles/reddit-deep-r-openai/e1ab923faa.md#c1"
+    char_span: [1850, 2953]
+    sentence_count: 7
+    key_terms: [ambientocclusion, guardrails, response, already, imagine, latency, purple, black]
+    token_count: 259
 ---
-
 # The AI Nerf Is Real
 
 Source: [Reddit Deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1ndj2wx/the_ai_nerf_is_real/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1l30dkv.md
 url: "https://www.reddit.com/r/college/comments/1l30dkv/is_it_worth_spending_3x_more_to_live_alone_to/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,30 @@ subreddit: "college"
 title: "Is it worth spending 3x more to live alone to guarantee saving my sanity and sleep?"
 author: "PhysicsTryhard"
 date: "2025-06-04T08:34:04.000Z"
-score: 19
-upvote_ratio: 0.87
+score: 20
+upvote_ratio: 0.88
 num_comments: 10
 flair: ""
-extracted_at: "2026-05-25T18:31:10.107Z"
+extracted_at: "2026-06-03T12:16:23.742Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1l30dkv.md#c0"
+    char_span: [0, 2093]
+    sentence_count: 20
+    key_terms: [month, sleep, spending, alone, share, scholarship, dorm, get]
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/college/1l30dkv.md#c1"
+    char_span: [2108, 3458]
+    sentence_count: 11
+    key_terms: [education, college, stocks, invest, extra, money, investing, donate]
+    section: Comments
+    token_count: 349
 ---
-
 # Is it worth spending 3x more to live alone to guarantee saving my sanity and sleep?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1l30dkv/is_it_worth_spending_3x_more_to_live_alone_to/)
-Posted by **PhysicsTryhard** · **19↑** · **10 comments**
+Posted by **PhysicsTryhard** · **20↑** · **10 comments**
 
 TLDR; I'm a first-year student and I need alone time to function — especially for sleep and focus. I currently live alone in a dorm, but starting September, I’ll be forced to either share with someone or move into a much more expensive single-person dorm: €100/mo vs €280/mo. The expensive one is also newly renovated, closer to everything (campus, gym, library), and I’d only share a bathroom/kitchen with 2 people instead of 20. I need to decide this month.
 
@@ -38,11 +50,11 @@ Would love any insight from people who’ve faced similar housing or life tradeo
 
 I had to run away from the dorm in my 2nd semester of college. Was my highest gpa throughout college. I couldn't concentrate with all the kids chatting shit.
 - **Financial-Elk752** (3↑): Yes
-- **Probably97** (6↑): Yes- So worth it!!!
+- **Probably97** (7↑): Yes- So worth it!!!
 - **Sensing_Force1138** (2↑): Do you have a chance to try the cheaper option for a few months (with a different roommate) and then decide?
 - **lpablito** (-16↑): wtf. You invest in stocks in college? You should be investing in your education.
-  - **Apprehensive-Ice9809** (16↑): How are they supposed to invest in their education even more lol, just donate to the school? They're already paying tuition.
-  - **[deleted]** (7↑): Can they not do both? Do you want them to just donate their extra money to the school or something? I am in college but I have worked quite a bit so I pay everything and put my extra money in stocks, it doesn’t distract from my education
+  - **Apprehensive-Ice9809** (15↑): How are they supposed to invest in their education even more lol, just donate to the school? They're already paying tuition.
+  - **[deleted]** (5↑): Can they not do both? Do you want them to just donate their extra money to the school or something? I am in college but I have worked quite a bit so I pay everything and put my extra money in stocks, it doesn’t distract from my education
   - **PhysicsTryhard** (1↑): Hi, indeed I could be investing in my education - in the form of buying computers, electronics, etc., and I do intend to do that.
 
 The thing is, if I don't live in the better dorm, I will have a bunch of extra money, so I will be able to invest in both my education and stocks :D at the potential expense of my sleep. This is the big question - stocks and education VS sleep and comfort.

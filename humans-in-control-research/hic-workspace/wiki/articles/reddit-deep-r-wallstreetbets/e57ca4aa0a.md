@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-wallstreetbets/e57ca4aa0a.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1m8lrly/googl_yolo_the_dip_to_191_was_a_gift_from_the/"
 url_hash: "e57ca4aa0a"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:22:47.360025+00:00"
 chars: 2804
+industries: [financial_services, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-wallstreetbets/e57ca4aa0a.md#c0"
+    char_span: [0, 1873]
+    sentence_count: 14
+    key_terms: [wallstreetbets, market, reddit, https, long-term, comments, backlog, com]
+    token_count: 486
+  - id: "articles/reddit-deep-r-wallstreetbets/e57ca4aa0a.md#c1"
+    char_span: [1875, 3021]
+    sentence_count: 6
+    key_terms: [wsb, calls, waymo, years, driverless, comments, discord, problem]
+    token_count: 330
 ---
-
 # $GOOGL YOLO - The Dip to $191 was a Gift from the Volatility Gods
 
 Source: [Reddit Deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1m8lrly/googl_yolo_the_dip_to_191_was_a_gift_from_the/)

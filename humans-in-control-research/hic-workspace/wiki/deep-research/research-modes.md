@@ -1,4 +1,5 @@
 ---
+id: deep-research/research-modes.md
 title: "Deep Research Modes & AI-Powered Intelligence"
 type: framework
 created: 2026-04-10
@@ -8,8 +9,67 @@ confidence: high
 status: active
 tags: [deep-research, gemini, claude, openai, web-search, research-fabric]
 evidence_count: 0
+chunks:
+  - id: "deep-research/research-modes.md#c0"
+    char_span: [0, 444]
+    sentence_count: 3
+    key_terms: [research, provider, deepresearchservice, deep, capabilities, intelligence, ai-powered, autonomous]
+    token_count: 84
+  - id: "deep-research/research-modes.md#c1"
+    char_span: [478, 2582]
+    sentence_count: 5
+    key_terms: [web, search, grounding, quick, default, focused, model, mode]
+    section: Three Research Depth Modes
+    token_count: 513
+  - id: "deep-research/research-modes.md#c2"
+    char_span: [2584, 4121]
+    sentence_count: 8
+    key_terms: [interactions, provider, research, polling, comprehensive, deep-research-pro-preview-12-2025, intelligence, agent]
+    section: Three Research Depth Modes
+    token_count: 340
+  - id: "deep-research/research-modes.md#c3"
+    char_span: [4146, 4905]
+    sentence_count: 1
+    key_terms: [gpt-5, anthropic, standard, premium, budget, claude, gemini, google]
+    section: AI Model Registry
+    token_count: 276
+  - id: "deep-research/research-modes.md#c4"
+    char_span: [4925, 5627]
+    sentence_count: 2
+    key_terms: [claude-opus-4-6, model, api, analysis, category, gemini-2, gemini, flash]
+    section: Task Routing
+    token_count: 184
+  - id: "deep-research/research-modes.md#c5"
+    char_span: [5667, 6249]
+    sentence_count: 1
+    key_terms: [claude, string, openai, domains, focused, number, preferredprovider, searchcontextsize]
+    section: Research Configuration Interface
+    token_count: 149
+  - id: "deep-research/research-modes.md#c6"
+    char_span: [6279, 6734]
+    sentence_count: 1
+    key_terms: [execution, executed, provider, research, failed, error, searchqueriesused, mode]
+    section: Research Result Schema
+    token_count: 108
+  - id: "deep-research/research-modes.md#c7"
+    char_span: [6773, 7162]
+    sentence_count: 2
+    key_terms: [focused, quick, getavailableproviders, claude, gemini, openai, deep, interactions]
+    section: Provider Availability Detection
+    token_count: 99
+  - id: "deep-research/research-modes.md#c8"
+    char_span: [7193, 7498]
+    sentence_count: 2
+    key_terms: [api, anthropic, openai, https, proxy, com, restrictions, localhost]
+    section: CORS Proxy Architecture
+    token_count: 84
+  - id: "deep-research/research-modes.md#c9"
+    char_span: [7528, 8407]
+    sentence_count: 1
+    key_terms: [wiki, research, sources-registry, evidence, findings, results, connector-catalog, credibility-tiers]
+    section: Wiki Integration Rules
+    token_count: 209
 ---
-
 # Deep Research Modes & AI-Powered Intelligence
 
 The HiC Research platform provides a unified deep research interface that routes

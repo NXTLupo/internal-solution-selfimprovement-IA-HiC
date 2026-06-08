@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1qweuys.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1qweuys/i_dont_enjoy_cs_anymore/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -10,11 +11,45 @@ score: 79
 upvote_ratio: 0.89
 num_comments: 38
 flair: ""
-extracted_at: "2026-05-22T21:34:54.424Z"
+extracted_at: "2026-06-06T16:39:04.110Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qweuys.md#c0"
+    char_span: [0, 2298]
+    sentence_count: 21
+    key_terms: [cscareerquestions, projects, studying, because, enjoy, did, year, everything]
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qweuys.md#c1"
+    char_span: [2300, 2641]
+    sentence_count: 2
+    key_terms: [engineering, overworking, analytical, interests, something, temporary, business, comments]
+    token_count: 67
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qweuys.md#c2"
+    char_span: [2656, 4852]
+    sentence_count: 21
+    key_terms: [customer, "don't", grind, right, get, knowledge, positions, because]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qweuys.md#c3"
+    char_span: [4854, 6385]
+    sentence_count: 10
+    key_terms: [don, job, working, good, like, honestly, qrcode23, coding]
+    section: Comments
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qweuys.md#c4"
+    char_span: [6388, 8140]
+    sentence_count: 9
+    key_terms: ["it's", job, going, applying, nothing, through, couple, little]
+    section: Comments
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qweuys.md#c5"
+    char_span: [8144, 9997]
+    sentence_count: 16
+    key_terms: [people, roles, shakesr12, feelings, getting, without, wanted, money]
+    section: Comments
+    token_count: 468
 ---
-
 # I don't enjoy CS anymore
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1qweuys/i_dont_enjoy_cs_anymore/)
@@ -38,15 +73,15 @@ I know I am just ranting and will probably just get flamed in the comments (plea
 
 ## Comments
 
-- **codespitter** (34↑): I felt I needed a real world problem (actual team and customer) to serve. Once I have had those, CS has become a set of knowledge and tools to reach a goal to serve them not the only knowledge/skill to be used.
+- **codespitter** (36↑): I felt I needed a real world problem (actual team and customer) to serve. Once I have had those, CS has become a set of knowledge and tools to reach a goal to serve them not the only knowledge/skill to be used.
 
 During school I struggled believing I could do CS for a career. I’ve found myself shuffle into Management because I’ve become product focused and truly and now I use only some CS skills, but a lot more EQ than IQ and more listening and organizing than coding up front. 
 
 The challenges in the process is ensuring your doing what is right by the customer as well as the system implementation. Anything can be done… but it won’t always sit right for the customer’s needs.
-- **ZombieMadness99** (12↑): Unless you're writing the most boring boilerplate code all the time, I find there is a lot of satisfaction to be had from coding itself even with a clear solution already in mind. Just like it can be fun writing even though you know the plot in your head. You can try using new language features, more idiomatic or elegant code, put in effort to make it easily readable by others etc. Subjective of course but there are fun problems to solve even on this micro level in my experience.
+- **ZombieMadness99** (13↑): Unless you're writing the most boring boilerplate code all the time, I find there is a lot of satisfaction to be had from coding itself even with a clear solution already in mind. Just like it can be fun writing even though you know the plot in your head. You can try using new language features, more idiomatic or elegant code, put in effort to make it easily readable by others etc. Subjective of course but there are fun problems to solve even on this micro level in my experience.
 
 The burnout due to your grind not paying off is totally fair though, unfortunately out of your control with the way the industry has been the only advice I can give you is don't treat is as a personal failure. If you have the skill you just need to get lucky once and break in after which it gets expotentially easier to move up. Even if you "lose" years now you'll easily catch up with how big the pay jumps are between levels, stock appreciation etc.
-- **smashthebirdy** (10↑): Sounds like burnout.
+- **smashthebirdy** (9↑): Sounds like burnout.
 
 The economy still sucks. Jobs are hard to get right now. You probably don't need to grind more to get a job as much as networking.
 
@@ -55,7 +90,7 @@ Which is another word for socializing. Reach out to people you know and see how 
 But also take some time to relax a bit. Finish your degree if you're not done yet, but aside from that cut back on the grind.
 
 Good luck.
-- **qrcode23** (9↑): Try to get a job at a slow pace company like government. It’s modest but good pay and you don’t do much.
+- **qrcode23** (8↑): Try to get a job at a slow pace company like government. It’s modest but good pay and you don’t do much.
   - **ShakesR12** (2↑): Will look into that fs
     - **qrcode23** (3↑): Yeah a SWE job is like CS. It’s a team sport when you coordinate but the act of software engineering is mentally taxing. If you don’t like CS don’t get a job at fast pace companies. But the pay is very nice.
 - **lunaticAKE** (4↑): Vibe coding is becoming the norm nowadays; with good prompting, you often don’t need to write everything line by line. Speaking from my personal experience, even after graduating from a top CS program, I still find programming boring most of the time; and honestly, that’s because it’s just a tool; what matters is what you build with it and whether it sparks your passion. The only times I truly enjoy coding are when I’m working on projects I genuinely care about, where I’m eager to see the product come to life and constantly improve it. And honestly, landing a big tech job shouldn’t be the ultimate goal either; I’m working in one now, and parts of it can feel soul-draining, filled with tedious tasks and long waiting cycles, so focus on building things that actually excite you rather than chasing titles alone.
@@ -63,7 +98,7 @@ Good luck.
 
 
 Finding a job will be a little bit more of a grind but you should still celebrate all the effort you've put in so far. You might not be able to fall in love with your job but you will find something, and you'll be able to relax a little and put time into hobbies.
-- **dynamic_gecko** (27↑): Man, no offense to OP, but what's with the rain of doom and gloom posts the last couple of days? I know this sub has always been about advice for issues, but lately I feel like it's one after the other. It's so amped up, to the point where it's affecting my own mood.
+- **dynamic_gecko** (28↑): Man, no offense to OP, but what's with the rain of doom and gloom posts the last couple of days? I know this sub has always been about advice for issues, but lately I feel like it's one after the other. It's so amped up, to the point where it's affecting my own mood.
   - **lime_midget** (58↑): The reality is it's very difficult to keep strong spirits after you spend months applying for an internship/job, going through the different OA/interview hoops, even perhaps getting your hopes up about a company you actually want, doing well, and then it still not working out. Waking up every day and having to keep applying nonstop just to see rejections or get completely ghosted is brutal on the mental, especially when you’ve succeeded at pretty much everything else you’ve done. And separating your self-worth from the results is honestly near impossible for a lot of people at this stage. 
 
 Most big companies are reaching HC/slowing down interviews newgrad/intern wise rn so it's natural to see posts like this at this time. I know a couple of people going through this stage right now for months with nothing to show for it, feels extremely bad.
@@ -78,7 +113,7 @@ vs.
 guess who's going to actually post about it?
   
 and that's on top of the bots, trolls, impersonators/role-players, or ChatGPT-generated ragebaits
-  - **ShakesR12** (12↑): I am extremely sorry about that. I don't actively interact with this subreddit but I just wanted to post my feelings. No intention for spoiling your mood.
+  - **ShakesR12** (13↑): I am extremely sorry about that. I don't actively interact with this subreddit but I just wanted to post my feelings. No intention for spoiling your mood.
     - **dynamic_gecko** (2↑): It's ok. Like I said, no offense to you, or anyone. People are just looking for help. I guess I just wanted to share an observation and express my own feelings :)
 
 I dont have the energy to read your post and give a meaningful answer, sorry. But I hope you get the support that you need. Best of luck!

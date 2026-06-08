@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1reyzy6/feeling_pessimistic_about_ai/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,116 @@ flair: "Student"
 extracted_at: "2026-05-14T18:17:35.981Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c0"
+    char_span: [0, 2162]
+    sentence_count: 12
+    key_terms: [software, cscareerquestions, people, engineering, code, engineers, something, comments]
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c1"
+    char_span: [2164, 2316]
+    sentence_count: 2
+    key_terms: [magically, question, fields, likely, safest, cobol, hired, study]
+    token_count: 38
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c2"
+    char_span: [2331, 4678]
+    sentence_count: 20
+    key_terms: [people, selling, unsustainable, never, less, own, businesses, eventually]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c3"
+    char_span: [4680, 6847]
+    sentence_count: 17
+    key_terms: [software, everyone, billionaires, engineering, automated, virtually, economy, endless]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c4"
+    char_span: [6849, 8622]
+    sentence_count: 9
+    key_terms: [software, work, because, jobs, absolutely, offshoring, compared, devalued]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c5"
+    char_span: [8624, 10668]
+    sentence_count: 11
+    key_terms: [engineering, software, through, because, being, hard, comments, devalued]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c6"
+    char_span: [10670, 12822]
+    sentence_count: 12
+    key_terms: [going, people, "we're", professions, get, need, progress, software]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c7"
+    char_span: [12824, 14000]
+    sentence_count: 8
+    key_terms: [money, everybody, knowledge, because, fucked, marionberrynormal957, etc, jobs]
+    section: Comments
+    token_count: 279
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c8"
+    char_span: [14002, 15735]
+    sentence_count: 12
+    key_terms: [hard, experience, companies, starting, agency, "you're", counter-intuitively, drive]
+    section: Comments
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c9"
+    char_span: [15737, 17422]
+    sentence_count: 16
+    key_terms: [existing, stopping, struggle, forcing, plateau, humans, unique, brute]
+    section: Comments
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c10"
+    char_span: [17425, 19744]
+    sentence_count: 19
+    key_terms: [manager, engineering, director, software, because, clarifications, people, llms]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c11"
+    char_span: [19746, 20940]
+    sentence_count: 5
+    key_terms: [future, having, large, middle-of-the-road, fact, time, responsibility, conversations]
+    section: Comments
+    token_count: 253
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c12"
+    char_span: [20942, 22659]
+    sentence_count: 16
+    key_terms: [anything, argument, computer, opinions, job, example, ideally, logical]
+    section: Comments
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c13"
+    char_span: [22661, 24219]
+    sentence_count: 18
+    key_terms: [always, code, job, languages, learning, generativeadversary, areas, being]
+    section: Comments
+    token_count: 366
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c14"
+    char_span: [24221, 25225]
+    sentence_count: 4
+    key_terms: [simulated, "that's", new, bolehlandcitizen, cappuccinocodes, conveniently, dramatically, interviewing]
+    section: Comments
+    token_count: 230
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c15"
+    char_span: [25227, 27118]
+    sentence_count: 21
+    key_terms: [job, cappuccinocodes, always, "that's", code, "i'm", like, take]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c16"
+    char_span: [27120, 29052]
+    sentence_count: 4
+    key_terms: [everything, astroturfing, extension, graduated, samurottx, already, browser, getting]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c17"
+    char_span: [28848, 29099]
+    sentence_count: 1
+    key_terms: [ilovefamilyguy69, accountability, danmikrus, already, getting, grandma, feels, icing]
+    section: Comments
+    token_count: 75
 ---
-
 # Feeling pessimistic about AI
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1reyzy6/feeling_pessimistic_about_ai/)

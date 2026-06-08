@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1mh47vp.md
 url: "https://www.reddit.com/r/productivity/comments/1mh47vp/i_discovered_why_most_people_never_actually/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-26T12:53:45.650Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1mh47vp.md#c0"
+    char_span: [0, 1498]
+    sentence_count: 5
+    key_terms: [productivity, productive, identity, someone, person, trying, "i'm", consistent]
+    token_count: 316
+  - id: "social-intelligence/reddit-deep/productivity/1mh47vp.md#c1"
+    char_span: [1513, 3253]
+    sentence_count: 9
+    key_terms: [shame, get, uncertainty, eliminate, inability, want, designerspot1469, deleted]
+    section: Comments
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/productivity/1mh47vp.md#c2"
+    char_span: [3255, 4369]
+    sentence_count: 13
+    key_terms: [uncertainty, resistance, shame, constantly, inability, feel, eliminate, control]
+    section: Comments
+    token_count: 244
+  - id: "social-intelligence/reddit-deep/productivity/1mh47vp.md#c3"
+    char_span: [4371, 6344]
+    sentence_count: 11
+    key_terms: [designerspot1469, feel, change, person, agree, thank, done, dont]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/productivity/1mh47vp.md#c4"
+    char_span: [6109, 6737]
+    sentence_count: 4
+    key_terms: [night, neurodevelopmental, designerspot1469, person-specific, nona-sequitur, procrastinate, solutions--at, impenetrable]
+    section: Comments
+    token_count: 159
+  - id: "social-intelligence/reddit-deep/productivity/1mh47vp.md#c5"
+    char_span: [6739, 8347]
+    sentence_count: 10
+    key_terms: [thoughts, myself, reframing, happened, identity, foresee, bad, past]
+    section: Comments
+    token_count: 353
+  - id: "social-intelligence/reddit-deep/productivity/1mh47vp.md#c6"
+    char_span: [8350, 10391]
+    sentence_count: 26
+    key_terms: [work, people, network, budget, dishes, "it's", like, need]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/productivity/1mh47vp.md#c7"
+    char_span: [10393, 11191]
+    sentence_count: 9
+    key_terms: [different, technique, everyone, designerspot1469, common, situations, useful, using]
+    section: Comments
+    token_count: 189
 ---
-
 # i discovered why most people never actually change (and its not what you think)
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1mh47vp/i_discovered_why_most_people_never_actually/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1spvcd7/i_successfully_delivered_a_high_profile_critical/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,77 @@ subreddit: "cscareerquestions"
 title: "I successfully delivered a high profile critical project on the day that it was due, and as soon as my manager verified that the project was safe, he sent me an alignment email for another critical project. I'm upset about it. Am I overreacting?"
 author: "MaleficentCherry7116"
 date: "2026-04-19T15:01:50.000Z"
-score: 295
+score: 298
 upvote_ratio: 0.96
 num_comments: 116
 flair: "Lead/Manager"
-extracted_at: "2026-05-23T14:54:48.639Z"
+extracted_at: "2026-06-05T23:42:30.816Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c0"
+    char_span: [0, 2213]
+    sentence_count: 16
+    key_terms: [project, manager, email, including, resources, cscareerquestions, been, "i've"]
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c1"
+    char_span: [2215, 3225]
+    sentence_count: 9
+    key_terms: [help, project, asking, face, "i've", meet, set, orchestrated]
+    token_count: 220
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c2"
+    char_span: [3240, 4861]
+    sentence_count: 6
+    key_terms: [work, complete, classic, manager, project, people, maleficentcherry7116, financial-grass6753]
+    section: Comments
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c3"
+    char_span: [4863, 6826]
+    sentence_count: 14
+    key_terms: [hours, maleficentcherry7116, "don't", start, agreement, burnout, company, "there's"]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c4"
+    char_span: [6828, 8998]
+    sentence_count: 19
+    key_terms: ["i'm", work, mentioned, asked, hours, project, working, pulled]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c5"
+    char_span: [9000, 10943]
+    sentence_count: 9
+    key_terms: [manager, going, "i'm", maleficentcherry7116, leaving, replied, good, work]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c6"
+    char_span: [10945, 13025]
+    sentence_count: 16
+    key_terms: [business, company, "you're", money, get, "it's", wife, confided]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c7"
+    char_span: [13027, 14923]
+    sentence_count: 18
+    key_terms: [working, hours, bonus, day, get, per, take, week]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c8"
+    char_span: [14925, 16899]
+    sentence_count: 14
+    key_terms: [company, manager, immediately, unrealistic, job, contracts, employees, deadline]
+    section: Comments
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c9"
+    char_span: [16901, 18901]
+    sentence_count: 12
+    key_terms: [maleficentcherry7116, work, manager, austin, salary, unfortunately, offer, like]
+    section: Comments
+    token_count: 461
 ---
-
 # I successfully delivered a high profile critical project on the day that it was due, and as soon as my manager verified that the project was safe, he sent me an alignment email for another critical project. I'm upset about it. Am I overreacting?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1spvcd7/i_successfully_delivered_a_high_profile_critical/)
-Posted by **MaleficentCherry7116** · **295↑** · **116 comments**
+Posted by **MaleficentCherry7116** · **298↑** · **116 comments**
 
 Our team had two very high profile projects with hard deadlines that were impossible to hit. I was told that I had to bring both projects in on time with no additional resources, along with handling all of my management responsibilities. I've been clear since the beginning that the deadlines were unrealistic, and my manager has sabotaged my attempts to add resources, including rescinding offers to candidates I had attempted to hire, without consulting me.
 
@@ -50,26 +109,26 @@ Thanks to everyone for the comments and advice. "Look for a job!" is the obvious
 
 ## Comments
 
-- **Till_I_Collapse_** (582↑): *FirstTime.jpeg*
+- **Till_I_Collapse_** (580↑): *FirstTime.jpeg*
 
 The classic curse of competence: the reward for good work is just more work.
   - **jonnysunshine1** (111↑): That is the classic curse, however this feels more like an abusive manager taking advantage. Find a new job OP, there are good managers out there who actually try to ensure their reports don't burn out.
-    - **Till_I_Collapse_** (36↑): Oh, for sure. It definitely screams of an inexperienced EM. Burning out your top performers to hit this quarter's metrics is not the win it seems. You might get the current projects across the finish line, but when your best people inevitably walk, next quarter is going to be a disaster.
-    - **FlyingPasta** (10↑): Agreed, this isn’t just every day subtle scope creep, OP is being explicitly told to fuck himself with a hammer
-  - **JuZNyC** (14↑): Got a new position recently and managed to complete a project they've been struggling with for the past year my first two months there, my manager warned me not to complete things so quickly they'll just give me more to do...
-    - **MaleficentCherry7116** (4↑): He is unfortunately right
-  - **itsme24543** (5↑): There are very few people in an org that actually work and care and OP is one of them and if he doesn't set boundaries or be able to say no( I can't say I have been successful) this will always be the story. At least OP try and move up with the next crisis.
+    - **Till_I_Collapse_** (37↑): Oh, for sure. It definitely screams of an inexperienced EM. Burning out your top performers to hit this quarter's metrics is not the win it seems. You might get the current projects across the finish line, but when your best people inevitably walk, next quarter is going to be a disaster.
+    - **FlyingPasta** (8↑): Agreed, this isn’t just every day subtle scope creep, OP is being explicitly told to fuck himself with a hammer
+  - **JuZNyC** (12↑): Got a new position recently and managed to complete a project they've been struggling with for the past year my first two months there, my manager warned me not to complete things so quickly they'll just give me more to do...
+    - **MaleficentCherry7116** (5↑): He is unfortunately right
+  - **itsme24543** (3↑): There are very few people in an org that actually work and care and OP is one of them and if he doesn't set boundaries or be able to say no( I can't say I have been successful) this will always be the story. At least OP try and move up with the next crisis.
 - **Financial-Grass6753** (206↑): \> This is an agreement that you will work the first eight hours of each day on the project and handle any other responsibilities, including management, outside of that."
 
 Check the agreement you've signed beforehand; if there's no such clause - pay a visit to HR. If there's one or you're an hourly employee - well, escalate further.
   - **MaleficentCherry7116** (46↑): That's good advice. The company is fairly immature, so I'm sure the agreement could go either way, but I'll definitely check it out.
-    - **hydranumb** (4↑): You need to start recording/taking notes of your meetings with your manager. They do the email after as documentation that they had that talk with you to cover their own ass, which means they feel a need to cover their ass. That means you should start protecting yourself as well.
+    - **hydranumb** (5↑): You need to start recording/taking notes of your meetings with your manager. They do the email after as documentation that they had that talk with you to cover their own ass, which means they feel a need to cover their ass. That means you should start protecting yourself as well.
 - **hike_me** (180↑): > first eight hours of the day 
 
 💀💀
-  - **MaleficentCherry7116** (65↑): I have been dedicating the first 14 hours of each day (including weekends) to both projects for months, which is why this hurts so bad. I don't have more than eight hours left in me right now.
-    - **hike_me** (109↑): Look for a new job. They are taking advantage of you.
-    - **Oatz3** (36↑): Just stop OP. 
+  - **MaleficentCherry7116** (62↑): I have been dedicating the first 14 hours of each day (including weekends) to both projects for months, which is why this hurts so bad. I don't have more than eight hours left in me right now.
+    - **hike_me** (111↑): Look for a new job. They are taking advantage of you.
+    - **Oatz3** (37↑): Just stop OP. 
 
 Work your 8 hours. Start interviewing with the other hours.  
 
@@ -77,13 +136,13 @@ Your boss and your workplace don't respect you.
     - **Neuromante** (23↑): What should hurt you more is that first you've been working hours for free. And technically lowering your salary (I read someone saying that if you earn X for working Y hours, you earn W per hour. If you work Y1 hours (Y1 > Y), then you are earning W1 per hour (W > W1).
 
 And if you tell me that the company gave you a fat bonus when you delivered, we could discuss if the extra effort and you sprinting through the path to burnout was worth the reward, but your reward was worse than nothing, because it was a new marathon through the path to burnout.
-    - **SunlightScribe** (11↑): Some people don't heed any warnings or advice until a legitimate failure happens. And obviously sometimes even that might go ignored until an unavoidable crisis occurs (e.g. you end up leaving).
+    - **SunlightScribe** (10↑): Some people don't heed any warnings or advice until a legitimate failure happens. And obviously sometimes even that might go ignored until an unavoidable crisis occurs (e.g. you end up leaving).
 
 By continuing to succeed, in their mind, you proved yourself wrong about needing extra hands. So why not just continue doing the same thing since it worked before? He has yet to face any consequences for doing so.
-    - **seventeenninetytoo** (5↑): You are clearly competent and capable. You're rescuing crisis projects for them. They need you more than you need them. Don't burn out. I've been there, and the recovery takes too long and hurts your career trajectory. They aren't going to fire you for working 8 hours per day instead of 14. Think about it. You just rescued a crisis project and they have more and you're the person they give it to. If they fire you, what happens to the next one? 
+    - **seventeenninetytoo** (6↑): You are clearly competent and capable. You're rescuing crisis projects for them. They need you more than you need them. Don't burn out. I've been there, and the recovery takes too long and hurts your career trajectory. They aren't going to fire you for working 8 hours per day instead of 14. Think about it. You just rescued a crisis project and they have more and you're the person they give it to. If they fire you, what happens to the next one? 
 
 Work sustainable hours, polish your resume, and start networking, applying, and interviewing. You deserve better than this place.
-    - **Wonderful-Habit-139** (2↑): Oh my god bro.
+    - **Wonderful-Habit-139** (3↑): Oh my god bro.
 
 I've been delivering work faster than they expected as well, but NOT at the expense of my work life balance.
 
@@ -117,23 +176,23 @@ I smiled and said "Sounds good."
 When I replied that way, she was taken back, as if she expected something different.
 
 I'm going to go clean out my desk tonight while I'm sure the office is empty so I don't have any loose ends
-- **BendableBender** (155↑): Find a new job. This manager is toxic.
-  - **blackcatwizard** (36↑): Yeah, that manager is an absolute snake that will never have their interests in mind or be truthful about what's going on. Get the fuck out as soon as you can.
-    - **MaleficentCherry7116** (20↑): I found out after I joined that a former coworker had vowed to never work with him again because she found him to be a snake.
+- **BendableBender** (156↑): Find a new job. This manager is toxic.
+  - **blackcatwizard** (34↑): Yeah, that manager is an absolute snake that will never have their interests in mind or be truthful about what's going on. Get the fuck out as soon as you can.
+    - **MaleficentCherry7116** (19↑): I found out after I joined that a former coworker had vowed to never work with him again because she found him to be a snake.
   - **MaleficentCherry7116** (23↑): That's what I'm leaning towards, but I've been trying to look at myself to see if perhaps I'm seeing things the wrong way. My wife is putting some pressure on me to stay because it's a good salary, and believes every software company eventually becomes like this. 
 
 There's so much more to it, such as my boss putting in a 360 review that he didn't have confidence that I could lead the team through change. And the head of HR confided in a coworker that she was thinking about leaving. She confided in me that the investment group that's funding the company doesn't want to put any more money in and are trying to sell the company but can't find any buyers.
-    - **blackcatwizard** (33↑): No, that is what these types of psychologically abusive asshole managers do - undermine and abuse enough that you think you're the problem. As soon as you start doing that all of your stress and psychological well being will get worse. Get out as soon as you can, there is no negotiating with those types of people.
-    - **man_vs_cube** (19↑): One of my rules of thumb is that if the cash flow for the business is good then the job will be low stress. When cash flow is bad then a job will be more stressful. 
+    - **blackcatwizard** (34↑): No, that is what these types of psychologically abusive asshole managers do - undermine and abuse enough that you think you're the problem. As soon as you start doing that all of your stress and psychological well being will get worse. Get out as soon as you can, there is no negotiating with those types of people.
+    - **man_vs_cube** (20↑): One of my rules of thumb is that if the cash flow for the business is good then the job will be low stress. When cash flow is bad then a job will be more stressful. 
 
 It's tempting to think that since you're not in an executive position that you're insulated from money problems happening at that level. But in reality "the business isn't making enough money" is a problem that can very much trickle down to every level of the organization.
-    - **BKrenz** (10↑): Theres so many red flags here. It's time to jump ship. 
+    - **BKrenz** (9↑): Theres so many red flags here. It's time to jump ship. 
 
 Business will business, and you need to be proactive in finding your lifeboat.
-    - **BendableBender** (6↑): No, your wife isn’t an engineer working at this company. You are. Listen to your own experience.
+    - **BendableBender** (7↑): No, your wife isn’t an engineer working at this company. You are. Listen to your own experience.
 
 I was in similar situations to this and left. Life is too short to work with small people
-    - **jonnysunshine1** (11↑): Your wife is wrong, bro, and you need to prioritise your mental stability. Get away from the toxic manager or he'll continue to squueze you dry with no remorse
+    - **jonnysunshine1** (9↑): Your wife is wrong, bro, and you need to prioritise your mental stability. Get away from the toxic manager or he'll continue to squueze you dry with no remorse
     - **brainrotbro** (2↑): Lean harder bro. You’re in an abusive relationship and you’re trying to justify the actions of your abuser.
     - **PM_40** (2↑): >My wife is putting some pressure on me to stay because it's a good salary, and believes every software company eventually becomes like this. 
 
@@ -146,18 +205,18 @@ Totally not the case. Most companies want competent employees to stay for as lon
 
 Get out before the door closes on you.
     - **rafuzo2** (1↑): There's so many red flags you'd think this was a May Day parade in Tiananmen Square. Get out, ASAP.
-- **crymo27** (47↑): how much you got paid ? You really need to start using word "no" more often.  
+- **crymo27** (46↑): how much you got paid ? You really need to start using word "no" more often.  
 
 
 Also working 14 hours a day ? is that india ?
-  - **MaleficentCherry7116** (34↑): We just got out raises, so I'm currently salaried at $175k in Austin with a 10% yearly bonus eligibility. I'd take a salary cut for a standard 8-5 job with less stress.
+  - **MaleficentCherry7116** (33↑): We just got out raises, so I'm currently salaried at $175k in Austin with a 10% yearly bonus eligibility. I'd take a salary cut for a standard 8-5 job with less stress.
     - **stratosfearinggas** (41↑): I posted this before.
 
 At 70 hours per week you're making $52/hr.  That's an equivalent hourly rate to $100k per year if you were working 40 hrs per week, 5 days a week.
     - **Cautious-Bet-9707** (20↑): Lol you think you’re getting the bonus? But still they’re over working you man 14 hours a day… you need to live and sleep
-    - **Unlucky_Topic7963** (3↑): Not worth it. That bonus structure is garbage. Austin isn’t cheap anymore.
+    - **Unlucky_Topic7963** (4↑): Not worth it. That bonus structure is garbage. Austin isn’t cheap anymore.
     - **pongpaddle** (2↑): Definitely work on leaving that should be top priority. The job market is tough but I would bet you can do a lot better than this given the # of hours you are working. That doesn't seem sustainable
-- **KwyjiboTheGringo** (16↑): You live and learn.  Some people will take and take all they can get out of you.  You set the pace, not the manager.  Set your boundaries and hold firm.
+- **KwyjiboTheGringo** (15↑): You live and learn.  Some people will take and take all they can get out of you.  You set the pace, not the manager.  Set your boundaries and hold firm.
 
 What I would do, is tell them that you can't do that anymore.  Schedule immediate time off to recover after that crunch too.  If they push back on either of those, then I'd job hunt.  I wouldn't immediately involve HR.  HR is not your friend and legitimately doesn't care how effective you are at the actual work, their job is to protect the company for legal backlash and employees who will spread a toxic narrative to other employees.  So while they may side with you, I'd say there is every chance they will side with the manager who probably has more connections to the higher-ups.
 
@@ -179,10 +238,10 @@ I thought this was an absolutely terrible thing to do to the person.
 Regarding the projects, they're products that we're producing to sell, but there aren't any buyers until the products are completed. 
 
 They're starting a third project and unfortunately the junior developers will need some assistance, but I'm going to strictly follow my manager's instructions and work on just one project to protect myself while I'm looking for a job.
-- **FX2000** (7↑): The first 8 hours are the ONLY 8 hours
-- **Kyrtt** (11↑): uhh you better be earning high six figures, or even seven figures for shit like that
+- **FX2000** (6↑): The first 8 hours are the ONLY 8 hours
+- **Kyrtt** (12↑): uhh you better be earning high six figures, or even seven figures for shit like that
   - **MaleficentCherry7116** (5↑): I feel like $175k in Austin is a good salary, but I don't know with the current state of the market.
-    - **Kyrtt** (23↑): Ballpark that looks a good salary in Austin, but for a normal 40 hour work week. 
+    - **Kyrtt** (22↑): Ballpark that looks a good salary in Austin, but for a normal 40 hour work week. 
 
 175k for 80+ is borderline slavery (unless you where somewhere with an exceedingly low cost of living... and most likely not in the USA)
-- **redDevilRiddle** (5↑): Just work barely 40 hour weeks. Use the remaining time to look for other jobs and try to move soon. Don’t waste the prime of your life on this toxic manager. Doesn’t seem like your manager is in any position to fire you. He needs you more than you need him.
+- **redDevilRiddle** (4↑): Just work barely 40 hour weeks. Use the remaining time to look for other jobs and try to move soon. Don’t waste the prime of your life on this toxic manager. Doesn’t seem like your manager is in any position to fire you. He needs you more than you need him.

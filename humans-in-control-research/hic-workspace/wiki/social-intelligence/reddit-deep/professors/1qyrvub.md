@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1qyrvub.md
 url: "https://www.reddit.com/r/Professors/comments/1qyrvub/is_anyone_giving_their_students_study_guides/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,63 @@ flair: "Teaching / Pedagogy"
 extracted_at: "2026-05-20T03:55:39.284Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, fundraising, nonprofit]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c0"
+    char_span: [0, 998]
+    sentence_count: 10
+    key_terms: [study, professors, students, guides, exam, comments, giving, review]
+    token_count: 234
+  - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c1"
+    char_span: [1013, 2001]
+    sentence_count: 8
+    key_terms: [list, readings, grateful, headings, students, already, topics, guide]
+    section: Comments
+    token_count: 233
+  - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c2"
+    char_span: [2003, 4168]
+    sentence_count: 16
+    key_terms: [study, questions, list, work, guide, assignments, late, objectives]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c3"
+    char_span: [3853, 4747]
+    sentence_count: 2
+    key_terms: [different, guides, paste, study, copy, use, accidentally, hoopoebirdie]
+    section: Comments
+    token_count: 206
+  - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c4"
+    char_span: [4749, 6507]
+    sentence_count: 13
+    key_terms: [class, study, exam, guide, sessions, students, times, get]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c5"
+    char_span: [6509, 6886]
+    sentence_count: 2
+    key_terms: [questions, engineering, significant, waronadvent, everything, students, covered, similar]
+    section: Comments
+    token_count: 96
+  - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c6"
+    char_span: [6888, 9209]
+    sentence_count: 15
+    key_terms: [study, students, test, guide, good, teaching, guides, expectations]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c7"
+    char_span: [8910, 9483]
+    sentence_count: 4
+    key_terms: [study, student, guides, good, own, work, pedogogically, sandysanbar]
+    section: Comments
+    token_count: 130
+  - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c8"
+    char_span: [9485, 11271]
+    sentence_count: 17
+    key_terms: [exam, questions, question, study, learning, position, students, knowing]
+    section: Comments
+    token_count: 392
 ---
-
 # Is anyone giving their students study guides?
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1qyrvub/is_anyone_giving_their_students_study_guides/)

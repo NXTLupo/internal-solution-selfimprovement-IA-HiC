@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1t4lxus.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1t4lxus/longterm_gf_or_digital_nomad_life/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,45 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:56.729Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1t4lxus.md#c0"
+    char_span: [0, 1844]
+    sentence_count: 13
+    key_terms: ["i'm", business, guayaquil, digital, ecuador, digitalnomad, dream, going]
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/digitalnomad/1t4lxus.md#c1"
+    char_span: [1859, 3493]
+    sentence_count: 9
+    key_terms: [relationship, committed, business, potentially, resentment, sergiosala, workable, content]
+    section: Comments
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/digitalnomad/1t4lxus.md#c2"
+    char_span: [3495, 4646]
+    sentence_count: 7
+    key_terms: [therefore, wants, importantly, long, temporary, stints, travel, "don't"]
+    section: Comments
+    token_count: 289
+  - id: "social-intelligence/reddit-deep/digitalnomad/1t4lxus.md#c3"
+    char_span: [4648, 6191]
+    sentence_count: 10
+    key_terms: [don, option, feel, miserable, resentful, business, distance, digital]
+    section: Comments
+    token_count: 372
+  - id: "social-intelligence/reddit-deep/digitalnomad/1t4lxus.md#c4"
+    char_span: [6193, 8326]
+    sentence_count: 23
+    key_terms: [love, life, something, work, distance, living, option, relationships]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/digitalnomad/1t4lxus.md#c5"
+    char_span: [8328, 8946]
+    sentence_count: 4
+    key_terms: [feeling, crazy, long, relationships, adventurous, girlfriend, hopefully, nightlife]
+    section: Comments
+    token_count: 145
 ---
-
 # Long-term GF or Digital Nomad Life
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1t4lxus/longterm_gf_or_digital_nomad_life/)

@@ -1,4 +1,5 @@
 ---
+id: sources-registry/connector-catalog.md
 title: "Data Source Connector Catalog"
 type: source-summary
 created: 2026-04-10
@@ -8,8 +9,145 @@ confidence: high
 status: active
 tags: [data-sources, connectors, research-proxy, api-registry]
 evidence_count: 0
+chunks:
+  - id: "sources-registry/connector-catalog.md#c0"
+    char_span: [0, 454]
+    sentence_count: 3
+    key_terms: [connector, data, research, source, platform, approximately, communities, connectors]
+    token_count: 76
+  - id: "sources-registry/connector-catalog.md#c1"
+    char_span: [482, 2359]
+    sentence_count: 12
+    key_terms: [proxy, get, sources, datasourceconnector, connector, api, category, returns]
+    section: Architecture Overview
+    token_count: 428
+  - id: "sources-registry/connector-catalog.md#c2"
+    char_span: [2361, 2789]
+    sentence_count: 1
+    key_terms: [data, news, government, education, academic, economic, social, web]
+    section: Architecture Overview
+    token_count: 111
+  - id: "sources-registry/connector-catalog.md#c3"
+    char_span: [2832, 3527]
+    sentence_count: 2
+    key_terms: [tier, data, credibility, news, government, research, social, credibility-tiers]
+    section: Credibility Tier Mapping by Category
+    token_count: 162
+  - id: "sources-registry/connector-catalog.md#c4"
+    char_span: [3561, 5341]
+    sentence_count: 2
+    key_terms: [tier, api, education, rss, higher, news, connectors, connector]
+    section: Complete Connector Registry
+    token_count: 466
+  - id: "sources-registry/connector-catalog.md#c5"
+    char_span: [5343, 6524]
+    sentence_count: 1
+    key_terms: [tier, api, data, federal, credibility, connectors, connector, display]
+    section: Complete Connector Registry
+    token_count: 301
+  - id: "sources-registry/connector-catalog.md#c6"
+    char_span: [6526, 7720]
+    sentence_count: 2
+    key_terms: [data, tier, api, open, credibility, city, gov, news]
+    section: Complete Connector Registry
+    token_count: 337
+  - id: "sources-registry/connector-catalog.md#c7"
+    char_span: [7722, 8762]
+    sentence_count: 1
+    key_terms: [tier, web, video, channel, content, connector, api, youtube]
+    section: Complete Connector Registry
+    token_count: 276
+  - id: "sources-registry/connector-catalog.md#c8"
+    char_span: [8764, 10589]
+    sentence_count: 1
+    key_terms: [tier, rss, coverage, news, research, review, marktechpost, venturebeat]
+    section: Complete Connector Registry
+    token_count: 512
+  - id: "sources-registry/connector-catalog.md#c9"
+    char_span: [10362, 10908]
+    sentence_count: 1
+    key_terms: [tier, web, rss, coverage, public-interest, infrastructure, deeplearning, interactive]
+    section: Complete Connector Registry
+    token_count: 157
+  - id: "sources-registry/connector-catalog.md#c10"
+    char_span: [10910, 10948]
+    sentence_count: 1
+    key_terms: [web-only, blogs, api, lab]
+    section: Complete Connector Registry
+    token_count: 13
+  - id: "sources-registry/connector-catalog.md#c11"
+    char_span: [10950, 12822]
+    sentence_count: 1
+    key_terms: [tier, research, rss, blog, publications, posts, updates, openai]
+    section: Complete Connector Registry
+    token_count: 512
+  - id: "sources-registry/connector-catalog.md#c12"
+    char_span: [12601, 13320]
+    sentence_count: 1
+    key_terms: [site-scoped, research, tier, web, releases, stability, mistral, papers]
+    section: Complete Connector Registry
+    token_count: 213
+  - id: "sources-registry/connector-catalog.md#c13"
+    char_span: [13322, 14318]
+    sentence_count: 1
+    key_terms: [preprints, api, tier, arxiv, openreview, computer, dblp, human-computer]
+    section: Complete Connector Registry
+    token_count: 302
+  - id: "sources-registry/connector-catalog.md#c14"
+    char_span: [14320, 15487]
+    sentence_count: 1
+    key_terms: [tier, web, api, model, datasets, registry, dataset, benchmarks]
+    section: Complete Connector Registry
+    token_count: 332
+  - id: "sources-registry/connector-catalog.md#c15"
+    char_span: [15489, 17303]
+    sentence_count: 1
+    key_terms: [tier, rss, policy, api, community, web, framework, institute]
+    section: Complete Connector Registry
+    token_count: 502
+  - id: "sources-registry/connector-catalog.md#c16"
+    char_span: [17305, 18943]
+    sentence_count: 1
+    key_terms: [tier, site-scoped, conference, web, github, api, docs, trending]
+    section: Complete Connector Registry
+    token_count: 490
+  - id: "sources-registry/connector-catalog.md#c17"
+    char_span: [18972, 20307]
+    sentence_count: 4
+    key_terms: [subreddit, research, reddit, ripper, discovery, tier, service, via]
+    section: CX Mesh Social Sources
+    token_count: 295
+  - id: "sources-registry/connector-catalog.md#c18"
+    char_span: [20333, 21933]
+    sentence_count: 6
+    key_terms: [research, sources, search, refinement, get, gemini, deep, mode]
+    section: Deep Research Modes
+    token_count: 348
+  - id: "sources-registry/connector-catalog.md#c19"
+    char_span: [21967, 23057]
+    sentence_count: 6
+    key_terms: [items, relevance, scoring, characters, enrichment, extraction, enriched, filtered]
+    section: Content Enrichment Pipeline
+    token_count: 259
+  - id: "sources-registry/connector-catalog.md#c20"
+    char_span: [23079, 23680]
+    sentence_count: 2
+    key_terms: [downstream, citation, corpus, mergeresultstocorpus, score, credibility-tiers, sources-registry, credibility]
+    section: Corpus Assembly
+    token_count: 134
+  - id: "sources-registry/connector-catalog.md#c21"
+    char_span: [23705, 24058]
+    sentence_count: 1
+    key_terms: [sources, connectors, tier, mesh, site-scoped, categories, api-based, research]
+    section: Summary Statistics
+    token_count: 104
+  - id: "sources-registry/connector-catalog.md#c22"
+    char_span: [24081, 24514]
+    sentence_count: 1
+    key_terms: [research, social-intelligence, sentiment-pipeline, credibility-tiers, tier, sources-registry, research-fabric, research-modes]
+    section: Cross-References
+    token_count: 93
 ---
-
 # Data Source Connector Catalog
 
 This is the master reference for every data source connector registered in the HiC Research platform. The platform provides approximately 150 structured connectors spanning academic literature, government data, news media, AI research, social communities, and more. Every connector routes through a single proxy layer, giving the research fabric a unified interface regardless of the underlying data source protocol.

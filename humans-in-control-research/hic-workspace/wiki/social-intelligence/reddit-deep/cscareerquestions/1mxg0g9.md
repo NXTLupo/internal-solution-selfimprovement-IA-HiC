@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1mxg0g9.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1mxg0g9/i_uncovered_a_scam_trying_to_hire_for_a_remote/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,70 @@ subreddit: "cscareerquestions"
 title: "I uncovered a scam trying to hire for a remote engineer position"
 author: "ExpensivePost"
 date: "2025-08-22T19:30:27.000Z"
-score: 512
+score: 519
 upvote_ratio: 0.96
 num_comments: 98
 flair: ""
-extracted_at: "2026-05-26T12:54:26.429Z"
+extracted_at: "2026-06-06T17:43:22.944Z"
 extraction_method: "praw-deep"
-research_goal: "Identify emerging needs in the remote work sector."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mxg0g9.md#c0"
+    char_span: [0, 2009]
+    sentence_count: 11
+    key_terms: [cscareerquestions, auto-reject, work, comments, timeline, history, listed, random]
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mxg0g9.md#c1"
+    char_span: [2011, 4516]
+    sentence_count: 27
+    key_terms: [asked, person, never, bullshit, been, studio, game, team]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mxg0g9.md#c2"
+    char_span: [4518, 6223]
+    sentence_count: 13
+    key_terms: [enough, remote, austin, name, companies, identity, metadata, possible]
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mxg0g9.md#c3"
+    char_span: [6238, 8186]
+    sentence_count: 12
+    key_terms: [company, recruiters, fake, job, steal, info, companies, interview]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mxg0g9.md#c4"
+    char_span: [8188, 9894]
+    sentence_count: 8
+    key_terms: [background, "it's", check, location, garbage, minutes, talking, "they're"]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mxg0g9.md#c5"
+    char_span: [9896, 11861]
+    sentence_count: 13
+    key_terms: [questions, forsookcomparison, call, guy, answers, someone, expensivepost, sophisticated]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mxg0g9.md#c6"
+    char_span: [11863, 13829]
+    sentence_count: 10
+    key_terms: [shows, candidate, dangerousart7072, welding, interviewer, like, completely, equivalent]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mxg0g9.md#c7"
+    char_span: [13831, 15362]
+    sentence_count: 9
+    key_terms: [job, people, sometimes, scripts, being, doing, since, early-surround7413]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mxg0g9.md#c8"
+    char_span: [15364, 16583]
+    sentence_count: 11
+    key_terms: [properly, targeted, getting, process, script, "wasn't", never, differentiation]
+    section: Comments
+    token_count: 245
 ---
-
 # I uncovered a scam trying to hire for a remote engineer position
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1mxg0g9/i_uncovered_a_scam_trying_to_hire_for_a_remote/)
-Posted by **ExpensivePost** · **512↑** · **98 comments**
+Posted by **ExpensivePost** · **519↑** · **98 comments**
 
 Novel warning, but it's a good one IMO, tldr at the bottom
 
@@ -64,8 +116,8 @@ tldr: Got lots of similar, sketchy resumes for remote postings only. I investiga
 
 ## Comments
 
-- **stealth_Master01** (148↑): This is a pretty common scam but I was on the other side aka I was the one applying to a fake job. A lot of these companies scrap data from LinkedIn and reach out to you from an unknown company and unknown location. They claim to have a client and list the most obvious ones, ask you to attend the interview next day and ghost you out. Luckily I never let them gave a chance to interview me nor get any personal information (they asked for ID before they could even give me the project info). These so called technical recruiters are distributed across the globe mainly India, Philippines and Vietnam and they probably use a proxy number to reach out to you. I don’t know their end goal but this is what they do.
-  - **Statharas** (42↑): I've had Indians approach me for a job (twice) for a company in my country, while they worked in the UK (supposedly).
+- **stealth_Master01** (144↑): This is a pretty common scam but I was on the other side aka I was the one applying to a fake job. A lot of these companies scrap data from LinkedIn and reach out to you from an unknown company and unknown location. They claim to have a client and list the most obvious ones, ask you to attend the interview next day and ghost you out. Luckily I never let them gave a chance to interview me nor get any personal information (they asked for ID before they could even give me the project info). These so called technical recruiters are distributed across the globe mainly India, Philippines and Vietnam and they probably use a proxy number to reach out to you. I don’t know their end goal but this is what they do.
+  - **Statharas** (38↑): I've had Indians approach me for a job (twice) for a company in my country, while they worked in the UK (supposedly).
 
 They didn't get much out of me, besides my CV, but that's info available on my LinkedIn anyway. 
 
@@ -75,10 +127,10 @@ I wonder if that was real or not.
   - **emteedub** (3↑): Shit, i've seen many many listings that are like "Netflix ." (and a bunch of like-named companies as the listed company) that have recruiters named from them, the role is also sometimes listed on netflix's careers page... the exception is the company logo isn't present - I fell for this once since it seemed so legit and fired an application. 
 
 Never heard anything directly back from this specific mess up, but it's always been in the back of my head that I'd sent my resume with my PII, wondering how many others might have done the same. It's probably for what OP is talking about (or at least one vector for these types of scams).
-- **Sn00chiez** (48↑): Just put up a posting for a remote job a couple of weeks ago and got a ton of these. Took me about 30 minutes to realize I wasn't fat-fingering the same resume I had just looked at a couple of minutes prior
-  - **donjulioanejo** (14↑): 100% of them have Indian names, and 100% of them have exactly the same content, just in slightly different order.  90% of them have their location in India.  Out of the remaining 10%, they have their location as _hiring_locale_ but when you talk to them, they're also in India, just "temporarily."
-- **salty-mind** (18↑): This is hilarious, any minimal background check would flag them easily
-  - **ExpensivePost** (41↑): None of them ever made it to the point that it was remotely worth paying for a background check. It's very obvious that they're garbage even without talking to them.
+- **Sn00chiez** (46↑): Just put up a posting for a remote job a couple of weeks ago and got a ton of these. Took me about 30 minutes to realize I wasn't fat-fingering the same resume I had just looked at a couple of minutes prior
+  - **donjulioanejo** (15↑): 100% of them have Indian names, and 100% of them have exactly the same content, just in slightly different order.  90% of them have their location in India.  Out of the remaining 10%, they have their location as _hiring_locale_ but when you talk to them, they're also in India, just "temporarily."
+- **salty-mind** (17↑): This is hilarious, any minimal background check would flag them easily
+  - **ExpensivePost** (34↑): None of them ever made it to the point that it was remotely worth paying for a background check. It's very obvious that they're garbage even without talking to them.
 
 I was mostly just curious to see what sort of garbage it was.
 
@@ -91,17 +143,17 @@ The only experience I’ve had with anyone failing a background check was one wh
 
 I found the real guy on linked in and passed all the info over to my legal department to contact him and let him know that his info is being used.
   - **ExpensivePost** (1↑): Must not have been with the government then. CCP infiltrators are more sophisticated.
-- **ForsookComparison** (18↑): I lost an argument and one of these guys was invited to a virtual interview.
+- **ForsookComparison** (17↑): I lost an argument and one of these guys was invited to a virtual interview.
 
 He was nailing technical questions but something felt off. The guy had those cheapo earbuds on (the kind from the 2000s where you could hear someone else's music). A manager on the call turned down the sensitivity on his own mic and asked questions in a near whisper. The candidate cranks the volume. In between questions I faintly but surely hear a completely different dude feeding answers. We kill the interview early.
   - **ExpensivePost** (3↑): Wonder why the dude giving the answers didn't just take the call himself. Either way, that sounds way more sophisticated than the doofus I spoke to.
     - **ForsookComparison** (1↑): > Wonder why the dude giving the answers didn't just take the call himself
 
 The interviewers were mostly the hiring team. If he got the role it would require lots of facetime when it'd become obvious that he was a different person than who was interviewed
-- **[deleted]** (78↑): Welder here, the fuck going on in your field? How is this even a thing?
+- **[deleted]** (72↑): Welder here, the fuck going on in your field? How is this even a thing?
   - **DangerousArt7072** (93↑): Welcome to the utter cluster fuck that is recruitment in tech.
-  - **ExpensivePost** (71↑): Post a remote-only welding position and you'll get 'em too.
-  - **donjulioanejo** (28↑): The equivalent of a guy who did welding twice in high school during shop creating the resume equivalent of welding the Space Shuttle, and hoping the interviewer is not a welder himself and doesn't look closely at the details.
+  - **ExpensivePost** (73↑): Post a remote-only welding position and you'll get 'em too.
+  - **donjulioanejo** (27↑): The equivalent of a guy who did welding twice in high school during shop creating the resume equivalent of welding the Space Shuttle, and hoping the interviewer is not a welder himself and doesn't look closely at the details.
 
 In some cases, on an industrial scale.
 
@@ -117,19 +169,19 @@ If an interviewer bites, one of two things happen:
   - **Codex_Dev** (11↑): 3rd world workers are drooling at the $150K remote salaries software developers make in the USA. Keep in mind that in their countries, this easily becomes like half a million dollars due to the cost of living and how cheaper shit is. 
 
 So there is a massive incentive to steal, cheat, and lie. It's like robbing a bank with the only penalty being that you could get fired.
-    - **brat_simpson** (7↑): >3rd world workers are drooling at the $150K remote salaries software developers make in the USA. 
+    - **brat_simpson** (8↑): >3rd world workers are drooling at the $150K remote salaries software developers make in the USA. 
 
 
 True that. And they brag about it being untaxed.
   - **Statharas** (7↑): Scammers gonna scam.
 - **tuckfrump69** (37↑): This is why every job has like 1000 apps in a day lol
-  - **ballsohaahd** (10↑): ^ ^ ^ ^ ^ ^
+  - **ballsohaahd** (9↑): ^ ^ ^ ^ ^ ^
 
 All foreign slop, ruining American hiring
-- **Early-Surround7413** (26↑): Fake Indian resumes have been a thing since forever.
+- **Early-Surround7413** (25↑): Fake Indian resumes have been a thing since forever.
 - **CathieWoods1985** (10↑): > They said they were visiting family in Delhi
   - **DigmonsDrill** (2↑): with my mom when she was researching spiders just before she died
-- **srona22** (15↑): As for HR side, as in this post, we know ATS and sometimes scripts to filter things out. 
+- **srona22** (16↑): As for HR side, as in this post, we know ATS and sometimes scripts to filter things out. 
 
 On the other side, there are two cases.
 1. low quality mass job applying scripts/bots/farms(yes it exists, believe it or not). Sometimes it's by "motivator/influencer" who gives away list of email address to whoever attended their "motivation" program. 

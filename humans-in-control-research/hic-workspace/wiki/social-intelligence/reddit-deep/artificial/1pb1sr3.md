@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1pb1sr3.md
 url: "https://www.reddit.com/r/artificial/comments/1pb1sr3/gemini_3_is_pulling_the_same_dynamic_downgrade/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,63 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:04.770Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1pb1sr3.md#c0"
+    char_span: [0, 1711]
+    sentence_count: 18
+    key_terms: [model, "i'm", like, pro, word, artificial, comments, document]
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/artificial/1pb1sr3.md#c1"
+    char_span: [1726, 3432]
+    sentence_count: 12
+    key_terms: [model, like, used, context, ignores, request, models, people]
+    section: Comments
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/artificial/1pb1sr3.md#c2"
+    char_span: [3434, 4200]
+    sentence_count: 5
+    key_terms: [fraud, rubengarciahernandez, get, consistent, controlled, companies, "emperor's", financial]
+    section: Comments
+    token_count: 201
+  - id: "social-intelligence/reddit-deep/artificial/1pb1sr3.md#c3"
+    char_span: [4202, 6166]
+    sentence_count: 13
+    key_terms: [gemini, exist, model, "it's", technical, messages, question, because]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/artificial/1pb1sr3.md#c4"
+    char_span: [6168, 8041]
+    sentence_count: 13
+    key_terms: [gemini, creaturefeature16, "don't", "i'm", legitimate, because, models, people]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/artificial/1pb1sr3.md#c5"
+    char_span: [7775, 8417]
+    sentence_count: 5
+    key_terms: [legitimate, thebluecollartrader, glock7enteen, hemorrhaging, imacompnerd, absolutely, conjecture, responding]
+    section: Comments
+    token_count: 180
+  - id: "social-intelligence/reddit-deep/artificial/1pb1sr3.md#c6"
+    char_span: [8419, 9701]
+    sentence_count: 2
+    key_terms: [google, going, "i'm", training, money, allocate, models, powerful-frame-44]
+    section: Comments
+    token_count: 312
+  - id: "social-intelligence/reddit-deep/artificial/1pb1sr3.md#c7"
+    char_span: [9703, 11790]
+    sentence_count: 8
+    key_terms: [happening, model, evidence, google, people, claim, money, gpu]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/artificial/1pb1sr3.md#c8"
+    char_span: [11792, 13663]
+    sentence_count: 17
+    key_terms: [model, people, "it's", pro, "doesn't", obvious, answer, saying]
+    section: Comments
+    token_count: 461
 ---
-
 # Gemini 3 is pulling the same dynamic downgrade scam that ruined the GPT-5 launch
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1pb1sr3/gemini_3_is_pulling_the_same_dynamic_downgrade/)

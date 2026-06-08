@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1n6lpl8.md
 url: "https://www.reddit.com/r/artificial/comments/1n6lpl8/ama_with_qoder_team_an_agentic_coding_platform/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,50 @@ flair: "AMA"
 extracted_at: "2026-05-11T17:27:04.773Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1n6lpl8.md#c0"
+    char_span: [0, 1972]
+    sentence_count: 8
+    key_terms: [qoder, https, software, com, codebase, real, coding, reddit]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/artificial/1n6lpl8.md#c1"
+    char_span: [1974, 2978]
+    sentence_count: 6
+    key_terms: [qoder, here, anything, building, everyone, ask, drop, line]
+    token_count: 243
+  - id: "social-intelligence/reddit-deep/artificial/1n6lpl8.md#c2"
+    char_span: [2993, 5372]
+    sentence_count: 12
+    key_terms: [documentation, understanding, code, development, qoder, awareness, repo, wiki]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/artificial/1n6lpl8.md#c3"
+    char_span: [5374, 7489]
+    sentence_count: 17
+    key_terms: [terminal, execution, command, background, qoder, tools, session, coding]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/artificial/1n6lpl8.md#c4"
+    char_span: [7491, 9388]
+    sentence_count: 14
+    key_terms: [terminal, issues, qoder, wrong, user, feedback, context, rocket]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/artificial/1n6lpl8.md#c5"
+    char_span: [9390, 10830]
+    sentence_count: 7
+    key_terms: [code, architecture, qoder, quest, full, finish, plans, tools]
+    section: Comments
+    token_count: 317
+  - id: "social-intelligence/reddit-deep/artificial/1n6lpl8.md#c6"
+    char_span: [10832, 13294]
+    sentence_count: 10
+    key_terms: [code, qoder, service, features, security, preview, privacy, cloud]
+    section: Comments
+    token_count: 512
 ---
-
 # AMA with Qoder Team: an agentic coding platform for real software delegation (not just line-by-line). 100K developers in 5 days — plus a 2,000-credit giveaway for everyone.
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1n6lpl8/ama_with_qoder_team_an_agentic_coding_platform/)

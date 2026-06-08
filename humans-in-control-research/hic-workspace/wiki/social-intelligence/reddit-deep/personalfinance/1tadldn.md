@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1tadldn.md
 url: "https://www.reddit.com/r/personalfinance/comments/1tadldn/ai_is_eliminating_my_field_fast_how_should_i/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,80 @@ flair: "Budgeting"
 extracted_at: "2026-05-17T01:13:31.179Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, ai_research, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1tadldn.md#c0"
+    char_span: [0, 1788]
+    sentence_count: 24
+    key_terms: [field, year, personalfinance, work, emergency, comments, generous, ceiling]
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/personalfinance/1tadldn.md#c1"
+    char_span: [1790, 2423]
+    sentence_count: 11
+    key_terms: [futures, better, applications, alternative, experience, companies, headcount, profusely]
+    token_count: 148
+  - id: "social-intelligence/reddit-deep/personalfinance/1tadldn.md#c2"
+    char_span: [2438, 4323]
+    sentence_count: 15
+    key_terms: [tools, data, design, new, because, visualization, field, specialized]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/personalfinance/1tadldn.md#c3"
+    char_span: [4325, 6374]
+    sentence_count: 9
+    key_terms: [information, dashboards, been, enough, good, "it's", use, work]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/personalfinance/1tadldn.md#c4"
+    char_span: [6376, 8404]
+    sentence_count: 16
+    key_terms: [animation, design, because, development, wraeclast66, work, aesthetic, company]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/personalfinance/1tadldn.md#c5"
+    char_span: [8406, 9554]
+    sentence_count: 14
+    key_terms: [use, proposals, accounting, platform, company, copilot, change, doing]
+    section: Comments
+    token_count: 279
+  - id: "social-intelligence/reddit-deep/personalfinance/1tadldn.md#c6"
+    char_span: [9556, 11654]
+    sentence_count: 19
+    key_terms: [sales, technical, experience, instead, infrastructure, person, joscampau1400, relationships]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/personalfinance/1tadldn.md#c7"
+    char_span: [11656, 13796]
+    sentence_count: 16
+    key_terms: [people, room, want, technical, machine, savings, saying, being]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/personalfinance/1tadldn.md#c8"
+    char_span: [13798, 15662]
+    sentence_count: 10
+    key_terms: [start, buffinita, job, wait, people, level, applicants, company]
+    section: Comments
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/personalfinance/1tadldn.md#c9"
+    char_span: [15666, 16417]
+    sentence_count: 3
+    key_terms: [design, library, working, holiday-distance-822, job, kingofmangoes, graduated, recognize]
+    section: Comments
+    token_count: 185
+  - id: "social-intelligence/reddit-deep/personalfinance/1tadldn.md#c10"
+    char_span: [16419, 17924]
+    sentence_count: 10
+    key_terms: [role, been, "i've", technical, learned, design, months, people]
+    section: Comments
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/personalfinance/1tadldn.md#c11"
+    char_span: [17926, 18923]
+    sentence_count: 9
+    key_terms: [industrial, maintenance, management, replacing, technical, demand, robots, lazyworkeronreddit]
+    section: Comments
+    token_count: 211
 ---
-
 # AI is eliminating my field fast, how should I prepare?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1tadldn/ai_is_eliminating_my_field_fast_how_should_i/)

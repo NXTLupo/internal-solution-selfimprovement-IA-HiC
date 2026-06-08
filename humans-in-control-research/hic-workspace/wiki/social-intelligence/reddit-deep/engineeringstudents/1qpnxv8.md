@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1qpnxv8/should_i_quit/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,63 @@ flair: "Rant/Vent"
 extracted_at: "2026-05-25T18:32:19.221Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c0"
+    char_span: [0, 1511]
+    sentence_count: 13
+    key_terms: [engineeringstudents, gonna, bad, comments, probably, semester, because, session]
+    token_count: 329
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c1"
+    char_span: [1526, 1624]
+    sentence_count: 1
+    key_terms: [struggles, quitting, health, mental, guilt, help]
+    section: Comments
+    token_count: 26
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c2"
+    char_span: [1627, 3706]
+    sentence_count: 16
+    key_terms: [live, life, engineer, father, moment, upset, approvement, engineering]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c3"
+    char_span: [3465, 4500]
+    sentence_count: 10
+    key_terms: ["don't", life, yourself, parents, others, parent, child, "i'm"]
+    section: Comments
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c4"
+    char_span: [4502, 5999]
+    sentence_count: 17
+    key_terms: [grades, school, complete, because, program, through, please, summer]
+    section: Comments
+    token_count: 339
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c5"
+    char_span: [6001, 7625]
+    sentence_count: 13
+    key_terms: [engineering, please, "you're", best, don, hate, mechanical, interest]
+    section: Comments
+    token_count: 377
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c6"
+    char_span: [7627, 9839]
+    sentence_count: 19
+    key_terms: [engineering, yourself, "it's", "you're", maybe, absolutely, different, difficult]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c7"
+    char_span: [9512, 9949]
+    sentence_count: 5
+    key_terms: [engineering, yourself, experience, abilities, confident, practical, believe, feeling]
+    section: Comments
+    token_count: 87
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c8"
+    char_span: [9951, 11565]
+    sentence_count: 15
+    key_terms: [life, take, yourself, ive, time, calculus, passions, remember]
+    section: Comments
+    token_count: 365
 ---
-
 # Should i quit?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1qpnxv8/should_i_quit/)

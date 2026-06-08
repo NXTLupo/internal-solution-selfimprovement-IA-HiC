@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1sowguz.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1sowguz/choosing_between_nyu_and_uiuc_for_math_cs/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,27 @@ flair: "College Questions"
 extracted_at: "2026-05-23T12:15:36.234Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sowguz.md#c0"
+    char_span: [0, 972]
+    sentence_count: 8
+    key_terms: [applyingtocollege, math, nyu, uiuc, internship, comments, opportunities, quantitative]
+    token_count: 227
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sowguz.md#c1"
+    char_span: [987, 2603]
+    sentence_count: 16
+    key_terms: [nyu, uiuc, courant, undergrad, math, schools, better, quant]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sowguz.md#c2"
+    char_span: [2605, 4255]
+    sentence_count: 11
+    key_terms: [nyu, uiuc, better, zhiskd, opportunities, education, courant, private]
+    section: Comments
+    token_count: 465
 ---
-
 # Choosing Between NYU and UIUC for Math & CS?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1sowguz/choosing_between_nyu_and_uiuc_for_math_cs/)

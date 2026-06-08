@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tf1kns.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tf1kns/jobcareer_advice_not_sure_what_to_choose_any_tips/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,27 @@ flair: "Advice"
 extracted_at: "2026-05-20T02:32:24.883Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tf1kns.md#c0"
+    char_span: [0, 947]
+    sentence_count: 7
+    key_terms: [job, careerguidance, office, great, team, tips, mentorship, benefits]
+    token_count: 247
+  - id: "social-intelligence/reddit-deep/careerguidance/1tf1kns.md#c1"
+    char_span: [962, 3192]
+    sentence_count: 16
+    key_terms: [job, mentorship, career, scope, good, like, pay, definitely]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/careerguidance/1tf1kns.md#c2"
+    char_span: [3194, 3315]
+    sentence_count: 1
+    key_terms: [hesitant, knowing, support, bigger, having, guess, ready, job]
+    section: Comments
+    token_count: 28
 ---
-
 # Job/career Advice, not sure what to choose. Any tips?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tf1kns/jobcareer_advice_not_sure_what_to_choose_any_tips/)

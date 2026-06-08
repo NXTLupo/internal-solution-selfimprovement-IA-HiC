@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1su2uvj.md
 url: "https://www.reddit.com/r/GenZ/comments/1su2uvj/anyone_else_dont_see_the_point_in_trying_anymore/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,33 @@ flair: "Discussion"
 extracted_at: "2026-05-16T20:55:01.229Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [healthcare, education, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1su2uvj.md#c0"
+    char_span: [0, 908]
+    sentence_count: 3
+    key_terms: [comments, because, college, failed, having, "don't", money, point]
+    token_count: 226
+  - id: "social-intelligence/reddit-deep/genz/1su2uvj.md#c1"
+    char_span: [923, 2509]
+    sentence_count: 13
+    key_terms: [try, freakysnake102, degree, people, noongaming, because, discord, makes]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/genz/1su2uvj.md#c2"
+    char_span: [2511, 4300]
+    sentence_count: 10
+    key_terms: [freakysnake102, because, job, time, apprenticeships, pyschofangirl, maybe, debt]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/genz/1su2uvj.md#c3"
+    char_span: [4303, 5508]
+    sentence_count: 11
+    key_terms: [freakysnake102, colognegod, college, anyone, motion, going, eclecticevergreen, hire]
+    section: Comments
+    token_count: 323
 ---
-
 # Anyone else don't see the point in trying anymore?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1su2uvj/anyone_else_dont_see_the_point_in_trying_anymore/)

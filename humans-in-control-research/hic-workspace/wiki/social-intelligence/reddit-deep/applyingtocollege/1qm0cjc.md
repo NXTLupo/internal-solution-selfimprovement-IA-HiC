@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1qm0cjc.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1qm0cjc/am_i_cooked_for_college_applications/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,45 @@ flair: "Application Question"
 extracted_at: "2026-05-22T23:33:52.637Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qm0cjc.md#c0"
+    char_span: [0, 1750]
+    sentence_count: 18
+    key_terms: [extracurriculars, applyingtocollege, college, applications, along, math, currently, comments]
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qm0cjc.md#c1"
+    char_span: [1765, 2338]
+    sentence_count: 3
+    key_terms: [essays, applyingtocollege, wiki, reddit, collegeessays, https, com, www]
+    section: Comments
+    token_count: 150
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qm0cjc.md#c2"
+    char_span: [2340, 4409]
+    sentence_count: 17
+    key_terms: [colleges, engineering, "it's", students, music, application, interesting, activities]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qm0cjc.md#c3"
+    char_span: [4411, 6790]
+    sentence_count: 20
+    key_terms: [engineering, activity, commitment, stem, interest, "you're", application, requirement]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qm0cjc.md#c4"
+    char_span: [6792, 9205]
+    sentence_count: 22
+    key_terms: [music, schools, different, interdisciplinary, want, programs, georgia, universities]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qm0cjc.md#c5"
+    char_span: [9207, 9859]
+    sentence_count: 6
+    key_terms: [opportunities, support, school, consistently, experiences, personally, community, endeavors]
+    section: Comments
+    token_count: 142
 ---
-
 # Am I Cooked For College Applications?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1qm0cjc/am_i_cooked_for_college_applications/)

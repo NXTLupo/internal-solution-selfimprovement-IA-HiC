@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1n3dqoa.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1n3dqoa/if_you_can_get_a_tech_job_in_this_marketit_only/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-23T20:15:57.463Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n3dqoa.md#c0"
+    char_span: [0, 556]
+    sentence_count: 2
+    key_terms: [cscareerquestions, applicants, comments, "you're", goes, virtualrun706, interviewers, reddit-deep]
+    token_count: 147
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n3dqoa.md#c1"
+    char_span: [571, 2242]
+    sentence_count: 11
+    key_terms: [leetcode, companies, deleted, medium, "you're", repulsive-hurry8172, great, c-u-in-da-ballpit]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n3dqoa.md#c2"
+    char_span: [2244, 3947]
+    sentence_count: 9
+    key_terms: [pants, shit, unshit, good, job, developers, conflictpotential204, dragonlordkingslayer]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n3dqoa.md#c3"
+    char_span: [3949, 5775]
+    sentence_count: 15
+    key_terms: [engineering, turing-complete, software, people, engineers, languages, complete, because]
+    section: Comments
+    token_count: 389
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n3dqoa.md#c4"
+    char_span: [5777, 7575]
+    sentence_count: 15
+    key_terms: [complete, curious, turing, probably, company, learned, banner, people]
+    section: Comments
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n3dqoa.md#c5"
+    char_span: [7577, 9473]
+    sentence_count: 11
+    key_terms: [hybrid, job, remote, fully, going, been, page, companies]
+    section: Comments
+    token_count: 497
 ---
-
 # If You Can Get a Tech Job in this Market...it only goes up from here.
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1n3dqoa/if_you_can_get_a_tech_job_in_this_marketit_only/)

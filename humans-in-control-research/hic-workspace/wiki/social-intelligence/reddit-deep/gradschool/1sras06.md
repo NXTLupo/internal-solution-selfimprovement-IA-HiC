@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1sras06.md
 url: "https://www.reddit.com/r/GradSchool/comments/1sras06/should_i_do_a_masters_degree_even_if_i_might_not/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-20T12:57:40.641Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1sras06.md#c0"
+    char_span: [0, 2222]
+    sentence_count: 6
+    key_terms: [degree, school, "master's", working, allowance, end, nyc, "bachelor's"]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/gradschool/1sras06.md#c1"
+    char_span: [2237, 4457]
+    sentence_count: 10
+    key_terms: [opportunities, years, watership-down, anyway, school, internships, job, like]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/gradschool/1sras06.md#c2"
+    char_span: [4459, 6435]
+    sentence_count: 16
+    key_terms: ["master's", field, "don't", personal, old-parking8765, watership-down, right, mia]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/gradschool/1sras06.md#c3"
+    char_span: [6437, 8127]
+    sentence_count: 9
+    key_terms: [program, education, masters, like, mia, something, probably, network]
+    section: Comments
+    token_count: 369
 ---
-
 # Should I do a master's degree even if I might not end up working in that field? Is it worth having a master's degree just to have one (assuming no debt)?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1sras06/should_i_do_a_masters_degree_even_if_i_might_not/)

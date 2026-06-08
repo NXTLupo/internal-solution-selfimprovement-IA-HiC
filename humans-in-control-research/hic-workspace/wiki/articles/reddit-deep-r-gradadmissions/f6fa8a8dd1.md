@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-gradadmissions/f6fa8a8dd1.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1sqw153/career_development_grad_school/"
 url_hash: "f6fa8a8dd1"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T12:19:37.976257+00:00"
 chars: 2131
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-gradadmissions/f6fa8a8dd1.md#c0"
+    char_span: [0, 1906]
+    sentence_count: 14
+    key_terms: [experience, because, gradadmissions, myself, school, apply, roles, years]
+    token_count: 423
+  - id: "articles/reddit-deep-r-gradadmissions/f6fa8a8dd1.md#c1"
+    char_span: [1908, 2300]
+    sentence_count: 3
+    key_terms: [certificates, diplomas, grad, swissalpseal, especially, comments, reapply, studies]
+    token_count: 97
 ---
-
 # Career development & grad school
 
 Source: [Reddit Deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1sqw153/career_development_grad_school/)

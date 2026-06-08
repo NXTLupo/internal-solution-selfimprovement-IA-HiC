@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-internships/bf2bcb0dbf.md
 url: "https://www.reddit.com/r/internships/comments/1t52dbe/how_do_engineering_students_actually_network_with/"
 url_hash: "bf2bcb0dbf"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T14:58:56.573283+00:00"
 chars: 1106
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-internships/bf2bcb0dbf.md#c0"
+    char_span: [0, 1330]
+    sentence_count: 5
+    key_terms: [did, internships, referrals, linkedin, network, successfully, engineering, engineers]
+    token_count: 295
 ---
-
 # How do engineering students actually network with engineers for referrals?
 
 Source: [Reddit Deep: r/internships](https://www.reddit.com/r/internships/comments/1t52dbe/how_do_engineering_students_actually_network_with/)

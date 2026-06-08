@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1qda7ue.md
 url: "https://www.reddit.com/r/personalfinance/comments/1qda7ue/5000_to_spend_or_saveinvest/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,27 @@ flair: "Planning"
 extracted_at: "2026-05-17T01:13:31.183Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1qda7ue.md#c0"
+    char_span: [0, 1013]
+    sentence_count: 7
+    key_terms: [money, personalfinance, invest, comments, school, spend, been, food]
+    token_count: 247
+  - id: "social-intelligence/reddit-deep/personalfinance/1qda7ue.md#c1"
+    char_span: [1028, 2307]
+    sentence_count: 14
+    key_terms: [cost, saving, setup, important, techylocs, anywhere, college, console]
+    section: Comments
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/personalfinance/1qda7ue.md#c2"
+    char_span: [2310, 3753]
+    sentence_count: 12
+    key_terms: [like, yourself, gaming, "you're", stick, something, console, bought]
+    section: Comments
+    token_count: 382
 ---
-
 # $5000 to Spend or Save/Invest?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1qda7ue/5000_to_spend_or_saveinvest/)

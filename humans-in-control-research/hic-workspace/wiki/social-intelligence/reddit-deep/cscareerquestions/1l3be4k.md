@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1l3be4k/6_months_job_hunting_apparently_my_4_years_dont/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,77 @@ subreddit: "cscareerquestions"
 title: "6 months job hunting, apparently my 4+ years don't count because I haven't touched their specific tech stacks"
 author: "littlespatialphenome"
 date: "2025-06-04T17:20:52.000Z"
-score: 454
+score: 447
 upvote_ratio: 0.92
 num_comments: 208
 flair: ""
-extracted_at: "2026-05-23T14:54:48.644Z"
+extracted_at: "2026-06-01T18:49:12.224Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c0"
+    char_span: [0, 2243]
+    sentence_count: 15
+    key_terms: [experience, years, count, cybersecurity, apparently, cscareerquestions, because, "doesn't"]
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c1"
+    char_span: [2245, 3753]
+    sentence_count: 10
+    key_terms: [get, experience, stupid, cybersecurity, professionals, "i've", technology, companies]
+    token_count: 313
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c2"
+    char_span: [3768, 5721]
+    sentence_count: 17
+    key_terms: [experience, java, embedded, through, enough, hiring, modern, resume]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c3"
+    char_span: [5723, 7413]
+    sentence_count: 12
+    key_terms: ["don't", lot, want, experience, salaries, systems, people, maybe]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c4"
+    char_span: [7415, 9458]
+    sentence_count: 6
+    key_terms: [teaching, experience, cybersecurity, industry, years, job, epicfail1994, get]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c5"
+    char_span: [9461, 11388]
+    sentence_count: 16
+    key_terms: [experience, interview, something, sonicwall, resume, years, get, tell]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c6"
+    char_span: [11390, 13145]
+    sentence_count: 9
+    key_terms: [experience, companies, cloud, "it's", corporate, posting, someone, devops]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c7"
+    char_span: [13147, 14885]
+    sentence_count: 9
+    key_terms: [junior, someone, littlespatialphenome, experience, point, management, teaching, looking]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c8"
+    char_span: [14887, 16698]
+    sentence_count: 16
+    key_terms: [stack, experience, job, good, unethical, engineer, promoted, specific]
+    section: Comments
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l3be4k.md#c9"
+    char_span: [16700, 17829]
+    sentence_count: 3
+    key_terms: [specific, stack, experience, projecting, competent, questions, answer, "didn't"]
+    section: Comments
+    token_count: 228
 ---
-
 # 6 months job hunting, apparently my 4+ years don't count because I haven't touched their specific tech stacks
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1l3be4k/6_months_job_hunting_apparently_my_4_years_dont/)
-Posted by **littlespatialphenome** · **454↑** · **208 comments**
+Posted by **littlespatialphenome** · **447↑** · **208 comments**
 
 I'm losing my mind with this job market. 6 months of searching and I'm getting absolutely nowhere.
 
@@ -52,13 +111,13 @@ I know some of you have been in similar situations. How did you break through th
 
 ## Comments
 
-- **thrown_copper** (284↑): 18 YoE.  If it isn't C++, I don't get a callback.  If it is C++, I get gated on how concerned the hiring team is about RTOS and embedded experience.  It's been a tough and ego damaging eight months.
-  - **[deleted]** (73↑): 18 years *exclusively* with cpp?
-    - **thrown_copper** (103↑): I'm glad you asked!
+- **thrown_copper** (286↑): 18 YoE.  If it isn't C++, I don't get a callback.  If it is C++, I get gated on how concerned the hiring team is about RTOS and embedded experience.  It's been a tough and ego damaging eight months.
+  - **[deleted]** (75↑): 18 years *exclusively* with cpp?
+    - **thrown_copper** (105↑): I'm glad you asked!
 10y C++, 5y Java (plus uni), 2y C#, 1y Node.  Mix in 12y of Python as a support language and another year-ish with JS+Angular.
 
 Not enough C# experience to count.  Java was 8 so not modern enough.  No web API experience to point to.  No cloud experience.  I've been told that one shop wanted 5y C# for a senior, and while the hiring manager had gone C++ to Java to C#, the ladder wasn't there for me, this past October.
-  - **srushtihaware** (53↑): Same boat here. My “years” didn’t count because they’re split across recruiting, ops, and freelance. What finally pushed me through HR’s screen was brute-forcing the keywords:
+  - **srushtihaware** (52↑): Same boat here. My “years” didn’t count because they’re split across recruiting, ops, and freelance. What finally pushed me through HR’s screen was brute-forcing the keywords:
 
 * Paste the job post into my resume template
 * Mirror every noun/verb that actually describes my work
@@ -67,9 +126,9 @@ Not enough C# experience to count.  Java was 8 so not modern enough.  No web API
 I run the draft through an ATS/Resume checker (Jobscan, Pitchmeai, etc. The free tiers work fine) to catch any missing buzzwords, but the heavy lift is still writing bullet points that prove results. Once you’re talking to an engineer, the exact stack check-boxes (C++ version, RTOS brand) matter a lot less than showing you can ship.
 
 Good luck. Hope you crack the gate soon.
-  - **LoweringPass** (24↑): Most people who mainly do embedded that I've met are *really* bad at modern C++ so if that's your expertise these jobs are almost completely unrelated in a way.
+  - **LoweringPass** (25↑): Most people who mainly do embedded that I've met are *really* bad at modern C++ so if that's your expertise these jobs are almost completely unrelated in a way.
   - **definitely_not_DARPA** (14↑): This is why I discourage folks from going after any job involving cpp. The jobs are sparse and the pickiest nerds in the field seem to gravitate straight towards it.
-    - **relativeSkeptic** (5↑): 50% of defense software is c++.
+    - **relativeSkeptic** (4↑): 50% of defense software is c++.
 
 (I made that stat up, but it's definitely a lot)
     - **ccricers** (3↑): That's kind of impressive given that a lot of the foundations of software technologies are still in C and C++. I have no experience in that area, but I guess it doesn't take a lot of people to maintain the core parts of operating systems of servers, desktops and mobile devices, compared to the plethora of companies that want to build applications on top of them.
@@ -86,35 +145,35 @@ Maybe the true motive is executing a cultural reset on tech job salaries. Have e
 I suspect there's still a lot of 1/2 roles that get filled to the point that the senior+ roles are mostly unicorn hunting and wishful thinking.  It could also be a low key method to depress tech wages, though if anyone shared actionable information there, it would lead to class action suits and white collar riots.
   - **zninjamonkey** (1↑): Use a third party recruiter for C++.
   - **RTX_69420** (1↑): Our industry hiring practices are fucking retarded.
-- **epicfail1994** (152↑): I mean while I agree with your larger point, I would lump those 2 years teaching students as teaching experience not industry experience, unless you had a job on top of the teaching job
-  - **Eazy-Steve** (13↑): Agreed, and this is true in all industries. No one's going to hire a mechanical engineer to design their hvac if that engineer only has 20 years of teaching experience. Or a baker to bake a birthday cake if...you get it.
-  - **littlespatialphenome** (-48↑): i was a Freelance at the same time and did some mission on the side. but that job gave me soft skills that i would have never developped in an another job
-    - **epicfail1994** (62↑): Sure, but that is not industry experience. If I had someone interview with me and said they had 4 years of experience and 2 of those years were teaching, I’d wonder what they might be stretching the truth about. 
+- **epicfail1994** (155↑): I mean while I agree with your larger point, I would lump those 2 years teaching students as teaching experience not industry experience, unless you had a job on top of the teaching job
+  - **Eazy-Steve** (12↑): Agreed, and this is true in all industries. No one's going to hire a mechanical engineer to design their hvac if that engineer only has 20 years of teaching experience. Or a baker to bake a birthday cake if...you get it.
+  - **littlespatialphenome** (-50↑): i was a Freelance at the same time and did some mission on the side. but that job gave me soft skills that i would have never developped in an another job
+    - **epicfail1994** (61↑): Sure, but that is not industry experience. If I had someone interview with me and said they had 4 years of experience and 2 of those years were teaching, I’d wonder what they might be stretching the truth about. 
 
 Representing your work history as 4YOE when it’s actually not is probably part of why you’re being rejected
-    - **naughtmynsfwaccount** (56↑): I get it but also unfortunately agree
+    - **naughtmynsfwaccount** (57↑): I get it but also unfortunately agree
 
 Teaching cyber security from the lens of industry isn’t *doing* cybersecurity as they have different focuses and goals and responsibilities 
 
 If u were applying for cybersecurity teaching positions that would be very relevant experience but unless u were teaching cybersecurity *while* working in cybersecurity it can be a hard sell
-- **[deleted]** (68↑): You should be more offended that they take you in for an interview, waste your time, just to tell you something they would found out by reading ur cv. 
+- **[deleted]** (66↑): You should be more offended that they take you in for an interview, waste your time, just to tell you something they would found out by reading ur cv. 
 
 
 It might be that you are just a 'filler' candidate. 
 'we interviewed 5 people but my close friend here was the only one with the right exp'
-  - **Dragonasaur** (5↑): > You should be more offended that they take you in for an interview, waste your time, just to tell you something they would found out by reading ur cv. 
+  - **Dragonasaur** (4↑): > You should be more offended that they take you in for an interview, waste your time, just to tell you something they would found out by reading ur cv. 
 
 Maybe, but at least it helps with interview practice
   - **8004612286** (10↑): That's because he's being rejected for something he said during the interview, but he's given a generic reason for the rejection so the company doesn't get in a precarious spot legally.
-    - **OccasionalGoodTakes** (4↑): He is lying about his experience. It’s something you can tell on the resume but it probably becomes super obvious in interviews.
+    - **OccasionalGoodTakes** (6↑): He is lying about his experience. It’s something you can tell on the resume but it probably becomes super obvious in interviews.
     - **[deleted]** (3↑): Also a possibility
-- **Juicet** (70↑): I was astounded when I was a junior. 
+- **Juicet** (73↑): I was astounded when I was a junior. 
 
 My cubicle was right beside one of the resume screeners. I heard them reject a candidate for listing Oracle 10g when we were looking for Oracle 11g experience. I remember thinking “what the hell?”
 
 I haven’t applied anywhere in years, but I assume nowadays is much worse.
   - **RadiantHC** (1↑): wtf
-- **dmazzoni** (34↑): Are you getting rejected by recruiters or hiring managers?
+- **dmazzoni** (32↑): Are you getting rejected by recruiters or hiring managers?
 
 If recruiters, then you need to list all of the stupid specific requirements on your resume. Spend 1 hour learning about, e.g. SonicWall and then tell the recruiter you know it. Get past that stupid hurdle. Once you get to the actual hiring manager, they're far more likely to understand.
 
@@ -123,36 +182,36 @@ Don't lie. Just frame it to answer their question as "yes".
 "Do you have 5 years of experience with SonicWall"?
 
 "I have 4 years of experience configuring firewalls, including SonicWall and other firewall software".
-  - **epicfail1994** (35↑): He doesn’t have 4YOE and is saying he does, that’s a large part of the problem
+  - **epicfail1994** (36↑): He doesn’t have 4YOE and is saying he does, that’s a large part of the problem
     - **BellacosePlayer** (16↑): Common occurance in these kinds of threads.
 
 Time spent doing X that wasn't actually being hired to do Y in a corporate setting probably was a good experience for you, but it's not YOE.
     - **RadiantHC** (2↑): I mean what do they expect when they have such ridiculous expectations?
-    - **gripntear** (2↑): Is the company willing to teach new hires then? If no, then I strongly encourage fudging your experience. Fake it til you make it! Fuck em, this is the environment corporate has fostered.
-- **ObjectBrilliant7592** (19↑): > "You don't have experience with Palo Alto/Fortinet/SonicWall" - IT'S A FUCKING FIREWALL.
+    - **gripntear** (3↑): Is the company willing to teach new hires then? If no, then I strongly encourage fudging your experience. Fake it til you make it! Fuck em, this is the environment corporate has fostered.
+- **ObjectBrilliant7592** (20↑): > "You don't have experience with Palo Alto/Fortinet/SonicWall" - IT'S A FUCKING FIREWALL.
 
 Bonus points if they list two competing technologies in the job posting. Angular & React. AWS & GCP. I understand that companies may use services from multiple different cloud providers but expecting candidates to be versed in every random cloud service out there is crazy.
-  - **littlespatialphenome** (7↑): i saw companies posting about all three big cloud plateform for a devops job, when i reached out to the recruiter on linkedin and i quote :  "we need someone with certification on the 3"
+  - **littlespatialphenome** (8↑): i saw companies posting about all three big cloud plateform for a devops job, when i reached out to the recruiter on linkedin and i quote :  "we need someone with certification on the 3"
 
 like bro do you even know that devops are people that are not specialized but between the dev and ops (IT'S IN THE NAME), i deeply believe that taking out HR as the first filter will be a good thing
   - **InsomniaEmperor** (2↑): Whenever companies do that, I'm convinced they just want an arsenal of well versed people they can readily deploy as needed rather than look for someone to fill an actual opening. Projects don't use that many tech stacks at the same time and you're likely not working on them all.
-- **ArtisticRevenue379** (36↑): Teaching experience gives you soft skills but since you mostly teach stuff you already know, can not hold a candle to industry experience.
+- **ArtisticRevenue379** (35↑): Teaching experience gives you soft skills but since you mostly teach stuff you already know, can not hold a candle to industry experience.
 
 If you think that you can pick the tool up im a week then just lie based on the job description and learn that tool in the week before the interview.
-  - **littlespatialphenome** (-3↑): i know, but the point was to take the teaching experience to prepare myself for management, cooperation, and communication and developpe my soft skills, while i did some internal mission and freelance one outside to gain technical experience, it's not at the level of doing it everyday, but it's not totally empty too
-- **[deleted]** (26↑): Teaching is not doing. You dont have 4+ YOE. I agree with your larger point.
-- **SpareIntroduction721** (33↑): Worse ones are the ones that straight up lie to you about wanting someone “fresh” so they can mold since they are running with pure lead engineers. Only to get told they went with someone with more experience. Lol
+  - **littlespatialphenome** (-2↑): i know, but the point was to take the teaching experience to prepare myself for management, cooperation, and communication and developpe my soft skills, while i did some internal mission and freelance one outside to gain technical experience, it's not at the level of doing it everyday, but it's not totally empty too
+- **[deleted]** (27↑): Teaching is not doing. You dont have 4+ YOE. I agree with your larger point.
+- **SpareIntroduction721** (38↑): Worse ones are the ones that straight up lie to you about wanting someone “fresh” so they can mold since they are running with pure lead engineers. Only to get told they went with someone with more experience. Lol
   - **WinterTranslator4128** (10↑): This literally just happened to me. Was a candidate for a junior role. Come to find out, there is only 1 software engineer in the entire company, and they’re completely revamping the website, are still working on the system design, and rejected me for being “too junior”. Like.. y’all are not actually looking for a junior developer. Wtf.
     - **Suppafly** (7↑): They are paying junior wages, they aren't actually looking for a junior.
-  - **littlespatialphenome** (9↑): some HR, and management staff need to go with the goulag option at this point
+  - **littlespatialphenome** (10↑): some HR, and management staff need to go with the goulag option at this point
   - **Traditional-Bus-8239** (2↑): Someone ''fresh'' is a 35-45 yo typically if you have to deal with 55yo+
-- **YetMoreSpaceDust** (18↑): > We need someone who knows our exact stack
+- **YetMoreSpaceDust** (19↑): > We need someone who knows our exact stack
 
 That isn't new, it was like that even in the 90's when the job market was the best it ever was (and likely will be).
 
 It would be unethical of me to suggest that you just lie.  I would certainly not admit to having exaggerated my actual hands-on experience with specific technologies that I actually did know very well but hadn't actually done in a particular paid developer role, had I ever done such a thing in the past.  Which I didn't.  Because that would be unethical.
-  - **DigmonsDrill** (8↑): Find out the stack they use, say you use that stack. Then practice that stack in case they ask you questions about it.
-    - **New-Peach4153** (6↑): Basically no choice but to do this.
+  - **DigmonsDrill** (7↑): Find out the stack they use, say you use that stack. Then practice that stack in case they ask you questions about it.
+    - **New-Peach4153** (5↑): Basically no choice but to do this.
     - **chic_luke** (3↑): A good friend of mine was able to move outside of the country, go much father in their career and land a nice and stable full remote job with very flexible hours this way.
 
 First job was an insultingly underpaid position at a local company with a technology stack almost nobody uses. Job 2 asked experience with another stack. There were tons of transferrable skills between the two. So, experience on stack 1 became experience on stack 2 and he grinded our several days studying stack 2 before the interview.

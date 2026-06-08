@@ -6,19 +6,19 @@ subreddit: "cscareerquestions"
 title: "After 10 years on H-1B, I’m moving my role out of the US"
 author: "Blackened_Soul667"
 date: "2025-12-21T17:38:39.000Z"
-score: 1092
+score: 1088
 upvote_ratio: 0.82
 num_comments: 959
 flair: ""
-extracted_at: "2026-05-24T14:08:50.760Z"
+extracted_at: "2026-06-06T23:23:15.628Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # After 10 years on H-1B, I’m moving my role out of the US
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1psc5zt/after_10_years_on_h1b_im_moving_my_role_out_of/)
-Posted by **Blackened_Soul667** · **1092↑** · **959 comments**
+Posted by **Blackened_Soul667** · **1088↑** · **959 comments**
 
 I’m a tech lead at a mid-sized company in the US and the only person on H-1B on my team. I’ve been on this visa for almost ten years. During that time, I’ve delivered multiple successful products and made many of the core architecture and design decisions behind them.
 
@@ -52,39 +52,39 @@ Just sharing my experience.
 
 ## Comments
 
-- **winifer_mt** (431↑): Just curious, why didn't they sponsor for your Green Card? If they did that in year 5, you would have citizenship by now.
-  - **GuyNext** (538↑): There’s a country cap of 7.5% on greencards of 150k annually in employment category so people from India has unattainable waiting period. There’s no automatic greencard after certain years of working like in other countries.
-    - **Eric848448** (215↑): A friend of mine is from India and he has his I-140 but now has to just wait until 2040 or so. He's been here since 2012!
-    - **Blackened_Soul667** (158↑): u/GuyNext Thanks for the clear, layman-friendly explanation.
+- **winifer_mt** (427↑): Just curious, why didn't they sponsor for your Green Card? If they did that in year 5, you would have citizenship by now.
+  - **GuyNext** (534↑): There’s a country cap of 7.5% on greencards of 150k annually in employment category so people from India has unattainable waiting period. There’s no automatic greencard after certain years of working like in other countries.
+    - **Eric848448** (222↑): A friend of mine is from India and he has his I-140 but now has to just wait until 2040 or so. He's been here since 2012!
+    - **Blackened_Soul667** (156↑): u/GuyNext Thanks for the clear, layman-friendly explanation.
     - **AlisterS24** (10↑): Bingo, thank you. People seem to think if you're a good immigrant you just get in when reality its very few slotted slots available.
     - **StrawberryWaste9040** (137↑): It is also because India takes 75% of H1B jobs while representing 18% of the world population.
     - **[deleted]** (2↑): Yeah a lot of Indian and mainland Chinese H1B workers get tired of waiting and just relocate to Canada, where compensation is lower but getting permanent residency is exponentially faster. This is especially critical if they have school-age children.
     - **priyapickles** (1↑): not for EB1A though!
-  - **haapuchi** (48↑): India’s Green Card line is about 20 years long. No country gets more than 7.5% of green cards so India, Philippine and Mexico has decades of backlog for legal immigrants.
-    - **bonoboboy** (8↑): It is way more than 20 mate! It's around 120 right now.
+  - **haapuchi** (46↑): India’s Green Card line is about 20 years long. No country gets more than 7.5% of green cards so India, Philippine and Mexico has decades of backlog for legal immigrants.
+    - **bonoboboy** (6↑): It is way more than 20 mate! It's around 120 right now.
     - **dealmaster1221** (1↑): bag sip attempt chief slim advise humor many jar swim
 
  *This post was mass deleted and anonymized with [Redact](https://redact.dev/home)*
     - **bill_on_sax** (1↑): I know an Indian that got it in 1 year. But he is running a startup so I guess they just acculturated the process because he is rich.
   - **Revolutionary-Ad-65** (24↑): They did sponsor and OP got their I-140 approved. If that were not the case, OP would be limited to 3 years original + 3 years renewal for H-1(b)
-  - **Blackened_Soul667** (33↑): I already have an approved I-140, but unfortunately I’m not from a ROW country.
+  - **Blackened_Soul667** (32↑): I already have an approved I-140, but unfortunately I’m not from a ROW country.
   - **anex_stormrider** (2↑): Average wait time to get a green card if you are from India is at least 15 years the last time I checked with some friends. Add 4-5 years spent studying for your masters/phD in the US and then working before your application is even filed for most people. So that’s 20 years of uncertainty.
 
 That’s why you see so many Indians on H1Bs visas as more and more join the wait list every year. It’s not like they all came in this year. They have been getting added to the wait list over the last 20-30 years and they all keep need to renewing their visas every year or so.
   - **arihoenig** (2↑): Citizenship is meaningless under the regime. They deport citizens all the time.
     - **winifer_mt** (2↑): I think many things are meaningless right now with this regime. You can actually get the Gold Card for 1mil tho :)
   - **Fuzzy_Club_1759** (2↑): Birth place
-  - **[deleted]** (3↑): As is it so easy? Didn't know /s
+  - **[deleted]** (4↑): As is it so easy? Didn't know /s
   - **ImpossibleDraft7208** (1↑): Becaue he's LARPing... No one stays on an H1B for 10 years, especially if they are such a super genius company asset that they'd rather move the job *with him* than hire an American ROFL
   - **Legitimate-Duty-5622** (1↑): Easier said than done. It takes way longer.
-- **sudden_aggression** (274↑): Taxation on outsourcing is coming next.
+- **sudden_aggression** (272↑): Taxation on outsourcing is coming next.
 
 To be honest, I don't blame the visa workers of taking advantage of a good opportunity, I blame the companies that have used them to hammer down IT compensation for the past 2 decades. And the Indian body shops that have turned it into a giant cesspit of fraud and ethnic nepotism.
 
 20 years ago I was a prime defender of H1B because of how high quality the workers were. Past 10 years it has just turned into dogshit and I have slowly grown to hate it.
 
 Also, your employer cheated you- why are you still on visa after 10 years?
-  - **Odd_Soil_8998** (63↑): 20 years ago I was already seeing the job postings for 10 years experience in something that had come out 2 years ago.  Those were always just cover to "prove" that there were no Americans available to do the job.
+  - **Odd_Soil_8998** (68↑): 20 years ago I was already seeing the job postings for 10 years experience in something that had come out 2 years ago.  Those were always just cover to "prove" that there were no Americans available to do the job.
 
 Agreed that we shouldn't blame the visa holders though.  Everyone is just trying to make a life for themselves and as a general rule I don't start assigning blame until someone has enough power to directly screw over others.
   - **coldhandslol** (13↑): It won't work. They will find a way around it somehow.
@@ -93,7 +93,7 @@ Agreed that we shouldn't blame the visa holders though.  Everyone is just trying
 
 
 I’m curious though, what made you change your view over the last 10 years? Consulting firms have been around long before that, so it’s interesting to hear what shifted your perspective.
-    - **randomlygenerated360** (118↑): What changed my own perspective was becoming a hiring manager. I realized there are plenty of candidates internally.
+    - **randomlygenerated360** (119↑): What changed my own perspective was becoming a hiring manager. I realized there are plenty of candidates internally.
     - **timelessblur** (40↑): You are paid on par with your peers but as a whole companies (namely WITCH) pay below average for the skills and suppress wages. I saw it time and time again. People with well over double my YOE on H1B, having to move accross the country in a week but paid less than I was making.  At the time I was paid 130k. They were paid 100k. I had 5 YOE,  they had 15.  I had better benefits as well but they work with me every day and they were contractors vs me being full time. 
 
 Over all H1B are paid less and pushed to do more as the fear of having to leave makes it a mess.
@@ -103,13 +103,13 @@ In the early days, all the candidates were great and everyone was just honest wi
 
 And it's not just the lower wages, it's the fact that they can't say no to working on evenings and weekends, can't leave if the conditions are bad, etc (or they get deported). That and the low wages sets a very unpleasant baseline for everyone else.
     - **Sn00py_lark** (5↑): You can’t job hop easily which results in less competition for jobs and keeps wages lower
-    - **LiberContrarion** (6↑): So, to be clear, you leveraged the H-1B system to get experience that was then not available to native workers.  Now that it is less appealing, you're leaving.
+    - **LiberContrarion** (9↑): So, to be clear, you leveraged the H-1B system to get experience that was then not available to native workers.  Now that it is less appealing, you're leaving.
 
 Don't let the door hit you on the way out.
     - **pacman2081** (1↑): "Consulting firms have been around long before that, so it’s interesting to hear what shifted your perspective."
 
 On the same scale as before?
-  - **Adept_Carpet** (14↑): > Taxation on outsourcing is coming next.
+  - **Adept_Carpet** (15↑): > Taxation on outsourcing is coming next.
 
 
 This is honestly a great idea I've been thinking a lot about it.
@@ -119,8 +119,8 @@ American citizens have to pay income tax when they work abroad, why not companie
 
 
 If the US Navy and State Departments didn't exist, you wouldn't be able to do international business without hiring entire armies and navies to guard your money and facilities like the British East India Company used to do. It's not at all unfair to ask companies to shoulder the burden of funding the very expensive stuff that makes their business possible.
-    - **Plane_Maybe8836** (7↑): You need to think this through...not just from a usa perspective, because other countries will react and the situation will change. And suddenly you gained nothing but made life more difficult for everybody.
-    - **MountainSound** (13↑): Ok but what if every country on earth implements this?
+    - **Plane_Maybe8836** (8↑): You need to think this through...not just from a usa perspective, because other countries will react and the situation will change. And suddenly you gained nothing but made life more difficult for everybody.
+    - **MountainSound** (12↑): Ok but what if every country on earth implements this?
 
 
 Companies will then be paying offshoring taxes to every government  on earth, so wouldn't it just become a variation of the current tax situation again? 
@@ -178,11 +178,11 @@ Examples:
     - **sudden_aggression** (1↑): Immigration for a majority of this country's history was extremely restricted. We froze immigration for decades after too many Irish and Italians came over in the late 19th century and had trouble assimilating. We even remigrated a ton of Italians in the early 20th century. 
 
 Labor arbitrage is not a win-win. It benefits employers and it fucks over the people that live here.
-- **PrudentWolf** (105↑): So, you’re basically transferred to a country with increasing hostility and constant uncertainty around HSM visa. Good choice.
-  - **NewSchoolBoxer** (62↑): I was gonna say, Netherlands [sounds worse](https://www.youtube.com/watch?v=1NO5hlgmk_k) than the US. OP should have done more due diligence.
-    - **GriffinNowak** (68↑): OP is trying to make a political point. He’s not making this choice for the reasons he claims.
+- **PrudentWolf** (103↑): So, you’re basically transferred to a country with increasing hostility and constant uncertainty around HSM visa. Good choice.
+  - **NewSchoolBoxer** (59↑): I was gonna say, Netherlands [sounds worse](https://www.youtube.com/watch?v=1NO5hlgmk_k) than the US. OP should have done more due diligence.
+    - **GriffinNowak** (70↑): OP is trying to make a political point. He’s not making this choice for the reasons he claims.
     - **gamesbrainiac** (2↑): Wilders is out now.
-    - **Alternative_Delay899** (3↑): I mean..... 6% of the Netherlands is muslim. This video, although it has some good points, doesn't mean Netherlands is like this war torn battleground or anything. Here's a summary from chatgpt:
+    - **Alternative_Delay899** (2↑): I mean..... 6% of the Netherlands is muslim. This video, although it has some good points, doesn't mean Netherlands is like this war torn battleground or anything. Here's a summary from chatgpt:
 
 Violent crime: Much lower in the Netherlands. The U.S. homicide rate is about 4–5× higher.
 
@@ -195,19 +195,19 @@ Total reported crime: Can appear higher in the Netherlands due to more consisten
 Bottom line: The U.S. has significantly higher violent crime; the Netherlands is safer overall.
 
 "sounds worse than the US" lmao.
-  - **Used-Presentation551** (7↑): OP might be from Netherlands originally, so he doesn't need a visa.
-    - **LtDrogo** (9↑): During my 25+ years of tech career here in the US, I have never met anyone who migrated from Netherlands. It is a (relatively) very small country to begin with, and they seem to have jobs for every single one of their bright and capable engineers / technologists. Many of them also seem to value the laid-back European pace of life despite their low (for US standards) incomes. Moving to the US would have been a downgrade in their eyes.
+  - **Used-Presentation551** (6↑): OP might be from Netherlands originally, so he doesn't need a visa.
+    - **LtDrogo** (8↑): During my 25+ years of tech career here in the US, I have never met anyone who migrated from Netherlands. It is a (relatively) very small country to begin with, and they seem to have jobs for every single one of their bright and capable engineers / technologists. Many of them also seem to value the laid-back European pace of life despite their low (for US standards) incomes. Moving to the US would have been a downgrade in their eyes.
 
 That said, had the OP been from Netherlands; he would never have stayed in the H-1B / I-140 status for 10 years. A Dutch immigrant would have gotten his/her Green Card within 12-24 months of the initial application at most.
-  - **Pandektes** (8↑): Netherlands are far better than USA right now, you don't risk being kidnapped in the Netherlands.
+  - **Pandektes** (7↑): Netherlands are far better than USA right now, you don't risk being kidnapped in the Netherlands.
   - **Individual-Remote-73** (3↑): Sorry buddy but it doesn’t even come close. And what uncertainty are you talking about? There is no lottery or anything for a visa in NL. You stay 5 years, you get permanent residence. 
 
 Don’t know how such a misinformed comment has these many upvotes.
 - **[deleted]** (90↑): The real loser is your home country, who lost out on your services
   - **Feeling-Schedule5369** (48↑): Nothing to lose out when there aren't any homegrown companies. There's a saying that people like sundar pichai or satya nadella would at best be some manager/director at witch companies if they didn't leave india.
     - **x4nter** (24↑): Yea lack of opportunity is holding India back. Most skilled people leave the country.
-- **AMFontheWestCoast** (135↑): Wouldn’t India be a better country if all the talent created there stayed and contributed to India’s needs? It seems like India is in need of modernization in much of the country.
-  - **[deleted]** (63↑): China figured it out: Pay the workers what they're worth.
+- **AMFontheWestCoast** (138↑): Wouldn’t India be a better country if all the talent created there stayed and contributed to India’s needs? It seems like India is in need of modernization in much of the country.
+  - **[deleted]** (65↑): China figured it out: Pay the workers what they're worth.
 
 In cities like Shenzhen you can make the equivalent of well over US$100k as an engineer in AI or semiconductors. These companies are actually targeting Chinese citizens who studied abroad at top grad schools in the west, and the only way to lure them back is to pay them well.
     - **pirozhki22** (23↑): > China figured it out: Pay the workers what they're worth.
@@ -220,8 +220,8 @@ India has neither. How many Chinese tech firms can you name vs Indian ones?
   - **SchoolBusBeBussin** (32↑): Yeah you’d have to think with all the talent they have that leaves that they would be able to have a really solid country in a few decades if they could incentivize people to stay and build the country up. They have the people numbers to take over manufacturing from China and many high level workers to start and build companies as well. 
 
 I don’t blame people for leaving though since they can go somewhere else for immediate improvement in both income and living conditions. Just seems like the country could look at the big picture and become much better
-    - **Baby_Fark** (14↑): I believe they have incompetent/fascist leaders there just like we do here. It takes smart people, grace, planning, and personal sacrifice to build a prosperous country with hundreds of millions of people. It takes nothing but ambition and greed to screw over everyone else and take as much short term gain for yourself as possible.
-  - **Odd_Soil_8998** (33↑): No Indian I've ever known had any desire to move back to India.
+    - **Baby_Fark** (10↑): I believe they have incompetent/fascist leaders there just like we do here. It takes smart people, grace, planning, and personal sacrifice to build a prosperous country with hundreds of millions of people. It takes nothing but ambition and greed to screw over everyone else and take as much short term gain for yourself as possible.
+  - **Odd_Soil_8998** (34↑): No Indian I've ever known had any desire to move back to India.
     - **pacman2081** (17↑): The ones that go either want to do with their parents or want a plantation slave master lifestyle with ten household staffers for domestic chores.
     - **derderppolo** (6↑): I always bring up the case of Indian criminals that beg to not be deported back to India.
 
@@ -229,45 +229,45 @@ For example, the Humboldt Broncos truck driver that ran a stop sign and killed a
 
 All this talk about how great India and Indians are, yet none of them want to be around their own kind.
     - **newbie80** (1↑): I haven't met many, but one of the ones I knew left. She graduated from the local University and Interned where I worked. She got an offer after her internship was over and decided she didn't want to live here anymore, so she rejected the offer and went back to India. I think she came from a really wealthy family because I looked through her Instagram it was all pictures of her traveling all over the world. It wasn't tech but the position she turned down has a 6 digit salary with great benefits.
-  - **shockya10** (37↑): India might have a lot of good seeds but doesn't have lot of good soil or good fertilizers, even if it does, sometimes weeds kill them eventually.
-  - **Repulsive_Zombie5129** (12↑): I also wonder this tbh
-  - **A11U45** (4↑): India would be a better country if it could actually pay it's skilled talent enough to not seek better opportunities abroad.
+  - **shockya10** (35↑): India might have a lot of good seeds but doesn't have lot of good soil or good fertilizers, even if it does, sometimes weeds kill them eventually.
+  - **Repulsive_Zombie5129** (11↑): I also wonder this tbh
+  - **A11U45** (5↑): India would be a better country if it could actually pay it's skilled talent enough to not seek better opportunities abroad.
 
 Also developing countries tend to have very corrupt politics and societies by western standards.
     - **AMFontheWestCoast** (1↑): India is not a developing country, it has been educating  its population and those educated people are needed in India. Western countries have their own challenges in the 21st century. If China can elevate the standard of living for their people, then India can. Running away to another country is no longer an easy way out.
-  - **sudden_aggression** (13↑): If you cut the internet cable that connects India to the US, India's IT sector would vanish overnight. The relationship with the US is entirely parasitic.
-  - **n00bi3pjs** (27↑): Many of the Indians who move don’t want to live in a country with religious extremism, bigotry, corruption, apathy, pollution or just want a better quality of life.
+  - **sudden_aggression** (12↑): If you cut the internet cable that connects India to the US, India's IT sector would vanish overnight. The relationship with the US is entirely parasitic.
+  - **n00bi3pjs** (25↑): Many of the Indians who move don’t want to live in a country with religious extremism, bigotry, corruption, apathy, pollution or just want a better quality of life.
 
 Is that such a crime to prioritise your own needs over patriotism?
-    - **Paliknight** (11↑): Yeah and that’s completely fair. But that’s an argument for asylum, not H1B.
+    - **Paliknight** (10↑): Yeah and that’s completely fair. But that’s an argument for asylum, not H1B.
     - **bonoboboy** (2↑): I would say it all starts from corruption. If that is fixed, or there is even a path to fix it, then people would happily live there. Corruption is what leads to most of the other problems (except may be religious extremism).
   - **Lower_Improvement763** (2↑): No it’s too hot there. And will only get hotter. Outside of Australia, no first world country is that close to the equator
-  - **catNamedStupidity** (5↑): I see this a lot and like, bro I want better QoL and not a shitty lifestyle where my life is governed by religious extremism.
+  - **catNamedStupidity** (9↑): I see this a lot and like, bro I want better QoL and not a shitty lifestyle where my life is governed by religious extremism.
 
 Many people moved to the US because that was the promise of US, “You leave your family behind and work hard, but you live a free life”. Now the US is reneging on that promise. So we’ll find a country that still upholds the promise.
-    - **raynorelyp** (13↑): Why do you think the US promised that?
-- **Infamous_Ruin6848** (53↑): Why netherlands? It's a nightmare here already.
+    - **raynorelyp** (14↑): Why do you think the US promised that?
+- **Infamous_Ruin6848** (57↑): Why netherlands? It's a nightmare here already.
   - **ljb9** (22↑): where is not a nightmare? especially among their options, which one is best? this ‘where I live is fkd up don’t come here’ gets tiring very quickly if you don’t explain why you say so
-    - **Fresh_Criticism6531** (23↑): Europe has a severe housing crisis, but so does Canada
+    - **Fresh_Criticism6531** (22↑): Europe has a severe housing crisis, but so does Canada
     - **Infamous_Ruin6848** (9↑): Don't you dare looking at most severe housing in europe however severe is.
 
 Here there's literally the worst. And in Portugal.
 
 So yes. There is a scale. Grey range.
-    - **AMFontheWestCoast** (5↑): Human white collar jobs of the twentieth century are being replaced by automation in workflows. Americans are learning to manage AI agents and need those higher level jobs to favor US Citizens first. The pandemic taught the world how fragile old supply chains really were. A more self sufficient America is the current Administration’s goal. Time will tell if the horrible dehumanizing approach they are taking ends up achieving the goal.
+    - **AMFontheWestCoast** (6↑): Human white collar jobs of the twentieth century are being replaced by automation in workflows. Americans are learning to manage AI agents and need those higher level jobs to favor US Citizens first. The pandemic taught the world how fragile old supply chains really were. A more self sufficient America is the current Administration’s goal. Time will tell if the horrible dehumanizing approach they are taking ends up achieving the goal.
     - **GriffinNowak** (2↑): Poland and until recently China seem to be doing well.
     - **Lower_Improvement763** (1↑): Way more languages spoken. Drugs are basically decriminalized there and Germany. But less need for cars, access to healthcare sounds good. I wouldn’t call it a nightmare by any means. I’ve never been to Europe though 😢
-- **[deleted]** (108↑): Pleas don't come to Netherlands, we already have enough of a housing problem here. Thank you - Dutch engineer who can't afford his own place
+- **[deleted]** (107↑): Pleas don't come to Netherlands, we already have enough of a housing problem here. Thank you - Dutch engineer who can't afford his own place
 
 In case our last two elections didn't make it clear, the Dutch people are fed up with immigrants.
-  - **pacman2081** (35↑): The OP does not give a damn
-    - **[deleted]** (1↑): I'd really advice anyone planning on moving to Netherlands to read up on our culture and political developments, especially those of the last decade or two. 
+  - **pacman2081** (33↑): The OP does not give a damn
+    - **[deleted]** (3↑): I'd really advice anyone planning on moving to Netherlands to read up on our culture and political developments, especially those of the last decade or two. 
 
 If OP is ready to settle in a country where he will never be accepted by society, tolerated at best, then good for him. 
 
 Just want him to be aware of the extremely privileged position a high-income immigrant has in the Netherlands and the fact people like him are literally pushing the local population out of their houses and preventing companies to hire domestic talent at a competitive wage. And the HSM-visa and tax benefits are likely on the cutting table the coming years anyways.
-  - **preferfree** (59↑): lol, OP thought he’d be welcome to your country with open arms because you could very much use his skills.
-    - **110101010101011** (14↑): Lol
+  - **preferfree** (56↑): lol, OP thought he’d be welcome to your country with open arms because you could very much use his skills.
+    - **110101010101011** (13↑): Lol
     - **[deleted]** (5↑): ASML doesn't want to pay competitive salaries. Their CEO went apeshit everytime our government tried even suggesting to reduce the tax benefits immigrants get for the first 5 years they work here. They don't want to pay fair wages and rather import and reinforce an expat community. 
 
 For Dutch people the Eindhoven/Veldhoven areas already become unaffordable. 
@@ -290,13 +290,13 @@ Stop talking out of your ass and lying.
   - **EwanSW** (2↑): Then build higher, dipshit.
   - **GeneratedUsername5** (2↑): Why can't you build your own place, Dutch engineer?
   - **Aauan092** (9↑): Lmao let's goooooooooooooo
-  - **catburglar27** (2↑): Blame your damn government, not immigrants
-- **Inatimate** (38↑): Don’t let the door hit you on the way out
-- **AMFontheWestCoast** (66↑): Why not relocate the position to India ?
-  - **mloverboy** (49↑): Exactly, right. He or she doesn’t want to go there because salary will be cut 50x
-    - **Illustrious-Event488** (38↑): Can you blame them?
-  - **Feeling-Schedule5369** (16↑): If india has all the jobs now like this sub says, why don't you also go there?
-  - **african-stud** (13↑): Because they want to live in a developed country with high income and good quality of life?
+  - **catburglar27** (3↑): Blame your damn government, not immigrants
+- **Inatimate** (39↑): Don’t let the door hit you on the way out
+- **AMFontheWestCoast** (63↑): Why not relocate the position to India ?
+  - **mloverboy** (53↑): Exactly, right. He or she doesn’t want to go there because salary will be cut 50x
+    - **Illustrious-Event488** (41↑): Can you blame them?
+  - **Feeling-Schedule5369** (17↑): If india has all the jobs now like this sub says, why don't you also go there?
+  - **african-stud** (12↑): Because they want to live in a developed country with high income and good quality of life?
     - **AMFontheWestCoast** (1↑): If talented educated people stay in India then it will improve. Having the talent lost to other countries is harming India.
   - **NefariousnessFit3133** (2↑): 100000%  they can open offices and hire Indians working in India of course that also helps India grow and invest that money back in to the country,  buy Indian made goods and support the economy of India.   More homes,  more industry demand, more demand for cars, professionals like doctors to serve the tech workers.
 
@@ -309,9 +309,9 @@ The US companies will be forced to pay Americans fair wages for their high cost 
 Indians that are US citizens, own houses, demand the same salary as non Indians are fine with me, they force companies to pay proper wages but H1B are unacceptable and needs to end.
   - **Astraltraumagarden** (1↑): India is not a fun place to be or safe enough to raise kids.
     - **AMFontheWestCoast** (1↑): There are a lot of children born in India every day. Those children need the adults in their lives to make the country a safe clean environment for the next generation to grow and thrive in. That will require talent and community activism. India is a democracy so if the talent can’t emigrate to a western country, they will stay and invest it in India.
-- **Born-Ad4658** (184↑): I think the US should put US citizens first
-  - **sonofalando** (95↑): I agree with this guy. Sorry if it hurts feelings.
-    - **MountainSound** (31↑): I say it should go farther. As someone born and raised in silicon valley I think California should put Californians first.
+- **Born-Ad4658** (182↑): I think the US should put US citizens first
+  - **sonofalando** (91↑): I agree with this guy. Sorry if it hurts feelings.
+    - **MountainSound** (29↑): I say it should go farther. As someone born and raised in silicon valley I think California should put Californians first.
 
 
 California has enough devs who are native here and other states would be better served by devs from those places staying there and trying to build companies in like Oklahoma, Iowa, or Wisconsin instead.
@@ -329,17 +329,17 @@ As it stands these out of state devs are driving up the cost of housing where I 
 People will always make this argument up until it reaches the point they no longer fit in the group they're trying to exclude others from.
   - **h0408365** (60↑): Agreed
   - **apexvice88** (8↑): Agree
-  - **cscareerz** (9↑): Agreed and I am fed up with how the h1b program is abused. It’s intended for foreigners with  specialized skills that cannot be found within a reasonable time within the US. Ive worked at multiple FAANGs who employed TONS of h1bs, and so many of these h1bs did NOT have any special skills that couldn’t be found in America. We have an unemployment problem and a COL problem. Americans should come first
+  - **cscareerz** (10↑): Agreed and I am fed up with how the h1b program is abused. It’s intended for foreigners with  specialized skills that cannot be found within a reasonable time within the US. Ive worked at multiple FAANGs who employed TONS of h1bs, and so many of these h1bs did NOT have any special skills that couldn’t be found in America. We have an unemployment problem and a COL problem. Americans should come first
     - **Sn00py_lark** (2↑): Dude the H1B project manager that does NOTHING…
 
 It’s half of some departments.
-  - **rq60** (24↑): tell me how a US worker was helped here
-    - **KobeBean** (8↑): Housing and living costs for American workers go down due to their move lowering demand.
-  - **Left-Block7970** (2↑): Seems like such common sense, it’s not fair that America need to compete with the world to get a simple dev job.
+  - **rq60** (23↑): tell me how a US worker was helped here
+    - **KobeBean** (6↑): Housing and living costs for American workers go down due to their move lowering demand.
+  - **Left-Block7970** (3↑): Seems like such common sense, it’s not fair that America need to compete with the world to get a simple dev job.
 
 It’s not a skills gap anymore, tons of great American born SWE struggling to find jobs.
-  - **Copse4** (12↑): I'll take the downvotes for this. Putting US workers first would mean being more accommodating to H1Bs and doing everything we can to keep them here. Why's that? Because the more tech jobs are located in the US, the more tech jobs are available for you to apply to. When companies grow, the new jobs tend to be located where the existing workers are. So, unless you also want to move to the Netherlands or Canada to take a job, maybe you should be less flippant about immigration policies that only seem to exist to expand overseas tech hubs.
+  - **Copse4** (14↑): I'll take the downvotes for this. Putting US workers first would mean being more accommodating to H1Bs and doing everything we can to keep them here. Why's that? Because the more tech jobs are located in the US, the more tech jobs are available for you to apply to. When companies grow, the new jobs tend to be located where the existing workers are. So, unless you also want to move to the Netherlands or Canada to take a job, maybe you should be less flippant about immigration policies that only seem to exist to expand overseas tech hubs.
     - **Born-Ad4658** (17↑): I know this is BS because Elon tried to prop up H1Bs whole saying American workers arent good enough
-  - **Blackened_Soul667** (6↑): That sounds good in theory, but it’s not what’s actually happening.
-    - **travelinzac** (29↑): You're right and that's the whole problem. A US worker should have never been displaced for your role in the first place.
-    - **Abject_Parsley_4525** (36↑): Why are people downvoting you? You are correct. My company is letting H1b workers go and moving the roles to India. I am sure many other companies are following the same protocols. People are stupid as fuck when they are angry I swear to God.
+  - **Blackened_Soul667** (8↑): That sounds good in theory, but it’s not what’s actually happening.
+    - **travelinzac** (27↑): You're right and that's the whole problem. A US worker should have never been displaced for your role in the first place.
+    - **Abject_Parsley_4525** (35↑): Why are people downvoting you? You are correct. My company is letting H1b workers go and moving the roles to India. I am sure many other companies are following the same protocols. People are stupid as fuck when they are angry I swear to God.

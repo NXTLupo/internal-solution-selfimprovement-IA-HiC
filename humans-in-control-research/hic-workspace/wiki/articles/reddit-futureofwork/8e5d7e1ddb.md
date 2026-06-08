@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-futureofwork/8e5d7e1ddb.md
 url: "https://reddit.com/r/FutureOfWork/comments/1sytkup/my_predictions_for_software_development_over_the/"
 url_hash: "8e5d7e1ddb"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-06T03:10:15.860027+00:00"
 chars: 966
+industries: [ai_research, enterprise_it, workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-futureofwork/8e5d7e1ddb.md#c0"
+    char_span: [0, 1167]
+    sentence_count: 5
+    key_terms: [fractional, companies, futureofwork, subscription, startups, single-digit-employee, reddit, going]
+    token_count: 261
 ---
-
 # My predictions for software development over the next 2 years
 
 Source: [reddit: futureofwork](https://reddit.com/r/FutureOfWork/comments/1sytkup/my_predictions_for_software_development_over_the/)

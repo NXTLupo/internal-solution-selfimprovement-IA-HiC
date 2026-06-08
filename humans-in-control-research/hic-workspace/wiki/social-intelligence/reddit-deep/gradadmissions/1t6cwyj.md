@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1t6cwyj.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1t6cwyj/math_cs_vs_math_econ_at_udem_grad_school_and/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,20 @@ flair: "Computational Sciences"
 extracted_at: "2026-05-24T14:10:06.600Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1t6cwyj.md#c0"
+    char_span: [0, 2325]
+    sentence_count: 7
+    key_terms: [finance, math, research, econ, self, gradadmissions, school, computational]
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/gradadmissions/1t6cwyj.md#c1"
+    char_span: [2327, 4024]
+    sentence_count: 7
+    key_terms: [finance, economics, like, research, insight, computational, path, appreciate]
+    token_count: 345
 ---
-
 # Math + CS vs Math + Econ at UdeM - grad school and career implications.
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1t6cwyj/math_cs_vs_math_econ_at_udem_grad_school_and/)

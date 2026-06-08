@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1kxkwd7.md
 url: "https://www.reddit.com/r/personalfinance/comments/1kxkwd7/am_i_cooked_im_23_and_96k_in_debt/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,63 @@ flair: "Debt"
 extracted_at: "2026-05-16T20:55:02.106Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c0"
+    char_span: [0, 1044]
+    sentence_count: 8
+    key_terms: [loans, personalfinance, collections, comments, getting, savings, cooked, credit]
+    token_count: 284
+  - id: "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c1"
+    char_span: [1059, 3148]
+    sentence_count: 15
+    key_terms: [interest, comments, debt, pay, paying, loans, post, take]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c2"
+    char_span: [3150, 4140]
+    sentence_count: 11
+    key_terms: [car, payment, pay, payments, smallest, "don't", until, sell]
+    section: Comments
+    token_count: 241
+  - id: "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c3"
+    char_span: [4142, 6009]
+    sentence_count: 10
+    key_terms: [collections, pay, get, home, need, rent, work, year]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c4"
+    char_span: [6011, 8053]
+    sentence_count: 8
+    key_terms: [yourself, little-bass0600, cooked, thank, get, good, positive, parents]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c5"
+    char_span: [7782, 8682]
+    sentence_count: 3
+    key_terms: [cooked, living, anuncomfortablepanda, puzzleheaded-heart29, keep, especially, self-aware, eliminate]
+    section: Comments
+    token_count: 240
+  - id: "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c6"
+    char_span: [8684, 10435]
+    sentence_count: 13
+    key_terms: [mba, job, experience, debt, get, someone, resume, loans]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c7"
+    char_span: [10437, 11309]
+    sentence_count: 5
+    key_terms: [job, debt, auto, loan, pay, take, time, georgeretire]
+    section: Comments
+    token_count: 210
+  - id: "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c8"
+    char_span: [11311, 12869]
+    sentence_count: 12
+    key_terms: [job, income, debt, like, mba, honestly, increase, costs]
+    section: Comments
+    token_count: 364
 ---
-
 # Am I Cooked? I’m 23 and 96k in debt.
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1kxkwd7/am_i_cooked_im_23_and_96k_in_debt/)

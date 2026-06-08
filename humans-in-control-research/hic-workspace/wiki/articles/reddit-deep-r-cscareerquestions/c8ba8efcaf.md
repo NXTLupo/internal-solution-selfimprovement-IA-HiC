@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/c8ba8efcaf.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1oskt3s/about_to_start_school_for_cs_but_have_personal/"
 url_hash: "c8ba8efcaf"
 kind: "article"
@@ -8,10 +9,17 @@ author: ""
 date: "2025-11-09T14:31:18.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-26T14:35:58.637558+00:00"
+extracted_at: "2026-06-05T19:54:48.760894+00:00"
 chars: 1192
+relevance: 48
+engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis.  "
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/c8ba8efcaf.md#c0"
+    char_span: [0, 1558]
+    sentence_count: 12
+    key_terms: [start, cscareerquestions, applying, personal, internships, experience, comments, semester]
+    token_count: 339
 ---
-
 # About to start school for CS but have personal project experience already. Things like a Real-time messaging system that can handle multiple concurrent clients. How soon can I start applying for internships?
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1oskt3s/about_to_start_school_for_cs_but_have_personal/)

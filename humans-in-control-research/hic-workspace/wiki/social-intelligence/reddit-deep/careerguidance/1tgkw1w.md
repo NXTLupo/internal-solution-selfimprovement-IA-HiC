@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tgkw1w.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tgkw1w/what_career_paths_should_i_realistically_target/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-23T20:15:29.967Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tgkw1w.md#c0"
+    char_span: [0, 1316]
+    sentence_count: 7
+    key_terms: [roles, customer, careerguidance, paths, experience, operations, long-term, realistic]
+    token_count: 274
+  - id: "social-intelligence/reddit-deep/careerguidance/1tgkw1w.md#c1"
+    char_span: [1331, 3010]
+    sentence_count: 8
+    key_terms: [customer, coordinator, success, sociology, degree, background, fast-paced, assistant]
+    section: Comments
+    token_count: 310
 ---
-
 # What career paths should I realistically target with a Sociology BA + customer service experience?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tgkw1w/what_career_paths_should_i_realistically_target/)

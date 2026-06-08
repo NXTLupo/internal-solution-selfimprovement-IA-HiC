@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1pci1iy.md
 url: "https://www.reddit.com/r/NEU/comments/1pci1iy/still_looking_for_a_coop/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,16 @@ score: 6
 upvote_ratio: 1
 num_comments: 0
 flair: "Co-op & Career"
-extracted_at: "2026-05-13T14:57:39.791Z"
+extracted_at: "2026-06-05T16:17:50.285Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1pci1iy.md#c0"
+    char_span: [0, 1290]
+    sentence_count: 8
+    key_terms: [digital, co-op, communications, creation, content, videography, media, college]
+    token_count: 279
 ---
-
 # Still Looking for a Co-op?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1pci1iy/still_looking_for_a_coop/)

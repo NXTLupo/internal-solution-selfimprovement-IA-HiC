@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1stut1g.md
 url: "https://www.reddit.com/r/internships/comments/1stut1g/got_an_internship_outside_my_field_rant/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,27 @@ score: 17
 upvote_ratio: 0.95
 num_comments: 10
 flair: "General"
-extracted_at: "2026-05-26T14:30:47.909Z"
+extracted_at: "2026-06-05T17:08:23.539Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1stut1g.md#c0"
+    char_span: [0, 1919]
+    sentence_count: 15
+    key_terms: [classmates, everything, knowing, started, seeing, engineering, internships, work]
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/internships/1stut1g.md#c1"
+    char_span: [1921, 2890]
+    sentence_count: 10
+    key_terms: [transition, seeing, cause, able, knew, conversations, additionally, construction]
+    token_count: 212
+  - id: "social-intelligence/reddit-deep/internships/1stut1g.md#c2"
+    char_span: [2905, 3629]
+    sentence_count: 4
+    key_terms: [engineering, swigofravioli349, civil, been, transitioning, internships, connection, electrical]
+    section: Comments
+    token_count: 201
 ---
-
 # Got an internship outside my field + rant
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1stut1g/got_an_internship_outside_my_field_rant/)

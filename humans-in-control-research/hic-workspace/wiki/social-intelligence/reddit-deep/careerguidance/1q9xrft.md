@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1q9xrft.md
 url: "https://www.reddit.com/r/careerguidance/comments/1q9xrft/18m_india_pcm_background_confused_between_tech/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,25 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.148Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1q9xrft.md#c0"
+    char_span: [0, 1993]
+    sentence_count: 14
+    key_terms: [careerguidance, enjoy, felt, accounting, automation, interested, designing, comments]
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/careerguidance/1q9xrft.md#c1"
+    char_span: [1995, 4484]
+    sentence_count: 5
+    key_terms: [leadership, people, power, long-term, don, want, impact, cybersecurity]
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/careerguidance/1q9xrft.md#c2"
+    char_span: [4487, 4767]
+    sentence_count: 3
+    key_terms: [uncomfortable, thoughtfully, criticism, chatgpt, clearly, express, message, reality]
+    token_count: 61
 ---
-
 # 18M (India), PCM background, confused between tech and public-facing careers. Interested in geopolitics, strategy, and impact — what paths make sense long-term?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1q9xrft/18m_india_pcm_background_confused_between_tech/)

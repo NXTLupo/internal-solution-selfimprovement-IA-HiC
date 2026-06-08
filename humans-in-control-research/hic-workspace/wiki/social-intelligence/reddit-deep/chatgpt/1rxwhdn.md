@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1rxwhdn.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1rxwhdn/chatgpt_prompt_of_the_day_the_personal_finance/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,31 @@ flair: "Other "
 extracted_at: "2026-05-17T01:12:48.209Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1rxwhdn.md#c0"
+    char_span: [0, 2320]
+    sentence_count: 17
+    key_terms: [spending, people, "don't", chatgpt, finance, actual, audit, money]
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/chatgpt/1rxwhdn.md#c1"
+    char_span: [2322, 4708]
+    sentence_count: 11
+    key_terms: [spending, subscriptions, income, category, action, misalignment, constraints, ask]
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/chatgpt/1rxwhdn.md#c2"
+    char_span: [4710, 5477]
+    sentence_count: 7
+    key_terms: [input, month, subscriptions, categories, breakdown, disappear, freelance, groceries]
+    token_count: 180
+  - id: "social-intelligence/reddit-deep/chatgpt/1rxwhdn.md#c3"
+    char_span: [5492, 6791]
+    sentence_count: 8
+    key_terms: [prompt, post, chatgpt, openai, please, conversation, image, r-chatgpt-1050422060352024636]
+    section: Comments
+    token_count: 332
 ---
-
 # ChatGPT Prompt of the Day: The Personal Finance Audit That Actually Finds Where Your Money Goes 💸
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1rxwhdn/chatgpt_prompt_of_the_day_the_personal_finance/)

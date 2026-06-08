@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1mlw70e.md
 url: "https://www.reddit.com/r/jobs/comments/1mlw70e/finally_got_a_job_offer_never_give_up/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,33 @@ flair: "Post-interview"
 extracted_at: "2026-05-22T21:35:36.551Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1mlw70e.md#c0"
+    char_span: [0, 1305]
+    sentence_count: 13
+    key_terms: [job, never, got, full-time, comments, finally, myself, offer]
+    token_count: 329
+  - id: "social-intelligence/reddit-deep/jobs/1mlw70e.md#c1"
+    char_span: [1320, 2370]
+    sentence_count: 6
+    key_terms: [queasybee8221, too, standards, congrats, finding, requirementroyal8666, sense, familiar-range9014]
+    section: Comments
+    token_count: 319
+  - id: "social-intelligence/reddit-deep/jobs/1mlw70e.md#c2"
+    char_span: [2372, 4077]
+    sentence_count: 10
+    key_terms: [queasybee8221, thank, job, congrats, been, nessa0707, facebook, nervous]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1mlw70e.md#c3"
+    char_span: [3860, 4198]
+    sentence_count: 5
+    key_terms: [calm-wrongdoer-1988, queasybee8221, hopefully, tootoo513, congrats, grinding, pushing, success]
+    section: Comments
+    token_count: 106
 ---
-
 # Finally got a job offer!! Never give up.
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1mlw70e/finally_got_a_job_offer_never_give_up/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1r6ciwe.md
 url: "https://www.reddit.com/r/humanresources/comments/1r6ciwe/pregnant_only_hr_at_small_company_mn/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-23T12:15:41.563Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1r6ciwe.md#c0"
+    char_span: [0, 2195]
+    sentence_count: 10
+    key_terms: [accommodations, leadership, humanresources, been, practices, comments, informal, pregnant]
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/humanresources/1r6ciwe.md#c1"
+    char_span: [2210, 4255]
+    sentence_count: 14
+    key_terms: [pregnancy, like, trust, boilerplate, get, timelines, employee, possible]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/humanresources/1r6ciwe.md#c2"
+    char_span: [4257, 6003]
+    sentence_count: 12
+    key_terms: [accommodations, employees, congratulations, company, formalizing, pregnancies, own, pregnancy]
+    section: Comments
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/humanresources/1r6ciwe.md#c3"
+    char_span: [6005, 8158]
+    sentence_count: 11
+    key_terms: [leave, employees, medical, family, weeks, take, program, state]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/humanresources/1r6ciwe.md#c4"
+    char_span: [8160, 9898]
+    sentence_count: 11
+    key_terms: [employee, company, "that's", "you're", accommodation, ceo, supervisor, different]
+    section: Comments
+    token_count: 366
+  - id: "social-intelligence/reddit-deep/humanresources/1r6ciwe.md#c5"
+    char_span: [9900, 10856]
+    sentence_count: 10
+    key_terms: [accommodations, person, want, hr-of-one, interest, support, write, boss]
+    section: Comments
+    token_count: 227
 ---
-
 # Pregnant + Only HR at Small Company [MN]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1r6ciwe/pregnant_only_hr_at_small_company_mn/)

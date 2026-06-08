@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1qzsirg.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1qzsirg/how_hard_is_it_to_career_pivot_into_tech_straight/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,36 @@ subreddit: "cscareerquestions"
 title: "How hard is it to career pivot into tech straight out of undergrad into MSCS with prior SWE-adjacent experience?"
 author: "risingsun1964"
 date: "2026-02-09T02:50:24.000Z"
-score: 5
-upvote_ratio: 0.65
+score: 4
+upvote_ratio: 0.63
 num_comments: 37
 flair: ""
-extracted_at: "2026-05-25T13:02:11.351Z"
+extracted_at: "2026-06-05T19:52:48.722Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qzsirg.md#c0"
+    char_span: [0, 1258]
+    sentence_count: 11
+    key_terms: [interviews, experience, prior, cscareerquestions, mscs, completed, undergrad, comments]
+    token_count: 298
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qzsirg.md#c1"
+    char_span: [1273, 3216]
+    sentence_count: 23
+    key_terms: [engineering, like, therealbigback91, couple, years, get, tech, interviews]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qzsirg.md#c2"
+    char_span: [3218, 3968]
+    sentence_count: 7
+    key_terms: [internship, offer, full, get, time, risingsun1964, connections, experience]
+    section: Comments
+    token_count: 190
 ---
-
 # How hard is it to career pivot into tech straight out of undergrad into MSCS with prior SWE-adjacent experience?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1qzsirg/how_hard_is_it_to_career_pivot_into_tech_straight/)
-Posted by **risingsun1964** · **5↑** · **37 comments**
+Posted by **risingsun1964** · **4↑** · **37 comments**
 
 For context, I got admitted to USC MSCS. I will be attending there in fall of this year having completed a BS in another engineering field and minor in math and 4 core CS prereqs completed. I will have had a prior internship this summer as a SWE intern, albeit in a niche r and d role at a company you have not heard of.
 
@@ -38,7 +56,7 @@ The market is atrocious, and it seems like the layoffs just keep coming. Not to 
     - **Pink_Slyvie** (1↑): Good luck getting into interviews right now, specially right out of school. Expect a ration of 2000 applications to 1 interview, if you are lucky.
 
 Want a reliable job? Teaching, trades, nursing, etc. All pay well (well, teaching is hit or miss), and they aren't going anywhere (unless MAGA sticks around)
-    - **theRealBigBack91** (-4↑): In a couple years? Homie we only have a couple years left for 90% of devs
+    - **theRealBigBack91** (-2↑): In a couple years? Homie we only have a couple years left for 90% of devs
 - **43Gofres** (1↑): It’ll be hard and nothing is guaranteed. 
 
 That said, you seem like the type of person who genuinely has a chance. You’ll need to continue working hard. 

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1l6era4.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1l6era4/people_who_made_a_complete_career_pivot_to/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-25T18:32:49.819Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l6era4.md#c0"
+    char_span: [0, 603]
+    sentence_count: 3
+    key_terms: [cscareerquestions, comments, industry, career, life, amanhasnoname54, increasingly, reddit-deep]
+    token_count: 155
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l6era4.md#c1"
+    char_span: [618, 1719]
+    sentence_count: 10
+    key_terms: [skills, trying, silenceredirectshere, fire, get, "i'm", like, quit]
+    section: Comments
+    token_count: 263
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l6era4.md#c2"
+    char_span: [1723, 3742]
+    sentence_count: 10
+    key_terms: [farming, money, day, jobs, something, organic, someone, point]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l6era4.md#c3"
+    char_span: [3744, 4500]
+    sentence_count: 7
+    key_terms: [old, personally, dentist, hardly, money, like, want, latenighredditor]
+    section: Comments
+    token_count: 181
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l6era4.md#c4"
+    char_span: [4502, 6425]
+    sentence_count: 5
+    key_terms: [work, dentistry, nightmare, career, fouoifjefoijvnioviow, enjoy, money, day]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l6era4.md#c5"
+    char_span: [6429, 8475]
+    sentence_count: 9
+    key_terms: [good, law, work, immediately, willingness, journalism, asshole, around]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l6era4.md#c6"
+    char_span: [8478, 10540]
+    sentence_count: 15
+    key_terms: [get, dangerouspurpose5661, career, people, never, like, tech, fitness]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l6era4.md#c7"
+    char_span: [10542, 10759]
+    sentence_count: 2
+    key_terms: [former, billboard, approved, coworker, manager, project, realtor, right]
+    section: Comments
+    token_count: 60
 ---
-
 # People who made a complete career pivot to another industry/life path after working in tech, what's the story?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1l6era4/people_who_made_a_complete_career_pivot_to/)

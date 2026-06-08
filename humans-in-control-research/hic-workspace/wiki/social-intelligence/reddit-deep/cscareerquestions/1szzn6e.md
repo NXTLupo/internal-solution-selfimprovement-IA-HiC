@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1szzn6e.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1szzn6e/my_personal_experience_in_the_tech_job_market_in/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-23T20:15:57.469Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1szzn6e.md#c0"
+    char_span: [0, 1529]
+    sentence_count: 15
+    key_terms: [cscareerquestions, job, tech, associates, experience, companies, completed, extremely]
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1szzn6e.md#c1"
+    char_span: [1544, 1941]
+    sentence_count: 1
+    key_terms: [posts, white, women, like, eldric-darkfire, tuckfrump69, generation, assisted]
+    section: Comments
+    token_count: 108
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1szzn6e.md#c2"
+    char_span: [1943, 3655]
+    sentence_count: 10
+    key_terms: [cscareerquestions, salamazmlekom, applications, anyone, pretty, reddit, maybe, offer]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1szzn6e.md#c3"
+    char_span: [3421, 4770]
+    sentence_count: 8
+    key_terms: [something, cscareerquestions, certs, experience, vtarxelus, "wouldn't", posting, degree]
+    section: Comments
+    token_count: 366
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1szzn6e.md#c4"
+    char_span: [4772, 5293]
+    sentence_count: 5
+    key_terms: [resume, template, internship, guarantee, feedback, linkedin, managers, mcdonald]
+    section: Comments
+    token_count: 129
 ---
-
 # My personal experience in the tech job market in 2025-2026
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1szzn6e/my_personal_experience_in_the_tech_job_market_in/)

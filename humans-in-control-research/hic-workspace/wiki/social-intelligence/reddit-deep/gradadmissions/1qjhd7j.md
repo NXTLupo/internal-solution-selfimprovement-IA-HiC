@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1qjhd7j.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1qjhd7j/advice_on_choosing_possible_grad_school_paths_as/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,21 @@ flair: "General Advice"
 extracted_at: "2026-05-20T06:42:01.111Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qjhd7j.md#c0"
+    char_span: [0, 2285]
+    sentence_count: 20
+    key_terms: [programs, get, policy, good, schools, student, gradadmissions, school]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qjhd7j.md#c1"
+    char_span: [2287, 2656]
+    sentence_count: 4
+    key_terms: [funded, fully, extraordinarily, gossipgal1324, competitive, admissions, appreciate, experience]
+    section: Comments
+    token_count: 77
 ---
-
 # Advice on choosing possible grad school paths as an international student
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1qjhd7j/advice_on_choosing_possible_grad_school_paths_as/)

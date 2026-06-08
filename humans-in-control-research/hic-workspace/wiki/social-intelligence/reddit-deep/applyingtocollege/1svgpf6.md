@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1svgpf6.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1svgpf6/fine_one_more_post_and_then_ill_let_it_rest_are/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,54 @@ flair: "Advice"
 extracted_at: "2026-05-23T14:54:48.678Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1svgpf6.md#c0"
+    char_span: [0, 890]
+    sentence_count: 6
+    key_terms: [applyingtocollege, post, comments, reasons, austin, "don't", "i'll", want]
+    token_count: 217
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1svgpf6.md#c1"
+    char_span: [892, 3027]
+    sentence_count: 15
+    key_terms: [cornell, school, grad, undergrad, "don't", cost, name, take]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1svgpf6.md#c2"
+    char_span: [2758, 3676]
+    sentence_count: 7
+    key_terms: [cornell, music, school, loans, wrong, "it's", prestige-focused, non-academic]
+    token_count: 209
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1svgpf6.md#c3"
+    char_span: [3678, 4145]
+    sentence_count: 4
+    key_terms: [cornell, been, "i've", appreciate, graduation, commented, hindering, everyone]
+    token_count: 105
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1svgpf6.md#c4"
+    char_span: [4160, 6038]
+    sentence_count: 19
+    key_terms: [decision, like, choice, choose, "isn't", wrong, path, adventure]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1svgpf6.md#c5"
+    char_span: [6040, 7870]
+    sentence_count: 19
+    key_terms: [cornell, reasons, invalid, derpyderp2048, yourself, austin, degree, faulty]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1svgpf6.md#c6"
+    char_span: [7872, 9725]
+    sentence_count: 12
+    key_terms: [cornell, austin, choose, akshtttt, prestige, because, college, parents]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1svgpf6.md#c7"
+    char_span: [9727, 11483]
+    sentence_count: 13
+    key_terms: [derpyderp2048, decision, long, thanks, grad, run, yeah, congrats]
+    section: Comments
+    token_count: 450
 ---
-
 # Fine, one more post and then I'll let it rest -- are my reasons valid?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1svgpf6/fine_one_more_post_and_then_ill_let_it_rest_are/)

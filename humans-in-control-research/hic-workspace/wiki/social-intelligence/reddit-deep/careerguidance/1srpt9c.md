@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1srpt9c.md
 url: "https://www.reddit.com/r/careerguidance/comments/1srpt9c/need_career_guidance_which_is_best_for_pcb_student/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 3
 flair: "Advice"
-extracted_at: "2026-05-22T15:13:18.801Z"
+extracted_at: "2026-06-03T18:35:34.118Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1srpt9c.md#c0"
+    char_span: [0, 1136]
+    sentence_count: 9
+    key_terms: [careerguidance, pcb, comments, computer, guidance, interest, biotech, career]
+    token_count: 306
+  - id: "social-intelligence/reddit-deep/careerguidance/1srpt9c.md#c1"
+    char_span: [1151, 1801]
+    sentence_count: 7
+    key_terms: [easter-babe, feel, field, bioinformatics, thosecompanies, bioprenuers, definitely, eventually]
+    section: Comments
+    token_count: 164
 ---
-
 # Need career guidance , which is best for pcb student ?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1srpt9c/need_career_guidance_which_is_best_for_pcb_student/)

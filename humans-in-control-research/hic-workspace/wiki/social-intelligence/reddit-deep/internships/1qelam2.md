@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1qelam2.md
 url: "https://www.reddit.com/r/internships/comments/1qelam2/resource_you_do_need_edu_email_microsoft/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,39 @@ flair: "General"
 extracted_at: "2026-05-24T14:08:27.825Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [education, higher_ed, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1qelam2.md#c0"
+    char_span: [0, 836]
+    sentence_count: 3
+    key_terms: [college-students-now-get-12-months-of-microsoft-365-premium-and-linkedin-premium-career-on-us, microsoft, internships, https, microsoft-365-linkedin-premium-free-students, www, comments, linkedin]
+    token_count: 206
+  - id: "social-intelligence/reddit-deep/internships/1qelam2.md#c1"
+    char_span: [851, 2232]
+    sentence_count: 8
+    key_terms: [linkedin, premium, email, got, activated, days, spycommander13, invite]
+    section: Comments
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/internships/1qelam2.md#c2"
+    char_span: [2234, 4325]
+    sentence_count: 11
+    key_terms: [premium, linkedin, email, edu, account, subscription, championshipcute6440, personal]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1qelam2.md#c3"
+    char_span: [4072, 5741]
+    sentence_count: 6
+    key_terms: [deepfreezedisease, received, account, deleted, student, email, did, get]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1qelam2.md#c4"
+    char_span: [5552, 5873]
+    sentence_count: 4
+    key_terms: [student, figure, necessary-pipe-5971, issue, did, snoochipmunks534, mynameistimon, stolenapollo]
+    section: Comments
+    token_count: 99
 ---
-
 # resource: you do need edu email: microsoft providing free linkedin premium and microsoft 365
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1qelam2/resource_you_do_need_edu_email_microsoft/)

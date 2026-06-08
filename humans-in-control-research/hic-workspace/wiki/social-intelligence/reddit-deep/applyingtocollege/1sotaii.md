@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1sotaii.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1sotaii/which_t40t50_university_should_i_pick/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,21 @@ flair: "College Questions"
 extracted_at: "2026-05-23T14:54:48.685Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sotaii.md#c0"
+    char_span: [0, 1214]
+    sentence_count: 6
+    key_terms: [applyingtocollege, cons, pros, strong, admission, cheapish, comments, options]
+    token_count: 330
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sotaii.md#c1"
+    char_span: [1229, 2904]
+    sentence_count: 13
+    key_terms: [uiuc, factworking1097, significancebig7903, school, get, pay, parents, neckbackground5184]
+    section: Comments
+    token_count: 475
 ---
-
 # Which T40/T50 University should I pick?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1sotaii/which_t40t50_university_should_i_pick/)

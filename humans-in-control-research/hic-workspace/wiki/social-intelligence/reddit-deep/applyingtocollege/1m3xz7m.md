@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1m3xz7m.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1m3xz7m/you_have_an_amazing_personal_essay_inside_you_my/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,73 @@ subreddit: "applyingtocollege"
 title: "You Have an Amazing Personal Essay Inside You. My Step by Step Guide for 2025."
 author: "admissionsmom"
 date: "2025-07-19T14:45:33.000Z"
-score: 346
+score: 350
 upvote_ratio: 0.98
 num_comments: 44
 flair: "Personal Essay"
-extracted_at: "2026-05-23T19:45:32.283Z"
+extracted_at: "2026-06-05T19:53:34.569Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1m3xz7m.md#c0"
+    char_span: [0, 2103]
+    sentence_count: 19
+    key_terms: [admissions, inside, personal, essay, college, applyingtocollege, years, idea]
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1m3xz7m.md#c1"
+    char_span: [2105, 4385]
+    sentence_count: 17
+    key_terms: [bridges, essay, connection, build, like, students, college, friends]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1m3xz7m.md#c2"
+    char_span: [4387, 6085]
+    sentence_count: 11
+    key_terms: [essay, essays, school, helped, admissions, admitted, personal, because]
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1m3xz7m.md#c3"
+    char_span: [6087, 7554]
+    sentence_count: 7
+    key_terms: [essay, reddit, admissions, https, com, college, essays, bluelightspcl]
+    token_count: 372
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1m3xz7m.md#c4"
+    char_span: [7556, 9175]
+    sentence_count: 17
+    key_terms: [essay, write, comfortable, down, jot, list, step, vergilx217]
+    token_count: 389
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1m3xz7m.md#c5"
+    char_span: [9177, 10294]
+    sentence_count: 6
+    key_terms: [thisibelieve, org, www, https, challenge, obstacles, personal, thinking]
+    token_count: 254
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1m3xz7m.md#c6"
+    char_span: [10309, 12364]
+    sentence_count: 17
+    key_terms: [advice, admissionsmom, "don't", get, "it's", because, dragons, always]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1m3xz7m.md#c7"
+    char_span: [12366, 13129]
+    sentence_count: 7
+    key_terms: [essay, life, something, topic, die, live, non-standard, immediately]
+    section: Comments
+    token_count: 171
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1m3xz7m.md#c8"
+    char_span: [13131, 15075]
+    sentence_count: 10
+    key_terms: [admissionsmom, values, cool-passion8922, beliefs, essays, resume, hero, talk]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1m3xz7m.md#c9"
+    char_span: [15077, 16380]
+    sentence_count: 5
+    key_terms: [admissionsmom, students, use, vocabulary, thesaurus, exactly, behind, start]
+    section: Comments
+    token_count: 317
 ---
-
 # You Have an Amazing Personal Essay Inside You. My Step by Step Guide for 2025.
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1m3xz7m/you_have_an_amazing_personal_essay_inside_you_my/)
-Posted by **admissionsmom** · **346↑** · **44 comments**
+Posted by **admissionsmom** · **350↑** · **44 comments**
 
 So here's the deal: after reading thousands of essays over the last several years, I ***know*** you have it in you to write a strong, heartfelt, personal, personal essay. So, I’m sharing with you the exact steps I use with my own students to get them to dig down and find their amazing essay inside. It’s there inside you, too. I promise.
 
@@ -70,12 +125,12 @@ Go to [www.thisibelieve.org](https://www.thisibelieve.org/) and read essay
 
 ## Comments
 
-- **ScholarGrade** (30↑): Fantastic advice as usual!  One more tip for 2025 that's particularly important this cycle:  Don't touch ChatGPT, especially early on in the process.  It doesn't give you personal, specific touches - it's literally designed to produce predictable output.  You'll get a lot of the same lame, generic, commonplace themes as all the other lazy GPT zombies.  It's even worse than reading a bunch of "essays that worked" and copying their style/approach because SO many applicants are going to use AI.
+- **ScholarGrade** (32↑): Fantastic advice as usual!  One more tip for 2025 that's particularly important this cycle:  Don't touch ChatGPT, especially early on in the process.  It doesn't give you personal, specific touches - it's literally designed to produce predictable output.  You'll get a lot of the same lame, generic, commonplace themes as all the other lazy GPT zombies.  It's even worse than reading a bunch of "essays that worked" and copying their style/approach because SO many applicants are going to use AI.
 
 Yes, you'll see some people/articles saying they used it and got into some top colleges.  But that will be the exception.  Mathematically, there will be too many students using it for it to provide any kind of real advantage.  Your essay is supposed to be about YOU, and you're the world's foremost expert on that subject.  Don't outsource that away.
 
 If you MUST use it, make sure you've told your own story first, then ask it for advice, then think critically before mindlessly implementing any of its suggestions.  I don't think it's impossible for AI to be useful, but I do think it will take more work to get there vs writing and editing everything yourself.  Here be dragons.
-  - **admissionsmom** (9↑): I’m gonna edit this advice in — eventually my posts just become joint posts between us because you always have such wonderful insight to add! And I totally meant to write about chat gpt and forgot!! Thanks so much
+  - **admissionsmom** (8↑): I’m gonna edit this advice in — eventually my posts just become joint posts between us because you always have such wonderful insight to add! And I totally meant to write about chat gpt and forgot!! Thanks so much
   - **HappyCava** (6↑): And more “Game of Thrones” dragons than “Pete’s Dragon.”  (Reference for those who grew up watching Disney movies only in theaters…)
 - **spelled_jagwater** (6↑): Thank you so so so much for posting this, I’m just at the point of trying to start struggling though the essay and I had no idea how to go about doing it
   - **admissionsmom** (1↑): Good luck! Let me know if you have questions 💖💖💖

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rwpfzm.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rwpfzm/what_entrylevel_jobs_actually_help_you_move_into/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.356Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rwpfzm.md#c0"
+    char_span: [0, 638]
+    sentence_count: 4
+    key_terms: [entry-level, jobs, careerguidance, comments, careers, skills, many-economics-4326, build]
+    token_count: 146
+  - id: "social-intelligence/reddit-deep/careerguidance/1rwpfzm.md#c1"
+    char_span: [653, 2672]
+    sentence_count: 11
+    key_terms: [work, being, thekidfromhotaru, service, customer, company, credit, teller]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/careerguidance/1rwpfzm.md#c2"
+    char_span: [2674, 4438]
+    sentence_count: 12
+    key_terms: [service, degree, hotel, job, experience, customer, working, retail]
+    section: Comments
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/careerguidance/1rwpfzm.md#c3"
+    char_span: [4441, 6444]
+    sentence_count: 14
+    key_terms: [help, work, grungecheap56119, company, support, call, lot, companies]
+    section: Comments
+    token_count: 478
 ---
-
 # What entry-level jobs actually help you move into better careers?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rwpfzm/what_entrylevel_jobs_actually_help_you_move_into/)

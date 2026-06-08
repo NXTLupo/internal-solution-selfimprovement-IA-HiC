@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1ssoc8m.md
 url: "https://www.reddit.com/r/financialindependence/comments/1ssoc8m/12_year_update_married_couple_in_our_40s_200k_to/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,67 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.702Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1ssoc8m.md#c0"
+    char_span: [0, 2050]
+    sentence_count: 17
+    key_terms: [financialindependence, around, worth, time, trying, felt, like, net]
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/financialindependence/1ssoc8m.md#c1"
+    char_span: [2052, 3868]
+    sentence_count: 13
+    key_terms: [retirement, vanguard, cash, market, bonds, total, accounts, roughly]
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/financialindependence/1ssoc8m.md#c2"
+    char_span: [3870, 5406]
+    sentence_count: 9
+    key_terms: [mortgage, home, like, accounts, happened, financialindependence, assets, behind]
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/financialindependence/1ssoc8m.md#c3"
+    char_span: [5421, 7013]
+    sentence_count: 14
+    key_terms: [windfall, crypto, did, original, another, market, saving, month]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/financialindependence/1ssoc8m.md#c4"
+    char_span: [7016, 8676]
+    sentence_count: 15
+    key_terms: [congratulations, income, ding, good, investing, crypto, month, right]
+    section: Comments
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/financialindependence/1ssoc8m.md#c5"
+    char_span: [8678, 10658]
+    sentence_count: 19
+    key_terms: [get, without, accounts, greatest, windfall, million, people, retire]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/financialindependence/1ssoc8m.md#c6"
+    char_span: [10660, 11755]
+    sentence_count: 8
+    key_terms: [accomplished, worth, poggendorff, invested, probably, windfall, mid30scouple, acknowledge]
+    section: Comments
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/financialindependence/1ssoc8m.md#c7"
+    char_span: [11758, 13613]
+    sentence_count: 11
+    key_terms: [mid30scouple, windfall, years, intertubeluber, crypto, steaknotcake, everything, brokerage]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/financialindependence/1ssoc8m.md#c8"
+    char_span: [13407, 13900]
+    sentence_count: 2
+    key_terms: [hereforthistoo, mid30scouple, share, fireformynapalmera, benefits, congrats, funsoup4, investor]
+    section: Comments
+    token_count: 160
+  - id: "social-intelligence/reddit-deep/financialindependence/1ssoc8m.md#c9"
+    char_span: [13903, 14438]
+    sentence_count: 5
+    key_terms: [years, having, work, mid30scouple, accumulated, difficult, investing, uncertain]
+    section: Comments
+    token_count: 125
 ---
-
 # [12 YEAR UPDATE] Married couple in our 40s. $200k to $1.81m NW.
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1ssoc8m/12_year_update_married_couple_in_our_40s_200k_to/)

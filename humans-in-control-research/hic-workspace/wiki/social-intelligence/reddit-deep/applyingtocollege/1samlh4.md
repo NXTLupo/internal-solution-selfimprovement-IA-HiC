@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1samlh4.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1samlh4/berkeley_met_vs_cmu_vs_columbia_which_college_to/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -10,11 +11,40 @@ score: 1
 upvote_ratio: 0.67
 num_comments: 25
 flair: "College Questions"
-extracted_at: "2026-05-20T02:31:57.187Z"
+extracted_at: "2026-06-01T18:49:57.464Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1samlh4.md#c0"
+    char_span: [0, 1580]
+    sentence_count: 8
+    key_terms: [appreciate, applyingtocollege, met, berkeley, columbia, career, international, cmu]
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1samlh4.md#c1"
+    char_span: [1595, 3128]
+    sentence_count: 6
+    key_terms: [cmu, met, better, perks, since, harmthebees, "berkeley's", comparable]
+    section: Comments
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1samlh4.md#c2"
+    char_span: [3130, 4085]
+    sentence_count: 9
+    key_terms: [cmu, met, berkeley, because, usually, brand, like, name]
+    section: Comments
+    token_count: 221
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1samlh4.md#c3"
+    char_span: [4087, 6170]
+    sentence_count: 13
+    key_terms: [cmu, met, zealousideal-sky1121, like, "i'm", name, beautiful, different]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1samlh4.md#c4"
+    char_span: [5946, 6220]
+    sentence_count: 2
+    key_terms: [ideal-sky1121, prestigious, ultimately, undoubtely, strongest, location, prestige, because]
+    section: Comments
+    token_count: 84
 ---
-
 # Berkeley MET vs CMU vs Columbia - Which college to choose?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1samlh4/berkeley_met_vs_cmu_vs_columbia_which_college_to/)
@@ -37,11 +67,11 @@ Would appreciate any and all responses!!! Thxx!!! And can always provide more in
 
 ## Comments
 
-- **kaystared** (6↑): MET and it’s not close here
+- **kaystared** (5↑): MET and it’s not close here
   - **Glad_Car7339** (1↑): Hi, thx! Assuming I take a major or minor in business/econ at columbia and cmu as well - for what reasons would you say MET is better? u/kaystared
-- **harmthebees** (9↑): I would do Berkeley since it’s comparable to CMU for CS, but you get extra perks from MET and a great location for CS. Congrats!
+- **harmthebees** (8↑): I would do Berkeley since it’s comparable to CMU for CS, but you get extra perks from MET and a great location for CS. Congrats!
   - **Glad_Car7339** (1↑): u/harmthebees , thx...could you maybe elaborate on what the extra perks would be? I've researched as well just wanted to know from your point of view. I was confused about how special the perks are because I guess the MET career fairs are comparable to recruiting at CMU anyways, or like priority class registration is alr not a problem at cmu, etc.
-- **hypsm-_** (3↑): wow amazing results! for your major CMU is the holy grail i’m pretty sure
+- **hypsm-_** (4↑): wow amazing results! for your major CMU is the holy grail i’m pretty sure
   - **Beneficial_Sky9813** (2↑): Berkeley's probably better tbh since location, though I only recommend if your cracked since resources for teaching are less (but cracked ppl dont ever go to office hours or anything tbh). But resources for startup/big tech are better because companies can just knock on Stanford/Berkeley's doors
   - **DoubtClassic4400** (1↑): no MIT is then Stanford, CMU & Berkeley are all pretty much the same except for MET he gets a dual degree program so it’s an easy choice
 - **AlanMao18** (2↑): MET. its very prestigious. like 30 per year. you may have to work hard as both are demanding majors but the recognition and experience is better than the other ones.

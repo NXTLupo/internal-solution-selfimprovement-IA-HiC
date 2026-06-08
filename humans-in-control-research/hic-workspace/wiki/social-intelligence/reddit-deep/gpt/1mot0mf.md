@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1mot0mf.md
 url: "https://www.reddit.com/r/GPT/comments/1mot0mf/why_gpt5_is_absolute_garbage_endless_thinking/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,26 @@ flair: ""
 extracted_at: "2026-05-11T17:26:37.727Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1mot0mf.md#c0"
+    char_span: [0, 1432]
+    sentence_count: 10
+    key_terms: [gpt-5, thinking, coding, mode, comments, seconds, model, deep]
+    token_count: 381
+  - id: "social-intelligence/reddit-deep/gpt/1mot0mf.md#c1"
+    char_span: [1434, 2902]
+    sentence_count: 19
+    key_terms: [gpt-5, model, code, coding, openai, like, claude, gemini]
+    token_count: 378
+  - id: "social-intelligence/reddit-deep/gpt/1mot0mf.md#c2"
+    char_span: [2917, 3499]
+    sentence_count: 3
+    key_terms: [better, independent-ruin-376, intheendentropywins, disappointment, hallucinations, pre-testers, propaganda, irritated]
+    section: Comments
+    token_count: 159
 ---
-
 # Why GPT-5 is Absolute Garbage: Endless Thinking, Horrible Coding, Total Hype Fail
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1mot0mf/why_gpt5_is_absolute_garbage_endless_thinking/)

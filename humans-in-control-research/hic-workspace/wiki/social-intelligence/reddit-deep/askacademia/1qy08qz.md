@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1qy08qz.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1qy08qz/can_someone_help_me_find_dads_research_paper/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,33 @@ flair: "STEM"
 extracted_at: "2026-05-26T14:32:49.121Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce, manufacturing]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1qy08qz.md#c0"
+    char_span: [0, 1673]
+    sentence_count: 12
+    key_terms: [university, missouri-rolla, "dad's", paper, askacademia, mcdonnell, aircraft, comments]
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/askacademia/1qy08qz.md#c1"
+    char_span: [1688, 3501]
+    sentence_count: 12
+    key_terms: [been, digitized, nasa, https, library, paper, collections, "it's"]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/askacademia/1qy08qz.md#c2"
+    char_span: [3503, 4661]
+    sentence_count: 9
+    key_terms: [librarian, searching, bowen, engineering, journals, library, states, kindofcrazyscientist]
+    section: Comments
+    token_count: 267
+  - id: "social-intelligence/reddit-deep/askacademia/1qy08qz.md#c3"
+    char_span: [4663, 6346]
+    sentence_count: 15
+    key_terms: [bowen, university, nothing, public, institutions, good, nasa, ntrs]
+    section: Comments
+    token_count: 409
 ---
-
 # Can Someone Help Me Find Dad's Research Paper?
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1qy08qz/can_someone_help_me_find_dads_research_paper/)

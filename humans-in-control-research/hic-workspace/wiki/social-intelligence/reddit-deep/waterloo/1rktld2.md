@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1rktld2.md
 url: "https://www.reddit.com/r/waterloo/comments/1rktld2/part_time_job_ideas/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.131Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1rktld2.md#c0"
+    char_span: [0, 1553]
+    sentence_count: 17
+    key_terms: [waterloo, work, anyone, suggestions, here, hour, side, kitchener]
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/waterloo/1rktld2.md#c1"
+    char_span: [1568, 3240]
+    sentence_count: 13
+    key_terms: [visible-essay9728, home, days, jobs, time, work, working, around]
+    section: Comments
+    token_count: 450
 ---
-
 # Part time job ideas
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1rktld2/part_time_job_ideas/)

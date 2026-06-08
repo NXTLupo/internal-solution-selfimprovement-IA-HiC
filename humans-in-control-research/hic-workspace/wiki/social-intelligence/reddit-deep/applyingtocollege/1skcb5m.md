@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1skcb5m.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1skcb5m/i_cant_choose_a_college/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,44 @@ flair: "Advice"
 extracted_at: "2026-05-23T12:15:36.224Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1skcb5m.md#c0"
+    char_span: [0, 2097]
+    sentence_count: 20
+    key_terms: [parents, unc, wake, school, applyingtocollege, hill, forest, going]
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1skcb5m.md#c1"
+    char_span: [2099, 2786]
+    sentence_count: 6
+    key_terms: [wake, tour, unc, parents, chapel, hill, forest, aid]
+    token_count: 168
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1skcb5m.md#c2"
+    char_span: [2801, 4810]
+    sentence_count: 22
+    key_terms: [wake, unc, student, life, decision, people, school, greek]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1skcb5m.md#c3"
+    char_span: [4812, 6432]
+    sentence_count: 14
+    key_terms: [smaller, campus, chapel, hill, unc, experience, yourself, college]
+    section: Comments
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1skcb5m.md#c4"
+    char_span: [6434, 8109]
+    sentence_count: 11
+    key_terms: [wake, schools, drive, probably, chapel, hill, unc, student]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1skcb5m.md#c5"
+    char_span: [8111, 9397]
+    sentence_count: 9
+    key_terms: [school, conservatives, like, college, better, preppy, makes, visit]
+    section: Comments
+    token_count: 325
 ---
-
 # I can’t choose a college?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1skcb5m/i_cant_choose_a_college/)

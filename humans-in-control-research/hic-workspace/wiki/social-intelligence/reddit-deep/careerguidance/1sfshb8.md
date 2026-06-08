@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sfshb8.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sfshb8/if_even_top_mba_grads_are_struggling_with_jobs/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,39 @@ flair: "Education & Qualifications"
 extracted_at: "2026-05-25T15:52:13.107Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sfshb8.md#c0"
+    char_span: [0, 1279]
+    sentence_count: 5
+    key_terms: [mba, careerguidance, predictable, building, comments, outcomes, programs, degree]
+    token_count: 303
+  - id: "social-intelligence/reddit-deep/careerguidance/1sfshb8.md#c1"
+    char_span: [1294, 2881]
+    sentence_count: 8
+    key_terms: [company, "it's", job, something, masters, always, degree, mbathrowaway98383683]
+    section: Comments
+    token_count: 405
+  - id: "social-intelligence/reddit-deep/careerguidance/1sfshb8.md#c2"
+    char_span: [2883, 3875]
+    sentence_count: 6
+    key_terms: [degree, top, graduate, stanford, career, unless, youre, spacepiratewatney]
+    section: Comments
+    token_count: 235
+  - id: "social-intelligence/reddit-deep/careerguidance/1sfshb8.md#c3"
+    char_span: [3877, 5003]
+    sentence_count: 4
+    key_terms: [degree, debt, better, having, school, stanford, struggle, getting]
+    section: Comments
+    token_count: 278
+  - id: "social-intelligence/reddit-deep/careerguidance/1sfshb8.md#c4"
+    char_span: [5005, 6132]
+    sentence_count: 8
+    key_terms: [lifetime, people, mbas, degree, less-opportunity-715, get, like, mba]
+    section: Comments
+    token_count: 274
 ---
-
 # If even top MBA grads are struggling with jobs... what is the degree actually worth now?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sfshb8/if_even_top_mba_grads_are_struggling_with_jobs/)

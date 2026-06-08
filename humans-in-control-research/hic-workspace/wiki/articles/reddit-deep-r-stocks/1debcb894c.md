@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-stocks/1debcb894c.md
 url: "https://www.reddit.com/r/stocks/comments/1shvm71/microsoft_msft_is_down_31_from_its_ath/"
 url_hash: "1debcb894c"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:20:50.287706+00:00"
 chars: 3256
+industries: [financial_services, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-stocks/1debcb894c.md#c0"
+    char_span: [0, 1949]
+    sentence_count: 22
+    key_terms: [azure, microsoft, already, openai, stock, down, earnings, expected]
+    token_count: 500
+  - id: "articles/reddit-deep-r-stocks/1debcb894c.md#c1"
+    char_span: [1951, 3428]
+    sentence_count: 12
+    key_terms: [sub, earnings, google, doomposting, buy, good, everyone, buying]
+    token_count: 372
 ---
-
 # Microsoft ($MSFT) is down ~31% from its ATH
 
 Source: [Reddit Deep: r/stocks](https://www.reddit.com/r/stocks/comments/1shvm71/microsoft_msft_is_down_31_from_its_ath/)

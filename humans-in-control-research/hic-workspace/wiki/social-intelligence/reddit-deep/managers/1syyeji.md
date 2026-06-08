@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1syyeji.md
 url: "https://www.reddit.com/r/managers/comments/1syyeji/took_three_days_off_because_i_had_a_miscarriage/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,79 @@ flair: ""
 extracted_at: "2026-05-26T12:54:23.675Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c0"
+    char_span: [0, 1890]
+    sentence_count: 15
+    key_terms: [company, because, however, sales, new, role, department, encouraged]
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c1"
+    char_span: [1892, 4258]
+    sentence_count: 17
+    key_terms: [days, sick, time, company, status, email, miscarriage, cold]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c2"
+    char_span: [4260, 4342]
+    sentence_count: 1
+    key_terms: [does, sensitive, others, being, feel, here, too]
+    token_count: 20
+  - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c3"
+    char_span: [4357, 6653]
+    sentence_count: 16
+    key_terms: [cersei, employee, significant, managing, actions, impacts, partner, person]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c4"
+    char_span: [6655, 8426]
+    sentence_count: 13
+    key_terms: [let, physically, supervisor, vomiting, capable, better, people, asked]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c5"
+    char_span: [8428, 10669]
+    sentence_count: 16
+    key_terms: [emergency, company, understand, practices, best, boss, like, feeling]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c6"
+    char_span: [10671, 12808]
+    sentence_count: 17
+    key_terms: [got, leave, never, weeks, supervisor, daughter, because, himself]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c7"
+    char_span: [12537, 13054]
+    sentence_count: 5
+    key_terms: [responsibility, ai-generated, threatening, throughout, companies, harassing, situation, policies]
+    section: Comments
+    token_count: 114
+  - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c8"
+    char_span: [13056, 14620]
+    sentence_count: 12
+    key_terms: [manager, asking, like, themselves, workplace, employee, entirely, powerful]
+    section: Comments
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c9"
+    char_span: [14622, 16555]
+    sentence_count: 11
+    key_terms: ["i'm", person, personally, sometimes, everyone, pharmacy, remember, realize]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c10"
+    char_span: [16557, 18526]
+    sentence_count: 11
+    key_terms: [manager, demoniclionfish, what-you-should-know-about-pregnant-workers-fairness-act, situation, response, federal, inappropriate, state]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c11"
+    char_span: [18528, 20368]
+    sentence_count: 10
+    key_terms: [manager, making, days, did, medical, message, person, please]
+    section: Comments
+    token_count: 422
 ---
-
 # Took three days off because I had a miscarriage and came back to a nasty compliance lecture from our HR person.
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1syyeji/took_three_days_off_because_i_had_a_miscarriage/)

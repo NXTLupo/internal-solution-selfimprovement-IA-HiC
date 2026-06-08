@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1plf3sy.md
 url: "https://www.reddit.com/r/GPT/comments/1plf3sy/new_gpt_free_plan/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-11T17:26:37.727Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1plf3sy.md#c0"
+    char_span: [0, 483]
+    sentence_count: 6
+    key_terms: [free, gpt, plan, comments, new, habitjolly6495, excessively, reddit-deep]
+    token_count: 133
 ---
-
 # New GPT free plan
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1plf3sy/new_gpt_free_plan/)

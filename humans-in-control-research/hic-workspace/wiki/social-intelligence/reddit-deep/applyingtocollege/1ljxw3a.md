@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1ljxw3a.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1ljxw3a/learning_disabilities_and_applying_to_college/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,27 @@ flair: "Application Question"
 extracted_at: "2026-05-20T12:57:06.067Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ljxw3a.md#c0"
+    char_span: [0, 1320]
+    sentence_count: 1
+    key_terms: [learning, disability, applyingtocollege, anyone, disabilities, particularly, somewhere, comments]
+    token_count: 275
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ljxw3a.md#c1"
+    char_span: [1335, 3575]
+    sentence_count: 17
+    key_terms: [students, applyingtocollege, disabled, college, mention, disabilities, learning, schools]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ljxw3a.md#c2"
+    char_span: [3577, 4824]
+    sentence_count: 11
+    key_terms: [school, extra, learning, time, disabilities, "don't", admissions, disability]
+    section: Comments
+    token_count: 266
 ---
-
 # learning disabilities and applying to college
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1ljxw3a/learning_disabilities_and_applying_to_college/)

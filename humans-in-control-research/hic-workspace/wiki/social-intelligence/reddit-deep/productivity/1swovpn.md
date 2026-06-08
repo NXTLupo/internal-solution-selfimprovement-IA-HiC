@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1swovpn.md
 url: "https://www.reddit.com/r/productivity/comments/1swovpn/how_do_you_plan_your_week_to_stay_productive/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,39 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:45.652Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1swovpn.md#c0"
+    char_span: [0, 627]
+    sentence_count: 6
+    key_terms: [productivity, productive, comments, everyone, plan, stay, week, efficiently]
+    token_count: 147
+  - id: "social-intelligence/reddit-deep/productivity/1swovpn.md#c1"
+    char_span: [642, 2148]
+    sentence_count: 21
+    key_terms: [list, today, care, down, need, complete, tasks, write]
+    section: Comments
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/productivity/1swovpn.md#c2"
+    char_span: [2150, 3861]
+    sentence_count: 11
+    key_terms: [down, week, simple, makes, like, too, work, everything]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/productivity/1swovpn.md#c3"
+    char_span: [3863, 5889]
+    sentence_count: 17
+    key_terms: [day, like, week, tasks, context, list, work, calendar]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/productivity/1swovpn.md#c4"
+    char_span: [5891, 7119]
+    sentence_count: 6
+    key_terms: [location-based, like, list, time, try, checklists, blocking, calendar]
+    section: Comments
+    token_count: 287
 ---
-
 # How do you plan your week to stay productive?
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1swovpn/how_do_you_plan_your_week_to_stay_productive/)

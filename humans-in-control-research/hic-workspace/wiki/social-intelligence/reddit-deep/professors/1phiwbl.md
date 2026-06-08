@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1phiwbl.md
 url: "https://www.reddit.com/r/Professors/comments/1phiwbl/you_probably_should_listen_to_student_feedback/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,50 @@ flair: "Rants / Vents"
 extracted_at: "2026-05-20T03:55:39.276Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1phiwbl.md#c0"
+    char_span: [0, 2386]
+    sentence_count: 15
+    key_terms: [students, course, professors, evaluations, student, likely, exist, peers]
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/professors/1phiwbl.md#c1"
+    char_span: [2388, 2695]
+    sentence_count: 2
+    key_terms: ["don't", away, come, pop, read, douchebaggery, actionable, something]
+    token_count: 71
+  - id: "social-intelligence/reddit-deep/professors/1phiwbl.md#c2"
+    char_span: [2710, 4802]
+    sentence_count: 13
+    key_terms: [feedback, students, evals, often, asturiusmatamoros, constructive, like, colleagues]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/professors/1phiwbl.md#c3"
+    char_span: [4804, 6933]
+    sentence_count: 10
+    key_terms: [feedback, student, useful, students, response, reading, shitty, "don't"]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/professors/1phiwbl.md#c4"
+    char_span: [6935, 8632]
+    sentence_count: 11
+    key_terms: [students, teaching, evaluation, s0272775714000417, comments, sciencedirect, evaluations, help]
+    section: Comments
+    token_count: 363
+  - id: "social-intelligence/reddit-deep/professors/1phiwbl.md#c5"
+    char_span: [8634, 10781]
+    sentence_count: 15
+    key_terms: [evaluations, students, teaching, student, comments, hateful, realize, course]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/professors/1phiwbl.md#c6"
+    char_span: [10783, 11770]
+    sentence_count: 3
+    key_terms: [students, looking, student, canvas, level, didn, encouragement, consistently]
+    section: Comments
+    token_count: 196
 ---
-
 # You probably should listen to student feedback sometimes
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1phiwbl/you_probably_should_listen_to_student_feedback/)

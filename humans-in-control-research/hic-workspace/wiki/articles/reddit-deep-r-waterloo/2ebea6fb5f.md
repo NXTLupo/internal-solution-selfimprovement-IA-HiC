@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-waterloo/2ebea6fb5f.md
 url: "https://www.reddit.com/r/waterloo/comments/1mbkgg0/best_moving_method_from_waterloo_to_toronto/"
 url_hash: "2ebea6fb5f"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T20:18:31.494166+00:00"
 chars: 1555
+industries: [higher_ed, real_estate]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-waterloo/2ebea6fb5f.md#c0"
+    char_span: [0, 1736]
+    sentence_count: 13
+    key_terms: [waterloo, toronto, moving, cearrach, truck, kms, generally, comments]
+    token_count: 437
 ---
-
 # Best moving method from Waterloo to Toronto
 
 Source: [Reddit Deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1mbkgg0/best_moving_method_from_waterloo_to_toronto/)

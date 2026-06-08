@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-investing/e4f8af3b1e.md
 url: "https://www.reddit.com/r/investing/comments/1ni6kr5/article_why_are_stocks_setting_records_when_the/"
 url_hash: "e4f8af3b1e"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-16T21:00:17.816230+00:00"
 chars: 1900
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-investing/e4f8af3b1e.md#c0"
+    char_span: [0, 2125]
+    sentence_count: 9
+    key_terms: [market, stock-market-dow-record-economy-jobs-inflation, inflation, "it's", stock, cuts, rate, top]
+    token_count: 490
 ---
-
 # Article: Why are stocks setting records when the economy feels down in the dumps?
 
 Source: [Reddit Deep: r/investing](https://www.reddit.com/r/investing/comments/1ni6kr5/article_why_are_stocks_setting_records_when_the/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-college/ad7f07bdd1.md
 url: "https://www.reddit.com/r/college/comments/1mhj4b8/building_an_do_dumb_shit_safely_bag_for_my_niece/"
 url_hash: "ad7f07bdd1"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T20:18:34.809393+00:00"
 chars: 2702
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-college/ad7f07bdd1.md#c0"
+    char_span: [0, 1493]
+    sentence_count: 7
+    key_terms: [free, info, college, bag, dorm, dumb, shit, pregnancy]
+    token_count: 386
+  - id: "articles/reddit-deep-r-college/ad7f07bdd1.md#c1"
+    char_span: [1495, 2931]
+    sentence_count: 7
+    key_terms: [paint, years, emergency, painted, lights, stable, shelf, small]
+    token_count: 344
 ---
-
 # Building an "Do dumb shit, safely" bag for my niece to keep in her dorm, what goes in it
 
 Source: [Reddit Deep: r/college](https://www.reddit.com/r/college/comments/1mhj4b8/building_an_do_dumb_shit_safely_bag_for_my_niece/)

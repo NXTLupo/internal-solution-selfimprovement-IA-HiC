@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1sh76ji.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1sh76ji/started_a_video_series_on_building_an/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -13,8 +14,40 @@ flair: "Project"
 extracted_at: "2026-05-11T17:27:06.581Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1sh76ji.md#c0"
+    char_span: [0, 1911]
+    sentence_count: 9
+    key_terms: [machinelearning, files, tests, comments, remove, post-training, dependencies, https]
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/machinelearning/1sh76ji.md#c1"
+    char_span: [1913, 3500]
+    sentence_count: 9
+    key_terms: [orchestration, framework, care, noticed, layer, let, whether, better]
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/machinelearning/1sh76ji.md#c2"
+    char_span: [3502, 5552]
+    sentence_count: 12
+    key_terms: [through, blog, post, codebase, dhruvnigam93, https, especially, different]
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/machinelearning/1sh76ji.md#c3"
+    char_span: [5554, 7209]
+    sentence_count: 7
+    key_terms: [github, https, com, codebase, openrlhf, meta-pytorch, token-aware, torchforge]
+    token_count: 377
+  - id: "social-intelligence/reddit-deep/machinelearning/1sh76ji.md#c4"
+    char_span: [7211, 8679]
+    sentence_count: 8
+    key_terms: ["it's", "i'll", "i'm", implementation, better, final, codebase, engineer]
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/machinelearning/1sh76ji.md#c5"
+    char_span: [8681, 9663]
+    sentence_count: 4
+    key_terms: [orchestration, post-training, pattern, youtube, reinforcedknowledge, https, layer, video]
+    token_count: 224
 ---
-
 # Started a video series on building an orchestration layer for LLM post-training [P]
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1sh76ji/started_a_video_series_on_building_an/)

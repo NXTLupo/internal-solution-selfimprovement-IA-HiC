@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1qeyeei.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1qeyeei/my_committee_finished_making_the_accept_list/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,45 @@ flair: "Physical Sciences"
 extracted_at: "2026-05-23T14:54:16.714Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qeyeei.md#c0"
+    char_span: [0, 1629]
+    sentence_count: 20
+    key_terms: [committee, list, gradadmissions, accept, applications, saw, evaluated, something]
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qeyeei.md#c1"
+    char_span: [1644, 3707]
+    sentence_count: 17
+    key_terms: [applicants, international, applications, no-force7947, sad, admissions, department, particular]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qeyeei.md#c2"
+    char_span: [3709, 5761]
+    sentence_count: 16
+    key_terms: [year, thanks, "can't", thank, post, send, too, applicants]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qeyeei.md#c3"
+    char_span: [5763, 6930]
+    sentence_count: 12
+    key_terms: [admit, helps, thank, waves, content-hotel9252, dept, does, pick]
+    section: Comments
+    token_count: 280
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qeyeei.md#c4"
+    char_span: [6932, 8649]
+    sentence_count: 27
+    key_terms: [product, common, like, part, committee, something, threads, member]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qeyeei.md#c5"
+    char_span: [8651, 10697]
+    sentence_count: 21
+    key_terms: [thank, like, response, helpful, application, been, professor, respond]
+    section: Comments
+    token_count: 468
 ---
-
 # My committee finished making the accept list!
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1qeyeei/my_committee_finished_making_the_accept_list/)

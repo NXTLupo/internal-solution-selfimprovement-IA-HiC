@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1sx9jnr.md
 url: "https://www.reddit.com/r/jobs/comments/1sx9jnr/8_years_unemployed_entry_level_software_engineer/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,27 @@ flair: "Career planning"
 extracted_at: "2026-05-20T02:33:39.341Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1sx9jnr.md#c0"
+    char_span: [0, 2185]
+    sentence_count: 15
+    key_terms: [e-commerce, software, years, engineering, been, experience, job, feeling]
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/jobs/1sx9jnr.md#c1"
+    char_span: [2200, 4322]
+    sentence_count: 14
+    key_terms: [swe, resume, headlessheadhunter, been, backend, getting, stacks, applications]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/jobs/1sx9jnr.md#c2"
+    char_span: [4326, 4664]
+    sentence_count: 2
+    key_terms: [check, different, platforms, everyone, honestly, linkedin, standout, startups]
+    section: Comments
+    token_count: 72
 ---
-
 # [8 Years, Unemployed, Entry Level Software Engineer / IT Support, Florida] Feeling lost 2 years after graduating CS degree. Fired from recent job and unsure what to do next.
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1sx9jnr/8_years_unemployed_entry_level_software_engineer/)

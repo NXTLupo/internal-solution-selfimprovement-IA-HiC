@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1s6ae6t.md
 url: "https://www.reddit.com/r/deeplearning/comments/1s6ae6t/gave_a_claude_code_agent_access_to_2m_cs_papers/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.047Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1s6ae6t.md#c0"
+    char_span: [0, 1816]
+    sentence_count: 13
+    key_terms: [papers, techniques, agent, paper, without, access, agents, autoresearch]
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/deeplearning/1s6ae6t.md#c1"
+    char_span: [1831, 2606]
+    sentence_count: 4
+    key_terms: [hindsight, vectorize-io, kalpitdixit, scholarship, literature, relevant, access, github]
+    section: Comments
+    token_count: 200
 ---
-
 # Gave a Claude Code agent access to 2M CS papers during autoresearch — it found techniques from 2025 papers and beat the baseline agent by 3.2%
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1s6ae6t/gave_a_claude_code_agent_access_to_2m_cs_papers/)

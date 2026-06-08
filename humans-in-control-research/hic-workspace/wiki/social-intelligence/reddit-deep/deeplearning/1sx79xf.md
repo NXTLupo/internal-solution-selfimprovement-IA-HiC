@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1sx79xf.md
 url: "https://www.reddit.com/r/deeplearning/comments/1sx79xf/kimi_k26_vs_claude_opus_47_on_autonomous_coding/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.055Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1sx79xf.md#c0"
+    char_span: [0, 1903]
+    sentence_count: 15
+    key_terms: [kimi, opus, tasks, reasoning, comments, coding, deeplearning, interesting]
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/deeplearning/1sx79xf.md#c1"
+    char_span: [1905, 2263]
+    sentence_count: 2
+    key_terms: [kimi-k2-6-vs-opus-4-7, heyneo, https, blog, com, interesting, evaluation, benchmark]
+    section: Comments
+    token_count: 108
 ---
-
 # Kimi K2.6 vs Claude Opus 4.7 on autonomous coding tasks
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1sx79xf/kimi_k26_vs_claude_opus_47_on_autonomous_coding/)

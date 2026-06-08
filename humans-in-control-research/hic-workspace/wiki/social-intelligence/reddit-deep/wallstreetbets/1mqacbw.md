@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1mqacbw.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1mqacbw/open_full_port_300k_yolo/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,27 @@ flair: "YOLO"
 extracted_at: "2026-05-16T20:54:42.978Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mqacbw.md#c0"
+    char_span: [0, 454]
+    sentence_count: 3
+    key_terms: [wallstreetbets, comments, gamestop, opendoor, trade, yoloallinbro, environment, reddit-deep]
+    token_count: 133
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mqacbw.md#c1"
+    char_span: [469, 1842]
+    sentence_count: 7
+    key_terms: [wsb, open, philooch, discord, cheap, https, total, years]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mqacbw.md#c2"
+    char_span: [1844, 2024]
+    sentence_count: 1
+    key_terms: [bb429100230e44000ce0698b9af4b906655baea5, particular-ad9304, xux7kr2ai1jf1, compared, gamestop, preview, format, https]
+    section: Comments
+    token_count: 72
 ---
-
 # OPEN Full Port $300K YOLO
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1mqacbw/open_full_port_300k_yolo/)

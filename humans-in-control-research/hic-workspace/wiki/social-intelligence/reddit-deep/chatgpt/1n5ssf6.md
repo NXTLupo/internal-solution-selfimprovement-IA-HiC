@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1n5ssf6.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1n5ssf6/what_happens_when_chatgpt_runs_a_stock_portfolio/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,62 @@ flair: "Educational Purpose Only "
 extracted_at: "2026-05-11T16:54:08.804Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c0"
+    char_span: [0, 1882]
+    sentence_count: 6
+    key_terms: [chatgpt, portfolio, ratio, trading, annualized, comments, prompts, results]
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c1"
+    char_span: [1884, 3619]
+    sentence_count: 11
+    key_terms: [com, chatgpt-micro-cap-experiment, https, research, nathanbsmith729, github, luckyone7777, nathanbsmith]
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c2"
+    char_span: [3634, 4479]
+    sentence_count: 6
+    key_terms: [please, conversation, image, post, r-chatgpt-1050422060352024636, concerns, chatgpt-shared-links-faq, chatgpt]
+    section: Comments
+    token_count: 224
+  - id: "social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c3"
+    char_span: [4481, 6022]
+    sentence_count: 4
+    key_terms: [remindme, days, outragedaardvark, apples, performance, benchmark, useful, index]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c4"
+    char_span: [5845, 6038]
+    sentence_count: 1
+    key_terms: [comments, chatgpt, context, nbv8nk6, reddit, remind, https, com]
+    section: Comments
+    token_count: 72
+  - id: "social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c5"
+    char_span: [6040, 6581]
+    sentence_count: 1
+    key_terms: [message, delete, reddit, remindmebot, com, compose, subject, others]
+    section: Comments
+    token_count: 196
+  - id: "social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c6"
+    char_span: [6583, 8119]
+    sentence_count: 2
+    key_terms: [remindme, days, remindmebot, message, reddit, https, com, www]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c7"
+    char_span: [7847, 9241]
+    sentence_count: 5
+    key_terms: [tubasarefun, unfettered, correctly, chatgpt, hedgies, access, market, lucky-necessary-8382]
+    section: Comments
+    token_count: 356
+  - id: "social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c8"
+    char_span: [9243, 10880]
+    sentence_count: 17
+    key_terms: [recommendations, cool, universe, against, managed, whether, bucks, bank]
+    section: Comments
+    token_count: 407
 ---
-
 # What Happens When ChatGPT Runs a Stock Portfolio? +24% Gain So Far (Prompts, Code, listed)
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1n5ssf6/what_happens_when_chatgpt_runs_a_stock_portfolio/)

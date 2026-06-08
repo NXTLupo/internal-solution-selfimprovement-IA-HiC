@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1mk5xku.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1mk5xku/gpt_5_in_chatgpt_is_available_for_free_tier/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,75 @@ flair: "News 📰"
 extracted_at: "2026-05-11T16:54:08.820Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1mk5xku.md#c0"
+    char_span: [0, 269]
+    sentence_count: 1
+    key_terms: [chatgpt, comments, severalseat2176, reddit-deep, available, posted, reddit, source]
+    token_count: 88
+  - id: "social-intelligence/reddit-deep/chatgpt/1mk5xku.md#c1"
+    char_span: [284, 1311]
+    sentence_count: 6
+    key_terms: [please, conversation, image, post, r-chatgpt-1050422060352024636, concerns, chatgpt-shared-links-faq, chatgpt]
+    section: Comments
+    token_count: 284
+  - id: "social-intelligence/reddit-deep/chatgpt/1mk5xku.md#c2"
+    char_span: [1313, 2780]
+    sentence_count: 8
+    key_terms: [technology, different, limited, preview, format, https, using, width]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/chatgpt/1mk5xku.md#c3"
+    char_span: [2782, 4459]
+    sentence_count: 6
+    key_terms: [cd43c6f15e9585a7f0b054b2c78cf6e82681c309, emoji, laughing, whatever, because, product, competitive-buyer386, means]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1mk5xku.md#c4"
+    char_span: [4256, 4703]
+    sentence_count: 2
+    key_terms: [chatgpt4o, competitive-buyer386, present-breakfast700, dowjonesjr12, magnanimous, available, "could've", honestly]
+    section: Comments
+    token_count: 148
+  - id: "social-intelligence/reddit-deep/chatgpt/1mk5xku.md#c5"
+    char_span: [4705, 4912]
+    sentence_count: 1
+    key_terms: [mzfpn0ehxnhf1, preview, format, iphone, hours, https, later, width]
+    section: Comments
+    token_count: 84
+  - id: "social-intelligence/reddit-deep/chatgpt/1mk5xku.md#c6"
+    char_span: [4914, 6403]
+    sentence_count: 9
+    key_terms: [rolling, critical-weird-3391, model, civilized-engineer, cloudsasw1tnesses, ask, "i'm", next]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/chatgpt/1mk5xku.md#c7"
+    char_span: [6408, 7711]
+    sentence_count: 5
+    key_terms: [using, gpt, fdffad23ca322fa46c883945d3d80940ca1374fb, ask, chatgpt, preview, button, format]
+    section: Comments
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/chatgpt/1mk5xku.md#c8"
+    char_span: [7713, 8504]
+    sentence_count: 3
+    key_terms: [gpt-5, scrotalultrasound, tfkyt0lrypxf2u5z, conversations, blue-circle, flashcards, livestream, multimodal]
+    section: Comments
+    token_count: 234
+  - id: "social-intelligence/reddit-deep/chatgpt/1mk5xku.md#c9"
+    char_span: [8506, 10200]
+    sentence_count: 6
+    key_terms: [interesting-fox4064, conversations, app, available, ekkobelli, probably, created, french]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1mk5xku.md#c10"
+    char_span: [10019, 11222]
+    sentence_count: 4
+    key_terms: [krabbypattycereal, "don't", missing, version, "you're", advantagetechnical86, pro, sam]
+    section: Comments
+    token_count: 380
 ---
-
 # GPT 5 in ChatGPT is available for FREE Tier 😭
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1mk5xku/gpt_5_in_chatgpt_is_available_for_free_tier/)

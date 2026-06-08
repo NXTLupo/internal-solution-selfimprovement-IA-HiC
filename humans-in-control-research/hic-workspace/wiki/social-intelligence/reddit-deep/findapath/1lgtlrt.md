@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1lgtlrt.md
 url: "https://www.reddit.com/r/findapath/comments/1lgtlrt/changing_career_path_after_i_started_working_for/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,27 @@ flair: "Findapath-Career Change"
 extracted_at: "2026-05-25T13:04:07.387Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce, higher_ed, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1lgtlrt.md#c0"
+    char_span: [0, 1023]
+    sentence_count: 9
+    key_terms: [work, hate, year, findapath, anything, comments, because, started]
+    token_count: 234
+  - id: "social-intelligence/reddit-deep/findapath/1lgtlrt.md#c1"
+    char_span: [1038, 3252]
+    sentence_count: 16
+    key_terms: [thank, helpful, please, find, findapath, marketing, comments, everyone]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/findapath/1lgtlrt.md#c2"
+    char_span: [3254, 3318]
+    sentence_count: 1
+    key_terms: [requirements, educational, job, look]
+    section: Comments
+    token_count: 12
 ---
-
 # Changing career path after I started working for a year
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1lgtlrt/changing_career_path_after_i_started_working_for/)

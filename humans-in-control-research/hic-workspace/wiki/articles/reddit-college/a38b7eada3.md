@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-college/a38b7eada3.md
 url: "https://reddit.com/r/college/comments/1mhj4b8/building_an_do_dumb_shit_safely_bag_for_my_niece/"
 url_hash: "a38b7eada3"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-14T12:24:54.616760+00:00"
 chars: 708
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-college/a38b7eada3.md#c0"
+    char_span: [0, 926]
+    sentence_count: 7
+    key_terms: [college, bag, dorm, dumb, shit, students, reddit, safely]
+    token_count: 231
 ---
-
 # Building an "Do dumb shit, safely" bag for my niece to keep in her dorm, what goes in it
 
 Source: [reddit: college](https://reddit.com/r/college/comments/1mhj4b8/building_an_do_dumb_shit_safely_bag_for_my_niece/)

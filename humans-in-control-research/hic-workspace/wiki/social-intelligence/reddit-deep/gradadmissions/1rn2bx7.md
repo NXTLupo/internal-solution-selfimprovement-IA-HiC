@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1rn2bx7.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rn2bx7/got_into_ucla/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,21 @@ flair: "Education"
 extracted_at: "2026-05-22T23:33:50.637Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rn2bx7.md#c0"
+    char_span: [0, 549]
+    sentence_count: 2
+    key_terms: [gradadmissions, beyond, comments, applied, excited, got, reddit-deep, experience]
+    token_count: 135
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rn2bx7.md#c1"
+    char_span: [564, 1731]
+    sentence_count: 7
+    key_terms: [congratulations, thank, fsan13, wonderful, connect, welcome, "you're", ambitious-soil1229]
+    section: Comments
+    token_count: 398
 ---
-
 # Got into UCLA!
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rn2bx7/got_into_ucla/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1mgvb3p.md
 url: "https://www.reddit.com/r/personalfinance/comments/1mgvb3p/terminal_illness_at_age_35_that_will_require/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,68 @@ flair: "Retirement"
 extracted_at: "2026-05-17T01:13:31.187Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [healthcare, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1mgvb3p.md#c0"
+    char_span: [0, 2084]
+    sentence_count: 16
+    key_terms: [continue, retirement, long-term, accounts, personalfinance, working, advice, contributing]
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/personalfinance/1mgvb3p.md#c1"
+    char_span: [2086, 2515]
+    sentence_count: 1
+    key_terms: [combined, "spouse's", savings, spouses, student, income, loans, traditional]
+    token_count: 134
+  - id: "social-intelligence/reddit-deep/personalfinance/1mgvb3p.md#c2"
+    char_span: [2530, 4520]
+    sentence_count: 16
+    key_terms: [personalfinance, consider, retirement, fiduciary, financial, subreddit, helpful, advice]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/personalfinance/1mgvb3p.md#c3"
+    char_span: [4522, 6357]
+    sentence_count: 17
+    key_terms: [voice, als, cloning, people, offer, support, working, family]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/personalfinance/1mgvb3p.md#c4"
+    char_span: [6359, 7885]
+    sentence_count: 12
+    key_terms: [support, apple, passed, en-us, folks, https, voice, als]
+    section: Comments
+    token_count: 375
+  - id: "social-intelligence/reddit-deep/personalfinance/1mgvb3p.md#c5"
+    char_span: [7888, 10104]
+    sentence_count: 17
+    key_terms: [spouse, taxes, beneficiary, inheritance, care, get, tax, want]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/personalfinance/1mgvb3p.md#c6"
+    char_span: [10108, 12352]
+    sentence_count: 16
+    key_terms: [strategically, "don't", life, absolutely, directives, dependent, diagnosis, naneeja]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/personalfinance/1mgvb3p.md#c7"
+    char_span: [12356, 13668]
+    sentence_count: 12
+    key_terms: [care, financial, attorney, related, lawyer, elder, state, best]
+    section: Comments
+    token_count: 290
+  - id: "social-intelligence/reddit-deep/personalfinance/1mgvb3p.md#c8"
+    char_span: [13670, 15534]
+    sentence_count: 17
+    key_terms: ["i'm", working, als, like, retirement, diagnosis, financial, questions]
+    section: Comments
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/personalfinance/1mgvb3p.md#c9"
+    char_span: [15536, 17518]
+    sentence_count: 13
+    key_terms: [family, disease, hungryl1kewolf, care, life, vent, want, volunteer]
+    section: Comments
+    token_count: 442
 ---
-
 # Terminal illness at age 35 that will require caretakers - seeking advice for strategizing with retirement accounts
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1mgvb3p/terminal_illness_at_age_35_that_will_require/)

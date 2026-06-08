@@ -1,17 +1,21 @@
 ---
+id: synthesis/export-failures.md
 title: Export Failure Patterns
 type: synthesis
 updated: 2026-05-24
 generated_by: human-observed + Claude post-mortem
+chunks:
+  - id: "synthesis/export-failures.md#c0"
+    char_span: [0, 2624]
+    sentence_count: 4
+    key_terms: [evidence, transformation, including, maturity, research-findings, digital, metrics, student]
+    token_count: 463
 ---
-
-# Higher Education AI Integration and Initiatives
-
-- Northeastern University is actively developing AI tools, including an LLM-enabled First-Year Readiness Roadmap, to analyze student resumes and declared majors against employer skill requirements to identify skill gaps early, democratize access to resources, provide learning prompts, and improve co-op matching [evidence/research-findings.md].
-- AI integration is expanding across higher education operations, including teaching, student support, admissions, and research workflows, as demonstrated by a CSU survey of over 94,000 faculty, staff, and students across 22 campuses, signaling a shift toward AI-driven institutional productivity and efficiency [evidence/research-findings.md].
-- The integration of AI in education has increased scrutiny and standardization regarding AI ethics, privacy, and regulatory oversight, including initiatives like NIST's AI Agent Standards, alongside growing pressure on universities for transparency in funding and donor relationships to mitigate reputational risks [evidence/research-findings.md].
 
 # CX Maturity and Digital Transformation Benchmarks
 
-- Current frameworks for CX organizational readiness, maturity assessment findings, and progression patterns (including Gartner 5-stage and Forrester 4-stage models) are currently speculative hypotheses awaiting validation from primary sources [evidence/cx-maturity.md].
-- Widely cited digital transformation metrics, such as the McKinsey 70% failure rate and Gartner's 33% MarTech utilization rate, are currently unverified hypotheses requiring primary source ingestion and contextual verification [evidence/digital-transformation.md].
+## Speculative CX Maturity Frameworks
+Frameworks and benchmarks regarding customer experience (CX) organizational readiness, maturity assessment findings, progression patterns, and maturity-to-outcome correlations are currently speculative hypotheses [evidence/cx-maturity.md]. The benchmark data in `benchmarks/maturity-models` is currently unverified and requires primary sources—such as Gartner reports, Forrester CX Index data, and client assessments—to be validated and upgraded to partially evidenced or evidenced status [evidence/cx-maturity.md].
+
+## Unverified Digital Transformation Metrics
+Metrics and benchmarks related to digital transformation—including success and failure rates, technology adoption patterns, change management effectiveness, technology ROI, and organizational factors that predict transformation outcomes—remain unverified [evidence/digital-transformation.md]. The benchmark data in `benchmarks/technology-adoption` is currently classified as a hypothesis and requires primary sources—such as McKinsey transformation studies, Gartner surveys, Deloitte/MIT digital maturity research, and client case studies—to establish verified evidence [evidence/digital-transformation.md].

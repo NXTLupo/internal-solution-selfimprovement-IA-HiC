@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1sruz6q/intel_dd_earnings_play_crash/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,61 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:14:17.611Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c0"
+    char_span: [0, 2156]
+    sentence_count: 8
+    key_terms: [intel, tsmc, latest, currently, fab, wallstreetbets, tools, marketshare]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c1"
+    char_span: [2158, 4360]
+    sentence_count: 14
+    key_terms: [intel, "it's", furthermore, companies, cpus, earnings, market, being]
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c2"
+    char_span: [4362, 4710]
+    sentence_count: 3
+    key_terms: [intel, profitability, economically, questionable, especially, irrational, financial, expiring]
+    token_count: 79
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c3"
+    char_span: [4725, 6359]
+    sentence_count: 11
+    key_terms: [intel, build, oracle, chips, deals, circular, discord, project]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c4"
+    char_span: [6361, 8390]
+    sentence_count: 16
+    key_terms: [company, super-activity-4675, crash, intel, appletrees2, companies, training, capital]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c5"
+    char_span: [8392, 9330]
+    sentence_count: 9
+    key_terms: [intel, earnings, already, people, china, buy, oil, gorginhanson]
+    section: Comments
+    token_count: 232
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c6"
+    char_span: [9332, 11361]
+    sentence_count: 14
+    key_terms: [intel, national, security, already, going, goodboxclub, lol, company]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c7"
+    char_span: [11366, 13284]
+    sentence_count: 12
+    key_terms: [intel, years, earnings, been, time, precision, "hasn't", newtembarrassed8722]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c8"
+    char_span: [13286, 13396]
+    sentence_count: 1
+    key_terms: [loss, pics, appletrees2, toilet, gonna, learn, print, yoooo]
+    section: Comments
+    token_count: 36
 ---
-
 # Intel DD : Earnings play, crash
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1sruz6q/intel_dd_earnings_play_crash/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1q8gwe2.md
 url: "https://www.reddit.com/r/college/comments/1q8gwe2/has_classroom_engagement_always_been_so_bad_or_is/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,66 @@ subreddit: "college"
 title: "Has classroom engagement always been so bad or is it a new phenomenon?"
 author: "VentureCatalyst00"
 date: "2026-01-09T18:55:53.000Z"
-score: 252
+score: 255
 upvote_ratio: 0.98
 num_comments: 69
 flair: ""
-extracted_at: "2026-05-19T17:57:40.133Z"
+extracted_at: "2026-06-02T17:23:15.267Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "For a higher education institution, develop a strategic framework to increase donorship, giving, advancement, and alumni engagement, leveraging AI and digital marketing tactics. This framework must include a strategic narrative, industry analysis, competitive analysis, and opportunity analysis. Additionally, create a diverse set of 25 donor, student, alumni, and stakeholder personas, supported by evidence and quotes."
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1q8gwe2.md#c0"
+    char_span: [0, 1163]
+    sentence_count: 9
+    key_terms: [class, questions, college, "it's", accounting, engagement, classroom, professor]
+    token_count: 276
+  - id: "social-intelligence/reddit-deep/college/1q8gwe2.md#c1"
+    char_span: [1178, 3295]
+    sentence_count: 18
+    key_terms: [students, student, participate, class, years, bad, been, discussion]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/college/1q8gwe2.md#c2"
+    char_span: [3297, 5547]
+    sentence_count: 20
+    key_terms: ["it's", participate, feel, students, school, class, high, like]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/college/1q8gwe2.md#c3"
+    char_span: [5549, 6831]
+    sentence_count: 14
+    key_terms: ["i'm", "don't", ask, questions, students, talking, answer, human]
+    section: Comments
+    token_count: 300
+  - id: "social-intelligence/reddit-deep/college/1q8gwe2.md#c4"
+    char_span: [6833, 9167]
+    sentence_count: 15
+    key_terms: [majors, classes, english, eds, gen, get, stem, skills]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/college/1q8gwe2.md#c5"
+    char_span: [9169, 10150]
+    sentence_count: 3
+    key_terms: [classes, like, definitely, frequently, percentage, students, because, get]
+    section: Comments
+    token_count: 228
+  - id: "social-intelligence/reddit-deep/college/1q8gwe2.md#c6"
+    char_span: [10152, 12234]
+    sentence_count: 14
+    key_terms: [class, professor, students, communications, completely, learning, semester, college]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/college/1q8gwe2.md#c7"
+    char_span: [12236, 12493]
+    sentence_count: 3
+    key_terms: [least, completely, understand, something, everyone, pressure, question, readings]
+    section: Comments
+    token_count: 53
 ---
-
 # Has classroom engagement always been so bad or is it a new phenomenon?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1q8gwe2/has_classroom_engagement_always_been_so_bad_or_is/)
-Posted by **VentureCatalyst00** · **252↑** · **69 comments**
+Posted by **VentureCatalyst00** · **255↑** · **69 comments**
 
 I'm in my 2nd year of my business degree (accounting major), and something I've noticed across a lot of my classes is the sheer lack of classroom engagement from students. Hardly anyone asks any questions or answers any. 
 
@@ -30,22 +78,22 @@ Has College always been like this or is just my generation lol?
 
 ## Comments
 
-- **MightBeYourProfessor** (260↑): Phones made it bad, COVID made it worse. Professors can't strong arm students into creating a good learning environment, at some point folks are going to have to want to participate.
+- **MightBeYourProfessor** (264↑): Phones made it bad, COVID made it worse. Professors can't strong arm students into creating a good learning environment, at some point folks are going to have to want to participate.
   - **moth_party** (25↑): AI too. If you’ve been using it since freshman year you might have trouble coming up with original ideas and articulating them in class.
-- **IndieAcademic** (215↑): Instructor of almost 20 years here: College has not always been like this. As a student, my undergraduate courses were lively and filled with much discussion. As a teacher, this bad vibe is new-ish, and has been especially bad since 2020--it seems to be getting worse. In years past, when I walked into one of my classrooms before class start time, it would reliably be a boisterous scene with students chatting in small groups and pairs. Now, when I walk in, each student is sitting alone staring down at their phone, many with headphones on which signal to others not to speak them. It makes me sad. In years past, at least 2/3 of students were reliably prepared to participate in class discussions and about 1/2 of the students participated enthusiastically. Now? Most don't seem to have done the reading, and there are often only a few students who will participate, as you describe. I keep trying different strategies to up engagement and build interest; at the end of the day, I often think, "Why are you here?" Hopefully, your upper-level courses will be better! You, as a student, also deserve to interact with similarly invested students.
-  - **Redd889** (51↑): I was a returning student. When I was in high school I didn’t really talk at all. When I went back to college and stayed with it, not at a lot of people talked and they’d sit on their phones. I talked a lot more than I did in high school and classmates looked at me I was the most talkative person in class
-    - **Scorpian899** (15↑): It's honestly insane. My undergrad 2020-2025 was depressingly silent. Some professors tried to force us to talk, but only one -shoutout Will Fischer- was able to generate consistent organic discussion.
+- **IndieAcademic** (217↑): Instructor of almost 20 years here: College has not always been like this. As a student, my undergraduate courses were lively and filled with much discussion. As a teacher, this bad vibe is new-ish, and has been especially bad since 2020--it seems to be getting worse. In years past, when I walked into one of my classrooms before class start time, it would reliably be a boisterous scene with students chatting in small groups and pairs. Now, when I walk in, each student is sitting alone staring down at their phone, many with headphones on which signal to others not to speak them. It makes me sad. In years past, at least 2/3 of students were reliably prepared to participate in class discussions and about 1/2 of the students participated enthusiastically. Now? Most don't seem to have done the reading, and there are often only a few students who will participate, as you describe. I keep trying different strategies to up engagement and build interest; at the end of the day, I often think, "Why are you here?" Hopefully, your upper-level courses will be better! You, as a student, also deserve to interact with similarly invested students.
+  - **Redd889** (53↑): I was a returning student. When I was in high school I didn’t really talk at all. When I went back to college and stayed with it, not at a lot of people talked and they’d sit on their phones. I talked a lot more than I did in high school and classmates looked at me I was the most talkative person in class
+    - **Scorpian899** (14↑): It's honestly insane. My undergrad 2020-2025 was depressingly silent. Some professors tried to force us to talk, but only one -shoutout Will Fischer- was able to generate consistent organic discussion.
 
 I remember talking with a girl near the end of the semester in a course on financial institutions and capital markets. She was asking me how I managed to talk during class. My response was that talking helped me learn the material and it helped answer any questions I might have had. As an added bonus, the professor was prone to tangents and would remove any material not covered off the midterm/final. She seemed absolutely astounded that I just talked.
 
 My graduate studies are far better. But, the masters program is a-sync remote so the chance of interaction is lower.
-    - **CaramelEquivalent979** (5↑): Lmao omg. This is gonna be me for most of my English classes. I never participate or raise my hand at all in high school because I always feel embarrassed. But in university, I feel like I want to be a little more confident and answer the questions and participate in discussions. I feel like it’s more of an open space to do that in university compared to high school. I feel like the quiet kids in high school tend to be the ones who participate the most in uni 😂🥲🙏
+    - **CaramelEquivalent979** (4↑): Lmao omg. This is gonna be me for most of my English classes. I never participate or raise my hand at all in high school because I always feel embarrassed. But in university, I feel like I want to be a little more confident and answer the questions and participate in discussions. I feel like it’s more of an open space to do that in university compared to high school. I feel like the quiet kids in high school tend to be the ones who participate the most in uni 😂🥲🙏
   - **Thunderplant** (41↑): >In years past, when I walked into one of my classrooms before class start time, it would reliably be a boisterous scene with students chatting in small groups and pairs. Now, when I walk in, each student is sitting alone staring down at their phone, many with headphones on which signal to others not to speak them.
 
 Omg I've noticed this too and it's a shocking change. When I first went to college, it was completely normal to talk to classmates before class and to form study groups as well. Now, not only does that not happen, but students have told me it would be creepy or weird to ask other students to work on homework or study together. Its crazy how much social norms changed in such a short period of time
 
 That shit is so important to learning and it's just completely missing, it makes me so sad
-    - **Humble-Bar-7869** (19↑): Studying and working together on homework was not only common - it's really helpful. 
+    - **Humble-Bar-7869** (20↑): Studying and working together on homework was not only common - it's really helpful. 
 
 It's hard to learn and memorize just staring at your notes by yourself. It's much easier and more motivating with a partner. 
 
@@ -58,32 +106,32 @@ I'm sad my students don't say hi in the mornings. I'm sad there's so little inte
 
 I'm not even talking academics, which suffer when people don't ask questions. I'm talking about basic human happiness.
   - **Baribulori** (3↑): This! I'm also a prof. It breaks my heart.
-- **rock-paper-o** (46↑): My experience is that widespread phone access has part of the explanation. 
+- **rock-paper-o** (44↑): My experience is that widespread phone access has part of the explanation. 
 
 Historically one of the more powerful tools was to ask a question and just wait a bit. It gives everybody time to think and muster up the nerve to answer and after a while it becomes awkward to sit in silence. 
 
 Except having instant entertainment makes it easier to sit in silence and having the risk peers will record you making a mistake makes it harder for students to work up the nerve to make an attempt (even in thinks like a calculus class where most mistakes aren’t going to be related to any sensitive topics)
-- **InfiniteAd212** (46↑): I’m an engineering major and surprisingly enough the classes with the most engagement from students has been engineering classes. A lot of the gen eds I took were full of a lot of people that seemed like they couldn’t care less about what was actually going on. I’m not sure what it is specifically although it’s highly likely the lack of face to face interaction our generation grew up with mixed in with just a genuine disinterest to either learn or speak up and be seen as “weird” or “trying too hard.”
-  - **Humble-Bar-7869** (22↑): There's an attitude from STEM majors particularly that their majors are superior, and that gen eds are easier / inferior / useless. And they need to "get through them" to get the degree.
+- **InfiniteAd212** (45↑): I’m an engineering major and surprisingly enough the classes with the most engagement from students has been engineering classes. A lot of the gen eds I took were full of a lot of people that seemed like they couldn’t care less about what was actually going on. I’m not sure what it is specifically although it’s highly likely the lack of face to face interaction our generation grew up with mixed in with just a genuine disinterest to either learn or speak up and be seen as “weird” or “trying too hard.”
+  - **Humble-Bar-7869** (23↑): There's an attitude from STEM majors particularly that their majors are superior, and that gen eds are easier / inferior / useless. And they need to "get through them" to get the degree.
 
 One of my English classes is a popular elective for non-English majors, and I get this a lot. As an adult who's worked for decades, I know that they NEED to have basic communication skills. We're not learning Shakespeare - we're learning business / workplace English. But they just don't care since I'm not teaching STEM. It's very disheartening.
     - **InfiniteAd212** (11↑): It’s true that too many stem majors don’t prioritize their communicative skills. However, at my school it was pretty much anybody but english majors that would even join in on the professors conversations. It was the same with any gen eds really, where you would barely see anybody engaged into what was going on. In my honest opinion I do feel that universities require too many gen eds but I full heartedly agree with requiring 2 English’s or 1 ENG and 1 COM. Soft skills are necessary no matter what you do because no matter what job you try to get it all starts with a CONVERSATION.
-  - **rotatingruhnama** (6↑): I'm a health care major at a community college, doing prereqs. I've definitely noticed that my STEM classes have WAY more engagement than my more general courses. 
+  - **rotatingruhnama** (7↑): I'm a health care major at a community college, doing prereqs. I've definitely noticed that my STEM classes have WAY more engagement than my more general courses. 
 
 I took a psych class where some days I was the only person who participated, even though it was part of our grade.
 
 And my communications class was absolute torture, I felt like it was pulling teeth to get people to do a blessed thing on assignments. I had to go see my advisor and program director to get me out of there because omg.
   - **ohcoolausername** (2↑): I definitely notice a higher percentage of participation in my math classes (like 10 out of 40 students frequently) than my CS classes (like 10 out of 100 students frequently) but that might just be because of the size difference in the classes. I think small gen eds that I took had a similar level of engagement as my math classes but the larger ones had waaaay less (percentage wise)
-- **meganfrau** (60↑): Be the change you want to see, some of these kids think it’s cringe to be perceived as caring about education (or anything).
-- **Peach-main841** (21↑): As a non traditional student who initially took classes at a junior college in like 2014 I’m now getting my bachelors at 30 it’s definitely different from my experience. 
+- **meganfrau** (57↑): Be the change you want to see, some of these kids think it’s cringe to be perceived as caring about education (or anything).
+- **Peach-main841** (22↑): As a non traditional student who initially took classes at a junior college in like 2014 I’m now getting my bachelors at 30 it’s definitely different from my experience. 
 
 I will say it makes being a professor favorite easy as pie. So, I say just learn what you can do networking where you can and let these kids pass by using AI and not learning anything bc it will wipe out your competition when it comes time to graduate and find a job. Good luck.
-  - **Thunderplant** (13↑): I attended college in 2012-13 and then later from 2018-21; even in those 5 years things changed drastically. It went from completely normal to talk to people to completely weird.
+  - **Thunderplant** (12↑): I attended college in 2012-13 and then later from 2018-21; even in those 5 years things changed drastically. It went from completely normal to talk to people to completely weird.
   - **xjulesx21** (6↑): pretty much same boat as you & strongly agree. very different vibe in class now vs when I went in 2015.
 - **SpecialistOdd7047** (20↑): I took a healthcare communications class last semester and I swear only like 3 of us talked and no one seemed to want to be there. I felt so bad for the prof. It was also frustrating being in a communications class and no one wanted to communicate lol. I did my best to get everything out of the class though.
-  - **rotatingruhnama** (2↑): I had to go see my advisor and program director and basically negotiate/beg my way out of my comm course. It was excruciating.
+  - **rotatingruhnama** (3↑): I had to go see my advisor and program director and basically negotiate/beg my way out of my comm course. It was excruciating.
 - **PM_ME_YOUR_TATERTITS** (14↑): I’m having the same problem. Participation is worth 20% of our grade and yet 90% of the class is fine with taking a zero instead of just making some small contributions
-- **Redd889** (11↑): Covid/online learning took a lot of involvement away. 
+- **Redd889** (12↑): Covid/online learning took a lot of involvement away. 
 
 I TA’ed during Covid and in a “breakout room” on Zoom I entered one and overheard threee students like “can’t the damn TA just give us the worksheet and collect it? Why are we still logged in?”
 - **ValuableMistake8521** (12↑): I’m a freshman and in most of my classes last semester hardly anyone spoke up, granted I go to a small college but still! I was in an English class with probably 15-20 students. Our professor was super nice and often gave segue to conversations, often you didn’t even need to do the reading, a good guess would have sufficed. But for almost every class, me and 2-3 other students would answer or ask questions, unless the professor directly asked another student.

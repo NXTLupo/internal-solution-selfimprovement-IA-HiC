@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1lbfto6.md
 url: "https://www.reddit.com/r/college/comments/1lbfto6/master_in_computer_science_2_years_or_master_in/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 0.67
 num_comments: 3
 flair: "Europe"
-extracted_at: "2026-05-23T14:53:53.128Z"
+extracted_at: "2026-06-05T16:17:48.499Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1lbfto6.md#c0"
+    char_span: [0, 1888]
+    sentence_count: 17
+    key_terms: [science, years, college, data, computer, data-scientists, master, https]
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/college/1lbfto6.md#c1"
+    char_span: [1903, 2315]
+    sentence_count: 1
+    key_terms: [deleted, redact, ill-map-1024, anonymized, continue, hospital, shocking, applied]
+    section: Comments
+    token_count: 109
 ---
-
 # Master in Computer science (2 years) or Master in Applied Data Science (1 year)?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1lbfto6/master_in_computer_science_2_years_or_master_in/)

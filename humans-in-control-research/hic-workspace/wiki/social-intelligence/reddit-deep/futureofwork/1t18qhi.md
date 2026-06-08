@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/futureofwork/1t18qhi.md
 url: "https://www.reddit.com/r/FutureOfWork/comments/1t18qhi/a_blueprint_for_irelands_workforce_transition_to/"
 kind: "social-post"
 source: "reddit-deep: r/futureofwork"
@@ -13,8 +14,37 @@ flair: ""
 extracted_at: "2026-05-26T12:54:26.436Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/futureofwork/1t18qhi.md#c0"
+    char_span: [0, 2211]
+    sentence_count: 18
+    key_terms: [interested, document, post-agi, reddit, futureofwork, state, transition, something]
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/futureofwork/1t18qhi.md#c1"
+    char_span: [2213, 3881]
+    sentence_count: 3
+    key_terms: [energy, state-owned, data, automated, digital, bridge, grind, food]
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/futureofwork/1t18qhi.md#c2"
+    char_span: [3883, 4371]
+    sentence_count: 3
+    key_terms: [people, costs, tax, self-sufficient, infrastructure, immediately, independent, high-speed]
+    token_count: 139
+  - id: "social-intelligence/reddit-deep/futureofwork/1t18qhi.md#c3"
+    char_span: [4386, 6553]
+    sentence_count: 14
+    key_terms: [projects, country, plan, planning, around, contingency, transition, ambitious]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/futureofwork/1t18qhi.md#c4"
+    char_span: [6555, 7824]
+    sentence_count: 8
+    key_terms: [digital, twin, pressure, across, system, findingbalancedaily, based, like]
+    section: Comments
+    token_count: 244
 ---
-
 # A Blueprint for Ireland's Workforce Transition to the Post-AGI Economy (2030–2040)
 
 Source: [reddit-deep: r/futureofwork](https://www.reddit.com/r/FutureOfWork/comments/1t18qhi/a_blueprint_for_irelands_workforce_transition_to/)

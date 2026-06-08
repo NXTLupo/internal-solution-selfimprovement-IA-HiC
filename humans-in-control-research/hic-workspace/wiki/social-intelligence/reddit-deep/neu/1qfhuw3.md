@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1qfhuw3.md
 url: "https://www.reddit.com/r/NEU/comments/1qfhuw3/northeastern_coop_chrome_extension/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -6,19 +7,30 @@ subreddit: "neu"
 title: "Northeastern Co-op Chrome Extension"
 author: "turtlecap1324"
 date: "2026-01-17T16:37:12.000Z"
-score: 73
+score: 72
 upvote_ratio: 0.99
 num_comments: 9
 flair: "Co-op & Career"
-extracted_at: "2026-05-13T23:02:38.889Z"
+extracted_at: "2026-06-05T17:08:22.603Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1qfhuw3.md#c0"
+    char_span: [0, 1854]
+    sentence_count: 9
+    key_terms: [https, co-op, co-ops, nucoop, nuworks-co-op-grader, app, tool, chrome-extension]
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/neu/1qfhuw3.md#c1"
+    char_span: [1869, 2551]
+    sentence_count: 5
+    key_terms: [turtlecap1324, thank, academicweapon149, cake, day, julianproskillz, northeastern, innovators]
+    section: Comments
+    token_count: 212
 ---
-
 # Northeastern Co-op Chrome Extension
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1qfhuw3/northeastern_coop_chrome_extension/)
-Posted by **turtlecap1324** · **73↑** · **9 comments**
+Posted by **turtlecap1324** · **72↑** · **9 comments**
 
 # 🔗 Link: [https://nucoop.app/](https://nucoop.app/)
 
@@ -51,7 +63,7 @@ Let me know if this is useful, and good luck with your co-op search!
 
 ## Comments
 
-- **dark_stallion_99** (10↑): Awesome stuff!
+- **dark_stallion_99** (9↑): Awesome stuff!
   - **turtlecap1324** (2↑): Thank you!
     - **exclaim_bot** (1↑): >Thank you!
 
@@ -60,5 +72,5 @@ You're welcome!
   - **turtlecap1324** (1↑): Thank you, twin🙏🙏
 - **AcademicWeapon149** (1↑): OP, this looks really good! Happy cake day too 🍰
   - **turtlecap1324** (2↑): Thank you! Didn’t even realize that today was that day lol
-- **Yyyapi** (-9↑): This Chrome extension feels like cake and kiwi for your brain—pure knowledge in a turtlecap that smooths workflows so well that when shit happens, the friction just fades. Love northeastern and its little innovators.
+- **Yyyapi** (-10↑): This Chrome extension feels like cake and kiwi for your brain—pure knowledge in a turtlecap that smooths workflows so well that when shit happens, the friction just fades. Love northeastern and its little innovators.
   - **turtlecap1324** (7↑): Bud.

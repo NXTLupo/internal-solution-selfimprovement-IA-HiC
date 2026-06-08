@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-college/0bcf45dce7.md
 url: "https://www.reddit.com/r/college/comments/1kzcj12/having_a_baby_in_college/"
 url_hash: "0bcf45dce7"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-19T18:04:58.196650+00:00"
 chars: 2537
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-college/0bcf45dce7.md#c0"
+    char_span: [0, 2078]
+    sentence_count: 13
+    key_terms: [college, resources, live, pregnant, housing, baby, home, too]
+    token_count: 483
+  - id: "articles/reddit-deep-r-college/0bcf45dce7.md#c1"
+    char_span: [2080, 2678]
+    sentence_count: 8
+    key_terms: [smartwonderwoman, halflingmelody, apartment, boyfriend, commenter, encounter, financial, mentioned]
+    token_count: 137
 ---
-
 # Having a baby in college
 
 Source: [Reddit Deep: r/college](https://www.reddit.com/r/college/comments/1kzcj12/having_a_baby_in_college/)

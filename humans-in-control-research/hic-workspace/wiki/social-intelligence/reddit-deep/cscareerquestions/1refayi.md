@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1refayi.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1refayi/i_tracked_job_openings_at_anthropic_for_the_past/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,44 @@ flair: ""
 extracted_at: "2026-05-19T17:57:56.740Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1refayi.md#c0"
+    char_span: [0, 1028]
+    sentence_count: 4
+    key_terms: [anthropic, cscareerquestions, hiring, swe, swes, comments, openings, away]
+    token_count: 244
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1refayi.md#c1"
+    char_span: [1030, 2122]
+    sentence_count: 1
+    key_terms: [amodei, anthropic-hiring-vs-ai-replacement, dario, ceo, feb, jan, anthropic, engineer]
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1refayi.md#c2"
+    char_span: [2137, 4270]
+    sentence_count: 13
+    key_terms: [fundamental, models, limitations, chatgpt, https, frenchfreer, information, com]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1refayi.md#c3"
+    char_span: [4272, 6328]
+    sentence_count: 13
+    key_terms: [new, need, use, executives, probably, product, saying, "don't"]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1refayi.md#c4"
+    char_span: [6330, 7774]
+    sentence_count: 8
+    key_terms: [claude, communication, code, tech, believe, company, status, being]
+    section: Comments
+    token_count: 353
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1refayi.md#c5"
+    char_span: [7776, 8899]
+    sentence_count: 2
+    key_terms: [startup, u4fhrvs8if9tandyp, dolphinsfan15521, intensification, intensifies, themselves, available, companies]
+    section: Comments
+    token_count: 290
 ---
-
 # I tracked job openings at Anthropic for the past year, their hiring tells a different story than their CEO about AI replacing SWEs
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1refayi/i_tracked_job_openings_at_anthropic_for_the_past/)

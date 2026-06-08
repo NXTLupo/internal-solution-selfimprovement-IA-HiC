@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1qlgbwj.md
 url: "https://www.reddit.com/r/artificial/comments/1qlgbwj/opensource_experiment_crowddriven_software/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -10,11 +11,18 @@ score: 1
 upvote_ratio: 0.67
 num_comments: 0
 flair: "Computing"
-extracted_at: "2026-05-11T16:53:08.152Z"
+extracted_at: "2026-05-28T01:32:00.773Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+research_goal: "Identify a comprehensive new strategy for experiential learning for the AI era based on the collected data"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1qlgbwj.md#c0"
+    char_span: [0, 486]
+    sentence_count: 2
+    key_terms: [artificial, comments, vs4vijay, github, https, com, crowd-driven, development]
+    token_count: 120
 ---
-
 # Open-source experiment: crowd-driven software development with AI
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1qlgbwj/opensource_experiment_crowddriven_software/)

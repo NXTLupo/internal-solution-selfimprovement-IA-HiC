@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sbtvz9.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sbtvz9/when_it_comes_to_the_job_market_and_professional/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,15 @@ flair: "Advice"
 extracted_at: "2026-05-23T14:54:05.580Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sbtvz9.md#c0"
+    char_span: [0, 1115]
+    sentence_count: 6
+    key_terms: [exchange, college, program, careerguidance, multinational, professional, internship, comments]
+    token_count: 255
 ---
-
 # When it comes to the job market and professional careers, in what ways can participating in work exchange programs be detrimental?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sbtvz9/when_it_comes_to_the_job_market_and_professional/)

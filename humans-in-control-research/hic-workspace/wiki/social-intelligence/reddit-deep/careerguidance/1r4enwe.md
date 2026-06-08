@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1r4enwe.md
 url: "https://www.reddit.com/r/careerguidance/comments/1r4enwe/is_youtube_really_a_good_place_to_learn_skills/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -6,19 +7,54 @@ subreddit: "careerguidance"
 title: "Is YouTube really a good place to learn skills?"
 author: "Defiant-Ad2342"
 date: "2026-02-14T07:43:19.000Z"
-score: 8
-upvote_ratio: 1
+score: 6
+upvote_ratio: 0.88
 num_comments: 51
 flair: "Advice"
-extracted_at: "2026-05-22T15:13:18.820Z"
+extracted_at: "2026-06-06T13:03:37.345Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c0"
+    char_span: [0, 988]
+    sentence_count: 7
+    key_terms: [learn, watching, youtube, careerguidance, comments, careers, change, people]
+    token_count: 227
+  - id: "social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c1"
+    char_span: [1003, 2584]
+    sentence_count: 12
+    key_terms: [youtube, industry, people, like, standards, learning, career, making]
+    section: Comments
+    token_count: 328
+  - id: "social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c2"
+    char_span: [2586, 4264]
+    sentence_count: 15
+    key_terms: [youtube, time, worldtallestengineer, use, defiant-ad2342, something, willpower, content]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c3"
+    char_span: [4266, 6362]
+    sentence_count: 15
+    key_terms: [learning, watching, youtube, something, specific, amazingmrbrock, defiant-ad2342, "didn't"]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c4"
+    char_span: [6364, 8547]
+    sentence_count: 13
+    key_terms: [learning, defiant-ad2342, youtube, thin-blueberry9183, new, resource, career, learn]
+    section: Comments
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c5"
+    char_span: [8549, 8756]
+    sentence_count: 1
+    key_terms: [defiant-ad2342, particular, channels, searches, project, someway, towards, career]
+    section: Comments
+    token_count: 57
 ---
-
 # Is YouTube really a good place to learn skills?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1r4enwe/is_youtube_really_a_good_place_to_learn_skills/)
-Posted by **Defiant-Ad2342** · **8↑** · **51 comments**
+Posted by **Defiant-Ad2342** · **6↑** · **51 comments**
 
 I’m currently trying to upskill and potentially change careers, and like most people, I’ve spent a lot of time on YouTube watching tutorials. On one hand, it feels like the biggest free university in the world. You can learn coding, marketing, design, investing, literally almost anything from people who are actually doing it in real life.
 

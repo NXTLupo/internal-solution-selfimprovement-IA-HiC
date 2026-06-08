@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1oyx51p.md
 url: "https://www.reddit.com/r/internships/comments/1oyx51p/need_help_deciding_between_internship_offers/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,38 @@ flair: "Offers"
 extracted_at: "2026-05-23T12:15:55.802Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1oyx51p.md#c0"
+    char_span: [0, 2248]
+    sentence_count: 15
+    key_terms: [housing, relatively, northeast, pay, need, work, stipend, opportunities]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/internships/1oyx51p.md#c1"
+    char_span: [2250, 2933]
+    sentence_count: 4
+    key_terms: [tech, big, consulting, business, relevant, "i'm", work, specifically]
+    token_count: 151
+  - id: "social-intelligence/reddit-deep/internships/1oyx51p.md#c2"
+    char_span: [2948, 5022]
+    sentence_count: 16
+    key_terms: [big, madeightpie, offers, transfer, congratulations, company, "don't", thank]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1oyx51p.md#c3"
+    char_span: [4752, 6339]
+    sentence_count: 7
+    key_terms: [interned, madeightpie, interesting, work, internship, interviews, companies, congrats]
+    section: Comments
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/internships/1oyx51p.md#c4"
+    char_span: [6341, 7758]
+    sentence_count: 14
+    key_terms: [interviews, resume, beforehand, industry, specific, numbers, process, like]
+    section: Comments
+    token_count: 299
 ---
-
 # Need Help Deciding Between Internship Offers
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1oyx51p/need_help_deciding_between_internship_offers/)

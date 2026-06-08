@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1s0u0xn.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1s0u0xn/i_got_in/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,27 @@ flair: "Computer Sciences"
 extracted_at: "2026-05-23T14:54:16.714Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1s0u0xn.md#c0"
+    char_span: [0, 326]
+    sentence_count: 5
+    key_terms: [gradadmissions, comments, negative-entrance-78, got, reddit-deep, scholarship, resources, computer]
+    token_count: 93
+  - id: "social-intelligence/reddit-deep/gradadmissions/1s0u0xn.md#c1"
+    char_span: [341, 1864]
+    sentence_count: 18
+    key_terms: [congratulations, confident-physics956, congrats, take, exactly, frankly, getting, competitive-bag-3514]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/gradadmissions/1s0u0xn.md#c2"
+    char_span: [1866, 2599]
+    sentence_count: 8
+    key_terms: [get, semester, depends, per, universities, chowder1054, genuinely, immensely]
+    section: Comments
+    token_count: 191
 ---
-
 # I GOT IN!!!!!
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1s0u0xn/i_got_in/)

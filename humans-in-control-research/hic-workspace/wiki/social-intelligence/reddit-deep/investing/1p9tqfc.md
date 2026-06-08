@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1p9tqfc.md
 url: "https://www.reddit.com/r/investing/comments/1p9tqfc/advice_on_investing_strategy_multiple_etfs_to_add/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,44 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.194Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1p9tqfc.md#c0"
+    char_span: [0, 1686]
+    sentence_count: 5
+    key_terms: [portfolio, term, stocks, investing, etfs, europe, low, conviction]
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/investing/1p9tqfc.md#c1"
+    char_span: [1689, 3538]
+    sentence_count: 16
+    key_terms: [companies, etf, dividend, sector, above, etfs, like, want]
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/investing/1p9tqfc.md#c2"
+    char_span: [3553, 5621]
+    sentence_count: 13
+    key_terms: [growth, "don't", fund, progrieferhere, term, anything, probably, ideally]
+    section: Comments
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/investing/1p9tqfc.md#c3"
+    char_span: [5623, 7681]
+    sentence_count: 22
+    key_terms: ["i'm", something, less, term, personally, expecting, portfolio, continue]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/investing/1p9tqfc.md#c4"
+    char_span: [7683, 8960]
+    sentence_count: 11
+    key_terms: [diversification, good, playing, around, "you're", learn, lucky, get]
+    section: Comments
+    token_count: 312
+  - id: "social-intelligence/reddit-deep/investing/1p9tqfc.md#c5"
+    char_span: [8962, 9735]
+    sentence_count: 6
+    key_terms: [diversification-protects-you-least, civolatility, selling, https, com, "i've", "it's", www]
+    section: Comments
+    token_count: 210
 ---
-
 # Advice on investing strategy, multiple ETFs to add diversification for riskier stock portfolio?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1p9tqfc/advice_on_investing_strategy_multiple_etfs_to_add/)

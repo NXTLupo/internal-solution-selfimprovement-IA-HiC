@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1rsvgb7.md
 url: "https://www.reddit.com/r/NEU/comments/1rsvgb7/admitted_to_northeastern_university_seattle/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,20 @@ flair: "Academics"
 extracted_at: "2026-05-26T14:30:23.763Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1rsvgb7.md#c0"
+    char_span: [0, 2182]
+    sentence_count: 7
+    key_terms: [seattle, northeastern, campus, experience, co-op, university, boston, students]
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/neu/1rsvgb7.md#c1"
+    char_span: [2184, 2520]
+    sentence_count: 4
+    key_terms: [students, seattle, internships, appreciate, especially, graduation, full-time, long-term]
+    token_count: 71
 ---
-
 # Admitted to Northeastern University Seattle campus (MS CS) but wanted Boston – Need advice
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1rsvgb7/admitted_to_northeastern_university_seattle/)

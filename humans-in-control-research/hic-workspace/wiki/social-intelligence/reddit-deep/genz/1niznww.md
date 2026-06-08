@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1niznww.md
 url: "https://www.reddit.com/r/GenZ/comments/1niznww/is_the_stock_market_the_equivalent_of_a/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,51 @@ flair: "Discussion"
 extracted_at: "2026-05-16T20:55:01.228Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1niznww.md#c0"
+    char_span: [0, 934]
+    sentence_count: 10
+    key_terms: [year, inflation, comments, because, blindly, invest, market, didn]
+    token_count: 227
+  - id: "social-intelligence/reddit-deep/genz/1niznww.md#c1"
+    char_span: [949, 1515]
+    sentence_count: 2
+    key_terms: [discord, automatically, automoderator, thelastbyte, absolutely, definitely, inevitably, moderators]
+    section: Comments
+    token_count: 144
+  - id: "social-intelligence/reddit-deep/genz/1niznww.md#c2"
+    char_span: [1518, 3566]
+    sentence_count: 14
+    key_terms: [market, money, "don't", index, own, time, collective, knowledge]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/genz/1niznww.md#c3"
+    char_span: [3568, 5797]
+    sentence_count: 12
+    key_terms: [investing, economy, feeding, stocks, system, participation, real, continue]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/genz/1niznww.md#c4"
+    char_span: [5799, 7980]
+    sentence_count: 11
+    key_terms: [shareholders, companies, lives, big, like, business, benefit, pharmaceutical]
+    section: Comments
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/genz/1niznww.md#c5"
+    char_span: [7982, 9837]
+    sentence_count: 13
+    key_terms: ["it's", scheme, companies, business, "you're", money, ponzi, speculative]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/genz/1niznww.md#c6"
+    char_span: [9839, 11369]
+    sentence_count: 10
+    key_terms: [like, scheme, ponzi, stock, been, btc, government, sapphfire0]
+    section: Comments
+    token_count: 401
 ---
-
 # Is the stock market the equivalent of a generational Ponzi scheme?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1niznww/is_the_stock_market_the_equivalent_of_a/)

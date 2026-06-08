@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1t6x3he.md
 url: "https://www.reddit.com/r/NEU/comments/1t6x3he/fall_to_spring_coop_switch_for_accounting_major/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "Co-op & Career"
 extracted_at: "2026-05-12T20:58:42.348Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive digital strategy and engagement strategy for Northeastern, based on uploaded transcripts and external research, articles, youtube videos, data, etc., to be used in First-Year advising during orientation to help students identify opportunities and resources to support experiential learning in ways that will improve co-op readiness from day one. Intervention is needed to improve searcher outcomes by identifying skill gaps earlier than the first search semester, democratizing access to knowledge and resources, and enabling students to build competitive profiles and portfolios. Provide plenty of quotes and evidence to support the strategy from extracted research."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1t6x3he.md#c0"
+    char_span: [0, 1788]
+    sentence_count: 11
+    key_terms: [accounting, spring, big, fall, co-op, cycle, "i'm", extracurriculars]
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/neu/1t6x3he.md#c1"
+    char_span: [1803, 2544]
+    sentence_count: 8
+    key_terms: [accounting, experience, recruiting, public, spring, firms, big, extracurricular]
+    section: Comments
+    token_count: 165
 ---
-
 # Fall to spring co-op switch for accounting major?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1t6x3he/fall_to_spring_coop_switch_for_accounting_major/)

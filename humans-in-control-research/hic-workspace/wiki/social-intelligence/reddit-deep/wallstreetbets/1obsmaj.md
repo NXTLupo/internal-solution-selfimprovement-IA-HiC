@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1obsmaj.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1obsmaj/the_moon_tomorrow_to_glxy_and_beyond_after/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,38 @@ flair: "DD"
 extracted_at: "2026-05-17T01:14:17.610Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1obsmaj.md#c0"
+    char_span: [0, 1506]
+    sentence_count: 12
+    key_terms: [earnings, wallstreetbets, institutional, comments, investor, tomorrow, bitcoin, expect]
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1obsmaj.md#c1"
+    char_span: [1508, 2766]
+    sentence_count: 10
+    key_terms: [https, b0380b954e5f4a217fe8b753accb799ea52c19d9, dipto-mukherjee-scpm-mba-192a322a, com, glxy, here, continuing, coreweave]
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1obsmaj.md#c2"
+    char_span: [2781, 3898]
+    sentence_count: 4
+    key_terms: [https, tendies, "wendy's", com, category, account, discord, tenders]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1obsmaj.md#c3"
+    char_span: [3900, 5371]
+    sentence_count: 3
+    key_terms: [peppybilly, e186faadd8ebf3a414f1dcec77770a24e6eafd8d, thabluecat, bought, painterelectrical372, tasselledwobbegong1, money, bet]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1obsmaj.md#c4"
+    char_span: [5373, 6581]
+    sentence_count: 3
+    key_terms: [deleted, shares, napalm2142, probably, discord, bought, https, never]
+    section: Comments
+    token_count: 419
 ---
-
 # The moon tomorrow to GLXY and beyond after🚀🚀🚀
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1obsmaj/the_moon_tomorrow_to_glxy_and_beyond_after/)

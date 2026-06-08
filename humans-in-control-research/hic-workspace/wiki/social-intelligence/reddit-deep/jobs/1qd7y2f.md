@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1qd7y2f.md
 url: "https://www.reddit.com/r/jobs/comments/1qd7y2f/boomers_are_staying_in_the_job_market_as_gen_z/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,69 @@ flair: "Article"
 extracted_at: "2026-05-24T14:10:06.640Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c0"
+    char_span: [0, 419]
+    sentence_count: 3
+    key_terms: [jobs, comments, reddit-deep, experience, employers, pressures, struggles, economic]
+    token_count: 108
+  - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c1"
+    char_span: [434, 705]
+    sentence_count: 2
+    key_terms: [onlyinamerica01, existential, old-people, population, retirement, medicare, already, entered]
+    section: Comments
+    token_count: 75
+  - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c2"
+    char_span: [707, 2405]
+    sentence_count: 15
+    key_terms: [security, single, social, age, job, work, retirement, countries]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c3"
+    char_span: [2407, 3564]
+    sentence_count: 10
+    key_terms: [years, through, psychologicalad6389, don, full, time, prettyadagio4210, ahxce3zksevsg]
+    section: Comments
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c4"
+    char_span: [3566, 5297]
+    sentence_count: 12
+    key_terms: [boomer, "didn't", "don't", retirement, boomers, parents, working, anyseaworthiness6472]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c5"
+    char_span: [5299, 5643]
+    sentence_count: 2
+    key_terms: [opportunities, prioritizing, consistent, experience, long-term, potential, selective, becoming]
+    section: Comments
+    token_count: 73
+  - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c6"
+    char_span: [5645, 7673]
+    sentence_count: 13
+    key_terms: [people, companies, entrepreneurial, problem, opportunities, healthcare, available, because]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c7"
+    char_span: [7675, 9816]
+    sentence_count: 19
+    key_terms: [been, people, complaints, job, "i've", businesses, experience, graduates]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c8"
+    char_span: [9493, 9921]
+    sentence_count: 4
+    key_terms: [complaints, graduates, fewer, complaining, difference, experience, employers, pressures]
+    section: Comments
+    token_count: 90
+  - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c9"
+    char_span: [9923, 10361]
+    sentence_count: 2
+    key_terms: [lower, non-pensioneers, overqualified, rerorerox42, experience, interviews, ironically, supplement]
+    section: Comments
+    token_count: 96
 ---
-
 # Boomers are staying in the job market as Gen Z struggles to break through.
 The average age of workers starting new jobs has spiked, data shows, as AI and economic pressures lead employers to favor experience.
 

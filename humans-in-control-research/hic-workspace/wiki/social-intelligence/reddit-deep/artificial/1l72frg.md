@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1l72frg.md
 url: "https://www.reddit.com/r/artificial/comments/1l72frg/the_kneejerk_hate_for_ai_tools_is_pretty_tiring/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,69 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:04.777Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1l72frg.md#c0"
+    char_span: [0, 1755]
+    sentence_count: 12
+    key_terms: [world, tools, immediately, artificial, notebooklm, comments, research, noticed]
+    token_count: 375
+  - id: "social-intelligence/reddit-deep/artificial/1l72frg.md#c1"
+    char_span: [1770, 4018]
+    sentence_count: 20
+    key_terms: [like, tools, skilled, intent, output, people, image, slop]
+    section: Comments
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/artificial/1l72frg.md#c2"
+    char_span: [4020, 5673]
+    sentence_count: 14
+    key_terms: ["it's", too, annoying, replace, whether, people, being, world]
+    section: Comments
+    token_count: 378
+  - id: "social-intelligence/reddit-deep/artificial/1l72frg.md#c3"
+    char_span: [5675, 7566]
+    sentence_count: 15
+    key_terms: [people, something, like, dce193f10fe4bbbc25b5b665ce22222e399dfa0e, useful, did, get, subreddit]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/artificial/1l72frg.md#c4"
+    char_span: [7568, 9481]
+    sentence_count: 27
+    key_terms: [people, because, job, government, companies, everyone, human, tech]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/artificial/1l72frg.md#c5"
+    char_span: [9483, 11470]
+    sentence_count: 14
+    key_terms: [people, "it's", zelkovamoon, parrot, new, old, stochastic, community]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/artificial/1l72frg.md#c6"
+    char_span: [11472, 13630]
+    sentence_count: 29
+    key_terms: ["it's", people, "i'm", anything, doing, magic, like, use]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/artificial/1l72frg.md#c7"
+    char_span: [13632, 15858]
+    sentence_count: 13
+    key_terms: [people, perspective, especially, copyright, unpopular, creative, critical, sampling]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/artificial/1l72frg.md#c8"
+    char_span: [15860, 17456]
+    sentence_count: 9
+    key_terms: [people, pandaschmanda, "it's", fantasy, present, artist, "that's", "don't"]
+    section: Comments
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/artificial/1l72frg.md#c9"
+    char_span: [17461, 18026]
+    sentence_count: 2
+    key_terms: [dwarffortress, comments, cakk9q, reddit, dwarf, https, com, www]
+    section: Comments
+    token_count: 147
 ---
-
 # The knee-jerk hate for AI tools is pretty tiring
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1l72frg/the_kneejerk_hate_for_ai_tools_is_pretty_tiring/)

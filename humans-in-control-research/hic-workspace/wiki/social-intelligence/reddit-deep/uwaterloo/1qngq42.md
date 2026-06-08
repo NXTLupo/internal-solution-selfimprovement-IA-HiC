@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1qngq42.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1qngq42/wusa_2026_general_elections_candidate_ama/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,104 @@ flair: "Discussion"
 extracted_at: "2026-05-25T18:33:12.670Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, government]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c0"
+    char_span: [0, 1932]
+    sentence_count: 10
+    key_terms: [wusa, elections, https, experience, a287bc7029e2de7f5ec820f59b4323461494b279, ama, ask, find]
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c1"
+    char_span: [1934, 3211]
+    sentence_count: 4
+    key_terms: [candidate, senate, director, https, board-of-directors, gullibleenergy7707, professionalsword, arts]
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c2"
+    char_span: [3226, 4982]
+    sentence_count: 13
+    key_terms: [campus, student, experience, residence, waterloohorizon, incredible, passionate, concert]
+    section: Comments
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c3"
+    char_span: [4984, 7416]
+    sentence_count: 15
+    key_terms: [students, student, prices, food, want, program, service, whether]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c4"
+    char_span: [7418, 9622]
+    sentence_count: 18
+    key_terms: [food, wusa, experience, currently, service, campus, enough, bank]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c5"
+    char_span: [9624, 11479]
+    sentence_count: 14
+    key_terms: [food, efficiency, campus, advocating, experience, solutions, creative, oriented]
+    section: Comments
+    token_count: 386
+  - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c6"
+    char_span: [11481, 13785]
+    sentence_count: 11
+    key_terms: [services, campus, food, year, strategy, student, need, plan]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c7"
+    char_span: [13787, 15624]
+    sentence_count: 14
+    key_terms: [operational, wusa, account, societies, board, lines, society, budget]
+    section: Comments
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c8"
+    char_span: [15626, 17907]
+    sentence_count: 16
+    key_terms: [accessibility, events, clubs, wusa, help, student, accessible, disabled]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c9"
+    char_span: [17909, 20302]
+    sentence_count: 16
+    key_terms: [campus, accessability, services, students, events, point, life, accessible]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c10"
+    char_span: [20304, 22293]
+    sentence_count: 8
+    key_terms: [waterloohorizon, student, platform, website, https, coop, fee, wusa]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c11"
+    char_span: [22295, 23850]
+    sentence_count: 12
+    key_terms: ["i'm", running, answer, colour, senate, decisions, favourite, votekenzy]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c12"
+    char_span: [23852, 26041]
+    sentence_count: 6
+    key_terms: [https, com, www, kenzy, instagram, student, proposals, too]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c13"
+    char_span: [26045, 28467]
+    sentence_count: 16
+    key_terms: [undergraduate, senators, senate, motions, faculty, senator, students, waterloohorizon]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c14"
+    char_span: [28469, 30706]
+    sentence_count: 13
+    key_terms: [board, advocate, students, against, engaged, higher, able, been]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/uwaterloo/1qngq42.md#c15"
+    char_span: [30708, 32081]
+    sentence_count: 14
+    key_terms: [senate, representatives, faculty, constitution, undergrad, senators, discuss, meeting]
+    section: Comments
+    token_count: 289
 ---
-
 # WUSA 2026 General Elections: Candidate AMA
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1qngq42/wusa_2026_general_elections_candidate_ama/)

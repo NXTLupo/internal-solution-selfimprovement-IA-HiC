@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1qwsr5e.md
 url: "https://www.reddit.com/r/college/comments/1qwsr5e/im_a_pbs_reporter_who_wrote_about_what_new/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-17T01:12:59.141Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1qwsr5e.md#c0"
+    char_span: [0, 726]
+    sentence_count: 2
+    key_terms: [major-changes-to-student-loan-borrowing-and-repayment-are-coming-heres-what-to-know, college, https, pbs, www, comments, newshour, federal]
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/college/1qwsr5e.md#c1"
+    char_span: [741, 1445]
+    sentence_count: 4
+    key_terms: [going, able, year, sweetcosmicpope, grandfathered, land-grant, parentplus, university]
+    section: Comments
+    token_count: 158
 ---
-
 # I'm a PBS reporter who wrote about what new federal student loan borrowers need to know
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1qwsr5e/im_a_pbs_reporter_who_wrote_about_what_new/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1sol2oq.md
 url: "https://www.reddit.com/r/Professors/comments/1sol2oq/update_my_students_cannot_read_or_write_and_i/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -6,19 +7,68 @@ subreddit: "professors"
 title: "Update: My students cannot read or write and I don't know what to do about it."
 author: "TunedMassDamsel"
 date: "2026-04-18T02:26:30.000Z"
-score: 780
+score: 781
 upvote_ratio: 0.97
-num_comments: 90
+num_comments: 88
 flair: ""
-extracted_at: "2026-05-14T18:17:21.694Z"
+extracted_at: "2026-06-06T16:39:04.352Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1sol2oq.md#c0"
+    char_span: [0, 1731]
+    sentence_count: 16
+    key_terms: [because, person, back, got, professors, comments, engineer, remember]
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/professors/1sol2oq.md#c1"
+    char_span: [1733, 4068]
+    sentence_count: 18
+    key_terms: [take, design, different, thought, lot, through, career, get]
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/professors/1sol2oq.md#c2"
+    char_span: [4070, 6269]
+    sentence_count: 27
+    key_terms: [did, read, information, asked, homeowner, "it's", word, friend]
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/professors/1sol2oq.md#c3"
+    char_span: [6271, 7948]
+    sentence_count: 15
+    key_terms: [post-tensioned, engineering, cables, explanation, "i'll", job, constantly, structural]
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/professors/1sol2oq.md#c4"
+    char_span: [7950, 10244]
+    sentence_count: 29
+    key_terms: [going, "that's", explanations, feel, get, "i'm", safe, work]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/professors/1sol2oq.md#c5"
+    char_span: [10259, 11596]
+    sentence_count: 12
+    key_terms: [students, bring, backwards, teaching, "that's", being, inlesbianswithher, get]
+    section: Comments
+    token_count: 356
+  - id: "social-intelligence/reddit-deep/professors/1sol2oq.md#c6"
+    char_span: [11598, 13438]
+    sentence_count: 16
+    key_terms: [students, "didn't", civil, engineering, avgguy1968, technology, develop, lecture]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/professors/1sol2oq.md#c7"
+    char_span: [13440, 15392]
+    sentence_count: 12
+    key_terms: [zorandzam, tunedmassdamsel, writing, communication, programmers, programming, ceo, apathetic]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1sol2oq.md#c8"
+    char_span: [15188, 15843]
+    sentence_count: 6
+    key_terms: [imhereforthevotes, lecture, inspectorsmooth8574, here, tunedmassdamsel, comprehension, wild-precious, emotionally]
+    section: Comments
+    token_count: 197
 ---
-
 # Update: My students cannot read or write and I don't know what to do about it.
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1sol2oq/update_my_students_cannot_read_or_write_and_i/)
-Posted by **TunedMassDamsel** · **780↑** · **90 comments**
+Posted by **TunedMassDamsel** · **781↑** · **88 comments**
 
 Typing this out because I want to remember it, and I wanted to report back and let you all know how things went. Mostly so I can remember what I said, and then so I can try to replicate it next year with the next group of students, because this was helpful and important.
 
@@ -77,42 +127,42 @@ That's honestly kind of the best case scenario.
 
 ## Comments
 
-- **Petrarchs_Muse** (102↑): Being capable is a good starting place. Being IRREPLACEABLE takes so much more. You have to lean into the things that make us human and can’t be outsourced. Thank you for living this example so well that you can also teach it.
-  - **Petrarchs_Muse** (25↑): (I say this as a regular beneficiary and inspiree of your indefatigably practiced humanity. I’m am proud to know you  as a better person for it.)
-    - **TunedMassDamsel** (7↑): 🫂❤️
+- **Petrarchs_Muse** (104↑): Being capable is a good starting place. Being IRREPLACEABLE takes so much more. You have to lean into the things that make us human and can’t be outsourced. Thank you for living this example so well that you can also teach it.
+  - **Petrarchs_Muse** (23↑): (I say this as a regular beneficiary and inspiree of your indefatigably practiced humanity. I’m am proud to know you  as a better person for it.)
+    - **TunedMassDamsel** (6↑): 🫂❤️
 - **fatherintime** (208↑): That's the best kind of teaching! You actually reached them and now you'll get a lot more legitimate work and effort because they respect you. Teaching is 80% relationship building, 20% content, roughly speaking. Too often we get it backwards.
-  - **gutfounderedgal** (64↑): A pedagogy teacher I studied with once said learning is about 20% what you bring to it, 80% of what they bring to it.  That's backwards today too it seems.
+  - **gutfounderedgal** (62↑): A pedagogy teacher I studied with once said learning is about 20% what you bring to it, 80% of what they bring to it.  That's backwards today too it seems.
     - **InLesbiansWithHer** (19↑): I think students (and the general non-teaching public) *think* it's backwards. But in reality it is still 20% what us educators bring, and 80% what students bring. It is obvious when test time comes. I'm developing a "physics success guide" for my students next semester, I may borrow this idea for it!
 - **DarkSkyKnight** (78↑): >Two students got up and walked out
 
 ?????????
 
 How do you just get up and walk out in the middle of lecture.
-  - **TunedMassDamsel** (55↑): Right? I kinda lost my groove for a minute or two after that.
-    - **avgguy1968** (13↑): It’s so distracting, even when they’re “multitasking” while you are teaching.
+  - **TunedMassDamsel** (57↑): Right? I kinda lost my groove for a minute or two after that.
+    - **avgguy1968** (12↑): It’s so distracting, even when they’re “multitasking” while you are teaching.
     - **tjelectric** (1↑): Did the come back?
   - **MyFaceSaysItsSugar** (33↑): Many of my students do that. I get at most 1/2 of my students coming to class. One of my classes it’s about 5% of students coming to class. A lot of them leave. Sometimes it seems to be when I start to do review activities but normally it’s pretty random.
-  - **avgguy1968** (13↑): It seems so grade school, but I count off for absences and tardiness. It helps. 
+  - **avgguy1968** (14↑): It seems so grade school, but I count off for absences and tardiness. It helps. 
 
 In contrast, my colleague gives a short, simple “attendance quiz” every lecture.
-  - **Accomplished_Self939** (12↑): They do it all the time ¯⁠\⁠_⁠(⁠ツ⁠)⁠_⁠/⁠¯
-- **Life-Education-8030** (32↑): Brava!  Years ago, I had a freshman civil engineering student crying in my office and he said he didn't even know what civil engineering was FOR.  Poor kid.  I blurted out that civil engineers help build the world around us and make ideas become solid - best that I had, but he felt better anyway.
+  - **Accomplished_Self939** (11↑): They do it all the time ¯⁠\⁠_⁠(⁠ツ⁠)⁠_⁠/⁠¯
+- **Life-Education-8030** (30↑): Brava!  Years ago, I had a freshman civil engineering student crying in my office and he said he didn't even know what civil engineering was FOR.  Poor kid.  I blurted out that civil engineers help build the world around us and make ideas become solid - best that I had, but he felt better anyway.
 
 I agree about AI too.  There have been a lot of discussions here about AI being used to develop courses, develop assignments, grade, etc. and sure, I'm among the first to try out any kind of technology, but I'm not going to help eliminate my own value.  I also feel that technology ought to support the user and not vice-versa, and I resent my intellectual property being used to teach LLMs and mangling it.  I've had students try to use AI to state what I said and then I have to ask students if they thought I didn't know what I had said because I certainly didn't say that!  I would also be checking the output and that just takes more time.
 
 It always drives me crazy when people talk about how engineers don't need social or communication skills - yes, they DO.  I had a plumbing student argue he didn't need communication skills and I argued yes, you DO!
 - **AdventurousExpert217** (63↑): I teaching writing, and I've started asking my students what they know about AI - how it works (their answer: programming), who DOES the programming (their answer: computer engineers), who PAYS the programmers (this one take a minute, but eventually they get to "the AI corporation" or "the CEO"). And then I ask them, "Do those CEOs tell the programmers what they can and can't program AI to say?" They think some more and say "yes." And then I ask my final question, "So are you okay with letting some rich CEO dictate what YOU can or cannot say? Because if you let AI do the writing for you, you are letting it - and the CEO who controls it - do your thinking for you." And that's when I see realization dawn on their faces.
-  - **zorandzam** (12↑): Oo, I also teach writing and I'm going to steal that.
-- **EmergencyYoung6028** (57↑): Two students really walked out? I gave a similar  if way, shorter speech in my classes this semester.
-  - **TaliesinMerlin** (28↑): Yeah. In my experience, the committed GenAI users are either too apathetic to show up or too apathetic to walk out.
-  - **zorandzam** (18↑): Yeah, that is STUNNING. Wow. Hopefully it was a coincidence and not related to, like, protesting the very ideas the OP was discussing!
+  - **zorandzam** (11↑): Oo, I also teach writing and I'm going to steal that.
+- **EmergencyYoung6028** (55↑): Two students really walked out? I gave a similar  if way, shorter speech in my classes this semester.
+  - **TaliesinMerlin** (26↑): Yeah. In my experience, the committed GenAI users are either too apathetic to show up or too apathetic to walk out.
+  - **zorandzam** (19↑): Yeah, that is STUNNING. Wow. Hopefully it was a coincidence and not related to, like, protesting the very ideas the OP was discussing!
 - **MichaelPgh** (27↑): You are awesome! You should give that lecture early in the semester.
-  - **TunedMassDamsel** (12↑): I will next time, for sure!
-    - **zorandzam** (25↑): Maybe not day 1, though. I feel like giving it just a couple of weeks in, it would hit a little better. This is the kind of lecture that requires a tiny bit of built-in rapport, IMO.
-- **imhereforthevotes** (53↑): Goddammit OP. Can't unsee.
+  - **TunedMassDamsel** (14↑): I will next time, for sure!
+    - **zorandzam** (27↑): Maybe not day 1, though. I feel like giving it just a couple of weeks in, it would hit a little better. This is the kind of lecture that requires a tiny bit of built-in rapport, IMO.
+- **imhereforthevotes** (50↑): Goddammit OP. Can't unsee.
   - **TunedMassDamsel** (48↑): hoME😽Wner
     - **imhereforthevotes** (26↑): actively bearing cross
     - **Nodgarden** (3↑): As a Ho Meow Ner, now… Thanks ._.
-- **IronOk6478** (37↑): This is the best post I’ve ever read on here. Thank you. Please share those resources for reading comprehension & writing. I feel a similar lecture coming on for my students.
+- **IronOk6478** (41↑): This is the best post I’ve ever read on here. Thank you. Please share those resources for reading comprehension & writing. I feel a similar lecture coming on for my students.
   - **InspectorSmooth8574** (3↑): Came here to say this!
 - **Wild-Precious** (17↑): Emotionally I’m standing on my desk for you !

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1mcaccy.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1mcaccy/psa_people_can_and_will_lie_on_reddit_shocker/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,33 @@ flair: "Application Question"
 extracted_at: "2026-05-23T14:54:48.675Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mcaccy.md#c0"
+    char_span: [0, 1243]
+    sentence_count: 7
+    key_terms: [people, applyingtocollege, someone, essays, reddit, comments, "people's", waitlist]
+    token_count: 290
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mcaccy.md#c1"
+    char_span: [1258, 2136]
+    sentence_count: 3
+    key_terms: [people, scholargrade, ajoyr17, full-evidence-4443, halo, pub, anonymussquidd, hellomouse1234]
+    section: Comments
+    token_count: 266
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mcaccy.md#c2"
+    char_span: [2138, 3929]
+    sentence_count: 6
+    key_terms: [harvard32ormcdonalds, street, valuablepriority6885, jane, essays, nobel, currently, laureate]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mcaccy.md#c3"
+    char_span: [3931, 5109]
+    sentence_count: 6
+    key_terms: [childhoodconnect9687, account, college, student, help, jhu, nyu, yeah]
+    section: Comments
+    token_count: 297
 ---
-
 # PSA: people can and will lie on Reddit (shocker!!!)
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1mcaccy/psa_people_can_and_will_lie_on_reddit_shocker/)

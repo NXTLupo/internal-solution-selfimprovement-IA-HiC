@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1mdiall.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1mdiall/feedback_wanted_i_built_an_open_source_resource/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,15 @@ flair: "Project Help"
 extracted_at: "2026-05-25T18:32:19.211Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1mdiall.md#c0"
+    char_span: [0, 1679]
+    sentence_count: 4
+    key_terms: [engineeringstudents, ztwhmozkddtikrfu7, feedback, source, early-career, forms, https, open]
+    token_count: 406
 ---
-
 # Feedback wanted: I built an open source resource hub for early-career Electrical Engineers (resume help, interview prep, mentorship)
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1mdiall/feedback_wanted_i_built_an_open_source_resource/)

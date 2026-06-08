@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1mnvwyq.md
 url: "https://www.reddit.com/r/internships/comments/1mnvwyq/i_just_got_my_second_nasa_internship/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,42 @@ subreddit: "internships"
 title: "I just got my second NASA internship!"
 author: "Riaxuez"
 date: "2025-08-12T01:49:46.000Z"
-score: 332
+score: 333
 upvote_ratio: 0.98
 num_comments: 50
 flair: "General"
-extracted_at: "2026-05-19T17:57:20.774Z"
+extracted_at: "2026-06-05T19:19:58.916Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1mnvwyq.md#c0"
+    char_span: [0, 942]
+    sentence_count: 14
+    key_terms: [internship, got, internships, nasa, comments, sweater, mewtwo, school]
+    token_count: 247
+  - id: "social-intelligence/reddit-deep/internships/1mnvwyq.md#c1"
+    char_span: [957, 2609]
+    sentence_count: 15
+    key_terms: [nasa, student, get, lot, time, internship, lspace, worked]
+    section: Comments
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/internships/1mnvwyq.md#c2"
+    char_span: [2611, 4352]
+    sentence_count: 11
+    key_terms: [riaxuez, requirementnew9621, international, internships, get, nasa, students, twitter]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/internships/1mnvwyq.md#c3"
+    char_span: [4354, 5960]
+    sentence_count: 11
+    key_terms: [requirementnew9621, vegetablelazy7402, congratulations, riaxuez, mewtwo, women, sweater, people]
+    section: Comments
+    token_count: 491
 ---
-
 # I just got my second NASA internship!
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1mnvwyq/i_just_got_my_second_nasa_internship/)
-Posted by **Riaxuez** · **332↑** · **50 comments**
+Posted by **Riaxuez** · **333↑** · **50 comments**
 
 I’ve worked so hard as an independent/first generation student. I’ve been in school almost 6 years, I’ve worked full time the whole time, and I’m about to graduate in May. 
 
@@ -32,13 +56,13 @@ Edit: THE MEWTWO SWEATER FROM UNIQLO IS AMAZING!!!!!!! AAAAAAAA
 
 ## Comments
 
-- **TheDarkKnight_123** (22↑): U seem to have quite a lot experience at a young age.
+- **TheDarkKnight_123** (24↑): U seem to have quite a lot experience at a young age.
 
 Anyways,wish you good luck for future.
 
 Thx for replying.
-- **TheDarkKnight_123** (9↑): How to get the internship at NASA, and what are the skills they usually look for??
-  - **Riaxuez** (21↑): Hey! So I got my first one while I was in community college, a full time paid NASA internship. At that point my GPA was like 3.7 (I had a C/D on my record, retook the D course and got a B - it was a combined physics/calculus class and I was going through a lot). I did NASA LSPACE NPWEE, NASA LSPACE MCA, and NCAS. All of them were in leadership roles. (These are free programs you can sign up for) I worked as a student aid in a lab on my CC campus, i was a student senator for my CC, I took honors classes, and I was invited to a NASA social. I did all of this in my first 1.5 years of CC, which was kind of insane but I really wanted to get to NASA. I am someone who is powered by pettiness and proving people wrong, so I worked so hard. I currently work full time as a researcher in a lab, I wiggled in despite not having a bachelors, but it’s been quite a resume builder to have such a job. 
+- **TheDarkKnight_123** (7↑): How to get the internship at NASA, and what are the skills they usually look for??
+  - **Riaxuez** (20↑): Hey! So I got my first one while I was in community college, a full time paid NASA internship. At that point my GPA was like 3.7 (I had a C/D on my record, retook the D course and got a B - it was a combined physics/calculus class and I was going through a lot). I did NASA LSPACE NPWEE, NASA LSPACE MCA, and NCAS. All of them were in leadership roles. (These are free programs you can sign up for) I worked as a student aid in a lab on my CC campus, i was a student senator for my CC, I took honors classes, and I was invited to a NASA social. I did all of this in my first 1.5 years of CC, which was kind of insane but I really wanted to get to NASA. I am someone who is powered by pettiness and proving people wrong, so I worked so hard. I currently work full time as a researcher in a lab, I wiggled in despite not having a bachelors, but it’s been quite a resume builder to have such a job. 
 
 I am an also nontraditional student so I had some jobs beforehand; one being a director in a skilled nursing facility at 21yo during COVID, and some other odd jobs. I just turned 26, so I’ve been in school for a long time now. I had a terrible HS gpa because I grew up in a very abusive home with CPS involved a lot. 
 
@@ -52,7 +76,7 @@ I genuinely thought it would be so much harder to get to NASA, but it was surpri
   - **BigCardiologist3733** (0↑): dont listen to the OP they only got the job bc they were a hot girl if u know what i mean, just look at their posts
     - **AggressivePrize3772** (2↑): You’re weird
     - **Riaxuez** (2↑): 💀 dude get a grip
-- **[deleted]** (6↑): Awesome big W. Now just don’t go on twitter and swear to a random stranger about it
+- **[deleted]** (5↑): Awesome big W. Now just don’t go on twitter and swear to a random stranger about it
   - **Riaxuez** (2↑): Heck no 💀 the first time I posted about it on Twitter I was so nervous if I said the wrong thing I’d become a(nother) meme
 - **RequirementNew9621** (3↑): Congratulations, it's really nice to know.  
 Do they also provide internships to international students?

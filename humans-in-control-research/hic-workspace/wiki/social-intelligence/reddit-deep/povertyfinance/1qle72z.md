@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1qle72z.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1qle72z/emergency_fund_advice_assumes_you_have_surplus/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,105 @@ flair: "Vent/Rant (No Advice/Criticism!)"
 extracted_at: "2026-05-16T20:55:12.681Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c0"
+    char_span: [0, 1499]
+    sentence_count: 25
+    key_terms: [money, expenses, advice, people, already, surplus, povertyfinance, extra]
+    token_count: 318
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c1"
+    char_span: [1514, 3138]
+    sentence_count: 16
+    key_terms: [submitter, appropriate, need, advice, vents, vent, emotional, situation]
+    section: Comments
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c2"
+    char_span: [3140, 4866]
+    sentence_count: 14
+    key_terms: [surveys, pay, save, typically, offered, "don't", money, month]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c3"
+    char_span: [4868, 5906]
+    sentence_count: 7
+    key_terms: [extra, hours, month, dreamingaboutspace, live, understandable, entertainment, construction]
+    section: Comments
+    token_count: 267
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c4"
+    char_span: [5908, 7953]
+    sentence_count: 20
+    key_terms: [advice, people, financial, poverty, written, cents, don, get]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c5"
+    char_span: [7958, 9590]
+    sentence_count: 18
+    key_terms: [living, tax, possible, parents, change, worked, current-anybody9331, taken]
+    section: Comments
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c6"
+    char_span: [9592, 11747]
+    sentence_count: 29
+    key_terms: [game, without, worked, back, fail, "i've", life, wife]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c7"
+    char_span: [11749, 13782]
+    sentence_count: 22
+    key_terms: [positive, like, oppourtunities, ready, get, work, paycheck, better]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c8"
+    char_span: [13784, 13990]
+    sentence_count: 3
+    key_terms: [determinant, meritocracy, successful, separates, success, whereby, family, having]
+    section: Comments
+    token_count: 44
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c9"
+    char_span: [13992, 16035]
+    sentence_count: 19
+    key_terms: [ryencool, life, money, here, sometimes, worrying, because, parents]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c10"
+    char_span: [15802, 17074]
+    sentence_count: 10
+    key_terms: [rather, like, something, stories, thought, better, happen, sounds]
+    section: Comments
+    token_count: 321
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c11"
+    char_span: [17076, 19017]
+    sentence_count: 23
+    key_terms: [bus, car, job, work, business, months, shifts, bucks]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c12"
+    char_span: [19020, 20935]
+    sentence_count: 11
+    key_terms: ["didn't", prison, bus, get, hour, time, benefits, couple]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c13"
+    char_span: [20937, 22985]
+    sentence_count: 18
+    key_terms: [better, job, less, "you're", transition, spend, paying, people]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c14"
+    char_span: [22987, 25197]
+    sentence_count: 23
+    key_terms: [emergency, people, advice, income, money, expenses, already, working]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c15"
+    char_span: [25199, 26748]
+    sentence_count: 19
+    key_terms: [inflation, paycheck, able, job, emergency, expenses, living, "you're"]
+    section: Comments
+    token_count: 375
 ---
-
 # "Emergency fund" advice assumes you have surplus money after expenses
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1qle72z/emergency_fund_advice_assumes_you_have_surplus/)

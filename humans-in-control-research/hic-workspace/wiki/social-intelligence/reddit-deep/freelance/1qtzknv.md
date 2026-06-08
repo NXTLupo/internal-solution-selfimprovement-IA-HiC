@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/freelance/1qtzknv.md
 url: "https://www.reddit.com/r/freelance/comments/1qtzknv/what_i_learned_running_a_specialized_service/"
 kind: "social-post"
 source: "reddit-deep: r/freelance"
@@ -13,8 +14,37 @@ flair: ""
 extracted_at: "2026-05-26T12:53:48.703Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/freelance/1qtzknv.md#c0"
+    char_span: [0, 2236]
+    sentence_count: 29
+    key_terms: [clients, business, service, businesses, freelance, recurring, need, delivery]
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/freelance/1qtzknv.md#c1"
+    char_span: [2238, 4478]
+    sentence_count: 33
+    key_terms: [work, outreach, clients, getting, market, delivering, potential, revisions]
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/freelance/1qtzknv.md#c2"
+    char_span: [4480, 6025]
+    sentence_count: 23
+    key_terms: [new, skills, "that's", "don't", niche, price, get, work]
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/freelance/1qtzknv.md#c3"
+    char_span: [6040, 8034]
+    sentence_count: 16
+    key_terms: [work, clients, upwork, advertising, "i've", job, bertranddo, something]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/freelance/1qtzknv.md#c4"
+    char_span: [8036, 10208]
+    sentence_count: 12
+    key_terms: [work, bertranddo, bottom, people, bookkeeping, positioning, like, ones]
+    section: Comments
+    token_count: 492
 ---
-
 # What I learned running a specialized service business for 4 months (finding clients, structuring offers, delivery workflows)
 
 Source: [reddit-deep: r/freelance](https://www.reddit.com/r/freelance/comments/1qtzknv/what_i_learned_running_a_specialized_service/)

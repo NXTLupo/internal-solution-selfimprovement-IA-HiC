@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1mcfzk5.md
 url: "https://www.reddit.com/r/highereducation/comments/1mcfzk5/1_in_2_graduates_say_their_college_major_didnt/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-22T15:13:18.740Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c0"
+    char_span: [0, 999]
+    sentence_count: 4
+    key_terms: [college, graduates, highereducation, prepare, according, americans, comments, career]
+    token_count: 225
+  - id: "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c1"
+    char_span: [1014, 2697]
+    sentence_count: 10
+    key_terms: [college, experience, students, undergraduate, research, training, regrets, degree]
+    section: Comments
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c2"
+    char_span: [2699, 4539]
+    sentence_count: 7
+    key_terms: [extracurricular, college, complaints, graduates, research, "they're", always, school]
+    section: Comments
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c3"
+    char_span: [4541, 6676]
+    sentence_count: 18
+    key_terms: [students, employment, internship, career, job, look, time, "don't"]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c4"
+    char_span: [6678, 8352]
+    sentence_count: 17
+    key_terms: [programs, students, program, "don't", get, like, elementary, themselves]
+    section: Comments
+    token_count: 334
+  - id: "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c5"
+    char_span: [8354, 10070]
+    sentence_count: 13
+    key_terms: [job, college, education, training, want, higher, people, plenty]
+    section: Comments
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c6"
+    char_span: [10072, 11663]
+    sentence_count: 11
+    key_terms: [get, something, business, students, college, degrees, prepare, degree]
+    section: Comments
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c7"
+    char_span: [11665, 12791]
+    sentence_count: 7
+    key_terms: [students, career, resources, advanced, college, ambitious-meringue37, major, track]
+    section: Comments
+    token_count: 252
 ---
-
 # 1 in 2 graduates say their college major didn’t prepare them for today’s market
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1mcfzk5/1_in_2_graduates_say_their_college_major_didnt/)

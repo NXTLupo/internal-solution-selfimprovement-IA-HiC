@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1tajm2a.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1tajm2a/waterlooworks_is_more_cooked_than_ever_before/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-25T18:33:12.674Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1tajm2a.md#c0"
+    char_span: [0, 1775]
+    sentence_count: 14
+    key_terms: [uwaterloo, co-op, waterlooworks, "don't", fees, jobs, pay, comments]
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/uwaterloo/1tajm2a.md#c1"
+    char_span: [1790, 3504]
+    sentence_count: 4
+    key_terms: [students, job, school, delicious-site-2855, potential-drag9761, jobs, anime2221, mentioned]
+    section: Comments
+    token_count: 446
 ---
-
 # WaterlooWorks is More Cooked Than Ever Before
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1tajm2a/waterlooworks_is_more_cooked_than_ever_before/)

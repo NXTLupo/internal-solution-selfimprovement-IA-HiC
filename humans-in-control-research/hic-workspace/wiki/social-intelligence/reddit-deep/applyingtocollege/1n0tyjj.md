@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1n0tyjj/who_is_telling_students_to_take_6_ap_classes_per/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,102 @@ subreddit: "applyingtocollege"
 title: "Who is telling students to take 6 AP classes per year"
 author: "Higher_Ed_Parent"
 date: "2025-08-26T18:35:19.000Z"
-score: 243
+score: 246
 upvote_ratio: 0.9
 num_comments: 250
 flair: "Discussion"
-extracted_at: "2026-05-24T14:08:39.596Z"
+extracted_at: "2026-06-03T18:53:09.747Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c0"
+    char_span: [0, 622]
+    sentence_count: 5
+    key_terms: [applyingtocollege, telling, comments, students, classes, year, staggeringly, reddit-deep]
+    token_count: 152
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c1"
+    char_span: [637, 2659]
+    sentence_count: 21
+    key_terms: [classes, year, kids, handle, junior, study, years, kid]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c2"
+    char_span: [2661, 4001]
+    sentence_count: 10
+    key_terms: [school, work, definitely, learning, classes, almost, manage, learn]
+    section: Comments
+    token_count: 336
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c3"
+    char_span: [4003, 5955]
+    sentence_count: 13
+    key_terms: [people, take, aps, like, classes, college, school, didn]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c4"
+    char_span: [5957, 7509]
+    sentence_count: 10
+    key_terms: [year, aps, school, classes, college, courses, physics, junior]
+    section: Comments
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c5"
+    char_span: [7511, 9059]
+    sentence_count: 6
+    key_terms: [aps, top, school, schools, wasn, applicant, apply, class]
+    section: Comments
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c6"
+    char_span: [9061, 11210]
+    sentence_count: 13
+    key_terms: [classes, school, high, student, challenging, applyingtocollege, students, being]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c7"
+    char_span: [10983, 11211]
+    sentence_count: 2
+    key_terms: [larrytheevilbunnie, aps, correctly, berkeley, estimate, honestly, pre-reqs, remember]
+    section: Comments
+    token_count: 65
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c8"
+    char_span: [11213, 11817]
+    sentence_count: 4
+    key_terms: [classes, kids, colleges, unusual, doesn, take, hot-yogurt5539, fatsadhappy]
+    section: Comments
+    token_count: 153
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c9"
+    char_span: [11819, 13926]
+    sentence_count: 14
+    key_terms: [school, kids, college, take, classes, years, competitive, aps]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c10"
+    char_span: [13703, 13971]
+    sentence_count: 2
+    key_terms: [school, permission, themselves, yeyiyeyiyo, parental, requires, parents, expect]
+    section: Comments
+    token_count: 75
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c11"
+    char_span: [13973, 15204]
+    sentence_count: 13
+    key_terms: [time, physics, courses, regular, student, teacher, apush, grade]
+    section: Comments
+    token_count: 312
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c12"
+    char_span: [15206, 17407]
+    sentence_count: 10
+    key_terms: [school, counselor, high, class, typically, gpa, top, courses]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c13"
+    char_span: [17409, 17578]
+    sentence_count: 2
+    key_terms: [admission, schools, handle, honors, public, short, state, story]
+    section: Comments
+    token_count: 40
 ---
-
 # Who is telling students to take 6 AP classes per year
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1n0tyjj/who_is_telling_students_to_take_6_ap_classes_per/)
-Posted by **Higher_Ed_Parent** · **243↑** · **250 comments**
+Posted by **Higher_Ed_Parent** · **246↑** · **250 comments**
 
 Several of my kiddos friends are taking six AP classes this year. Some have college counselors, others don't. That seems like a staggeringly difficult workload, leaving little time for meaningful ECs, test prep, or even some socializing.
 
@@ -26,15 +110,15 @@ Who is telling students (including you) that this is a wise strategy? And why ar
 
 ## Comments
 
-- **[deleted]** (201↑): It's very rare to find someone taking 6 AP classes per year for 4 years straight. For junior year? Not that uncommon. But for 4 years, or even 3? How many kids do you know in university that have taken 18 to 24 AP classes? 
+- **[deleted]** (203↑): It's very rare to find someone taking 6 AP classes per year for 4 years straight. For junior year? Not that uncommon. But for 4 years, or even 3? How many kids do you know in university that have taken 18 to 24 AP classes? 
 
 For top students, AP classes aren't actually THAT hard. For kids who can handle it (and there are a bunch who can), it is a good strategy; I mean, why not? Seriously, a lot of people overrate how difficult AP classes are; for the real smart kids, as long as they show up to class and do homework, they'll be completely fine. It also helps that a lot of them have external tutoring or already know the subjects (ex: a cs kid might take AP csa knowing Java). Tons of people can handle even 6 APs in junior or senior year and have tons of time left over. Plus, these kids don't need to prep for the SAT, or anything like that. 
 
 It's rare, yeah, but tons of kids can handle the workload for a year or two. 4 years straight? Definitely not, but for 1 year? For sure.
-  - **OneCraftyBird** (84↑): My kid did four AP classes his junior year and three senior year. He’s one of those brats that doesn’t study, just shows up and listens and takes the test.  And usually that’s an easy A for him. He struggled for the first time in his life with one of the AP math classes, and I think it was really important for his eventual adulthood that he had to figure out how to dig himself out of the hole he put himself in from not studying. The stakes will never be lower.
+  - **OneCraftyBird** (81↑): My kid did four AP classes his junior year and three senior year. He’s one of those brats that doesn’t study, just shows up and listens and takes the test.  And usually that’s an easy A for him. He struggled for the first time in his life with one of the AP math classes, and I think it was really important for his eventual adulthood that he had to figure out how to dig himself out of the hole he put himself in from not studying. The stakes will never be lower.
 
 I would not have agreed to more than four, though, he would have had no time to do the stuff that makes him an interesting person.
-    - **larrytheevilbunnie** (28↑): This is probably more an indication your regular classes weren’t challenging him enough💀
+    - **larrytheevilbunnie** (27↑): This is probably more an indication your regular classes weren’t challenging him enough💀
     - **patentmom** (30↑): I was like your kid. The only class 8 ever had to study for in high school was AP US History, and I took 10 APs. I had no real study skills because I could just remember everything the teacher said and parrot it back for the exams. 
 
 I got into MIT and almost flunked out because I had no idea how to manage study time when most of the learning was done by self-studying before the lectures and doing problem sets. I had no real work ethic going in, and felt like i was drowning. I did manage to pull myself together and learn how to learn and to graduate in 4 years, but my GPA was too low to get into grad school, and I was only accepted to bottom-tier law schools.
@@ -50,23 +134,23 @@ My first semester at Princeton was definitely a wake-up moment — I had to actu
   - **tigerjaws** (1↑): Yep they’re not hard. Remember they’re meant to mirror intro college courses
   - **icekyuu** (1↑): My high school didn’t allow freshmen and sophomores to take APs. I took 11, got one 4 and the rest were 5s. 😎 I found APs easier to get good grades in as we were graded on a curve. In a normal class, you had to really study and memorise a lot of facts to get As. In APs, you just had to understand the concepts and the bell curve did the rest.
     - **Higher_Ed_Parent** (2↑): I do like the curricula of AP classes is generally more standardized and cogent.
-- **Guitarbone82** (38↑): Has it ever occurred to some people on this sub that some people actually want to take all these classes? I’d take on the same workload regardless of college applications. I like school. Standard classes were boring, frustrating, and didn’t have any of my friends in them.
+- **Guitarbone82** (35↑): Has it ever occurred to some people on this sub that some people actually want to take all these classes? I’d take on the same workload regardless of college applications. I like school. Standard classes were boring, frustrating, and didn’t have any of my friends in them.
   - **Frodolas** (5↑): Reddit is full of “crabs in a bucket” mentality. Insane amount of losers that feel threatened by people doing better than them and so try to pressure others to step down to their own level.
   - **Rude-Glove7378** (3↑): Exactly!!! and what would I even take if I didn't do APs? Like, the only non-AP senior math class is college algebra, which is a review of the three previous years with a horrible teacher. On the other hand, I can take 3 years of math with one great teacher and have Calc AB and BC.
 
 Plus, I go to a small school, so a lot of the content that is covered is the same. Like, our physics and AP physics classes are the same, the only difference is that one group is signed up for the test at the end of the year.
   - **Karleney** (1↑): Yeah, right? Normal classes are such a waste of time for me, especially when I am capable of taking APs and performing well.
-- **returnofblank** (103↑): The college application process
-  - **Higher_Ed_Parent** (7↑): How many AP/DE classes do you think top applicants take?
+- **returnofblank** (105↑): The college application process
+  - **Higher_Ed_Parent** (8↑): How many AP/DE classes do you think top applicants take?
     - **returnofblank** (42↑): I think in total I'd place it above a dozen. People take the most APs junior and senior year.
-    - **looktowindward** (10↑): Statistically, 10-12.
-    - **Remote-Dark-1704** (8↑): 15+ isn’t *uncommon* at HYPSM **but** the number of APs taken depends heavily on the highschool. Some highschools don’t even offer 12 APs to begin with whereas other highschools almost exclusively offer AP courses.
+    - **looktowindward** (9↑): Statistically, 10-12.
+    - **Remote-Dark-1704** (7↑): 15+ isn’t *uncommon* at HYPSM **but** the number of APs taken depends heavily on the highschool. Some highschools don’t even offer 12 APs to begin with whereas other highschools almost exclusively offer AP courses.
 
 AP courses also vary in difficulty and workload from school to school and even from teacher to teacher, so it is not easy to generalize.
     - **Additional_Ad1270** (2↑): My son took 2 sophomore year, 4 junior year, and is taking 7 senior year (now). School does not allow freshmen to take APs. It really depends on the courses. I think the junior year was harder even though the quantity is fewer - the 4 included physics, APUSH and calc. As an AP class is supposed to be equivalent to a college class, I don't think taking 7 in a full year is a crazy number the year before they are going to college. 
 
 I don't know that he'll be a "top applicant" - he has decent grades and a 36 ACT (and 3 years of varsity football and a few other ECs, but is not a "star" in any of them)- however these days, that feels like the starting point. They seem to want people who are unicorns. He will apply to maybe 4 hyper-competitive schools, a few targets, and probably no "likelies" as he won't be satisfied at a likely. He would rather take a gap year and apply again if it came to that. <Shrug>
-    - **Z-money08** (2↑): As someone who is top of my class by a small margin, I’ll have 16 APs and 12 DE classes, ending with 98 credits by time I graduate.
+    - **Z-money08** (3↑): As someone who is top of my class by a small margin, I’ll have 16 APs and 12 DE classes, ending with 98 credits by time I graduate.
     - **poe201** (1↑): i went to a normal tier slac and most public school kids had 12ish between APs and DEs
     - **bahamashotglass** (1↑): i wasn’t a top applicant - i applied to a lot of semi selective schools and out of 15+ i was only rejected from 3 and was awarded over 100k in scholarships between the schools with 0 aps. i took some honors but a lot of it was ecs and good test scores. aps really aren’t necessary unless you want the credit imo
     - **AbuGuidesYou** (1↑): It’s relative, depending entirely on how many APs students at the top of their  high school class are taking. This could be 15 or it could be 0.
@@ -76,14 +160,14 @@ I don't know that he'll be a "top applicant" - he has decent grades and a 36 ACT
 In fairness, her high school and friend group probably aren’t typical. [This](https://imgur.com/a/QSbJk8s) was from the end of year send-off for her science extracurricular, showing where the seniors in the group were off to.
 - **MarkVII88** (31↑): Not every high school student needs to be an active participant in the ridiculous rat race that subs like r/ApplyingToCollege seem to promote. Being a good student, having some academically challenging classes, being an involved member of the school community, and participating in activities outside of class should allow most students to gain admission at most reasonable colleges/universities. I don't think it's normal to take 6 AP classes at once, or to be part of a cutthroat culture where the only goal is getting into a t20 school or Ivy. Those kinds of perspectives are blown way out of proportion on r/ApplyingToCollege. And it's mostly bullshit.
   - **Thick-Equivalent-682** (12↑): I disagree. I think even top state schools “public Ivies” require students to take the most challenging classes available to them.
-    - **MarkVII88** (-1↑): I never said students should not take challenging courses. I said I think taking 6 AP classes at once is unnecessary, and overkill. My own kids are taking 2 or 3 AP classes at once and they have plenty of demonstrated rigor and high enough GPA for college admissions. My oldest daughter just went 11 for 11 in terms of admissions to schools she applied to this past year. She pulled down a ton of merit-aid too, such that she can theoretically graduate with less than $20K in total student loans from an excellent university. She was a very well-rounded student in high school with excellent ECs, performing arts, music, speech team, and her applications were, obviously, very compelling. But there was no singular focus on being admitted to an Ivy or t20.
+    - **MarkVII88** (1↑): I never said students should not take challenging courses. I said I think taking 6 AP classes at once is unnecessary, and overkill. My own kids are taking 2 or 3 AP classes at once and they have plenty of demonstrated rigor and high enough GPA for college admissions. My oldest daughter just went 11 for 11 in terms of admissions to schools she applied to this past year. She pulled down a ton of merit-aid too, such that she can theoretically graduate with less than $20K in total student loans from an excellent university. She was a very well-rounded student in high school with excellent ECs, performing arts, music, speech team, and her applications were, obviously, very compelling. But there was no singular focus on being admitted to an Ivy or t20.
   - **Intelligent_Ant_4464** (2↑): This, 100%
   - **jmsst1996** (1↑): Agree
   - **larrytheevilbunnie** (1↑): Yeah, you honestly only need enough APs to skip pre-reqs in college. If I remember correctly, you max out on class skipping with only 6 APs at UC Berkeley, and that’s the high estimate.
 
 The larger issue is rigor though, I’ve seen some of what’s taught in on level classes, and honestly, it doesn’t look like they learn anything…
   - **Hot-Yogurt5539** (1↑): I am grateful my kid’s (selective private) school doesn’t offer APs or honors classes. His education is rigorous enough and the kids there get into great colleges.
-- **FatSadHappy** (15↑): If you want your kids to take less classes- talk to them.
+- **FatSadHappy** (16↑): If you want your kids to take less classes- talk to them.
 
 But 6 classes in junior year is nothing unusual.
 Especially for kids aiming at top colleges
@@ -112,7 +196,7 @@ When one of my kids showed the same (actually better) natural affinity for STEM,
   - **poe201** (2↑): make sure you check in with her to make sure she’s doing ok. even superstars need a break sometimes
     - **steinerific** (3↑): She is not shy about offering her opinions on school-related matters.
   - **Higher_Ed_Parent** (0↑): My understanding is that 4/5 of her classes are considered among the hardest AP courses, each with a significant weekly workload.
-- **elkrange** (4↑): This is a direct consequence of multiple aspects of the admission process:
+- **elkrange** (5↑): This is a direct consequence of multiple aspects of the admission process:
 
 (1) Rigor of the transcript is a top factor in college admissions, if not the very top factor, for highly selective colleges.
 
@@ -120,6 +204,6 @@ When one of my kids showed the same (actually better) natural affinity for STEM,
 
 (3) The Common App School Report asks the counselor for the student's ranking. High schools that rank typically do so by weighed GPA. More APs = higher weighted GPA. While only a fraction of high schools still individually rank, the vast majority of high schools publish a weighted GPA distribution by quartile or decile for the senior class (6th semester GPA). If not referenced in the School Report by the counselor, this is typically available in the high school's School Profile document that accompanies the transcript.
   - **Higher_Ed_Parent** (1↑): Perhaps rigor is necessary, but not sufficient? Maybe you don't need to be in the 0.1% of rigor, yet have other meaningful activities?
-- **RunnyKinePity** (4↑): In our state your class rank is super important for the public universities. In our school you have to take pretty much all advanced level courses to finish in the top 5 or 10% of the class. May as well have them all be APs and get credit for it. 
+- **RunnyKinePity** (5↑): In our state your class rank is super important for the public universities. In our school you have to take pretty much all advanced level courses to finish in the top 5 or 10% of the class. May as well have them all be APs and get credit for it. 
 
 Long story short, if you want a form of auto admission at the best public state schools you need to take as many honors/APs as you can handle. That’s why my kid does it.

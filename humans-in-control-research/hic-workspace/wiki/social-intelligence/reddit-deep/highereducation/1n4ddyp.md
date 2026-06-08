@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1n4ddyp.md
 url: "https://www.reddit.com/r/highereducation/comments/1n4ddyp/the_state_of_indirect_costs_in_higher_education/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-23T14:53:59.516Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1n4ddyp.md#c0"
+    char_span: [0, 1575]
+    sentence_count: 11
+    key_terms: [costs, indirect, billion, higher-education, highereducation, university, accounted, comments]
+    token_count: 351
 ---
-
 # The state of indirect costs in higher education
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1n4ddyp/the_state_of_indirect_costs_in_higher_education/)

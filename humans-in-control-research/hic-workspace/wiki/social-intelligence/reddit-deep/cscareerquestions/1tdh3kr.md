@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1tdh3kr.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1tdh3kr/what_advice_would_you_give_yourself_a_year_before/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -10,11 +11,22 @@ score: 3
 upvote_ratio: 1
 num_comments: 5
 flair: ""
-extracted_at: "2026-05-22T23:33:42.307Z"
+extracted_at: "2026-06-03T12:16:59.514Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tdh3kr.md#c0"
+    char_span: [0, 729]
+    sentence_count: 5
+    key_terms: [cscareerquestions, comments, campus, offer, miserabletrickster, next, reddit-deep, admittedly]
+    token_count: 187
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tdh3kr.md#c1"
+    char_span: [744, 1616]
+    sentence_count: 6
+    key_terms: [job, applying, projects, campus, hiredu, resume, https, spend]
+    section: Comments
+    token_count: 232
 ---
-
 # What advice would you give yourself a year before internship season?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1tdh3kr/what_advice_would_you_give_yourself_a_year_before/)

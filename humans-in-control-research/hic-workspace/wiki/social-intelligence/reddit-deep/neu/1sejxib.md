@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1sejxib.md
 url: "https://www.reddit.com/r/NEU/comments/1sejxib/would_be_nice_to_see_a_sd_get_recognized_at_our/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -7,14 +8,35 @@ title: "Would be nice to see a SD get recognized at our Commencements"
 author: "BostonNU"
 date: "2026-04-07T02:53:44.000Z"
 score: 17
-upvote_ratio: 0.69
+upvote_ratio: 0.71
 num_comments: 5
 flair: "Campus Life"
-extracted_at: "2026-05-12T15:03:54.706Z"
+extracted_at: "2026-06-06T00:27:19.934Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1sejxib.md#c0"
+    char_span: [0, 1872]
+    sentence_count: 15
+    key_terms: [justin, companions, canine, grace, https, years, independent, com]
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/neu/1sejxib.md#c1"
+    char_span: [1874, 3890]
+    sentence_count: 26
+    key_terms: [justin, grace, together, diploma, mariani, version, seton, news]
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/neu/1sejxib.md#c2"
+    char_span: [3892, 5148]
+    sentence_count: 9
+    key_terms: [justin, version, years, grace, dog, ceremony, includes, standing]
+    token_count: 267
+  - id: "social-intelligence/reddit-deep/neu/1sejxib.md#c3"
+    char_span: [5163, 5710]
+    sentence_count: 7
+    key_terms: [border-coffee, bostonnu, service, tassel, heytherebobitsmerob, extra, gave, too]
+    section: Comments
+    token_count: 150
 ---
-
 # Would be nice to see a SD get recognized at our Commencements
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1sejxib/would_be_nice_to_see_a_sd_get_recognized_at_our/)
@@ -76,8 +98,8 @@ This was one of them.
 
 ## Comments
 
-- **border-coffee** (10↑): COS grad here! They let me walk at Commencement with my service dog and gave him an extra tassel
+- **border-coffee** (11↑): COS grad here! They let me walk at Commencement with my service dog and gave him an extra tassel
   - **BostonNU** (1↑): No mortar board? That’s cool about the tassel. Did you have to arrange in advance
     - **border-coffee** (1↑): I just outright asked for an extra during pickup and they gave it to me!
 - **heytherebobitsmerob** (13↑): How does this pertain to Northeastern?
-  - **BostonNU** (-18↑): Read the title!  Huskies have service dogs too. Attend every class. They should be recognized at our Commencements too
+  - **BostonNU** (-17↑): Read the title!  Huskies have service dogs too. Attend every class. They should be recognized at our Commencements too

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1rpem7m.md
 url: "https://www.reddit.com/r/college/comments/1rpem7m/possible_degree_change/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,21 @@ flair: "Career/work"
 extracted_at: "2026-05-22T13:32:26.399Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1rpem7m.md#c0"
+    char_span: [0, 1485]
+    sentence_count: 16
+    key_terms: [college, school, time, current, degree, full, want, healthcare]
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/college/1rpem7m.md#c1"
+    char_span: [1500, 3396]
+    sentence_count: 9
+    key_terms: ["i'm", too, everything, healthcare, passionate, full-time, switched, yourself]
+    section: Comments
+    token_count: 434
 ---
-
 # Possible degree change?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1rpem7m/possible_degree_change/)

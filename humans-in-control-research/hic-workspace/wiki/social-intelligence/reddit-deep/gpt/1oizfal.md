@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1oizfal.md
 url: "https://www.reddit.com/r/GPT/comments/1oizfal/chatgpt_alpha_model_external_access_reserved_gate/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,35 @@ flair: ""
 extracted_at: "2026-05-11T17:26:37.727Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1oizfal.md#c0"
+    char_span: [0, 1825]
+    sentence_count: 10
+    key_terms: [user, safety, policies, question, circumstance, task, work, clarifying]
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/gpt/1oizfal.md#c1"
+    char_span: [1827, 3648]
+    sentence_count: 12
+    key_terms: ["don't", user, unless, style, conversation, tools, keep, use]
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/gpt/1oizfal.md#c2"
+    char_span: [3650, 6059]
+    sentence_count: 21
+    key_terms: [check, use, answer, arithmetic, attention, test, web, language]
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/gpt/1oizfal.md#c3"
+    char_span: [6061, 8492]
+    sentence_count: 21
+    key_terms: [oververbosity, ideas, theories, particularly, user, thinking, message, always]
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/gpt/1oizfal.md#c4"
+    char_span: [8494, 10262]
+    sentence_count: 14
+    key_terms: [user, question, phrases, user-requested, follow, personality, end, artifacts]
+    token_count: 356
 ---
-
 # chatgpt_alpha_model_external_ access_reserved_gate_13 system instructions
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1oizfal/chatgpt_alpha_model_external_access_reserved_gate/)

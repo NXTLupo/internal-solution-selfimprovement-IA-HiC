@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1shco66.md
 url: "https://www.reddit.com/r/internships/comments/1shco66/junior_cs_student_with_zero_internshipsprojects/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "Resume"
 extracted_at: "2026-05-23T19:44:46.351Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1shco66.md#c0"
+    char_span: [0, 1091]
+    sentence_count: 6
+    key_terms: [resume, internships, template, right, experience, interviews, comments, projects]
+    token_count: 250
+  - id: "social-intelligence/reddit-deep/internships/1shco66.md#c1"
+    char_span: [1106, 2196]
+    sentence_count: 2
+    key_terms: [revorian, resume, free, like, experience, projects, people, simple]
+    section: Comments
+    token_count: 280
 ---
-
 # 🚨 Junior CS Student with ZERO Internships/Projects. Need a Resume That Actually Gets Me Past ATS & Into Interviews 😭
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1shco66/junior_cs_student_with_zero_internshipsprojects/)

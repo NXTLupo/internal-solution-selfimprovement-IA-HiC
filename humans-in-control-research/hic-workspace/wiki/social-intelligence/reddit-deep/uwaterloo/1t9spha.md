@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1t9spha.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1t9spha/is_waterloo_worth_it/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,39 @@ flair: "Advice"
 extracted_at: "2026-05-25T18:33:12.669Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1t9spha.md#c0"
+    char_span: [0, 1108]
+    sentence_count: 8
+    key_terms: [waterloo, been, ubc, year, uwaterloo, comments, tuition, around]
+    token_count: 289
+  - id: "social-intelligence/reddit-deep/uwaterloo/1t9spha.md#c1"
+    char_span: [1123, 1807]
+    sentence_count: 5
+    key_terms: [enderphone, accurate, relevant-yak-9657, cost, yeah, miscellaneous, conquest845, calculator]
+    section: Comments
+    token_count: 206
+  - id: "social-intelligence/reddit-deep/uwaterloo/1t9spha.md#c2"
+    char_span: [1809, 3800]
+    sentence_count: 12
+    key_terms: [waterloo, students, program, better, good, job, ubc, enderphone]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/uwaterloo/1t9spha.md#c3"
+    char_span: [3571, 3900]
+    sentence_count: 2
+    key_terms: [per, terms, term, months, month, muirgenemrys, situation, covering]
+    section: Comments
+    token_count: 98
+  - id: "social-intelligence/reddit-deep/uwaterloo/1t9spha.md#c4"
+    char_span: [3902, 4853]
+    sentence_count: 7
+    key_terms: [costs, enderphone, province, waterloo, student, around, pure-construction546, misakamikasa10086]
+    section: Comments
+    token_count: 244
 ---
-
 # Is Waterloo worth it?
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1t9spha/is_waterloo_worth_it/)

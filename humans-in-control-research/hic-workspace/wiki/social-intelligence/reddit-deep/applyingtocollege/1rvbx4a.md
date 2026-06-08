@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1rvbx4a.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rvbx4a/choosing_a_collegemajor_in_the_age_of_ai/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,48 @@ subreddit: "applyingtocollege"
 title: "choosing a college/major in the age of AI"
 author: "pbmadman1994"
 date: "2026-03-16T15:03:14.000Z"
-score: 9
+score: 10
 upvote_ratio: 1
 num_comments: 26
 flair: "College Questions"
-extracted_at: "2026-05-25T18:32:06.260Z"
+extracted_at: "2026-06-01T18:49:57.467Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rvbx4a.md#c0"
+    char_span: [0, 1776]
+    sentence_count: 11
+    key_terms: [college, applyingtocollege, give, people, major, threatened, comments, cheaper]
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rvbx4a.md#c1"
+    char_span: [1791, 3551]
+    sentence_count: 10
+    key_terms: [science, labor-market-impacts, anthropic, computer, research, college, someone, degree]
+    section: Comments
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rvbx4a.md#c2"
+    char_span: [3553, 5504]
+    sentence_count: 6
+    key_terms: [transferable, teachers, skills, peacockintime, pbmadman1994, field, going, architects]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rvbx4a.md#c3"
+    char_span: [5506, 7279]
+    sentence_count: 15
+    key_terms: [college, unemployment, major, stlouisfed, therapists, graduates, cgbd2024, machines]
+    section: Comments
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rvbx4a.md#c4"
+    char_span: [7281, 8886]
+    sentence_count: 11
+    key_terms: [good, replaced, already, career, enough, outrun, conscious-secret-775, being]
+    section: Comments
+    token_count: 385
 ---
-
 # choosing a college/major in the age of AI
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rvbx4a/choosing_a_collegemajor_in_the_age_of_ai/)
-Posted by **pbmadman1994** · **9↑** · **26 comments**
+Posted by **pbmadman1994** · **10↑** · **26 comments**
 
 As my kid along with everyone else are awaiting the last decisions and shifting his focus to which college to attend, I’m surprised how little people are talking about AI impact on college degrees.
 
@@ -36,12 +66,12 @@ What advice would you give?
 
 ## Comments
 
-- **Mundane_Log_7169** (7↑): My advice would be to get good at sales. Even in the age of AI, sales will always be a thing as long as capitalism is around. If you’re good at it, it can be very lucrative. Your value at a company is how much money you can bring in. 
+- **jessypal1** (4↑): We’re actually in the same boat. My son spent most of middle school and high school doing coding and machine learning, but in the end he decided not to pursue Computer Science as his major. At most of the colleges he applied to, he chose Economics (BS) or interdisciplinary majors like Cognitive Science instead.
 
-Getting good at sales means working on your soft skills. Public speaking, leadership and social skills is going to set yourself apart from everyone else. In an increasingly digital world, these things are what a lot of kids lack. Personally, I think AI is going to force people off-line because they’re going to crave real in person encounters again. Who wants to be online when everything is fake?
-  - **Weird_Illustrator845** (5↑): Great advice. I graduated from college in the 90s and my mom “guaranteed” me that computers would replace sales people everywhere. I took my dad’s advice instead which was: people who can sell things will always be able to support themselves. He was absolutely right. I went from sales > marketing > CEO.
-  - **Haunting-Fruit7154** (1↑): online zoom mtgs, conferences etc save a lot of money. this is why many companies decided to keep positions working from home since it saves on overhead. imo, today, more than ever, ppl can research prods. or services for themselves. there’ll always be contact info. that allows to email or call for any questions. however, most of these ppl are paid positions in other countries. this is what has made a lot of sales and marketing positions obsolete.
-- **ChadwithZipp2** (4↑): Few thoughts: 
+Personally, I still think fields like Mechanical, Electrical, Industrial, and other engineering disciplines will continue to matter a lot in the AI era. These areas deal with real-world systems and infrastructure, and I don’t see that changing anytime soon.
+
+Also, unless someone can afford to pay for college without taking on major debt, I’d be cautious about borrowing a lot for it. Starting life after college with significant debt hanging over you isn’t the best position to be in, especially when it can take years to pay it off.
+- **ChadwithZipp2** (5↑): Few thoughts: 
 
 1) Traditional routes for computer science graduates is disappearing. Someone with CS degree hoping to be a programmer is due for a rude shock. 
 
@@ -52,18 +82,13 @@ Getting good at sales means working on your soft skills. Public speaking, leader
 You can see the latest research from Anthropic on AI impact on labor market here: [https://www.anthropic.com/research/labor-market-impacts](https://www.anthropic.com/research/labor-market-impacts)
 
 Whatever we do, we should not encourage kids to get into debt for any college degree, its not smart.
-  - **Ok_Experience_5151** (4↑): >Traditional routes for computer science graduates is disappearing. Someone with CS degree hoping to be a programmer is due for a rude shock.
+  - **Ok_Experience_5151** (5↑): >Traditional routes for computer science graduates is disappearing. Someone with CS degree hoping to be a programmer is due for a rude shock.
 
 Disagree.  I continue to believe that a student who earns a CS degree from a reasonably well-regarded school, does reasonably well grade-wise, works two internships prior to graduating, interviews well, and who doesn't limit his job search to a specific geography or set of employers (or to work-from-home) will not struggle to find work after graduating.
     - **pbmadman1994** (1↑): What is the basis for your belief. Anthropic says that 95% of computer scientist tasks can be replaced by AI. That’s what I earned my degree in and I see it happening. I agree computer science is not going away, but it is going to need many fewer people.
 - **PeacockInTime** (4↑): My advice would be not to connect major to career field so literally, to study what you want and pick up transferable skills along the way while you figure out what you are good at and gain experience.
   - **pbmadman1994** (1↑): The problem here is if “what you want” has no transferable skills.
-    - **PeacockInTime** (3↑): My personal belief is that every field of study has transferable skills. Sure if you major in visual arts you may need to have some other hustles going on as well.
-- **jessypal1** (5↑): We’re actually in the same boat. My son spent most of middle school and high school doing coding and machine learning, but in the end he decided not to pursue Computer Science as his major. At most of the colleges he applied to, he chose Economics (BS) or interdisciplinary majors like Cognitive Science instead.
-
-Personally, I still think fields like Mechanical, Electrical, Industrial, and other engineering disciplines will continue to matter a lot in the AI era. These areas deal with real-world systems and infrastructure, and I don’t see that changing anytime soon.
-
-Also, unless someone can afford to pay for college without taking on major debt, I’d be cautious about borrowing a lot for it. Starting life after college with significant debt hanging over you isn’t the best position to be in, especially when it can take years to pay it off.
+    - **PeacockInTime** (4↑): My personal belief is that every field of study has transferable skills. Sure if you major in visual arts you may need to have some other hustles going on as well.
 - **Ill_Substance_1833** (2↑): Basically, the final jobs left to humans will be:
 
 — Tech oligarchs
@@ -123,3 +148,5 @@ The point is that every profession can, with enough theorizing, be replaced. But
 
 
 My advice is to just pick a career that you think won't be replaced first.
+- **Haunting-Fruit7154** (1↑): so glad that you posted this. it seems like it’s not talked about enough. many ppl will have so much school debt, and graduate w/o a career or 
+high-paying job. in fact, i think of those currently a sophomore or jr. that have already wasted money. ie: journalism degrees, business etc. AI has already had an overall impact. within 5 yrs, i see it being a tremendous hurdle for impacting many careers.

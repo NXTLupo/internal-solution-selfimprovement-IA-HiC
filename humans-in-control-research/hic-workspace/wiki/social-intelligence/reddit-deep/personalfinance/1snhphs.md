@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1snhphs.md
 url: "https://www.reddit.com/r/personalfinance/comments/1snhphs/young_adult_needs_budgeting_advice/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,20 @@ flair: "Budgeting"
 extracted_at: "2026-05-16T20:55:02.108Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1snhphs.md#c0"
+    char_span: [0, 1778]
+    sentence_count: 2
+    key_terms: [better, personalfinance, payment, pretty, school, saxophones, comments, monthly]
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/personalfinance/1snhphs.md#c1"
+    char_span: [1780, 2437]
+    sentence_count: 1
+    key_terms: [retirement, accruals, driving, idk, like, affordable, everything, personal]
+    token_count: 167
 ---
-
 # young adult needs budgeting advice
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1snhphs/young_adult_needs_budgeting_advice/)

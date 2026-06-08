@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1n7fvra.md
 url: "https://www.reddit.com/r/careeradvice/comments/1n7fvra/nearly_60_blown_through_two_successful_identity/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.239Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce, media]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1n7fvra.md#c0"
+    char_span: [0, 1406]
+    sentence_count: 15
+    key_terms: [careeradvice, being, ideas, find, comments, cannot, spent, years]
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/careeradvice/1n7fvra.md#c1"
+    char_span: [1421, 2697]
+    sentence_count: 12
+    key_terms: [universities, university, colleges, editing, looking, resume, "you're", beachyhaircitroen]
+    section: Comments
+    token_count: 290
+  - id: "social-intelligence/reddit-deep/careeradvice/1n7fvra.md#c2"
+    char_span: [2699, 3647]
+    sentence_count: 3
+    key_terms: [beachyhaircitroen, publishing, people, reedsy, art, don, self, sell]
+    section: Comments
+    token_count: 273
 ---
-
 # Nearly 60, blown through two successful “identity based” careers, need new ideas
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1n7fvra/nearly_60_blown_through_two_successful_identity/)

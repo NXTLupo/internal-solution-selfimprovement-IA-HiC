@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1lirc9x.md
 url: "https://www.reddit.com/r/college/comments/1lirc9x/i_think_im_going_to_fail_my_first_year_of_college/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,36 @@ subreddit: "college"
 title: "I think I’m going to fail my first year of college for the third time"
 author: "i_dont_evenknowY"
 date: "2025-06-23T20:22:59.000Z"
-score: 69
+score: 68
 upvote_ratio: 0.93
 num_comments: 13
 flair: ""
-extracted_at: "2026-05-19T17:57:40.127Z"
+extracted_at: "2026-06-06T00:27:48.351Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1lirc9x.md#c0"
+    char_span: [0, 2179]
+    sentence_count: 19
+    key_terms: [college, essay, classes, year, because, professor, failed, passed]
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/college/1lirc9x.md#c1"
+    char_span: [2194, 4210]
+    sentence_count: 19
+    key_terms: [professor, school, different, degree, class, anxiety, college, english]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/college/1lirc9x.md#c2"
+    char_span: [4212, 5904]
+    sentence_count: 7
+    key_terms: [professor, boss, mean, take, something, connotes, synonyms, courses]
+    section: Comments
+    token_count: 400
 ---
-
 # I think I’m going to fail my first year of college for the third time
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1lirc9x/i_think_im_going_to_fail_my_first_year_of_college/)
-Posted by **i_dont_evenknowY** · **69↑** · **13 comments**
+Posted by **i_dont_evenknowY** · **68↑** · **13 comments**
 
 I’m studying English in Europe and I’m getting really depressed over this whole situation. My first year of college went okay, I passed most of my classes except 3. All 3 of those classes are being taught by the same professor; the strictest professor in my college. Most of the people in my year failed her classes as well, there have been also numerous petitions to re-evaluate her work, as people started complaining she was really unprofessional and rude to students.
 
@@ -30,7 +48,7 @@ I can’t keep doing this anymore. The amount of money that I spent just for cla
 
 - **ResidentNo11** (71↑): Have you looked into transferring to a different school (which could be difficult given your grades) or to a different professor in the one you're at?
 - **First_Condition_372** (29↑): I’ve been in school since I was 18 im not 25 and JUST got my AA degree … you can always go to a different school , or a community college.
-- **Comprehensive_Sun_99** (21↑): This is premature. You haven’t even failed yet. Update us once your essay is graded. 
+- **Comprehensive_Sun_99** (23↑): This is premature. You haven’t even failed yet. Update us once your essay is graded. 
 
 If it’s just one class, then your life is not over. If your degree is not in English, then do not dwell on it. 
 
@@ -54,8 +72,8 @@ some courses suck, some professors suck more. if this isn’t a class you need t
 if you have it and haven’t already done this, document everything this professor is doing and send it directly to their boss. if their boss doesn’t do anything, go to THEIR boss, claw up the chain of command if you have to. make a fuss to SOMEONE’S boss (and if you get enough people to fuss with you, they can’t ignore you all physically in the department).
 
 i’m sending you so many hugs, i promise academic woes will pass.
-- **ILivetoEat_** (2↑): Wait is it bad to look up synonyms? I do that all the time
-  - **hausdorffparty** (3↑): It can be if the synonyms don't actually mean or connote what you think they mean. 
+- **ILivetoEat_** (1↑): Wait is it bad to look up synonyms? I do that all the time
+  - **hausdorffparty** (4↑): It can be if the synonyms don't actually mean or connote what you think they mean. 
 
 For example, the words "halt" and "cease" both mean "stop" .... But halting generally connotes temporary sudden stops, whereas ceasing connotes something more permanent, so swapping them out changes how people will interpret what you mean.
-  - **MightBeYourProfessor** (3↑): It can be bad. There isn't enough context or examples here to know.
+  - **MightBeYourProfessor** (4↑): It can be bad. There isn't enough context or examples here to know.

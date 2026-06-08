@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1qsb1fp.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1qsb1fp/what_to_do_over_the_summer_as_a_first_year_in_cs/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -10,11 +11,28 @@ score: 0
 upvote_ratio: 0.33
 num_comments: 1
 flair: "Student"
-extracted_at: "2026-05-19T17:57:56.726Z"
+extracted_at: "2026-06-06T00:28:32.207Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qsb1fp.md#c0"
+    char_span: [0, 1250]
+    sentence_count: 5
+    key_terms: [cscareerquestions, research, summer, opportunities, internships, underclassmen-internships, comments, github]
+    token_count: 293
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qsb1fp.md#c1"
+    char_span: [1265, 3133]
+    sentence_count: 22
+    key_terms: [information, doing, find, job, resume, "can't", "don't", pages]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qsb1fp.md#c2"
+    char_span: [3136, 4286]
+    sentence_count: 7
+    key_terms: [knowledge, time, apply, job, automated, learning, problems, company]
+    section: Comments
+    token_count: 250
 ---
-
 # What to do over the summer as a first year in CS
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1qsb1fp/what_to_do_over_the_summer_as_a_first_year_in_cs/)

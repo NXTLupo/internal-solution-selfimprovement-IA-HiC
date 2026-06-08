@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1td2hfo.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1td2hfo/3rd_year_bsc_cs_looking_for_msc_math_statistics/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -10,11 +11,22 @@ score: 0
 upvote_ratio: 0.5
 num_comments: 2
 flair: "Student"
-extracted_at: "2026-05-22T23:33:42.315Z"
+extracted_at: "2026-06-05T23:42:30.805Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1td2hfo.md#c0"
+    char_span: [0, 1039]
+    sentence_count: 11
+    key_terms: [math, semester, statistical, cscareerquestions, algebra, theory, algorithms, statistics]
+    token_count: 270
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1td2hfo.md#c1"
+    char_span: [1054, 1767]
+    sentence_count: 5
+    key_terms: [analysis, algebra, real, algorithms, courses, "what's", asked, mother-click-4465]
+    section: Comments
+    token_count: 153
 ---
-
 # 3rd year BSc CS looking for MSc Math / Statistics --> PhD Math /Stats transition. Advice needed.
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1td2hfo/3rd_year_bsc_cs_looking_for_msc_math_statistics/)

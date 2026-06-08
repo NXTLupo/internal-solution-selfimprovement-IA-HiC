@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-cscareerquestions/edde81a9e7.md
 url: "https://reddit.com/r/cscareerquestions/comments/1rteomh/i_was_very_pessimistic_about_ai_taking_jobs_then/"
 url_hash: "edde81a9e7"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-13T23:06:31.808192+00:00"
 chars: 2135
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-cscareerquestions/edde81a9e7.md#c0"
+    char_span: [0, 2008]
+    sentence_count: 19
+    key_terms: ["didn't", everything, colab, cscareerquestions, later, file, good, team]
+    token_count: 470
+  - id: "articles/reddit-cscareerquestions/edde81a9e7.md#c1"
+    char_span: [2010, 2363]
+    sentence_count: 3
+    key_terms: [fundamentals, eventually, companies, captures, mistakes, personal, replace, "they're"]
+    token_count: 81
 ---
-
 # I was very pessimistic about AI taking jobs. Then a vibe coder joined my team.
 
 Source: [reddit: cscareerquestions](https://reddit.com/r/cscareerquestions/comments/1rteomh/i_was_very_pessimistic_about_ai_taking_jobs_then/)

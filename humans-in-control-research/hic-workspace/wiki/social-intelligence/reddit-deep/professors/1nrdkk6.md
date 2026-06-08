@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1nrdkk6.md
 url: "https://www.reddit.com/r/Professors/comments/1nrdkk6/terror_in_texas_academia/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -10,11 +11,75 @@ score: 839
 upvote_ratio: 0.95
 num_comments: 239
 flair: ""
-extracted_at: "2026-05-14T18:17:21.692Z"
+extracted_at: "2026-06-05T23:43:27.608Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c0"
+    char_span: [0, 1979]
+    sentence_count: 15
+    key_terms: [reddit, being, teach, texas, retribution, post, professors, overreach]
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c1"
+    char_span: [1981, 3449]
+    sentence_count: 13
+    key_terms: [controversial, state, law, curricula, recognize, personal, syllabi, comply]
+    token_count: 280
+  - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c2"
+    char_span: [3464, 5451]
+    sentence_count: 22
+    key_terms: [thinking, critical, try, gonna, stand, semester, students, classes]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c3"
+    char_span: [5453, 7249]
+    sentence_count: 17
+    key_terms: [happened, solidarity, chair, suck, happening, something, problem, arena]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c4"
+    char_span: [7251, 8804]
+    sentence_count: 11
+    key_terms: [syllabus, specifically, law, like, capitulate, everything, described, process]
+    section: Comments
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c5"
+    char_span: [8806, 10640]
+    sentence_count: 11
+    key_terms: [law, constitutional, attorneys, executive, gender, saying, expensive-mention-90, southern-cloud-9616]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c6"
+    char_span: [10642, 12828]
+    sentence_count: 21
+    key_terms: [persons, texas, amendment, genotypes, pregnant, current, faculty, federal]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c7"
+    char_span: [12830, 14476]
+    sentence_count: 7
+    key_terms: [circuit, absolutely, questions, garcetti, official, "court's", outcome, pending]
+    section: Comments
+    token_count: 312
+  - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c8"
+    char_span: [14478, 16800]
+    sentence_count: 26
+    key_terms: [case, classroom, circuit, speech, fifth, instruction, amendment, professor]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c9"
+    char_span: [16802, 17081]
+    sentence_count: 2
+    key_terms: [professoronedge, difference, williams, because, advice, follow, system, going]
+    section: Comments
+    token_count: 70
+  - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c10"
+    char_span: [17083, 19396]
+    sentence_count: 22
+    key_terms: [florida, cold-nefariousness25, because, states, state, republican, far-right, faculty]
+    section: Comments
+    token_count: 507
 ---
-
 # Terror in Texas Academia
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1nrdkk6/terror_in_texas_academia/)
@@ -57,36 +122,36 @@ Regardless, in your role as a state employee, compliance with the law is require
 - **Unsuccessful_Royal38** (941↑): You’re going to hear a lot of people telling you to take a stand; but you are the one who will have to live with the consequences of losing your job.  Do what you can where you can to weather the storm.
   - **Brave_DonutHole** (313↑): I am having a rough semester after another rough semester last spring. So I am on the verge of quitting. I wonder sometimes if this should be my hill to die on. I don’t know. I have to try to figure out if I continue to teach and hope that even a handful of students benefit from the critical thinking I try to instill in them, or I quit and make a public stand on this. Right now I’m still going to opt for the former, but I will be thinking hard about it. I’m a lowly adjunct, so does anyone really make a stand if there‘s no one to witness them standing up in the first place?
     - **mcprof** (256↑): Don’t quit! Make them fire you then sue them! That’s my plan lol.
-    - **NotMrChips** (28↑): It's my hill, but I'm older than dirt. Retire this year or next, makes no difference to me. I'm gonna make 'em work for though 😆
+    - **NotMrChips** (27↑): It's my hill, but I'm older than dirt. Retire this year or next, makes no difference to me. I'm gonna make 'em work for though 😆
     - **Leena52** (1↑): I understand. Have family in the same system. If you loose your job think of the impact also on your students. They NEED prof’s like you. Just CYA. Record classes if possible. Know any student can record you. This is a horrible era for academia. Try and hang on, tread water and I hope you can survive this onslaught.
-    - **HemetValleyMall1982** (-1↑): "...critical thinking I try to instill in them..."
+    - **HemetValleyMall1982** (-3↑): "...critical thinking I try to instill in them..."
 
 If your classes allow for the topic of critical thinking, are you allowed to or does your field allow for the requirement of including some critical thinking skills as part of the silly bus?
 
 Like critical thinking dot org type material?
-  - **Estudiier** (8↑): I agree. Lots of advice from those not in your shoes.
+  - **Estudiier** (7↑): I agree. Lots of advice from those not in your shoes.
   - **t_rexinated** (1↑): well-spoken, pragmatic
-  - **Tricky_Gas007** (-3↑): If everyone is gonna be pussy, then we're all gonna get fucked. 
+  - **Tricky_Gas007** (-2↑): If everyone is gonna be pussy, then we're all gonna get fucked. 
 
 If money is your only problem, then you don't have a problem. If it isn't, then school is not a concern either way.
 
 This is stated with love.
-  - **Kbern4444** (-50↑): Do not take a stand, you will lose horribly. In every arena every format anywhere. Suck it up buttercup 3 1/2 years.
-    - **BekaRenee** (11↑): What is OP meant to “suck up”?
-    - **Sad_Application_5361** (6↑): There is a difference between adhering to employer policies in order to keep your job and not taking a stand in *every* arena. We can still call our politicians and attend protests that do not occur on campus without jeopardizing our job. We can still treat our trans and gender nonconforming students with compassion.
+  - **Kbern4444** (-52↑): Do not take a stand, you will lose horribly. In every arena every format anywhere. Suck it up buttercup 3 1/2 years.
+    - **BekaRenee** (12↑): What is OP meant to “suck up”?
+    - **Sad_Application_5361** (5↑): There is a difference between adhering to employer policies in order to keep your job and not taking a stand in *every* arena. We can still call our politicians and attend protests that do not occur on campus without jeopardizing our job. We can still treat our trans and gender nonconforming students with compassion.
     - **Terratoast** (2↑): [Nothing is happening yet, stop panicking](https://www.reddit.com/r/Professors/comments/1iajxyx/impact_of_trump_regime_in_academia_and_research/m9aouen/) -> Oh, stuff is happening now? Suck it up.
-- **MadameMushroom1111** (200↑): Here in solidarity - I’m in the A&M system and we just went through the same process. Shit’s wild.
+- **MadameMushroom1111** (202↑): Here in solidarity - I’m in the A&M system and we just went through the same process. Shit’s wild.
   - **Brave_DonutHole** (84↑): Thank you! When I first read the memo, I assumed it was because of what happened at A&M. I didn’t realize something similar had already happened at Angelo State this week as well. 
 
 I will give my chair credit. He sent out a response after what happened at A&M and said he has our back when we teach controversial subjects (which many of us do). So that made me feel better, until this happened today. I’m not sure what power my chair will have now.
-    - **Cobalt_88** (25↑): I would love to have had my chair send something after the postmasters from President and then provost. Lucky you. In solidarity with you at very likely the same uni…. :/
-    - **Nerobus** (22↑): Texas CC here… solidarity my friend.
+    - **Cobalt_88** (26↑): I would love to have had my chair send something after the postmasters from President and then provost. Lucky you. In solidarity with you at very likely the same uni…. :/
+    - **Nerobus** (24↑): Texas CC here… solidarity my friend.
 
 They dismantled our senates so we can’t even really organize against everything.
-    - **Sad_Application_5361** (4↑): I think the key right now is making sure all controversial stuff is specifically described as a learning objective on the syllabus. That at least means that students were aware of course content ahead of time.
+    - **Sad_Application_5361** (3↑): I think the key right now is making sure all controversial stuff is specifically described as a learning objective on the syllabus. That at least means that students were aware of course content ahead of time.
   - **Sad_Application_5361** (7↑): I’m in the UT system. We haven’t had anything official, just an unofficial memo from our chair to only teach about topics specifically described in the syllabus. It’s probably only a matter of time. The higher ups are focusing on how to change bylaws in order to get around SB-37 and reinstate a faculty senate. They’ve already side-stepped the SB-17 stuff by re-naming things. I suspect they will not cave as easily as A&M but they’re trying to be strategic about it so that they are adhering to everything on a legal level.
   - **robsrahm** (-5↑): Which process did we just go through?
-    - **WindTurtle** (10↑): We are just starting the process of auditing every course and every syllabus….
+    - **WindTurtle** (11↑): We are just starting the process of auditing every course and every syllabus….
 - **NatchezWriter** (95↑): What’s wild to me is that the references to so-called federal law is not law…it’s an executive order! I feel like I’m going crazy around here, like do these folks need to watch Schoolhouse Rock? Do they not remember the bill on Capitol Hill? It’s astonishing to me how quickly people capitulate to something that isn’t a law…
   - **[deleted]** (32↑): Yep sometimes it feels like a race to capitulate. It won't protect you in the end.
     - **AbleCitizen** (2↑): THIS. 
@@ -95,26 +160,25 @@ I'm also in TX. Faculty are doing all they can to stay under the radar thinking 
   - **Southern-Cloud-9616** (6↑): I remember Schoolhouse Rock very well.  But we need some new ones.  "De Facto Law" would be a great character for a cartoon about when the Congress and SCOTUS supinely go along with an executive order from a narcissistic, degenerate monster.  
 
 I'd even buy the t-shirt for that one.
-  - **Expensive-Mention-90** (4↑): There’s some big non-sequitur in the email. From “state and federal law only recognize 2 sexes” to “no human may present another opinion or discuss historical events (for example) regarding alternative ways that society has worked.” I can see it following from the “state/fed law require” stuff that official documents only permit 2 sexes. But it’s a huge leap to say “and now you cannot talk about other world views.”
+  - **Expensive-Mention-90** (3↑): There’s some big non-sequitur in the email. From “state and federal law only recognize 2 sexes” to “no human may present another opinion or discuss historical events (for example) regarding alternative ways that society has worked.” I can see it following from the “state/fed law require” stuff that official documents only permit 2 sexes. But it’s a huge leap to say “and now you cannot talk about other world views.”
 
 (I’m ignoring altogether the distinction between sex and gender here, and some other things)
   - **Far_Proposal555** (1↑): Saying an executive order isn’t law is like saying Supreme Court decisions (case law) or Constitutional Amendments (constitutional law) aren’t law. There are multiple sources of law: My intro to CJ class just took their first exam on this.
-- **Squirrel_of_Fury** (102↑): Their absolute obsession with gender would be laughably bizarre if their intentions weren't so insidious and potentially deadly.
-  - **pwnedprofessor** (22↑): ![gif](giphy|hThRU9GCZM8q4)
+- **Squirrel_of_Fury** (103↑): Their absolute obsession with gender would be laughably bizarre if their intentions weren't so insidious and potentially deadly.
+  - **pwnedprofessor** (23↑): ![gif](giphy|hThRU9GCZM8q4)
 
 Michel over here being like, I told y’all
-  - **Unsuccessful_Royal38** (24↑): It’s not potentially deadly. It is actually deadly.  Trans kids are at increased risk of suicide when they are marginalized and dehumanized.  People have died and people will die because of such political theater.
-- **sumthymelater** (125↑): I'm sorry. I don't know how one can just erase people and ideas.
-- **Friendly-Arm-3320** (112↑): Solidarity from Florida.  There will be a time in which you are needed to rebuild, duck, and cover until you have a chance.  In the meantime, malicious compliance is an option.  We aren't allowed to focus on women.  Fine, "pregnant persons" it is.  Might I recommend not discussing sexes and instead focusing on the many genotypes of persons one might encounter.
-  - **jmac94wp** (12↑): Amen, genotypes is absolutely the way to go. Familiarize yourself with the many variations that exist!
+  - **Unsuccessful_Royal38** (25↑): It’s not potentially deadly. It is actually deadly.  Trans kids are at increased risk of suicide when they are marginalized and dehumanized.  People have died and people will die because of such political theater.
+- **Friendly-Arm-3320** (111↑): Solidarity from Florida.  There will be a time in which you are needed to rebuild, duck, and cover until you have a chance.  In the meantime, malicious compliance is an option.  We aren't allowed to focus on women.  Fine, "pregnant persons" it is.  Might I recommend not discussing sexes and instead focusing on the many genotypes of persons one might encounter.
+  - **jmac94wp** (11↑): Amen, genotypes is absolutely the way to go. Familiarize yourself with the many variations that exist!
     - **Expensive-Mention-90** (1↑): I feel a little lost on this, and wonder if you could say more or offer an example.
-  - **raisecain** (10↑): Pregnant persons is actually more accurate anyway!
+  - **raisecain** (11↑): Pregnant persons is actually more accurate anyway!
 - **jce8491** (26↑): >Current state and federal law recognize only two human sexes: male and female, as outlined in House Bill 229, Governor's Letter, and Executive Order. Therefore, while recognizing the First Amendment rights of employees in their personal capacity, faculty must comply with these laws in the instruction of students, within the course and scope of their employment.
 
 First Amendment and academic freedom scholar here. Based on the current state of the law, this is legally bullshit. That said, you're in a rough spot. The Fifth Circuit, which is the federal appellate court that has jurisdiction over Texas, is filled with MAGA cranks. I would not trust it to follow precedent if I were in your shoes. If you were in most other states, I'd tell you that you have protections if you continue to teach as you have. Unfortunately, I can't say that about Texas.
 
 I'm really sorry that this is happening. It's messed up. Texas Tech is pathetic for pulling this shit.
-  - **Another_Opinion_1** (6↑): They're going to argue that faculty speech is government speech per Garcetti et al. and you and I both know even the most inept lawyers can still become judges. 
+  - **Another_Opinion_1** (7↑): They're going to argue that faculty speech is government speech per Garcetti et al. and you and I both know even the most inept lawyers can still become judges. 
 
 There are absolutely 1A issues with all of this including questions about compelled speech especially in private interactions with students versus speaking explicitly on behalf of the institution in say more official communications like memos and public relation statements but I think it's unlikely that either the trial or appellate (5th Cir) courts will side with the employees here. 
 
@@ -128,14 +192,20 @@ As for the district courts, the key here is getting the case out of Lubbock if y
 P.S. If I recall correctly, the Texas bill they cite in the memo doesn't even apply to classroom instruction. Nor does the Trump EO.
 
 P.P.S. I read the Alabama decision, and the judge there really screwed that case up. Butchered the precedents and even applied First Amendment doctrine incorrectly.
-- **Remette_** (26↑): I’m a gay historian in academia who works/lives in the gulf South. I see this all the time and I’m similarly scared. 
+- **Remette_** (27↑): I’m a gay historian in academia who works/lives in the gulf South. I see this all the time and I’m similarly scared. 
 
 I currently serve on the executive committee for the LGBTQ faculty caucus and we’ve been fighting admin for over a year now. First we had to scrub our website of “DEI language”. Then we were told we couldn’t meet on campus anymore. Then that we couldn’t keep our funds in a university account. Now we’re having to argue with counsel about whether a trans employee can use their preferred restroom or not. 
 
 It’s easy to say we should stand up like Robin Williams in Dead Poets, but it’s not going to make a huge difference because of how the system works. I keep my head down and follow the rules when I have to.
-  - **ProfessorOnEdge** (3↑): No advice other than to say I feel for you.
+  - **ProfessorOnEdge** (5↑): No advice other than to say I feel for you.
 
 Do you guys have a union at all?
     - **Remette_** (2↑): Thank you, I want faculty in other states to know what’s going on. There’s not really a Union, and it would be severely limited because of the state government. We find ways to work around the rules and we have queer allies throughout the university to help as they can. Southern charm goes a long way, even in gay voice : )
 - **Navigaitor** (50↑): This will be all red states in the next few months. I’m in Ohio and I’m sure we’ll see this soon.
-- **Jay211TF** (85↑): This is really troubling. Thanks for sharing. I wish I had words of encouragement but I think as academics and intellectuals we really need to keep speaking up and sharing and sticking together. Good luck 💗
+- **Jay211TF** (84↑): This is really troubling. Thanks for sharing. I wish I had words of encouragement but I think as academics and intellectuals we really need to keep speaking up and sharing and sticking together. Good luck 💗
+- **Cold-Nefariousness25** (21↑): This happened in Florida 2 years ago. I just moved north and have not regretted my decision one minute. I’m paid the same for teaching only my family and I are safe.
+  - **WeedsHideWorkers** (3↑): I’m a faculty member in a northerly state people fled to from Florida. Because of connections in Florida I’m staying up to date on continuing Florida developments. Here in my comparatively safe state, the school boards and county commissions are increasingly challenging. Big money is supporting candidates who openly espouse very far-right positions. Some of them are winning and more of them are running each cycle. 
+It is more critical than ever that no far-right candidate run unopposed. Blue states won’t stay blue unless everyone there fights like hell to make it so.
+    - **Cold-Nefariousness25** (3↑): I saw how Florida changed over about a decade and I can't agree with you more. It's funny that they accuse professors and democrats of indoctrinating and grooming young people, because that's exactly what they are doing, or trying to do. Every single Florida school has or will have a former Republican politician as president, most without any education experience.  One is a previous prison CEO. They sloppily googled classes with diversity in the syllabus and banned biodiversity from being a core course. We had to sign a contract that nothing in our textbook went against Florida law.
+
+Florida in general felt like the South of France before the Nazis officially took over before the current Republican administration in Washington.

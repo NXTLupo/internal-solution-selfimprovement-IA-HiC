@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1pqr1t3.md
 url: "https://www.reddit.com/r/investing/comments/1pqr1t3/does_it_make_sense_for_young_investors_to_be/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-16T20:55:01.239Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1pqr1t3.md#c0"
+    char_span: [0, 856]
+    sentence_count: 7
+    key_terms: [investing, right, comments, stocks, years, etf, recommendations, reddit-deep]
+    token_count: 211
+  - id: "social-intelligence/reddit-deep/investing/1pqr1t3.md#c1"
+    char_span: [871, 2204]
+    sentence_count: 13
+    key_terms: [returns, market, years, ath, been, investment, inflation, adjusted]
+    section: Comments
+    token_count: 311
+  - id: "social-intelligence/reddit-deep/investing/1pqr1t3.md#c2"
+    char_span: [2206, 4120]
+    sentence_count: 17
+    key_terms: [time, highs, market, buying, people, all-time, consistently, index]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/investing/1pqr1t3.md#c3"
+    char_span: [4122, 5718]
+    sentence_count: 20
+    key_terms: [time, inquiringmind14, bitcoin, better, option, outperformed, sp500, reasonable]
+    section: Comments
+    token_count: 416
 ---
-
 # Does it make sense for young investors to be buying an S&P 500 ETF right now?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1pqr1t3/does_it_make_sense_for_young_investors_to_be/)

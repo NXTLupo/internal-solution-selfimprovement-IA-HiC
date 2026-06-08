@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1qqdmoq.md
 url: "https://www.reddit.com/r/artificial/comments/1qqdmoq/moltbot_is_exploding_100k_github_stars_in_weeks/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,63 @@ flair: "Discussion"
 extracted_at: "2026-05-11T16:53:08.156Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1qqdmoq.md#c0"
+    char_span: [0, 1336]
+    sentence_count: 10
+    key_terms: [security, moltbot, concerns, article, artificial, comments, hesitant, personal]
+    token_count: 307
+  - id: "social-intelligence/reddit-deep/artificial/1qqdmoq.md#c1"
+    char_span: [1351, 2807]
+    sentence_count: 2
+    key_terms: [functionality, e125-4934-a0fc-1b35bb1a98cd, developed, something, security, command, moltbot, internal-passage5756]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/artificial/1qqdmoq.md#c2"
+    char_span: [2809, 4883]
+    sentence_count: 13
+    key_terms: [access, grok, account, employee, another, network, enough, google]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/artificial/1qqdmoq.md#c3"
+    char_span: [4669, 5327]
+    sentence_count: 6
+    key_terms: [account, something, access, google, give, work, stardockengineer, environment]
+    section: Comments
+    token_count: 175
+  - id: "social-intelligence/reddit-deep/artificial/1qqdmoq.md#c4"
+    char_span: [5329, 7236]
+    sentence_count: 10
+    key_terms: [claude, code, weusedtobeacountry, program, own, want, agent-sdk, overview]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/artificial/1qqdmoq.md#c5"
+    char_span: [7238, 9289]
+    sentence_count: 11
+    key_terms: [local, agents, like, llms, connect, without, claude, makes]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/artificial/1qqdmoq.md#c6"
+    char_span: [9006, 9320]
+    sentence_count: 2
+    key_terms: [like, via, time-consuming, uncomfortable, navigating, organizing, outsource, providing]
+    section: Comments
+    token_count: 70
+  - id: "social-intelligence/reddit-deep/artificial/1qqdmoq.md#c7"
+    char_span: [9322, 11486]
+    sentence_count: 16
+    key_terms: [like, api, use, people, reservation, send, definitely, assistant]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/artificial/1qqdmoq.md#c8"
+    char_span: [11488, 12578]
+    sentence_count: 5
+    key_terms: [claude, business-weekend-537, run, use, practical, browser, skills, chromium-based]
+    section: Comments
+    token_count: 269
 ---
-
 # Moltbot is exploding. 100K Github Stars in weeks. But what can we actually do with it, and why so much hype? And how to avoid the security concerns?
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1qqdmoq/moltbot_is_exploding_100k_github_stars_in_weeks/)

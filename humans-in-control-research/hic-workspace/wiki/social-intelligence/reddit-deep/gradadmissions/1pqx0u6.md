@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1pqx0u6.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1pqx0u6/everything_sucks_and_you_are_allowed_to_feel_this/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,49 @@ flair: "General Advice"
 extracted_at: "2026-05-23T14:54:16.722Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pqx0u6.md#c0"
+    char_span: [0, 1622]
+    sentence_count: 22
+    key_terms: [prof, year, gradadmissions, grad, different, comments, frankly, message]
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pqx0u6.md#c1"
+    char_span: [1624, 3217]
+    sentence_count: 10
+    key_terms: [through, rejection, applied, estonia, university, fulbright, programme, february]
+    token_count: 386
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pqx0u6.md#c2"
+    char_span: [3219, 4368]
+    sentence_count: 9
+    key_terms: [something, school, "you're", applications, never, value, acceptances, fit]
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pqx0u6.md#c3"
+    char_span: [4383, 6253]
+    sentence_count: 16
+    key_terms: [kanoncyn, get, applying, postbacc, programs, good, research, looking]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pqx0u6.md#c4"
+    char_span: [6014, 6587]
+    sentence_count: 5
+    key_terms: [wrote, recommenders, confidence, everything, judgement, programme, rejection, something]
+    section: Comments
+    token_count: 132
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pqx0u6.md#c5"
+    char_span: [6589, 8589]
+    sentence_count: 19
+    key_terms: [time, year, thanks, opportunities, diversity, volunteer, rejected, research]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pqx0u6.md#c6"
+    char_span: [8591, 10411]
+    sentence_count: 14
+    key_terms: [rejection, kanoncyn, like, different, fulbright, honestly, position, thanks]
+    section: Comments
+    token_count: 454
 ---
-
 # Everything Sucks and You Are Allowed to Feel This Way
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1pqx0u6/everything_sucks_and_you_are_allowed_to_feel_this/)

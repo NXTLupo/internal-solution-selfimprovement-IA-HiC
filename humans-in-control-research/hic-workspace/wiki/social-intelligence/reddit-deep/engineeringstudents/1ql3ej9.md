@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1ql3ej9.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1ql3ej9/your_reminder_that_its_not_that_serious/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,51 @@ flair: "Rant/Vent"
 extracted_at: "2026-05-23T19:44:57.164Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ql3ej9.md#c0"
+    char_span: [0, 1200]
+    sentence_count: 17
+    key_terms: [serious, engineeringstudents, certainly, gpa, engineer, doesn, makes, graduating]
+    token_count: 274
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ql3ej9.md#c1"
+    char_span: [1215, 1629]
+    sentence_count: 6
+    key_terms: [gpa, experience, graduate, "you've", paleontologistfirm13, built, typical-user-87, transcendent]
+    section: Comments
+    token_count: 125
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ql3ej9.md#c2"
+    char_span: [1631, 3422]
+    sentence_count: 13
+    key_terms: [graduating, gpa, people, engineering, spikeytree, something, kievz007, easily]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ql3ej9.md#c3"
+    char_span: [3424, 4863]
+    sentence_count: 12
+    key_terms: [get, college, gpa, job, companies, academic, company, require]
+    section: Comments
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ql3ej9.md#c4"
+    char_span: [4865, 5973]
+    sentence_count: 13
+    key_terms: [matters, degree, enough, matter, grade, never, get, gpa]
+    section: Comments
+    token_count: 260
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ql3ej9.md#c5"
+    char_span: [5975, 7939]
+    sentence_count: 12
+    key_terms: [matter, matters, school, get, gpa, time, definitely, semester]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ql3ej9.md#c6"
+    char_span: [7747, 8010]
+    sentence_count: 3
+    key_terms: [in-staters, something, colleges, semester, "there's", around, google, living]
+    section: Comments
+    token_count: 83
 ---
-
 # Your reminder that it’s not that serious
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1ql3ej9/your_reminder_that_its_not_that_serious/)

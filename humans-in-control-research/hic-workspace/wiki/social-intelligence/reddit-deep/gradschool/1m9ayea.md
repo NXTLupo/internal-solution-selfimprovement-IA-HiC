@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1m9ayea.md
 url: "https://www.reddit.com/r/GradSchool/comments/1m9ayea/is_it_more_common_for_us_residents_to_selfapply/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.132Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1m9ayea.md#c0"
+    char_span: [0, 1536]
+    sentence_count: 10
+    key_terms: [admissions, consultant, people, school, apply, consultants, did, grad]
+    token_count: 358
+  - id: "social-intelligence/reddit-deep/gradschool/1m9ayea.md#c1"
+    char_span: [1551, 2543]
+    sentence_count: 7
+    key_terms: [deleted, heard, never, programs, anyone, redact, post, real]
+    section: Comments
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/gradschool/1m9ayea.md#c2"
+    char_span: [2545, 4467]
+    sentence_count: 17
+    key_terms: [heard, consultant, something, get, grad, programs, school, never]
+    section: Comments
+    token_count: 472
 ---
-
 # Is it more common for US residents to self‑apply to grad school or to use an admissions consultant?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1m9ayea/is_it_more_common_for_us_residents_to_selfapply/)

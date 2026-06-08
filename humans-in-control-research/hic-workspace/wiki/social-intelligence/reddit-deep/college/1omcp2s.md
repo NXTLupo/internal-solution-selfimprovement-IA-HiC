@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1omcp2s.md
 url: "https://www.reddit.com/r/college/comments/1omcp2s/how_am_i_supposed_to_financially_support_myself/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,44 @@ flair: "Finances/financial aid"
 extracted_at: "2026-05-17T01:12:59.139Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1omcp2s.md#c0"
+    char_span: [0, 1639]
+    sentence_count: 13
+    key_terms: [college, health, crazy, month, got, condition, insurance, comments]
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/college/1omcp2s.md#c1"
+    char_span: [1641, 2371]
+    sentence_count: 10
+    key_terms: [paycheck, student, living, being, bad, got, job, life]
+    token_count: 162
+  - id: "social-intelligence/reddit-deep/college/1omcp2s.md#c2"
+    char_span: [2386, 3584]
+    sentence_count: 11
+    key_terms: [food, year, insurance, whenever, student, health, banks, since]
+    section: Comments
+    token_count: 270
+  - id: "social-intelligence/reddit-deep/college/1omcp2s.md#c3"
+    char_span: [3586, 5685]
+    sentence_count: 19
+    key_terms: [already, university, semester, home, taking, enrollment, decent-muffin9530, classes]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1omcp2s.md#c4"
+    char_span: [5427, 7046]
+    sentence_count: 19
+    key_terms: [loans, time, hours, discojellyfisho, private, week, classes, towards]
+    section: Comments
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/college/1omcp2s.md#c5"
+    char_span: [7048, 8163]
+    sentence_count: 11
+    key_terms: [time, website, books, hours, provided, classes, version, school]
+    section: Comments
+    token_count: 263
 ---
-
 # how am I supposed to financially support myself while in college.
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1omcp2s/how_am_i_supposed_to_financially_support_myself/)

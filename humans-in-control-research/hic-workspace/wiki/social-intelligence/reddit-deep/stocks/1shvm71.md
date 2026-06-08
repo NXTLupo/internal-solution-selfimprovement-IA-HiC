@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1shvm71.md
 url: "https://www.reddit.com/r/stocks/comments/1shvm71/microsoft_msft_is_down_31_from_its_ath/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,68 @@ flair: "Company Discussion"
 extracted_at: "2026-05-17T01:14:17.617Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c0"
+    char_span: [0, 1962]
+    sentence_count: 22
+    key_terms: [microsoft, already, openai, azure, stock, down, comments, earnings]
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c1"
+    char_span: [1964, 2406]
+    sentence_count: 9
+    key_terms: [earnings, target, price, cut, end, sentiments, consensus, estimate]
+    token_count: 116
+  - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c2"
+    char_span: [2421, 4317]
+    sentence_count: 7
+    key_terms: [sub, buy, always, google, doomposting, good, something, everyone]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c3"
+    char_span: [4042, 5959]
+    sentence_count: 8
+    key_terms: [microsoft, openai, kanguhrus, cromwest, always, offset, being, lavishnessless4356]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c4"
+    char_span: [5700, 6264]
+    sentence_count: 3
+    key_terms: [copilot, claude, movingtoseattlesoon, bing, therealjerseytom, therealdealguy, unfortunately, everything]
+    section: Comments
+    token_count: 148
+  - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c5"
+    char_span: [6266, 8022]
+    sentence_count: 11
+    key_terms: [anthropic, msft, claude, krazynukz, realized, bought, buying, google]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c6"
+    char_span: [7793, 9743]
+    sentence_count: 10
+    key_terms: [google, office, challenger, microsoft, something, pivoting, similar, france]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c7"
+    char_span: [9509, 11319]
+    sentence_count: 10
+    key_terms: ["it's", like, microsoft, something, looking, france, google, office]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c8"
+    char_span: [11109, 12889]
+    sentence_count: 9
+    key_terms: [account, msft, consider, savings, too, portfolio, forget, prestigious-craft251]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c9"
+    char_span: [12696, 13308]
+    sentence_count: 6
+    key_terms: [talking, google, prestigious-craft251, basic, cost, load, weedinthekoolaid, camxthexman3]
+    section: Comments
+    token_count: 211
 ---
-
 # Microsoft ($MSFT) is down ~31% from its ATH
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1shvm71/microsoft_msft_is_down_31_from_its_ath/)

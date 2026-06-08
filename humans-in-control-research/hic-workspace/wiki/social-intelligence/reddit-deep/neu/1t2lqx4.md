@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1t2lqx4.md
 url: "https://www.reddit.com/r/NEU/comments/1t2lqx4/need_direction_best_coopsjobs_for_a_health/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "Co-op & Career"
 extracted_at: "2026-05-12T20:58:42.345Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive digital strategy and engagement strategy for Northeastern, based on uploaded transcripts and external research, articles, youtube videos, data, etc., to be used in First-Year advising during orientation to help students identify opportunities and resources to support experiential learning in ways that will improve co-op readiness from day one. Intervention is needed to improve searcher outcomes by identifying skill gaps earlier than the first search semester, democratizing access to knowledge and resources, and enabling students to build competitive profiles and portfolios. Provide plenty of quotes and evidence to support the strategy from extracted research."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1t2lqx4.md#c0"
+    char_span: [0, 542]
+    sentence_count: 3
+    key_terms: [business, comments, majoring, science, advice, anyone, co-ops, health]
+    token_count: 144
+  - id: "social-intelligence/reddit-deep/neu/1t2lqx4.md#c1"
+    char_span: [557, 2454]
+    sentence_count: 7
+    key_terms: [business, like, healthcare, investmentpuzzled800, combined, doing, major, roles]
+    section: Comments
+    token_count: 473
 ---
-
 # Need direction: best co-ops/jobs  for a Health Science + Business student
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1t2lqx4/need_direction_best_coopsjobs_for_a_health/)

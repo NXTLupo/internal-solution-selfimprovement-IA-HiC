@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1qtc5dw.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1qtc5dw/any_suggestions_for_the_college_application_plsss/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,21 @@ flair: "Application Question"
 extracted_at: "2026-05-22T23:33:52.649Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qtc5dw.md#c0"
+    char_span: [0, 863]
+    sentence_count: 4
+    key_terms: [applyingtocollege, help, experience, something, comments, college, work, ayobroseriously]
+    token_count: 218
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qtc5dw.md#c1"
+    char_span: [878, 1709]
+    sentence_count: 5
+    key_terms: [admissions-source-school, universityofcalifornia, https, gpa-calculator-uc, infocenter, financial, rogerhub, college]
+    section: Comments
+    token_count: 210
 ---
-
 # Any suggestions for the college application (plsss help)
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1qtc5dw/any_suggestions_for_the_college_application_plsss/)

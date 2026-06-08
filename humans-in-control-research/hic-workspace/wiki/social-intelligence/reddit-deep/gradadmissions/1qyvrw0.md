@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1qyvrw0.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1qyvrw0/cold_email_soft_rejection/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,57 @@ flair: "Social Sciences"
 extracted_at: "2026-05-23T14:54:16.715Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qyvrw0.md#c0"
+    char_span: [0, 656]
+    sentence_count: 5
+    key_terms: [gradadmissions, rejection, comments, posted, intelligenttank2993, unfortunately, application, reddit-deep]
+    token_count: 159
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qyvrw0.md#c1"
+    char_span: [671, 787]
+    sentence_count: 2
+    key_terms: [gaymedic69, rejection, rejected, telling, going, soft]
+    section: Comments
+    token_count: 36
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qyvrw0.md#c2"
+    char_span: [789, 2955]
+    sentence_count: 11
+    key_terms: [application, intelligenttank2993, rejection, good, opening, psych, "it's", soft]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qyvrw0.md#c3"
+    char_span: [2704, 4914]
+    sentence_count: 18
+    key_terms: [application, intelligenttank2993, rejection, right, experiences, like, feedback, funding]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qyvrw0.md#c4"
+    char_span: [4662, 5561]
+    sentence_count: 7
+    key_terms: [intelligenttank2993, time, age, disappointed, dismissed, obviously, rejection, anything]
+    section: Comments
+    token_count: 218
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qyvrw0.md#c5"
+    char_span: [5563, 5909]
+    sentence_count: 4
+    key_terms: [international, student, dedication, discipline, problems, studying, forward, hearing]
+    section: Comments
+    token_count: 74
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qyvrw0.md#c6"
+    char_span: [5911, 7963]
+    sentence_count: 13
+    key_terms: [email, coriander1998, program, intelligenttank2993, dev, applied, focused, offelautumn]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qyvrw0.md#c7"
+    char_span: [7700, 8138]
+    sentence_count: 2
+    key_terms: [got, gaooo777, reach, prospective, previously, rejections, themselves, phxnights]
+    section: Comments
+    token_count: 113
 ---
-
 # Cold Email Soft Rejection
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1qyvrw0/cold_email_soft_rejection/)

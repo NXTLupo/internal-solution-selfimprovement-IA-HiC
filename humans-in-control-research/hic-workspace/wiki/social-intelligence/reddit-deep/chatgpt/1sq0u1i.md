@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1sq0u1i.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1sq0u1i/is_claude_actually_better_than_chatgpt_or_is_it/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,51 @@ flair: "Other "
 extracted_at: "2026-05-17T01:12:48.212Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c0"
+    char_span: [0, 1557]
+    sentence_count: 17
+    key_terms: [claude, chatgpt, better, people, carousels, like, automate, business]
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c1"
+    char_span: [1572, 3482]
+    sentence_count: 14
+    key_terms: [claude, gpt, "it's", chatgpt, quality, answer, openai, please]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c2"
+    char_span: [3484, 5501]
+    sentence_count: 22
+    key_terms: [claude, response, gemini, chatgpt, gpt, research, versions, couple]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c3"
+    char_span: [5228, 6315]
+    sentence_count: 8
+    key_terms: [claude, use, better, outrageous-cod-855, code, gpt, no-medicine1230, thejiggliestpug]
+    section: Comments
+    token_count: 290
+  - id: "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c4"
+    char_span: [6317, 8262]
+    sentence_count: 15
+    key_terms: [chatgpt, claude, answers, instructions, better, using, limitations, processing]
+    section: Comments
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c5"
+    char_span: [8267, 9445]
+    sentence_count: 4
+    key_terms: [cutiekilla, better, claude, great, model, sucks, like, new]
+    section: Comments
+    token_count: 337
+  - id: "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c6"
+    char_span: [9447, 11321]
+    sentence_count: 13
+    key_terms: [claude, chatgpt, something, use, codex, idea, perplexity, different]
+    section: Comments
+    token_count: 425
 ---
-
 # Is Claude actually better than ChatGPT… or is it just hype?
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1sq0u1i/is_claude_actually_better_than_chatgpt_or_is_it/)

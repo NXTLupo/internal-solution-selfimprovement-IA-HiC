@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/e20ff10eab.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1tka3y4/hopefuel_copefuel_ropefuel_which_one_should_i/"
 url_hash: "e20ff10eab"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T20:20:37.394329+00:00"
 chars: 750
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/e20ff10eab.md#c0"
+    char_span: [0, 1010]
+    sentence_count: 9
+    key_terms: [cscareerquestions, job, comments, industry, ropefuel, number, reddit, gloomy-pineapple1729]
+    token_count: 257
 ---
-
 # Hopefuel? Copefuel? Ropefuel? Which one should I choose in response to the modern day tech job market?
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1tka3y4/hopefuel_copefuel_ropefuel_which_one_should_i/)

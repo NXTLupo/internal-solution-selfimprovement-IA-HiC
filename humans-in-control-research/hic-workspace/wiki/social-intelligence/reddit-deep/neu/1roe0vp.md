@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1roe0vp.md
 url: "https://www.reddit.com/r/NEU/comments/1roe0vp/neu_bostons_coop_program/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,22 @@ score: 12
 upvote_ratio: 0.75
 num_comments: 6
 flair: "Co-op & Career"
-extracted_at: "2026-05-26T14:30:23.761Z"
+extracted_at: "2026-06-03T17:59:17.597Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1roe0vp.md#c0"
+    char_span: [0, 1387]
+    sentence_count: 15
+    key_terms: [co-op, students, neu, current, program, get, tech, understand]
+    token_count: 340
+  - id: "social-intelligence/reddit-deep/neu/1roe0vp.md#c1"
+    char_span: [1402, 2397]
+    sentence_count: 9
+    key_terms: [neu, friends, international, student, frontsatisfaction152, co-op, find, got]
+    section: Comments
+    token_count: 260
 ---
-
 # NEU Boston's Co-op Program
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1roe0vp/neu_bostons_coop_program/)
@@ -42,7 +54,7 @@ Thanks a lot!
 
 ## Comments
 
-- **jaqenhghar99** (5↑): No “most people” don’t. Talking about 2024 here
+- **jaqenhghar99** (7↑): No “most people” don’t. Talking about 2024 here
 
 
 You’ll never know. I tried to find out about this and i have many friends that went to Northeastern. In their network… them, their roommates, friends only 1 person got a co-op and that did not convert (company stopped sponsoring visas)

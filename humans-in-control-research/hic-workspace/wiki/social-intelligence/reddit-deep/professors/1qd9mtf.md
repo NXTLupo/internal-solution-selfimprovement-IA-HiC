@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1qd9mtf.md
 url: "https://www.reddit.com/r/Professors/comments/1qd9mtf/powerpoints_posted_or_not/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,75 @@ flair: ""
 extracted_at: "2026-05-20T03:55:39.286Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1qd9mtf.md#c0"
+    char_span: [0, 2262]
+    sentence_count: 26
+    key_terms: [powerpoints, class, students, quizzes, course, lecture, online, papers]
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/professors/1qd9mtf.md#c1"
+    char_span: [2264, 3803]
+    sentence_count: 13
+    key_terms: [slides, notes, english, lecture, posted, "what's", "don't", words]
+    section: Comments
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/professors/1qd9mtf.md#c2"
+    char_span: [3805, 5930]
+    sentence_count: 11
+    key_terms: [slides, students, later, notes, incomplete, available, annotate, reading]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1qd9mtf.md#c3"
+    char_span: [5655, 6548]
+    sentence_count: 5
+    key_terms: [participation, points, notes, students, people, submit, doing, "i'd"]
+    section: Comments
+    token_count: 203
+  - id: "social-intelligence/reddit-deep/professors/1qd9mtf.md#c4"
+    char_span: [6550, 8494]
+    sentence_count: 19
+    key_terms: [class, ppts, stranger2306, powerpoints, cognitive, nonnative, attended, because]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/professors/1qd9mtf.md#c5"
+    char_span: [8496, 10232]
+    sentence_count: 8
+    key_terms: [why-every-teacher-should-be-using-dual-coding, how-olicav-changed-way-i-present, learn, reflective-pedagogy, https, com, students, course]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/professors/1qd9mtf.md#c6"
+    char_span: [10234, 11772]
+    sentence_count: 13
+    key_terms: [powerpoint, slides, information, students, adding, acrobatic-glass-8585, plantagenetprincess, class]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/professors/1qd9mtf.md#c7"
+    char_span: [11774, 12583]
+    sentence_count: 4
+    key_terms: [discussion, chapter, class, lecturing, classes, minutes, tables, group]
+    section: Comments
+    token_count: 164
+  - id: "social-intelligence/reddit-deep/professors/1qd9mtf.md#c8"
+    char_span: [12585, 14780]
+    sentence_count: 16
+    key_terms: [students, slides, notes, want, quizzes, class, tests, take]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1qd9mtf.md#c9"
+    char_span: [14475, 14781]
+    sentence_count: 4
+    key_terms: [notes, information, real-world, incentive, otherwise, historic, scenario, students]
+    section: Comments
+    token_count: 65
+  - id: "social-intelligence/reddit-deep/professors/1qd9mtf.md#c10"
+    char_span: [14783, 17015]
+    sentence_count: 21
+    key_terms: [notes, take, points, class, students, student, write, day]
+    section: Comments
+    token_count: 503
 ---
-
 # PowerPoints posted or not?
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1qd9mtf/powerpoints_posted_or_not/)

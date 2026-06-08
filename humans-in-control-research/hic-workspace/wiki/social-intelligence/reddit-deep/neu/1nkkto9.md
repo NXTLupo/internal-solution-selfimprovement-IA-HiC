@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1nkkto9.md
 url: "https://www.reddit.com/r/NEU/comments/1nkkto9/anyone_here_ever_reneged_on_a_coop/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -6,19 +7,42 @@ subreddit: "neu"
 title: "Anyone Here Ever Reneged on a Co-op?"
 author: "bolter_white"
 date: "2025-09-18T21:23:32.000Z"
-score: 4
-upvote_ratio: 0.58
+score: 3
+upvote_ratio: 0.56
 num_comments: 25
 flair: "co-op"
-extracted_at: "2026-05-13T20:23:48.337Z"
+extracted_at: "2026-06-05T16:17:50.282Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1nkkto9.md#c0"
+    char_span: [0, 1242]
+    sentence_count: 12
+    key_terms: [co-op, course, drop, need, something, academic, approval, comments]
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/neu/1nkkto9.md#c1"
+    char_span: [1257, 2427]
+    sentence_count: 9
+    key_terms: [start, job, work, everyone, yourself, company, school, co-op]
+    section: Comments
+    token_count: 292
+  - id: "social-intelligence/reddit-deep/neu/1nkkto9.md#c2"
+    char_span: [2429, 4553]
+    sentence_count: 16
+    key_terms: [school, co-op, "it's", offer, graduate, courses, feisty-salt377, unable]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/neu/1nkkto9.md#c3"
+    char_span: [4308, 4889]
+    sentence_count: 6
+    key_terms: [longjumpingcorgi813, co-op, offer, post, consideration, international, consequences, graduation]
+    section: Comments
+    token_count: 139
 ---
-
 # Anyone Here Ever Reneged on a Co-op?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1nkkto9/anyone_here_ever_reneged_on_a_coop/)
-Posted by **bolter_white** · **4↑** · **25 comments**
+Posted by **bolter_white** · **3↑** · **25 comments**
 
 I’m in a bit of a situation and need your advice.
 
@@ -37,18 +61,18 @@ Any insights would be really appreciated!
 You're not a slave, you can work for whomever you want. But quitting a coop early makes the school look terrible so the school will do whatever it reasonably can to prevent you from doing so. 
 
 You can save everyone including yourself a ton of trouble by pushing the start date back, what, two work weeks? Three?
-  - **bolter_white** (-10↑): No if I can’t start in Dec/Jan the next earliest date I can work full time is May post Graduation which the company is not open to . But ideally I can renege a co-op right ?
-- **Aggressive_Ticket_13** (22↑): Not a great look, making it hard on yourself and everyone else. Just stay as is and speak with the job that offered to you.
-- **New-Pizza9379** (19↑): A lot of risk for a job you aren’t even guaranteed.
-  - **bolter_white** (-2↑): What kind of risk from NEU are we talking here ?
-- **Rhynocerous** (26↑): Im pretty sure you already missed the add-drop period which means you probably do need your advisors approval. 
+  - **bolter_white** (-11↑): No if I can’t start in Dec/Jan the next earliest date I can work full time is May post Graduation which the company is not open to . But ideally I can renege a co-op right ?
+- **Aggressive_Ticket_13** (25↑): Not a great look, making it hard on yourself and everyone else. Just stay as is and speak with the job that offered to you.
+- **New-Pizza9379** (18↑): A lot of risk for a job you aren’t even guaranteed.
+  - **bolter_white** (-3↑): What kind of risk from NEU are we talking here ?
+- **Rhynocerous** (27↑): Im pretty sure you already missed the add-drop period which means you probably do need your advisors approval. 
 
 Why is your summer co-op employer offering you a job starting before you graduate? That sounds bizarre, any reasonable company should be able to negotiate that. 
 
 This also is not reneging, it's quitting. You not only accepted the offer but started working. Quite a bit different. The school is going to try to talk you out of it because it reflects badly on the school.
 - **BostonNU** (18↑): There will be significant adverse consequences and your potential employer will likely look unfavorably upon you for jumping ship like that. Bear in mind that it’s not just a temporary job, it’s also a learning experience. You would be burning a lot of bridges
-- **Fluid_Personality818** (5↑): add/drop deadline was the 16th
-- **Feisty-Salt377** (5↑): It's likely that your advisor wouldn't approve you signing up for additional courses, as it's after the add/drop period and you are supposed to be on co-op, and they don't want you to quit your co-op because it's unprofessional and reflects poorly on you, the school, etc. So you would end up unable to take courses, unable to graduate in December, and unable to work at the full time job in January. Seems like a lot of risk.
+- **Fluid_Personality818** (4↑): add/drop deadline was the 16th
+- **Feisty-Salt377** (4↑): It's likely that your advisor wouldn't approve you signing up for additional courses, as it's after the add/drop period and you are supposed to be on co-op, and they don't want you to quit your co-op because it's unprofessional and reflects poorly on you, the school, etc. So you would end up unable to take courses, unable to graduate in December, and unable to work at the full time job in January. Seems like a lot of risk.
   - **bolter_white** (0↑): Is there a way I could raise an exception to graduate with a co-op in the final semester?
     - **Feisty-Salt377** (5↑): I imagine you would not be able to graduate this semester if you still have courses left to take? Look at it this way: you are hoping to get the school to make an exception for you so that you can break the school's rules. Why would they help you break their own rules? I understand that you feel you're in a tough situation, but be realistic about the likelihood of the school helping you break it's own rules
 - **[deleted]** (2↑): You can. I did. There are no consequences other than burning a bridge personally.

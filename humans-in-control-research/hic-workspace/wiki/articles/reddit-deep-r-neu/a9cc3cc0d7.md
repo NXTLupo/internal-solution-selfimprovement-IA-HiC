@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-neu/a9cc3cc0d7.md
 url: "https://www.reddit.com/r/NEU/comments/1sp7drz/northeastern_data_analytics_60k_coop_vs_scranton/"
 url_hash: "a9cc3cc0d7"
 kind: "article"
@@ -8,10 +9,22 @@ author: ""
 date: "2026-04-18T19:45:32.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-19T18:01:08.928131+00:00"
+extracted_at: "2026-06-06T00:35:42.108194+00:00"
 chars: 2199
+relevance: 50
+engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "articles/reddit-deep-r-neu/a9cc3cc0d7.md#c0"
+    char_span: [0, 2085]
+    sentence_count: 7
+    key_terms: [northeastern, engineering, analytics, software, co-op, data, scranton, trying]
+    token_count: 470
+  - id: "articles/reddit-deep-r-neu/a9cc3cc0d7.md#c1"
+    char_span: [2087, 2455]
+    sentence_count: 3
+    key_terms: [levzn, else, like, few-lawyer3707, gooseclimber, engineering, personally, analytics]
+    token_count: 95
 ---
-
 # Northeastern Data Analytics (60k, co-op) vs Scranton Software Engineering (30k) after failing MS CS — what should I choose?
 
 Source: [Reddit Deep: r/neu](https://www.reddit.com/r/NEU/comments/1sp7drz/northeastern_data_analytics_60k_coop_vs_scranton/)

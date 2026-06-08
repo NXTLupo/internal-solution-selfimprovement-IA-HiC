@@ -1,10 +1,17 @@
 ---
+id: mentors/munger-inversion.md
 title: Charlie Munger — Inversion Mental Model
 type: mentor-cartridge
 mentor: Charlie Munger
 created: 2026-05-23
+chunks:
+  - id: "mentors/munger-inversion.md#c0"
+    char_span: [0, 1686]
+    sentence_count: 9
+    key_terms: [recommendation, inversion, recommendations, second-order, model, skill, stakeholder, ask]
+    section: Core question stems Munger asks / How HiC applies inversion / When NOT to apply inversion / Composes with
+    token_count: 321
 ---
-
 # Mentor cartridge — Charlie Munger (Inversion)
 
 This cartridge is loaded by generation prompts that ask for second-order or strategic thinking. It encodes Munger's mental model of **inversion**: instead of asking "How do I succeed?" ask "How would I guarantee failure?" then avoid those moves.

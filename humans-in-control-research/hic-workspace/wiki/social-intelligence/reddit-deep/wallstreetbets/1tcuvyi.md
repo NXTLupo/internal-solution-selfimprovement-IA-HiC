@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1tcuvyi/venture_global_vg_the_easiest_energy_play_of_2026/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,58 @@ flair: "DD"
 extracted_at: "2026-05-16T20:54:42.971Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [energy]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md#c0"
+    char_span: [0, 1908]
+    sentence_count: 7
+    key_terms: [https, png, bf88fbc3ea07c454f20ee791c8d66ceda9e1f9c9, wallstreetbets, been, oil, disruption, countries]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md#c1"
+    char_span: [1912, 3636]
+    sentence_count: 8
+    key_terms: [png, lng, https, preview, why-asia-sits-at-the-centre-of-the-global-lng-shock, format, width, asia]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md#c2"
+    char_span: [3638, 5321]
+    sentence_count: 12
+    key_terms: [countries, png, strait, blah, gulf, conflict, preview, buying]
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md#c3"
+    char_span: [5323, 7004]
+    sentence_count: 10
+    key_terms: [lng, infrastructure, production, png, aa6139662aed79040ee2079da48da1e687887c3c, fc6e5594d103dd365cc5f87447eab01fa62048d9, company, aggressively]
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md#c4"
+    char_span: [7006, 8563]
+    sentence_count: 9
+    key_terms: [png, https, preview, format, width, auto, redd, webp]
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md#c5"
+    char_span: [8565, 10267]
+    sentence_count: 9
+    key_terms: [nitrogen, customers, png, b275ed5025250dd924c1c222b81b62d4fb023f7f, gas, companies, contracts, another]
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md#c6"
+    char_span: [10282, 10892]
+    sentence_count: 1
+    key_terms: [wallstreetbets, comments, reddit, https, com, www, total, years]
+    section: Comments
+    token_count: 220
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md#c7"
+    char_span: [10894, 11991]
+    sentence_count: 5
+    key_terms: [post, regarded, discord, bought, https, egg, "i'm", last]
+    section: Comments
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md#c8"
+    char_span: [11993, 13616]
+    sentence_count: 12
+    key_terms: [either, supply, great, money, value, been, debt, gas]
+    section: Comments
+    token_count: 471
 ---
-
 # VENTURE GLOBAL ($VG): THE EASIEST ENERGY PLAY OF 2026?
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1tcuvyi/venture_global_vg_the_easiest_energy_play_of_2026/)

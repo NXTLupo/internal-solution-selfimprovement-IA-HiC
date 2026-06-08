@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1t28zed.md
 url: "https://www.reddit.com/r/internships/comments/1t28zed/congrats_to_the_2026_summer_interns_coops/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -8,17 +9,40 @@ author: "Appropriate-Tutor587"
 date: "2026-05-03T02:25:56.000Z"
 score: 280
 upvote_ratio: 0.96
-num_comments: 56
+num_comments: 57
 flair: "Offers"
-extracted_at: "2026-05-26T14:30:47.901Z"
+extracted_at: "2026-06-05T19:19:58.913Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1t28zed.md#c0"
+    char_span: [0, 1303]
+    sentence_count: 13
+    key_terms: [internships, because, summer, did, get, co-ops, don, comments]
+    token_count: 337
+  - id: "social-intelligence/reddit-deep/internships/1t28zed.md#c1"
+    char_span: [1318, 3010]
+    sentence_count: 4
+    key_terms: [internship, major, back, something, applying, jpgirlyn, progress, projects]
+    section: Comments
+    token_count: 405
+  - id: "social-intelligence/reddit-deep/internships/1t28zed.md#c2"
+    char_span: [3012, 5248]
+    sentence_count: 15
+    key_terms: [internship, companies, recruiters, oppositebasil2720, resume, apply, did, position]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1t28zed.md#c3"
+    char_span: [5250, 7016]
+    sentence_count: 12
+    key_terms: [internship, advice, get, got, like, experience, interview, position]
+    section: Comments
+    token_count: 403
 ---
-
 # Congrats 🎊🎉🍾🎈 to the 2026 Summer Interns & Co-ops!
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1t28zed/congrats_to_the_2026_summer_interns_coops/)
-Posted by **Appropriate-Tutor587** · **280↑** · **56 comments**
+Posted by **Appropriate-Tutor587** · **280↑** · **57 comments**
 
 Congrats 🎊🎉🍾🎈 to you all!
 
@@ -30,11 +54,11 @@ For those who got in, please feel free to give some advice below to encourage ot
 
 ## Comments
 
-- **codeswift27** (13↑): Landed one last week! I think specializing your resume to the role can help a lot. Also, if you're more experienced in a certain area, narrowing your search can also help you save time and be more likely to hear back. I didn't hear back much from applying to general swe roles, but I heard back from a lot of the iOS specific roles applied to
+- **codeswift27** (12↑): Landed one last week! I think specializing your resume to the role can help a lot. Also, if you're more experienced in a certain area, narrowing your search can also help you save time and be more likely to hear back. I didn't hear back much from applying to general swe roles, but I heard back from a lot of the iOS specific roles applied to
 - **jpgirlyn** (8↑): I have an internship for July, for me I think I was pretty lucky (only applied to 15 places) but I think I got in because my profile is something the company was looking for. as a CS major I'd say projects are very important (GPA is not something they look for usually) and make sure you apply early (i started applications in october which is actually a liittle bit late in our field)
   - **XtremeOP-12** (2↑): Can you tell me what projects you made?
     - **jpgirlyn** (2↑): so most of the work i do is based on graphics, so ive done an emulator, a ray tracer and video game dev
-- **Real_Bear7034** (6↑): After applying for SO long and getting ghosted over and over again (cs major so kinda the norm) i saw this cruise port company near me and thought hey i like cruises and stuff let me just apply what do i have to lose so i made a quick cover letter and sent it their way and they contacted me about a week later and after a phone review i got accepted with an internship offer starting june 22 :)
+- **Real_Bear7034** (7↑): After applying for SO long and getting ghosted over and over again (cs major so kinda the norm) i saw this cruise port company near me and thought hey i like cruises and stuff let me just apply what do i have to lose so i made a quick cover letter and sent it their way and they contacted me about a week later and after a phone review i got accepted with an internship offer starting june 22 :)
 
 Ik for senior in cs major just have gotten your first internship is pretty bad statistics especially since it’s not FAANG or FINTECH or anything and when i went around to my cs friends celebrating it they were all doom and gloom but hey yk what im happy for myself and any progress is good progress.
 

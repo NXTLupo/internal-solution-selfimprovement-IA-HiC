@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-internships/7baa6ed72e.md
 url: "https://www.reddit.com/r/internships/comments/1ragjku/doubts_about_coop/"
 url_hash: "7baa6ed72e"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-25T18:34:34.160863+00:00"
 chars: 2320
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-internships/7baa6ed72e.md#c0"
+    char_span: [0, 2204]
+    sentence_count: 2
+    key_terms: [co-op, internships, experience, internship, "i'm", applying, graduate, friends]
+    token_count: 502
+  - id: "articles/reddit-deep-r-internships/7baa6ed72e.md#c1"
+    char_span: [2206, 2456]
+    sentence_count: 3
+    key_terms: [experiences, graduation, congrats, graduate, semester, students, through, apart]
+    token_count: 62
 ---
-
 # doubts about co-op
 
 Source: [Reddit Deep: r/internships](https://www.reddit.com/r/internships/comments/1ragjku/doubts_about_coop/)

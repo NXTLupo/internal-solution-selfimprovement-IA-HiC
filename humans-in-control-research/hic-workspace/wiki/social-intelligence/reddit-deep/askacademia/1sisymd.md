@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1sisymd.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1sisymd/looking_for_research_advice/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,44 @@ flair: "Meta"
 extracted_at: "2026-05-26T14:32:49.120Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1sisymd.md#c0"
+    char_span: [0, 2369]
+    sentence_count: 11
+    key_terms: [research, "i'm", relevant, effectively, trying, looking, review, understanding]
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/askacademia/1sisymd.md#c1"
+    char_span: [2371, 3301]
+    sentence_count: 4
+    key_terms: ["i'm", like, read, research, article, through, been, feel]
+    token_count: 192
+  - id: "social-intelligence/reddit-deep/askacademia/1sisymd.md#c2"
+    char_span: [3316, 5316]
+    sentence_count: 10
+    key_terms: [get, research, find, asked, "i'd", phd, tell, training]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/askacademia/1sisymd.md#c3"
+    char_span: [5319, 7538]
+    sentence_count: 11
+    key_terms: [research, "i'm", reading, wonderful-courage-51, doing, learn, topic, like]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/askacademia/1sisymd.md#c4"
+    char_span: [7540, 9777]
+    sentence_count: 13
+    key_terms: [professors, research, "don't", relevant, people, "i've", talk, want]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/askacademia/1sisymd.md#c5"
+    char_span: [9781, 10631]
+    sentence_count: 1
+    key_terms: [papers, read, reading, like, new, stop, parkityparkpark, comprehension]
+    section: Comments
+    token_count: 178
 ---
-
 # looking for research advice
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1sisymd/looking_for_research_advice/)

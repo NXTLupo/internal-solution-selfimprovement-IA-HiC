@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1sr7qu1.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1sr7qu1/most_important_considerations_when_looking_for/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,45 @@ flair: "Advice"
 extracted_at: "2026-05-25T18:32:06.263Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sr7qu1.md#c0"
+    char_span: [0, 839]
+    sentence_count: 3
+    key_terms: [applyingtocollege, comments, like, considerations, reddit-deep, researching, understand, university]
+    token_count: 189
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sr7qu1.md#c1"
+    char_span: [854, 2766]
+    sentence_count: 12
+    key_terms: [students, cost, college, school, gradbuddy, variables, colleges, jonjonn1]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sr7qu1.md#c2"
+    char_span: [2768, 3608]
+    sentence_count: 8
+    key_terms: [academic, college, courses, "you'll", major, like, time, want]
+    section: Comments
+    token_count: 162
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sr7qu1.md#c3"
+    char_span: [3610, 5513]
+    sentence_count: 16
+    key_terms: [students, "i've", "that's", important, variables, location, college, universities]
+    section: Comments
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sr7qu1.md#c4"
+    char_span: [5515, 7635]
+    sentence_count: 17
+    key_terms: [students, data, non-negotiables, college, colleges, "there's", website, number]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sr7qu1.md#c5"
+    char_span: [7637, 8920]
+    sentence_count: 10
+    key_terms: [students, been, fit, good, "i've", applied, college, printed]
+    section: Comments
+    token_count: 270
 ---
-
 # Most important considerations when looking for your ideal university
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1sr7qu1/most_important_considerations_when_looking_for/)

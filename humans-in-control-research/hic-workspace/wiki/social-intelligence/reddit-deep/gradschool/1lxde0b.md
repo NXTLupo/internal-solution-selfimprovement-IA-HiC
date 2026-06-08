@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1lxde0b.md
 url: "https://www.reddit.com/r/GradSchool/comments/1lxde0b/the_big_ugly_bill_is_capping_gradmed_school/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,45 @@ flair: "Finance"
 extracted_at: "2026-05-22T21:35:36.522Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, financial_services, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1lxde0b.md#c0"
+    char_span: [0, 595]
+    sentence_count: 2
+    key_terms: [the-big-beautiful-bill-could-quietly-undermine-higher-ed-access, gradschool, comments, https, com, www, scholarships, sciencedyogi]
+    token_count: 157
+  - id: "social-intelligence/reddit-deep/gradschool/1lxde0b.md#c1"
+    char_span: [610, 2448]
+    sentence_count: 13
+    key_terms: [candidates, school, enough, higher, loans, loan, phd, take]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/gradschool/1lxde0b.md#c2"
+    char_span: [2450, 3891]
+    sentence_count: 7
+    key_terms: [someone, school, loans, poverty, funded, being, mean, med]
+    section: Comments
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/gradschool/1lxde0b.md#c3"
+    char_span: [3893, 6272]
+    sentence_count: 17
+    key_terms: [tuition, universities, education, educated, lenders, private, state, republicans]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1lxde0b.md#c4"
+    char_span: [5964, 7357]
+    sentence_count: 10
+    key_terms: [loans, educated, higher, lower-yogurtcloset48, like, loan, clanmcallister, sweergirl86204]
+    section: Comments
+    token_count: 339
+  - id: "social-intelligence/reddit-deep/gradschool/1lxde0b.md#c5"
+    char_span: [7360, 8179]
+    sentence_count: 4
+    key_terms: [private, tuition, people, loans, life, purplemermaid16, institutions, educational]
+    section: Comments
+    token_count: 225
 ---
-
 # The Big Ugly Bill is capping grad/med school loans...and more
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1lxde0b/the_big_ugly_bill_is_capping_gradmed_school/)

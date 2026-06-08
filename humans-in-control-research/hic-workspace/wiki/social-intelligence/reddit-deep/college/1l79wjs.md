@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1l79wjs.md
 url: "https://www.reddit.com/r/college/comments/1l79wjs/heads_up_for_future_college_students_or_those/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,32 @@ flair: "Finances/financial aid"
 extracted_at: "2026-05-26T14:31:29.693Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1l79wjs.md#c0"
+    char_span: [0, 1916]
+    sentence_count: 15
+    key_terms: [students, college, student, loans, increase, already, significantly, grant]
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/college/1l79wjs.md#c1"
+    char_span: [1918, 2273]
+    sentence_count: 4
+    key_terms: [information, congress, assistance, house-bill, extremely, including, military, proposal]
+    token_count: 80
+  - id: "social-intelligence/reddit-deep/college/1l79wjs.md#c2"
+    char_span: [2288, 4038]
+    sentence_count: 13
+    key_terms: [student, loans, increase, pell, college, students, grants, middle]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/college/1l79wjs.md#c3"
+    char_span: [4040, 5671]
+    sentence_count: 9
+    key_terms: [open-salary6273, college, bill, year, fucking, anti-intellectualism, thepickleconnoisseur, start]
+    section: Comments
+    token_count: 441
 ---
-
 # Heads up for future college students or those thinking about college. This is about the new OBBB Act
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1l79wjs/heads_up_for_future_college_students_or_those/)

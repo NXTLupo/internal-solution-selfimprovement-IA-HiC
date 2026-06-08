@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1ou3d6k.md
 url: "https://www.reddit.com/r/findapath/comments/1ou3d6k/im_18_from_michigan_working_full_time_at_a_pizza/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,27 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-25T13:04:07.383Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce, retail]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1ou3d6k.md#c0"
+    char_span: [0, 1198]
+    sentence_count: 7
+    key_terms: [michigan, been, don, direction, findapath, comments, feeling, working]
+    token_count: 307
+  - id: "social-intelligence/reddit-deep/findapath/1ou3d6k.md#c1"
+    char_span: [1213, 3327]
+    sentence_count: 23
+    key_terms: [thank, community, good, military, helpful, please, findapath, comments]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/findapath/1ou3d6k.md#c2"
+    char_span: [3329, 5110]
+    sentence_count: 11
+    key_terms: [yourself, development, join, something, learning, military, teaching, whatever]
+    section: Comments
+    token_count: 427
 ---
-
 # I’m 18 from Michigan, working full time at a pizza place for $13/hr and feeling stuck — how can I find a better direction or career path?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1ou3d6k/im_18_from_michigan_working_full_time_at_a_pizza/)

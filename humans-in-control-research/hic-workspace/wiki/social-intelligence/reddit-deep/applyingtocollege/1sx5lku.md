@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1sx5lku.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1sx5lku/uva_full_pay_v_clemson_full_ride_also_unc_and_wl/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,44 @@ flair: "College Questions"
 extracted_at: "2026-05-23T12:15:36.228Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, education, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sx5lku.md#c0"
+    char_span: [0, 2006]
+    sentence_count: 15
+    key_terms: [school, uva, clemson, full, applyingtocollege, want, neuroscience, financially]
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sx5lku.md#c1"
+    char_span: [2008, 4079]
+    sentence_count: 4
+    key_terms: [school, get, med, scholarship, major, difficult, cons, college]
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sx5lku.md#c2"
+    char_span: [4094, 6073]
+    sentence_count: 10
+    key_terms: [medical, school, college, student, campus, home, like, university]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sx5lku.md#c3"
+    char_span: [6075, 7555]
+    sentence_count: 11
+    key_terms: [clemson, national, school, perspective, get, "it's", scholars, students]
+    section: Comments
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sx5lku.md#c4"
+    char_span: [7557, 9380]
+    sentence_count: 16
+    key_terms: [clemson, class, a-self-imposed-exile-independents-at-wl, get, gpa, unc, students, college]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sx5lku.md#c5"
+    char_span: [9382, 11169]
+    sentence_count: 9
+    key_terms: [clemson, https, meet-the-scholars, national-scholars, web, archive, full, biological]
+    section: Comments
+    token_count: 428
 ---
-
 # UVA (full pay) v. Clemson (full ride) (also UNC and W&L)
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1sx5lku/uva_full_pay_v_clemson_full_ride_also_unc_and_wl/)

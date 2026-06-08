@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1q6jv7z.md
 url: "https://www.reddit.com/r/careeradvice/comments/1q6jv7z/should_i_quit_my_growth_executive_career_at_22_to/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.234Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1q6jv7z.md#c0"
+    char_span: [0, 669]
+    sentence_count: 5
+    key_terms: [growth, careeradvice, executive, comments, career, reddit-deep, experience, fulfilling]
+    token_count: 178
+  - id: "social-intelligence/reddit-deep/careeradvice/1q6jv7z.md#c1"
+    char_span: [684, 2054]
+    sentence_count: 10
+    key_terms: [software, development, programming, been, ones, experience, guaranteed, technology]
+    section: Comments
+    token_count: 336
+  - id: "social-intelligence/reddit-deep/careeradvice/1q6jv7z.md#c2"
+    char_span: [2056, 2754]
+    sentence_count: 7
+    key_terms: [executive, growth, former-wolverine8859, limp-plantain3824, luckyfritzbear, own-theory1962, subscribers, influencer]
+    section: Comments
+    token_count: 186
 ---
-
 # Should I quit my Growth Executive career at 22 to learn coding?
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1q6jv7z/should_i_quit_my_growth_executive_career_at_22_to/)

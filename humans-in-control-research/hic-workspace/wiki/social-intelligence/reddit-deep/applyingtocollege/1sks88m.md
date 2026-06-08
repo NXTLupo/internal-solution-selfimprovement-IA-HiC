@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1sks88m.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1sks88m/im_not_sure_whether_to_rea_at_stanford_or_ed_at/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,57 @@ flair: "College Questions"
 extracted_at: "2026-05-25T18:32:06.260Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c0"
+    char_span: [0, 2032]
+    sentence_count: 11
+    key_terms: [stanford, "i'm", brown, applyingtocollege, rea, school, find, like]
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c1"
+    char_span: [2047, 4048]
+    sentence_count: 3
+    key_terms: [brown, stanford, get, rea, risd, weather, decision, because]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c2"
+    char_span: [3769, 5781]
+    sentence_count: 6
+    key_terms: [delicious-speaker-84, brown, get, rea, stanford, because, feel, like]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c3"
+    char_span: [5783, 7679]
+    sentence_count: 10
+    key_terms: [schools, apply, consider, getting, top, universities, rea, want]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c4"
+    char_span: [7681, 8467]
+    sentence_count: 3
+    key_terms: [applied, come, because, emory, get, deferred, probably, cornell]
+    section: Comments
+    token_count: 186
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c5"
+    char_span: [8469, 10448]
+    sentence_count: 17
+    key_terms: [stanford, get, acceptance, rea, brown, athletes, "it's", applicant]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c6"
+    char_span: [10223, 10852]
+    sentence_count: 7
+    key_terms: ["it's", legacy, does, too, stanford, brown, round, rea]
+    section: Comments
+    token_count: 166
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c7"
+    char_span: [10854, 11676]
+    sentence_count: 11
+    key_terms: [school, collegevine, acceptance, personally, stanford, chances, brown, get]
+    section: Comments
+    token_count: 201
 ---
-
 # I'm not sure whether to REA at Stanford or ED at Brown
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1sks88m/im_not_sure_whether_to_rea_at_stanford_or_ed_at/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1tmya60.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1tmya60/prestige_by_proxy_in_science_the_nasa_georgia/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,36 @@ flair: "Professional Misconduct in Research"
 extracted_at: "2026-05-26T14:32:49.124Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, government, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1tmya60.md#c0"
+    char_span: [0, 1615]
+    sentence_count: 15
+    key_terms: [comments, nepotism, joined, loren, askacademia, lab, department, evolution]
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/askacademia/1tmya60.md#c1"
+    char_span: [1617, 3283]
+    sentence_count: 16
+    key_terms: [brooke, loren, meeting, mother, lab, became, conversation, long]
+    token_count: 332
+  - id: "social-intelligence/reddit-deep/askacademia/1tmya60.md#c2"
+    char_span: [3285, 5547]
+    sentence_count: 21
+    key_terms: [brooke, publication, mit, published, belcher, journal, lab, scientific]
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/askacademia/1tmya60.md#c3"
+    char_span: [5549, 6602]
+    sentence_count: 8
+    key_terms: [important, science, nasa, nepotism, question, postdoc, whether, truth]
+    token_count: 200
+  - id: "social-intelligence/reddit-deep/askacademia/1tmya60.md#c4"
+    char_span: [6617, 7465]
+    sentence_count: 7
+    key_terms: [gamecat89, someone, hoping, mycologistlower5247, read, economistwithad, arist0geiton, productivity]
+    section: Comments
+    token_count: 239
 ---
-
 # Prestige by Proxy in Science: The NASA – Georgia Tech – MIT Pipeline ?
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1tmya60/prestige_by_proxy_in_science_the_nasa_georgia/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1s2nd7w.md
 url: "https://www.reddit.com/r/investing/comments/1s2nd7w/i_built_a_9agent_ai_investment_committee_the/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,38 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.191Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1s2nd7w.md#c0"
+    char_span: [0, 1818]
+    sentence_count: 7
+    key_terms: [committee, previous, analyst, agents, report, reads, adversarial, investment]
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/investing/1s2nd7w.md#c1"
+    char_span: [1820, 2141]
+    sentence_count: 2
+    key_terms: [search, tool, web, "anthropic's", anthropic, advocate, analysis, anything]
+    token_count: 86
+  - id: "social-intelligence/reddit-deep/investing/1s2nd7w.md#c2"
+    char_span: [2156, 3524]
+    sentence_count: 7
+    key_terms: ["you're", anthropic, data, marwkaw, device, money, neophyte12, account]
+    section: Comments
+    token_count: 386
+  - id: "social-intelligence/reddit-deep/investing/1s2nd7w.md#c3"
+    char_span: [3526, 5311]
+    sentence_count: 17
+    key_terms: [marwkaw, https, imgur, com, single, agent, analysis, helps]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1s2nd7w.md#c4"
+    char_span: [5077, 6068]
+    sentence_count: 10
+    key_terms: [because, picking, get, "i'm", like, backtesting, fundamental, integrated]
+    section: Comments
+    token_count: 260
 ---
-
 # I built a 9-agent AI investment committee, the debate every stock sequentially - each analyst reads all previous report before writing their own
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1s2nd7w/i_built_a_9agent_ai_investment_committee_the/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1thn1yv.md
 url: "https://www.reddit.com/r/careerguidance/comments/1thn1yv/laid_off_at_64_10_months_ago_i_spent_the_last_4/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.362Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1thn1yv.md#c0"
+    char_span: [0, 2083]
+    sentence_count: 24
+    key_terms: [job, building, tool, careerguidance, career, months, people, learn]
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/careerguidance/1thn1yv.md#c1"
+    char_span: [2098, 2497]
+    sentence_count: 5
+    key_terms: [learn, because, people, notannsaguypromise, ordinary-smoke190, jobs, real, particular]
+    section: Comments
+    token_count: 103
 ---
-
 # Laid off at 64 (10 months ago), I spent the last 4 months building something free for job seekers — here's what I learned.  What else is the biggest pain point besides skill gaps?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1thn1yv/laid_off_at_64_10_months_ago_i_spent_the_last_4/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1rqzcfj.md
 url: "https://www.reddit.com/r/artificial/comments/1rqzcfj/city_simulator_for_codegraphcontext_an_mcp_server/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,27 @@ flair: "Project"
 extracted_at: "2026-05-11T17:27:04.769Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1rqzcfj.md#c0"
+    char_span: [0, 466]
+    sentence_count: 1
+    key_terms: [codegraphcontext, artificial, comments, https, desperate-ad-9679, city, reddit-deep, assistants]
+    token_count: 113
+  - id: "social-intelligence/reddit-deep/artificial/1rqzcfj.md#c1"
+    char_span: [549, 2188]
+    sentence_count: 4
+    key_terms: [codegraphcontext, https, mcp, github, infrastructure, graph, code, adoption]
+    section: CodeGraphContext- the go to solution for code indexing now got 2k stars🎉🎉...
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/artificial/1rqzcfj.md#c2"
+    char_span: [2203, 2398]
+    sentence_count: 1
+    key_terms: [desperate-ad-9679, png, jferments, reference, preview, format, close, https]
+    section: Comments
+    token_count: 86
 ---
-
 # City Simulator for CodeGraphContext - An MCP server that indexes local code into a graph database to provide context to AI assistants
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1rqzcfj/city_simulator_for_codegraphcontext_an_mcp_server/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1kw5mrk.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1kw5mrk/should_i_pursue_an_ms_in_cs_to_improve_my/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,26 @@ flair: "New Grad"
 extracted_at: "2026-05-23T14:54:48.641Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kw5mrk.md#c0"
+    char_span: [0, 1778]
+    sentence_count: 12
+    key_terms: [internships, job, networking, cscareerquestions, personal, projects, chances, better]
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kw5mrk.md#c1"
+    char_span: [1780, 2383]
+    sentence_count: 5
+    key_terms: [online, get, part, opportunities, candidates, everything, networking, education]
+    token_count: 130
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kw5mrk.md#c2"
+    char_span: [2398, 4057]
+    sentence_count: 16
+    key_terms: [aspects, domains, masters, someone, person, illustrious-pound266, great, here]
+    section: Comments
+    token_count: 393
 ---
-
 # Should I pursue an MS in CS to improve my internship/job chances if I got zero internships during my BS?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1kw5mrk/should_i_pursue_an_ms_in_cs_to_improve_my/)

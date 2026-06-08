@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1rgr4ta.md
 url: "https://www.reddit.com/r/NEU/comments/1rgr4ta/how_to_decide_classes_for_nuin/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "Global & Study Abroad"
 extracted_at: "2026-05-12T20:58:42.353Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive digital strategy and engagement strategy for Northeastern, based on uploaded transcripts and external research, articles, youtube videos, data, etc., to be used in First-Year advising during orientation to help students identify opportunities and resources to support experiential learning in ways that will improve co-op readiness from day one. Intervention is needed to improve searcher outcomes by identifying skill gaps earlier than the first search semester, democratizing access to knowledge and resources, and enabling students to build competitive profiles and portfolios. Provide plenty of quotes and evidence to support the strategy from extracted research."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1rgr4ta.md#c0"
+    char_span: [0, 778]
+    sentence_count: 5
+    key_terms: [accelerate, comments, classes, offered, writing, taking, guide, neu]
+    token_count: 190
+  - id: "social-intelligence/reddit-deep/neu/1rgr4ta.md#c1"
+    char_span: [793, 2771]
+    sentence_count: 14
+    key_terms: [accelerate, courses, writing, course, major, first-year-writing, econ, find]
+    section: Comments
+    token_count: 466
 ---
-
 # How to decide classes for nu.in
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1rgr4ta/how_to_decide_classes_for_nuin/)

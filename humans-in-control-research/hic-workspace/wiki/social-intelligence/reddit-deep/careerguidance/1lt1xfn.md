@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1lt1xfn.md
 url: "https://www.reddit.com/r/careerguidance/comments/1lt1xfn/2_years_3000_applications_not_a_single_job_i_feel/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,45 @@ flair: "Advice"
 extracted_at: "2026-05-26T14:32:49.168Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1lt1xfn.md#c0"
+    char_span: [0, 1424]
+    sentence_count: 17
+    key_terms: [careerguidance, right, feel, completely, direction, comments, advice, single]
+    token_count: 339
+  - id: "social-intelligence/reddit-deep/careerguidance/1lt1xfn.md#c1"
+    char_span: [1439, 1535]
+    sentence_count: 1
+    key_terms: [job, grumpyferret45, approach, better, career, abc, like]
+    section: Comments
+    token_count: 29
+  - id: "social-intelligence/reddit-deep/careerguidance/1lt1xfn.md#c2"
+    char_span: [1537, 3606]
+    sentence_count: 15
+    key_terms: [job, get, someone, people, applications, like, work, experience]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1lt1xfn.md#c3"
+    char_span: [3373, 4098]
+    sentence_count: 8
+    key_terms: [feedback, someone, back, get, give, hard, applications, carolinepoh]
+    section: Comments
+    token_count: 179
+  - id: "social-intelligence/reddit-deep/careerguidance/1lt1xfn.md#c4"
+    char_span: [4100, 6257]
+    sentence_count: 24
+    key_terms: [job, resume, experience, get, work, applications, sure, interviews]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/careerguidance/1lt1xfn.md#c5"
+    char_span: [6259, 7526]
+    sentence_count: 9
+    key_terms: [feedback, better, work, candidates, recruiters, portfolio, getting, instead]
+    section: Comments
+    token_count: 305
 ---
-
 # 2 years, 3000 applications, not a single job I feel completely lost. What should I do now?*
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1lt1xfn/2_years_3000_applications_not_a_single_job_i_feel/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1r6aik1.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1r6aik1/beginner_engineering_student_looking_for/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Discussion"
 extracted_at: "2026-05-23T20:15:19.046Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r6aik1.md#c0"
+    char_span: [0, 1283]
+    sentence_count: 10
+    key_terms: [engineeringstudents, engineering, comments, learning, looking, student, better, trying]
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r6aik1.md#c1"
+    char_span: [1298, 2348]
+    sentence_count: 9
+    key_terms: [experience, projects, arduino, degree, either, money, start, get]
+    section: Comments
+    token_count: 244
 ---
-
 # Beginner engineering student looking for direction – specific advice appreciated
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1r6aik1/beginner_engineering_student_looking_for/)

@@ -6,19 +6,19 @@ subreddit: "gradadmissions"
 title: "Grad school admissions fall 2026"
 author: "WayAffectionate1530"
 date: "2025-12-23T07:07:43.000Z"
-score: 22
+score: 23
 upvote_ratio: 0.9
 num_comments: 43
 flair: "Biological Sciences"
-extracted_at: "2026-05-24T14:10:06.597Z"
+extracted_at: "2026-06-06T23:23:15.582Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Grad school admissions fall 2026
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1ptnjzm/grad_school_admissions_fall_2026/)
-Posted by **WayAffectionate1530** · **22↑** · **43 comments**
+Posted by **WayAffectionate1530** · **23↑** · **43 comments**
 
 PhD program decisions seem to be coming out earlier than last year with very low percentage of internationals being accepted :((( how is everyone coping?
 
@@ -29,9 +29,9 @@ PhD program decisions seem to be coming out earlier than last year with very low
   - **WayAffectionate1530** (6↑): i am \*your username\*
 - **Artistic_Record_1936** (7↑): Isnt it too early since most of the deadlines were 15th of this month?
   - **[deleted]** (2↑): a lot of mine were dec 1
-    - **Artistic_Record_1936** (6↑): Okay. Dont lose your hope until the last day or maybe around february my friend
+    - **Artistic_Record_1936** (5↑): Okay. Dont lose your hope until the last day or maybe around february my friend
   - **WayAffectionate1530** (2↑): that's what I thought unless they are reviewing apps like JP Morgan and trashing half of them randomly
-- **[deleted]** (3↑): 1 rejection. 8 pending
+- **[deleted]** (4↑): 1 rejection. 8 pending
   - **WayAffectionate1530** (3↑): goodluck! good news on the way hopefully
     - **[deleted]** (2↑): that rejection hurt. i have some concerns with my applications. looks like i'll be working if all are rejected
 - **Zealousideal_Sink743** (7↑): Already looking at MSc in Europe lmao

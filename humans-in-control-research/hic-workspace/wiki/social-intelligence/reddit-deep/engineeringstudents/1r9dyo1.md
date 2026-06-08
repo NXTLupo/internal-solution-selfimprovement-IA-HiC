@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1r9dyo1.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1r9dyo1/mechanical_eng_student_take_safetyoperations_coop/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,15 @@ flair: "Career Advice"
 extracted_at: "2026-05-22T15:11:44.439Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r9dyo1.md#c0"
+    char_span: [0, 1683]
+    sentence_count: 11
+    key_terms: [position, automotive, engineeringstudents, co-op, safety-operations, take, design, offer]
+    token_count: 378
 ---
-
 # Mechanical Eng Student: Take Safety-Operations Co-op or Hold Out for Design Role?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1r9dyo1/mechanical_eng_student_take_safetyoperations_coop/)

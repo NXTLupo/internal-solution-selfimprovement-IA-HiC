@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1s8rwrg.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1s8rwrg/is_anybody_taking_an_engineering_degree_for_a/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Major Choice"
 extracted_at: "2026-05-22T23:33:46.991Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, manufacturing, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1s8rwrg.md#c0"
+    char_span: [0, 1559]
+    sentence_count: 9
+    key_terms: [management, engineeringstudents, scm, college, career, school, engineering, undergrads]
+    token_count: 344
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1s8rwrg.md#c1"
+    char_span: [1574, 3933]
+    sentence_count: 15
+    key_terms: [engineeringstudents, wiki, please, reddit, https, com, scm, posting]
+    section: Comments
+    token_count: 487
 ---
-
 # Is anybody taking an engineering degree for a supply chain management masters/related career?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1s8rwrg/is_anybody_taking_an_engineering_degree_for_a/)

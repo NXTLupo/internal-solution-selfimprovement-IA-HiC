@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1rc5hm8.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rc5hm8/how_do_you_get_research_experience_and_get/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,15 @@ flair: "Applied Sciences"
 extracted_at: "2026-05-24T14:10:06.604Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rc5hm8.md#c0"
+    char_span: [0, 1250]
+    sentence_count: 12
+    key_terms: [get, research, experience, published, gradadmissions, undergrad, volunteer, comments]
+    token_count: 294
 ---
-
 # How do you get research experience and get published post-grad?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rc5hm8/how_do_you_get_research_experience_and_get/)

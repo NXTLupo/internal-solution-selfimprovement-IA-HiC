@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1qbuzzy.md
 url: "https://www.reddit.com/r/personalfinance/comments/1qbuzzy/parent_with_no_retirement_savings_at_58_years_old/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,63 @@ flair: "Retirement"
 extracted_at: "2026-05-16T20:55:02.104Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c0"
+    char_span: [0, 1632]
+    sentence_count: 19
+    key_terms: [retirement, mom, personalfinance, does, groceries, comments, property, savings]
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c1"
+    char_span: [1647, 2727]
+    sentence_count: 10
+    key_terms: [pension, school, benefits, security, paying, social, district, search]
+    section: Comments
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c2"
+    char_span: [2729, 4126]
+    sentence_count: 8
+    key_terms: [pension, retirement, benefits, benefit, company, hidden, hoping, public]
+    section: Comments
+    token_count: 352
+  - id: "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c3"
+    char_span: [4128, 5868]
+    sentence_count: 8
+    key_terms: [state, pensions, benefits, staff, years, age, assistants, divorced]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c4"
+    char_span: [5870, 7345]
+    sentence_count: 9
+    key_terms: [deductions, "doesn't", start, stub, retirement, benefit, impact, record]
+    section: Comments
+    token_count: 353
+  - id: "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c5"
+    char_span: [7347, 8250]
+    sentence_count: 6
+    key_terms: [mom, security, better, please, social, care, pay, aetherbune150]
+    section: Comments
+    token_count: 219
+  - id: "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c6"
+    char_span: [8253, 9671]
+    sentence_count: 15
+    key_terms: [doesn, security, social, mom, finances, physical, pension, future]
+    section: Comments
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c7"
+    char_span: [9673, 12034]
+    sentence_count: 16
+    key_terms: [security, social, married, benefit, retirement, benefits, pension, spousal]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/personalfinance/1qbuzzy.md#c8"
+    char_span: [12036, 13318]
+    sentence_count: 11
+    key_terms: [everything, income, death, tends, lot, step, took, wife]
+    section: Comments
+    token_count: 279
 ---
-
 # Parent with no retirement savings at 58 years old
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1qbuzzy/parent_with_no_retirement_savings_at_58_years_old/)

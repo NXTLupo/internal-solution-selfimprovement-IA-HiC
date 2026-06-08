@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1mgrgwo.md
 url: "https://www.reddit.com/r/internships/comments/1mgrgwo/lastminute_advice_4_days_apply_for_a_dream/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "Applications"
 extracted_at: "2026-05-26T14:30:47.900Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce, higher_ed, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1mgrgwo.md#c0"
+    char_span: [0, 984]
+    sentence_count: 9
+    key_terms: [research, internships, days, experience, internship, comments, student, advice]
+    token_count: 232
+  - id: "social-intelligence/reddit-deep/internships/1mgrgwo.md#c1"
+    char_span: [999, 1881]
+    sentence_count: 9
+    key_terms: [reachful, research, explore, did, communicate, publication, absolutely, critically]
+    section: Comments
+    token_count: 193
 ---
-
 # Last-minute advice: 4 days apply for a dream research internship but I don't have the "preferred research experience." What can I do?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1mgrgwo/lastminute_advice_4_days_apply_for_a_dream/)

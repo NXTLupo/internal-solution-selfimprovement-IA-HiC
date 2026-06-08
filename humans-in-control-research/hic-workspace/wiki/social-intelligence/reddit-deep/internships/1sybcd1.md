@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1sybcd1.md
 url: "https://www.reddit.com/r/internships/comments/1sybcd1/is_the_market_that_brutal_3rd_year_fullstack_dev/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "Resume"
 extracted_at: "2026-05-23T14:53:57.170Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1sybcd1.md#c0"
+    char_span: [0, 1660]
+    sentence_count: 2
+    key_terms: [full-stack, system, microservices, built, internships, tech, attendance, internship]
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/internships/1sybcd1.md#c1"
+    char_span: [1675, 3039]
+    sentence_count: 6
+    key_terms: [metrics, resume, get, real, projects, channel, strong, point]
+    section: Comments
+    token_count: 349
 ---
-
 # Is the market that brutal ? 3rd Year Full-Stack Dev  | Built Microservices Projects
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1sybcd1/is_the_market_that_brutal_3rd_year_fullstack_dev/)

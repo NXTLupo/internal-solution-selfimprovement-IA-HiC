@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rmci4l.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rmci4l/what_careers_should_i_consider_switching_to_for_a/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,36 @@ flair: "UK"
 extracted_at: "2026-05-22T23:34:01.125Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rmci4l.md#c0"
+    char_span: [0, 504]
+    sentence_count: 2
+    key_terms: [careerguidance, switching, comments, career, stable, recommendations, progression, reddit-deep]
+    token_count: 123
+  - id: "social-intelligence/reddit-deep/careerguidance/1rmci4l.md#c1"
+    char_span: [506, 2775]
+    sentence_count: 6
+    key_terms: [uni, career, doing, roles, year, masters, years, entry-level]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1rmci4l.md#c2"
+    char_span: [2428, 3007]
+    sentence_count: 1
+    key_terms: [stable, roles, competitive, want, sustainability, transitioning, potentially, meaningful]
+    token_count: 122
+  - id: "social-intelligence/reddit-deep/careerguidance/1rmci4l.md#c3"
+    char_span: [3009, 3763]
+    sentence_count: 4
+    key_terms: [careers, "i'm", certification, opportunities, development, interacting, progression, suggestions]
+    token_count: 148
+  - id: "social-intelligence/reddit-deep/careerguidance/1rmci4l.md#c4"
+    char_span: [3778, 5029]
+    sentence_count: 6
+    key_terms: [management, companies, background, training, someone, pretty, roles, pay]
+    section: Comments
+    token_count: 218
 ---
-
 # What careers should I consider switching to for a more stable career with reasonable progression?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rmci4l/what_careers_should_i_consider_switching_to_for_a/)

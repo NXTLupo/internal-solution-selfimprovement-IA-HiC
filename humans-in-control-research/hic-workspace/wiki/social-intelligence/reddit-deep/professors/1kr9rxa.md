@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1kr9rxa.md
 url: "https://www.reddit.com/r/Professors/comments/1kr9rxa/i_am_the_actual_worst/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,87 @@ flair: "Humor"
 extracted_at: "2026-05-20T03:55:39.260Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c0"
+    char_span: [0, 1493]
+    sentence_count: 15
+    key_terms: [here, too, students, worst, time, professors, professor, comments]
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c1"
+    char_span: [1508, 3194]
+    sentence_count: 8
+    key_terms: [universities, privatizing, professor, personal, received, students, terrible, comment]
+    section: Comments
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c2"
+    char_span: [3196, 4198]
+    sentence_count: 9
+    key_terms: [too, students, require, actual, superb-leader-3416, caninenapolean, compelling, department]
+    section: Comments
+    token_count: 244
+  - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c3"
+    char_span: [4200, 6081]
+    sentence_count: 16
+    key_terms: [through, vibes, read, multiple, textbook, reading, require, videos]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c4"
+    char_span: [5807, 7669]
+    sentence_count: 15
+    key_terms: [monster, class, lollipop77, discuss, nothing, adventurous-dot-3313, inevitable-ratio-756, life-education-8030]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c5"
+    char_span: [7507, 8359]
+    sentence_count: 6
+    key_terms: [seance, ahazred8vt, dead, chancesundae821, birdmadgirl74, chili-beanie, eenie-meenie, lostmywasps]
+    section: Comments
+    token_count: 280
+  - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c6"
+    char_span: [8361, 8865]
+    sentence_count: 1
+    key_terms: [university, students, college, galaxywhisperer, birdmadgirl74, community, goddamnit, standards]
+    section: Comments
+    token_count: 127
+  - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c7"
+    char_span: [8867, 10807]
+    sentence_count: 11
+    key_terms: [students, university, year, hariboberries, exceptions, unprepared, transfers, because]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c8"
+    char_span: [10809, 12684]
+    sentence_count: 13
+    key_terms: [charisma, caninenapolean, class, evals, evaluations, read, amendment, evaluate]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c9"
+    char_span: [12686, 14684]
+    sentence_count: 16
+    key_terms: [students, did, classes, office, evaluations, read, realized, because]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c10"
+    char_span: [14687, 16025]
+    sentence_count: 13
+    key_terms: [students, work, colleagues, because, classes, thought, being, days]
+    section: Comments
+    token_count: 286
+  - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c11"
+    char_span: [16027, 17896]
+    sentence_count: 14
+    key_terms: [too, feedback, evaluations, urnbabyurn, students, because, nervous, student]
+    section: Comments
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/professors/1kr9rxa.md#c12"
+    char_span: [17898, 19590]
+    sentence_count: 9
+    key_terms: [student, funny, assignments, complaints, motives, people, adventurous-dot-3313, shoes]
+    section: Comments
+    token_count: 464
 ---
-
 # I Am the Actual Worst
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1kr9rxa/i_am_the_actual_worst/)

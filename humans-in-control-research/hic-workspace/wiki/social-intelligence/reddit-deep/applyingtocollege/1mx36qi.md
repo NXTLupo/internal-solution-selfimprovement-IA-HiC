@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1mx36qi.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1mx36qi/is_a_liberal_arts_college_the_right_choice_for_an/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,45 @@ flair: "Application Question"
 extracted_at: "2026-05-24T14:08:39.594Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mx36qi.md#c0"
+    char_span: [0, 1663]
+    sentence_count: 11
+    key_terms: [student, applyingtocollege, like, looking, international, colleges, comments, amherst]
+    token_count: 389
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mx36qi.md#c1"
+    char_span: [1678, 1971]
+    sentence_count: 3
+    key_terms: [throwawaygremlins, international, impossible, difficult, research, another, college, liberal]
+    section: Comments
+    token_count: 77
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mx36qi.md#c2"
+    char_span: [1973, 4288]
+    sentence_count: 22
+    key_terms: [financial, aid, because, medical, school, letpsychological650, lacs, research]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mx36qi.md#c3"
+    char_span: [3966, 5100]
+    sentence_count: 6
+    key_terms: [research, school, education, advising, because, liberal, choice, premed]
+    section: Comments
+    token_count: 235
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mx36qi.md#c4"
+    char_span: [5102, 7222]
+    sentence_count: 17
+    key_terms: [lacs, internationals, international, aid, pre-med, schools, need, top]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mx36qi.md#c5"
+    char_span: [7224, 8863]
+    sentence_count: 12
+    key_terms: [international, students, financial, generous, aid, undergrad, pre-med, schools]
+    section: Comments
+    token_count: 359
 ---
-
 # Is a liberal arts college the right choice for an international student
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1mx36qi/is_a_liberal_arts_college_the_right_choice_for_an/)

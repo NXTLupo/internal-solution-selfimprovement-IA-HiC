@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/66f1ec2bbc.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1l8mflq/too_old_for_career_change_into_cs/"
 url_hash: "66f1ec2bbc"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:39:22.661713+00:00"
 chars: 4402
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/66f1ec2bbc.md#c0"
+    char_span: [0, 2301]
+    sentence_count: 17
+    key_terms: [problem, math, career, degree, field, going, cscareerquestions, get]
+    token_count: 511
+  - id: "articles/reddit-deep-r-cscareerquestions/66f1ec2bbc.md#c1"
+    char_span: [2305, 3951]
+    sentence_count: 7
+    key_terms: [willing, new, because, kids, move, university, anywhere, relocate]
+    token_count: 394
+  - id: "articles/reddit-deep-r-cscareerquestions/66f1ec2bbc.md#c2"
+    char_span: [3953, 4582]
+    sentence_count: 7
+    key_terms: [get, coding, care, financially, background, experience, proficient, transition]
+    token_count: 155
 ---
-
 # Too old for career change into CS?
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1l8mflq/too_old_for_career_change_into_cs/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1tic9hh.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1tic9hh/cs_major_with_a_65_gpa_and_no_skills_stay_in_tech/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-25T18:32:49.821Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tic9hh.md#c0"
+    char_span: [0, 2061]
+    sentence_count: 19
+    key_terms: [tech, skills, on-campus, cscareerquestions, looking, advice, paths, cgpa]
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tic9hh.md#c1"
+    char_span: [2076, 3837]
+    sentence_count: 10
+    key_terms: [experience, stupid, sourceawkward, get, "it's", projects, campus, doing]
+    section: Comments
+    token_count: 476
 ---
-
 # CS major with a 6.5 GPA and no skills. Stay in tech or switch?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1tic9hh/cs_major_with_a_65_gpa_and_no_skills_stay_in_tech/)

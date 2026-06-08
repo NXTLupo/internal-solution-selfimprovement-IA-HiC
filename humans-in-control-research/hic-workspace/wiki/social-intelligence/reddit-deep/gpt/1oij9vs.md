@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1oij9vs.md
 url: "https://www.reddit.com/r/GPT/comments/1oij9vs/your_internal_engineering_knowledge_base_that/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-11T17:26:37.728Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1oij9vs.md#c0"
+    char_span: [0, 1476]
+    sentence_count: 11
+    key_terms: [documentation, davia, github, reddit, automatically, https, knowledge, workspace]
+    token_count: 306
 ---
-
 # Your internal engineering knowledge base that writes and updates itself from your GitHub repos
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1oij9vs/your_internal_engineering_knowledge_base_that/)

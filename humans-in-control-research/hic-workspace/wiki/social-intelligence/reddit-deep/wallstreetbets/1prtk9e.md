@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1prtk9e.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1prtk9e/pct_120k_yolo_ive_been_early_before/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,43 @@ flair: "YOLO"
 extracted_at: "2026-05-16T20:54:42.973Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, manufacturing, sustainability]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1prtk9e.md#c0"
+    char_span: [0, 2374]
+    sentence_count: 13
+    key_terms: [customers, been, large, currently, pct, wallstreetbets, term, officially]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1prtk9e.md#c1"
+    char_span: [2376, 4284]
+    sentence_count: 14
+    key_terms: [sustainability, company, ironton, companies, future, board, operational, potentially]
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1prtk9e.md#c2"
+    char_span: [4286, 5178]
+    sentence_count: 6
+    key_terms: [company, shares, volume, spacs, best, low, old, regulatory]
+    token_count: 217
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1prtk9e.md#c3"
+    char_span: [5193, 5443]
+    sentence_count: 1
+    key_terms: [total, years, submissions, visualmod, comments, previous, account, report]
+    section: Comments
+    token_count: 98
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1prtk9e.md#c4"
+    char_span: [5445, 6812]
+    sentence_count: 9
+    key_terms: [drseuss1020, pct, questions, discord, https, got, long, open]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1prtk9e.md#c5"
+    char_span: [6814, 8258]
+    sentence_count: 13
+    key_terms: [drseuss1020, too, d159fc3e189dba09cdb55fab67927ac7a5875c3a, money, preview, format, myself, zealousidealship3215]
+    section: Comments
+    token_count: 485
 ---
-
 # PCT $120k YOLO - I’ve been early before
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1prtk9e/pct_120k_yolo_ive_been_early_before/)

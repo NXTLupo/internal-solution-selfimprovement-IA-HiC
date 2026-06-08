@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1sdf6v5.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1sdf6v5/50kyear_at_purdue_vs_30kyear_at_colgate/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,27 @@ flair: "Student"
 extracted_at: "2026-05-22T15:11:47.161Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sdf6v5.md#c0"
+    char_span: [0, 1241]
+    sentence_count: 10
+    key_terms: [colgate, cscareerquestions, anyone, purdue, great, "i'm", troy, university]
+    token_count: 303
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sdf6v5.md#c1"
+    char_span: [1256, 2291]
+    sentence_count: 8
+    key_terms: [dismal-river-9389, debt, income, purdue, unless, years, job, mit]
+    section: Comments
+    token_count: 260
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sdf6v5.md#c2"
+    char_span: [2293, 4163]
+    sentence_count: 15
+    key_terms: [full, ride, colgate, pretty, purdue, universities, money, troy]
+    section: Comments
+    token_count: 495
 ---
-
 # $50k/year at Purdue vs $30k/year at Colgate University vs full ride at Troy University
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sdf6v5/50kyear_at_purdue_vs_30kyear_at_colgate/)

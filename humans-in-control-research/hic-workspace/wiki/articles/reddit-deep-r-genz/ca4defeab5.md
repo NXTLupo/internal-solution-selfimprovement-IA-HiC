@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-genz/ca4defeab5.md
 url: "https://www.reddit.com/r/GenZ/comments/1rmnudk/why_does_nobody_teach_you_the_actual_legal_side/"
 url_hash: "ca4defeab5"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-16T20:57:50.323734+00:00"
 chars: 2472
+industries: [financial_services, education]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-genz/ca4defeab5.md#c0"
+    char_span: [0, 1915]
+    sentence_count: 14
+    key_terms: [nobody, school, teach, genz, comments, contract, marriage, property]
+    token_count: 429
+  - id: "articles/reddit-deep-r-genz/ca4defeab5.md#c1"
+    char_span: [1917, 2676]
+    sentence_count: 5
+    key_terms: [school, too, teaching, alegbra, because, people, apartmentworried5692, yeah]
+    token_count: 192
 ---
-
 # Why does nobody teach you the actual legal side of marriage in school?
 
 Source: [Reddit Deep: r/genz](https://www.reddit.com/r/GenZ/comments/1rmnudk/why_does_nobody_teach_you_the_actual_legal_side/)

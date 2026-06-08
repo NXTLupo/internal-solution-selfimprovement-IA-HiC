@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1suek94.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1suek94/what_do_you_think_was_the_one_thing_on_your/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,39 @@ flair: "Discussion"
 extracted_at: "2026-05-22T23:33:52.620Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1suek94.md#c0"
+    char_span: [0, 387]
+    sentence_count: 3
+    key_terms: [applyingtocollege, comments, tangerinekitchen2260, application, reddit-deep, community, olympiads, research]
+    token_count: 107
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1suek94.md#c1"
+    char_span: [402, 2071]
+    sentence_count: 5
+    key_terms: [research, school, suitable-nothing-706, consideration, wrote, significant, ecs, lors]
+    section: Comments
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1suek94.md#c2"
+    char_span: [2073, 4062]
+    sentence_count: 8
+    key_terms: [oinkyoinkoinky, didn, got, lors, example, essays, school, wonder]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1suek94.md#c3"
+    char_span: [3772, 4892]
+    sentence_count: 3
+    key_terms: [tangerinekitchen2260, extracurriculars, essays, measurementtop2885, did, got, test, recommendations]
+    section: Comments
+    token_count: 275
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1suek94.md#c4"
+    char_span: [4917, 6400]
+    sentence_count: 6
+    key_terms: [competition, tangerinekitchen2260, throwawaygremlins, regeneration, science, school, adventurous-rich-703, essay]
+    section: Comments
+    token_count: 381
 ---
-
 # What do you think was the one thing on your college application that got you into your dream school?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1suek94/what_do_you_think_was_the_one_thing_on_your/)

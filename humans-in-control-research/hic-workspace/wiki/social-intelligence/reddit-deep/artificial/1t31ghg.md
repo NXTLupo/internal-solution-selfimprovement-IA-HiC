@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1t31ghg.md
 url: "https://www.reddit.com/r/artificial/comments/1t31ghg/i_gave_my_local_llm_a_suffering_meter_and_now_it/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,39 @@ flair: "Project"
 extracted_at: "2026-05-11T17:27:04.775Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1t31ghg.md#c0"
+    char_span: [0, 2054]
+    sentence_count: 14
+    key_terms: [something, environment, artificial, agent, own, building, stressors, suffering]
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/artificial/1t31ghg.md#c1"
+    char_span: [2069, 3635]
+    sentence_count: 9
+    key_terms: [suffering, conscious, buddhist, burning, suffer, illustrious-web-6011, onlyonequickquestion, distancesolar1449]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/artificial/1t31ghg.md#c2"
+    char_span: [3637, 5774]
+    sentence_count: 13
+    key_terms: [suffering, like, real, matter, doesn, dog, here, own]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/artificial/1t31ghg.md#c3"
+    char_span: [5776, 7189]
+    sentence_count: 7
+    key_terms: [like, hollow, model, existence, predict, access, models, small]
+    section: Comments
+    token_count: 296
+  - id: "social-intelligence/reddit-deep/artificial/1t31ghg.md#c4"
+    char_span: [7191, 9002]
+    sentence_count: 9
+    key_terms: [been, context, theonlyvibemaster, day, seen, tell, reddituser567853, sparescrewdriver]
+    section: Comments
+    token_count: 474
 ---
-
 # I gave my local LLM a "suffering" meter, and now it won’t stop self-modifying to fix its own stress.
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1t31ghg/i_gave_my_local_llm_a_suffering_meter_and_now_it/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1pimsvl.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1pimsvl/to_all_the_should_i_submit_my_sat_is_my_sat_high/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,33 @@ flair: "Advice"
 extracted_at: "2026-05-23T14:54:48.682Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pimsvl.md#c0"
+    char_span: [0, 1341]
+    sentence_count: 7
+    key_terms: [submit, retake, applyingtocollege, sat, situation, anything, comments, schools]
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pimsvl.md#c1"
+    char_span: [1356, 2978]
+    sentence_count: 17
+    key_terms: [score, school, scores, submit, above, college, common, data]
+    section: Comments
+    token_count: 389
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pimsvl.md#c2"
+    char_span: [2980, 4716]
+    sentence_count: 10
+    key_terms: [submit, score, schools, extinctedpanda, assume, school, don, admissions]
+    section: Comments
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pimsvl.md#c3"
+    char_span: [4718, 5383]
+    sentence_count: 4
+    key_terms: [get, aviation, top, try, sorrycrossf1re, aeronautical, application, competitive]
+    section: Comments
+    token_count: 184
 ---
-
 # To all the "sHoUlD I SUbMit My SAT? is mY SAT hiGh ENouGh?"
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1pimsvl/to_all_the_should_i_submit_my_sat_is_my_sat_high/)

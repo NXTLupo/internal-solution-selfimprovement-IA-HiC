@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-humanresources/e5ee77ca9d.md
 url: "https://www.reddit.com/r/humanresources/comments/1tc8qm0/need_career_advice_na/"
 url_hash: "e5ee77ca9d"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T12:22:25.093341+00:00"
 chars: 3887
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-humanresources/e5ee77ca9d.md#c0"
+    char_span: [0, 1786]
+    sentence_count: 14
+    key_terms: [companies, humanresources, apply, here, hrbp, challenged, experience, management]
+    token_count: 427
+  - id: "articles/reddit-deep-r-humanresources/e5ee77ca9d.md#c1"
+    char_span: [1788, 4039]
+    sentence_count: 11
+    key_terms: [puddingadorable9260, experience, years, company, smaller, people, emarialartayu, get]
+    token_count: 503
 ---
-
 # Need Career Advice [N/A]
 
 Source: [Reddit Deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1tc8qm0/need_career_advice_na/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-povertyfinance/fcba36cdc8.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1s7plcu/here_are_a_few_things_ive_been_through_hope_it/"
 url_hash: "fcba36cdc8"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:23:22.351678+00:00"
 chars: 3364
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-povertyfinance/fcba36cdc8.md#c0"
+    char_span: [0, 2014]
+    sentence_count: 11
+    key_terms: [povertyfinance, money, spend, bank, card, don, automation, comments]
+    token_count: 473
+  - id: "articles/reddit-deep-r-povertyfinance/fcba36cdc8.md#c1"
+    char_span: [2018, 3598]
+    sentence_count: 8
+    key_terms: [people, like, internet, budgeting, starting, already, service, mobile]
+    token_count: 367
 ---
-
 # Here are a few things i’ve been through. hope it helps give you some perspective.
 
 Source: [Reddit Deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1s7plcu/here_are_a_few_things_ive_been_through_hope_it/)

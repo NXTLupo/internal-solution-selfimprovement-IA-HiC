@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1qgbfpb.md
 url: "https://www.reddit.com/r/OpenAI/comments/1qgbfpb/cursor_ai_ceo_shares_gpt_52_agents_building_a_3m/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,63 @@ flair: "News"
 extracted_at: "2026-05-11T17:27:05.361Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1qgbfpb.md#c0"
+    char_span: [0, 770]
+    sentence_count: 4
+    key_terms: [agents, building, comments, browser, michael, cursor, openai, source]
+    token_count: 188
+  - id: "social-intelligence/reddit-deep/openai/1qgbfpb.md#c1"
+    char_span: [785, 2439]
+    sentence_count: 6
+    key_terms: [efff88b1e3fa3e5ea671d40064cca12073ad400c, browser, code, https, recoveringasshole0, done, less, png]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/openai/1qgbfpb.md#c2"
+    char_span: [2441, 3569]
+    sentence_count: 8
+    key_terms: [dependencies, code, work, agents, lines, right, png, marathonhampster]
+    section: Comments
+    token_count: 323
+  - id: "social-intelligence/reddit-deep/openai/1qgbfpb.md#c3"
+    char_span: [3571, 4577]
+    sentence_count: 8
+    key_terms: [job, project, zerozachzilchzealot, cause, care, huge, new, redvelvetcake42]
+    section: Comments
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/openai/1qgbfpb.md#c4"
+    char_span: [4579, 6218]
+    sentence_count: 12
+    key_terms: [amazing, zerozachzilchzealot, fucking, tech, reference, browser, person, sounds]
+    section: Comments
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/openai/1qgbfpb.md#c5"
+    char_span: [6220, 8056]
+    sentence_count: 13
+    key_terms: [browser, work, debatable, good, whether, demonstration, point, code]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/openai/1qgbfpb.md#c6"
+    char_span: [8058, 9999]
+    sentence_count: 9
+    key_terms: [lines, improvement, practical, browser, chatgpt, growth, linear, paying]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/openai/1qgbfpb.md#c7"
+    char_span: [10001, 11887]
+    sentence_count: 3
+    key_terms: [ycombinator, code, software, https, lines, com, day, item]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/openai/1qgbfpb.md#c8"
+    char_span: [11889, 12373]
+    sentence_count: 1
+    key_terms: [d1a7172e7ef6dc3d67472afb23ad2511071380d4, recoveringasshole0, insert-trend-here, png, bxkxukpmsbeg1, screenshot, archetype, existence]
+    section: Comments
+    token_count: 152
 ---
-
 # Cursor AI CEO shares GPT 5.2 agents building a 3M+ lines web browser in a week
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1qgbfpb/cursor_ai_ceo_shares_gpt_52_agents_building_a_3m/)

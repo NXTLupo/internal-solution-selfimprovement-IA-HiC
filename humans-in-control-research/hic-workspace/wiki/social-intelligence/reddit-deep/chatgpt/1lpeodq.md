@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1lpeodq.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1lpeodq/psa_all_of_your_chatgpt_chats_even_deleted_ones/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,63 @@ flair: "Serious replies only :closed-ai:"
 extracted_at: "2026-05-17T01:12:48.209Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1lpeodq.md#c0"
+    char_span: [0, 1266]
+    sentence_count: 6
+    key_terms: [openai-says-court-forcing-it-to-save-all-chatgpt-logs-is-a-privacy-nightmare, chatgpt, https, arstechnica, tech-policy, com, comments, delete]
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/chatgpt/1lpeodq.md#c1"
+    char_span: [1281, 2795]
+    sentence_count: 6
+    key_terms: [chatgpt, comments, deleted, secrets, serious, someone, stories, gluesniffingenabler]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/chatgpt/1lpeodq.md#c2"
+    char_span: [2797, 4001]
+    sentence_count: 3
+    key_terms: [nerdyindoorcat, comprehensive-menu44, cheap-response5792, got, capt-yossarius, pinksmarties06, antipleasure, out-of-print]
+    section: Comments
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/chatgpt/1lpeodq.md#c3"
+    char_span: [4003, 5564]
+    sentence_count: 4
+    key_terms: [deleted, no-wishbone7270, romance, mine, dumping, freddy, goblin, novels]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1lpeodq.md#c4"
+    char_span: [5376, 6748]
+    sentence_count: 5
+    key_terms: [use, deleted, lawyer, public, sample, l5s1microdiscectomy, right, you-create-energy]
+    section: Comments
+    token_count: 343
+  - id: "social-intelligence/reddit-deep/chatgpt/1lpeodq.md#c5"
+    char_span: [6750, 8134]
+    sentence_count: 10
+    key_terms: [anonymized, identifiers, data, chat, risk, structured, payloads, deleted]
+    section: Comments
+    token_count: 336
+  - id: "social-intelligence/reddit-deep/chatgpt/1lpeodq.md#c6"
+    char_span: [8136, 9821]
+    sentence_count: 11
+    key_terms: [subscription, something, personal, neopets, credit, little, opposite-brother5331, semianonymousteacher]
+    section: Comments
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/chatgpt/1lpeodq.md#c7"
+    char_span: [9823, 11621]
+    sentence_count: 5
+    key_terms: [like, ohthehuemanatee, people, chat, everything, committed, "wouldn't", details]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/chatgpt/1lpeodq.md#c8"
+    char_span: [11623, 12323]
+    sentence_count: 2
+    key_terms: [intimate, long-contribution466, a3zqvrh40cdhu, relationships, confidential, mayosucksass, regurgitates, satibagipula]
+    section: Comments
+    token_count: 188
 ---
-
 # PSA:  All of your ChatGPT chats (even deleted ones) are at real risk of exposure
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1lpeodq/psa_all_of_your_chatgpt_chats_even_deleted_ones/)

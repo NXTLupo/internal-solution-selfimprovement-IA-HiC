@@ -6,19 +6,19 @@ subreddit: "college"
 title: "Professor hasn’t returned a single grade all semester. Tossed our first exam and refuses to tell us our standing."
 author: "General_Log_9000"
 date: "2025-11-21T15:58:19.000Z"
-score: 187
+score: 185
 upvote_ratio: 0.97
-num_comments: 26
+num_comments: 25
 flair: ""
-extracted_at: "2026-05-25T13:02:03.709Z"
+extracted_at: "2026-06-06T23:23:15.569Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Professor hasn’t returned a single grade all semester. Tossed our first exam and refuses to tell us our standing.
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1p32cdm/professor_hasnt_returned_a_single_grade_all/)
-Posted by **General_Log_9000** · **187↑** · **26 comments**
+Posted by **General_Log_9000** · **185↑** · **25 comments**
 
 This is my first time using this sub, but I was wondering if anyone else had this experience before and/or has any advice to give regarding going forward...
 
@@ -31,15 +31,15 @@ Does ANYONE have a similar experience? Should I escalate this to the dean himsel
 ## Comments
 
 - **PhDapper** (210↑): You should speak to the department chair. The dean is not the appropriate next step unless there are no chairs or the professor is also the chair. Following the chain is important.
-  - **rLub5gr63F8** (41↑): Student said they talked to the chair but nothing changed.
+  - **rLub5gr63F8** (39↑): Student said they talked to the chair but nothing changed.
 
 I don't disagree, though - the right move is still to go back to the chair. We often think (hope?) that something will change during the class and don't check back in.
-    - **PhDapper** (30↑): It looks like other students went but not OP. OP should go, as well.
-- **No_Consideration_339** (93↑): This is not good course design, and especially poor execution. No syllabus?!? 
+    - **PhDapper** (29↑): It looks like other students went but not OP. OP should go, as well.
+- **No_Consideration_339** (91↑): This is not good course design, and especially poor execution. No syllabus?!? 
 Here’s what I’d do. Get a bunch of students to all go, at the same time, to the department chair. Bring receipts.
   - **GhostofBeowulf** (10↑): Those groups rarely work out in achieving their goals.  Just saying, that is one of the least effective methods of negotiation.
   - **Downtown_Cap8311** (7↑): large group gives off that you’re annoyed because it’s been inconvenient. having the conversation one on one is better for showing genuine concern for your own personal education
-- **MediatrixMagnifica** (30↑): Retired professor here.
+- **MediatrixMagnifica** (28↑): Retired professor here.
 
 Your understanding is correct.
 
@@ -68,7 +68,7 @@ So by speaking with the Dean in person, and letting him know who you are, and wh
 
 This is a really upsetting situation, and I am very sorry you are going through it. There are all kinds of things wrong here. The bottom line is that you are absolutely right to be concerned, and the Dean needs to know as soon as possible.
   - **patmartone** (11↑): Cogent advice, this. Get thee to the Dean.
-  - **Gloomy-Aide1914** (6↑): I'm the associate dean who investigates issues like this for my school. I would \*welcome\* the opportunity to speak with students for the reasons stated above. This isn't acceptable by any stretch of the imagination.
+  - **Gloomy-Aide1914** (7↑): I'm the associate dean who investigates issues like this for my school. I would \*welcome\* the opportunity to speak with students for the reasons stated above. This isn't acceptable by any stretch of the imagination.
     - **Which-Music8436** (3↑): I mean if this even gets out to the public this can affect the credibility of the university and good luck explaining the decrease in enrollment numbers
     - **MediatrixMagnifica** (2↑): Thank you for confirming this! 
 
@@ -77,12 +77,9 @@ It’s so helpful to keep reminding students that we all want them to succeed, a
 It’s really hard to report on a professor, because what if you’re wrong? What if they find out? What if nobody does anything? 
 
 But really, truly, Associate Deans like you are absolutely the best resource and a situation like this.
-- **REC_HLTH** (30↑): What a mess. I’m a professor and at our university, the chair and the dean would both be very interested to know about this situation.
+- **REC_HLTH** (34↑): What a mess. I’m a professor and at our university, the chair and the dean would both be very interested to know about this situation.
   - **MediatrixMagnifica** (11↑): I second of this. I’m a retired professor, and I didn’t have to read past “he never gave us a syllabus” to know that the situation absolutely must be escalated immediately, not after final semester grades have posted.
 - **HappyLifeCoffeeHelps** (6↑): I would send an email to the department chair (for documentation/record).  Then you have that for when you go above them.
-- **Hatter-Madigan** (5↑): Must be tenured
-
-When i've had profs like this most people end up passing because the prof knows the bed theyve made. people end up with a grade they will say is "fair" and is better than doing another hellish quarter
 - **Which-Music8436** (2↑): Its time to put this whole department on blast, here is a pro life tip, people only do stuff when their careers or reputation is on the line. What he is doing is absolutely unaccapetable and the fact this is a repeat occurrence shows the university fully knows and could care less because I bet my life savings he is tenured (he makes the university money off research).
 
 You pay money to the college for a degree and they are giving you third class treatment, if you do nothing HE WILL DO THIS AGAIN. Even if nothing happens just the mere documentation that this was made aware and the university did nothing is a bad day for the university if this goes public to their shareholders.

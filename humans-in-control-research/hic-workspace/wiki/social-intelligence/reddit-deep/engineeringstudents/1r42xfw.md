@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1r42xfw.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1r42xfw/result_of_2_month_long_job_search_as_an_me_new/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Sankey Diagram"
 extracted_at: "2026-05-25T13:01:49.570Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r42xfw.md#c0"
+    char_span: [0, 439]
+    sentence_count: 3
+    key_terms: [engineeringstudents, coursework, comments, job, yourlocalbok, internships, reddit-deep, experience]
+    token_count: 118
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r42xfw.md#c1"
+    char_span: [454, 2264]
+    sentence_count: 14
+    key_terms: [engineeringstudents, com, wiki, please, reddit, https, sankeymatic, www]
+    section: Comments
+    token_count: 429
 ---
-
 # Result of 2 month long job search as an ME new grad (no internships, 1.5 years FSAE experience, 3.9 GPA, related coursework).
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1r42xfw/result_of_2_month_long_job_search_as_an_me_new/)

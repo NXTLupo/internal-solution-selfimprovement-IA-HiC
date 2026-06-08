@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1nbtddq.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1nbtddq/single_mother_feeling_absolutely_hopeless/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,50 @@ flair: "Debt/Loans/Credit"
 extracted_at: "2026-05-16T20:55:12.697Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1nbtddq.md#c0"
+    char_span: [0, 1824]
+    sentence_count: 13
+    key_terms: [daughter, don, povertyfinance, sister, work, something, comments, hopeless]
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/povertyfinance/1nbtddq.md#c1"
+    char_span: [1827, 2752]
+    sentence_count: 3
+    key_terms: [going, comments, daycare, getting, school, didn, look, scholarship]
+    token_count: 203
+  - id: "social-intelligence/reddit-deep/povertyfinance/1nbtddq.md#c2"
+    char_span: [2767, 4716]
+    sentence_count: 16
+    key_terms: [start, care, head, daughter, sister, averyrose2010, taxes, like]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/povertyfinance/1nbtddq.md#c3"
+    char_span: [4718, 6765]
+    sentence_count: 18
+    key_terms: [work, child, continue, school, requirements, start, state, get]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/povertyfinance/1nbtddq.md#c4"
+    char_span: [6767, 7058]
+    sentence_count: 2
+    key_terms: [get, garnishable, bankruptcy, defaulting, presumably, protection, full-time, consider]
+    section: Comments
+    token_count: 60
+  - id: "social-intelligence/reddit-deep/povertyfinance/1nbtddq.md#c5"
+    char_span: [7060, 9047]
+    sentence_count: 16
+    key_terms: [child, get, work, hours, time, daycare, getting, luckyyyyyy53]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/povertyfinance/1nbtddq.md#c6"
+    char_span: [9050, 10970]
+    sentence_count: 15
+    key_terms: [child, week, another, support, income, school, internationalrich252, psychologicalpark930]
+    section: Comments
+    token_count: 478
 ---
-
 # Single mother feeling absolutely hopeless financially
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1nbtddq/single_mother_feeling_absolutely_hopeless/)

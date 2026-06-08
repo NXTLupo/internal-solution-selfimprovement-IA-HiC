@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-applyingtocollege/be97c29bde.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1pmssxv/parents_who_helped_with_applications_what_did_you/"
 url_hash: "be97c29bde"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T19:53:54.568729+00:00"
 chars: 3614
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-applyingtocollege/be97c29bde.md#c0"
+    char_span: [0, 1988]
+    sentence_count: 9
+    key_terms: [school, parents, student, interests, applyingtocollege, college, earlier, started]
+    token_count: 433
+  - id: "articles/reddit-deep-r-applyingtocollege/be97c29bde.md#c1"
+    char_span: [1990, 3853]
+    sentence_count: 15
+    key_terms: [visit, pretty, shared, essay, scholarship, spreadsheet, college, parents]
+    token_count: 444
 ---
-
 # Parents who helped with applications - what did you wish you started earlier?
 
 Source: [Reddit Deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1pmssxv/parents_who_helped_with_applications_what_did_you/)

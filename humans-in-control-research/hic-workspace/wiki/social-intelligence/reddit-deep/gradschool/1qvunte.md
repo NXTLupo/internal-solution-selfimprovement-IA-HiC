@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1qvunte.md
 url: "https://www.reddit.com/r/GradSchool/comments/1qvunte/accidentally_didnt_waive_rights/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-22T21:35:36.528Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1qvunte.md#c0"
+    char_span: [0, 1622]
+    sentence_count: 16
+    key_terms: [application, recommendation, school, right, waive, comments, email, gradschool]
+    token_count: 363
+  - id: "social-intelligence/reddit-deep/gradschool/1qvunte.md#c1"
+    char_span: [1637, 3220]
+    sentence_count: 11
+    key_terms: [femboyhootersbee, recommendation, email, "it's", "won't", supposed, mistake, process]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/gradschool/1qvunte.md#c2"
+    char_span: [3222, 4646]
+    sentence_count: 10
+    key_terms: [letter, "didn't", waive, applicant, rights, read, student, waiving]
+    section: Comments
+    token_count: 336
+  - id: "social-intelligence/reddit-deep/gradschool/1qvunte.md#c3"
+    char_span: [4648, 5555]
+    sentence_count: 6
+    key_terms: [recommender, life-education-8030, students, access, change, letter, waived, right]
+    section: Comments
+    token_count: 248
+  - id: "social-intelligence/reddit-deep/gradschool/1qvunte.md#c4"
+    char_span: [5557, 7700]
+    sentence_count: 18
+    key_terms: [letters, recommendations, glowing, waiving, recommendation, right, write, application]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/gradschool/1qvunte.md#c5"
+    char_span: [7702, 7950]
+    sentence_count: 3
+    key_terms: [recommenders, apparently, regardless, recently, "doesn't", however, letters, anyway]
+    section: Comments
+    token_count: 60
 ---
-
 # Accidentally Didn't Waive Rights
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1qvunte/accidentally_didnt_waive_rights/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1rjukpj.md
 url: "https://www.reddit.com/r/productivity/comments/1rjukpj/struggling_to_adapt_my_productivity_system_when/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,33 @@ flair: "Advice Needed"
 extracted_at: "2026-05-26T12:53:45.649Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1rjukpj.md#c0"
+    char_span: [0, 961]
+    sentence_count: 6
+    key_terms: [productivity, work, urgent, comments, system, back, get, role]
+    token_count: 208
+  - id: "social-intelligence/reddit-deep/productivity/1rjukpj.md#c1"
+    char_span: [976, 2870]
+    sentence_count: 27
+    key_terms: [work, reactive, strategic, percent, system, small, time, calendar]
+    section: Comments
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/productivity/1rjukpj.md#c2"
+    char_span: [2872, 5151]
+    sentence_count: 13
+    key_terms: [work, strategic, blocks, deep, urgent, need, team, time]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/productivity/1rjukpj.md#c3"
+    char_span: [5153, 5794]
+    sentence_count: 7
+    key_terms: [spiritual-arm-2361, day, bigreminder, prioritize, deadlines, important, reminders, strategic]
+    section: Comments
+    token_count: 152
 ---
-
 # Struggling to adapt my productivity system when workload suddenly changes
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1rjukpj/struggling_to_adapt_my_productivity_system_when/)

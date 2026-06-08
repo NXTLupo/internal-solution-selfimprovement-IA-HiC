@@ -1,4 +1,5 @@
 ---
+id: brand/reference-deck.md
 title: "Reference Deck Design DNA"
 type: brand
 created: 2026-04-10
@@ -8,8 +9,37 @@ confidence: medium
 status: needs-review
 tags: [brand, reference-deck, design-dna, the-ordinary]
 evidence_count: 0
+chunks:
+  - id: "brand/reference-deck.md#c0"
+    char_span: [0, 336]
+    sentence_count: 2
+    key_terms: [design, reference, identity, deck, dna, presentation, foundation, decisions]
+    token_count: 68
+  - id: "brand/reference-deck.md#c1"
+    char_span: [382, 2658]
+    sentence_count: 7
+    key_terms: [text, observations, color, level, usage, per, slide, analysis]
+    section: "Current Status: Awaiting Full Ingestion / Expected Content After Ingestion"
+    token_count: 485
+  - id: "brand/reference-deck.md#c2"
+    char_span: [2660, 3899]
+    sentence_count: 3
+    key_terms: [charts, component, illustrations, chart, color, style, positioning, components]
+    section: Expected Content After Ingestion
+    token_count: 271
+  - id: "brand/reference-deck.md#c3"
+    char_span: [3935, 6183]
+    sentence_count: 9
+    key_terms: [slide, layout, slides, patterns, step, directory, pptx, analysis]
+    section: INGEST Operation Instructions
+    token_count: 498
+  - id: "brand/reference-deck.md#c4"
+    char_span: [6214, 7234]
+    sentence_count: 1
+    key_terms: ["deck's", brand, influence, expected, identity, derived, charts, system]
+    section: Preliminary Observations
+    token_count: 198
 ---
-
 # Reference Deck Design DNA
 
 This page captures the design DNA extracted from the reference presentation deck: **The_Ordinary_Personal_Shopper_Analysis.pptx**. It serves as the empirical foundation for the NXT Humans visual identity — the identity system was derived from this deck's design decisions, not invented in the abstract.

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1qub95g.md
 url: "https://www.reddit.com/r/findapath/comments/1qub95g/people_who_were_obsessed_with_being_rich_during/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,81 @@ flair: "Findapath-Mindset Adjustment"
 extracted_at: "2026-05-25T13:04:07.386Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1qub95g.md#c0"
+    char_span: [0, 1611]
+    sentence_count: 14
+    key_terms: [something, life, obsessed, people, did, rich, tell, findapath]
+    token_count: 365
+  - id: "social-intelligence/reddit-deep/findapath/1qub95g.md#c1"
+    char_span: [1626, 2573]
+    sentence_count: 9
+    key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/findapath/1qub95g.md#c2"
+    char_span: [2576, 4154]
+    sentence_count: 7
+    key_terms: [sircicsensation, filthy, conventional, comfortable, day, rich, vacations, collar]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/findapath/1qub95g.md#c3"
+    char_span: [4156, 5722]
+    sentence_count: 14
+    key_terms: [years, time, struggling, million, enough, myself, throwawaylurker012, classic-night-611]
+    section: Comments
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/findapath/1qub95g.md#c4"
+    char_span: [5724, 7907]
+    sentence_count: 27
+    key_terms: [investments, something, whole-amount-3577, business, another, startup, years, back]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/findapath/1qub95g.md#c5"
+    char_span: [7651, 8447]
+    sentence_count: 8
+    key_terms: [like, myself, others, whole-amount-3577, get, jobs, time, accumulated]
+    section: Comments
+    token_count: 176
+  - id: "social-intelligence/reddit-deep/findapath/1qub95g.md#c6"
+    char_span: [8449, 8914]
+    sentence_count: 7
+    key_terms: [jumped, interviewed, businesses, confidence, engineer, another, problem, income]
+    section: Comments
+    token_count: 112
+  - id: "social-intelligence/reddit-deep/findapath/1qub95g.md#c7"
+    char_span: [8916, 10806]
+    sentence_count: 17
+    key_terms: [money, answer, sircicsensation, freedom, life, time, business, question]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/findapath/1qub95g.md#c8"
+    char_span: [10563, 10985]
+    sentence_count: 1
+    key_terms: [money, then-feedback7751, performative, financially, fulfillment, business, mattered, mentally]
+    section: Comments
+    token_count: 99
+  - id: "social-intelligence/reddit-deep/findapath/1qub95g.md#c9"
+    char_span: [10987, 12501]
+    sentence_count: 6
+    key_terms: [sacrificed, money, years, trading, stress, system, being, early]
+    section: Comments
+    token_count: 332
+  - id: "social-intelligence/reddit-deep/findapath/1qub95g.md#c10"
+    char_span: [12503, 14161]
+    sentence_count: 13
+    key_terms: [then-feedback7751, did, "don't", worth, because, cutting, "didn't", regret]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/findapath/1qub95g.md#c11"
+    char_span: [14163, 15927]
+    sentence_count: 12
+    key_terms: ["i'm", trading, mathematicians, money, been, find, like, something]
+    section: Comments
+    token_count: 441
 ---
-
 # People who were obsessed with being rich during their 20s, how is you life going?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1qub95g/people_who_were_obsessed_with_being_rich_during/)

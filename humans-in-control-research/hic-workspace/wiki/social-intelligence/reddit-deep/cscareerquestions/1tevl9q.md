@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1tevl9q.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1tevl9q/if_i_take_cs_courses_now_ill_be_finished_in_about/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,60 @@ subreddit: "cscareerquestions"
 title: "If I take CS courses now, I’ll be finished in about 2 years. Is it still worth it to pursue a CS career?"
 author: "AccomplishedCake3009"
 date: "2026-05-16T14:42:32.000Z"
-score: 9
+score: 8
 upvote_ratio: 0.59
-num_comments: 63
+num_comments: 62
 flair: "Student"
-extracted_at: "2026-05-26T14:31:41.270Z"
+extracted_at: "2026-06-03T17:24:41.205Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tevl9q.md#c0"
+    char_span: [0, 879]
+    sentence_count: 8
+    key_terms: [cscareerquestions, comments, college, career, people, accomplishedcake3009, years, over-competition]
+    token_count: 213
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tevl9q.md#c1"
+    char_span: [894, 3053]
+    sentence_count: 19
+    key_terms: [work, industry, always, people, being, laid, like, mortgage]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tevl9q.md#c2"
+    char_span: [3057, 5052]
+    sentence_count: 9
+    key_terms: [family, income, money, laid, need, genuinely, because, housing]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tevl9q.md#c3"
+    char_span: [4748, 5393]
+    sentence_count: 5
+    key_terms: [genuinely, prepare, enough, money, timelysuccess7537, don, time, comfortably]
+    section: Comments
+    token_count: 152
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tevl9q.md#c4"
+    char_span: [5395, 6916]
+    sentence_count: 14
+    key_terms: [get, students, opportunities, smart, year, university, doubleprecipation99, being]
+    section: Comments
+    token_count: 366
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tevl9q.md#c5"
+    char_span: [6918, 8276]
+    sentence_count: 10
+    key_terms: [engineering, software, "you're", engineer, "it's", something, college, degrees]
+    section: Comments
+    token_count: 300
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tevl9q.md#c6"
+    char_span: [8279, 9280]
+    sentence_count: 10
+    key_terms: [engineering, "you're", good, emphasis, boring, degree, brilliant-meat-4426, point]
+    section: Comments
+    token_count: 248
 ---
-
 # If I take CS courses now, I’ll be finished in about 2 years. Is it still worth it to pursue a CS career?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1tevl9q/if_i_take_cs_courses_now_ill_be_finished_in_about/)
-Posted by **AccomplishedCake3009** · **9↑** · **63 comments**
+Posted by **AccomplishedCake3009** · **8↑** · **62 comments**
 
 I’m sure this subreddit gets this question a lot? But I feel I genuinely need to ask people who either have a career or recently got an internship. Is it really as hard as people say it is? The last thing I want is to spend a couple years building up my skills and degree only for it to be completely useless because of over-competition. Any advice for a fresh undergrad? Also for context I’ve already fulfilled all of my core credits at my community college, and this fall is when I’d be applying to a state college which is why I’m debating this ASAP.
 
@@ -36,23 +78,22 @@ I always see this being brought up and maybe it's because I'm not married yet bu
 okay fine you got laid off, you're down to 1 income, right? 
   
 to me, one of the BIGGEST advantage of marriage is precisely BECAUSE you can be laid off and you can still be fine (as a family), something doesn't sound right if 1/2 of you gets laid off and your family is doomed
-    - **ResourceFearless1597** (1↑): Thats not how this works tbh. Most countries in the west have an over inflated housing market. Most people NEED the dual income to support a mortgage on their shitbox 2-3 bedroom house (quality of housing is a whole other convo). So even with 1 income most ppl will struggle to stay afloat. You need to factor other things in as well like the kids upbringing, food, groceries, bills, paying for the kids books, shoes, clothing etc. There is just way too much for one person to handle especially in bigger and more expensive cities.
+    - **ResourceFearless1597** (2↑): Thats not how this works tbh. Most countries in the west have an over inflated housing market. Most people NEED the dual income to support a mortgage on their shitbox 2-3 bedroom house (quality of housing is a whole other convo). So even with 1 income most ppl will struggle to stay afloat. You need to factor other things in as well like the kids upbringing, food, groceries, bills, paying for the kids books, shoes, clothing etc. There is just way too much for one person to handle especially in bigger and more expensive cities.
     - **goro-n** (1↑): My friend told me their parents got divorced because their mom felt the dad wasn’t doing a good job providing for the family 🤷‍♂️. I don’t think it was unemployment, just low/unstable income
-- **GoldenxTrigger** (12↑): Can’t wait to see the 3 year post from now, “I should’ve never studied CS”
+- **GoldenxTrigger** (11↑): Can’t wait to see the 3 year post from now, “I should’ve never studied CS”
   - **PressureAvailable615** (5↑): The cycle repeats
-  - **BolehlandCitizen** (3↑): Or it could be "Day in life of an SWE in FAANG"
-- **FLIBBIDYDIBBIDYDAWG** (4↑): Probably not since its kind of the goal of humanity, more than with the space race, to eliminate those positions specifically
-- **two_three_five_eigth** (19↑): If it’s for the money, no, switch.  If you’re genuinely interested in programming for intrinsic reasons there are jobs out there.
-  - **JustThisNietzscheGuy** (19↑): I don't get this take. Being interested in CS does not make jobs magically appear.
-    - **mrcheeksman** (18↑): Yeah I agree with this. I think the idea is that if you are passionate you will be able to endure bullshit for longer.
+  - **BolehlandCitizen** (4↑): Or it could be "Day in life of an SWE in FAANG"
+    - **Stre1638** (1↑): “Day in the life of a laid off SWE in FAANG”***
+- **FLIBBIDYDIBBIDYDAWG** (5↑): Probably not since its kind of the goal of humanity, more than with the space race, to eliminate those positions specifically
+- **two_three_five_eigth** (20↑): If it’s for the money, no, switch.  If you’re genuinely interested in programming for intrinsic reasons there are jobs out there.
   - **AccomplishedCake3009** (3↑): Oh no it’s absolutely not for the money, I’m genuinely passionate about computers and the logistics of it (I’ve just never used any of my free time to learn a coding language). I really only need enough money out of a career to live comfortably, I don’t think it’s realistic to think I’d be in some high paying executive position any time in my life.
     - **stalik26** (1↑): Reality is to prepare for a tough job market especially entry level. A diploma/ degree is not enough. Prepare for a constant rejection, and don’t let it mentally hurt you. If your up for the challenge then go for it.
   - **TimelySuccess7537** (1↑): \>  If you’re genuinely interested in programming
 
 Ah you still do programming ? Must be fun!
   - **Top-Knowledge-7393** (0↑): This take is so weird. Being passionate will not spawn jobs out of thin air. Literally makes no sense.
-- **DoublePrecipation99** (7↑): No,wasted 6 years in UG+PG just to be a nobody.Not fun for passion,not for money either.Period.
-- **ShardsOfSalt** (2↑): If you are smart its still a good bet. I mean my god the opportunities in AI for a smart person are insane.  But if you are not smart the opportunities dont really exist anymore.  Even a dullard can get a degree which is kind of sad because you get fooled into thinking you are competent only to realize its a farce for you.
+- **DoublePrecipation99** (8↑): No,wasted 6 years in UG+PG just to be a nobody.Not fun for passion,not for money either.Period.
+- **ShardsOfSalt** (3↑): If you are smart its still a good bet. I mean my god the opportunities in AI for a smart person are insane.  But if you are not smart the opportunities dont really exist anymore.  Even a dullard can get a degree which is kind of sad because you get fooled into thinking you are competent only to realize its a farce for you.
 - **EdelinePenrose** (1↑): in order to get proper advice, you need to share more context. 
 
 \- what’s your alternative?  

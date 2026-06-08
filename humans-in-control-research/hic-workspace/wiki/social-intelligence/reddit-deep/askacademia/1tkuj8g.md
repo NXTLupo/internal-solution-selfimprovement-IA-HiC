@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1tkuj8g.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1tkuj8g/stay_at_undergrad_university_for_phd_or_go/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,38 @@ flair: "STEM"
 extracted_at: "2026-05-26T14:32:49.119Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1tkuj8g.md#c0"
+    char_span: [0, 1819]
+    sentence_count: 12
+    key_terms: [multiple, school, askacademia, "i've", phd, professors, elsewhere, institute]
+    token_count: 405
+  - id: "social-intelligence/reddit-deep/askacademia/1tkuj8g.md#c1"
+    char_span: [1821, 2832]
+    sentence_count: 13
+    key_terms: [students, another, finding, elsewhere, pressure, demand, etc, "i'm"]
+    token_count: 217
+  - id: "social-intelligence/reddit-deep/askacademia/1tkuj8g.md#c2"
+    char_span: [2847, 4831]
+    sentence_count: 15
+    key_terms: [years, advisor, radicalsapphic, school, style, good, department, mentorship]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/askacademia/1tkuj8g.md#c3"
+    char_span: [4833, 6894]
+    sentence_count: 15
+    key_terms: [lab, phd, institution, university, radicalsapphic, connections, fine, work]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/askacademia/1tkuj8g.md#c4"
+    char_span: [6896, 7652]
+    sentence_count: 8
+    key_terms: [good, location, stipend, hands, learn, radicalsapphic, hesitation, mentorship]
+    section: Comments
+    token_count: 186
 ---
-
 # Stay at undergrad university for PhD or go elsewhere?
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1tkuj8g/stay_at_undergrad_university_for_phd_or_go/)

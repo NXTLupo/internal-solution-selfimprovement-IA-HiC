@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1r3ipac.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1r3ipac/how_can_i_access_turnitin_ai_checker_as_a_student/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,51 @@ flair: "Academic Advice"
 extracted_at: "2026-05-22T21:34:47.627Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r3ipac.md#c0"
+    char_span: [0, 954]
+    sentence_count: 3
+    key_terms: [engineeringstudents, turnitin, student, access, comments, multiple, case, "i'm"]
+    token_count: 227
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r3ipac.md#c1"
+    char_span: [969, 1773]
+    sentence_count: 5
+    key_terms: [engineeringstudents, wiki, reddit, https, com, please, automoderator, read]
+    section: Comments
+    token_count: 184
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r3ipac.md#c2"
+    char_span: [1775, 3507]
+    sentence_count: 10
+    key_terms: [access, reddit, check, get, account, removed, link, turnitin]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r3ipac.md#c3"
+    char_span: [3277, 3562]
+    sentence_count: 5
+    key_terms: [checker, "didn't", used, brianbernardengr, memories, reliable, student, matter]
+    section: Comments
+    token_count: 76
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r3ipac.md#c4"
+    char_span: [3564, 5670]
+    sentence_count: 11
+    key_terms: [own, cheating-with-accuracy-precision-recall-bea53774fedb, work, because, check, assignment, especially, cheating]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r3ipac.md#c5"
+    char_span: [5441, 6325]
+    sentence_count: 5
+    key_terms: [automoderator, because, advice, please, itchy-researcher-508, engineeringstudents, sure, imjustagirlyaar]
+    section: Comments
+    token_count: 212
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r3ipac.md#c6"
+    char_span: [6327, 8188]
+    sentence_count: 4
+    key_terms: [engineeringstudents, https, com, wiki, reddit, discord, update, heavymetalbby]
+    section: Comments
+    token_count: 504
 ---
-
 # how can i access turnitin ai checker as a student?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1r3ipac/how_can_i_access_turnitin_ai_checker_as_a_student/)

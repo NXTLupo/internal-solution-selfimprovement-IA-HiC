@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1lxl1gc.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1lxl1gc/yolod_500_crwv_150_calls_for_next_friday_no_hedge/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,45 @@ flair: "YOLO"
 extracted_at: "2026-05-17T01:14:17.611Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1lxl1gc.md#c0"
+    char_span: [0, 1784]
+    sentence_count: 26
+    key_terms: [like, plan, friday, next, wallstreetbets, crwv, absolutely, coreweave]
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1lxl1gc.md#c1"
+    char_span: [1799, 2003]
+    sentence_count: 1
+    key_terms: [total, year, submissions, visualmod, comments, previous, account, report]
+    section: Comments
+    token_count: 76
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1lxl1gc.md#c2"
+    char_span: [2005, 3529]
+    sentence_count: 7
+    key_terms: [electronic-force-729, c210c3619c4d34be05579b10ed54f560a5d1f3cd, biigiftrue1492, https, nuts, wsb, beautiful, discord]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1lxl1gc.md#c3"
+    char_span: [3403, 4248]
+    sentence_count: 11
+    key_terms: [c210c3619c4d34be05579b10ed54f560a5d1f3cd, sellers, market, electronic-force-729, calls, money, stock, worth]
+    section: Comments
+    token_count: 279
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1lxl1gc.md#c4"
+    char_span: [4251, 5582]
+    sentence_count: 14
+    key_terms: [company, smarter, brought, people, electronic-force-729, adventurousoil8382, iluptou39dcf1, professionals]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1lxl1gc.md#c5"
+    char_span: [5585, 6340]
+    sentence_count: 7
+    key_terms: [evander85, market, electronic-force-729, sales, worth, debt, complicated, businesses]
+    section: Comments
+    token_count: 210
 ---
-
 # YOLO’d 500 $CRWV 150 Calls for Next Friday! No Hedge, No Braincells, Just AI-Induced Delusion
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1lxl1gc/yolod_500_crwv_150_calls_for_next_friday_no_hedge/)

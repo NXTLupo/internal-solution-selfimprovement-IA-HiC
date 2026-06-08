@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1tnadfm.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1tnadfm/going_from_lowengculture_job_to_tech_job/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,44 @@ flair: "Experienced"
 extracted_at: "2026-05-26T14:31:41.273Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tnadfm.md#c0"
+    char_span: [0, 1566]
+    sentence_count: 12
+    key_terms: [company, cscareerquestions, low-eng-culture, on-call, feels, comfortable, job, like]
+    token_count: 379
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tnadfm.md#c1"
+    char_span: [1568, 2221]
+    sentence_count: 7
+    key_terms: [because, etc, got, job, experience, interested, recruiters, interview]
+    token_count: 146
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tnadfm.md#c2"
+    char_span: [2236, 4236]
+    sentence_count: 14
+    key_terms: [similar, environment, job, lot, position, people, high, time]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tnadfm.md#c3"
+    char_span: [4238, 4762]
+    sentence_count: 6
+    key_terms: [job, current, market, unable-goat7551, unemployable, borderline, personally, stagnation]
+    section: Comments
+    token_count: 132
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tnadfm.md#c4"
+    char_span: [4764, 6457]
+    sentence_count: 11
+    key_terms: [making, year, percentile, income-percentile-calculator, probably, program, someone, working]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tnadfm.md#c5"
+    char_span: [6462, 8474]
+    sentence_count: 12
+    key_terms: [people, risk, job, like, pay, stagnating, company, instead]
+    section: Comments
+    token_count: 506
 ---
-
 # Going from low-eng-culture job to tech job
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1tnadfm/going_from_lowengculture_job_to_tech_job/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1pa1smk.md
 url: "https://www.reddit.com/r/GradSchool/comments/1pa1smk/i_am_on_path_to_finish_my_engineering_bachelors/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,26 @@ flair: ""
 extracted_at: "2026-05-20T12:57:40.629Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1pa1smk.md#c0"
+    char_span: [0, 2066]
+    sentence_count: 5
+    key_terms: [year, engineering, rocketry, early, years, plan, take, gradschool]
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/gradschool/1pa1smk.md#c1"
+    char_span: [2068, 2382]
+    sentence_count: 3
+    key_terms: [realistically, significantly, application, competitive, activities, graduating, leadership, programs]
+    token_count: 67
+  - id: "social-intelligence/reddit-deep/gradschool/1pa1smk.md#c2"
+    char_span: [2397, 3269]
+    sentence_count: 5
+    key_terms: [time, research, neurosciencenerd, extra, year, related, usually, matter]
+    section: Comments
+    token_count: 218
 ---
-
 # I am on path to finish my engineering bachelors in 3 years but I dont know if I should somehow stretch it out for grad school
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1pa1smk/i_am_on_path_to_finish_my_engineering_bachelors/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tabx9d.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tabx9d/how_do_i_find_a_career_in_the_florida_job_market/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-23T14:54:05.574Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tabx9d.md#c0"
+    char_span: [0, 735]
+    sentence_count: 7
+    key_terms: [careerguidance, job, comments, florida, degree, sales, find, get]
+    token_count: 179
+  - id: "social-intelligence/reddit-deep/careerguidance/1tabx9d.md#c1"
+    char_span: [750, 1436]
+    sentence_count: 4
+    key_terms: [communications, miami, broadboots, reasonable, marketing, political, distance, driving]
+    section: Comments
+    token_count: 153
 ---
-
 # How do I find a career in the Florida job market?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tabx9d/how_do_i_find_a_career_in_the_florida_job_market/)

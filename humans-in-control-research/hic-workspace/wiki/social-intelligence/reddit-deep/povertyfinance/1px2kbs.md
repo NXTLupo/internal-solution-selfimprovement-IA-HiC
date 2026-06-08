@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1px2kbs.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1px2kbs/why_were_financially_broke/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,62 @@ flair: "Free talk"
 extracted_at: "2026-05-16T20:55:12.680Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [nonprofit, financial_services, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1px2kbs.md#c0"
+    char_span: [0, 2080]
+    sentence_count: 39
+    key_terms: [americans, car, less, finance, povertyfinance, income, paying, years]
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/povertyfinance/1px2kbs.md#c1"
+    char_span: [2082, 3247]
+    sentence_count: 16
+    key_terms: [security, workers, social, congress, program, credit, earn, get]
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/povertyfinance/1px2kbs.md#c2"
+    char_span: [3262, 5382]
+    sentence_count: 20
+    key_terms: [job, savings, market, people, retire, underemployed, new, healthcare]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1px2kbs.md#c3"
+    char_span: [5116, 5574]
+    sentence_count: 8
+    key_terms: [environmentsea7433, underemployed, commercials, unwittingly, unemployed, pennywise, something, streaming]
+    section: Comments
+    token_count: 113
+  - id: "social-intelligence/reddit-deep/povertyfinance/1px2kbs.md#c4"
+    char_span: [5576, 7542]
+    sentence_count: 15
+    key_terms: [here, like, "don't", "it's", experience, financial, instead, actual]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/povertyfinance/1px2kbs.md#c5"
+    char_span: [7544, 9703]
+    sentence_count: 15
+    key_terms: [people, solidarity, fighting, working, subscription, rent, americans, community]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/povertyfinance/1px2kbs.md#c6"
+    char_span: [9705, 11835]
+    sentence_count: 14
+    key_terms: [because, income, comfortable, "can't", people, calculation, unavoidable, get]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/povertyfinance/1px2kbs.md#c7"
+    char_span: [11837, 12464]
+    sentence_count: 4
+    key_terms: [items, years, shit, acknowledging, recognizing, considered, graduating, millennial]
+    section: Comments
+    token_count: 151
+  - id: "social-intelligence/reddit-deep/povertyfinance/1px2kbs.md#c8"
+    char_span: [12466, 14306]
+    sentence_count: 20
+    key_terms: [fees, insurance, medical, healthcare, anything, congress, ceiling, instead]
+    section: Comments
+    token_count: 430
 ---
-
 # Why we’re financially broke
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1px2kbs/why_were_financially_broke/)

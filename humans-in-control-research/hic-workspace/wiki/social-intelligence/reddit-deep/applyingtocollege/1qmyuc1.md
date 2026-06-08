@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1qmyuc1.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1qmyuc1/stop_obsessing_over_t20s_omg/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,57 @@ flair: "Rant"
 extracted_at: "2026-05-22T23:33:52.634Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qmyuc1.md#c0"
+    char_span: [0, 1690]
+    sentence_count: 13
+    key_terms: [dartmouth, applyingtocollege, fiu, guy, engineering, nonprofit, comments, college]
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qmyuc1.md#c1"
+    char_span: [1705, 3830]
+    sentence_count: 15
+    key_terms: [school, georgetown, college, dartmouth, tarasshevckeno, valedictorian, good, admissions]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qmyuc1.md#c2"
+    char_span: [3832, 6055]
+    sentence_count: 13
+    key_terms: [application, "don't", employees, get, readers, matter, others, prestigious]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qmyuc1.md#c3"
+    char_span: [6057, 8149]
+    sentence_count: 10
+    key_terms: [school, guy, prestige, driven, skills, fiu, good, name]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qmyuc1.md#c4"
+    char_span: [8151, 10214]
+    sentence_count: 11
+    key_terms: [dartmouth, business, money, care, grad, name, time, work]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qmyuc1.md#c5"
+    char_span: [10216, 12096]
+    sentence_count: 11
+    key_terms: [dartmouth, major, underhanded, "it's", "doesn't", schools, people, apply]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qmyuc1.md#c6"
+    char_span: [11874, 12517]
+    sentence_count: 8
+    key_terms: [dartmouth, like, schools, people, swimming-ideal-6767, "it's", timetravel3000, beautifully]
+    section: Comments
+    token_count: 175
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qmyuc1.md#c7"
+    char_span: [12519, 13011]
+    sentence_count: 7
+    key_terms: [people, school, going, hypsm, get, admissions, constantly, criticized]
+    section: Comments
+    token_count: 115
 ---
-
 # stop obsessing over t20s omg
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1qmyuc1/stop_obsessing_over_t20s_omg/)

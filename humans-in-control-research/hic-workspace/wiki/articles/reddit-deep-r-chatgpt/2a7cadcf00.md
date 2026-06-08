@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-chatgpt/2a7cadcf00.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1kzzyb2/professor_at_the_end_of_2_years_of_struggling/"
 url_hash: "2a7cadcf00"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T16:59:07.295761+00:00"
 chars: 3210
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-chatgpt/2a7cadcf00.md#c0"
+    char_span: [0, 2318]
+    sentence_count: 23
+    key_terms: [chatgpt, knowledge, students, don, ancient, because, non-existent, class]
+    token_count: 507
+  - id: "articles/reddit-deep-r-chatgpt/2a7cadcf00.md#c1"
+    char_span: [2320, 3426]
+    sentence_count: 8
+    key_terms: [gpt, chatgpt, writing, zero-pe, dashes, silver-chipmunk7744, write, "it's"]
+    token_count: 314
 ---
-
 # Professor at the end of 2 years of struggling with ChatGPT use among students.
 
 Source: [Reddit Deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1kzzyb2/professor_at_the_end_of_2_years_of_struggling/)

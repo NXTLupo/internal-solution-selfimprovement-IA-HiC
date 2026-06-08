@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1p83emh.md
 url: "https://www.reddit.com/r/personalfinance/comments/1p83emh/mom_asking_to_use_a_heloc_to_buy_a_pool/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,98 @@ flair: "Other"
 extracted_at: "2026-05-17T01:13:31.181Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c0"
+    char_span: [0, 1632]
+    sentence_count: 13
+    key_terms: [pool, wife, personalfinance, house, share, fine, get, time]
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c1"
+    char_span: [1634, 2861]
+    sentence_count: 9
+    key_terms: [pay, retirement, financial, loan, house, concern, great, "i've"]
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c2"
+    char_span: [2876, 5005]
+    sentence_count: 21
+    key_terms: [pool, "don't", "it's", live, risk, excavation, including, september]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c3"
+    char_span: [4736, 6334]
+    sentence_count: 11
+    key_terms: [like, live, mom, lawn, pool, chemicals, already, retired]
+    section: Comments
+    token_count: 380
+  - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c4"
+    char_span: [6336, 7412]
+    sentence_count: 11
+    key_terms: [pool, insurance, became, remove, safety, cost, get, home]
+    section: Comments
+    token_count: 254
+  - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c5"
+    char_span: [7414, 8601]
+    sentence_count: 11
+    key_terms: [pool, mention, going, years, ago, did, mom, time]
+    section: Comments
+    token_count: 312
+  - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c6"
+    char_span: [8603, 10094]
+    sentence_count: 16
+    key_terms: [pool, maintenance, keep, costs, get, chemicals, interest, pokemonprofessor121]
+    section: Comments
+    token_count: 348
+  - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c7"
+    char_span: [10096, 11406]
+    sentence_count: 10
+    key_terms: [rate, pool, chemical, little, wildlifebiologist10, makes, prime, twice]
+    section: Comments
+    token_count: 335
+  - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c8"
+    char_span: [11410, 12710]
+    sentence_count: 14
+    key_terms: [pool, maintenance, question, looked, hereforthesportsball, above, bill, cash]
+    section: Comments
+    token_count: 318
+  - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c9"
+    char_span: [12712, 14854]
+    sentence_count: 12
+    key_terms: [payments, pool, principal, pay, tax, minimum, better, paying]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c10"
+    char_span: [14856, 16674]
+    sentence_count: 14
+    key_terms: [retirement, higher, heloc, mom, pool, account, advisor, trigger]
+    section: Comments
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c11"
+    char_span: [16676, 18568]
+    sentence_count: 12
+    key_terms: [years, sassafras1232, costs, month, electricity, pay, nursing, replace]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c12"
+    char_span: [18571, 20019]
+    sentence_count: 8
+    key_terms: [heloc, pool, contract, paying, person, "that's", independentfinallly, oneforallandbeyondd]
+    section: Comments
+    token_count: 348
+  - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c13"
+    char_span: [20021, 21157]
+    sentence_count: 9
+    key_terms: [financial, pool, boundaries, poopyinthepeepeehole, worth, good, idea, above-ground]
+    section: Comments
+    token_count: 275
+  - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c14"
+    char_span: [21159, 23040]
+    sentence_count: 11
+    key_terms: [pool, ground, above, years, get, wants, deck, in-ground]
+    section: Comments
+    token_count: 494
 ---
-
 # Mom Asking to Use a HELOC to Buy a Pool
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1p83emh/mom_asking_to_use_a_heloc_to_buy_a_pool/)

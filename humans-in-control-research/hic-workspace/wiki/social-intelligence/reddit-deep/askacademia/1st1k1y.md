@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1st1k1y.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1st1k1y/im_devastated_and_i_dont_know_what_to_do_now_job/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,50 @@ flair: "Humanities"
 extracted_at: "2026-05-26T14:32:49.109Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1st1k1y.md#c0"
+    char_span: [0, 1971]
+    sentence_count: 11
+    key_terms: [family, "don't", "i'm", askacademia, children, comments, cultural, because]
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/askacademia/1st1k1y.md#c1"
+    char_span: [1973, 2733]
+    sentence_count: 4
+    key_terms: [through, never, feel, hope, "i'm", understanding, heartbreak, particular]
+    token_count: 168
+  - id: "social-intelligence/reddit-deep/askacademia/1st1k1y.md#c2"
+    char_span: [2748, 3528]
+    sentence_count: 3
+    key_terms: [writing, roles, academic-adjacent, work, remotejobseekers, university-side, administrative, interesting]
+    section: Comments
+    token_count: 172
+  - id: "social-intelligence/reddit-deep/askacademia/1st1k1y.md#c3"
+    char_span: [3530, 5729]
+    sentence_count: 11
+    key_terms: [schools, too, independent, good, jobs, visiting, faculty, private]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/askacademia/1st1k1y.md#c4"
+    char_span: [5503, 6772]
+    sentence_count: 18
+    key_terms: [move, history, least, loved, good, ones, too, responsibilities]
+    section: Comments
+    token_count: 321
+  - id: "social-intelligence/reddit-deep/askacademia/1st1k1y.md#c5"
+    char_span: [6774, 8669]
+    sentence_count: 16
+    key_terms: [historian, dutchdynasty, community, like, work, scholar, totally, bakery]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/askacademia/1st1k1y.md#c6"
+    char_span: [8671, 10563]
+    sentence_count: 15
+    key_terms: [publishing, immediatebet6198, job, individual, positions, academic, tonos468, society]
+    section: Comments
+    token_count: 489
 ---
-
 # I'm devastated and I don't know what to do now. (Job market)
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1st1k1y/im_devastated_and_i_dont_know_what_to_do_now_job/)

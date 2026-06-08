@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1skl6bs.md
 url: "https://www.reddit.com/r/GenZ/comments/1skl6bs/is_it_just_me_or_is_most_of_gen_z_men_women_or/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,51 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.768Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [healthcare]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1skl6bs.md#c0"
+    char_span: [0, 1485]
+    sentence_count: 12
+    key_terms: [single, relationship, life, like, girlfriend, comments, around, needed]
+    token_count: 353
+  - id: "social-intelligence/reddit-deep/genz/1skl6bs.md#c1"
+    char_span: [1500, 2671]
+    sentence_count: 2
+    key_terms: [boyfriend, e690d547e7d044da2864178137df1fb7dea65a9f, wastekoala473, "don't", giphy, gif, approach, discord]
+    section: Comments
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/genz/1skl6bs.md#c2"
+    char_span: [2673, 4745]
+    sentence_count: 12
+    key_terms: [single, women, relationships, dating, men, generation, geofrtdeem, people]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/genz/1skl6bs.md#c3"
+    char_span: [4747, 6233]
+    sentence_count: 5
+    key_terms: [women, relationship, gen, dating, being, men, girlfriend, majority]
+    section: Comments
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/genz/1skl6bs.md#c4"
+    char_span: [6235, 8241]
+    sentence_count: 11
+    key_terms: [relationship, people, single, been, ineptfortitude, dating, women, men]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/genz/1skl6bs.md#c5"
+    char_span: [8011, 8416]
+    sentence_count: 5
+    key_terms: [relationship, "i'm", people, tooobsessedwithmoney, actively, majority, rejected, suicidal]
+    section: Comments
+    token_count: 116
+  - id: "social-intelligence/reddit-deep/genz/1skl6bs.md#c6"
+    char_span: [8418, 8898]
+    sentence_count: 5
+    key_terms: [tooobsessedwithmoney, like, love, pictureframe12, royalemushroom, relationships, relationship, something]
+    section: Comments
+    token_count: 134
 ---
-
 # Is it just me or is most of Gen Z - men, women (or nonbinary) - single?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1skl6bs/is_it_just_me_or_is_most_of_gen_z_men_women_or/)

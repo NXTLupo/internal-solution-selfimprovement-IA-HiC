@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1msxxay.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1msxxay/need_brutally_honest_advice_5th_sem_tier3_college/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-24T14:08:50.773Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1msxxay.md#c0"
+    char_span: [0, 1306]
+    sentence_count: 8
+    key_terms: [cscareerquestions, doing, academics, questions, brutally, comments, projects, college]
+    token_count: 328
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1msxxay.md#c1"
+    char_span: [1321, 2482]
+    sentence_count: 8
+    key_terms: [doing, arkguardian, good, hackathons, kiirchoff, building, learning, projects]
+    section: Comments
+    token_count: 287
 ---
-
 # Need brutally honest advice: 5th sem Tier-3 college student, want to be more career-oriented (CS/IT)
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1msxxay/need_brutally_honest_advice_5th_sem_tier3_college/)

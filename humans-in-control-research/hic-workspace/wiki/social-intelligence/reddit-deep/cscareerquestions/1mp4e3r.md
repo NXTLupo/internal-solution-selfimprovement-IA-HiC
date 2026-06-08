@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1mp4e3r.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1mp4e3r/graduating_this_summer_but_no_interest_in_coding/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-22T23:33:42.312Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mp4e3r.md#c0"
+    char_span: [0, 956]
+    sentence_count: 6
+    key_terms: [cscareerquestions, coding, degree, alternative, assessments, comments, computer, science]
+    token_count: 204
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mp4e3r.md#c1"
+    char_span: [971, 2948]
+    sentence_count: 17
+    key_terms: [job, like, specifically, code, get, leet, industry, leetcode]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mp4e3r.md#c2"
+    char_span: [2950, 4982]
+    sentence_count: 17
+    key_terms: ["don't", leetcode, process, documentation, "can't", "it's", job, sure]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mp4e3r.md#c3"
+    char_span: [4984, 6851]
+    sentence_count: 13
+    key_terms: [hiring-without-whiteboards, coding, interviews, engineer, "that's", roles, sales, jobs]
+    section: Comments
+    token_count: 450
 ---
-
 # Graduating this summer but no interest in coding assessment rat race, alternative CS careers?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1mp4e3r/graduating_this_summer_but_no_interest_in_coding/)

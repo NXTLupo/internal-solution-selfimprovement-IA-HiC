@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/af6cd5f2a6.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1q93pnb/community_college_cs_student_looking_for_advice/"
 url_hash: "af6cd5f2a6"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T19:49:07.437319+00:00"
 chars: 1562
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/af6cd5f2a6.md#c0"
+    char_span: [0, 1784]
+    sentence_count: 16
+    key_terms: [projects, don, certs, cscareerquestions, certifications, github, roles, internships]
+    token_count: 421
 ---
-
 # Community college CS student looking for advice on internships
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1q93pnb/community_college_cs_student_looking_for_advice/)

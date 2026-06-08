@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1n32vqy.md
 url: "https://www.reddit.com/r/investing/comments/1n32vqy/hi_freshly_starting_investing_into_stocks_i_need/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,32 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.196Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1n32vqy.md#c0"
+    char_span: [0, 2021]
+    sentence_count: 14
+    key_terms: [portfolio, etf, vanguard, investing, income, shares, goals, index]
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/investing/1n32vqy.md#c1"
+    char_span: [2023, 2426]
+    sentence_count: 1
+    key_terms: [etf, portfolio, draft, jepi, qqq, schd, vaf, vgs]
+    token_count: 187
+  - id: "social-intelligence/reddit-deep/investing/1n32vqy.md#c2"
+    char_span: [2441, 4441]
+    sentence_count: 23
+    key_terms: [growth, stocks, buy, high, stick, get, need, voo]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/investing/1n32vqy.md#c3"
+    char_span: [4443, 5345]
+    sentence_count: 5
+    key_terms: [market, beat, portfolio, quoting, returns, risk, year, timeconsuming]
+    section: Comments
+    token_count: 222
 ---
-
 # Hi, freshly starting investing into stocks. I need advice on the following potential portfolios. I am torn between multiple different versions.
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1n32vqy/hi_freshly_starting_investing_into_stocks_i_need/)

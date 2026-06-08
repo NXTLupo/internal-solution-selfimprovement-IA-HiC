@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1p49qgv.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1p49qgv/i_came_to_waterloo_to_get_coops_and_experience/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,21 @@ flair: "Discussion"
 extracted_at: "2026-05-25T18:33:12.665Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1p49qgv.md#c0"
+    char_span: [0, 928]
+    sentence_count: 9
+    key_terms: [projects, experience, uwaterloo, comments, metrics, design, feels, get]
+    token_count: 220
+  - id: "social-intelligence/reddit-deep/uwaterloo/1p49qgv.md#c1"
+    char_span: [943, 2259]
+    sentence_count: 7
+    key_terms: [work, lol, blackberry, technical, students, watching, nothing, impact]
+    section: Comments
+    token_count: 320
 ---
-
 # I came to Waterloo to get co-op's and experience. Now, I actually have to get a co-op.
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1p49qgv/i_came_to_waterloo_to_get_coops_and_experience/)

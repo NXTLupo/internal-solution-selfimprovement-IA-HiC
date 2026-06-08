@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1t2jhrt.md
 url: "https://www.reddit.com/r/careeradvice/comments/1t2jhrt/can_i_realistically_complete_acca_while_building/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,20 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.235Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1t2jhrt.md#c0"
+    char_span: [0, 312]
+    sentence_count: 2
+    key_terms: [careeradvice, comments, legitimate-meat-2720, realistically, reddit-deep, building, complete, career]
+    token_count: 87
+  - id: "social-intelligence/reddit-deep/careeradvice/1t2jhrt.md#c1"
+    char_span: [314, 2597]
+    sentence_count: 21
+    key_terms: [acca, focus, learning, qualification, exemptions, structured, data, complete]
+    token_count: 495
 ---
-
 # Can I realistically complete ACCA while building AI/Data skills, or should I commit to one career path?
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1t2jhrt/can_i_realistically_complete_acca_while_building/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1s7ezbe.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1s7ezbe/messed_up_random_college_application_process_in/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,15 @@ flair: "Serious"
 extracted_at: "2026-05-22T23:33:52.640Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s7ezbe.md#c0"
+    char_span: [0, 1568]
+    sentence_count: 12
+    key_terms: [applyingtocollege, usa, process, application, admissions, comments, college, getting]
+    token_count: 335
 ---
-
 # Messed up /random college application process in the USA
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1s7ezbe/messed_up_random_college_application_process_in/)

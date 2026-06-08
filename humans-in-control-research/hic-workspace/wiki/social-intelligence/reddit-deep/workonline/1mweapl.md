@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/workonline/1mweapl.md
 url: "https://www.reddit.com/r/WorkOnline/comments/1mweapl/scam_pgmainstreetcom_data_entry_job/"
 kind: "social-post"
 source: "reddit-deep: r/workonline"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-26T12:53:45.649Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/workonline/1mweapl.md#c0"
+    char_span: [0, 1671]
+    sentence_count: 11
+    key_terms: [pgmainstreet, com, job, legitimate, workonline, comments, process, warning]
+    token_count: 386
 ---
-
 # SCAM: pgmainstreet.com data entry job
 
 Source: [reddit-deep: r/workonline](https://www.reddit.com/r/WorkOnline/comments/1mweapl/scam_pgmainstreetcom_data_entry_job/)

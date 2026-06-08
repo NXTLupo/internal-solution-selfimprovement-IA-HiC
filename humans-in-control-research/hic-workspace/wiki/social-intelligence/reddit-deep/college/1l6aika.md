@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1l6aika.md
 url: "https://www.reddit.com/r/college/comments/1l6aika/anybody_elses_parents_abandoning_them/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,69 @@ flair: "Living Arrangements/roommates"
 extracted_at: "2026-05-23T20:15:18.466Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1l6aika.md#c0"
+    char_span: [0, 2098]
+    sentence_count: 26
+    key_terms: [college, mom, comments, working, get, abandoning, everyone, context]
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/college/1l6aika.md#c1"
+    char_span: [2113, 4229]
+    sentence_count: 24
+    key_terms: [always, feel, home, look, mom, want, year, because]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/college/1l6aika.md#c2"
+    char_span: [4231, 6062]
+    sentence_count: 20
+    key_terms: [mom, figure, moving, life, next, abandoning, apartment, apologize]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/college/1l6aika.md#c3"
+    char_span: [6064, 6888]
+    sentence_count: 8
+    key_terms: [home, stay, college, break, campus, drive, far, long]
+    section: Comments
+    token_count: 192
+  - id: "social-intelligence/reddit-deep/college/1l6aika.md#c4"
+    char_span: [6890, 8885]
+    sentence_count: 27
+    key_terms: [like, mom, support, seems, away, lot, situation, abandon]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/college/1l6aika.md#c5"
+    char_span: [8887, 9785]
+    sentence_count: 13
+    key_terms: [school, get, gotta, too, grandparents, friendships, assistance, prioritize]
+    section: Comments
+    token_count: 194
+  - id: "social-intelligence/reddit-deep/college/1l6aika.md#c6"
+    char_span: [9787, 11637]
+    sentence_count: 20
+    key_terms: [better, people, get, training, college, qualify, job, something]
+    section: Comments
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/college/1l6aika.md#c7"
+    char_span: [11639, 13113]
+    sentence_count: 15
+    key_terms: [going, college, big, deal, because, advice, people, caringismyfirstname]
+    section: Comments
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/college/1l6aika.md#c8"
+    char_span: [13115, 15342]
+    sentence_count: 21
+    key_terms: [renting, relationship, back, don, get, let, love, apartment]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1l6aika.md#c9"
+    char_span: [15076, 15535]
+    sentence_count: 8
+    key_terms: [don, let, beachcatdog, apartment, education, anything, building, holidays]
+    section: Comments
+    token_count: 107
 ---
-
 # Anybody else’s parent(s) abandoning them??
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1l6aika/anybody_elses_parents_abandoning_them/)

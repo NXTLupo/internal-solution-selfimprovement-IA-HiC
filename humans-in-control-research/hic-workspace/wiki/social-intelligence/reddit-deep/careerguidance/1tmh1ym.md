@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tmh1ym.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tmh1ym/graduating_ba_comm_from_isue_pwede_po_ba_humingi/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 1
 flair: "Advice"
-extracted_at: "2026-05-25T18:32:57.388Z"
+extracted_at: "2026-06-03T17:59:52.595Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tmh1ym.md#c0"
+    char_span: [0, 1618]
+    sentence_count: 21
+    key_terms: [graduating, comm, job, yung, hunting, careerguidance, medyo, pwede]
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/careerguidance/1tmh1ym.md#c1"
+    char_span: [1633, 2901]
+    sentence_count: 10
+    key_terms: [here, sometimes, creative, design, technicianroyal9769, good, like, work]
+    section: Comments
+    token_count: 250
 ---
-
 # Graduating BA Comm from ISUE - pwede po ba humingi ng tips sa job hunting & career path?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tmh1ym/graduating_ba_comm_from_isue_pwede_po_ba_humingi/)

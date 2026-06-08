@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1scpf9f.md
 url: "https://www.reddit.com/r/GradSchool/comments/1scpf9f/need_advice_psych_student_unsure_about_grad/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T20:15:44.984Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1scpf9f.md#c0"
+    char_span: [0, 2208]
+    sentence_count: 12
+    key_terms: [psychology, paths, school, experience, grad, clinical, whether, career]
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/gradschool/1scpf9f.md#c1"
+    char_span: [2223, 2477]
+    sentence_count: 3
+    key_terms: [mitchgradschooladvice, wp-content, questions, clinical, answers, uploads, happy, https]
+    section: Comments
+    token_count: 71
 ---
-
 # Need advice — psych student unsure about grad school paths
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1scpf9f/need_advice_psych_student_unsure_about_grad/)

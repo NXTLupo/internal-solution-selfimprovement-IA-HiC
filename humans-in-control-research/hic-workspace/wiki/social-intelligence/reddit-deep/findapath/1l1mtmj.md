@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1l1mtmj.md
 url: "https://www.reddit.com/r/findapath/comments/1l1mtmj/why_am_i_so_bad_at_career_and_money_nothing/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,75 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-25T13:04:07.389Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1l1mtmj.md#c0"
+    char_span: [0, 1119]
+    sentence_count: 14
+    key_terms: [feel, nothing, money, traditional, findapath, interests, comments, career]
+    token_count: 265
+  - id: "social-intelligence/reddit-deep/findapath/1l1mtmj.md#c1"
+    char_span: [1134, 3282]
+    sentence_count: 21
+    key_terms: [thank, equipment, helpful, better, please, money, community, findapath]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/findapath/1l1mtmj.md#c2"
+    char_span: [3284, 4424]
+    sentence_count: 9
+    key_terms: [soupofthe90z, don, something, been, grow, job, loud, love]
+    section: Comments
+    token_count: 292
+  - id: "social-intelligence/reddit-deep/findapath/1l1mtmj.md#c3"
+    char_span: [4426, 6389]
+    sentence_count: 21
+    key_terms: [good, job, here, like, time, something, anything, trying]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/findapath/1l1mtmj.md#c4"
+    char_span: [6143, 8177]
+    sentence_count: 25
+    key_terms: [too, career, yourself, measurementno652, own-gain-789, bad, day, job]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/findapath/1l1mtmj.md#c5"
+    char_span: [7930, 9769]
+    sentence_count: 22
+    key_terms: [feel, been, own-gain-789, job, like, man, something, anything]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/findapath/1l1mtmj.md#c6"
+    char_span: [9771, 9965]
+    sentence_count: 2
+    key_terms: [point, breaking, collapse, everyone, allowed, created, sustain, decent]
+    section: Comments
+    token_count: 44
+  - id: "social-intelligence/reddit-deep/findapath/1l1mtmj.md#c7"
+    char_span: [9967, 12181]
+    sentence_count: 14
+    key_terms: [life, work, outside, career, money, financially, been, retirement]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/findapath/1l1mtmj.md#c8"
+    char_span: [11925, 12221]
+    sentence_count: 2
+    key_terms: ["i'm", "i've", life, honeyl1530, relatively, successful, confusion, corporate]
+    section: Comments
+    token_count: 76
+  - id: "social-intelligence/reddit-deep/findapath/1l1mtmj.md#c9"
+    char_span: [12223, 13693]
+    sentence_count: 10
+    key_terms: [agreeable-status-461, calling, wanted, world, "i'll", experience, different, something]
+    section: Comments
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/findapath/1l1mtmj.md#c10"
+    char_span: [13695, 14912]
+    sentence_count: 15
+    key_terms: [chat, planner, manifestation, creating, interest, selling, helped, manifestationportal]
+    section: Comments
+    token_count: 285
 ---
-
 # Why am I so bad at career and money? Nothing interests me. I feel blank.
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1l1mtmj/why_am_i_so_bad_at_career_and_money_nothing/)

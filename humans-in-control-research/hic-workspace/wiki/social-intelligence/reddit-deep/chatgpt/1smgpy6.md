@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1smgpy6.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1smgpy6/ran_chatgpt_plus_and_claude_pro_side_by_side_for/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,87 @@ flair: "Educational Purpose Only "
 extracted_at: "2026-05-11T16:54:08.814Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c0"
+    char_span: [0, 1969]
+    sentence_count: 1
+    key_terms: [claude, chatgpt, better, code, codex, voice, comments, claudes]
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c1"
+    char_span: [1984, 2891]
+    sentence_count: 8
+    key_terms: [r-chatgpt-1050422060352024636, discord, shocked, claude, limits, withoutreason1729, best, "i've"]
+    section: Comments
+    token_count: 223
+  - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c2"
+    char_span: [2893, 4568]
+    sentence_count: 5
+    key_terms: [gemini, quality, integration, comparison, workspace, chatgpt, context, gibbidy]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c3"
+    char_span: [4570, 6369]
+    sentence_count: 13
+    key_terms: [chatgpt, claude, messages, use, gemini, need, opus, google]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c4"
+    char_span: [6371, 8006]
+    sentence_count: 9
+    key_terms: [claude, interactive, weeks, artifacts, analysis, desktop, without, right]
+    section: Comments
+    token_count: 380
+  - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c5"
+    char_span: [8008, 8942]
+    sentence_count: 7
+    key_terms: [chatgpt, claude, like, visualizations, redparaglider, user-friendly, criticizing, innumerable]
+    section: Comments
+    token_count: 235
+  - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c6"
+    char_span: [8944, 10754]
+    sentence_count: 15
+    key_terms: [claude, interactive, disciplinary, information, etc, used, directions, everything]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c7"
+    char_span: [10756, 12761]
+    sentence_count: 10
+    key_terms: [edit, chatgpt, claude, documents, directly, drive, good, word]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c8"
+    char_span: [12495, 12968]
+    sentence_count: 2
+    key_terms: [claude, limits, code-writing, dangoodspeed, virtualunc, consensus, fine-tune, everyone]
+    section: Comments
+    token_count: 116
+  - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c9"
+    char_span: [12970, 14697]
+    sentence_count: 10
+    key_terms: ["i've", claude, script, combinations, mathematical, been, get, solutions]
+    section: Comments
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c10"
+    char_span: [14699, 16358]
+    sentence_count: 7
+    key_terms: [codex, claude, script, solution, problem, scorer, thats, kept]
+    section: Comments
+    token_count: 372
+  - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c11"
+    char_span: [16360, 18373]
+    sentence_count: 12
+    key_terms: [chatgpt, cursor, reliable, claude, jesushadanonlyfans, codex, using, edgarecayce]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c12"
+    char_span: [18375, 19300]
+    sentence_count: 9
+    key_terms: [claude, cgpt, better, consistent, complex, across, tight, good]
+    section: Comments
+    token_count: 216
 ---
-
 # Ran ChatGPT Plus and Claude Pro side by side for 30 days, here's what I found as a daily ChatGPT user
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1smgpy6/ran_chatgpt_plus_and_claude_pro_side_by_side_for/)

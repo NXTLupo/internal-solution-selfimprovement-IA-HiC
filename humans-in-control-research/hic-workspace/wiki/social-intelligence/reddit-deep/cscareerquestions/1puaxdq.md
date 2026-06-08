@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1puaxdq.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1puaxdq/why_is_ee_getting_recommended_more_than_cs/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,72 @@ subreddit: "cscareerquestions"
 title: "Why is ee getting recommended more than cs"
 author: "ImHighOnCocaine"
 date: "2025-12-24T01:28:46.000Z"
-score: 92
+score: 91
 upvote_ratio: 0.85
 num_comments: 102
 flair: ""
-extracted_at: "2026-05-26T14:31:41.269Z"
+extracted_at: "2026-06-03T18:35:34.184Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1puaxdq.md#c0"
+    char_span: [0, 868]
+    sentence_count: 6
+    key_terms: [recommended, cscareerquestions, "i'm", subreddits, comments, answers, makes, big]
+    token_count: 226
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1puaxdq.md#c1"
+    char_span: [883, 2751]
+    sentence_count: 9
+    key_terms: [like, engineer, principal, pay, starting, school, engineering, high-level]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1puaxdq.md#c2"
+    char_span: [2754, 4397]
+    sentence_count: 12
+    key_terms: [depth, degree, market, people, career-they-heard-about-online, day, get, embedded]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1puaxdq.md#c3"
+    char_span: [4399, 6442]
+    sentence_count: 13
+    key_terms: [work, career, people, major, don, engineer, deleted, better]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1puaxdq.md#c4"
+    char_span: [6444, 8665]
+    sentence_count: 18
+    key_terms: [classes, masters, like, computer, program, science, engineering, electrical]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1puaxdq.md#c5"
+    char_span: [8670, 10190]
+    sentence_count: 15
+    key_terms: [courses, years, because, program, "didn't", school, get, take]
+    section: Comments
+    token_count: 339
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1puaxdq.md#c6"
+    char_span: [10193, 12125]
+    sentence_count: 11
+    key_terms: [engineering, swe, understanding, computer, program, thought, doing, focus]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1puaxdq.md#c7"
+    char_span: [12127, 13588]
+    sentence_count: 12
+    key_terms: [classes, got, test, experience, engineer, probably, barely, couple]
+    section: Comments
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1puaxdq.md#c8"
+    char_span: [13590, 15719]
+    sentence_count: 14
+    key_terms: [part, degree, found, fun, hard, job, labs, work]
+    section: Comments
+    token_count: 508
 ---
-
 # Why is ee getting recommended more than cs
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1puaxdq/why_is_ee_getting_recommended_more_than_cs/)
-Posted by **ImHighOnCocaine** · **92↑** · **102 comments**
+Posted by **ImHighOnCocaine** · **91↑** · **102 comments**
 
 (I'm just seeking answers, I'm not that qualified so take anything I say with a grain of salt)
 
@@ -26,31 +80,31 @@ Whenever there's a typical "CS vs. EE" post, the answers are always EE. I'm seei
 
 ## Comments
 
-- **overclocked_my_pc** (164↑): Go to the EE subreddit and see for yourself “15 years experience, i have an offer for $115k “ and everyone is like “wow 115k is amazing I’m only getting like 95k”
-  - **NewSchoolBoxer** (-21↑): I hang out in r/ece and r/ElectricalEngineering and held 2 EE jobs. $110-130k is midcareer pay without needing to be promoted to a high-level position like Principal Engineer that can hit $150k. Average pay is more or less the same between CS and EE today. Starting EE pay is the same as CS of $65-75k in normal cost of living but jobs are way more plentiful. You also got EE's starting at crazy money in Silicon Valley just like CS.
-    - **overclocked_my_pc** (48↑): Exactly what I'm talking about.  150k for principal engineer? yikes!
-    - **jimbo831** (14↑): > l$110-130k is midcareer pay without needing to be promoted to a high-level position like Principal Engineer that can hit $150k.
+- **overclocked_my_pc** (167↑): Go to the EE subreddit and see for yourself “15 years experience, i have an offer for $115k “ and everyone is like “wow 115k is amazing I’m only getting like 95k”
+  - **NewSchoolBoxer** (-22↑): I hang out in r/ece and r/ElectricalEngineering and held 2 EE jobs. $110-130k is midcareer pay without needing to be promoted to a high-level position like Principal Engineer that can hit $150k. Average pay is more or less the same between CS and EE today. Starting EE pay is the same as CS of $65-75k in normal cost of living but jobs are way more plentiful. You also got EE's starting at crazy money in Silicon Valley just like CS.
+    - **overclocked_my_pc** (50↑): Exactly what I'm talking about.  150k for principal engineer? yikes!
+    - **jimbo831** (13↑): > l$110-130k is midcareer pay without needing to be promoted to a high-level position like Principal Engineer that can hit $150k.
 
 You think this is good? I make more than $150k as a Senior Engineer for a non tech company in a medium cost of living city…
-    - **Edaimantis** (4↑): >Starting EE pay is the same as CS of $65-75k 
+    - **Edaimantis** (5↑): >Starting EE pay is the same as CS of $65-75k 
 
 My first job out of (admittedly) grad school was 110K plus bonus, RSU.
     - **internetroamer** (2↑): So glad I switched away from traditional engineering fields and to software
 
 Earning like a principal engineer as a mid level code monkey
-- **Toasted_FlapJacks** (35↑): I'm surprised Computer Engineering isn't a more popular option when discussing CS vs EE. I was a CE major and CE majors at my school chose it to get a bit of both worlds for the job market. Most of us ended up as SWEs though.
-  - **Snoo_4499** (16↑): CompE is also over saturated
-  - **hootener** (5↑): I worked with many CE students during undergrad and graduate school. It always felt like a "Jack of all trades" degree to me where the curriculum lacked depth on both sides. 
+- **Toasted_FlapJacks** (36↑): I'm surprised Computer Engineering isn't a more popular option when discussing CS vs EE. I was a CE major and CE majors at my school chose it to get a bit of both worlds for the job market. Most of us ended up as SWEs though.
+  - **Snoo_4499** (15↑): CompE is also over saturated
+  - **hootener** (4↑): I worked with many CE students during undergrad and graduate school. It always felt like a "Jack of all trades" degree to me where the curriculum lacked depth on both sides. 
 
 
 I'm not disparaging the people that get that degree and, like you said, many of the ones I knew just became SWEs. However a few went on to do embedded systems and iot work which I think of the real sweet spot for that degree.
-    - **FrothySeepageCurdles** (7↑): I am a CE with CS minor.. I definitely don't think we lacked depth. 
+    - **FrothySeepageCurdles** (6↑): I am a CE with CS minor.. I definitely don't think we lacked depth. 
 
 It wasn't depth that I use on a day to day as a web dev currently. But it was depth. 
 
 And you're exactly right, it's meant for embedded. That's where the depth was: computer architecture, programming limited hardware/micros, RTOS, etc. Low level code. That's the stuff that the degree dived deep into.
   - **[deleted]** (1↑): Some universities don't even have a CE major, though that doesn't mean you can't get the equivalent education. You just would have EE printed on your diploma instead.
-- **AugusteToulmouche** (84↑): This is just a standard reaction to market trends, I wouldn’t take them too seriously 
+- **AugusteToulmouche** (89↑): This is just a standard reaction to market trends, I wouldn’t take them too seriously 
 
 (1) CS majors flocked to uni/flooded the market starting 2020 because they saw “day in my life” tiktoks from people talking about how they make 100-200k+ straight out of college with a remote job that lets them travel => (2) now there’s more graduates than jobs and the market is cooked => (3) cue to everyone dooming and raving about how EE/nursing/trades/{insert-arbitrary-“stable”-career-they-heard-about-online} is “better than CS” => the cycle continues. 
 
@@ -59,18 +113,18 @@ Sure things are arguably (for now) worse for new grads in CS because of AI but I
 I’m oversimplifying but u get the point. 
 
 Pick what you like more b/w the two (or other reasonably paying majors) and get good at it, you’ll be fine, don’t over index too much on current market conditions for something you’ll do for the rest of your life, it’s always a pendulum.
-  - **[deleted]** (46↑): do you mean i cannot work for 300k salary while chilling on beach in Hawaii?
-    - **UntrustedProcess** (50↑): You absolutely can. You just need to become a principal engineer first.
+  - **[deleted]** (43↑): do you mean i cannot work for 300k salary while chilling on beach in Hawaii?
+    - **UntrustedProcess** (48↑): You absolutely can. You just need to become a principal engineer first.
     - **mydogisbestdog-_-** (1↑): There are many of these guys but they are all staff+ at faang
-  - **[deleted]** (6↑): EE is not stable unless you work for the utility or a defense contractor.
-    - **AugusteToulmouche** (12↑): The most successful EE people I know are now either working as programmers or doing hardware adjacent stuff for tech companies lol.
+  - **[deleted]** (5↑): EE is not stable unless you work for the utility or a defense contractor.
+    - **AugusteToulmouche** (15↑): The most successful EE people I know are now either working as programmers or doing hardware adjacent stuff for tech companies lol.
   - **AndAuri** (1↑): Funny of you to just take for granted it's a cycle. For it to be a cycle things should go back to normal at some point
-- **kevinossia** (12↑): The vast majority of folks here don’t understand that  your major is not your career. Underprepared students switching to EE are going to have just as hard of a time forming a professional career as if they had just stuck with CS. 
+- **kevinossia** (10↑): The vast majority of folks here don’t understand that  your major is not your career. Underprepared students switching to EE are going to have just as hard of a time forming a professional career as if they had just stuck with CS. 
 
 I don’t even have a CS degree (BSEE instead) but I’ve only ever worked as a software engineer, because that’s what I wanted to do as a career. The specific major doesn’t matter as much as people think.
 
 People think that if they just find that one perfect major, they’ll automagically get a career dropped into their laps. It doesn’t work that way.
-- **Fotonix** (27↑): So have a masters in EE and currently work as a staff SWE. Here’s my 2c for why I’d still study EE over CS, but they’re my personal opinions
+- **Fotonix** (30↑): So have a masters in EE and currently work as a staff SWE. Here’s my 2c for why I’d still study EE over CS, but they’re my personal opinions
 
 - it teaches better problem solving. I’ve worked as an EE, SWE, ME, and optical designer. The common part of all of them is understanding how to solve problems and work with teams to solve incredibly complex ones. The only difference is the tools in your toolbox. Engineering majors do a much better job teaching this than CS.
 
@@ -80,7 +134,7 @@ People think that if they just find that one perfect major, they’ll automagica
 
 RE harder for AI to disrupt: I don’t agree with that as we’ve already seen LLMs used for spice simulation, verilog, etc. you can represent a schematic as text just like a program.
   - **ActualRevolution3732** (10↑): Can i get a masters in EE with a computer science bachelor?
-    - **justaguywithadream** (12↑): Highly unlikely.
+    - **justaguywithadream** (11↑): Highly unlikely.
 You'll probably need a couple of years of prereqs.
 
 
@@ -88,7 +142,7 @@ I did a masters in CS with  BS in EE and only met the requirements because I mi
 
 
 But going the other way is not easy. You'll probably need a lot more math, physics, circuit theory, transmission lines and electro magnetics, and signal processing at the very least to start master program in EE.
-    - **yellajaket** (8↑): As Someone who switched out of EE because I was weeded out, some EE classes were impossibly hard and complex. I tried really hard, got tutors and still couldnt pass classes like DSP.
+    - **yellajaket** (9↑): As Someone who switched out of EE because I was weeded out, some EE classes were impossibly hard and complex. I tried really hard, got tutors and still couldnt pass classes like DSP.
 I didn’t experience the same rigor in CS at all. Passed most of that major with A’s.
 
 So id be surprised if EE bachelors isn’t required
@@ -133,13 +187,13 @@ Anyway, I don't know if this is helpful or not except to say it's a ton of work,
   - **jenkinsleroi** (0↑): Any engineering discipline will prepare you better than CS for a software engineering job in some respects. There's more emphasis on teamwork, technical communications, and practical problem solving (economics, understanding processes, stats).
 
 That's in comparison to cs which may be more theory based, and all you do are assignments and maybe class projects.
-- **WhatNazisAreLike** (7↑): I got an EE degree in 2021 and a majority of my cohort went into SWE, data science, ML, etc.
+- **WhatNazisAreLike** (6↑): I got an EE degree in 2021 and a majority of my cohort went into SWE, data science, ML, etc.
 
 You basically trade off some programming coursework for more math and EE stuff.  This makes you less competitive for pure SWE roles but you have more options.
   - **bluerosesarefake** (1↑): It also silos you in SWE. A cs student can do anything in tech with very little training . What happens if SWE who focus on code go away and instead your thrusted into more computer focused system development where you need to know protocols and infrastructure and security , ontop of understanding code ,
 
 The days of , just take a couple coding classes and get a job as an IT / SW engineer is rapidly going away. Yorue going to need to show potential to become a competent engineer and not silod . You’ve got your experience so that’s probably not an issue for you, but for everyone else , it will be
-- **swegamer137** (13↑): An EE degree actually takes skill to complete.
+- **swegamer137** (16↑): An EE degree actually takes skill to complete.
   - **yellajaket** (9↑): Say it louder for the back! 
 
 I took the first couple of EE classes when I was that major and omfg those classes were brutal and I was just crushed by them. Switched to CS and its was way more easy to wrap my head around a majority of the topics. My time in EE was a fever dream I never want to experience again

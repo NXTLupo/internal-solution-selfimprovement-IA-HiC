@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1svg7if.md
 url: "https://www.reddit.com/r/deeplearning/comments/1svg7if/three_lessons_from_finetuning_a_5b_code_assistant/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,20 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.057Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1svg7if.md#c0"
+    char_span: [0, 1854]
+    sentence_count: 9
+    key_terms: [fine-tuning, model, training, outputs, inference-time, deeplearning, wrong, bad]
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/deeplearning/1svg7if.md#c1"
+    char_span: [1856, 3289]
+    sentence_count: 7
+    key_terms: [fine-tuning-5b-code-assistant-three-lessons, instruction, https, wrong, microgpt, correct, deliberately, pretraining]
+    token_count: 333
 ---
-
 # Three lessons from fine-tuning a 5B code assistant — bad outputs from 5% → 0%
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1svg7if/three_lessons_from_finetuning_a_5b_code_assistant/)

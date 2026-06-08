@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1rfw1yx.md
 url: "https://www.reddit.com/r/GenZ/comments/1rfw1yx/i_hate_my_generation_gen_z/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,51 @@ flair: "Media"
 extracted_at: "2026-05-17T01:11:40.769Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [media]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1rfw1yx.md#c0"
+    char_span: [0, 2024]
+    sentence_count: 23
+    key_terms: [generation, gen, hate, like, people, without, trends, adhd]
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/genz/1rfw1yx.md#c1"
+    char_span: [2039, 2168]
+    sentence_count: 1
+    key_terms: [discord, automoderator, nwe6js5rh9, clicking, server, https, did, here]
+    section: Comments
+    token_count: 41
+  - id: "social-intelligence/reddit-deep/genz/1rfw1yx.md#c2"
+    char_span: [2171, 4315]
+    sentence_count: 15
+    key_terms: [people, talk, chanceotherwise, social, especially, real, college, media-centric]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/genz/1rfw1yx.md#c3"
+    char_span: [4012, 4610]
+    sentence_count: 6
+    key_terms: [people, talk, college, owemdc1zqylg1, incompetent, describing, especially, generation]
+    section: Comments
+    token_count: 174
+  - id: "social-intelligence/reddit-deep/genz/1rfw1yx.md#c4"
+    char_span: [4612, 5188]
+    sentence_count: 6
+    key_terms: [younger, friends, opinion, zoomers, old, especially, generation, cattiness]
+    section: Comments
+    token_count: 125
+  - id: "social-intelligence/reddit-deep/genz/1rfw1yx.md#c5"
+    char_span: [5190, 7075]
+    sentence_count: 15
+    key_terms: [people, working, status, doing, years, quo, shit, generation]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/genz/1rfw1yx.md#c6"
+    char_span: [7077, 8603]
+    sentence_count: 8
+    key_terms: [minimum-rough-9442, gen, millennials, been, remember, course, saying, wanted]
+    section: Comments
+    token_count: 420
 ---
-
 # I hate my generation ( Gen Z )
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1rfw1yx/i_hate_my_generation_gen_z/)

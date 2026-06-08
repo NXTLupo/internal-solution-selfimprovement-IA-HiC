@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1ln2us9.md
 url: "https://www.reddit.com/r/financialindependence/comments/1ln2us9/relative_is_retirement_age_but_needs_to_live_on/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.705Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [cross_industry]
+industry_method: unclassified
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1ln2us9.md#c0"
+    char_span: [0, 1959]
+    sentence_count: 14
+    key_terms: [financialindependence, retirement, age, live, relative, future, small, traditional]
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/financialindependence/1ln2us9.md#c1"
+    char_span: [1974, 3249]
+    sentence_count: 9
+    key_terms: [retire, retirement, deeterfly, situation, anything, tracygee, ability, age]
+    section: Comments
+    token_count: 330
+  - id: "social-intelligence/reddit-deep/financialindependence/1ln2us9.md#c2"
+    char_span: [3251, 4562]
+    sentence_count: 12
+    key_terms: [property, working, number, social, starwarsfan456123789, until, gambledmywifeaway, adu]
+    section: Comments
+    token_count: 320
+  - id: "social-intelligence/reddit-deep/financialindependence/1ln2us9.md#c3"
+    char_span: [4564, 6375]
+    sentence_count: 11
+    key_terms: [support, pretty, ntdoyfanboy, adu, get, need, government, retirement]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/financialindependence/1ln2us9.md#c4"
+    char_span: [6377, 8437]
+    sentence_count: 18
+    key_terms: [annuity, retirement, month, like, probably, person, years, risk]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/financialindependence/1ln2us9.md#c5"
+    char_span: [8439, 9039]
+    sentence_count: 6
+    key_terms: [month, definitely, going, cash, job, low, too, appropriate]
+    section: Comments
+    token_count: 162
 ---
-
 # Relative is retirement age but needs to live on income from $250k cash. No other assets, no home. What to do?
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1ln2us9/relative_is_retirement_age_but_needs_to_live_on/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1mdjwnm.md
 url: "https://www.reddit.com/r/highereducation/comments/1mdjwnm/brown_university_inks_deal_with_trump_admin_to/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -6,19 +7,36 @@ subreddit: "highereducation"
 title: "Brown University inks deal with Trump admin to restore funding: What's in the agreement?"
 author: "usatoday"
 date: "2025-07-30T22:02:16.000Z"
-score: 90
+score: 87
 upvote_ratio: 0.94
 num_comments: 17
 flair: ""
-extracted_at: "2026-05-23T14:53:59.513Z"
+extracted_at: "2026-06-05T23:42:16.775Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1mdjwnm.md#c0"
+    char_span: [0, 1706]
+    sentence_count: 8
+    key_terms: [brown, brown-deal-50-million-trump, education, federal, government, university, agreement, usatoday]
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/highereducation/1mdjwnm.md#c1"
+    char_span: [1721, 3567]
+    sentence_count: 9
+    key_terms: [medical, government, daemonicwanderer, administration, antisemitism, spacebutler, care, time]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/highereducation/1mdjwnm.md#c2"
+    char_span: [3569, 4331]
+    sentence_count: 7
+    key_terms: [administration, effective, trump, data, ladypreshpresh, anti-semitism, antisemitism, concessions]
+    section: Comments
+    token_count: 190
 ---
-
 # Brown University inks deal with Trump admin to restore funding: What's in the agreement?
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1mdjwnm/brown_university_inks_deal_with_trump_admin_to/)
-Posted by **usatoday** · **90↑** · **17 comments**
+Posted by **usatoday** · **87↑** · **17 comments**
 
 Hey r/education, Priya from USA TODAY here. 👋  
   
@@ -41,15 +59,15 @@ More details here: [https://www.usatoday.com/story/news/education/2025/07/30/bro
 
 ## Comments
 
-- **daemonicwanderer** (18↑): This is ridiculous. Our Ivy League institutions should be the ones fighting against this the hardest as they have the resources and aren’t dependent on state funding
+- **daemonicwanderer** (19↑): This is ridiculous. Our Ivy League institutions should be the ones fighting against this the hardest as they have the resources and aren’t dependent on state funding
   - **Mainiak_Murph** (1↑): It's much easier, quicker, and cheaper to pay the the fines and get out of the crosshairs than to fight.
     - **daemonicwanderer** (1↑): I understand that, but capitulation and appeasement rarely works. This time the administration is doing this in the name of stopping antisemitism (granted, critiquing Israel’s government is not antisemitism). What will it be next time (and there will be a next time)?
-- **SpaceButler** (43↑): Why does the Trump administration want to stop kids getting medical care? Is it just sadism?
+- **SpaceButler** (44↑): Why does the Trump administration want to stop kids getting medical care? Is it just sadism?
   - **Singaporecane** (7↑): Because they don't consider that to be an actual medical condition.
-  - **socialcommentary2000** (8↑): They believe that the government should fundamentally not be involved with the provisioning of *any* medical care for the public. It should all be decided by the market.
+  - **socialcommentary2000** (7↑): They believe that the government should fundamentally not be involved with the provisioning of *any* medical care for the public. It should all be decided by the market.
     - **SpaceButler** (24↑): That's obviously not true in this case, since they (the government) are telling a private university what medical care it can provide. It's strict regulation, not market driven.
-    - **DrPhysicsGirl** (8↑): Yup, because they know that's how the poors will die, one of their goals.
-- **RevengeOfSalmacis** (23↑): so make a list of Jews and perform cruelty against trans people
+    - **DrPhysicsGirl** (7↑): Yup, because they know that's how the poors will die, one of their goals.
+- **RevengeOfSalmacis** (24↑): so make a list of Jews and perform cruelty against trans people
   - **tatersdabomb** (2↑): sounds familiar
 - **carlitospig** (4↑): >annual admissions data, broken down by race
 
@@ -60,7 +78,7 @@ Ps. Do they know that minors tend not to go to uni?
 
 
 Us trans folks will be over here scrubbing the tire marks off of our backs.
-- **LadyPreshPresh** (4↑): Sheep.
+- **LadyPreshPresh** (3↑): Sheep.
 - **ThaddeusJP** (2↑): >– Annual admissions data, broken down by race and other factors, shared with the federal government
 
 IPEDS data was already doing this?

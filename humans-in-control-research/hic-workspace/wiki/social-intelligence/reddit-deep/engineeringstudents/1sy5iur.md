@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1sy5iur.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1sy5iur/landed_an_internship_as_a_current_sophomore/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,33 @@ flair: "Sankey Diagram"
 extracted_at: "2026-05-23T19:44:57.161Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sy5iur.md#c0"
+    char_span: [0, 479]
+    sentence_count: 4
+    key_terms: [engineeringstudents, internship, comments, manufacturing, engineering, reddit-deep, experience, mixerblaze]
+    token_count: 122
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sy5iur.md#c1"
+    char_span: [494, 2318]
+    sentence_count: 15
+    key_terms: [engineeringstudents, mixerblaze, wiki, please, reddit, https, offer, com]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sy5iur.md#c2"
+    char_span: [2320, 4274]
+    sentence_count: 8
+    key_terms: [mixerblaze, "you're", engineer, remember, asking, quick-atmosphere5801, maleficent-land3539, doing]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sy5iur.md#c3"
+    char_span: [4078, 4498]
+    sentence_count: 3
+    key_terms: [mixerblaze, quick-atmosphere5801, miku, used, dreamsequenced, subscription, lysol3435, mentioned]
+    section: Comments
+    token_count: 136
 ---
-
 # Landed an internship as a current sophomore!
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1sy5iur/landed_an_internship_as_a_current_sophomore/)

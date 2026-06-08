@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1lqnfmj.md
 url: "https://www.reddit.com/r/Professors/comments/1lqnfmj/cant_teach_students_what_they_dont_want_to_learn/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,81 @@ flair: "Rants / Vents"
 extracted_at: "2026-05-14T18:17:21.713Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1lqnfmj.md#c0"
+    char_span: [0, 2241]
+    sentence_count: 16
+    key_terms: [students, nyu-professor-fired-maitland-jones-jr-student-petition, course, programming, probability, department, statistics, teaching]
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/professors/1lqnfmj.md#c1"
+    char_span: [2243, 4197]
+    sentence_count: 14
+    key_terms: [teaching, years, efficient-border6863, students, another, "don't", too, tenured]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/professors/1lqnfmj.md#c2"
+    char_span: [4199, 6446]
+    sentence_count: 14
+    key_terms: [programming, students, doing, "i've", job, use, work, efficient]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1lqnfmj.md#c3"
+    char_span: [6172, 6636]
+    sentence_count: 4
+    key_terms: [programming, doing, job, demonstrations, prerequisite, screenshots, especially, iteachcsci]
+    section: Comments
+    token_count: 100
+  - id: "social-intelligence/reddit-deep/professors/1lqnfmj.md#c4"
+    char_span: [6638, 8685]
+    sentence_count: 14
+    key_terms: [programming, students, because, student, teaching, science, fight, worth]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/professors/1lqnfmj.md#c5"
+    char_span: [8687, 10407]
+    sentence_count: 11
+    key_terms: [students, mature, need, military, teaching, student, school, zestyclose-love-4952]
+    section: Comments
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/professors/1lqnfmj.md#c6"
+    char_span: [10409, 12454]
+    sentence_count: 10
+    key_terms: [students, experience, service, post-secondary, conclusion, highschool, education, everyone]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/professors/1lqnfmj.md#c7"
+    char_span: [12456, 15037]
+    sentence_count: 11
+    key_terms: [issues, little, leading, social, "that's", consequences, being, self-esteem]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/professors/1lqnfmj.md#c8"
+    char_span: [15039, 17323]
+    sentence_count: 23
+    key_terms: [students, programming, military, bioinformatic, course, chatgpt, causes, trying]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/professors/1lqnfmj.md#c9"
+    char_span: [17325, 19507]
+    sentence_count: 11
+    key_terms: [students, student, course, idiot, thought, learn, something, pleasing]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/professors/1lqnfmj.md#c10"
+    char_span: [19510, 21549]
+    sentence_count: 16
+    key_terms: [attendance, like, colleagues, notmrchips, mandatory, students, classes, course]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/professors/1lqnfmj.md#c11"
+    char_span: [21551, 22453]
+    sentence_count: 5
+    key_terms: [students, attending, classes, pajamas, class, doing, "don't", "true"]
+    section: Comments
+    token_count: 207
 ---
-
 # Can't teach students what they don't want to learn
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1lqnfmj/cant_teach_students_what_they_dont_want_to_learn/)

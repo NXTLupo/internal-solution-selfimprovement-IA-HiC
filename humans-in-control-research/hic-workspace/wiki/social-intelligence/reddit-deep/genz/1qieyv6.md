@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1qieyv6.md
 url: "https://www.reddit.com/r/GenZ/comments/1qieyv6/a_year_in_us_gen_z_who_voted_for_trump_are_you/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,93 @@ flair: "Political"
 extracted_at: "2026-05-17T01:11:40.764Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [government, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c0"
+    char_span: [0, 1014]
+    sentence_count: 7
+    key_terms: [happy, feel, people, comments, question, better, worse, genz]
+    token_count: 246
+  - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c1"
+    char_span: [1029, 2667]
+    sentence_count: 11
+    key_terms: [immigration, policies, unhappy, ignorance, prejudice, discord, "they're", people]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c2"
+    char_span: [2669, 4040]
+    sentence_count: 8
+    key_terms: [trump, happen, worse, children, country, missing, kamala, voted]
+    section: Comments
+    token_count: 315
+  - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c3"
+    char_span: [4042, 5502]
+    sentence_count: 9
+    key_terms: [american, america, because, citizen, cooking, fucking, appropriate-food1757, technical-dentist-84]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c4"
+    char_span: [5504, 6245]
+    sentence_count: 11
+    key_terms: [people, harris, pantry, food, "it's", like, free-range-human, gaslighting]
+    section: Comments
+    token_count: 170
+  - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c5"
+    char_span: [6247, 8417]
+    sentence_count: 13
+    key_terms: [doing, economy, people, yeah, absolutely, narrative, political, counter]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c6"
+    char_span: [8419, 9308]
+    sentence_count: 7
+    key_terms: [like, people, sides, anymore, sound, lot, intellectualy, bagodeadcats]
+    section: Comments
+    token_count: 216
+  - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c7"
+    char_span: [9311, 11310]
+    sentence_count: 11
+    key_terms: [people, doge, podcast, generations, don, propaganda, expected, outside]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c8"
+    char_span: [11312, 13292]
+    sentence_count: 17
+    key_terms: [trump, happy, voter, ice, elections, activity, because, support]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c9"
+    char_span: [13294, 14158]
+    sentence_count: 4
+    key_terms: [trump, greenland, behavior, believe, fucking, guilty, pissed, saying]
+    section: Comments
+    token_count: 183
+  - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c10"
+    char_span: [14160, 16095]
+    sentence_count: 9
+    key_terms: [angry, trump, rage, greenland, anything, people, pretty, regret]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c11"
+    char_span: [15832, 17861]
+    sentence_count: 13
+    key_terms: [janeofkish, rage, republican, because, problem, remorse, "they're", people]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c12"
+    char_span: [17605, 18908]
+    sentence_count: 6
+    key_terms: [unstoppablechicken, people, reddit, wanted, alexandrthetolerable, makearakisgreenagain, rnwyhousescitycloudz, group]
+    section: Comments
+    token_count: 341
+  - id: "social-intelligence/reddit-deep/genz/1qieyv6.md#c13"
+    char_span: [18910, 20761]
+    sentence_count: 16
+    key_terms: [downvoted, here, opinion, people, "we're", bots, sub, posting]
+    section: Comments
+    token_count: 468
 ---
-
 # A year in: US gen z who voted for trump, are you happy?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1qieyv6/a_year_in_us_gen_z_who_voted_for_trump_are_you/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1qbaunx.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1qbaunx/did_i_make_a_mistake_in_my_college_choice/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,28 +7,57 @@ subreddit: "applyingtocollege"
 title: "Did I make a mistake in my college choice?"
 author: "PearlsandPantsuits"
 date: "2026-01-12T23:23:30.000Z"
-score: 43
-upvote_ratio: 0.88
+score: 40
+upvote_ratio: 0.87
 num_comments: 56
 flair: "Advice"
-extracted_at: "2026-05-23T19:45:32.283Z"
+extracted_at: "2026-06-03T18:34:57.886Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qbaunx.md#c0"
+    char_span: [0, 1000]
+    sentence_count: 9
+    key_terms: [williams, applyingtocollege, school, comments, decision, college, unlikely-but-possible, pre-professionalism]
+    token_count: 237
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qbaunx.md#c1"
+    char_span: [1015, 2091]
+    sentence_count: 9
+    key_terms: [williams, school, financial, likely, people, going, etc, got]
+    section: Comments
+    token_count: 250
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qbaunx.md#c2"
+    char_span: [2093, 4236]
+    sentence_count: 26
+    key_terms: [williams, architecture, heard, conversation, great, got, transfer, amazing]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qbaunx.md#c3"
+    char_span: [4238, 6285]
+    sentence_count: 14
+    key_terms: [school, went, people, williams, hour-lab140, flamingoordinary2965, cambridge, because]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qbaunx.md#c4"
+    char_span: [6287, 6889]
+    sentence_count: 6
+    key_terms: [thought, admirable-pie-7731, don, fit, yale, competitive, opportunity, recognition]
+    section: Comments
+    token_count: 142
 ---
-
 # Did I make a mistake in my college choice?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1qbaunx/did_i_make_a_mistake_in_my_college_choice/)
-Posted by **PearlsandPantsuits** · **43↑** · **56 comments**
+Posted by **PearlsandPantsuits** · **40↑** · **56 comments**
 
 I applied to Williams College ED and got in (yay!). Initially, I had planned to apply REA to Yale, knowing that because of Yale legacy, my chances at each school were about the same level of unlikely-but-possible. That being said, I clicked with Williams more than any other school. I loved the how the liberal arts environment prioritized learning over pre-professionalism, and how I would have the opportunity that comes with a small school to try new things. But after getting into Williams, I’ve seen how far an ivy can get you ahead (and no one I’ve announced my decision to has heard of Williams). I want to go into international relations, and I’m worried I’ve made a major decision to the detriment of my career. Any thoughts? Thank you!
 
 ## Comments
 
-- **ExecutiveWatch** (51↑): Stick with williams.  Have faith in your decisions .
-  - **amym184** (4↑): You got into Williams ED? Congratulations, my friend! That’s an amazing school.
-- **elquent** (34↑): the people who matter and who’s opinions you should really care about are the ones who are going to know williams. it’s the #1 liberal arts school in the nation! you should be immensely proud of yourself. going to a smaller school gives better benefits than many T20s anyway (intimate class settings, tighter alumni network, etc.). the reason why you may not see williams/many people heard of williams is because it’s not a research university, which is what those mainstream rankings are usually looking at.
-- **KickIt77** (25↑): You applied to Williams ED.  Full stop.  This isn't the time to be 2nd guessing unless you got an unexpected financial offer.
+- **ExecutiveWatch** (54↑): Stick with williams.  Have faith in your decisions .
+  - **amym184** (3↑): You got into Williams ED? Congratulations, my friend! That’s an amazing school.
+- **elquent** (35↑): the people who matter and who’s opinions you should really care about are the ones who are going to know williams. it’s the #1 liberal arts school in the nation! you should be immensely proud of yourself. going to a smaller school gives better benefits than many T20s anyway (intimate class settings, tighter alumni network, etc.). the reason why you may not see williams/many people heard of williams is because it’s not a research university, which is what those mainstream rankings are usually looking at.
+- **KickIt77** (26↑): You applied to Williams ED.  Full stop.  This isn't the time to be 2nd guessing unless you got an unexpected financial offer.
 
 It's the student not the school that determines outcomes.  Competitive schools have more students likely to be successful.  And more likely to have financial privlege to take career risks, be entreprenurial, etc.  
 
@@ -37,7 +67,7 @@ Go read outcomes for Williams.  You're being ridiculous.
 - **Not3_TuBerculosis** (10↑): Williams has very strong alumni connections (from what I’ve heard) in lots of high paying industries. The top firms, people u wanna work with would have all heard of Williams. Quality of education is probably on par with if not better than t5 skls imo. If u really don’t like it, you can always try transfer, ivies and t10 skls love transfer students from top LAC.
 - **Chemical_Result_6880** (10↑): No one in my town had heard of MIT when I got admitted there. Says more about the people around you than about Williams. Have had family members attend Williams; they loved it and have had great careers in architecture, geology / mapping and teaching. No reason you shouldn't have a great career in international relations from Williams.
   - **Best_Lingonberry5322** (1↑): Hi! I committed to Williams '30, and I am currently undecided. However, architecture does sound very intriguing with my academic interests. I know that Williams doesn't have an architecture major so I was wondering how your family member ended up having a career in architecture. Thank you!
-- **Hour-Lab140** (14↑): No one has heard of Williams?
+- **Hour-Lab140** (15↑): No one has heard of Williams?
 
 No. Not at all correct. It’s an amazing, special place that can set you on a trajectory you can only dream of right now. 
 
@@ -62,7 +92,7 @@ If he’d gone to Amherst, there’s no way he wouldn’t have just said that.
 That left Williams. And I got it right. 
 
 Go to Williams.
-  - **Chemical_Result_6880** (7↑): Had that happen with a Mudder, but I happen to have friends from Harvey Mudd so I guessed that right off.
+  - **Chemical_Result_6880** (6↑): Had that happen with a Mudder, but I happen to have friends from Harvey Mudd so I guessed that right off.
     - **Hour-Lab140** (1↑): LOL, my daughter is at Pitzer and ends up that much of her major is via Mudd. 
 
 Likely I would have picked up on that one also!

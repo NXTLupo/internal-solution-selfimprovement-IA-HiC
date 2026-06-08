@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1roykna.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1roykna/r_seeking_arxiv_endorsement_for_csai_memento_a/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -13,8 +14,21 @@ flair: "Research"
 extracted_at: "2026-05-11T17:27:06.580Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1roykna.md#c0"
+    char_span: [0, 1968]
+    sentence_count: 9
+    key_terms: [https, endorsement, agents, memory, arxiv, comments, machinelearning, memento]
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/machinelearning/1roykna.md#c1"
+    char_span: [1983, 3738]
+    sentence_count: 15
+    key_terms: [fragments, retrieval, activation, fragment-based, interesting, time, importance, critical]
+    section: Comments
+    token_count: 356
 ---
-
 # [R] Seeking arXiv Endorsement for cs.AI: Memento - A Fragment-Based Memory System for LLM Agents
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1roykna/r_seeking_arxiv_endorsement_for_csai_memento_a/)

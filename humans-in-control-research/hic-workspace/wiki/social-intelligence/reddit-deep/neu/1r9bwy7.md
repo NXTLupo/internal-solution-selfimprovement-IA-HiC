@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1r9bwy7.md
 url: "https://www.reddit.com/r/NEU/comments/1r9bwy7/stumbled_upon_this_crazy_northeastern_alum_account/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "Misc"
 extracted_at: "2026-05-19T17:57:09.038Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1r9bwy7.md#c0"
+    char_span: [0, 541]
+    sentence_count: 4
+    key_terms: [northeastern, comments, neu, sapphireblossom, over-the-top, reddit-deep, crazy-long, generated]
+    token_count: 146
+  - id: "social-intelligence/reddit-deep/neu/1r9bwy7.md#c1"
+    char_span: [556, 1944]
+    sentence_count: 4
+    key_terms: [sapphireblossom, northeastern, "he's", posts, real, mbturgeon, facebook, linkedin]
+    section: Comments
+    token_count: 409
 ---
-
 # Stumbled upon this crazy “Northeastern Alum” account
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1r9bwy7/stumbled_upon_this_crazy_northeastern_alum_account/)

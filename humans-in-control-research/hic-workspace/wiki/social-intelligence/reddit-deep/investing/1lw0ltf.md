@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1lw0ltf.md
 url: "https://www.reddit.com/r/investing/comments/1lw0ltf/today_i_made_1m_gains_by_selling_my_entire_nvidia/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,73 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.190Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1lw0ltf.md#c0"
+    char_span: [0, 1901]
+    sentence_count: 13
+    key_terms: [nvidia, time, shares, today, investing, around, bought, crypto]
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/investing/1lw0ltf.md#c1"
+    char_span: [1903, 4081]
+    sentence_count: 17
+    key_terms: [nvidia, crypto, major, gpus, move, time, computers, personal]
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/investing/1lw0ltf.md#c2"
+    char_span: [4083, 6030]
+    sentence_count: 18
+    key_terms: [sell, nvidia, total, day, july, didn, time, everything]
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/investing/1lw0ltf.md#c3"
+    char_span: [6033, 7183]
+    sentence_count: 10
+    key_terms: [collapsewatch, time, congrats, advice, story, combinationfit9606, hudybudyfudywhudy, back]
+    section: Comments
+    token_count: 288
+  - id: "social-intelligence/reddit-deep/investing/1lw0ltf.md#c4"
+    char_span: [7185, 9096]
+    sentence_count: 14
+    key_terms: [hudybudyfudywhudy, congratulations, time, bitcoin, hardest, portion, losing, nvidia]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1lw0ltf.md#c5"
+    char_span: [8862, 9243]
+    sentence_count: 5
+    key_terms: [austinvvs, elsewhere, investing, successes, everyone, exposure, anyways, almost]
+    section: Comments
+    token_count: 103
+  - id: "social-intelligence/reddit-deep/investing/1lw0ltf.md#c6"
+    char_span: [9245, 10831]
+    sentence_count: 10
+    key_terms: [tax, shares, move-to-puerto-rico-and-pay-no-capital-gains-tax, need, accountant, retirement, account, because]
+    section: Comments
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/investing/1lw0ltf.md#c7"
+    char_span: [10833, 12478]
+    sentence_count: 16
+    key_terms: [shares, bought, specifically, investment, because, splits, sense, today]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/investing/1lw0ltf.md#c8"
+    char_span: [12480, 13737]
+    sentence_count: 12
+    key_terms: [share, story, fake, nvidia, stock, nothing, success, bought]
+    section: Comments
+    token_count: 317
+  - id: "social-intelligence/reddit-deep/investing/1lw0ltf.md#c9"
+    char_span: [13739, 15280]
+    sentence_count: 10
+    key_terms: [back, like, myself, online, people, stocks, though, theboringinvestor96]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/investing/1lw0ltf.md#c10"
+    char_span: [15282, 16445]
+    sentence_count: 12
+    key_terms: [nvda, price, story, back, months, shares, for-1, split]
+    section: Comments
+    token_count: 355
 ---
-
 # Today I made $1m gains by selling my entire Nvidia portfolio
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1lw0ltf/today_i_made_1m_gains_by_selling_my_entire_nvidia/)

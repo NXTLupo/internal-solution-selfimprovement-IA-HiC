@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-investing/9eca00c1be.md
 url: "https://www.reddit.com/r/investing/comments/1tbhx28/wisdom_being_in_the_market_over_time/"
 url_hash: "9eca00c1be"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:24:02.626356+00:00"
 chars: 2559
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-investing/9eca00c1be.md#c0"
+    char_span: [0, 1752]
+    sentence_count: 18
+    key_terms: [investing, market, happened, divorce, retirement, comments, payment, reddit]
+    token_count: 414
+  - id: "articles/reddit-deep-r-investing/9eca00c1be.md#c1"
+    char_span: [1754, 2728]
+    sentence_count: 9
+    key_terms: [market, investment, mortgage, recover, selling, stock, works, dad]
+    token_count: 229
 ---
-
 # Wisdom being in the market over time
 
 Source: [Reddit Deep: r/investing](https://www.reddit.com/r/investing/comments/1tbhx28/wisdom_being_in_the_market_over_time/)

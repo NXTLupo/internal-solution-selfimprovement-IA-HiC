@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1s5zdga.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1s5zdga/what_is_the_career_prospects_for_mechanical/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,15 @@ flair: "Career Help"
 extracted_at: "2026-05-25T13:01:49.572Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1s5zdga.md#c0"
+    char_span: [0, 788]
+    sentence_count: 5
+    key_terms: [engineeringstudents, international, mechanical, cambridge, comments, imperial, students, lazyintroduction9269]
+    token_count: 176
 ---
-
 # What is the career prospects for mechanical engineering / EEE for international students in the UK (particularly Cambridge, Imperial)?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1s5zdga/what_is_the_career_prospects_for_mechanical/)

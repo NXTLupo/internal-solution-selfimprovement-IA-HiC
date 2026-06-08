@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/anthropic/1r3xk8t.md
 url: "https://www.reddit.com/r/Anthropic/comments/1r3xk8t/spotify_says_its_best_developers_use_claude_and/"
 kind: "social-post"
 source: "reddit-deep: r/anthropic"
@@ -13,8 +14,39 @@ flair: "Other"
 extracted_at: "2026-05-11T16:52:48.659Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, enterprise_it, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/anthropic/1r3xk8t.md#c0"
+    char_span: [0, 325]
+    sentence_count: 1
+    key_terms: [anthropic, comments, metaknowing, reddit-deep, developers, december, "haven't", spotify]
+    token_count: 90
+  - id: "social-intelligence/reddit-deep/anthropic/1r3xk8t.md#c1"
+    char_span: [340, 2188]
+    sentence_count: 12
+    key_terms: [going, code, honk, "doesn't", anyone, claude, deluge, period]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/anthropic/1r3xk8t.md#c2"
+    char_span: [2190, 3676]
+    sentence_count: 6
+    key_terms: [app, "it's", claude, code, spotify, always, months, pretty]
+    section: Comments
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/anthropic/1r3xk8t.md#c3"
+    char_span: [3678, 5438]
+    sentence_count: 13
+    key_terms: [claude, coding, good, like, productivity, month, get, openrouter]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/anthropic/1r3xk8t.md#c4"
+    char_span: [5440, 6342]
+    sentence_count: 7
+    key_terms: [code, developers, thought, whoever, cedarsageandsilicone, fewer, does, else]
+    section: Comments
+    token_count: 242
 ---
-
 # Spotify says its best developers use Claude and haven't written a single line of code since December
 
 Source: [reddit-deep: r/anthropic](https://www.reddit.com/r/Anthropic/comments/1r3xk8t/spotify_says_its_best_developers_use_claude_and/)

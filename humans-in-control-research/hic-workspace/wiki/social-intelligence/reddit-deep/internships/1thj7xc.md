@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1thj7xc.md
 url: "https://www.reddit.com/r/internships/comments/1thj7xc/she_plus_tech_coursera_scholarship_cohort_2_info/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,15 @@ flair: "Applications"
 extracted_at: "2026-05-25T18:31:15.448Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [education, workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1thj7xc.md#c0"
+    char_span: [0, 1395]
+    sentence_count: 2
+    key_terms: [scholarship, session, coursera, learning, certifications, career, cohort, opportunities]
+    token_count: 345
 ---
-
 # She Plus Tech – Coursera Scholarship Cohort 2 Info Session | Learn About Eligibility, Certifications & Career Growth
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1thj7xc/she_plus_tech_coursera_scholarship_cohort_2_info/)

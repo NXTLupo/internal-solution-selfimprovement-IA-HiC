@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1me1wc1.md
 url: "https://www.reddit.com/r/financialindependence/comments/1me1wc1/5_years_into_fire_from_5k_after_divorce_to_214k/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,49 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.706Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [cross_industry]
+industry_method: unclassified
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1me1wc1.md#c0"
+    char_span: [0, 2012]
+    sentence_count: 14
+    key_terms: [financialindependence, comments, divorce, became, career, driver, worth, years]
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/financialindependence/1me1wc1.md#c1"
+    char_span: [2014, 4111]
+    sentence_count: 15
+    key_terms: [year, percent, bonus, plus, pastor, salary, budget, income]
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/financialindependence/1me1wc1.md#c2"
+    char_span: [4113, 4840]
+    sentence_count: 12
+    key_terms: [begin, house, car, plan, wife, independence, comfortable, significant]
+    token_count: 157
+  - id: "social-intelligence/reddit-deep/financialindependence/1me1wc1.md#c3"
+    char_span: [4855, 5612]
+    sentence_count: 8
+    key_terms: [keep, inspiring, congrats, staying, great, cosmicslug73, silentpulsex, frustrated]
+    section: Comments
+    token_count: 183
+  - id: "social-intelligence/reddit-deep/financialindependence/1me1wc1.md#c4"
+    char_span: [5614, 7033]
+    sentence_count: 9
+    key_terms: [hour, situation, marriage, because, almost, people, hard, almamahlerwerfel]
+    section: Comments
+    token_count: 381
+  - id: "social-intelligence/reddit-deep/financialindependence/1me1wc1.md#c5"
+    char_span: [7035, 8781]
+    sentence_count: 13
+    key_terms: [prenup, assets, marriage, divorce, married, people, person, shhhhhhhhhhhhhhhhhh]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/financialindependence/1me1wc1.md#c6"
+    char_span: [8784, 9359]
+    sentence_count: 5
+    key_terms: [walk, congratulations, unconventional, denomination, fertymerty, regardless, unsettling, southern]
+    section: Comments
+    token_count: 162
 ---
-
 # 5 Years into FIRE: From $5k After Divorce to $214k Net Worth and a New Marriage
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1me1wc1/5_years_into_fire_from_5k_after_divorce_to_214k/)

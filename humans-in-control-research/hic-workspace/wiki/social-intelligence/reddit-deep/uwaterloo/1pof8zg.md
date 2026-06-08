@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1pof8zg.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1pof8zg/is_waterloo_really_that_depressing_as_people_say/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,33 @@ flair: "Question"
 extracted_at: "2026-05-25T18:33:12.675Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1pof8zg.md#c0"
+    char_span: [0, 713]
+    sentence_count: 8
+    key_terms: [waterloo, social, uwaterloo, comments, campus, people, easy-suggestion8327, reddit-deep]
+    token_count: 177
+  - id: "social-intelligence/reddit-deep/uwaterloo/1pof8zg.md#c1"
+    char_span: [728, 2719]
+    sentence_count: 13
+    key_terms: [people, socialize, questionableparadigm, fun, like, time, school, "it's"]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/uwaterloo/1pof8zg.md#c2"
+    char_span: [2721, 4907]
+    sentence_count: 16
+    key_terms: [campus, students, people, get, social, "it's", reputation, targetting]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/uwaterloo/1pof8zg.md#c3"
+    char_span: [4909, 5526]
+    sentence_count: 5
+    key_terms: [campus, waterloo, pretty, ion, self-contained, architecture, connections, utilitarian]
+    section: Comments
+    token_count: 130
 ---
-
 # Is Waterloo really that depressing as people say it is?
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1pof8zg/is_waterloo_really_that_depressing_as_people_say/)

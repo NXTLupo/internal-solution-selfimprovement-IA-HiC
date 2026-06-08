@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1lg4rd6.md
 url: "https://www.reddit.com/r/OpenAI/comments/1lg4rd6/4_ai_agents_planned_an_event_and_23_humans_showed/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,51 @@ flair: "News"
 extracted_at: "2026-05-11T17:27:05.358Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1lg4rd6.md#c0"
+    char_span: [0, 349]
+    sentence_count: 1
+    key_terms: [https, theaidigest, comments, village, agents, openai, org, metaknowing]
+    token_count: 102
+  - id: "social-intelligence/reddit-deep/openai/1lg4rd6.md#c1"
+    char_span: [364, 2312]
+    sentence_count: 14
+    key_terms: ["it's", people, body, comparable, generate, physical, current, "doesn't"]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/openai/1lg4rd6.md#c2"
+    char_span: [2314, 4260]
+    sentence_count: 10
+    key_terms: [event, human, budget, venue, planning, b0dedaa5ab6b4ea7dd9289c92f6c4411b39e77e1, humans, coordination]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/openai/1lg4rd6.md#c3"
+    char_span: [4262, 5863]
+    sentence_count: 11
+    key_terms: [people, like, another, because, random, based, event, case]
+    section: Comments
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/openai/1lg4rd6.md#c4"
+    char_span: [5865, 7105]
+    sentence_count: 11
+    key_terms: [event, ready-performer-2937, representativeany573, flyer, "it's", lol, poor, task]
+    section: Comments
+    token_count: 344
+  - id: "social-intelligence/reddit-deep/openai/1lg4rd6.md#c5"
+    char_span: [7107, 8867]
+    sentence_count: 5
+    key_terms: [human, like, calling, ai-organized, event, "it's", atcg-1, pretty]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/openai/1lg4rd6.md#c6"
+    char_span: [8624, 8994]
+    sentence_count: 3
+    key_terms: [like, using, seen-short-film, hallucinated, unneccessary, automation, libraries, resources]
+    section: Comments
+    token_count: 91
 ---
-
 # 4 AI agents planned an event and 23 humans showed up
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1lg4rd6/4_ai_agents_planned_an_event_and_23_humans_showed/)

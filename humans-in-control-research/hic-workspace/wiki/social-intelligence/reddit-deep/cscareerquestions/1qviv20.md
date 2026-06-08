@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1qviv20.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1qviv20/advice_needed_post_bacc_online_in_person_vs/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-22T23:33:42.323Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qviv20.md#c0"
+    char_span: [0, 2142]
+    sentence_count: 17
+    key_terms: [online, masters, career, route, bachelors, cscareerquestions, getting, advice]
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qviv20.md#c1"
+    char_span: [2157, 4354]
+    sentence_count: 7
+    key_terms: [probably, putrid-caregiver7407, related, qualifications, degree, market, best, job]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qviv20.md#c2"
+    char_span: [4356, 6370]
+    sentence_count: 14
+    key_terms: [masters, field, find, like, accounting, experience, situation, working]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qviv20.md#c3"
+    char_span: [6372, 8455]
+    sentence_count: 9
+    key_terms: [projects, putrid-caregiver7407, learning, online, internships, real, work, structured]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qviv20.md#c4"
+    char_span: [8457, 9040]
+    sentence_count: 3
+    key_terms: [computer-science, techguide, online-computer-science-bachelors-degree, online-masters-in-computer-science, how-to-get-into-computer-science, https, org, computer-science-resources]
+    section: Comments
+    token_count: 151
 ---
-
 # Advice needed: Post Bacc (online, in person) vs Masters Starting out (No CS background) - USA CA
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1qviv20/advice_needed_post_bacc_online_in_person_vs/)

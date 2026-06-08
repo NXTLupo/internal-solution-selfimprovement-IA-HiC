@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1qjwn11.md
 url: "https://www.reddit.com/r/findapath/comments/1qjwn11/whats_the_one_thing_that_actually_made_you/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,62 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-22T15:13:18.827Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1qjwn11.md#c0"
+    char_span: [0, 2293]
+    sentence_count: 14
+    key_terms: ["i've", completely, work, career, understanding, like, time, understand]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/findapath/1qjwn11.md#c1"
+    char_span: [2295, 4687]
+    sentence_count: 15
+    key_terms: [yourself, "i'm", career, assessment, better, people, years, real]
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/findapath/1qjwn11.md#c2"
+    char_span: [4702, 6720]
+    sentence_count: 19
+    key_terms: [thank, life, helpful, people, please, findapath, comments, deathbed]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/findapath/1qjwn11.md#c3"
+    char_span: [6722, 8681]
+    sentence_count: 35
+    key_terms: [like, company, job, burnout, career, sector, maybe, start]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/findapath/1qjwn11.md#c4"
+    char_span: [8683, 10942]
+    sentence_count: 31
+    key_terms: [work, job, life, list, want, bucket, does, need]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/findapath/1qjwn11.md#c5"
+    char_span: [10944, 12518]
+    sentence_count: 6
+    key_terms: [worked, "i've", something, manager, answer, change, helps, value]
+    section: Comments
+    token_count: 344
+  - id: "social-intelligence/reddit-deep/findapath/1qjwn11.md#c6"
+    char_span: [12520, 14525]
+    sentence_count: 16
+    key_terms: [strengths, free, design, great, human, years, assessment, everything]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/findapath/1qjwn11.md#c7"
+    char_span: [14527, 15525]
+    sentence_count: 12
+    key_terms: [life, everything, helped, others, don, own, post, well-intended]
+    section: Comments
+    token_count: 228
+  - id: "social-intelligence/reddit-deep/findapath/1qjwn11.md#c8"
+    char_span: [15527, 17025]
+    sentence_count: 10
+    key_terms: [patterns, different, appears, people, work, something, specific, curious]
+    section: Comments
+    token_count: 320
 ---
-
 # What's the one thing that actually made you understand yourself at work...not just your resume?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1qjwn11/whats_the_one_thing_that_actually_made_you/)

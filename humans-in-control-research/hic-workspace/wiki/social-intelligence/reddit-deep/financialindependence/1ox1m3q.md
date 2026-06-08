@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1ox1m3q.md
 url: "https://www.reddit.com/r/financialindependence/comments/1ox1m3q/i_got_fired_1_year_ago_year_in_review/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,79 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.711Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1ox1m3q.md#c0"
+    char_span: [0, 1983]
+    sentence_count: 20
+    key_terms: [financialindependence, job, year, someone, fired, home, like, time]
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/financialindependence/1ox1m3q.md#c1"
+    char_span: [1987, 3960]
+    sentence_count: 24
+    key_terms: [want, work, thankfully, figuring, whatever, anymore, without, working]
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/financialindependence/1ox1m3q.md#c2"
+    char_span: [3964, 5157]
+    sentence_count: 9
+    key_terms: [liquid, grateful, di3ks, fired, hours, face, got, "i'm"]
+    token_count: 311
+  - id: "social-intelligence/reddit-deep/financialindependence/1ox1m3q.md#c3"
+    char_span: [5172, 5719]
+    sentence_count: 7
+    key_terms: [remember, fired, clutchdude, psilocybin, important, mushrooms, requiring, employer]
+    section: Comments
+    token_count: 135
+  - id: "social-intelligence/reddit-deep/financialindependence/1ox1m3q.md#c4"
+    char_span: [5721, 7387]
+    sentence_count: 9
+    key_terms: [did, getting, better, another, expense, skipped, "wasn't", flaminglegosinthesky]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/financialindependence/1ox1m3q.md#c5"
+    char_span: [7389, 9545]
+    sentence_count: 12
+    key_terms: [healthcare, business, premiums, universally, aca, deductible, certain, company]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/financialindependence/1ox1m3q.md#c6"
+    char_span: [9547, 11263]
+    sentence_count: 11
+    key_terms: [threat, times, flight, fight, fired, job, different, probably]
+    section: Comments
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/financialindependence/1ox1m3q.md#c7"
+    char_span: [11265, 13043]
+    sentence_count: 17
+    key_terms: [job, experience, software, thought, layoff, calculations, because, looking]
+    section: Comments
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/financialindependence/1ox1m3q.md#c8"
+    char_span: [13045, 14489]
+    sentence_count: 18
+    key_terms: [working, people, retire, someone, better, having, value, years]
+    section: Comments
+    token_count: 332
+  - id: "social-intelligence/reddit-deep/financialindependence/1ox1m3q.md#c9"
+    char_span: [14491, 16212]
+    sentence_count: 19
+    key_terms: [interesting, "don't", good, benefits, because, hobbies, nothing, friend]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/financialindependence/1ox1m3q.md#c10"
+    char_span: [16214, 17616]
+    sentence_count: 10
+    key_terms: [job, because, myself, though, within, ended, scary, back]
+    section: Comments
+    token_count: 334
+  - id: "social-intelligence/reddit-deep/financialindependence/1ox1m3q.md#c11"
+    char_span: [17618, 19323]
+    sentence_count: 13
+    key_terms: [like, business, thetadaddyrise, story, sure, year, promotion, stucon77]
+    section: Comments
+    token_count: 446
 ---
-
 # I Got FIREd 1 Year Ago - Year in Review
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1ox1m3q/i_got_fired_1_year_ago_year_in_review/)

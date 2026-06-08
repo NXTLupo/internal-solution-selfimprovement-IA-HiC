@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1s5rhgn.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1s5rhgn/i_hate_it_here/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,45 @@ flair: "Rant"
 extracted_at: "2026-05-20T02:31:57.184Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [higher_ed, life_sciences]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s5rhgn.md#c0"
+    char_span: [0, 1649]
+    sentence_count: 1
+    key_terms: [years, applyingtocollege, schools, "i'm", comments, rejected, succeed, entire]
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s5rhgn.md#c1"
+    char_span: [1664, 3613]
+    sentence_count: 13
+    key_terms: [school, ivy, college, state, student, being, successful, schools]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s5rhgn.md#c2"
+    char_span: [3615, 3773]
+    sentence_count: 4
+    key_terms: [disappointment, absolutely, warranted, ivy-tier, thinking, getting, entire, school]
+    section: Comments
+    token_count: 34
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s5rhgn.md#c3"
+    char_span: [3775, 5983]
+    sentence_count: 21
+    key_terms: [school, college, get, going, best, goal, ivy-tier, research]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s5rhgn.md#c4"
+    char_span: [5698, 6030]
+    sentence_count: 5
+    key_terms: [research, school, state, inexpensively, constraint, gradschool, important, requisite]
+    section: Comments
+    token_count: 74
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s5rhgn.md#c5"
+    char_span: [6032, 6378]
+    sentence_count: 2
+    key_terms: [juniorreserve1560, twixmerlin512, discouraged, especially, community, financial, decision, college]
+    section: Comments
+    token_count: 94
 ---
-
 # i hate it here
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1s5rhgn/i_hate_it_here/)

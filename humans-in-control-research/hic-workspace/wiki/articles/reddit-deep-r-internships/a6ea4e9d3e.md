@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-internships/a6ea4e9d3e.md
 url: "https://www.reddit.com/r/internships/comments/1sv56ub/hiring_growth_executive_intern_remote_paid/"
 url_hash: "a6ea4e9d3e"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T02:38:39.315122+00:00"
 chars: 2109
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-internships/a6ea4e9d3e.md#c0"
+    char_span: [0, 2043]
+    sentence_count: 5
+    key_terms: [growth, reddit, internship, ownership, work, founder, remote, certificate]
+    token_count: 469
+  - id: "articles/reddit-deep-r-internships/a6ea4e9d3e.md#c1"
+    char_span: [2045, 2317]
+    sentence_count: 2
+    key_terms: [interested, serious-gap234, okbluejay3743, wazirkazim78, hamesloth, comments, further, process]
+    token_count: 85
 ---
-
 # [HIRING] Growth Executive Intern Remote | Paid Internship (India)
 
 Source: [Reddit Deep: r/internships](https://www.reddit.com/r/internships/comments/1sv56ub/hiring_growth_executive_intern_remote_paid/)

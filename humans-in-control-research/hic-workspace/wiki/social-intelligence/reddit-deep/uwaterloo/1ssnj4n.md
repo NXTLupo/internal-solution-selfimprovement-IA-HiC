@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1ssnj4n.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1ssnj4n/anyone_else_feel_like_daily_habits_hit_different/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,27 @@ flair: "Discussion"
 extracted_at: "2026-05-25T18:33:12.674Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1ssnj4n.md#c0"
+    char_span: [0, 1794]
+    sentence_count: 12
+    key_terms: [chinese, students, different, apps, like, feel, here, canadian]
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/uwaterloo/1ssnj4n.md#c1"
+    char_span: [1809, 3620]
+    sentence_count: 10
+    key_terms: [chinese, like, english, daily, drive, using, use, question]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/uwaterloo/1ssnj4n.md#c2"
+    char_span: [3622, 3975]
+    sentence_count: 1
+    key_terms: [minute-wolverine417, self-hosters, homelabbers, non-trivial, amolven16, bilingual, mentioned, waterloo]
+    section: Comments
+    token_count: 102
 ---
-
 # Anyone else feel like daily habits hit different between Canadian students and Chinese intl students?
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1ssnj4n/anyone_else_feel_like_daily_habits_hit_different/)

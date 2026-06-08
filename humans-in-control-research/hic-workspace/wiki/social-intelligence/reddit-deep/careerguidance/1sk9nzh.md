@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sk9nzh.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sk9nzh/the_job_market_has_me_feeling_like_i_will_never/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,39 @@ flair: "Advice"
 extracted_at: "2026-05-23T14:54:05.573Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sk9nzh.md#c0"
+    char_span: [0, 1742]
+    sentence_count: 17
+    key_terms: [because, "i've", experience, engineering, like, careerguidance, "i'll", jobs]
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/careerguidance/1sk9nzh.md#c1"
+    char_span: [1757, 3995]
+    sentence_count: 12
+    key_terms: [engineering, engineers, sales, companies, feel, because, months, people]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/careerguidance/1sk9nzh.md#c2"
+    char_span: [3997, 5702]
+    sentence_count: 19
+    key_terms: [construction, engineering, mechanical, engineers, job, design, contractors, experience]
+    section: Comments
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/careerguidance/1sk9nzh.md#c3"
+    char_span: [5704, 7566]
+    sentence_count: 13
+    key_terms: [engineering, sales, job, finance, administration, months, "it's", jobs]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/careerguidance/1sk9nzh.md#c4"
+    char_span: [7568, 7989]
+    sentence_count: 4
+    key_terms: [teaching, get, barnext6046, certificate, engineering, traditional, eventually, supplement]
+    section: Comments
+    token_count: 92
 ---
-
 # The job market has me feeling like I will never be an engineer again. What other careers can I pursue with a mechanical engineering degree?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sk9nzh/the_job_market_has_me_feeling_like_i_will_never/)

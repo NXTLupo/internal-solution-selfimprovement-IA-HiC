@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1p16umt.md
 url: "https://www.reddit.com/r/productivity/comments/1p16umt/productivity_systems_are_glorified_procrastination/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,27 @@ flair: "General Advice"
 extracted_at: "2026-05-26T12:53:45.655Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1p16umt.md#c0"
+    char_span: [0, 1481]
+    sentence_count: 13
+    key_terms: [productivity, systems, productive, people, less, new, comments, spending]
+    token_count: 316
+  - id: "social-intelligence/reddit-deep/productivity/1p16umt.md#c1"
+    char_span: [1496, 3418]
+    sentence_count: 26
+    key_terms: [system, productivity, done, get, new, work, perfect, elpiet]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/productivity/1p16umt.md#c2"
+    char_span: [3420, 5398]
+    sentence_count: 15
+    key_terms: [productivity, activities, tools, concentrating, time, productive, instead, systems]
+    section: Comments
+    token_count: 467
 ---
-
 # Productivity systems are glorified procrastination
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1p16umt/productivity_systems_are_glorified_procrastination/)

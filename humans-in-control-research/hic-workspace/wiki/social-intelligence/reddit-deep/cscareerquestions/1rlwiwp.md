@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rlwiwp.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rlwiwp/advice_on_getting_first_role_as_career_changer/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,36 @@ subreddit: "cscareerquestions"
 title: "Advice on getting first role as career changer?"
 author: "shamedful"
 date: "2026-03-05T22:53:05.000Z"
-score: 5
+score: 7
 upvote_ratio: 1
 num_comments: 11
 flair: ""
-extracted_at: "2026-05-22T23:33:42.315Z"
+extracted_at: "2026-06-03T12:16:59.516Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rlwiwp.md#c0"
+    char_span: [0, 626]
+    sentence_count: 7
+    key_terms: [cscareerquestions, transition, comments, product, comp, role, sci, realistically]
+    token_count: 158
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rlwiwp.md#c1"
+    char_span: [641, 2898]
+    sentence_count: 13
+    key_terms: [experience, "you're", like, already, going, technically, get, job]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rlwiwp.md#c2"
+    char_span: [2900, 4049]
+    sentence_count: 11
+    key_terms: [product, engineering, targeting, technical, backend, resume, api, area]
+    section: Comments
+    token_count: 247
 ---
-
 # Advice on getting first role as career changer?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rlwiwp/advice_on_getting_first_role_as_career_changer/)
-Posted by **shamedful** · **5↑** · **11 comments**
+Posted by **shamedful** · **7↑** · **11 comments**
 
 I am currently a product manager. I have 4.5 years of experience and a bachelor's in comp sci. I've never had a comp sci internship and always done product but I'm wanting to transition now.
 

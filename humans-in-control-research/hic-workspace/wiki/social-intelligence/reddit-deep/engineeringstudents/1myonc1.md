@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1myonc1.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1myonc1/whats_the_harsh_reality_of_studying_engineering/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,93 @@ flair: "Discussion"
 extracted_at: "2026-05-22T21:34:47.626Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c0"
+    char_span: [0, 1411]
+    sentence_count: 12
+    key_terms: [engineering, engineeringstudents, like, opportunities, did, comments, engineer, started]
+    token_count: 314
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c1"
+    char_span: [1426, 3419]
+    sentence_count: 16
+    key_terms: [teaching, like, engineering, get, "i'm", anything, lectures, deleted]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c2"
+    char_span: [3421, 4554]
+    sentence_count: 20
+    key_terms: ["he's", "it's", probably, teaching, nothing, looks, like, problem]
+    section: Comments
+    token_count: 279
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c3"
+    char_span: [4556, 5898]
+    sentence_count: 11
+    key_terms: [classes, different, time, professors, "shouldn't", multiple, waiting, decide]
+    section: Comments
+    token_count: 303
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c4"
+    char_span: [5900, 8022]
+    sentence_count: 13
+    key_terms: [school, classes, professors, schedule, semester, taught, best, get]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c5"
+    char_span: [8024, 10248]
+    sentence_count: 13
+    key_terms: [class, answers, classes, prof, homework, because, easier, never]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c6"
+    char_span: [10250, 11606]
+    sentence_count: 11
+    key_terms: [job, university, getting, physics, prereqs, realize, enough, school]
+    section: Comments
+    token_count: 319
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c7"
+    char_span: [11608, 13465]
+    sentence_count: 14
+    key_terms: [get, courses, problem, school, young, answers, doing, chip]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c8"
+    char_span: [13467, 15475]
+    sentence_count: 24
+    key_terms: [work, shock, maintenance, back, big, got, job, real]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c9"
+    char_span: [15477, 17649]
+    sentence_count: 25
+    key_terms: [job, expected, everything, next, thinking, working, going, years]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c10"
+    char_span: [17651, 19330]
+    sentence_count: 31
+    key_terms: [job, people, boss, crap, top, different, contract, grade]
+    section: Comments
+    token_count: 380
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c11"
+    char_span: [19332, 21449]
+    sentence_count: 24
+    key_terms: [plant, increase, going, years, contracting, job, new, pay]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c12"
+    char_span: [21451, 23088]
+    sentence_count: 13
+    key_terms: [excel, day, corporate, loyalty, better, redact, being, weeks]
+    section: Comments
+    token_count: 406
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1myonc1.md#c13"
+    char_span: [23090, 23800]
+    sentence_count: 7
+    key_terms: [math, crazy, no-specialist-4059, like, use, year, considering, engineering]
+    section: Comments
+    token_count: 173
 ---
-
 # What’s the harsh reality of studying engineering and working as an engineer that nobody told you before you started?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1myonc1/whats_the_harsh_reality_of_studying_engineering/)

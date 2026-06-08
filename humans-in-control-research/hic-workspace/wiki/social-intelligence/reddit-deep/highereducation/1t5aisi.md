@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1t5aisi.md
 url: "https://www.reddit.com/r/highereducation/comments/1t5aisi/pay_or_leak_hackers_target_instructure_nearly/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -6,19 +7,40 @@ subreddit: "highereducation"
 title: "“PAY OR LEAK”: Hackers Target Instructure - nearly 9,000 schools worldwide, 275 million people"
 author: "rellotscire"
 date: "2026-05-06T11:48:56.000Z"
-score: 112
+score: 109
 upvote_ratio: 0.99
 num_comments: 10
 flair: ""
-extracted_at: "2026-05-23T14:53:59.509Z"
+extracted_at: "2026-06-05T23:42:16.772Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1t5aisi.md#c0"
+    char_span: [0, 2419]
+    sentence_count: 10
+    key_terms: [instructure, institutions, education, shinyhunters, data, hackers, universities, individual]
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/highereducation/1t5aisi.md#c1"
+    char_span: [2421, 4579]
+    sentence_count: 8
+    key_terms: [instructure, shinyhunters, ransomware, leak, real, students, conversations, proud]
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/highereducation/1t5aisi.md#c2"
+    char_span: [4581, 6674]
+    sentence_count: 10
+    key_terms: [information, data, canvas, targets, breach, institutions, instructure, university]
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/highereducation/1t5aisi.md#c3"
+    char_span: [6689, 8273]
+    sentence_count: 2
+    key_terms: [contained, systems, finals, mission-garbage-9651, point, get, real, communications]
+    section: Comments
+    token_count: 406
 ---
-
 # “PAY OR LEAK”: Hackers Target Instructure - nearly 9,000 schools worldwide, 275 million people
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1t5aisi/pay_or_leak_hackers_target_instructure_nearly/)
-Posted by **rellotscire** · **112↑** · **10 comments**
+Posted by **rellotscire** · **109↑** · **10 comments**
 
 The criminal extortion group ShinyHunters breached Instructure last week. The hackers, who have also attacked individual universities, demanded the ed-tech giant pay up or face a data leak.
 
@@ -68,8 +90,8 @@ What's especially troubling about the Canvas breach is that it reveals how "even
 
 ## Comments
 
-- **it5-oFFICIAL** (22↑): what they gonna leak my failing grades?
-- **deadnotslep** (11↑): "While Instructure says it has contained the attack..."
+- **it5-oFFICIAL** (21↑): what they gonna leak my failing grades?
+- **deadnotslep** (12↑): "While Instructure says it has contained the attack..."
 Update: it has NOT
   - **rcher87** (3↑): So funny, I was talking to someone in IT yesterday and asking about how they’re all doing, and he was like 
 
@@ -78,9 +100,9 @@ Update: it has NOT
 (Please note this is a paraphrase from memory, and I am not on the academic tech side, so if any of this is wrong it’s probably my understanding and not his; the broader point was that we had very little info and nothing on what they’d DONE to mitigate anything……)
 
 🫠
-- **Old_Objective477** (7↑): This happened to K12 also
+- **Old_Objective477** (8↑): This happened to K12 also
 - **ace_narumiyamei77** (7↑): Ofc this happens in finals week 🫩
-- **Mission-Garbage-9651** (6↑): fuck these chuds im just trying to do my finals and get out of here
+- **Mission-Garbage-9651** (7↑): fuck these chuds im just trying to do my finals and get out of here
 - **Thorappan_0111** (5↑): supply-chain targeting is exactly why patch your own systems advice misses the point now. when one vendor sits under 9,000 institutions, attackers get a single chokepoint for context-rich phishing lures referencing real courses and real conversations. the institutional response has to include monitoring for spoofed Canvas communications downstream of the breach.
 
 Doppel is relevant when that impersonation surface starts hitting your brand specifically.

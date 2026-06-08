@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1maw95e.md
 url: "https://www.reddit.com/r/managers/comments/1maw95e/fellow_managers_need_your_perspective_on_a_tool/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,33 @@ flair: "Business Owner"
 extracted_at: "2026-05-26T12:54:23.684Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, saas, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1maw95e.md#c0"
+    char_span: [0, 754]
+    sentence_count: 7
+    key_terms: [managers, team, comments, "they're", member, help, need, back-to-back]
+    token_count: 178
+  - id: "social-intelligence/reddit-deep/managers/1maw95e.md#c1"
+    char_span: [769, 2181]
+    sentence_count: 13
+    key_terms: [meeting, dented-spoiler, daily, scrum, impediments, time, software, someone]
+    section: Comments
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/managers/1maw95e.md#c2"
+    char_span: [2183, 4177]
+    sentence_count: 19
+    key_terms: [problems, something, big, team, problem, project, member, urgent]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/managers/1maw95e.md#c3"
+    char_span: [4179, 5345]
+    sentence_count: 13
+    key_terms: [team, coordination, culture, forsaken-suspect-793, chaos, did, feel, "it's"]
+    section: Comments
+    token_count: 281
 ---
-
 # Fellow managers - need your perspective on a tool idea.
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1maw95e/fellow_managers_need_your_perspective_on_a_tool/)

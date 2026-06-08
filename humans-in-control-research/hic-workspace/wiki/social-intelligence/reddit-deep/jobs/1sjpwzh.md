@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1sjpwzh.md
 url: "https://www.reddit.com/r/jobs/comments/1sjpwzh/why_companies_want_us_to_work_for_free/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,32 @@ flair: "Applications"
 extracted_at: "2026-05-22T21:35:36.546Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1sjpwzh.md#c0"
+    char_span: [0, 2144]
+    sentence_count: 19
+    key_terms: [process, senior, free, time, work, candidates, expertise, comments]
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/jobs/1sjpwzh.md#c1"
+    char_span: [2146, 3618]
+    sentence_count: 11
+    key_terms: [already, looking, professional, free, filtering, standards, technical, somebody]
+    token_count: 315
+  - id: "social-intelligence/reddit-deep/jobs/1sjpwzh.md#c2"
+    char_span: [3633, 5309]
+    sentence_count: 9
+    key_terms: [practice, anybody, company, people, hopefullyagoodboomer, being, labor, free]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/jobs/1sjpwzh.md#c3"
+    char_span: [5311, 6804]
+    sentence_count: 10
+    key_terms: [company, employees, wants, call, free, pay, show, respectful]
+    section: Comments
+    token_count: 362
 ---
-
 # Why companies want us to work for free?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1sjpwzh/why_companies_want_us_to_work_for_free/)

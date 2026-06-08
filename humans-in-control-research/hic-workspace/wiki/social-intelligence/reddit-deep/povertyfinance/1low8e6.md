@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1low8e6.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1low8e6/struggling_to_stay_afloat_how_do_you_make_it_work/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,33 @@ flair: "Budgeting/Saving/Investing/Spending"
 extracted_at: "2026-05-16T20:55:12.688Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1low8e6.md#c0"
+    char_span: [0, 1082]
+    sentence_count: 6
+    key_terms: [povertyfinance, like, everything, groceries, comments, paycheck, income, people]
+    token_count: 275
+  - id: "social-intelligence/reddit-deep/povertyfinance/1low8e6.md#c1"
+    char_span: [1097, 2768]
+    sentence_count: 10
+    key_terms: [car, pay, "wouldn't", deleted, money, lot, gamer30168, probably]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/povertyfinance/1low8e6.md#c2"
+    char_span: [2771, 4672]
+    sentence_count: 14
+    key_terms: [debt, better, get, job, emergencies, car, subsidized, deleted]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/povertyfinance/1low8e6.md#c3"
+    char_span: [4674, 5069]
+    sentence_count: 4
+    key_terms: [month, food, utilities, probably, deleted, outside, camper, likely]
+    section: Comments
+    token_count: 99
 ---
-
 # Struggling to Stay Afloat: How Do You Make It Work on a Low Income?
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1low8e6/struggling_to_stay_afloat_how_do_you_make_it_work/)

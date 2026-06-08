@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1lcy29j/school_district_dropping_ap_calculus_bc_due_to/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,75 @@ flair: "Advice"
 extracted_at: "2026-05-23T14:54:48.675Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [government, policy, education]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c0"
+    char_span: [0, 1895]
+    sentence_count: 14
+    key_terms: [school, grade, applyingtocollege, math, calculus, district, algebra, pre-algebra]
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c1"
+    char_span: [1910, 2287]
+    sentence_count: 1
+    key_terms: [applyingtocollege, comments, reddit, https, com, www, automoderator, admissions]
+    section: Comments
+    token_count: 95
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c2"
+    char_span: [2289, 4416]
+    sentence_count: 13
+    key_terms: [woke, college, schools, school, universities, happening, bullshit, everyone]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c3"
+    char_span: [4418, 5230]
+    sentence_count: 4
+    key_terms: [school, growing, student, appropriately, disadvantaged, applications, universities, admissions]
+    section: Comments
+    token_count: 162
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c4"
+    char_span: [5232, 6876]
+    sentence_count: 7
+    key_terms: [the-woman-behind-corvallis-math-philosophy-and-her-impact, kids, school, math, high, calculus, district, relevant]
+    section: Comments
+    token_count: 377
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c5"
+    char_span: [6878, 8860]
+    sentence_count: 9
+    key_terms: [school, years, math, time, districts, thought, middle, "that's"]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c6"
+    char_span: [8862, 10829]
+    sentence_count: 13
+    key_terms: [school, math, high, algebra, better, acceleration, kid, stem]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c7"
+    char_span: [10831, 12821]
+    sentence_count: 13
+    key_terms: [calc, schools, year, college, deleted, school, "isn't", take]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c8"
+    char_span: [12823, 14157]
+    sentence_count: 7
+    key_terms: [school, calc, year, hours, accelerate, district, outside, senior]
+    section: Comments
+    token_count: 309
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c9"
+    char_span: [14159, 16312]
+    sentence_count: 19
+    key_terms: [school, take, year, math, algebra, summer, get, daughter]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lcy29j.md#c10"
+    char_span: [16061, 16865]
+    sentence_count: 9
+    key_terms: [course, ideal, worry, bar, calc, get, boulderadobill, academically]
+    section: Comments
+    token_count: 209
 ---
-
 # School district dropping AP Calculus BC due to inclusive math policy. How much does this matter?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1lcy29j/school_district_dropping_ap_calculus_bc_due_to/)

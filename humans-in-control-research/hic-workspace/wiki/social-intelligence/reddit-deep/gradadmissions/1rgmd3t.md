@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1rgmd3t.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rgmd3t/how_can_chemistry_students_applying_to_grad/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,15 @@ flair: "Applied Sciences"
 extracted_at: "2026-05-20T03:56:10.761Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rgmd3t.md#c0"
+    char_span: [0, 531]
+    sentence_count: 5
+    key_terms: [research, students, gradadmissions, recognized, chemistry, undergrad, comments, prestigious-sky-3174]
+    token_count: 121
 ---
-
 # How can chemistry students applying to grad school get recognized for research in undergrad?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rgmd3t/how_can_chemistry_students_applying_to_grad/)

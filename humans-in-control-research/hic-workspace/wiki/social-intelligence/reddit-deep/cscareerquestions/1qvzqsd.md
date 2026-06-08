@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1qvzqsd.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1qvzqsd/company_shifting_toward_prompt_first_engineering/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,69 @@ flair: "Experienced"
 extracted_at: "2026-05-20T12:57:40.624Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qvzqsd.md#c0"
+    char_span: [0, 1205]
+    sentence_count: 7
+    key_terms: [company, cscareerquestions, ai-development, engineering, time, comments, anymore, career]
+    token_count: 270
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qvzqsd.md#c1"
+    char_span: [1220, 3035]
+    sentence_count: 17
+    key_terms: [people, hoping, going, staff, feel, like, developers, management]
+    section: Comments
+    token_count: 409
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qvzqsd.md#c2"
+    char_span: [3038, 4982]
+    sentence_count: 11
+    key_terms: [context, people, consumption, day, management, language, already, english]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qvzqsd.md#c3"
+    char_span: [4984, 7200]
+    sentence_count: 15
+    key_terms: ["it's", code, etc, get, good, need, approaches, lowfruit25]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qvzqsd.md#c4"
+    char_span: [7202, 8700]
+    sentence_count: 11
+    key_terms: [generally, tell, context, "it's", mcp, plan, similar, writing]
+    section: Comments
+    token_count: 338
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qvzqsd.md#c5"
+    char_span: [8702, 9986]
+    sentence_count: 5
+    key_terms: [harder, languages, learning, outside, throwaway0845reddit, "i've", like, time]
+    section: Comments
+    token_count: 292
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qvzqsd.md#c6"
+    char_span: [9988, 11746]
+    sentence_count: 9
+    key_terms: [time, hours, per, coding, prompt, "that's", longjumping-donut655, doing]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qvzqsd.md#c7"
+    char_span: [11748, 13773]
+    sentence_count: 17
+    key_terms: [because, environment, "you're", environmental, life, play, work, opposed]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qvzqsd.md#c8"
+    char_span: [13776, 14692]
+    sentence_count: 4
+    key_terms: [environmental, impact, computing, internet, negative, impacts, amish, going]
+    section: Comments
+    token_count: 177
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qvzqsd.md#c9"
+    char_span: [14694, 16201]
+    sentence_count: 7
+    key_terms: [prompt, code, footprint, cajole, carbon, maxing, hours, human]
+    section: Comments
+    token_count: 362
 ---
-
 # Company shifting toward “Prompt first” engineering
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1qvzqsd/company_shifting_toward_prompt_first_engineering/)

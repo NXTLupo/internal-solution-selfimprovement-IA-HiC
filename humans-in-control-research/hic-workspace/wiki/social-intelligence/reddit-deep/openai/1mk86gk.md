@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1mk86gk.md
 url: "https://www.reddit.com/r/OpenAI/comments/1mk86gk/disappointed_gpt5_still_isnt_unlocking_the_true/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,39 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:05.355Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1mk86gk.md#c0"
+    char_span: [0, 1121]
+    sentence_count: 4
+    key_terms: [context, comments, lesson, openai, gpt-5, study, book, "true"]
+    token_count: 259
+  - id: "social-intelligence/reddit-deep/openai/1mk86gk.md#c1"
+    char_span: [1136, 2220]
+    sentence_count: 4
+    key_terms: [gemini, better, krishnajeya, raffinesse, context, version, timeandspaceandme, open]
+    section: Comments
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/openai/1mk86gk.md#c2"
+    char_span: [2225, 4017]
+    sentence_count: 13
+    key_terms: [window, krishnajeya, gemini, compute, context, million, disappointed, least]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/openai/1mk86gk.md#c3"
+    char_span: [4019, 5833]
+    sentence_count: 12
+    key_terms: [window, use, context, gemini, value, temperature, unsupported, thought]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/openai/1mk86gk.md#c4"
+    char_span: [5835, 6415]
+    sentence_count: 4
+    key_terms: [context, prayers, bible, time, fundamentally, comparable, different, otherwise]
+    section: Comments
+    token_count: 133
 ---
-
 # Disappointed: GPT-5 Still Isn’t Unlocking the True Potential of Larger Context Windows
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1mk86gk/disappointed_gpt5_still_isnt_unlocking_the_true/)

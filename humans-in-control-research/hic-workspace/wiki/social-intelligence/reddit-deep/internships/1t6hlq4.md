@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1t6hlq4.md
 url: "https://www.reddit.com/r/internships/comments/1t6hlq4/company_offered_me_an_extension_but_not_a_job/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,26 @@ flair: "During the Internship"
 extracted_at: "2026-05-25T18:31:15.451Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1t6hlq4.md#c0"
+    char_span: [0, 920]
+    sentence_count: 3
+    key_terms: [internships, internship, comments, company, offered, offer, job, wholesale-fruits]
+    token_count: 219
+  - id: "social-intelligence/reddit-deep/internships/1t6hlq4.md#c1"
+    char_span: [922, 3077]
+    sentence_count: 11
+    key_terms: [internship, because, job, experience, told, work, future, months]
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/internships/1t6hlq4.md#c2"
+    char_span: [3079, 3826]
+    sentence_count: 1
+    key_terms: [because, family, look, opportunity, accounting, experience, repetitive, academics]
+    section: Comments
+    token_count: 178
 ---
-
 # Company offered me an extension but not a job offer
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1t6hlq4/company_offered_me_an_extension_but_not_a_job/)

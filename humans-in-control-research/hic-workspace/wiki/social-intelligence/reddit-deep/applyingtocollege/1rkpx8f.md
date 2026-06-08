@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1rkpx8f.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rkpx8f/should_i_choose_the_college_my_mom_wants_or_the/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,62 @@ flair: "Advice"
 extracted_at: "2026-05-23T12:15:36.234Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rkpx8f.md#c0"
+    char_span: [0, 2025]
+    sentence_count: 16
+    key_terms: [college, applyingtocollege, family, wants, aid, university, financial, accepted]
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rkpx8f.md#c1"
+    char_span: [2027, 2317]
+    sentence_count: 3
+    key_terms: [transportation, unobtainable, comfortable, constraints, financial, anywhere, campuses, colleges]
+    token_count: 61
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rkpx8f.md#c2"
+    char_span: [2332, 4213]
+    sentence_count: 13
+    key_terms: [ucf, national, merit, contact, formal-research4531, finalists, oos, finalist]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rkpx8f.md#c3"
+    char_span: [4215, 4854]
+    sentence_count: 3
+    key_terms: [results, family, akron, cost, ucf, considerably, contributing, additional]
+    section: Comments
+    token_count: 159
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rkpx8f.md#c4"
+    char_span: [4856, 6750]
+    sentence_count: 14
+    key_terms: [home, ucf, schools, insurance, cost, college, going, visit]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rkpx8f.md#c5"
+    char_span: [6752, 7490]
+    sentence_count: 5
+    key_terms: [home, abroad, school, akron, close, away, get, determining]
+    section: Comments
+    token_count: 166
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rkpx8f.md#c6"
+    char_span: [7492, 9763]
+    sentence_count: 21
+    key_terms: [school, ucf, opportunities, visit, bhc, kid, son, graduated]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rkpx8f.md#c7"
+    char_span: [9447, 11228]
+    sentence_count: 14
+    key_terms: [home, college, either, school, financial, possible, masters, someone]
+    section: Comments
+    token_count: 389
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rkpx8f.md#c8"
+    char_span: [11230, 12822]
+    sentence_count: 16
+    key_terms: [away, year, borrow, parent, "we're", lot, reasonable, understand]
+    section: Comments
+    token_count: 381
 ---
-
 # Should I choose the college my mom wants, or the one I want?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rkpx8f/should_i_choose_the_college_my_mom_wants_or_the/)

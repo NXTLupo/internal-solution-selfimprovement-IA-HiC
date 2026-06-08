@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-engineeringstudents/5bbf0b0ba3.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1pndnmd/firstyear_engineering_student_need_help_with/"
 url_hash: "5bbf0b0ba3"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T15:18:44.746826+00:00"
 chars: 1016
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-engineeringstudents/5bbf0b0ba3.md#c0"
+    char_span: [0, 1289]
+    sentence_count: 8
+    key_terms: [poster, experiment, chemistry, engineeringstudents, project, engineering, first-year, scientific]
+    token_count: 269
 ---
-
 # First-Year Engineering Student – Need Help with Chemistry Project (Toothpaste Experiment,poster outline & Poster
 
 Source: [Reddit Deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1pndnmd/firstyear_engineering_student_need_help_with/)

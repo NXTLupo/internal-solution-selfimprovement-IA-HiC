@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1n7ucjj.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1n7ucjj/opposing_counsel_just_filed_a_chatgpt/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,109 @@ flair: "Other "
 extracted_at: "2026-05-11T16:54:08.808Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c0"
+    char_span: [0, 1862]
+    sentence_count: 20
+    key_terms: [motion, cases, court, filed, opposing, chatgpt, counsel, "didn't"]
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c1"
+    char_span: [1864, 3753]
+    sentence_count: 18
+    key_terms: [relieved, hearing, motion, brief, edit, astounded, analysis, attorney]
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c2"
+    char_span: [3755, 5337]
+    sentence_count: 12
+    key_terms: [hearing, court, associate, case, october, "false", did, law]
+    token_count: 366
+  - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c3"
+    char_span: [5352, 5934]
+    sentence_count: 5
+    key_terms: [conversation, image, post, r-chatgpt-1050422060352024636, chatgpt-shared-links-faq, discord, openai, please]
+    section: Comments
+    token_count: 154
+  - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c4"
+    char_span: [5937, 7424]
+    sentence_count: 6
+    key_terms: [please, update, remindme, chatgpt, nwmimms, been, rupertthecactus, automatically]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c5"
+    char_span: [7426, 8786]
+    sentence_count: 8
+    key_terms: [irreconcilable, differences, client, basis, "he's", chatgpt, good, says]
+    section: Comments
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c6"
+    char_span: [8788, 10318]
+    sentence_count: 7
+    key_terms: [like, client, withdraw, chatgpt, sounds, mercurialmadnessman, cases, makes]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c7"
+    char_span: [10320, 12216]
+    sentence_count: 9
+    key_terms: [court-rejects-monetary-sanctions-for-ai-generated-fake-cases-citing-lawyers-tragic-personal-circumstances, illegal, jurisdiction, like, attorney, counsel, otherwisealbatross14, basis]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c8"
+    char_span: [12218, 14520]
+    sentence_count: 11
+    key_terms: [filings, lawyer, lawyers, license, motion, judge, law, courthouse]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c9"
+    char_span: [14522, 16270]
+    sentence_count: 10
+    key_terms: [writing, hallucinate, "it's", own, introduced, university, meanwhile, required]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c10"
+    char_span: [16272, 17377]
+    sentence_count: 6
+    key_terms: [information, assignment, like, site, archaeological, hallucinations, autumn1eaves, embarrassing]
+    section: Comments
+    token_count: 274
+  - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c11"
+    char_span: [17379, 19090]
+    sentence_count: 11
+    key_terms: [people, like, completely, understand, realizing, because, chatgpt, without]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c12"
+    char_span: [19092, 21151]
+    sentence_count: 18
+    key_terms: [attorneys, chatgpt, filed, page, text, time, citations, numbers]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c13"
+    char_span: [21154, 22316]
+    sentence_count: 4
+    key_terms: [ask, "it's", real, text, use, retrosenescent, hallucinating, misrepresents]
+    section: Comments
+    token_count: 277
+  - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c14"
+    char_span: [22318, 24200]
+    sentence_count: 6
+    key_terms: [letter, motion, notifications, withdraw, chatgpt, dismiss, getting, lawyers]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c15"
+    char_span: [24039, 24361]
+    sentence_count: 2
+    key_terms: [lopsided-letter1353, ok-detective-5687, floriane007, absolutely, following, kragenbar, nickname, caption]
+    section: Comments
+    token_count: 119
+  - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c16"
+    char_span: [24363, 24692]
+    sentence_count: 1
+    key_terms: [julie, judge, jiveturkey927, hallucinated, julianne, pleading, putting, setting]
+    section: Comments
+    token_count: 95
 ---
-
 # Opposing Counsel Just Filed a ChatGPT Hallucination with the Court
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1n7ucjj/opposing_counsel_just_filed_a_chatgpt/)

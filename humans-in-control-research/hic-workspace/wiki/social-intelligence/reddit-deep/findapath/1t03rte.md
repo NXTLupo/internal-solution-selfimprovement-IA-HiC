@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1t03rte.md
 url: "https://www.reddit.com/r/findapath/comments/1t03rte/graduated_15_years_ago_dont_want_to_work_a/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,27 @@ flair: "Findapath-Career Change"
 extracted_at: "2026-05-25T13:04:07.378Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1t03rte.md#c0"
+    char_span: [0, 1206]
+    sentence_count: 13
+    key_terms: [corporate, don, times, want, findapath, graduated, comments, forever]
+    token_count: 306
+  - id: "social-intelligence/reddit-deep/findapath/1t03rte.md#c1"
+    char_span: [1221, 2800]
+    sentence_count: 15
+    key_terms: [thank, helpful, please, "it's", life, findapath, anything, comments]
+    section: Comments
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/findapath/1t03rte.md#c2"
+    char_span: [2802, 4079]
+    sentence_count: 15
+    key_terms: [com, careerexplorer, bunnychow123, life, passionate, testerly, purpose, appalachianskinthief]
+    section: Comments
+    token_count: 329
 ---
-
 # Graduated 1.5 years ago, don’t want to work a corporate job anymore, please help me find a career path?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1t03rte/graduated_15_years_ago_dont_want_to_work_a/)

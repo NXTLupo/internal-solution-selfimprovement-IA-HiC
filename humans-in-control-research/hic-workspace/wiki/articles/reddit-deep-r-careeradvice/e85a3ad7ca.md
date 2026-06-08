@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careeradvice/e85a3ad7ca.md
 url: "https://www.reddit.com/r/careeradvice/comments/1rs7uws/maintenance_technician_looking_to_transition_into/"
 url_hash: "e85a3ad7ca"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T18:59:32.035218+00:00"
 chars: 2445
+industries: [workforce, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-careeradvice/e85a3ad7ca.md#c0"
+    char_span: [0, 2223]
+    sentence_count: 16
+    key_terms: ["i'm", work, design, learning, troubleshooting, careeradvice, engineering, maintenance]
+    token_count: 464
+  - id: "articles/reddit-deep-r-careeradvice/e85a3ad7ca.md#c1"
+    char_span: [2225, 2727]
+    sentence_count: 4
+    key_terms: [competitors, equipment, zizzianyouthminister, administration, capitalist, collected, customers, marketing]
+    token_count: 102
 ---
-
 # Maintenance Technician Looking to Transition into IT/Design — Confused About What Skills Are Still Worth Learning in the Age of AI
 
 Source: [Reddit Deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1rs7uws/maintenance_technician_looking_to_transition_into/)

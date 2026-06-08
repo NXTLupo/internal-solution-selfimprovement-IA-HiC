@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1srw5zd.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1srw5zd/internship_or_fulltime_for_career_pivot/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-22T23:33:42.320Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1srw5zd.md#c0"
+    char_span: [0, 2424]
+    sentence_count: 16
+    key_terms: [technical, internship, work, position, support, full-time, cscareerquestions, engineer]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1srw5zd.md#c1"
+    char_span: [2426, 2908]
+    sentence_count: 2
+    key_terms: [ibm, definitely, internship, taigahalla, converted, technical, relevant, training]
+    section: Comments
+    token_count: 112
 ---
-
 # Internship or Full-Time for Career Pivot?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1srw5zd/internship_or_fulltime_for_career_pivot/)

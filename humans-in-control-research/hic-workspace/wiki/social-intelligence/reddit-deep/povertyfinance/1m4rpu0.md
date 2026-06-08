@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1m4rpu0/house_has_no_ac_what_can_i_do/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,62 @@ flair: "Budgeting/Saving/Investing/Spending"
 extracted_at: "2026-05-17T01:13:55.886Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [real_estate, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c0"
+    char_span: [0, 1732]
+    sentence_count: 16
+    key_terms: [house, povertyfinance, window, money, units, don, keep, insurance]
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c1"
+    char_span: [1734, 2793]
+    sentence_count: 9
+    key_terms: [bathrooms, myself, work, expensive, house, water, fix, got]
+    token_count: 240
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c2"
+    char_span: [2808, 4637]
+    sentence_count: 20
+    key_terms: [keep, house, cool, bug, down, need, used, control]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c3"
+    char_span: [4639, 6686]
+    sentence_count: 13
+    key_terms: [dehumidifier, attic, room, putting, area, heat, used, insulation]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c4"
+    char_span: [6688, 8793]
+    sentence_count: 28
+    key_terms: [windows, fans, reflective, air, ice, put, use, couple]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c5"
+    char_span: [8795, 10323]
+    sentence_count: 17
+    key_terms: [room, windows, curtains, living, window, air, cool, door]
+    section: Comments
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c6"
+    char_span: [10326, 12059]
+    sentence_count: 19
+    key_terms: [air, room, window, keep, cool, get, bedroom, kitchen]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c7"
+    char_span: [12061, 12578]
+    sentence_count: 4
+    key_terms: [cheap, theater, blakecarconstruction, movie, like, thankfully, microwave, something]
+    section: Comments
+    token_count: 120
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c8"
+    char_span: [12580, 14406]
+    sentence_count: 16
+    key_terms: [blakecarconstruction, playful-mastodon9251, house, fix, leak, like, clearesult, focus-ira]
+    section: Comments
+    token_count: 461
 ---
-
 # House has no AC, what can I do?
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1m4rpu0/house_has_no_ac_what_can_i_do/)

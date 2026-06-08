@@ -6,19 +6,19 @@ subreddit: "jobs"
 title: "This is hard to post, tbh im about to give up and I’m really struggling to find a job and don’t know what I’m doing wrong"
 author: "Annienotmean"
 date: "2026-01-08T08:21:14.000Z"
-score: 81
+score: 77
 upvote_ratio: 0.96
 num_comments: 55
 flair: "Job searching"
-extracted_at: "2026-05-22T21:35:36.549Z"
+extracted_at: "2026-06-06T23:23:15.614Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # This is hard to post, tbh im about to give up and I’m really struggling to find a job and don’t know what I’m doing wrong
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1q76ctj/this_is_hard_to_post_tbh_im_about_to_give_up_and/)
-Posted by **Annienotmean** · **81↑** · **55 comments**
+Posted by **Annienotmean** · **77↑** · **55 comments**
 
 Hi everyone and for someone struggling like me, 
 
@@ -52,7 +52,7 @@ I’ll attach my resume below. Thank you for reading <3
 
 ## Comments
 
-- **bigopossums** (46↑): Tbh your background is great and I'm sure you are skilled but it is likely just because you are an international student. There are plenty of people already with the right to work in the US who are in the beauty/fashion/creative spaces, there is little reason to go through the $$$ and legal processes to hire someone without the pre-existing right to work. Even with OPT, why would an employer choose someone who eventually needs support when they have plenty to choose from who don't?
+- **bigopossums** (45↑): Tbh your background is great and I'm sure you are skilled but it is likely just because you are an international student. There are plenty of people already with the right to work in the US who are in the beauty/fashion/creative spaces, there is little reason to go through the $$$ and legal processes to hire someone without the pre-existing right to work. Even with OPT, why would an employer choose someone who eventually needs support when they have plenty to choose from who don't?
 
 Assuming you are Vietnamese,  your only choices aren't "find a job in the US" and "go back to hometown," you could find a role outside of your hometown in a city like Hanoi. Or, since you have some Mandarin proficiency, perhaps a city like Taipei (which, I have spent a lot of time in, English is also widely spoken to a point.) Bangkok is another possible option, you will still need to learn some Thai, but there are a lot of international jobs there.
   - **Annienotmean** (2↑): Thank you so much for all of your honest support.
@@ -64,13 +64,13 @@ The reason I want to stay in the US or look for jobs here or in the EU is becaus
 I am an American in the EU, you can try but your chances are much lower here, especially applying while physically overseas. EU employers have little reason to hire a junior employee from overseas. 
 
 My only other suggestion is to look outside these more creative spaces and even into a sector your might be less familiar with if it means you can land a job. You can always go into fashion or beauty later. Maybe target firms who are trying to break into Asia more and use your experience as leverage there, that would put you ahead of people without the local experience and knowledge.
-- **Horangi1987** (29↑): First of all, it’s the worst time in all of history to be an international candidate. Do you require sponsorship? 
+- **Horangi1987** (30↑): First of all, it’s the worst time in all of history to be an international candidate. Do you require sponsorship? 
 
 Second of all, working in beauty or fashion is highly desirable and extremely competitive. When you’re already starting at a disadvantage from being an international candidate, you’re in a very difficult situation.
 
 You need to face the reality that you need to get a job ANYWHERE. You do not have the luxury of targeting a specific industry. I work in beauty, and it’s a business. The vast majority of people I’ve worked with don’t care about the industry we work in further than it being our job.
-  - **littlemetalfollicle** (12↑): Yes exactly this. Get a general analytics role now, do beauty/fashion stuff outside of work, and then look at moving across again in a year’s time.
-  - **Neither-Midnight-989** (3↑): do you like your industry
+  - **littlemetalfollicle** (11↑): Yes exactly this. Get a general analytics role now, do beauty/fashion stuff outside of work, and then look at moving across again in a year’s time.
+  - **Neither-Midnight-989** (5↑): do you like your industry
   - **Annienotmean** (2↑): Thank you, at this time I dont require sponsorship! Thats my target field but i actually applied for everything, anywhere but didnt have any response so I’m just trying to figure out what can make me stand out and what is wrong with everything i did. All of the white gap is for hiding information ( I worked at Adecco, iProspect and Shopee)
     - **dopeybandit** (1↑): Apply to medical equipment companies with personal care departments. They usually do lotions, skincare, etc and they’re always expanding/looking for workers
 - **perryytheplatypuz** (13↑): im falling asleep so I’ll respond properly
@@ -91,7 +91,7 @@ And unlike another poster, your college doesn’t matter. Your projects matter m
 
 I’m really lost right now and don’t know what can actually make me stand out and make people pay attention to me.
     - **perryytheplatypuz** (1↑): I think you should really highlight ur social media experience, that’s unique and would catch ppl’s eye
-- **Independent_Echo6597** (6↑): Hey, I feel you on the struggle. (international student)+ trying to break into beauty/fashion is tough right now.
+- **Independent_Echo6597** (5↑): Hey, I feel you on the struggle. (international student)+ trying to break into beauty/fashion is tough right now.
 
 Your background actually sounds pretty solid though. 50k+ followers and brand work is legit experience that most new grads don't have. The analytics + creative combo could work really well for roles like:
 

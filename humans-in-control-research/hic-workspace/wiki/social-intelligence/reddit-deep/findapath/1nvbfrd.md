@@ -6,19 +6,19 @@ subreddit: "findapath"
 title: "Landed a job after 5 months - Here's exactly how I did it (with actual frameworks that worked)"
 author: "TemporaryDevice7895"
 date: "2025-10-01T15:32:22.000Z"
-score: 1558
+score: 1550
 upvote_ratio: 0.98
 num_comments: 25
 flair: "Success Story Post"
-extracted_at: "2026-05-25T13:04:07.389Z"
+extracted_at: "2026-06-06T23:22:15.460Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Landed a job after 5 months - Here's exactly how I did it (with actual frameworks that worked)
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1nvbfrd/landed_a_job_after_5_months_heres_exactly_how_i/)
-Posted by **TemporaryDevice7895** · **1558↑** · **25 comments**
+Posted by **TemporaryDevice7895** · **1550↑** · **25 comments**
 
 Five months ago, I posted [here](https://www.reddit.com/r/careerguidance/comments/1kjsz6k/got_laid_off_after_7_years_in_tech_im_34_a_dad/) after getting laid off from my cybersecurity role of 7 years. I was 34, had a toddler, bills piling up, and honestly thought my career was over. A lot of you reached out with support and advice, and I wanted to come back to share what actually worked because I know many of you are going through the same thing right now. Wanted to share what worked for me and the process I followed.
 
@@ -176,19 +176,19 @@ If you have any questions, pls drop them in the comments. Happy to answer questi
 
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/findapath) if you have any questions or concerns.*
-- **cc_apt107** (82↑): Be honest… did AI write this?
+- **cc_apt107** (83↑): Be honest… did AI write this?
   - **Sorry-Ad-5527** (3↑): This board goes to AI and then people copy AI and post it here. AI then picks up everything and tries to decide what is best. So those posting sarcasm or lies or just don't care about quality, this will end up on AI. 
 
 We're just driving around in circles at this point in humanity.
-- **rollingSleepyPanda** (57↑): TL;DR: AI slop
+- **rollingSleepyPanda** (56↑): TL;DR: AI slop
 - **parntsbasemnt4evrBC** (38↑): Guy does everything humanly possible with solid experience to back it up and still takes 100+ applications to land a job. Might as well just pack it up if your lacking in experience, new grads are cooked.
   - **hiddenspam** (4↑): don't you think most companies actually hire freshers since they can pay them less than someone with really good experience and expertise? Maybe they just need one expert and 10 freshers to work under him...you know saves a lot of money for the company?
-- **AilithTycane** (14↑): Pigment career assessment costs $99.99 lol
-- **Subject_Ad3837** (4↑): Not really encouraging that someone has to be some unicorn who jumps through all these insane hoops and still takes 5 months and over 100 applications to find a job. It feels much simpler to get into Harvard these days.
+- **AilithTycane** (13↑): Pigment career assessment costs $99.99 lol
+- **Subject_Ad3837** (3↑): Not really encouraging that someone has to be some unicorn who jumps through all these insane hoops and still takes 5 months and over 100 applications to find a job. It feels much simpler to get into Harvard these days.
   - **TheBear8878** (2↑): Don't worry, the post is fake and this idiot is advertising their stupid personality test.
   - **TemporaryDevice7895** (1↑): it's definitely a tough job market and to get into jobs which fit your working style and strengths does take time.
-- **Terrible_Depth_7904** (4↑): what I want to know is what your linkedin profile looked like during your applications. you were looking for multiple types of positions. How did you use keywords and show motivation? I'm applying in different areas and haven't completed my profile because of this
-  - **TemporaryDevice7895** (5↑): yeah this was honestly one of the hardest parts. trying to make one linkedin profile speak to multiple roles without looking scattered. what helped was using my report to find the common thread across roles instead of rewriting my profile for every type. mine highlighted “strategic problem solving,” “cross-domain thinking,” and “innovation drive” as my core strengths, so I built my headline and about section around those themes rather than specific job titles. example: instead of “cybersecurity analyst | risk management,” I used “strategic problem solver | turning complex systems into scalable solutions.” that language fit product, innovation, and strategy roles equally well.
+- **Terrible_Depth_7904** (5↑): what I want to know is what your linkedin profile looked like during your applications. you were looking for multiple types of positions. How did you use keywords and show motivation? I'm applying in different areas and haven't completed my profile because of this
+  - **TemporaryDevice7895** (6↑): yeah this was honestly one of the hardest parts. trying to make one linkedin profile speak to multiple roles without looking scattered. what helped was using my report to find the common thread across roles instead of rewriting my profile for every type. mine highlighted “strategic problem solving,” “cross-domain thinking,” and “innovation drive” as my core strengths, so I built my headline and about section around those themes rather than specific job titles. example: instead of “cybersecurity analyst | risk management,” I used “strategic problem solver | turning complex systems into scalable solutions.” that language fit product, innovation, and strategy roles equally well.
 
 for keywords, I made a short list from job descriptions in each category (security, product, risk) and wove them naturally into my experience bullets. the pigment phrasing helped there too. their wording for how I think (“connects ideas across systems,” “bridges technical and business insight”) matched a lot of the high-value keywords recruiters actually search for. so basically, I didn’t tailor to industries. I tailored to how I add value across them. that made the profile coherent but flexible enough to apply to different roles.
 - **hiddenspam** (3↑): nice approach. thanks for sharing

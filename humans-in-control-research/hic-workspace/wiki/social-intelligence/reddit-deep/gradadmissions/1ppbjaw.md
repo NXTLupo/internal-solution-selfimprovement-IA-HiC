@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1ppbjaw.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1ppbjaw/wanting_to_do_ml_phd_at_top_school_but_only_have/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,21 @@ flair: "Computational Sciences"
 extracted_at: "2026-05-20T03:56:10.765Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ppbjaw.md#c0"
+    char_span: [0, 2316]
+    sentence_count: 17
+    key_terms: [research, learning, phd, professor, like, publications, oxford, school]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ppbjaw.md#c1"
+    char_span: [2331, 2876]
+    sentence_count: 4
+    key_terms: [math, different, top, mathematician, publications, specifically, competitive, kawhandroid]
+    section: Comments
+    token_count: 115
 ---
-
 # Wanting to do ML PhD at top school but only have non-relevant research experience....
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1ppbjaw/wanting_to_do_ml_phd_at_top_school_but_only_have/)

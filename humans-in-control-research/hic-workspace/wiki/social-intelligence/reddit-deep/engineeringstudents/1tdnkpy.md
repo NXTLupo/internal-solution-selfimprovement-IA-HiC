@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1tdnkpy.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1tdnkpy/career_advice_chip_design_verification_or/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -10,11 +11,22 @@ score: 3
 upvote_ratio: 1
 num_comments: 1
 flair: "Career Advice"
-extracted_at: "2026-05-23T20:15:19.039Z"
+extracted_at: "2026-06-01T18:48:36.772Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tdnkpy.md#c0"
+    char_span: [0, 1399]
+    sentence_count: 9
+    key_terms: [design, engineering, verification, career, engineeringstudents, software, advice, opportunities]
+    token_count: 283
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tdnkpy.md#c1"
+    char_span: [1414, 1737]
+    sentence_count: 5
+    key_terms: [roles, competitive, engineering, degree, computer, embedded, graduate, insanely]
+    section: Comments
+    token_count: 68
 ---
-
 # Career Advice: Chip Design / Verification or Software Engineering?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1tdnkpy/career_advice_chip_design_verification_or/)

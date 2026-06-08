@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1q7ebjo.md
 url: "https://www.reddit.com/r/humanresources/comments/1q7ebjo/in_desperate_need_of_a_job_i_dont_know_what_to_do/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-23T12:15:41.538Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1q7ebjo.md#c0"
+    char_span: [0, 1174]
+    sentence_count: 19
+    key_terms: [humanresources, job, experience, comments, chicago, going, years, don]
+    token_count: 308
+  - id: "social-intelligence/reddit-deep/humanresources/1q7ebjo.md#c1"
+    char_span: [1189, 2951]
+    sentence_count: 15
+    key_terms: [important, job, get, start, candidates, hundreds, college, someone]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/humanresources/1q7ebjo.md#c2"
+    char_span: [2953, 4663]
+    sentence_count: 11
+    key_terms: [coordinator, experience, opportunity, definitely, respected, probably, college, similar]
+    section: Comments
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/humanresources/1q7ebjo.md#c3"
+    char_span: [4665, 6549]
+    sentence_count: 12
+    key_terms: [job, email, right, anything, because, network, advice, agency]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/humanresources/1q7ebjo.md#c4"
+    char_span: [6551, 8504]
+    sentence_count: 19
+    key_terms: ["you're", assistant, applying, get, job, started, administrative, roles]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/humanresources/1q7ebjo.md#c5"
+    char_span: [8506, 10591]
+    sentence_count: 15
+    key_terms: [experience, didn, job, interested, recommend, chicago, college, explain]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/humanresources/1q7ebjo.md#c6"
+    char_span: [10345, 11161]
+    sentence_count: 3
+    key_terms: [experience, work, honestly, company, right, frankensteeeeen, entire-tie-679, intentionally]
+    section: Comments
+    token_count: 200
 ---
-
 # In desperate need of a job. I don’t know what to do. please help, any leads [IL]?
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1q7ebjo/in_desperate_need_of_a_job_i_dont_know_what_to_do/)

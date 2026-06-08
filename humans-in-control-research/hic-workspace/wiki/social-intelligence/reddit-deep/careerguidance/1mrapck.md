@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1mrapck.md
 url: "https://www.reddit.com/r/careerguidance/comments/1mrapck/thought_i_landed_my_dream_job_with_a_millionaire/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.358Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [real_estate, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1mrapck.md#c0"
+    char_span: [0, 2024]
+    sentence_count: 16
+    key_terms: [estate, real, nightlife, bartending, careerguidance, job, experience, developer]
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/careerguidance/1mrapck.md#c1"
+    char_span: [2039, 3797]
+    sentence_count: 13
+    key_terms: [sue, fafnirthesteed, sales, development, pay, harassment, agreement, diosababy]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/careerguidance/1mrapck.md#c2"
+    char_span: [3799, 5707]
+    sentence_count: 15
+    key_terms: [experience, get, degree, industry, flexibility, don, diosababy, degrees]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/careerguidance/1mrapck.md#c3"
+    char_span: [5709, 7459]
+    sentence_count: 10
+    key_terms: [experience, real, estate, get, like, work, assistant, executive]
+    section: Comments
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/careerguidance/1mrapck.md#c4"
+    char_span: [7461, 9815]
+    sentence_count: 14
+    key_terms: [estate, real, market, analyst, another, almost, years, got]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1mrapck.md#c5"
+    char_span: [9492, 11161]
+    sentence_count: 14
+    key_terms: [estate, get, real, isn, commission, diosababy, training, already]
+    section: Comments
+    token_count: 401
 ---
-
 # Thought I landed my dream job with a millionaire real estate developer, but it turned into a nightmare. How do I recover and build the career I want?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1mrapck/thought_i_landed_my_dream_job_with_a_millionaire/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1lqzss6.md
 url: "https://www.reddit.com/r/jobs/comments/1lqzss6/i_got_hired/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,26 @@ flair: "Job searching"
 extracted_at: "2026-05-25T13:03:11.722Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1lqzss6.md#c0"
+    char_span: [0, 2156]
+    sentence_count: 24
+    key_terms: [got, hired, questions, job, time, certifications, "didn't", month]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/jobs/1lqzss6.md#c1"
+    char_span: [2158, 2590]
+    sentence_count: 7
+    key_terms: [lucky, get, stay, congratulations, unfortunately, opportunity, supportive, breathing]
+    token_count: 94
+  - id: "social-intelligence/reddit-deep/jobs/1lqzss6.md#c2"
+    char_span: [2605, 3811]
+    sentence_count: 10
+    key_terms: [congratulations, congrats, thanks, bigabbreviations5546, imaginary-version10, fight, happy, phone]
+    section: Comments
+    token_count: 350
 ---
-
 # I got hired
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1lqzss6/i_got_hired/)

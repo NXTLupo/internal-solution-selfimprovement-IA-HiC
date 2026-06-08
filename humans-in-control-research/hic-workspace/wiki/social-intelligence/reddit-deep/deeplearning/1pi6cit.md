@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1pi6cit.md
 url: "https://www.reddit.com/r/deeplearning/comments/1pi6cit/llmops_is_turning_out_to_be_harder_than_classic/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.049Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1pi6cit.md#c0"
+    char_span: [0, 1067]
+    sentence_count: 18
+    key_terms: [deeplearning, performance, evaluation, comments, single, teams, call, uncomfortable]
+    token_count: 245
+  - id: "social-intelligence/reddit-deep/deeplearning/1pi6cit.md#c1"
+    char_span: [1082, 3230]
+    sentence_count: 22
+    key_terms: [llm, don, like, phenomenon, documents, gibonfrog, pipeline, problems]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/deeplearning/1pi6cit.md#c2"
+    char_span: [3232, 4490]
+    sentence_count: 12
+    key_terms: [different, product, output, error, eol, assistance, friction, answers]
+    section: Comments
+    token_count: 274
+  - id: "social-intelligence/reddit-deep/deeplearning/1pi6cit.md#c3"
+    char_span: [4493, 6550]
+    sentence_count: 11
+    key_terms: [prompts, code, like, problem, evals, use, assertions, versioning]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/deeplearning/1pi6cit.md#c4"
+    char_span: [6552, 8228]
+    sentence_count: 11
+    key_terms: [like, frameworks, managing, change, maleficent-wafer-243, tools, add, non-determinism]
+    section: Comments
+    token_count: 344
 ---
-
 # LLMOps is turning out to be harder than classic MLOps, and not for the reasons most teams expected.
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1pi6cit/llmops_is_turning_out_to_be_harder_than_classic/)

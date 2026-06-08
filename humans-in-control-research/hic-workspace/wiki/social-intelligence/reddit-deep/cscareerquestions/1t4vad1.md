@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1t4vad1.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1t4vad1/quit_previous_newgrad_job_at_8_months_for_this/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-20T03:56:10.752Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t4vad1.md#c0"
+    char_span: [0, 1916]
+    sentence_count: 12
+    key_terms: [company, internships, cscareerquestions, job, removing, months, considering, experiences]
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t4vad1.md#c1"
+    char_span: [1931, 4233]
+    sentence_count: 2
+    key_terms: [experience, company, something, keep, like, similar, working, anyway]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t4vad1.md#c2"
+    char_span: [4235, 5760]
+    sentence_count: 6
+    key_terms: [job, months, get, interview, backend, company, matters, school]
+    section: Comments
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t4vad1.md#c3"
+    char_span: [5762, 6976]
+    sentence_count: 4
+    key_terms: [experience, company, company-wide, engineering, software, layoff, right, get]
+    section: Comments
+    token_count: 302
 ---
-
 # Quit previous new-grad job at 8 months for this one, and now got laid off after 2.5 months. How will this look?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1t4vad1/quit_previous_newgrad_job_at_8_months_for_this/)

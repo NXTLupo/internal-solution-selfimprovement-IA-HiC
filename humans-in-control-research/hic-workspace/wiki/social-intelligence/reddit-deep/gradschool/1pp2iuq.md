@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1pp2iuq.md
 url: "https://www.reddit.com/r/GradSchool/comments/1pp2iuq/possibly_failing_first_ever_grad_class_filled/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,57 @@ flair: "Academics"
 extracted_at: "2026-05-26T14:32:49.139Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c0"
+    char_span: [0, 1636]
+    sentence_count: 20
+    key_terms: [professor, course, professional, work, assignment, gradschool, requested, academic]
+    token_count: 345
+  - id: "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c1"
+    char_span: [1651, 3610]
+    sentence_count: 18
+    key_terms: [professor, work, shocked, grad, assignment, seriously, because, friends]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c2"
+    char_span: [3612, 5675]
+    sentence_count: 15
+    key_terms: [program, online, professor, grad, courses, vague, requirments, like]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c3"
+    char_span: [5677, 7804]
+    sentence_count: 23
+    key_terms: [online, students, because, university, professor, people, coyotelitius, give]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c4"
+    char_span: [7806, 10126]
+    sentence_count: 22
+    key_terms: [professor, probably, grade, because, change, experienced, retroactive, professors]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c5"
+    char_span: [10128, 12468]
+    sentence_count: 23
+    key_terms: [university, degree, program, professor, good, course, "don't", appreciated]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c6"
+    char_span: [12470, 14430]
+    sentence_count: 14
+    key_terms: [professor, degree, opportunities, coyotelitius, least, somewhere, another, problem]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c7"
+    char_span: [14432, 15822]
+    sentence_count: 10
+    key_terms: [good, professor, prusaudis, standards, maintain, required, syllabus, degree]
+    section: Comments
+    token_count: 333
 ---
-
 # Possibly failing first ever grad class, filled academic appeal
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1pp2iuq/possibly_failing_first_ever_grad_class_filled/)

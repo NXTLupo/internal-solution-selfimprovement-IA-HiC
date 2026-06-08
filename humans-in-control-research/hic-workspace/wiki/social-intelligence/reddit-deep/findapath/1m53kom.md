@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1m53kom.md
 url: "https://www.reddit.com/r/findapath/comments/1m53kom/dumped_32f_sugar_baby_at_a_loss_on_what_to_do/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,75 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-25T13:04:07.388Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1m53kom.md#c0"
+    char_span: [0, 1698]
+    sentence_count: 13
+    key_terms: ["i've", past, "didn't", possibility, find, life, whatsoever, findapath]
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/findapath/1m53kom.md#c1"
+    char_span: [1713, 2660]
+    sentence_count: 9
+    key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/findapath/1m53kom.md#c2"
+    char_span: [2663, 4697]
+    sentence_count: 12
+    key_terms: [flight, classes, become, "that's", attendant, good, customer, service]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/findapath/1m53kom.md#c3"
+    char_span: [4450, 5095]
+    sentence_count: 5
+    key_terms: [classes, which-contact7684, "it's", pay, nomadprogrammer, relationship, technically, escomaniac]
+    section: Comments
+    token_count: 178
+  - id: "social-intelligence/reddit-deep/findapath/1m53kom.md#c4"
+    char_span: [5097, 5884]
+    sentence_count: 9
+    key_terms: [life, new, because, living, place, like, picklesstpeter, executive]
+    section: Comments
+    token_count: 195
+  - id: "social-intelligence/reddit-deep/findapath/1m53kom.md#c5"
+    char_span: [5886, 7699]
+    sentence_count: 10
+    key_terms: [comment, people, "i'm", years, back, get, life, too]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/findapath/1m53kom.md#c6"
+    char_span: [7701, 9144]
+    sentence_count: 11
+    key_terms: [experience, job, too, "true", flipper, realtor, travel, agent]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/findapath/1m53kom.md#c7"
+    char_span: [9146, 10624]
+    sentence_count: 14
+    key_terms: [people, get, life, personable, another, because, company, travel]
+    section: Comments
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/findapath/1m53kom.md#c8"
+    char_span: [10626, 12076]
+    sentence_count: 12
+    key_terms: [city, like, take, restaurant, something, credits, schools, online]
+    section: Comments
+    token_count: 345
+  - id: "social-intelligence/reddit-deep/findapath/1m53kom.md#c9"
+    char_span: [12078, 14177]
+    sentence_count: 20
+    key_terms: [like, tech, town, getting, moving, people, start, work]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/findapath/1m53kom.md#c10"
+    char_span: [14179, 15134]
+    sentence_count: 11
+    key_terms: [personality, get, certification, quizzes, require, been, big, fits]
+    section: Comments
+    token_count: 228
 ---
-
 # Dumped 32F sugar baby at a loss on what to do moving forward
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1m53kom/dumped_32f_sugar_baby_at_a_loss_on_what_to_do/)

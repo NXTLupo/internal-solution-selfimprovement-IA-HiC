@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1odyn24.md
 url: "https://www.reddit.com/r/personalfinance/comments/1odyn24/i_lived_in_my_car_for_6_months_to_build_a_nest/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,56 @@ flair: "Planning"
 extracted_at: "2026-05-17T01:13:31.189Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1odyn24.md#c0"
+    char_span: [0, 1688]
+    sentence_count: 17
+    key_terms: [living, year, personalfinance, egg, last, nest, time, retirement]
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/personalfinance/1odyn24.md#c1"
+    char_span: [1690, 2425]
+    sentence_count: 8
+    key_terms: [area, full, time, scholarships, intriguing, passionate, currently, finishing]
+    token_count: 170
+  - id: "social-intelligence/reddit-deep/personalfinance/1odyn24.md#c2"
+    char_span: [2440, 4755]
+    sentence_count: 19
+    key_terms: [better, job, living, money, get, earning, career, grades]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/personalfinance/1odyn24.md#c3"
+    char_span: [4757, 6951]
+    sentence_count: 22
+    key_terms: [car, get, living, school, place, roommates, cheapest, people]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/personalfinance/1odyn24.md#c4"
+    char_span: [6953, 8845]
+    sentence_count: 23
+    key_terms: [sorrylilsis, need, finishing, finances, applaud, college, finding, months]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/personalfinance/1odyn24.md#c5"
+    char_span: [8847, 10332]
+    sentence_count: 10
+    key_terms: [yourself, get, retirement, people, scholarships, right, help, job]
+    section: Comments
+    token_count: 318
+  - id: "social-intelligence/reddit-deep/personalfinance/1odyn24.md#c6"
+    char_span: [10335, 12521]
+    sentence_count: 16
+    key_terms: [job, time, living, school, full, yourself, working, part]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/personalfinance/1odyn24.md#c7"
+    char_span: [12523, 14427]
+    sentence_count: 19
+    key_terms: [work, "you're", get, like, lot, rent, year, retirement]
+    section: Comments
+    token_count: 461
 ---
-
 # I lived in my car for 6 months to build a nest egg. What are my next steps?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1odyn24/i_lived_in_my_car_for_6_months_to_build_a_nest/)

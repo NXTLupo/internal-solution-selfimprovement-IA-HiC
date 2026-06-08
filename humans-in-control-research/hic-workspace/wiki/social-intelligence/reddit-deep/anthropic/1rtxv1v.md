@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/anthropic/1rtxv1v.md
 url: "https://www.reddit.com/r/Anthropic/comments/1rtxv1v/i_built_a_claude_skill_that_writes_perfect/"
 kind: "social-post"
 source: "reddit-deep: r/anthropic"
@@ -13,8 +14,15 @@ flair: "Resources"
 extracted_at: "2026-05-11T17:26:51.917Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/anthropic/1rtxv1v.md#c0"
+    char_span: [0, 482]
+    sentence_count: 3
+    key_terms: [competitiontrick2836, anthropic, comments, setup, promptengineering, reddit-deep, who-let-the, perfect]
+    token_count: 141
 ---
-
 # I built a Claude skill that writes perfect prompts and hit #1 twice on r/PromptEngineering. Here is the setup for the people who need a setup guide.
 
 Source: [reddit-deep: r/anthropic](https://www.reddit.com/r/Anthropic/comments/1rtxv1v/i_built_a_claude_skill_that_writes_perfect/)

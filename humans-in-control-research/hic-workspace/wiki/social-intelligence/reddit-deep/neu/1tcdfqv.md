@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1tcdfqv.md
 url: "https://www.reddit.com/r/NEU/comments/1tcdfqv/catastrophic_coop_search/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,27 @@ flair: "Co-op & Career"
 extracted_at: "2026-05-19T15:08:27.144Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1tcdfqv.md#c0"
+    char_span: [0, 1047]
+    sentence_count: 10
+    key_terms: [search, applications, co-op, keep, comments, cos, "i've", "it's"]
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/neu/1tcdfqv.md#c1"
+    char_span: [1062, 3184]
+    sentence_count: 17
+    key_terms: [experience, market, applications, coop, job, applying, opportunity, get]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/neu/1tcdfqv.md#c2"
+    char_span: [2918, 4784]
+    sentence_count: 16
+    key_terms: [applying, applications, got, jobs, experience, positions, already, whining]
+    section: Comments
+    token_count: 475
 ---
-
 # Catastrophic Co-op Search
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1tcdfqv/catastrophic_coop_search/)

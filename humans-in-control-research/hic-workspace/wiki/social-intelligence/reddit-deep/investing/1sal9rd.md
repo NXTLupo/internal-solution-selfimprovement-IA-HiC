@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1sal9rd.md
 url: "https://www.reddit.com/r/investing/comments/1sal9rd/michael_burry_flags_structural_manipulation_risk/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,99 @@ flair: ""
 extracted_at: "2026-05-16T20:55:01.240Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c0"
+    char_span: [0, 1215]
+    sentence_count: 7
+    key_terms: [nasdaq, spacex, index, company, manipulation, elon, structural, investing]
+    token_count: 298
+  - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c1"
+    char_span: [1241, 1952]
+    sentence_count: 3
+    key_terms: [nasdaq, changes, public, float, nasdaq-100, february, company, trading]
+    section: What Nasdaq changed
+    token_count: 178
+  - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c2"
+    char_span: [1996, 2628]
+    sentence_count: 4
+    key_terms: [shares, artificially, available, company, public, means, small, actually-available]
+    section: What “float” means in normal language
+    token_count: 126
+  - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c3"
+    char_span: [2656, 3781]
+    sentence_count: 5
+    key_terms: [index, stock, investors, price, get, nasdaq-100, company, concern]
+    section: Why this is a problem
+    token_count: 246
+  - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c4"
+    char_span: [3819, 4171]
+    sentence_count: 2
+    key_terms: [people, guaranteed, nasdaq-100, retirement, discovery, investors, workplace, accounts]
+    section: Why ordinary people should care
+    token_count: 77
+  - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c5"
+    char_span: [4185, 4859]
+    sentence_count: 1
+    key_terms: [elon-musks-spacex-weighs-nasdaq-listing-after-seeking-early-index-entry-sources-2026-03-10, new-nasdaq-rules-include-fast-entry-new-listings-benchmark-index-2026-03-30, https, com, nasdaq-concludes-public-consultation-nasdaq-100-indexr, reuters, nasdaq, pdf]
+    section: Sources
+    token_count: 194
+  - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c6"
+    char_span: [4874, 6166]
+    sentence_count: 5
+    key_terms: [ftse-russell-seeks-feedback-fastentry-rule-us-equity-indexes-ahead-mega-ipos-2026-02-18, because, index, want, indices, right, ipo, vti]
+    section: Comments
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c7"
+    char_span: [6168, 8196]
+    sentence_count: 9
+    key_terms: [https, www, tips, com, p-weighs-rule-changes-speed-195942921, nasdaq, people, org]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c8"
+    char_span: [8198, 9882]
+    sentence_count: 7
+    key_terms: [elon-musks-spacex-weighs-nasdaq-listing-after-seeking-early-index-entry-sources-2026-03-10, new-nasdaq-rules-include-fast-entry-new-listings-benchmark-index-2026-03-30, https, com, nasdaq-concludes-public-consultation-nasdaq-100-indexr, changes, reuters, nasdaq]
+    section: Comments
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c9"
+    char_span: [9884, 10498]
+    sentence_count: 3
+    key_terms: [concern, overitallofittoo, moldyjellybean, wallstreetbets, investment, nasdaq-100, retirement, discovery]
+    section: Comments
+    token_count: 160
+  - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c10"
+    char_span: [10500, 12502]
+    sentence_count: 9
+    key_terms: [people, burry, become, forced, helpful-inspector958, infinitepressure4793, being, saved]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c11"
+    char_span: [12316, 12578]
+    sentence_count: 1
+    key_terms: [thegeneral2024, mulletstation, doomerism, solwiggin, chatgpt, usually, bubble, estate]
+    section: Comments
+    token_count: 81
+  - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c12"
+    char_span: [12580, 14273]
+    sentence_count: 14
+    key_terms: [want, investing, fighting, market, people, burry, fight, left]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c13"
+    char_span: [14275, 16275]
+    sentence_count: 12
+    key_terms: [rules, vtsax, crsp, indexes, buying, market, index, find]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/investing/1sal9rd.md#c14"
+    char_span: [16277, 18090]
+    sentence_count: 13
+    key_terms: [fund, managers, index, stole, stealing, grifter, follow, market]
+    section: Comments
+    token_count: 470
 ---
-
 # Michael Burry Flags 'Structural Manipulation' Risk In Nasdaq Rules Ahead Of Potential SpaceX Listing
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1sal9rd/michael_burry_flags_structural_manipulation_risk/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1s54cvg.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1s54cvg/d_we_audited_locomo_64_of_the_answer_key_is_wrong/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -6,19 +7,54 @@ subreddit: "machinelearning"
 title: "[D] We audited LoCoMo: 6.4% of the answer key is wrong and the judge accepts up to 63% of intentionally wrong answers"
 author: "PenfieldLabs"
 date: "2026-03-27T13:38:50.000Z"
-score: 69
-upvote_ratio: 0.98
+score: 71
+upvote_ratio: 0.99
 num_comments: 13
 flair: "Discussion"
-extracted_at: "2026-05-11T17:27:06.576Z"
+extracted_at: "2026-05-31T21:49:57.047Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+research_goal: "Identify emerging AI design trends, skills, tools, platforms, and technical implementations that would  help a company's creative team to move beyond AI as a concepting aid and understand where AI-enabled tools, workflows and internal models can practically support design production, system testing, asset generation, governance and stakeholder confidence. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1s54cvg.md#c0"
+    char_span: [0, 773]
+    sentence_count: 3
+    key_terms: [wrong, machinelearning, locomo, intentionally, comments, accepts, answers, audited]
+    token_count: 208
+  - id: "social-intelligence/reddit-deep/machinelearning/1s54cvg.md#c1"
+    char_span: [786, 3185]
+    sentence_count: 20
+    key_terms: [answer, system, https, wrong, questions, key, specific, answers]
+    section: LoCoMo
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/machinelearning/1s54cvg.md#c2"
+    char_span: [3187, 5615]
+    sentence_count: 17
+    key_terms: [context, window, longmemeval-s, memory, https, benchmark, cognitive, questions]
+    section: LoCoMo / LongMemEval / LoCoMo-Plus
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/machinelearning/1s54cvg.md#c3"
+    char_span: [5677, 8121]
+    sentence_count: 9
+    key_terms: [judge, evaluation, memory, systems, benchmarks, model, ingestion, context]
+    section: Requirements for meaningful long-term memory evaluation
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/machinelearning/1s54cvg.md#c4"
+    char_span: [8136, 10382]
+    sentence_count: 6
+    key_terms: [judge, response, suggestions, acceptance, benchmark, convomem, metadata, against]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/machinelearning/1s54cvg.md#c5"
+    char_span: [10384, 12713]
+    sentence_count: 15
+    key_terms: [memory, temporal, relationships, contradicts, preferences, conflicts, updates, contradictions]
+    section: Comments
+    token_count: 452
 ---
-
 # [D] We audited LoCoMo: 6.4% of the answer key is wrong and the judge accepts up to 63% of intentionally wrong answers
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1s54cvg/d_we_audited_locomo_64_of_the_answer_key_is_wrong/)
-Posted by **PenfieldLabs** · **69↑** · **13 comments**
+Posted by **PenfieldLabs** · **71↑** · **13 comments**
 
 [Projects are still submitting new scores on LoCoMo as of March 2026.](https://github.com/snap-research/locomo/issues/34) We audited it and found 6.4% of the answer key is wrong, and the LLM judge accepts up to 63% of intentionally wrong answers. LongMemEval-S is often raised as an alternative, but each question's corpus fits entirely in modern context windows, making it more of a context window test than a memory test. Here's what we found.
 
@@ -85,7 +121,7 @@ _*Disclosure*: We work on memory systems (Penfield). This audit was conducted in
 
 ## Comments
 
-- **ikkiho** (20↑): the 63% false acceptance rate on the judge is honestly the scariest part here. ive seen similar stuff with llm-as-judge setups in other eval contexts too, they basically reward anything topically adjacent even when the actual answer is completely wrong. its like getting credit on an exam for writing a confident paragraph about the right topic without answering the question
+- **ikkiho** (21↑): the 63% false acceptance rate on the judge is honestly the scariest part here. ive seen similar stuff with llm-as-judge setups in other eval contexts too, they basically reward anything topically adjacent even when the actual answer is completely wrong. its like getting credit on an exam for writing a confident paragraph about the right topic without answering the question
 
 the Ferrari example is wild tho, evaluating systems against info that only exists in internal annotator metadata they never see? thats not a benchmark error thats a design flaw. no wonder nobody can reproduce the published numbers
 - **Local_Recording_2654** (2↑): Thank you for sharing, this is great work. Is there an alternative dataset you recommend using? Have you done a similar audit for ConvoMem?

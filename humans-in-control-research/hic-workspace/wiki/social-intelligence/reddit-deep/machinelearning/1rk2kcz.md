@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1rk2kcz.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1rk2kcz/p_i_trained_qwen2515b_with_rlvr_grpo_vs_sft_and/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -13,8 +14,32 @@ flair: "Project"
 extracted_at: "2026-05-11T17:27:06.578Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1rk2kcz.md#c0"
+    char_span: [0, 1883]
+    sentence_count: 18
+    key_terms: [training, rlvr, sft, reasoning, performance, gsm8k, data, machinelearning]
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/machinelearning/1rk2kcz.md#c1"
+    char_span: [1885, 2900]
+    sentence_count: 2
+    key_terms: [rlvr-vs-sft-qwen2, rtx, jayminban, gsm8k, checkpoints, https, grpo, project]
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/machinelearning/1rk2kcz.md#c2"
+    char_span: [2915, 5239]
+    sentence_count: 10
+    key_terms: [entropy, runs, bonus, model, did, training, curious, dataset]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/machinelearning/1rk2kcz.md#c3"
+    char_span: [5241, 7648]
+    sentence_count: 13
+    key_terms: [sft, model, reasoning, rlvr, different, patterns, scales, improvement]
+    section: Comments
+    token_count: 502
 ---
-
 # [P] I trained Qwen2.5-1.5b with RLVR (GRPO) vs SFT and compared benchmark performance
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1rk2kcz/p_i_trained_qwen2515b_with_rlvr_grpo_vs_sft_and/)

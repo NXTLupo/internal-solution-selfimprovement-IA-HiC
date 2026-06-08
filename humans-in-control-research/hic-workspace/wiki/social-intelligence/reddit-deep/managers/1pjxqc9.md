@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1pjxqc9.md
 url: "https://www.reddit.com/r/managers/comments/1pjxqc9/pto_as_an_incentive/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,69 @@ flair: "New Manager"
 extracted_at: "2026-05-26T12:54:23.687Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1pjxqc9.md#c0"
+    char_span: [0, 1834]
+    sentence_count: 17
+    key_terms: [pto, performance, director, team, incentive, days, taken, day]
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/managers/1pjxqc9.md#c1"
+    char_span: [1849, 3471]
+    sentence_count: 17
+    key_terms: [unlimited, pto, the-smoke-and-mirrors-of-unlimited-paid-time-off, time, probably, company, "it's", took]
+    section: Comments
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/managers/1pjxqc9.md#c2"
+    char_span: [3473, 5468]
+    sentence_count: 25
+    key_terms: [unlimited, pto, time, company, take, work, advantage, liability]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/managers/1pjxqc9.md#c3"
+    char_span: [5470, 7494]
+    sentence_count: 16
+    key_terms: [unlimited, pto, right, performance, people, benefit, take, time]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/managers/1pjxqc9.md#c4"
+    char_span: [7496, 8167]
+    sentence_count: 4
+    key_terms: [company, improve, policy, result, "that's", acceptance, employment, statements]
+    section: Comments
+    token_count: 150
+  - id: "social-intelligence/reddit-deep/managers/1pjxqc9.md#c5"
+    char_span: [8169, 9876]
+    sentence_count: 11
+    key_terms: [performance, like, unlimited, because, sounds, withholding, got, poor]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/managers/1pjxqc9.md#c6"
+    char_span: [9878, 12029]
+    sentence_count: 23
+    key_terms: [pto, unlimited, director, performance, business, employee, "she's", improvement]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/managers/1pjxqc9.md#c7"
+    char_span: [12031, 13904]
+    sentence_count: 15
+    key_terms: [pto, unlimited, days, nicolakirwan, expectation, performance, yrs, director]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/managers/1pjxqc9.md#c8"
+    char_span: [13906, 15250]
+    sentence_count: 14
+    key_terms: [employee, team, director, good, need, pto, members, member]
+    section: Comments
+    token_count: 313
+  - id: "social-intelligence/reddit-deep/managers/1pjxqc9.md#c9"
+    char_span: [15252, 16216]
+    sentence_count: 6
+    key_terms: [like, employees, crafty-pomegranate19, regular-amoeba5455, don, pto, unproblematic, probableslob]
+    section: Comments
+    token_count: 238
 ---
-
 # PTO as an Incentive
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1pjxqc9/pto_as_an_incentive/)

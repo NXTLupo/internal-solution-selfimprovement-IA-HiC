@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1r8jacl.md
 url: "https://www.reddit.com/r/managers/comments/1r8jacl/employee_has_a_job_offer_but_im_leaving_also/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,68 @@ flair: "Seasoned Manager"
 extracted_at: "2026-05-26T12:54:23.672Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1r8jacl.md#c0"
+    char_span: [0, 2053]
+    sentence_count: 28
+    key_terms: [career, comments, client, offer, been, job, new, tell]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/managers/1r8jacl.md#c1"
+    char_span: [2055, 3484]
+    sentence_count: 13
+    key_terms: [told, ultimately, opportunity, get, new, company, current, course]
+    token_count: 319
+  - id: "social-intelligence/reddit-deep/managers/1r8jacl.md#c2"
+    char_span: [3499, 4049]
+    sentence_count: 6
+    key_terms: [secrecy, subtle, swear, sopwithturtle, orangeflos, situations, important, wednesday]
+    section: Comments
+    token_count: 140
+  - id: "social-intelligence/reddit-deep/managers/1r8jacl.md#c3"
+    char_span: [4051, 6194]
+    sentence_count: 15
+    key_terms: [boss, told, relationship, good, job, new, take, management]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/managers/1r8jacl.md#c4"
+    char_span: [5892, 7151]
+    sentence_count: 7
+    key_terms: [talk, tell, better, according-today-4971, excellentbreakfasts, seriousclothes111, back, help]
+    section: Comments
+    token_count: 309
+  - id: "social-intelligence/reddit-deep/managers/1r8jacl.md#c5"
+    char_span: [7153, 9098]
+    sentence_count: 14
+    key_terms: [told, opportunity, new, ultimately, whatever, company, current, cannot]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/managers/1r8jacl.md#c6"
+    char_span: [9100, 10925]
+    sentence_count: 14
+    key_terms: [seriousclothes111, team, thunderdefunder, good, like, supported, employee, position]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/managers/1r8jacl.md#c7"
+    char_span: [10927, 12069]
+    sentence_count: 6
+    key_terms: [promotion, employee, position, new, available, employer, sounds, fragilousspectunkery]
+    section: Comments
+    token_count: 272
+  - id: "social-intelligence/reddit-deep/managers/1r8jacl.md#c8"
+    char_span: [12071, 14021]
+    sentence_count: 14
+    key_terms: [going, tell, leaving, destination, jenikovista, position, practice, telling]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/managers/1r8jacl.md#c9"
+    char_span: [14023, 15524]
+    sentence_count: 11
+    key_terms: [promotion, offer, got, employee, company, manager, raises, been]
+    section: Comments
+    token_count: 364
 ---
-
 # Employee has a job offer - but I’m leaving also
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1r8jacl/employee_has_a_job_offer_but_im_leaving_also/)

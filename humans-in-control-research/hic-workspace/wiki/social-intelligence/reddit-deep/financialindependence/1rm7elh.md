@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1rm7elh.md
 url: "https://www.reddit.com/r/financialindependence/comments/1rm7elh/late_to_investing_should_i_buy_a_home_or_am_i_not/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,63 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.712Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c0"
+    char_span: [0, 1823]
+    sentence_count: 16
+    key_terms: [investing, financialindependence, brokerage, home, husband, month, prioritize, comments]
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c1"
+    char_span: [1838, 3635]
+    sentence_count: 9
+    key_terms: ["you're", group, people, feel, building, invested, current, focused]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c2"
+    char_span: [3637, 5471]
+    sentence_count: 14
+    key_terms: [retired, rental, pandachibaby, networth-percentile-calculator, home, specific, personalfinancedata, extra]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c3"
+    char_span: [5473, 7453]
+    sentence_count: 35
+    key_terms: [something, husband, brokerage, "you're", right, loan, low, max]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c4"
+    char_span: [7455, 9390]
+    sentence_count: 23
+    key_terms: [emergency, comment, good, housing, months, stress, loose, money]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c5"
+    char_span: [9392, 11479]
+    sentence_count: 24
+    key_terms: ["you're", people, home, financial, husband, pandachibaby, money, need]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c6"
+    char_span: [11481, 13684]
+    sentence_count: 27
+    key_terms: [income, month, right, something, "it's", pressure, "i'd", building]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c7"
+    char_span: [13686, 15794]
+    sentence_count: 23
+    key_terms: [investment, home, loan, mortgage, edgeinformal8264, money, month, right]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c8"
+    char_span: [15796, 16297]
+    sentence_count: 5
+    key_terms: [appreciation, cashflow, negative, property, income, significantly, pandachibaby, subsidising]
+    section: Comments
+    token_count: 106
 ---
-
 # Late to investing, should I buy a home or am I not aggressive enough?
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1rm7elh/late_to_investing_should_i_buy_a_home_or_am_i_not/)

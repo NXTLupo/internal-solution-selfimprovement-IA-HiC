@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1smhxhs.md
 url: "https://www.reddit.com/r/careerguidance/comments/1smhxhs/biochemistry_student_19_unsure_about_career_path/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -8,17 +9,28 @@ author: "Mak_lost"
 date: "2026-04-15T20:28:17.000Z"
 score: 2
 upvote_ratio: 1
-num_comments: 3
+num_comments: 4
 flair: "Advice"
-extracted_at: "2026-05-22T21:34:47.967Z"
+extracted_at: "2026-06-03T18:53:36.154Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1smhxhs.md#c0"
+    char_span: [0, 1270]
+    sentence_count: 8
+    key_terms: [biochemistry, careerguidance, applications, something, comments, paycheck, career, field]
+    token_count: 291
+  - id: "social-intelligence/reddit-deep/careerguidance/1smhxhs.md#c1"
+    char_span: [1285, 2285]
+    sentence_count: 1
+    key_terms: [get, work, companies, biotech, working, people, right, bioinformatics]
+    section: Comments
+    token_count: 205
 ---
-
 # Biochemistry student (19) unsure about career path, what should i do next?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1smhxhs/biochemistry_student_19_unsure_about_career_path/)
-Posted by **Mak_lost** · **2↑** · **3 comments**
+Posted by **Mak_lost** · **2↑** · **4 comments**
 
 Hi everyone,
 

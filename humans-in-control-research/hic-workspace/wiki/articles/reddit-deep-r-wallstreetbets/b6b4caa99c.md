@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-wallstreetbets/b6b4caa99c.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1qtkgt6/sndk_mu_momentum_exhaustion/"
 url_hash: "b6b4caa99c"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:22:31.479687+00:00"
 chars: 1968
+industries: [enterprise_it, ai_research, financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-wallstreetbets/b6b4caa99c.md#c0"
+    char_span: [0, 1718]
+    sentence_count: 9
+    key_terms: [sndk, exhaustion, puts, rsi, comments, wallstreetbets, feb, short-term]
+    token_count: 503
+  - id: "articles/reddit-deep-r-wallstreetbets/b6b4caa99c.md#c1"
+    char_span: [1720, 2136]
+    sentence_count: 2
+    key_terms: [crayons, aggravating-buy-1695, top-perception3709, jordanpeterson9, far-guava6006, restrictions, scytherdota, reasoning]
+    token_count: 137
 ---
-
 # 🌈🐻 $SNDK $MU - Momentum Exhaustion
 
 Source: [Reddit Deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1qtkgt6/sndk_mu_momentum_exhaustion/)

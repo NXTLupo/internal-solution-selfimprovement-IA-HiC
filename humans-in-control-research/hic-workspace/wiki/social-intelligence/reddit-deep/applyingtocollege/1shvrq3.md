@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1shvrq3.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1shvrq3/as_a_mom_im_so_proud_of_all_of_you/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,33 @@ flair: "Emotional Support"
 extracted_at: "2026-05-25T18:32:06.248Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1shvrq3.md#c0"
+    char_span: [0, 1555]
+    sentence_count: 17
+    key_terms: [applyingtocollege, get, "i'm", "didn't", comments, college, through, around]
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1shvrq3.md#c1"
+    char_span: [1570, 3359]
+    sentence_count: 14
+    key_terms: [heartzealousideal967, princeton, college, scholarship, beautiful, "that's", traditional-fix-5205, polevaultingishard]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1shvrq3.md#c2"
+    char_span: [3361, 5160]
+    sentence_count: 12
+    key_terms: [admissions, measurementtop2885, applyingtocollege, high, shes, undergraduate, karen, kids]
+    section: Comments
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1shvrq3.md#c3"
+    char_span: [5162, 6007]
+    sentence_count: 7
+    key_terms: [patronizing, empathy, people, party, measurementtop2885, judgmentalism, recognizable, sonnyiniesta]
+    section: Comments
+    token_count: 203
 ---
-
 # As a mom, I'm so proud of all of you!!
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1shvrq3/as_a_mom_im_so_proud_of_all_of_you/)

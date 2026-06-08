@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1shil32.md
 url: "https://www.reddit.com/r/careerguidance/comments/1shil32/how_do_you_find_a_career_with_an_adhd_diagnosis/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,75 @@ flair: "Advice"
 extracted_at: "2026-05-25T15:52:13.110Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1shil32.md#c0"
+    char_span: [0, 2088]
+    sentence_count: 17
+    key_terms: [don, work, find, careerguidance, questionnaires, career, people, worked]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/careerguidance/1shil32.md#c1"
+    char_span: [2103, 4209]
+    sentence_count: 18
+    key_terms: [work, medicated, job, settledownbessye, office, adhd, day, like]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/careerguidance/1shil32.md#c2"
+    char_span: [4211, 6227]
+    sentence_count: 21
+    key_terms: [something, jobs, work, state, did, get, like, experience]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/careerguidance/1shil32.md#c3"
+    char_span: [6229, 7693]
+    sentence_count: 16
+    key_terms: [service, better-paying, did, jobs, especially, strengths, doing, maybe]
+    section: Comments
+    token_count: 352
+  - id: "social-intelligence/reddit-deep/careerguidance/1shil32.md#c4"
+    char_span: [7695, 9191]
+    sentence_count: 13
+    key_terms: [need, healthcare, mechanic, paycheck, already, problem, credit, decent]
+    section: Comments
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/careerguidance/1shil32.md#c5"
+    char_span: [9193, 11459]
+    sentence_count: 16
+    key_terms: [dopamine, skills, being, amazing-injury8078, different, loved, necessarily, hit]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/careerguidance/1shil32.md#c6"
+    char_span: [11461, 13280]
+    sentence_count: 5
+    key_terms: [because, field, like, requires, almost, school, prerequisites, construction]
+    section: Comments
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/careerguidance/1shil32.md#c7"
+    char_span: [13282, 15246]
+    sentence_count: 12
+    key_terms: [job, adhd, definitely, gives, because, people, get, equipment]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/careerguidance/1shil32.md#c8"
+    char_span: [15248, 16927]
+    sentence_count: 13
+    key_terms: ["don't", career, maybe, adhd, people, phlebotomist, guess, find]
+    section: Comments
+    token_count: 408
+  - id: "social-intelligence/reddit-deep/careerguidance/1shil32.md#c9"
+    char_span: [16929, 18649]
+    sentence_count: 16
+    key_terms: [get, because, truck, bartending, phlebotomy, dopamine, working, ruined]
+    section: Comments
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/careerguidance/1shil32.md#c10"
+    char_span: [18651, 19539]
+    sentence_count: 11
+    key_terms: [degree, college, opportunities, engineering, job, lots, community, prereqs]
+    section: Comments
+    token_count: 207
 ---
-
 # How do you find a “career” with an ADHD diagnosis?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1shil32/how_do_you_find_a_career_with_an_adhd_diagnosis/)

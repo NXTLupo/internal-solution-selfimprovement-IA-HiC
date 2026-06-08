@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1nf9sd7.md
 url: "https://www.reddit.com/r/artificial/comments/1nf9sd7/i_am_over_ai/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,69 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:04.779Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1nf9sd7.md#c0"
+    char_span: [0, 1231]
+    sentence_count: 10
+    key_terms: [info, artificial, comments, websites, "doesn't", claude, "don't", tools]
+    token_count: 302
+  - id: "social-intelligence/reddit-deep/artificial/1nf9sd7.md#c1"
+    char_span: [1246, 3375]
+    sentence_count: 17
+    key_terms: [next, prediction, iddoitatleastonce, like, word, hallucinations, manipulation, "it's"]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/artificial/1nf9sd7.md#c2"
+    char_span: [3377, 5218]
+    sentence_count: 16
+    key_terms: [search, engine, like, get, gets, hardware, context, engines]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/artificial/1nf9sd7.md#c3"
+    char_span: [5221, 6857]
+    sentence_count: 12
+    key_terms: [github, com, like, planetaryrestorationarchive, something, treating, feels, model]
+    section: Comments
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/artificial/1nf9sd7.md#c4"
+    char_span: [6859, 8657]
+    sentence_count: 15
+    key_terms: [people, honeymoon, avoid, kinds, like, dismissed, because, schlock]
+    section: Comments
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/artificial/1nf9sd7.md#c5"
+    char_span: [8659, 10625]
+    sentence_count: 6
+    key_terms: [like, deleted, people, box, god, jlsilicon9, personally, marketed]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/artificial/1nf9sd7.md#c6"
+    char_span: [10407, 10806]
+    sentence_count: 1
+    key_terms: [real, people, person, minimumoverkill, accidentally, interactions, frequently, available]
+    section: Comments
+    token_count: 101
+  - id: "social-intelligence/reddit-deep/artificial/1nf9sd7.md#c7"
+    char_span: [10808, 12664]
+    sentence_count: 11
+    key_terms: [people, internet, deleted, posicrit868, away, machine, nothing, started]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/artificial/1nf9sd7.md#c8"
+    char_span: [12666, 14443]
+    sentence_count: 19
+    key_terms: [years, been, data, training, info, like, llms, oldbluer]
+    section: Comments
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/artificial/1nf9sd7.md#c9"
+    char_span: [14445, 15429]
+    sentence_count: 10
+    key_terms: [large, model, language, use, analysis, presence, leading-plastic5771, "don't"]
+    section: Comments
+    token_count: 233
 ---
-
 # I am over AI
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1nf9sd7/i_am_over_ai/)

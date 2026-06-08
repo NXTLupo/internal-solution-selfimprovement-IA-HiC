@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1t0rdri.md
 url: "https://www.reddit.com/r/deeplearning/comments/1t0rdri/i_have_been_finetuning_llama_31_8b_with_qlora_for/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.046Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1t0rdri.md#c0"
+    char_span: [0, 1595]
+    sentence_count: 9
+    key_terms: [synthetic, like, learning, classification, deeplearning, data, genuinley, comments]
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/deeplearning/1t0rdri.md#c1"
+    char_span: [1610, 3917]
+    sentence_count: 7
+    key_terms: [synthetic, data, model, honestly, right, like, real, different]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/deeplearning/1t0rdri.md#c2"
+    char_span: [3611, 4262]
+    sentence_count: 5
+    key_terms: [synthetic, data, real, model, classification, distributions, stylistically, fine-tuning]
+    section: Comments
+    token_count: 133
 ---
-
 # I have been fine-tuning llama 3.1 8b with QLoRA for a classification task in my thesis (nothing exotic, rank 16, unsloth, standard stuff)
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1t0rdri/i_have_been_finetuning_llama_31_8b_with_qlora_for/)

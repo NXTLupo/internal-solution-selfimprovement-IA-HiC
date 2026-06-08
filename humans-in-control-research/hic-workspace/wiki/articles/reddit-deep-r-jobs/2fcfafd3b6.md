@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-jobs/2fcfafd3b6.md
 url: "https://www.reddit.com/r/jobs/comments/1t5lhe7/is_there_an_easy_way_to_get_hired_for_a_job_if/"
 url_hash: "2fcfafd3b6"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T06:47:50.585032+00:00"
 chars: 680
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-jobs/2fcfafd3b6.md#c0"
+    char_span: [0, 915]
+    sentence_count: 6
+    key_terms: [jobs, comments, people, reddit, trades, never, sudden-usual-5140, work]
+    token_count: 235
 ---
-
 # Is there an easy way to get hired for a job if you never graduated high school and lack social skills?
 
 Source: [Reddit Deep: r/jobs](https://www.reddit.com/r/jobs/comments/1t5lhe7/is_there_an_easy_way_to_get_hired_for_a_job_if/)

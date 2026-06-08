@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1t4pcdr.md
 url: "https://www.reddit.com/r/managers/comments/1t4pcdr/advice_needed_managing_frustrated_team_member/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,33 @@ flair: "New Manager"
 extracted_at: "2026-05-26T12:54:23.664Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1t4pcdr.md#c0"
+    char_span: [0, 1044]
+    sentence_count: 6
+    key_terms: [team, member, frustrated, management, temporary, comments, managers, projects]
+    token_count: 235
+  - id: "social-intelligence/reddit-deep/managers/1t4pcdr.md#c1"
+    char_span: [1059, 3305]
+    sentence_count: 14
+    key_terms: [team, temporary, establishmentlocal97, lead, member, management, director, lonely-world-981]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/managers/1t4pcdr.md#c2"
+    char_span: [3307, 5382]
+    sentence_count: 12
+    key_terms: [person, get, promoted, looking, manager, advocate, because, change]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/managers/1t4pcdr.md#c3"
+    char_span: [5384, 7415]
+    sentence_count: 14
+    key_terms: [establishmentlocal97, sohaib-riaz-khan, communication, build, frustration, opportunity, transparent, here]
+    section: Comments
+    token_count: 459
 ---
-
 # Advice needed: Managing frustrated team member
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1t4pcdr/advice_needed_managing_frustrated_team_member/)

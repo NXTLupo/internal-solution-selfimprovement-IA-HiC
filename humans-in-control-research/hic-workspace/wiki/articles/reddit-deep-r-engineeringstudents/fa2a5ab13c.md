@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-engineeringstudents/fa2a5ab13c.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1myu8f0/what_is_the_best_advice_you_could_give_to_a/"
 url_hash: "fa2a5ab13c"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T20:21:05.218138+00:00"
 chars: 3674
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-engineeringstudents/fa2a5ab13c.md#c0"
+    char_span: [0, 1409]
+    sentence_count: 8
+    key_terms: [engineeringstudents, comments, classes, redact, reddit, https, good, got]
+    token_count: 358
+  - id: "articles/reddit-deep-r-engineeringstudents/fa2a5ab13c.md#c1"
+    char_span: [1411, 3297]
+    sentence_count: 19
+    key_terms: [recruiters, freshman, dont, engineering, job, did, get, give]
+    token_count: 398
+  - id: "articles/reddit-deep-r-engineeringstudents/fa2a5ab13c.md#c2"
+    char_span: [3299, 3907]
+    sentence_count: 8
+    key_terms: [time, classes, study, schedule, summer, take, discipline, management]
+    token_count: 147
 ---
-
 # What is the best advice you could give to a freshman engineering student?
 
 Source: [Reddit Deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1myu8f0/what_is_the_best_advice_you_could_give_to_a/)

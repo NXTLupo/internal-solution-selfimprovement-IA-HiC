@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1teq5bg.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1teq5bg/need_advice_370_short_on_a_debt_struggling_to/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,21 @@ flair: "Budgeting/Saving/Investing/Spending"
 extracted_at: "2026-05-16T20:55:12.685Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1teq5bg.md#c0"
+    char_span: [0, 1150]
+    sentence_count: 7
+    key_terms: [short-term, work, povertyfinance, short, freelance, comments, options, similar]
+    token_count: 270
+  - id: "social-intelligence/reddit-deep/povertyfinance/1teq5bg.md#c1"
+    char_span: [1165, 2939]
+    sentence_count: 5
+    key_terms: [day, get, paid, extension, because, payment, usually, local]
+    section: Comments
+    token_count: 414
 ---
-
 # Need advice: $370 short on a debt, struggling to find work or short-term income options
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1teq5bg/need_advice_370_short_on_a_debt_struggling_to/)

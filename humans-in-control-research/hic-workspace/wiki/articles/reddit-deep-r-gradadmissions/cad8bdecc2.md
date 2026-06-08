@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-gradadmissions/cad8bdecc2.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1p1csbd/requesting_feedback_what_are_the_weak_areas_in_my/"
 url_hash: "cad8bdecc2"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:41:41.929776+00:00"
 chars: 791
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-gradadmissions/cad8bdecc2.md#c0"
+    char_span: [0, 1023]
+    sentence_count: 8
+    key_terms: [research, gradadmissions, paragraphs, comments, feedback, reddit, fun-concentrate2992, https]
+    token_count: 269
 ---
-
 # Requesting feedback: What are the weak areas in my SOP for Biochemistry PhD?
 
 Source: [Reddit Deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1p1csbd/requesting_feedback_what_are_the_weak_areas_in_my/)

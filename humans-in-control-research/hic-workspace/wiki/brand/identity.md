@@ -1,4 +1,5 @@
 ---
+id: brand/identity.md
 title: "NXT Humans Visual Identity System"
 type: brand
 created: 2026-04-10
@@ -8,8 +9,80 @@ confidence: high
 status: active
 tags: [brand, identity, css, design-system, typography, color]
 evidence_count: 0
+chunks:
+  - id: "brand/identity.md#c0"
+    char_span: [0, 869]
+    sentence_count: 7
+    key_terms: [identity, humans, visual, nxt, decorative, output, single, rounded-everything]
+    section: Design Philosophy
+    token_count: 162
+  - id: "brand/identity.md#c1"
+    char_span: [904, 2092]
+    sentence_count: 1
+    key_terms: [b8b800, sans-serif, accents, f5f5f0, nxt-chartreuse-soft, nxt-critical-border, nxt-evidence-border, nxt-positive-border]
+    section: Complete CSS Variable System
+    token_count: 502
+  - id: "brand/identity.md#c2"
+    char_span: [2094, 2621]
+    sentence_count: 1
+    key_terms: [sidebar-width, text-display, content-max, space-2xl, space-3xl, text-base, space-lg, space-md]
+    section: Complete CSS Variable System
+    token_count: 254
+  - id: "brand/identity.md#c3"
+    char_span: [2642, 4271]
+    sentence_count: 6
+    key_terms: [deliverable, primary, dark, mode, dividers, sections, accents, section]
+    section: Template Modes
+    token_count: 450
+  - id: "brand/identity.md#c4"
+    char_span: [4295, 6043]
+    sentence_count: 4
+    key_terms: [chartreuse, color, secondary, backgrounds, accent, visual, never, white]
+    section: Color Usage Rules
+    token_count: 427
+  - id: "brand/identity.md#c5"
+    char_span: [6045, 7342]
+    sentence_count: 3
+    key_terms: [background, borders, alternating, backgrounds, information, text, elements, nxt-body]
+    section: Color Usage Rules
+    token_count: 397
+  - id: "brand/identity.md#c6"
+    char_span: [7366, 8614]
+    sentence_count: 3
+    key_terms: [deliverable, code, font, sans-serif, typefaces, banned, design, default-of-defaults]
+    section: Typography System
+    token_count: 298
+  - id: "brand/identity.md#c7"
+    char_span: [8616, 9810]
+    sentence_count: 1
+    key_terms: [headline, body, section, titles, headings, title, hero, paragraphs]
+    section: Typography System
+    token_count: 386
+  - id: "brand/identity.md#c8"
+    char_span: [9812, 11268]
+    sentence_count: 12
+    key_terms: [text, bebas, headlines, uppercase, neue, use, designed, headline]
+    section: Typography System
+    token_count: 394
+  - id: "brand/identity.md#c9"
+    char_span: [11289, 12923]
+    sentence_count: 4
+    key_terms: [space-lg, spacing, content, gaps, space-md, vertical, padding, values]
+    section: Spacing System
+    token_count: 445
+  - id: "brand/identity.md#c10"
+    char_span: [12944, 13649]
+    sentence_count: 4
+    key_terms: [brand-dot-grid, appears, circles, "maker's", grid-template-columns, repeat, grid-template-rows, gap]
+    section: Brand Dot Grid
+    token_count: 205
+  - id: "brand/identity.md#c11"
+    char_span: [13672, 14175]
+    sentence_count: 2
+    key_terms: [brand, banned, typography, anti-slop, identity, color, rules, illustration-style]
+    section: Cross-References
+    token_count: 103
 ---
-
 # NXT Humans Visual Identity System
 
 This document is the single source of truth for the NXT Humans visual identity. Every deliverable -- research reports, presentations, dashboards, exported PDFs -- MUST conform to these specifications. Read this page before rendering any visual output.

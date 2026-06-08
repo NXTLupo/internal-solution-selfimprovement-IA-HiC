@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1peijrv.md
 url: "https://www.reddit.com/r/Professors/comments/1peijrv/are_reasonable_disability_accommodations_supposed/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,92 @@ flair: "Disability Accommodations"
 extracted_at: "2026-05-20T03:55:39.286Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c0"
+    char_span: [0, 2379]
+    sentence_count: 18
+    key_terms: [students, accommodations, accommodation, complete, time, disabilities, grades, extra]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c1"
+    char_span: [2381, 2923]
+    sentence_count: 5
+    key_terms: [accommodation, advantage, parent, weeks, accommodations, opportunities, non-disabled, assessments]
+    token_count: 107
+  - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c2"
+    char_span: [2938, 4801]
+    sentence_count: 8
+    key_terms: [paper, professor, law, students, quesocadadia, specifically, class, exam]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c3"
+    char_span: [4803, 5441]
+    sentence_count: 3
+    key_terms: [accommodations, helping, students, equitable, learn, voice-to-text, conversation, disabilities]
+    section: Comments
+    token_count: 118
+  - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c4"
+    char_span: [5443, 7661]
+    sentence_count: 9
+    key_terms: [accommodations, students, weeks, time, submitted, barriers, learning, material]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c5"
+    char_span: [7448, 7772]
+    sentence_count: 1
+    key_terms: [papayatwentythree, accommodations, accommodation, downvoting, soonerred, universal, anything, approach]
+    section: Comments
+    token_count: 90
+  - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c6"
+    char_span: [7774, 9322]
+    sentence_count: 8
+    key_terms: [accommodation, office, weeks, allowed, friend, parent, assignment, disability]
+    section: Comments
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c7"
+    char_span: [9324, 11669]
+    sentence_count: 17
+    key_terms: [time, students, student, minutes, disabled, enough, disability, answers]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c8"
+    char_span: [11370, 11950]
+    sentence_count: 3
+    key_terms: [time, give, extra, answers, minutes, student, shit, approximately]
+    section: Comments
+    token_count: 127
+  - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c9"
+    char_span: [11952, 14164]
+    sentence_count: 14
+    key_terms: [accommodations, students, disabilities, time, premise, extra, learning, playing]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c10"
+    char_span: [14166, 15336]
+    sentence_count: 11
+    key_terms: [question, student, minutes, incredibly, questions, dyslexic, in-class, "wouldn't"]
+    section: Comments
+    token_count: 254
+  - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c11"
+    char_span: [15338, 17216]
+    sentence_count: 18
+    key_terms: [time, student, dyslexic, hours, complete, everyone, problems, minutes]
+    section: Comments
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c12"
+    char_span: [17218, 19257]
+    sentence_count: 10
+    key_terms: [time, need, giving, accommodations, students, extra, exam, minutes]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c13"
+    char_span: [19259, 21032]
+    sentence_count: 14
+    key_terms: [students, minutes, accommodations, accommodation, lab, time, design, disabilities]
+    section: Comments
+    token_count: 393
 ---
-
 # Are reasonable disability accommodations supposed to help students LEARN or help students get BETTER GRADES? Are they supposed to allow disabled students to achieve to their fullest potential or to "level the playing field" to allow them to get the same grades as non-disabled students?
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1peijrv/are_reasonable_disability_accommodations_supposed/)

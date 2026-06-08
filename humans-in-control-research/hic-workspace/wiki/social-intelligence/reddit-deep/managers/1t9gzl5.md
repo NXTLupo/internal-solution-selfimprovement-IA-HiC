@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1t9gzl5.md
 url: "https://www.reddit.com/r/managers/comments/1t9gzl5/new_manager_in_need_of_scripts_for_team_leader/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,33 @@ flair: "New Manager"
 extracted_at: "2026-05-26T12:54:23.674Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1t9gzl5.md#c0"
+    char_span: [0, 1388]
+    sentence_count: 7
+    key_terms: [need, new, team, repeatedly, comments, industry, managers, manager]
+    token_count: 329
+  - id: "social-intelligence/reddit-deep/managers/1t9gzl5.md#c1"
+    char_span: [1403, 3263]
+    sentence_count: 15
+    key_terms: [immediately, let, need, changes, started, wrong, implemented, get]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/managers/1t9gzl5.md#c2"
+    char_span: [3265, 5224]
+    sentence_count: 6
+    key_terms: [experience, termination, team, decision, changes, company, either, policy]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/managers/1t9gzl5.md#c3"
+    char_span: [5226, 6318]
+    sentence_count: 1
+    key_terms: [conversation, experience, feedback, policies, specific, script, "don't", internalized]
+    section: Comments
+    token_count: 237
 ---
-
 # New manager, in need of scripts for Team Leader feedback
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1t9gzl5/new_manager_in_need_of_scripts_for_team_leader/)

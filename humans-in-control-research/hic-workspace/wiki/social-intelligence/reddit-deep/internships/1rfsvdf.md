@@ -6,19 +6,19 @@ subreddit: "internships"
 title: "internship interview prep that actually works. my playbook."
 author: "Suitable-Jelly-3693"
 date: "2026-02-27T01:23:33.000Z"
-score: 60
+score: 62
 upvote_ratio: 0.98
 num_comments: 2
 flair: "General"
-extracted_at: "2026-05-22T13:32:14.565Z"
+extracted_at: "2026-06-06T23:20:46.227Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # internship interview prep that actually works. my playbook.
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rfsvdf/internship_interview_prep_that_actually_works_my/)
-Posted by **Suitable-Jelly-3693** · **60↑** · **2 comments**
+Posted by **Suitable-Jelly-3693** · **62↑** · **2 comments**
 
 if you’re stressing because you don’t know what they’ll ask: most internship interviews are predictable. the difference is having a simple system + practicing out loud.
 

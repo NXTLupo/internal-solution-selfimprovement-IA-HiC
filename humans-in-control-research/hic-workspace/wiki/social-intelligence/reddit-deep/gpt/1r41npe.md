@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1r41npe.md
 url: "https://www.reddit.com/r/GPT/comments/1r41npe/i_feel_gpt_52_is_a_digital_karen/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-11T17:26:37.721Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1r41npe.md#c0"
+    char_span: [0, 666]
+    sentence_count: 6
+    key_terms: [gpt, comments, digital, karen, hypothetically, hypothetical, professional, acknowledge]
+    token_count: 167
+  - id: "social-intelligence/reddit-deep/gpt/1r41npe.md#c1"
+    char_span: [681, 1968]
+    sentence_count: 20
+    key_terms: [manager, doubtfive, karen, corporate-flavored, no-conclusion8653, big, mrs, rude]
+    section: Comments
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/gpt/1r41npe.md#c2"
+    char_span: [1970, 3351]
+    sentence_count: 7
+    key_terms: [annoying, fearless-sandwich823, great, karen, worse, various-smell-6900, been, "it's"]
+    section: Comments
+    token_count: 451
 ---
-
 # I feel Gpt 5.2 is a digital Karen
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1r41npe/i_feel_gpt_52_is_a_digital_karen/)

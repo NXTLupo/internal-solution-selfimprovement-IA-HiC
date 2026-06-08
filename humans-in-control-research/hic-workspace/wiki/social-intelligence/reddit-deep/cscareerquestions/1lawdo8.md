@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1lawdo8/which_new_grad_offer_to_take_entrylevel_swe_us/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,56 @@ flair: ""
 extracted_at: "2026-05-26T14:31:41.272Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c0"
+    char_span: [0, 1402]
+    sentence_count: 4
+    key_terms: [offer, cscareerquestions, "it's", canadian, canada, big, rsus, tech]
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c1"
+    char_span: [1404, 3444]
+    sentence_count: 9
+    key_terms: [company, canada, startup, "i'm", tech, canadian, career, growth]
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c2"
+    char_span: [3459, 5353]
+    sentence_count: 14
+    key_terms: [big, tech, startup, surelynotlikethis, company, heytherehellogoodbye, experience, stability]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c3"
+    char_span: [5131, 5608]
+    sentence_count: 2
+    key_terms: [company, heytherehellogoodbye, tech, congratulations, almoschfamous, mile-high-guy, first-hire, different]
+    section: Comments
+    token_count: 134
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c4"
+    char_span: [5610, 7340]
+    sentence_count: 19
+    key_terms: [tech, big, startup, lead, new, engineer, grad, take]
+    section: Comments
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c5"
+    char_span: [7342, 9290]
+    sentence_count: 14
+    key_terms: [tech, big, hawaii, socal, years, howzlife17, companies, almost]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c6"
+    char_span: [9292, 11430]
+    sentence_count: 13
+    key_terms: [engineers, company, startup, equity, going, giving, recruiters, engineer]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c7"
+    char_span: [11432, 11592]
+    sentence_count: 2
+    key_terms: [researchers, company, fuckton, job-hop, google, paying, poach, years]
+    section: Comments
+    token_count: 40
 ---
-
 # Which New Grad offer to take: Entry-level SWE @ US Big Tech OR Tech lead @ Canadian startup?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1lawdo8/which_new_grad_offer_to_take_entrylevel_swe_us/)

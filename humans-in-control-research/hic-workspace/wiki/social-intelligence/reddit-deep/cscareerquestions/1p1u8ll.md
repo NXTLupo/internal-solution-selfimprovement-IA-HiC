@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1p1u8ll/why_are_people_recommending_electrical/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-23T14:54:48.645Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c0"
+    char_span: [0, 642]
+    sentence_count: 4
+    key_terms: [cscareerquestions, comments, job, imhighoncocaine, recommending, engineering, internships, reddit-deep]
+    token_count: 162
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c1"
+    char_span: [657, 2584]
+    sentence_count: 19
+    key_terms: [degree, work, software, graduated, knowledge, aptitude, classes, people]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c2"
+    char_span: [2586, 4674]
+    sentence_count: 25
+    key_terms: [mumble, "it's", exploration, good, hobbyist, college, mindset, passion]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c3"
+    char_span: [4676, 6209]
+    sentence_count: 10
+    key_terms: [get, job, software, easier, career, degree, school, pivot]
+    section: Comments
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c4"
+    char_span: [6211, 7316]
+    sentence_count: 6
+    key_terms: [jobs, embedded, already, checks, calm-tumbleweed-9820, mark, time-constrained, applicability]
+    section: Comments
+    token_count: 251
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c5"
+    char_span: [7318, 9392]
+    sentence_count: 10
+    key_terms: [degree, data, become, like, work, electrical, structures, software]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c6"
+    char_span: [9104, 9738]
+    sentence_count: 7
+    key_terms: [swe, watered, level, been, big, down, far, pays]
+    section: Comments
+    token_count: 152
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c7"
+    char_span: [9740, 10567]
+    sentence_count: 6
+    key_terms: [hardware, job, swe, computer, somewherenormal9157, "it's", applications, differential]
+    section: Comments
+    token_count: 210
 ---
-
 # Why are people recommending electrical engineering over computer science
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1p1u8ll/why_are_people_recommending_electrical/)

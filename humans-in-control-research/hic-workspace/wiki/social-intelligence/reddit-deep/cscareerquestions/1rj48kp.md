@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rj48kp.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rj48kp/losing_hope_over_getting_a_job_in_this_industry/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,71 @@ subreddit: "cscareerquestions"
 title: "Losing Hope Over Getting a Job in this Industry"
 author: "CollegeStudentLol1"
 date: "2026-03-02T20:29:56.000Z"
-score: 122
+score: 120
 upvote_ratio: 0.94
 num_comments: 85
 flair: "New Grad"
-extracted_at: "2026-05-26T14:31:41.267Z"
+extracted_at: "2026-06-06T17:43:22.948Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rj48kp.md#c0"
+    char_span: [0, 1998]
+    sentence_count: 14
+    key_terms: [interview, candidate, cscareerquestions, "i've", another, company, engineering, internships]
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rj48kp.md#c1"
+    char_span: [2000, 3386]
+    sentence_count: 11
+    key_terms: [industry, getting, advice, career, people, summer, switch, certificate]
+    token_count: 310
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rj48kp.md#c2"
+    char_span: [3401, 5354]
+    sentence_count: 14
+    key_terms: [feel, confidence, collegestudentlol1, "i'm", job, time, experience, graduated]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rj48kp.md#c3"
+    char_span: [5099, 5392]
+    sentence_count: 1
+    key_terms: [company, project, antarcticapenguin, experience, prototype, capstone, consider, benched]
+    section: Comments
+    token_count: 73
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rj48kp.md#c4"
+    char_span: [5394, 6800]
+    sentence_count: 11
+    key_terms: ["you're", resume, interviews, collegestudentlol1, something, job, going, getting]
+    section: Comments
+    token_count: 358
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rj48kp.md#c5"
+    char_span: [6802, 7710]
+    sentence_count: 5
+    key_terms: [resume, anything, current, collegestudentlol1, llc, specializations, non-existent, particularly]
+    section: Comments
+    token_count: 224
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rj48kp.md#c6"
+    char_span: [7712, 9288]
+    sentence_count: 10
+    key_terms: ["there's", visa, industry, looking, canada, roles, substantial, want]
+    section: Comments
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rj48kp.md#c7"
+    char_span: [9291, 11102]
+    sentence_count: 18
+    key_terms: [job, new, get, hire, market, people, grads, competition]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rj48kp.md#c8"
+    char_span: [11104, 12095]
+    sentence_count: 12
+    key_terms: [interviews, collegestudentlol1, like, interview, always, look, want, vinegarytuba4]
+    section: Comments
+    token_count: 234
 ---
-
 # Losing Hope Over Getting a Job in this Industry
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rj48kp/losing_hope_over_getting_a_job_in_this_industry/)
-Posted by **CollegeStudentLol1** · **122↑** · **85 comments**
+Posted by **CollegeStudentLol1** · **120↑** · **85 comments**
 
 Hello everyone, I'm a BSC graduate in Computer Science of 2024 from a top 50 university in the world (top 3 in Canada). I have experience in two internships: one at a smaller mobile company, and another at a much bigger and more famous tech company where I worked in Software Engineering in both. Both lasted for 8 months. I have various personal and academic projects under my belt.
 
@@ -42,24 +95,22 @@ I want to keep trying but I don't know where to keep going for this industry. I 
 
 ## Comments
 
-- **MidnightWidow** (19↑): Yea it sucks.  I'm not the best at interviewing and the bar has raised so much
+- **MidnightWidow** (20↑): Yea it sucks.  I'm not the best at interviewing and the bar has raised so much
   - **CollegeStudentLol1** (10↑): Seems to be my biggest problem. Got way too much anxiety. A lot of my friends have it under control, I just feel I don't have enough confidence.
-    - **Gilpow** (5↑): Man, if I was a hiring manager I would prefer someone who lacks confidence. They're obviously humbler, they know that there's so much they don't know, and want to learn more. In my experience those who feel like imposters tend to be way better than those who are very confident in themselves.
+    - **Gilpow** (6↑): Man, if I was a hiring manager I would prefer someone who lacks confidence. They're obviously humbler, they know that there's so much they don't know, and want to learn more. In my experience those who feel like imposters tend to be way better than those who are very confident in themselves.
     - **NoOne2419** (3↑): Good luck out there bro. Hope you land one soon.
     - **spongeysquarepantis** (2↑): The way you described yourself in this post, is the confidence you should carry to the interview room ✨💯
-- **Dependent-Cash-3405** (15↑): the canadian market is such a nerf. secude an american to get access to a better market. good luck
-  - **CollegeStudentLol1** (8↑): Seducing an American is the back up plan hahaha
-- **[deleted]** (36↑): I graduated Dec 2021 still haven’t found a job. It’s bleak out here
-  - **Electronic_Film_2837** (47↑): At that point switch careers, trying to find an entry level job with that gap would be extremely hard with how awful the job market is
-  - **papayon10** (56↑): You graduated during the best time in recent years. It's time to pivot
+- **[deleted]** (37↑): I graduated Dec 2021 still haven’t found a job. It’s bleak out here
+  - **Electronic_Film_2837** (45↑): At that point switch careers, trying to find an entry level job with that gap would be extremely hard with how awful the job market is
+  - **papayon10** (55↑): You graduated during the best time in recent years. It's time to pivot
   - **CollegeStudentLol1** (10↑): Honestly very sad to hear. I hope you keep going and do good in your career. My friends are moving forward and I feel super behind. I feel super embarrassed hanging out with them as I feel like they pity me more and think I'm more of a loser. I've stopped going to a lot of hangouts cause of how I feel, even though that is probably not what they think and is my brain just talking.
-  - **Adventurous-Move-191** (9↑): How ? The market was hot as fish grease then
+  - **Adventurous-Move-191** (10↑): How ? The market was hot as fish grease then
     - **[deleted]** (7↑): I forgot to mention I worked at a WITCH company for a year but I don’t consider that experience since I was benched the whole time
-- **AntarcticaPenguin** (6↑): >I'm doing it for the capstone project at the end, where we get to create a project prototype as a team for a startup tech company.
+- **AntarcticaPenguin** (5↑): >I'm doing it for the capstone project at the end, where we get to create a project prototype as a team for a startup tech company.
 
 If you feel like you are doing a great job, ask them if they can offer you a position. That's how I got my first job in Canada.
   - **CollegeStudentLol1** (1↑): That is the plan! :)
-- **Nofanta** (9↑): The profession has collapsed.  Go back to school for something else.  Things aren’t going to improve.
+- **Nofanta** (8↑): The profession has collapsed.  Go back to school for something else.  Things aren’t going to improve.
   - **hhussband** (1↑): Boo. Youre exaggerating. Cs unemployment js only 7 percebt and underemployment is among the lowest.
 - **[deleted]** (8↑): run a startup and put it on your resume as emplyment
   - **CollegeStudentLol1** (12↑): Honestly might be the best bet. Might just put a game on Steam or [itch.io](http://itch.io) or something if I can't do a start up.
@@ -72,9 +123,8 @@ I agree with the other poster, that you're going to have to apply to smaller, pr
 
 Another thing I suggest is if you or a friend has an LLC, use that LLC as your current job as a software engineering consultant so there aren't any gaps in your resume.
   - **CollegeStudentLol1** (2↑): Hey, I DMd you my resume. You could have a look and see if that is holding me back. I prefer not to post it here in public right now.
-    - **Dependent-Cash-3405** (3↑): why? what could you possibly have to lose lol
     - **IAmOmi** (1↑): You could always just redact your name, address, private info etc
-- **lhorie** (7↑): Unity isn't particularly transferable to anything outside gamedev and that industry is basically non-existent in Canada, if we're gonna be honest. So that leaves us w/ Android, which is also quite niche and has limited jobs compared to, say, backend or ML. With your current resume, I don't see anything at a glance that suggests you'd be a fit for non-Android roles, so if you're casting a wide net, you need to work on focused resumes for other specializations. 
+- **lhorie** (6↑): Unity isn't particularly transferable to anything outside gamedev and that industry is basically non-existent in Canada, if we're gonna be honest. So that leaves us w/ Android, which is also quite niche and has limited jobs compared to, say, backend or ML. With your current resume, I don't see anything at a glance that suggests you'd be a fit for non-Android roles, so if you're casting a wide net, you need to work on focused resumes for other specializations. 
 
 If you're going to stick w/ Android, you probably also want to be looking for roles in US as well, if you haven't already. My brother is self-taught w/ Android focus, and that's more or less how he found footing in the industry (west coast though).
   - **t-dye** (3↑): There is substantial game development in Canada, not sure how you got the notion that there wasn’t.
@@ -97,3 +147,5 @@ But if you find a niche that very few else know how to do you have a better chan
 In your interviews, you need to be happy, cheerful and positive. The interview means they already like what they see on your resume, they just want to know if you are someone they would like to work with. You want to leave the interview with them thinking “wow I really like that person, they seem super friendly”
 If you fail to do that, I can guarantee one of the other candidates will
   - **CollegeStudentLol1** (1↑): For interviews that’s one of my strongest points. People always love who I am. Technically I always tend to fall back. I showcase prowess in projects not interviews hence why I’m doing LeetCode prep. I appreciate the advice! I’ll look into specific niches rather than generic postings. Any thing I should look out for specifically?
+- **VinegaryTuba4** (2↑): I’m in the same spot, 2024 grad with nothing yet. It’s insane that even getting a part-time job is hard nowadays.
+  - **CollegeStudentLol1** (2↑): Exactly. I’ve applied and got rejected. We don’t lose hope though!

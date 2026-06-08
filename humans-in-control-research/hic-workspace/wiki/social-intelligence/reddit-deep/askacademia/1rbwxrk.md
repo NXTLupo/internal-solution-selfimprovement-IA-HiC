@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1rbwxrk.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1rbwxrk/writing_like_a_human_and_subsequently_padding_out/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,50 @@ flair: "Social Science"
 extracted_at: "2026-05-26T14:32:49.118Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1rbwxrk.md#c0"
+    char_span: [0, 2083]
+    sentence_count: 9
+    key_terms: [writing, someone, information, literature, like, enough, review, askacademia]
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/askacademia/1rbwxrk.md#c1"
+    char_span: [2085, 2657]
+    sentence_count: 6
+    key_terms: [did, writing, paper, want, complicated, effectively, prehistoric, admittedly]
+    token_count: 132
+  - id: "social-intelligence/reddit-deep/askacademia/1rbwxrk.md#c2"
+    char_span: [2672, 4725]
+    sentence_count: 18
+    key_terms: [writing, "it's", read, deleted, being, information, good, grad]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/askacademia/1rbwxrk.md#c3"
+    char_span: [4727, 6216]
+    sentence_count: 13
+    key_terms: [explanation, job, thesis, additional, difference, reviewer, appears, article]
+    section: Comments
+    token_count: 334
+  - id: "social-intelligence/reddit-deep/askacademia/1rbwxrk.md#c4"
+    char_span: [6220, 7668]
+    sentence_count: 9
+    key_terms: [relevant, information, difference, detail-oriented, "don't", authors, careful, comment]
+    section: Comments
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/askacademia/1rbwxrk.md#c5"
+    char_span: [7670, 9513]
+    sentence_count: 11
+    key_terms: [paper, student, everything, someone, review, field, bla, attitude]
+    section: Comments
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/askacademia/1rbwxrk.md#c6"
+    char_span: [9518, 11270]
+    sentence_count: 12
+    key_terms: ["you're", questions, talking, get, "i'm", sentences, slachack1, research]
+    section: Comments
+    token_count: 399
 ---
-
 # Writing like a human and subsequently "padding out"
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1rbwxrk/writing_like_a_human_and_subsequently_padding_out/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sxcn02.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sxcn02/what_degrees_are_still_useful_or_career_paths_are/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,15 @@ flair: "Advice"
 extracted_at: "2026-05-25T18:32:57.391Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sxcn02.md#c0"
+    char_span: [0, 342]
+    sentence_count: 2
+    key_terms: [careerguidance, comments, reddit-deep, considered, valuable, degrees, career, market]
+    token_count: 95
 ---
-
 # What degrees are still useful or career paths are still considered valuable in the UK job market?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sxcn02/what_degrees_are_still_useful_or_career_paths_are/)

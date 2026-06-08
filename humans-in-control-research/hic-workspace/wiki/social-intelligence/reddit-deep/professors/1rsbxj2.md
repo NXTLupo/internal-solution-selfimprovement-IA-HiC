@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1rsbxj2.md
 url: "https://www.reddit.com/r/Professors/comments/1rsbxj2/is_asking_them_to_take_notes_unreasonable/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,63 @@ flair: "Teaching / Pedagogy"
 extracted_at: "2026-05-20T03:55:39.276Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1rsbxj2.md#c0"
+    char_span: [0, 1338]
+    sentence_count: 10
+    key_terms: [notes, take, professors, students, provide, class, show, wondering]
+    token_count: 312
+  - id: "social-intelligence/reddit-deep/professors/1rsbxj2.md#c1"
+    char_span: [1353, 3205]
+    sentence_count: 15
+    key_terms: [powerpoints, notes, write, thatcheekychick, provide, slides, board, class]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/professors/1rsbxj2.md#c2"
+    char_span: [3207, 3975]
+    sentence_count: 8
+    key_terms: [students, powerpoints, network, thought, class, back, ctenophorever, dragonfeet1]
+    section: Comments
+    token_count: 170
+  - id: "social-intelligence/reddit-deep/professors/1rsbxj2.md#c3"
+    char_span: [3977, 6093]
+    sentence_count: 9
+    key_terms: [students, powerpoint, notes, "i'm", take, class, going, lecture]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1rsbxj2.md#c4"
+    char_span: [5816, 7077]
+    sentence_count: 8
+    key_terms: [notes, exam, last, evaluation, although, teaching, instead, slides]
+    section: Comments
+    token_count: 285
+  - id: "social-intelligence/reddit-deep/professors/1rsbxj2.md#c5"
+    char_span: [7079, 9167]
+    sentence_count: 16
+    key_terms: [notes, student, take, yourlurkingprof, students, slides, does, challenge]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/professors/1rsbxj2.md#c6"
+    char_span: [9169, 11177]
+    sentence_count: 14
+    key_terms: [notes, class, provide, responsibility, piranhadream, "don't", don, "it's"]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/professors/1rsbxj2.md#c7"
+    char_span: [11179, 12838]
+    sentence_count: 15
+    key_terms: [class, notes, slide, effective, notebook, students, noticed, skills]
+    section: Comments
+    token_count: 389
+  - id: "social-intelligence/reddit-deep/professors/1rsbxj2.md#c8"
+    char_span: [12840, 13781]
+    sentence_count: 9
+    key_terms: [students, slides, "don't", grumble, notes, characteristicpea, get, give]
+    section: Comments
+    token_count: 217
 ---
-
 # Is Asking Them To Take Notes Unreasonable?
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1rsbxj2/is_asking_them_to_take_notes_unreasonable/)

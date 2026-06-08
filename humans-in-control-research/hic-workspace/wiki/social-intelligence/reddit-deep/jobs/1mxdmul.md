@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1mxdmul.md
 url: "https://www.reddit.com/r/jobs/comments/1mxdmul/i_failed_my_interview_in_5_seconds/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,51 @@ flair: "Interviews"
 extracted_at: "2026-05-24T14:10:06.659Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1mxdmul.md#c0"
+    char_span: [0, 1874]
+    sentence_count: 19
+    key_terms: [interview, manager, application, get, want, experience, comments, applied]
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/jobs/1mxdmul.md#c1"
+    char_span: [1889, 3207]
+    sentence_count: 12
+    key_terms: [hiring, availability, available, manager, opening, waiting, likely, cover]
+    section: Comments
+    token_count: 315
+  - id: "social-intelligence/reddit-deep/jobs/1mxdmul.md#c2"
+    char_span: [3209, 4867]
+    sentence_count: 17
+    key_terms: [availability, job, need, time, looking, school, work, preference]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/jobs/1mxdmul.md#c3"
+    char_span: [4869, 5851]
+    sentence_count: 10
+    key_terms: [eggtartlover4life, failure, places, waitingonmyletter, got, isn, need, try]
+    section: Comments
+    token_count: 277
+  - id: "social-intelligence/reddit-deep/jobs/1mxdmul.md#c4"
+    char_span: [5853, 7920]
+    sentence_count: 9
+    key_terms: [eggtartlover4life, store, gatorbeetle, job, time, work, different, interview]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1mxdmul.md#c5"
+    char_span: [7673, 8593]
+    sentence_count: 2
+    key_terms: [afternoons, evenings, mornings, hiring, school, years, eggtartlover4life, high]
+    section: Comments
+    token_count: 234
+  - id: "social-intelligence/reddit-deep/jobs/1mxdmul.md#c6"
+    char_span: [8595, 9111]
+    sentence_count: 5
+    key_terms: ["mcdonald's", because, eggtartlover4life, job, like, tell, specifically, demonstrate]
+    section: Comments
+    token_count: 121
 ---
-
 # I failed my interview in 5 seconds
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1mxdmul/i_failed_my_interview_in_5_seconds/)

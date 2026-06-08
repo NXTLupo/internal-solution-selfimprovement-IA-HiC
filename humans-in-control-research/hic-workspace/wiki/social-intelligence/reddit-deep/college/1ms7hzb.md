@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1ms7hzb.md
 url: "https://www.reddit.com/r/college/comments/1ms7hzb/adult_college_student_care_package/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T19:44:48.200Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1ms7hzb.md#c0"
+    char_span: [0, 538]
+    sentence_count: 3
+    key_terms: [college, comments, looking, package, care, inspiration, reddit-deep, accounting]
+    token_count: 130
+  - id: "social-intelligence/reddit-deep/college/1ms7hzb.md#c1"
+    char_span: [553, 2416]
+    sentence_count: 10
+    key_terms: [motivational, pens, notes, paper, like, note, headphones, jpsartre99]
+    section: Comments
+    token_count: 461
 ---
-
 # Adult college student care package
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ms7hzb/adult_college_student_care_package/)

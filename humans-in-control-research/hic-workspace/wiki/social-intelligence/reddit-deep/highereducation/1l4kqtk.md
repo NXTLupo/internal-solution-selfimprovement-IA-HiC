@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1l4kqtk.md
 url: "https://www.reddit.com/r/highereducation/comments/1l4kqtk/transferable_skills_advising_outside_of_higher_ed/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -6,19 +7,54 @@ subreddit: "highereducation"
 title: "Transferable skills - Advising outside of higher ed"
 author: "Terrible_Owl_405"
 date: "2025-06-06T05:34:56.000Z"
-score: 25
-upvote_ratio: 1
+score: 22
+upvote_ratio: 0.97
 num_comments: 29
 flair: ""
-extracted_at: "2026-05-23T14:53:59.513Z"
+extracted_at: "2026-06-05T23:42:16.776Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1l4kqtk.md#c0"
+    char_span: [0, 1271]
+    sentence_count: 13
+    key_terms: [advising, highereducation, outside, higher, transferable, "i'm", comments, skills]
+    token_count: 294
+  - id: "social-intelligence/reddit-deep/highereducation/1l4kqtk.md#c1"
+    char_span: [1286, 2154]
+    sentence_count: 7
+    key_terms: [institution, move, management, operations, advising, policy, skills, role]
+    section: Comments
+    token_count: 187
+  - id: "social-intelligence/reddit-deep/highereducation/1l4kqtk.md#c2"
+    char_span: [2156, 4563]
+    sentence_count: 15
+    key_terms: [programs, manager, student, different, role, company, success, institution]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/highereducation/1l4kqtk.md#c3"
+    char_span: [4565, 6728]
+    sentence_count: 16
+    key_terms: [responsibilities, job, advancement, staff, career, school, recruitment, "i've"]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/highereducation/1l4kqtk.md#c4"
+    char_span: [6730, 7784]
+    sentence_count: 12
+    key_terms: [students, affairs, student, apprehensive-foot100, years, time, type, week]
+    section: Comments
+    token_count: 241
+  - id: "social-intelligence/reddit-deep/highereducation/1l4kqtk.md#c5"
+    char_span: [7786, 9451]
+    sentence_count: 15
+    key_terms: [university, program, etc, itstonjohn, something, advising, apprehensive-foot100, years]
+    section: Comments
+    token_count: 409
 ---
-
 # Transferable skills - Advising outside of higher ed
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1l4kqtk/transferable_skills_advising_outside_of_higher_ed/)
-Posted by **Terrible_Owl_405** · **25↑** · **29 comments**
+Posted by **Terrible_Owl_405** · **22↑** · **29 comments**
 
 Hello!
 I've been in various academic advising/Student advising roles for the last 15 years and I'm finding this career to be not very fulfilling anymore.  I'm very good at what I do, have good rapport with colleagues, have been told by numerous people I have leadership qualities but have struggled to find ways to capitalize on that.  I've maxed out on my payband (unionized) and don't know if I can do this for the next 20 years.  The main reason I continue to stay is for the benefits, job security and pension. I enjoy working with students but as I age, I find my connection to this demographic continues to be more challenging each year.
@@ -43,7 +79,7 @@ I don't think we have many operation manager type positions at my institution un
 - **jvxoxo** (8↑): I pivoted out to campus recruiting at a commercial bank for internship programs and new grad programs so leveraged my higher ed experience and connections that way. It wasn’t a good fit so I left and then found a student success advisor role at an ed tech company and worked my way up to a manager role. I’m now back in higher ed in a leadership role managing experiential learning programs and significantly increased my income by hopping and gaining industry experiences.
   - **Terrible_Owl_405** (1↑): Thanks for sharing your career journey.  What exactly is an ed tech company?  I'm not very familiar with that?
     - **jvxoxo** (2↑): Education technology. The company I specifically worked for offered 6-9 month certificate programs for people who wanted to upskill or transition to careers in technology. As a student success advisor and manager, I did academic advising work and success coaching along with special projects to support student retention.
-- **Capable-Tip-8219** (4↑): As someone who coaches rowing and teaches writing at a university, I hear you! It's hard to leave that guaranteed pension package on a state employee level!  
+- **Capable-Tip-8219** (5↑): As someone who coaches rowing and teaches writing at a university, I hear you! It's hard to leave that guaranteed pension package on a state employee level!  
   
 From what I can see- you’ve built a strong foundation of communication, leadership, and organizational skills. Those translate well into other higher-ed roles like program coordination or admin, or into private-sector jobs like HR, training, corporate comms, or content creation.
 

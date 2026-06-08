@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/afeacbe490.md
 url: "https://www.reddit.com/r/careerguidance/comments/1qge6dm/help_finding_a_career_path_for_my_66yearold_mom/"
 url_hash: "afeacbe490"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T06:46:35.175050+00:00"
 chars: 3467
+industries: [retail, dtc, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/afeacbe490.md#c0"
+    char_span: [0, 2432]
+    sentence_count: 8
+    key_terms: [retail, interpersonal, people, skills, limited, careerguidance, places, roles]
+    token_count: 510
+  - id: "articles/reddit-deep-r-careerguidance/afeacbe490.md#c1"
+    char_span: [2437, 3757]
+    sentence_count: 12
+    key_terms: [banks, local, retail, satisfactionisunder0, store, value, unraveltheuniverse, real]
+    token_count: 310
 ---
-
 # Help Finding a Career Path for My 66-Year-Old Mom - Retail Background, Amazing People Skills, Limited Computer Experience. Any guidance?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1qge6dm/help_finding_a_career_path_for_my_66yearold_mom/)

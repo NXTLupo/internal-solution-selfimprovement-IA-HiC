@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1tjscqc.md
 url: "https://www.reddit.com/r/managers/comments/1tjscqc/as_a_manager_i_honestly_cant_tell_whether_ai/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-26T12:54:23.671Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1tjscqc.md#c0"
+    char_span: [0, 2050]
+    sentence_count: 24
+    key_terms: [people, automation, operations, tools, team, honestly, "they're", operational]
+    token_count: 405
+  - id: "social-intelligence/reddit-deep/managers/1tjscqc.md#c1"
+    char_span: [2065, 4104]
+    sentence_count: 5
+    key_terms: [people, team, leadership, copilot, gains, power, users, using]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/managers/1tjscqc.md#c2"
+    char_span: [4106, 5196]
+    sentence_count: 10
+    key_terms: [people, get, less, headcount, automate, output, trying, "you're"]
+    section: Comments
+    token_count: 257
 ---
-
 # As a manager, i honestly can't tell whether AI tools are helping my team or just preparing them for another round of cuts
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1tjscqc/as_a_manager_i_honestly_cant_tell_whether_ai/)

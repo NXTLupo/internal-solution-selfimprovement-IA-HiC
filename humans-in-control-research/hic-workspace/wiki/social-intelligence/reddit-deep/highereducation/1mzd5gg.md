@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1mzd5gg.md
 url: "https://www.reddit.com/r/highereducation/comments/1mzd5gg/new_to_higher_ed_teaching_structures/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-23T14:53:59.515Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1mzd5gg.md#c0"
+    char_span: [0, 1256]
+    sentence_count: 12
+    key_terms: [students, courses, student, enrolled, highereducation, thanks, undergraduate, class]
+    token_count: 308
+  - id: "social-intelligence/reddit-deep/highereducation/1mzd5gg.md#c1"
+    char_span: [1271, 2719]
+    sentence_count: 8
+    key_terms: [credit, class, per, institution, students, student, rate, department]
+    section: Comments
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/highereducation/1mzd5gg.md#c2"
+    char_span: [2723, 4182]
+    sentence_count: 9
+    key_terms: [class, students, credit, hour, per, anything, course, higher]
+    section: Comments
+    token_count: 377
 ---
-
 # New to higher ed teaching structures...
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1mzd5gg/new_to_higher_ed_teaching_structures/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1nu0uck.md
 url: "https://www.reddit.com/r/GenZ/comments/1nu0uck/how_are_yall_doing_in_life_rn_specifically_in/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,39 @@ flair: "Discussion"
 extracted_at: "2026-05-16T20:55:01.232Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1nu0uck.md#c0"
+    char_span: [0, 1022]
+    sentence_count: 10
+    key_terms: [money, comments, college, dear-performance-394, cause, feel, genz, job]
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/genz/1nu0uck.md#c1"
+    char_span: [1037, 2440]
+    sentence_count: 15
+    key_terms: [debt, get, "i'll", "i'm", pay, graduation, discord, parents]
+    section: Comments
+    token_count: 389
+  - id: "social-intelligence/reddit-deep/genz/1nu0uck.md#c2"
+    char_span: [2442, 3642]
+    sentence_count: 13
+    key_terms: [glaceausmartwater20, masters, requirements, doing, different, undergrad, honestly, require]
+    section: Comments
+    token_count: 291
+  - id: "social-intelligence/reddit-deep/genz/1nu0uck.md#c3"
+    char_span: [3644, 5429]
+    sentence_count: 16
+    key_terms: [though, months, grandmother, job, dementia, jared187, military, living]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/genz/1nu0uck.md#c4"
+    char_span: [5431, 5740]
+    sentence_count: 5
+    key_terms: ["i'm", full, "anything's", including, benefits, hardcore, honestly, mattered]
+    section: Comments
+    token_count: 75
 ---
-
 # How are yall doing in life rn? Specifically in terms of money, but in general too?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1nu0uck/how_are_yall_doing_in_life_rn_specifically_in/)

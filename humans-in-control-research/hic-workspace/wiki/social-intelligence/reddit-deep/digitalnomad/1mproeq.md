@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1mproeq.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1mproeq/life_crisis_after_3_months_of_being_a_nomad/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,51 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:56.727Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mproeq.md#c0"
+    char_span: [0, 1204]
+    sentence_count: 4
+    key_terms: [months, people, digitalnomad, comments, crisis, myself, person, being]
+    token_count: 292
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mproeq.md#c1"
+    char_span: [1219, 2752]
+    sentence_count: 11
+    key_terms: [character-ad-4021, flick, home, too, bangkok, country, message, phangan]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mproeq.md#c2"
+    char_span: [2754, 3897]
+    sentence_count: 15
+    key_terms: [feel, right, something, because, comment, friends, germany, totally]
+    section: Comments
+    token_count: 273
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mproeq.md#c3"
+    char_span: [3899, 5303]
+    sentence_count: 6
+    key_terms: [being, emotions, problems, others, people, feeling-attention43, nicotinecravings, opportunities]
+    section: Comments
+    token_count: 323
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mproeq.md#c4"
+    char_span: [5305, 6465]
+    sentence_count: 8
+    key_terms: [relationship, yourself, serious, alternativefuture155, odd-recognition4120, death, ended, loved]
+    section: Comments
+    token_count: 271
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mproeq.md#c5"
+    char_span: [6467, 8418]
+    sentence_count: 27
+    key_terms: [get, people, day, being, nomad, did, feel, home]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mproeq.md#c6"
+    char_span: [8420, 9393]
+    sentence_count: 10
+    key_terms: [home, yourself, "you're", "don't", "it's", week, meaningless, consenting]
+    section: Comments
+    token_count: 242
 ---
-
 # Life Crisis after 3 Months of being a Nomad
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1mproeq/life_crisis_after_3_months_of_being_a_nomad/)

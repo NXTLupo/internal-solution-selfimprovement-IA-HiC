@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1ksv3pe.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1ksv3pe/100000_overdraft_to_my_business_checking_account/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,81 @@ flair: "YOLO"
 extracted_at: "2026-05-16T20:54:42.963Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ksv3pe.md#c0"
+    char_span: [0, 316]
+    sentence_count: 2
+    key_terms: [wallstreetbets, comments, reddit-deep, dasherlao, overdraft, business, checking, account]
+    token_count: 94
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ksv3pe.md#c1"
+    char_span: [331, 1523]
+    sentence_count: 4
+    key_terms: [retardium, wsb, https, deleted, discord, leaps, total, years]
+    section: Comments
+    token_count: 391
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ksv3pe.md#c2"
+    char_span: [1525, 3149]
+    sentence_count: 10
+    key_terms: [fake, c18a4d2958f714b30735582185df831b591924ff, deleted, enough, therapy, smart, bust, far]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ksv3pe.md#c3"
+    char_span: [2942, 4929]
+    sentence_count: 8
+    key_terms: [certain, cognitive, thoughts, spotify, therapy, mrprivateobservation, crime, doesn]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ksv3pe.md#c4"
+    char_span: [4713, 4937]
+    sentence_count: 2
+    key_terms: [thats, stonkatrucks, obviously, generate, thousand, capital, protect, crazy]
+    section: Comments
+    token_count: 67
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ksv3pe.md#c5"
+    char_span: [4939, 5410]
+    sentence_count: 2
+    key_terms: [humbler-mumbler, posttruthage, investments, yaboyesdot, overdraft, checking, customer, thinking]
+    section: Comments
+    token_count: 152
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ksv3pe.md#c6"
+    char_span: [5412, 7071]
+    sentence_count: 4
+    key_terms: [king, broiled, burger, like, business, either, flames, gamble]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ksv3pe.md#c7"
+    char_span: [6890, 7667]
+    sentence_count: 1
+    key_terms: [either, dicaprio, dualipatrophyhusband, councilmanrickprime, inmontibus-adflumen, abstractbettafish, call, king]
+    section: Comments
+    token_count: 251
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ksv3pe.md#c8"
+    char_span: [7669, 8348]
+    sentence_count: 2
+    key_terms: [like, eating, penny, poop, thegreatlightdesert, snail, sheriffbartholomew, eat]
+    section: Comments
+    token_count: 209
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ksv3pe.md#c9"
+    char_span: [8350, 10033]
+    sentence_count: 9
+    key_terms: [get, maybe, collection, gambling, deleted, cancer, eating, emote]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ksv3pe.md#c10"
+    char_span: [9787, 11041]
+    sentence_count: 6
+    key_terms: [deleted, problem, owe, business, because, hoping, maybe, fine]
+    section: Comments
+    token_count: 323
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ksv3pe.md#c11"
+    char_span: [11043, 12157]
+    sentence_count: 6
+    key_terms: [get, debt, poopbucketchallenge, trade, card, did, let, nationalowl9561]
+    section: Comments
+    token_count: 309
 ---
-
 # $-100,000 Overdraft to my business checking account to YOLO SPX calls options.
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1ksv3pe/100000_overdraft_to_my_business_checking_account/)

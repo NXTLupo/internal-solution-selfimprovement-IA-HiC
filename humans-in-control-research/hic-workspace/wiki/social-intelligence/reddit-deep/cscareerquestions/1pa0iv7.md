@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1pa0iv7.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1pa0iv7/should_i_directly_go_for_a_masters_after_grad_or/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-20T03:56:10.732Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pa0iv7.md#c0"
+    char_span: [0, 1751]
+    sentence_count: 12
+    key_terms: [experience, cscareerquestions, right, applying, comments, everyone, position, starting]
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pa0iv7.md#c1"
+    char_span: [1766, 3977]
+    sentence_count: 14
+    key_terms: [resume, masters, internship, anything, spiritualclub895, career, master, professional]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pa0iv7.md#c2"
+    char_span: [3979, 4288]
+    sentence_count: 1
+    key_terms: [workflows, data, micro-internship, externship, internship, automated, employers, automate]
+    section: Comments
+    token_count: 67
 ---
-
 # Should I directly go for a masters after grad or work on skills and keep applying?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1pa0iv7/should_i_directly_go_for_a_masters_after_grad_or/)

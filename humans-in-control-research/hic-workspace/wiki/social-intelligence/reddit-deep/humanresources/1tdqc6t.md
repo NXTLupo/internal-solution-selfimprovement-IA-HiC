@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1tdqc6t.md
 url: "https://www.reddit.com/r/humanresources/comments/1tdqc6t/na_adp_just_acquired_another_hr_tech_vendor_5th/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-23T12:15:41.566Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1tdqc6t.md#c0"
+    char_span: [0, 1547]
+    sentence_count: 2
+    key_terms: [integration, adp, year, humanresources, tool, workforce, comments, because]
+    token_count: 365
+  - id: "social-intelligence/reddit-deep/humanresources/1tdqc6t.md#c1"
+    char_span: [1562, 2796]
+    sentence_count: 6
+    key_terms: [months, integration, timeline, because, bundle, locked, ended, exact]
+    section: Comments
+    token_count: 265
+  - id: "social-intelligence/reddit-deep/humanresources/1tdqc6t.md#c2"
+    char_span: [2798, 5093]
+    sentence_count: 14
+    key_terms: [point, payroll, integrated, solutions, separate, vendor, operational, like]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/humanresources/1tdqc6t.md#c3"
+    char_span: [5095, 5713]
+    sentence_count: 4
+    key_terms: [single, solution, trackers, point, stack, micro-workflows, customization, middleware]
+    section: Comments
+    token_count: 127
 ---
-
 # [N/A] ADP just acquired another HR tech vendor (5th this year) — how are you planning your HR stack around it?
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1tdqc6t/na_adp_just_acquired_another_hr_tech_vendor_5th/)

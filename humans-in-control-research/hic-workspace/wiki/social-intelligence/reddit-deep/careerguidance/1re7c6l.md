@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1re7c6l.md
 url: "https://www.reddit.com/r/careerguidance/comments/1re7c6l/corporate_to_teacher/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,26 @@ flair: "Advice"
 extracted_at: "2026-05-22T23:34:01.124Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [education, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1re7c6l.md#c0"
+    char_span: [0, 2337]
+    sentence_count: 16
+    key_terms: [corporate, teaching, time, increase, company, careerguidance, better, relationship]
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/careerguidance/1re7c6l.md#c1"
+    char_span: [2339, 4778]
+    sentence_count: 14
+    key_terms: [corporate, because, world, pay, teaching, company, year, additional]
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/careerguidance/1re7c6l.md#c2"
+    char_span: [4780, 5818]
+    sentence_count: 8
+    key_terms: [like, gradsimple, feels, trial, run, slamdunksrock1, thepandapear, experiment]
+    section: Comments
+    token_count: 239
 ---
-
 # Corporate to teacher?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1re7c6l/corporate_to_teacher/)

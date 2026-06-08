@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1smi98r.md
 url: "https://www.reddit.com/r/GenZ/comments/1smi98r/is_the_stock_market_just_completely_fake_now/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,45 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.767Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1smi98r.md#c0"
+    char_span: [0, 598]
+    sentence_count: 6
+    key_terms: [comments, feeling-currency6212, fake, genz, reddit-deep, completely, regularly, compared]
+    token_count: 155
+  - id: "social-intelligence/reddit-deep/genz/1smi98r.md#c1"
+    char_span: [613, 2350]
+    sentence_count: 9
+    key_terms: [market, inflation, stock, expectations, being, earnings, discord, outpace]
+    section: Comments
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/genz/1smi98r.md#c2"
+    char_span: [2352, 4391]
+    sentence_count: 17
+    key_terms: [people, stock, oracle, economic, growth, living, aren, don]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/genz/1smi98r.md#c3"
+    char_span: [4393, 5463]
+    sentence_count: 10
+    key_terms: [stock, market, dividends, buybacks, thinking, wages, last, pay]
+    section: Comments
+    token_count: 273
+  - id: "social-intelligence/reddit-deep/genz/1smi98r.md#c4"
+    char_span: [5465, 7191]
+    sentence_count: 13
+    key_terms: [market, feeling-currency6212, americans, own, invested, because, soaring, months]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/genz/1smi98r.md#c5"
+    char_span: [7193, 9019]
+    sentence_count: 9
+    key_terms: [market, years, down, want, because, people, plans, get]
+    section: Comments
+    token_count: 448
 ---
-
 # Is the stock market just completely fake now?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1smi98r/is_the_stock_market_just_completely_fake_now/)

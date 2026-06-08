@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1s93kus.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1s93kus/highschool_student_going_into_ee_coop_stream_4_no/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-25T18:33:12.665Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1s93kus.md#c0"
+    char_span: [0, 942]
+    sentence_count: 7
+    key_terms: [experience, uwaterloo, comments, waterloo, stream, affectionate-ad6867, co-op, going]
+    token_count: 235
 ---
-
 # Highschool student going into EE co-op stream 4 no experience
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1s93kus/highschool_student_going_into_ee_coop_stream_4_no/)

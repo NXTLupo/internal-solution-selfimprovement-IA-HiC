@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1odgohr.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1odgohr/new_grad_made_a_big_mistake_at_my_first_job/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,51 @@ flair: "New Grad"
 extracted_at: "2026-05-20T03:56:10.737Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c0"
+    char_span: [0, 1497]
+    sentence_count: 14
+    key_terms: [cscareerquestions, everyone, thinking, mistake, branch, start, did, new]
+    token_count: 340
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c1"
+    char_span: [1512, 3445]
+    sentence_count: 16
+    key_terms: [time, biggest, company, deleted, accidentally, dev, something, college]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c2"
+    char_span: [3447, 5312]
+    sentence_count: 16
+    key_terms: [company, because, "it's", like, something, yourself, without, branch]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c3"
+    char_span: [5314, 7354]
+    sentence_count: 16
+    key_terms: [branch, merge, walkslikeaduck08, changes, without, access, review, able]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c4"
+    char_span: [7071, 7694]
+    sentence_count: 5
+    key_terms: [engineer, process, always, right, etc, appropriate, engineering, incorrectly]
+    section: Comments
+    token_count: 132
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c5"
+    char_span: [7696, 9991]
+    sentence_count: 14
+    key_terms: [branch, because, without, prevent, process, devops, review, regardless]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c6"
+    char_span: [9993, 11543]
+    sentence_count: 11
+    key_terms: [branch, changes, mistake, process, deploy, devops, merged, pushed]
+    section: Comments
+    token_count: 371
 ---
-
 # New Grad. Made a BIG Mistake at my First Job! Should I Start Thinking about Leaving?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1odgohr/new_grad_made_a_big_mistake_at_my_first_job/)

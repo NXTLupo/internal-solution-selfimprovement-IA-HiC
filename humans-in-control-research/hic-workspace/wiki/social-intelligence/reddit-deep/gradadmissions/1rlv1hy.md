@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1rlv1hy.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rlv1hy/i_got_into_an_ivy_and_i_cant_afford_it/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,69 @@ flair: "Venting"
 extracted_at: "2026-05-22T13:33:02.831Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rlv1hy.md#c0"
+    char_span: [0, 781]
+    sentence_count: 7
+    key_terms: [gradadmissions, comments, afford, got, reddit-deep, financial, something, applying]
+    token_count: 214
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rlv1hy.md#c1"
+    char_span: [796, 2838]
+    sentence_count: 18
+    key_terms: [program, offer, scholarship, aid, difference, financial, decision, masters]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rlv1hy.md#c2"
+    char_span: [2840, 3032]
+    sentence_count: 1
+    key_terms: [sinisaredhead, advice, always, follow, reddit, "don't", shots, came]
+    section: Comments
+    token_count: 62
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rlv1hy.md#c3"
+    char_span: [3034, 4946]
+    sentence_count: 8
+    key_terms: [negotiate, offered, school, scholarship, pay, year, education, students]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rlv1hy.md#c4"
+    char_span: [4948, 6302]
+    sentence_count: 3
+    key_terms: [like, universities, government, education, american, master, saying, guess]
+    section: Comments
+    token_count: 307
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rlv1hy.md#c5"
+    char_span: [6304, 8377]
+    sentence_count: 20
+    key_terms: [programs, graduate, schools, education, expensive, people, uiuc, financial]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rlv1hy.md#c6"
+    char_span: [8149, 10189]
+    sentence_count: 14
+    key_terms: [masters, architecture, degree, master, undergrad, get, programs, funded]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rlv1hy.md#c7"
+    char_span: [9952, 11785]
+    sentence_count: 13
+    key_terms: [leninistfuture05, afford, hoping, loans, got, students, applied, tuition]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rlv1hy.md#c8"
+    char_span: [11787, 13679]
+    sentence_count: 6
+    key_terms: [depressednstresse, get, "it's", like, pay, acceptance, financial, accepted]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rlv1hy.md#c9"
+    char_span: [13435, 15187]
+    sentence_count: 12
+    key_terms: [accept, don, got, financial, programs, wellthatsjustgreat77, ananthropolothology, apply]
+    section: Comments
+    token_count: 424
 ---
-
 # I got into an Ivy and I can’t Afford It
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rlv1hy/i_got_into_an_ivy_and_i_cant_afford_it/)

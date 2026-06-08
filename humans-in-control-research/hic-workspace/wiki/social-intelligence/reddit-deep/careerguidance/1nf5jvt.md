@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1nf5jvt.md
 url: "https://www.reddit.com/r/careerguidance/comments/1nf5jvt/what_is_the_correct_drink_ordering_etiquette_when/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-22T15:13:18.821Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1nf5jvt.md#c0"
+    char_span: [0, 939]
+    sentence_count: 10
+    key_terms: [someone, careerguidance, offer, comments, ordering, separate, meeting, younger]
+    token_count: 219
+  - id: "social-intelligence/reddit-deep/careerguidance/1nf5jvt.md#c1"
+    char_span: [954, 2720]
+    sentence_count: 9
+    key_terms: [always, coffee, assume, treat, get, like, pay, personally]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1nf5jvt.md#c2"
+    char_span: [2468, 3064]
+    sentence_count: 5
+    key_terms: [like, waiting, coffee, having, feels, order, pay, want]
+    section: Comments
+    token_count: 153
+  - id: "social-intelligence/reddit-deep/careerguidance/1nf5jvt.md#c3"
+    char_span: [3066, 4792]
+    sentence_count: 16
+    key_terms: [pay, person, coffee, "don't", opportunity, get, "it's", pays]
+    section: Comments
+    token_count: 448
 ---
-
 # What is the correct drink ordering etiquette when meeting someone for coffee in a professional way?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1nf5jvt/what_is_the_correct_drink_ordering_etiquette_when/)

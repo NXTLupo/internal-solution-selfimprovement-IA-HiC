@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1qv1v8e.md
 url: "https://www.reddit.com/r/GradSchool/comments/1qv1v8e/grad_student_support_ideas/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-23T20:15:44.987Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1qv1v8e.md#c0"
+    char_span: [0, 1234]
+    sentence_count: 10
+    key_terms: [help, "i'm", like, gradschool, comments, started, support, issues]
+    token_count: 286
+  - id: "social-intelligence/reddit-deep/gradschool/1qv1v8e.md#c1"
+    char_span: [1249, 3607]
+    sentence_count: 14
+    key_terms: [students, grad, stress, like, challenges, department, everything, university]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/gradschool/1qv1v8e.md#c2"
+    char_span: [3609, 4986]
+    sentence_count: 8
+    key_terms: [donations, food, clothing, closet, aridorpheus, clothes, accept, alumni]
+    section: Comments
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/gradschool/1qv1v8e.md#c3"
+    char_span: [4988, 6180]
+    sentence_count: 11
+    key_terms: [university, admin, staff, people, unionization, help, support, fliers]
+    section: Comments
+    token_count: 276
+  - id: "social-intelligence/reddit-deep/gradschool/1qv1v8e.md#c4"
+    char_span: [6182, 8041]
+    sentence_count: 12
+    key_terms: [union, school, staff, grad, tax, university, something, graduate]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/gradschool/1qv1v8e.md#c5"
+    char_span: [8043, 9219]
+    sentence_count: 10
+    key_terms: [paid, understand, students, account, program, people, school, help]
+    section: Comments
+    token_count: 267
+  - id: "social-intelligence/reddit-deep/gradschool/1qv1v8e.md#c6"
+    char_span: [9221, 10871]
+    sentence_count: 11
+    key_terms: [immigration, resources, something, students, whistles, sizeinclusivecollective, helpful, option]
+    section: Comments
+    token_count: 384
 ---
-
 # Grad student support ideas
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1qv1v8e/grad_student_support_ideas/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-gemini/c3ff9e3c6c.md
 url: "https://www.reddit.com/r/Gemini/comments/1rqmtdz/i_built_acploop_a_recurring_prompt_scheduler_for/"
 url_hash: "c3ff9e3c6c"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T17:33:48.812573+00:00"
 chars: 895
+industries: [ai_research, saas]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-gemini/c3ff9e3c6c.md#c0"
+    char_span: [0, 1095]
+    sentence_count: 4
+    key_terms: [gemini, acp-loop, interval, deploy, recurring, succeeded, workflows, comments]
+    token_count: 287
 ---
-
 # I built acp-loop: a recurring prompt scheduler for ACP agents
 
 Source: [Reddit Deep: r/gemini](https://www.reddit.com/r/Gemini/comments/1rqmtdz/i_built_acploop_a_recurring_prompt_scheduler_for/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1o04asi.md
 url: "https://www.reddit.com/r/OpenAI/comments/1o04asi/openai_just_redefined_the_dev_stack_chatgpt_apps/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,21 @@ flair: "Discussion"
 extracted_at: "2026-05-11T16:53:06.854Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1o04asi.md#c0"
+    char_span: [0, 1277]
+    sentence_count: 7
+    key_terms: [chatgpt, developers, agentkit, openai, apps, sdk, comments, softwaredeliveryops]
+    token_count: 299
+  - id: "social-intelligence/reddit-deep/openai/1o04asi.md#c1"
+    char_span: [1292, 1599]
+    sentence_count: 3
+    key_terms: [openai, news, monetization, adept-type, glamoutfit, indication, amessuo19, digests]
+    section: Comments
+    token_count: 94
 ---
-
 # OpenAI Just Redefined the Dev Stack: ChatGPT Apps SDK, AgentKit, and the New CodeX which is going to be a Game Changer for Developers
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1o04asi/openai_just_redefined_the_dev_stack_chatgpt_apps/)

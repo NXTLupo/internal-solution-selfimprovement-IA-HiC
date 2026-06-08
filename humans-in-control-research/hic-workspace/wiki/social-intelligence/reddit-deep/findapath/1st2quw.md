@@ -6,19 +6,19 @@ subreddit: "findapath"
 title: "Is fiber technician work a realistic career path for someone with no experience or degree?"
 author: "issacson"
 date: "2026-04-23T00:05:23.000Z"
-score: 7
-upvote_ratio: 1
+score: 6
+upvote_ratio: 0.88
 num_comments: 2
 flair: "Findapath-Job Choice/Clarity"
-extracted_at: "2026-05-25T13:04:07.380Z"
+extracted_at: "2026-06-06T23:22:15.453Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Is fiber technician work a realistic career path for someone with no experience or degree?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1st2quw/is_fiber_technician_work_a_realistic_career_path/)
-Posted by **issacson** · **7↑** · **2 comments**
+Posted by **issacson** · **6↑** · **2 comments**
 
 Been trying to figure out a direction for a while and keep coming back to trades that are actually in demand and wont take 3 years to get started. Fiber & data technician kept coming up so I did a deep dive.
 

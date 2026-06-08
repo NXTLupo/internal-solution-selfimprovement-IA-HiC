@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1r8kjym.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1r8kjym/openai_uses_your_data_for_spying_on_everyone_and/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,66 @@ flair: "Other "
 extracted_at: "2026-05-17T01:12:48.210Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1r8kjym.md#c0"
+    char_span: [0, 1959]
+    sentence_count: 11
+    key_terms: [https, com, persona, recognition, government, data, chatgpt, openai]
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/chatgpt/1r8kjym.md#c1"
+    char_span: [1961, 3590]
+    sentence_count: 19
+    key_terms: [data, withpersona-gov, biometric, internet, consent, despite, privacy, using]
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/chatgpt/1r8kjym.md#c2"
+    char_span: [3592, 5648]
+    sentence_count: 22
+    key_terms: [companies, data, use, sources, delete, right, world, list]
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/chatgpt/1r8kjym.md#c3"
+    char_span: [5650, 6397]
+    sentence_count: 1
+    key_terms: [children-data-surveillance-amazon-facebook-google-apple, video-games-data-privacy-artificial-intelligence, https, com, www, meta-patent-ai-dead-bot-llm, the-goods, mashable]
+    token_count: 248
+  - id: "social-intelligence/reddit-deep/chatgpt/1r8kjym.md#c4"
+    char_span: [6412, 7992]
+    sentence_count: 12
+    key_terms: [melanatedbagel25, openai, please, conversation, image, post, r-chatgpt-1050422060352024636, subreddit]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/chatgpt/1r8kjym.md#c5"
+    char_span: [7995, 9486]
+    sentence_count: 5
+    key_terms: [nullvoidxnilmission, something, chatgpt, "they're", ground, people, reddit, justwalkingalonghere]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/chatgpt/1r8kjym.md#c6"
+    char_span: [9488, 10683]
+    sentence_count: 7
+    key_terms: [acrobatic-jump1105, like, "true", searched, imagine, police, inevitable-jury-6271, camelsaresofuckedup]
+    section: Comments
+    token_count: 313
+  - id: "social-intelligence/reddit-deep/chatgpt/1r8kjym.md#c7"
+    char_span: [10685, 12493]
+    sentence_count: 9
+    key_terms: [models, run, consent, bigger, like, expensive, graphics, internet]
+    section: Comments
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/chatgpt/1r8kjym.md#c8"
+    char_span: [12495, 14671]
+    sentence_count: 12
+    key_terms: [data, yourself, info, settings, better, need, use, government]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/chatgpt/1r8kjym.md#c9"
+    char_span: [14674, 16088]
+    sentence_count: 9
+    key_terms: [data, everything, people, alaskaexplorationgeo, justwalkingalonghere, stock-personality136, get, good]
+    section: Comments
+    token_count: 347
 ---
-
 # OpenAI uses your data for spying on everyone and everything.
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1r8kjym/openai_uses_your_data_for_spying_on_everyone_and/)

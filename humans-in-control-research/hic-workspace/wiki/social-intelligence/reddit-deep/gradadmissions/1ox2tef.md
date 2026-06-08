@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1ox2tef.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1ox2tef/clinical_psychology_applications_2026_canada/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,69 @@ flair: "Social Sciences"
 extracted_at: "2026-05-23T14:54:16.713Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, healthcare, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ox2tef.md#c0"
+    char_span: [0, 1037]
+    sentence_count: 8
+    key_terms: [applications, gradadmissions, time, interviews, psychology, applying, clinical, comments]
+    token_count: 240
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ox2tef.md#c1"
+    char_span: [1052, 2966]
+    sentence_count: 13
+    key_terms: [neat-initiative-13, psych, time, peachmall, clinical, everyone, someone, stuck]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ox2tef.md#c2"
+    char_span: [2968, 5138]
+    sentence_count: 25
+    key_terms: [clinical, year, don, research, hope, experience, relevant, applied]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ox2tef.md#c3"
+    char_span: [5141, 5755]
+    sentence_count: 3
+    key_terms: [application, thanks, competitive-demand20, embarrassed-ad-3232, cycle, research-based, phoenixloop, resources]
+    section: Comments
+    token_count: 155
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ox2tef.md#c4"
+    char_span: [5757, 7320]
+    sentence_count: 6
+    key_terms: [university, add, l8jvzc8afqt2q-badkostko, fe6a-uox5qphksah4vskxg, spreadsheet, please, embarrassed-ad-3232, spreadsheets]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ox2tef.md#c5"
+    char_span: [7057, 8022]
+    sentence_count: 6
+    key_terms: [universities, interview, document, received, acadia, thanks, both-improvement-697, affectionatebig4967]
+    section: Comments
+    token_count: 247
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ox2tef.md#c6"
+    char_span: [8024, 9938]
+    sentence_count: 11
+    key_terms: [committee, students, profs, interview, dragonflybruises, choices, choice, prelim]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ox2tef.md#c7"
+    char_span: [9940, 11830]
+    sentence_count: 11
+    key_terms: [oise, clinical, counselling, psychotherapy, applied, awkwardwall3448, time, tmu]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ox2tef.md#c8"
+    char_span: [11832, 12846]
+    sentence_count: 15
+    key_terms: [university, clinical, interviews, anything, columbia, everyone, applied, british]
+    section: Comments
+    token_count: 265
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ox2tef.md#c9"
+    char_span: [12848, 13992]
+    sentence_count: 10
+    key_terms: [interviews, heard, neat-initiative-13, anyone, hey, committee, anything, initials]
+    section: Comments
+    token_count: 311
 ---
-
 # Clinical Psychology Applications 2026 (CANADA)
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1ox2tef/clinical_psychology_applications_2026_canada/)

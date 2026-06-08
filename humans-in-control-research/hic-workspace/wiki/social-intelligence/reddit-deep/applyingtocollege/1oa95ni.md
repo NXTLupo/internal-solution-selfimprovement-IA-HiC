@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1oa95ni.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1oa95ni/how_do_you_guys_have_so_much_time/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,57 @@ flair: "Advice"
 extracted_at: "2026-05-20T06:42:01.168Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1oa95ni.md#c0"
+    char_span: [0, 1029]
+    sentence_count: 8
+    key_terms: [applyingtocollege, comments, programs, college, time, too, application, reddit-deep]
+    token_count: 275
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1oa95ni.md#c1"
+    char_span: [1044, 1421]
+    sentence_count: 4
+    key_terms: [reddit, liars, ill-equivalent8316, full, paxongoat, chanceme, stressed, college]
+    section: Comments
+    token_count: 102
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1oa95ni.md#c2"
+    char_span: [1423, 3590]
+    sentence_count: 11
+    key_terms: [student, ecs, never, lies, haunting-fruit7154, thelegendmosalah, participants, club]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1oa95ni.md#c3"
+    char_span: [3292, 5308]
+    sentence_count: 7
+    key_terms: [haunting-fruit7154, lot, outright, exaggerated, "it's", lie, work, president]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1oa95ni.md#c4"
+    char_span: [5095, 6159]
+    sentence_count: 9
+    key_terms: [school, because, college, dependent-royal-7908, hours, lot, steaknotcake, competitive]
+    section: Comments
+    token_count: 256
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1oa95ni.md#c5"
+    char_span: [6161, 6560]
+    sentence_count: 6
+    key_terms: [time, healthcare, hours, sleep, organization, volunteering, competition, everything]
+    section: Comments
+    token_count: 89
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1oa95ni.md#c6"
+    char_span: [6562, 8687]
+    sentence_count: 10
+    key_terms: [week, extracurriculars, application, year, commitment, definitely, impressive, including]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1oa95ni.md#c7"
+    char_span: [8432, 8980]
+    sentence_count: 5
+    key_terms: [extracurriculars, weightlifting, nightflier9, admissions, graduation, different, selective, admitted]
+    section: Comments
+    token_count: 134
 ---
-
 # How do you guys have SO. MUCH. TIME?!
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1oa95ni/how_do_you_guys_have_so_much_time/)

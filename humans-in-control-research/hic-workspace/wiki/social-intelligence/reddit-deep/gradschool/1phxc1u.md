@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1phxc1u.md
 url: "https://www.reddit.com/r/GradSchool/comments/1phxc1u/had_an_anxiety_attack_while_giving_a_presentation/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,50 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.349Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [fundraising, nonprofit]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1phxc1u.md#c0"
+    char_span: [0, 1833]
+    sentence_count: 11
+    key_terms: [presentation, totally, front, felt, classmates, gradschool, comments, semester]
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/gradschool/1phxc1u.md#c1"
+    char_span: [1835, 2713]
+    sentence_count: 11
+    key_terms: [something, totally, school, skills, since, speaking-adjacent, grad, "i'm"]
+    token_count: 199
+  - id: "social-intelligence/reddit-deep/gradschool/1phxc1u.md#c2"
+    char_span: [2728, 4990]
+    sentence_count: 17
+    key_terms: [myself, people, found, better, beta, like, blockers, project]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/gradschool/1phxc1u.md#c3"
+    char_span: [4992, 5727]
+    sentence_count: 6
+    key_terms: [easier, rejection, practice, speaking, talking, little, public, phone]
+    section: Comments
+    token_count: 150
+  - id: "social-intelligence/reddit-deep/gradschool/1phxc1u.md#c4"
+    char_span: [5729, 7912]
+    sentence_count: 13
+    key_terms: [public, speaking, better, highschool, feel, like, remember, little]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1phxc1u.md#c5"
+    char_span: [7621, 8051]
+    sentence_count: 3
+    key_terms: [read, highschool, horrendous, something, probably, religion, remember, anxiety]
+    section: Comments
+    token_count: 101
+  - id: "social-intelligence/reddit-deep/gradschool/1phxc1u.md#c6"
+    char_span: [8053, 9531]
+    sentence_count: 10
+    key_terms: [blockers, beta, something, honestly, whatever, helpful, people, though]
+    section: Comments
+    token_count: 346
 ---
-
 # Had an anxiety attack while giving a presentation today
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1phxc1u/had_an_anxiety_attack_while_giving_a_presentation/)

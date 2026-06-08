@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1lumomy.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1lumomy/i_asked_chatgpt_top_10_current_warnings_being/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,87 @@ flair: "Educational Purpose Only "
 extracted_at: "2026-05-17T01:12:48.205Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1lumomy.md#c0"
+    char_span: [0, 1691]
+    sentence_count: 19
+    key_terms: [chatgpt, comments, nobody, people, spiritual-reveal-195, water, don, food]
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/chatgpt/1lumomy.md#c1"
+    char_span: [1706, 3557]
+    sentence_count: 19
+    key_terms: [please, conversation, image, post, r-chatgpt-1050422060352024636, concerns, warnings, chatgpt-shared-links-faq]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/chatgpt/1lumomy.md#c2"
+    char_span: [3559, 5361]
+    sentence_count: 37
+    key_terms: [war, pentagon, country, vietnam, cities, nobody, racism, rights]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/chatgpt/1lumomy.md#c3"
+    char_span: [5363, 7386]
+    sentence_count: 14
+    key_terms: [problems, future, women, like, extreme, poverty, global, health]
+    section: Comments
+    token_count: 514
+  - id: "social-intelligence/reddit-deep/chatgpt/1lumomy.md#c4"
+    char_span: [7388, 8959]
+    sentence_count: 16
+    key_terms: [people, future, global, despite, health, longer, toward, lives]
+    section: Comments
+    token_count: 335
+  - id: "social-intelligence/reddit-deep/chatgpt/1lumomy.md#c5"
+    char_span: [8961, 10613]
+    sentence_count: 14
+    key_terms: [hugepines, ignoring, adding, better, spiritual-reveal-195, "we're", world, years]
+    section: Comments
+    token_count: 401
+  - id: "social-intelligence/reddit-deep/chatgpt/1lumomy.md#c6"
+    char_span: [10615, 12669]
+    sentence_count: 22
+    key_terms: [outlook, reality, concern, health, medium, microplastics, debt, high]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/chatgpt/1lumomy.md#c7"
+    char_span: [12671, 14081]
+    sentence_count: 18
+    key_terms: [outlook, reality, concern, surveillance, trust, isn, collapse, serious]
+    section: Comments
+    token_count: 310
+  - id: "social-intelligence/reddit-deep/chatgpt/1lumomy.md#c8"
+    char_span: [14083, 15142]
+    sentence_count: 8
+    key_terms: [brought, spiritual-reveal-195, sumthingbrewing, professionally, chlomygod638, civilization, megathot2023, consectetur]
+    section: Comments
+    token_count: 259
+  - id: "social-intelligence/reddit-deep/chatgpt/1lumomy.md#c9"
+    char_span: [15144, 17021]
+    sentence_count: 15
+    key_terms: [spiritual-reveal-195, fine, microplastics, "everything's", right, pfas, country, doesn]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1lumomy.md#c10"
+    char_span: [16792, 17220]
+    sentence_count: 1
+    key_terms: [spiritual-reveal-195, nonlinear3477, conservation, developments, highlighting, happening, curtains, dramatic]
+    section: Comments
+    token_count: 110
+  - id: "social-intelligence/reddit-deep/chatgpt/1lumomy.md#c11"
+    char_span: [17222, 19003]
+    sentence_count: 10
+    key_terms: [conservation, milestone, burmese, cancer, golden, record, seine, solar]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/chatgpt/1lumomy.md#c12"
+    char_span: [19005, 19679]
+    sentence_count: 7
+    key_terms: [spiritual-reveal-195, breakthroughs, conversations, constructive, acknowledge, sustainable, dismissing, innovation]
+    section: Comments
+    token_count: 142
 ---
-
 # I asked ChatGPT, "Top 10 Current Warnings Being Ignored."
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1lumomy/i_asked_chatgpt_top_10_current_warnings_being/)

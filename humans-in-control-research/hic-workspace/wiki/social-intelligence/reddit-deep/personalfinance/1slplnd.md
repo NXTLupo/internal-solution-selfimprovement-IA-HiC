@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1slplnd.md
 url: "https://www.reddit.com/r/personalfinance/comments/1slplnd/help_guide_me_through_investingsavinggeneral/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,21 @@ flair: "Investing"
 extracted_at: "2026-05-17T01:13:31.181Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1slplnd.md#c0"
+    char_span: [0, 779]
+    sentence_count: 5
+    key_terms: [personalfinance, looking, comments, finances, student, money, young, help]
+    token_count: 182
+  - id: "social-intelligence/reddit-deep/personalfinance/1slplnd.md#c1"
+    char_span: [794, 1958]
+    sentence_count: 8
+    key_terms: [personalfinance, budget, wiki, map, plan, bouncyegg, budgeting, financial]
+    section: Comments
+    token_count: 290
 ---
-
 # Help guide me through investing/saving/general finances as a 18 year old.
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1slplnd/help_guide_me_through_investingsavinggeneral/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rtsuea.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rtsuea/what_do_you_guys_think_of_temporaryfreelance_work/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,33 @@ flair: "New Grad"
 extracted_at: "2026-05-20T03:56:10.750Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rtsuea.md#c0"
+    char_span: [0, 941]
+    sentence_count: 9
+    key_terms: [cscareerquestions, question, dissertation, good, experience, comments, graduate, students]
+    token_count: 228
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rtsuea.md#c1"
+    char_span: [956, 1389]
+    sentence_count: 3
+    key_terms: [freelance, thinking, "you're", forsookcomparison, phd, alternative, backgrounds, experience]
+    section: Comments
+    token_count: 99
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rtsuea.md#c2"
+    char_span: [1391, 3239]
+    sentence_count: 5
+    key_terms: [a05f-4fc5-a7d3-ab56ccb48631, careercraft-launch, careercraft, keyword, myninja, https, super, apps]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rtsuea.md#c3"
+    char_span: [3009, 3650]
+    sentence_count: 3
+    key_terms: [a05f-4fc5-a7d3-ab56ccb48631, cscareerquestions-s851, careercraft-launch, conversation-based, free, tool, conversation, careercraft]
+    section: Comments
+    token_count: 170
 ---
-
 # What do you guys think of temporary/freelance work through Mercor (and anywhere else you know of) for new grads/graduate students? Is this a good stopgap until you can get a real job? Is it good for part-time work?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rtsuea/what_do_you_guys_think_of_temporaryfreelance_work/)

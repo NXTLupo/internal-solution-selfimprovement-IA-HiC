@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1m8lrly.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1m8lrly/googl_yolo_the_dip_to_191_was_a_gift_from_the/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,39 @@ flair: "YOLO"
 extracted_at: "2026-05-17T01:14:17.612Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1m8lrly.md#c0"
+    char_span: [0, 1930]
+    sentence_count: 14
+    key_terms: [wallstreetbets, comments, market, https, long-term, backlog, reddit, com]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1m8lrly.md#c1"
+    char_span: [1945, 3659]
+    sentence_count: 9
+    key_terms: [driverless, wsb, calls, waymo, years, car, discord, problem]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1m8lrly.md#c2"
+    char_span: [3661, 5492]
+    sentence_count: 10
+    key_terms: [waymo, driving, self, unsuccessfully, thats, "it's", everywhere, expensive]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1m8lrly.md#c3"
+    char_span: [5495, 7333]
+    sentence_count: 13
+    key_terms: [tesla, waymo, wrong, reliability, cars, absolutely, geofenced, ghostjinn]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1m8lrly.md#c4"
+    char_span: [7335, 8532]
+    sentence_count: 9
+    key_terms: [traditionalmousse500, fee22710ed34f64815878785952662674d6805a6, wanderingtofu, dip, preview, buying, change, format]
+    section: Comments
+    token_count: 396
 ---
-
 # $GOOGL YOLO - The Dip to $191 was a Gift from the Volatility Gods
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1m8lrly/googl_yolo_the_dip_to_191_was_a_gift_from_the/)

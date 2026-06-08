@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1seglf1.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1seglf1/analytical_development_ra_or_academic_lab_ra/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,21 @@ flair: "Biological Sciences"
 extracted_at: "2026-05-20T03:56:10.754Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1seglf1.md#c0"
+    char_span: [0, 2361]
+    sentence_count: 2
+    key_terms: [academic, development, analytical, lab, work, industry, application, different]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/gradadmissions/1seglf1.md#c1"
+    char_span: [2376, 4644]
+    sentence_count: 14
+    key_terms: [research, experience, industry, apply, important, academic, don, like]
+    section: Comments
+    token_count: 482
 ---
-
 # Analytical Development RA or Academic Lab RA?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1seglf1/analytical_development_ra_or_academic_lab_ra/)

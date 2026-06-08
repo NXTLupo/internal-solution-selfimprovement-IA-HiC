@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1prudsz.md
 url: "https://www.reddit.com/r/GenZ/comments/1prudsz/weve_normalized_gambling_inside_finance_apps_what/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,39 @@ flair: "Discussion"
 extracted_at: "2026-05-16T20:55:01.231Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1prudsz.md#c0"
+    char_span: [0, 1562]
+    sentence_count: 13
+    key_terms: [sports, gambling, bets, betting, inside, contracts, comments, offering]
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/genz/1prudsz.md#c1"
+    char_span: [1577, 3536]
+    sentence_count: 19
+    key_terms: ["it's", like, government, regulation, internet, "don't", money, fun]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/genz/1prudsz.md#c2"
+    char_span: [3539, 4991]
+    sentence_count: 12
+    key_terms: [australia, gambling, robinhood, because, betting, "doesn't", app, "it's"]
+    section: Comments
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/genz/1prudsz.md#c3"
+    char_span: [4993, 6530]
+    sentence_count: 9
+    key_terms: [gambling, because, money, interesting, good, haikusbot, newad5289, separate]
+    section: Comments
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/genz/1prudsz.md#c4"
+    char_span: [6532, 6957]
+    sentence_count: 2
+    key_terms: [haikusbot, delete, opt, regulations, investment, companies, worthless, accounts]
+    section: Comments
+    token_count: 111
 ---
-
 # We’ve normalized gambling inside finance apps.. what is going on???
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1prudsz/weve_normalized_gambling_inside_finance_apps_what/)

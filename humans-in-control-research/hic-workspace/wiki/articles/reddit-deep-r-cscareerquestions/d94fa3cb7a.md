@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/d94fa3cb7a.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1ouvega/new_grads_and_folks_looking_for_new_job_how_do/"
 url_hash: "d94fa3cb7a"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T04:02:13.251007+00:00"
 chars: 2971
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/d94fa3cb7a.md#c0"
+    char_span: [0, 1568]
+    sentence_count: 5
+    key_terms: [trump-green-cards-gradutate-college, talent, cscareerquestions, irresponsible, https, com, guy, www]
+    token_count: 382
+  - id: "articles/reddit-deep-r-cscareerquestions/d94fa3cb7a.md#c1"
+    char_span: [1570, 3421]
+    sentence_count: 22
+    key_terms: [party, h-1bs, against, parties, action, people, least, taken]
+    token_count: 420
 ---
-
 # New grads and folks looking for new job- how do you feel about Trump's conversation with Laura Inghram tonight in where he stated America lacks talent and you can't just pick an unemployed person off the unemployment line to do the jobs foreign countries are creating due to big investments?
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1ouvega/new_grads_and_folks_looking_for_new_job_how_do/)

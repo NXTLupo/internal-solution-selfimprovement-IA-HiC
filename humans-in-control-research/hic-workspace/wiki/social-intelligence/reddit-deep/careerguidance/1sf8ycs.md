@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sf8ycs.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sf8ycs/early_career_and_living_advice_please/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,26 @@ flair: "Advice"
 extracted_at: "2026-05-23T12:15:46.635Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sf8ycs.md#c0"
+    char_span: [0, 2073]
+    sentence_count: 15
+    key_terms: ["i'm", charleston, since, college, careerguidance, career, being, experiences]
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/careerguidance/1sf8ycs.md#c1"
+    char_span: [2075, 3229]
+    sentence_count: 10
+    key_terms: [here, "i'm", charleston, elsewhere, insurance, graduate, firms, "i've"]
+    token_count: 260
+  - id: "social-intelligence/reddit-deep/careerguidance/1sf8ycs.md#c2"
+    char_span: [3244, 5249]
+    sentence_count: 7
+    key_terms: ["you're", estate, real, market, people, "charleston's", firms, since]
+    section: Comments
+    token_count: 423
 ---
-
 # Early career and living advice please?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sf8ycs/early_career_and_living_advice_please/)

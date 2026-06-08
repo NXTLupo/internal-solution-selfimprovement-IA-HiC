@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1lhkm49/should_i_switch_to_another_major_because_of_ai/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-22T15:11:47.158Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c0"
+    char_span: [0, 700]
+    sentence_count: 5
+    key_terms: [cscareerquestions, financially, independent, outsourcing, comments, another, switch, major]
+    token_count: 171
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c1"
+    char_span: [715, 2908]
+    sentence_count: 18
+    key_terms: [something, school, university, like, college, degree, doing, "don't"]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c2"
+    char_span: [2910, 5109]
+    sentence_count: 22
+    key_terms: [degree, development, years, portfolio, time, school, worked, full]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c3"
+    char_span: [5111, 7320]
+    sentence_count: 13
+    key_terms: [engineering, degrees, like, school, years, competitive, high, job]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c4"
+    char_span: [7322, 8648]
+    sentence_count: 2
+    key_terms: [degree, transfer, schools, target, universities, accounting, excellent, always]
+    section: Comments
+    token_count: 282
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c5"
+    char_span: [8650, 10196]
+    sentence_count: 7
+    key_terms: [years, career, "don't", like, definitely, assistant, education, everyone]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c6"
+    char_span: [10198, 12399]
+    sentence_count: 17
+    key_terms: [outsourcing, going, staff, been, delegation, fungible, projects, another]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c7"
+    char_span: [12401, 13780]
+    sentence_count: 6
+    key_terms: [leagueaggravating595, money, time, want, terpsicore1987, understanding, distribution, holistically]
+    section: Comments
+    token_count: 369
 ---
-
 # Should I switch to another major because of AI and outsourcing?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1lhkm49/should_i_switch_to_another_major_because_of_ai/)

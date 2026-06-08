@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1m28eoc.md
 url: "https://www.reddit.com/r/GradSchool/comments/1m28eoc/switching_careers_midgrad_school/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,21 @@ flair: "Academics"
 extracted_at: "2026-05-25T13:04:07.336Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce, healthcare]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1m28eoc.md#c0"
+    char_span: [0, 1807]
+    sentence_count: 15
+    key_terms: [school, program, semesters, because, grad, gradschool, pathology, comments]
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/gradschool/1m28eoc.md#c1"
+    char_span: [1822, 2254]
+    sentence_count: 4
+    key_terms: [finish, back, slp, want, conversation, vexedcoffee, experience, programs]
+    section: Comments
+    token_count: 118
 ---
-
 # Switching careers mid-grad school?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1m28eoc/switching_careers_midgrad_school/)

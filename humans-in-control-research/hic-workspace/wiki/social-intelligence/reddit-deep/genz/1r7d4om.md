@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1r7d4om.md
 url: "https://www.reddit.com/r/GenZ/comments/1r7d4om/gen_z_aged_adults_have_you_ever_felt_like_this_is/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,27 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.765Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1r7d4om.md#c0"
+    char_span: [0, 2065]
+    sentence_count: 6
+    key_terms: [time, years, feel, like, "i've", break, waste, gen]
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/genz/1r7d4om.md#c1"
+    char_span: [2080, 4175]
+    sentence_count: 16
+    key_terms: [good, years, maintaining, work, currently, designers, because, discord]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/genz/1r7d4om.md#c2"
+    char_span: [4177, 5678]
+    sentence_count: 10
+    key_terms: [job, work, school, early, human, like, use, encountering]
+    section: Comments
+    token_count: 351
 ---
-
 # Gen Z aged adults, have you ever felt like this is one of the worst time periods to waste time and try again due to AI and inflation?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1r7d4om/gen_z_aged_adults_have_you_ever_felt_like_this_is/)

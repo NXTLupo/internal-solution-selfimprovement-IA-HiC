@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1s92kzr.md
 url: "https://www.reddit.com/r/stocks/comments/1s92kzr/todays_38_nasdaq_rally_is_not_the_recovery_its_a/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,80 @@ flair: "Crystal Ball Post"
 extracted_at: "2026-05-17T01:14:17.619Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1s92kzr.md#c0"
+    char_span: [0, 1885]
+    sentence_count: 27
+    key_terms: [closed, stocks, "that's", peace, "it's", fertilizer, comments, consumer]
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/stocks/1s92kzr.md#c1"
+    char_span: [1887, 3886]
+    sentence_count: 25
+    key_terms: [market, billion, infrastructure, fundamentals, money, rally, inflation, sentiment]
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/stocks/1s92kzr.md#c2"
+    char_span: [3901, 5552]
+    sentence_count: 6
+    key_terms: [market, stay, looking, singularity-42, irrational, forward, matters, bubble]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/stocks/1s92kzr.md#c3"
+    char_span: [5554, 6922]
+    sentence_count: 11
+    key_terms: [broadcom-ai-revenue-outlook-suggests-upside-beyond-100-billion-target-200677255, going, nuke, change, effective-fondant610, point, ceo, "it's"]
+    section: Comments
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/stocks/1s92kzr.md#c4"
+    char_span: [6924, 8221]
+    sentence_count: 10
+    key_terms: [last, market, oil, too, anymore, interactionhorror407, alwaysfavoriteasian, posts]
+    section: Comments
+    token_count: 357
+  - id: "social-intelligence/reddit-deep/stocks/1s92kzr.md#c5"
+    char_span: [8223, 9654]
+    sentence_count: 10
+    key_terms: [obscureobject2574, singularity-42, back, chatgpt, selling, decade, energy, market]
+    section: Comments
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/stocks/1s92kzr.md#c6"
+    char_span: [9656, 11352]
+    sentence_count: 10
+    key_terms: [market, years, corrections, drop, mid, been, big, down]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/stocks/1s92kzr.md#c7"
+    char_span: [11355, 12481]
+    sentence_count: 8
+    key_terms: [short-term, potential, happens, income, market, people, buy, dca]
+    section: Comments
+    token_count: 269
+  - id: "social-intelligence/reddit-deep/stocks/1s92kzr.md#c8"
+    char_span: [12483, 14415]
+    sentence_count: 13
+    key_terms: [market, grow, "it's", fertilizer, paycheck, farmer, inputs, season]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1s92kzr.md#c9"
+    char_span: [14205, 14568]
+    sentence_count: 5
+    key_terms: [slop, singularity-42, invest0rnoob1, jijitalk, shorting, dumping, holders, options]
+    section: Comments
+    token_count: 111
+  - id: "social-intelligence/reddit-deep/stocks/1s92kzr.md#c10"
+    char_span: [14570, 15666]
+    sentence_count: 5
+    key_terms: [discussion, slop, straight, seeing, daily, weeks, own, sick]
+    section: Comments
+    token_count: 288
+  - id: "social-intelligence/reddit-deep/stocks/1s92kzr.md#c11"
+    char_span: [15668, 17228]
+    sentence_count: 13
+    key_terms: [singularity-42, market, rally, overturn, here, "it's", jimbobsupertramp, killerbabybunny]
+    section: Comments
+    token_count: 387
 ---
-
 # Today's 3.8% Nasdaq rally is not "the recovery." It's a bear market rally. Don't get fooled.
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1s92kzr/todays_38_nasdaq_rally_is_not_the_recovery_its_a/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1qwug4z.md
 url: "https://www.reddit.com/r/highereducation/comments/1qwug4z/online_higher_ed_courses_and_ai_how_is_the/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -7,14 +8,49 @@ title: "Online higher ed courses and AI, how is the landscape changing"
 author: "stano1213"
 date: "2026-02-05T19:10:34.000Z"
 score: 14
-upvote_ratio: 0.85
+upvote_ratio: 0.82
 num_comments: 22
 flair: ""
-extracted_at: "2026-05-23T14:53:59.511Z"
+extracted_at: "2026-06-05T23:42:16.774Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1qwug4z.md#c0"
+    char_span: [0, 1811]
+    sentence_count: 14
+    key_terms: [courses, faculty, media, designer, highereducation, schools, others, perspectives]
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/highereducation/1qwug4z.md#c1"
+    char_span: [1826, 4113]
+    sentence_count: 20
+    key_terms: [students, use, industry, economy, higher, people, "don't", assignments]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/highereducation/1qwug4z.md#c2"
+    char_span: [3852, 4705]
+    sentence_count: 4
+    key_terms: [like, perception, stano1213, visuals, teach, use, philosophically, interaction]
+    section: Comments
+    token_count: 206
+  - id: "social-intelligence/reddit-deep/highereducation/1qwug4z.md#c3"
+    char_span: [4707, 7004]
+    sentence_count: 17
+    key_terms: [students, institutions, content, courses, like, especially, generated, accuracy]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/highereducation/1qwug4z.md#c4"
+    char_span: [7006, 9554]
+    sentence_count: 14
+    key_terms: [faculty, production, quality, happening, standards, time, designer, because]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/highereducation/1qwug4z.md#c5"
+    char_span: [9556, 10206]
+    sentence_count: 3
+    key_terms: [better, rather, institutions, assignments, interesting, pedagogical, disappears, production]
+    section: Comments
+    token_count: 135
 ---
-
 # Online higher ed courses and AI, how is the landscape changing
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1qwug4z/online_higher_ed_courses_and_ai_how_is_the/)
@@ -32,13 +68,13 @@ I’m curious if others in the industry have noticed this trend and see it conti
 
 ## Comments
 
-- **StoneFoundation** (14↑): For students, many of them ignore LLM media/don't care one way or the other OR actively dislike it. Students also do NOT enjoy instructors heavily resting on LLMs , and there are many who are opposed to it from a general sense regardless of its usage. Having worked in both college and K-12 environments, I have heard all sorts of arguments against its usage from students. At many levels I've heard students talk about how if their work is graded by an LLM, for example, they might as well use an LLM to complete assignments. College and high school (7-12) are more likely to object on a moral basis. Many students brush past it and ignore it. The only people hyped about it are industry higher ups because it cuts costs in an increasingly difficult economy; the real people, aka the stakeholders (if we wanna go there and talk economy), either dislike it or don't care. This is my experience.
+- **StoneFoundation** (16↑): For students, many of them ignore LLM media/don't care one way or the other OR actively dislike it. Students also do NOT enjoy instructors heavily resting on LLMs , and there are many who are opposed to it from a general sense regardless of its usage. Having worked in both college and K-12 environments, I have heard all sorts of arguments against its usage from students. At many levels I've heard students talk about how if their work is graded by an LLM, for example, they might as well use an LLM to complete assignments. College and high school (7-12) are more likely to object on a moral basis. Many students brush past it and ignore it. The only people hyped about it are industry higher ups because it cuts costs in an increasingly difficult economy; the real people, aka the stakeholders (if we wanna go there and talk economy), either dislike it or don't care. This is my experience.
 - **notmadneedsmspace** (11↑): Many students aren’t interested in it. My mostly gen X and Millennial colleagues are wary if not hostile. Higher ups at my R1 want to profit off of it and have blinders on. (Just buy that lake house and decorate it and pretend everything is going to be fine Assistant Dean of research initiatives.) My sense is AI is coming for every industry, and the economy is about to feel it. We’ve got this enrollment cliff coming, but we are also about to have a “why the f rack up debt for no job?” cliff. And the young people are already rightly pissed about the environment. Now they are being told nobody needs their creativity or cognition because a machine can do it while robbing communities of water. It’s sad and sick and a sorry state of affairs.
 - **Breakfast-Critical** (10↑): I don't want a single visual or graphic in my courses to be AI generated. It's all terrible looking and the students already get inundated with AI slop on social media. It makes higher ed look cheap and it devalues us. I will use AI to help me create assignments and PowerPoint slide decks. I will not use it to produce visuals.
   - **stano1213** (1↑): Philosophically I agree with this, which makes my job right now very annoying and difficult. I’m not sure how to proceed tbh. If the whole industry was like “yeah fine we’ll just use AI for everything” then I could feel better about switching jobs or whatever. But it  seems like that’s not entirely the case.
 - **def21** (5↑): I don't have numbers for your specific field, but recent surveys in student perception on AI are plentiful and reported interaction/usage is anywhere from 80-90+%
-  - **stano1213** (3↑): Thank you, yes I think general data like that is helpful, but I’m definitely curious how visuals being used to teach differ in perception from just students using AI themselves or even non-visual uses of AI to teach.
-- **BigFitMama** (6↑): Via Canvas and Turn It In Experience:
+  - **stano1213** (5↑): Thank you, yes I think general data like that is helpful, but I’m definitely curious how visuals being used to teach differ in perception from just students using AI themselves or even non-visual uses of AI to teach.
+- **BigFitMama** (5↑): Via Canvas and Turn It In Experience:
 
 1. Students are incredibly simple when it comes to cut n paste AI generated content and use it despite it all.
 2. Students are bots trying to stick around long enough online to scam a financial aid check

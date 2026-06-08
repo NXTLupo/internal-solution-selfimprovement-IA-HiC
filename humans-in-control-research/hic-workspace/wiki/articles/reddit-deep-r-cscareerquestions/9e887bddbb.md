@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/9e887bddbb.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1srw5zd/internship_or_fulltime_for_career_pivot/"
 url_hash: "9e887bddbb"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:39:34.171536+00:00"
 chars: 2664
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/9e887bddbb.md#c0"
+    char_span: [0, 2378]
+    sentence_count: 16
+    key_terms: [technical, internship, work, position, support, full-time, cscareerquestions, engineer]
+    token_count: 497
+  - id: "articles/reddit-deep-r-cscareerquestions/9e887bddbb.md#c1"
+    char_span: [2380, 2857]
+    sentence_count: 2
+    key_terms: [ibm, definitely, internship, taigahalla, converted, technical, comments, relevant]
+    token_count: 110
 ---
-
 # Internship or Full-Time for Career Pivot?
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1srw5zd/internship_or_fulltime_for_career_pivot/)

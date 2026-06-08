@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1nhqf49.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1nhqf49/people_who_did_engineering_as_a_second_degree_how/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,27 @@ flair: "Career Advice"
 extracted_at: "2026-05-24T14:08:39.213Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1nhqf49.md#c0"
+    char_span: [0, 467]
+    sentence_count: 5
+    key_terms: [engineeringstudents, comments, curious, career, royal-jelly1026, post-graduate, engineering, internships]
+    token_count: 114
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1nhqf49.md#c1"
+    char_span: [482, 2543]
+    sentence_count: 23
+    key_terms: [engineering, degree, skills, language, started, translation, did, get]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1nhqf49.md#c2"
+    char_span: [2546, 2938]
+    sentence_count: 5
+    key_terms: [biohacker1104, internship, currently, equipment, friends, ideally, project, reading]
+    section: Comments
+    token_count: 98
 ---
-
 # People who did engineering as a second degree - how has your career developed?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1nhqf49/people_who_did_engineering_as_a_second_degree_how/)

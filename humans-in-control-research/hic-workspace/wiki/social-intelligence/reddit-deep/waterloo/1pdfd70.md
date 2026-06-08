@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1pdfd70.md
 url: "https://www.reddit.com/r/waterloo/comments/1pdfd70/if_anyone_remembers_snow_bros_and_their_snow/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.127Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1pdfd70.md#c0"
+    char_span: [0, 370]
+    sentence_count: 3
+    key_terms: [comments, waterloo, necessarytasty6972, snow, contracting, reddit-deep, remembers, clearing]
+    token_count: 100
+  - id: "social-intelligence/reddit-deep/waterloo/1pdfd70.md#c1"
+    char_span: [385, 2286]
+    sentence_count: 16
+    key_terms: [forsaken-witch461, pay, multiple, brother, review, paid, put, jaytreeman]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/waterloo/1pdfd70.md#c2"
+    char_span: [2288, 3847]
+    sentence_count: 9
+    key_terms: [v-general-labour-jobs, report, necessarytasty6972, company, workers-needed, kijiji, ignored, guelph]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/waterloo/1pdfd70.md#c3"
+    char_span: [3849, 4760]
+    sentence_count: 3
+    key_terms: [eyjhy3rpb24ioiaidmlld19wb3n0iiwginbvc3qioia1mjc3nju2ntg0otu5oh0, cuuitxfgc4y3jtz2xrbyqscedvfj1pladeeeo8rw-uw, nextdoor, comment, cageqe-hryvkeefpxcmh, https, worried-force-1821, com]
+    section: Comments
+    token_count: 445
 ---
-
 # If anyone remembers Snow Bros and their snow clearing scam, they are back under Cleaver Contracting Services. Beware of hiring them this year.
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1pdfd70/if_anyone_remembers_snow_bros_and_their_snow/)

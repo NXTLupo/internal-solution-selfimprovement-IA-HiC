@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1shhsjd.md
 url: "https://www.reddit.com/r/internships/comments/1shhsjd/why_your_internship_search_isnt_working/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "Applications"
 extracted_at: "2026-05-22T13:32:14.561Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1shhsjd.md#c0"
+    char_span: [0, 2149]
+    sentence_count: 17
+    key_terms: [people, because, massive, started, actual, internships, find, completely]
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/internships/1shhsjd.md#c1"
+    char_span: [2164, 3668]
+    sentence_count: 9
+    key_terms: [revorian, certifications, free, like, applying, students, instead, people]
+    section: Comments
+    token_count: 345
 ---
-
 # Why your internship search isn’t working
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1shhsjd/why_your_internship_search_isnt_working/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1t6au6g.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1t6au6g/the_junior_developer_career_path_is_disappearing/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,32 @@ flair: ""
 extracted_at: "2026-05-25T18:32:49.821Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t6au6g.md#c0"
+    char_span: [0, 1896]
+    sentence_count: 24
+    key_terms: [engineers, cscareerquestions, code, junior, within, write, employment, anthropic]
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t6au6g.md#c1"
+    char_span: [1898, 3436]
+    sentence_count: 19
+    key_terms: ["doesn't", juniors, seniors, hiring, people, years, entry-level, "quarter's"]
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t6au6g.md#c2"
+    char_span: [3451, 5276]
+    sentence_count: 9
+    key_terms: [ambitious-garbage-73, roles, post, slop, harvard, coding, junior, please]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t6au6g.md#c3"
+    char_span: [5278, 6214]
+    sentence_count: 13
+    key_terms: [code, something, company, coding, going, less, like, show]
+    section: Comments
+    token_count: 210
 ---
-
 # The junior developer career path is disappearing in real time. The numbers are worse than most people realize.
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1t6au6g/the_junior_developer_career_path_is_disappearing/)

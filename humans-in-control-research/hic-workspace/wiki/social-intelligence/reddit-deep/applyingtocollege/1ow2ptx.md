@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1ow2ptx.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1ow2ptx/i_got_my_first_college_acceptance_from_penn_state/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,27 @@ flair: "Fluff"
 extracted_at: "2026-05-20T12:57:06.074Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ow2ptx.md#c0"
+    char_span: [0, 733]
+    sentence_count: 6
+    key_terms: [applyingtocollege, college, got, acceptance, comments, reaction, "i'm", international]
+    token_count: 178
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ow2ptx.md#c1"
+    char_span: [748, 2628]
+    sentence_count: 13
+    key_terms: [congratulations, state, school, penn, congrats, happy, fall, fun]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ow2ptx.md#c2"
+    char_span: [2393, 3105]
+    sentence_count: 6
+    key_terms: [congrats, congratulations, got, acceptance, state, aureliaaubreeastor, haunting-fruit7154, secrerofficeninja]
+    section: Comments
+    token_count: 206
 ---
-
 # I got my first college acceptance from Penn State!
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1ow2ptx/i_got_my_first_college_acceptance_from_penn_state/)

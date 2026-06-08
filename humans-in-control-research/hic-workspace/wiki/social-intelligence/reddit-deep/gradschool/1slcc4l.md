@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1slcc4l.md
 url: "https://www.reddit.com/r/GradSchool/comments/1slcc4l/need_advice_should_i_publish_a_preprint_for_my/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.132Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1slcc4l.md#c0"
+    char_span: [0, 2050]
+    sentence_count: 9
+    key_terms: [preprint, fully-funded, bioinformatics, school, international, discouraging, value, scholarship]
+    token_count: 451
 ---
-
 # Need advice: Should I publish a preprint for my dry-lab FYP? Lecturers are discouraging, and I need portfolio value for fully-funded grad school.
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1slcc4l/need_advice_should_i_publish_a_preprint_for_my/)

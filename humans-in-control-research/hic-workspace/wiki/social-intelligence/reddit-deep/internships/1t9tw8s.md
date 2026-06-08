@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1t9tw8s.md
 url: "https://www.reddit.com/r/internships/comments/1t9tw8s/any_advice_for_a_college_student/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 5
 flair: "General"
-extracted_at: "2026-05-23T14:53:57.170Z"
+extracted_at: "2026-06-06T17:41:06.732Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1t9tw8s.md#c0"
+    char_span: [0, 1242]
+    sentence_count: 13
+    key_terms: [college, internship, student, internships, look, comments, debating, advice]
+    token_count: 282
+  - id: "social-intelligence/reddit-deep/internships/1t9tw8s.md#c1"
+    char_span: [1257, 2964]
+    sentence_count: 16
+    key_terms: [like, healthy-ad-423, cybersecurity, certs, internships, security, project, better]
+    section: Comments
+    token_count: 405
 ---
-
 # ANY ADVICE FOR A COLLEGE STUDENT
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1t9tw8s/any_advice_for_a_college_student/)

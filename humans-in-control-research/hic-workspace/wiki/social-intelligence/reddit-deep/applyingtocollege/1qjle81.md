@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1qjle81.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1qjle81/clastify_essays_are_either_fake_or_college/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,33 @@ flair: "Discussion"
 extracted_at: "2026-05-23T14:54:48.685Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qjle81.md#c0"
+    char_span: [0, 1459]
+    sentence_count: 6
+    key_terms: [essays, clastify, admissions, https, applyingtocollege, admitted, officers, students]
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qjle81.md#c1"
+    char_span: [1474, 3580]
+    sentence_count: 12
+    key_terms: [essays, essay, college, afterschool, aos, ones, real, regulation]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qjle81.md#c2"
+    char_span: [3582, 5591]
+    sentence_count: 10
+    key_terms: [essays, applyingtocollege, essay, wiki, please, reddit, automoderator, collegeessays]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qjle81.md#c3"
+    char_span: [5593, 5783]
+    sentence_count: 2
+    key_terms: [applyingtocollege, automatically, moderators, performed, questions, subreddit, concerns, compose]
+    section: Comments
+    token_count: 42
 ---
-
 # Clastify essays are either fake or college admissions officers don't care about AI use
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1qjle81/clastify_essays_are_either_fake_or_college/)

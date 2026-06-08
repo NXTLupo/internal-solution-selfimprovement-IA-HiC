@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1rsie5v.md
 url: "https://www.reddit.com/r/deeplearning/comments/1rsie5v/built_karpathy_autoresearch_like_agent_but_with/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.054Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1rsie5v.md#c0"
+    char_span: [0, 2098]
+    sentence_count: 7
+    key_terms: [experiments, agent, kaggle, like, experimentation, compute, across, system]
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/deeplearning/1rsie5v.md#c1"
+    char_span: [2113, 3719]
+    sentence_count: 12
+    key_terms: [agent, like, sellinside9661, architecture, baselines, notebook, taxonomy, planner]
+    section: Comments
+    token_count: 385
 ---
-
 # Built karpathy autoresearch like agent but with Kaggle free compute
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1rsie5v/built_karpathy_autoresearch_like_agent_but_with/)

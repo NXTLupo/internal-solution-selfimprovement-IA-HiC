@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1leefir.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1leefir/if_beginner_cs_jobs_are_disappearing_where_do_i/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-20T03:56:10.743Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1leefir.md#c0"
+    char_span: [0, 588]
+    sentence_count: 3
+    key_terms: [cscareerquestions, comments, disappearing, "university's", considering, reddit-deep, experience, specialize]
+    token_count: 140
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1leefir.md#c1"
+    char_span: [603, 1149]
+    sentence_count: 3
+    key_terms: [cybersecurity, get, fun-meringue-732, foreveryonge, programming, progression, impossible, networking]
+    section: Comments
+    token_count: 141
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1leefir.md#c2"
+    char_span: [1151, 3251]
+    sentence_count: 16
+    key_terms: [job, doing, get, need, continuing, honestly, language, personal]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1leefir.md#c3"
+    char_span: [3004, 3894]
+    sentence_count: 5
+    key_terms: [language, doing, silver-impact-1836, work, interestingly, consistently, specializing, competitive]
+    section: Comments
+    token_count: 225
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1leefir.md#c4"
+    char_span: [3896, 5933]
+    sentence_count: 10
+    key_terms: [language, like, working, resume, "don't", good, own, experience]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1leefir.md#c5"
+    char_span: [5935, 8003]
+    sentence_count: 18
+    key_terms: [experience, internship, get, internships, focus, job, try, cybersecurity]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1leefir.md#c6"
+    char_span: [8005, 8898]
+    sentence_count: 3
+    key_terms: [internships, dont, having, market, comfortablejacket429, years, alot, get]
+    section: Comments
+    token_count: 234
 ---
-
 # If beginner cs jobs are disappearing, where do i go to get experience?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1leefir/if_beginner_cs_jobs_are_disappearing_where_do_i/)

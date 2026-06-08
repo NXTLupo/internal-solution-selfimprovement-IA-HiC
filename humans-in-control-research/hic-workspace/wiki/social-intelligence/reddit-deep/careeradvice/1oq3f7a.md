@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1oq3f7a.md
 url: "https://www.reddit.com/r/careeradvice/comments/1oq3f7a/lessons_learned_from_changing_careers_four_times/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.232Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce, enterprise_it, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1oq3f7a.md#c0"
+    char_span: [0, 2313]
+    sentence_count: 23
+    key_terms: [career, progress, "you'll", careeradvice, engineering, progression, "i've", need]
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/careeradvice/1oq3f7a.md#c1"
+    char_span: [2328, 2515]
+    sentence_count: 3
+    key_terms: [theophrastbombast, reasonable, yomino963, account, locked, nobody, check, field]
+    section: Comments
+    token_count: 57
+  - id: "social-intelligence/reddit-deep/careeradvice/1oq3f7a.md#c2"
+    char_span: [2518, 4531]
+    sentence_count: 18
+    key_terms: [joinvocation, want, current, get, help, job, cyber, pivot]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careeradvice/1oq3f7a.md#c3"
+    char_span: [4261, 6059]
+    sentence_count: 17
+    key_terms: [like, want, possible, software, careers, people, taking, cyber]
+    section: Comments
+    token_count: 438
 ---
-
 # Lessons learned from changing careers four times by age 35
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1oq3f7a/lessons_learned_from_changing_careers_four_times/)

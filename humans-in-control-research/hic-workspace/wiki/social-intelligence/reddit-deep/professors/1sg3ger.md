@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1sg3ger.md
 url: "https://www.reddit.com/r/Professors/comments/1sg3ger/whats_the_worst_professional_development_youve/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,39 @@ flair: "Teaching / Pedagogy"
 extracted_at: "2026-05-14T18:17:21.705Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1sg3ger.md#c0"
+    char_span: [0, 1497]
+    sentence_count: 11
+    key_terms: [development, professors, like, students, professional, offerings, building, comments]
+    token_count: 310
+  - id: "social-intelligence/reddit-deep/professors/1sg3ger.md#c1"
+    char_span: [1512, 2955]
+    sentence_count: 6
+    key_terms: [development, faculty, actuallycallie, professional, last, ambassador, colleagues, training]
+    section: Comments
+    token_count: 363
+  - id: "social-intelligence/reddit-deep/professors/1sg3ger.md#c2"
+    char_span: [2958, 5015]
+    sentence_count: 13
+    key_terms: [development, university, documents, trainings, learning, training, canvas, professional]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/professors/1sg3ger.md#c3"
+    char_span: [5017, 6402]
+    sentence_count: 14
+    key_terms: [tool, using, faculty, problem, students, entire, saying, assignments]
+    section: Comments
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/professors/1sg3ger.md#c4"
+    char_span: [6404, 7623]
+    sentence_count: 8
+    key_terms: [something, "don't", like, department, students, instead, service, else]
+    section: Comments
+    token_count: 303
 ---
-
 # What’s the Worst Professional Development You’ve Attended?
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1sg3ger/whats_the_worst_professional_development_youve/)

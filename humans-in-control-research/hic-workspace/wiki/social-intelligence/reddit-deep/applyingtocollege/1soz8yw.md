@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1soz8yw.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1soz8yw/im_lost_and_confused_about_going_to_college/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,50 @@ flair: "Advice"
 extracted_at: "2026-05-23T12:15:36.229Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soz8yw.md#c0"
+    char_span: [0, 1988]
+    sentence_count: 17
+    key_terms: [international, college, school, applyingtocollege, parents, universities, scholarship, gave]
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soz8yw.md#c1"
+    char_span: [1990, 2297]
+    sentence_count: 4
+    key_terms: [scholarships, international, community, different, probably, transfer, college, student]
+    token_count: 72
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soz8yw.md#c2"
+    char_span: [2312, 4125]
+    sentence_count: 16
+    key_terms: [state, college-openings-update, administration, international, gpa, visa, interested, nacacnet]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soz8yw.md#c3"
+    char_span: [4127, 6044]
+    sentence_count: 19
+    key_terms: [options, memphis, dangerous, schools, enroll, dream, nyc, navigate]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soz8yw.md#c4"
+    char_span: [6046, 7777]
+    sentence_count: 13
+    key_terms: [schools, international, because, scholarships, physician, medical, administration, school]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soz8yw.md#c5"
+    char_span: [7779, 9870]
+    sentence_count: 24
+    key_terms: [rhodes, fordham, college, school, elitist, family, bronx, debt]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soz8yw.md#c6"
+    char_span: [9872, 11178]
+    sentence_count: 11
+    key_terms: [college, community, working, students, "didn't", state, sucks, get]
+    section: Comments
+    token_count: 289
 ---
-
 # I’m lost and confused about going to college
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1soz8yw/im_lost_and_confused_about_going_to_college/)

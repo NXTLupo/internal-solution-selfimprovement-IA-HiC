@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-gradadmissions/5b5bdadcab.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1svh6xn/gpa_26_age_42_applied_1_accepted_1/"
 url_hash: "5b5bdadcab"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T15:02:21.380838+00:00"
 chars: 1817
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-gradadmissions/5b5bdadcab.md#c0"
+    char_span: [0, 1109]
+    sentence_count: 13
+    key_terms: [gradadmissions, professional, graduate, program, degree, reddit, worked, dream]
+    token_count: 270
+  - id: "articles/reddit-deep-r-gradadmissions/5b5bdadcab.md#c1"
+    char_span: [1111, 1998]
+    sentence_count: 10
+    key_terms: [shesallwritey, aircomprehensive997, thank, years, age, proper-cry7089, experience, mt-girl406]
+    token_count: 244
 ---
-
 # GPA: 2.6 Age: 42 Applied: 1 Accepted: 1!
 
 Source: [Reddit Deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1svh6xn/gpa_26_age_42_applied_1_accepted_1/)

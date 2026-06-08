@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1lsxgou.md
 url: "https://www.reddit.com/r/college/comments/1lsxgou/really_dont_know_what_to_do_in_college_2_years/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,34 @@ subreddit: "college"
 title: "Really don't know what to do in college, 2 years remaining"
 author: "Intermediate-NaN"
 date: "2025-07-06T09:49:45.000Z"
-score: 8
-upvote_ratio: 0.91
+score: 7
+upvote_ratio: 0.9
 num_comments: 1
 flair: "Academic Life"
-extracted_at: "2026-05-24T14:08:12.151Z"
+extracted_at: "2026-06-03T15:25:32.097Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Provide a strategic analysis for Northeastern University detailing opportunities to enhance experiential learning and co-op success, specifically across First Year Student Preparedness, 360 student profiles, advisor capabilities, and corporate partner development. Heavily cite and reference external articles, social media posts, and other external data to support themes and recommendations."
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1lsxgou.md#c0"
+    char_span: [0, 1930]
+    sentence_count: 19
+    key_terms: [certificate, college, "you've", year, unless, participating, "i'm", lab]
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/college/1lsxgou.md#c1"
+    char_span: [1932, 4242]
+    sentence_count: 29
+    key_terms: [experience, organization, friends, been, "i'm", keep, lab, hardware]
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/college/1lsxgou.md#c2"
+    char_span: [4247, 5427]
+    sentence_count: 15
+    key_terms: ["don't", collaborate, hardware, organization, test, portfolio, progress, "there's"]
+    token_count: 270
 ---
-
 # Really don't know what to do in college, 2 years remaining
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1lsxgou/really_dont_know_what_to_do_in_college_2_years/)
-Posted by **Intermediate-NaN** · **8↑** · **1 comments**
+Posted by **Intermediate-NaN** · **7↑** · **1 comments**
 
 I've been experiencing this kind of feeling for 7 months, struggling to live with motivation to do things like doing my portfolio (I'm an EE sadly) after being rejected from robotics lab that I've been waiting for a year. Trying next year? I'm a 3rd year college student, not the 1st or 2nd and most of the labs in my campus is no longer accepting 3rd year college student as their research assistant, and it's so difficult to participating in lecturer's labs since they'll only take you if you're good academically (I'm not, sadly) or if only they're interested in you.  
 

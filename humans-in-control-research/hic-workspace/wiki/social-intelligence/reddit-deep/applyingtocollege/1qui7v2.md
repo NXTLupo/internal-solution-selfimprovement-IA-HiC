@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1qui7v2.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1qui7v2/is_uiuc_cs_worth_20k_more_a_year_than_purdue/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -10,11 +11,46 @@ score: 6
 upvote_ratio: 0.8
 num_comments: 58
 flair: "College Questions"
-extracted_at: "2026-05-19T15:08:48.301Z"
+extracted_at: "2026-06-05T18:53:26.948Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qui7v2.md#c0"
+    char_span: [0, 1909]
+    sentence_count: 15
+    key_terms: [purdue, "i'm", uiuc, college, parents, applyingtocollege, pay, year]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qui7v2.md#c1"
+    char_span: [1911, 3381]
+    sentence_count: 12
+    key_terms: [college, uiuc, parents, having, purdue, aid, financial, because]
+    section: Comments
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qui7v2.md#c2"
+    char_span: [3383, 5469]
+    sentence_count: 17
+    key_terms: [uiuc, purdue, family, difference, firms, worth, situation, given]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qui7v2.md#c3"
+    char_span: [5471, 7330]
+    sentence_count: 10
+    key_terms: [purdue, placement, starting, https, edu, corporate, avg, income]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qui7v2.md#c4"
+    char_span: [7332, 9187]
+    sentence_count: 19
+    key_terms: [purdue, https, edu, students, amazon, realistically, forth, majordetail]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qui7v2.md#c5"
+    char_span: [9189, 10806]
+    sentence_count: 7
+    key_terms: [uiuc, stronger, good, program, purdue, school, "don't", get]
+    section: Comments
+    token_count: 413
 ---
-
 # Is UIUC CS worth 20k more a year than Purdue?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1qui7v2/is_uiuc_cs_worth_20k_more_a_year_than_purdue/)
@@ -50,19 +86,11 @@ And for reference I work in this industry. UIUC is NOT worth such a premium over
 
 That said, I have no problems admitting UIUC is a feeder to trading firms in Chicago (most trading firms pay similar if not less than tech firms anyways). But the problem is the cost relative to family AGI. Minute (single digit percent boost) advantage for such big $ moving is just dumb.
     - **ImpatientParent715** (2↑): Totally agree the landscape is utterly insane! Paying for college in the US is like choosing between a pee soup and a shit sandwich. Both are awful, but one is worse than the other.
-- **Logical_Froyo_7212** (6↑): This sub's obsession with graduate program research-based ranking, which mind you, has little or nothing to do with undergraduate education, is astounding. UIUC is NOT worth 20k a year more than Purdue, not even 10k. They are essentially the same.
-  - **keatonnap** (5↑): Very true.
 - **Artistic_Ad728** (9↑): If u wanna get into startups or quant, UIUC name has much stronger connections there.
-  - **Logical_Froyo_7212** (3↑): This is absolutely not true.
-    - **Artistic_Ad728** (6↑): Are you going to try to refute it or just comment that it’s false? 
-
-UIUC has much deeper YC connections. Lot of UIUC alumni heavily involved in YC. 
-
-For quant, the statistics speak for itself.
-  - **keatonnap** (8↑): I work with early stage startups, and don’t see a discernible difference between UIUC and Purdue if you want to get into that world.
-    - **Artistic_Ad728** (2↑): I mean UIUC has pretty deep YC connections
+  - **keatonnap** (9↑): I work with early stage startups, and don’t see a discernible difference between UIUC and Purdue if you want to get into that world.
+    - **Artistic_Ad728** (3↑): I mean UIUC has pretty deep YC connections
 - **JellyfishFlaky5634** (3↑): Purdue…
-- **Fwellimort** (9↑): **Software engineer here. Go head to Purdue.** **For your family's AGI, that $20k difference is too big already.** And the difference if you are motivated is near nonexistent in practice.
+- **Fwellimort** (10↑): **Software engineer here. Go head to Purdue.** **For your family's AGI, that $20k difference is too big already.** And the difference if you are motivated is near nonexistent in practice.
 
 **UIUC** avg starting income: **$118k** [https://myillini.illinois.edu/Programs/MajorDetail/10KP0112BS](https://myillini.illinois.edu/Programs/MajorDetail/10KP0112BS)
 
@@ -81,12 +109,6 @@ The avg difference from UIUC vs Purdue is $118k - $108.5k = **$9.5k more out of 
 Presume the pay ends up the same after 2\~3 years so... it's a really bad deal financially for the avg reported student outcome at UIUC vs avg reported student outcome at Purdue.
 
 **Now, if you can live with your sister for some of the years at Purdue, the numbers work out even better if you can lower housing costs. Take Purdue.**
-  - **Logical_Froyo_7212** (1↑): These self-reported numbers are extremely unreliable. Schools may count them differently too. Do not trust these numbers.
-    - **Fwellimort** (2↑): What else can we really go with here.
-
-Also, these numbers are very very very consistent across peer schools. Unless now you think all the schools are lying hands over fist for the ones that report by major. And yes I know it's self reported but when essentially every peer school reports the same range for CS... I would presume there is some consistency at macro.
-
-Simple research would have resulted in the conclusion that the numbers are quite consistent across schools for this range for CS.
 - **wrroyals** (3↑): You don’t need to go to a name brand school to be a successful SE and work for a top company.
   - **FlimsySausage** (1↑): True, but from what I've read, going to a name brand or """good""" school would help for entry level positions, which is something I'm worried about.
     - **Fwellimort** (2↑): Purdue is a good school. Its placement is solid in CS: [https://www.cs.purdue.edu/corporate/placement/index.html](https://www.cs.purdue.edu/corporate/placement/index.html)
@@ -116,10 +138,11 @@ Also, since you're not interested in working at startups (probably good, you don
 
 So if the main reason you want UIUC over Purdue is prestige/ROI and you just want a standard big tech company, then it doesn't make sense to pick UIUC imo.
 - **Lazy_Answer394** (7↑): Yes it is, UIUC is a top 5 CS program. If you put in the work, you'll easily get a job to pay off that loan back at UIUC.
-  - **keatonnap** (6↑): UIUC is a very good school for CS but it’s not a top 5 program. I’m sure you have benign intent, but it’s wrong to present the deeply flawed US News ranking as sole reasoning to pay up for UIUC over Purdue CS - also a very good school.
+  - **keatonnap** (5↑): UIUC is a very good school for CS but it’s not a top 5 program. I’m sure you have benign intent, but it’s wrong to present the deeply flawed US News ranking as sole reasoning to pay up for UIUC over Purdue CS - also a very good school.
 
 UIUC is a bit stronger but Purdue is a good school. If they attend either school and do well, I doubt their life outcomes will be much different either way.
     - **Equal_Wafer_7677** (5↑): It does have a top 5 ranking in a lot of places but +20k a year seems like a ton, and the OP could just move off campus with his sister to make Purdue even cheaper. .. .
     - **Electrical-Bug3390** (2↑): what CS program would be stronger? genuine question. I think Cornell or Georgia Tech may have legitimate claims to being stronger but I don't think there's a clear program stronger than UIUC besides berkeley/cmu/stanford/mit.
     - **wrroyals** (1↑): If you do well AND have good internships and demonstrable practical skills.
 - **Potential-Praline997** (2↑): cfbr cause Im in the same boat for computer engineering
+- **wrroyals** (2↑): No.

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1smz8ld.md
 url: "https://www.reddit.com/r/managers/comments/1smz8ld/best_way_to_manage_tasks_team_using_microsoft/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-26T12:54:23.673Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1smz8ld.md#c0"
+    char_span: [0, 700]
+    sentence_count: 4
+    key_terms: [tools, team, microsoft, comments, managers, manage, tasks, using]
+    token_count: 161
+  - id: "social-intelligence/reddit-deep/managers/1smz8ld.md#c1"
+    char_span: [715, 2714]
+    sentence_count: 10
+    key_terms: [tasks, meetings, videokilledmyzzz, tools, use, work, microsoft, multiple]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/managers/1smz8ld.md#c2"
+    char_span: [2716, 3229]
+    sentence_count: 5
+    key_terms: [huckleberryknown9288, excel, videokilledmyzzz, revolutionized, accountable, completely, formatting, customize]
+    section: Comments
+    token_count: 123
 ---
-
 # Best way to manage tasks + team using Microsoft tools
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1smz8ld/best_way_to_manage_tasks_team_using_microsoft/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1sg4pkd.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1sg4pkd/seeking_advice_for_theoretical_cs_aspirant/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,37 @@ flair: "New Grad"
 extracted_at: "2026-05-22T23:33:42.321Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sg4pkd.md#c0"
+    char_span: [0, 1972]
+    sentence_count: 11
+    key_terms: ["i'm", cscareerquestions, research, theoretical, like, complexity, education, questions]
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sg4pkd.md#c1"
+    char_span: [1974, 4456]
+    sentence_count: 15
+    key_terms: [problems, "i'm", selection, median, theoretical, sure, algorithms, approaches]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sg4pkd.md#c2"
+    char_span: [4458, 5134]
+    sentence_count: 6
+    key_terms: [research, "doesn't", school, unsure, feel, grad, high-demand, independent]
+    token_count: 138
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sg4pkd.md#c3"
+    char_span: [5149, 7133]
+    sentence_count: 17
+    key_terms: [research, name, academia, choice, people, doing, don, post]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sg4pkd.md#c4"
+    char_span: [7135, 9025]
+    sentence_count: 16
+    key_terms: [results, simple, researchers, algorithms, sosa, don, experience, simplicity]
+    section: Comments
+    token_count: 424
 ---
-
 # Seeking Advice for Theoretical CS Aspirant
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sg4pkd/seeking_advice_for_theoretical_cs_aspirant/)

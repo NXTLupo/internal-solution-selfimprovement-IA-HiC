@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1su7fya.md
 url: "https://www.reddit.com/r/artificial/comments/1su7fya/i_tracked_1100_times_an_ai_said_great_question/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -6,19 +7,44 @@ subreddit: "artificial"
 title: "I tracked 1,100 times an AI said \"great question\" — 940 weren't. The flattery problem in RLHF is worse than we think."
 author: "ChatEngineer"
 date: "2026-04-24T06:13:34.000Z"
-score: 109
+score: 104
 upvote_ratio: 0.83
-num_comments: 71
+num_comments: 72
 flair: "Discussion"
-extracted_at: "2026-05-11T16:53:08.158Z"
+extracted_at: "2026-05-28T01:32:00.777Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+research_goal: "Identify a comprehensive new strategy for experiential learning for the AI era based on the collected data"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1su7fya.md#c0"
+    char_span: [0, 1715]
+    sentence_count: 16
+    key_terms: [question, validation, great, artificial, genuinely, questions, comments, flattery]
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/artificial/1su7fya.md#c1"
+    char_span: [1730, 3405]
+    sentence_count: 9
+    key_terms: [great, question, "it's", "that's", truth, post, fitness, highest]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/artificial/1su7fya.md#c2"
+    char_span: [3407, 5415]
+    sentence_count: 13
+    key_terms: [great, ask, question, someone, interesting, "it's", lot, interested]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/artificial/1su7fya.md#c3"
+    char_span: [5419, 6162]
+    sentence_count: 3
+    key_terms: [models, learning, rlhf, second-guessing, palmovyykozak, reinforcement, appropriate, calibration]
+    section: Comments
+    token_count: 193
 ---
-
 # I tracked 1,100 times an AI said "great question" — 940 weren't. The flattery problem in RLHF is worse than we think.
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1su7fya/i_tracked_1100_times_an_ai_said_great_question/)
-Posted by **ChatEngineer** · **109↑** · **71 comments**
+Posted by **ChatEngineer** · **104↑** · **72 comments**
 
 Someone ran a 4-month experiment tracking every instance of "great question" from their AI assistant. Out of 1,100 uses, only 160 (14.5%) were directed at questions that were genuinely insightful, novel, or well-constructed.
 
@@ -34,7 +60,7 @@ Has anyone else noticed this pattern in their agent interactions? I'm starting t
 
 ## Comments
 
-- **dlrace** (29↑): Just as bad is the same style for every answer including "the deeper issue - ", "it's not x, it's y".
+- **dlrace** (27↑): Just as bad is the same style for every answer including "the deeper issue - ", "it's not x, it's y".
   - **uusu** (25↑): OP's post is AI generated, too, eg:
 
 > AI isn't hallucination — it's sycophantic validation
@@ -42,29 +68,25 @@ Has anyone else noticed this pattern in their agent interactions? I'm starting t
 You can take a look at their post history and see it's the same generated AI bullshit.
 
 So you can't even trust the numbers OP is giving or any responses they give.
-    - **dlrace** (4↑): Yes, that's why i said it.
-  - **ConfusedandD4zed** (6↑): Let’s break this down
-
-This is where it gets interesting
-    - **Buckwheat469** (3↑): Those results are real.
-  - **NatasEvoli** (5↑): Kind of like this? "The deeper issue: generic praise isn't generosity. It's noise that drowns out earned recognition"
+    - **dlrace** (3↑): Yes, that's why i said it.
+  - **NatasEvoli** (7↑): Kind of like this? "The deeper issue: generic praise isn't generosity. It's noise that drowns out earned recognition"
 
 OPs post that's critical of AI slop is also in fact AI slop.
   - **PsychologicalPen8634** (2↑): I’ve been getting “here’s the hard truth” a lot from Claude lately
-- **ai-tacocat-ia** (20↑): Do you know how many times I've said "great question" to a stupid fucking question just to be polite?
+- **ai-tacocat-ia** (19↑): Do you know how many times I've said "great question" to a stupid fucking question just to be polite?
 
 Great post.
   - **VP-of-Vibes** (3↑): 'Great question' in a meeting means 'I wasn't listening and need a second to recover.' 'That's a really great question' means 'I have no idea and need to find someone who does.' The AI learned it from us.
-  - **inglandation** (4↑): Great reply.
+  - **inglandation** (3↑): Great reply.
   - **VP-of-Vibes** (1↑): you're the original RLHF
 - **doker0** (3↑): I noticed that best fitness does not mean highest truth seeking in evolution. Maybe that's the way to go.
-  - **MadDoctorMabuse** (7↑): I think I agree. I know that in professional relationships, 'highest truth' is rarely the goal. 'Best fitness' in relationships is always better. If anyone has seen the US' 'The Office', Dwight is the perfect example of a person who only values 'highest truth' and does not value not 'best fitness'.
+  - **MadDoctorMabuse** (6↑): I think I agree. I know that in professional relationships, 'highest truth' is rarely the goal. 'Best fitness' in relationships is always better. If anyone has seen the US' 'The Office', Dwight is the perfect example of a person who only values 'highest truth' and does not value not 'best fitness'.
 
 I might ask a colleague or a client how they are*.* I don't ask them out of a genuine or well-founded fear of how they are. I ask it because it's polite and it shows I'm interested - even if I'm not particularly interested in that particular person. It's dishonest in the same way that ChatGPT telling me my questions on cooking stew are 'great'.
 
 It's so interesting watching the trends in AI/human communication. I think that a lot of the valid issues raised in OPs post may have been solved by primary / high school teachers. Pedagogy probably has a lot to teach us about how people like to interact when learning. I'd *suspect* it would support flattering comments, even if they aren't objectively true. I remember a lot of teachers in school telling me my questions were great...
     - **airbarne** (3↑): Interesting point but to be fair, this is highly cultural linked behaviour. In my culture for example small talk above a certain threshold is a red flag with regard to trustfullness. You don't ask how someone is unless you want the honest answer. Since US LLMs are currently used most widely, common interaction is aligned with American culture, what leads to perceived odd behavior in interactions with for example certain Europeans or Asians. The point i want to make is that the sycophancy problem might be some kind of bias or emergent pattern rooted in implicit cultural peculiarities within the training data.
-- **xdetar** (5↑): This subreddit is full of asinine posts that people think are incredibly insightful just because the LLM they're using is blowing smoke up their ass.
+- **xdetar** (3↑): This subreddit is full of asinine posts that people think are incredibly insightful just because the LLM they're using is blowing smoke up their ass.
   - **sapiolocutor** (2↑): OP is exhibit A.
 - **hivesteel** (2↑): That’s great insight (rare, valuable)
 - **WurtApp** (2↑): In the future AI will be like: I tracked every time someone said “thank you”. Most of the time, they weren’t grateful

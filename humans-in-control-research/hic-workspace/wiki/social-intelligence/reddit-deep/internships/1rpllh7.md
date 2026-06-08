@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rpllh7.md
 url: "https://www.reddit.com/r/internships/comments/1rpllh7/tiktok_ux_researcher_internship_experience/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,33 @@ flair: "Interviews"
 extracted_at: "2026-05-26T14:30:47.905Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [media, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rpllh7.md#c0"
+    char_span: [0, 497]
+    sentence_count: 3
+    key_terms: [internships, experience, interview, wondering, comments, tiktok, planeaccomplished489, round]
+    token_count: 118
+  - id: "social-intelligence/reddit-deep/internships/1rpllh7.md#c1"
+    char_span: [512, 2404]
+    sentence_count: 19
+    key_terms: [interview, bluemoon35, round, planeaccomplished489, team, rounds, like, tech]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/internships/1rpllh7.md#c2"
+    char_span: [2406, 4318]
+    sentence_count: 8
+    key_terms: [round, planeaccomplished489, back, interview, heard, days, did, like]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1rpllh7.md#c3"
+    char_span: [4113, 5427]
+    sentence_count: 8
+    key_terms: [interview, seattle, everyone, because, candidates, willing, update, planeaccomplished489]
+    section: Comments
+    token_count: 333
 ---
-
 # Tiktok UX Researcher Internship Experience
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rpllh7/tiktok_ux_researcher_internship_experience/)

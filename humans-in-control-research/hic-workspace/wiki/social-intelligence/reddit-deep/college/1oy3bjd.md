@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1oy3bjd.md
 url: "https://www.reddit.com/r/college/comments/1oy3bjd/clueless_parent_but_i_have_questions/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -10,11 +11,40 @@ score: 31
 upvote_ratio: 0.9
 num_comments: 23
 flair: ""
-extracted_at: "2026-05-25T13:02:03.713Z"
+extracted_at: "2026-06-05T23:41:08.230Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1oy3bjd.md#c0"
+    char_span: [0, 1945]
+    sentence_count: 17
+    key_terms: [college, school, because, years, done, something, comments, reddit]
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/college/1oy3bjd.md#c1"
+    char_span: [1960, 3754]
+    sentence_count: 15
+    key_terms: [hours, college, students, apply-for-aid, waterhorse816, fafsa, alien919191, commitment]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/college/1oy3bjd.md#c2"
+    char_span: [3756, 5992]
+    sentence_count: 19
+    key_terms: [because, lot, take, "they're", family, grants, school, unfortunately]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/college/1oy3bjd.md#c3"
+    char_span: [5994, 7914]
+    sentence_count: 12
+    key_terms: [scholarships, themselves, scholarship, etc, get, take, available, students]
+    section: Comments
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/college/1oy3bjd.md#c4"
+    char_span: [7916, 9991]
+    sentence_count: 22
+    key_terms: [college, students, school, classes, went, success, oldest, class]
+    section: Comments
+    token_count: 459
 ---
-
 # Clueless parent but I have questions
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1oy3bjd/clueless_parent_but_i_have_questions/)
@@ -40,12 +70,12 @@ Resources for college prep to ensure my little is ready to go out into the world
 
 ## Comments
 
-- **Talkative_moose** (52↑): A lot of colleges actually have organizations for first gen students. At my school it's called Trend Setters. You could look and see if there's something similar at your kid's college!
+- **Talkative_moose** (51↑): A lot of colleges actually have organizations for first gen students. At my school it's called Trend Setters. You could look and see if there's something similar at your kid's college!
   - **Alien919191** (10↑): Agreed! I saw a table mentioning that. But didn’t know if anyone had other ideas as far as a prep course or something along those lines. Just want to make sure they’re set up for success is all :)
-- **Waterhorse816** (16↑): I don't know much about subsidizing college, besides FAFSA. Have you filled that out? Do you know if you qualify for aid?
+- **Waterhorse816** (18↑): I don't know much about subsidizing college, besides FAFSA. Have you filled that out? Do you know if you qualify for aid?
   - **Waterhorse816** (2↑): [https://studentaid.gov/h/apply-for-aid/fafsa](https://studentaid.gov/h/apply-for-aid/fafsa)
     - **Alien919191** (4↑): Thank you!  Not super ass worried about financial commitment. Just the success of my student and preparing over the next 6 months to be ready for it
-- **Dazzling_Outcome_436** (14↑): Others have spoken about scholarships and other financial aid. I'm going to go a different direction with my advice. I teach both high school and college, and a lot of my students in both places are first-gen.
+- **Dazzling_Outcome_436** (13↑): Others have spoken about scholarships and other financial aid. I'm going to go a different direction with my advice. I teach both high school and college, and a lot of my students in both places are first-gen.
 
 One thing that I think parents of first-gens need to understand is that every hour spent in a college class is expected to come with two hours of work outside of class. 12 credit hours (hours inside the classroom), the minimum full-time course load, is a total of 36 hours of work per week. 15 credit hours, which is what you need to complete each semester to finish a 4 year degree in 4 years, is a 45 hour a week commitment. Not all of those hours will be able to be spent at home either. Students will spend some of those meeting with professors and peers, doing research in the library, or attending tutoring or workshops, as well as locking in on assignments.
 
@@ -53,16 +83,16 @@ Unfortunately, because a lot of first-gen parents don't understand this, they lo
 
 All this to say, please do your kid and yourself a favor, and moderate your expectations of what they can do for the family while they're in school.
 - **taffyowner** (7↑): Fill out your FAFSA if you haven’t… if you don’t make a lot they’ll get some financial aid that will help
-- **SpacerCat** (8↑): The biggest thing you don’t know exists is how many resources there are for help and support. Free tutoring, writing centers, professor office hours… colleges want kids to succeed, so there are all sorts of things in place. But your kid will want to have to seek them out and take advantage of the help.
-- **jasperdarkk** (4↑): I started uni as someone who never had to study. The first year was rough but I eventually learned. Unfortunately, I didn’t feel comfortable talking to my parents about it because they were so angry about bad grades. I ended up secretly repeating multiple classes. 
+- **SpacerCat** (9↑): The biggest thing you don’t know exists is how many resources there are for help and support. Free tutoring, writing centers, professor office hours… colleges want kids to succeed, so there are all sorts of things in place. But your kid will want to have to seek them out and take advantage of the help.
+- **jasperdarkk** (5↑): I started uni as someone who never had to study. The first year was rough but I eventually learned. Unfortunately, I didn’t feel comfortable talking to my parents about it because they were so angry about bad grades. I ended up secretly repeating multiple classes. 
 
 So my best advice is to be there for your child and assure them that the learning curve of learning to study is pretty normal and it’s possible to get over if you stick to it.
-- **General_Lee_Wright** (5↑): For paying for school, student loans. Not ideal but if that’s the only option, it is what it is. ONLY take as much as you need, no more. They’ll offer you A LOT more than you need for tuition. Also only take SUBSIDIZED loans from the feds, not private u subsidized loans.
+- **General_Lee_Wright** (6↑): For paying for school, student loans. Not ideal but if that’s the only option, it is what it is. ONLY take as much as you need, no more. They’ll offer you A LOT more than you need for tuition. Also only take SUBSIDIZED loans from the feds, not private u subsidized loans.
 
 There’s also income based grants (Pell grants) you should definitely look into. There’s a dozen other grants and scholarships they likely qualify for, so apply apply apply. 
 
 Depending on the university, there may be organizations geared toward helping first gen students get oriented and find community. So look into those.
-- **TigerDeaconChemist** (3↑): Please don't take this the wrong way, but you have used a lot of infantilizing language to describe someone who is about to be an adult. I know it can be hard for parents to accept that transition, but constantly calling her "kiddo," "baby," "little" etc. is not setting them up for success.
+- **TigerDeaconChemist** (6↑): Please don't take this the wrong way, but you have used a lot of infantilizing language to describe someone who is about to be an adult. I know it can be hard for parents to accept that transition, but constantly calling her "kiddo," "baby," "little" etc. is not setting them up for success.
 
 
 The reason I say this is that the students who are the most successful are the ones who understand that *they* have to take responsibility for their learning. *They* (not Mom) have to make themselves get up and go to class in the morning, especially since there's a lot more fun possibilities available. *They* have to make themselves study and do their assignments. Mom/dad can't talk to the professor for them. That sort of thing.

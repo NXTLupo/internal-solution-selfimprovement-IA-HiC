@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1tbeihx.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1tbeihx/what_are_signs_that_it_is_not_the_environment_but/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,38 @@ flair: "STEM"
 extracted_at: "2026-05-26T14:32:49.121Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1tbeihx.md#c0"
+    char_span: [0, 1700]
+    sentence_count: 9
+    key_terms: [research, academia, astrophysics, askacademia, feel, time, struggling, situation]
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/askacademia/1tbeihx.md#c1"
+    char_span: [1702, 2750]
+    sentence_count: 7
+    key_terms: [experience, medical, closer, idea, time, year, comfortable, environment]
+    token_count: 223
+  - id: "social-intelligence/reddit-deep/askacademia/1tbeihx.md#c2"
+    char_span: [2765, 5014]
+    sentence_count: 18
+    key_terms: [research, academia, time, thousandshardships, teaching, opportunities, did, job]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/askacademia/1tbeihx.md#c3"
+    char_span: [5016, 7344]
+    sentence_count: 17
+    key_terms: [experience, else, culture, "you're", astrophysics, organization, being, doing]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/askacademia/1tbeihx.md#c4"
+    char_span: [7347, 8931]
+    sentence_count: 11
+    key_terms: [academia, country, potential, previous, research, similar, better, sounds]
+    section: Comments
+    token_count: 333
 ---
-
 # What are signs that it is not the environment but I am simply unfit for academia and research?
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1tbeihx/what_are_signs_that_it_is_not_the_environment_but/)

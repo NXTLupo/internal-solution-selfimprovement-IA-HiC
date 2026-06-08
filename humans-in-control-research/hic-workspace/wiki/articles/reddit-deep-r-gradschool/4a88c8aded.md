@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-gradschool/4a88c8aded.md
 url: "https://www.reddit.com/r/GradSchool/comments/1rohwqb/ive_just_been_rejected_from_every_grad_school_i/"
 url_hash: "4a88c8aded"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T20:22:15.882258+00:00"
 chars: 1654
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-gradschool/4a88c8aded.md#c0"
+    char_span: [0, 1860]
+    sentence_count: 5
+    key_terms: [applied, cal, programs, rejected, don, msw, experience, gradschool]
+    token_count: 463
 ---
-
 # I’ve just been rejected from every grad school i applied too
 
 Source: [Reddit Deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1rohwqb/ive_just_been_rejected_from_every_grad_school_i/)

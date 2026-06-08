@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1sneu43.md
 url: "https://www.reddit.com/r/internships/comments/1sneu43/struggling_with_internships_and_jobs/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -7,14 +8,37 @@ title: "Struggling with internships and jobs..."
 author: "waildz9"
 date: "2026-04-16T20:07:34.000Z"
 score: 0
-upvote_ratio: 0.31
+upvote_ratio: 0.25
 num_comments: 20
 flair: "General"
-extracted_at: "2026-05-24T14:08:27.829Z"
+extracted_at: "2026-06-05T16:18:00.472Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1sneu43.md#c0"
+    char_span: [0, 845]
+    sentence_count: 3
+    key_terms: [internships, real, job, experience, internship, something, comments, students]
+    token_count: 206
+  - id: "social-intelligence/reddit-deep/internships/1sneu43.md#c1"
+    char_span: [860, 2642]
+    sentence_count: 1
+    key_terms: [like, heyiloveya, something, job, everything, interviews, software, already]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/internships/1sneu43.md#c2"
+    char_span: [2644, 3329]
+    sentence_count: 2
+    key_terms: [looking, project, lot, work, notimpossible, competitions, companies, programme]
+    section: Comments
+    token_count: 151
+  - id: "social-intelligence/reddit-deep/internships/1sneu43.md#c3"
+    char_span: [3331, 5051]
+    sentence_count: 10
+    key_terms: [students, something, like, free, pay, projects, already, joining]
+    section: Comments
+    token_count: 377
 ---
-
 # Struggling with internships and jobs...
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1sneu43/struggling_with_internships_and_jobs/)
@@ -41,7 +65,7 @@ I’m asking for research, not promoting anything.
 - **my_peen_is_clean** (10↑): personally no, i’d rather do project work, open source, freelancing, hackathons, mock interviews etc. everything’s already overpriced and it’s still insanely hard to land anything right now
 actually my resumes never reached humans, they died in the filter. i got interviews only after a tool rephrased them for each job.
 here’s the tool that worked for me https://jobowl.co
-  - **waildz9** (-2↑): Also experts (i mean workers in different fields even recruiters) can show and teach you this things so they will give you shorter path no?
+  - **waildz9** (-3↑): Also experts (i mean workers in different fields even recruiters) can show and teach you this things so they will give you shorter path no?
     - **HeyILoveYa** (3↑): no one would take an internship seriously if you have to pay for it. that sounds so disingenuous. internships look good on a resume and to other companies bc they show you are vetted and proved yourself in th respective field. this wld just create lazy nepo babies.
 - **HeyILoveYa** (6↑): this seems like it wld quickly become a type of scam, if it isn’t already. i don’t know. weird vibes.
   - **waildz9** (-1↑): why a scam ?? if we can organize everything for example in a platform !

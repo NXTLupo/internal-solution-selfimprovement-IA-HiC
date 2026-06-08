@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1o96ckm.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1o96ckm/the_college_application_process_sucks/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,33 @@ flair: "Emotional Support"
 extracted_at: "2026-05-22T23:33:52.652Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o96ckm.md#c0"
+    char_span: [0, 333]
+    sentence_count: 1
+    key_terms: [applyingtocollege, comments, application, reddit-deep, breakdowns, colleges, college, process]
+    token_count: 89
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o96ckm.md#c1"
+    char_span: [348, 2504]
+    sentence_count: 14
+    key_terms: [colleges, year, people, years, gap, get, thehappytalent, "don't"]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o96ckm.md#c2"
+    char_span: [2506, 4537]
+    sentence_count: 18
+    key_terms: [colleges, acceptance, deadlines, safeties, targets, like, list, rate]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o96ckm.md#c3"
+    char_span: [4539, 4887]
+    sentence_count: 4
+    key_terms: [back, like, acceptance, reminding, seriously, something, yourself, clearer]
+    section: Comments
+    token_count: 78
 ---
-
 # The college application process sucks
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1o96ckm/the_college_application_process_sucks/)

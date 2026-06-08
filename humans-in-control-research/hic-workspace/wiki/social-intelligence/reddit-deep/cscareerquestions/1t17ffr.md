@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1t17ffr.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1t17ffr/ban_on_noncs_degrees_entering_software_job_market/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,27 @@ flair: "Student"
 extracted_at: "2026-05-20T02:33:39.304Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t17ffr.md#c0"
+    char_span: [0, 482]
+    sentence_count: 5
+    key_terms: [cscareerquestions, ban, comments, software, beginning-discount61, need, reddit-deep, nationwide]
+    token_count: 123
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t17ffr.md#c1"
+    char_span: [497, 2552]
+    sentence_count: 12
+    key_terms: [competition, beginning-discount61, "can't", someone, become, degree, universities, jobs]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t17ffr.md#c2"
+    char_span: [2554, 3315]
+    sentence_count: 2
+    key_terms: ["you're", bassrecorder, asking, beginning-discount61, keep, corporation, development, everywhere]
+    section: Comments
+    token_count: 203
 ---
-
 # Ban on non-CS degrees entering software job market.
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1t17ffr/ban_on_noncs_degrees_entering_software_job_market/)

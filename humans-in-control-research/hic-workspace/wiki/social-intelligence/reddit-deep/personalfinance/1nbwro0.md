@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1nbwro0.md
 url: "https://www.reddit.com/r/personalfinance/comments/1nbwro0/just_started_my_first_job_and_need_advice_on_how/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,15 @@ flair: "Planning"
 extracted_at: "2026-05-17T01:13:31.186Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1nbwro0.md#c0"
+    char_span: [0, 1345]
+    sentence_count: 12
+    key_terms: [personalfinance, advice, investments, job, investing, remaining, spendings, comments]
+    token_count: 321
 ---
-
 # Just started my first job and need advice on how to divide my income among spendings, investments and savings.
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1nbwro0/just_started_my_first_job_and_need_advice_on_how/)

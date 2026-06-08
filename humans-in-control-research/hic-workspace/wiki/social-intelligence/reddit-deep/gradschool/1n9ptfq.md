@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1n9ptfq.md
 url: "https://www.reddit.com/r/GradSchool/comments/1n9ptfq/hate_being_a_ta/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,50 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.143Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1n9ptfq.md#c0"
+    char_span: [0, 2199]
+    sentence_count: 20
+    key_terms: [week, honestly, being, get, lab, time, everything, gradschool]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/gradschool/1n9ptfq.md#c1"
+    char_span: [2201, 3583]
+    sentence_count: 14
+    key_terms: [because, program, funding, school, "i'm", time, research, "don't"]
+    token_count: 289
+  - id: "social-intelligence/reddit-deep/gradschool/1n9ptfq.md#c2"
+    char_span: [3598, 5741]
+    sentence_count: 18
+    key_terms: ["i'm", lifesuckssdi, hours, especially, experience, professor, meetings, semester]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/gradschool/1n9ptfq.md#c3"
+    char_span: [5743, 7922]
+    sentence_count: 14
+    key_terms: [research, experience, manageable, "i'm", meetings, program, lifesuckssdi, maybe]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/gradschool/1n9ptfq.md#c4"
+    char_span: [7924, 9755]
+    sentence_count: 13
+    key_terms: [funding, funded, opportunity, grad, mean, need, sometimes, academia]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/gradschool/1n9ptfq.md#c5"
+    char_span: [9757, 11930]
+    sentence_count: 16
+    key_terms: [professors, professor, time, work, research, expectations, lifesuckssdi, like]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1n9ptfq.md#c6"
+    char_span: [11656, 13780]
+    sentence_count: 18
+    key_terms: [lifesuckssdi, character-twist-1409, maybe, different, get, like, feel, give]
+    section: Comments
+    token_count: 496
 ---
-
 # Hate being a TA
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1n9ptfq/hate_being_a_ta/)

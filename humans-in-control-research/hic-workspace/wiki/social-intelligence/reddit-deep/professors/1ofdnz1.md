@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1ofdnz1.md
 url: "https://www.reddit.com/r/Professors/comments/1ofdnz1/asynchronous_rant/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-14T18:17:21.706Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1ofdnz1.md#c0"
+    char_span: [0, 1358]
+    sentence_count: 13
+    key_terms: [students, asynchronous, work, professors, university, requiring, comments, policies]
+    token_count: 315
+  - id: "social-intelligence/reddit-deep/professors/1ofdnz1.md#c1"
+    char_span: [1373, 2859]
+    sentence_count: 14
+    key_terms: [people, education, feel, "he's", "it's", rage, work, completely]
+    section: Comments
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/professors/1ofdnz1.md#c2"
+    char_span: [2861, 4908]
+    sentence_count: 16
+    key_terms: [assignments, slides, equilibrium, "it's", research, grading, improve, lecture]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1ofdnz1.md#c3"
+    char_span: [4687, 6863]
+    sentence_count: 11
+    key_terms: [writing, iceniqueen69, asynchronously, teach, video, assessments, assignment, interview]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1ofdnz1.md#c4"
+    char_span: [6562, 6955]
+    sentence_count: 2
+    key_terms: [everything, writing, face-to-face, disciplines, rethinking, snootycat, creative, semester]
+    section: Comments
+    token_count: 86
+  - id: "social-intelligence/reddit-deep/professors/1ofdnz1.md#c5"
+    char_span: [6957, 9035]
+    sentence_count: 23
+    key_terms: [students, admin, standards, check, cash, higher, school, too]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/professors/1ofdnz1.md#c6"
+    char_span: [9037, 11203]
+    sentence_count: 16
+    key_terms: [like, assignments, teaching, student, administrators, teach, job, keep]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/professors/1ofdnz1.md#c7"
+    char_span: [11205, 12283]
+    sentence_count: 9
+    key_terms: [discussion, discussions, above, board, encountered, anything, minimum, program]
+    section: Comments
+    token_count: 227
 ---
-
 # Asynchronous Rant
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1ofdnz1/asynchronous_rant/)

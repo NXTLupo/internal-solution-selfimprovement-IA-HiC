@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-careerguidance/d7a6b5fdda.md
 url: "https://reddit.com/r/careerguidance/comments/1rjixi6/has_anyone_else_noticed_that_the_best_hires/"
 url_hash: "d7a6b5fdda"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-13T23:07:23.950860+00:00"
 chars: 2123
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-careerguidance/d7a6b5fdda.md#c0"
+    char_span: [0, 2343]
+    sentence_count: 2
+    key_terms: [best, resumes, conversation, anyone, hiring, someone, careerguidance, people]
+    token_count: 474
 ---
-
 # Has anyone else noticed that the best hires they've made had the "worst" resumes?
 
 Source: [reddit: careerguidance](https://reddit.com/r/careerguidance/comments/1rjixi6/has_anyone_else_noticed_that_the_best_hires/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1mnqpz8.md
 url: "https://www.reddit.com/r/internships/comments/1mnqpz8/how_to_search_internship_opportunities/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,25 +7,42 @@ subreddit: "internships"
 title: "how to search internship opportunities"
 author: "SubstantialPizza557"
 date: "2025-08-11T22:04:57.000Z"
-score: 13
+score: 14
 upvote_ratio: 1
 num_comments: 9
 flair: "General"
-extracted_at: "2026-05-25T13:01:40.289Z"
+extracted_at: "2026-06-05T19:52:26.155Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1mnqpz8.md#c0"
+    char_span: [0, 696]
+    sentence_count: 3
+    key_terms: [opportunities, internships, internship, comments, engineer, position, software, substantialpizza557]
+    token_count: 162
+  - id: "social-intelligence/reddit-deep/internships/1mnqpz8.md#c1"
+    char_span: [711, 2697]
+    sentence_count: 7
+    key_terms: [companies, simplify, open, https, big, summer, nointernship, internships]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/internships/1mnqpz8.md#c2"
+    char_span: [2699, 3580]
+    sentence_count: 10
+    key_terms: [company, substantialpizza557, companies, applying, linkedin, deleted, big, don]
+    section: Comments
+    token_count: 216
 ---
-
 # how to search internship opportunities
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1mnqpz8/how_to_search_internship_opportunities/)
-Posted by **SubstantialPizza557** · **13↑** · **9 comments**
+Posted by **SubstantialPizza557** · **14↑** · **9 comments**
 
 Hi guys, I am looking forword to a 2026 summer internship, and specifically in San jose, I just saw tiktok was hiring, but why the software engineer position is so less this moment, it's too early？I searched software engineer related position (mostly backend, full-stack) on handshake and simplify jobs. I always hear there are lots of job opportunities in Bay area. I want to get some interviews and improve myself, and then try to apply for my dream company.
 
 ## Comments
 
-- **Mvdcu1980** (7↑): eah it's a bit early for most big name tech internships, they usually open late summer or early fall for 2026, though a few do trickle in on simplify or handshake. also worth checking company career pages directly since handshake/simplify sometimes miss listings.
+- **Mvdcu1980** (6↑): eah it's a bit early for most big name tech internships, they usually open late summer or early fall for 2026, though a few do trickle in on simplify or handshake. also worth checking company career pages directly since handshake/simplify sometimes miss listings.
 
 one thing that helped me last year: i used Wobo not just for resume help (it pointed out a ton of formatting issues i didn’t realize were hurting me), but also to surface some lesser-known postings in my preferred city. i set my preferences to just SF Bay Area + backend/full-stack and it narrowed stuff down pretty well. way less noise than simplify. didn’t spam apply either,  felt more targeted.
 

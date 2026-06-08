@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1kvljeh.md
 url: "https://www.reddit.com/r/GradSchool/comments/1kvljeh/are_they_fr/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,63 @@ flair: "Academics"
 extracted_at: "2026-05-25T13:04:07.343Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1kvljeh.md#c0"
+    char_span: [0, 1380]
+    sentence_count: 12
+    key_terms: [comments, difficulties, gradschool, including, leaving, program, grad, read]
+    token_count: 294
+  - id: "social-intelligence/reddit-deep/gradschool/1kvljeh.md#c1"
+    char_span: [1395, 3118]
+    sentence_count: 14
+    key_terms: [read, luckyricochet, introduction, works, conclusions, book, conclusion, understand]
+    section: Comments
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/gradschool/1kvljeh.md#c2"
+    char_span: [3120, 4733]
+    sentence_count: 13
+    key_terms: [read, papers, use, something, excerpts, article, reading, "there's"]
+    section: Comments
+    token_count: 375
+  - id: "social-intelligence/reddit-deep/gradschool/1kvljeh.md#c3"
+    char_span: [4735, 6717]
+    sentence_count: 15
+    key_terms: [montymolesimp, week, reading, themarshmallowfairy, hours, weeks, per, semester]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1kvljeh.md#c4"
+    char_span: [6497, 6733]
+    sentence_count: 1
+    key_terms: [thank, get, montymolesimp, abstract, reading, points, learn, major]
+    section: Comments
+    token_count: 70
+  - id: "social-intelligence/reddit-deep/gradschool/1kvljeh.md#c5"
+    char_span: [6735, 8890]
+    sentence_count: 21
+    key_terms: [undergrad, class, get, time, graduate, school, expectation, mods-begone]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1kvljeh.md#c6"
+    char_span: [8619, 10228]
+    sentence_count: 15
+    key_terms: [readings, assignments, school, get, degree, passionate, undergrad, complete]
+    section: Comments
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/gradschool/1kvljeh.md#c7"
+    char_span: [10230, 12491]
+    sentence_count: 16
+    key_terms: [grad, school, like, course, people, everything, doing, genuinely]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1kvljeh.md#c8"
+    char_span: [12217, 13247]
+    sentence_count: 5
+    key_terms: [undergrad, readings, quickly, started, digest, doing, good, extracurriculars]
+    section: Comments
+    token_count: 254
 ---
-
 # Are they fr
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1kvljeh/are_they_fr/)

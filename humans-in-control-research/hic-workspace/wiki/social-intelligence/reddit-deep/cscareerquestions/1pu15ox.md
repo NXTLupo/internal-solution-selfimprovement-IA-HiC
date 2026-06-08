@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1pu15ox.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1pu15ox/how_much_do_majors_matter_in_the_cs_job_market/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,38 @@ flair: ""
 extracted_at: "2026-05-20T02:33:39.313Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pu15ox.md#c0"
+    char_span: [0, 2207]
+    sentence_count: 13
+    key_terms: [math, programming, cscareerquestions, majoring, theory, proficient, analysis, comments]
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pu15ox.md#c1"
+    char_span: [2209, 2734]
+    sentence_count: 4
+    key_terms: [math, majoring, projects, jobs, keep, swe, consideration, programming]
+    token_count: 113
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pu15ox.md#c2"
+    char_span: [2749, 4471]
+    sentence_count: 9
+    key_terms: [enough, major, math, bluerosesarefake, double, minor, like, recruiters]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pu15ox.md#c3"
+    char_span: [4473, 6060]
+    sentence_count: 9
+    key_terms: [good, math, physics, majors, programmer, knowledge, getting, having]
+    section: Comments
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pu15ox.md#c4"
+    char_span: [6062, 8218]
+    sentence_count: 9
+    key_terms: [math, majors, never-trust-a-programmer-who-says-he-knows-c, quantitative, engineering, good, mit, cartoons]
+    section: Comments
+    token_count: 498
 ---
-
 # How much do majors matter in the CS job market?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1pu15ox/how_much_do_majors_matter_in_the_cs_job_market/)

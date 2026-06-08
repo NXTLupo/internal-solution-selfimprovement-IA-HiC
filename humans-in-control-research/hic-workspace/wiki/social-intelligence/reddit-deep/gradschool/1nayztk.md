@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1nayztk.md
 url: "https://www.reddit.com/r/GradSchool/comments/1nayztk/how_to_stay_on_top_of_readings_without_reading/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-23T19:45:05.863Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1nayztk.md#c0"
+    char_span: [0, 1103]
+    sentence_count: 5
+    key_terms: [assigned, single, information, word, gradschool, different, realizing, articles]
+    token_count: 239
+  - id: "social-intelligence/reddit-deep/gradschool/1nayztk.md#c1"
+    char_span: [1118, 3265]
+    sentence_count: 20
+    key_terms: [read, reading, paragraph, paper, chapter, section, understand, full]
+    section: Comments
+    token_count: 517
+  - id: "social-intelligence/reddit-deep/gradschool/1nayztk.md#c2"
+    char_span: [3267, 5184]
+    sentence_count: 20
+    key_terms: [conclusion, summarize, points, need, read, discussion, readings, research]
+    section: Comments
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/gradschool/1nayztk.md#c3"
+    char_span: [5186, 7138]
+    sentence_count: 10
+    key_terms: [text, reading, questions, argument, get, paragraphs, "text's", thesis]
+    section: Comments
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/gradschool/1nayztk.md#c4"
+    char_span: [7140, 9073]
+    sentence_count: 14
+    key_terms: [reading, read, found, pages, book, conclusion, different, highlight]
+    section: Comments
+    token_count: 418
 ---
-
 # How to stay on top of readings without reading every single word
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1nayztk/how_to_stay_on_top_of_readings_without_reading/)

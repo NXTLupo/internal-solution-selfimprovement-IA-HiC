@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1td9xxe.md
 url: "https://www.reddit.com/r/stocks/comments/1td9xxe/where_is_all_the_money_in_the_us_stock_market/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,117 @@ flair: ""
 extracted_at: "2026-05-17T01:14:17.616Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c0"
+    char_span: [0, 795]
+    sentence_count: 7
+    key_terms: [money, stock, stocks, tech, companies, comments, coming, market]
+    token_count: 189
+  - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c1"
+    char_span: [810, 2822]
+    sentence_count: 17
+    key_terms: [market, better, invest, money, yield, cash, else, new]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c2"
+    char_span: [2824, 4763]
+    sentence_count: 18
+    key_terms: [market, cap, markets, million, street, house, money, "it's"]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c3"
+    char_span: [4481, 4944]
+    sentence_count: 9
+    key_terms: [tank, because, markets, invest, been, "it's", government, companies]
+    section: Comments
+    token_count: 104
+  - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c4"
+    char_span: [4947, 5978]
+    sentence_count: 14
+    key_terms: [increase, international, value, perception, increased, equity, number, sp500]
+    section: Comments
+    token_count: 231
+  - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c5"
+    char_span: [5980, 7551]
+    sentence_count: 9
+    key_terms: [funds, retirement, people, peanutbuttertoast4me, share, world, inclinationcompass, war]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c6"
+    char_span: [7553, 9015]
+    sentence_count: 9
+    key_terms: [money, funds, "it's", new, managers, sitting, sources, answer]
+    section: Comments
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c7"
+    char_span: [9017, 11142]
+    sentence_count: 13
+    key_terms: [market, companies, capex, future, stock, money, price, tequilamigo]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c8"
+    char_span: [10862, 11983]
+    sentence_count: 7
+    key_terms: [companies, tech, been, sentiment, sitting, invest, market, technical-war6853]
+    section: Comments
+    token_count: 250
+  - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c9"
+    char_span: [11985, 13798]
+    sentence_count: 15
+    key_terms: [money, value, hallucination, stock, "he's", use, investment, created]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c10"
+    char_span: [13800, 15000]
+    sentence_count: 15
+    key_terms: [bonds, government, expenses, monetary, inflation, interest, lionrivr, private]
+    section: Comments
+    token_count: 297
+  - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c11"
+    char_span: [15002, 17002]
+    sentence_count: 13
+    key_terms: [people, years, stock, income, market, stocks, money, ago]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c12"
+    char_span: [17004, 18802]
+    sentence_count: 11
+    key_terms: [inflation, administration, account, beat, current, savings, stocks, "you're"]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c13"
+    char_span: [18804, 20717]
+    sentence_count: 20
+    key_terms: [company, last, money, days, invested, printing, struggle, across]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c14"
+    char_span: [20719, 21635]
+    sentence_count: 11
+    key_terms: [decides, price, store, "it's", sell, without, stocks, "don't"]
+    section: Comments
+    token_count: 221
+  - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c15"
+    char_span: [21637, 22884]
+    sentence_count: 11
+    key_terms: [price, paperhandsthedip, answer, market, stocks, been, "it's", volume]
+    section: Comments
+    token_count: 307
+  - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c16"
+    char_span: [22886, 24730]
+    sentence_count: 21
+    key_terms: [price, market, last, trade, money, paperhandsthedip, without, makers]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/stocks/1td9xxe.md#c17"
+    char_span: [24732, 25147]
+    sentence_count: 6
+    key_terms: [significantly, outperformed, hottruth999, altruistic, generosity, thanking, lifting, nothing]
+    section: Comments
+    token_count: 115
 ---
-
 # Where is all the money in the US stock market coming from?
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1td9xxe/where_is_all_the_money_in_the_us_stock_market/)

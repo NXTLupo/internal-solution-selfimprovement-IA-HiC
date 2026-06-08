@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1qi5z3c.md
 url: "https://www.reddit.com/r/financialindependence/comments/1qi5z3c/semifire_baristafire_sabbatical/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,62 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.710Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c0"
+    char_span: [0, 1982]
+    sentence_count: 26
+    key_terms: ["i'm", financialindependence, health, job, time, barista-fire, aca, care]
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c1"
+    char_span: [1985, 3345]
+    sentence_count: 21
+    key_terms: [years, pet, anticipate, expenses, savings, travel, months--projected, care]
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c2"
+    char_span: [3360, 4843]
+    sentence_count: 17
+    key_terms: [insurance, get, health, need, university, barista, spanish, student]
+    section: Comments
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c3"
+    char_span: [4845, 6751]
+    sentence_count: 12
+    key_terms: [insurance, health, working, solomongrumpy, conversions, "it's", week, starbucks]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c4"
+    char_span: [6754, 8472]
+    sentence_count: 15
+    key_terms: [years, neithercatnorfowl, travel, start, job, like, work, enough]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c5"
+    char_span: [8474, 10394]
+    sentence_count: 27
+    key_terms: [calculator, fire, income, mymoneymile, job, stop, yourself, health]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c6"
+    char_span: [10396, 12474]
+    sentence_count: 19
+    key_terms: [like, right, able, get, good, help, use, advisor]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c7"
+    char_span: [12476, 14736]
+    sentence_count: 15
+    key_terms: [money, inefficient, better, working, inefficiently, state, efficiently, healthcare]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c8"
+    char_span: [14738, 14903]
+    sentence_count: 2
+    key_terms: [challenges, healthcare, something, without, access, afford, easily, health]
+    section: Comments
+    token_count: 34
 ---
-
 # Semi-FIRE, Barista-FIRE, sabbatical?
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1qi5z3c/semifire_baristafire_sabbatical/)

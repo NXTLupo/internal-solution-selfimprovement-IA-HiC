@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1n8dioh.md
 url: "https://www.reddit.com/r/highereducation/comments/1n8dioh/the_white_house_is_declaring_war_on_campus_dei/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-20T02:31:35.471Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1n8dioh.md#c0"
+    char_span: [0, 2299]
+    sentence_count: 8
+    key_terms: [students, antisemitism, jewish, directive, swanson, university, columbia, highereducation]
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/highereducation/1n8dioh.md#c1"
+    char_span: [2314, 4541]
+    sentence_count: 9
+    key_terms: [education, antisemitism, people, studies, higher, being, babymaybe15, scapegoats]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/highereducation/1n8dioh.md#c2"
+    char_span: [4264, 4790]
+    sentence_count: 3
+    key_terms: [philanthropic, transparency, completely, needlessly, attention, escalated, governors, incapable]
+    section: Comments
+    token_count: 120
 ---
-
 # "The White House is declaring war on campus DEI — except for Jews"
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1n8dioh/the_white_house_is_declaring_war_on_campus_dei/)

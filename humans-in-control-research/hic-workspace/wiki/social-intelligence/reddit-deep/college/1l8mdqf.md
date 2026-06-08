@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1l8mdqf.md
 url: "https://www.reddit.com/r/college/comments/1l8mdqf/engineering_majors_who_struggled_with_math_how/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,27 @@ flair: "Academic Life"
 extracted_at: "2026-05-20T03:54:35.452Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1l8mdqf.md#c0"
+    char_span: [0, 1466]
+    sentence_count: 13
+    key_terms: [math, college, start, did, comments, rebuild, science, basics]
+    token_count: 334
+  - id: "social-intelligence/reddit-deep/college/1l8mdqf.md#c1"
+    char_span: [1481, 3409]
+    sentence_count: 15
+    key_terms: [math, teacher, step, level, mudcute2158, arithmetic, understand, studying]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/college/1l8mdqf.md#c2"
+    char_span: [3411, 4854]
+    sentence_count: 10
+    key_terms: [math, class, algebra, since, questions, practice, because, college]
+    section: Comments
+    token_count: 327
 ---
-
 # Engineering majors who struggled with math: How did you rebuild your foundation and start enjoying it?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1l8mdqf/engineering_majors_who_struggled_with_math_how/)

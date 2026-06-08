@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1ssq3mn/reasons_to_be_optimistic_if_you_may_be_attending/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,104 @@ subreddit: "applyingtocollege"
 title: "REASONS TO BE OPTIMISTIC IF YOU MAY BE ATTENDING YOUR STATE SCHOOL"
 author: "HappyCava"
 date: "2026-04-22T16:13:54.000Z"
-score: 91
+score: 88
 upvote_ratio: 0.97
 num_comments: 30
 flair: ""
-extracted_at: "2026-05-23T12:15:36.214Z"
+extracted_at: "2026-06-05T18:53:26.945Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c0"
+    char_span: [0, 1893]
+    sentence_count: 10
+    key_terms: [students, state, school, applyingtocollege, college, attend, optimistic, university]
+    token_count: 405
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c1"
+    char_span: [1895, 3987]
+    sentence_count: 15
+    key_terms: [classes, students, academic, state, take, philosophy, university, heavy-on-takeout-containers]
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c2"
+    char_span: [3989, 6175]
+    sentence_count: 19
+    key_terms: [students, student, professors, class, classes, need, attending, questions]
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c3"
+    char_span: [6177, 7908]
+    sentence_count: 12
+    key_terms: [research, students, undergraduate, university, universities, political, professor, uc-irvine]
+    token_count: 328
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c4"
+    char_span: [7910, 8936]
+    sentence_count: 8
+    key_terms: [university, large, friends, universities, party, fun, attended, hiking]
+    token_count: 209
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c5"
+    char_span: [8951, 10422]
+    sentence_count: 7
+    key_terms: [intelligent-web-8017, berkeley, school, state, like, incredible, students, georgia]
+    section: Comments
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c6"
+    char_span: [10424, 12597]
+    sentence_count: 20
+    key_terms: [ambitious, students, classes, upper-division, honors, super-duper, classmates, experience]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c7"
+    char_span: [12599, 13215]
+    sentence_count: 4
+    key_terms: [faculty, admitted, involved, friends, program, school, party, opportunities]
+    section: Comments
+    token_count: 125
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c8"
+    char_span: [13217, 15433]
+    sentence_count: 17
+    key_terms: [school, people, smarter, together, college, schools, student, better]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c9"
+    char_span: [15435, 17596]
+    sentence_count: 13
+    key_terms: [school, state, students, law, experience, schools, opportunities, being]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c10"
+    char_span: [17598, 19412]
+    sentence_count: 13
+    key_terms: [school, attended, selective, spouse, state, kids, classmates, professors]
+    section: Comments
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c11"
+    char_span: [19414, 21691]
+    sentence_count: 13
+    key_terms: [schools, because, people, get, like, college, experience, selective]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c12"
+    char_span: [21693, 23376]
+    sentence_count: 9
+    key_terms: [people, schools, professors, because, school, simply, get, generally]
+    section: Comments
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c13"
+    char_span: [23378, 24340]
+    sentence_count: 9
+    key_terms: [state, flagship, school, sufficient-ad-5824, clep, took, uni, opportunities]
+    section: Comments
+    token_count: 233
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c14"
+    char_span: [24342, 25727]
+    sentence_count: 4
+    key_terms: [happycava, resources, students, schools, agree, state, sufficient-ad-5824, prismcartographer]
+    section: Comments
+    token_count: 320
 ---
-
 # REASONS TO BE OPTIMISTIC IF YOU MAY BE ATTENDING YOUR STATE SCHOOL
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1ssq3mn/reasons_to_be_optimistic_if_you_may_be_attending/)
-Posted by **HappyCava** · **91↑** · **30 comments**
+Posted by **HappyCava** · **88↑** · **30 comments**
 
 Several A2C students have recently shared their disappointment about having to attend a state university. Although such dismay is understandable – everyone has favorites and wants to have choices – generalizations about state schools are often untrue or exaggerated.  While unlikely to topple ice cream as a provider of solace, this post is intended to possibly help some feel more optimistic.
 
@@ -44,16 +130,16 @@ Best of luck to all of you.
 
 ## Comments
 
-- **Intelligent-Web-8017** (23↑): if you’re going to a top state school like georgia tech unc or uc berkeley and doing a top major there like CS or econ then i get confused. 
+- **Intelligent-Web-8017** (22↑): if you’re going to a top state school like georgia tech unc or uc berkeley and doing a top major there like CS or econ then i get confused. 
 
 colleges like those are prob better value for your major and what not.
   - **originalchronoguy** (7↑): Yeah, UC Berkeley and UCLA are T20s and are up there with privates.
     - **Intelligent-Web-8017** (0↑): berkeley i would say not ucla in terms of career outcomes. georgia tech cs is also good and unc for econ. same with umich ross and engineering
-- **Cannelli10** (25↑): As another parent and grad of a Fancypants U, it's wild that any of this needs to be said.
+- **Cannelli10** (26↑): As another parent and grad of a Fancypants U, it's wild that any of this needs to be said.
 
 Where you go to school will never matter as much as who you are and frankly, who your parents are. There are tons of incredible people at state schools because there are tons of incredible in the world.
 - **bmsa131** (12↑): My kid chose a OOS for us R1 Big Ten ranked between 25 and 50 that wasn’t a reach bc they wanted the whole experience of that kind of football school and greek life. I told them that to their right and to their left is an in state valedictorian.    And surprisingly has had great advising and classes much smaller than expected.   And yes of course Greek life and sports and parties.
-- **Ok_Experience_5151** (10↑): >Some might respond that having a cohort of very bright students on campus doesn’t mean that they will be surrounded by students who prioritize academics as they do.
+- **Ok_Experience_5151** (9↑): >Some might respond that having a cohort of very bright students on campus doesn’t mean that they will be surrounded by students who prioritize academics as they do.
 
 Some thoughts on this:
 
@@ -76,7 +162,7 @@ The only reason I was admitted to graduate school is the relationship I had with
 >even if your state university is a “party school,” you don’t need to be a party person to find friends and have fun
 
 Also very true.  The school I attended had a thriving Greek system and there was no shortage of parties.  Over my four years as an undergraduate, I only attended two events that I would characterize as "stereotypical" college parties.  Beer, etc.  Just wasn't my bag.  I had no shortage of friends or things to do.  We would frequently go out for late night coffee, eat meals together, play pool in the Student Union building, go to concerts, go to football games, watch TV shows together (back before streaming), go to student organization meetings together, play ultimate frisbee, play cards, etc.
-- **America_will_save_yo** (5↑): I went to top rank school over kids much smarter then me in my high school, was in the college honors program over other classmates who were also smarter then me. I’m doing great but they are doing even better, because well they are smarter and more driven than me. Where I went to school didn’t matter. The kids that are smarter and more driven are going to do great no matter where they went. Only holding you back is doubting yourself because you didn’t get accepted to a fancy pants school. Chemistry is chemistry at Harvard and at your state university. Go learn it and push yourself to your max potential (or not and have a more well rounded college life, it’s your life!).
+- **America_will_save_yo** (4↑): I went to top rank school over kids much smarter then me in my high school, was in the college honors program over other classmates who were also smarter then me. I’m doing great but they are doing even better, because well they are smarter and more driven than me. Where I went to school didn’t matter. The kids that are smarter and more driven are going to do great no matter where they went. Only holding you back is doubting yourself because you didn’t get accepted to a fancy pants school. Chemistry is chemistry at Harvard and at your state university. Go learn it and push yourself to your max potential (or not and have a more well rounded college life, it’s your life!).
 - **ZoomyRacecar** (2↑): Thank you for saying this. I’m an FGLI student and I presume not the demographic of many people posting here, but I think it’s crazy how low people think of state schools and fail to consider how many opportunities these schools may have and how they’re also really full of bright students. I am not saying people should stop going to Ivys and other elite institutions, but I just think they are not always the be all end all (maybe it matters more depending on your major). I think people also forget major rankings exist and that a state school can be better than and Ivy for specific majors and have better career outcomes for its students in the related fields too. 
 
 I’m at a T20 and not at an ivy so maybe I don’t know what I’m talking about, but I think other schools are perfectly valid, especially when considering that many people have much more schooling to pay for. 
@@ -117,4 +203,4 @@ At many private colleges and unis, AP credits don’t place you out.
     - **Sufficient-Ad-5824** (2↑): I agree :-) and it was all him.!
 - **PrismCartographer** (2↑): This is a fantastic perspective. It’s so easy to get caught up in the "T20 or bust" mentality and lose sight of the fact that state schools offer incredible opportunities if you actually go looking for them. I recently found a very candid review of several writing support services that really highlighted how students can take control of their own academic success, regardless of where they end up. At the end of the day, your drive and how you leverage the resources around [**you matter much more than a university label.**](https://www.reddit.com/r/EssayFix/comments/1sykaiu/striving_to_manage_a_demanding_term_my_candid/)
   - **HappyCava** (1↑): I agree. 🙂 And the nice thing is that, while leveraging your resources sounds like work, it’s what comes naturally if one enjoys school, seeks out friendships with classmates, engages with their professors, and becomes involved in campus life through clubs, intramurals, the arts, community service groups, research and scholarship, or joining a costumed group of cheering bananas at the basketball game.
-- **spaceotter5** (2↑): Congratulations to all the students who are actually accepted to these state schools.
+- **spaceotter5** (4↑): Congratulations to all the students who are actually accepted to these state schools.

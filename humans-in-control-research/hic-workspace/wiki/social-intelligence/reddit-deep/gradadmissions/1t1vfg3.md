@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1t1vfg3.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1t1vfg3/how_important_is_gpa_compared_to_publications_and/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,26 @@ flair: "Engineering"
 extracted_at: "2026-05-20T03:56:10.757Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1t1vfg3.md#c0"
+    char_span: [0, 2086]
+    sentence_count: 11
+    key_terms: [school, semester, grad, last, year, since, "i'm", because]
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/gradadmissions/1t1vfg3.md#c1"
+    char_span: [2088, 2651]
+    sentence_count: 4
+    key_terms: [research, another, given, "i'm", appreciated, institution, publication, experience]
+    token_count: 118
+  - id: "social-intelligence/reddit-deep/gradadmissions/1t1vfg3.md#c2"
+    char_span: [2666, 3348]
+    sentence_count: 7
+    key_terms: [requirement, softrains12, gpa, research, perfect, master, former-hospital-3656, cumulative]
+    section: Comments
+    token_count: 204
 ---
-
 # How important is GPA compared to publications and research when applying for grad school?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1t1vfg3/how_important_is_gpa_compared_to_publications_and/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rpe2ks.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rpe2ks/hows_the_job_market_5_experience_above_only_no/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-23T20:15:57.465Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rpe2ks.md#c0"
+    char_span: [0, 504]
+    sentence_count: 3
+    key_terms: [cscareerquestions, comments, like, sillycookies7, compensation, reddit-deep, experience, interviews]
+    token_count: 133
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rpe2ks.md#c1"
+    char_span: [519, 2889]
+    sentence_count: 23
+    key_terms: [software, engineering, "didn't", needed, people, significant, less, engineers]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rpe2ks.md#c2"
+    char_span: [2891, 4866]
+    sentence_count: 18
+    key_terms: [hybrid, job, yoe, company, silicon, remote, valley, isospeedrix]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rpe2ks.md#c3"
+    char_span: [4868, 6348]
+    sentence_count: 12
+    key_terms: [firmware, roles, experience, knowledge, dialysis, machines, medical, resume]
+    section: Comments
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rpe2ks.md#c4"
+    char_span: [6350, 7598]
+    sentence_count: 7
+    key_terms: [recruiters, yoe, notyourmom132, roles, constantly, emailing, resume, senior]
+    section: Comments
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rpe2ks.md#c5"
+    char_span: [7600, 8730]
+    sentence_count: 6
+    key_terms: [itxchnology, got, yoe, recruiters, interview, recruiter, another, faang]
+    section: Comments
+    token_count: 310
 ---
-
 # How's the job market (5+ Experience & above only - No entry level)
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rpe2ks/hows_the_job_market_5_experience_above_only_no/)

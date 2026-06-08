@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1pd8xl6.md
 url: "https://www.reddit.com/r/internships/comments/1pd8xl6/hiring_a_brilliant_student_developer_mumbai_paid/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "Offers"
 extracted_at: "2026-05-25T13:01:40.287Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1pd8xl6.md#c0"
+    char_span: [0, 1309]
+    sentence_count: 5
+    key_terms: [internship, looking, someone, equity, exceptional, internships, paid, developer]
+    token_count: 305
+  - id: "social-intelligence/reddit-deep/internships/1pd8xl6.md#c1"
+    char_span: [1324, 2229]
+    sentence_count: 4
+    key_terms: [zuck, wants, pay, building, exactly, looking, someone, born-requirement-303]
+    section: Comments
+    token_count: 252
 ---
-
 # Hiring a Brilliant Student Developer (Mumbai) – Paid Internship + Equity for Exceptional Talent
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1pd8xl6/hiring_a_brilliant_student_developer_mumbai_paid/)

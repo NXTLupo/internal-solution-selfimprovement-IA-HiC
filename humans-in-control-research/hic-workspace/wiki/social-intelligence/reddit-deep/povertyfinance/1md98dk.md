@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1md98dk.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1md98dk/wondering_how_people_live/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,57 @@ flair: "Budgeting/Saving/Investing/Spending"
 extracted_at: "2026-05-17T01:13:55.882Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c0"
+    char_span: [0, 746]
+    sentence_count: 12
+    key_terms: [month, povertyfinance, people, money, comments, "don't", spend, live]
+    token_count: 200
+  - id: "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c1"
+    char_span: [761, 2650]
+    sentence_count: 9
+    key_terms: [debt, repayment, money, month, budget, "that's", going, nettrack-37]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c2"
+    char_span: [2652, 4869]
+    sentence_count: 23
+    key_terms: [budget, groceries, new, money, rent, getting, renewal, subscription]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c3"
+    char_span: [4871, 6883]
+    sentence_count: 11
+    key_terms: ["i'm", budget, something, because, neurodivergent, hyperfixation, "don't", like]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c4"
+    char_span: [6885, 9106]
+    sentence_count: 13
+    key_terms: [money, envelopes, credit, budget, cards, "don't", groceries, card]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c5"
+    char_span: [9108, 11153]
+    sentence_count: 26
+    key_terms: [money, month, envelope, get, next, spending, "you're", like]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c6"
+    char_span: [11156, 13022]
+    sentence_count: 20
+    key_terms: [debt, albertqwe, extreme, month, did, lot, per, year]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c7"
+    char_span: [13024, 14118]
+    sentence_count: 10
+    key_terms: [month, debt, everything, budget, living, system, money, phone]
+    section: Comments
+    token_count: 296
 ---
-
 # Wondering how people live?
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1md98dk/wondering_how_people_live/)

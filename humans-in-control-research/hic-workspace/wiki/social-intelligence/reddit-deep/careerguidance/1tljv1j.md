@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tljv1j.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tljv1j/people_who_went_to_college_and_worked_in_a_white/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-23T19:45:11.367Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tljv1j.md#c0"
+    char_span: [0, 1068]
+    sentence_count: 10
+    key_terms: [careerguidance, interested, comments, career, collar, people, switch, point]
+    token_count: 249
+  - id: "social-intelligence/reddit-deep/careerguidance/1tljv1j.md#c1"
+    char_span: [1083, 2358]
+    sentence_count: 6
+    key_terms: [electronics, work, instead, started, talking, repair, small, years]
+    section: Comments
+    token_count: 243
 ---
-
 # People who went to college and worked in a white collar career and switched to a blue collar career path, at what point did you realize you wanted to make the switch?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tljv1j/people_who_went_to_college_and_worked_in_a_white/)

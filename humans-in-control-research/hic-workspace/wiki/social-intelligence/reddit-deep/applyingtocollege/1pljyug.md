@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1pljyug.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1pljyug/my_first_rejection_stanford/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -10,11 +11,52 @@ score: 169
 upvote_ratio: 0.99
 num_comments: 52
 flair: "Fluff"
-extracted_at: "2026-05-25T18:32:06.248Z"
+extracted_at: "2026-06-03T12:16:39.477Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pljyug.md#c0"
+    char_span: [0, 2102]
+    sentence_count: 3
+    key_terms: [rejection, applyingtocollege, rejected, writing, school, being, maybe, like]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pljyug.md#c1"
+    char_span: [2104, 3621]
+    sentence_count: 5
+    key_terms: [weeeeoooowwwweeeeoooowwweeeeoooowwweeeoooowww, college, essays, fun, group, best, like, possibilities]
+    section: Comments
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pljyug.md#c2"
+    char_span: [3623, 5398]
+    sentence_count: 15
+    key_terms: [got, yujimine, please, school, absolutely, yesterday, positive, laugh]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pljyug.md#c3"
+    char_span: [5192, 5625]
+    sentence_count: 1
+    key_terms: [applications, assignments, understand, mandatory, remaining, continue, creative, yujimine]
+    section: Comments
+    token_count: 109
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pljyug.md#c4"
+    char_span: [5627, 6207]
+    sentence_count: 2
+    key_terms: [school, end, choose, "you'll", "it's", too, "transferring's", appreciate]
+    section: Comments
+    token_count: 134
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pljyug.md#c5"
+    char_span: [6209, 7864]
+    sentence_count: 12
+    key_terms: [yujimine, muhkteska, future-break-7395, rejected, bro, get, accomplish, university]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pljyug.md#c6"
+    char_span: [7617, 9517]
+    sentence_count: 6
+    key_terms: [essays, like, rejected, application, put, applying, semester, stanford]
+    section: Comments
+    token_count: 455
 ---
-
 # my first rejection 😇 (stanford)
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1pljyug/my_first_rejection_stanford/)
@@ -36,19 +78,19 @@ feel free to rant here i will try to console u
 
 ## Comments
 
-- **Ismailmansur** (28↑): Optimism final boss
+- **Ismailmansur** (29↑): Optimism final boss
 - **HappyCava** (10↑): Excellent response. And, yes, now you’ll have the fun of debating your choices, considering the kind of college experience you’d like to have (city, big conference sports, mountains, tiny LAC with a “Gilmore Girls” vibe), and see what the merit scholarship gods bestow upon you. Also, I coach students on their college essays and my favorite compliment is to hear that they believe they became more competent and interesting writers after working together on their essays.  Hopefully, essays, speeches, group project presentations, and creative writing of all kinds will be more fun and come easier to you now in college.  (Then you can move on more quickly to Anatomy, intramural innertube water polo practice, or a friend’s improv group’s late night show. That’s a win.) 
 
 Best of luck with the rest of your application season!
   - **yujimine** (6↑): YES exactly! maybe one path is closed (the one i thought i'd take) but that means many more of them are open and i love the existence of those possibilities.  
 thank you and ik i'll have fun!!! :))
-- **doggohowl** (9↑): no honestly fr same. i'm realizing now that mmmmaybe princeton wasn't the best fit for someone like me whos kinda the opposite of "type A ivy student" in everything except solely academic stats. i started my common app essay with "WEEEEOOOOWWWWEEEEOOOOWWWEEEEOOOOWWWEEEOOOOWWW" to represent a tornado siren LMFAOOO
+- **doggohowl** (8↑): no honestly fr same. i'm realizing now that mmmmaybe princeton wasn't the best fit for someone like me whos kinda the opposite of "type A ivy student" in everything except solely academic stats. i started my common app essay with "WEEEEOOOOWWWWEEEEOOOOWWWEEEEOOOOWWWEEEOOOOWWW" to represent a tornado siren LMFAOOO
 
  i thought i had at least somewhat of a shot 🤭but lowk it's okay because i'm almost positive now that somewhere else will be way better 😌 /srs i'm ready to find the perfect place.lets GO we GOT THIS we GOT THISSSSS YEAHHHH
-  - **yujimine** (4↑): LMAOOOAOSOAOA BYE THE SIREN 😭I LOVE THAT im so srs if i was an ao i would be like absolutely yes!!!!!!! but yea i totally get u, ig sometimes even if ur stats match but ur vibes dont then it's not the right fit (the school doesn't match our aura fr). we got this 🙂‍↕️
+  - **yujimine** (5↑): LMAOOOAOSOAOA BYE THE SIREN 😭I LOVE THAT im so srs if i was an ao i would be like absolutely yes!!!!!!! but yea i totally get u, ig sometimes even if ur stats match but ur vibes dont then it's not the right fit (the school doesn't match our aura fr). we got this 🙂‍↕️
   - **Infinite_Swing3188** (2↑): please let me read that essay bro i need to know
     - **doggohowl** (1↑): LOLLLLL if it helps satiate your curiosity, another part shortly afterward was "Pause. Scouts? A big looming cloud? A tornado? Yeah, I know. This sounds like a Twister knockoff movie. Just stick with me for a second."
-- **letmegetintouni** (17↑): wish i was as positive as you!
+- **letmegetintouni** (16↑): wish i was as positive as you!
   - **yujimine** (18↑): lol maybe im just delusional
     - **bblunder_** (1↑): delusion is a happy life
   - **[deleted]** (3↑): real

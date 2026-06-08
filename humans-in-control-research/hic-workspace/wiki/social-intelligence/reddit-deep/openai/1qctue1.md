@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1qctue1.md
 url: "https://www.reddit.com/r/OpenAI/comments/1qctue1/anyone_else_regularly_use_51_instead_of_52_anyone/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,27 @@ flair: "Discussion"
 extracted_at: "2026-05-11T16:53:06.851Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1qctue1.md#c0"
+    char_span: [0, 1097]
+    sentence_count: 9
+    key_terms: [problem, code, anyone, issues, else, comments, merging, openai]
+    token_count: 291
+  - id: "social-intelligence/reddit-deep/openai/1qctue1.md#c1"
+    char_span: [1112, 2919]
+    sentence_count: 11
+    key_terms: [code, use, verbosity, changes, happens, prompts, smarter, almost]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/openai/1qctue1.md#c2"
+    char_span: [2921, 3409]
+    sentence_count: 3
+    key_terms: [model, misconfigurations, work, slytherinspectre, experiences, performance, enterprise, inadequate]
+    section: Comments
+    token_count: 123
 ---
-
 # Anyone else regularly use 5.1 instead of 5.2? Anyone else experience lots of merging of prompts since GPT 5.2 came out?
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1qctue1/anyone_else_regularly_use_51_instead_of_52_anyone/)

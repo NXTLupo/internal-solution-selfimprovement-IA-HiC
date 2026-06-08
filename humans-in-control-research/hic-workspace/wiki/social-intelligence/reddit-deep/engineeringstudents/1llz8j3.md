@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1llz8j3.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1llz8j3/is_a_masters_worth_it_for_a_mechanical/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,33 @@ flair: "Academic Advice"
 extracted_at: "2026-05-22T21:34:47.622Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1llz8j3.md#c0"
+    char_span: [0, 1305]
+    sentence_count: 9
+    key_terms: ["master's", get, engineering, degree, engineeringstudents, internships, experience, comments]
+    token_count: 297
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1llz8j3.md#c1"
+    char_span: [1320, 3503]
+    sentence_count: 17
+    key_terms: [engineeringstudents, masters, wiki, please, reddit, onlythephantomknows, https, com]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1llz8j3.md#c2"
+    char_span: [3505, 5386]
+    sentence_count: 15
+    key_terms: [get, lead, masters, eggindatchin, being, worth, engineering, work]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1llz8j3.md#c3"
+    char_span: [5388, 6457]
+    sentence_count: 9
+    key_terms: [pay, doublehexdrive, get, full-time, incorrect, employer, getting, masters]
+    section: Comments
+    token_count: 259
 ---
-
 # Is a Masters worth it for a mechanical engineering student with minimal experience?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1llz8j3/is_a_masters_worth_it_for_a_mechanical/)

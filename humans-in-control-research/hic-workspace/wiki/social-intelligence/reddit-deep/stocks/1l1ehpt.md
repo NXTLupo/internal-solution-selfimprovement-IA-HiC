@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1l1ehpt.md
 url: "https://www.reddit.com/r/stocks/comments/1l1ehpt/china_accuses_us_of_violating_trade_deal_vows/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,50 @@ flair: "Broad market news"
 extracted_at: "2026-05-17T01:14:17.626Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [government, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1l1ehpt.md#c0"
+    char_span: [0, 1998]
+    sentence_count: 6
+    key_terms: [china-accuses-us-of-violating-trade-truce-vows-firm-response, china-accuses-us-violating-trade-024733891, china, https, com, chinese, interests, news]
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/stocks/1l1ehpt.md#c1"
+    char_span: [2000, 3952]
+    sentence_count: 10
+    key_terms: [china, trump, president, week, trade, secretary, commerce, critical]
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/stocks/1l1ehpt.md#c2"
+    char_span: [3967, 5627]
+    sentence_count: 4
+    key_terms: [stocks, market, please, reddit, "don't", money, lose, off-topic]
+    section: Comments
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/stocks/1l1ehpt.md#c3"
+    char_span: [5629, 6773]
+    sentence_count: 8
+    key_terms: [restrictions, china, bad, snap, snip, "doesn't", loosen, trade]
+    section: Comments
+    token_count: 330
+  - id: "social-intelligence/reddit-deep/stocks/1l1ehpt.md#c4"
+    char_span: [6776, 7522]
+    sentence_count: 6
+    key_terms: [tofu, taco, better, tacos, dow, tsx, captaincanuck93, administration]
+    section: Comments
+    token_count: 222
+  - id: "social-intelligence/reddit-deep/stocks/1l1ehpt.md#c5"
+    char_span: [7525, 9586]
+    sentence_count: 15
+    key_terms: [administration, acp, guy, something, citizens, details, imagine, serious]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1l1ehpt.md#c6"
+    char_span: [9330, 9656]
+    sentence_count: 3
+    key_terms: [administration, shadowliberal, credibility, statements, greenland, takeover, believe, calling]
+    section: Comments
+    token_count: 76
 ---
-
 # China Accuses US of Violating Trade Deal, Vows Firm Response
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1l1ehpt/china_accuses_us_of_violating_trade_deal_vows/)

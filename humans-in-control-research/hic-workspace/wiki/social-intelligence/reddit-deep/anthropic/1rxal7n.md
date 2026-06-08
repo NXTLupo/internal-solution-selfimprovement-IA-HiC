@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/anthropic/1rxal7n.md
 url: "https://www.reddit.com/r/Anthropic/comments/1rxal7n/skill_md_file_to_scan_mac_outlook_emails_with/"
 kind: "social-post"
 source: "reddit-deep: r/anthropic"
@@ -13,8 +14,44 @@ flair: "Improvements :upvote:"
 extracted_at: "2026-05-11T17:26:51.913Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/anthropic/1rxal7n.md#c0"
+    char_span: [0, 2145]
+    sentence_count: 15
+    key_terms: [accessibility, outlook, outlook-email-scanner, api, claude, skill, permissions, https]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/anthropic/1rxal7n.md#c1"
+    char_span: [2147, 2378]
+    sentence_count: 2
+    key_terms: [outlook, outlook-email-scanner, github, attachment, arkya-ai, download, licensed, visible]
+    token_count: 61
+  - id: "social-intelligence/reddit-deep/anthropic/1rxal7n.md#c2"
+    char_span: [2393, 4413]
+    sentence_count: 6
+    key_terms: [outlook, accessibility, win32com, inbox, windows, msg, client, import]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/anthropic/1rxal7n.md#c3"
+    char_span: [4419, 6383]
+    sentence_count: 11
+    key_terms: [outlook, write, com, automation, msg, api, direct, option]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/anthropic/1rxal7n.md#c4"
+    char_span: [6385, 8248]
+    sentence_count: 12
+    key_terms: [personal, coolreddy, "it's", cool, drewhouser, catalyst, alzeric, company]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/anthropic/1rxal7n.md#c5"
+    char_span: [7947, 8470]
+    sentence_count: 1
+    key_terms: [frontmost, catalyst, like, axidentifier, everything, screenshot, afternoon, different]
+    section: Comments
+    token_count: 114
 ---
-
 # Skill md file to scan Mac Outlook emails with Claude Code, no admin permissions or API access needed.
 
 Source: [reddit-deep: r/anthropic](https://www.reddit.com/r/Anthropic/comments/1rxal7n/skill_md_file_to_scan_mac_outlook_emails_with/)

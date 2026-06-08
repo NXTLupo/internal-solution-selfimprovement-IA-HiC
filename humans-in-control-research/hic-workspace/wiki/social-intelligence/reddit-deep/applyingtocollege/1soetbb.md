@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1soetbb.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1soetbb/ivy_w_200k_parent_salary/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,123 @@ flair: "Financial Aid/Scholarships"
 extracted_at: "2026-05-24T14:08:39.593Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c0"
+    char_span: [0, 1673]
+    sentence_count: 19
+    key_terms: [financial, applyingtocollege, don, cornell, parent, uni, comments, rejected]
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c1"
+    char_span: [1688, 3621]
+    sentence_count: 13
+    key_terms: [school, uga, cornell, parents, going, complaining, med, penn]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c2"
+    char_span: [3623, 4926]
+    sentence_count: 6
+    key_terms: [cornell, penn, difference, families, someone, attend, little, extra]
+    section: Comments
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c3"
+    char_span: [4928, 6758]
+    sentence_count: 10
+    key_terms: [pay, price, get, because, cornell, parents, assets, better]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c4"
+    char_span: [6760, 7028]
+    sentence_count: 3
+    key_terms: [away, put, massachusetts, grandson, security, instead, buying, earned]
+    section: Comments
+    token_count: 65
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c5"
+    char_span: [7030, 8973]
+    sentence_count: 13
+    key_terms: [school, undergrad, families, parents, people, home, med, take]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c6"
+    char_span: [8705, 10765]
+    sentence_count: 20
+    key_terms: [state, school, schools, undergrad, desertingwillow, going, went, flagship]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c7"
+    char_span: [10491, 10777]
+    sentence_count: 4
+    key_terms: [schools, went, co-residents, graduated, radiology, cheapest, resident, fancier]
+    section: Comments
+    token_count: 69
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c8"
+    char_span: [10779, 11290]
+    sentence_count: 7
+    key_terms: [school, med, theplaceallover, experience, understand, different, medschool, undergrad]
+    section: Comments
+    token_count: 132
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c9"
+    char_span: [11292, 13227]
+    sentence_count: 16
+    key_terms: [chemical-estimate226, cornell, opportunities, option, school, great, experiences, take]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c10"
+    char_span: [12995, 14128]
+    sentence_count: 9
+    key_terms: [school, schools, med, son, went, undergrad, doctor, chemical-estimate226]
+    section: Comments
+    token_count: 274
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c11"
+    char_span: [14130, 16134]
+    sentence_count: 18
+    key_terms: [school, non-degree-programs, https, upenn, undergrad, edu, high, "it's"]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c12"
+    char_span: [16136, 17133]
+    sentence_count: 12
+    key_terms: [school, "it's", want, internship, cornell, attend, summer, environmentactive325]
+    section: Comments
+    token_count: 226
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c13"
+    char_span: [17135, 18590]
+    sentence_count: 14
+    key_terms: [uga, because, assets, years, like, reasonable, children, school]
+    section: Comments
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c14"
+    char_span: [18592, 20730]
+    sentence_count: 19
+    key_terms: [pre-med, school, medical, going, state, colleges, students, college]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c15"
+    char_span: [20732, 22041]
+    sentence_count: 11
+    key_terms: [undergraduate, medical, residency, school, important, went, pediatrician, speciality]
+    section: Comments
+    token_count: 295
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c16"
+    char_span: [22043, 24205]
+    sentence_count: 17
+    key_terms: [deflation, opportunities, grade, cornell, courses, school, circumstances, loans]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c17"
+    char_span: [23915, 24328]
+    sentence_count: 5
+    key_terms: [courses, curves, work, contribute, alleviate, depending, students, cornell]
+    section: Comments
+    token_count: 94
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1soetbb.md#c18"
+    char_span: [24330, 25020]
+    sentence_count: 8
+    key_terms: [cornell, campus, insane, premed, ive, opportunities, conferences, individuals]
+    section: Comments
+    token_count: 144
 ---
-
 # Ivy w/ 200k parent salary
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1soetbb/ivy_w_200k_parent_salary/)

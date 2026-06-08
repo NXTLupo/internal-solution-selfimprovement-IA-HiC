@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-humanresources/99adefb26d.md
 url: "https://www.reddit.com/r/humanresources/comments/1sy25uq/jobs_in_hr_that_involve_travel_na/"
 url_hash: "99adefb26d"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T12:22:38.504335+00:00"
 chars: 1948
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-humanresources/99adefb26d.md#c0"
+    char_span: [0, 1410]
+    sentence_count: 9
+    key_terms: [people, humanresources, travel, singapore, comments, continue, involve, reddit]
+    token_count: 328
+  - id: "articles/reddit-deep-r-humanresources/99adefb26d.md#c1"
+    char_span: [1412, 2125]
+    sentence_count: 6
+    key_terms: [travel, campus, i-am-pepesilvia89, like, work, anuradhachitfund, responsibilities, international]
+    token_count: 193
 ---
-
 # Jobs in HR that involve travel? [N/A]
 
 Source: [Reddit Deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1sy25uq/jobs_in_hr_that_involve_travel_na/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1sdh08w.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1sdh08w/p_dante2b_im_training_a_21b_bilingual_fully_open/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -13,8 +14,55 @@ flair: "Project"
 extracted_at: "2026-05-11T17:27:06.575Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c0"
+    char_span: [0, 1644]
+    sentence_count: 11
+    key_terms: [italian, tokenizer, machinelearning, models, english-first, h200, comments, dante-2b]
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c1"
+    char_span: [1646, 3617]
+    sentence_count: 16
+    key_terms: [italian, phase, model, english, tokens, text, fine-tunes, community]
+    token_count: 515
+  - id: "social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c2"
+    char_span: [3619, 4912]
+    sentence_count: 6
+    key_terms: [tokenizer, training, italian, benchmarks, localllama, emerging, interest, "there's"]
+    token_count: 298
+  - id: "social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c3"
+    char_span: [4927, 6915]
+    sentence_count: 13
+    key_terms: [embedding, licensing, something, workflows, italian, people, public, downstream]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c4"
+    char_span: [6917, 8971]
+    sentence_count: 17
+    key_terms: [italian, benchmarks, angeletti89, phase, tokenizer, understanding, "can't", evals]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c5"
+    char_span: [8973, 10902]
+    sentence_count: 15
+    key_terms: [italian, della, robot, everything, repetition, tecnologia, learning, article]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c6"
+    char_span: [10904, 12783]
+    sentence_count: 15
+    key_terms: [english, italian, "l'intelligenza", regex, split, apostrophes, contraction, letter-apostrophe-letter]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/machinelearning/1sdh08w.md#c7"
+    char_span: [12785, 13454]
+    sentence_count: 4
+    key_terms: [training, running, phase, debugging, days, part, time, checkpoint]
+    section: Comments
+    token_count: 164
 ---
-
 # [P] Dante-2B: I'm training a 2.1B bilingual fully open Italian/English LLM from scratch on 2×H200. Phase 1 done — here's what I've built.
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1sdh08w/p_dante2b_im_training_a_21b_bilingual_fully_open/)

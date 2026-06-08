@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1p5af4h.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1p5af4h/remote_phd/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,45 @@ flair: "Social Science"
 extracted_at: "2026-05-26T14:32:49.125Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1p5af4h.md#c0"
+    char_span: [0, 1084]
+    sentence_count: 4
+    key_terms: [research, remote, askacademia, comments, programs, dissertation-focused, fully, distance-learning]
+    token_count: 224
+  - id: "social-intelligence/reddit-deep/askacademia/1p5af4h.md#c1"
+    char_span: [1099, 3371]
+    sentence_count: 16
+    key_terms: [research, field, computational, independent, integration, phd, supervisor, generally]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/askacademia/1p5af4h.md#c2"
+    char_span: [3373, 5801]
+    sentence_count: 16
+    key_terms: [research, remote, supervision, computational, already, work, universities, fully]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/askacademia/1p5af4h.md#c3"
+    char_span: [5490, 6670]
+    sentence_count: 7
+    key_terms: [graduate, expectation, research, already, remote, like, phd, industry-based]
+    section: Comments
+    token_count: 238
+  - id: "social-intelligence/reddit-deep/askacademia/1p5af4h.md#c4"
+    char_span: [6672, 8758]
+    sentence_count: 16
+    key_terms: [phd, work, remote, department, doing, theoretical, don, phds]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/askacademia/1p5af4h.md#c5"
+    char_span: [8760, 9536]
+    sentence_count: 6
+    key_terms: [already, priority, programs, dissertation-only, computational, departmental, exceptional, independent]
+    section: Comments
+    token_count: 166
 ---
-
 # Remote PhD
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1p5af4h/remote_phd/)

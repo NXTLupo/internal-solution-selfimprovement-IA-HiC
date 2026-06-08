@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1sq8e0p.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1sq8e0p/upworks_march_2026_partnership_with_incognia_is/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,44 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:56.730Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, saas, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1sq8e0p.md#c0"
+    char_span: [0, 2277]
+    sentence_count: 19
+    key_terms: [upwork, nomads, multiple, account, country, digitalnomad, partnership, permanently]
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/digitalnomad/1sq8e0p.md#c1"
+    char_span: [2281, 3706]
+    sentence_count: 17
+    key_terms: [country, upwork, registered, complaint, platform, reversed, account, clients]
+    token_count: 291
+  - id: "social-intelligence/reddit-deep/digitalnomad/1sq8e0p.md#c2"
+    char_span: [3721, 5668]
+    sentence_count: 15
+    key_terms: [i-earned-447k-on-upwork-with-a-perfect-record-their-ai-system-permanently-banned-me-619cf9b2007a, upwork, get, clients, belikenative, lipmichal, situation, becomes]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/digitalnomad/1sq8e0p.md#c3"
+    char_span: [5670, 7170]
+    sentence_count: 15
+    key_terms: [back, transactions, upwork, improper, satisfactionextra911, nomad, get, work]
+    section: Comments
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/digitalnomad/1sq8e0p.md#c4"
+    char_span: [7172, 9033]
+    sentence_count: 9
+    key_terms: [com, deel, platform, banned, demonazraeli, swiftfoxtrot, verification, freelancers]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/digitalnomad/1sq8e0p.md#c5"
+    char_span: [9035, 9596]
+    sentence_count: 6
+    key_terms: [belikenative, demonazraeli, geographical, inconvenient, enforcement, misleading, surprising, publishes]
+    section: Comments
+    token_count: 124
 ---
-
 # Upwork's March 2026 partnership with Incognia is banning legitimate digital nomads. 11 years clean, permanently banned. What to watch for.
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1sq8e0p/upworks_march_2026_partnership_with_incognia_is/)

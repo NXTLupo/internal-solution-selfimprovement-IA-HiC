@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1o5twsw.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1o5twsw/considering_grad_school_phd_in_pharmacology_or/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,15 @@ flair: "Applied Sciences"
 extracted_at: "2026-05-23T14:54:16.711Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1o5twsw.md#c0"
+    char_span: [0, 1762]
+    sentence_count: 11
+    key_terms: [research, gradadmissions, career, pharmacology, publications, been, phd, admissions]
+    token_count: 383
 ---
-
 # Considering grad school (PhD in pharmacology or related field) after a non-linear career path — advice?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1o5twsw/considering_grad_school_phd_in_pharmacology_or/)

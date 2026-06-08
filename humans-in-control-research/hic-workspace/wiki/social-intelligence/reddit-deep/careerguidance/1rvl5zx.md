@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rvl5zx.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rvl5zx/21_new_gradfeeling_stuck_early_in_my_career/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,31 @@ flair: ""
 extracted_at: "2026-05-22T23:34:01.120Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rvl5zx.md#c0"
+    char_span: [0, 2329]
+    sentence_count: 20
+    key_terms: [technical, product, something, enjoyed, working, careerguidance, work, experience]
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/careerguidance/1rvl5zx.md#c1"
+    char_span: [2331, 4646]
+    sentence_count: 14
+    key_terms: [product, consulting, technical, because, master, people, management, roles]
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/careerguidance/1rvl5zx.md#c2"
+    char_span: [4648, 5041]
+    sentence_count: 4
+    key_terms: [appreciate, consulting, interests, resources, responses, something, guidance, programs]
+    token_count: 77
+  - id: "social-intelligence/reddit-deep/careerguidance/1rvl5zx.md#c3"
+    char_span: [5056, 6084]
+    sentence_count: 10
+    key_terms: [product, newsletter, psychologicalask6716, ideas, roles, tasks, thepandapear, experiences]
+    section: Comments
+    token_count: 202
 ---
-
 # 21 New grad.....Feeling stuck early in my career should I consider a Master’s degree?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rvl5zx/21_new_gradfeeling_stuck_early_in_my_career/)

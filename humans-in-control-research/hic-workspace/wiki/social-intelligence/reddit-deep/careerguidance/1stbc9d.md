@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1stbc9d.md
 url: "https://www.reddit.com/r/careerguidance/comments/1stbc9d/im_a_12th_grade_pcmb_student_and_im_so_confused/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 1
 flair: ""
-extracted_at: "2026-05-22T21:34:47.968Z"
+extracted_at: "2026-06-03T18:53:36.157Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1stbc9d.md#c0"
+    char_span: [0, 496]
+    sentence_count: 2
+    key_terms: [careerguidance, comments, career, good, path, engineering, reddit-deep, interested]
+    token_count: 132
+  - id: "social-intelligence/reddit-deep/careerguidance/1stbc9d.md#c1"
+    char_span: [511, 874]
+    sentence_count: 1
+    key_terms: [eastern-decision-449, internships, different, interests, naturally, something, deciding, figuring]
+    section: Comments
+    token_count: 78
 ---
-
 # Im a 12th grade PCMB student and im so confused on what career path to go through next year?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1stbc9d/im_a_12th_grade_pcmb_student_and_im_so_confused/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1kzzyb2.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1kzzyb2/professor_at_the_end_of_2_years_of_struggling/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,171 @@ flair: "Other "
 extracted_at: "2026-05-11T16:54:08.807Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c0"
+    char_span: [0, 2210]
+    sentence_count: 23
+    key_terms: [chatgpt, knowledge, students, don, ancient, because, non-existent, class]
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c1"
+    char_span: [2225, 3295]
+    sentence_count: 6
+    key_terms: [post, chatgpt, discord, writing, zero-pe, dashes, silver-chipmunk7744, https]
+    section: Comments
+    token_count: 316
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c2"
+    char_span: [3297, 5282]
+    sentence_count: 9
+    key_terms: [writing, professor, gpt, chatgpt, dashes, style, post, history]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c3"
+    char_span: [5033, 5532]
+    sentence_count: 1
+    key_terms: [professor, history, ai-generated, specializing, joe-the-joe, soulseller7, traum4queen, avoiding]
+    section: Comments
+    token_count: 133
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c4"
+    char_span: [5534, 6271]
+    sentence_count: 7
+    key_terms: [reflection, thought, paper, typos, representative, presentations, communicate, information]
+    section: Comments
+    token_count: 184
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c5"
+    char_span: [6273, 8388]
+    sentence_count: 13
+    key_terms: [presentation, students, student, presentations, time, answer, enough, ladiesngentlemenplz]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c6"
+    char_span: [8390, 10121]
+    sentence_count: 8
+    key_terms: [different, group, work, groups, campaigns, company, working, actual]
+    section: Comments
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c7"
+    char_span: [10123, 12321]
+    sentence_count: 27
+    key_terms: [calculator, everyone, math, always, people, want, professor, college]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c8"
+    char_span: [12323, 14717]
+    sentence_count: 16
+    key_terms: [able, kind, less, learning, research, higher, doing, write]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c9"
+    char_span: [14719, 16906]
+    sentence_count: 19
+    key_terms: [knowledge, professor, research, point, sing, students, chatgpt, history]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c10"
+    char_span: [16908, 18311]
+    sentence_count: 9
+    key_terms: [students, assignment, material, grade, ideas, using, top, welshgreen8225]
+    section: Comments
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c11"
+    char_span: [18313, 19767]
+    sentence_count: 9
+    key_terms: [because, meeting, caught, doubts, goodiegumdropsforme, class, teach, topic]
+    section: Comments
+    token_count: 336
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c12"
+    char_span: [19769, 20737]
+    sentence_count: 13
+    key_terms: [class, flash, writing, begged, wrong, blue, book, high]
+    section: Comments
+    token_count: 224
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c13"
+    char_span: [20739, 22731]
+    sentence_count: 16
+    key_terms: [student, education, students, investment, successful, university, graduated, cheating]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c14"
+    char_span: [22733, 24662]
+    sentence_count: 12
+    key_terms: [paper, use, get, cheating, students, laptops, writing, degree]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c15"
+    char_span: [24664, 26495]
+    sentence_count: 7
+    key_terms: [students, education, use, absolutely, expensive, flotation, device, system]
+    section: Comments
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c16"
+    char_span: [26498, 28036]
+    sentence_count: 18
+    key_terms: [work, couldn, emotional, exactly, parents, asleep, issues, emb4rassingstuffacct]
+    section: Comments
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c17"
+    char_span: [28038, 30212]
+    sentence_count: 17
+    key_terms: [fundamental, "it's", people, definitely, students, because, believe, chatgpt]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c18"
+    char_span: [30214, 32455]
+    sentence_count: 11
+    key_terms: [generative, use, outputs, communication, conversation, acknowledge, assessment, academic]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c19"
+    char_span: [32457, 33835]
+    sentence_count: 10
+    key_terms: [chatgpt, own, critique, response, became, significant-royal-37, "don't", "false"]
+    section: Comments
+    token_count: 320
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c20"
+    char_span: [33837, 35995]
+    sentence_count: 15
+    key_terms: [successful, use, students, marcusthorny, class, laws, like, calculator]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c21"
+    char_span: [35997, 37402]
+    sentence_count: 15
+    key_terms: [explain, class, back, book, text, convoluted, frustrated, chatgpt]
+    section: Comments
+    token_count: 340
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c22"
+    char_span: [37404, 38582]
+    sentence_count: 15
+    key_terms: [learn, trying, students, concern, doing, weren, theopinionexpress, info]
+    section: Comments
+    token_count: 282
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c23"
+    char_span: [38584, 40914]
+    sentence_count: 12
+    key_terms: [college, students, ai-generated, historical, presentation, wrong, confidently, scholarship]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c24"
+    char_span: [40916, 42849]
+    sentence_count: 11
+    key_terms: [gpt, show, title, slide, min, debrief, fact-checking, gpt-generated]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c25"
+    char_span: [42851, 44887]
+    sentence_count: 13
+    key_terms: [verification, learn, book, historical, understand, citations, concepts, content]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/chatgpt/1kzzyb2.md#c26"
+    char_span: [44889, 47037]
+    sentence_count: 15
+    key_terms: [chatgpt, reading, information, understand, evidence, practice, students, similar]
+    section: Comments
+    token_count: 511
 ---
-
 # Professor at the end of 2 years of struggling with ChatGPT use among students.
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1kzzyb2/professor_at_the_end_of_2_years_of_struggling/)

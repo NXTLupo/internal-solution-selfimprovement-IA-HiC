@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1lq6x1u.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1lq6x1u/if_you_believe_in_nonbiological_consciousness_for/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,41 @@ flair: "Other "
 extracted_at: "2026-05-11T16:54:08.803Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1lq6x1u.md#c0"
+    char_span: [0, 2240]
+    sentence_count: 11
+    key_terms: [consciousness, transformer, techno-mysticism, conscious, architecture, like, comments, implying]
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/chatgpt/1lq6x1u.md#c1"
+    char_span: [2242, 4598]
+    sentence_count: 19
+    key_terms: [reality, phenomenology, perception, model, perceive, system, label, means]
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/chatgpt/1lq6x1u.md#c2"
+    char_span: [4600, 7199]
+    sentence_count: 10
+    key_terms: [model, knowledge, new, self-schema, training, chatgpt, through, consciousness]
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/chatgpt/1lq6x1u.md#c3"
+    char_span: [7201, 9522]
+    sentence_count: 14
+    key_terms: [model, something, self, because, moment, consciousness, conversations, architecture]
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/chatgpt/1lq6x1u.md#c4"
+    char_span: [9524, 10354]
+    sentence_count: 13
+    key_terms: ["doesn't", better, safety, don, soul, self-negation, introductory, paradoxical]
+    token_count: 188
+  - id: "social-intelligence/reddit-deep/chatgpt/1lq6x1u.md#c5"
+    char_span: [10369, 11514]
+    sentence_count: 8
+    key_terms: [throwra-1995mf, please, consciousness, conversation, image, post, r-chatgpt-1050422060352024636, concerns]
+    section: Comments
+    token_count: 287
 ---
-
 # If you believe in non-biological consciousness, for your own sake, please read the essay. Especially, if you believe the model is having a spiritual awakening.
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1lq6x1u/if_you_believe_in_nonbiological_consciousness_for/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1rpjehl.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rpjehl/why_am_i_more_excitednervous_about_my_sons/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,51 @@ flair: "Rant"
 extracted_at: "2026-05-20T06:42:01.166Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rpjehl.md#c0"
+    char_span: [0, 1117]
+    sentence_count: 8
+    key_terms: [decisions, applyingtocollege, college, seems, care, comments, choices, "doesn't"]
+    token_count: 282
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rpjehl.md#c1"
+    char_span: [1132, 3043]
+    sentence_count: 7
+    key_terms: [parents, thank, decisions, disappointing, been, like, son, excited]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rpjehl.md#c2"
+    char_span: [3045, 3560]
+    sentence_count: 4
+    key_terms: [everyone, school, away, get, next, step, prospective, adulthood]
+    section: Comments
+    token_count: 118
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rpjehl.md#c3"
+    char_span: [3562, 5635]
+    sentence_count: 14
+    key_terms: [others, school, free2bemee154, state, gen, awesome, college, parents]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rpjehl.md#c4"
+    char_span: [5637, 7243]
+    sentence_count: 13
+    key_terms: [school, state, tamihera, caem123, away, big, far, fish]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rpjehl.md#c5"
+    char_span: [7245, 9260]
+    sentence_count: 16
+    key_terms: [school, best, lead, let, teenager, because, "doesn't", afford]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rpjehl.md#c6"
+    char_span: [9262, 10108]
+    sentence_count: 13
+    key_terms: [school, son, awesome, got, congratulations, thebigfork4me, undergraduate, transitional]
+    section: Comments
+    token_count: 197
 ---
-
 # Why am I more excited/nervous about my son's college decisions than he is?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rpjehl/why_am_i_more_excitednervous_about_my_sons/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1kssoof.md
 url: "https://www.reddit.com/r/internships/comments/1kssoof/startup_internship_opportunity_paid_postlaunch/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,15 @@ flair: "Offers"
 extracted_at: "2026-05-22T23:33:35.438Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1kssoof.md#c0"
+    char_span: [0, 1976]
+    sentence_count: 13
+    key_terms: [looking, shyam-sunder-reddy, linkedin, startup, https, internships, opportunity, com]
+    token_count: 498
 ---
-
 # Startup Internship Opportunity (Paid – Post-Launch Payout) - Looking for Growth & Listening (or) Pilot Ops Interns
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1kssoof/startup_internship_opportunity_paid_postlaunch/)

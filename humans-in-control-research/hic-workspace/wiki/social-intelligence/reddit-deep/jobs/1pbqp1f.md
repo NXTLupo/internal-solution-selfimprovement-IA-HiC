@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1pbqp1f.md
 url: "https://www.reddit.com/r/jobs/comments/1pbqp1f/cv_cover_letter_advicetips_im_applying_for/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,30 @@ flair: "Applications"
 extracted_at: "2026-05-22T21:35:36.533Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1pbqp1f.md#c0"
+    char_span: [0, 2592]
+    sentence_count: 9
+    key_terms: [program, communication, client, relationship, development, experience, management, education]
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/jobs/1pbqp1f.md#c1"
+    char_span: [2594, 5463]
+    sentence_count: 1
+    key_terms: [partners, program, youth, maintain, leadership, communication, support, participant]
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/jobs/1pbqp1f.md#c2"
+    char_span: [5465, 8327]
+    sentence_count: 7
+    key_terms: [community, supported, partners, international, program, convention, youth, volunteer]
+    token_count: 522
+  - id: "social-intelligence/reddit-deep/jobs/1pbqp1f.md#c3"
+    char_span: [8331, 9590]
+    sentence_count: 10
+    key_terms: [partners, communication, development, opportunity, sme, work, workforce, internal]
+    token_count: 203
 ---
-
 # CV/ Cover Letter advice/tips. I'm applying for several jobs and any suggestions are appreciated. Copy and pasted so formatting is weird.
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1pbqp1f/cv_cover_letter_advicetips_im_applying_for/)

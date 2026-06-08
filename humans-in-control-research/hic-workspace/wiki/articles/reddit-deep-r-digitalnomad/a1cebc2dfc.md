@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-digitalnomad/a1cebc2dfc.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1t5r538/american_nomads_how_to_park_your_number/"
 url_hash: "a1cebc2dfc"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-26T12:55:55.849662+00:00"
 chars: 2267
+industries: [workforce, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-digitalnomad/a1cebc2dfc.md#c0"
+    char_span: [0, 1266]
+    sentence_count: 10
+    key_terms: [number, digitalnomad, data, whatsapp, account, verizon, without, losing]
+    token_count: 311
+  - id: "articles/reddit-deep-r-digitalnomad/a1cebc2dfc.md#c1"
+    char_span: [1268, 2448]
+    sentence_count: 14
+    key_terms: [google, voice, country, works, receive, charge, number, thefullyloadednachos]
+    token_count: 306
 ---
-
 # American Nomads how to park your number
 
 Source: [Reddit Deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1t5r538/american_nomads_how_to_park_your_number/)

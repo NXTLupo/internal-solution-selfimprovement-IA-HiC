@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1pe03fo.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1pe03fo/pov_applying_for_grad_school_to_do_research/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,39 @@ flair: "Applied Sciences"
 extracted_at: "2026-05-20T03:56:10.755Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pe03fo.md#c0"
+    char_span: [0, 329]
+    sentence_count: 1
+    key_terms: [gradadmissions, comments, school, grad, crushingsmoothie, application, reddit-deep, applying]
+    token_count: 88
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pe03fo.md#c1"
+    char_span: [344, 943]
+    sentence_count: 4
+    key_terms: [citations, school, applying, medical, cancer, number, papers, cure]
+    section: Comments
+    token_count: 145
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pe03fo.md#c2"
+    char_span: [945, 3013]
+    sentence_count: 8
+    key_terms: [publications, get, phd, undergrad, programs, crushingsmoothie, without, competitive]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pe03fo.md#c3"
+    char_span: [2727, 4607]
+    sentence_count: 6
+    key_terms: [undergrad, authorship, asking, papers, people, first-author, citations, lusealtwo]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pe03fo.md#c4"
+    char_span: [4609, 6005]
+    sentence_count: 9
+    key_terms: [author, credentials, paper, bachelor, credible, journal, publish, people]
+    section: Comments
+    token_count: 333
 ---
-
 # POV: Applying for grad school to do research, publish papers
 Grad School Application Portal:
 

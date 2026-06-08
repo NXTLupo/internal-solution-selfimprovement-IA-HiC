@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1ndefzc.md
 url: "https://www.reddit.com/r/stocks/comments/1ndefzc/oracle_stock_booms_30_on_pace_for_best_day_since/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,63 @@ flair: ""
 extracted_at: "2026-05-17T01:14:17.623Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, saas, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1ndefzc.md#c0"
+    char_span: [0, 1557]
+    sentence_count: 6
+    key_terms: [billion, oracle-stock-cloud-backlog-ai, oracle, cnbc, company, cloud, https, com]
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/stocks/1ndefzc.md#c1"
+    char_span: [1572, 2977]
+    sentence_count: 7
+    key_terms: [revenue, going, company, market, agitatedstranger9698, ilillilllilllillllii, ok-comfortable-3174, based]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/stocks/1ndefzc.md#c2"
+    char_span: [2980, 4853]
+    sentence_count: 10
+    key_terms: [ellison, projections, larry, luv2block, bullshit, massive, bigger, years]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/stocks/1ndefzc.md#c3"
+    char_span: [4855, 6779]
+    sentence_count: 10
+    key_terms: [control, bullshitting, definitely, democrats, financial, already, getting, numbers]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/stocks/1ndefzc.md#c4"
+    char_span: [6781, 8734]
+    sentence_count: 10
+    key_terms: [understandingthin40, wrong, technology, everyone, nananahx, trillion, numbers, dinner]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/stocks/1ndefzc.md#c5"
+    char_span: [8736, 10457]
+    sentence_count: 8
+    key_terms: [infrastructure, market, oracle, assumption, companies, because, bubble, growth]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/stocks/1ndefzc.md#c6"
+    char_span: [10459, 12291]
+    sentence_count: 10
+    key_terms: [oracle, conspiracy, earnings, stargate, because, deleted, funding, numbers]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/stocks/1ndefzc.md#c7"
+    char_span: [12293, 13914]
+    sentence_count: 11
+    key_terms: [oracle, reddit, comments, https, com, www, depends, because]
+    section: Comments
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/stocks/1ndefzc.md#c8"
+    char_span: [13916, 14598]
+    sentence_count: 6
+    key_terms: [layoffs, oracle, been, haikusfrombuddha, astronomical, operational, challenges, enterprise]
+    section: Comments
+    token_count: 162
 ---
-
 # Oracle stock booms 30%, on pace for best day since 1999
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1ndefzc/oracle_stock_booms_30_on_pace_for_best_day_since/)

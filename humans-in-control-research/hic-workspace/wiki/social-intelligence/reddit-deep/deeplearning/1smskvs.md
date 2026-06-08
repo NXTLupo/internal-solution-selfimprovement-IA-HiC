@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1smskvs.md
 url: "https://www.reddit.com/r/deeplearning/comments/1smskvs/rbm_sampling_remains_stable_but_hybrid_llmguided/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.054Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1smskvs.md#c0"
+    char_span: [0, 1813]
+    sentence_count: 11
+    key_terms: [https, distribution, sampling, model, srtrbm-llm-hybrid, org, training, hybrid]
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/deeplearning/1smskvs.md#c1"
+    char_span: [1828, 4259]
+    sentence_count: 13
+    key_terms: [samples, sampling, distribution, rbm, energy, detailed, does, balance]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/deeplearning/1smskvs.md#c2"
+    char_span: [4261, 5118]
+    sentence_count: 5
+    key_terms: [operating, detailed, dynamics, training, balance, regime, chain, non-equilibrium]
+    section: Comments
+    token_count: 150
 ---
-
 # RBM sampling remains stable, but hybrid LLM-guided edits shift the distribution—why?
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1smskvs/rbm_sampling_remains_stable_but_hybrid_llmguided/)

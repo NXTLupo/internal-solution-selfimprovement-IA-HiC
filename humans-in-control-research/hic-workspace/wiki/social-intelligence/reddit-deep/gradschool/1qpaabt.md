@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1qpaabt.md
 url: "https://www.reddit.com/r/GradSchool/comments/1qpaabt/do_you_take_semesters_off/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,33 @@ flair: "Health & Work/Life Balance"
 extracted_at: "2026-05-22T21:35:36.531Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, government]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1qpaabt.md#c0"
+    char_span: [0, 540]
+    sentence_count: 6
+    key_terms: [semesters, take, gradschool, comments, classes, taking, coffeechangesthings, grad]
+    token_count: 137
+  - id: "social-intelligence/reddit-deep/gradschool/1qpaabt.md#c1"
+    char_span: [555, 2735]
+    sentence_count: 14
+    key_terms: [summer, grad, time, graduate, round-sense7935, funding, program, through]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/gradschool/1qpaabt.md#c2"
+    char_span: [2737, 4439]
+    sentence_count: 10
+    key_terms: [semesters, graduate, time, work, student, summer, grad, research]
+    section: Comments
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/gradschool/1qpaabt.md#c3"
+    char_span: [4441, 6382]
+    sentence_count: 14
+    key_terms: [year, research, work, hours, take, classes, years, time]
+    section: Comments
+    token_count: 468
 ---
-
 # Do you take semesters off?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1qpaabt/do_you_take_semesters_off/)

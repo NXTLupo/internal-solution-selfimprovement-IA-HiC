@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1tbz2vv.md
 url: "https://www.reddit.com/r/jobs/comments/1tbz2vv/reality_check_interviews_are_about_being_liked/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,81 @@ flair: "Interviews"
 extracted_at: "2026-05-20T06:41:17.635Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c0"
+    char_span: [0, 1034]
+    sentence_count: 13
+    key_terms: [interviews, job, comments, reality, people, person, skills, wanted]
+    token_count: 263
+  - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c1"
+    char_span: [1049, 3036]
+    sentence_count: 16
+    key_terms: [personality, like, lol, too, zwicker101, buzzwords, responses, normally]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c2"
+    char_span: [3038, 5293]
+    sentence_count: 15
+    key_terms: [company, someone, technically, negative-counter-766, personality, job, team, describing]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c3"
+    char_span: [5295, 6778]
+    sentence_count: 7
+    key_terms: [right, work, different, professor, questions, technical, conflict, answer]
+    section: Comments
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c4"
+    char_span: [6780, 8123]
+    sentence_count: 9
+    key_terms: [interview, something, skills, demonstrated, roles, technical, "you're", negative-counter-766]
+    section: Comments
+    token_count: 319
+  - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c5"
+    char_span: [8125, 9646]
+    sentence_count: 7
+    key_terms: [negative-counter-766, interview, specialized, applicants, especially, algorithm, technical, everyone]
+    section: Comments
+    token_count: 366
+  - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c6"
+    char_span: [9648, 11721]
+    sentence_count: 10
+    key_terms: [interview, interviews, person, stage, demonstrate, job, lawsuit, someone]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c7"
+    char_span: [11724, 13779]
+    sentence_count: 13
+    key_terms: [technical, get, skills, "you're", kind-information-689, interview, "didn't", "won't"]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c8"
+    char_span: [13781, 14093]
+    sentence_count: 1
+    key_terms: [prick, knowledgeable, insufferable, override, asshole, comment, skilled, amount]
+    section: Comments
+    token_count: 77
+  - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c9"
+    char_span: [14095, 16084]
+    sentence_count: 13
+    key_terms: [people, "it's", work, getting, school, ok-sink-8875, etc, networking]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c10"
+    char_span: [15828, 16145]
+    sentence_count: 1
+    key_terms: [networking, ohgr8whatnow, ok-sink-8875, connections, frustrated, turnaround, zwicker101, actively]
+    section: Comments
+    token_count: 85
+  - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c11"
+    char_span: [16147, 17870]
+    sentence_count: 13
+    key_terms: [interview, manager, interviewer, "it's", jobseekers, minutes, working, hiring]
+    section: Comments
+    token_count: 405
 ---
-
 # Reality Check: Interviews are about Being Liked, Not What You Know.
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1tbz2vv/reality_check_interviews_are_about_being_liked/)

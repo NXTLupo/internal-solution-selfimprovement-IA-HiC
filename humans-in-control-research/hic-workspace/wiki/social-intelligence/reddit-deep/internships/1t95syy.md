@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1t95syy.md
 url: "https://www.reddit.com/r/internships/comments/1t95syy/finding_earlystage_startups_that_hire_ambitious/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "Remote"
 extracted_at: "2026-05-25T18:31:15.450Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1t95syy.md#c0"
+    char_span: [0, 1640]
+    sentence_count: 8
+    key_terms: [startups, early-stage, internships, team, work, interested, execution, genuinely]
+    token_count: 330
+  - id: "social-intelligence/reddit-deep/internships/1t95syy.md#c1"
+    char_span: [1655, 3134]
+    sentence_count: 7
+    key_terms: [startups, swigofravioli349, collegeone1210, worked, roles, offerwatch, linkedin, outreach]
+    section: Comments
+    token_count: 377
 ---
-
 # Finding early-stage startups that hire ambitious generalists?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1t95syy/finding_earlystage_startups_that_hire_ambitious/)

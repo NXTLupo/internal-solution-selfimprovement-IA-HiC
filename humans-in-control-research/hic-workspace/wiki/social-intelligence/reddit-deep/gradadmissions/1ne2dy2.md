@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1ne2dy2.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1ne2dy2/worried_about_grad_school_admission_chances/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,15 @@ flair: "Computational Sciences"
 extracted_at: "2026-05-22T13:33:02.843Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ne2dy2.md#c0"
+    char_span: [0, 1445]
+    sentence_count: 7
+    key_terms: ["i'm", experience, research, gradadmissions, gpa, candidates, including, comments]
+    token_count: 322
 ---
-
 # Worried about grad school admission chances
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1ne2dy2/worried_about_grad_school_admission_chances/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1rr2krj.md
 url: "https://www.reddit.com/r/careeradvice/comments/1rr2krj/career_advice_needed_sap_bw_apo_what_next_ibp/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,20 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.238Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce, ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1rr2krj.md#c0"
+    char_span: [0, 2171]
+    sentence_count: 21
+    key_terms: [sap, apo, monitoring, career, years, careeradvice, team, comments]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/careeradvice/1rr2krj.md#c1"
+    char_span: [2173, 2275]
+    sentence_count: 1
+    key_terms: [experienced, consulting, direction, best, move, sap, tech]
+    token_count: 21
 ---
-
 # Career Advice Needed: SAP BW → APO → What Next (IBP, S/4HANA, or AI?)
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1rr2krj/career_advice_needed_sap_bw_apo_what_next_ibp/)

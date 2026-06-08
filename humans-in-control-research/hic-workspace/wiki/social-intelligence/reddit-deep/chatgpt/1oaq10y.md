@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1oaq10y.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1oaq10y/please_help_chatgpt_says_it_can_not_save_into/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,21 @@ flair: "Serious replies only :closed-ai:"
 extracted_at: "2026-05-17T01:12:48.212Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1oaq10y.md#c0"
+    char_span: [0, 674]
+    sentence_count: 7
+    key_terms: [chatgpt, please, save, comments, disabled, created, memory, openai]
+    token_count: 167
+  - id: "social-intelligence/reddit-deep/chatgpt/1oaq10y.md#c1"
+    char_span: [689, 1981]
+    sentence_count: 8
+    key_terms: [please, concerns, chatgpt, message, automatically, automoderator, conversation, image]
+    section: Comments
+    token_count: 320
 ---
-
 # Please help: ChatGPT says it can not save into long term memory for my personal workspace as it disabled by OpenAi temporarily.
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1oaq10y/please_help_chatgpt_says_it_can_not_save_into/)

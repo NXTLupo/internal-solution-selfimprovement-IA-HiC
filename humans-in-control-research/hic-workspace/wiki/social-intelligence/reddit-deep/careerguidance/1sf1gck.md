@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sf1gck.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sf1gck/how_do_i_maximize_early_career_success_in_the/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T12:15:46.642Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sf1gck.md#c0"
+    char_span: [0, 582]
+    sentence_count: 5
+    key_terms: [maximize, careerguidance, political, comments, sphere, etc, reddit-deep, actionable]
+    token_count: 148
+  - id: "social-intelligence/reddit-deep/careerguidance/1sf1gck.md#c1"
+    char_span: [597, 1172]
+    sentence_count: 5
+    key_terms: [internship, clearance, summer, fun-culture492, connections, internships, candidates, government]
+    section: Comments
+    token_count: 130
 ---
-
 # How do I maximize early career success in the political sphere?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sf1gck/how_do_i_maximize_early_career_success_in_the/)

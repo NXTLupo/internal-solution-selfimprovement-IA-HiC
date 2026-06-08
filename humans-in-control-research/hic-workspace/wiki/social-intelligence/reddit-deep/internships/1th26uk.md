@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1th26uk.md
 url: "https://www.reddit.com/r/internships/comments/1th26uk/aiml_fresher_looking_for_opportunity/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,15 @@ flair: "General"
 extracted_at: "2026-05-23T12:15:55.807Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [ai_research, workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1th26uk.md#c0"
+    char_span: [0, 1074]
+    sentence_count: 9
+    key_terms: [internships, opportunity, comments, looking, through, anyone, learn, been]
+    token_count: 253
 ---
-
 # AI/ML Fresher Looking for Opportunity
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1th26uk/aiml_fresher_looking_for_opportunity/)

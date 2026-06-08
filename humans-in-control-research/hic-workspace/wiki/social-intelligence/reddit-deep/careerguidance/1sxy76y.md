@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sxy76y.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sxy76y/career_advice_for_someone_that_wants_to_enter_the/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-23T14:54:05.578Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sxy76y.md#c0"
+    char_span: [0, 314]
+    sentence_count: 2
+    key_terms: [careerguidance, comments, snoopeppers3873, accountancy, reddit-deep, someone, advice, career]
+    token_count: 93
 ---
-
 # career advice for someone that wants to enter the accountancy job market?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sxy76y/career_advice_for_someone_that_wants_to_enter_the/)

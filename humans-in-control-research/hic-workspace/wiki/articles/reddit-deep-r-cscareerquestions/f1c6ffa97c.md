@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/f1c6ffa97c.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rpe2ks/hows_the_job_market_5_experience_above_only_no/"
 url_hash: "f1c6ffa97c"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T20:20:14.515436+00:00"
 chars: 3713
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/f1c6ffa97c.md#c0"
+    char_span: [0, 2273]
+    sentence_count: 19
+    key_terms: [software, cscareerquestions, "didn't", significant, like, experience, interviews, operating]
+    token_count: 499
+  - id: "articles/reddit-deep-r-cscareerquestions/f1c6ffa97c.md#c1"
+    char_span: [2275, 3938]
+    sentence_count: 18
+    key_terms: [hybrid, silicon, "didn't", remote, valley, fewer, development, engineering]
+    token_count: 370
 ---
-
 # How's the job market (5+ Experience & above only - No entry level)
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rpe2ks/hows_the_job_market_5_experience_above_only_no/)

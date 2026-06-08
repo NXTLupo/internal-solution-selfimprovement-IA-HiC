@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1rcxowt.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rcxowt/looking_for_a_college_counselor_who_is_well/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,15 @@ flair: "Application Question"
 extracted_at: "2026-05-22T23:33:52.648Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rcxowt.md#c0"
+    char_span: [0, 866]
+    sentence_count: 6
+    key_terms: [applyingtocollege, engineering, aerospace, counselor, comments, looking, state, stats]
+    token_count: 205
 ---
-
 # Looking for a college counselor who is well experienced with aerospace engineering applications. Kid has average stats- 3.6 GPA, approx 1450 range SAT, PLTW Engineering 4years, two pending patents aerospace related, Eagle scout, currently in NASA HAS program.
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rcxowt/looking_for_a_college_counselor_who_is_well/)

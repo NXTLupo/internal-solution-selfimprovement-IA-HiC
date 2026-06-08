@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1mtw6bp.md
 url: "https://www.reddit.com/r/college/comments/1mtw6bp/academic_advisor_had_me_in_the_wrong_degree/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,65 @@ subreddit: "college"
 title: "Academic Advisor had me in the wrong degree program...."
 author: "ChaosDude119"
 date: "2025-08-18T19:38:30.000Z"
-score: 355
+score: 360
 upvote_ratio: 0.96
 num_comments: 68
 flair: ""
-extracted_at: "2026-05-25T15:51:48.247Z"
+extracted_at: "2026-06-06T00:27:48.358Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1mtw6bp.md#c0"
+    char_span: [0, 1918]
+    sentence_count: 13
+    key_terms: [transfer, program, university, advisor, college, track, certificate, met]
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/college/1mtw6bp.md#c1"
+    char_span: [1920, 3159]
+    sentence_count: 8
+    key_terms: [financial, classes, aid, year, offered, extra, here, lost]
+    token_count: 279
+  - id: "social-intelligence/reddit-deep/college/1mtw6bp.md#c2"
+    char_span: [3174, 5067]
+    sentence_count: 20
+    key_terms: [own, below, anything, transfer, accept, won, something, advisors]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/college/1mtw6bp.md#c3"
+    char_span: [5069, 6603]
+    sentence_count: 10
+    key_terms: [degree, requirements, track, plan, check, students, advisor, student]
+    section: Comments
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/college/1mtw6bp.md#c4"
+    char_span: [6605, 7832]
+    sentence_count: 8
+    key_terms: [degree, passing, responsible, advisor, always, thepickleconnoisseur, below, grade]
+    section: Comments
+    token_count: 302
+  - id: "social-intelligence/reddit-deep/college/1mtw6bp.md#c5"
+    char_span: [7834, 9110]
+    sentence_count: 10
+    key_terms: [program, degree, bsc, because, meeting, application, department, graduation]
+    section: Comments
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/college/1mtw6bp.md#c6"
+    char_span: [9112, 11468]
+    sentence_count: 22
+    key_terms: [advisor, degree, classes, college, student, responsibility, taking, check]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1mtw6bp.md#c7"
+    char_span: [11225, 11909]
+    sentence_count: 7
+    key_terms: [classes, courses, take, time, responsibility, transferring, acceptance, especially]
+    section: Comments
+    token_count: 160
 ---
-
 # Academic Advisor had me in the wrong degree program....
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1mtw6bp/academic_advisor_had_me_in_the_wrong_degree/)
-Posted by **ChaosDude119** · **355↑** · **68 comments**
+Posted by **ChaosDude119** · **360↑** · **68 comments**
 
 Back in **Fall 2023**, I enrolled at a community college in what I thought was the **transfer track** for my intended degree at a nearby university. From the start, I told every advisor my plan was to **transfer to the university** once I finished. It’s even written in one of my advising appointment requests:
 
@@ -61,25 +108,25 @@ Edit: meant anything below  B, not C. Just found out that the last advisor I met
 
 ## Comments
 
-- **PerpetuallyTired74** (152↑): I don’t understand.  For two years, you never looked up your program degree requirements?  
+- **PerpetuallyTired74** (150↑): I don’t understand.  For two years, you never looked up your program degree requirements?  
 
 And nothing below a C transfers?  Why would you want it to?  It won’t count as satisfied at the university anyway. 
 
 Recourse because your advisor was checked out?  Sounds like you were a bit too. Own your mistakes. Learn from them.
-  - **RoisinBean** (63↑): Nothing below a C transferring is a wild complaint. Even if D means completion, it shouldn't be seen as adequate for a transfer, imo. That grade in anything would make me reconsider why I took something that required that course in the first place.
+  - **RoisinBean** (65↑): Nothing below a C transferring is a wild complaint. Even if D means completion, it shouldn't be seen as adequate for a transfer, imo. That grade in anything would make me reconsider why I took something that required that course in the first place.
 
 OP, as the above commenter said, own your mistakes and learn from them. If you can negotiate more free credits out of it than the initial offer, I'd do it. But I also wouldn't count on it.
-  - **stefon_zolesky** (14↑): This is also something that isn’t the advisor’s fault.  Schools have their own policies regarding transfer credits - some won’t accept anything below a C, period, some won’t accept anything below a certain grade for a major requirement. That’s on the student for not checking with the four year they were trying to transfer to.
-    - **SnooRobots7776** (5↑): Yeah some also wont accept out of state courses because they have different educational standards. There are so many aspects that you have to basically triple check.. there should never be a blind reliance upon anyone else to make sure that what you are paying thousands of dollars for is fully on track.. it's an awful situation, but really this is your life at stake in terms of any timeline you hoped for....
-- **kittycatblues** (174↑): Advisors advise, students decide. You made a huge mistake not looking at any of your own academic information for two years. You need to own that.
-  - **Excellent-Letter-780** (34↑): >Advisors advise, students decide.
+  - **stefon_zolesky** (15↑): This is also something that isn’t the advisor’s fault.  Schools have their own policies regarding transfer credits - some won’t accept anything below a C, period, some won’t accept anything below a certain grade for a major requirement. That’s on the student for not checking with the four year they were trying to transfer to.
+    - **SnooRobots7776** (4↑): Yeah some also wont accept out of state courses because they have different educational standards. There are so many aspects that you have to basically triple check.. there should never be a blind reliance upon anyone else to make sure that what you are paying thousands of dollars for is fully on track.. it's an awful situation, but really this is your life at stake in terms of any timeline you hoped for....
+- **kittycatblues** (176↑): Advisors advise, students decide. You made a huge mistake not looking at any of your own academic information for two years. You need to own that.
+  - **Excellent-Letter-780** (29↑): >Advisors advise, students decide.
 
 Ouuu, I love that. 🤌🏽
 
 Several students at my university recommended using only the degree audit tool to track graduation requirements, rather than depending on the academic advisor for guidance.
     - **magic-1101** (2↑): This is great except I would still meet with your advisor once a semester to cover your own ass. I usually would show up with the list of classes i planned on taking and they would confirm those would keep me on track. That way if anything went wrong you might have a chance to appeal.
-- **Vlish36** (147↑): This is, at least, partly on you for not checking what the degree plan was in the first place. Let alone making sure that you were on track for the degree plan.
-- **Mar16celino** (136↑): Happened to me. It's one of those things first gen students are never told.
+- **Vlish36** (150↑): This is, at least, partly on you for not checking what the degree plan was in the first place. Let alone making sure that you were on track for the degree plan.
+- **Mar16celino** (140↑): Happened to me. It's one of those things first gen students are never told.
 
 NEVER TRUST YOUR COUNSELORS DEGREE PLAN. DOUBLE TRIPLE CHECK IT
   - **[deleted]** (33↑): It might not be told but this isn’t high school anymore. You are an adult with responsibilities and the world will treat you as such. It should be expected that you are in control of the things you want to pursue and the onus is on you to make sure you are staying on track. Advisors can be helpful or useless but requirements for any given degree are available online and ANY student should be able to find it and ensure their degree plan lists the correct requirements for their chosen path.
@@ -87,17 +134,17 @@ NEVER TRUST YOUR COUNSELORS DEGREE PLAN. DOUBLE TRIPLE CHECK IT
 
 Google is your best friend and now with ChatGPT it’s even easier. I tell my advisor what I want, they tell me if it’s possible or not but I always make sure to check my degree plan, academic calendar, and the Degree Catalog.
     - **Yochefdom** (2↑): First Gen Stem Student here.... if I just blindly trusted my counselors I would be so screwed lol. Crazy letting your life be in someone else's hands.
-- **mackenziemackenzie** (42↑): Why would classes below a C transfer anyway?
+- **mackenziemackenzie** (46↑): Why would classes below a C transfer anyway?
   - **Individual_Yoghurt83** (28↑): some people still think D is passing and it technically is but it isn’t like university passing 💔🥀
-- **ThePickleConnoisseur** (31↑): Do you guys not have a portal with your degree reqs and what isn’t fufilled???
-- **Usual-Bridge-2910** (97↑): This is your responsibility. I am sure the degree requirements are 100 percent available online. You can change your major.
+- **ThePickleConnoisseur** (33↑): Do you guys not have a portal with your degree reqs and what isn’t fufilled???
+- **Usual-Bridge-2910** (95↑): This is your responsibility. I am sure the degree requirements are 100 percent available online. You can change your major.
   - **svenskav** (17↑): Definitely sounds like OP wasn’t paying as close of attention as they should have been. An advisor is responsible for several students, possibly hundreds depending on the size of the program, while OP is solely responsible for themselves. Who would think a grade below a C is transferable? C is always the passing grade. 
 
 That being said, it’s not impossible that something with the degree coding could have been messed up. I was working on a second bachelors degree during Covid to have something to do while wfh. My school had a BA and a BSc program for my major. I applied and was accepted into the BSc program, took all the BSc classes, and every single meeting with my advisor was based on the BSc program track. Each of my meeting summaries that were emailed to me displayed both the program code and program titled correctly on my degree path paperwork. Still, I went in for my pre-graduation meeting and I was suddenly coded as BA. They were trying to hold me back from graduating on time because of that. It was so frustrating and at the time I had already been accepted to a MSc degree program overseas related to my first degree so I almost gave up and just not graduate because of how the advising office and department were gaslighting me. I finally contacted the admissions office and got my initial application and acceptance letter, gathered all the communications I had saved, and sent them to the dean of that department and they fixed it only a day before the graduation application deadline. My graduation exit review of the program was scathing because of the entire situation.
 
 So anyone reading this, the admissions department is not your friend. You are responsible for your own degree path. Keep all your communication and paperwork with them in a file until after you graduate. It sounds overboard, but you can be almost finished with your degree and still be knocked back. Check, check, and recheck all your requirements. Have a full plan when you go in to your advisor and ask for a summary of the meeting if they can give you one.
-- **VastEntertainment471** (20↑): I'm sorry but why are you blaming the advisor? You're the one who's taking the classes, you're the one paying for the classes, sure the advisor messed up but on my registration day I had a printed piece of paper that listed every single credit that my college has that can transfer to my degree at my chosen university and then scheduled a second appointment with a different advisor to get a second opinion on everything, college is a huge commitment of both time and money, why would you ever blindly listen to another person and not triple check everything?
-- **quiladora** (15↑): As a former academic advisor, I am shocked you were offered 9 credits. Ultimately the onus is on you, the student, to make sure you are taking the right courses and in the right degree. The advisor advises - the student should be in the lead. You seem to have been rather careless with your studies and relying on others to track your progress. I recommend you take more of the lead in your own education. You should have a program sheet that shows which courses are needed and checking them off as you go. It's a shitty situation, though. I do empathize. This will be a lesson to take with you the rest of your life, now.
+- **VastEntertainment471** (18↑): I'm sorry but why are you blaming the advisor? You're the one who's taking the classes, you're the one paying for the classes, sure the advisor messed up but on my registration day I had a printed piece of paper that listed every single credit that my college has that can transfer to my degree at my chosen university and then scheduled a second appointment with a different advisor to get a second opinion on everything, college is a huge commitment of both time and money, why would you ever blindly listen to another person and not triple check everything?
+- **quiladora** (14↑): As a former academic advisor, I am shocked you were offered 9 credits. Ultimately the onus is on you, the student, to make sure you are taking the right courses and in the right degree. The advisor advises - the student should be in the lead. You seem to have been rather careless with your studies and relying on others to track your progress. I recommend you take more of the lead in your own education. You should have a program sheet that shows which courses are needed and checking them off as you go. It's a shitty situation, though. I do empathize. This will be a lesson to take with you the rest of your life, now.
   - **Weird_Wrap5130** (11↑): This is the part I think people aren't paying much attention to. The school is actually taking responsibility for this screw up. They would not be offering free classes if they hadn't agreed they obviously made an egregious mistake. We don't know ops exact scenario. But if they're a first gen college student and the programs are extremely similar then this unfortunate mistake can happen from time to time. My state calls it an AS-T / AA-T , T for transfer. But I didn't know that until I graduated.
-    - **quiladora** (5↑): Agreed. They never take responsibility, so likely they did majorly mess up.
+    - **quiladora** (6↑): Agreed. They never take responsibility, so likely they did majorly mess up.
 - **Designer_Tooth5803** (38↑): Most places won’t take C’s especially based on degree your transferring to. University will also look at your GPA and if you’re taking the classes but have C’s then chances of acceptance are lower. Also this may be because i have anxiety but i ALWAYS check my plans and courses I need bc colleges are good at not doing that. Honestly id accept the free classes bc at the end of the day you’re in charge of your courses and grades.

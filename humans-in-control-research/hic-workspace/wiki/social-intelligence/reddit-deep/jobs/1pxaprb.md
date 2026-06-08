@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1pxaprb.md
 url: "https://www.reddit.com/r/jobs/comments/1pxaprb/didnt_get_the_job_because_i_dont_have_a_car/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,45 @@ flair: "Rejections"
 extracted_at: "2026-05-20T06:41:17.643Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1pxaprb.md#c0"
+    char_span: [0, 973]
+    sentence_count: 8
+    key_terms: [interview, car, told, comments, because, manager, remarkable-soil-2997, asked]
+    token_count: 254
+  - id: "social-intelligence/reddit-deep/jobs/1pxaprb.md#c1"
+    char_span: [988, 2895]
+    sentence_count: 11
+    key_terms: [transportation, reliable, car, mode, whatever32657, asked, ask, walk]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/jobs/1pxaprb.md#c2"
+    char_span: [2897, 4370]
+    sentence_count: 12
+    key_terms: [reliable, transportation, car, uber, probably, asked, ask, etc]
+    section: Comments
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/jobs/1pxaprb.md#c3"
+    char_span: [4372, 5733]
+    sentence_count: 9
+    key_terms: [reliable, close, car, get, minute, better-commission541, able, ask]
+    section: Comments
+    token_count: 338
+  - id: "social-intelligence/reddit-deep/jobs/1pxaprb.md#c4"
+    char_span: [5735, 7828]
+    sentence_count: 14
+    key_terms: [car, transportation, reliable, because, people, communities, winterbird, interview]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1pxaprb.md#c5"
+    char_span: [7550, 7895]
+    sentence_count: 5
+    key_terms: [people, transportation, twominute920, humiliating, something, personal, reliable, requires]
+    section: Comments
+    token_count: 76
 ---
-
 # Didn’t get the job because I don’t have a car
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1pxaprb/didnt_get_the_job_because_i_dont_have_a_car/)

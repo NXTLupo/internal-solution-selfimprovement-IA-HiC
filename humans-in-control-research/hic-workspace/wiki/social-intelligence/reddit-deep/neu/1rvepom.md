@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1rvepom.md
 url: "https://www.reddit.com/r/NEU/comments/1rvepom/should_i_be_worried/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,27 @@ flair: "Admissions & Financial Aid"
 extracted_at: "2026-05-19T17:57:09.045Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+industries: [higher_ed, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1rvepom.md#c0"
+    char_span: [0, 1356]
+    sentence_count: 8
+    key_terms: [fafsa, estimator, circumstances, northeastern, css, different, financial, wondering]
+    token_count: 309
+  - id: "social-intelligence/reddit-deep/neu/1rvepom.md#c1"
+    char_span: [1371, 3447]
+    sentence_count: 12
+    key_terms: [ok-banana-2859, did, cost, get, background-essay6470, got, estimate, affect]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/neu/1rvepom.md#c2"
+    char_span: [3114, 3506]
+    sentence_count: 4
+    key_terms: [background-essay6470, absolutely, especially, currently, education, expecting, obviously, stressful]
+    section: Comments
+    token_count: 84
 ---
-
 # Should I be worried
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1rvepom/should_i_be_worried/)

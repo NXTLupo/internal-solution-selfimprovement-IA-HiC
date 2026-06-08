@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1og8zz3/a_worried_father_and_college_applications/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,57 @@ flair: "Advice"
 extracted_at: "2026-05-22T23:33:52.619Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c0"
+    char_span: [0, 870]
+    sentence_count: 8
+    key_terms: [applyingtocollege, "doesn't", school, act, comments, devilfishlane1975, good, applications]
+    token_count: 216
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c1"
+    char_span: [885, 2513]
+    sentence_count: 12
+    key_terms: [competitive, schools, safeties, state, university, rejected, student, reason]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c2"
+    char_span: [2515, 3497]
+    sentence_count: 6
+    key_terms: [school, law, formal-research4531, schools, competitive, dame, oos, catholic]
+    section: Comments
+    token_count: 240
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c3"
+    char_span: [3499, 5342]
+    sentence_count: 15
+    key_terms: [school, schools, prestigious, apply, state, law, authority, parental]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c4"
+    char_span: [5344, 6930]
+    sentence_count: 10
+    key_terms: [safety, school, time, apply, transfer, college, forward, schools]
+    section: Comments
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c5"
+    char_span: [6932, 8758]
+    sentence_count: 15
+    key_terms: [applicants, schools, denied, years, admission, florida, student, denial]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c6"
+    char_span: [8760, 9638]
+    sentence_count: 9
+    key_terms: [unc, counselor, selective, harder, school, reach, state, devilfishlane1975]
+    section: Comments
+    token_count: 221
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c7"
+    char_span: [9640, 11392]
+    sentence_count: 13
+    key_terms: [application, safety, school, going, page, unc, athletes, applied]
+    section: Comments
+    token_count: 459
 ---
-
 # A worried father and College applications
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1og8zz3/a_worried_father_and_college_applications/)

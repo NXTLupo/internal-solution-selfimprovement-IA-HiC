@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1t83aho.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1t83aho/i_cant_believe_starting_a_nonprofit_having_a/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,99 @@ flair: "Discussion"
 extracted_at: "2026-05-23T14:54:48.666Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [nonprofit]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c0"
+    char_span: [0, 999]
+    sentence_count: 9
+    key_terms: [applyingtocollege, kids, comments, passion, project, school, high, inauthenticity]
+    token_count: 239
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c1"
+    char_span: [1014, 1787]
+    sentence_count: 11
+    key_terms: [non-profit, started, parents, problem, school, whole, realbeavercleaver, got]
+    section: Comments
+    token_count: 190
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c2"
+    char_span: [1790, 3201]
+    sentence_count: 8
+    key_terms: ["didn't", people, organization, did, got, experience, supplies, school]
+    section: Comments
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c3"
+    char_span: [3205, 5366]
+    sentence_count: 14
+    key_terms: [schoolers, "it's", athenapreparatory, high, field, right, encouraging, fake]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c4"
+    char_span: [5082, 6736]
+    sentence_count: 17
+    key_terms: [college, applications, exaggerated, got, high, "it's", kids, schoolers]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c5"
+    char_span: [6738, 9078]
+    sentence_count: 17
+    key_terms: [research, something, high, kids, projects, kid, like, organizing]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c6"
+    char_span: [9080, 10943]
+    sentence_count: 17
+    key_terms: [schools, student, like, students, "don't", hypsm, body, did]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c7"
+    char_span: [10945, 11550]
+    sentence_count: 4
+    key_terms: [world, years, ago, past, organizations, romanticizing, volunteering, communities]
+    section: Comments
+    token_count: 139
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c8"
+    char_span: [11552, 13636]
+    sentence_count: 8
+    key_terms: [organizations, school, here, students, agree, bcs, half, admissions]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c9"
+    char_span: [13638, 15763]
+    sentence_count: 10
+    key_terms: [school, projects, students, done, time, counselor, probably, income]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c10"
+    char_span: [15765, 17008]
+    sentence_count: 4
+    key_terms: [nonprofit, undergrad, colleges, probably, founder, school, niceunparticularman, non-representative]
+    section: Comments
+    token_count: 308
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c11"
+    char_span: [17010, 18476]
+    sentence_count: 10
+    key_terms: [applicants, because, strong, comfortable-spare734, etc, kids, extracurricular, academically]
+    section: Comments
+    token_count: 329
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c12"
+    char_span: [18478, 20763]
+    sentence_count: 11
+    key_terms: [admissions, universities, specific, students, college, departmental, tests, test]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c13"
+    char_span: [20765, 23160]
+    sentence_count: 14
+    key_terms: [colleges, kids, academic, school, value, admissions, education, students]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c14"
+    char_span: [23162, 24465]
+    sentence_count: 8
+    key_terms: [non-profits, work, non-profit, volunteer, existing, another, college, exactly]
+    section: Comments
+    token_count: 302
 ---
-
 # I can’t believe “starting a nonprofit” “having a passion project” became such things
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1t83aho/i_cant_believe_starting_a_nonprofit_having_a/)

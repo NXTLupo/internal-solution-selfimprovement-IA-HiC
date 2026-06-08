@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rl8i3f.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rl8i3f/is_uiux_design_worth_pursuing_in_2026_honest/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.161Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rl8i3f.md#c0"
+    char_span: [0, 1115]
+    sentence_count: 5
+    key_terms: [careerguidance, field, comments, earning, advice, career, design, honest]
+    token_count: 261
+  - id: "social-intelligence/reddit-deep/careerguidance/1rl8i3f.md#c1"
+    char_span: [1130, 3478]
+    sentence_count: 5
+    key_terms: [product, thinking, design, skills, especially, years, like, learning]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/careerguidance/1rl8i3f.md#c2"
+    char_span: [3480, 4603]
+    sentence_count: 10
+    key_terms: [work, designers, product, artist, tools, good, lot, used]
+    section: Comments
+    token_count: 255
+  - id: "social-intelligence/reddit-deep/careerguidance/1rl8i3f.md#c3"
+    char_span: [4605, 6691]
+    sentence_count: 14
+    key_terms: [opportunities, portfolio, pretty, build, entry, field, level, solid]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1rl8i3f.md#c4"
+    char_span: [6433, 8568]
+    sentence_count: 19
+    key_terms: ["i've", career, considering, been, get, laid, time, took]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1rl8i3f.md#c5"
+    char_span: [8315, 9183]
+    sentence_count: 6
+    key_terms: [business, human-centric, contract, nowadays, probably, like, components, contractor]
+    section: Comments
+    token_count: 229
+  - id: "social-intelligence/reddit-deep/careerguidance/1rl8i3f.md#c6"
+    char_span: [9185, 10995]
+    sentence_count: 12
+    key_terms: [experience, design, job, product, focus, years, get, recommend]
+    section: Comments
+    token_count: 447
 ---
-
 # “Is UI/UX Design Worth Pursuing in 2026? Honest Career Advice Needed”
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rl8i3f/is_uiux_design_worth_pursuing_in_2026_honest/)

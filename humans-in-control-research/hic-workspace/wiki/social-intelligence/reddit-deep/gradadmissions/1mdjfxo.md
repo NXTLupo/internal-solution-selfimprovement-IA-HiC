@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1mdjfxo.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1mdjfxo/whats_the_take_on_sop_format_for_phd_application/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,15 @@ flair: "Computational Sciences"
 extracted_at: "2026-05-22T23:33:50.663Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce, ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1mdjfxo.md#c0"
+    char_span: [0, 1052]
+    sentence_count: 5
+    key_terms: [format, sop, example, gradadmissions, https, comments, notion, field]
+    token_count: 272
 ---
-
 # What's the take on SOP format for PhD application in CS (specifically machine learning & robotics)?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1mdjfxo/whats_the_take_on_sop_format_for_phd_application/)

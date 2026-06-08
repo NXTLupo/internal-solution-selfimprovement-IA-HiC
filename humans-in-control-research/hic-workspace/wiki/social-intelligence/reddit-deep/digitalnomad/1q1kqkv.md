@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1q1kqkv.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1q1kqkv/da_nang_vietnam_vs_tbilisi_georgia/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,39 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:56.732Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1q1kqkv.md#c0"
+    char_span: [0, 806]
+    sentence_count: 7
+    key_terms: [digitalnomad, want, comments, better, spend, realtruthnavigator, good, usd]
+    token_count: 198
+  - id: "social-intelligence/reddit-deep/digitalnomad/1q1kqkv.md#c1"
+    char_span: [821, 2744]
+    sentence_count: 24
+    key_terms: [like, vietnam, sonderific3, budget, tblisi, need, experience, consider]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/digitalnomad/1q1kqkv.md#c2"
+    char_span: [2746, 4477]
+    sentence_count: 15
+    key_terms: [vietnam, realtruthnavigator, anything, comfortable, nang, countries, georgia, tbilisi]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/digitalnomad/1q1kqkv.md#c3"
+    char_span: [4479, 6421]
+    sentence_count: 15
+    key_terms: [realtruthnavigator, zero, people, live, thailand, mainenacier, "it's", experience]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/digitalnomad/1q1kqkv.md#c4"
+    char_span: [6423, 7652]
+    sentence_count: 10
+    key_terms: [budget, cost, nang, probably, because, georgia, vietnam, beneficial-koala-670]
+    section: Comments
+    token_count: 296
 ---
-
 # Da Nang, Vietnam vs Tbilisi, Georgia
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1q1kqkv/da_nang_vietnam_vs_tbilisi_georgia/)

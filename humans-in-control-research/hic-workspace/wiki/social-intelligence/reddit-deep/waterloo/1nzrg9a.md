@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1nzrg9a.md
 url: "https://www.reddit.com/r/waterloo/comments/1nzrg9a/looking_for_a_job_these_local_companies_hiring/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,56 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.125Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1nzrg9a.md#c0"
+    char_span: [0, 1686]
+    sentence_count: 12
+    key_terms: [jobsearch, https, jobbank, www, find, jobposting, "can't", canadians]
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/waterloo/1nzrg9a.md#c1"
+    char_span: [1690, 3363]
+    sentence_count: 11
+    key_terms: [jobposting, jobsearch, jobbank, https, www, hour, canadians, hiring]
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/waterloo/1nzrg9a.md#c2"
+    char_span: [3378, 4328]
+    sentence_count: 8
+    key_terms: [review, canadians, company, service, better, hiring, honest, oldthrashbarg2000]
+    section: Comments
+    token_count: 214
+  - id: "social-intelligence/reddit-deep/waterloo/1nzrg9a.md#c3"
+    char_span: [4330, 5991]
+    sentence_count: 8
+    key_terms: [simonsays-11, canadian, unemployment, companies, question, rejected, because, forsakenyesterday254]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/waterloo/1nzrg9a.md#c4"
+    char_span: [5993, 7854]
+    sentence_count: 7
+    key_terms: [unemployment, government, restrictions, hour, pay, wage, liberals, liberal]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/waterloo/1nzrg9a.md#c5"
+    char_span: [7857, 8923]
+    sentence_count: 1
+    key_terms: [number-of-temporary-worker-applications-fell-as-fine-total-increased-government-says-11310368, employment-social-development, https, www, foreign-workers, national-news, guelphtoday, services]
+    section: Comments
+    token_count: 341
+  - id: "social-intelligence/reddit-deep/waterloo/1nzrg9a.md#c6"
+    char_span: [8926, 11148]
+    sentence_count: 10
+    key_terms: [people, evergreenterrace2465, position, report, "don't", job, list, anything]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/waterloo/1nzrg9a.md#c7"
+    char_span: [10835, 11981]
+    sentence_count: 5
+    key_terms: [problem, report, canadian, getting, people, hire, job, take]
+    section: Comments
+    token_count: 276
 ---
-
 # Looking for a job? These local companies hiring for $36.01 an hour say they can't find Canadians!
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1nzrg9a/looking_for_a_job_these_local_companies_hiring/)

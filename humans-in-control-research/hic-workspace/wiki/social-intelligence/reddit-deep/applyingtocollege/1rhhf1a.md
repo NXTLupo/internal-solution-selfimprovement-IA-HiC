@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1rhhf1a.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rhhf1a/how_good_this_school_is_for_your_field_is_a_more/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,53 @@ subreddit: "applyingtocollege"
 title: "\"How good this school is for your field\" is a more useful metric than \"how good this school is in general\""
 author: "MarathonMarathon"
 date: "2026-02-28T23:28:34.000Z"
-score: 43
-upvote_ratio: 0.89
+score: 44
+upvote_ratio: 0.91
 num_comments: 18
 flair: "Advice"
-extracted_at: "2026-05-23T14:54:48.681Z"
+extracted_at: "2026-06-05T19:53:34.573Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rhhf1a.md#c0"
+    char_span: [0, 1860]
+    sentence_count: 11
+    key_terms: [university, engineering, admissions, "don't", aerospace, applyingtocollege, colleges, college]
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rhhf1a.md#c1"
+    char_span: [1862, 3453]
+    sentence_count: 13
+    key_terms: [college, school, becoming, degree, get, "it's", exiting, having]
+    token_count: 344
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rhhf1a.md#c2"
+    char_span: [3468, 5141]
+    sentence_count: 12
+    key_terms: [school, reasonably, good, uiuc, majors, field, want, dartmouth]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rhhf1a.md#c3"
+    char_span: [5143, 6052]
+    sentence_count: 2
+    key_terms: [https, cojobrien, research, status, college-labor-market, photo, outcomes-by-major, com]
+    section: Comments
+    token_count: 267
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rhhf1a.md#c4"
+    char_span: [6054, 8003]
+    sentence_count: 14
+    key_terms: [music, arts, "i'm", ivy, marathonmarathon, schools, school, major]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rhhf1a.md#c5"
+    char_span: [8005, 9704]
+    sentence_count: 14
+    key_terms: [school, students, schools, supplementals, something, supposed, clarity, college]
+    section: Comments
+    token_count: 369
 ---
-
 # "How good this school is for your field" is a more useful metric than "how good this school is in general"
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rhhf1a/how_good_this_school_is_for_your_field_is_a_more/)
-Posted by **MarathonMarathon** · **43↑** · **18 comments**
+Posted by **MarathonMarathon** · **44↑** · **18 comments**
 
 I'm not a high schooler or applying to college. I'm 21 and about to graduate college. But I'd like to give a little advice from the other side of the curtain, so to speak.
 
@@ -42,14 +77,14 @@ I will use CS as the example. Before 2022 it was considered a very good major wi
 
 ## Comments
 
-- **Nearby_Task9041** (14↑): I dunno about your take. 70% of college kids change their major, so choosing a school based on **"how good is this school for your field"** could be a huge mistake if you later change majors. 
+- **Nearby_Task9041** (12↑): I dunno about your take. 70% of college kids change their major, so choosing a school based on **"how good is this school for your field"** could be a huge mistake if you later change majors. 
 
 Suppose you think you want to be in CS and got into UIUC. Pretty great right? After all, Marc Andreesen graduated from there. So you turn down Dartmouth or Yale for UIUC, because clearly UIUC is stronger in CS.   
   
 Nope, not so much if you later find yourself changing your mind and want to an economics major and work in private equity. You'll find pretty quickly that, while anything is possible, it is far easier to get into private equity from Dartmouth or Yale than it is from UIUC. 
 
 For college decisions, you want **preserve** your optionality, not get trapped into a corner.
-- **Ok_Experience_5151** (9↑): Kinda disagree with the title of your post.  "How good is this school for your field" is mostly just a measure of how strong the school's department is from a research perspective.  That's not always super important to you as an undergraduate.
+- **Ok_Experience_5151** (12↑): Kinda disagree with the title of your post.  "How good is this school for your field" is mostly just a measure of how strong the school's department is from a research perspective.  That's not always super important to you as an undergraduate.
 
 I also think you're exaggerating how bad things are for CS majors.  A strong majority of CS majors who graduated from a reasonably well-regarded school, earned reasonably good grades, worked a couple internships and who interview reasonably well are getting jobs.
   - **FourScoreAndSept** (1↑): At just about every school except for the “school is so large you never see the great professors anyway” state universities, then “how good is a school for your field” (which you are correct to hint often is gauged based on grad research output) really does trickle down to undergrad as well.

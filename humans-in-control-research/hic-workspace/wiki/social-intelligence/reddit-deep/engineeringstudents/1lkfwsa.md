@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1lkfwsa.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1lkfwsa/if_i_want_to_be_an_engineer_general_for_now_for/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,15 @@ flair: "Career Help"
 extracted_at: "2026-05-23T19:44:57.164Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1lkfwsa.md#c0"
+    char_span: [0, 781]
+    sentence_count: 4
+    key_terms: [development, engineeringstudents, research, comments, engineer, front, end, like]
+    token_count: 178
 ---
-
 # If i want to be an engineer (general for now), for my internship should i work in AI research or front end UI development? (Those are the two options given).
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1lkfwsa/if_i_want_to_be_an_engineer_general_for_now_for/)

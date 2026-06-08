@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sr4doy.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sr4doy/adviceim_26_have_a_highpaying_job_thinking_about/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-20T02:32:24.880Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sr4doy.md#c0"
+    char_span: [0, 734]
+    sentence_count: 8
+    key_terms: [careerguidance, "i'm", comments, feeling, taking, break, month, did]
+    token_count: 194
+  - id: "social-intelligence/reddit-deep/careerguidance/1sr4doy.md#c1"
+    char_span: [749, 2450]
+    sentence_count: 10
+    key_terms: [field, time, economy, break, ask, tech, kaddras019, objective-salary6082]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/careerguidance/1sr4doy.md#c2"
+    char_span: [2452, 3458]
+    sentence_count: 11
+    key_terms: [months, job, comes, leave, turbulent-sky-1536, life, quit, definitely]
+    section: Comments
+    token_count: 252
 ---
-
 # Advice-I'm 26, have a high-paying job, thinking about taking a 3-4 month career break. Worth it or a mistake?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sr4doy/adviceim_26_have_a_highpaying_job_thinking_about/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sja3k6.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sja3k6/career_guidance_in_this_horrible_competitve_job/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 4
 flair: "Advice"
-extracted_at: "2026-05-23T14:54:05.576Z"
+extracted_at: "2026-06-03T18:35:34.119Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sja3k6.md#c0"
+    char_span: [0, 1786]
+    sentence_count: 13
+    key_terms: [product, careerguidance, "i'm", job, work, e-commerce, everything, industries]
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/careerguidance/1sja3k6.md#c1"
+    char_span: [1801, 3236]
+    sentence_count: 7
+    key_terms: [business-focused, people, roles, description, definitely, companies, directly, reaching]
+    section: Comments
+    token_count: 292
 ---
-
 # Career guidance in this horrible competitve job market!?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sja3k6/career_guidance_in_this_horrible_competitve_job/)

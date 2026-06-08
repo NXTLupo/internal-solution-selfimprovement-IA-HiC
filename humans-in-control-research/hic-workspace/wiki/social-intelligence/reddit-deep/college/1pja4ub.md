@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1pja4ub.md
 url: "https://www.reddit.com/r/college/comments/1pja4ub/multiple_unrelated_degrees/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -7,14 +8,37 @@ title: "Multiple unrelated degrees"
 author: "Rare_Picture_7337"
 date: "2025-12-10T18:20:46.000Z"
 score: 12
-upvote_ratio: 0.88
+upvote_ratio: 0.84
 num_comments: 15
 flair: "Academic Life"
-extracted_at: "2026-05-23T19:44:48.194Z"
+extracted_at: "2026-06-06T17:42:15.228Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1pja4ub.md#c0"
+    char_span: [0, 1185]
+    sentence_count: 9
+    key_terms: [college, something, want, degree, associates, experience, bachelors, unrelated]
+    token_count: 266
+  - id: "social-intelligence/reddit-deep/college/1pja4ub.md#c1"
+    char_span: [1200, 3322]
+    sentence_count: 12
+    key_terms: [linguistics, classes, credits, wanted, honestly, connect, degrees, majors]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/college/1pja4ub.md#c2"
+    char_span: [3324, 4692]
+    sentence_count: 11
+    key_terms: [language, majors, major, linguistics, common, biology, doubles, doable]
+    section: Comments
+    token_count: 320
+  - id: "social-intelligence/reddit-deep/college/1pja4ub.md#c3"
+    char_span: [4695, 5939]
+    sentence_count: 11
+    key_terms: [engineering, "it's", "wouldn't", another, example, overlap, related, common]
+    section: Comments
+    token_count: 303
 ---
-
 # Multiple unrelated degrees
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1pja4ub/multiple_unrelated_degrees/)
@@ -58,4 +82,4 @@ For what it's worth, I did three unrelated majors.
 It's not super common but you wouldn't be the first.   If you have an inkling of interest in another subject,  at least explore the option so you wouldn't regret it later.   As for myself,  i went on to mechanical engineering after the senile seminars.   And while in engineering school,  i met another 2 who doubled with film
 - **Witty-Kangaroo-6347** (1↑): Double majoring is pretty common. Most people do it in related fields for example business and marketing because it's easier to have overlap with the requirements but it's completely feasible. For example I'm a psych and bio premed major. None of my major classes overlap but I'm still good. Your gen eds will be the same. I will say though the less related the majors are the harder it is to do.
 - **GooGuyy** (0↑): Look into some science fields,
-- **No_Jaguar_2570** (-3↑): Not to be blunt, but you need to pick a career path and focus on it. Applying for jobs with multiple unrelated degrees is going to make you look unfocused and drifty, and whatever degree is actually relevant to the job may be years old by the time you apply. Also, you have to *pay* for these things, in both money and opportunity cost, and at some point you’re going to hit the cap for federal student loans.
+- **No_Jaguar_2570** (-2↑): Not to be blunt, but you need to pick a career path and focus on it. Applying for jobs with multiple unrelated degrees is going to make you look unfocused and drifty, and whatever degree is actually relevant to the job may be years old by the time you apply. Also, you have to *pay* for these things, in both money and opportunity cost, and at some point you’re going to hit the cap for federal student loans.

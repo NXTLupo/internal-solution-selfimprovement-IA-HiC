@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-deeplearning/85ebcb53ea.md
 url: "https://www.reddit.com/r/deeplearning/comments/1t80xhc/recursive_priorityrefinement_experiment_having/"
 url_hash: "85ebcb53ea"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T17:34:35.548256+00:00"
 chars: 4833
+industries: [ai_research]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-deeplearning/85ebcb53ea.md#c0"
+    char_span: [0, 2560]
+    sentence_count: 13
+    key_terms: [important, reasoning, chain, asi, want, intelligence, abstraction, generate]
+    token_count: 512
+  - id: "articles/reddit-deep-r-deeplearning/85ebcb53ea.md#c1"
+    char_span: [2562, 5136]
+    sentence_count: 16
+    key_terms: [important, reasoning, ability, abstraction, system, self-correcting, architectures, contradiction]
+    token_count: 434
 ---
-
 # Recursive Priority-Refinement Experiment: Having GPT-5.5 Generate a Q&A Chain About Reaching ASI. Would the Algorithm in PT and RL Training Advance AI IQ?
 
 Source: [Reddit Deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1t80xhc/recursive_priorityrefinement_experiment_having/)

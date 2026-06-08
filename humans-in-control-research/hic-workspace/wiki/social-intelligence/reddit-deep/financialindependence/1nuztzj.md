@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1nuztzj.md
 url: "https://www.reddit.com/r/financialindependence/comments/1nuztzj/in_defense_of_one_more_year_an_update/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,82 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.708Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [cross_industry]
+industry_method: unclassified
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c0"
+    char_span: [0, 2133]
+    sentence_count: 17
+    key_terms: [financialindependence, comments, expenses, https, com, lifestyle, vacations, paycheck]
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c1"
+    char_span: [2135, 4182]
+    sentence_count: 22
+    key_terms: [been, work, mental, get, everything, employer, position, forever]
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c2"
+    char_span: [4184, 5900]
+    sentence_count: 19
+    key_terms: [year, withdrawal, fear, numbers, investments, life, plug, security]
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c3"
+    char_span: [5902, 7654]
+    sentence_count: 20
+    key_terms: [bills, years, "isn't", got, "i'm", next, children, looking]
+    token_count: 381
+  - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c4"
+    char_span: [7656, 9734]
+    sentence_count: 16
+    key_terms: [year, vacations, expenses, example, numbers, myself, people, random]
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c5"
+    char_span: [9736, 10248]
+    sentence_count: 5
+    key_terms: [parenting, circles, people, social, weird, significance, coworkers, employed]
+    token_count: 113
+  - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c6"
+    char_span: [10263, 12455]
+    sentence_count: 16
+    key_terms: [people, money, "i'm", connections, fire, connection, interested, financial]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c7"
+    char_span: [12457, 14511]
+    sentence_count: 13
+    key_terms: [real, bills, "isn't", the-2021-early-retirement-update, years, post, read, resonated]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c8"
+    char_span: [14513, 16156]
+    sentence_count: 13
+    key_terms: [thought, people, "don't", years, preferences, etc, glad, like]
+    section: Comments
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c9"
+    char_span: [16158, 18026]
+    sentence_count: 14
+    key_terms: [doing, feel, post, household, justify, active, longer, point]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c10"
+    char_span: [18028, 19317]
+    sentence_count: 11
+    key_terms: ["don't", like, carrying, someone, grass, hire, need, role]
+    section: Comments
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c11"
+    char_span: [19319, 21112]
+    sentence_count: 12
+    key_terms: [time, uncertainty, reduction, numbers, couple, months, sports, been]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c12"
+    char_span: [21114, 21841]
+    sentence_count: 5
+    key_terms: [going, something, another, cancer, health, deductibles, frightening, standalone]
+    section: Comments
+    token_count: 150
 ---
-
 # In defense of "One more year": an update
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1nuztzj/in_defense_of_one_more_year_an_update/)

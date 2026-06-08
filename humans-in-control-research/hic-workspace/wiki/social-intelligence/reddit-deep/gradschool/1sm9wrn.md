@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1sm9wrn.md
 url: "https://www.reddit.com/r/GradSchool/comments/1sm9wrn/admissions_encouraged_me_to_apply_despite_low_gpa/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.345Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1sm9wrn.md#c0"
+    char_span: [0, 2217]
+    sentence_count: 19
+    key_terms: [gpa, art, school, admissions, university, classes, program, retake]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1sm9wrn.md#c1"
+    char_span: [2232, 4049]
+    sentence_count: 22
+    key_terms: [apply, got, cinnamonstixxxx, application, get, work, everything, wanted]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/gradschool/1sm9wrn.md#c2"
+    char_span: [4051, 5643]
+    sentence_count: 18
+    key_terms: [gpa, apply, program, got, grad, admissions, yourself, essay]
+    section: Comments
+    token_count: 408
 ---
-
 # Admissions encouraged me to apply despite low GPA. Should I go for it?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1sm9wrn/admissions_encouraged_me_to_apply_despite_low_gpa/)

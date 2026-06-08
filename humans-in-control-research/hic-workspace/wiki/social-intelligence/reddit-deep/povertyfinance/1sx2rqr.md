@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1sx2rqr/have_500_monthly_extra_after_calculating_need/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,56 @@ flair: "Budgeting/Saving/Investing/Spending"
 extracted_at: "2026-05-17T01:13:55.887Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c0"
+    char_span: [0, 2113]
+    sentence_count: 13
+    key_terms: ["i'm", car, money, another, monthly, savings, been, need]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c1"
+    char_span: [2115, 2697]
+    sentence_count: 8
+    key_terms: [budget, confident, stability, "don't", want, direction, stressing, finances]
+    token_count: 135
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c2"
+    char_span: [2712, 4601]
+    sentence_count: 13
+    key_terms: [interest, account, savings, retirement, money, emergency, something, badtastingparsnip]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c3"
+    char_span: [4603, 6416]
+    sentence_count: 15
+    key_terms: [savings, get, account, emergency, investing, accounts, credit, money]
+    section: Comments
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c4"
+    char_span: [6418, 8297]
+    sentence_count: 17
+    key_terms: [savings, expenses, retirement, accounts, clouddancing108, account, bendallymill, like]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c5"
+    char_span: [8299, 10345]
+    sentence_count: 20
+    key_terms: [account, accounts, car, maintenance, money, feel, enough, having]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c6"
+    char_span: [10347, 11880]
+    sentence_count: 14
+    key_terms: [money, worth, treat, expenses, sleeping, going, spent, bag]
+    section: Comments
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c7"
+    char_span: [11882, 12935]
+    sentence_count: 7
+    key_terms: [budgeting, dozen, fund, get, half, tool, what-im-thinking, understanding]
+    section: Comments
+    token_count: 256
 ---
-
 # Have $500 monthly extra after calculating, need advice?
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1sx2rqr/have_500_monthly_extra_after_calculating_need/)

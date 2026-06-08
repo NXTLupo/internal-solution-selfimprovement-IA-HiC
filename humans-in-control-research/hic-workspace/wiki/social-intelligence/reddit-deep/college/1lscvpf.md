@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1lscvpf.md
 url: "https://www.reddit.com/r/college/comments/1lscvpf/what_is_college_life_as_a_masters_student_like/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,45 @@ flair: "Social Life"
 extracted_at: "2026-05-22T23:33:39.756Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1lscvpf.md#c0"
+    char_span: [0, 645]
+    sentence_count: 6
+    key_terms: [college, masters, like, undergrad, comments, student, phoenixmaster123, undergraduate]
+    token_count: 147
+  - id: "social-intelligence/reddit-deep/college/1lscvpf.md#c1"
+    char_span: [660, 1214]
+    sentence_count: 5
+    key_terms: [undergrad, classes, social, "you're", work, all-encompassing, concentrated, environment]
+    section: Comments
+    token_count: 123
+  - id: "social-intelligence/reddit-deep/college/1lscvpf.md#c2"
+    char_span: [1216, 3001]
+    sentence_count: 17
+    key_terms: [students, work, experience, graduate, school, fun, undergrad, because]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/college/1lscvpf.md#c3"
+    char_span: [3003, 5399]
+    sentence_count: 26
+    key_terms: [program, undergrad, students, age, school, class, grad, average]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/college/1lscvpf.md#c4"
+    char_span: [5401, 7364]
+    sentence_count: 15
+    key_terms: [year, school, undergrad, grad, students, harder, clubs, experiences]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/college/1lscvpf.md#c5"
+    char_span: [7366, 7690]
+    sentence_count: 4
+    key_terms: [did, fun, everything, fulfilling, molecular, undergrad, graduate, sciences]
+    section: Comments
+    token_count: 69
 ---
-
 # What is college life as a masters student like compared to undergraduate?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1lscvpf/what_is_college_life_as_a_masters_student_like/)

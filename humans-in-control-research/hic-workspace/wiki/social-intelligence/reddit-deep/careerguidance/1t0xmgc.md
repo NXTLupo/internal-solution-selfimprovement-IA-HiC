@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t0xmgc.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t0xmgc/i_want_to_learn_some_job_ready_skills_but_dont/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-25T18:32:57.389Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t0xmgc.md#c0"
+    char_span: [0, 903]
+    sentence_count: 8
+    key_terms: [careerguidance, advice, start, comments, projects, college, skills, "don't"]
+    token_count: 228
+  - id: "social-intelligence/reddit-deep/careerguidance/1t0xmgc.md#c1"
+    char_span: [918, 2458]
+    sentence_count: 17
+    key_terms: [laptop, starting, "don't", phone, everything, learning, projects, browser]
+    section: Comments
+    token_count: 335
 ---
-
 # I want to learn some job ready skills! But don't know how to start..can I get your advice?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t0xmgc/i_want_to_learn_some_job_ready_skills_but_dont/)

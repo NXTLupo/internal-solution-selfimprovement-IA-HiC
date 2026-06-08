@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1ssgukz.md
 url: "https://www.reddit.com/r/investing/comments/1ssgukz/markets_are_reacting_to_the_middle_east_situation/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,63 @@ flair: ""
 extracted_at: "2026-05-16T20:55:01.246Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1ssgukz.md#c0"
+    char_span: [0, 1026]
+    sentence_count: 11
+    key_terms: [bps, short-term, investing, comments, expected, markets, pricing, year]
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/investing/1ssgukz.md#c1"
+    char_span: [1041, 1302]
+    sentence_count: 3
+    key_terms: [anonymoushipopotomus, green, magnitude, promising, boiling, markets, matters, market]
+    section: Comments
+    token_count: 72
+  - id: "social-intelligence/reddit-deep/investing/1ssgukz.md#c2"
+    char_span: [1304, 3363]
+    sentence_count: 8
+    key_terms: [israel, ceasefire, stopped, chartnavigator, market, strait, difference, talking]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1ssgukz.md#c3"
+    char_span: [3120, 3433]
+    sentence_count: 2
+    key_terms: [moldyjellybean, channelling, manipulated, revolution, bostaff04, expecting, created, pockets]
+    section: Comments
+    token_count: 87
+  - id: "social-intelligence/reddit-deep/investing/1ssgukz.md#c4"
+    char_span: [3435, 4796]
+    sentence_count: 9
+    key_terms: [fed, like, backstop, federal, price, fake, learning, reserve]
+    section: Comments
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/investing/1ssgukz.md#c5"
+    char_span: [4798, 5769]
+    sentence_count: 5
+    key_terms: [chartnavigator, caterpillar, options, jcpopm, market, money, like, automatically]
+    section: Comments
+    token_count: 254
+  - id: "social-intelligence/reddit-deep/investing/1ssgukz.md#c6"
+    char_span: [5771, 6984]
+    sentence_count: 5
+    key_terms: [blockade, market, maybe, "it's", ceasefire, doesnt, humans, incomingaxofkindness]
+    section: Comments
+    token_count: 328
+  - id: "social-intelligence/reddit-deep/investing/1ssgukz.md#c7"
+    char_span: [6986, 8594]
+    sentence_count: 8
+    key_terms: [chartnavigator, market, inverse, delicious-plastic-44, fitseaworthiness5275, juniorcaptaintenneal, point, posts]
+    section: Comments
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/investing/1ssgukz.md#c8"
+    char_span: [8596, 9455]
+    sentence_count: 4
+    key_terms: [chartnavigator, thegodpepe, representativeok7443, great, money, needs, exit, "it's"]
+    section: Comments
+    token_count: 243
 ---
-
 # Markets are reacting to the Middle East situation with more calm than expected.
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1ssgukz/markets_are_reacting_to_the_middle_east_situation/)

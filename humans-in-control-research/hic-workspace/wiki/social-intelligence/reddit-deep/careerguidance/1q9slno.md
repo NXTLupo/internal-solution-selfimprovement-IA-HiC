@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1q9slno.md
 url: "https://www.reddit.com/r/careerguidance/comments/1q9slno/international_student_seeking_guidance_on/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,16 @@ score: 1
 upvote_ratio: 1
 num_comments: 0
 flair: "Advice"
-extracted_at: "2026-05-22T21:34:47.972Z"
+extracted_at: "2026-06-06T17:42:15.251Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1q9slno.md#c0"
+    char_span: [0, 1034]
+    sentence_count: 4
+    key_terms: [academic, careerguidance, situation, comments, guidance, forward, career, moving]
+    token_count: 209
 ---
-
 # International Student Seeking Guidance on Academic and Career Path Moving Forward?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1q9slno/international_student_seeking_guidance_on/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1snimff.md
 url: "https://www.reddit.com/r/careerguidance/comments/1snimff/career_pivot_advice_consulting_to_marketing_brand/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-22T13:32:21.478Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1snimff.md#c0"
+    char_span: [0, 2582]
+    sentence_count: 21
+    key_terms: [strategy, marketing, brand, sustainability, storytelling, people, background, creative]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/careerguidance/1snimff.md#c1"
+    char_span: [2597, 3231]
+    sentence_count: 3
+    key_terms: [sustainability, marketing, looking, growthforimpact, no-location8075, growthdreamer, princedxbian, specialists]
+    section: Comments
+    token_count: 130
 ---
-
 # Career pivot advice: consulting to marketing/ brand strategy?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1snimff/career_pivot_advice_consulting_to_marketing_brand/)

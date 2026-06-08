@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1kxzzml.md
 url: "https://www.reddit.com/r/GPT/comments/1kxzzml/save_time_on_mockups_create_detailed_sneaker/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,15 @@ flair: "GPT-4"
 extracted_at: "2026-05-11T17:26:37.730Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1kxzzml.md#c0"
+    char_span: [0, 1566]
+    sentence_count: 10
+    key_terms: [fashion, design, concepts, mockups, sneaker, guide, comments, creating]
+    token_count: 353
 ---
-
 # Save Time on Mockups: Create detailed sneaker concepts using ChatGPT 4.0 in seconds
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1kxzzml/save_time_on_mockups_create_detailed_sneaker/)

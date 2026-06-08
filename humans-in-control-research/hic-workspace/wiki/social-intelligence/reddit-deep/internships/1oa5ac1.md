@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1oa5ac1.md
 url: "https://www.reddit.com/r/internships/comments/1oa5ac1/student_dev_here_looking_for_an_internship_can/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,15 @@ flair: "General"
 extracted_at: "2026-05-25T15:51:38.717Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1oa5ac1.md#c0"
+    char_span: [0, 893]
+    sentence_count: 5
+    key_terms: [opportunities, internships, contribute, internship, comments, looking, minimum, student]
+    token_count: 212
 ---
-
 # Student dev here  Looking for an internship, can work for minimum — just want to learn and contribute
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1oa5ac1/student_dev_here_looking_for_an_internship_can/)

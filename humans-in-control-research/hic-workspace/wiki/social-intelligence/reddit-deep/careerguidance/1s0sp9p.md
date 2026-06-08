@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1s0sp9p.md
 url: "https://www.reddit.com/r/careerguidance/comments/1s0sp9p/careereducation_transition_from_cs_to_cadd/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,93 @@ flair: "Education & Qualifications"
 extracted_at: "2026-05-22T23:34:01.094Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c0"
+    char_span: [0, 648]
+    sentence_count: 3
+    key_terms: [careerguidance, education, comments, getting, career, degree, wanted, reddit-deep]
+    token_count: 163
+  - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c1"
+    char_span: [650, 2429]
+    sentence_count: 10
+    key_terms: ["i'm", get, because, either, "don't", competitive, like, work]
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c2"
+    char_span: [2431, 4250]
+    sentence_count: 10
+    key_terms: [like, "i'm", college, point, tuition, degree, manipulating, too]
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c3"
+    char_span: [4252, 6603]
+    sentence_count: 7
+    key_terms: [engineering, degree, get, design, bachelors, something, "i'd", like]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c4"
+    char_span: [6321, 6673]
+    sentence_count: 3
+    key_terms: [doesnt, pay, interested, motivation, bachelors, difficult, intrinsic, thinking]
+    token_count: 78
+  - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c5"
+    char_span: [6675, 8779]
+    sentence_count: 10
+    key_terms: [degree, "i'm", cadd, like, shit, already, because, associates]
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c6"
+    char_span: [8781, 10243]
+    sentence_count: 7
+    key_terms: [because, engineering, degree, bim, "i've", couple, architecture, field]
+    token_count: 316
+  - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c7"
+    char_span: [10258, 12396]
+    sentence_count: 7
+    key_terms: [cadd, like, degree, building, involves, autocad, working, bigger]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c8"
+    char_span: [12398, 13969]
+    sentence_count: 9
+    key_terms: [cad, leverage, looking, point, bim, get, "i'm", shit]
+    section: Comments
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c9"
+    char_span: [13971, 16426]
+    sentence_count: 17
+    key_terms: [degree, management, electives, point, database, important, computer, because]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c10"
+    char_span: [16092, 17250]
+    sentence_count: 9
+    key_terms: [degree, important, completing, passionate, passion, career, doing, happy]
+    section: Comments
+    token_count: 247
+  - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c11"
+    char_span: [17252, 19309]
+    sentence_count: 9
+    key_terms: [like, bachelors, psychology, masters, economics, interests, get, want]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c12"
+    char_span: [19311, 21324]
+    sentence_count: 13
+    key_terms: [like, shit, want, degree, something, passion, though, video]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c13"
+    char_span: [21326, 23266]
+    sentence_count: 14
+    key_terms: [like, math, skills, thinking, "don't", guess, get, job]
+    section: Comments
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c14"
+    char_span: [23268, 24886]
+    sentence_count: 8
+    key_terms: [something, like, work, degree, skills, economics, thinking, design]
+    section: Comments
+    token_count: 348
 ---
-
 # Career/education transition from CS to CADD?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1s0sp9p/careereducation_transition_from_cs_to_cadd/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1tis7th.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1tis7th/i_still_dont_buy_into_the_forbes_definition_of_a/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -8,17 +9,38 @@ author: "OldLeave3743"
 date: "2026-05-20T17:14:51.000Z"
 score: 1
 upvote_ratio: 0.67
-num_comments: 5
+num_comments: 6
 flair: "Discussion"
-extracted_at: "2026-05-23T14:54:48.685Z"
+extracted_at: "2026-06-02T17:48:31.042Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tis7th.md#c0"
+    char_span: [0, 2080]
+    sentence_count: 10
+    key_terms: [university, public, schools, measure, forbes, considered, applyingtocollege, ivy]
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tis7th.md#c1"
+    char_span: [2082, 4243]
+    sentence_count: 13
+    key_terms: [public, application, university, ivy, freshman, private, schools, universities]
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tis7th.md#c2"
+    char_span: [4245, 6127]
+    sentence_count: 9
+    key_terms: [university, ivy, forbes, public, co-op, academy, georgia, schools]
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tis7th.md#c3"
+    char_span: [6142, 7754]
+    sentence_count: 10
+    key_terms: [applyingtocollege, essays, ivy, wiki, reddit, collegeessays, https, com]
+    section: Comments
+    token_count: 409
 ---
-
 # I Still Don’t Buy Into the Forbes Definition of a Public Ivy
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1tis7th/i_still_dont_buy_into_the_forbes_definition_of_a/)
-Posted by **OldLeave3743** · **1↑** · **5 comments**
+Posted by **OldLeave3743** · **1↑** · **6 comments**
 
 *Forbes* magazine recently came out with their third list of schools that were considered to be a Public Ivy  These schools included:
 
@@ -106,12 +128,13 @@ This is my view regardless of a family’s ability to pay or whether they hail f
 
 ## Comments
 
+- **TechnicalLeg841** (5↑): Would be so much better if OP actually wrote something themselves instead of using AI.
 - **skieurope12** (4↑): > I have stated many times: a ranking is based on whatever the ranker decides to rank.
 
 So true.
 
 Regardless, my eyes glaze over anytime an article incorrectly uses the term "Ivy" - Public Ivy, Little Ivy, Southern Ivy - etc. If the writer can't some up with a better descriptor, I can't bother reading. And if a college uses one of the terms to describe themselves, it screams "overcompensating" to me.
-- **TechnicalLeg841** (5↑): Would be so much better if OP actually wrote something themselves instead of using AI.
+- **InterestProof1526** (3↑): This Forbes article is so sad. I guess have to withdraw from Berkeley now because it's not a public Ivy.
 - **mik2707** (2↑): The Naval Academy should be on there.
 - **AutoModerator** (1↑): Hey there, I'm a bot and something you said made me think you might be looking for help!
 
@@ -120,4 +143,4 @@ It sounds like your post is related to essays — please check the [**A2C Wiki P
 ###tl;dr: [A2C Essay Wiki](https://www.reddit.com/r/ApplyingToCollege/wiki/essays)
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/ApplyingToCollege) if you have any questions or concerns.*
-- **InterestProof1526** (1↑): This Forbes article is so sad. I guess have to withdraw from Berkeley now because it's not a public Ivy.
+- **Alive-Notice-1302** (1↑): Military academy should not be on the list.  They enrolled to serve the country.

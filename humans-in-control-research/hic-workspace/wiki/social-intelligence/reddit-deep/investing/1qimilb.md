@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1qimilb.md
 url: "https://www.reddit.com/r/investing/comments/1qimilb/should_i_be_moving_away_from_us_stocks_as_a/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,81 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.196Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1qimilb.md#c0"
+    char_span: [0, 1927]
+    sentence_count: 13
+    key_terms: [investing, stocks, american, "i'm", like, individual, companies, portfolio]
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/investing/1qimilb.md#c1"
+    char_span: [1942, 3919]
+    sentence_count: 11
+    key_terms: [politics, equities, current, nothing, events, "don't", jemicarus, protect]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/investing/1qimilb.md#c2"
+    char_span: [3921, 6000]
+    sentence_count: 18
+    key_terms: [dollar, does, stop, american, question, price, last, lost]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/investing/1qimilb.md#c3"
+    char_span: [6002, 7949]
+    sentence_count: 11
+    key_terms: [americans, spending, market, paper, materials, consumer, currency, "they're"]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/investing/1qimilb.md#c4"
+    char_span: [7951, 8412]
+    sentence_count: 3
+    key_terms: [posts, time, feltzinclasp5, fascinating, completely, liberation, vblade2003, primarily]
+    section: Comments
+    token_count: 109
+  - id: "social-intelligence/reddit-deep/investing/1qimilb.md#c5"
+    char_span: [8414, 10338]
+    sentence_count: 10
+    key_terms: [financialthrowaw2020, day, time, contributions, liberation, investors, decided, sitting]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/investing/1qimilb.md#c6"
+    char_span: [10340, 12557]
+    sentence_count: 19
+    key_terms: [billionaires, millionaires, hedge, billionaire, companies, greenland, portfolio, president]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/investing/1qimilb.md#c7"
+    char_span: [12559, 14475]
+    sentence_count: 15
+    key_terms: [decisions, just-here2-learn, certain, agree, ex-us, portfolio, recovered, congress]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/investing/1qimilb.md#c8"
+    char_span: [14477, 15108]
+    sentence_count: 6
+    key_terms: [panama-canal-ports-blackrock-trump, already, people, deal, did, work, just-here2-learn, cupofchupachups]
+    section: Comments
+    token_count: 171
+  - id: "social-intelligence/reddit-deep/investing/1qimilb.md#c9"
+    char_span: [15111, 16766]
+    sentence_count: 12
+    key_terms: [president, just-here2-learn, people, "don't", population, protesting, blackrock, "we're"]
+    section: Comments
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/investing/1qimilb.md#c10"
+    char_span: [16768, 18290]
+    sentence_count: 7
+    key_terms: [country, market, bias, global, labour, something, american, european]
+    section: Comments
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/investing/1qimilb.md#c11"
+    char_span: [18293, 19697]
+    sentence_count: 5
+    key_terms: [international, voo, investment, companies, saalor100, american, defense, stocks]
+    section: Comments
+    token_count: 360
 ---
-
 # Should I be moving away from US stocks as a non-American?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1qimilb/should_i_be_moving_away_from_us_stocks_as_a/)

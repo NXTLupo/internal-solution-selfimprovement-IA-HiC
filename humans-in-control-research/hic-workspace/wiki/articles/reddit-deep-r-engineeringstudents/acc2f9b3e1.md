@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-engineeringstudents/acc2f9b3e1.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1ry069o/how_do_internshipscoops_actually_work_for_mining/"
 url_hash: "acc2f9b3e1"
 kind: "article"
@@ -8,10 +9,22 @@ author: ""
 date: "2026-03-19T13:18:09.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-25T13:06:29.881832+00:00"
+extracted_at: "2026-06-03T03:12:40.986192+00:00"
 chars: 2923
+relevance: 35
+engagement_goal: "Generate a strategic analysis identifying actionable opportunities for Northeastern University to enhance experiential learning and co-op success. Focus the analysis on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development."
+chunks:
+  - id: "articles/reddit-deep-r-engineeringstudents/acc2f9b3e1.md#c0"
+    char_span: [0, 2131]
+    sentence_count: 12
+    key_terms: [engineeringstudents, university, reddit, internships, https, students, com, wiki]
+    token_count: 454
+  - id: "articles/reddit-deep-r-engineeringstudents/acc2f9b3e1.md#c1"
+    char_span: [2133, 3160]
+    sentence_count: 8
+    key_terms: [internships, summer, engineeringstudents, fairs, speak, get, year, sipsipcoakrouch]
+    token_count: 218
 ---
-
 # How do internships/co-ops actually work for mining engineering students?
 
 Source: [Reddit Deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1ry069o/how_do_internshipscoops_actually_work_for_mining/)

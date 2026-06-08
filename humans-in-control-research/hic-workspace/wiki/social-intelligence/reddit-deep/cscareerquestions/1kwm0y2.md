@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1kwm0y2.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1kwm0y2/why_do_cs_students_and_swes_care_about_being/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-20T06:40:32.328Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kwm0y2.md#c0"
+    char_span: [0, 1243]
+    sentence_count: 8
+    key_terms: [passionate, cscareerquestions, being, swe, work, comments, succeed, career]
+    token_count: 311
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kwm0y2.md#c1"
+    char_span: [1258, 3027]
+    sentence_count: 14
+    key_terms: [passionate, people, talking, market, job, work, something, industry]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kwm0y2.md#c2"
+    char_span: [3029, 4374]
+    sentence_count: 11
+    key_terms: [passionate, get, job, passion, people, being, swe, because]
+    section: Comments
+    token_count: 328
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kwm0y2.md#c3"
+    char_span: [4376, 5663]
+    sentence_count: 8
+    key_terms: [work, someone, doesn, something, easier, market, cause, money]
+    section: Comments
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kwm0y2.md#c4"
+    char_span: [5665, 7080]
+    sentence_count: 5
+    key_terms: [passionate, enjoy, "don't", sub, work, computers, something, deleted]
+    section: Comments
+    token_count: 349
 ---
-
 # Why do CS students and SWEs care about being “passionate” about CS?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1kwm0y2/why_do_cs_students_and_swes_care_about_being/)

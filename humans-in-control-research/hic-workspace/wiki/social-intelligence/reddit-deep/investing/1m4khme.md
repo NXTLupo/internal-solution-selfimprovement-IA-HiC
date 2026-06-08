@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1m4khme.md
 url: "https://www.reddit.com/r/investing/comments/1m4khme/selling_38_of_my_portfolio_on_tax_free_account_to/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.194Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1m4khme.md#c0"
+    char_span: [0, 714]
+    sentence_count: 6
+    key_terms: [investing, portfolio, comments, thinking, etf, konrad777777, reddit-deep, speculation]
+    token_count: 194
+  - id: "social-intelligence/reddit-deep/investing/1m4khme.md#c1"
+    char_span: [729, 2293]
+    sentence_count: 14
+    key_terms: [redwire, companies, rayoflight88, rdw, rklb, want, portfolio, growth]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/investing/1m4khme.md#c2"
+    char_span: [2295, 4143]
+    sentence_count: 14
+    key_terms: [company, back, goes, rklb, undervalued, been, good, like]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/investing/1m4khme.md#c3"
+    char_span: [4145, 5582]
+    sentence_count: 10
+    key_terms: [profits, next, sentiment, happier, couldn, market, retail, maybe]
+    section: Comments
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/investing/1m4khme.md#c4"
+    char_span: [5584, 7528]
+    sentence_count: 24
+    key_terms: [especially, learn, speculative, portfolio, compare, deleted, people, simply]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/investing/1m4khme.md#c5"
+    char_span: [7530, 8226]
+    sentence_count: 11
+    key_terms: [sell, automated, often, panic, been, day, sold, time]
+    section: Comments
+    token_count: 144
 ---
-
 # Selling ~38% of my portfolio on tax free account to invest in space stocks
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1m4khme/selling_38_of_my_portfolio_on_tax_free_account_to/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-wallstreetbets/0aee8bcd55.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1rj1mub/the_china_hustle_20_how_tiktoks_biggest/"
 url_hash: "0aee8bcd55"
 kind: "article"
@@ -10,8 +11,45 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:22:21.836248+00:00"
 chars: 10958
+industries: [financial_services, media]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-wallstreetbets/0aee8bcd55.md#c0"
+    char_span: [0, 1556]
+    sentence_count: 8
+    key_terms: [influencer, wallstreetbets, post, "tiktok's", biggest, reddit, comments, "there's"]
+    token_count: 391
+  - id: "articles/reddit-deep-r-wallstreetbets/0aee8bcd55.md#c1"
+    char_span: [1558, 3357]
+    sentence_count: 4
+    key_terms: [https, com, fundcertify-cpa, company, statements, financial, facebook, linkedin]
+    token_count: 453
+  - id: "articles/reddit-deep-r-wallstreetbets/0aee8bcd55.md#c2"
+    char_span: [3359, 5340]
+    sentence_count: 10
+    key_terms: [tiktok-influencer-khaby-lame-ai-avatar-deported-trump-creator-economy-975-million-deal, tiktok-star-khaby-lame-signs-975-million-deal-to-monetize-global-fan-base, tiktoker-khaby-lame-975-million-deal-riding-on-falling-stock-2026-2, https, price, com, bloomberg, offering]
+    token_count: 485
+  - id: "articles/reddit-deep-r-wallstreetbets/0aee8bcd55.md#c3"
+    char_span: [5342, 7376]
+    sentence_count: 7
+    key_terms: [how-a-tiny-hong-kong-firm-grew-bigger-than-goldman-then-began-to-plunge, ex-ubs-banker-s-parents-bought-into-china-ipos-he-helped-arrange, https, underwriters, book, american, e25240d7cfd79e105472e322f82cafd59efa1400, "hkd's"]
+    token_count: 511
+  - id: "articles/reddit-deep-r-wallstreetbets/0aee8bcd55.md#c4"
+    char_span: [7378, 8925]
+    sentence_count: 8
+    key_terms: [influencer, prospectus, company, sparkle, crypto, events, within, brain]
+    token_count: 417
+  - id: "articles/reddit-deep-r-wallstreetbets/0aee8bcd55.md#c5"
+    char_span: [8927, 10464]
+    sentence_count: 5
+    key_terms: [haliey-welch-aka-hawk-tuah-tries-to-explain-herself, https, comments, achieve, article, massive, "there's", reach]
+    token_count: 421
+  - id: "articles/reddit-deep-r-wallstreetbets/0aee8bcd55.md#c6"
+    char_span: [10466, 11201]
+    sentence_count: 3
+    key_terms: [mithyyyy, discord, freshcheesepie, investigative, pre-gamecock, minecraft, positions, presented]
+    token_count: 203
 ---
-
 # The China Hustle 2.0 - How TikTok's Biggest Influencer Pumped & Dumped His Fans... On The NASDAQ.
 
 Source: [Reddit Deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1rj1mub/the_china_hustle_20_how_tiktoks_biggest/)

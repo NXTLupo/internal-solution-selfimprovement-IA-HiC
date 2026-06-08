@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1r30pfd.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1r30pfd/need_advice_msp_recruitment_role_for_a_big_tech/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: "Experienced"
 extracted_at: "2026-05-26T12:54:26.393Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1r30pfd.md#c0"
+    char_span: [0, 1614]
+    sentence_count: 10
+    key_terms: [recruitment, msp, consultancy, client, experience, cscareerquestions, tech, staffing]
+    token_count: 345
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1r30pfd.md#c1"
+    char_span: [1629, 2251]
+    sentence_count: 3
+    key_terms: [positive-art-378, exposure, career, process-driven, opportunities, large-scale, recruitment, stakeholder]
+    section: Comments
+    token_count: 150
 ---
-
 # Need advice: MSP recruitment role for a big tech client – worth it for early career?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1r30pfd/need_advice_msp_recruitment_role_for_a_big_tech/)

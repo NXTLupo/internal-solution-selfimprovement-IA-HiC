@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1s1fon3.md
 url: "https://www.reddit.com/r/GenZ/comments/1s1fon3/anyone_else_feel_like_our_generation_is_lost/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,27 @@ flair: "Discussion"
 extracted_at: "2026-05-16T20:55:01.231Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1s1fon3.md#c0"
+    char_span: [0, 1589]
+    sentence_count: 11
+    key_terms: [years, dont, job, like, generation, comments, friends, parents]
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/genz/1s1fon3.md#c1"
+    char_span: [1604, 3621]
+    sentence_count: 6
+    key_terms: [family, having, want, discord, cooked, dating, people, traditional-let9530]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/genz/1s1fon3.md#c2"
+    char_span: [3623, 4439]
+    sentence_count: 9
+    key_terms: [work, government, market, wanted, cancermoon2caprising, means, fun, job]
+    section: Comments
+    token_count: 202
 ---
-
 # Anyone else feel like our generation is lost?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1s1fon3/anyone_else_feel_like_our_generation_is_lost/)

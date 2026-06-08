@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1r4avc3.md
 url: "https://www.reddit.com/r/GradSchool/comments/1r4avc3/graduate_housing_woes/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.350Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1r4avc3.md#c0"
+    char_span: [0, 1335]
+    sentence_count: 12
+    key_terms: [another, looking, groups, grad, gradschool, comments, graduate, roommate]
+    token_count: 310
+  - id: "social-intelligence/reddit-deep/gradschool/1r4avc3.md#c1"
+    char_span: [1350, 2805]
+    sentence_count: 10
+    key_terms: [dirtrepresentative9, couple, apartments, "couldn't", students, housing, program, stipend]
+    section: Comments
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/gradschool/1r4avc3.md#c2"
+    char_span: [2807, 4128]
+    sentence_count: 10
+    key_terms: [partner, point, car, expensive, living, saying, school, bronx]
+    section: Comments
+    token_count: 293
+  - id: "social-intelligence/reddit-deep/gradschool/1r4avc3.md#c3"
+    char_span: [4130, 6278]
+    sentence_count: 15
+    key_terms: [housing, throwaway172892930, grad, unrealistically, fordham, around, living, bronx]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1r4avc3.md#c4"
+    char_span: [6002, 7421]
+    sentence_count: 7
+    key_terms: [housing, married, people, right, get, live, marriage, cheaper]
+    section: Comments
+    token_count: 320
+  - id: "social-intelligence/reddit-deep/gradschool/1r4avc3.md#c5"
+    char_span: [7423, 9437]
+    sentence_count: 15
+    key_terms: [housing, fordham, queens, school, streeteasy, university, position, another]
+    section: Comments
+    token_count: 483
 ---
-
 # Graduate Housing Woes
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1r4avc3/graduate_housing_woes/)

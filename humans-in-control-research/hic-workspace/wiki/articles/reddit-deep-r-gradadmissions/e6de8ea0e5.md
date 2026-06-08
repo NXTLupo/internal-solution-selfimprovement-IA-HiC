@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-gradadmissions/e6de8ea0e5.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rn2bx7/got_into_ucla/"
 url_hash: "e6de8ea0e5"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:41:29.031112+00:00"
 chars: 943
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-gradadmissions/e6de8ea0e5.md#c0"
+    char_span: [0, 1077]
+    sentence_count: 7
+    key_terms: [thank, congratulations, gradadmissions, beyond, fsan13, ucla, undergrad, wonderful]
+    token_count: 288
 ---
-
 # Got into UCLA!
 
 Source: [Reddit Deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rn2bx7/got_into_ucla/)

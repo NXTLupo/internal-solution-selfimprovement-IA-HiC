@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1rtnzwo.md
 url: "https://www.reddit.com/r/jobs/comments/1rtnzwo/it_is_2026_and_were_still_doing_this/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,87 @@ flair: "Office relations"
 extracted_at: "2026-05-24T14:10:06.643Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1rtnzwo.md#c0"
+    char_span: [0, 602]
+    sentence_count: 5
+    key_terms: [comments, "they're", individualdoughnut96, going, jobs, reddit-deep, everywhere, experience]
+    token_count: 154
+  - id: "social-intelligence/reddit-deep/jobs/1rtnzwo.md#c1"
+    char_span: [617, 2490]
+    sentence_count: 11
+    key_terms: [sick, someone, anonymous345678910, immunocompromised, inconsiderate, don, because, chronically]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1rtnzwo.md#c2"
+    char_span: [2218, 2649]
+    sentence_count: 1
+    key_terms: [odd-law8794, contagious, definitely, especially, misterfuss, important, reminding, bathroom]
+    section: Comments
+    token_count: 114
+  - id: "social-intelligence/reddit-deep/jobs/1rtnzwo.md#c3"
+    char_span: [2651, 4690]
+    sentence_count: 14
+    key_terms: [sick, did, because, manager, come, day, like, bathroom]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1rtnzwo.md#c4"
+    char_span: [4463, 5654]
+    sentence_count: 8
+    key_terms: [sick, fucking, week, send, because, usually, individualdoughnut96, auto]
+    section: Comments
+    token_count: 297
+  - id: "social-intelligence/reddit-deep/jobs/1rtnzwo.md#c5"
+    char_span: [5656, 7065]
+    sentence_count: 10
+    key_terms: [paid, leave, sick, note, work, mandatory, vacation, nothing]
+    section: Comments
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/jobs/1rtnzwo.md#c6"
+    char_span: [7067, 8872]
+    sentence_count: 12
+    key_terms: [sick, doctor, leave, work, going, next, week, advance]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/jobs/1rtnzwo.md#c7"
+    char_span: [8875, 10583]
+    sentence_count: 8
+    key_terms: [sick, because, beartato4772, tonsillitis, day, exhausts, pigeoneatingpancakes, makes]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/jobs/1rtnzwo.md#c8"
+    char_span: [10585, 11926]
+    sentence_count: 15
+    key_terms: [sick, policy, days, health, work, fridays, meeting, mondays]
+    section: Comments
+    token_count: 284
+  - id: "social-intelligence/reddit-deep/jobs/1rtnzwo.md#c9"
+    char_span: [11928, 13490]
+    sentence_count: 10
+    key_terms: [problem, body, get, sick, work, remember, fridays, getting]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/jobs/1rtnzwo.md#c10"
+    char_span: [13492, 14011]
+    sentence_count: 3
+    key_terms: [everywhere, happening, redact, individualdoughnut96, sick, antipiety, reduction, exposure]
+    section: Comments
+    token_count: 139
+  - id: "social-intelligence/reddit-deep/jobs/1rtnzwo.md#c11"
+    char_span: [14013, 15765]
+    sentence_count: 10
+    key_terms: [sick, pto, days, don, job, pay, already, company]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/jobs/1rtnzwo.md#c12"
+    char_span: [15767, 17879]
+    sentence_count: 22
+    key_terms: [sick, calls, less, pay, work, anything, employee, paycheck]
+    section: Comments
+    token_count: 501
 ---
-
 # It is 2026 and we're still doing this!
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1rtnzwo/it_is_2026_and_were_still_doing_this/)

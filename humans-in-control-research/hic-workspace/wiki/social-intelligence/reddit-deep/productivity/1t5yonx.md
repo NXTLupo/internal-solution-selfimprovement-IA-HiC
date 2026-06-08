@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1t5yonx.md
 url: "https://www.reddit.com/r/productivity/comments/1t5yonx/gmail_managing_follow_ups_better/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,21 @@ flair: "Advice Needed"
 extracted_at: "2026-05-26T12:53:45.657Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1t5yonx.md#c0"
+    char_span: [0, 2062]
+    sentence_count: 23
+    key_terms: [follow, gmail, been, like, ups, use, snoozed, labels]
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/productivity/1t5yonx.md#c1"
+    char_span: [2077, 3845]
+    sentence_count: 15
+    key_terms: [drafts, gmail, inbox, email, response, immediately, needs, need]
+    section: Comments
+    token_count: 441
 ---
-
 # Gmail - managing follow ups better?
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1t5yonx/gmail_managing_follow_ups_better/)

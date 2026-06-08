@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1pw56nv.md
 url: "https://www.reddit.com/r/careerguidance/comments/1pw56nv/what_bachelors_degrees_actually_age_well_toward/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,93 @@ flair: "Advice"
 extracted_at: "2026-05-25T18:32:57.393Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c0"
+    char_span: [0, 556]
+    sentence_count: 3
+    key_terms: [careerguidance, bachelor, comments, bestconstruction191, physics-based, availability, flexibility, reddit-deep]
+    token_count: 136
+  - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c1"
+    char_span: [571, 2496]
+    sentence_count: 6
+    key_terms: [truck, trades, hospitality, aviation, mechanic, physical, athlete, manager]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c2"
+    char_span: [2498, 3848]
+    sentence_count: 15
+    key_terms: [military, transportation, job, industry, driver, crash, today, truck]
+    section: Comments
+    token_count: 304
+  - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c3"
+    char_span: [3850, 5903]
+    sentence_count: 15
+    key_terms: [engineering, engineers, need, pilots, entertainment, civil, truck, good]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c4"
+    char_span: [5906, 8082]
+    sentence_count: 12
+    key_terms: [probably, agriculture, engineering, education, business, engineer, specific, because]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c5"
+    char_span: [8084, 10109]
+    sentence_count: 17
+    key_terms: [engineering, work, possible, patient, service, accounting, positions, customer]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c6"
+    char_span: [10112, 10500]
+    sentence_count: 4
+    key_terms: [bls, recommendation, extinct-seed, fluctuations, occupational, quietlifter, handbook, patients]
+    section: Comments
+    token_count: 97
+  - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c7"
+    char_span: [10503, 12449]
+    sentence_count: 17
+    key_terms: [occupations, patients, nursing, employment, physically, hospitals, projected, openings]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c8"
+    char_span: [12451, 13505]
+    sentence_count: 10
+    key_terms: [get, hospital, expect, pounds, weight, "don't", hours, shift]
+    section: Comments
+    token_count: 255
+  - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c9"
+    char_span: [13508, 15253]
+    sentence_count: 14
+    key_terms: [nursing, progression, because, science, systems, career, main-assumption7554, far-watercress6658]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c10"
+    char_span: [15255, 17421]
+    sentence_count: 12
+    key_terms: [undergraduate, because, people, humanities, major, degree, requirements, need]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c11"
+    char_span: [17423, 19479]
+    sentence_count: 19
+    key_terms: [engineering, good, major, matter, get, experience, something, probably]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c12"
+    char_span: [19482, 21869]
+    sentence_count: 18
+    key_terms: [something, planning, helping, making, development, job, like, work]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/careerguidance/1pw56nv.md#c13"
+    char_span: [21871, 24173]
+    sentence_count: 17
+    key_terms: [university, planning, urban, research, architecture, people, learn, major]
+    section: Comments
+    token_count: 511
 ---
-
 # What bachelor’s degrees actually age well toward 2030+?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1pw56nv/what_bachelors_degrees_actually_age_well_toward/)

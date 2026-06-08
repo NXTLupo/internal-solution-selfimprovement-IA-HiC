@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1r8lrcw.md
 url: "https://www.reddit.com/r/internships/comments/1r8lrcw/still_dont_have_a_summer_internship_here_is_what/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,58 @@ subreddit: "internships"
 title: "still don't have a summer internship? here is what i would do. you aren't cooked (just yet)"
 author: "Suitable-Jelly-3693"
 date: "2026-02-19T01:28:03.000Z"
-score: 227
+score: 232
 upvote_ratio: 0.95
-num_comments: 46
+num_comments: 47
 flair: "General"
-extracted_at: "2026-05-26T14:30:47.902Z"
+extracted_at: "2026-06-06T16:39:04.094Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1r8lrcw.md#c0"
+    char_span: [0, 2030]
+    sentence_count: 1
+    key_terms: [intern, internships, don, summer, internship, late, postings, apply]
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/internships/1r8lrcw.md#c1"
+    char_span: [2032, 4129]
+    sentence_count: 1
+    key_terms: [don, outreach, internships, companies, ask, get, someone, applications]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/internships/1r8lrcw.md#c2"
+    char_span: [4131, 5606]
+    sentence_count: 1
+    key_terms: [internships, don, relationships, keep, year-round, companies, students, relationship-building]
+    token_count: 339
+  - id: "social-intelligence/reddit-deep/internships/1r8lrcw.md#c3"
+    char_span: [5621, 5791]
+    sentence_count: 2
+    key_terms: [offer, got, stickybarbie, alongside, small-ish, company, intern, people]
+    section: Comments
+    token_count: 44
+  - id: "social-intelligence/reddit-deep/internships/1r8lrcw.md#c4"
+    char_span: [5793, 7702]
+    sentence_count: 4
+    key_terms: [suitable-jelly-3693, life-journalist-2790, experience, chatgpt, relationships, anything, original, valuable]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1r8lrcw.md#c5"
+    char_span: [7455, 7912]
+    sentence_count: 1
+    key_terms: [insane, suitable-jelly-3693, neat-service-7974, ashaazability, conversation, heavenlylord, finishing, "couldn't"]
+    section: Comments
+    token_count: 126
+  - id: "social-intelligence/reddit-deep/internships/1r8lrcw.md#c6"
+    char_span: [7914, 8540]
+    sentence_count: 6
+    key_terms: [companies, suitable-jelly-3693, variouschicken1144, slow-hair7851, certificate, internships, definitely, internship]
+    section: Comments
+    token_count: 156
 ---
-
 # still don't have a summer internship? here is what i would do. you aren't cooked (just yet)
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1r8lrcw/still_dont_have_a_summer_internship_here_is_what/)
-Posted by **Suitable-Jelly-3693** · **227↑** · **46 comments**
+Posted by **Suitable-Jelly-3693** · **232↑** · **47 comments**
 
 if you’re reading this and you still don’t have something locked in for summer 2026, i get it. it feels late. you’ve probably watched friends announce offers months ago. you might even be avoiding linkedin because every scroll is another “so excited to announce…”
 
@@ -180,22 +220,22 @@ and if it doesn’t land this round, don’t waste the miss. build proof, keep r
 
 ## Comments
 
-- **stickybarbie** (9↑): Last year I got my offer in April with a small-ish company of about 150 people in our site. The intern I worked alongside got her offer in May. 
+- **stickybarbie** (11↑): Last year I got my offer in April with a small-ish company of about 150 people in our site. The intern I worked alongside got her offer in May. 
 
 Additionally, I was granted an extension and was able to work part-time remotely during the fall school semester. Sometimes those small companies allow for closer relationships and way more flexibility!
   - **Emotional_Spread528** (3↑): W
   - **Suitable-Jelly-3693** (2↑): dude that is awesome. i had a really similar experience last year, i was rejected from a bunch of faang/big tech opportunities, but ended up having a blast at a local studio during the summer.
     - **stickybarbie** (2↑): exactly! i wouldn’t trade my experience for anything else. plus company size ≠ experience quality, those close relationships build trust and you can end up being trained on higher-level tasks if your team sees your competencies!
-- **Life-Journalist-2790** (11↑): Thank you so much 😊
+- **Life-Journalist-2790** (10↑): Thank you so much 😊
   - **Suitable-Jelly-3693** (1↑): for sure!! reach out if there is anything i can do to help. you got this!
     - **Life-Journalist-2790** (2↑): Can I dm u
     - **unknown_boy2004** (1↑): Can i also dm you?
-- **Emotional_Spread528** (10↑): I am with you on finding internships as soon as they are indexed. It’s a game of speed out there rn.
+- **Emotional_Spread528** (8↑): I am with you on finding internships as soon as they are indexed. It’s a game of speed out there rn.
   - **Suitable-Jelly-3693** (2↑): yeah 2025 and 2026 internship season have been a different animal. it’s actually brutal out there.
-- **No-Suggestion-9433** (4↑): AI is rotting your brain
+- **No-Suggestion-9433** (3↑): AI is rotting your brain
 - **NahhhReallyyyy** (7↑): Straight outta ChatGPT
   - **Suitable-Jelly-3693** (0↑): welcome to 2026 bro people use chatgpt to write. you do too. what matters is that I convey original, valuable ideas. I sit and talk with chatgpt for 5 minutes and it organizes my thoughts and turns them into a clear formatted output. that’s how it’s supposed to be used.
-    - **heavenlylord** (4↑): “original, valuable ideas” and it’s just the most generic advice that it would tell you within 2 minutes of starting the conversation
+    - **heavenlylord** (3↑): “original, valuable ideas” and it’s just the most generic advice that it would tell you within 2 minutes of starting the conversation
 - **Ashaazability** (3↑): 2027 banking is finishing up too which is insane how early they recruit
   - **Suitable-Jelly-3693** (1↑): yeah fr. i couldn't imagine being in that field rn. it sounds insane from what I have heard from my friends.
 - **Neat-Service-7974** (3↑): For those reading this,

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1r7dxii.md
 url: "https://www.reddit.com/r/humanresources/comments/1r7dxii/given_my_job_description_what_would_you_think_the/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -6,19 +7,36 @@ subreddit: "humanresources"
 title: "Given my job description, what would you think the accurate job title should be? [N/A]"
 author: "Brizzy_11"
 date: "2026-02-17T18:15:18.000Z"
-score: 2
-upvote_ratio: 0.67
+score: 1
+upvote_ratio: 0.57
 num_comments: 19
 flair: ""
-extracted_at: "2026-05-23T12:15:41.564Z"
+extracted_at: "2026-06-06T17:42:52.455Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1r7dxii.md#c0"
+    char_span: [0, 1927]
+    sentence_count: 13
+    key_terms: [administrative, store, job, generalist, responsibilities, humanresources, demonstrating, understanding]
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/humanresources/1r7dxii.md#c1"
+    char_span: [1942, 4059]
+    sentence_count: 17
+    key_terms: [generalist, administrator, role, admin, straight-peach1854, position, company, level]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/humanresources/1r7dxii.md#c2"
+    char_span: [4061, 4948]
+    sentence_count: 7
+    key_terms: [generalist, admin, entry, level, hot-district7964, recommendations, administration, issues--unless]
+    section: Comments
+    token_count: 212
 ---
-
 # Given my job description, what would you think the accurate job title should be? [N/A]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1r7dxii/given_my_job_description_what_would_you_think_the/)
-Posted by **Brizzy_11** · **2↑** · **19 comments**
+Posted by **Brizzy_11** · **1↑** · **19 comments**
 
 Hi all! I work in HR (my company calls it People & Culture or P&C), and I guess I am a bit confused about my job responsibilities vs the official job title. Given the job description below for my HR role, would you believe that the responsibilities align more with an HR Administrator or an HR Generalist?:
 
@@ -35,14 +53,14 @@ You will work collaboratively with the Store Management Team and the Store HR Bu
 
 ## Comments
 
-- **Spiritual_Ad337** (18↑): This reads as pretty entry level, so the title doesn’t really matter. But I’d lean administrator.
+- **Spiritual_Ad337** (19↑): This reads as pretty entry level, so the title doesn’t really matter. But I’d lean administrator.
   - **Brizzy_11** (2↑): Appreciate the response. It's an administrator role, and I guess I am unclear on the difference between the two, given that it dips into a somewhat generalist role.
-    - **Spiritual_Ad337** (8↑): A generalist typically has some authority in employee relations matters. Especially in conducting investigations
-- **z-eldapin** (12↑): Job descriptions, even in HR are company specific. What may be an HRM in your company could be AN HRBP in another.
+    - **Spiritual_Ad337** (9↑): A generalist typically has some authority in employee relations matters. Especially in conducting investigations
+- **z-eldapin** (10↑): Job descriptions, even in HR are company specific. What may be an HRM in your company could be AN HRBP in another.
 
 For this JD, either of the options you listed would be fine.
 - **Hrgooglefu** (4↑): titles and job duties are company and manager specific....no one can tell you here what your employer should call your position. Sounds a bit more like an Admin to me though.  Especially since there is a store HRBP that will do a lot of the heavy lifting.
-- **workflowsidechat** (3↑): Based on that description, it reads much closer to an HR Generalist than a pure HR Administrator. You’re touching the full employee lifecycle, recruitment, onboarding, performance, payroll, ER, engagement, compliance, even succession. That’s broader than typical admin support, which is usually more transactional and process driven. It does sound like a very operational, store level generalist role, but still generalist in scope rather than strictly administrative.
+- **workflowsidechat** (4↑): Based on that description, it reads much closer to an HR Generalist than a pure HR Administrator. You’re touching the full employee lifecycle, recruitment, onboarding, performance, payroll, ER, engagement, compliance, even succession. That’s broader than typical admin support, which is usually more transactional and process driven. It does sound like a very operational, store level generalist role, but still generalist in scope rather than strictly administrative.
 - **Straight-Peach1854** (3↑): This seems entry level to me -administrator.  Also curious as to what kind of store has an HR admin?  Costco? Walmart?
   - **Brizzy_11** (1↑): A clothing retailer called Primark
     - **Straight-Peach1854** (2↑): Thanks for entertaining my curiosity. We don't have one of those stores in my area.

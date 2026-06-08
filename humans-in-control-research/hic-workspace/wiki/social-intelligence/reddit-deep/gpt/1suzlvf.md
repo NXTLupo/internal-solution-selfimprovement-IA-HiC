@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1suzlvf.md
 url: "https://www.reddit.com/r/GPT/comments/1suzlvf/i_made_a_small_gpt_image_2_prompt_gallery/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,15 @@ flair: "GPT-4"
 extracted_at: "2026-05-11T17:26:37.723Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1suzlvf.md#c0"
+    char_span: [0, 722]
+    sentence_count: 5
+    key_terms: [gpt, prompt, comments, gallery, github, source, https, image]
+    token_count: 190
 ---
-
 # I made a small GPT Image 2 prompt gallery
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1suzlvf/i_made_a_small_gpt_image_2_prompt_gallery/)

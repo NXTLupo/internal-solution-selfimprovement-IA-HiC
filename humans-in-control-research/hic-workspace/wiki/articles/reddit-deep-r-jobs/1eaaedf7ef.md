@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-jobs/1eaaedf7ef.md
 url: "https://www.reddit.com/r/jobs/comments/1reijwx/are_there_any_entrylevel_jobs_not_threatened_by_ai/"
 url_hash: "1eaaedf7ef"
 kind: "article"
@@ -8,10 +9,22 @@ author: ""
 date: "2026-02-25T16:49:29.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-20T02:36:43.270265+00:00"
-chars: 2551
+extracted_at: "2026-06-06T13:10:11.960783+00:00"
+chars: 2910
+relevance: 45
+engagement_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "articles/reddit-deep-r-jobs/1eaaedf7ef.md#c0"
+    char_span: [0, 2204]
+    sentence_count: 12
+    key_terms: [jobs, get, workers, entry-level, degree, being, field, like]
+    token_count: 496
+  - id: "articles/reddit-deep-r-jobs/1eaaedf7ef.md#c1"
+    char_span: [2206, 3099]
+    sentence_count: 4
+    key_terms: [outsourcing, needed, emergency-pollution2, new-veterinarian5597, budtrimmingbaddie, icenerveshatter, odd-flower2744, contributing]
+    token_count: 216
 ---
-
 # Are there any entry-level jobs not threatened by AI?
 
 Source: [Reddit Deep: r/jobs](https://www.reddit.com/r/jobs/comments/1reijwx/are_there_any_entrylevel_jobs_not_threatened_by_ai/)
@@ -22,12 +35,16 @@ The only options on the table that are mostly safe from AI seem to be the medica
 
 --- TOP COMMENTS ---
 [28↑ Myelo_Screed] AI isn’t taking jobs, outsourcing is
-[16↑ karateisntreal] The company my fiance works at recently laid of a ton of American workers with degrees earning 60-70k to replace them with workers in India who accept 5-10k usd per year. 
+[17↑ karateisntreal] The company my fiance works at recently laid of a ton of American workers with degrees earning 60-70k to replace them with workers in India who accept 5-10k usd per year. 
 
 Outsourcing is already really bad an AI is only going to compound these types of layoffs.
-[4↑ BudTrimmingBaddie] There is evidence that AI and outsourcing are both contributing factors to the current issues in the job market.
+[5↑ BudTrimmingBaddie] There is evidence that AI and outsourcing are both contributing factors to the current issues in the job market.
 [0↑ New-Veterinarian5597] Then why Ask?
-[4↑ icenerveshatter] Also AI
-[1↑ typodewww] Yes “Actual Indians”
+[5↑ icenerveshatter] Also AI
 [2↑ Round_Bag_4665] I mean to be fair, if outsourcing wasnt an option a lot of these companies absolutely would use robots instead of actually hiring local.
 [1↑ Emergency-Pollution2] AI = actual indians
+[7↑ Odd-Flower2744] I wouldn’t worry so much about it. Everyone goes through major innovation break throughs in their careers, AI isn’t any different. 
+
+It’s all being overstated by doomers who are actually AI salesman if you dig deeper trying to scare everybody into using it. 
+
+Just get into a general business field and pivot as needed, people are always needed there and it’s very flexible.

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/workonline/1o1x3vv.md
 url: "https://www.reddit.com/r/WorkOnline/comments/1o1x3vv/beginner_from_the_philippines_where_should_i/"
 kind: "social-post"
 source: "reddit-deep: r/workonline"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-26T12:53:45.648Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/workonline/1o1x3vv.md#c0"
+    char_span: [0, 922]
+    sentence_count: 9
+    key_terms: [philippines, online, start, workonline, comments, working, skills, beginner-friendly]
+    token_count: 216
+  - id: "social-intelligence/reddit-deep/workonline/1o1x3vv.md#c1"
+    char_span: [937, 1785]
+    sentence_count: 7
+    key_terms: [experience, simple, apply, beginner-friendly, jobs, applications, philippines, unoriginal2]
+    section: Comments
+    token_count: 208
 ---
-
 # Beginner from the Philippines where should I start working online?
 
 Source: [reddit-deep: r/workonline](https://www.reddit.com/r/WorkOnline/comments/1o1x3vv/beginner_from_the_philippines_where_should_i/)

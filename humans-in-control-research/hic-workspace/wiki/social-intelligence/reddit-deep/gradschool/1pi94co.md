@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1pi94co.md
 url: "https://www.reddit.com/r/GradSchool/comments/1pi94co/starting_grad_school_youngish/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.140Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1pi94co.md#c0"
+    char_span: [0, 875]
+    sentence_count: 5
+    key_terms: [grad, school, experiences, gradschool, comments, younger, people, reddit-deep]
+    token_count: 205
+  - id: "social-intelligence/reddit-deep/gradschool/1pi94co.md#c1"
+    char_span: [890, 2350]
+    sentence_count: 14
+    key_terms: [school, grad, students, undergrad, phd, programs, straight, people]
+    section: Comments
+    token_count: 345
+  - id: "social-intelligence/reddit-deep/gradschool/1pi94co.md#c2"
+    char_span: [2352, 4300]
+    sentence_count: 12
+    key_terms: [undergrad, people, humanities, straight, students, masters, grad, phd]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/gradschool/1pi94co.md#c3"
+    char_span: [4302, 5888]
+    sentence_count: 12
+    key_terms: [asphyxiat3xx, being, starting, program, never, old, phd, anything]
+    section: Comments
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/gradschool/1pi94co.md#c4"
+    char_span: [5890, 7674]
+    sentence_count: 10
+    key_terms: [started, young, undergrad, person, experience, graduated, research, youngest]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/gradschool/1pi94co.md#c5"
+    char_span: [7676, 9056]
+    sentence_count: 8
+    key_terms: [undergrad, young, year, responsible-bean, program, school, grad, advantage]
+    section: Comments
+    token_count: 338
 ---
-
 # Starting grad school young(ish)
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1pi94co/starting_grad_school_youngish/)

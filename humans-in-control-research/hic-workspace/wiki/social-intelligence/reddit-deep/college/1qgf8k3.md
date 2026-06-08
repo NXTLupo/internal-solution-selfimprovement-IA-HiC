@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1qgf8k3.md
 url: "https://www.reddit.com/r/college/comments/1qgf8k3/how_do_i_start_over_in_college/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,39 @@ flair: "Social Life"
 extracted_at: "2026-05-23T20:15:18.463Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1qgf8k3.md#c0"
+    char_span: [0, 1401]
+    sentence_count: 10
+    key_terms: [college, school, want, high, experience, interests, comments, worried]
+    token_count: 332
+  - id: "social-intelligence/reddit-deep/college/1qgf8k3.md#c1"
+    char_span: [1416, 3308]
+    sentence_count: 15
+    key_terms: [clubs, group, maybe, depending, friends, join, different, college]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/college/1qgf8k3.md#c2"
+    char_span: [3310, 5037]
+    sentence_count: 14
+    key_terms: [college, students, social, seen, especially, professor, campus, friend]
+    section: Comments
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/college/1qgf8k3.md#c3"
+    char_span: [5039, 6978]
+    sentence_count: 13
+    key_terms: [miserable-practice99, people, like, librarylurker42, friends, thank, newsletters, dont]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/college/1qgf8k3.md#c4"
+    char_span: [6980, 8629]
+    sentence_count: 23
+    key_terms: [friends, people, yourself, get, college, making, group, put]
+    section: Comments
+    token_count: 391
 ---
-
 # How do I start over in college?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1qgf8k3/how_do_i_start_over_in_college/)

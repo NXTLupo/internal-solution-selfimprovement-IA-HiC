@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1raxroj.md
 url: "https://www.reddit.com/r/waterloo/comments/1raxroj/is_anyone_else_struggling_to_find_a_job_in/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.126Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1raxroj.md#c0"
+    char_span: [0, 1122]
+    sentence_count: 11
+    key_terms: [waterloo, anyone, healthcare, kitchener, comments, ontario, service, more-competition-946]
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/waterloo/1raxroj.md#c1"
+    char_span: [1137, 3022]
+    sentence_count: 16
+    key_terms: [oldschoolawesome, summer, right, jobs, definitely, experience, lifeguards, cambridge]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/waterloo/1raxroj.md#c2"
+    char_span: [3024, 3974]
+    sentence_count: 12
+    key_terms: [work, hundreds, more-competition-946, right, back, smarttea1138, afrocuban68, completely]
+    section: Comments
+    token_count: 265
+  - id: "social-intelligence/reddit-deep/waterloo/1raxroj.md#c3"
+    char_span: [3976, 5412]
+    sentence_count: 11
+    key_terms: [catering, season, cubetimeframe, pickmembers, university, wedding, always, summer]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/waterloo/1raxroj.md#c4"
+    char_span: [5416, 7091]
+    sentence_count: 11
+    key_terms: [degree, years, job, year, opportunity, applicants, university, program]
+    section: Comments
+    token_count: 401
 ---
-
 # Is anyone else struggling to find a job in Ontario right now? (Kitchener/Waterloo)
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1raxroj/is_anyone_else_struggling_to_find_a_job_in/)

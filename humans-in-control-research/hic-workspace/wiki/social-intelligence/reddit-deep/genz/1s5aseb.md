@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1s5aseb.md
 url: "https://www.reddit.com/r/GenZ/comments/1s5aseb/cost_of_living_avoiding_debt/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,51 @@ flair: "Discussion"
 extracted_at: "2026-05-16T20:55:01.228Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1s5aseb.md#c0"
+    char_span: [0, 1430]
+    sentence_count: 13
+    key_terms: [like, townhouse, comments, everyone, economy, holding, living, coolreplacement2837]
+    token_count: 341
+  - id: "social-intelligence/reddit-deep/genz/1s5aseb.md#c1"
+    char_span: [1445, 2996]
+    sentence_count: 11
+    key_terms: [jobs, work, discord, minimum, working, heater, months, broke]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/genz/1s5aseb.md#c2"
+    char_span: [2998, 4108]
+    sentence_count: 9
+    key_terms: [car, situation, boomers, coolreplacement2837, "can't", years, don, get]
+    section: Comments
+    token_count: 287
+  - id: "social-intelligence/reddit-deep/genz/1s5aseb.md#c3"
+    char_span: [4110, 6088]
+    sentence_count: 13
+    key_terms: [coolreplacement2837, youchasechickens, "it's", definitely, apartment, engineers, probably, townhome]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/genz/1s5aseb.md#c4"
+    char_span: [6090, 8169]
+    sentence_count: 26
+    key_terms: [city, per, own, unfortunately, month, taxes, area, like]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/genz/1s5aseb.md#c5"
+    char_span: [8171, 9715]
+    sentence_count: 15
+    key_terms: [coolreplacement2837, able, married, single, financially, own, paycheck, couples]
+    section: Comments
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/genz/1s5aseb.md#c6"
+    char_span: [9717, 10705]
+    sentence_count: 5
+    key_terms: [coolreplacement2837, eltaquerodeca, money, together, parents, making, people, did]
+    section: Comments
+    token_count: 254
 ---
-
 # Cost of living - avoiding debt
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1s5aseb/cost_of_living_avoiding_debt/)

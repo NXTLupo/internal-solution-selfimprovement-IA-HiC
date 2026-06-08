@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1qbhv3i.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1qbhv3i/im_in_my_silver_era/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,27 @@ flair: "Gain"
 extracted_at: "2026-05-17T01:14:17.612Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qbhv3i.md#c0"
+    char_span: [0, 1517]
+    sentence_count: 20
+    key_terms: [silver, shiny, rock, calls, wallstreetbets, portfolio, comments, decided]
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qbhv3i.md#c1"
+    char_span: [1532, 2978]
+    sentence_count: 10
+    key_terms: [buying, silver, wsb, year, everyone, discord, squeeze, throwawaywhiteguy333]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qbhv3i.md#c2"
+    char_span: [2980, 4620]
+    sentence_count: 8
+    key_terms: [cowboycookie1337, c2f2c282eee8e58fd1b483b4a2792d6e5c6e6d1f, silver, troflecopter, puts, because, definitelynotshazbot, going]
+    section: Comments
+    token_count: 511
 ---
-
 # I'm in my Silver Era
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1qbhv3i/im_in_my_silver_era/)

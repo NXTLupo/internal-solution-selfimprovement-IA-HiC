@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-investing/7dcbe2fdc5.md
 url: "https://www.reddit.com/r/investing/comments/1ra9g3x/from_buy_america_to_bye_america_wall_street/"
 url_hash: "7dcbe2fdc5"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-16T20:58:19.217860+00:00"
 chars: 1496
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-investing/7dcbe2fdc5.md#c0"
+    char_span: [0, 1704]
+    sentence_count: 8
+    key_terms: [buy-america-bye-america-wall-street-exodus-gathers-pace-2026-02-20, investors, https, com, www, investing, business, comments]
+    token_count: 446
 ---
-
 # From 'buy America' to 'bye America', Wall Street exodus gathers pace
 
 Source: [Reddit Deep: r/investing](https://www.reddit.com/r/investing/comments/1ra9g3x/from_buy_america_to_bye_america_wall_street/)

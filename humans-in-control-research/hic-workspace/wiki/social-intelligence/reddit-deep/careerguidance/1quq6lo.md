@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1quq6lo.md
 url: "https://www.reddit.com/r/careerguidance/comments/1quq6lo/what_should_i_do/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,50 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.162Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1quq6lo.md#c0"
+    char_span: [0, 2199]
+    sentence_count: 21
+    key_terms: ["don't", work, pharmacy, warehouse, want, working, careerguidance, decade]
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/careerguidance/1quq6lo.md#c1"
+    char_span: [2201, 2783]
+    sentence_count: 5
+    key_terms: ["i'm", recommendations, letters, medical, need, professionals, communicator, financially]
+    token_count: 123
+  - id: "social-intelligence/reddit-deep/careerguidance/1quq6lo.md#c2"
+    char_span: [2798, 5097]
+    sentence_count: 18
+    key_terms: [companies, training, management, roles, work, operations, corporate, warehouse]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/careerguidance/1quq6lo.md#c3"
+    char_span: [5099, 6530]
+    sentence_count: 12
+    key_terms: [degree, worked, associates, corporate, bachelor, company, manager, supply]
+    section: Comments
+    token_count: 317
+  - id: "social-intelligence/reddit-deep/careerguidance/1quq6lo.md#c4"
+    char_span: [6532, 8654]
+    sentence_count: 24
+    key_terms: [feelingseason6956, experience, logistics, look, industry, like, pay, optometry]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1quq6lo.md#c5"
+    char_span: [8364, 9352]
+    sentence_count: 10
+    key_terms: [lower, state, job, pay, probably, slightly, starting, pension]
+    section: Comments
+    token_count: 195
+  - id: "social-intelligence/reddit-deep/careerguidance/1quq6lo.md#c6"
+    char_span: [9354, 11002]
+    sentence_count: 15
+    key_terms: [warehouse, management, training, company, experience, standards, use, supply]
+    section: Comments
+    token_count: 354
 ---
-
 # What should I do?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1quq6lo/what_should_i_do/)

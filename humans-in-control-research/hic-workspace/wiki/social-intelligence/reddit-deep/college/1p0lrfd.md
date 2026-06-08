@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1p0lrfd.md
 url: "https://www.reddit.com/r/college/comments/1p0lrfd/going_back_at_30/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,38 @@ flair: "Abilities/Accommodations"
 extracted_at: "2026-05-26T14:31:29.698Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1p0lrfd.md#c0"
+    char_span: [0, 1553]
+    sentence_count: 15
+    key_terms: [college, going, back, time, comments, unusual, buckle, gotten]
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/college/1p0lrfd.md#c1"
+    char_span: [1555, 2700]
+    sentence_count: 10
+    key_terms: [major, transcript, classes, concern, change, school, part, want]
+    token_count: 240
+  - id: "social-intelligence/reddit-deep/college/1p0lrfd.md#c2"
+    char_span: [2715, 4335]
+    sentence_count: 14
+    key_terms: [college, years, age, cosmology, question, students, because, school]
+    section: Comments
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/college/1p0lrfd.md#c3"
+    char_span: [4337, 6234]
+    sentence_count: 17
+    key_terms: ["i'm", student, classmates, old, year, usually, assume, age]
+    section: Comments
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/college/1p0lrfd.md#c4"
+    char_span: [6236, 7824]
+    sentence_count: 14
+    key_terms: [nearly-third-students-change-major-within-three-years-math-majors-most, going, recommendation, here, professors, average, classes, credits]
+    section: Comments
+    token_count: 396
 ---
-
 # Going Back At 30...?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1p0lrfd/going_back_at_30/)

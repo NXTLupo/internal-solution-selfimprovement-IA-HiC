@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1rmbbf3.md
 url: "https://www.reddit.com/r/deeplearning/comments/1rmbbf3/we_invented_a_new_ml_architecture_to_oneshot/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,32 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.050Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1rmbbf3.md#c0"
+    char_span: [0, 2460]
+    sentence_count: 14
+    key_terms: [model, graph, document, new, architecture, deeplearning, hierarchical, prediction]
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/deeplearning/1rmbbf3.md#c1"
+    char_span: [2462, 3534]
+    sentence_count: 6
+    key_terms: [kanon-2-enricher, regulatory, including, technical, analysis, isaacus, graph, https]
+    token_count: 211
+  - id: "social-intelligence/reddit-deep/deeplearning/1rmbbf3.md#c2"
+    char_span: [3549, 4705]
+    sentence_count: 12
+    key_terms: [features, legal, paris, citations, implies, france, cases, edges]
+    section: Comments
+    token_count: 248
+  - id: "social-intelligence/reddit-deep/deeplearning/1rmbbf3.md#c3"
+    char_span: [4707, 5925]
+    sentence_count: 10
+    key_terms: [model, ontology, source, hierarchical, work, venpuravi, learning, closed]
+    section: Comments
+    token_count: 296
 ---
-
 # We invented a new ML architecture to one-shot legal knowledge graph creation
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1rmbbf3/we_invented_a_new_ml_architecture_to_oneshot/)

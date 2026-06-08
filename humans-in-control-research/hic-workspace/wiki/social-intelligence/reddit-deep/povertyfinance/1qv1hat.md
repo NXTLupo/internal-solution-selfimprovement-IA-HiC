@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1qv1hat.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1qv1hat/how_to_survive/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,62 @@ flair: "Budgeting/Saving/Investing/Spending"
 extracted_at: "2026-05-17T01:13:55.884Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c0"
+    char_span: [0, 1811]
+    sentence_count: 12
+    key_terms: [interview, housing, povertyfinance, living, total, car, card, job]
+    token_count: 525
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c1"
+    char_span: [1813, 3016]
+    sentence_count: 11
+    key_terms: [job, month, get, currently, insurance, obviously, hopeless, numbers]
+    token_count: 317
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c2"
+    char_span: [3031, 5093]
+    sentence_count: 17
+    key_terms: [insurance, car, "don't", keep, been, find, need, pay]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c3"
+    char_span: [4815, 5302]
+    sentence_count: 5
+    key_terms: [income, ruleyoumind, struggling, everybody, "shouldn't", something, greatest, probably]
+    section: Comments
+    token_count: 128
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c4"
+    char_span: [5305, 7225]
+    sentence_count: 18
+    key_terms: [credit, cards, lower, food, list, bartending, pantries, possible]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c5"
+    char_span: [7228, 7514]
+    sentence_count: 3
+    key_terms: [roommates, credit, cards, mandatory, yaphetsez, consider, either, clear]
+    section: Comments
+    token_count: 79
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c6"
+    char_span: [7516, 9611]
+    sentence_count: 13
+    key_terms: [credit, agreeable-caramel13, cards, debt, get, already, roommate, course]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c7"
+    char_span: [9355, 10197]
+    sentence_count: 5
+    key_terms: [credit, income, cards, roommate, chocolateboomslang, live, non-negotiable, deathrowslave]
+    section: Comments
+    token_count: 204
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qv1hat.md#c8"
+    char_span: [10199, 11451]
+    sentence_count: 13
+    key_terms: [roommate, help, rent, utilities, mileage, agreeable-caramel13, other-special-3952, food]
+    section: Comments
+    token_count: 307
 ---
-
 # How to survive
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1qv1hat/how_to_survive/)

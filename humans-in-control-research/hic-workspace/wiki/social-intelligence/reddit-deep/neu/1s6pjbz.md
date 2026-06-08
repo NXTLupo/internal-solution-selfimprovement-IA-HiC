@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1s6pjbz.md
 url: "https://www.reddit.com/r/NEU/comments/1s6pjbz/scholarships/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,27 @@ flair: "Admissions & Financial Aid"
 extracted_at: "2026-05-26T14:30:23.757Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1s6pjbz.md#c0"
+    char_span: [0, 197]
+    sentence_count: 1
+    key_terms: [scholarships, comments, neu, reddit-deep, icameearly, publicity, posted, reddit]
+    token_count: 64
+  - id: "social-intelligence/reddit-deep/neu/1s6pjbz.md#c1"
+    char_span: [212, 2244]
+    sentence_count: 16
+    key_terms: [scholarship, indian, students, student, got, international, sexwithpaws69, cash]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/neu/1s6pjbz.md#c2"
+    char_span: [2246, 4039]
+    sentence_count: 14
+    key_terms: [international, worldintelligent7639, scholarships, "don't", scholarship, been, btw, considered]
+    section: Comments
+    token_count: 458
 ---
-
 # Scholarships
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1s6pjbz/scholarships/)

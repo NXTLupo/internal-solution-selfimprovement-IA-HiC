@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1qn6rkf.md
 url: "https://www.reddit.com/r/careerguidance/comments/1qn6rkf/career_advice_43_yr_old_male_should_i_take/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,33 @@ flair: "Advice"
 extracted_at: "2026-05-20T02:32:24.878Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1qn6rkf.md#c0"
+    char_span: [0, 818]
+    sentence_count: 7
+    key_terms: [job, careerguidance, year, comments, shift, super, bye, cons]
+    token_count: 244
+  - id: "social-intelligence/reddit-deep/careerguidance/1qn6rkf.md#c1"
+    char_span: [833, 2157]
+    sentence_count: 13
+    key_terms: [justareddituser202, ask, job, want, another, being, bored, "don't"]
+    section: Comments
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/careerguidance/1qn6rkf.md#c2"
+    char_span: [2159, 4049]
+    sentence_count: 13
+    key_terms: [comfortable, sure-ad8068, promotion, time, "doesn't", job, like, need]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/careerguidance/1qn6rkf.md#c3"
+    char_span: [4051, 5361]
+    sentence_count: 13
+    key_terms: [supervisor, value, retirement, consider, position, priority, company, fragrantdifficulty68]
+    section: Comments
+    token_count: 366
 ---
-
 # Career Advice (43 yr old Male) Should i take Manager Job??
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1qn6rkf/career_advice_43_yr_old_male_should_i_take/)

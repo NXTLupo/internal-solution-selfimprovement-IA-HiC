@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-digitalmarketing/8acf36d6ce.md
 url: "https://reddit.com/r/DigitalMarketing/comments/1kwfdt9/google_is_quietly_burying_the_internet/"
 url_hash: "8acf36d6ce"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-04-29T17:25:20.251036+00:00"
 chars: 1070
+industries: [retail, dtc]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-digitalmarketing/8acf36d6ce.md#c0"
+    char_span: [0, 1246]
+    sentence_count: 8
+    key_terms: [web, google, digitalmarketing, mode, own, overviews, reddit, search]
+    token_count: 279
 ---
-
 # Google is quietly burying the internet
 
 Source: [reddit: digitalmarketing](https://reddit.com/r/DigitalMarketing/comments/1kwfdt9/google_is_quietly_burying_the_internet/)

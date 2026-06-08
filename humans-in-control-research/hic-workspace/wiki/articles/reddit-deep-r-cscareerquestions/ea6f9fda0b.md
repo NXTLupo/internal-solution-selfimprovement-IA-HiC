@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/ea6f9fda0b.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1ns8rmw/which_career_in_cs_would_you_choose_if_you_were/"
 url_hash: "ea6f9fda0b"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-19T15:18:32.863836+00:00"
 chars: 2576
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/ea6f9fda0b.md#c0"
+    char_span: [0, 2010]
+    sentence_count: 18
+    key_terms: [cscareerquestions, like, projects, cloud, engineering, opt, experience, portfolio]
+    token_count: 458
+  - id: "articles/reddit-deep-r-cscareerquestions/ea6f9fda0b.md#c1"
+    char_span: [2012, 2879]
+    sentence_count: 7
+    key_terms: [get, opt, current, getting, always, given, roles, years]
+    token_count: 197
 ---
-
 # Which career in CS would you choose if you were starting now on OPT? Software developer vs data analyst vs project manager vsscrum masters etc?
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1ns8rmw/which_career_in_cs_would_you_choose_if_you_were/)

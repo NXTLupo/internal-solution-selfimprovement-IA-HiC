@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1mawjgr.md
 url: "https://www.reddit.com/r/Professors/comments/1mawjgr/ai_emails_starting_already/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-20T03:55:39.285Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1mawjgr.md#c0"
+    char_span: [0, 1251]
+    sentence_count: 14
+    key_terms: [class, professors, comments, semester, starting, teaching, visual, email]
+    token_count: 278
+  - id: "social-intelligence/reddit-deep/professors/1mawjgr.md#c1"
+    char_span: [1266, 3378]
+    sentence_count: 6
+    key_terms: [learning, stubborn-myth-learning-styles-state-teacher-license-prep-materials-debunked-theory, styles, different, textbook, reading, teacher, course]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/professors/1mawjgr.md#c2"
+    char_span: [3381, 5232]
+    sentence_count: 6
+    key_terms: [learning, styles, like, especially, debunked, students, article, visual]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/professors/1mawjgr.md#c3"
+    char_span: [5234, 7806]
+    sentence_count: 16
+    key_terms: [learning, students, information, disabilities, modalities, styles, the-myth-of-learning-styles, multiple]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/professors/1mawjgr.md#c4"
+    char_span: [7808, 9851]
+    sentence_count: 16
+    key_terms: [learning, course, class, consideration, styles, email, design, taken]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/professors/1mawjgr.md#c5"
+    char_span: [9853, 12111]
+    sentence_count: 15
+    key_terms: [parents, learning, life-education-8030, students, teacher, styles, though, assignments]
+    section: Comments
+    token_count: 484
 ---
-
 # AI emails starting already?
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1mawjgr/ai_emails_starting_already/)

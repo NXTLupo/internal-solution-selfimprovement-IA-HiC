@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1ptk5b2.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1ptk5b2/mcdonell_scholarship_mail_is_it_something_good/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,26 @@ flair: "General Advice"
 extracted_at: "2026-05-22T23:33:50.651Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ptk5b2.md#c0"
+    char_span: [0, 2458]
+    sentence_count: 15
+    key_terms: [graduate, opportunities, development, scholarship, community, mcdonnell, mail, cultural]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ptk5b2.md#c1"
+    char_span: [2460, 3621]
+    sentence_count: 9
+    key_terms: [application, mcdonnell, washu, program, academy, graduate, submit, apply]
+    token_count: 219
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ptk5b2.md#c2"
+    char_span: [3636, 5068]
+    sentence_count: 9
+    key_terms: [mean-influence1000, institution, mcdonnell, consideration, applied, priority, program, email]
+    section: Comments
+    token_count: 383
 ---
-
 # Mcdonell scholarship mail_is it something good??
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1ptk5b2/mcdonell_scholarship_mail_is_it_something_good/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1sjgytc.md
 url: "https://www.reddit.com/r/artificial/comments/1sjgytc/claude_cannot_be_trusted_to_perform_complex/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,33 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:04.774Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1sjgytc.md#c0"
+    char_span: [0, 2001]
+    sentence_count: 21
+    key_terms: [claude, thinking, workflow, engineering, model, anthropic, amd, code]
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/artificial/1sjgytc.md#c1"
+    char_span: [2016, 3485]
+    sentence_count: 5
+    key_terms: [infinite-pheonix, insight, expensive, providing, increase, optimize, workflow, company]
+    section: Comments
+    token_count: 330
+  - id: "social-intelligence/reddit-deep/artificial/1sjgytc.md#c2"
+    char_span: [3488, 5468]
+    sentence_count: 9
+    key_terms: [claude-code, anthropics, https, com, github, issues, nborwankar, constant]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/artificial/1sjgytc.md#c3"
+    char_span: [5470, 7651]
+    sentence_count: 11
+    key_terms: [through, mcp, claude, keyhole, limited, running, access, people]
+    section: Comments
+    token_count: 495
 ---
-
 # Claude cannot be trusted to perform complex engineering tasks
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1sjgytc/claude_cannot_be_trusted_to_perform_complex/)

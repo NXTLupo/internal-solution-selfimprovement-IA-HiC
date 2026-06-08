@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1r9omdv.md
 url: "https://www.reddit.com/r/careerguidance/comments/1r9omdv/how_working_with_tmaxx_international_leveled_up/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -6,19 +7,42 @@ subreddit: "careerguidance"
 title: "How working with T-Maxx International leveled up my AI Career?"
 author: "Rude_Abroad_6281"
 date: "2026-02-20T07:09:31.000Z"
-score: 8
-upvote_ratio: 1
-num_comments: 32
+score: 7
+upvote_ratio: 0.9
+num_comments: 34
 flair: ""
-extracted_at: "2026-05-26T14:32:49.168Z"
+extracted_at: "2026-06-06T17:42:15.261Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1r9omdv.md#c0"
+    char_span: [0, 1854]
+    sentence_count: 13
+    key_terms: [been, careerguidance, data, comments, complex, project, always, remote]
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/careerguidance/1r9omdv.md#c1"
+    char_span: [1869, 2665]
+    sentence_count: 6
+    key_terms: [language, linkedin, working, been, "i've", transcriptionist, transitioning, application]
+    section: Comments
+    token_count: 218
+  - id: "social-intelligence/reddit-deep/careerguidance/1r9omdv.md#c2"
+    char_span: [2667, 4601]
+    sentence_count: 11
+    key_terms: [assessment, did, working, got, pay, completed, cattawny, because]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1r9omdv.md#c3"
+    char_span: [4267, 5360]
+    sentence_count: 5
+    key_terms: [beautiful-card-2340, task, assessment, completed, submitted, company, amount, going]
+    section: Comments
+    token_count: 283
 ---
-
 # How working with T-Maxx International leveled up my AI Career?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1r9omdv/how_working_with_tmaxx_international_leveled_up/)
-Posted by **Rude_Abroad_6281** · **8↑** · **32 comments**
+Posted by **Rude_Abroad_6281** · **7↑** · **34 comments**
 
 I wanted to share a reflection on my recent transition into the AI sector. My journey with **T-Maxx (a China-based DA service company)** began when I was searching for a stable remote opportunity on LinkedIn. Given my background in data annotation, I felt confident applying, and joining the team has been a significant step in my professional path.
 
@@ -58,4 +82,6 @@ Like you, I want to contribute to the evolution of AI, gain an in-depth understa
 - **lunartes** (1↑): I did the assessment last week and today I received an offer of $3 USD per hour. I accepted it because the dollar is worth a lot in my country. However, after researching here on Reddit, I saw reports from people who completed tasks but, when the following month came, they didn’t receive payment for their worked hours because, according to the company, they hadn’t reached the “minimum transfer amount,” even though they never stated what that amount actually is. Since the contract can be terminated at any moment (I’m also saying this based on comments I saw, since it will still take 1–2 business days for them to send me mine), I’m going to accept it and see how it goes.
   - **Beautiful-Card-2340** (1↑): how's it going?
 - **Mediocre_Avocado_887** (1↑): got 3usd/task , i did completed the hours for the task and ended up getting total 1300usd for that 5 days task haha. It is legit company linked with Oneforma i guess .
+  - **Ok_Schedule_7303** (1↑): how long after joining lark?
+  - **doroteja02** (1↑): really?
 - **Beautiful-Card-2340** (1↑): hello, how long is it from you submitted assessment to the day you got the job? I have submitted my assessment on May 1st, and now i am still waiting for T-maxx feedback.

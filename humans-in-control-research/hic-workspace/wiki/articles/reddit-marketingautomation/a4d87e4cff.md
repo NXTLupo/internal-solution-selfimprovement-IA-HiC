@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-marketingautomation/a4d87e4cff.md
 url: "https://reddit.com/r/MarketingAutomation/comments/1oerso3/finally_cracked_the_social_media_content_problem/"
 url_hash: "a4d87e4cff"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-04-21T04:40:15.879422+00:00"
 chars: 2158
+industries: [retail, dtc, media]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-marketingautomation/a4d87e4cff.md#c0"
+    char_span: [0, 2400]
+    sentence_count: 24
+    key_terms: [chatgpt, like, industry, because, content, marketingautomation, morning, months]
+    token_count: 505
 ---
-
 # Finally cracked the social media content problem after wasting 3 months on ChatGPT alone
 
 Source: [reddit: marketingautomation](https://reddit.com/r/MarketingAutomation/comments/1oerso3/finally_cracked_the_social_media_content_problem/)

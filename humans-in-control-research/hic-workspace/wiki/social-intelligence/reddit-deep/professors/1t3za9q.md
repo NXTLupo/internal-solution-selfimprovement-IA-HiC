@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1t3za9q.md
 url: "https://www.reddit.com/r/Professors/comments/1t3za9q/uncomfortability_comes_at_a_cost_for_us/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,69 @@ flair: "Teaching / Pedagogy"
 extracted_at: "2026-05-20T03:55:39.282Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1t3za9q.md#c0"
+    char_span: [0, 2133]
+    sentence_count: 22
+    key_terms: [students, assignment, uncomfortability, topics, class, opportunity, like, misgivings]
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/professors/1t3za9q.md#c1"
+    char_span: [2148, 3471]
+    sentence_count: 10
+    key_terms: [glass-nectarine-3282, adversarial, like, students, changed, assume, office, person]
+    section: Comments
+    token_count: 324
+  - id: "social-intelligence/reddit-deep/professors/1t3za9q.md#c2"
+    char_span: [3473, 5548]
+    sentence_count: 10
+    key_terms: [nationalism, because, myth, creation, teaching, believe, society, student]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/professors/1t3za9q.md#c3"
+    char_span: [5550, 7471]
+    sentence_count: 11
+    key_terms: [day, always, class, own, religious, teaching, college, context]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/professors/1t3za9q.md#c4"
+    char_span: [7473, 9496]
+    sentence_count: 16
+    key_terms: [students, told, come, etc, exam, like, complaints, everything]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/professors/1t3za9q.md#c5"
+    char_span: [9498, 11546]
+    sentence_count: 13
+    key_terms: [evolution, believe, asked, students, savings-bee-4993, course, class, assignment]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/professors/1t3za9q.md#c6"
+    char_span: [11548, 12484]
+    sentence_count: 6
+    key_terms: [adults, does, safe, dangerous, school, feel, kids, savings-bee-4993]
+    section: Comments
+    token_count: 216
+  - id: "social-intelligence/reddit-deep/professors/1t3za9q.md#c7"
+    char_span: [12486, 14208]
+    sentence_count: 6
+    key_terms: [students, rare, anything, children, happen, agreeable-ladder-433, discerningbarbarian, "don't"]
+    section: Comments
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/professors/1t3za9q.md#c8"
+    char_span: [14210, 16514]
+    sentence_count: 20
+    key_terms: [religious, student, school, class, teach, history, course, university]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/professors/1t3za9q.md#c9"
+    char_span: [16516, 17008]
+    sentence_count: 3
+    key_terms: [sabertoothlotus, no-wish-4854, controlling, constantly, critically, destroying, interested, manipulate]
+    section: Comments
+    token_count: 123
 ---
-
 # Uncomfortability Comes at a Cost. For Us…
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1t3za9q/uncomfortability_comes_at_a_cost_for_us/)

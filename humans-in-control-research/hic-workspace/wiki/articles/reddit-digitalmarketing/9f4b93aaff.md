@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-digitalmarketing/9f4b93aaff.md
 url: "https://reddit.com/r/DigitalMarketing/comments/1rht6dc/we_are_officially_entering_the_era_of_the_dead/"
 url_hash: "9f4b93aaff"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-04-29T17:25:27.002364+00:00"
 chars: 1208
+industries: [retail, dtc]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-digitalmarketing/9f4b93aaff.md#c0"
+    char_span: [0, 1442]
+    sentence_count: 14
+    key_terms: [like, digitalmarketing, looking, corporate, models, reddit, sounds, brand]
+    token_count: 313
 ---
-
 # We are officially entering the era of the dead internet and marketing is the first victim
 
 Source: [reddit: digitalmarketing](https://reddit.com/r/DigitalMarketing/comments/1rht6dc/we_are_officially_entering_the_era_of_the_dead/)

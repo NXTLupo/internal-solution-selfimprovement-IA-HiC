@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1t7qykv.md
 url: "https://www.reddit.com/r/GPT/comments/1t7qykv/have_the_guidelines_changed_recently_because_i/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,31 @@ flair: ""
 extracted_at: "2026-05-11T17:26:37.721Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1t7qykv.md#c0"
+    char_span: [0, 2105]
+    sentence_count: 23
+    key_terms: [gpt, text, last, like, guidelines, immediate, perfectly, comments]
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/gpt/1t7qykv.md#c1"
+    char_span: [2107, 4376]
+    sentence_count: 20
+    key_terms: [brand, image, generation, model, parameter, context, exact, input]
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/gpt/1t7qykv.md#c2"
+    char_span: [4378, 6814]
+    sentence_count: 22
+    key_terms: [prompt, image, relationships, layer, model, rules, understands, lot]
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/gpt/1t7qykv.md#c3"
+    char_span: [6829, 6943]
+    sentence_count: 1
+    key_terms: [hookedonpeptides, different, noticed, coming, mxby7e, back, "i've", nice]
+    section: Comments
+    token_count: 39
 ---
-
 # Have the guidelines changed recently? Because I didn't use to be able to make images like this...
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1t7qykv/have_the_guidelines_changed_recently_because_i/)

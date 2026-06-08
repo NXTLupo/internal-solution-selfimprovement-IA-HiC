@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1nlgdsf.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1nlgdsf/am_i_screwed_as_a_cs_student_set_to_graduate_in/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,42 @@ subreddit: "cscareerquestions"
 title: "Am I screwed as a CS student set to graduate in December of 2026?"
 author: "Nevdog93"
 date: "2025-09-19T21:43:46.000Z"
-score: 85
+score: 86
 upvote_ratio: 0.86
 num_comments: 66
 flair: ""
-extracted_at: "2026-05-22T21:34:54.424Z"
+extracted_at: "2026-06-03T02:22:50.675Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nlgdsf.md#c0"
+    char_span: [0, 879]
+    sentence_count: 4
+    key_terms: [cscareerquestions, comments, college, screwed, course, terms, been, circumstances]
+    token_count: 212
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nlgdsf.md#c1"
+    char_span: [894, 2897]
+    sentence_count: 15
+    key_terms: [interest, "you'll", "you've", faang, debt, goal, rose, technical]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nlgdsf.md#c2"
+    char_span: [2899, 4528]
+    sentence_count: 10
+    key_terms: [got, graduation, currently, kansas, "that's", clubs, doing, "don't"]
+    section: Comments
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nlgdsf.md#c3"
+    char_span: [4530, 6474]
+    sentence_count: 11
+    key_terms: [classes, fall, spring, accounting, co-op, something, summer, major]
+    section: Comments
+    token_count: 506
 ---
-
 # Am I screwed as a CS student set to graduate in December of 2026?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1nlgdsf/am_i_screwed_as_a_cs_student_set_to_graduate_in/)
-Posted by **Nevdog93** · **85↑** · **66 comments**
+Posted by **Nevdog93** · **86↑** · **66 comments**
 
 I started college in August of 2022 because that was when the CS field was considered more lucrative and by the time the writing was on the wall I was already really far ahead in my course, and due to a lot of complicated reasons I ended up 100k in debt.
 
@@ -28,15 +52,15 @@ Given my current circumstances, how screwed am I and what is realistically the b
 
 ## Comments
 
-- **g---e** (118↑): We're cooked together bro 🥀
+- **g---e** (121↑): We're cooked together bro 🥀
   - **ForsookComparison** (3↑): misery makes for good company
   - **strange_username58** (3↑): I keep seeing the rose emoji what does it mean?
-    - **g---e** (20↑): its just a meme-y emoji. 
+    - **g---e** (22↑): its just a meme-y emoji. 
 
 a normal rose is meant to be straight, a limp rose is like disappointment, like your hopes and dreams lol
     - **kuso_kurae** (2↑): It means we’re cooked
-- **pl487** (40↑): That might as well be a thousand years from now.  We may be at war.  We may be in an economic boom.  We may be in a depression that will last the rest of our lives.  No meaningful statement can be made.
-- **CogniSid** (25↑): If your goal is FAANG, pretty screwed unless you've got interview-passing technical skills in spite of not having projects to show passion or proven fields of interest. The competition, as it compares to you without any kind of networking, is fierce.
+- **pl487** (34↑): That might as well be a thousand years from now.  We may be at war.  We may be in an economic boom.  We may be in a depression that will last the rest of our lives.  No meaningful statement can be made.
+- **CogniSid** (26↑): If your goal is FAANG, pretty screwed unless you've got interview-passing technical skills in spite of not having projects to show passion or proven fields of interest. The competition, as it compares to you without any kind of networking, is fierce.
 
 If your goal isn't FAANG or anywhere else fancy and corporate, you'll land a job, and if you've have technical acumen and/or can learn on the fly effectively by the time you've graduated, you'll keep it. Pay will vary on the subset of the industry you enter, where in the country you enter it if you'll be working in a building, or where in the world you find yourself if you work remotely. 
 
@@ -51,10 +75,10 @@ I don't really have a particular role in mind. I think knowing what I do now I w
 I do still have the ability I believe to get some kind of Cybersecurity certificate as part of my coursework if I pick the right electives.
 
 Also as for the debt that's how much I owe currently including interest and it will likely be closer to 115 by graduation
-    - **amazingbanana** (4↑): I’m also in the Kansas City area and looking for work, but I am fortunate in that I currently have a job. It’s rough out here man, hopefully we both land something
-- **Aware_Cheesecake_733** (11↑): H1B just got decimated today so you might be in luck lol
+    - **amazingbanana** (3↑): I’m also in the Kansas City area and looking for work, but I am fortunate in that I currently have a job. It’s rough out here man, hopefully we both land something
+- **Aware_Cheesecake_733** (10↑): H1B just got decimated today so you might be in luck lol
 - **ImAlreadyDead25** (4↑): i dont think you're screwed, you have 1.5 more years, make the most of it. Join Professional Tech Clubs, go to networking events in and outside of school, grind on LinkedIn. Im same graduation date as you but last year I swapped to CS from Bio(because honestly, every major is cooked at entry level rn, and I like CS more), and I joined a couple clubs, got experience, and started doing what I like. I dont have it all figured out but we got this!!
-- **MilkChugg** (5↑): I wouldn’t advise getting into a saturated field that is being outsourced and that experienced professionals are struggling to find work in. But that’s just me. 
+- **MilkChugg** (6↑): I wouldn’t advise getting into a saturated field that is being outsourced and that experienced professionals are struggling to find work in. But that’s just me. 
 
 If I were you since you still have some time before graduation, I’d look into double majoring. You could still get the CS degree, but maybe with a couple extra classes and some overlap with another major, you could double major. My friend did this with CS and accounting, and now he clears six figures as an accountant in a much less saturated industry. I wish I had done something similar.
   - **nibor11** (4↑): As a dual major in accounting and cs, both are in a lot of trouble. Accounting is getting automated rapidly and big firms plan to reduce hiring by 2028 and automate a majority of entry level roles.

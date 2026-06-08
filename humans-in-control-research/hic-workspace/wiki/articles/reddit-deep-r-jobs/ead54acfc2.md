@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-jobs/ead54acfc2.md
 url: "https://www.reddit.com/r/jobs/comments/1m258rn/jobs_dont_feel_longterm_anymore/"
 url_hash: "ead54acfc2"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T06:47:45.793026+00:00"
 chars: 1919
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-jobs/ead54acfc2.md#c0"
+    char_span: [0, 1233]
+    sentence_count: 11
+    key_terms: [jobs, like, job, long-term, comments, anymore, working, reddit]
+    token_count: 311
+  - id: "articles/reddit-deep-r-jobs/ead54acfc2.md#c1"
+    char_span: [1235, 2070]
+    sentence_count: 4
+    key_terms: [job, stay, staying, career, get, jobs, long, henrykimzgh]
+    token_count: 205
 ---
-
 # Jobs don’t feel long-term anymore
 
 Source: [Reddit Deep: r/jobs](https://www.reddit.com/r/jobs/comments/1m258rn/jobs_dont_feel_longterm_anymore/)

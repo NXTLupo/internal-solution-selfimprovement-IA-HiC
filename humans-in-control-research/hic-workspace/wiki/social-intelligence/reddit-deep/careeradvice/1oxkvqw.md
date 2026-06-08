@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1oxkvqw.md
 url: "https://www.reddit.com/r/careeradvice/comments/1oxkvqw/if_you_had_to_restart_your_marketing_career_today/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.246Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1oxkvqw.md#c0"
+    char_span: [0, 912]
+    sentence_count: 10
+    key_terms: [marketing, career, skills, careeradvice, today, comments, content, restart]
+    token_count: 203
 ---
-
 # If you had to restart your marketing career today, what 5 skills would you learn first and why?
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1oxkvqw/if_you_had_to_restart_your_marketing_career_today/)

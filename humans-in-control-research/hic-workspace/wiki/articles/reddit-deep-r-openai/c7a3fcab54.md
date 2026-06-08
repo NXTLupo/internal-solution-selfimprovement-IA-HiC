@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-openai/c7a3fcab54.md
 url: "https://www.reddit.com/r/OpenAI/comments/1nsah8w/chatgpt_changed_my_life/"
 url_hash: "c7a3fcab54"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T17:31:56.835431+00:00"
 chars: 1773
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-openai/c7a3fcab54.md#c0"
+    char_span: [0, 1911]
+    sentence_count: 17
+    key_terms: [engineer, job, chatgpt, openai, portfolio, bootcamp, comments, changed]
+    token_count: 497
 ---
-
 # ChatGPT changed my life.
 
 Source: [Reddit Deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1nsah8w/chatgpt_changed_my_life/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1nxxj9a.md
 url: "https://www.reddit.com/r/managers/comments/1nxxj9a/how_blunt_to_be_that_pips_always_end_in_a_firing/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,111 @@ flair: "Seasoned Manager"
 extracted_at: "2026-05-26T12:54:23.641Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c0"
+    char_span: [0, 1223]
+    sentence_count: 13
+    key_terms: [pip, comments, job, like, interview, managers, already, getting]
+    token_count: 311
+  - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c1"
+    char_span: [1238, 3409]
+    sentence_count: 18
+    key_terms: [manager, because, pip, job, management, new, "wasn't", resignation]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c2"
+    char_span: [3411, 4657]
+    sentence_count: 9
+    key_terms: [pip, manager, time, severance, company, anyone, senior, cantaloupecomplete57]
+    section: Comments
+    token_count: 314
+  - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c3"
+    char_span: [4659, 6580]
+    sentence_count: 13
+    key_terms: [pip, because, disciplinary, like, frequently, company, failure, issues]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c4"
+    char_span: [6582, 6855]
+    sentence_count: 3
+    key_terms: [severance, performance, company, payment, willing, cannot, reason, needs]
+    section: Comments
+    token_count: 68
+  - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c5"
+    char_span: [6857, 8781]
+    sentence_count: 12
+    key_terms: [pip, always, beat, industry, internal, posting, stats-on-clearing-pip, people]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c6"
+    char_span: [8783, 10163]
+    sentence_count: 10
+    key_terms: [pip, seen, employee, never, using, like, pips, micromanaging]
+    section: Comments
+    token_count: 357
+  - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c7"
+    char_span: [10165, 11743]
+    sentence_count: 15
+    key_terms: [pip, without, performance, tier, realized, systems, agency, needed]
+    section: Comments
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c8"
+    char_span: [11745, 13436]
+    sentence_count: 12
+    key_terms: [get, someone, constructive, termination, show, company, deleted, process]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c9"
+    char_span: [13438, 15214]
+    sentence_count: 14
+    key_terms: [expectations, never, performance, pip, extremely, positions, employee, possible]
+    section: Comments
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c10"
+    char_span: [15216, 17389]
+    sentence_count: 12
+    key_terms: [good, employee, pip, people, because, nothing, serious, boss]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c11"
+    char_span: [17391, 18778]
+    sentence_count: 8
+    key_terms: [pip, company, extra, termination, expected, lawsuit, through, people]
+    section: Comments
+    token_count: 357
+  - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c12"
+    char_span: [18780, 20493]
+    sentence_count: 8
+    key_terms: [pip, employee, pips, employment, themselves, formality, recommend, position]
+    section: Comments
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c13"
+    char_span: [20495, 21775]
+    sentence_count: 5
+    key_terms: [get, pip, pips, termination, put, leader, people, justsomepotatosalad]
+    section: Comments
+    token_count: 302
+  - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c14"
+    char_span: [21777, 23259]
+    sentence_count: 10
+    key_terms: [responsibility, job, people, ready, take, themselves, employees, patients]
+    section: Comments
+    token_count: 340
+  - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c15"
+    char_span: [23261, 25213]
+    sentence_count: 9
+    key_terms: [pip, companies, quit, successfully, "it's", employees, culture, exactly]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c16"
+    char_span: [24974, 27003]
+    sentence_count: 13
+    key_terms: [pip, otherwise-relief2248, manager, successfully, never, performance, time, performers]
+    section: Comments
+    token_count: 477
 ---
-
 # How blunt to be that PIPs always end in a firing?
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1nxxj9a/how_blunt_to_be_that_pips_always_end_in_a_firing/)

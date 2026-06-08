@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1pn6k3v.md
 url: "https://www.reddit.com/r/GradSchool/comments/1pn6k3v/tw_tragedy_at_brown_university/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,63 @@ flair: "News"
 extracted_at: "2026-05-22T21:35:36.525Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1pn6k3v.md#c0"
+    char_span: [0, 874]
+    sentence_count: 5
+    key_terms: [university, comments, brown, gradschool, feeling, safety, dirtrepresentative9, grad]
+    token_count: 200
+  - id: "social-intelligence/reddit-deep/gradschool/1pn6k3v.md#c1"
+    char_span: [889, 1819]
+    sentence_count: 8
+    key_terms: [department, semester, student, email, wanted, dirtrepresentative9, grad, explanation]
+    section: Comments
+    token_count: 203
+  - id: "social-intelligence/reddit-deep/gradschool/1pn6k3v.md#c2"
+    char_span: [1821, 4040]
+    sentence_count: 17
+    key_terms: [student, experience, been, someone, whole, different, undergrad, targeted]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1pn6k3v.md#c3"
+    char_span: [3753, 5150]
+    sentence_count: 10
+    key_terms: [get, rid, campus, everything, buttons, getting, better, police]
+    section: Comments
+    token_count: 337
+  - id: "social-intelligence/reddit-deep/gradschool/1pn6k3v.md#c4"
+    char_span: [5152, 6142]
+    sentence_count: 9
+    key_terms: [panic, buttons, campus, around, dirtrepresentative9, don, time, accidentally]
+    section: Comments
+    token_count: 225
+  - id: "social-intelligence/reddit-deep/gradschool/1pn6k3v.md#c5"
+    char_span: [6144, 7855]
+    sentence_count: 9
+    key_terms: [act-alex-ophel-attempted-murder-two-women-anu-trial-begins, snowblindalbino, offices, news, building, buttons, faculty, "aren't"]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/gradschool/1pn6k3v.md#c6"
+    char_span: [7857, 10155]
+    sentence_count: 11
+    key_terms: [emergency, allowed, campus, class, doors, exam, classrooms, university]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/gradschool/1pn6k3v.md#c7"
+    char_span: [10157, 10583]
+    sentence_count: 1
+    key_terms: [public, safety, adisgruntledittech, best, additional, emergency, receptive, recommend]
+    section: Comments
+    token_count: 102
+  - id: "social-intelligence/reddit-deep/gradschool/1pn6k3v.md#c8"
+    char_span: [10585, 12432]
+    sentence_count: 13
+    key_terms: [classroom, relaxrerelapse, doors, interested, buildings, building, related, sharing]
+    section: Comments
+    token_count: 436
 ---
-
 # TW: Tragedy at Brown University
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1pn6k3v/tw_tragedy_at_brown_university/)

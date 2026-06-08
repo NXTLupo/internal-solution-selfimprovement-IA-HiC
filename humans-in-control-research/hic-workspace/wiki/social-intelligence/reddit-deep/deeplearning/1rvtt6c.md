@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1rvtt6c.md
 url: "https://www.reddit.com/r/deeplearning/comments/1rvtt6c/i_designed_a_pregeneration_causal_gate_that/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,42 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.047Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1rvtt6c.md#c0"
+    char_span: [0, 2090]
+    sentence_count: 16
+    key_terms: [category, entities, examples, hallucination, current, pre-generation, causal, deeplearning]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/deeplearning/1rvtt6c.md#c1"
+    char_span: [2092, 3572]
+    sentence_count: 13
+    key_terms: [reduction, category, rate, hallucination, impossible, ambiguity, latency, across]
+    token_count: 357
+  - id: "social-intelligence/reddit-deep/deeplearning/1rvtt6c.md#c2"
+    char_span: [3574, 5355]
+    sentence_count: 14
+    key_terms: [dominant, pass, context, mercury, energy, query, different, systems]
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/deeplearning/1rvtt6c.md#c3"
+    char_span: [5357, 6081]
+    sentence_count: 4
+    key_terms: [run, because, spec, cross-validation, production-scale, architecture, computation, engineering]
+    token_count: 177
+  - id: "social-intelligence/reddit-deep/deeplearning/1rvtt6c.md#c4"
+    char_span: [6096, 7840]
+    sentence_count: 12
+    key_terms: [hypothesis, "it's", post, structure, argument, exactly, numbers, someone]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/deeplearning/1rvtt6c.md#c5"
+    char_span: [7842, 8901]
+    sentence_count: 9
+    key_terms: ["that's", reproducible, formatting, account, llm, repo, used, self-contained]
+    section: Comments
+    token_count: 267
 ---
-
 # I Designed a Pre-Generation Causal Gate That Structurally Prevents LLM Hallucination. No Retraining. You Run the Test.
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1rvtt6c/i_designed_a_pregeneration_causal_gate_that/)

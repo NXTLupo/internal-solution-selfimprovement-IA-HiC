@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1sytk6s.md
 url: "https://www.reddit.com/r/internships/comments/1sytk6s/bcom_student_from_hr_college_looking_for_paid/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "General"
 extracted_at: "2026-05-22T21:34:37.053Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1sytk6s.md#c0"
+    char_span: [0, 1465]
+    sentence_count: 8
+    key_terms: [finance, mumbai, internships, com, accounts, analysis, "i'm", internship]
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/internships/1sytk6s.md#c1"
+    char_span: [1480, 1783]
+    sentence_count: 1
+    key_terms: [awful, job, no-anxiety2705, referrals, directly, fakeness, linkedin, startups]
+    section: Comments
+    token_count: 81
 ---
-
 # B.Com student from HR College looking for paid finance/accounts/audit internship/MIS — open to CA firms, startups, MNCs
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1sytk6s/bcom_student_from_hr_college_looking_for_paid/)

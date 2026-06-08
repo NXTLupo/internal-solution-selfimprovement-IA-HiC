@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1q9pfbl.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1q9pfbl/to_those_who_are_new_grads_and_land_a_new_job_how/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-20T03:56:10.747Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q9pfbl.md#c0"
+    char_span: [0, 354]
+    sentence_count: 3
+    key_terms: [cscareerquestions, comments, new, desperately, reddit-deep, looking, advice, posted]
+    token_count: 103
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q9pfbl.md#c1"
+    char_span: [369, 2131]
+    sentence_count: 14
+    key_terms: [dababolical, different, positions, grad, new, anything, programs, apply]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q9pfbl.md#c2"
+    char_span: [2133, 3853]
+    sentence_count: 14
+    key_terms: [experience, job, applied, did, get, year, interviews, recruiter]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q9pfbl.md#c3"
+    char_span: [3855, 5975]
+    sentence_count: 19
+    key_terms: [going, medicine, engineering, "don't", "i'm", jobs, here, law]
+    section: Comments
+    token_count: 478
 ---
-
 # To those who are new grads and land a new job, how do you do it?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1q9pfbl/to_those_who_are_new_grads_and_land_a_new_job_how/)

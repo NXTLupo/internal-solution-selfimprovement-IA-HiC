@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1moho20.md
 url: "https://www.reddit.com/r/careerguidance/comments/1moho20/how_do_you_choose_a_career_path_in_itprogramming/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,26 @@ flair: "Advice"
 extracted_at: "2026-05-26T14:32:49.151Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1moho20.md#c0"
+    char_span: [0, 1615]
+    sentence_count: 14
+    key_terms: [want, careerguidance, perspective, path, everything, currently, building, comments]
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/careerguidance/1moho20.md#c1"
+    char_span: [1617, 2787]
+    sentence_count: 8
+    key_terms: [like, enjoy, data, engineer, learning, devops, early, roles]
+    token_count: 243
+  - id: "social-intelligence/reddit-deep/careerguidance/1moho20.md#c2"
+    char_span: [2802, 3589]
+    sentence_count: 1
+    key_terms: [everything, like, containerization, fundamentals, optimization, overwhelmed, bite-sized, monitoring]
+    section: Comments
+    token_count: 157
 ---
-
 # How do you choose a career path in IT/programming when you want to learn everything?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1moho20/how_do_you_choose_a_career_path_in_itprogramming/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1rycj4q.md
 url: "https://www.reddit.com/r/NEU/comments/1rycj4q/free_safety_routing_app_using_bpd_crime_data/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,16 @@ score: 1
 upvote_ratio: 0.6
 num_comments: 0
 flair: "Boston & Local Life"
-extracted_at: "2026-05-22T13:32:12.393Z"
+extracted_at: "2026-06-05T16:17:50.283Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1rycj4q.md#c0"
+    char_span: [0, 1018]
+    sentence_count: 6
+    key_terms: [app, routes, northeastern, built, crime, comments, college, routing]
+    token_count: 233
 ---
-
 # Free safety routing app using BPD crime data — built by a college student, looking for Northeastern feedback
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1rycj4q/free_safety_routing_app_using_bpd_crime_data/)

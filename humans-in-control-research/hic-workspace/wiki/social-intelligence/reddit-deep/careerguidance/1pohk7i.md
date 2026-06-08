@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1pohk7i.md
 url: "https://www.reddit.com/r/careerguidance/comments/1pohk7i/am_i_making_a_mistake_choosing_a_risky_growth/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,26 @@ flair: ""
 extracted_at: "2026-05-23T20:15:29.962Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1pohk7i.md#c0"
+    char_span: [0, 2065]
+    sentence_count: 13
+    key_terms: [business, finance, careerguidance, traditional, grow, experience, comments, scenario]
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/careerguidance/1pohk7i.md#c1"
+    char_span: [2067, 2725]
+    sentence_count: 6
+    key_terms: [people, pretty, like, disappointed, internships, perspective, traditional, accounting]
+    token_count: 145
+  - id: "social-intelligence/reddit-deep/careerguidance/1pohk7i.md#c2"
+    char_span: [2740, 4062]
+    sentence_count: 8
+    key_terms: [traditional, finance, valuation, business, around, lower, offer, small]
+    section: Comments
+    token_count: 292
 ---
-
 # Am I making a mistake choosing a risky growth role over a traditional finance career?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1pohk7i/am_i_making_a_mistake_choosing_a_risky_growth/)

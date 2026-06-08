@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1nuc5v4.md
 url: "https://www.reddit.com/r/jobs/comments/1nuc5v4/i_applied_for_a_job_and_received_this_email_from/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,51 @@ flair: "Applications"
 extracted_at: "2026-05-24T14:10:06.644Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1nuc5v4.md#c0"
+    char_span: [0, 453]
+    sentence_count: 1
+    key_terms: [comments, received, applied, manager, hiring, email, later, day]
+    token_count: 119
+  - id: "social-intelligence/reddit-deep/jobs/1nuc5v4.md#c1"
+    char_span: [468, 681]
+    sentence_count: 2
+    key_terms: [scam, like, unintelligible, immediate, sentences, suhhhrena, spelling, together]
+    section: Comments
+    token_count: 63
+  - id: "social-intelligence/reddit-deep/jobs/1nuc5v4.md#c2"
+    char_span: [683, 2548]
+    sentence_count: 8
+    key_terms: [people, scam, want, "it's", job, link, because, english]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1nuc5v4.md#c3"
+    char_span: [2312, 3231]
+    sentence_count: 2
+    key_terms: [needful, giggle, trexgiraffehybrid, team, tonythenetworker, national-ad8416, angusmeatstick, "applicant's"]
+    section: Comments
+    token_count: 278
+  - id: "social-intelligence/reddit-deep/jobs/1nuc5v4.md#c4"
+    char_span: [3233, 3539]
+    sentence_count: 2
+    key_terms: [delicious-cattletoot, move, ottovonjismarck, understand, lildebb, wanting, accept, chosen]
+    section: Comments
+    token_count: 105
+  - id: "social-intelligence/reddit-deep/jobs/1nuc5v4.md#c5"
+    char_span: [3541, 5277]
+    sentence_count: 9
+    key_terms: [scam, "it's", like, deleted, amount, indeed, people, sounds]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1nuc5v4.md#c6"
+    char_span: [5001, 6801]
+    sentence_count: 10
+    key_terms: [scam, scammers, english, immediately, use, malicious, phishing, clients]
+    section: Comments
+    token_count: 402
 ---
-
 # I applied for a job and received this email from the hiring manager 1 day later
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1nuc5v4/i_applied_for_a_job_and_received_this_email_from/)

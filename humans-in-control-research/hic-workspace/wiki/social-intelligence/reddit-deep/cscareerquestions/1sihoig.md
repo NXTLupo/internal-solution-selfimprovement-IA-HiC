@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1sihoig.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1sihoig/20202022_cs_grads_during_the_hiring_boom_job/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,45 @@ flair: "Experienced"
 extracted_at: "2026-05-20T03:56:10.736Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sihoig.md#c0"
+    char_span: [0, 1058]
+    sentence_count: 13
+    key_terms: [cscareerquestions, people, prospects, comments, hiring, market, offers, doing]
+    token_count: 261
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sihoig.md#c1"
+    char_span: [1073, 2566]
+    sentence_count: 12
+    key_terms: [newzstockchick, job, did, move, healthcare, industry, another, layoffs]
+    section: Comments
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sihoig.md#c2"
+    char_span: [2568, 4174]
+    sentence_count: 13
+    key_terms: [company, new, feel, decent, hiring, faang, sunsgettinreallow, been]
+    section: Comments
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sihoig.md#c3"
+    char_span: [4177, 5163]
+    sentence_count: 7
+    key_terms: [chocolate--chip, llms, health, right, feel, any-range9932, inevitability, regretno6554]
+    section: Comments
+    token_count: 265
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sihoig.md#c4"
+    char_span: [5165, 6486]
+    sentence_count: 8
+    key_terms: [half, took, generate, anyone, skkkrrrrrrrrrrrrrrrr, pressureappropriate, foo-bar-nlogn-100, good]
+    section: Comments
+    token_count: 358
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sihoig.md#c5"
+    char_span: [6488, 7715]
+    sentence_count: 8
+    key_terms: [gen3archive, like, bootcamps, probably, courses, minimum, skkkrrrrrrrrrrrrrrrr, offer]
+    section: Comments
+    token_count: 309
 ---
-
 # 2020–2022 CS grads: during the hiring boom, job offers felt endless. How are you doing now?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sihoig/20202022_cs_grads_during_the_hiring_boom_job/)

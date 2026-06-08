@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1ls78ap.md
 url: "https://www.reddit.com/r/Professors/comments/1ls78ap/follow_up_on_studentevals_meeting_with_department/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,75 @@ flair: "Rants / Vents"
 extracted_at: "2026-05-14T18:17:21.703Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1ls78ap.md#c0"
+    char_span: [0, 2338]
+    sentence_count: 16
+    key_terms: [department, comments, professors, students, meeting, chair, class, improvement]
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/professors/1ls78ap.md#c1"
+    char_span: [2353, 4465]
+    sentence_count: 24
+    key_terms: [student, students, unhappy, teaching, validated, absences, amount, copied]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/professors/1ls78ap.md#c2"
+    char_span: [4467, 5208]
+    sentence_count: 6
+    key_terms: [parent, especially, "unhappy's", final, exam, read, extracurricular, announcements]
+    section: Comments
+    token_count: 164
+  - id: "social-intelligence/reddit-deep/professors/1ls78ap.md#c3"
+    char_span: [5210, 7467]
+    sentence_count: 15
+    key_terms: [students, evaluations, control, student, called, kindergarten, good, promotion]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/professors/1ls78ap.md#c4"
+    char_span: [7469, 9299]
+    sentence_count: 14
+    key_terms: [students, comments, meeting, get, everyone, kimber80, because, online]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/professors/1ls78ap.md#c5"
+    char_span: [9301, 10799]
+    sentence_count: 14
+    key_terms: [students, uncomfortable, intimidating, feel, anything, senior, illustrious-land-594, black]
+    section: Comments
+    token_count: 356
+  - id: "social-intelligence/reddit-deep/professors/1ls78ap.md#c6"
+    char_span: [10801, 12954]
+    sentence_count: 15
+    key_terms: [teaching, here, student, popstarkirbys, admin, thadizzledd, evaluation, comments]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/professors/1ls78ap.md#c7"
+    char_span: [12956, 14544]
+    sentence_count: 13
+    key_terms: [students, accent, profs, backgrounds, adjunct, because, similar, working]
+    section: Comments
+    token_count: 372
+  - id: "social-intelligence/reddit-deep/professors/1ls78ap.md#c8"
+    char_span: [14546, 16481]
+    sentence_count: 10
+    key_terms: [students, complained, class, because, minutes, better, policy, colleagues]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/professors/1ls78ap.md#c9"
+    char_span: [16483, 18158]
+    sentence_count: 24
+    key_terms: [did, students, grades, essentially, something, "they're", likely, people]
+    section: Comments
+    token_count: 408
+  - id: "social-intelligence/reddit-deep/professors/1ls78ap.md#c10"
+    char_span: [18160, 18990]
+    sentence_count: 6
+    key_terms: [like, situation, students, getting, "don't", administration, armoredtweed, enrollment]
+    section: Comments
+    token_count: 188
 ---
-
 # Follow up on student-evals, meeting with department chair
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1ls78ap/follow_up_on_studentevals_meeting_with_department/)

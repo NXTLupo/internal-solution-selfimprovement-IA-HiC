@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-investing/de908fccd2.md
 url: "https://www.reddit.com/r/investing/comments/1o5hji1/retired_this_week_what_to_do_with_my_nvidia/"
 url_hash: "de908fccd2"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:24:25.388503+00:00"
 chars: 2972
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-investing/de908fccd2.md#c0"
+    char_span: [0, 1847]
+    sentence_count: 16
+    key_terms: [nervous, nvidia, portfolio, reddit, shares, "you're", tax, correction]
+    token_count: 432
+  - id: "articles/reddit-deep-r-investing/de908fccd2.md#c1"
+    char_span: [1849, 3156]
+    sentence_count: 6
+    key_terms: [order, price, filled, limit, stop, time, financials, companies]
+    token_count: 284
 ---
-
 # Retired this week. What to do with my Nvidia
 
 Source: [Reddit Deep: r/investing](https://www.reddit.com/r/investing/comments/1o5hji1/retired_this_week_what_to_do_with_my_nvidia/)

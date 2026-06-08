@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-gradadmissions/5abee2b79d.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1la2899/advices_for_cornell_mpa_vs_boston_university_mim/"
 url_hash: "5abee2b79d"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:41:52.089392+00:00"
 chars: 1405
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-gradadmissions/5abee2b79d.md#c0"
+    char_span: [0, 1631]
+    sentence_count: 12
+    key_terms: [program, gradadmissions, international, find, mim, stem, consulting, experience]
+    token_count: 372
 ---
-
 # Advices For Cornell MPA VS Boston University MIM (Master in management)
 
 Source: [Reddit Deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1la2899/advices_for_cornell_mpa_vs_boston_university_mim/)

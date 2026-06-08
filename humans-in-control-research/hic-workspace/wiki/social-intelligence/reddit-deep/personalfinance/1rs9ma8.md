@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1rs9ma8.md
 url: "https://www.reddit.com/r/personalfinance/comments/1rs9ma8/improving_spending_and_saving_habits_should_feel/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,21 @@ flair: "Budgeting"
 extracted_at: "2026-05-16T20:55:02.106Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1rs9ma8.md#c0"
+    char_span: [0, 355]
+    sentence_count: 3
+    key_terms: [personalfinance, comments, reddit-deep, budgeting, improving, stressful, disagree, opinions]
+    token_count: 90
+  - id: "social-intelligence/reddit-deep/personalfinance/1rs9ma8.md#c1"
+    char_span: [370, 1891]
+    sentence_count: 7
+    key_terms: [personalfinance, budgeting, better, habits, automatically, little, feels, tools]
+    section: Comments
+    token_count: 374
 ---
-
 # improving spending and saving habits should feel like gentle progress, not strict, stressful budgeting. Agree or disagree?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1rs9ma8/improving_spending_and_saving_habits_should_feel/)

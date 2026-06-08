@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1reo6ef.md
 url: "https://www.reddit.com/r/financialindependence/comments/1reo6ef/how_to_optimize_withdrawals_to_reduce_magi_for/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,122 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.706Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, insurance, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1reo6ef.md#c0"
+    char_span: [0, 1743]
+    sentence_count: 11
+    key_terms: [year, financialindependence, magi, target, withdrawals, aca, roth, conversion]
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/financialindependence/1reo6ef.md#c1"
+    char_span: [1745, 2589]
+    sentence_count: 7
+    key_terms: [non-taxable, like, sources, feel, "i'd", year, enough, cover]
+    token_count: 206
+  - id: "social-intelligence/reddit-deep/financialindependence/1reo6ef.md#c2"
+    char_span: [2604, 3531]
+    sentence_count: 5
+    key_terms: [taxable, whether, fpl, roth, dividends, account, assets, enough]
+    section: Comments
+    token_count: 257
+  - id: "social-intelligence/reddit-deep/financialindependence/1reo6ef.md#c3"
+    char_span: [3533, 5507]
+    sentence_count: 11
+    key_terms: ["it's", year, bronze, "don't", plans, bit, get, gold]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/financialindependence/1reo6ef.md#c4"
+    char_span: [5509, 7018]
+    sentence_count: 5
+    key_terms: [conversions, dividends, roth, minutial, "doesn't", "didn't", thanks, "that's"]
+    section: Comments
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/financialindependence/1reo6ef.md#c5"
+    char_span: [7021, 8886]
+    sentence_count: 14
+    key_terms: [income, roth, conversions, hsa, "it's", taxable, projections, magi]
+    section: Comments
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/financialindependence/1reo6ef.md#c6"
+    char_span: [8888, 10840]
+    sentence_count: 15
+    key_terms: [million-more-americans-are-now-eligible-to-contribute-to-able-accounts, certifying, able, federalregister, doctors, "don't", https, "it's"]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/financialindependence/1reo6ef.md#c7"
+    char_span: [10842, 12715]
+    sentence_count: 9
+    key_terms: [accounts, need, roth, individual, taxable, doctor, year, certifying]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/financialindependence/1reo6ef.md#c8"
+    char_span: [12717, 14405]
+    sentence_count: 16
+    key_terms: [roth, income, basis, tax, year, expenses, annual, toward]
+    section: Comments
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/financialindependence/1reo6ef.md#c9"
+    char_span: [14408, 16509]
+    sentence_count: 13
+    key_terms: [income, insurance, plan, year, expenses, potentially, aca, coverage]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/financialindependence/1reo6ef.md#c10"
+    char_span: [16511, 18645]
+    sentence_count: 21
+    key_terms: [advisor, boldin, review, help, assets, withdrawals, like, tool]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/financialindependence/1reo6ef.md#c11"
+    char_span: [18647, 20492]
+    sentence_count: 14
+    key_terms: [conversions, roth, around, income, tax, federal, distributions, state]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/financialindependence/1reo6ef.md#c12"
+    char_span: [20494, 21813]
+    sentence_count: 10
+    key_terms: [tax, rate, income, effective, marginal, bracket, "don't", conversions]
+    section: Comments
+    token_count: 321
+  - id: "social-intelligence/reddit-deep/financialindependence/1reo6ef.md#c13"
+    char_span: [21815, 23367]
+    sentence_count: 11
+    key_terms: [brokerage, roth, https, years, conversions, withdrawals, com, withdrawal]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/financialindependence/1reo6ef.md#c14"
+    char_span: [23369, 24765]
+    sentence_count: 13
+    key_terms: [aca, roth, conversion, withdrawal, instead, "don't", sheet, age]
+    section: Comments
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/financialindependence/1reo6ef.md#c15"
+    char_span: [24767, 26787]
+    sentence_count: 16
+    key_terms: [year, years, roth, conversion, working, conversions, aca, tax]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/financialindependence/1reo6ef.md#c16"
+    char_span: [26789, 28438]
+    sentence_count: 12
+    key_terms: [years, nectarine, aca, full, pay, year, medicaid, rate]
+    section: Comments
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/financialindependence/1reo6ef.md#c17"
+    char_span: [28440, 30682]
+    sentence_count: 8
+    key_terms: [account, aca, medicaid, roth, year, honestly, january, medical]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/financialindependence/1reo6ef.md#c18"
+    char_span: [30684, 30874]
+    sentence_count: 2
+    key_terms: [fee-only, planner, overwhelming, challenge, optimize, finding, getting, leaning]
+    section: Comments
+    token_count: 39
 ---
-
 # How to optimize withdrawals to reduce MAGI for ACA subsidies?
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1reo6ef/how_to_optimize_withdrawals_to_reduce_magi_for/)

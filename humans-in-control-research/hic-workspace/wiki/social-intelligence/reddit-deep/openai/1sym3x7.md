@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1sym3x7.md
 url: "https://www.reddit.com/r/OpenAI/comments/1sym3x7/built_a_proxy_that_blocks_prompt_injection_before/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,21 @@ flair: "Project"
 extracted_at: "2026-05-11T17:27:05.354Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1sym3x7.md#c0"
+    char_span: [0, 1005]
+    sentence_count: 6
+    key_terms: [precision, openai, recall, moderation, injection, comments, indirect, prompts]
+    token_count: 273
+  - id: "social-intelligence/reddit-deep/openai/1sym3x7.md#c1"
+    char_span: [1020, 2517]
+    sentence_count: 7
+    key_terms: [prompts, precision, roleplay, blocked, latency, benign, recall, "false"]
+    section: Comments
+    token_count: 355
 ---
-
 # Built a proxy that blocks prompt injection before it reaches GPT-4 — outperforms the Moderation API on indirect attacks
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1sym3x7/built_a_proxy_that_blocks_prompt_injection_before/)

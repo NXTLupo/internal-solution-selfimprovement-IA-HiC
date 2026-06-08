@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1m46rfp.md
 url: "https://www.reddit.com/r/financialindependence/comments/1m46rfp/cancer_and_fire/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,80 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.712Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [cross_industry]
+industry_method: unclassified
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c0"
+    char_span: [0, 1467]
+    sentence_count: 16
+    key_terms: [been, financialindependence, fire, "i've", "i'm", everything, comments, become]
+    token_count: 341
+  - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c1"
+    char_span: [1469, 3409]
+    sentence_count: 20
+    key_terms: [care, time, chance, health, costs, get, treatments, daughter]
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c2"
+    char_span: [3424, 4376]
+    sentence_count: 10
+    key_terms: [cancer, wife, treatment, express-alfalfa-3702, "don't", been, best, fmla]
+    section: Comments
+    token_count: 254
+  - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c3"
+    char_span: [4378, 6550]
+    sentence_count: 22
+    key_terms: ["it's", company, through, intellectually, leave, hope, job, time]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c4"
+    char_span: [6282, 6750]
+    sentence_count: 5
+    key_terms: [keep, time, try, continuity, personally, important, obviously, seconding]
+    section: Comments
+    token_count: 109
+  - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c5"
+    char_span: [6753, 8770]
+    sentence_count: 24
+    key_terms: [care, kids, express-alfalfa-3702, money, daughter, help, time, guilty]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c6"
+    char_span: [8772, 10731]
+    sentence_count: 17
+    key_terms: [express-alfalfa-3702, "it's", take, kids, work, definitely, everything, insurance]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c7"
+    char_span: [10733, 12728]
+    sentence_count: 15
+    key_terms: [company, because, strong, leave, get, insurance, situation, clinical]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c8"
+    char_span: [12730, 14480]
+    sentence_count: 23
+    key_terms: [keep, family, cancer, sure, understand, through, express-alfalfa-3702, faang]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c9"
+    char_span: [14482, 16456]
+    sentence_count: 24
+    key_terms: [medical, family, biopsy, good, time, sequencing, changing, research]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c10"
+    char_span: [16458, 18392]
+    sentence_count: 24
+    key_terms: [hire, pick, take, driver, drop, kids, talk, hospitals]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c11"
+    char_span: [18394, 19970]
+    sentence_count: 16
+    key_terms: [express-alfalfa-3702, amazing, because, rainbowcandy7, good, take-home, instance, family]
+    section: Comments
+    token_count: 405
 ---
-
 # Cancer and FIRE
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1m46rfp/cancer_and_fire/)

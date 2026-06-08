@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1ri2zjb/9_acceptances_rejected_from_top_choice_umd_cheap/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,45 @@ flair: "Advice"
 extracted_at: "2026-05-23T12:15:36.212Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c0"
+    char_span: [0, 1896]
+    sentence_count: 13
+    key_terms: [umbc, applyingtocollege, virginia, applied, schools, choice, purdue, tech]
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c1"
+    char_span: [1911, 3511]
+    sentence_count: 18
+    key_terms: [school, umbc, dental, like, definitely, experience, expensive, argument]
+    section: Comments
+    token_count: 381
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c2"
+    char_span: [3513, 5505]
+    sentence_count: 12
+    key_terms: [engineering, school, dental, purdue, interested, something, biology, pre-dental]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c3"
+    char_span: [5507, 7559]
+    sentence_count: 14
+    key_terms: [school, dental, get, major, engineering, want, dentists, deleted]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c4"
+    char_span: [7561, 9522]
+    sentence_count: 14
+    key_terms: [school, year, important-drop-3338, umbc, pre-med, dental, towson, state]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c5"
+    char_span: [9524, 10108]
+    sentence_count: 3
+    key_terms: [important, medical, undergraduate, residency, parents, program, school, law]
+    section: Comments
+    token_count: 153
 ---
-
 # 9 Acceptances, Rejected from Top Choice (UMD) — Cheap In-State vs. Expensive “Dream” Schools?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1ri2zjb/9_acceptances_rejected_from_top_choice_umd_cheap/)

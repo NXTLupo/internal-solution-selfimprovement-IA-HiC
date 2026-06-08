@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1s2love.md
 url: "https://www.reddit.com/r/careerguidance/comments/1s2love/anyone_have_advice_for_a_fully_licensed_counselor/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,31 @@ flair: "Advice"
 extracted_at: "2026-05-22T23:34:01.117Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1s2love.md#c0"
+    char_span: [0, 1874]
+    sentence_count: 12
+    key_terms: [treatment, licensed, careerguidance, independently, fully, work, management, including]
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/careerguidance/1s2love.md#c1"
+    char_span: [1876, 4375]
+    sentence_count: 11
+    key_terms: [clients, emotional, role, work, problem-solving, income, within, professional]
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/careerguidance/1s2love.md#c2"
+    char_span: [4377, 5989]
+    sentence_count: 6
+    key_terms: [roles, looking, administration, did, experience, management, transition, emotional]
+    token_count: 328
+  - id: "social-intelligence/reddit-deep/careerguidance/1s2love.md#c3"
+    char_span: [6004, 6621]
+    sentence_count: 4
+    key_terms: [experience, "you're", acadiaordinary8955, documentation, coordination, corrections, development, positioning]
+    section: Comments
+    token_count: 115
 ---
-
 # Anyone Have Advice For A Fully Licensed Counselor Planning To Leave Client Work?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1s2love/anyone_have_advice_for_a_fully_licensed_counselor/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1ljulvg.md
 url: "https://www.reddit.com/r/college/comments/1ljulvg/any_college_students_currently_working_while/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-25T15:51:48.245Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1ljulvg.md#c0"
+    char_span: [0, 1377]
+    sentence_count: 5
+    key_terms: [school, time, college, part, drop, full, "i'm", struggling]
+    token_count: 306
+  - id: "social-intelligence/reddit-deep/college/1ljulvg.md#c1"
+    char_span: [1392, 3258]
+    sentence_count: 14
+    key_terms: [semester, school, full, time, business, years, did, work]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/college/1ljulvg.md#c2"
+    char_span: [3260, 5296]
+    sentence_count: 12
+    key_terms: [time, part, working, school, vegetable-lawyer3327, purple-pangolin2327, year, "you're"]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1ljulvg.md#c3"
+    char_span: [5025, 5686]
+    sentence_count: 7
+    key_terms: [school, "i'm", work, time, part, working, hours, able]
+    section: Comments
+    token_count: 172
+  - id: "social-intelligence/reddit-deep/college/1ljulvg.md#c4"
+    char_span: [5688, 6072]
+    sentence_count: 4
+    key_terms: [school, maybe, work, schedule, definitely, extremely, homework, classes]
+    section: Comments
+    token_count: 86
 ---
-
 # Any college students currently working while going to school? looking to drop from full time to part time school due to struggling
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ljulvg/any_college_students_currently_working_while/)

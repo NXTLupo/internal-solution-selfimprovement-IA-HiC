@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-artificial/ebe356db7c.md
 url: "https://reddit.com/r/artificial/comments/1t2z0tn/richard_dawkins_spent_3_days_with_claude_and/"
 url_hash: "ebe356db7c"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T13:52:13.861545+00:00"
 chars: 1171
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-artificial/ebe356db7c.md#c0"
+    char_span: [0, 1411]
+    sentence_count: 2
+    key_terms: [conscious, claude, too, artificial, eloquence, mechanism, argument, claudia]
+    token_count: 322
 ---
-
 # Richard Dawkins spent 3 days with Claude and named her "Claudia." what he concluded after is hard to defend.
 
 Source: [reddit: artificial](https://reddit.com/r/artificial/comments/1t2z0tn/richard_dawkins_spent_3_days_with_claude_and/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1oll9cb.md
 url: "https://www.reddit.com/r/college/comments/1oll9cb/prof_nearly_made_me_tear_up_in_class/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,39 @@ flair: "Academic Life"
 extracted_at: "2026-05-19T17:57:40.131Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1oll9cb.md#c0"
+    char_span: [0, 1581]
+    sentence_count: 30
+    key_terms: [students, here, time, college, comments, increase, midsems, without]
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/college/1oll9cb.md#c1"
+    char_span: [1596, 3720]
+    sentence_count: 11
+    key_terms: [college, like, people, chocokissses, fact, high, lot, professors]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1oll9cb.md#c2"
+    char_span: [3507, 5670]
+    sentence_count: 19
+    key_terms: [teachers, teacher, student, strict, best, highschool, strictest, students]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1oll9cb.md#c3"
+    char_span: [5372, 6762]
+    sentence_count: 13
+    key_terms: [people, strict, creative, failures, teachers, because, classes, failure]
+    section: Comments
+    token_count: 307
+  - id: "social-intelligence/reddit-deep/college/1oll9cb.md#c4"
+    char_span: [6764, 8758]
+    sentence_count: 18
+    key_terms: [time, "don't", grade, learn, right, internships, exam, give]
+    section: Comments
+    token_count: 459
 ---
-
 # Prof nearly made me tear up in class
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1oll9cb/prof_nearly_made_me_tear_up_in_class/)

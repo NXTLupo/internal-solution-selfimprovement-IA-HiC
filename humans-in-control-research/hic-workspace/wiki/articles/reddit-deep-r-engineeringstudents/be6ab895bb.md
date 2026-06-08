@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-engineeringstudents/be6ab895bb.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1qcx9p0/dilemma_over_opportunities_engineering_student/"
 url_hash: "be6ab895bb"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T15:18:42.310967+00:00"
 chars: 3797
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-engineeringstudents/be6ab895bb.md#c0"
+    char_span: [0, 2174]
+    sentence_count: 15
+    key_terms: [engineeringstudents, reddit, wiki, https, com, biosensing, www, project]
+    token_count: 496
+  - id: "articles/reddit-deep-r-engineeringstudents/be6ab895bb.md#c1"
+    char_span: [2176, 4008]
+    sentence_count: 14
+    key_terms: [project, research, automation, orangetothefourth, projects, mentor, potentially, ieee]
+    token_count: 375
 ---
-
 # Dilemma over opportunities - engineering student
 
 Source: [Reddit Deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1qcx9p0/dilemma_over_opportunities_engineering_student/)

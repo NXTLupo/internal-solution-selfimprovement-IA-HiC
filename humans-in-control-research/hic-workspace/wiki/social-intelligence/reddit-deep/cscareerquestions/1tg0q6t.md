@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1tg0q6t.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1tg0q6t/cs_career_path_advice_software_systems_engineering/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -10,11 +11,33 @@ score: 2
 upvote_ratio: 1
 num_comments: 5
 flair: "Student"
-extracted_at: "2026-05-25T18:32:49.822Z"
+extracted_at: "2026-06-03T18:35:34.173Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tg0q6t.md#c0"
+    char_span: [0, 1799]
+    sentence_count: 14
+    key_terms: ["i've", cscareerquestions, unfortunately, verification, enjoy, engineering, programming, comments]
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tg0q6t.md#c1"
+    char_span: [1801, 2903]
+    sentence_count: 12
+    key_terms: [semester, systems, career, distributed, "i'm", compilers, school, seems]
+    token_count: 236
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tg0q6t.md#c2"
+    char_span: [2918, 3455]
+    sentence_count: 1
+    key_terms: [engineering, systems, formal, good, wild-ganache3061, infrastructure, verification, distributed]
+    section: Comments
+    token_count: 100
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tg0q6t.md#c3"
+    char_span: [3460, 5542]
+    sentence_count: 8
+    key_terms: [systems, distributed, like, infrastructure, cloud, engineering, jobs, want]
+    section: Comments
+    token_count: 478
 ---
-
 # CS Career Path Advice. (Software Systems Engineering?)
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1tg0q6t/cs_career_path_advice_software_systems_engineering/)

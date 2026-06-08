@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1qru6om.md
 url: "https://www.reddit.com/r/GradSchool/comments/1qru6om/as_an_international_student_is_it_realistic_for/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-22T21:35:36.519Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1qru6om.md#c0"
+    char_span: [0, 1409]
+    sentence_count: 9
+    key_terms: ["i'm", work, country, abroad, considering, grad, visa, gradschool]
+    token_count: 313
+  - id: "social-intelligence/reddit-deep/gradschool/1qru6om.md#c1"
+    char_span: [1424, 3194]
+    sentence_count: 11
+    key_terms: [countries, language, "you're", visas, education, postgrad, depends, looking]
+    section: Comments
+    token_count: 372
+  - id: "social-intelligence/reddit-deep/gradschool/1qru6om.md#c2"
+    char_span: [3196, 5029]
+    sentence_count: 9
+    key_terms: [work, job, people, grad, country, field, scholarship, professors]
+    section: Comments
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/gradschool/1qru6om.md#c3"
+    char_span: [5031, 6571]
+    sentence_count: 11
+    key_terms: [get, like, whatever, because, process, being, years, job]
+    section: Comments
+    token_count: 360
 ---
-
 # As an international student, is it realistic for me to go to grad school for the sake of finding work in my desired country?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1qru6om/as_an_international_student_is_it_realistic_for/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1lgxnv9/is_engineering_uni_really_just_memorizing_shit/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,73 @@ flair: "Rant/Vent"
 extracted_at: "2026-05-25T18:32:19.220Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c0"
+    char_span: [0, 1950]
+    sentence_count: 36
+    key_terms: [shit, engineering, forget, calculator, engineeringstudents, "can't", questions, fuck]
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c1"
+    char_span: [1952, 3297]
+    sentence_count: 25
+    key_terms: [fucking, shit, fuck, get, shotgun, school, "can't", cheat]
+    token_count: 313
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c2"
+    char_span: [3299, 4408]
+    sentence_count: 12
+    key_terms: [fucking, exam, because, english, pass, take, fucker, "can't"]
+    token_count: 247
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c3"
+    char_span: [4423, 5803]
+    sentence_count: 11
+    key_terms: [problems, questions, "you're", doing, alot, understand, practice, remember]
+    section: Comments
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c4"
+    char_span: [5805, 7077]
+    sentence_count: 12
+    key_terms: [approach, engineer, rewrite, easier, repeat, doing, least, get]
+    section: Comments
+    token_count: 332
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c5"
+    char_span: [7079, 9221]
+    sentence_count: 20
+    key_terms: [good, something, need, calculus, understanding, parts, start, developing]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c6"
+    char_span: [9223, 11454]
+    sentence_count: 21
+    key_terms: [silent-warning9028, good, rewriting, anything, engineer, practice, problems, formula]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c7"
+    char_span: [11456, 13130]
+    sentence_count: 10
+    key_terms: [don, memorization, get, till, engineers, calculus, practice, problems]
+    section: Comments
+    token_count: 391
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c8"
+    char_span: [13132, 15194]
+    sentence_count: 17
+    key_terms: [calculus, blocks, basic, engineering, "it's", like, everything, building]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c9"
+    char_span: [15196, 17367]
+    sentence_count: 15
+    key_terms: [engineering, calculus, understanding, explanation, job, kind, use, experience]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c10"
+    char_span: [17369, 18861]
+    sentence_count: 14
+    key_terms: [silent-warning9028, plzhqobowtqdmsr9k-rj53dwvrmyo3t5yr, instantbeef, able, week, calculus, memorize, being]
+    section: Comments
+    token_count: 378
 ---
-
 # Is engineering uni really just memorizing shit till the end of the class and forgetting afterwards? Or am I just an idiot?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1lgxnv9/is_engineering_uni_really_just_memorizing_shit/)

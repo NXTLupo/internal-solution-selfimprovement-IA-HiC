@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1msmk3v.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1msmk3v/it_actually_all_worked_out/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,63 @@ subreddit: "applyingtocollege"
 title: "It (Actually) All Worked Out."
 author: "Big_Health6549"
 date: "2025-08-17T09:35:11.000Z"
-score: 83
+score: 84
 upvote_ratio: 0.83
 num_comments: 57
 flair: "Discussion"
-extracted_at: "2026-05-20T02:31:57.184Z"
+extracted_at: "2026-06-05T18:53:26.957Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1msmk3v.md#c0"
+    char_span: [0, 1830]
+    sentence_count: 15
+    key_terms: [applying, applyingtocollege, schools, state, like, disclosure, comments, learning]
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1msmk3v.md#c1"
+    char_span: [1832, 3848]
+    sentence_count: 23
+    key_terms: [interview, stanford, "i'm", like, selected, college, acres, forty]
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1msmk3v.md#c2"
+    char_span: [3850, 6126]
+    sentence_count: 13
+    key_terms: [engineering, college, biomedical, rejected, scholar, honors, neuroscience, scholarship]
+    token_count: 553
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1msmk3v.md#c3"
+    char_span: [6128, 6848]
+    sentence_count: 4
+    key_terms: [rejected, scholarship, research, foundation, questions, summer, like, time]
+    token_count: 160
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1msmk3v.md#c4"
+    char_span: [6863, 7505]
+    sentence_count: 4
+    key_terms: [colleges, spending, day, electro9005, especially, applicant, admitted, applying]
+    section: Comments
+    token_count: 164
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1msmk3v.md#c5"
+    char_span: [7507, 9451]
+    sentence_count: 12
+    key_terms: [honors, engineering, school, stats, took, work, enrollment, averages]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1msmk3v.md#c6"
+    char_span: [9456, 10304]
+    sentence_count: 6
+    key_terms: [colleges, amazing, schools, since, potsie-wonder-9185, philosophybelyin, semifinalist, standardized]
+    section: Comments
+    token_count: 220
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1msmk3v.md#c7"
+    char_span: [10306, 11646]
+    sentence_count: 10
+    key_terms: [thank, did, congrats, littlerabbit8348, school, ecs, gpa, take]
+    section: Comments
+    token_count: 413
 ---
-
 # It (Actually) All Worked Out.
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1msmk3v/it_actually_all_worked_out/)
-Posted by **Big_Health6549** · **83↑** · **57 comments**
+Posted by **Big_Health6549** · **84↑** · **57 comments**
 
 What's up y'all! If you're looking for a way to procrastinate while still feeling like you're learning, you've come to the right place. I'll be telling in a (hopefully) concise format of my journey from learning about even applying to college to where I'm going now. I love to write, so it'll probably be verbose, but I always enjoyed these types of posts, so here's my shot at it.
 
@@ -215,10 +260,10 @@ Have a wonderful day!
 
 ## Comments
 
-- **Electro9005** (99↑): This sounds like such a humble brag post. Perfect stats and a 1590 only taking SAT once. Admitted to multiple top colleges despite only spending one day on your apps while several spend weeks and still get rejected. 
+- **Electro9005** (98↑): This sounds like such a humble brag post. Perfect stats and a 1590 only taking SAT once. Admitted to multiple top colleges despite only spending one day on your apps while several spend weeks and still get rejected. 
 
 Why were you so upset at all if you didn’t even bother spending real time applying to colleges especially for Yale, seems u just got pretty lucky at the end
-  - **[deleted]** (13↑): He/ she said they spent one day per essay, but they still cracked though.
+  - **[deleted]** (14↑): He/ she said they spent one day per essay, but they still cracked though.
     - **Big_Health6549** (-5↑): Thank you :)
 
 I hope you have a gorgeous rest of the week!
@@ -226,21 +271,21 @@ I hope you have a gorgeous rest of the week!
 
 Many kids didn’t apply to half the schools (or scholarships) and didn’t do half the work and still got into T25s (couldn’t be me).
 - **Expert_Duty9230** (17↑): really happy for you, this is crazy!! Could you send your ECs and honors list? Thanks
-  - **Big_Health6549** (1↑): Ofc I’ll send you a DM. Hope you have a lovely day!
+  - **Big_Health6549** (0↑): Ofc I’ll send you a DM. Hope you have a lovely day!
     - **Easy-Shape-8051** (1↑): Me too pretty please!
     - **Apollo834** (1↑): Same if u can please
     - **Rich-Consequence-795** (1↑): me as well, so sorry!
 - **Hot_Situation4292** (7↑): stats are clearly fake nobody prioritises a&m with those stats and also just logic. it’s insane how many people fake their stats here without realising how averages work. ur telling me there’s 19 people with a weighted gpa higher than 4.995. if you don’t know how averages work, you would need to have taken ONLY ap/dual enrollment all of hs. that means not even a single honors prerequisite course, its literally impossible to get a 4.995 even IF you only ever took 4 honors courses out of 30 it would still be less than that, karma is not gonna get you a job, was this supposed to scare ppl?
-  - **Big_Health6549** (14↑): Hey man! I happen to love A&M and their engineering program. Both my brothers, who are far smarter than me, go there and love it. Perhaps financial aid is not important to you and your family, but it is for me. A full-ride to an awesome engineering school and guaranteed medical school acceptance (with an MS in engineering in 4 years, too) is literally world class.
+  - **Big_Health6549** (13↑): Hey man! I happen to love A&M and their engineering program. Both my brothers, who are far smarter than me, go there and love it. Perhaps financial aid is not important to you and your family, but it is for me. A full-ride to an awesome engineering school and guaranteed medical school acceptance (with an MS in engineering in 4 years, too) is literally world class.
 
 As for your comment about ranking: My school had 15 valedictorians with 5.00 gpa's. This means, they took only AP/dual enrollment/honors (Texas schools count honors as 5.0) throughout high school, as you correctly pointed out. I took one non honors class freshman year, giving me about 29 honors/AP/IB credits and 1 non honors credit, for a gpa of about 4.96. You are right though, I mistyped my wgpa (I'll edit it thank you so much!).
 
   
 MB about the gpa -- wgpa literally only matters for Texas colleges, so it really isn't too important. Thank you, though! Hope you have an amazing day!
-    - **Potsie-wonder-9185** (6↑): You definitely did the work throughout HS in preparation!! Incredible!! Ive heard that transcript is the most impactful, as well as showing you can manage that load while being an interesting human (ECs). Amazing!
+    - **Potsie-wonder-9185** (5↑): You definitely did the work throughout HS in preparation!! Incredible!! Ive heard that transcript is the most impactful, as well as showing you can manage that load while being an interesting human (ECs). Amazing!
   - **FrisbeeDev** (0↑): I have a 4.98, there's schools where every course is dual enrolled.
     - **Hot_Situation4292** (1↑): those schools aren’t taken seriously by colleges then since they recalculate gpas anyway and colleges don’t even like DE since most of the time it’s so much easier than AP which is standardized
-- **PhilosophyBeLyin** (3↑): >Semifinalist, but I think the program was cut :(
+- **PhilosophyBeLyin** (2↑): >Semifinalist, but I think the program was cut :(
 
 this is so real lmao co25 was robbed asakljdn 💀
 

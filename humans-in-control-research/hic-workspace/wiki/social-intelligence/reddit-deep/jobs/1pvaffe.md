@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1pvaffe.md
 url: "https://www.reddit.com/r/jobs/comments/1pvaffe/what_industryprofession_is_not_oversaturated/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,51 @@ flair: "Job searching"
 extracted_at: "2026-05-22T21:35:36.543Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1pvaffe.md#c0"
+    char_span: [0, 1216]
+    sentence_count: 10
+    key_terms: [field, job, jobs, graduated, comments, industry, learning, market]
+    token_count: 257
+  - id: "social-intelligence/reddit-deep/jobs/1pvaffe.md#c1"
+    char_span: [1231, 2649]
+    sentence_count: 10
+    key_terms: [brilliantdishevelled, sailing, career, being, great, days, like, time]
+    section: Comments
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/jobs/1pvaffe.md#c2"
+    char_span: [2651, 4255]
+    sentence_count: 15
+    key_terms: [education, work, country, teacher, "isn't", generally, teachers, deleted]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/jobs/1pvaffe.md#c3"
+    char_span: [4257, 5312]
+    sentence_count: 9
+    key_terms: [people, "it's", like, pay, insurance, delivery, because, "can't"]
+    section: Comments
+    token_count: 245
+  - id: "social-intelligence/reddit-deep/jobs/1pvaffe.md#c4"
+    char_span: [5314, 6706]
+    sentence_count: 7
+    key_terms: [jobs, get, insurance, program, office, though, start, sillyapartment7479]
+    section: Comments
+    token_count: 329
+  - id: "social-intelligence/reddit-deep/jobs/1pvaffe.md#c5"
+    char_span: [6708, 8391]
+    sentence_count: 11
+    key_terms: [inconsistent, job, teacher, whitesnowball, get, teaching, because, getting]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/jobs/1pvaffe.md#c6"
+    char_span: [8393, 10394]
+    sentence_count: 16
+    key_terms: [look, companies, like, products, construction, depot, sales, home]
+    section: Comments
+    token_count: 483
 ---
-
 # What industry/profession is not oversaturated right now?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1pvaffe/what_industryprofession_is_not_oversaturated/)

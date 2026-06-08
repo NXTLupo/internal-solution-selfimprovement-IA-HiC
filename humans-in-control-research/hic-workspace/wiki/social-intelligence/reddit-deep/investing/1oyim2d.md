@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1oyim2d.md
 url: "https://www.reddit.com/r/investing/comments/1oyim2d/my_take_on_investing_in_us_stocks_relevant_to_ai/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.194Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1oyim2d.md#c0"
+    char_span: [0, 1828]
+    sentence_count: 12
+    key_terms: [investing, companies, players, stocks, data, take, focusing, centre]
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/investing/1oyim2d.md#c1"
+    char_span: [1843, 3788]
+    sentence_count: 13
+    key_terms: [theme, data, center, down, like, strength, growth, month]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/investing/1oyim2d.md#c2"
+    char_span: [3790, 5801]
+    sentence_count: 9
+    key_terms: [datacenter, power, infrastructure, cooling, centers, market, datacenters, data]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/investing/1oyim2d.md#c3"
+    char_span: [5805, 7456]
+    sentence_count: 18
+    key_terms: [infrastructure, fundamentals, avgo, data, financial, cooling, "you're", early]
+    section: Comments
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/investing/1oyim2d.md#c4"
+    char_span: [7458, 9009]
+    sentence_count: 11
+    key_terms: [narrow-ad-7856, international, good, reasonable, center, careless-cobbler-357, broad, index]
+    section: Comments
+    token_count: 383
 ---
-
 # My Take on Investing in US Stocks relevant to AI. New to US market, help me!
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1oyim2d/my_take_on_investing_in_us_stocks_relevant_to_ai/)

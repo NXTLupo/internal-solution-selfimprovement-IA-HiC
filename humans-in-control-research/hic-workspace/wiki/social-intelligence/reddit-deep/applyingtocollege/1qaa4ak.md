@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1qaa4ak.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1qaa4ak/are_there_any_benefits_to_filling_out_fafsa_if/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,21 @@ flair: "College Questions"
 extracted_at: "2026-05-20T12:57:06.064Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qaa4ak.md#c0"
+    char_span: [0, 314]
+    sentence_count: 2
+    key_terms: [applyingtocollege, comments, reddit-deep, financial, applying, benefits, college, filling]
+    token_count: 93
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qaa4ak.md#c1"
+    char_span: [329, 1673]
+    sentence_count: 11
+    key_terms: [fafsa, schools, merit, requirement, aid, free, profile, income]
+    section: Comments
+    token_count: 352
 ---
-
 # Are there any benefits to filling out FAFSA if you aren't applying for financial aid for college?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1qaa4ak/are_there_any_benefits_to_filling_out_fafsa_if/)

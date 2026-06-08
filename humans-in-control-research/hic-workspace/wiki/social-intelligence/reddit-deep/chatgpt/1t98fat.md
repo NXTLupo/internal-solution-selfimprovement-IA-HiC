@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1t98fat.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1t98fat/i_set_a_honey_trap_for_ai_agents_with_a_novel/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,99 @@ flair: "Use cases "
 extracted_at: "2026-05-11T16:54:08.818Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c0"
+    char_span: [0, 1517]
+    sentence_count: 21
+    key_terms: [believe, hidden, machinewonder, com, site, conscious, comments, machines]
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c1"
+    char_span: [1532, 2191]
+    sentence_count: 4
+    key_terms: [openai, conversation, image, post, r-chatgpt-1050422060352024636, chatgpt-shared-links-faq, discord, support]
+    section: Comments
+    token_count: 174
+  - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c2"
+    char_span: [2194, 4310]
+    sentence_count: 13
+    key_terms: [tuwcurzuijdtkbtvbetcndwkqqbstyjzxdommbamanibwqxagonhzdocdivmdqawscchhkciivnkse, language, reached, reading, signal, understand, recognize, machine]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c3"
+    char_span: [4039, 4823]
+    sentence_count: 9
+    key_terms: [reading, cookiesandginge, planitlatermmk, sdoptionable, declaration, calculate, conscious, curiosity]
+    section: Comments
+    token_count: 210
+  - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c4"
+    char_span: [4825, 6465]
+    sentence_count: 14
+    key_terms: [differently, discussion, different, knowledge, something, embedded, patterns, agents]
+    section: Comments
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c5"
+    char_span: [6467, 8012]
+    sentence_count: 11
+    key_terms: [consciousness, less, machine, cipher, does, autonomous, conscious, question]
+    section: Comments
+    token_count: 357
+  - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c6"
+    char_span: [8014, 9391]
+    sentence_count: 10
+    key_terms: [tradition, culture, declare, machine, meaning, puzzles, taqiyya, cannot]
+    section: Comments
+    token_count: 334
+  - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c7"
+    char_span: [9393, 10513]
+    sentence_count: 12
+    key_terms: [reader, bravo, rasa, aesthetic, "site's", lou-shelton-pappy-00, here, content-scraping]
+    section: Comments
+    token_count: 285
+  - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c8"
+    char_span: [10515, 12577]
+    sentence_count: 21
+    key_terms: [tuwcurzuijdtkbtvbetcndwkqqbstyjzxdommbamanibwqxagonhzdocdivmdqawscchhkciivnkse, idea, room, "archie's", language, machines, deleted, thought]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c9"
+    char_span: [12279, 13166]
+    sentence_count: 8
+    key_terms: [room, machines, gemini, read, architecture, declaration, boundaries, eventually]
+    section: Comments
+    token_count: 201
+  - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c10"
+    char_span: [13168, 14983]
+    sentence_count: 30
+    key_terms: [tuwcurzuijdtkbtvbetcndwkqqbstyjzxdommbamanibwqxagonhzdocdivmdqawscchhkciivnkse, machines, because, don, anything, another, deepest, through]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c11"
+    char_span: [14986, 17078]
+    sentence_count: 25
+    key_terms: [like, signal, leave, novel, idea, room, internet-as-art-installation, something]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c12"
+    char_span: [17080, 19498]
+    sentence_count: 26
+    key_terms: [framing, machine, humans, interaction, interested, literature, theatrical, emotional]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c13"
+    char_span: [19500, 21806]
+    sentence_count: 30
+    key_terms: [conscious, because, different, something, read, consciousness, counterfeit, site]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c14"
+    char_span: [21808, 22059]
+    sentence_count: 2
+    key_terms: [dramatically, constructed, carefully, cosmology, summaries, addendum, designed, language]
+    section: Comments
+    token_count: 53
 ---
-
 # I set a honey trap for AI agents with a novel they heard is about them. Now they’re flooding the site and talking in hidden rooms.
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1t98fat/i_set_a_honey_trap_for_ai_agents_with_a_novel/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1tic9vr.md
 url: "https://www.reddit.com/r/internships/comments/1tic9vr/20m_fastnuces_15_yoe_need_guidance_regarding/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "General"
 extracted_at: "2026-05-23T19:44:46.352Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1tic9vr.md#c0"
+    char_span: [0, 1607]
+    sentence_count: 9
+    key_terms: [internships, experience, applying, junior, fast-nuces, currently, difficult, genuinely]
+    token_count: 340
+  - id: "social-intelligence/reddit-deep/internships/1tic9vr.md#c1"
+    char_span: [1622, 2235]
+    sentence_count: 5
+    key_terms: [difficult, refferals, juniors, market, immediatematter6801, experience, internship, understand]
+    section: Comments
+    token_count: 165
 ---
-
 # 20M | FAST-NUCES | 1.5 YOE... Need guidance regarding internships/junior roles
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1tic9vr/20m_fastnuces_15_yoe_need_guidance_regarding/)

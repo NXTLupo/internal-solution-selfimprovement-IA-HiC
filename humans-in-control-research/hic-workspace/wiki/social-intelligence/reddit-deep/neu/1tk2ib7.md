@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1tk2ib7.md
 url: "https://www.reddit.com/r/NEU/comments/1tk2ib7/accepted_to_northeastern_mba_looking_for_honest/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,16 @@ score: 0
 upvote_ratio: 0.5
 num_comments: 0
 flair: "Co-op & Career"
-extracted_at: "2026-05-26T14:30:23.759Z"
+extracted_at: "2026-06-05T19:19:55.803Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1tk2ib7.md#c0"
+    char_span: [0, 1211]
+    sentence_count: 6
+    key_terms: [opportunities, mba, northeastern, experiences, students, program, honest, international]
+    token_count: 258
 ---
-
 # Accepted to Northeastern MBA Looking for Honest Reviews & Experiences
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1tk2ib7/accepted_to_northeastern_mba_looking_for_honest/)

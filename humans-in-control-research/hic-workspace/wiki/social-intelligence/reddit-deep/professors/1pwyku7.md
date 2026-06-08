@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1pwyku7.md
 url: "https://www.reddit.com/r/Professors/comments/1pwyku7/oh_socrates_what_have_we_done/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-14T18:17:21.703Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1pwyku7.md#c0"
+    char_span: [0, 1150]
+    sentence_count: 8
+    key_terms: [students, discomfort, professors, comments, course, policy, damageeducational475, self-expression]
+    token_count: 248
+  - id: "social-intelligence/reddit-deep/professors/1pwyku7.md#c1"
+    char_span: [1165, 3118]
+    sentence_count: 9
+    key_terms: [damageeducational475, students, consequences, student, educational, discussion, evaluation, reality]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/professors/1pwyku7.md#c2"
+    char_span: [3120, 4903]
+    sentence_count: 14
+    key_terms: [damageeducational475, student, says, professor, students, teachers, "they're", rather]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/professors/1pwyku7.md#c3"
+    char_span: [4905, 5982]
+    sentence_count: 6
+    key_terms: [b37b7d7ebd829f597a420ad87ea022261ced0280, complaint, student, appeal, damageeducational475, png, self-awareness, kpxzt0dzjr9g1]
+    section: Comments
+    token_count: 290
+  - id: "social-intelligence/reddit-deep/professors/1pwyku7.md#c4"
+    char_span: [5984, 7515]
+    sentence_count: 10
+    key_terms: [student, interaction, take, damageeducational475, "can't", check, grad, knowledge-worker]
+    section: Comments
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/professors/1pwyku7.md#c5"
+    char_span: [7518, 9433]
+    sentence_count: 8
+    key_terms: [damageeducational475, dunning-krueger, valerietheprof, effect, questionnaire, becoming, opposite, students]
+    section: Comments
+    token_count: 484
 ---
-
 # Oh, Socrates, what have we done?!?
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1pwyku7/oh_socrates_what_have_we_done/)

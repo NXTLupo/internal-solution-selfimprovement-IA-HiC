@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/freelance/1p4xmc9.md
 url: "https://www.reddit.com/r/freelance/comments/1p4xmc9/legit_client_or_not_until_they_asked_for_my/"
 kind: "social-post"
 source: "reddit-deep: r/freelance"
@@ -13,8 +14,31 @@ flair: ""
 extracted_at: "2026-05-26T12:53:48.705Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/freelance/1p4xmc9.md#c0"
+    char_span: [0, 1820]
+    sentence_count: 21
+    key_terms: [freelance, client, asked, legit, freelancing, like, portfolio, comments]
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/freelance/1p4xmc9.md#c1"
+    char_span: [1822, 3786]
+    sentence_count: 22
+    key_terms: [red, flag, printer, through, person, felt, let, like]
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/freelance/1p4xmc9.md#c2"
+    char_span: [3788, 5310]
+    sentence_count: 22
+    key_terms: [freelancers, like, scam, struggling, scammers, matters, payment, confidence-crushing]
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/freelance/1p4xmc9.md#c3"
+    char_span: [5325, 5818]
+    sentence_count: 8
+    key_terms: [pristine-bluebird-88, take, differentiate, quriouscoyote, pre-designed, incredible, alinarice, recommend]
+    section: Comments
+    token_count: 125
 ---
-
 # Legit client or not? …until they asked for my printer. Thanks Intuition (and ChatGPT!)
 
 Source: [reddit-deep: r/freelance](https://www.reddit.com/r/freelance/comments/1p4xmc9/legit_client_or_not_until_they_asked_for_my/)

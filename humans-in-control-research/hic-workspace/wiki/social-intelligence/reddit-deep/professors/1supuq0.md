@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1supuq0.md
 url: "https://www.reddit.com/r/Professors/comments/1supuq0/chronicle_article_teaching_centers_degrade/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,86 @@ flair: ""
 extracted_at: "2026-05-20T03:55:39.283Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c0"
+    char_span: [0, 1698]
+    sentence_count: 4
+    key_terms: [https, does-flipped-learning-work-a-new-analysis-dives-into-the-research, teaching, com, article, evidence-based, we-need-to-talk-about-scaffolding, scaffolding]
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c1"
+    char_span: [1700, 2427]
+    sentence_count: 4
+    key_terms: [why-pedagogy-experts-are-wrong, article, chronicle, colleague, students, https, share, com]
+    token_count: 171
+  - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c2"
+    char_span: [2442, 4397]
+    sentence_count: 15
+    key_terms: [faculty, homeworks, ctl, problem, "i've", within, seen, department]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c3"
+    char_span: [4399, 6599]
+    sentence_count: 17
+    key_terms: [people, experience, education, faculty, programming, don, run, individual]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c4"
+    char_span: [6601, 8629]
+    sentence_count: 13
+    key_terms: [administrator, online, instructional, edd, got, year, background, college]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c5"
+    char_span: [8631, 10892]
+    sentence_count: 11
+    key_terms: [faculty, teaching, lecture, understanding, never, like, experience, meaningful]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c6"
+    char_span: [10894, 12510]
+    sentence_count: 12
+    key_terms: [dissertation, "don't", math, need, teaching, lecture, education, addition]
+    section: Comments
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c7"
+    char_span: [12512, 13942]
+    sentence_count: 10
+    key_terms: [university, new, research, admin, education, others, "don't", train]
+    section: Comments
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c8"
+    char_span: [13944, 15898]
+    sentence_count: 9
+    key_terms: ["it's", graduate, math, student, because, lecture, bad, work]
+    section: Comments
+    token_count: 408
+  - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c9"
+    char_span: [15900, 17677]
+    sentence_count: 11
+    key_terms: [research, someone, easy, math, education, lecturing, because, lecture]
+    section: Comments
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c10"
+    char_span: [17679, 19781]
+    sentence_count: 13
+    key_terms: [students, removed, never, educational, evidence, theories, cornell, student]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c11"
+    char_span: [19783, 21937]
+    sentence_count: 17
+    key_terms: [teaching, faculty, people, instructional, learn, never, good, experience]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/professors/1supuq0.md#c12"
+    char_span: [21939, 23640]
+    sentence_count: 15
+    key_terms: [objectives, experiences, generalizes, measurable, athletics, professor, coaching, analogy]
+    section: Comments
+    token_count: 361
 ---
-
 # Chronicle article: Teaching centers degrade teaching
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1supuq0/chronicle_article_teaching_centers_degrade/)

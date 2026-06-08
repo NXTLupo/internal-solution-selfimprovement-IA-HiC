@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1s2ll3e.md
 url: "https://www.reddit.com/r/internships/comments/1s2ll3e/amazon_interview_urgent/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,48 @@ subreddit: "internships"
 title: "Amazon interview urgent!!!"
 author: "Icy-Asparagus-7643"
 date: "2026-03-24T18:10:53.000Z"
-score: 104
+score: 106
 upvote_ratio: 0.95
 num_comments: 70
 flair: "Interviews"
-extracted_at: "2026-05-26T14:30:47.901Z"
+extracted_at: "2026-06-05T19:19:58.915Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1s2ll3e.md#c0"
+    char_span: [0, 1503]
+    sentence_count: 14
+    key_terms: [interview, internships, day, like, questions, comments, leetcode, starting]
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/internships/1s2ll3e.md#c1"
+    char_span: [1518, 3471]
+    sentence_count: 17
+    key_terms: [coding, icy-asparagus-7643, dont, like, look, completely, interviews, leadership]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1s2ll3e.md#c2"
+    char_span: [3165, 4891]
+    sentence_count: 17
+    key_terms: [zealousideal-dot9052, stories, mock, leadership, interview, questions, leetcode, question]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/internships/1s2ll3e.md#c3"
+    char_span: [4893, 6983]
+    sentence_count: 20
+    key_terms: [icy-asparagus-7643, like, practice, clear-brush7795, sorting, resume, dsa, interview]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/internships/1s2ll3e.md#c4"
+    char_span: [6985, 7638]
+    sentence_count: 5
+    key_terms: [problems, quick-cantaloupe953, icy-asparagus-7643, complexity, currently, kingques0, remaining, throughly]
+    section: Comments
+    token_count: 158
 ---
-
 # Amazon interview urgent!!!
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1s2ll3e/amazon_interview_urgent/)
-Posted by **Icy-Asparagus-7643** · **104↑** · **70 comments**
+Posted by **Icy-Asparagus-7643** · **106↑** · **70 comments**
 
 I’m a sophomore studying computer science and a day ago i applied to a junior software development program at Amazon. I honestly just applied randomly and i wasn’t expecting a reply but the next day they emailed me with some questions. Then the same day I got a interview.
 
@@ -36,12 +66,12 @@ Edit: Also a lot of people assume that im just starting of 0 😭 im not i have 
 
 ## Comments
 
-- **No_Chance_532** (29↑): CHATGPT, CLAUDE AI on the side. Alternatively just pray on camera and beg the recruiter
+- **No_Chance_532** (27↑): CHATGPT, CLAUDE AI on the side. Alternatively just pray on camera and beg the recruiter
   - **Long_Significance_23** (2↑): Dont listen to this. I have interviewed L4s/ interns and it is pretty obvious when someone is cheating. Tbh, as an interviewer, they are not looking for someone to completely solve the problem, just to see if you are coachable. We will give u tons of hints and nudge you the correct way(depends in interviewers). Its only a red flag when you either cheat or completely seem lost. One would make u seem dishonest, and the other would just mean you dont even know coding. Also if you are caught.  Cheating, we dont mention it, just silently not inclined and reported for black list
   - **Icy-Asparagus-7643** (2↑): How do u even search when he asks straight up. Like idk how these interviews work but how can claude see my questions? Like do i type it? Lmao and anyway id rather not have it honestly. Im gonna work my ass off and if i get it then all good, if i dont lwk my skill issue
     - **D3Rpy_Un1c0Rn107** (8↑): If that’s what you’re stuck at I’m sorry it’s over😭
     - **Fickle_Question_6417** (1↑): uf you have a double monitor or two windows ONLY LOOK AT THE SIDE WITH THE AI, try not to look back the the recruiter
-- **Plastic_Store8560** (8↑): buy leetcode premium look at the most common amazon questions, a lot of repeats in amazon interviews from what ive heard
+- **Plastic_Store8560** (7↑): buy leetcode premium look at the most common amazon questions, a lot of repeats in amazon interviews from what ive heard
   - **Icy-Asparagus-7643** (1↑): Oh god 😭
 - **Haunting_Month_4971** (3↑): That turnaround is wild, but 13 days is enough to get solid reps if you focus. I'd set a daily block where you alternate 45 minutes of coding and 15 minutes of leadership stories. For coding, grind easy to mid patterns like two pointers and hash map lookups, and always say your plan before typing. I run quick timed mocks with Beyz coding assistant, then pull a few prompts from the IQB interview question bank to keep me honest. For leadership, build 5 short stories using a simple format with the situation, what you did, and the result, tied to a couple Amazon principles, and practice keeping each around 90 seconds. You'll feel way less cooked by day 5.
   - **Sea_Ad_5150** (1↑): I wanna add something into this:.Try to put your resume into AI, cook a 4 stories with STAR method to make it sounds solid!
@@ -53,7 +83,7 @@ When I had an interview, what pushed me to study for them is that it can literal
 
 Deadass get off reddit, turn off your phone, and just sit in your room leetcoding and talking to yourself for behaviorals lol
 - **AdmitsOnly** (2↑): Wow! I wish it were that easy for their job posts haha. What did you put on your resume exactly if you are starting at zero (assuming you mean no knowledge)?
-  - **Icy-Asparagus-7643** (4↑): Well im not starting with no knowledge. I have experience in coding overall but Ive just never done leetcode. Like dsa specifically. And for my resume. My projects plus whatever work id done
+  - **Icy-Asparagus-7643** (3↑): Well im not starting with no knowledge. I have experience in coding overall but Ive just never done leetcode. Like dsa specifically. And for my resume. My projects plus whatever work id done
 - **Clear-Brush7795** (2↑): Like u r graduated or u will be ?
   - **Icy-Asparagus-7643** (1↑): Im a sophomore in my undergraduate 😭
     - **Clear-Brush7795** (-1↑): Which state , Karnataka? Can you share your resume ?

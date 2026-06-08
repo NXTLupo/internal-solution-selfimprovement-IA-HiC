@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1rezt4p.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1rezt4p/grad_schoolcareer_question/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,26 @@ flair: "Career Advice"
 extracted_at: "2026-05-22T23:33:46.997Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rezt4p.md#c0"
+    char_span: [0, 1784]
+    sentence_count: 10
+    key_terms: [already, "i'm", engineeringstudents, "i'd", "it's", masters, school, undergrad]
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rezt4p.md#c1"
+    char_span: [1786, 3256]
+    sentence_count: 11
+    key_terms: [being, "i'm", opportunity, too, internship, somewhere, current, excited]
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rezt4p.md#c2"
+    char_span: [3271, 3709]
+    sentence_count: 6
+    key_terms: [chances, being, doing, grad, lot, tall-cat-8890, institution, elsewhere]
+    section: Comments
+    token_count: 108
 ---
-
 # grad school/career question
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1rezt4p/grad_schoolcareer_question/)

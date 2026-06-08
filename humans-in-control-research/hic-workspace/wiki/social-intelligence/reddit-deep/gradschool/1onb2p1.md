@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1onb2p1.md
 url: "https://www.reddit.com/r/GradSchool/comments/1onb2p1/has_anyone_here_studied_in_a_good_undergraduate/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,45 @@ flair: "Academics"
 extracted_at: "2026-05-25T13:04:07.350Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, education, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1onb2p1.md#c0"
+    char_span: [0, 691]
+    sentence_count: 5
+    key_terms: [university, studied, undergraduate, did, good, gradschool, comments, renowned]
+    token_count: 170
+  - id: "social-intelligence/reddit-deep/gradschool/1onb2p1.md#c1"
+    char_span: [706, 2824]
+    sentence_count: 22
+    key_terms: [undergrad, institution, phd, university, prestige, masters, big, research]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/gradschool/1onb2p1.md#c2"
+    char_span: [2826, 4665]
+    sentence_count: 18
+    key_terms: [lot, faculty, opportunities, program, department, student, administration, field]
+    section: Comments
+    token_count: 401
+  - id: "social-intelligence/reddit-deep/gradschool/1onb2p1.md#c3"
+    char_span: [4667, 6534]
+    sentence_count: 11
+    key_terms: [school, world, time, research, biology, marine, known, bakersfield]
+    section: Comments
+    token_count: 401
+  - id: "social-intelligence/reddit-deep/gradschool/1onb2p1.md#c4"
+    char_span: [6536, 8801]
+    sentence_count: 20
+    key_terms: [school, undergrad, oriented, students, teaching, opportunities, institutions, good]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/gradschool/1onb2p1.md#c5"
+    char_span: [8803, 10160]
+    sentence_count: 13
+    key_terms: [prestigious, reputable, programs, funding, getting, nervous, worked, back]
+    section: Comments
+    token_count: 317
 ---
-
 # Has anyone here studied in a good undergraduate university but then studied in a grad school not as reputable or renowned as the university you did your undergraduate on (can be both major-related or not)
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1onb2p1/has_anyone_here_studied_in_a_good_undergraduate/)

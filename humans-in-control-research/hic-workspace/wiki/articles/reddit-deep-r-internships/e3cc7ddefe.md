@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-internships/e3cc7ddefe.md
 url: "https://www.reddit.com/r/internships/comments/1kssoof/startup_internship_opportunity_paid_postlaunch/"
 url_hash: "e3cc7ddefe"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:37:50.807945+00:00"
 chars: 1670
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-internships/e3cc7ddefe.md#c0"
+    char_span: [0, 1931]
+    sentence_count: 13
+    key_terms: [looking, shyam-sunder-reddy, linkedin, startup, https, internships, opportunity, com]
+    token_count: 483
 ---
-
 # Startup Internship Opportunity (Paid – Post-Launch Payout) - Looking for Growth & Listening (or) Pilot Ops Interns
 
 Source: [Reddit Deep: r/internships](https://www.reddit.com/r/internships/comments/1kssoof/startup_internship_opportunity_paid_postlaunch/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1rnofff.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rnofff/how_can_i_get_awards_outside_of_school_for_my/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,21 @@ flair: "Application Question"
 extracted_at: "2026-05-23T19:45:32.274Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rnofff.md#c0"
+    char_span: [0, 1072]
+    sentence_count: 9
+    key_terms: ["i'm", school, awards, applyingtocollege, "doesn't", application, kind, specifics]
+    token_count: 245
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rnofff.md#c1"
+    char_span: [1087, 2329]
+    sentence_count: 16
+    key_terms: [college, school, start, application, activities, getting, awards, "you're"]
+    section: Comments
+    token_count: 274
 ---
-
 # How can I get awards outside of school for my college application since my school doesn't offer these opportunities?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rnofff/how_can_i_get_awards_outside_of_school_for_my/)

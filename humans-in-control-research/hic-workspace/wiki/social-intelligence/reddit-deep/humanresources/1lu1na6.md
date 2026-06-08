@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1lu1na6.md
 url: "https://www.reddit.com/r/humanresources/comments/1lu1na6/just_passed_shrmcp_honest_thoughts_and_sharing/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,45 @@ flair: "Off-Topic / Other"
 extracted_at: "2026-05-23T12:15:41.528Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1lu1na6.md#c0"
+    char_span: [0, 2228]
+    sentence_count: 18
+    key_terms: [questions, exam, shrm-cp, through, humanresources, helped, didn, like]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/humanresources/1lu1na6.md#c1"
+    char_span: [2243, 4121]
+    sentence_count: 24
+    key_terms: [test, exam, questions, got, tomorrow, coffeecookie101, congratulations, felt]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/humanresources/1lu1na6.md#c2"
+    char_span: [4123, 5892]
+    sentence_count: 20
+    key_terms: [taking, got, help, congrats, remember, saturday, nervous, anyone]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/humanresources/1lu1na6.md#c3"
+    char_span: [5894, 7436]
+    sentence_count: 14
+    key_terms: [exam, questions, calculation, preliminary, got, like, time, through]
+    section: Comments
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/humanresources/1lu1na6.md#c4"
+    char_span: [7438, 9313]
+    sentence_count: 18
+    key_terms: [test, felt, phr, question, passed, letschatt23, scp, shrm]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/humanresources/1lu1na6.md#c5"
+    char_span: [9315, 10675]
+    sentence_count: 7
+    key_terms: [questions, helpful, found, answers, maybe, exam, read, shrm]
+    section: Comments
+    token_count: 308
 ---
-
 # Just passed SHRM-CP, honest thoughts and sharing advice. [CA]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1lu1na6/just_passed_shrmcp_honest_thoughts_and_sharing/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1slbtdo.md
 url: "https://www.reddit.com/r/careerguidance/comments/1slbtdo/taking_a_gap_year_patent_law_lsat_prep/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,15 @@ flair: "Advice"
 extracted_at: "2026-05-22T23:34:01.119Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1slbtdo.md#c0"
+    char_span: [0, 2215]
+    sentence_count: 26
+    key_terms: [considering, taking, law, year, college, careerguidance, years, engineering]
+    token_count: 492
 ---
-
 # Taking a Gap year, Patent law LSAT prep?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1slbtdo/taking_a_gap_year_patent_law_lsat_prep/)

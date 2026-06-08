@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1pfhmt8.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1pfhmt8/my_mom_continues_to_gouge_herself_into_debt_and/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,56 @@ flair: "Vent/Rant (No Advice/Criticism!)"
 extracted_at: "2026-05-17T01:13:55.881Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pfhmt8.md#c0"
+    char_span: [0, 1427]
+    sentence_count: 12
+    key_terms: [comfortable, povertyfinance, good, job, comments, school, money, food]
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pfhmt8.md#c1"
+    char_span: [1429, 2790]
+    sentence_count: 14
+    key_terms: [bills, pay, savings, grandmother, everything, family, paying, jesus]
+    token_count: 304
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pfhmt8.md#c2"
+    char_span: [2805, 4788]
+    sentence_count: 17
+    key_terms: [submitter, appropriate, ways-filial-responsibility-laws-can-affect-you, need, advice, please, vents, vent]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pfhmt8.md#c3"
+    char_span: [4791, 6054]
+    sentence_count: 8
+    key_terms: [cute-consequence-184, mom, nursing, parents, care, home, enforcing, children]
+    section: Comments
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pfhmt8.md#c4"
+    char_span: [6056, 7100]
+    sentence_count: 10
+    key_terms: [pennsylvania, "mother's", maiden, church-basement-lady, technical-agency8128, child, like, name]
+    section: Comments
+    token_count: 260
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pfhmt8.md#c5"
+    char_span: [7102, 9146]
+    sentence_count: 13
+    key_terms: [laws, filial, states, children, responsibility, parent, care, like]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pfhmt8.md#c6"
+    char_span: [9148, 10691]
+    sentence_count: 25
+    key_terms: [generational, cut, everything, advantage, financial, because, mother, theirs]
+    section: Comments
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pfhmt8.md#c7"
+    char_span: [10693, 12571]
+    sentence_count: 7
+    key_terms: [state, disastrous-lime9805, because, parent, financially, psychiatric, addiction, gambling]
+    section: Comments
+    token_count: 453
 ---
-
 # My Mom continues to gouge herself into debt and won’t save
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1pfhmt8/my_mom_continues_to_gouge_herself_into_debt_and/)

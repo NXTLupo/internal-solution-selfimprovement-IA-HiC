@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1th26io.md
 url: "https://www.reddit.com/r/careerguidance/comments/1th26io/which_ma_in_economics_is_the_best_option_in/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T20:15:29.961Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1th26io.md#c0"
+    char_span: [0, 1670]
+    sentence_count: 10
+    key_terms: [economics, masters, master, finance, careerguidance, international, internship, economist]
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/careerguidance/1th26io.md#c1"
+    char_span: [1685, 3326]
+    sentence_count: 10
+    key_terms: [economics, finance, international, alumni, recruiting, program, western, strong]
+    section: Comments
+    token_count: 351
 ---
-
 # Which MA in Economics is the best option in Canada? Masters of Financial Economics, Masters of Economics or Masters in International Economics and Finance?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1th26io/which_ma_in_economics_is_the_best_option_in/)

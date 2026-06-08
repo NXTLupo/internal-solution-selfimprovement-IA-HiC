@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1sfv4dx.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1sfv4dx/guidance_on_publishing_research/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,26 @@ flair: "Administrative"
 extracted_at: "2026-05-26T14:32:49.128Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [media]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1sfv4dx.md#c0"
+    char_span: [0, 2302]
+    sentence_count: 18
+    key_terms: [supervisor, research, work, journal, submission, published, author, askacademia]
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/askacademia/1sfv4dx.md#c1"
+    char_span: [2304, 3817]
+    sentence_count: 12
+    key_terms: [research, supervisor, phd, academia, identify, journal, publish, wanting]
+    token_count: 320
+  - id: "social-intelligence/reddit-deep/askacademia/1sfv4dx.md#c2"
+    char_span: [3832, 6026]
+    sentence_count: 16
+    key_terms: [publish, research, data, publication, better, university, dualprocessmodel, project]
+    section: Comments
+    token_count: 503
 ---
-
 # Guidance on publishing research
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1sfv4dx/guidance_on_publishing_research/)

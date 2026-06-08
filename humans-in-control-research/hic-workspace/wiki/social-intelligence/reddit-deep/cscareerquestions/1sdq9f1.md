@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1sdq9f1/i_ship_real_products_but_cant_pass_the_technical/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,68 @@ flair: "Experienced"
 extracted_at: "2026-05-26T14:31:41.272Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c0"
+    char_span: [0, 2125]
+    sentence_count: 24
+    key_terms: [technical, never, cscareerquestions, "i've", always, been, "i'd", real]
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c1"
+    char_span: [2127, 2904]
+    sentence_count: 8
+    key_terms: [work, technical, person, "i'm", encyclopedia, approached, exhausting, experience]
+    token_count: 155
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c2"
+    char_span: [2919, 5035]
+    sentence_count: 15
+    key_terms: [important, fundamentals, people, "it's", code, feel, confident, dichotomy]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c3"
+    char_span: [5037, 6993]
+    sentence_count: 18
+    key_terms: ["don't", code, absolutely, companies, engineers, technical, shipping, finding]
+    section: Comments
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c4"
+    char_span: [6995, 7635]
+    sentence_count: 7
+    key_terms: [engineer, problem, being, solve, code, communicating, architecture, responsible]
+    section: Comments
+    token_count: 130
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c5"
+    char_span: [7637, 9697]
+    sentence_count: 17
+    key_terms: [paleontologistbig318, something, because, interviewers, guess, everything, technical, engineer]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c6"
+    char_span: [9699, 11970]
+    sentence_count: 22
+    key_terms: [engineer, problems, technical, "it's", concepts, shipping, better, build]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c7"
+    char_span: [11972, 13976]
+    sentence_count: 24
+    key_terms: [management, build, product, project, through, person, "don't", technically]
+    section: Comments
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c8"
+    char_span: [13978, 15765]
+    sentence_count: 16
+    key_terms: [people, hiring, ones, knowledge, answers, because, working, paleontologistbig318]
+    section: Comments
+    token_count: 377
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c9"
+    char_span: [15767, 18086]
+    sentence_count: 19
+    key_terms: [technical, person, experience, ones, complexity, everybody, important, strengths]
+    section: Comments
+    token_count: 470
 ---
-
 # I ship real products but can't pass the technical filter. Where do I go from here?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sdq9f1/i_ship_real_products_but_cant_pass_the_technical/)

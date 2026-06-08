@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1te0ygy.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1te0ygy/openai_brings_new_personal_finance_options_to/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,21 @@ flair: "News 📰"
 extracted_at: "2026-05-17T01:12:48.207Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1te0ygy.md#c0"
+    char_span: [0, 312]
+    sentence_count: 1
+    key_terms: [chatgpt, comments, neverhighb4, reddit-deep, personal, account, connect, finance]
+    token_count: 86
+  - id: "social-intelligence/reddit-deep/chatgpt/1te0ygy.md#c1"
+    char_span: [327, 2052]
+    sentence_count: 8
+    key_terms: [openai, chatgpt, please, conversation, image, integration, post, r-chatgpt-1050422060352024636]
+    section: Comments
+    token_count: 443
 ---
-
 # OpenAI brings new personal finance options to ChatGPT that require you to connect your bank account
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1te0ygy/openai_brings_new_personal_finance_options_to/)

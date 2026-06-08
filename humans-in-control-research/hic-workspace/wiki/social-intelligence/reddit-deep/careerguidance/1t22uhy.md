@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t22uhy.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t22uhy/is_going_into_the_gaming_industry_a_good_or/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-25T15:52:13.112Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t22uhy.md#c0"
+    char_span: [0, 2012]
+    sentence_count: 14
+    key_terms: [gaming, industry, good, development, preferably, reasonable, idea, year]
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/careerguidance/1t22uhy.md#c1"
+    char_span: [2027, 3265]
+    sentence_count: 8
+    key_terms: [buntstick, quiet-compote4587, though, thank, like, long, time, roxoroxo]
+    section: Comments
+    token_count: 345
+  - id: "social-intelligence/reddit-deep/careerguidance/1t22uhy.md#c2"
+    char_span: [3267, 4573]
+    sentence_count: 6
+    key_terms: [work, gaming, going, hours, year, buntstick, industry, company]
+    section: Comments
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/careerguidance/1t22uhy.md#c3"
+    char_span: [4575, 5390]
+    sentence_count: 6
+    key_terms: [maybe, good, jobs, guantanamobay1, jayant-74565, developing, reasonable, buntstick]
+    section: Comments
+    token_count: 198
 ---
-
 # Is Going into the Gaming Industry a Good or Reasonable Idea?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t22uhy/is_going_into_the_gaming_industry_a_good_or/)

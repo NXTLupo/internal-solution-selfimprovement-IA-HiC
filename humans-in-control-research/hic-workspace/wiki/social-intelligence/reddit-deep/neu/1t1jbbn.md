@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1t1jbbn.md
 url: "https://www.reddit.com/r/NEU/comments/1t1jbbn/khoury_mscs_boston_beginner_with_1yr_frontend_exp/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,22 @@ score: 0
 upvote_ratio: 0.5
 num_comments: 2
 flair: "Admissions & Financial Aid"
-extracted_at: "2026-05-26T14:30:23.760Z"
+extracted_at: "2026-06-06T00:27:19.935Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1t1jbbn.md#c0"
+    char_span: [0, 1362]
+    sentence_count: 8
+    key_terms: [beginner, frontend, program, boston, fall, on-campus, comments, current]
+    token_count: 330
+  - id: "social-intelligence/reddit-deep/neu/1t1jbbn.md#c1"
+    char_span: [1377, 1724]
+    sentence_count: 1
+    key_terms: [hard, concepts, theinhumaneme, worldexecute, incredibly, attention, consuming, on-campus]
+    section: Comments
+    token_count: 87
 ---
-
 # Khoury MSCS (Boston) Beginner with 1yr Frontend exp | Fall '26
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1t1jbbn/khoury_mscs_boston_beginner_with_1yr_frontend_exp/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1px1agd.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1px1agd/d_rmachinelearning_a_year_in_review/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -6,19 +7,78 @@ subreddit: "machinelearning"
 title: "[D] r/MachineLearning - a year in review"
 author: "Everlier"
 date: "2025-12-27T16:04:27.000Z"
-score: 200
+score: 199
 upvote_ratio: 0.97
 num_comments: 16
 flair: "Discussion"
-extracted_at: "2026-05-11T17:27:06.575Z"
+extracted_at: "2026-05-31T23:36:38.262Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+research_goal: "Map emerging AI design trends, essential skills, practical tools, platforms, and technical implementations that enable a company's creative team to integrate AI beyond concepting. Focus on applications supporting design production, system testing, asset generation, governance, and stakeholder confidence."
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c0"
+    char_span: [0, 486]
+    sentence_count: 3
+    key_terms: [machinelearning, comments, review, informative, reddit-deep, discussion, high-level, indicative]
+    token_count: 121
+  - id: "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c1"
+    char_span: [535, 1775]
+    sentence_count: 4
+    key_terms: [machinelearning, open-source, comments, upvotes, models, reddit, https, com]
+    section: Open-Source Parity and Training Efficiency
+    token_count: 299
+  - id: "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c2"
+    char_span: [1803, 3137]
+    sentence_count: 3
+    key_terms: [machinelearning, comments, upvotes, reddit, https, com, www, neurips]
+    section: The Conference Crisis
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c3"
+    char_span: [3139, 4044]
+    sentence_count: 2
+    key_terms: [machinelearning, comments, upvotes, reddit, https, com, www, migration]
+    section: The Conference Crisis
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c4"
+    char_span: [4075, 4769]
+    sentence_count: 5
+    key_terms: [visa, venues, machinelearning, accessibility, international, significantly, conferences, experiences]
+    section: Visa and Access Barriers
+    token_count: 141
+  - id: "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c5"
+    char_span: [4813, 7364]
+    sentence_count: 13
+    key_terms: [machinelearning, reviewers, paper, comments, upvotes, reddit, review, researcher]
+    section: Research Integrity and Review Quality
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c6"
+    char_span: [7392, 8481]
+    sentence_count: 2
+    key_terms: [mamba, machinelearning, transformers, disappeared, commenters, discussion, comments, software]
+    section: "Mamba's Disappearance"
+    token_count: 228
+  - id: "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c7"
+    char_span: [8516, 9173]
+    sentence_count: 3
+    key_terms: [transformers, vision, machinelearning, architectures, alternatives, architecture, increasingly, competitive]
+    section: Vision Transformers vs. CNNs
+    token_count: 124
+  - id: "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c8"
+    char_span: [9214, 10234]
+    sentence_count: 3
+    key_terms: [machinelearning, limitations, gpu, discussion, ecosystem, comments, software, hdbscan]
+    section: Infrastructure and GPU Competition
+    token_count: 241
+  - id: "social-intelligence/reddit-deep/machinelearning/1px1agd.md#c9"
+    char_span: [10249, 12006]
+    sentence_count: 9
+    key_terms: [attention, gid, linear, thanks, spreadsheets, https, mamba, com]
+    section: Comments
+    token_count: 488
 ---
-
 # [D] r/MachineLearning - a year in review
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1px1agd/d_rmachinelearning_a_year_in_review/)
-Posted by **Everlier** · **200↑** · **16 comments**
+Posted by **Everlier** · **199↑** · **16 comments**
 
 This is a review of most upvoted posts on this sub in 2025, loosely grouped into high-level themes. Many important news will be missing, however that is indicative of discussion lying elsewhere at that time. I hope that you'll find it informative.
 
@@ -77,7 +137,7 @@ For the linear attention/Mamba fans, I think that Mamba's disappearance can also
 These 50 papers on Linear Attention and state space modelling alone is just mind-boggling, so I guess that [this meme](https://www.reddit.com/r/LocalLLaMA/comments/1flac62/thats_it_thanks/) is more relevant than ever.   
   
 Last few years were really a scaling test of all the academia "infrastructure" for research and review.
-- **GeorgeBird1** (6↑): This was a fantastic read to summarise the year! Thanks for all the effort :))
+- **GeorgeBird1** (8↑): This was a fantastic read to summarise the year! Thanks for all the effort :))
 
 It seems like a major open forum reconsideration of preprints/publications and peer review might be in order in the age of LLM papers and reviewers to uphold quality and maintain a good signal to noise ratio of shared works. It’ll be interesting to see where this leads in the near term and what solutions can be developed.
 - **dannyf7** (3↑): Nice and helpful summary! Thanks for doing this!

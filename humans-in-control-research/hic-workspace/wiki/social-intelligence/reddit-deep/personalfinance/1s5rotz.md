@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1s5rotz.md
 url: "https://www.reddit.com/r/personalfinance/comments/1s5rotz/i_have_41k_in_a_hysa_and_im_starting_to_think_im/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,51 @@ flair: "Investing"
 extracted_at: "2026-05-17T01:13:31.184Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1s5rotz.md#c0"
+    char_span: [0, 1289]
+    sentence_count: 11
+    key_terms: [personalfinance, taxable, tax-advantaged, cash, "i'm", comments, paycheck, account]
+    token_count: 326
+  - id: "social-intelligence/reddit-deep/personalfinance/1s5rotz.md#c1"
+    char_span: [1304, 2360]
+    sentence_count: 7
+    key_terms: [comments, post, already, number, "you're", hsa, move, next]
+    section: Comments
+    token_count: 277
+  - id: "social-intelligence/reddit-deep/personalfinance/1s5rotz.md#c2"
+    char_span: [2362, 4138]
+    sentence_count: 13
+    key_terms: [housing, market, investment, buy, buying, saving, house, years]
+    section: Comments
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/personalfinance/1s5rotz.md#c3"
+    char_span: [4140, 5802]
+    sentence_count: 12
+    key_terms: [nothing, easily, market, place, time, spending, housing, rough-importance-822]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/personalfinance/1s5rotz.md#c4"
+    char_span: [5804, 7785]
+    sentence_count: 18
+    key_terms: [help, parents, financial, feel, spending, discretionary, money, etc]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/personalfinance/1s5rotz.md#c5"
+    char_span: [7787, 9774]
+    sentence_count: 12
+    key_terms: ["it's", spending, savings, "you're", historically, money, max, definitely]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/personalfinance/1s5rotz.md#c6"
+    char_span: [9776, 10728]
+    sentence_count: 10
+    key_terms: [parents, bills, going, live, spending, living, paying, "that's"]
+    section: Comments
+    token_count: 231
 ---
-
 # I have $41k in a HYSA and I'm starting to think I'm just hoarding cash at this point
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1s5rotz/i_have_41k_in_a_hysa_and_im_starting_to_think_im/)

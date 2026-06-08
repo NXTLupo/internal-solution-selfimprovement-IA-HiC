@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1otc78m.md
 url: "https://www.reddit.com/r/college/comments/1otc78m/why_cant_i_wake_up/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,27 @@ flair: "Academic Life"
 extracted_at: "2026-05-25T15:51:48.249Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1otc78m.md#c0"
+    char_span: [0, 1213]
+    sentence_count: 9
+    key_terms: [sleep, sometimes, day, don, get, college, wake, comments]
+    token_count: 320
+  - id: "social-intelligence/reddit-deep/college/1otc78m.md#c1"
+    char_span: [1228, 2943]
+    sentence_count: 10
+    key_terms: [upset-gerbil6061, waking, time, getting, minutes, morning, sunrise, through]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/college/1otc78m.md#c2"
+    char_span: [2945, 4765]
+    sentence_count: 17
+    key_terms: [sleep, get, anxiety, going, body, depression, consider, disorder]
+    section: Comments
+    token_count: 436
 ---
-
 # Why can’t I wake up?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1otc78m/why_cant_i_wake_up/)

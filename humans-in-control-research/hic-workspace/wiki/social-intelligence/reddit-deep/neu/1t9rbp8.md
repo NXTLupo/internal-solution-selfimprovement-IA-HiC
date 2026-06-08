@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1t9rbp8.md
 url: "https://www.reddit.com/r/NEU/comments/1t9rbp8/how_strong_is_neu_coopemployer_access_for_ms/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,22 @@ score: 0
 upvote_ratio: 0.5
 num_comments: 1
 flair: "Co-op & Career"
-extracted_at: "2026-05-26T14:30:23.759Z"
+extracted_at: "2026-06-06T00:27:19.935Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1t9rbp8.md#c0"
+    char_span: [0, 1749]
+    sentence_count: 7
+    key_terms: [neu, students, co-op, employer, international, specifically, ece, automation]
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/neu/1t9rbp8.md#c1"
+    char_span: [1764, 2086]
+    sentence_count: 5
+    key_terms: [mostly, seems, area, pharmaceutical, purpleskies789, industries, undergrads, proximity]
+    section: Comments
+    token_count: 80
 ---
-
 # How strong is NEU co-op/employer access for MS ECE/CS students in this market?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1t9rbp8/how_strong_is_neu_coopemployer_access_for_ms/)

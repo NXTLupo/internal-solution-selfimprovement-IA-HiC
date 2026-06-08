@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1smypb9.md
 url: "https://www.reddit.com/r/deeplearning/comments/1smypb9/using_llmguided_edits_to_make_ai_models_more/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.057Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1smypb9.md#c0"
+    char_span: [0, 1753]
+    sentence_count: 2
+    key_terms: [content, structured, seo, deeplearning, responses, comments, thinking, keyword]
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/deeplearning/1smypb9.md#c1"
+    char_span: [1768, 3045]
+    sentence_count: 5
+    key_terms: [entity, content, specifically, mentiondesk, keyword, similar, clean, found]
+    section: Comments
+    token_count: 258
 ---
-
 # using LLM-guided edits to make AI models more interpretable in SEO contexts
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1smypb9/using_llmguided_edits_to_make_ai_models_more/)

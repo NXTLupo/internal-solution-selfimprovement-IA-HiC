@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rzpilq.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rzpilq/how_were_you_able_to_land_a_high_salary_job_of/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,63 @@ flair: "Advice"
 extracted_at: "2026-05-23T14:54:05.579Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rzpilq.md#c0"
+    char_span: [0, 890]
+    sentence_count: 8
+    key_terms: [careerguidance, "i'm", job, currently, comments, salary, able, high]
+    token_count: 219
+  - id: "social-intelligence/reddit-deep/careerguidance/1rzpilq.md#c1"
+    char_span: [905, 2898]
+    sentence_count: 16
+    key_terms: [employer, others, people, work, skills, skill, want, experience]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/careerguidance/1rzpilq.md#c2"
+    char_span: [2900, 5132]
+    sentence_count: 17
+    key_terms: [management, data, education, project, years, been, jobs, scientists]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/careerguidance/1rzpilq.md#c3"
+    char_span: [5134, 7099]
+    sentence_count: 23
+    key_terms: [ask, making, don, job, experience, decision, company, started]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/careerguidance/1rzpilq.md#c4"
+    char_span: [7101, 8092]
+    sentence_count: 7
+    key_terms: [personality, job, personable, coworkers, people, year, significantly, articulate]
+    section: Comments
+    token_count: 254
+  - id: "social-intelligence/reddit-deep/careerguidance/1rzpilq.md#c5"
+    char_span: [8094, 9662]
+    sentence_count: 8
+    key_terms: [everyone, replaceable, purchasing, been, keep, move, potential-ad1139, parkinglog7354]
+    section: Comments
+    token_count: 381
+  - id: "social-intelligence/reddit-deep/careerguidance/1rzpilq.md#c6"
+    char_span: [9664, 11416]
+    sentence_count: 9
+    key_terms: [work, mulattocutie, sales, start, people, right, job, somewhere]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1rzpilq.md#c7"
+    char_span: [11157, 12107]
+    sentence_count: 5
+    key_terms: [nonprofit, degrees, postgraduate, job, because, giving, months, raise]
+    section: Comments
+    token_count: 233
+  - id: "social-intelligence/reddit-deep/careerguidance/1rzpilq.md#c8"
+    char_span: [12109, 12503]
+    sentence_count: 2
+    key_terms: [nonprofit, pay, mulattocutie, programmatic, fundraising, background, for-profit, operations]
+    section: Comments
+    token_count: 99
 ---
-
 # How were you able to land a high salary job of 70k or more?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rzpilq/how_were_you_able_to_land_a_high_salary_job_of/)

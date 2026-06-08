@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/d62ff7d2bf.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1sbg1yf/new_grad_am_i_setting_myself_up_for_failure/"
 url_hash: "d62ff7d2bf"
 kind: "article"
@@ -8,10 +9,22 @@ author: ""
 date: "2026-04-03T15:03:40.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-22T15:20:42.580059+00:00"
+extracted_at: "2026-06-06T17:45:09.928189+00:00"
 chars: 1916
+relevance: 80
+engagement_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/d62ff7d2bf.md#c0"
+    char_span: [0, 1208]
+    sentence_count: 10
+    key_terms: [cooked, cscareerquestions, myself, grad, like, new, setting, people]
+    token_count: 282
+  - id: "articles/reddit-deep-r-cscareerquestions/d62ff7d2bf.md#c1"
+    char_span: [1210, 2118]
+    sentence_count: 5
+    key_terms: [code, industry, guineverefira, job, cooked, sounds, confident-green-9811, userwithaquestion12]
+    token_count: 238
 ---
-
 # New grad - am i setting myself up for failure?
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sbg1yf/new_grad_am_i_setting_myself_up_for_failure/)
@@ -36,10 +49,10 @@ Also If we are that cooked is it worth moving to something like medicine right n
 
 --- TOP COMMENTS ---
 [275↑ chevybow] You’re a new grad at Apple and think the industry is cooked?
-[96↑ Confident-Green-9811] Hes a new grad who barely writes code, he is definitely cooked
+[97↑ Confident-Green-9811] Hes a new grad who barely writes code, he is definitely cooked
 [60↑ guineverefira] they also encourage us big time to use ai
-[43↑ nowthatswhat] Writing code doesn’t matter that much, building software what your job function really is.
-[3↑ guineverefira] why will anyone have to write code by hand now tho? i write a lot of code using ai…wont every company use ai in the future?
+[44↑ nowthatswhat] Writing code doesn’t matter that much, building software what your job function really is.
+[4↑ guineverefira] why will anyone have to write code by hand now tho? i write a lot of code using ai…wont every company use ai in the future?
 [1↑ Small_Dog_8699] He’s never gonna get to become good. Sad.
 [1↑ userWithAQuestion12] I know right! I’ll take his job over my non SWE job.
-[50↑ capitalsfan08] That sounds normal for me, 10 years industry experience here. Honestly working at Apple it sounds like you are one of the less troubled people in the industry. Set up your finances so you can weather storms and career pivots and you'll be fine.
+[48↑ capitalsfan08] That sounds normal for me, 10 years industry experience here. Honestly working at Apple it sounds like you are one of the less troubled people in the industry. Set up your finances so you can weather storms and career pivots and you'll be fine.

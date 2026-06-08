@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1qh4hag.md
 url: "https://www.reddit.com/r/productivity/comments/1qh4hag/how_is_your_2026_going_so_far/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,33 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:45.653Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1qh4hag.md#c0"
+    char_span: [0, 767]
+    sentence_count: 8
+    key_terms: [productivity, year, comments, systems, william45623, approaching, reddit-deep, distracted]
+    token_count: 185
+  - id: "social-intelligence/reddit-deep/productivity/1qh4hag.md#c1"
+    char_span: [782, 2470]
+    sentence_count: 26
+    key_terms: [year, routines, feeling, stopped, trying, feels, klutzylocation725, been]
+    section: Comments
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/productivity/1qh4hag.md#c2"
+    char_span: [2472, 4588]
+    sentence_count: 22
+    key_terms: [new, watching, started, stopped, like, art, wish, year]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/productivity/1qh4hag.md#c3"
+    char_span: [4590, 5136]
+    sentence_count: 4
+    key_terms: [key-environment-4910, mum, challenge, implement, mentioned, appalled, automate, emotions]
+    section: Comments
+    token_count: 136
 ---
-
 # How is your 2026 going so far?
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1qh4hag/how_is_your_2026_going_so_far/)

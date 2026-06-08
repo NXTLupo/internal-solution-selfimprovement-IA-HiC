@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1t4adkf.md
 url: "https://www.reddit.com/r/stocks/comments/1t4adkf/rstocks_daily_discussion_technicals_tuesday_may/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,44 @@ flair: ""
 extracted_at: "2026-05-17T01:14:17.627Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1t4adkf.md#c0"
+    char_span: [0, 1932]
+    sentence_count: 5
+    key_terms: [https, com, news, market, stocks, streetinsider, stockcharts, technical]
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/stocks/1t4adkf.md#c1"
+    char_span: [1934, 2998]
+    sentence_count: 1
+    key_terms: [reddit, stocks, https, com, www, author, search, indicator]
+    token_count: 305
+  - id: "social-intelligence/reddit-deep/stocks/1t4adkf.md#c2"
+    char_span: [3013, 4443]
+    sentence_count: 10
+    key_terms: [reality, unprecedented, years, time, inflation, economy, finally, markets]
+    section: Comments
+    token_count: 357
+  - id: "social-intelligence/reddit-deep/stocks/1t4adkf.md#c3"
+    char_span: [4445, 5251]
+    sentence_count: 6
+    key_terms: [investigatorplus3229, stock, sportsguru4714, bornalivedead, propelling, declining, happening, sentiment]
+    section: Comments
+    token_count: 222
+  - id: "social-intelligence/reddit-deep/stocks/1t4adkf.md#c4"
+    char_span: [5253, 7006]
+    sentence_count: 9
+    key_terms: [moddingspreee, rally, msft, investment, billion, google, investigatorplus3229, internetsolid4166]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1t4adkf.md#c5"
+    char_span: [6809, 7788]
+    sentence_count: 3
+    key_terms: [long, been, momentum, anyone, farms, empathyfabrication, internetsolid4166, fakietreflip]
+    section: Comments
+    token_count: 278
 ---
-
 # r/Stocks Daily Discussion & Technicals Tuesday - May 05, 2026
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1t4adkf/rstocks_daily_discussion_technicals_tuesday_may/)

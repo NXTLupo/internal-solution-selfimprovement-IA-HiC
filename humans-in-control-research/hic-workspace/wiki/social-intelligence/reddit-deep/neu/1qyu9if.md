@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1qyu9if.md
 url: "https://www.reddit.com/r/NEU/comments/1qyu9if/cs_math_major/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -6,19 +7,48 @@ subreddit: "neu"
 title: "CS+ math major"
 author: "Fun-Succotash-7160"
 date: "2026-02-08T00:29:24.000Z"
-score: 5
-upvote_ratio: 0.78
+score: 6
+upvote_ratio: 0.87
 num_comments: 18
 flair: "Co-op & Career"
-extracted_at: "2026-05-26T14:30:23.757Z"
+extracted_at: "2026-06-05T17:08:22.601Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1qyu9if.md#c0"
+    char_span: [0, 1269]
+    sentence_count: 8
+    key_terms: [math, co-ops, people, major, engineering, neu, comments, boston]
+    token_count: 309
+  - id: "social-intelligence/reddit-deep/neu/1qyu9if.md#c1"
+    char_span: [1284, 3442]
+    sentence_count: 11
+    key_terms: [people, concentration, math, work, roles, give, here, foundation]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/neu/1qyu9if.md#c2"
+    char_span: [3444, 4258]
+    sentence_count: 5
+    key_terms: [boston, here, live, completely, honest, being, moved, city]
+    section: Comments
+    token_count: 199
+  - id: "social-intelligence/reddit-deep/neu/1qyu9if.md#c3"
+    char_span: [4260, 6321]
+    sentence_count: 11
+    key_terms: [fun-succotash-7160, here, "i'm", math, major, minor, engineering, take]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/neu/1qyu9if.md#c4"
+    char_span: [6323, 8493]
+    sentence_count: 16
+    key_terms: [semester, math, glitteringmaybe4121, clubs, fun-succotash-7160, courses, instead, major]
+    section: Comments
+    token_count: 512
 ---
-
 # CS+ math major
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1qyu9if/cs_math_major/)
-Posted by **Fun-Succotash-7160** · **5↑** · **18 comments**
+Posted by **Fun-Succotash-7160** · **6↑** · **18 comments**
 
 Hey everyone!
 

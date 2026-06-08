@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1qxzi5u.md
 url: "https://www.reddit.com/r/Professors/comments/1qxzi5u/ethical_conundrum/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-20T03:55:39.283Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1qxzi5u.md#c0"
+    char_span: [0, 2255]
+    sentence_count: 24
+    key_terms: [students, organization, years, professors, threatened, academic, comments, happened]
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/professors/1qxzi5u.md#c1"
+    char_span: [2270, 4374]
+    sentence_count: 17
+    key_terms: [get, thank, something, moirasha, account, thought, tenure, world]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1qxzi5u.md#c2"
+    char_span: [4376, 6265]
+    sentence_count: 21
+    key_terms: [sorry, academia, happened, hoseroaf, reach, consciousplay9194, "i've", love]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/professors/1qxzi5u.md#c3"
+    char_span: [6267, 7917]
+    sentence_count: 16
+    key_terms: [people, accepted, yourself, forward, someone, support, others, alone-guarantee-9646]
+    section: Comments
+    token_count: 386
+  - id: "social-intelligence/reddit-deep/professors/1qxzi5u.md#c4"
+    char_span: [7919, 9171]
+    sentence_count: 14
+    key_terms: [experience, ashamed, through, others, psychologicalad7756, sorry, able, feel]
+    section: Comments
+    token_count: 313
+  - id: "social-intelligence/reddit-deep/professors/1qxzi5u.md#c5"
+    char_span: [9173, 11291]
+    sentence_count: 17
+    key_terms: ["didn't", victim, organization, institution, disregard, anything, people, report]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/professors/1qxzi5u.md#c6"
+    char_span: [11293, 13174]
+    sentence_count: 20
+    key_terms: [because, yourself, society, because--sometimes--i, people, awful, sorry, young]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/professors/1qxzi5u.md#c7"
+    char_span: [13176, 13640]
+    sentence_count: 2
+    key_terms: [complaints, jane, crustaltrudger, progressing, willenbring, protection, situation, bringing]
+    section: Comments
+    token_count: 111
 ---
-
 # Ethical Conundrum
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1qxzi5u/ethical_conundrum/)

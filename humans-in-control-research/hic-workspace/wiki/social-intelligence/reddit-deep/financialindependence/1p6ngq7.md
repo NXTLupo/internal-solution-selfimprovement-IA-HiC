@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1p6ngq7.md
 url: "https://www.reddit.com/r/financialindependence/comments/1p6ngq7/38f_705k_salary_600k_nw_fire_in_9_years/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -6,19 +7,65 @@ subreddit: "financialindependence"
 title: "38F, $70.5k Salary, $600k NW - FIRE in ~9 years"
 author: "xFIREgirlx"
 date: "2025-11-25T20:26:46.000Z"
-score: 199
+score: 197
 upvote_ratio: 0.93
 num_comments: 73
 flair: ""
-extracted_at: "2026-05-16T20:55:12.708Z"
+extracted_at: "2026-06-03T19:16:52.319Z"
 extraction_method: "praw-deep"
-research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+research_goal: "Provide a strategic analysis of the ROI of financial advice for individual investors in 2026, extrapolating on this theme by integrating current trends in finance, investing, and generational behavioral shifts."
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1p6ngq7.md#c0"
+    char_span: [0, 1734]
+    sentence_count: 6
+    key_terms: [month, years, year, financialindependence, salary, projected, comments, employer]
+    token_count: 514
+  - id: "social-intelligence/reddit-deep/financialindependence/1p6ngq7.md#c1"
+    char_span: [1736, 3310]
+    sentence_count: 11
+    key_terms: [goal, love, partner, change, house, fire, plan, roth]
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/financialindependence/1p6ngq7.md#c2"
+    char_span: [3325, 5221]
+    sentence_count: 20
+    key_terms: ["you're", individual-fail4709, month, cost, healthcare, retirement, xfiregirlx, different]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/financialindependence/1p6ngq7.md#c3"
+    char_span: [5223, 6523]
+    sentence_count: 11
+    key_terms: [xfiregirlx, little, roth, brokerage, accounts, pre-tax, limits, taught]
+    section: Comments
+    token_count: 337
+  - id: "social-intelligence/reddit-deep/financialindependence/1p6ngq7.md#c4"
+    char_span: [6525, 8637]
+    sentence_count: 15
+    key_terms: [traditional, money, tax, ira, roth, trad, pre-tax, contributing]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/financialindependence/1p6ngq7.md#c5"
+    char_span: [8639, 10349]
+    sentence_count: 17
+    key_terms: [partner, fire, family, goal, life, likely, status, find]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/financialindependence/1p6ngq7.md#c6"
+    char_span: [10351, 12489]
+    sentence_count: 18
+    key_terms: [failure, medical, partner, future, having, later, zanzibar770, "it's"]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/financialindependence/1p6ngq7.md#c7"
+    char_span: [12492, 12823]
+    sentence_count: 3
+    key_terms: [escapedape, insurance, preparing, multiple, nowadays, failure, getting, banked]
+    section: Comments
+    token_count: 88
 ---
-
 # 38F, $70.5k Salary, $600k NW - FIRE in ~9 years
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1p6ngq7/38f_705k_salary_600k_nw_fire_in_9_years/)
-Posted by **xFIREgirlx** · **199↑** · **73 comments**
+Posted by **xFIREgirlx** · **197↑** · **73 comments**
 
 ^((Alt acct to share my real numbers))
 
@@ -97,15 +144,15 @@ I mostly wanted to share my version of FIRE because I rarely see posts from sing
 
 ## Comments
 
-- **mikesfsu** (94↑): $850 mortgage is wild.
-  - **xFIREgirlx** (69↑): $134k purchase in July 2019. Super thankful for it. 1800sq ft, 3 bed, 1 bath. No more than 20 minutes from everything, used to be 3 miles away from work before we moved. Helped me keep my car costs down too! Love my home.
+- **mikesfsu** (92↑): $850 mortgage is wild.
+  - **xFIREgirlx** (70↑): $134k purchase in July 2019. Super thankful for it. 1800sq ft, 3 bed, 1 bath. No more than 20 minutes from everything, used to be 3 miles away from work before we moved. Helped me keep my car costs down too! Love my home.
     - **SolomonGrumpy** (1↑): Where? Msrs?
-  - **sunny_tomato_farm** (9↑): Cries in $7k/mo PITI.
-    - **LlcooljaredTNJ** (4↑): 7k a month is insane. Guessing you're crushing it financially at least if you're willing to do that.
-- **Individual-Fail4709** (35↑): You are killing it! Great job. Please do plan for crazy healthcare expenses. I retired early and even with my retirement stipend of $500 a month, healthcare is a crazy expense. Mine went up to $850 a month.
-  - **xFIREgirlx** (9↑): Ahhh thank you for that context! Honestly I haven’t even known where to start researching, so that’s super helpful for me
-    - **Individual-Fail4709** (4↑): You might be able to open a ACA Marketplace account to see what your cost might be in your area today. Each state has different plans and the cost will vary depending on your income. I am far from Medicare age due to RE. You don't have to sign up for anything to shop for plans, but open enrollment ends Dec. 15 for coverage Jan 1 (might be different in some states.) You might see what yours spits out, then add a big X% to get to your retirement cost before Medicare. It is a gauntlet or info.
-- **babbocom** (87↑): Thanks for sharing! Refreshing to see that FIRE is attainable even if you don't make $500k at 23 😂  
+  - **sunny_tomato_farm** (8↑): Cries in $7k/mo PITI.
+    - **LlcooljaredTNJ** (5↑): 7k a month is insane. Guessing you're crushing it financially at least if you're willing to do that.
+- **Individual-Fail4709** (32↑): You are killing it! Great job. Please do plan for crazy healthcare expenses. I retired early and even with my retirement stipend of $500 a month, healthcare is a crazy expense. Mine went up to $850 a month.
+  - **xFIREgirlx** (8↑): Ahhh thank you for that context! Honestly I haven’t even known where to start researching, so that’s super helpful for me
+    - **Individual-Fail4709** (3↑): You might be able to open a ACA Marketplace account to see what your cost might be in your area today. Each state has different plans and the cost will vary depending on your income. I am far from Medicare age due to RE. You don't have to sign up for anything to shop for plans, but open enrollment ends Dec. 15 for coverage Jan 1 (might be different in some states.) You might see what yours spits out, then add a big X% to get to your retirement cost before Medicare. It is a gauntlet or info.
+- **babbocom** (89↑): Thanks for sharing! Refreshing to see that FIRE is attainable even if you don't make $500k at 23 😂  
 
 
 You're doing a fabulous job on the financial side. Looks like there's still room to bump up your 401k contribution, but I assume your current allocation is deliberate and works for your lifestyle.
@@ -116,10 +163,10 @@ Congrats on doing a great job!
   - **xFIREgirlx** (34↑): Thank you!!!
 
 401k goes up yearly at raise time! I used to focus on it more, but now that I’m realizing this could actually happen before 62, I’m lowkey panicking that I won’t have enough liquid cash (brokerage) to cover me before I can pull from the retirement accounts. So I’ve started shifting a little more money to that account to bump it up in these last years
-    - **Impressive_Pear2711** (5↑): That is really smart! Allocating post tax dollars in a brokerage is key to supporting oneself before withdrawing from pre-tax accounts. Many folks miss this and save too much pre-tax.
+    - **Impressive_Pear2711** (6↑): That is really smart! Allocating post tax dollars in a brokerage is key to supporting oneself before withdrawing from pre-tax accounts. Many folks miss this and save too much pre-tax.
 - **marklikestolearn** (23↑): I mostly just want to applaud you for doing an amazing job with a "normal" salary! Kudos!!
   - **xFIREgirlx** (1↑): Thank you!! I really appreciate it!
-- **Wild_Butterscotch977** (10↑): >IRAs maxed (will adjust for 2026 new limits)
+- **Wild_Butterscotch977** (9↑): >IRAs maxed (will adjust for 2026 new limits)
 
 >$408/month to Roth
 
@@ -145,7 +192,7 @@ You’re doing a fantastic job, keep it up. Refreshing to see someone with a rea
 4. Any leftover to trad IRA
 
 OP, you probably know this already, but more money towards 401k = less taxable income for you in April.
-- **cbuck007** (3↑): This is so awesome to read and see lol. I appreciate you posting your #’s and shedding some light on how you’ve made your money and your lifestyle work for you! I’m feeling crazy encouraged lol
+- **cbuck007** (5↑): This is so awesome to read and see lol. I appreciate you posting your #’s and shedding some light on how you’ve made your money and your lifestyle work for you! I’m feeling crazy encouraged lol
   - **xFIREgirlx** (1↑): Thank you!! 
 
 You got this. I tell people all the time that I don’t spend what I don’t see. So for me, automatic deposits into savings has been a huge help!
@@ -171,7 +218,7 @@ Well done.
 * There are plenty of ways to spend your money on medical services, and many providers are happy to take it. Things get expensive quickly, which can be managed. What can be difficult is the fallout of medical procedures that do not have a 100% success rate.
     - **ZanziBar770** (18↑): Failure? Ehhh there are plenty of women who do it, freezing your eggs doesn’t make you a failure. Having kids with the wrong partner now that can cost a lifetime of misery. You want to think about your future self and given this is a finance forum; it can be significantly more costly and less successful to preserve fertility after 40 which is why I mention this. It’s an expensive process as it is but if you think you will remotely desire children in the future, it’s worth the investment sooner than later
     - **[deleted]** (10↑): It's not a failure at all! Humans are living longer and longer, and people are having kids later and later in life. We're all on our own timelines.
-    - **ForeignWeb1214** (5↑): Hugs! You are not a failure in this arena at all. Love takes time! 
+    - **ForeignWeb1214** (4↑): Hugs! You are not a failure in this arena at all. Love takes time! 
 
 
 Fwiw, do not let this mean inner voice stop you from preparing for the future that you want! 

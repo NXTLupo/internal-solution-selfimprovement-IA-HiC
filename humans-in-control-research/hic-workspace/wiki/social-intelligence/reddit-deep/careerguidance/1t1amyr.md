@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t1amyr.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t1amyr/how_do_i_go_about_picking_a_career_in_todays_job/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Education & Qualifications"
 extracted_at: "2026-05-23T14:54:05.576Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t1amyr.md#c0"
+    char_span: [0, 1193]
+    sentence_count: 7
+    key_terms: [administration, careerguidance, engineering, "i'm", ive, comments, switched, college]
+    token_count: 281
+  - id: "social-intelligence/reddit-deep/careerguidance/1t1amyr.md#c1"
+    char_span: [1208, 2600]
+    sentence_count: 6
+    key_terms: ["you're", engineering, something, helpful, fields, figure, people, skills]
+    section: Comments
+    token_count: 286
 ---
-
 # How do I go about picking a career in today's job market?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t1amyr/how_do_i_go_about_picking_a_career_in_todays_job/)

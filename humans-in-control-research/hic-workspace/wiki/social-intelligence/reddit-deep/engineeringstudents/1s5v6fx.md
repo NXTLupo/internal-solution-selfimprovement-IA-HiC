@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1s5v6fx.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1s5v6fx/looking_for_internship_advice_in_subsaharan/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -10,11 +11,22 @@ score: 2
 upvote_ratio: 1
 num_comments: 1
 flair: "Career Advice"
-extracted_at: "2026-05-25T13:01:49.571Z"
+extracted_at: "2026-06-05T23:43:26.904Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1s5v6fx.md#c0"
+    char_span: [0, 1301]
+    sentence_count: 5
+    key_terms: [engineering, internship, engineeringstudents, sub-saharan, don, especially, companies, something]
+    token_count: 292
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1s5v6fx.md#c1"
+    char_span: [1316, 1883]
+    sentence_count: 6
+    key_terms: [applying, already, people, right, cold, warm, connections, engineering]
+    section: Comments
+    token_count: 115
 ---
-
 # Looking for internship advice in Sub-Saharan Africa (First-year engineering student in Japan)
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1s5v6fx/looking_for_internship_advice_in_subsaharan/)

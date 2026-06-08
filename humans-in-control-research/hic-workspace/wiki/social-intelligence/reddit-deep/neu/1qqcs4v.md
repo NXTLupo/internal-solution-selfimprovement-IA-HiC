@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1qqcs4v.md
 url: "https://www.reddit.com/r/NEU/comments/1qqcs4v/accepted_into_the_nuin_program/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -6,19 +7,36 @@ subreddit: "neu"
 title: "Accepted into the NU.in Program!!!"
 author: "11hyunjin"
 date: "2026-01-29T16:10:28.000Z"
-score: 35
+score: 37
 upvote_ratio: 0.9
 num_comments: 20
 flair: "Global & Study Abroad"
-extracted_at: "2026-05-20T06:39:39.934Z"
+extracted_at: "2026-06-05T17:08:22.600Z"
 extraction_method: "praw-deep"
-research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1qqcs4v.md#c0"
+    char_span: [0, 880]
+    sentence_count: 8
+    key_terms: [semester, been, accepted, comments, starting, program, got, neu]
+    token_count: 204
+  - id: "social-intelligence/reddit-deep/neu/1qqcs4v.md#c1"
+    char_span: [895, 2743]
+    sentence_count: 9
+    key_terms: [got, campus, did, semester, spending, program, abroad, boston]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/neu/1qqcs4v.md#c2"
+    char_span: [2745, 3669]
+    sentence_count: 7
+    key_terms: [nuin, friends, program, people, did, feel, life, too]
+    section: Comments
+    token_count: 249
 ---
-
 # Accepted into the NU.in Program!!!
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1qqcs4v/accepted_into_the_nuin_program/)
-Posted by **11hyunjin** · **35↑** · **20 comments**
+Posted by **11hyunjin** · **37↑** · **20 comments**
 
 EEEEEEK Northeastern has been my first choice and I got accepted into their first semester abroad! It sounds super exciting but my parents have been a little concerned with me as an international student to be starting off not in boston. 
 
@@ -33,11 +51,11 @@ Someone please help a girl out!!!
 - **Da_Woodge** (17↑): I did NUIN and really enjoyed it. Most of the classes you will take are gen eds and are totally fine to not do on the main campus. I personally had no issue when returning to boston, I would suggest joining a club related to your major. There is a lot of rich people, but that is the same for the regular campus as well lol.
 - **Universe2001** (11↑): Go for it.
   - **11hyunjin** (3↑): is this my sign from the Universe chat
-- **Lazy_War9398** (17↑): You won't be starting uni a semester later than everyone else if that helps. You'll be able to make friends while you're abroad as well, and northeastern generally (IMO) does a good job of helping ppl acclimatize to Boston after spending their first semester or year somewhere else
+- **Lazy_War9398** (16↑): You won't be starting uni a semester later than everyone else if that helps. You'll be able to make friends while you're abroad as well, and northeastern generally (IMO) does a good job of helping ppl acclimatize to Boston after spending their first semester or year somewhere else
   - **11hyunjin** (3↑): AHHH okay thanks this relieved some of my anxiety abt it
 - **sunflowerplanting** (8↑): i got in too! i’m heavily thinking of going it’s a once in a life experience 😁
   - **Cold_Collection_6077** (1↑): Can you pls share cost of the program? My daughter got in London program but price is very high. Is it worth spending so much?
-- **This_Impress7889** (7↑): I just got back from NU in Rome and it was amazing! A great intro to college and it helped my find a friend group without the pressure of the huge campus, plus a chance to study abroad like I’ve always wanted to!!
+- **This_Impress7889** (6↑): I just got back from NU in Rome and it was amazing! A great intro to college and it helped my find a friend group without the pressure of the huge campus, plus a chance to study abroad like I’ve always wanted to!!
   - **11hyunjin** (1↑): can i ask if you were an international student or a US citizen? bc I had some confusions abt the F1 visa stuff
   - **paigu-fan** (1↑): I know the location is first come first serve. Did you have to reserve your spot the moment the website on the portal opened?
     - **11hyunjin** (1↑): they said the locations will be announced in the spring so still waiting

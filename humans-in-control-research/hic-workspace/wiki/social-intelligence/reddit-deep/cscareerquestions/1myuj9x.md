@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1myuj9x.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1myuj9x/ive_become_a_jackofalltrades_but_a_master_of_none/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,45 @@ flair: "Experienced"
 extracted_at: "2026-05-22T15:11:47.161Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1myuj9x.md#c0"
+    char_span: [0, 1955]
+    sentence_count: 19
+    key_terms: [data, analytics, been, "i'm", "i've", cscareerquestions, python, built]
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1myuj9x.md#c1"
+    char_span: [1970, 3986]
+    sentence_count: 8
+    key_terms: [recognitionsignal425, experience, technology, because, rust, sql, deleted, despise]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1myuj9x.md#c2"
+    char_span: [3988, 5718]
+    sentence_count: 14
+    key_terms: [depth, valuable, knowledge, guru, understanding, databases, languages, pacemaker]
+    section: Comments
+    token_count: 406
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1myuj9x.md#c3"
+    char_span: [5720, 7964]
+    sentence_count: 14
+    key_terms: [like, need, someone, issues, trades, "don't", needs, specialists]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1myuj9x.md#c4"
+    char_span: [7967, 9280]
+    sentence_count: 11
+    key_terms: [hiring, because, career, "don't", value, generalists, role, generalist]
+    section: Comments
+    token_count: 297
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1myuj9x.md#c5"
+    char_span: [9282, 10881]
+    sentence_count: 8
+    key_terms: [trades, data, jack, everything, experience, technical, t-shaped, clients]
+    section: Comments
+    token_count: 378
 ---
-
 # I've become a jack-of-all-trades, but a master of none. How desirable is that in the current U.S. job market?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1myuj9x/ive_become_a_jackofalltrades_but_a_master_of_none/)

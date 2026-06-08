@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1n1u6vo.md
 url: "https://www.reddit.com/r/college/comments/1n1u6vo/psa_dont_spend_money_on_textbooks_ever/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,33 @@ flair: "Meta"
 extracted_at: "2026-05-17T01:12:59.134Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1n1u6vo.md#c0"
+    char_span: [0, 790]
+    sentence_count: 9
+    key_terms: [free, college, textbooks, comments, books, money, texts, brainphysical6238]
+    token_count: 188
+  - id: "social-intelligence/reddit-deep/college/1n1u6vo.md#c1"
+    char_span: [805, 2890]
+    sentence_count: 10
+    key_terms: [textbooks, homework, textbook, automoderator, class, assignments, duplication, bookfinder]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/college/1n1u6vo.md#c2"
+    char_span: [2892, 4899]
+    sentence_count: 12
+    key_terms: [books, class, professor, physical, textbook, because, book, "i'm"]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/college/1n1u6vo.md#c3"
+    char_span: [4901, 5725]
+    sentence_count: 5
+    key_terms: [professors, get, textbook, industry, class, back, free, alternatives]
+    section: Comments
+    token_count: 180
 ---
-
 # PSA: Don’t spend money on textbooks. Ever.
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1n1u6vo/psa_dont_spend_money_on_textbooks_ever/)

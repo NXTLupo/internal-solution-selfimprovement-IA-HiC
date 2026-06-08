@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rtsmyk.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rtsmyk/title_25f_from_india_confused_about_career_path/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 1
 flair: ""
-extracted_at: "2026-05-19T17:57:31.310Z"
+extracted_at: "2026-06-06T16:39:04.124Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rtsmyk.md#c0"
+    char_span: [0, 1922]
+    sentence_count: 15
+    key_terms: [e-commerce, career, management, business, careerguidance, marketplace, like, comments]
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/careerguidance/1rtsmyk.md#c1"
+    char_span: [1937, 3208]
+    sentence_count: 12
+    key_terms: [e-commerce, business, path, work, different, switching, continue, customer]
+    section: Comments
+    token_count: 261
 ---
-
 # Title: 25F from India, confused about career path after leaving my first job – e-commerce vs remote roles?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rtsmyk/title_25f_from_india_confused_about_career_path/)

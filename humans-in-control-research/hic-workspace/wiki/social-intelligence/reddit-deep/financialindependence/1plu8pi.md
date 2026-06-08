@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1plu8pi.md
 url: "https://www.reddit.com/r/financialindependence/comments/1plu8pi/cost_of_having_a_child_15_children_year_2/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,66 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.705Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c0"
+    char_span: [0, 1229]
+    sentence_count: 3
+    key_terms: [financialindependence, cost, reddit, https, comments, com, utm, www]
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c1"
+    char_span: [1231, 2859]
+    sentence_count: 4
+    key_terms: [diapers, toddler-specific, grocery, cloth, baby, year, disposable, household]
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c2"
+    char_span: [2861, 4465]
+    sentence_count: 6
+    key_terms: [tickets, christmas, birthday, wooden, gifts, baby, year, secondhand]
+    token_count: 366
+  - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c3"
+    char_span: [4467, 5710]
+    sentence_count: 7
+    key_terms: [year, insurance, utilities, premiums, include, amount, annual, costs]
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c4"
+    char_span: [5725, 7273]
+    sentence_count: 8
+    key_terms: [cost, home, opportunity, expenses, planning, another, "doesn't", housing]
+    section: Comments
+    token_count: 356
+  - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c5"
+    char_span: [7275, 8596]
+    sentence_count: 11
+    key_terms: [money, home, parent, stay, necessary, families, problems, incomes]
+    section: Comments
+    token_count: 304
+  - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c6"
+    char_span: [8598, 10727]
+    sentence_count: 18
+    key_terms: [cost, children, great, opportunity, time, year, childcare, biggest]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c7"
+    char_span: [10731, 11948]
+    sentence_count: 11
+    key_terms: [contributions, medical, growth, early, start, years, add, bill]
+    section: Comments
+    token_count: 269
+  - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c8"
+    char_span: [11950, 13491]
+    sentence_count: 11
+    key_terms: [year, divorce, partner, relationship, childcare, providing, workforce, partners]
+    section: Comments
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c9"
+    char_span: [13493, 14377]
+    sentence_count: 5
+    key_terms: [dialecticallyalive, breast, feeding, produce, "don't", age, cost, milk]
+    section: Comments
+    token_count: 242
 ---
-
 # Cost of Having a Child (1.5 Children): Year 2
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1plu8pi/cost_of_having_a_child_15_children_year_2/)

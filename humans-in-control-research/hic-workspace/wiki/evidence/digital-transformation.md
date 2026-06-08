@@ -1,4 +1,5 @@
 ---
+id: evidence/digital-transformation.md
 title: "Digital Transformation Evidence"
 type: evidence
 created: 2026-04-10
@@ -8,8 +9,33 @@ confidence: speculative
 status: needs-review
 tags: [evidence, digital-transformation, change-management]
 evidence_count: 0
+industries: [enterprise_it]
+industry_method: llm
+chunks:
+  - id: "evidence/digital-transformation.md#c0"
+    char_span: [0, 751]
+    sentence_count: 4
+    key_terms: [transformation, evidence, digital, benchmark, evidenced, ingested, research, entries]
+    token_count: 146
+  - id: "evidence/digital-transformation.md#c1"
+    char_span: [779, 1390]
+    sentence_count: 1
+    key_terms: [evidenced, evidence, source, confidence, hypothesis, partially, supported, finding]
+    section: Evidence Entry Format
+    token_count: 156
+  - id: "evidence/digital-transformation.md#c2"
+    char_span: [1424, 2327]
+    sentence_count: 1
+    key_terms: [failure, transformation, management, technology, adoption, culture, primary, change]
+    section: Pending Evidence Categories
+    token_count: 197
+  - id: "evidence/digital-transformation.md#c3"
+    char_span: [2350, 3239]
+    sentence_count: 2
+    key_terms: [benchmarks, transformation, frameworks, digital, technology, adoption, evidence, maturity]
+    section: Cross-References
+    token_count: 179
 ---
-
 # Digital Transformation Evidence
 
 This page will be populated as source documents are ingested into the research

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1tk50fm.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1tk50fm/what_is_the_point_of_pd_courses/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-25T18:33:12.675Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1tk50fm.md#c0"
+    char_span: [0, 823]
+    sentence_count: 1
+    key_terms: [help, uwaterloo, workplace, comments, courses, writing, actual, scientistupbeat9060]
+    token_count: 195
+  - id: "social-intelligence/reddit-deep/uwaterloo/1tk50fm.md#c1"
+    char_span: [838, 2327]
+    sentence_count: 5
+    key_terms: [course, agentindependent306, scientistupbeat9060, meaningless, enrolled, students, courses, objective-style1994]
+    section: Comments
+    token_count: 414
 ---
-
 # what is the point of pd courses
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1tk50fm/what_is_the_point_of_pd_courses/)

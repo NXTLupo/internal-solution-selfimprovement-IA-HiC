@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1ov7dc9.md
 url: "https://www.reddit.com/r/internships/comments/1ov7dc9/should_i_take_an_unpaid_6month_internship_at/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "Offers"
 extracted_at: "2026-05-25T18:31:15.454Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce, higher_ed, government]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1ov7dc9.md#c0"
+    char_span: [0, 1377]
+    sentence_count: 10
+    key_terms: [internships, internship, unpaid, institute, gandhinagar, government, bisag, here]
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/internships/1ov7dc9.md#c1"
+    char_span: [1392, 1924]
+    sentence_count: 1
+    key_terms: [karma-farmer4688, internship, many-assistance-9286, did, less, barracudano2385, employement, conversion]
+    section: Comments
+    token_count: 160
 ---
-
 # Should I take an unpaid 6-month internship at BISAG Gandhinagar (Govt Institute) in my final year of BTech CE?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1ov7dc9/should_i_take_an_unpaid_6month_internship_at/)

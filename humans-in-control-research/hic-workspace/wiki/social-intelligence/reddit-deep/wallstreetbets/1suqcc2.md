@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1suqcc2.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1suqcc2/intc_broke_all_time_highs_so_did_i/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,33 @@ flair: "Gain"
 extracted_at: "2026-05-16T20:54:42.975Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1suqcc2.md#c0"
+    char_span: [0, 1247]
+    sentence_count: 16
+    key_terms: [highs, time, all-time, wallstreetbets, ride, robinhood, comments, getting]
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1suqcc2.md#c1"
+    char_span: [1262, 2671]
+    sentence_count: 4
+    key_terms: [https, years, put, discord, payment, preview, format, foreverythingthatis]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1suqcc2.md#c2"
+    char_span: [2673, 4221]
+    sentence_count: 8
+    key_terms: [house, boomer, market, awetfartruinedmylife, oblivious-speculator, money, buy, day]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1suqcc2.md#c3"
+    char_span: [4223, 4381]
+    sentence_count: 2
+    key_terms: [igleodee11, youngster, congrats, externox, holding, thanks, weight, gonna]
+    section: Comments
+    token_count: 51
 ---
-
 # INTC BROKE ALL TIME HIGHS. SO DID I.
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1suqcc2/intc_broke_all_time_highs_so_did_i/)

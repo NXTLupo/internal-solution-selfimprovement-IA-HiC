@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1lsasgc.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1lsasgc/drowning_in_debt_no_matter_how_hard_i_try/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,51 @@ flair: "Vent/Rant (No Advice/Criticism!)"
 extracted_at: "2026-05-17T01:13:55.887Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1lsasgc.md#c0"
+    char_span: [0, 1027]
+    sentence_count: 10
+    key_terms: [debt, povertyfinance, hard, comments, matter, feels, too, try]
+    token_count: 251
+  - id: "social-intelligence/reddit-deep/povertyfinance/1lsasgc.md#c1"
+    char_span: [1042, 2666]
+    sentence_count: 16
+    key_terms: [submitter, appropriate, need, advice, vents, vent, emotional, situation]
+    section: Comments
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/povertyfinance/1lsasgc.md#c2"
+    char_span: [2668, 4669]
+    sentence_count: 12
+    key_terms: [libra-love, something, like, pay, hardship, skf22424, hard, assistance]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1lsasgc.md#c3"
+    char_span: [4437, 4751]
+    sentence_count: 2
+    key_terms: [milehi49er, unexpected, different, autoxgti, expenses, surprise, deleted, keeping]
+    section: Comments
+    token_count: 86
+  - id: "social-intelligence/reddit-deep/povertyfinance/1lsasgc.md#c4"
+    char_span: [4753, 6615]
+    sentence_count: 18
+    key_terms: [advice, money, get, people, vent, problems, realized, skf22424]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/povertyfinance/1lsasgc.md#c5"
+    char_span: [6617, 7983]
+    sentence_count: 14
+    key_terms: [debt, don, paying, because, savings, started, group, hours]
+    section: Comments
+    token_count: 313
+  - id: "social-intelligence/reddit-deep/povertyfinance/1lsasgc.md#c6"
+    char_span: [7985, 9898]
+    sentence_count: 23
+    key_terms: [jazzlikeskill5225, luck, budget, money, auto, bill, good, paid]
+    section: Comments
+    token_count: 479
 ---
-
 # Drowning in debt no matter how hard I try
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1lsasgc/drowning_in_debt_no_matter_how_hard_i_try/)

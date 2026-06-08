@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/6da2de6b9f.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1pj9hj2/joined_microsoft_as_a_new_grad_and_im_miserable/"
 url_hash: "6da2de6b9f"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-26T12:57:44.919644+00:00"
 chars: 3108
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/6da2de6b9f.md#c0"
+    char_span: [0, 2292]
+    sentence_count: 21
+    key_terms: [cscareerquestions, expectations, sufficiently, diversified, friendships, like, everything, happiness]
+    token_count: 494
+  - id: "articles/reddit-deep-r-cscareerquestions/6da2de6b9f.md#c1"
+    char_span: [2294, 3316]
+    sentence_count: 9
+    key_terms: [work, describing, person, redact, needs, value, put, fulfillment]
+    token_count: 254
 ---
-
 # Joined Microsoft as a new grad and I’m miserable
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1pj9hj2/joined_microsoft_as_a_new_grad_and_im_miserable/)

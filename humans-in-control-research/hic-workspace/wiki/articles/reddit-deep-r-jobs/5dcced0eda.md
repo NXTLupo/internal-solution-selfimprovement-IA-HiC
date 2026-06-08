@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-jobs/5dcced0eda.md
 url: "https://www.reddit.com/r/jobs/comments/1rjys35/internships_only_available_for_students_need/"
 url_hash: "5dcced0eda"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-25T13:05:54.826863+00:00"
 chars: 1760
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-jobs/5dcced0eda.md#c0"
+    char_span: [0, 1969]
+    sentence_count: 15
+    key_terms: [internships, available, jobs, experience, because, looking, able, job]
+    token_count: 425
 ---
-
 # Internships only available for students. Need experience for entry level jobs.
 
 Source: [Reddit Deep: r/jobs](https://www.reddit.com/r/jobs/comments/1rjys35/internships_only_available_for_students_need/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1qumae8.md
 url: "https://www.reddit.com/r/investing/comments/1qumae8/ai_beats_out_crypto_gold_investments_for_family/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.193Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1qumae8.md#c0"
+    char_span: [0, 1292]
+    sentence_count: 6
+    key_terms: [ai-beats-out-crypto-gold-investments-family-offices-jp-morgan-survey, crypto, offices, investments, family, gold, survey, geopolitics]
+    token_count: 297
+  - id: "social-intelligence/reddit-deep/investing/1qumae8.md#c1"
+    char_span: [1307, 3336]
+    sentence_count: 13
+    key_terms: [family, offices, crypto, growth, ocampo-mark, risk, drawdown, capital]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/investing/1qumae8.md#c2"
+    char_span: [3338, 4769]
+    sentence_count: 4
+    key_terms: [looking, investment, elpresidentedeljunta, since, fear, pero, time, diversification]
+    section: Comments
+    token_count: 327
 ---
-
 # AI Beats Out Crypto, Gold Investments for Family Offices in J.P. Morgan Survey
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1qumae8/ai_beats_out_crypto_gold_investments_for_family/)

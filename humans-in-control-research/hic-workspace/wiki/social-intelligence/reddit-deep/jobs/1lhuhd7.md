@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1lhuhd7.md
 url: "https://www.reddit.com/r/jobs/comments/1lhuhd7/this_job_requests_traditional_christian_values/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,87 @@ flair: "Companies"
 extracted_at: "2026-05-24T14:10:06.644Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c0"
+    char_span: [0, 295]
+    sentence_count: 1
+    key_terms: [comments, job, jobs, reddit-deep, traditional, christian, requests, company]
+    token_count: 81
+  - id: "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c1"
+    char_span: [310, 599]
+    sentence_count: 1
+    key_terms: [muted-court1450, surgicalapple, veximmortalis, brobafetta, christian, looking, someone, asking]
+    section: Comments
+    token_count: 96
+  - id: "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c2"
+    char_span: [601, 1918]
+    sentence_count: 3
+    key_terms: [deleted, dismal-importance-15, clemontdechamfluery, carry, osha, simiansimulacrum, cyberentomology, refrigerators]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c3"
+    char_span: [1920, 3867]
+    sentence_count: 15
+    key_terms: [limit, pounds, etc, company, discrimination, people, requirement, "it's"]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c4"
+    char_span: [3869, 5003]
+    sentence_count: 4
+    key_terms: [company, discrimination, deleted, redact, age, case, like, work]
+    section: Comments
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c5"
+    char_span: [5005, 6743]
+    sentence_count: 8
+    key_terms: [christ, power, because, moving, week, haunted, houses, people]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c6"
+    char_span: [6746, 8689]
+    sentence_count: 7
+    key_terms: [christian, values, catholic, protestant, good, evangelical, traditional, per]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c7"
+    char_span: [8406, 9382]
+    sentence_count: 5
+    key_terms: [denomination, evangelist, protestant, christian, values, cenosillicaphobiac, don, evangelical]
+    section: Comments
+    token_count: 249
+  - id: "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c8"
+    char_span: [9384, 9772]
+    sentence_count: 1
+    key_terms: [specific-umpire-8199, barbellsandburritos, want, contraceptives, procedures, affirming, insurance, elective]
+    section: Comments
+    token_count: 111
+  - id: "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c9"
+    char_span: [9774, 11613]
+    sentence_count: 9
+    key_terms: [christian, lift, believe, matthew, version, people, samson, benchbeginning8086]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c10"
+    char_span: [11399, 12019]
+    sentence_count: 2
+    key_terms: [muscle, rosqp9okxwna7qjzjc, badguybusters2020, chickenandwhiskey, elephantredcar91, inspector-say10, discrimination, ellipticalcow]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c11"
+    char_span: [12021, 13959]
+    sentence_count: 14
+    key_terms: [people, christian, move, religious, business, whatever, deleted, parents]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/jobs/1lhuhd7.md#c12"
+    char_span: [13961, 15768]
+    sentence_count: 17
+    key_terms: [people, christian, alongside, business, everyone, working, always, worked]
+    section: Comments
+    token_count: 419
 ---
-
 # This job requests “traditional Christian values”
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1lhuhd7/this_job_requests_traditional_christian_values/)

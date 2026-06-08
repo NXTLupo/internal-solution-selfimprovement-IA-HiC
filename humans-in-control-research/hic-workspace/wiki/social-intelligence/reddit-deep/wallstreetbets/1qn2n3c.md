@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1qn2n3c.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1qn2n3c/869m_uglgdxu_yolo_in_advance_of_strengthening/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,55 @@ flair: "YOLO"
 extracted_at: "2026-05-16T20:54:42.977Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qn2n3c.md#c0"
+    char_span: [0, 1979]
+    sentence_count: 17
+    key_terms: [currencies, rate, dollar, against, wallstreetbets, strengthening, yen, comments]
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qn2n3c.md#c1"
+    char_span: [1981, 3916]
+    sentence_count: 15
+    key_terms: [yen, dollar, currencies, japanese, further, likely, gold, lead]
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qn2n3c.md#c2"
+    char_span: [3918, 5409]
+    sentence_count: 11
+    key_terms: [positions, shares, decline, approximately, non-leveraged, able, pre-market, versus]
+    token_count: 337
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qn2n3c.md#c3"
+    char_span: [5424, 6484]
+    sentence_count: 4
+    key_terms: [currency, discord, disastrous-choice101, everythingmustcease, total, gold, seen, wsb]
+    section: Comments
+    token_count: 303
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qn2n3c.md#c4"
+    char_span: [6486, 8344]
+    sentence_count: 14
+    key_terms: [stocks, yen, dollar, elections, japanese, against, decline, earning]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qn2n3c.md#c5"
+    char_span: [8346, 9498]
+    sentence_count: 2
+    key_terms: [png, cf67dd25e330f5db465f8c7efe6458d51b5f646c, preview, format, https, width, auto, redd]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qn2n3c.md#c6"
+    char_span: [9500, 11477]
+    sentence_count: 16
+    key_terms: [independent-cress382, therpgrad, commodities, gold, elections, continue, current, either]
+    section: Comments
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qn2n3c.md#c7"
+    char_span: [11479, 12806]
+    sentence_count: 9
+    key_terms: [gold, earnings, gdxu, next, against, another, dollar, months]
+    section: Comments
+    token_count: 346
 ---
-
 # $8.69M UGL/GDXU YOLO in Advance of Strengthening Asian Currencies
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1qn2n3c/869m_uglgdxu_yolo_in_advance_of_strengthening/)

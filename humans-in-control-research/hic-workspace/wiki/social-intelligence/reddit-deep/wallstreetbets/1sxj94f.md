@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1sxj94f.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1sxj94f/poet_yolo_fail_being_the_top_signal_and_learning/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,55 @@ flair: "Loss"
 extracted_at: "2026-05-17T01:14:17.603Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1sxj94f.md#c0"
+    char_span: [0, 1973]
+    sentence_count: 13
+    key_terms: [today, poet, wallstreetbets, week, comments, realized, marvell, regards]
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1sxj94f.md#c1"
+    char_span: [1975, 3574]
+    sentence_count: 9
+    key_terms: [learned, been, car, money, never, today, full, life]
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1sxj94f.md#c2"
+    char_span: [3576, 5608]
+    sentence_count: 19
+    key_terms: [process, learn, life, grateful, learning, realized, classic, learned]
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1sxj94f.md#c3"
+    char_span: [5623, 7034]
+    sentence_count: 5
+    key_terms: [cfo, comments, discord, existing-mammoth-315, total, did, pump, wsb]
+    section: Comments
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1sxj94f.md#c4"
+    char_span: [7037, 8767]
+    sentence_count: 7
+    key_terms: [like, going, poet, profit, did, trading, action, around]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1sxj94f.md#c5"
+    char_span: [8769, 10268]
+    sentence_count: 8
+    key_terms: [existing-mammoth-315, thatperspective3765, people, here, initial, deargodwhydidntisell, "don't", sting]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1sxj94f.md#c6"
+    char_span: [10270, 10812]
+    sentence_count: 1
+    key_terms: [existing-mammoth-315, goodintroduction6344, ports, znxwkw48ktxg1, billionaires, millionaires, vesploogie, hoodlum95]
+    section: Comments
+    token_count: 183
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1sxj94f.md#c7"
+    char_span: [10814, 12068]
+    sentence_count: 6
+    key_terms: [existing-mammoth-315, f1dfdda7ea82981ec5fb3cbcde30208d655c59f0, diversified, dropped, preview, format, insane, deargodwhydidntisell]
+    section: Comments
+    token_count: 422
 ---
-
 # POET YOLO “fail”, being the top signal, and learning from fellow Regards’ mistakes
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1sxj94f/poet_yolo_fail_being_the_top_signal_and_learning/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1ocv9iv.md
 url: "https://www.reddit.com/r/college/comments/1ocv9iv/how_do_you_get_research/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,21 @@ flair: "Academic Life"
 extracted_at: "2026-05-26T14:31:29.701Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1ocv9iv.md#c0"
+    char_span: [0, 922]
+    sentence_count: 8
+    key_terms: [research, college, comments, students, source, roles, done, get]
+    token_count: 199
+  - id: "social-intelligence/reddit-deep/college/1ocv9iv.md#c1"
+    char_span: [937, 3099]
+    sentence_count: 16
+    key_terms: [research, professors, doing, going, "you're", professor, process, usually]
+    section: Comments
+    token_count: 456
 ---
-
 # How Do You Get Research?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ocv9iv/how_do_you_get_research/)

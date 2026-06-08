@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1mb2yjr.md
 url: "https://www.reddit.com/r/waterloo/comments/1mb2yjr/part_time_job/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.136Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce, retail]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1mb2yjr.md#c0"
+    char_span: [0, 440]
+    sentence_count: 4
+    key_terms: [waterloo, comments, job, recommendations, urfavnightmare9, reddit-deep, appreciate, part-time]
+    token_count: 114
+  - id: "social-intelligence/reddit-deep/waterloo/1mb2yjr.md#c1"
+    char_span: [455, 901]
+    sentence_count: 1
+    key_terms: [urfavnightmare9, hiring, sweet, thank, xrainbowtreats, blackstone, "caroline's", experience]
+    section: Comments
+    token_count: 141
 ---
-
 # Part time Job
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1mb2yjr/part_time_job/)

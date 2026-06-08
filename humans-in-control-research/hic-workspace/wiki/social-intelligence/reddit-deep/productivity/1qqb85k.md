@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1qqb85k.md
 url: "https://www.reddit.com/r/productivity/comments/1qqb85k/i_realized_social_media_was_replacing_healthy/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,21 @@ flair: "General Advice"
 extracted_at: "2026-05-26T12:53:45.659Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [media]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1qqb85k.md#c0"
+    char_span: [0, 1199]
+    sentence_count: 9
+    key_terms: [productivity, daily, organized, structure, comments, through, without, social]
+    token_count: 267
+  - id: "social-intelligence/reddit-deep/productivity/1qqb85k.md#c1"
+    char_span: [1214, 2440]
+    sentence_count: 7
+    key_terms: [less, like, time, social, media, instead, phone, track]
+    section: Comments
+    token_count: 287
 ---
-
 # I realized social media was replacing healthy daily structure in my life
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1qqb85k/i_realized_social_media_was_replacing_healthy/)

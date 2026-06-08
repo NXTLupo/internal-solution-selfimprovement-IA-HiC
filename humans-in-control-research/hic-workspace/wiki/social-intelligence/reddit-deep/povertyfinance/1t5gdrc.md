@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1t5gdrc.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1t5gdrc/is_60_a_month_fair_to_pay_a_coworker_for_a_ride/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,45 @@ flair: "Budgeting/Saving/Investing/Spending"
 extracted_at: "2026-05-17T01:13:55.879Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [workforce, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1t5gdrc.md#c0"
+    char_span: [0, 1914]
+    sentence_count: 9
+    key_terms: [month, want, povertyfinance, paying, home, pay, ride, work]
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/povertyfinance/1t5gdrc.md#c1"
+    char_span: [1929, 2864]
+    sentence_count: 6
+    key_terms: [minutes, something, cookies, "doesn't", paperindependent5466, miles, small, good]
+    section: Comments
+    token_count: 262
+  - id: "social-intelligence/reddit-deep/povertyfinance/1t5gdrc.md#c2"
+    char_span: [2866, 4752]
+    sentence_count: 16
+    key_terms: [miles, time, rides, gas, home, like, consistent, depending]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1t5gdrc.md#c3"
+    char_span: [4544, 6226]
+    sentence_count: 10
+    key_terms: ["you're", pay, thank, good, "it's", want, appreciate, coworker]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/povertyfinance/1t5gdrc.md#c4"
+    char_span: [6228, 7821]
+    sentence_count: 17
+    key_terms: [nice, let, walk, coworker, honestly, outside, always, minute]
+    section: Comments
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/povertyfinance/1t5gdrc.md#c5"
+    char_span: [7823, 8691]
+    sentence_count: 9
+    key_terms: [abebroham-linkin, buy, like, sometimes, burrito, fridays, asked, maybe]
+    section: Comments
+    token_count: 230
 ---
-
 # Is $60 a month fair to pay a coworker for a ride home 3x a week on a tight budget?
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1t5gdrc/is_60_a_month_fair_to_pay_a_coworker_for_a_ride/)

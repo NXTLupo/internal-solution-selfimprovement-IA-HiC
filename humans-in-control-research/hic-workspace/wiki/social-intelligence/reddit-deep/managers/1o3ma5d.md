@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1o3ma5d.md
 url: "https://www.reddit.com/r/managers/comments/1o3ma5d/our_untracked_unlimited_pto_policy_was_working/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,104 @@ flair: ""
 extracted_at: "2026-05-26T12:54:23.630Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [government, policy]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c0"
+    char_span: [0, 2029]
+    sentence_count: 23
+    key_terms: [always, manager, been, pto, take, "i'm", "it's", need]
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c1"
+    char_span: [2031, 2522]
+    sentence_count: 4
+    key_terms: [like, "i'm", expectations, themselves, genuinely, improving, performer, employee]
+    token_count: 104
+  - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c2"
+    char_span: [2537, 4012]
+    sentence_count: 7
+    key_terms: [days, vacation, week, approved, flexible, unlimited, employee, because]
+    section: Comments
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c3"
+    char_span: [4014, 5707]
+    sentence_count: 13
+    key_terms: [day, district, vacation, typical, middle, person, pieces, taking]
+    section: Comments
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c4"
+    char_span: [5709, 7048]
+    sentence_count: 5
+    key_terms: [unlimited, pto, days, company, having, pretty, found, taken]
+    section: Comments
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c5"
+    char_span: [7050, 9027]
+    sentence_count: 16
+    key_terms: [days, pto, take, vacation, company, always, scandinavian, time]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c6"
+    char_span: [9029, 11047]
+    sentence_count: 14
+    key_terms: [days, take, pto, company, hours, leave, sick, incredibly]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c7"
+    char_span: [11049, 12921]
+    sentence_count: 13
+    key_terms: [department, pto, unlimited, policy, boss, "it's", authority, employee]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c8"
+    char_span: [12923, 15179]
+    sentence_count: 19
+    key_terms: [boss, been, meeting, "you're", documentation, professional, "don't", departments]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c9"
+    char_span: [15181, 17386]
+    sentence_count: 15
+    key_terms: [policy, training, boss, pto, managers, been, everything, enforcing]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c10"
+    char_span: [17388, 19284]
+    sentence_count: 12
+    key_terms: [specialization, people, person, policy, "it's", like, management, authority]
+    section: Comments
+    token_count: 401
+  - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c11"
+    char_span: [19286, 21371]
+    sentence_count: 12
+    key_terms: [unlimited, policy, pto, someone, department, subjective, arbitrary, business]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c12"
+    char_span: [21373, 23208]
+    sentence_count: 12
+    key_terms: [policy, anarkittensurprise, pto, unlimited, company, manager, meeting, intend]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c13"
+    char_span: [23210, 25378]
+    sentence_count: 13
+    key_terms: [policy, employee, days, year, person, tell, work, situation]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c14"
+    char_span: [25380, 27379]
+    sentence_count: 12
+    key_terms: [company, hustle, policy, worth, team, absolutely, themselves, unlimited]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c15"
+    char_span: [27381, 28071]
+    sentence_count: 6
+    key_terms: [barely, people, power, kids, sartensinaceite, department, americans, employees]
+    section: Comments
+    token_count: 165
 ---
-
 # Our untracked (unlimited) PTO policy was working fine for our team but now HR is losing their minds about it.
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1o3ma5d/our_untracked_unlimited_pto_policy_was_working/)

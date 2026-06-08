@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/cfcba8291b.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1sh7etp/seo_tech_developer_vs_summer_internship/"
 url_hash: "cfcba8291b"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-19T15:18:26.562446+00:00"
 chars: 507
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/cfcba8291b.md#c0"
+    char_span: [0, 700]
+    sentence_count: 4
+    key_terms: [comments, reddit, cscareerquestions, https, com, www, internship, developer]
+    token_count: 194
 ---
-
 # SEO Tech Developer vs. Summer Internship?
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sh7etp/seo_tech_developer_vs_summer_internship/)

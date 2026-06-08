@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1pzkm1j.md
 url: "https://www.reddit.com/r/college/comments/1pzkm1j/returning_to_college_after_a_decade/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-22T13:32:26.399Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1pzkm1j.md#c0"
+    char_span: [0, 1283]
+    sentence_count: 9
+    key_terms: [since, want, learning, college, anything, comments, program, "didn't"]
+    token_count: 291
+  - id: "social-intelligence/reddit-deep/college/1pzkm1j.md#c1"
+    char_span: [1298, 3558]
+    sentence_count: 17
+    key_terms: [good, students, youtube, skills, check, study, back, luck]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1pzkm1j.md#c2"
+    char_span: [3291, 5013]
+    sentence_count: 19
+    key_terms: [ask, back, good, meet, time, went, academic, "master's"]
+    section: Comments
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/college/1pzkm1j.md#c3"
+    char_span: [5015, 7155]
+    sentence_count: 17
+    key_terms: [write, day, experience, studying, whatever, already, because, reading]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/college/1pzkm1j.md#c4"
+    char_span: [7157, 7758]
+    sentence_count: 4
+    key_terms: [set, favorite, school, amazing-awareness-15, time, excellent, channels, comments]
+    section: Comments
+    token_count: 143
 ---
-
 # Returning to college after a decade!
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1pzkm1j/returning_to_college_after_a_decade/)

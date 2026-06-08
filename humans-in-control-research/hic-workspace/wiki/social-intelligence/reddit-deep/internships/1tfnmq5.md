@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1tfnmq5.md
 url: "https://www.reddit.com/r/internships/comments/1tfnmq5/hiring_content_moderators_remote_india_paid_role/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "Applications"
 extracted_at: "2026-05-24T14:08:27.829Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1tfnmq5.md#c0"
+    char_span: [0, 1099]
+    sentence_count: 2
+    key_terms: [content, remote, availability, internships, role, experience, moderators, comments]
+    token_count: 249
+  - id: "social-intelligence/reddit-deep/internships/1tfnmq5.md#c1"
+    char_span: [1114, 2072]
+    sentence_count: 3
+    key_terms: [interested, outrageousnet4541, okbluejay3743, aloohingee, experience, looking, student, intelligent-dust4376]
+    section: Comments
+    token_count: 280
 ---
-
 # [HIRING] Content Moderators (Remote | India | Paid Role)
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1tfnmq5/hiring_content_moderators_remote_india_paid_role/)

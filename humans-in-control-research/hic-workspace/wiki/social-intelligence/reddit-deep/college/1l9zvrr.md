@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1l9zvrr.md
 url: "https://www.reddit.com/r/college/comments/1l9zvrr/older_student/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-20T06:39:33.102Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1l9zvrr.md#c0"
+    char_span: [0, 1724]
+    sentence_count: 20
+    key_terms: [because, math, accounting, class, "i'm", degree, "that's", grade]
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/college/1l9zvrr.md#c1"
+    char_span: [1739, 2376]
+    sentence_count: 5
+    key_terms: [dyscalculia, math, recommend, get, "i'm", accessibility, requirement, substituted]
+    section: Comments
+    token_count: 151
 ---
-
 # older student
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1l9zvrr/older_student/)

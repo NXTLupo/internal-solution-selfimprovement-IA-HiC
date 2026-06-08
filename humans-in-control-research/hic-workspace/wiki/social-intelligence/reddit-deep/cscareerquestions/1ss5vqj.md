@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1ss5vqj.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1ss5vqj/how_much_harder_is_it_to_find_a_job_when_your_are/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,48 @@ subreddit: "cscareerquestions"
 title: "How much harder is it to find a job when your are unemployed?"
 author: "jholliday55"
 date: "2026-04-22T00:31:05.000Z"
-score: 32
-upvote_ratio: 0.84
+score: 33
+upvote_ratio: 0.85
 num_comments: 35
 flair: ""
-extracted_at: "2026-05-22T21:34:54.423Z"
+extracted_at: "2026-06-05T19:52:48.716Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5vqj.md#c0"
+    char_span: [0, 1495]
+    sentence_count: 16
+    key_terms: [cscareerquestions, always, applications, find, job, time, unemployed, something]
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5vqj.md#c1"
+    char_span: [1510, 3240]
+    sentence_count: 15
+    key_terms: [job, unemployed, chubbyvegantravels, employed, people, get, leverage, because]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5vqj.md#c2"
+    char_span: [3242, 5192]
+    sentence_count: 18
+    key_terms: [get, reason, candidates, freeing, totally, decent, months, people]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5vqj.md#c3"
+    char_span: [5197, 7214]
+    sentence_count: 13
+    key_terms: [people, laid, managers, hiring, hire, tech, work, probably]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5vqj.md#c4"
+    char_span: [7217, 7976]
+    sentence_count: 2
+    key_terms: [puzzleheadedguess435, happyirishman633210, job, new, ecethrowaway01, questionable, environment, everything]
+    section: Comments
+    token_count: 180
 ---
-
 # How much harder is it to find a job when your are unemployed?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1ss5vqj/how_much_harder_is_it_to_find_a_job_when_your_are/)
-Posted by **jholliday55** · **32↑** · **35 comments**
+Posted by **jholliday55** · **33↑** · **35 comments**
 
 I always hear people say, the best time to find a new job is when you already have a job. My current role, a few of the applications I am working on, they are transitioning away and decommissioning. The timeline is not yet known as they are large scale enterprise applications. I would guess around year end.
 
@@ -34,12 +64,12 @@ For context, I have 6 yoe as a full time full stake software engineer with 2 yea
 
 ## Comments
 
-- **Chili-Lime-Chihuahua** (65↑): It’s harder because there are genuinely people who think unemployed people are not as good. The head of HR at a company I used to be at literally said this, and I believe she, herself, had bee laid off. People have weird, selective memories. 
+- **Chili-Lime-Chihuahua** (68↑): It’s harder because there are genuinely people who think unemployed people are not as good. The head of HR at a company I used to be at literally said this, and I believe she, herself, had bee laid off. People have weird, selective memories. 
 
 It’s also easier to negotiate comp if you’re working. You have leverage.
-  - **ChubbyVeganTravels** (10↑): I agree about comp negotiation being much easier if you are in a job.
-    - **INFLATABLE_CUCUMBER** (4↑): Also in general your goal when unemployed is to get a job first to gain leverage, any job, precisely because unemployment is viewed as weakness. And then once you finally get some job you then try quickly to get a better one and ditch once it comes around. That I could see as the main reason. You’re a hooker who bangs anyone, though not out of genuine desire, but out of necessity and therefore disloyalty.
-- **Gold-Flatworm-4313** (31↑): 1. Your job market value "decays" while unemployed. It's slow the first few months but accelerates I'd say around 6 months. It's just human nature to think "Why has no one else hired this guy, is there something wrong with him?" if someone has not been employed for like... 2 years for example.
+  - **ChubbyVeganTravels** (8↑): I agree about comp negotiation being much easier if you are in a job.
+    - **INFLATABLE_CUCUMBER** (5↑): Also in general your goal when unemployed is to get a job first to gain leverage, any job, precisely because unemployment is viewed as weakness. And then once you finally get some job you then try quickly to get a better one and ditch once it comes around. That I could see as the main reason. You’re a hooker who bangs anyone, though not out of genuine desire, but out of necessity and therefore disloyalty.
+- **Gold-Flatworm-4313** (30↑): 1. Your job market value "decays" while unemployed. It's slow the first few months but accelerates I'd say around 6 months. It's just human nature to think "Why has no one else hired this guy, is there something wrong with him?" if someone has not been employed for like... 2 years for example.
 
 2. **Usually** you would be in a better mental state. The ability to say "no" to a job is actually much bigger than you think and desperation does not look good in an interview.
 
@@ -47,7 +77,7 @@ It’s also easier to negotiate comp if you’re working. You have leverage.
   - **ChubbyVeganTravels** (8↑): Yep. I think the exception to 1. is if you were self employed during that time i.e. did some contracting or founded a small business. Even then there is a stigma against the self employed.
 
 2 and 3. That is why getting a decent emergency fund is critical (although impossible for many). It used to be six months living expenses - nowadays it is more likely 12 to 18 months.
-  - **timelessblur** (3↑): As someone who has interviewed a lot of candidates it item 2 and 3 is huge.  The desperation makes them make stupid mistakes and so much more of their personality feels fake. It more than off putting feeling you get. 
+  - **timelessblur** (4↑): As someone who has interviewed a lot of candidates it item 2 and 3 is huge.  The desperation makes them make stupid mistakes and so much more of their personality feels fake. It more than off putting feeling you get. 
 
 I totally get why it is happening but doesn’t change the fact that it hurts in an interview. 
 
@@ -57,8 +87,8 @@ A huge reason why a good efund is important as you get laid off you are ok for a
     - **ChubbyVeganTravels** (2↑): Yep I totally agree. Confidence and lack of nerves do matter in interviews. For better or worse it is equated with competence and experience.
 
 Also the capacity to say no to or negotiate abysmal salary offers is the hallmark of senior, established people. You need to be able to defend your ambition to make a decent salary - and that means being able to walk away if they can't meet your expectations. For that you need savings or other sources of income.
-- **GameAddict411** (40↑): definitely harder, and gets worse the longer the period of unemployment is. Even if the reason for termination is  a lay off, lots of HM still blame the employees. I had one of my past managers even tell me he rejected candidates for this reason. I pushed back on him and he got embarrassed about it. But this is what happens when you have a boomer manager shrugs.
-  - **Wild-Ganache3061** (6↑): the gap thing is real but honestly depends on your interviewer - some don't care at all especially if you explain the situation upfront. i've seen people take deliberate breaks between jobs and still land good positions, but timing matters
+- **GameAddict411** (39↑): definitely harder, and gets worse the longer the period of unemployment is. Even if the reason for termination is  a lay off, lots of HM still blame the employees. I had one of my past managers even tell me he rejected candidates for this reason. I pushed back on him and he got embarrassed about it. But this is what happens when you have a boomer manager shrugs.
+  - **Wild-Ganache3061** (4↑): the gap thing is real but honestly depends on your interviewer - some don't care at all especially if you explain the situation upfront. i've seen people take deliberate breaks between jobs and still land good positions, but timing matters
 
   
 with 6 years experience and masters you should be fine, just prepare good story about why you left and what you did during gap. maybe use vacation time to brush up skills or work on side project so you have something to show for the time
@@ -71,8 +101,8 @@ You can get away with it for a month, say by saying you were "laid off in June" 
 
 The real hurdle isn't hiring managers not wanting to hire you, it's you having to settle for a bad fit role or bad pay due to money running out. If you have lots of savings then you're in a better position.
   - **Creative-Package6213** (1↑): Best response here.
-- **Hot_Preparation1660** (5↑): In a good economy, when it’s more likely to be your fault, it doesn’t matter. In a terrible economy, when it’s probably not your fault, people will come up with the stupidest reasons not to hire someone…
-- **AccordingAnswer5031** (3↑): "Beggers can't be choosers"
+- **Hot_Preparation1660** (6↑): In a good economy, when it’s more likely to be your fault, it doesn’t matter. In a terrible economy, when it’s probably not your fault, people will come up with the stupidest reasons not to hire someone…
+- **AccordingAnswer5031** (5↑): "Beggers can't be choosers"
 - **pl487** (3↑): It's just one factor of many. It cuts your odds of acceptance by some small number of percent. 
 
 

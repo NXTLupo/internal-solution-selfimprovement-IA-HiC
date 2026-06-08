@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1nouni2.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1nouni2/how_do_i_get_a_co_op_in_power_systems_as_a/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Career Help"
 extracted_at: "2026-05-22T23:33:47.002Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1nouni2.md#c0"
+    char_span: [0, 1107]
+    sentence_count: 7
+    key_terms: [systems, power, engineeringstudents, graduate, student, experience, internship, companies]
+    token_count: 249
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1nouni2.md#c1"
+    char_span: [1122, 1758]
+    sentence_count: 4
+    key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
+    section: Comments
+    token_count: 150
 ---
-
 # How do I get a co op in Power systems as a Graduate Student?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1nouni2/how_do_i_get_a_co_op_in_power_systems_as_a/)

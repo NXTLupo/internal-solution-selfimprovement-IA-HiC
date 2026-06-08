@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1tjwi27.md
 url: "https://www.reddit.com/r/internships/comments/1tjwi27/how_do_you_actually_earn_a_return_offer/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,42 @@ subreddit: "internships"
 title: "How do you actually earn a return offer?"
 author: "izephry"
 date: "2026-05-21T20:14:30.000Z"
-score: 38
-upvote_ratio: 0.95
-num_comments: 7
+score: 41
+upvote_ratio: 0.98
+num_comments: 8
 flair: "General"
-extracted_at: "2026-05-26T14:30:47.907Z"
+extracted_at: "2026-06-06T13:03:30.727Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1tjwi27.md#c0"
+    char_span: [0, 1431]
+    sentence_count: 16
+    key_terms: [marketing, return, offer, internships, recruiting, corporate, comments, consumer]
+    token_count: 300
+  - id: "social-intelligence/reddit-deep/internships/1tjwi27.md#c1"
+    char_span: [1446, 3504]
+    sentence_count: 12
+    key_terms: [perspective, people, questions, meetings, share, ask, role, show]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/internships/1tjwi27.md#c2"
+    char_span: [3506, 5450]
+    sentence_count: 25
+    key_terms: [intelligence, better, mistake, having, coachability, apply, learn, opportunity]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/internships/1tjwi27.md#c3"
+    char_span: [5452, 6507]
+    sentence_count: 11
+    key_terms: [yourself, work, qualities, because, return, wallstreetmastermind, "don't", ask]
+    section: Comments
+    token_count: 231
 ---
-
 # How do you actually earn a return offer?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1tjwi27/how_do_you_actually_earn_a_return_offer/)
-Posted by **izephry** · **38↑** · **7 comments**
+Posted by **izephry** · **41↑** · **8 comments**
 
 I finally landed a summer marketing internship after a pretty humbling recruiting process.
 
@@ -42,11 +66,11 @@ Would appreciate any advice.
 
 ## Comments
 
-- **bigfatmama7** (27↑): I agree with the other commenter, I would add to be pleasant to be around and have a positive attitude. It's much more important than people think. Also try to be proactive when possible and to solve even the smallest problem of your manager.
+- **bigfatmama7** (26↑): I agree with the other commenter, I would add to be pleasant to be around and have a positive attitude. It's much more important than people think. Also try to be proactive when possible and to solve even the smallest problem of your manager.
 
 Congrats on your offer and good luck for the Start of your career!
-- **SpamAccountLmaoo** (8↑): on top of what everyone says, you have to want the role you're gunning for. if you don't, you have to fake it. be explicit and show your team how much you'd love to do this role in the future.
-- **PifoMagia** (7↑): Former intern here (undergrad and MBA) also with a college bound kid who’s had a tech internship and going back this summer…
+- **SpamAccountLmaoo** (10↑): on top of what everyone says, you have to want the role you're gunning for. if you don't, you have to fake it. be explicit and show your team how much you'd love to do this role in the future.
+- **PifoMagia** (8↑): Former intern here (undergrad and MBA) also with a college bound kid who’s had a tech internship and going back this summer…
 
 do the things no one else does…ask questions in meetings, take notes and share them (on the team slack/email), volunteer for the office events or whenever your boss asks for help. No task should be too small for you to take on. People remember this. 
 
@@ -59,7 +83,7 @@ Reality is no one expects interns to contribute at the level a full timer does, 
 And network as much as you can, get to know people not just in your department but throughout the company, set up coffee chats, lunch etc. Ask them questions about their day to day and how can you in your role help them or something like that.
 
 Having those connections who can vouch for you really matters a lot and can open doors you never thought existed.
-- **NoClueAboutLove** (2↑): I interned at an accounting firm and by the end they basically called me the MVP of the intern class. Here's what I did:
+- **NoClueAboutLove** (3↑): I interned at an accounting firm and by the end they basically called me the MVP of the intern class. Here's what I did:
 
 Preface by saying I literally had only one accounting class before the internship, so I was actually disadvantaged in knowledge. 
 
@@ -72,3 +96,8 @@ Coachability: if you know nothing, you have the opportunity to learn everything.
 Hunger: this is the biggest one. You could do everything right, but if you have no drive, you have no future. I started with nothing. Inexperienced and younger than everyone at my company. But I came in and I worked by ass off. If I made a mistake, give me another one I'll do it better. I finished my work timely, and always asked for more. I started off in a defined role, and got trained on three other things because I wanted it. I asked and showed desire and proved that I would work for that opportunity. 
 
 The biggest thing is knowing the line between humility and confidence. Know yourself and your limits. Don't be braggy and take on projects that will end up failing in your face. Start small, accept any work that is given to you because if you can staple pages together for a day then tomorrow you get to work on that project you've been eyeing. But also, sell yourself. If you know you can do it, tell them that and try your hardest. Know the qualities that you have and don't let yourself be trampled on or overlooked because of your role. Highlight the best, and be ready to work on improving the worst.
+- **wallstreetmastermind** (1↑): Agreeing with u/bigfatmama7 on this one. Beyond being pleasant to be around, ask good questions and communicate with your managers on a regular basis.
+
+Make sure they know your name, so when it's time for return offers to be sent out--they already know you're a top performer.   
+  
+It's also not unreasonable to ask what is the return offer rate, or "what are the qualities you typically see in successful interns?"

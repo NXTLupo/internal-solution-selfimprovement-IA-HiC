@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1sla5rn.md
 url: "https://www.reddit.com/r/college/comments/1sla5rn/how_do_i_get_people_to_join_my_student_org/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,33 @@ flair: "Academic Life"
 extracted_at: "2026-05-25T15:51:48.249Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1sla5rn.md#c0"
+    char_span: [0, 1122]
+    sentence_count: 7
+    key_terms: [people, student, college, comments, excited, active, attend, "don't"]
+    token_count: 251
+  - id: "social-intelligence/reddit-deep/college/1sla5rn.md#c1"
+    char_span: [1137, 2810]
+    sentence_count: 16
+    key_terms: [professors, people, club, get, want, question, classes, mention]
+    section: Comments
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/college/1sla5rn.md#c2"
+    char_span: [2812, 4939]
+    sentence_count: 15
+    key_terms: [people, club, orgs, classes, college, interesting, org, show]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/college/1sla5rn.md#c3"
+    char_span: [4941, 6079]
+    sentence_count: 15
+    key_terms: [meetings, students, college, student, budget, ask, food, lab]
+    section: Comments
+    token_count: 248
 ---
-
 # How do I get people to join my student org?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1sla5rn/how_do_i_get_people_to_join_my_student_org/)

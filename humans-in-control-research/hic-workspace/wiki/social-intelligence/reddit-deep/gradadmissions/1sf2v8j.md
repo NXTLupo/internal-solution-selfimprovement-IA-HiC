@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1sf2v8j.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1sf2v8j/april_7_and_no_decisions_yet_should_i_assume/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,33 @@ flair: "Engineering"
 extracted_at: "2026-05-23T12:15:55.841Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sf2v8j.md#c0"
+    char_span: [0, 1339]
+    sentence_count: 6
+    key_terms: [submitted, decisions, dec, gradadmissions, april, ece, uoft, rejection]
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sf2v8j.md#c1"
+    char_span: [1354, 2312]
+    sentence_count: 7
+    key_terms: [acceptance, rejection, students, funding, holding, waiting, assume, people]
+    section: Comments
+    token_count: 233
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sf2v8j.md#c2"
+    char_span: [2314, 4255]
+    sentence_count: 9
+    key_terms: [strawberryangel101, programs, schools, waiting, april, bugtrousers, rejection, accepted]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sf2v8j.md#c3"
+    char_span: [4039, 5174]
+    sentence_count: 3
+    key_terms: [pure-consequence7284, applied, back, different, waiting, letter, diligent-design-5019, prestigious-good8372]
+    section: Comments
+    token_count: 323
 ---
-
 # April 7 and no decisions yet… should I assume rejection?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1sf2v8j/april_7_and_no_decisions_yet_should_i_assume/)

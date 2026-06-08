@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rti3ik.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rti3ik/tech_jobs_vs_skilled_trade_jobs_which_path_is/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,34 @@ score: 2
 upvote_ratio: 0.75
 num_comments: 16
 flair: ""
-extracted_at: "2026-05-25T13:04:07.360Z"
+extracted_at: "2026-06-03T17:59:52.588Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rti3ik.md#c0"
+    char_span: [0, 710]
+    sentence_count: 4
+    key_terms: [careerguidance, jobs, comments, skilled, systems, without, better, degree]
+    token_count: 155
+  - id: "social-intelligence/reddit-deep/careerguidance/1rti3ik.md#c1"
+    char_span: [725, 2809]
+    sentence_count: 17
+    key_terms: [degree, tech, going, projects, getting, without, level, care]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/careerguidance/1rti3ik.md#c2"
+    char_span: [2811, 4556]
+    sentence_count: 21
+    key_terms: [tech, fear, jobs, developers, saturated, software, already, through]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/careerguidance/1rti3ik.md#c3"
+    char_span: [4558, 4998]
+    sentence_count: 3
+    key_terms: [tech, right, give, job, truthteller6000, whatdoido8383, difficult, elemant48]
+    section: Comments
+    token_count: 118
 ---
-
 # Tech jobs vs skilled trade jobs which path is better without a degree?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rti3ik/tech_jobs_vs_skilled_trade_jobs_which_path_is/)
@@ -28,7 +52,7 @@ For people who have worked in either field, which path has better long-term oppo
 
 ## Comments
 
-- **[deleted]** (9↑): The ship has long sailed to have a great career in tech without a degree. Trades are far better long term if you don’t want to attend college.
+- **[deleted]** (10↑): The ship has long sailed to have a great career in tech without a degree. Trades are far better long term if you don’t want to attend college.
   - **advancem** (-1↑): I hear, IBM / Apple etc dont care about degress but care about proven git hub repos or projects. I think your reach matters more than degress and how many tailored applications (I call them touch points) does one apply every day is important.   
 I am curious what job search tools anyone here using. Thx.
     - **[deleted]** (3↑): If you have like 15 years on the job already as a high level employee at some other large tech company then yeah they won’t care. For entry level employees they’re going to get so many applicants that anyone without a degree is getting filtered out. Your projects quite frankly will never see human eyes. No one is spending significant going through every applicants GitHub.
@@ -37,9 +61,9 @@ I am curious what job search tools anyone here using. Thx.
     - **Senior-Dog-9735** (1↑): I wish you good luck going that route. You have people that have what you describe plus more plus the credentials behind them.
 
 As someone who recruits for a company for either EE or SWE the degree gets you on the doormat and how you are as a person opens the door for entry level.
-- **Virtual-Ducks** (4↑): Unless you're some prodigy who has made some serious impactful projects, you're not going to get into tech without a degree.
+- **Virtual-Ducks** (5↑): Unless you're some prodigy who has made some serious impactful projects, you're not going to get into tech without a degree.
 - **Oli_Picard** (4↑): From an economical standpoint if you can be self sufficient do it. Learning a trade means you can take your skills and set your own business up in tech companies tend to go with the same consultants while the consultant companies lay off 12% of their workforce year after year. Stick to a trade, I wish I had.
-- **fedput** (6↑): Getting into tech with a reputable but not extremely prestigious degree is difficult.  
+- **fedput** (5↑): Getting into tech with a reputable but not extremely prestigious degree is difficult.  
 
 Getting into tech with no degree is a fantasy.  
 

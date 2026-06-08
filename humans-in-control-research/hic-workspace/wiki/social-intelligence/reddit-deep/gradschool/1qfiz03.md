@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1qfiz03.md
 url: "https://www.reddit.com/r/GradSchool/comments/1qfiz03/any_other_folks_who_are_well_established_in_their/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.347Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c0"
+    char_span: [0, 1523]
+    sentence_count: 7
+    key_terms: [projects, program, group, already, established, gradschool, undergrad, comments]
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c1"
+    char_span: [1538, 3776]
+    sentence_count: 11
+    key_terms: [projects, doing, students, individual, group, already, masters, point]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c2"
+    char_span: [3779, 4534]
+    sentence_count: 6
+    key_terms: [opportunity, professor, without, people, person, "it's", like, conversation]
+    section: Comments
+    token_count: 149
+  - id: "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c3"
+    char_span: [4537, 6498]
+    sentence_count: 10
+    key_terms: [group, projects, work, professors, anything, assigned, project, myself]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c4"
+    char_span: [6287, 6933]
+    sentence_count: 4
+    key_terms: [get, everyone, projects, answer, worked, group, understandably, academically]
+    section: Comments
+    token_count: 161
+  - id: "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c5"
+    char_span: [6935, 8555]
+    sentence_count: 10
+    key_terms: [group, work, folks, like, individual, sometimes, projects, smoother]
+    section: Comments
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/gradschool/1qfiz03.md#c6"
+    char_span: [8557, 10596]
+    sentence_count: 7
+    key_terms: [school, because, work, project, different, applying, teamwork, muddied]
+    section: Comments
+    token_count: 424
 ---
-
 # Any other folks who are well established in their careers befuddled by group projects?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1qfiz03/any_other_folks_who_are_well_established_in_their/)

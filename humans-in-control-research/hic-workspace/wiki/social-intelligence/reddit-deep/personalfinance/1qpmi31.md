@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1qpmi31.md
 url: "https://www.reddit.com/r/personalfinance/comments/1qpmi31/my_parents_never_taught_me_about_money_and_now_im/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,33 @@ flair: "Other"
 extracted_at: "2026-05-16T20:55:02.107Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1qpmi31.md#c0"
+    char_span: [0, 1438]
+    sentence_count: 18
+    key_terms: ["i'm", taught, "don't", money, never, personalfinance, parents, savings]
+    token_count: 336
+  - id: "social-intelligence/reddit-deep/personalfinance/1qpmi31.md#c1"
+    char_span: [1453, 3551]
+    sentence_count: 29
+    key_terms: [need, personalfinance, budget, "you're", spend, accountable, wiki, decisions]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/personalfinance/1qpmi31.md#c2"
+    char_span: [3553, 5540]
+    sentence_count: 23
+    key_terms: ["don't", "it's", money, understand, income, spend, emergency, anything]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/personalfinance/1qpmi31.md#c3"
+    char_span: [5542, 6321]
+    sentence_count: 6
+    key_terms: [get, committeesome6736, plan, temporarily, discipline, budgeting, encourage, estimated]
+    section: Comments
+    token_count: 178
 ---
-
 # My parents never taught me about money and now I'm 25 with no savings and credit card debt
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1qpmi31/my_parents_never_taught_me_about_money_and_now_im/)

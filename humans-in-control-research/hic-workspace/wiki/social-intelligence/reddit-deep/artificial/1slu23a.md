@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1slu23a.md
 url: "https://www.reddit.com/r/artificial/comments/1slu23a/red_alert_tennessee_is_about_to_make_building/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,60 @@ flair: "News"
 extracted_at: "2026-05-11T17:27:04.761Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1slu23a.md#c0"
+    char_span: [0, 2288]
+    sentence_count: 16
+    key_terms: [artificial, emotional, human, user, intelligence, relationship, felony, individual]
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/artificial/1slu23a.md#c1"
+    char_span: [2290, 4761]
+    sentence_count: 13
+    key_terms: [conversational, model, tennessee, doesn, bill, system, train, service]
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/artificial/1slu23a.md#c2"
+    char_span: [4763, 7185]
+    sentence_count: 21
+    key_terms: [bill, preemption, judiciary, tennessee, federal, legislation, senate, committee]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/artificial/1slu23a.md#c3"
+    char_span: [7187, 8407]
+    sentence_count: 4
+    key_terms: [https, tennessees-ai-bill-would-criminalize-training-ai-cha, ai-companion-chatbot-regulation-wave-2026, hb1455, ai-legislative-update-april3-2026, com, transparencycoalition, roborhythms]
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/artificial/1slu23a.md#c4"
+    char_span: [8422, 10141]
+    sentence_count: 11
+    key_terms: [tennessee, realize, accomplished-gap2989, going, years, longpenisofthelaw, generalfrogspawn, betteroffbroke]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/artificial/1slu23a.md#c5"
+    char_span: [10143, 11782]
+    sentence_count: 11
+    key_terms: [bill, title, law, says, time, including, doctor, passed]
+    section: Comments
+    token_count: 380
+  - id: "social-intelligence/reddit-deep/artificial/1slu23a.md#c6"
+    char_span: [11784, 12727]
+    sentence_count: 2
+    key_terms: [tennessee-backs-off-sweeping-artificial-intelligence-limits-opts-for-study-instead, notorious, kaleidoscopeweary833, stayrevolutionary364, https, known, phillysteakcheese, bill]
+    section: Comments
+    token_count: 273
+  - id: "social-intelligence/reddit-deep/artificial/1slu23a.md#c7"
+    char_span: [12729, 15083]
+    sentence_count: 4
+    key_terms: [disclosure, intelligence, artificial, information, recurring, chatbot, include, related]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/artificial/1slu23a.md#c8"
+    char_span: [15086, 16472]
+    sentence_count: 5
+    key_terms: [heynongman96, legiscan, pornhub, cowboysfanindecember, statisticianfluid747, monthmaterial3351, read, text]
+    section: Comments
+    token_count: 353
 ---
-
 # 🚨 RED ALERT: Tennessee is about to make building chatbots a Class A felony (15-25 years in prison). This is not a drill.
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1slu23a/red_alert_tennessee_is_about_to_make_building/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1t6chau.md
 url: "https://www.reddit.com/r/jobs/comments/1t6chau/is_the_job_market_really_that_bad_right_now/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,87 @@ flair: "Job searching"
 extracted_at: "2026-05-24T14:10:06.648Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1t6chau.md#c0"
+    char_span: [0, 818]
+    sentence_count: 8
+    key_terms: [job, comments, market, people, timhortonsdrivethru, years, bad, jobs]
+    token_count: 204
+  - id: "social-intelligence/reddit-deep/jobs/1t6chau.md#c1"
+    char_span: [833, 2925]
+    sentence_count: 12
+    key_terms: [applicants, job, people, roles, looking, started, applications, apply]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/jobs/1t6chau.md#c2"
+    char_span: [2927, 4569]
+    sentence_count: 6
+    key_terms: [people, applications, last, too, applicants, environmental-day862, bunch, pages]
+    section: Comments
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/jobs/1t6chau.md#c3"
+    char_span: [4571, 6538]
+    sentence_count: 20
+    key_terms: [going, positions, job, replace, market, less, starting, demand]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/jobs/1t6chau.md#c4"
+    char_span: [6542, 8191]
+    sentence_count: 11
+    key_terms: [interviews, job, jobs, applied, great, got, lot, linkedin]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/jobs/1t6chau.md#c5"
+    char_span: [8193, 10112]
+    sentence_count: 19
+    key_terms: [interviews, job, interview, got, applied, around, yeah, qualified]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/jobs/1t6chau.md#c6"
+    char_span: [10114, 11170]
+    sentence_count: 15
+    key_terms: [days, like, employed, october, "don't", laid, sent, time]
+    section: Comments
+    token_count: 271
+  - id: "social-intelligence/reddit-deep/jobs/1t6chau.md#c7"
+    char_span: [11173, 12903]
+    sentence_count: 14
+    key_terms: [job, years, because, engineering, tech, competing, almost, either]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/jobs/1t6chau.md#c8"
+    char_span: [12905, 14785]
+    sentence_count: 17
+    key_terms: [job, don, jobs, new, old, work, something, accepted]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/jobs/1t6chau.md#c9"
+    char_span: [14787, 16922]
+    sentence_count: 13
+    key_terms: ["it's", postings, because, brutal, years, ago, been, jobs]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/jobs/1t6chau.md#c10"
+    char_span: [16924, 18802]
+    sentence_count: 18
+    key_terms: [job, applications, get, connected, interview, recruiter, company, current]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/jobs/1t6chau.md#c11"
+    char_span: [18804, 20197]
+    sentence_count: 10
+    key_terms: [state, raises, company, current, annual, hiring, thesoftdrinkofchoice, flags]
+    section: Comments
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/jobs/1t6chau.md#c12"
+    char_span: [20199, 21334]
+    sentence_count: 7
+    key_terms: [looking, changing, layoffs, thenabbreviations870, field, major, march, been]
+    section: Comments
+    token_count: 298
 ---
-
 # Is the job market REALLY that bad right now?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1t6chau/is_the_job_market_really_that_bad_right_now/)

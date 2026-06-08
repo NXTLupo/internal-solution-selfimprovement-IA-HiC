@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-investing/f2e6abdbc2.md
 url: "https://www.reddit.com/r/investing/comments/1rvlej9/do_any_of_you_use_ai_to_analyze_your_investment/"
 url_hash: "f2e6abdbc2"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:18:26.538528+00:00"
 chars: 1197
+industries: [financial_services, ai_research]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-investing/f2e6abdbc2.md#c0"
+    char_span: [0, 1399]
+    sentence_count: 9
+    key_terms: [analyze, halilural, portfolio, look, returns, use, allocation, investment]
+    token_count: 359
 ---
-
 # Do any of you use AI to analyze your investment portfolio?
 
 Source: [Reddit Deep: r/investing](https://www.reddit.com/r/investing/comments/1rvlej9/do_any_of_you_use_ai_to_analyze_your_investment/)

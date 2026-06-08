@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1rcupl9.md
 url: "https://www.reddit.com/r/Professors/comments/1rcupl9/taking_it_down_from_academic_integrity_to_not/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,56 @@ flair: "Teaching / Pedagogy"
 extracted_at: "2026-05-14T18:17:21.709Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1rcupl9.md#c0"
+    char_span: [0, 2015]
+    sentence_count: 9
+    key_terms: [students, directions, "don't", use, academic, advanced, problem, set]
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/professors/1rcupl9.md#c1"
+    char_span: [2017, 3108]
+    sentence_count: 7
+    key_terms: [class, students, problem, computer, outside, science, student, "it's"]
+    token_count: 226
+  - id: "social-intelligence/reddit-deep/professors/1rcupl9.md#c2"
+    char_span: [3123, 5096]
+    sentence_count: 11
+    key_terms: [incorrect, example, assignment, references, life-education-8030, citations, resources, students]
+    section: Comments
+    token_count: 406
+  - id: "social-intelligence/reddit-deep/professors/1rcupl9.md#c3"
+    char_span: [5098, 7130]
+    sentence_count: 12
+    key_terms: [writing, sources, students, because, shoehorning, "i'll", "it's", integrity]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/professors/1rcupl9.md#c4"
+    char_span: [7132, 9015]
+    sentence_count: 14
+    key_terms: [instructions, students, institutions, assignment, student, access, requirements, meet]
+    section: Comments
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/professors/1rcupl9.md#c5"
+    char_span: [9017, 11234]
+    sentence_count: 18
+    key_terms: [directions, restrictions, students, college, science, safety, themselves, guarantee]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/professors/1rcupl9.md#c6"
+    char_span: [11236, 12167]
+    sentence_count: 6
+    key_terms: [students, use, penalizing, proctored, nothing, joshuatheprogrammer, exams, gave]
+    section: Comments
+    token_count: 252
+  - id: "social-intelligence/reddit-deep/professors/1rcupl9.md#c7"
+    char_span: [12169, 13291]
+    sentence_count: 9
+    key_terms: [shinypenny01, question, through, joshuatheprogrammer, "can't", "don't", ready, get]
+    section: Comments
+    token_count: 291
 ---
-
 # Taking it down from "academic integrity" to "not following directions" in CS.
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1rcupl9/taking_it_down_from_academic_integrity_to_not/)

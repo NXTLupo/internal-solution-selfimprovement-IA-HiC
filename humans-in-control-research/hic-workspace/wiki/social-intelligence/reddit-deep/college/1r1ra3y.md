@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1r1ra3y.md
 url: "https://www.reddit.com/r/college/comments/1r1ra3y/first_career_fair_advice/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -10,11 +11,40 @@ score: 21
 upvote_ratio: 0.96
 num_comments: 13
 flair: ""
-extracted_at: "2026-05-25T13:02:03.713Z"
+extracted_at: "2026-06-06T16:38:05.643Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1r1ra3y.md#c0"
+    char_span: [0, 1099]
+    sentence_count: 12
+    key_terms: [experience, fair, internship, comments, college, connect, planned, advice]
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/college/1r1ra3y.md#c1"
+    char_span: [1114, 2775]
+    sentence_count: 9
+    key_terms: [people, application, get, internship, because, looking, advice, doing]
+    section: Comments
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/college/1r1ra3y.md#c2"
+    char_span: [2777, 5061]
+    sentence_count: 11
+    key_terms: [professional, jobs, internships, ask, like, accounting, experience, interested]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/college/1r1ra3y.md#c3"
+    char_span: [5063, 6361]
+    sentence_count: 8
+    key_terms: [recruiter, company, like, work, deloitte, specific, college, interns]
+    section: Comments
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/college/1r1ra3y.md#c4"
+    char_span: [6363, 8088]
+    sentence_count: 10
+    key_terms: [internship, environment, get, like, talk, trip, week, structured]
+    section: Comments
+    token_count: 399
 ---
-
 # First Career Fair Advice
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1r1ra3y/first_career_fair_advice/)
@@ -32,7 +62,7 @@ I just need advice on what to say, do, and if it’s even possible for me to lan
 
 ## Comments
 
-- **Corka** (6↑): So my advice is not to get your expectations up too high- generally there's way more people looking for those internship opportunities than there are available. I've been to several in the past, they were always a bit depressing when you join the queue of desperate students wanting an opportunity to get their foot in the door, especially if you have imposter syndrome or general issues with confidence and insecurity.  
+- **Corka** (5↑): So my advice is not to get your expectations up too high- generally there's way more people looking for those internship opportunities than there are available. I've been to several in the past, they were always a bit depressing when you join the queue of desperate students wanting an opportunity to get their foot in the door, especially if you have imposter syndrome or general issues with confidence and insecurity.  
   
  Each person you talk to has their own ideas of what makes a "good" candidate, and sometimes that's not you for reasons you find are arbitrary and unfair. I was doing a PhD and one guy told me he'd see that as a red flag because it means I "just wanted to live as a student forever instead of doing real work". I did have one HR rep whisper to me that I should make sure to include a picture of my face in the application because even though they'd never publicly admit it their employer "likes people like us" (we were both white guys, I didn't send an application to that one). 
 

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1nwss1b.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1nwss1b/from_0_offers_to_multiple_opportunities_job/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,32 @@ flair: ""
 extracted_at: "2026-05-23T14:54:48.629Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nwss1b.md#c0"
+    char_span: [0, 2032]
+    sentence_count: 9
+    key_terms: [cscareerquestions, offers, time, search, job, comments, brutal, market]
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nwss1b.md#c1"
+    char_span: [2034, 2764]
+    sentence_count: 9
+    key_terms: [https, imgur, com, categorization, interviews, failure, ho9vgfg, reason]
+    token_count: 186
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nwss1b.md#c2"
+    char_span: [2779, 4800]
+    sentence_count: 13
+    key_terms: [time, diabloallica, experience, offers, big, get, tech, yoe]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nwss1b.md#c3"
+    char_span: [4802, 5919]
+    sentence_count: 11
+    key_terms: [questions, problems, resume, did, experience, interviews, congrats, leetcode]
+    section: Comments
+    token_count: 265
 ---
-
 # From 0 Offers to Multiple Opportunities – Job Search Season 2 Recap (7.5 YOE, Market Update, and Lessons Learned)
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1nwss1b/from_0_offers_to_multiple_opportunities_job/)

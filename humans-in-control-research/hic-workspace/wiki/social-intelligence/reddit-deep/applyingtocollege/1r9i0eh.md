@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1r9i0eh.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1r9i0eh/email_from_columbia_no_clue_what_it_means/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,41 @@ subreddit: "applyingtocollege"
 title: "email from columbia, no clue what it means"
 author: "Dramatic-Simple2783"
 date: "2026-02-20T01:35:48.000Z"
-score: 16
-upvote_ratio: 0.95
+score: 13
+upvote_ratio: 0.9
 num_comments: 42
 flair: "College Questions"
-extracted_at: "2026-05-25T18:32:06.256Z"
+extracted_at: "2026-06-05T19:53:34.571Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r9i0eh.md#c0"
+    char_span: [0, 2541]
+    sentence_count: 16
+    key_terms: [students, academic, financial, columbia, aid, asp, need-based, applyingtocollege]
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r9i0eh.md#c1"
+    char_span: [2543, 3328]
+    sentence_count: 3
+    key_terms: [email, columbia, receiving, ugrad-asp, address, program, best, edu]
+    token_count: 159
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r9i0eh.md#c2"
+    char_span: [3343, 5115]
+    sentence_count: 7
+    key_terms: [dramatic-simple2783, got, good, email, sign, columbia, anyone, like]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r9i0eh.md#c3"
+    char_span: [4871, 5131]
+    sentence_count: 1
+    key_terms: [people, email, got, rejected, waitlist, anyone, future, letter]
+    section: Comments
+    token_count: 69
 ---
-
 # email from columbia, no clue what it means
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1r9i0eh/email_from_columbia_no_clue_what_it_means/)
-Posted by **Dramatic-Simple2783** · **16↑** · **42 comments**
+Posted by **Dramatic-Simple2783** · **13↑** · **42 comments**
 
 Hi! I was wondering if anyone else received this email and if anyone knows what it means? I applied as a political science and statistics major and presented research in my app. Here’s the email copy pasted:
 
@@ -55,9 +78,9 @@ EDIT: hello future applicants!!! if you happened to look up asp program after re
 
 - **Flashy-Disk311** (14↑): its js an offer to apply for a program within Columbia doesn't indicate anything for actual admissions
   - **Dramatic-Simple2783** (1↑): thank you!
-- **agaterubis** (11↑): Just an invitation to apply.
+- **agaterubis** (9↑): Just an invitation to apply.
   - **Dramatic-Simple2783** (1↑): thanks! :)
-- **letted313** (5↑): My daughter received this same letter today. We are wondering what it means also. It appears to be a good sign, I think.
+- **letted313** (3↑): My daughter received this same letter today. We are wondering what it means also. It appears to be a good sign, I think.
 - **CantaloupeWorth9314** (2↑): sounds like something similar to columbia heop, maybe for out of state kids? js guessing
 - **One_Environment_4973** (2↑): omg i've been trying to find if anyone else got this, i'm glad i stumbled across this post because i have mines this thursday GULP. i have my fingers, toes, and arms crossed that this is a good sign
   - **Dramatic-Simple2783** (3↑): IT MUST BE A GOOD SIGN!! likelys come out on Thursday too! im wishing you the best of luck!

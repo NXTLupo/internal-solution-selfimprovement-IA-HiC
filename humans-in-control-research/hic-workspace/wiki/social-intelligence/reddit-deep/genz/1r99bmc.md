@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1r99bmc.md
 url: "https://www.reddit.com/r/GenZ/comments/1r99bmc/yall_i_just_feel_so_hopeless_just_found_out_we/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,93 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.762Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [sustainability, policy, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c0"
+    char_span: [0, 913]
+    sentence_count: 15
+    key_terms: [crisis, water, feel, comments, fucked, bad, genz, time]
+    token_count: 239
+  - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c1"
+    char_span: [928, 2726]
+    sentence_count: 6
+    key_terms: [stealing, cca875291224d5af8855e5338bb56745c941d52a, future, discord, planet, tinaco, initial-reading-2775, https]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c2"
+    char_span: [2728, 4421]
+    sentence_count: 10
+    key_terms: [etc, want, don, common, people, ultra-wealthy, billionaires, water]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c3"
+    char_span: [4423, 5983]
+    sentence_count: 12
+    key_terms: [water, "true", globally, scarcity, because, crisis, fresh, years]
+    section: Comments
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c4"
+    char_span: [5985, 8203]
+    sentence_count: 13
+    key_terms: [water, global-fresh-water-demand-outstrip-supply-by-2030, being, because, enough, areas, maybe, need]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c5"
+    char_span: [7890, 8762]
+    sentence_count: 6
+    key_terms: [water, enough, "it's", little, care, like, mraudacious817, redistributed]
+    section: Comments
+    token_count: 186
+  - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c6"
+    char_span: [8764, 9868]
+    sentence_count: 4
+    key_terms: [a7796b8098af2fa5003e176ec9042b5c2ea8483f, because, problem, edward, people, rather, isn, circumstantial]
+    section: Comments
+    token_count: 305
+  - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c7"
+    char_span: [9870, 11832]
+    sentence_count: 18
+    key_terms: [water, resources, running, desalination, groundwater, data, "i'm", completely]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c8"
+    char_span: [11834, 13256]
+    sentence_count: 9
+    key_terms: [climate, predictions, severesignificance81, surroundparticular30, typical-district-176, years, environmentalists, haveavoreygoodday]
+    section: Comments
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c9"
+    char_span: [13258, 15191]
+    sentence_count: 8
+    key_terms: [people, get, attention, exactly, problem, around, public, snoopredictions3028]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c10"
+    char_span: [15193, 16980]
+    sentence_count: 13
+    key_terms: [world, end, borov-of-bulgar, ladeepervert, get, different, satire, source]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c11"
+    char_span: [16982, 18870]
+    sentence_count: 16
+    key_terms: [don, people, media, day, time, understand, something, suggest]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c12"
+    char_span: [18873, 20606]
+    sentence_count: 23
+    key_terms: [world, help, "i'm", live, honestly, better, vegetable-walrus5718, going]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c13"
+    char_span: [20608, 21142]
+    sentence_count: 4
+    key_terms: [water, increased, earth, fresh, redistribution, w6lb2g4grikg1, khafaniking, exhaustion]
+    section: Comments
+    token_count: 139
 ---
-
 # Yall I just feel so hopeless.. just found out we will run out of most of our fresh water in 13-15 years
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1r99bmc/yall_i_just_feel_so_hopeless_just_found_out_we/)

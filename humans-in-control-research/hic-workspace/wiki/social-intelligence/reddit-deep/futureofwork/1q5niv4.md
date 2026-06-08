@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/futureofwork/1q5niv4.md
 url: "https://www.reddit.com/r/FutureOfWork/comments/1q5niv4/the_future_of_work_trends_and_insights_for_2025/"
 kind: "social-post"
 source: "reddit-deep: r/futureofwork"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-26T12:54:26.432Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/futureofwork/1q5niv4.md#c0"
+    char_span: [0, 1114]
+    sentence_count: 2
+    key_terms: [learning-and-development, work, future-of-work, futureofwork, https, www, comments, balance]
+    token_count: 257
+  - id: "social-intelligence/reddit-deep/futureofwork/1q5niv4.md#c1"
+    char_span: [1129, 1775]
+    sentence_count: 2
+    key_terms: [future-of-work-trends-you-should-know-2025, consultport, future, future-of-consulting, thumbsdrivesmecrazy, new, work, problem-solving]
+    section: Comments
+    token_count: 139
 ---
-
 # The Future of Work: trends and insights for 2025
 
 Source: [reddit-deep: r/futureofwork](https://www.reddit.com/r/FutureOfWork/comments/1q5niv4/the_future_of_work_trends_and_insights_for_2025/)

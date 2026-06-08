@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1m93jgi/why_does_software_engineering_seem_to_come_with/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,87 @@ flair: "New Grad"
 extracted_at: "2026-05-23T12:16:24.349Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c0"
+    char_span: [0, 1173]
+    sentence_count: 7
+    key_terms: [everyone, cscareerquestions, breakdowns, comments, constant, software, mental, high-pressure]
+    token_count: 257
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c1"
+    char_span: [1188, 3278]
+    sentence_count: 24
+    key_terms: [sprint, agile, project, productivity, never, beginning, constant, deadline]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c2"
+    char_span: [3281, 5356]
+    sentence_count: 14
+    key_terms: [agile, through, done, team, deadlines, deadline, director, planning]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c3"
+    char_span: [5358, 7415]
+    sentence_count: 14
+    key_terms: [issues, agile, management, deadline, problem, waterfall, doing, unrealistic]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c4"
+    char_span: [7417, 9614]
+    sentence_count: 15
+    key_terms: [issues, agile, wrong, engineering, code, production, different, deadline]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c5"
+    char_span: [9616, 10283]
+    sentence_count: 2
+    key_terms: [people, important, stressful, because, realize, fast, like, post]
+    section: Comments
+    token_count: 134
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c6"
+    char_span: [10285, 11979]
+    sentence_count: 7
+    key_terms: [security, experienced, because, around, energy, illustrious-pound266, uwereeverything2311, "can't"]
+    section: Comments
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c7"
+    char_span: [11981, 14045]
+    sentence_count: 16
+    key_terms: [companies, tech, world, like, company, finance, people, breakdown]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c8"
+    char_span: [14047, 15648]
+    sentence_count: 16
+    key_terms: [use, something, technical, software, company, process, itself, making]
+    section: Comments
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c9"
+    char_span: [15651, 17681]
+    sentence_count: 19
+    key_terms: [maybe, lot, time, work, everyone, solution, correct, workers]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c10"
+    char_span: [17683, 19423]
+    sentence_count: 13
+    key_terms: [never, engineering, job, something, stressful, software, because, nothing]
+    section: Comments
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c11"
+    char_span: [19425, 21581]
+    sentence_count: 23
+    key_terms: [work, companies, field, experience, everyone, software, stressed, around]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c12"
+    char_span: [21583, 23259]
+    sentence_count: 22
+    key_terms: [company, product, re-org, electrician, like, work, especially, constant]
+    section: Comments
+    token_count: 374
 ---
-
 # Why does software engineering seem to come with constant mental breakdowns?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1m93jgi/why_does_software_engineering_seem_to_come_with/)

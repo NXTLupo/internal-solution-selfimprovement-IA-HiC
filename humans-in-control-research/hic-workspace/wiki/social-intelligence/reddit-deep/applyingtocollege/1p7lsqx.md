@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1p7lsqx.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1p7lsqx/which_summer_programs_actually_help_for_college/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,33 @@ flair: "Application Question"
 extracted_at: "2026-05-20T06:42:01.155Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p7lsqx.md#c0"
+    char_span: [0, 292]
+    sentence_count: 1
+    key_terms: [applyingtocollege, comments, ill-equivalent8316, reddit-deep, admissions, programs, college, posted]
+    token_count: 79
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p7lsqx.md#c1"
+    char_span: [307, 2046]
+    sentence_count: 4
+    key_terms: [nation, summer, girls, boys, admitted-students, programs, uchicago, people]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p7lsqx.md#c2"
+    char_span: [2048, 3823]
+    sentence_count: 9
+    key_terms: [competitive, aid, here, international, free, programs, research, student]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1p7lsqx.md#c3"
+    char_span: [3825, 4544]
+    sentence_count: 4
+    key_terms: [program, programs, competitive, certainly, college, potentialanywhere779, don, pre]
+    section: Comments
+    token_count: 161
 ---
-
 # Which Summer Programs actually help for college admissions
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1p7lsqx/which_summer_programs_actually_help_for_college/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1t70gff.md
 url: "https://www.reddit.com/r/internships/comments/1t70gff/desperately_looking_for_a_paid_internship/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "General"
 extracted_at: "2026-05-22T21:34:37.053Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce, enterprise_it, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1t70gff.md#c0"
+    char_span: [0, 1293]
+    sentence_count: 9
+    key_terms: [internships, opportunity, need, paid, experience, internship, genuinely, comments]
+    token_count: 284
+  - id: "social-intelligence/reddit-deep/internships/1t70gff.md#c1"
+    char_span: [1308, 1597]
+    sentence_count: 1
+    key_terms: [sweet-frosting4839, internshipdaily, filtering, scrolling, targeting, checking, dropping, linkedin]
+    section: Comments
+    token_count: 66
 ---
-
 # Desperately looking for a paid internship
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1t70gff/desperately_looking_for_a_paid_internship/)

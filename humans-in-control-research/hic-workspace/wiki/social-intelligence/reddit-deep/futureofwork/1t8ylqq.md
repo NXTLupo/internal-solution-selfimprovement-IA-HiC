@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/futureofwork/1t8ylqq.md
 url: "https://www.reddit.com/r/FutureOfWork/comments/1t8ylqq/is_the_job_market_going_to_recover_or_are_we_now/"
 kind: "social-post"
 source: "reddit-deep: r/futureofwork"
@@ -13,8 +14,26 @@ flair: ""
 extracted_at: "2026-05-26T12:54:26.436Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/futureofwork/1t8ylqq.md#c0"
+    char_span: [0, 1860]
+    sentence_count: 20
+    key_terms: [tired, job, market, being, manager, futureofwork, supersedes, comments]
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/futureofwork/1t8ylqq.md#c1"
+    char_span: [1862, 3813]
+    sentence_count: 36
+    key_terms: [don, because, nothing, here, job, experience, miserable, underpaid]
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/futureofwork/1t8ylqq.md#c2"
+    char_span: [3828, 5653]
+    sentence_count: 23
+    key_terms: [job, market, yourself, "it's", something, alexrada, staying, expect]
+    section: Comments
+    token_count: 431
 ---
-
 # Is the job market going to recover or are we now kidding ourselves; are we in the ‘endgame’? I’m desperate.
 
 Source: [reddit-deep: r/futureofwork](https://www.reddit.com/r/FutureOfWork/comments/1t8ylqq/is_the_job_market_going_to_recover_or_are_we_now/)

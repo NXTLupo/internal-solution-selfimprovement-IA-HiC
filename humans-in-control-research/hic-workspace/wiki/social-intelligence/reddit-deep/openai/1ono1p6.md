@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1ono1p6.md
 url: "https://www.reddit.com/r/OpenAI/comments/1ono1p6/what_happened_to_gpt5s_context_window/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,15 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:05.359Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1ono1p6.md#c0"
+    char_span: [0, 741]
+    sentence_count: 7
+    key_terms: [comments, context, project, openai, window, goofball-john-mcgee, user, misremembers]
+    token_count: 193
 ---
-
 # What happened to GPT-5’s Context Window?
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1ono1p6/what_happened_to_gpt5s_context_window/)

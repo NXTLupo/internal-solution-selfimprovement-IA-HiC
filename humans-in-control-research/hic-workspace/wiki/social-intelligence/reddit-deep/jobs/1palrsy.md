@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1palrsy.md
 url: "https://www.reddit.com/r/jobs/comments/1palrsy/what_if_any_jobs_are_there_for_introverts_with_no/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,21 @@ flair: "Job searching"
 extracted_at: "2026-05-20T06:41:17.645Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1palrsy.md#c0"
+    char_span: [0, 408]
+    sentence_count: 3
+    key_terms: [jobs, experience, comments, introverted, reddit-deep, introverts, drfuckwad, posted]
+    token_count: 113
+  - id: "social-intelligence/reddit-deep/jobs/1palrsy.md#c1"
+    char_span: [423, 2205]
+    sentence_count: 17
+    key_terms: [job, get, warehouse, start, don, like, work, references]
+    section: Comments
+    token_count: 457
 ---
-
 # What, if any, jobs are there for introverts with no skills or experience?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1palrsy/what_if_any_jobs_are_there_for_introverts_with_no/)

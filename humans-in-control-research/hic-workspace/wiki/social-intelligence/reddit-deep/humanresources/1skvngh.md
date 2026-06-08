@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1skvngh.md
 url: "https://www.reddit.com/r/humanresources/comments/1skvngh/hr_guidance_child_labor_pa/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-23T12:15:41.562Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1skvngh.md#c0"
+    char_span: [0, 1115]
+    sentence_count: 10
+    key_terms: [information, humanresources, background, personnel, comments, director, cleared, through]
+    token_count: 247
+  - id: "social-intelligence/reddit-deep/humanresources/1skvngh.md#c1"
+    char_span: [1130, 2787]
+    sentence_count: 16
+    key_terms: [risk, something, director, job, personnel, anything, mitigate, company]
+    section: Comments
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/humanresources/1skvngh.md#c2"
+    char_span: [2789, 4915]
+    sentence_count: 22
+    key_terms: [information, going, boss, "it's", kid, post, requirement, here]
+    section: Comments
+    token_count: 498
 ---
-
 # HR guidance -Child Labor [PA]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1skvngh/hr_guidance_child_labor_pa/)

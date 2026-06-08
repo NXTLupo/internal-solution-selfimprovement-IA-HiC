@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1qgoyf9.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1qgoyf9/career_advice/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-22T23:33:42.283Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qgoyf9.md#c0"
+    char_span: [0, 413]
+    sentence_count: 2
+    key_terms: [cscareerquestions, comments, advice, career, reddit-deep, "bachelor's", graduates, september]
+    token_count: 113
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qgoyf9.md#c1"
+    char_span: [428, 2278]
+    sentence_count: 8
+    key_terms: [cheap-boysenberry112, people, eggs, put, work, passionate, interview, graduate]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qgoyf9.md#c2"
+    char_span: [2280, 3337]
+    sentence_count: 11
+    key_terms: [internships, applications, leetcode, probably, projects, through, moment, fixed]
+    section: Comments
+    token_count: 230
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qgoyf9.md#c3"
+    char_span: [3339, 4617]
+    sentence_count: 8
+    key_terms: [leetcode, job, like, major, dont, choose, degree, bulky-negotiation345]
+    section: Comments
+    token_count: 321
 ---
-
 # Career advice
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1qgoyf9/career_advice/)

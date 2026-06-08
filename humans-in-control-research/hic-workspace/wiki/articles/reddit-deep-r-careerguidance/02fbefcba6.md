@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/02fbefcba6.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t6bfe2/why_do_people_call_the_usa_the_land_of/"
 url_hash: "02fbefcba6"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:40:51.302334+00:00"
 chars: 2719
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/02fbefcba6.md#c0"
+    char_span: [0, 1967]
+    sentence_count: 14
+    key_terms: [people, careerguidance, texas, opportunity, here, expensive, subreddit, comments]
+    token_count: 469
+  - id: "articles/reddit-deep-r-careerguidance/02fbefcba6.md#c1"
+    char_span: [1969, 2965]
+    sentence_count: 18
+    key_terms: ["i'm", collapsing, successful, america, career, mostly, glittering-let-2888, "don't"]
+    token_count: 239
 ---
-
 # Why do people call the USA the "land of opportunity" when literally no one can get a high paying job?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t6bfe2/why_do_people_call_the_usa_the_land_of/)

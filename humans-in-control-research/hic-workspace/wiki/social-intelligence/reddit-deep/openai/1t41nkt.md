@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1t41nkt.md
 url: "https://www.reddit.com/r/OpenAI/comments/1t41nkt/get_chatgpt_to_create_a_game_based_on_your/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,63 @@ flair: "Image"
 extracted_at: "2026-05-11T17:27:05.357Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1t41nkt.md#c0"
+    char_span: [0, 488]
+    sentence_count: 3
+    key_terms: [game, interests, comments, create, openai, like, realmelonbread, electronics]
+    token_count: 130
+  - id: "social-intelligence/reddit-deep/openai/1t41nkt.md#c1"
+    char_span: [503, 1437]
+    sentence_count: 5
+    key_terms: [b23a4a100cfb1e6db9ffbb38792f029f8c10c45c, preview, format, https, width, auto, jpeg, pjpg]
+    section: Comments
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/openai/1t41nkt.md#c2"
+    char_span: [1442, 2683]
+    sentence_count: 5
+    key_terms: [got, otacon7000, preview, reminds, format, though, enoughconcentrate897, https]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/openai/1t41nkt.md#c3"
+    char_span: [2685, 4495]
+    sentence_count: 10
+    key_terms: [almost, gucci-adidas-double-hat-release-date-price, b2c1237d53c5d38b94971e233e45e82d68550014, echoesofsolenya, https, etc, character, graphics]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/openai/1t41nkt.md#c4"
+    char_span: [4497, 5670]
+    sentence_count: 3
+    key_terms: [noncommongoodsense, png, de4280df5feefa448d30eacd26bfc762895fe322, preview, realmelonbread, format, https, width]
+    section: Comments
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/openai/1t41nkt.md#c5"
+    char_span: [5673, 6822]
+    sentence_count: 4
+    key_terms: [preview, format, https, width, auto, redd, webp, png]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/openai/1t41nkt.md#c6"
+    char_span: [6824, 7933]
+    sentence_count: 2
+    key_terms: [preview, format, https, width, auto, redd, webp, a286e2ea5486bcd68c9091b2f5016eeedee98ada]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/openai/1t41nkt.md#c7"
+    char_span: [7935, 8843]
+    sentence_count: 1
+    key_terms: [png, detached-attachment, a1ebec75046e752ef7c9d1a213da4aa318c5a7e6, ee30056f36b13c87c421d53d96cf0e9ccc3b81e3, preview, format, https, width]
+    section: Comments
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/openai/1t41nkt.md#c8"
+    char_span: [8845, 10226]
+    sentence_count: 11
+    key_terms: [preview, format, https, width, auto, redd, webp, a987753ea029f1b44ae9caec7e3a3a9ba7c2fe14]
+    section: Comments
+    token_count: 498
 ---
-
 # Get ChatGPT to create a game based on your interests
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1t41nkt/get_chatgpt_to_create_a_game_based_on_your/)

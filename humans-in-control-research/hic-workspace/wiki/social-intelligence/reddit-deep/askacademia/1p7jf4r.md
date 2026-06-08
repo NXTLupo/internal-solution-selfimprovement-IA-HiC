@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1p7jf4r.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1p7jf4r/is_an_academic_career_really_for_everyone/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,44 @@ flair: "Interpersonal Issues"
 extracted_at: "2026-05-26T14:32:49.126Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1p7jf4r.md#c0"
+    char_span: [0, 2279]
+    sentence_count: 24
+    key_terms: [degree, wanted, psychology, classes, started, student, career, master]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/askacademia/1p7jf4r.md#c1"
+    char_span: [2282, 2816]
+    sentence_count: 3
+    key_terms: [people, get, "it's", used, challenging, potentially, assistants, eventually]
+    token_count: 125
+  - id: "social-intelligence/reddit-deep/askacademia/1p7jf4r.md#c2"
+    char_span: [2831, 4262]
+    sentence_count: 11
+    key_terms: [academia, career, issues, perfectionism, "it's", want, everyone, "doesn't"]
+    section: Comments
+    token_count: 317
+  - id: "social-intelligence/reddit-deep/askacademia/1p7jf4r.md#c3"
+    char_span: [4264, 5867]
+    sentence_count: 17
+    key_terms: [good, learning, streetlab8504, "don't", "isn't", find, cognitive, punishing]
+    section: Comments
+    token_count: 366
+  - id: "social-intelligence/reddit-deep/askacademia/1p7jf4r.md#c4"
+    char_span: [5869, 7507]
+    sentence_count: 17
+    key_terms: [psychology, challenging, cognitive, designing, something, academia, decision, everyone]
+    section: Comments
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/askacademia/1p7jf4r.md#c5"
+    char_span: [7509, 9732]
+    sentence_count: 15
+    key_terms: [like, describing, "you're", happy, academia, enjoying, everyone, research]
+    section: Comments
+    token_count: 500
 ---
-
 # Is an academic career really for everyone?
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1p7jf4r/is_an_academic_career_really_for_everyone/)

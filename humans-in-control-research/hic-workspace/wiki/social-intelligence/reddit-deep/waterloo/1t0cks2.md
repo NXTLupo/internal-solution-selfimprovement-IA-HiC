@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1t0cks2.md
 url: "https://www.reddit.com/r/waterloo/comments/1t0cks2/local_events_this_weekend/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,46 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.130Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [media]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1t0cks2.md#c0"
+    char_span: [0, 1990]
+    sentence_count: 10
+    key_terms: [https, something, walks, waterloo, faulty-towers-the-dining-experience-2026, weekend, grandriverbuzz, tricon]
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/waterloo/1t0cks2.md#c1"
+    char_span: [1992, 3572]
+    sentence_count: 8
+    key_terms: [cambridge, https, draytonentertainmentyouthacademy, "false", celebration, com, musical-bingo-classic-rock-9, cambridge-potters-market]
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/waterloo/1t0cks2.md#c2"
+    char_span: [3574, 5500]
+    sentence_count: 11
+    key_terms: [https, annual-kw-trivia-challenge-tickets-1984491165497, mood-yellow-grand-opening-tickets-1984595078303, com, vibes, performance, eventbrite, kitchener]
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/waterloo/1t0cks2.md#c3"
+    char_span: [5502, 7316]
+    sentence_count: 2
+    key_terms: [run-2-you-the-bryan-adams-experience-with-somethings-always-flying-at-evo-tickets-1985939585761, https, kws-official-cinco-de-mayo-party-tickets-1987841123311, alternative, night, new-vibes-jazz-quartet-with-jerzy-kaplanek-2, kitchener, com]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/waterloo/1t0cks2.md#c4"
+    char_span: [7318, 9120]
+    sentence_count: 8
+    key_terms: [day, kitchener, spring, https, electronics, favourite, hundreds, mandalas]
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/waterloo/1t0cks2.md#c5"
+    char_span: [9122, 10204]
+    sentence_count: 3
+    key_terms: [comedy-night-at-counterpoint-brewing-company-tickets-1987631594605, cambridge-centre-for-the-arts-gallery-opening-rece, headshots-scoops-networking-tickets-1987733375033, https, ever-pending, www, eventbrite, networking]
+    token_count: 281
+  - id: "social-intelligence/reddit-deep/waterloo/1t0cks2.md#c6"
+    char_span: [10219, 11500]
+    sentence_count: 9
+    key_terms: [fragrant-divide240, come-what-may-spring-2026, https, mixologyacappella, waterloo, com, neoengel, awesome]
+    section: Comments
+    token_count: 395
 ---
-
 # Local events this weekend!
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1t0cks2/local_events_this_weekend/)

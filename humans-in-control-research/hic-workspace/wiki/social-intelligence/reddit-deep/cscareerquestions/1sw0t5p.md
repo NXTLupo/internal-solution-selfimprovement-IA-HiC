@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1sw0t5p.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1sw0t5p/international_cs_student_transferring_to_svsu_in/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: "Student"
 extracted_at: "2026-05-23T14:54:48.631Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sw0t5p.md#c0"
+    char_span: [0, 1475]
+    sentence_count: 12
+    key_terms: [michigan, international, realistic, cscareerquestions, vietnam, internships, open-source, especially]
+    token_count: 332
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sw0t5p.md#c1"
+    char_span: [1490, 2885]
+    sentence_count: 11
+    key_terms: [school, "you'll", difficult, internships, get, sure, especially, projects]
+    section: Comments
+    token_count: 338
 ---
-
 # International CS student transferring to SVSU in Michigan. How realistic are internships and jobs?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sw0t5p/international_cs_student_transferring_to_svsu_in/)

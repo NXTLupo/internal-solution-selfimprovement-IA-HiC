@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1rttlz3.md
 url: "https://www.reddit.com/r/financialindependence/comments/1rttlz3/military_fire/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,68 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.711Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, government]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1rttlz3.md#c0"
+    char_span: [0, 1506]
+    sentence_count: 6
+    key_terms: [fire, financialindependence, total, years, after-tax, portfolio, comments, expenses]
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/financialindependence/1rttlz3.md#c1"
+    char_span: [1508, 3110]
+    sentence_count: 12
+    key_terms: [working, get, new, spending, friends, reading, realize, needed]
+    token_count: 348
+  - id: "social-intelligence/reddit-deep/financialindependence/1rttlz3.md#c2"
+    char_span: [3125, 4266]
+    sentence_count: 5
+    key_terms: [healthcare, jimzzz38, military, because, housing, parents, retired, free]
+    section: Comments
+    token_count: 291
+  - id: "social-intelligence/reddit-deep/financialindependence/1rttlz3.md#c3"
+    char_span: [4269, 6273]
+    sentence_count: 14
+    key_terms: [pay, military, "it's", job, active, base, free, completely]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/financialindependence/1rttlz3.md#c4"
+    char_span: [6275, 7861]
+    sentence_count: 7
+    key_terms: [military, additional, pay, through, years, low, allowance, housing]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/financialindependence/1rttlz3.md#c5"
+    char_span: [7864, 9713]
+    sentence_count: 14
+    key_terms: [retirement, people, military, benefits, like, experience, healthcare, civilians]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/financialindependence/1rttlz3.md#c6"
+    char_span: [9715, 11000]
+    sentence_count: 6
+    key_terms: [conversions, get, percentile, jealous, overall, people, free, ira]
+    section: Comments
+    token_count: 297
+  - id: "social-intelligence/reddit-deep/financialindependence/1rttlz3.md#c7"
+    char_span: [11002, 12754]
+    sentence_count: 11
+    key_terms: [estate, withdrawal, portfolio, rate, real, advantageone1754, lending, mil]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/financialindependence/1rttlz3.md#c8"
+    char_span: [12756, 14339]
+    sentence_count: 9
+    key_terms: ["you're", military, projections, retirees, pension, income, compensation, years]
+    section: Comments
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/financialindependence/1rttlz3.md#c9"
+    char_span: [14341, 15490]
+    sentence_count: 8
+    key_terms: [military, pay, year, discipline, allowance, platform, housing, regular]
+    section: Comments
+    token_count: 287
 ---
-
 # Military FIRE
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1rttlz3/military_fire/)

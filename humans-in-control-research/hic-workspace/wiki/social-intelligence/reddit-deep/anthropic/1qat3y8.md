@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/anthropic/1qat3y8.md
 url: "https://www.reddit.com/r/Anthropic/comments/1qat3y8/how_claude_code_context_is_structured_main/"
 kind: "social-post"
 source: "reddit-deep: r/anthropic"
@@ -13,8 +14,21 @@ flair: "Resources"
 extracted_at: "2026-05-11T17:26:51.920Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, saas, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/anthropic/1qat3y8.md#c0"
+    char_span: [0, 725]
+    sentence_count: 3
+    key_terms: [sub-agents, f37f8ef01dc84a943af5aa19f2af8e3c4aaadaaa, context, claude, tools, anthropic, comments, silverconsistent9222]
+    token_count: 205
+  - id: "social-intelligence/reddit-deep/anthropic/1qat3y8.md#c1"
+    char_span: [740, 1163]
+    sentence_count: 2
+    key_terms: [playlist, youtube, claude, silverconsistent9222, https, com, list, vock]
+    section: Comments
+    token_count: 166
 ---
-
 # How Claude Code context is structured (main context, sub-agents, tools)
 
 Source: [reddit-deep: r/anthropic](https://www.reddit.com/r/Anthropic/comments/1qat3y8/how_claude_code_context_is_structured_main/)

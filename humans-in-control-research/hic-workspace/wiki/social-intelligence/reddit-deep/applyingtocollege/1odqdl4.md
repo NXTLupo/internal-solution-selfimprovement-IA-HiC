@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1odqdl4.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1odqdl4/jokes_too_hot_for_admission_officers/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,27 @@ flair: "Shitpost Wednesdays"
 extracted_at: "2026-05-23T14:54:48.677Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1odqdl4.md#c0"
+    char_span: [0, 745]
+    sentence_count: 3
+    key_terms: [applyingtocollege, comments, officers, fbi, hard, jaihanusthegreat, accreditation, perseverance]
+    token_count: 176
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1odqdl4.md#c1"
+    char_span: [760, 2218]
+    sentence_count: 3
+    key_terms: [jaihanusthegreat, someone, itswooooshwithouttheh, independent-skirt487, professional-net1776, showbusinessforyou67, truecommunication440, itswooooshwith4os]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1odqdl4.md#c2"
+    char_span: [2220, 2869]
+    sentence_count: 3
+    key_terms: [applyingtocollege, essays, wiki, reddit, collegeessays, https, com, www]
+    section: Comments
+    token_count: 161
 ---
-
 # Jokes too hot for admission officers
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1odqdl4/jokes_too_hot_for_admission_officers/)

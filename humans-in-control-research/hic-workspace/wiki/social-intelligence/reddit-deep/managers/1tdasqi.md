@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1tdasqi.md
 url: "https://www.reddit.com/r/managers/comments/1tdasqi/why_keeping_low_performers/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,57 @@ flair: "Not a Manager"
 extracted_at: "2026-05-26T12:54:23.685Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1tdasqi.md#c0"
+    char_span: [0, 1484]
+    sentence_count: 11
+    key_terms: [team, low, comments, managers, keeping, performers, processes, person]
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/managers/1tdasqi.md#c1"
+    char_span: [1499, 3541]
+    sentence_count: 10
+    key_terms: [everything, knowledge, document, someone, ron, difference, sometimes, enormous]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/managers/1tdasqi.md#c2"
+    char_span: [3543, 5397]
+    sentence_count: 11
+    key_terms: [employee, lot, manager, someone, uncomfortable, bad, get, experience]
+    section: Comments
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/managers/1tdasqi.md#c3"
+    char_span: [5399, 7538]
+    sentence_count: 12
+    key_terms: [work, hiring, years, departments, replacement, impossible, probation, backfill]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/managers/1tdasqi.md#c4"
+    char_span: [7540, 9305]
+    sentence_count: 10
+    key_terms: [person, sometimes, "it's", team, personality, got, everyone, because]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/managers/1tdasqi.md#c5"
+    char_span: [9307, 11296]
+    sentence_count: 8
+    key_terms: [low, person, performers, get, someone, fired, backfill, everyone]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/managers/1tdasqi.md#c6"
+    char_span: [11011, 12981]
+    sentence_count: 12
+    key_terms: [thatfeelingisbliss88, "don't", people, person, sharing-about-his-personal-life, like, want, because]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/managers/1tdasqi.md#c7"
+    char_span: [12759, 13436]
+    sentence_count: 6
+    key_terms: [sometimes, "don't", team, someone, person, let, like, soggy-attempt]
+    section: Comments
+    token_count: 170
 ---
-
 # Why keeping low performers?
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1tdasqi/why_keeping_low_performers/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1rm3o3t.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1rm3o3t/advice_for_coop_and_experience/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,27 @@ flair: "Career Advice"
 extracted_at: "2026-05-23T20:15:19.046Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rm3o3t.md#c0"
+    char_span: [0, 1414]
+    sentence_count: 12
+    key_terms: [engineeringstudents, like, year, projects, experience, companies, comments, learning]
+    token_count: 321
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rm3o3t.md#c1"
+    char_span: [1429, 3375]
+    sentence_count: 18
+    key_terms: [resume, write, software, yourself, resumes, learn, lab, something]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rm3o3t.md#c2"
+    char_span: [3377, 3980]
+    sentence_count: 7
+    key_terms: [companies, months, co-op, understanding, establishing, application, competitors, recommended]
+    section: Comments
+    token_count: 124
 ---
-
 # Advice for CO-OP and experience.
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1rm3o3t/advice_for_coop_and_experience/)

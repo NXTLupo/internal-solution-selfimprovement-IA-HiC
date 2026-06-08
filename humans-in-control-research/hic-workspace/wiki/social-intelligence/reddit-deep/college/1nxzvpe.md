@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1nxzvpe.md
 url: "https://www.reddit.com/r/college/comments/1nxzvpe/as_a_tradesman_stay_your_ass_in_school/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,51 @@ flair: "Career/work"
 extracted_at: "2026-05-17T01:12:59.133Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1nxzvpe.md#c0"
+    char_span: [0, 842]
+    sentence_count: 10
+    key_terms: [college, comments, because, school, money, proof, home, work]
+    token_count: 223
+  - id: "social-intelligence/reddit-deep/college/1nxzvpe.md#c1"
+    char_span: [857, 2610]
+    sentence_count: 14
+    key_terms: [college, like, insurance, paycheck, because, working, much-recognition-180, nightdiscombobulated]
+    section: Comments
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/college/1nxzvpe.md#c2"
+    char_span: [2612, 3182]
+    sentence_count: 5
+    key_terms: [getting, administrationtop303, cybersecurity, lightsout5774, certificates, white-collar, definitely, retirement]
+    section: Comments
+    token_count: 147
+  - id: "social-intelligence/reddit-deep/college/1nxzvpe.md#c3"
+    char_span: [3184, 5309]
+    sentence_count: 16
+    key_terms: [construction, recession, service, need, anyone, market, years, job]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1nxzvpe.md#c4"
+    char_span: [5058, 5627]
+    sentence_count: 7
+    key_terms: [glazes, get, trades, did, job, like, inconvenience, construction]
+    section: Comments
+    token_count: 144
+  - id: "social-intelligence/reddit-deep/college/1nxzvpe.md#c5"
+    char_span: [5629, 7670]
+    sentence_count: 9
+    key_terms: [college, trades, "it's", work, always, people, get, job]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/college/1nxzvpe.md#c6"
+    char_span: [7672, 9362]
+    sentence_count: 10
+    key_terms: [trades, money, working, "you're", like, making, people, accounting]
+    section: Comments
+    token_count: 385
 ---
-
 # As a tradesman: Stay your ass in school.
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1nxzvpe/as_a_tradesman_stay_your_ass_in_school/)

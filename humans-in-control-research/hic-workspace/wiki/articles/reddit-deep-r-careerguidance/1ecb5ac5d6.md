@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/1ecb5ac5d6.md
 url: "https://www.reddit.com/r/careerguidance/comments/1thvdbp/skilled_trades_vs_college_what_is_your_opinion/"
 url_hash: "1ecb5ac5d6"
 kind: "article"
@@ -8,10 +9,22 @@ author: ""
 date: "2026-05-19T18:16:13.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-22T15:19:59.480346+00:00"
-chars: 3828
+extracted_at: "2026-06-06T13:11:01.416746+00:00"
+chars: 3954
+relevance: 30
+engagement_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/1ecb5ac5d6.md#c0"
+    char_span: [0, 2393]
+    sentence_count: 16
+    key_terms: [college, people, trade, tradesmen, skilled, careerguidance, degree, trades]
+    token_count: 503
+  - id: "articles/reddit-deep-r-careerguidance/1ecb5ac5d6.md#c1"
+    char_span: [2395, 4155]
+    sentence_count: 12
+    key_terms: [company, people, trades, human, point, jmclondon97, need, guaranteed]
+    token_count: 409
 ---
-
 # Skilled trades vs college. What is your opinion?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1thvdbp/skilled_trades_vs_college_what_is_your_opinion/)
@@ -71,13 +84,15 @@ Both have pros and cons.
 But the online conversation around trades feels heavily romanticized by people observing from the outside.
 
 --- TOP COMMENTS ---
-[44↑ jmclondon97] I just had a large company meeting this morning for a multi billion dollar tech company everyone knows (it isn’t FAANG, but maybe a couple tiers below).
+[43↑ jmclondon97] I just had a large company meeting this morning for a multi billion dollar tech company everyone knows (it isn’t FAANG, but maybe a couple tiers below).
 
 One of the higher ups said “we have the exciting goal of no longer needing the human in the loop by end of year”. We have over 10k employees.
-[32↑ guyincognito121] If you don't need a human in the loop by the end of this year, it's because that idiot and his friends have put the company out of business. AI is nowhere near that point right now.
-[1↑ misogichan] AI isn't even good enough yet to decently fake it.  But consultants and software vendors selling him a disaster sure are.
-[9↑ CAT_MARINE-POWER] Unless AI can defend itself in court you will always need an actual human at some point to be held accountable for a decision to be made
-[5↑ jmclondon97] Sure, but you don’t need 10k
+[31↑ guyincognito121] If you don't need a human in the loop by the end of this year, it's because that idiot and his friends have put the company out of business. AI is nowhere near that point right now.
+[2↑ misogichan] AI isn't even good enough yet to decently fake it.  But consultants and software vendors selling him a disaster sure are.
+[8↑ CAT_MARINE-POWER] Unless AI can defend itself in court you will always need an actual human at some point to be held accountable for a decision to be made
+[6↑ jmclondon97] Sure, but you don’t need 10k
 [4↑ Responsible-Net8594] AI is mostly pushed by the VC's funding it
 [2↑ Sonic_Roach] Id be updating my resume...
-[2↑ VixenlyDripd] The way companies say stuff like this with the word excitingg is actually insane lol. 10k people hearing theyre basically the temporary version of the job has gotta feel dystopian as hell
+[1↑ cheap_dates] There are still many jobs that require a physical presence: nurse, cop, bus driver, construction worker, plumber, airline pilot, lifeguard, transplant surgeon, etc.
+
+Now at some point, when AI becomes mobile, all bets are off and what you will have will be Blade Runner 1982.  I think we are a few years off still.

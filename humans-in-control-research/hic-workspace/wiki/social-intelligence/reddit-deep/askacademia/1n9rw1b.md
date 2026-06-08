@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1n9rw1b.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1n9rw1b/heads_up_for_academics_in_the_us_dhs_is_proposing/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,56 @@ flair: "STEM"
 extracted_at: "2026-05-26T14:32:49.127Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, government, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c0"
+    char_span: [0, 2122]
+    sentence_count: 4
+    key_terms: [rule, level, new, students, funding, masters, million, right]
+    token_count: 518
+  - id: "social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c1"
+    char_span: [2124, 2582]
+    sentence_count: 2
+    key_terms: [million, per, estimate, annual, extra, cost, new, rule]
+    token_count: 111
+  - id: "social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c2"
+    char_span: [2597, 4560]
+    sentence_count: 10
+    key_terms: [spring, sevis, activity, programs, specific, students, applied, program]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c3"
+    char_span: [4562, 6657]
+    sentence_count: 21
+    key_terms: [activity, dept, program, advisor, university, halfway, premise, regards]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c4"
+    char_span: [6659, 9062]
+    sentence_count: 22
+    key_terms: [university, advisor, program, institution, different, activity, dept, departments]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c5"
+    char_span: [9064, 11270]
+    sentence_count: 18
+    key_terms: [student, different, graduate, activity, students, classes, passing, attend]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c6"
+    char_span: [11272, 13631]
+    sentence_count: 17
+    key_terms: [different, like, university, college, course, people, international, educational]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c7"
+    char_span: [13633, 14525]
+    sentence_count: 8
+    key_terms: [rights, basic, international, equilibrium, astounding, blackstone, inequality, americans]
+    section: Comments
+    token_count: 190
 ---
-
 # Heads up for Academics in the U.S.: DHS is proposing a rule (ICEB-2025-0001) that would ban grad students (F-1 visa) from changing majors, programs, or transferring schools (affects J & I visas as well)
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1n9rw1b/heads_up_for_academics_in_the_us_dhs_is_proposing/)

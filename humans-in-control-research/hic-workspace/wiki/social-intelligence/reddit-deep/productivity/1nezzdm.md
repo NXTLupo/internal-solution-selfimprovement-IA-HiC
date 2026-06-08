@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1nezzdm.md
 url: "https://www.reddit.com/r/productivity/comments/1nezzdm/screens_are_stealing_my_mornings_and_im_letting/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,27 @@ flair: "Advice Needed"
 extracted_at: "2026-05-26T12:53:45.656Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1nezzdm.md#c0"
+    char_span: [0, 1385]
+    sentence_count: 11
+    key_terms: [mornings, scrolling, random, productivity, like, time, comments, stealing]
+    token_count: 319
+  - id: "social-intelligence/reddit-deep/productivity/1nezzdm.md#c1"
+    char_span: [1400, 3362]
+    sentence_count: 14
+    key_terms: [phone, routine, feel, like, doing, beginning, instagram, realizing]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/productivity/1nezzdm.md#c2"
+    char_span: [3364, 5171]
+    sentence_count: 13
+    key_terms: [phone, morning, brick, lock, social, media, get, bedroom]
+    section: Comments
+    token_count: 445
 ---
-
 # Screens are stealing my mornings… and I’m letting it happen.
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1nezzdm/screens_are_stealing_my_mornings_and_im_letting/)

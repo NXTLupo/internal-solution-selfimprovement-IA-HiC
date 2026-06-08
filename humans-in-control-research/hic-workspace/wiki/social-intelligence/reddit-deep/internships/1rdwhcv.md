@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rdwhcv.md
 url: "https://www.reddit.com/r/internships/comments/1rdwhcv/is_this_legit/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,28 @@ score: 2
 upvote_ratio: 1
 num_comments: 21
 flair: "Applications"
-extracted_at: "2026-05-23T20:15:15.786Z"
+extracted_at: "2026-06-06T17:41:06.730Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rdwhcv.md#c0"
+    char_span: [0, 1580]
+    sentence_count: 11
+    key_terms: [internship, internships, comments, computer, please, email, hours, need]
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/internships/1rdwhcv.md#c1"
+    char_span: [1595, 3578]
+    sentence_count: 10
+    key_terms: [applied, internship, exerciseoutside8409, probably, unpaid, last-stick406, media, got]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1rdwhcv.md#c2"
+    char_span: [3291, 4557]
+    sentence_count: 2
+    key_terms: [company, called, dakdan, applied, because, founder, someone, website]
+    section: Comments
+    token_count: 287
 ---
-
 # is this legit
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rdwhcv/is_this_legit/)
@@ -51,7 +69,7 @@ ive never seen anything like this before someone pls tell me this has to be a sc
 
 ## Comments
 
-- **Interesting_Two2977** (6↑): Not sure if it's 100% a scam, but definitely not legit either. You typically don't get an offer 2 hrs after applying... without any interviews...
+- **Interesting_Two2977** (4↑): Not sure if it's 100% a scam, but definitely not legit either. You typically don't get an offer 2 hrs after applying... without any interviews...
 - **Last-Stick406** (1↑): which country
   - **Necessary_Carrot8413** (1↑): usa
     - **Last-Stick406** (1↑): Are you based in the USA, i don't think there is an unpaid internship there?

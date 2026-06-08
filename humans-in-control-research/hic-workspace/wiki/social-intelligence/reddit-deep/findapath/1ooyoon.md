@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1ooyoon.md
 url: "https://www.reddit.com/r/findapath/comments/1ooyoon/i_took_up_a_niche_workfromhome_role_and_it/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,21 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-25T13:04:07.385Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce, ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1ooyoon.md#c0"
+    char_span: [0, 1312]
+    sentence_count: 9
+    key_terms: [work-from-home, career, findapath, comments, paths, roles, data, job]
+    token_count: 295
+  - id: "social-intelligence/reddit-deep/findapath/1ooyoon.md#c1"
+    char_span: [1327, 2595]
+    sentence_count: 11
+    key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
+    section: Comments
+    token_count: 286
 ---
-
 # I took up a niche work-from-home role and it completely changed how I see “career paths.”
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1ooyoon/i_took_up_a_niche_workfromhome_role_and_it/)

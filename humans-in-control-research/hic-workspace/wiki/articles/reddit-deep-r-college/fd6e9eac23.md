@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-college/fd6e9eac23.md
 url: "https://www.reddit.com/r/college/comments/1ohgn4i/is_anyone_else_constantly_stressed_about_money/"
 url_hash: "fd6e9eac23"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:21:35.885682+00:00"
 chars: 2673
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-college/fd6e9eac23.md#c0"
+    char_span: [0, 1056]
+    sentence_count: 8
+    key_terms: [like, college, money, technically, feel, paycheck, anyone, reddit]
+    token_count: 236
+  - id: "articles/reddit-deep-r-college/fd6e9eac23.md#c1"
+    char_span: [1058, 2898]
+    sentence_count: 16
+    key_terms: [money, experience, "i'm", like, always, because, relaxed, enough]
+    token_count: 456
 ---
-
 # Is anyone else constantly stressed about money even when they technically have enough?
 
 Source: [Reddit Deep: r/college](https://www.reddit.com/r/college/comments/1ohgn4i/is_anyone_else_constantly_stressed_about_money/)

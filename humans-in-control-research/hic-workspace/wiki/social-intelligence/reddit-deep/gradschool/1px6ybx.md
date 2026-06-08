@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1px6ybx.md
 url: "https://www.reddit.com/r/GradSchool/comments/1px6ybx/megathread_ongoing_incident_with_oklahoma/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,56 @@ flair: "Megathread"
 extracted_at: "2026-05-25T13:04:07.337Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1px6ybx.md#c0"
+    char_span: [0, 1626]
+    sentence_count: 2
+    key_terms: [https, gradschool, com, www, comments, mel-curth-oklahoma-instructor-firing, reddit, university]
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/gradschool/1px6ybx.md#c1"
+    char_span: [1628, 2424]
+    sentence_count: 6
+    key_terms: [bsky, oklasotagal, university, comments, oklahoma, profile, social, https]
+    token_count: 187
+  - id: "social-intelligence/reddit-deep/gradschool/1px6ybx.md#c2"
+    char_span: [2439, 4083]
+    sentence_count: 8
+    key_terms: [institutions, "it's", academic, programs, deleted, getting, offers, states]
+    section: Comments
+    token_count: 379
+  - id: "social-intelligence/reddit-deep/gradschool/1px6ybx.md#c3"
+    char_span: [4085, 5632]
+    sentence_count: 14
+    key_terms: [bsky, school, oklasotagal, post, graduated, profile, student, social]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/gradschool/1px6ybx.md#c4"
+    char_span: [5634, 7623]
+    sentence_count: 8
+    key_terms: [autisticrocheter, student, lawyer, trans, absolutely, permissive, already, treated]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1px6ybx.md#c5"
+    char_span: [7358, 8699]
+    sentence_count: 10
+    key_terms: [people, erwinheisenberg, permissive, directly, grading, within, far, kind]
+    section: Comments
+    token_count: 308
+  - id: "social-intelligence/reddit-deep/gradschool/1px6ybx.md#c6"
+    char_span: [8701, 10615]
+    sentence_count: 16
+    key_terms: [agree, student, grading, cite, assignment, discussion, university, important]
+    section: Comments
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/gradschool/1px6ybx.md#c7"
+    char_span: [10617, 10904]
+    sentence_count: 2
+    key_terms: [intellectualism, accreditation, universities, educational, institution, questioned, education, credibly]
+    section: Comments
+    token_count: 61
 ---
-
 # Megathread - Ongoing Incident with Oklahoma University, Mel Curth, and Samantha Fulnecky
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1px6ybx/megathread_ongoing_incident_with_oklahoma/)

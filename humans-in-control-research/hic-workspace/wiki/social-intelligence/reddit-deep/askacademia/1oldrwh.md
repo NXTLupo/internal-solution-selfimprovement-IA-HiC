@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1oldrwh.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1oldrwh/cultural_anthropogy_phd_finished_4_years_ago_but/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,75 @@ flair: "Social Science"
 extracted_at: "2026-05-26T14:32:49.123Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1oldrwh.md#c0"
+    char_span: [0, 2434]
+    sentence_count: 21
+    key_terms: [experience, community, teaching, advice, course, askacademia, get, appreciate]
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/askacademia/1oldrwh.md#c1"
+    char_span: [2449, 4138]
+    sentence_count: 9
+    key_terms: [minimumscore69, unfortunately, area, familiar, "master's", adjunct, efforts, new-ish]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/askacademia/1oldrwh.md#c2"
+    char_span: [4140, 6296]
+    sentence_count: 14
+    key_terms: [people, years, conferences, situation, volunteer, teaching, college, courses]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/askacademia/1oldrwh.md#c3"
+    char_span: [6298, 8407]
+    sentence_count: 17
+    key_terms: [teaching, experience, university, adjunct, anthropology, universities, hired, teach]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/askacademia/1oldrwh.md#c4"
+    char_span: [8409, 10711]
+    sentence_count: 12
+    key_terms: [develop, get, teaching, international, connections, time, experience, community]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/askacademia/1oldrwh.md#c5"
+    char_span: [10713, 12033]
+    sentence_count: 7
+    key_terms: [least, teaching, full-time, consider, position, "wouldn't", adjunct, classes]
+    section: Comments
+    token_count: 307
+  - id: "social-intelligence/reddit-deep/askacademia/1oldrwh.md#c6"
+    char_span: [12035, 13399]
+    sentence_count: 6
+    key_terms: [experience, department, community, teaching, college, getting, similar, direct]
+    section: Comments
+    token_count: 297
+  - id: "social-intelligence/reddit-deep/askacademia/1oldrwh.md#c7"
+    char_span: [13401, 15124]
+    sentence_count: 6
+    key_terms: [teaching, experience, adjunct, people, often, students, thinking, heading]
+    section: Comments
+    token_count: 386
+  - id: "social-intelligence/reddit-deep/askacademia/1oldrwh.md#c8"
+    char_span: [15126, 17447]
+    sentence_count: 20
+    key_terms: [anthro, teach, something, sections, teaching, courses, get, questions]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/askacademia/1oldrwh.md#c9"
+    char_span: [17101, 17577]
+    sentence_count: 4
+    key_terms: [colleges, cross-disciplinary, bite, universities, agriculture, appropriate, sustainable, culturally]
+    section: Comments
+    token_count: 99
+  - id: "social-intelligence/reddit-deep/askacademia/1oldrwh.md#c10"
+    char_span: [17579, 18514]
+    sentence_count: 6
+    key_terms: [module, thank, like, decent, resume, seems, list, undergraduate]
+    section: Comments
+    token_count: 215
 ---
-
 # Cultural Anthropogy PhD finished 4+ years ago, but struggling to get first university appointment. Advice?
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1oldrwh/cultural_anthropogy_phd_finished_4_years_ago_but/)

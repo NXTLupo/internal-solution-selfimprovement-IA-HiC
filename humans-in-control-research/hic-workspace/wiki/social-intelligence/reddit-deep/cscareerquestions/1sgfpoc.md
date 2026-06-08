@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1sgfpoc.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1sgfpoc/will_having_google_se_internship_outweigh_being/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: "Student"
 extracted_at: "2026-05-22T23:33:42.328Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sgfpoc.md#c0"
+    char_span: [0, 1084]
+    sentence_count: 7
+    key_terms: [internship, major, cscareerquestions, always, able, comments, security, google]
+    token_count: 259
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sgfpoc.md#c1"
+    char_span: [1099, 2639]
+    sentence_count: 9
+    key_terms: [degree, experience, google, major, internships, background, internship, companies]
+    section: Comments
+    token_count: 345
 ---
-
 # Will having Google SE internship outweigh being only CS minor (Econ/ds major)?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sgfpoc/will_having_google_se_internship_outweigh_being/)

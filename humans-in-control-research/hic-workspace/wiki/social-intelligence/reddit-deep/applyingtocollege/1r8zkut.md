@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1r8zkut/college_debt/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,75 @@ flair: "Advice"
 extracted_at: "2026-05-23T12:15:36.210Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c0"
+    char_span: [0, 1541]
+    sentence_count: 19
+    key_terms: [college, school, saved, applyingtocollege, etc, community, comments, decision]
+    token_count: 372
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c1"
+    char_span: [1556, 3894]
+    sentence_count: 17
+    key_terms: [student, loan, monthly, similar, professionals, consequences, decision, salaries]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c2"
+    char_span: [3896, 5767]
+    sentence_count: 18
+    key_terms: [loans, study, summer, gap, kid, need, work, financial]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c3"
+    char_span: [5769, 7918]
+    sentence_count: 12
+    key_terms: [debt, high, schools, work, college, finance, worth, year]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c4"
+    char_span: [7646, 8427]
+    sentence_count: 3
+    key_terms: [debt, high, understand, years, don, onecraftybird, miraculously, eventually]
+    section: Comments
+    token_count: 186
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c5"
+    char_span: [8429, 10304]
+    sentence_count: 15
+    key_terms: [school, professors, debt, college, choice, small, developing, already]
+    section: Comments
+    token_count: 409
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c6"
+    char_span: [10306, 11716]
+    sentence_count: 12
+    key_terms: [years, debt, student, school, child, loans, interest, cosign]
+    section: Comments
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c7"
+    char_span: [11718, 14056]
+    sentence_count: 13
+    key_terms: [loan, college, school, option, get, look, year, accredited]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c8"
+    char_span: [13678, 14504]
+    sentence_count: 7
+    key_terms: [faculty, accredited, experience, research, teaching, schools, field, focus]
+    section: Comments
+    token_count: 152
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c9"
+    char_span: [14506, 16339]
+    sentence_count: 14
+    key_terms: [month, semester, having, making, school, loans, determine, daughter]
+    section: Comments
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r8zkut.md#c10"
+    char_span: [16341, 17168]
+    sentence_count: 11
+    key_terms: [graduated, ashland, watermelonrindpickle, loved, small, christopher, recommended, substantial]
+    section: Comments
+    token_count: 191
 ---
-
 # College Debt
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1r8zkut/college_debt/)

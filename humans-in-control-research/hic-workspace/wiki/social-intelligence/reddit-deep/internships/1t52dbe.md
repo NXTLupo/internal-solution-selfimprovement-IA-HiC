@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1t52dbe.md
 url: "https://www.reddit.com/r/internships/comments/1t52dbe/how_do_engineering_students_actually_network_with/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,16 @@ score: 1
 upvote_ratio: 1
 num_comments: 4
 flair: "During the Internship"
-extracted_at: "2026-05-23T14:53:57.172Z"
+extracted_at: "2026-06-05T18:53:04.655Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1t52dbe.md#c0"
+    char_span: [0, 1216]
+    sentence_count: 5
+    key_terms: [did, internships, network, successfully, engineering, engineers, referrals, comments]
+    token_count: 270
 ---
-
 # How do engineering students actually network with engineers for referrals?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1t52dbe/how_do_engineering_students_actually_network_with/)
@@ -40,5 +46,4 @@ Thanks in advance!
 
 ## Comments
 
-- **bootyhole_licker69** (1↑): linkedin + alumni filter, short message about their work, ask 1–2 questions, then disappear. referrals came rarely. hunting is pain now
 - **Conradek68** (1↑): Bumping this.

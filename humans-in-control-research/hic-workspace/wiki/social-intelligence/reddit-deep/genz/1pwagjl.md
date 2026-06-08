@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1pwagjl.md
 url: "https://www.reddit.com/r/GenZ/comments/1pwagjl/is_genz_spending_or_saving/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,21 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.765Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1pwagjl.md#c0"
+    char_span: [0, 339]
+    sentence_count: 3
+    key_terms: [comments, spending, saving, gen-z, genz, illustration, reddit-deep, points]
+    token_count: 93
+  - id: "social-intelligence/reddit-deep/genz/1pwagjl.md#c1"
+    char_span: [354, 1895]
+    sentence_count: 6
+    key_terms: [money, dependent, majority, discord, savings, little, trying, chemical-village-211]
+    section: Comments
+    token_count: 427
 ---
-
 # Is Gen-Z Spending or Saving?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1pwagjl/is_genz_spending_or_saving/)

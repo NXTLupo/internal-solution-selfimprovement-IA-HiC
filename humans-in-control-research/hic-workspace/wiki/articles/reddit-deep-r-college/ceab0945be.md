@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-college/ceab0945be.md
 url: "https://www.reddit.com/r/college/comments/1mdejn8/parents_dont_understand_my_commitments/"
 url_hash: "ceab0945be"
 kind: "article"
@@ -8,10 +9,27 @@ author: ""
 date: "2025-07-30T18:33:32.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-23T20:19:11.015355+00:00"
+extracted_at: "2026-06-03T03:12:37.035173+00:00"
 chars: 4592
+relevance: 40
+engagement_goal: "Generate a strategic analysis identifying actionable opportunities for Northeastern University to enhance experiential learning and co-op success. Focus the analysis on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development."
+chunks:
+  - id: "articles/reddit-deep-r-college/ceab0945be.md#c0"
+    char_span: [0, 2106]
+    sentence_count: 15
+    key_terms: [college, parents, understand, get, etc, help, comments, parental]
+    token_count: 471
+  - id: "articles/reddit-deep-r-college/ceab0945be.md#c1"
+    char_span: [2108, 3246]
+    sentence_count: 14
+    key_terms: [work, graduate, hours, move, stay, time, week, paintforyourlife]
+    token_count: 284
+  - id: "articles/reddit-deep-r-college/ceab0945be.md#c2"
+    char_span: [3248, 4762]
+    sentence_count: 15
+    key_terms: [want, parents, job, time, been, plus, generation, understand]
+    token_count: 354
 ---
-
 # Parents don’t understand my commitments
 
 Source: [Reddit Deep: r/college](https://www.reddit.com/r/college/comments/1mdejn8/parents_dont_understand_my_commitments/)
@@ -23,17 +41,17 @@ I’m a senior and work 2 jobs: admin assistant as a student worker and I’m ab
 How should I approach stubborn parents who refuse to acknowledge all the efforts I’m putting my time and energy into are for my success and not because I want to be an irresponsible, useless member of the family? We have constant fights and it’s mentally draining.
 
 --- TOP COMMENTS ---
-[117↑ [deleted]] This is a harsh answer, but I would say move out. I had a rough relationship with my parents and moved to my grandparents twice at 15, and then moved out permanently for college at 16 (I skipped my last year of high school to get out of my house faster). I make a point of getting scholarships and paying for rent when I can and etc, and it’s made my life significantly better for it. I am lucky enough to get some parental help (and grand parental help, thank goodness, since my parents couldn’t help me as much as I needed), but most of my college education is paid by me.
+[114↑ [deleted]] This is a harsh answer, but I would say move out. I had a rough relationship with my parents and moved to my grandparents twice at 15, and then moved out permanently for college at 16 (I skipped my last year of high school to get out of my house faster). I make a point of getting scholarships and paying for rent when I can and etc, and it’s made my life significantly better for it. I am lucky enough to get some parental help (and grand parental help, thank goodness, since my parents couldn’t help me as much as I needed), but most of my college education is paid by me.
 
 However, it’s situation specific. If you think you can work it out with them or moving out is too extreme and you’d rather stay, do that.
-[44↑ hello36301] Thank you for your insight. I’m currently saving up to be moved out December 2026. I graduate May 2026 so hopefully it all works out.
+[46↑ hello36301] Thank you for your insight. I’m currently saving up to be moved out December 2026. I graduate May 2026 so hopefully it all works out.
 [16↑ [deleted]] Best of luck! I graduate this may as well :) you got this homie, I’m rooting for you!
-[8↑ Paintforyourlife] Hi I’m a mother and grandmother and since you have such a short time before graduating you could write a letter to them explaining what you said here. It will help them understand. If that doesn’t work then at least you tried and you could stay put a few more months. You have dealt with it this long so it’s just a bit longer, or move in with grandma maybe? You could find a room to rent and move out. That is risky though. It will cost more money and could get you in a worse frame of mind. Pray about it. Then follow your strongest feeling.
+[7↑ Paintforyourlife] Hi I’m a mother and grandmother and since you have such a short time before graduating you could write a letter to them explaining what you said here. It will help them understand. If that doesn’t work then at least you tried and you could stay put a few more months. You have dealt with it this long so it’s just a bit longer, or move in with grandma maybe? You could find a room to rent and move out. That is risky though. It will cost more money and could get you in a worse frame of mind. Pray about it. Then follow your strongest feeling.
 [53↑ CalmCupcake2] Map out your week for them.  A full course load may only be 15 hours of class time per week, but it's expected to be 40 hours of study, readings, and other work. 
 
 You have school (a full time job) plus a part time job, plus a part time volunteer job.  Plus self care needs, health, and you want a social life. Parents who have not been to school dont understand that it's equivalent to a full time job.
-[4↑ hello36301] THANK YOU this is EXACTLY what I want them to try to understand. It’s so frustrating I’ve been singing the same tune for so long but now more than ever my efforts while in undergrad really matter. I know I’m capable of what I’ve committed to. I know my work ethic and how ambitious and goal driven I truly am. I know what I want and where I want to be in life. I want to create my own success by pushing myself and not rely on another person for anything. To have my parents sort of hinder my efforts, is demoralizing.
-[3↑ CalmCupcake2] You have a foot in a new country, where your parents have never been.   I hope you can find other first generation students on campus to get and give support.  You're not alone in these struggles.
+[6↑ hello36301] THANK YOU this is EXACTLY what I want them to try to understand. It’s so frustrating I’ve been singing the same tune for so long but now more than ever my efforts while in undergrad really matter. I know I’m capable of what I’ve committed to. I know my work ethic and how ambitious and goal driven I truly am. I know what I want and where I want to be in life. I want to create my own success by pushing myself and not rely on another person for anything. To have my parents sort of hinder my efforts, is demoralizing.
+[4↑ CalmCupcake2] You have a foot in a new country, where your parents have never been.   I hope you can find other first generation students on campus to get and give support.  You're not alone in these struggles.
 
 My campus matches first generation students with first gen faculty, for example.  
 

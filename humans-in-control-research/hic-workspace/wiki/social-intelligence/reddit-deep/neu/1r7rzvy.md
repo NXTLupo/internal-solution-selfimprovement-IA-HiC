@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1r7rzvy.md
 url: "https://www.reddit.com/r/NEU/comments/1r7rzvy/fall_2026_ms_ece_at_northeastern_boston_how_is/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "Advice & Experiences"
 extracted_at: "2026-05-26T14:30:23.763Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1r7rzvy.md#c0"
+    char_span: [0, 897]
+    sentence_count: 8
+    key_terms: [program, northeastern, comments, students, boston, co-op, ece, fall]
+    token_count: 222
+  - id: "social-intelligence/reddit-deep/neu/1r7rzvy.md#c1"
+    char_span: [912, 1439]
+    sentence_count: 5
+    key_terms: [got, different, legitimatecicada3276, "i'm", neu, concentration, particular, university]
+    section: Comments
+    token_count: 135
 ---
-
 # Fall 2026 MS ECE at Northeastern (Boston) – how is the program and co-op?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1r7rzvy/fall_2026_ms_ece_at_northeastern_boston_how_is/)

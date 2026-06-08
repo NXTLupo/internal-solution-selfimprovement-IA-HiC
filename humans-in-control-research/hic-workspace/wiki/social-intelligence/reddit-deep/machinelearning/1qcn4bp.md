@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1qcn4bp.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1qcn4bp/d_cuda_workstation_vs_apple_silicon_for_ml_llms/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -8,17 +9,58 @@ author: "Individual-School-07"
 date: "2026-01-14T13:22:11.000Z"
 score: 8
 upvote_ratio: 0.67
-num_comments: 46
+num_comments: 57
 flair: "Discussion"
-extracted_at: "2026-05-11T17:27:06.574Z"
+extracted_at: "2026-05-31T21:49:57.035Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+research_goal: "Identify emerging AI design trends, skills, tools, platforms, and technical implementations that would  help a company's creative team to move beyond AI as a concepting aid and understand where AI-enabled tools, workflows and internal models can practically support design production, system testing, asset generation, governance and stakeholder confidence. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1qcn4bp.md#c0"
+    char_span: [0, 1907]
+    sentence_count: 7
+    key_terms: [cuda, local, silicon, apple, workstation, learning, machinelearning, used]
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/machinelearning/1qcn4bp.md#c1"
+    char_span: [1909, 3739]
+    sentence_count: 18
+    key_terms: [hobby, projects, "don't", portfolio, leetcode, project, contribution, work]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/machinelearning/1qcn4bp.md#c2"
+    char_span: [3741, 5583]
+    sentence_count: 10
+    key_terms: [github, faang, time, work, get, projects, relevant, serious-regular]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/machinelearning/1qcn4bp.md#c3"
+    char_span: [5585, 7627]
+    sentence_count: 14
+    key_terms: [because, systems, real, team, lessons, interviewing, learn, level]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/machinelearning/1qcn4bp.md#c4"
+    char_span: [7629, 9429]
+    sentence_count: 18
+    key_terms: [individual-school-07, getting, ram, different, without, market, build, learn]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/machinelearning/1qcn4bp.md#c5"
+    char_span: [9431, 11562]
+    sentence_count: 25
+    key_terms: ["it's", don, real, too, use, projects, training, hyperscalers]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/machinelearning/1qcn4bp.md#c6"
+    char_span: [11564, 13139]
+    sentence_count: 13
+    key_terms: [cuda, serious, silicon, tooling, apple, local, inference, pipelines]
+    section: Comments
+    token_count: 357
 ---
-
 # [D] CUDA Workstation vs Apple Silicon for ML / LLMs
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1qcn4bp/d_cuda_workstation_vs_apple_silicon_for_ml_llms/)
-Posted by **Individual-School-07** · **8↑** · **46 comments**
+Posted by **Individual-School-07** · **8↑** · **57 comments**
 
 Hi everyone,
 
@@ -74,20 +116,20 @@ Thanks in advance — especially interested in responses from people who’ve ru
 
 ## Comments
 
-- **Serious-Regular** (36↑): I work in "AI" at FAANG. I don't know where this myth of the relevance of the "portfolio" came from but it. does. not. matter. I have never looked at anyone's GitHub and I never will. Want to know why? Because your hobby projects are hobby quality and don't represent in the slightest your ability to handle work projects. Like can you imagine the NBA recruiting players based on their pickup games? Lolol
+- **Serious-Regular** (37↑): I work in "AI" at FAANG. I don't know where this myth of the relevance of the "portfolio" came from but it. does. not. matter. I have never looked at anyone's GitHub and I never will. Want to know why? Because your hobby projects are hobby quality and don't represent in the slightest your ability to handle work projects. Like can you imagine the NBA recruiting players based on their pickup games? Lolol
 
 There are literally only 2 things that matter for hiring: leetcode and prior *work* experience. That's it. The end.
   - **marr75** (6↑): Have been software leadership at one large business and 2 small. Agree with everything but leetcode (which is "big tech" specific). It'll be a project or a coding interview instead of leetcode for a lot of us.
 
 Solo hobby projects are nearly impossible to verify and AI has made it 1000x worse. Real, non-trivial contribution to a valuable OSS is a signal. Solo hobby portfolio is noise.
-  - **Dedelelelo** (6↑): for faang sure for startups they def look at github
-    - **Tiny_Arugula_5648** (10↑): I'm a serial startup founder and used to run a product incubator. Hobby projects don't really impress me, unless the project is popular enough to attract multiple contributors or users it's not really an indication of much.
+  - **Dedelelelo** (7↑): for faang sure for startups they def look at github
+    - **Tiny_Arugula_5648** (9↑): I'm a serial startup founder and used to run a product incubator. Hobby projects don't really impress me, unless the project is popular enough to attract multiple contributors or users it's not really an indication of much.
 
 If the OP wants to build a portfolio it's far better to be able to point to contribution to a larger OSS project that shows they know how to coordinate and interwork with a distributed team. They don't need to be a key contributor just someone who steadily contributes to the greater effort.
 
 That's far more relevant then showing me an end to end toy project.. Not everyone sees things the same way but I do know for a fact that hiring managers are always trying to get insight into how your work not just what you worked on.
     - **crazylikeajellyfish** (1↑): If you're good enough at your job, you don't have time for side projects. I promise, the best startups care about whether you've done impressive work, they don't care if you did it in public.
-    - **Serious-Regular** (2↑): Why would the concepts *hobby* and *work experience* have different meanings in FAANG vs startup?
+    - **Serious-Regular** (1↑): Why would the concepts *hobby* and *work experience* have different meanings in FAANG vs startup?
   - **anxiouscsstudent** (2↑): Not at FAANG but can concur. The only time I've seen personal projects ever matter was for SWE internships (just barely).
   - **pm_me_github_repos** (2↑): I would say it means SOMETHING (beats nothing) when you’re a total beginner trying to get your first internship or position and have no relevant work experience. FAANG likely won’t consider it but it may get your foot in the door elsewhere when you have nothing else
     - **Serious-Regular** (1↑): Do you work as a SWE literally anywhere? It's very simple economics and it doesn't take a Stanford CS PhD to figure it out: no one has time to look at GitHub projects because no one ever got a promo for being the best interviewer. Bro I barely have time to read to read the PRs of my actual teammates let alone some random person's whole-ass GitHub project.
@@ -150,3 +192,5 @@ Use it for local inference.
 
 For any ai model training rent a gpu by the hour. It's the most cost effective method.
 - **Equivalent-Joke5474** (1↑): Short take: keep the Mac for daily dev, add the 3090 if you’re serious about LLMs and infra. Apple Silicon is great for productivity, but CUDA still wins for real-time pipelines, tooling depth, and hiring signal. A 3090 is absolutely still relevant in 2025 for learning and prototyping.
+- **sairas_purnil** (1↑): If you care about serious ML infra or long-term employability around LLM systems, CUDA is still the safer bet honestly. Apple Silicon is great for general dev work but the ecosystem gap becomes obvious once you move into larger local models or custom tooling
+  - **Alena_laistea** (1↑): I went through this decision last year while building local inference pipelines and experimenting with multimodal agents. Ended up keeping my MacBook for everyday work but added a dedicated CUDA box later. We also collaborated with engineers from Litslink on part of the deployment stack and pretty much everyone there treated Apple Silicon as a nice secondary environment, not the primary ML workstation. The debugging or tooling experience around CUDA was just way more mature once projects became serious

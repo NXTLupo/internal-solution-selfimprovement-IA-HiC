@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1srezj7.md
 url: "https://www.reddit.com/r/GradSchool/comments/1srezj7/how_weird_would_it_be_to_apply_to_other_grad/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,21 @@ flair: "Admissions & Applications"
 extracted_at: "2026-05-22T21:35:36.518Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1srezj7.md#c0"
+    char_span: [0, 2222]
+    sentence_count: 15
+    key_terms: [international, university, "master's", get, program, design, universities, "university's"]
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/gradschool/1srezj7.md#c1"
+    char_span: [2227, 3918]
+    sentence_count: 13
+    key_terms: [apply, schools, grad, applications, program, adults, "didn't", school]
+    section: Comments
+    token_count: 392
 ---
-
 # How weird would it be to apply to other Grad Schools while being in a 1st year grad student?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1srezj7/how_weird_would_it_be_to_apply_to_other_grad/)

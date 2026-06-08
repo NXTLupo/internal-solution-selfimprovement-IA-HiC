@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1sqwt8q.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1sqwt8q/i_dont_like_my_life/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,39 @@ flair: "Rant/Vent"
 extracted_at: "2026-05-18T14:15:17.914Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sqwt8q.md#c0"
+    char_span: [0, 1265]
+    sentence_count: 9
+    key_terms: [get, engineeringstudents, classmates, depressed, comments, around, people, stupid]
+    token_count: 284
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sqwt8q.md#c1"
+    char_span: [1280, 2710]
+    sentence_count: 8
+    key_terms: [class, questions, ask, fun, engineers, something, sometimes, learning]
+    section: Comments
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sqwt8q.md#c2"
+    char_span: [2712, 4704]
+    sentence_count: 16
+    key_terms: [questions, class, year, people, "you're", ask, job, professor]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sqwt8q.md#c3"
+    char_span: [4488, 5332]
+    sentence_count: 5
+    key_terms: [ask, questions, since, suspiciousbnnuy, relationship, everything, interested, professors]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sqwt8q.md#c4"
+    char_span: [5334, 6175]
+    sentence_count: 7
+    key_terms: ["it's", get, problems, dream, steps, time, classmates, experience]
+    section: Comments
+    token_count: 192
 ---
-
 # I don’t like my life
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1sqwt8q/i_dont_like_my_life/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sfofpl.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sfofpl/need_career_guidance_after_15_years_in_first_dev/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,28 @@ score: 4
 upvote_ratio: 1
 num_comments: 5
 flair: "Advice"
-extracted_at: "2026-05-23T14:54:05.575Z"
+extracted_at: "2026-06-06T16:39:04.121Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sfofpl.md#c0"
+    char_span: [0, 1694]
+    sentence_count: 13
+    key_terms: [projects, careerguidance, growth, independently, integrations, pay, comments, guidance]
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/careerguidance/1sfofpl.md#c1"
+    char_span: [1709, 3532]
+    sentence_count: 1
+    key_terms: [projects, better, environment, don, need, explaining, companies, position]
+    section: Comments
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/careerguidance/1sfofpl.md#c2"
+    char_span: [3534, 5068]
+    sentence_count: 13
+    key_terms: [certificate, environment, job, year, employer, realised, already, banking]
+    section: Comments
+    token_count: 367
 ---
-
 # Need career guidance after 1.5 years in first dev job (low pay, no growth), what should i do?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sfofpl/need_career_guidance_after_15_years_in_first_dev/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1ssnyw5/advice_for_a_parent_of_a_future_engineering/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,57 @@ flair: "Major Choice"
 extracted_at: "2026-05-23T20:15:19.034Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c0"
+    char_span: [0, 2373]
+    sentence_count: 18
+    key_terms: [engineering, school, "i'm", engineeringstudents, different, "he's", middle, local]
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c1"
+    char_span: [2388, 4382]
+    sentence_count: 15
+    key_terms: [engineeringstudents, wiki, please, reddit, school, https, com, posting]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c2"
+    char_span: [4384, 6527]
+    sentence_count: 19
+    key_terms: [engineering, like, college, interests, because, wanted, bubblywaveee, give]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c3"
+    char_span: [6337, 6738]
+    sentence_count: 3
+    key_terms: [engineering, degree, bubblywaveee, dontchuworri, professional, chicagotuna, accredited, discipline]
+    section: Comments
+    token_count: 110
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c4"
+    char_span: [6740, 9141]
+    sentence_count: 19
+    key_terms: [engineering, mechanical, probably, electrical, get, "it's", railtec, degree]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c5"
+    char_span: [9143, 9853]
+    sentence_count: 4
+    key_terms: [learning, engineering, mechanical, college, online, state, like, chicagotuna]
+    section: Comments
+    token_count: 147
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c6"
+    char_span: [9855, 12165]
+    sentence_count: 20
+    key_terms: [bubblywaveee, work, school, build, math, experience, something, calculus]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c7"
+    char_span: [11837, 12919]
+    sentence_count: 7
+    key_terms: [bubblywaveee, discernment, good, kid, consider, agency, friend, got]
+    section: Comments
+    token_count: 267
 ---
-
 # Advice for a parent of a future engineering student
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1ssnyw5/advice_for_a_parent_of_a_future_engineering/)

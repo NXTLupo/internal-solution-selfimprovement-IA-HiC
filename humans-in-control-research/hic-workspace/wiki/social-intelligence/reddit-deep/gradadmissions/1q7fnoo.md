@@ -10,9 +10,9 @@ score: 2
 upvote_ratio: 1
 num_comments: 0
 flair: "General Advice"
-extracted_at: "2026-05-24T14:10:06.611Z"
+extracted_at: "2026-06-06T23:23:15.591Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # AMA going live today! I'm the Director of Admissions at Georgetown’s McCourt School of Public Policy, answering your grad admissions questions live

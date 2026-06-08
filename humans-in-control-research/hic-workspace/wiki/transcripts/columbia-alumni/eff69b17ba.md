@@ -12,6 +12,8 @@ extracted_at: "2026-04-29T20:41:25.253099+00:00"
 chars: 36383
 channel: "Columbia Alumni"
 duration_sec: 3546
+industries: [higher_ed, workforce]
+industry_method: deterministic
 ---
 
 # A Look at the Current Labor Market

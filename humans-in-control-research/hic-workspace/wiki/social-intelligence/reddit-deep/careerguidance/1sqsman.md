@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sqsman.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sqsman/how_can_i_get_a_job_in_it_industry_in_japan_after/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,16 @@ score: 1
 upvote_ratio: 1
 num_comments: 0
 flair: "Advice"
-extracted_at: "2026-05-25T18:32:57.394Z"
+extracted_at: "2026-06-03T12:16:56.350Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sqsman.md#c0"
+    char_span: [0, 1596]
+    sentence_count: 5
+    key_terms: [japan, years, job, careerguidance, jobs, bangladesh, experience, developer]
+    token_count: 386
 ---
-
 # How can I get a job in IT industry in japan after 3.5 years career gap due to language barriers? 2 years tried but no success. Now I am jlpt N3 passed and learning N2. Any advice or suugestions how can I manage a job now? I am trying but not getting any interviews. #IT Jobs in Japan
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sqsman/how_can_i_get_a_job_in_it_industry_in_japan_after/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rkj2ej/i_regret_90_of_my_highschool_career/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -10,11 +11,51 @@ score: 112
 upvote_ratio: 0.96
 num_comments: 69
 flair: "Discussion"
-extracted_at: "2026-05-25T18:32:06.243Z"
+extracted_at: "2026-06-03T18:34:57.883Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c0"
+    char_span: [0, 2106]
+    sentence_count: 16
+    key_terms: [subreddit, applyingtocollege, purdue, school, great, good, high, highschool]
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c1"
+    char_span: [2108, 3864]
+    sentence_count: 16
+    key_terms: ["can't", better, myself, school, scholarships, doing, stop, year]
+    token_count: 378
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c2"
+    char_span: [3879, 5075]
+    sentence_count: 7
+    key_terms: [school, excellent, law, college, non-selective, state, experiences, flagships]
+    section: Comments
+    token_count: 261
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c3"
+    char_span: [5077, 7100]
+    sentence_count: 12
+    key_terms: [score, college, end, key-singer-7657, great, counselor, happycava, better]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c4"
+    char_span: [6810, 8565]
+    sentence_count: 11
+    key_terms: [purdue, school, jrsygirlsdontpumpgas, classicart3777, better, didn, studying, because]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c5"
+    char_span: [8567, 8941]
+    sentence_count: 6
+    key_terms: [kids, time, school, extra, get, high, maturity, straight]
+    section: Comments
+    token_count: 86
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c6"
+    char_span: [8943, 10642]
+    sentence_count: 18
+    key_terms: [classicart3777, purdue, life, school, everything, loved, offer, state]
+    section: Comments
+    token_count: 435
 ---
-
 # I regret 90% of my highschool career
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rkj2ej/i_regret_90_of_my_highschool_career/)
@@ -42,26 +83,26 @@ If you are a lower classmen reading this post, work hard now y'all and don't be 
 
 ## Comments
 
-- **HappyCava** (40↑): OP, I very much hope that you grow to love your current options and have still more options come your way this spring. But another way not to feel as you do is to recognize that excellent opportunities and experiences are to be found at universities well beyond the T30. My immediate family has graduated from (or are currently attending) a couple of Ivies, selective law schools, T25 state flagships, utterly non-selective state flagships, and a regional college that is fairly unknown on the other coast.  Yet all had terrific experiences, excellent grad school results, and appealing first jobs in “big law,” consulting, health care, policy, media, and government relations.  Before I attended a T5 law school, I attended a non-selective T100+ state flagship on a full-ride over a T10 to save my loans for law school. I adored my school — still do — and we urged all our high-achieving kids to include on their college lists schools that were likely to offer them merit scholarships.  We recognized that the most important factor in enjoying an excellent college experience is the student, whether they study at Coastal Carolina, CMU, Colby, Cal-Berkeley, or UC-Boulder.
+- **HappyCava** (39↑): OP, I very much hope that you grow to love your current options and have still more options come your way this spring. But another way not to feel as you do is to recognize that excellent opportunities and experiences are to be found at universities well beyond the T30. My immediate family has graduated from (or are currently attending) a couple of Ivies, selective law schools, T25 state flagships, utterly non-selective state flagships, and a regional college that is fairly unknown on the other coast.  Yet all had terrific experiences, excellent grad school results, and appealing first jobs in “big law,” consulting, health care, policy, media, and government relations.  Before I attended a T5 law school, I attended a non-selective T100+ state flagship on a full-ride over a T10 to save my loans for law school. I adored my school — still do — and we urged all our high-achieving kids to include on their college lists schools that were likely to offer them merit scholarships.  We recognized that the most important factor in enjoying an excellent college experience is the student, whether they study at Coastal Carolina, CMU, Colby, Cal-Berkeley, or UC-Boulder.
 
 Best of luck with the remainder of your decisions!
 - **Key-Singer-7657** (32↑): How is 1470 not a great SAT score? I think you should be proud of that score.
   - **ClassicArt3777** (10↑): is it???? My college counselor sighed when I told her the score.....
-    - **Key-Singer-7657** (23↑): Yes, it’s a very good score. You seem to think people are bullshitting you when they say, Purdue is a “gReAt” school & wish you luck. Why do you think that?
+    - **Key-Singer-7657** (25↑): Yes, it’s a very good score. You seem to think people are bullshitting you when they say, Purdue is a “gReAt” school & wish you luck. Why do you think that?
     - **Few-Sign5452** (5↑): that just sounds like you have a rude counselor. Also, if you don't like whatever schools you do get into, there is no shame in doing a brief stint at a community college. A lot have really great transfer programs (I am in CA, so we have a lot that go even into UCLA and UCSB). It is possible, and honestly your stats are perfectly fine. No two applications are alike, and just because everyone else is excited dosent mean your hopes need to be down!
     - **HappyCava** (8↑): This may not apply at all to your situation, but some college counselors sigh when students with very good scores focus on a set of very selective colleges rather than present a well-curated list of reaches, targets, and safeties. In other words, such sighs might be linked to unrealistic expectations generally, and not a standardized test score particularly.
     - **Wacko_97** (2↑): I dont think the SAT counts for much either. The other aspects of your app are much much important imo
     - **Equal_Wafer_7677** (2↑): What's the split?
-- **DC_diff** (18↑): Fortunately, you will be able to rewrite this exact post at the end of college then again at the end of your 20s then again at the end of your 30s then again at the end of your 40s and so on.
-  - **HappyCava** (11↑): If you are referring to the “I could have done better” theme, without giving oneself some grace, that can be a continuous refrain.  That 10K could have been faster, that brief could have been sharper and more succinct, I could have better handled my child’s sadness or worry, why didn’t I refinance that mortgage earlier…
+- **DC_diff** (17↑): Fortunately, you will be able to rewrite this exact post at the end of college then again at the end of your 20s then again at the end of your 30s then again at the end of your 40s and so on.
+  - **HappyCava** (10↑): If you are referring to the “I could have done better” theme, without giving oneself some grace, that can be a continuous refrain.  That 10K could have been faster, that brief could have been sharper and more succinct, I could have better handled my child’s sadness or worry, why didn’t I refinance that mortgage earlier…
     - **DC_diff** (3↑): Very nice summary! I’m currently struggling with my kid who has a learning disability and is failing all of his classes. Soon I’ll be facing a tidal wave of regret over this kid.
   - **ClassicArt3777** (2↑): is that fortunate....? \*cryyyyy
-- **jrsygirlsdontpumpgas** (6↑): Let it go… I went to a school lower than my potential because I was way more into social life than studying… rocked it in college - got into a great masters program…. Landed a job in Tech… in the 90s… when Y2K made tech boom… so didn’t matter that I blew off studying to my geometry test in 10th grade!
+- **jrsygirlsdontpumpgas** (7↑): Let it go… I went to a school lower than my potential because I was way more into social life than studying… rocked it in college - got into a great masters program…. Landed a job in Tech… in the 90s… when Y2K made tech boom… so didn’t matter that I blew off studying to my geometry test in 10th grade!
   - **Princester-Vibe** (2↑): The 90’s was great!!!
     - **jrsygirlsdontpumpgas** (2↑): Landed a job with SAP - who nobody had heard of in 1993!  lol.  When I told my parents they were holding interviews at a hotel - because their local office was still not open… they thought I was gonna get kidnapped and murdered!   My mom actually sat in the car in the hotel parking lot!
-- **GrapefruitWide5949** (4↑): Purdue is a fantastic school!
+- **GrapefruitWide5949** (5↑): Purdue is a fantastic school!
   - **ClassicArt3777** (1↑): Boiler up!!
-- **Expensive-Slide7821** (5↑): “I have an offer from Purdue” “1470” damn bro u got it better than majority of us
+- **Expensive-Slide7821** (4↑): “I have an offer from Purdue” “1470” damn bro u got it better than majority of us
 - **KoalaExpensive5899** (3↑): Oh goodness.  As a parent and a master degreed person …. Let it go. If you didn’t get enough funds to pay for Purdue and your mom is stretched go to your state school.  You can head to Purdue for grad school.  
 
 Trust me if you got into Purdue you are doing fine. Plenty of straight A kids didn’t get extra merit. 

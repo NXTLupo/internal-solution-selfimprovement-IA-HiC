@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1p0m4ya.md
 url: "https://www.reddit.com/r/findapath/comments/1p0m4ya/32_and_want_to_do_something_that_wont_destroy_my/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,63 @@ flair: "Findapath-Health Factor"
 extracted_at: "2026-05-25T13:04:07.385Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce, retail]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c0"
+    char_span: [0, 1411]
+    sentence_count: 11
+    key_terms: [interesting, love, everything, findapath, something, comments, physical, years]
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c1"
+    char_span: [1426, 3664]
+    sentence_count: 14
+    key_terms: [thank, helpful, sales, comments, everyone, please, hospitality, don]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c2"
+    char_span: [3666, 4434]
+    sentence_count: 4
+    key_terms: [flight, pay, hours, hour, like, paid, international, blazinazn38]
+    section: Comments
+    token_count: 186
+  - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c3"
+    char_span: [4436, 6242]
+    sentence_count: 9
+    key_terms: [ok-experience5315, door, like, sales, don, people, job, successful]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c4"
+    char_span: [6244, 7408]
+    sentence_count: 1
+    key_terms: [corporate, customers, actual, person, case, life, bureaucracy, meaningless]
+    section: Comments
+    token_count: 238
+  - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c5"
+    char_span: [7410, 9350]
+    sentence_count: 19
+    key_terms: [corporate, bartender, sales, look, associated, bartending, something, premise]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c6"
+    char_span: [9352, 11465]
+    sentence_count: 26
+    key_terms: [law, school, iamthebakersdaughter, generally, get, lawyer, being, enjoy]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c7"
+    char_span: [11467, 13532]
+    sentence_count: 16
+    key_terms: [jobs, happens, happyasmrgamer, lawyer, people, public, school, being]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c8"
+    char_span: [13289, 15194]
+    sentence_count: 11
+    key_terms: [being, job, bartending, everyone, anymore, "aren't", proper, reason]
+    section: Comments
+    token_count: 453
 ---
-
 # 32 and want to do something that won’t destroy my body by the time I’m 50
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1p0m4ya/32_and_want_to_do_something_that_wont_destroy_my/)

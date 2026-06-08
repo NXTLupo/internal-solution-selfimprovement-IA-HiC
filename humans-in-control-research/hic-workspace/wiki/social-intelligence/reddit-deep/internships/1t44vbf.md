@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1t44vbf.md
 url: "https://www.reddit.com/r/internships/comments/1t44vbf/looking_for_web_development_internship_2nd_year/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "Applications"
 extracted_at: "2026-05-25T13:01:40.285Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1t44vbf.md#c0"
+    char_span: [0, 928]
+    sentence_count: 5
+    key_terms: [development, internships, web, internship, comments, improve, student, skills]
+    token_count: 217
+  - id: "social-intelligence/reddit-deep/internships/1t44vbf.md#c1"
+    char_span: [943, 1549]
+    sentence_count: 1
+    key_terms: [strangecommunity7193, apply, sweet-frosting4839, internshipdaily, explaining, greenhouse, fullstack, anything]
+    section: Comments
+    token_count: 153
 ---
-
 # Looking for Web Development Internship (2nd Year CSE Student)
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1t44vbf/looking_for_web_development_internship_2nd_year/)

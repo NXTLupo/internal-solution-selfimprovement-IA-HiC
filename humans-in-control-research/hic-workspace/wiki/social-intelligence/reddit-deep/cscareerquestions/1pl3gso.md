@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1pl3gso.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1pl3gso/how_much_did_the_university_you_went_to_help_you/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,54 @@ subreddit: "cscareerquestions"
 title: "How much did the university you went to help you in your CS career?"
 author: "Accomplished_Lion831"
 date: "2025-12-12T21:18:15.000Z"
-score: 46
-upvote_ratio: 1
+score: 44
+upvote_ratio: 0.98
 num_comments: 76
 flair: "Student"
-extracted_at: "2026-05-22T23:33:42.268Z"
+extracted_at: "2026-06-06T17:43:22.931Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pl3gso.md#c0"
+    char_span: [0, 1288]
+    sentence_count: 11
+    key_terms: [university, cscareerquestions, question, career, "i'm", subreddit, comments, matter]
+    token_count: 324
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pl3gso.md#c1"
+    char_span: [1303, 3241]
+    sentence_count: 9
+    key_terms: [school, went, big, tech, top, schools, junior, internships]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pl3gso.md#c2"
+    char_span: [3243, 5283]
+    sentence_count: 15
+    key_terms: [school, good, swe, considering, need, university, technical, probably]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pl3gso.md#c3"
+    char_span: [5285, 7477]
+    sentence_count: 17
+    key_terms: [competence, smart, immediately, blah, get, swe, uni, experience]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pl3gso.md#c4"
+    char_span: [7479, 9567]
+    sentence_count: 15
+    key_terms: [school, job, helped, companies, easier, though, big, security]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pl3gso.md#c5"
+    char_span: [9569, 9929]
+    sentence_count: 4
+    key_terms: [feel, specifically, competitive, persistence, tribaldevil, compared, listings, "doesn't"]
+    section: Comments
+    token_count: 83
 ---
-
 # How much did the university you went to help you in your CS career?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1pl3gso/how_much_did_the_university_you_went_to_help_you/)
-Posted by **Accomplished_Lion831** · **46↑** · **76 comments**
+Posted by **Accomplished_Lion831** · **44↑** · **76 comments**
 
 Hey y'all.
 
@@ -41,8 +77,8 @@ Cheers everyone!
 
 ## Comments
 
-- **AyyLahmao** (60↑): It is the sole reason I’m at big tech currently. My school was a top school so it was easy to get internships which then snowballed
-  - **[deleted]** (39↑): I went to a noname garbage school and still went to a FAANG right after, but it would have been even easier if I went to a well known school.
+- **AyyLahmao** (61↑): It is the sole reason I’m at big tech currently. My school was a top school so it was easy to get internships which then snowballed
+  - **[deleted]** (40↑): I went to a noname garbage school and still went to a FAANG right after, but it would have been even easier if I went to a well known school.
 
 Anyone saying it doesn't help massively is lying. I'm definitely not a normal case, every new grad I've worked with went to top schools.
     - **PlasticPresentation1** (6↑): I also went to big tech from a non-target school
@@ -64,11 +100,11 @@ So now, they’re filtering by academic prestige of the schools.
 
 It’s fucking stupid, makes no sense, but that’s what I’m seeing a whole bunch of HR folks being forced to do.
   - **Accomplished_Lion831** (1↑): Which university did you go to if I may ask?
-- **Hour_Calligrapher_92** (47↑): I'd say the prestige of your school is important now than a couple years ago.
-  - **[deleted]** (5↑): Even true for mid-senior level? I mean MIT is always going to open doors but I feel people care less at that point
-    - **STEMCareerAdvisor** (8↑): Depends on what your early career looks like
-    - **No-Test6484** (6↑): Ohhh I can confirm lol. Our company had a bunch of interns and 1 guy was from Harvard. They recruited aggressively to keep him. A couple guys from no named state schools were on the back foot. Harvard guy was ultimately better and I’m p sure he’s on some management track. No name school guys got dropped. I was actually close with 1 of them. He’s unfortunately not found a job and is considering switching industries
-- **justUseAnSvm** (16↑): Not much, considering I majored in biology.
+- **Hour_Calligrapher_92** (45↑): I'd say the prestige of your school is important now than a couple years ago.
+  - **[deleted]** (4↑): Even true for mid-senior level? I mean MIT is always going to open doors but I feel people care less at that point
+    - **STEMCareerAdvisor** (7↑): Depends on what your early career looks like
+    - **No-Test6484** (5↑): Ohhh I can confirm lol. Our company had a bunch of interns and 1 guy was from Harvard. They recruited aggressively to keep him. A couple guys from no named state schools were on the back foot. Harvard guy was ultimately better and I’m p sure he’s on some management track. No name school guys got dropped. I was actually close with 1 of them. He’s unfortunately not found a job and is considering switching industries
+- **justUseAnSvm** (17↑): Not much, considering I majored in biology.
 
 You might see one path: CS Degree -> Internship -> SWE job, but mine was like:
 
@@ -95,14 +131,14 @@ End the interview with them immediately, you want to keep these types of people 
 The best engineers, admit fault immediately, they never trust any code until its been tested extensively,  even then,  they always question it. 
 
 Avoid poeple who focus on signifiers of competence rather than real competence.  i.e. They fill up their github with b.s projects that are basically copy and paste jobs from some coding bootcamp to give the appearance of competence.
-- **MathmoKiwi** (29↑): Practically speaking in this day and age, you're basically not going to get a job as a SWE if you don't first go to uni.
+- **MathmoKiwi** (28↑): Practically speaking in this day and age, you're basically not going to get a job as a SWE if you don't first go to uni.
   - **[deleted]** (5↑): Just another anecdote to add, our company is super selective with its hires in that we only hire interns which we train up into seniors. We are noticing most of them have been staying in the current uncertain climate.
 
 Also, we don’t hire anyone in engineering unless they’re currently in their penultimate or final year of college studying IT. Period.
-- **churnchurnchurning** (4↑): The name of your school doesn’t really matter *unless* it’s like one of 5 and then it will absolutely make a big difference, even many years later.
-- **Assasin537** (4↑): I would say quite a bit for me. Being at the top school in my country really helped start my career, as I am able to get interviews at big companies much easier than my friends at other schools. More than that though, being surrounded by other ambitious and talented people makes it much easier for me to motivate myself through the grind and understand what I need to do. Also, interview prep is much easier since many of the technical concepts have been drilled into me from very rigorous academic courses.
-- **OneManIndian** (11↑): It’s a pretty big deal imo. If you go to a no name school you’ll struggle pretty hard in landing an actual SWE job, but you might be able to get something IT related. Lots of companies use school prestige as a filter, though they’d never admit it. This mostly applies to new grads though—once you have that first job or two, most companies won’t care
-- **ExactIllustrate** (5↑): I got 4 job offers from my career fair.
+- **churnchurnchurning** (5↑): The name of your school doesn’t really matter *unless* it’s like one of 5 and then it will absolutely make a big difference, even many years later.
+- **Assasin537** (5↑): I would say quite a bit for me. Being at the top school in my country really helped start my career, as I am able to get interviews at big companies much easier than my friends at other schools. More than that though, being surrounded by other ambitious and talented people makes it much easier for me to motivate myself through the grind and understand what I need to do. Also, interview prep is much easier since many of the technical concepts have been drilled into me from very rigorous academic courses.
+- **OneManIndian** (12↑): It’s a pretty big deal imo. If you go to a no name school you’ll struggle pretty hard in landing an actual SWE job, but you might be able to get something IT related. Lots of companies use school prestige as a filter, though they’d never admit it. This mostly applies to new grads though—once you have that first job or two, most companies won’t care
+- **ExactIllustrate** (4↑): I got 4 job offers from my career fair.
 I had a part time job in the Security Operations Center at my University where I worked on security automation and closely with Tier3 Analysts.
 I had professors actively asking for undergrads to help/shadow with their research.
 

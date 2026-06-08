@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1mk7b1a.md
 url: "https://www.reddit.com/r/OpenAI/comments/1mk7b1a/i_think_thats_all_for_today_folks_there_you_go/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,93 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:05.355Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c0"
+    char_span: [0, 286]
+    sentence_count: 4
+    key_terms: [comments, openai, consciousstupid, reddit-deep, posted, reddit, source, "that's"]
+    token_count: 90
+  - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c1"
+    char_span: [301, 353]
+    sentence_count: 1
+    key_terms: [numerous-mine-287, hallucinations, less]
+    section: Comments
+    token_count: 17
+  - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c2"
+    char_span: [355, 2044]
+    sentence_count: 8
+    key_terms: [stannis, better, season, chatgpt, deleted, fair-lingonberry-268, final, worse]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c3"
+    char_span: [1835, 2099]
+    sentence_count: 4
+    key_terms: [better, gpt6, presentation, recognition, meanwhile, analyze, falling, outputs]
+    section: Comments
+    token_count: 73
+  - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c4"
+    char_span: [2101, 3492]
+    sentence_count: 11
+    key_terms: [scottdellinger, got, toerevolutionary1111, codex, app, "it's", read, yeah]
+    section: Comments
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c5"
+    char_span: [3494, 4835]
+    sentence_count: 7
+    key_terms: [everyone, dumdub, consistent-ad-7455, otherwise-step4836, timeandspaceandme, insubstantial, nomadicnerdxd, disappointed]
+    section: Comments
+    token_count: 386
+  - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c6"
+    char_span: [4837, 5510]
+    sentence_count: 8
+    key_terms: [ebbexternal3544, expected, alright, chat, far, gpt, yeah, iammayberryjam]
+    section: Comments
+    token_count: 215
+  - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c7"
+    char_span: [5513, 7497]
+    sentence_count: 7
+    key_terms: [people, summary, wolfram, caseypatrickdriscoll, horny4theenvironment, purple-atmosphere-18, image, typeiicivilization]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c8"
+    char_span: [7499, 9567]
+    sentence_count: 18
+    key_terms: [factor, wow, through, inspiration, able, feel, like, chatbot]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c9"
+    char_span: [9569, 11507]
+    sentence_count: 17
+    key_terms: [people, chat, casual, conversation, like, because, context, openai]
+    section: Comments
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c10"
+    char_span: [11509, 13481]
+    sentence_count: 14
+    key_terms: ["it's", because, through, "aren't", companionship, relationship, form, time]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c11"
+    char_span: [13483, 15526]
+    sentence_count: 14
+    key_terms: [like, average, chatbot, person, singularity, artificial, probably, chatgpt]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c12"
+    char_span: [15528, 16962]
+    sentence_count: 10
+    key_terms: ["it's", case, subgroup, issues, people, foxaffectionate5092, "don't", going]
+    section: Comments
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/openai/1mk7b1a.md#c13"
+    char_span: [16964, 18018]
+    sentence_count: 4
+    key_terms: [consumers, people, "don't", carefully-crafted, immersive-matthew, been, "it's", disillusionment]
+    section: Comments
+    token_count: 256
 ---
-
 # I think that's all for today folks! There you go! Your GPT-5!
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1mk7b1a/i_think_thats_all_for_today_folks_there_you_go/)

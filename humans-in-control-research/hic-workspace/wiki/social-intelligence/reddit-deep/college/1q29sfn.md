@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1q29sfn.md
 url: "https://www.reddit.com/r/college/comments/1q29sfn/6_years_out_of_school_and_i_want_to_go_back_to/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,54 @@ subreddit: "college"
 title: "6 years out of school and I want to go back to college now (advice)"
 author: "Chance-Ad8261"
 date: "2026-01-02T20:34:05.000Z"
-score: 10
-upvote_ratio: 1
+score: 9
+upvote_ratio: 0.92
 num_comments: 19
 flair: "Canada"
-extracted_at: "2026-05-23T19:44:48.192Z"
+extracted_at: "2026-06-05T23:41:08.231Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1q29sfn.md#c0"
+    char_span: [0, 2137]
+    sentence_count: 8
+    key_terms: [college, school, course, year, wanna, years, high, working]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/college/1q29sfn.md#c1"
+    char_span: [2152, 4365]
+    sentence_count: 16
+    key_terms: [transfer, course, courses, business, program, useful, coachinteresting7125, community]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/college/1q29sfn.md#c2"
+    char_span: [4367, 5590]
+    sentence_count: 7
+    key_terms: [skills, been, students, college, school, academic, "haven't", though]
+    section: Comments
+    token_count: 259
+  - id: "social-intelligence/reddit-deep/college/1q29sfn.md#c3"
+    char_span: [5592, 7731]
+    sentence_count: 12
+    key_terms: [school, because, back, high, college, parents, lot, questions]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/college/1q29sfn.md#c4"
+    char_span: [7733, 9714]
+    sentence_count: 14
+    key_terms: [get, college, school, people, reinforcement, "don't", certificate, algebra]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/college/1q29sfn.md#c5"
+    char_span: [9716, 11407]
+    sentence_count: 15
+    key_terms: [college, bridge, course, people, skills, back, find, students]
+    section: Comments
+    token_count: 380
 ---
-
 # 6 years out of school and I want to go back to college now (advice)
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1q29sfn/6_years_out_of_school_and_i_want_to_go_back_to/)
-Posted by **Chance-Ad8261** · **10↑** · **19 comments**
+Posted by **Chance-Ad8261** · **9↑** · **19 comments**
 
 To start, I’m at a crossroads in my life and I’m honestly pissed off and tired of working the BS jobs I’ve been doing and I’ve made the decision I want to actually go to college and learn a skill now. After I graduated high school I couldn’t figure out what I wanted to do so I intended to take 1 year off but as a lot of people always say that 1 year becomes a lot longer and that was true for me. I am seeking a career in business management, but I need some advice. I excelled in high school I made honour roll every year and graduated top of all my classes, but being out of school for almost 7 years now I am nervous to take the leap to college as I feel that because of working I’ve forgotten a lot of stuff I learned back in high school and gotten dumber. I seen they have college transfer courses which are labeled as (General Arts and Science) which is a 1 year program that goes through 8 different courses and is more of a bridge course, I was wondering if this would be beneficial for someone like me, but at the same time I don’t wanna waste another year and course fee for a useless course I may not need. Will it be hard to get back into it if I go straight for the course I wanna do, or should I spend the extra money and do the general course first. My biggest worry is paying all the money and failing, I won’t drop out as I’ve toughed out working crappy jobs where I’m abused every day for the last 6 years, so 2-4 years of education seems like a walk in the park, it’s just I wanna learn new things and grow as the workplace life without education isn’t engaging enough for me to care, excel the same as I did in high school and I just don’t wanna go into something unprepared because of all my time off and end up failing. Thanks for reading I know it may sound all over the place but this is really stressing me out, any advice would be appreciated thanks.
 

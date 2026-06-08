@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1oau8uz.md
 url: "https://www.reddit.com/r/OpenAI/comments/1oau8uz/worthwhile_idea_to_have_age_gated_llms_pre_21/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,47 @@ flair: "Discussion"
 extracted_at: "2026-05-11T16:53:06.845Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1oau8uz.md#c0"
+    char_span: [0, 2232]
+    sentence_count: 11
+    key_terms: [reward, brain, signal, social, artificial, dopamine, attention, behavior]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/openai/1oau8uz.md#c1"
+    char_span: [2234, 4738]
+    sentence_count: 10
+    key_terms: [social, effort, required, reward, human, signal, brain, stimulation]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/openai/1oau8uz.md#c2"
+    char_span: [4740, 7008]
+    sentence_count: 13
+    key_terms: [exposure, social, brain, reward, architecture, calibration, consequence, development]
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/openai/1oau8uz.md#c3"
+    char_span: [7010, 9514]
+    sentence_count: 10
+    key_terms: [brain, social, calibration, expectation, real, artificial, compelling, developing]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/openai/1oau8uz.md#c4"
+    char_span: [9516, 10238]
+    sentence_count: 6
+    key_terms: [calibration, intelligent, social, brain, human, reward-circuit, interactions, adolescence]
+    token_count: 142
+  - id: "social-intelligence/reddit-deep/openai/1oau8uz.md#c5"
+    char_span: [10253, 12151]
+    sentence_count: 20
+    key_terms: [information, brain, human, developed, pasted, social, interaction, back]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/openai/1oau8uz.md#c6"
+    char_span: [12154, 12801]
+    sentence_count: 6
+    key_terms: [different, interactions, interaction, social, human, model, generational, reliability]
+    section: Comments
+    token_count: 131
 ---
-
 # Worthwhile idea to have age gated LLMs pre 21
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1oau8uz/worthwhile_idea_to_have_age_gated_llms_pre_21/)

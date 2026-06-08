@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1smq1ck.md
 url: "https://www.reddit.com/r/humanresources/comments/1smq1ck/how_did_you_figure_out_what_you_like_to_do_in_hr/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,27 @@ flair: "Career Development"
 extracted_at: "2026-05-23T12:15:41.547Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1smq1ck.md#c0"
+    char_span: [0, 1506]
+    sentence_count: 14
+    key_terms: [humanresources, years, like, background, experience, nonprofits, comments, teaching]
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/humanresources/1smq1ck.md#c1"
+    char_span: [1521, 3396]
+    sentence_count: 10
+    key_terms: [generalist, like, personality, roles, msgrayrm813, recruitment, role, programs]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/humanresources/1smq1ck.md#c2"
+    char_span: [3399, 4229]
+    sentence_count: 6
+    key_terms: [back, accommodations, satisfaction, shawarmalegs, coordinator, msgrayrm813, generalist, operations]
+    section: Comments
+    token_count: 209
 ---
-
 # How did you figure out what you like to do in HR? [NC]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1smq1ck/how_did_you_figure_out_what_you_like_to_do_in_hr/)

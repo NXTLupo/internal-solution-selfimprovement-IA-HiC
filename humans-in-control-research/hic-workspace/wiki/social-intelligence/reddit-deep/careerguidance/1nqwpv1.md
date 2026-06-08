@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1nqwpv1.md
 url: "https://www.reddit.com/r/careerguidance/comments/1nqwpv1/can_i_become_a_programmer_at_38/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -6,19 +7,54 @@ subreddit: "careerguidance"
 title: "Can I become a programmer at 38?"
 author: "dyslechtchitect"
 date: "2025-09-26T09:22:37.000Z"
-score: 38
-upvote_ratio: 0.61
+score: 34
+upvote_ratio: 0.6
 num_comments: 111
 flair: ""
-extracted_at: "2026-05-25T15:52:13.109Z"
+extracted_at: "2026-06-05T18:53:29.754Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1nqwpv1.md#c0"
+    char_span: [0, 1761]
+    sentence_count: 20
+    key_terms: [job, developer, software, working, careerguidance, years, got, comments]
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/careerguidance/1nqwpv1.md#c1"
+    char_span: [1776, 3536]
+    sentence_count: 12
+    key_terms: ["it's", today, years, get, job, market, being, refusals]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/careerguidance/1nqwpv1.md#c2"
+    char_span: [3538, 4187]
+    sentence_count: 8
+    key_terms: [anymore, years, market, field, ago, get, developers, rejections]
+    section: Comments
+    token_count: 156
+  - id: "social-intelligence/reddit-deep/careerguidance/1nqwpv1.md#c3"
+    char_span: [4189, 6288]
+    sentence_count: 10
+    key_terms: [code, outlier, job, work, yourself, writing, degree, market]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1nqwpv1.md#c4"
+    char_span: [6043, 8123]
+    sentence_count: 16
+    key_terms: [years, yourself, dyslechtchitect, being, job, life, different, anything]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1nqwpv1.md#c5"
+    char_span: [7871, 8979]
+    sentence_count: 9
+    key_terms: ["it's", language, possible, "that's", focus, grit, like, real]
+    section: Comments
+    token_count: 261
 ---
-
 # Can I become a programmer at 38?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1nqwpv1/can_i_become_a_programmer_at_38/)
-Posted by **dyslechtchitect** · **38↑** · **111 comments**
+Posted by **dyslechtchitect** · **34↑** · **111 comments**
 
 I Became a software engineer at 38
 
@@ -35,8 +71,8 @@ You can achieve anything.
 
 ## Comments
 
-- **DroppinLoot** (98↑): This is very inspiring. But you also have to realize the market is waaaaaaaaaay different today than it was 8 years ago…
-  - **Royal-Artist1309** (48↑): It's also fake. In another post he's 44.
+- **DroppinLoot** (97↑): This is very inspiring. But you also have to realize the market is waaaaaaaaaay different today than it was 8 years ago…
+  - **Royal-Artist1309** (46↑): It's also fake. In another post he's 44.
     - **NATOrocket** (21↑): I mean, he is talking in the past tense here.
     - **Prior-Actuator-8110** (13↑): He talks when he was 38 and started years before. Now he is 44.
     - **doofy24** (10↑): Yeah this whole thing smells like BS
@@ -54,7 +90,7 @@ You coming in acting like you know anything when you graduated from a bootcamp 8
 - **CIA--Bane** (44↑): Except no one is hiring self taught developers anymore with how the market is. Yeah 10 years ago they would have taken anymore but not anymore. Your story is inspiring but it’s not relevant to the current market. 
 
 Also studying 10-18h a day makes you a huge outlier anyway.
-  - **ItsDatEz72** (6↑): They’ll hire you but only if you’ve already had a startup and exited then you can be a junior :)) /s
+  - **ItsDatEz72** (7↑): They’ll hire you but only if you’ve already had a startup and exited then you can be a junior :)) /s
     - **themegainferno** (1↑): You do /s but I have definitely heard of that
   - **ConflictPotential204** (3↑): Got hired 4 months after graduating a bootcamp last year. Yes, you have to be an outlier to get hired in a bad job market. Be an outlier.
 - **Chilleninthepines** (9↑): I didn't read the whole post, just the first part. Someone close to me just finished  their degree in Software Engineering, and they have had a REALLY hard time finding work.The competition is FIERCE, and tech has slowed in their hiring process. It could be better when you finish your degree, but it's something to be aware of.
@@ -62,10 +98,10 @@ Also studying 10-18h a day makes you a huge outlier anyway.
 - **Silhouette_Doofus** (6↑): it’s motivating, but keep in mind the tech scene has changed a lot since then. u gotta adapt to current trends and demands.
   - **dyslechtchitect** (1↑): Sure, I see that, my work today is primarily vibe coding but the knowledge I gained in the 5 years that I was writing manual code informs my AI work and accelerates it. I think someone's starting today should be very spartan about the way they study. They should literally use a text editor and not touch AI except for asking questions and learning, not even auto complete. Never vibe code until you got a job. I think it'll be very impressive to potential employers that a candidate actually understands code and best practices and can explain every character on the screen, this also means that a lot more is expected of Juniors once they start because you're not going to get lost in writing a for loop with a condition like I did initially...
 - **Rapscagamuffin** (12↑): yeah you lazy bums! pull yourself up by your bootstraps and study for 18 hours a day including weekends for a year! and after youve done that code yourself a time machine so you can go back to the job market from 7-9 years ago come on you can achieve anything! code yourself the key to immortality too so you can get back the life you spent 90% of looking at a computer screen and working with no life all in the hopes that on the off chance you can get a decent job someday where you can work away the rest of your life! come on you can do anything!
-  - **dyslechtchitect** (-10↑): Hey, 7 years down the line I have Work-Life balance. Plenty of free time, but the initial investment years were incredibly rough. It brought me to tears many times. I was on the verge of financial ruin. And Yeah, AI is a new factor but it's an incredible learning tool and Juniors can do a lot more than I used to When they're starting out.
+  - **dyslechtchitect** (-9↑): Hey, 7 years down the line I have Work-Life balance. Plenty of free time, but the initial investment years were incredibly rough. It brought me to tears many times. I was on the verge of financial ruin. And Yeah, AI is a new factor but it's an incredible learning tool and Juniors can do a lot more than I used to When they're starting out.
 When you're starting a new career, you need to look 10 years down the line, being cynical about it doesn't help.
     - **DaveLesh** (3↑): Must've been so hard trying to program and do boot camps while being everyone's playboy. BS artist.
-- **no_warning-shots117** (5↑): Don't know if you're truly 44, cause at that age we'd expect peak pragmatism and oversight from someone, not delusions. Generalizing personal experience from the past and denying the state of the sector today isn't something we'd hear from senior staff.
+- **no_warning-shots117** (6↑): Don't know if you're truly 44, cause at that age we'd expect peak pragmatism and oversight from someone, not delusions. Generalizing personal experience from the past and denying the state of the sector today isn't something we'd hear from senior staff.
 - **alderson710** (3↑): Yes. I’ve seen many examples. The market is different now due to AI though, it can be harder to land a job being a Junior. But no issue with your age, plenty of people who have done it. Don’t listen to all these losers.
   - **dyslechtchitect** (-1↑): It is different but we also have amazing learning tools. Your growth can be exponential. You could learn skills you couldn't dream of. You could do much more at home than before, but much more is expected for from you from the get-go and that's not a bad thing. The determining factory remains grit.
 - **BCMBCG** (3↑): Proud of you, son.

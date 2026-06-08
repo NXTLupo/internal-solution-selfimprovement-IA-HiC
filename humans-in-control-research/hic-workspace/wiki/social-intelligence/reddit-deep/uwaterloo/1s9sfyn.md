@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1s9sfyn/waterloo_students_filing_taxes_with_zero_income/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,69 @@ flair: "Advice"
 extracted_at: "2026-05-25T18:33:12.669Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c0"
+    char_span: [0, 1637]
+    sentence_count: 5
+    key_terms: [year, future, income, cash, credit, file, benefit, carryforward]
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c1"
+    char_span: [1639, 3241]
+    sentence_count: 6
+    key_terms: [credit, cash, income, year, tuition, filing, years, amount]
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c2"
+    char_span: [3243, 5071]
+    sentence_count: 11
+    key_terms: [canadian, tax, canada, international, students, institution, year, credit]
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c3"
+    char_span: [5073, 6986]
+    sentence_count: 10
+    key_terms: [line, canada, income, credit, schedule, ontario, form, automatic]
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c4"
+    char_span: [6988, 8273]
+    sentence_count: 8
+    key_terms: [year, tuition, carryforward, credit, future, income, cash, file]
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c5"
+    char_span: [8275, 9908]
+    sentence_count: 9
+    key_terms: [credit, cash, year, income, tuition, filing, years, benefit]
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c6"
+    char_span: [9910, 10408]
+    sentence_count: 4
+    key_terms: [canadian, international, tax, year, residents, ontario, file, citizenship]
+    token_count: 116
+  - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c7"
+    char_span: [10423, 12170]
+    sentence_count: 9
+    key_terms: [benefit, exactly, possiblecup140, wealthsimple, gettaxclear, free, time, full-time]
+    section: Comments
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c8"
+    char_span: [12172, 14056]
+    sentence_count: 10
+    key_terms: [people, taxes, file, tax, benefits, canadians-taxes-filing-money-owed-1, filing, income]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c9"
+    char_span: [14058, 15448]
+    sentence_count: 6
+    key_terms: [ontariostudentresidencerebate, benefit, possiblecup140, designated, taxtronpro, trillium, ontario, qualify]
+    section: Comments
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c10"
+    char_span: [15450, 16323]
+    sentence_count: 6
+    key_terms: [amount, off-campus, residence, file, rent, oversimplified, possiblecup140, back-returns]
+    section: Comments
+    token_count: 197
 ---
-
 # Waterloo students: Filing taxes with zero income gets you $1400-1900/year in cash + 7000 to 19,000 in future discounts (credits that reduce your bill in your first working years.) most people don't know about
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1s9sfyn/waterloo_students_filing_taxes_with_zero_income/)

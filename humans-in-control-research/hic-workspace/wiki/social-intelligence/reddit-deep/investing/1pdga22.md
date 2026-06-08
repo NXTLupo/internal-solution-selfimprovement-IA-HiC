@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1pdga22.md
 url: "https://www.reddit.com/r/investing/comments/1pdga22/has_anyone_here_tested_a_3_pillar_longterm/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.196Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1pdga22.md#c0"
+    char_span: [0, 723]
+    sentence_count: 4
+    key_terms: [different, gold, investing, long-term, comments, anyone, crypto, stocks]
+    token_count: 182
+  - id: "social-intelligence/reddit-deep/investing/1pdga22.md#c1"
+    char_span: [738, 2386]
+    sentence_count: 10
+    key_terms: [qqq, gld, buy, sell, dec-24, trade, market, etfs]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/investing/1pdga22.md#c2"
+    char_span: [2388, 3797]
+    sentence_count: 1
+    key_terms: [sell, buy, qqq, tlt, dec-24, trade, gld, apr-25]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/investing/1pdga22.md#c3"
+    char_span: [3799, 4176]
+    sentence_count: 1
+    key_terms: [buy, qqq, sep-25, sell, tlt, apr-25]
+    section: Comments
+    token_count: 150
 ---
-
 # Has anyone here tested a 3 pillar long-term portfolio (stocks + crypto + gold)?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1pdga22/has_anyone_here_tested_a_3_pillar_longterm/)

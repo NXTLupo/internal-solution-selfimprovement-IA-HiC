@@ -10,9 +10,9 @@ score: 3
 upvote_ratio: 0.81
 num_comments: 35
 flair: "Findapath-Job Choice/Clarity"
-extracted_at: "2026-05-22T15:13:18.832Z"
+extracted_at: "2026-06-06T23:22:15.479Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Looking for Creatively Fulfilling Career Options
@@ -66,7 +66,7 @@ Thanks in advance to anyone who has some advice!
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/findapath) if you have any questions or concerns.*
 - **shadowbuffer00** (2↑): mybe digital marketing? mix creativity, anlytics, cntent creation n strategy, I think it suits u
   - **solidserval** (1↑): That does sound interesting, I will have to check that out! I believe those skills align with what I got.
-    - **Vbusyguy** (5↑): I do digital marketing and it's not great.  Slanging products to people through Meta is kinda soul crushing and although you technically get to do creative work it is heavily confined by what performs in Meta algorithms.
+    - **Vbusyguy** (3↑): I do digital marketing and it's not great.  Slanging products to people through Meta is kinda soul crushing and although you technically get to do creative work it is heavily confined by what performs in Meta algorithms.
     - **Global-Fact7752** (1↑): What about teaching?
 - **GoodnightLondon** (2↑): \>> I do not have a portfolio to speak of, though depending on what I am doing maybe I can figure out how to make one.
 

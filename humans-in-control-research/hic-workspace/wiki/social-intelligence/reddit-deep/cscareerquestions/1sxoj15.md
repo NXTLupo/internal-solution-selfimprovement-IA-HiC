@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1sxoj15.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1sxoj15/career_path_questions_for_chinese_student/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: "Student"
 extracted_at: "2026-05-24T14:08:50.766Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sxoj15.md#c0"
+    char_span: [0, 843]
+    sentence_count: 7
+    key_terms: [cscareerquestions, interested, recommend, comments, programs, chinese, masters, friend]
+    token_count: 194
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sxoj15.md#c1"
+    char_span: [858, 1476]
+    sentence_count: 3
+    key_terms: [commercial-lie8338, year, international, opportunities, requirements, engineering, internships, specializes]
+    section: Comments
+    token_count: 131
 ---
-
 # Career Path Questions for Chinese Student Interested in AI
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sxoj15/career_path_questions_for_chinese_student/)

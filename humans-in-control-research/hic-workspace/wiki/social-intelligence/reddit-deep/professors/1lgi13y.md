@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1lgi13y.md
 url: "https://www.reddit.com/r/Professors/comments/1lgi13y/no_longer_have_the_will/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,75 @@ flair: ""
 extracted_at: "2026-05-20T03:55:39.287Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1lgi13y.md#c0"
+    char_span: [0, 2207]
+    sentence_count: 16
+    key_terms: [students, writing, years, teaching, "don't", professors, comments, podcasts]
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/professors/1lgi13y.md#c1"
+    char_span: [2222, 4167]
+    sentence_count: 12
+    key_terms: [writing, teaching, convenience, discipline, thousands, practice, people, "you're"]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/professors/1lgi13y.md#c2"
+    char_span: [4169, 5630]
+    sentence_count: 7
+    key_terms: [calculators, consequence, risk, something, college, deleted, getting, credit]
+    section: Comments
+    token_count: 340
+  - id: "social-intelligence/reddit-deep/professors/1lgi13y.md#c3"
+    char_span: [5632, 7812]
+    sentence_count: 17
+    key_terms: [online, students, classes, person, in-person, material, without, working]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/professors/1lgi13y.md#c4"
+    char_span: [7814, 9550]
+    sentence_count: 11
+    key_terms: [students, synchronous, education, classes, online, participating, asynchronous, challenges]
+    section: Comments
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/professors/1lgi13y.md#c5"
+    char_span: [9552, 10429]
+    sentence_count: 8
+    key_terms: [abused, because, centers, testing, alone-guarantee-9646, wow, antique-flan2500, bibliophilebroad]
+    section: Comments
+    token_count: 226
+  - id: "social-intelligence/reddit-deep/professors/1lgi13y.md#c6"
+    char_span: [10431, 12411]
+    sentence_count: 13
+    key_terms: [students, online, summer, class, competitive, pandemic, teaching, courses]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/professors/1lgi13y.md#c7"
+    char_span: [12413, 13470]
+    sentence_count: 6
+    key_terms: [school, courses, online, job, course-by-course, residencies, invaluable, shockingly]
+    section: Comments
+    token_count: 260
+  - id: "social-intelligence/reddit-deep/professors/1lgi13y.md#c8"
+    char_span: [13472, 15473]
+    sentence_count: 15
+    key_terms: [vespula0987654321, life, community, podcasts, college, history, student, writing]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1lgi13y.md#c9"
+    char_span: [15260, 15784]
+    sentence_count: 4
+    key_terms: [podcast, word, presentation, assignment, beatissima, convincing, difference, generated]
+    section: Comments
+    token_count: 129
+  - id: "social-intelligence/reddit-deep/professors/1lgi13y.md#c10"
+    char_span: [15786, 17829]
+    sentence_count: 16
+    key_terms: [online, notebooklm-audio-overviews, technology, https, years, education, examination-books, scartonbot]
+    section: Comments
+    token_count: 489
 ---
-
 # No longer have the will
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1lgi13y/no_longer_have_the_will/)

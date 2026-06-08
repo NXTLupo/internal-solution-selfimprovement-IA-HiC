@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1ncqmn2.md
 url: "https://www.reddit.com/r/careerguidance/comments/1ncqmn2/scared_about_career_path_data_science_student/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-22T21:34:47.975Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1ncqmn2.md#c0"
+    char_span: [0, 1089]
+    sentence_count: 11
+    key_terms: [data, science, careerguidance, don, like, comments, teaching, teacher]
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/careerguidance/1ncqmn2.md#c1"
+    char_span: [1104, 2210]
+    sentence_count: 9
+    key_terms: [teaching, science, coding, maths, data, work, advantage, portfolio]
+    section: Comments
+    token_count: 229
 ---
-
 # Scared about career path: Data Science student thinking about teaching?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1ncqmn2/scared_about_career_path_data_science_student/)

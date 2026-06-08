@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1pobnme.md
 url: "https://www.reddit.com/r/careerguidance/comments/1pobnme/long_post_accepted_a_phd_at_29_vs_moving_to/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,41 @@ flair: "Advice"
 extracted_at: "2026-05-22T23:34:01.127Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1pobnme.md#c0"
+    char_span: [0, 1922]
+    sentence_count: 21
+    key_terms: [phd, accepted, applied, careerguidance, abroad, mathematics, comments, industry]
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/careerguidance/1pobnme.md#c1"
+    char_span: [1924, 4018]
+    sentence_count: 19
+    key_terms: [research, realistically, phd, scientist, like, competitive, sure, want]
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/careerguidance/1pobnme.md#c2"
+    char_span: [4020, 6484]
+    sentence_count: 23
+    key_terms: [immediately, interesting, option, move, another, germany, switzerland, healthcare]
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/careerguidance/1pobnme.md#c3"
+    char_span: [6486, 7715]
+    sentence_count: 9
+    key_terms: [phd, because, going, switzerland, currently, germany, choice, mental]
+    token_count: 246
+  - id: "social-intelligence/reddit-deep/careerguidance/1pobnme.md#c4"
+    char_span: [7717, 10120]
+    sentence_count: 21
+    key_terms: [phd, want, decision, years, withdrawing, possible, rational, because]
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/careerguidance/1pobnme.md#c5"
+    char_span: [10122, 11272]
+    sentence_count: 12
+    key_terms: [phd, years, mammothdull6020, germany, depressed, specially, harder, having]
+    section: Comments
+    token_count: 287
 ---
-
 # [Long post] Accepted a PhD at 29 vs moving to industry abroad: how do you separate rational doubt from fear?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1pobnme/long_post_accepted_a_phd_at_29_vs_moving_to/)

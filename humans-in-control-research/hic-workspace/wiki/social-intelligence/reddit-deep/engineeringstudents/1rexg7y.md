@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1rexg7y.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1rexg7y/i_hate_my_degree/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -6,19 +7,72 @@ subreddit: "engineeringstudents"
 title: "I hate my degree"
 author: "ThrowawayHackintosh"
 date: "2026-02-26T02:06:27.000Z"
-score: 47
-upvote_ratio: 0.86
+score: 44
+upvote_ratio: 0.85
 num_comments: 105
 flair: "Academic Advice"
-extracted_at: "2026-05-22T21:34:47.625Z"
+extracted_at: "2026-06-06T17:43:22.924Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rexg7y.md#c0"
+    char_span: [0, 1966]
+    sentence_count: 17
+    key_terms: [engineering, engineeringstudents, because, through, degree, something, comments, parental]
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rexg7y.md#c1"
+    char_span: [1981, 3788]
+    sentence_count: 11
+    key_terms: [engineeringstudents, wiki, please, reddit, throwawayhackintosh, https, suffering, com]
+    section: Comments
+    token_count: 408
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rexg7y.md#c2"
+    char_span: [3790, 5458]
+    sentence_count: 11
+    key_terms: [engineering, degree, throwawayhackintosh, finance, time, others, aside, reptilianover1ord]
+    section: Comments
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rexg7y.md#c3"
+    char_span: [5460, 7762]
+    sentence_count: 41
+    key_terms: [engineer, engineering, living, school, programming, specialized, did, get]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rexg7y.md#c4"
+    char_span: [7450, 8219]
+    sentence_count: 8
+    key_terms: [programming, directions, changed, throwawayhackintosh, marry, lot, microbiologist, interestingly]
+    section: Comments
+    token_count: 170
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rexg7y.md#c5"
+    char_span: [8221, 9480]
+    sentence_count: 9
+    key_terms: [engineering, something, signals, ctoatb, throwawayhackintosh, https, music, hate]
+    section: Comments
+    token_count: 307
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rexg7y.md#c6"
+    char_span: [9482, 10753]
+    sentence_count: 10
+    key_terms: [throwawayhackintosh, adhd, enjoy, here, developer, minimum, mr-short-circuit-ee, find]
+    section: Comments
+    token_count: 304
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rexg7y.md#c7"
+    char_span: [10755, 12674]
+    sentence_count: 16
+    key_terms: [engineering, degree, year, working, get, like, time, wish]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rexg7y.md#c8"
+    char_span: [12676, 13121]
+    sentence_count: 3
+    key_terms: [company, better, design, throwawayhackintosh, unknownfortune2345, time, definitely, knowledge]
+    section: Comments
+    token_count: 105
 ---
-
 # I hate my degree
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1rexg7y/i_hate_my_degree/)
-Posted by **ThrowawayHackintosh** · **47↑** · **105 comments**
+Posted by **ThrowawayHackintosh** · **44↑** · **105 comments**
 
 Hello,
 
@@ -58,7 +112,7 @@ Check our [Resources Landing Page](https://reddit.com/r/EngineeringStudents/wiki
 - **ThePowerfulPaet** (15↑): Engineering gives you the life stability to pursue your creative passions. Not everyone is so fortunate.
   - **ThrowawayHackintosh** (3↑): Thank you for this comment, I think that makes sense.
   - **Typical-Speed-6829** (1↑): Exactly the bottom line is your job isn't your deepest passion. It helps fund your real ones. You ultimately need to pay for living
-- **Alarming-Junket** (26↑): You’re suffering from the grind and unfortunately it doesn’t end until school does. You see many other students enjoying their time and having a blast while your either studying or trying to decompress during with what little time you have.
+- **Alarming-Junket** (28↑): You’re suffering from the grind and unfortunately it doesn’t end until school does. You see many other students enjoying their time and having a blast while your either studying or trying to decompress during with what little time you have.
 
 The only comfort I can offer is also no comfort at all: you’re suffering now and in a concentrated form in hope to avoid slow long term suffering.
 
@@ -67,13 +121,13 @@ No matter what, set aside a scheduled time to actually have fun or a laugh with 
     - **Alarming-Junket** (-1↑): Some dudes gamed, while others partied. Some of us rode motorcycles and others played music. I did a little of everything. If you got time, a girl might help take the edge off.
 - **ayyG_itsMe** (11↑): Well the degree is still very valuable outside of engineering.
   - **ThrowawayHackintosh** (1↑): I am not sure, maybe im just blinded but how can i branch out of something thats not engineering if i end up getting this degree?
-    - **GoForMro** (6↑): You can do finance with an engineering degree, you can’t do engineering with a finance degree.
+    - **GoForMro** (7↑): You can do finance with an engineering degree, you can’t do engineering with a finance degree.
     - **Xeroll** (4↑): Art and engineering. Industrial design.
     - **ReptilianOver1ord** (1↑): There are quite a few office jobs that require a 4 year degree (but not a specific degree).
     - **ayyG_itsMe** (1↑): First thing that comes to mind is finance. But big picture: you’ll have a prestigious degree that is entirely focused on math, complex critical thinking, and problem solving. You can pivot this into business, a fun example is that over 30% of Fortune 500 CEOs have engineering degrees (more than MBAs or any other type of degree)!
 
 Edit: btw business doesn’t necessarily exclude artistic or creative interests
-- **SheepherderNext3196** (4↑): Retired chemical engineer here. Not sure what I can add. We really weren’t learning engineering until sophomore year. You’re only a junior. Part of your frustration is the workload. We worked our butts off. I had to burn it into my soul. The load didn’t get any easier. We just got used to it. Reducing course load helps. We had people that were just surviving. Bigger picture, You get out of it what you put into it at school and on the job. I had one boss that put up on monitor during engineering week that he went into it for money. He was a pretty good cookbook engineer. Terrible manager. Even worse in sales. They fired him and he’s selling houses. I sang at church, afterwards barbershop, and at the college of music to keep from going nuts. They put all the university choral groups together to perform Beethoven’s 9th with the Tucson Symphony Orchestra. The only other engineer sat on one side. A fellow with an operatic quality voice was on the other side studying organic chemistry because he couldn’t make a living in music. About 10% went on to medical school or law school. I worked with one chemical engineer that specialized in vessel design. Another could make more money as a piping designer (call it a specialized draftsman). We didn’t really know what engineers did until we got out. We were very green for several years. You don’t just study engineering. You become an engineer. Most of us are worker bees. I was roughly top 50 in the world in a specific part of process safety. I don’t know enough whether to say stay in engineering or not. It doesn’t matter whether you get a degree or work in trades. But you have to decide what’s right for you. Two criteria: 1) You need to like it enough to do for much of your life. 2) Be able to make a living. My parents came from abject poverty. They simply wanted us to do better than they did. If we were failures, my mom would never had said a word, but it would have hurt her. My brother changed majors three times. He couldn’t make a living as a microbiologist. He did a lot of soul searching, working on programming, and world class in medical systems programming. Interestingly, the girl he would eventually marry was all screwed up because her parents expected to edict what degree to get and who she would marry. They don’t give you a medal for getting out in four years. It’s perfectly okay to change directions.
+- **SheepherderNext3196** (6↑): Retired chemical engineer here. Not sure what I can add. We really weren’t learning engineering until sophomore year. You’re only a junior. Part of your frustration is the workload. We worked our butts off. I had to burn it into my soul. The load didn’t get any easier. We just got used to it. Reducing course load helps. We had people that were just surviving. Bigger picture, You get out of it what you put into it at school and on the job. I had one boss that put up on monitor during engineering week that he went into it for money. He was a pretty good cookbook engineer. Terrible manager. Even worse in sales. They fired him and he’s selling houses. I sang at church, afterwards barbershop, and at the college of music to keep from going nuts. They put all the university choral groups together to perform Beethoven’s 9th with the Tucson Symphony Orchestra. The only other engineer sat on one side. A fellow with an operatic quality voice was on the other side studying organic chemistry because he couldn’t make a living in music. About 10% went on to medical school or law school. I worked with one chemical engineer that specialized in vessel design. Another could make more money as a piping designer (call it a specialized draftsman). We didn’t really know what engineers did until we got out. We were very green for several years. You don’t just study engineering. You become an engineer. Most of us are worker bees. I was roughly top 50 in the world in a specific part of process safety. I don’t know enough whether to say stay in engineering or not. It doesn’t matter whether you get a degree or work in trades. But you have to decide what’s right for you. Two criteria: 1) You need to like it enough to do for much of your life. 2) Be able to make a living. My parents came from abject poverty. They simply wanted us to do better than they did. If we were failures, my mom would never had said a word, but it would have hurt her. My brother changed majors three times. He couldn’t make a living as a microbiologist. He did a lot of soul searching, working on programming, and world class in medical systems programming. Interestingly, the girl he would eventually marry was all screwed up because her parents expected to edict what degree to get and who she would marry. They don’t give you a medal for getting out in four years. It’s perfectly okay to change directions.
   - **ThrowawayHackintosh** (1↑): Thank you for the very informal post, I haven't thought of this in terms of the bigger picture. I also am glad to hear that a lot of directions can be changed in the future, and I like how you breaked it down into two criterias.
 
 If you could go back when you were picking your career choice, would you have changed anything? Done things differently? 

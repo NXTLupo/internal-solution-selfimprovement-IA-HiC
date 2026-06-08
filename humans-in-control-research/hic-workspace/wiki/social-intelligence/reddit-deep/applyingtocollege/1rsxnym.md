@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rsxnym/opinion_us_news_and_rankings_have_done/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,63 @@ flair: "Rant"
 extracted_at: "2026-05-23T19:45:32.273Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c0"
+    char_span: [0, 1080]
+    sentence_count: 4
+    key_terms: [rankings, applyingtocollege, everyone, wants, news, colleges, comments, prestige]
+    token_count: 212
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c1"
+    char_span: [1095, 2087]
+    sentence_count: 9
+    key_terms: [top, news, school, admit, back, sat, college, current]
+    section: Comments
+    token_count: 260
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c2"
+    char_span: [2089, 3613]
+    sentence_count: 11
+    key_terms: [rankings, because, school, information, matters, schools, chaunceythegardiner, like]
+    section: Comments
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c3"
+    char_span: [3615, 5008]
+    sentence_count: 9
+    key_terms: [applicants, admit, rate, business, like, attracts, colleges, prestige]
+    section: Comments
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c4"
+    char_span: [5010, 7266]
+    sentence_count: 33
+    key_terms: [rankings, school, basketball, news, colleges, uchicago, harvard, always]
+    section: Comments
+    token_count: 519
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c5"
+    char_span: [7268, 8511]
+    sentence_count: 12
+    key_terms: [colleges, justcommenting98765, rankings, closing, long, campuses, probably, regional]
+    section: Comments
+    token_count: 290
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c6"
+    char_span: [8513, 10375]
+    sentence_count: 14
+    key_terms: [average-and-year-by-year-u-s-news-rankings-for-123-national-universities-2017-2024-big-changes, schools, colleges, like, prestige, rankings, breakbig6197, competition]
+    section: Comments
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c7"
+    char_span: [10377, 12052]
+    sentence_count: 15
+    key_terms: [schools, private, alumni, public, rankings, giving, rate, resources]
+    section: Comments
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c8"
+    char_span: [12054, 14219]
+    sentence_count: 19
+    key_terms: [schools, rankings, applied, college, disagree, factors, ranking, nature]
+    section: Comments
+    token_count: 505
 ---
-
 # Opinion: U.S news and rankings have done irreversible damage to colleges and college admissions
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rsxnym/opinion_us_news_and_rankings_have_done/)

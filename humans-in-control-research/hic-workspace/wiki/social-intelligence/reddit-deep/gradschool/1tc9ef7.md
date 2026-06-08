@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1tc9ef7.md
 url: "https://www.reddit.com/r/GradSchool/comments/1tc9ef7/help_advice_on_getting_into_a_mfa/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,43 @@ flair: "Admissions & Applications"
 extracted_at: "2026-05-20T12:57:40.638Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1tc9ef7.md#c0"
+    char_span: [0, 1827]
+    sentence_count: 18
+    key_terms: [everything, gradschool, academia, comments, college, english, getting, parents]
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/gradschool/1tc9ef7.md#c1"
+    char_span: [1829, 3842]
+    sentence_count: 20
+    key_terms: [want, applied, writing, trauma, eventually, intergenerational, stories, undergraduate]
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/gradschool/1tc9ef7.md#c2"
+    char_span: [3844, 4780]
+    sentence_count: 8
+    key_terms: [university, applying, hearing, give, job, year, recommendations, communications]
+    token_count: 213
+  - id: "social-intelligence/reddit-deep/gradschool/1tc9ef7.md#c3"
+    char_span: [4795, 6936]
+    sentence_count: 16
+    key_terms: [writing, mfa, phd, benefit, schools, want, university, electives]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/gradschool/1tc9ef7.md#c4"
+    char_span: [6939, 9083]
+    sentence_count: 16
+    key_terms: [students, visiting, writer, relationships, lot, too, beneficial, respected]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/gradschool/1tc9ef7.md#c5"
+    char_span: [9085, 10423]
+    sentence_count: 8
+    key_terms: [phd, mfa, canadian, research, medical, advice, doing, lot]
+    section: Comments
+    token_count: 343
 ---
-
 # Help!! Advice on Getting into a MFA
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1tc9ef7/help_advice_on_getting_into_a_mfa/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-engineeringstudents/8bba91add5.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1m7qkfy/any_engineering_students_looking_for/"
 url_hash: "8bba91add5"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T19:54:11.075646+00:00"
 chars: 1022
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-engineeringstudents/8bba91add5.md#c0"
+    char_span: [0, 1235]
+    sentence_count: 10
+    key_terms: [startup, experience, investment, engineeringstudents, wanted, engineering, comments, platform]
+    token_count: 283
 ---
-
 # Any Engineering Students Looking For Internships/Experience?
 
 Source: [Reddit Deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1m7qkfy/any_engineering_students_looking_for/)

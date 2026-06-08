@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1pwgksv.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1pwgksv/my_family_stole_my_identity_and_threatened_to/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,72 @@ flair: "Debt/Loans/Credit"
 extracted_at: "2026-05-17T01:13:55.878Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c0"
+    char_span: [0, 1908]
+    sentence_count: 15
+    key_terms: [povertyfinance, barely, family, christmas, comments, remember, college, afford]
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c1"
+    char_span: [1910, 4329]
+    sentence_count: 22
+    key_terms: [family, because, parents, "don't", been, dad, mom, time]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c2"
+    char_span: [4331, 6573]
+    sentence_count: 20
+    key_terms: ["i'm", "didn't", myself, being, parents, family, sister, cards]
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c3"
+    char_span: [6575, 7873]
+    sentence_count: 11
+    key_terms: ["i'm", people, need, because, got, everything, messages, probably]
+    token_count: 269
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c4"
+    char_span: [7888, 9816]
+    sentence_count: 23
+    key_terms: [family, steps-to-take-if-someone-opens-a-credit-card-in-your-name, parents, police, report, responsible, yourself, accept]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c5"
+    char_span: [9818, 11494]
+    sentence_count: 8
+    key_terms: [credit, like, ssn, without, always, family, loving, parent]
+    section: Comments
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c6"
+    char_span: [11496, 13392]
+    sentence_count: 21
+    key_terms: [himself, parents, credit, aunt, hard, minutes, people, report]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c7"
+    char_span: [13394, 15524]
+    sentence_count: 22
+    key_terms: [family, don, get, life, people, report, situation, therapist]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c8"
+    char_span: [15526, 16656]
+    sentence_count: 7
+    key_terms: [credit, payments, report, cards, debt, get, want, nekohideyoshi]
+    section: Comments
+    token_count: 294
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c9"
+    char_span: [16658, 18664]
+    sentence_count: 16
+    key_terms: [credit, don, report, "don't", loans, score, "it's", like]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c10"
+    char_span: [18666, 19547]
+    sentence_count: 12
+    key_terms: [report, back, single, radiant-pianist-3596, doing, money, whysomanyostriches, knew]
+    section: Comments
+    token_count: 205
 ---
-
 # My family STOLE my identity and threatened to CALL THE COPS during Christmas dinner.
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1pwgksv/my_family_stole_my_identity_and_threatened_to/)

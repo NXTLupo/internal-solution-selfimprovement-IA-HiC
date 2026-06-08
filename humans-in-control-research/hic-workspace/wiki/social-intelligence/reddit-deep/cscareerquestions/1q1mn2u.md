@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1q1mn2u.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1q1mn2u/how_did_noncs_majors_with_data_science_training/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,36 @@ subreddit: "cscareerquestions"
 title: "How did non-CS majors with data science training land their first internships or entry-level roles?"
 author: "babybanzz"
 date: "2026-01-02T02:32:00.000Z"
-score: 7
-upvote_ratio: 0.78
+score: 6
+upvote_ratio: 0.76
 num_comments: 5
 flair: "Student"
-extracted_at: "2026-05-19T17:57:56.724Z"
+extracted_at: "2026-06-05T23:42:30.810Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q1mn2u.md#c0"
+    char_span: [0, 990]
+    sentence_count: 5
+    key_terms: [science, data, cscareerquestions, roles, entry-level, internships, interested, analytics]
+    token_count: 215
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q1mn2u.md#c1"
+    char_span: [1005, 3035]
+    sentence_count: 12
+    key_terms: [data, engineer, recruitinghell, analyst, applied, "didn't", role, experience]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q1mn2u.md#c2"
+    char_span: [3037, 4060]
+    sentence_count: 9
+    key_terms: [data, job, healthcare, company, shitty, illustrious-pound266, excel, local]
+    section: Comments
+    token_count: 235
 ---
-
 # How did non-CS majors with data science training land their first internships or entry-level roles?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1q1mn2u/how_did_noncs_majors_with_data_science_training/)
-Posted by **babybanzz** · **7↑** · **5 comments**
+Posted by **babybanzz** · **6↑** · **5 comments**
 
 I recently declared data science and I’m about to graduate soon with a Psychology (B.S.) degree, a Data Science minor, and a post-graduate certificate in Data Science & Business Analytics. I’ve built technical skills in Python, SQL, statistics, and data analysis, but I’m struggling to translate that into internships or entry-level roles. I’m specifically interested in hearing from people who came from non-CS backgrounds and successfully broke into data science or analytics: what roles you targeted, what companies were open to your background, and what made the biggest difference in getting interviews. I’m less interested in theory and more in real paths that actually worked.
 

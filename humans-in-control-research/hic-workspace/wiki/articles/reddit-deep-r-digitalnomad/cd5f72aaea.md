@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-digitalnomad/cd5f72aaea.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1mldvef/full_send_at_36_has_anyone_else_done_it_and_not/"
 url_hash: "cd5f72aaea"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-26T12:57:20.449274+00:00"
 chars: 3615
+industries: [workforce, retail]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-digitalnomad/cd5f72aaea.md#c0"
+    char_span: [0, 2075]
+    sentence_count: 20
+    key_terms: [years, back, everyone, selling, months, digitalnomad, great, full]
+    token_count: 500
+  - id: "articles/reddit-deep-r-digitalnomad/cd5f72aaea.md#c1"
+    char_span: [2077, 3828]
+    sentence_count: 17
+    key_terms: [want, costa, morrigan613, love, rica, work, brazil, fellow]
+    token_count: 439
 ---
-
 # 'Full Send' at 36: Has anyone else done it and not looked back?
 
 Source: [Reddit Deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1mldvef/full_send_at_36_has_anyone_else_done_it_and_not/)

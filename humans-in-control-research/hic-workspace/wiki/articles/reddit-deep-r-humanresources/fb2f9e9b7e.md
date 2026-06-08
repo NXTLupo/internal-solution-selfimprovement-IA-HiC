@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-humanresources/fb2f9e9b7e.md
 url: "https://www.reddit.com/r/humanresources/comments/1rglb3v/employer_wants_me_to_get_shrmcp_very_little_hr/"
 url_hash: "fb2f9e9b7e"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T12:22:38.502520+00:00"
 chars: 3713
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-humanresources/fb2f9e9b7e.md#c0"
+    char_span: [0, 1108]
+    sentence_count: 8
+    key_terms: [studying, humanresources, little, exam, experience, employer, shrm-cp, advice]
+    token_count: 253
+  - id: "articles/reddit-deep-r-humanresources/fb2f9e9b7e.md#c1"
+    char_span: [1110, 3321]
+    sentence_count: 19
+    key_terms: [questions, shrm, learning, practice, quizzes, system, get, post]
+    token_count: 507
+  - id: "articles/reddit-deep-r-humanresources/fb2f9e9b7e.md#c2"
+    char_span: [3323, 3965]
+    sentence_count: 5
+    key_terms: [recruiting, generalist, sense, moldy-nectarine, humanresources, automatically, unconfirmed, moderators]
+    token_count: 153
 ---
-
 # Employer wants me to get SHRM-CP, very little HR experience, need advice for studying and exam [FL]
 
 Source: [Reddit Deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1rglb3v/employer_wants_me_to_get_shrmcp_very_little_hr/)

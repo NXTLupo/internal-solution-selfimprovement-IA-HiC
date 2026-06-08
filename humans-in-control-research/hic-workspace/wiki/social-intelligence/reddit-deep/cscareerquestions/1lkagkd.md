@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1lkagkd/is_it_normal_now_for_a_company_to_offshore_all_of/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-22T21:34:54.419Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c0"
+    char_span: [0, 801]
+    sentence_count: 7
+    key_terms: [company, cscareerquestions, interns, internships, positions, comments, normal, new]
+    token_count: 189
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c1"
+    char_span: [816, 2055]
+    sentence_count: 5
+    key_terms: [internships, offshore, hire, company, interns, later, time, ynotbbrave]
+    section: Comments
+    token_count: 304
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c2"
+    char_span: [2059, 3883]
+    sentence_count: 9
+    key_terms: [india, usa, internships, hire, because, company, indians, canada]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c3"
+    char_span: [3885, 6057]
+    sentence_count: 16
+    key_terms: [infosys, contracting, government, "can't", software, because, indian, random]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c4"
+    char_span: [6059, 7694]
+    sentence_count: 14
+    key_terms: [crime, money, best, "there's", get, citadel, getting, always]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c5"
+    char_span: [7696, 9734]
+    sentence_count: 14
+    key_terms: [companies, indians, because, fortune, does, keep, like, getting]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c6"
+    char_span: [9736, 11139]
+    sentence_count: 5
+    key_terms: [interests, goods, enjoy, bigshotbosh, cost, "it's", job, low]
+    section: Comments
+    token_count: 375
 ---
-
 # Is it normal now for a company to offshore all of its internships?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1lkagkd/is_it_normal_now_for_a_company_to_offshore_all_of/)

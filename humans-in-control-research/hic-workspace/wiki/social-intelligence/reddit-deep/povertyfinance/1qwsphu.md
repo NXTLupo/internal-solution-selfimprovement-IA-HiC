@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1qwsphu.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1qwsphu/paid_off_a_3k_credit_card_and_my_credit_score/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,86 @@ flair: "Vent/Rant (No Advice/Criticism!)"
 extracted_at: "2026-05-16T20:55:12.679Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qwsphu.md#c0"
+    char_span: [0, 2141]
+    sentence_count: 26
+    key_terms: [credit, having, cards, score, card, utilization, because, povertyfinance]
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qwsphu.md#c1"
+    char_span: [2143, 3879]
+    sentence_count: 36
+    key_terms: ["i'm", credit, good, "you're", tired, advice, "didn't", debt]
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qwsphu.md#c2"
+    char_span: [3894, 5940]
+    sentence_count: 20
+    key_terms: [submitter, appropriate, need, advice, please, vents, vent, emotional]
+    section: Comments
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qwsphu.md#c3"
+    char_span: [5942, 7439]
+    sentence_count: 16
+    key_terms: [card, paying, wrong, interest, annual, higher, invest, penny]
+    section: Comments
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qwsphu.md#c4"
+    char_span: [7441, 9227]
+    sentence_count: 14
+    key_terms: [credit, card, score, fee, account, annual, did, get]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qwsphu.md#c5"
+    char_span: [9230, 10399]
+    sentence_count: 9
+    key_terms: [card, account, balance, college, credit, score, years, "i'm"]
+    section: Comments
+    token_count: 281
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qwsphu.md#c6"
+    char_span: [10401, 12455]
+    sentence_count: 19
+    key_terms: [card, credit, get, score, replacement, paid, account, because]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qwsphu.md#c7"
+    char_span: [12196, 12782]
+    sentence_count: 7
+    key_terms: [credit, automatically, circumstance, subscription, replacement, inactivity, shady-tree, currently]
+    section: Comments
+    token_count: 144
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qwsphu.md#c8"
+    char_span: [12784, 14769]
+    sentence_count: 18
+    key_terms: [credit, card, advice, back, day, good, accounts, account]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qwsphu.md#c9"
+    char_span: [14771, 15972]
+    sentence_count: 15
+    key_terms: [credit, card, cards, annual, don, pay, money, start]
+    section: Comments
+    token_count: 284
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qwsphu.md#c10"
+    char_span: [15975, 17883]
+    sentence_count: 15
+    key_terms: [credit, card, cards, cash, fee, limit, like, use]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qwsphu.md#c11"
+    char_span: [17885, 19742]
+    sentence_count: 13
+    key_terms: [credit, switch, limit, card, cards, score, customer, mortgage]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qwsphu.md#c12"
+    char_span: [19744, 21435]
+    sentence_count: 14
+    key_terms: [card, credit, annual, fee, change, close, right, utilization]
+    section: Comments
+    token_count: 421
 ---
-
 # Paid off a $3K credit card and my credit score went down. I'm so tired of financial advice that only works when you already have money
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1qwsphu/paid_off_a_3k_credit_card_and_my_credit_score/)

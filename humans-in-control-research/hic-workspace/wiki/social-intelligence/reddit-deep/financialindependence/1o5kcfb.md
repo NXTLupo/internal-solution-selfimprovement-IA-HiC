@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1o5kcfb.md
 url: "https://www.reddit.com/r/financialindependence/comments/1o5kcfb/1m_nw_at_age_38_lifetime_earnings_of_1m_annual/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,32 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.710Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [cross_industry]
+industry_method: unclassified
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1o5kcfb.md#c0"
+    char_span: [0, 1531]
+    sentence_count: 4
+    key_terms: [financialindependence, insurance, comments, roth, brokerage, current, monthly, reddit]
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/financialindependence/1o5kcfb.md#c1"
+    char_span: [1533, 3436]
+    sentence_count: 16
+    key_terms: [current, future, never, years, investments, get, "i'd", less]
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/financialindependence/1o5kcfb.md#c2"
+    char_span: [3451, 4311]
+    sentence_count: 6
+    key_terms: [congratulations, idratherbeinegypt, work, dirty-neoliberal, vanillalifestyle, talicenseplate, encouragement, mountainous]
+    section: Comments
+    token_count: 238
+  - id: "social-intelligence/reddit-deep/financialindependence/1o5kcfb.md#c3"
+    char_span: [4313, 5483]
+    sentence_count: 7
+    key_terms: [spending, investments, "he's", retirement, accounts, access, redact, mammoth-series-9419]
+    section: Comments
+    token_count: 327
 ---
-
 # $1M NW at age 38 - (lifetime earnings of $1M) annual income never higher than $95k (single, USA)
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1o5kcfb/1m_nw_at_age_38_lifetime_earnings_of_1m_annual/)

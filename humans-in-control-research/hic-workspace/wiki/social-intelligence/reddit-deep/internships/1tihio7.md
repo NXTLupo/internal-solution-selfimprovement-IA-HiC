@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1tihio7.md
 url: "https://www.reddit.com/r/internships/comments/1tihio7/internship_opportunity_for_students_who_love/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,15 @@ flair: "Applications"
 extracted_at: "2026-05-25T15:51:38.716Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1tihio7.md#c0"
+    char_span: [0, 1149]
+    sentence_count: 5
+    key_terms: [ok-organization1328, students, "we're", internships, internship, comments, writing, coding]
+    token_count: 309
 ---
-
 # Internship Opportunity for Students Who Love Logic & Coding
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1tihio7/internship_opportunity_for_students_who_love/)

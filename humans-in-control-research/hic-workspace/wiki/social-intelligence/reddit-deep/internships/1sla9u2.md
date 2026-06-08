@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1sla9u2.md
 url: "https://www.reddit.com/r/internships/comments/1sla9u2/internshipjob_searching_advice_and_help_needed/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -7,14 +8,31 @@ title: "Internship/job searching advice and help needed anyone here???"
 author: "Akash_671"
 date: "2026-04-14T14:26:18.000Z"
 score: 9
-upvote_ratio: 0.92
+upvote_ratio: 1
 num_comments: 12
 flair: "General"
-extracted_at: "2026-05-26T14:30:47.909Z"
+extracted_at: "2026-06-03T18:34:48.708Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1sla9u2.md#c0"
+    char_span: [0, 1046]
+    sentence_count: 7
+    key_terms: [internships, portfolio, comments, backend, science, advice, anyone, data]
+    token_count: 234
+  - id: "social-intelligence/reddit-deep/internships/1sla9u2.md#c1"
+    char_span: [1061, 3316]
+    sentence_count: 14
+    key_terms: [anything, resume, confidently, description, work, processing, creation, keywords]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/internships/1sla9u2.md#c2"
+    char_span: [3318, 4557]
+    sentence_count: 8
+    key_terms: [internshipsolutions, helped, honestly, biggest, resume, ats, help, warm]
+    section: Comments
+    token_count: 280
 ---
-
 # Internship/job searching advice and help needed anyone here???
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1sla9u2/internshipjob_searching_advice_and_help_needed/)
@@ -30,8 +48,6 @@ If anyone has tips on how to approach the job search, ways to improve my profile
 
 ## Comments
 
-- **employHER** (2↑): You’re already doing the right things. One small shift that helps focus on showcasing your projects clearly (what problem you solved, impact, and how you built it) instead of just listing them. Also, try reaching out directly to people/companies instead of only applying online. That’s often what gets you noticed.
-  - **Akash_671** (2↑): How??
 - **my_peen_is_clean** (1↑): fine tune your resume to each posting and throw projects on github, maybe kaggle too, but yeah finding anything now is rough
   - **Akash_671** (1↑): Doing this but still not even get any replies🙂
 - **shreyask_9** (1↑): So, as per the experience that I have in terms of finding and landing good interviews:

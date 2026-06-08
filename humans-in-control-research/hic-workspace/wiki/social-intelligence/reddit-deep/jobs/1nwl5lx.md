@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1nwl5lx.md
 url: "https://www.reddit.com/r/jobs/comments/1nwl5lx/my_year_of_employment_was_off_by_1_years_for_two/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,21 @@ flair: "Internships"
 extracted_at: "2026-05-25T13:03:11.723Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1nwl5lx.md#c0"
+    char_span: [0, 1042]
+    sentence_count: 8
+    key_terms: [jobs, internships, dec, years, year, comments, applied, august]
+    token_count: 259
+  - id: "social-intelligence/reddit-deep/jobs/1nwl5lx.md#c1"
+    char_span: [1057, 1746]
+    sentence_count: 5
+    key_terms: [enter, odds, employment, especially, wouldn, years, self, slim]
+    section: Comments
+    token_count: 156
 ---
-
 # My year of employment was off by 1 years for two jobs when I applied to a bunch of internships for my career fair. Am I screwed?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1nwl5lx/my_year_of_employment_was_off_by_1_years_for_two/)

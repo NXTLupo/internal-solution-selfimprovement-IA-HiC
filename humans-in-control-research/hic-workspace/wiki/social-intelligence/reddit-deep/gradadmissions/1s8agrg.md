@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1s8agrg.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1s8agrg/still_in_shock/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,21 @@ flair: "Biological Sciences"
 extracted_at: "2026-05-23T14:54:16.721Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1s8agrg.md#c0"
+    char_span: [0, 621]
+    sentence_count: 3
+    key_terms: [gradadmissions, back, comments, program, landed, years, post, mission-ad-5869]
+    token_count: 161
+  - id: "social-intelligence/reddit-deep/gradadmissions/1s8agrg.md#c1"
+    char_span: [636, 1662]
+    sentence_count: 6
+    key_terms: [congrats, mission-ad-5869, years, because, program, brook, stony, agitatedmuscle1252]
+    section: Comments
+    token_count: 296
 ---
-
 # Still in Shock
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1s8agrg/still_in_shock/)

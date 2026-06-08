@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-applyingtocollege/aae930bb5d.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1soz8yw/im_lost_and_confused_about_going_to_college/"
 url_hash: "aae930bb5d"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T12:21:41.369351+00:00"
 chars: 4283
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-applyingtocollege/aae930bb5d.md#c0"
+    char_span: [0, 2190]
+    sentence_count: 19
+    key_terms: [international, college, school, community, applyingtocollege, parents, scholarships, universities]
+    token_count: 500
+  - id: "articles/reddit-deep-r-applyingtocollege/aae930bb5d.md#c1"
+    char_span: [2192, 4012]
+    sentence_count: 17
+    key_terms: [state, college-openings-update, administration, international, gpa, visa, interested, nacacnet]
+    token_count: 445
+  - id: "articles/reddit-deep-r-applyingtocollege/aae930bb5d.md#c2"
+    char_span: [4014, 4483]
+    sentence_count: 5
+    key_terms: [because, dream, been, don, subconscious, unrealistic, everything, incredibly]
+    token_count: 109
 ---
-
 # I’m lost and confused about going to college
 
 Source: [Reddit Deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1soz8yw/im_lost_and_confused_about_going_to_college/)

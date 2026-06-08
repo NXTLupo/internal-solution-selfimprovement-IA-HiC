@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1oxqu56.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1oxqu56/ive_cancelled_christmas_is_anyone_else/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,69 @@ flair: "Free talk"
 extracted_at: "2026-05-16T20:55:12.685Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c0"
+    char_span: [0, 2121]
+    sentence_count: 16
+    key_terms: [christmas, been, year, don, presents, because, povertyfinance, anyone]
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c1"
+    char_span: [2136, 4189]
+    sentence_count: 15
+    key_terms: [local, christmas, kids, like, remember, nothing, wanted, organizations]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c2"
+    char_span: [4191, 5721]
+    sentence_count: 7
+    key_terms: [get, daughter, organization, year, christmas, teacher, sheetz, embarrassed-disk7582]
+    section: Comments
+    token_count: 379
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c3"
+    char_span: [5723, 7952]
+    sentence_count: 13
+    key_terms: [christmas, because, church, gifts, get, presents, family, kids]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c4"
+    char_span: [7610, 9269]
+    sentence_count: 15
+    key_terms: [christmas, gifts, get, help, tell, year, something, another]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c5"
+    char_span: [9271, 10320]
+    sentence_count: 10
+    key_terms: [got, anything, cheezits, remember, because, snacks, brand, store]
+    section: Comments
+    token_count: 245
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c6"
+    char_span: [10322, 11510]
+    sentence_count: 7
+    key_terms: [something, presents, secret, santa, good, christmas, birthday, getting]
+    section: Comments
+    token_count: 287
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c7"
+    char_span: [11512, 12920]
+    sentence_count: 18
+    key_terms: [fun, presents, paper, wrapped, church, crappy, pretty, saving]
+    section: Comments
+    token_count: 334
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c8"
+    char_span: [12922, 14472]
+    sentence_count: 13
+    key_terms: [christmas, being, right, year, important, daughter, honestly, spending]
+    section: Comments
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oxqu56.md#c9"
+    char_span: [14474, 16626]
+    sentence_count: 22
+    key_terms: [christmas, being, games, different, something, daughter, paycheck, selfish]
+    section: Comments
+    token_count: 483
 ---
-
 # I’ve cancelled Christmas. Is anyone else considering doing the same?
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1oxqu56/ive_cancelled_christmas_is_anyone_else/)

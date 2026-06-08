@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1tfeywy.md
 url: "https://www.reddit.com/r/internships/comments/1tfeywy/is_finding_an_internship_hard_in_2026/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,39 @@ flair: "General"
 extracted_at: "2026-05-25T15:51:38.720Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1tfeywy.md#c0"
+    char_span: [0, 1021]
+    sentence_count: 8
+    key_terms: [getting, opportunities, internships, internship, applying, comments, already, please]
+    token_count: 247
+  - id: "social-intelligence/reddit-deep/internships/1tfeywy.md#c1"
+    char_span: [1036, 2603]
+    sentence_count: 10
+    key_terms: [applied, lafjiaflpnifhglhjcolidljogmbigco, application, competitive, need, internship, sponsoring, extremely]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/internships/1tfeywy.md#c2"
+    char_span: [2605, 3952]
+    sentence_count: 6
+    key_terms: [smaller, programs, startups, interns, through, offers, do-or-die-do-or-die, international]
+    section: Comments
+    token_count: 271
+  - id: "social-intelligence/reddit-deep/internships/1tfeywy.md#c3"
+    char_span: [3954, 5789]
+    sentence_count: 11
+    key_terms: [apply, assessments, international, corporations, specifically, lafjiaflpnifhglhjcolidljogmbigco, roles, com]
+    section: Comments
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/internships/1tfeywy.md#c4"
+    char_span: [5791, 6227]
+    sentence_count: 1
+    key_terms: [startups, great, high, pay, risk, side, opportunities, internship]
+    section: Comments
+    token_count: 95
 ---
-
 # Is finding an internship hard in 2026?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1tfeywy/is_finding_an_internship_hard_in_2026/)

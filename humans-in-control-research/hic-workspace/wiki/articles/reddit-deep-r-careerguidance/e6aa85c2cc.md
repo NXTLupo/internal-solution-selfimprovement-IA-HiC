@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/e6aa85c2cc.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tabx9d/how_do_i_find_a_career_in_the_florida_job_market/"
 url_hash: "e6aa85c2cc"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T02:39:15.163389+00:00"
 chars: 1159
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/e6aa85c2cc.md#c0"
+    char_span: [0, 1363]
+    sentence_count: 10
+    key_terms: [communications, job, distance, driving, florida, careerguidance, degree, within]
+    token_count: 304
 ---
-
 # How do I find a career in the Florida job market?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tabx9d/how_do_i_find_a_career_in_the_florida_job_market/)

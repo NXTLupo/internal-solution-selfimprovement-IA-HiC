@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1p9suu3.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1p9suu3/english_phd_fall_2026/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,33 @@ flair: "Humanities"
 extracted_at: "2026-05-23T14:54:16.711Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1p9suu3.md#c0"
+    char_span: [0, 467]
+    sentence_count: 3
+    key_terms: [gradadmissions, comments, applied, comment, english, school, applications, reddit-deep]
+    token_count: 124
+  - id: "social-intelligence/reddit-deep/gradadmissions/1p9suu3.md#c1"
+    char_span: [482, 2151]
+    sentence_count: 6
+    key_terms: [rylieroodle, got, rejected, portal, email, good, rejection, yesterday]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1p9suu3.md#c2"
+    char_span: [1969, 3767]
+    sentence_count: 11
+    key_terms: [rejection, rejected, schools, "i'm", interviews, rejections, university, accepted]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1p9suu3.md#c3"
+    char_span: [3531, 4809]
+    sentence_count: 6
+    key_terms: [interview, interviewed, cold-law-4869, email, refreshing, finalists, admitted, anything]
+    section: Comments
+    token_count: 354
 ---
-
 # English PhD - Fall 2026
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1p9suu3/english_phd_fall_2026/)

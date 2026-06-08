@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1lmvyy8.md
 url: "https://www.reddit.com/r/college/comments/1lmvyy8/not_sure_how_i_should_advance_my_education/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,48 @@ subreddit: "college"
 title: "Not sure how I should advance my education"
 author: "224snug"
 date: "2025-06-28T20:02:44.000Z"
-score: 7
-upvote_ratio: 0.9
+score: 6
+upvote_ratio: 0.76
 num_comments: 20
 flair: ""
-extracted_at: "2026-05-26T14:31:29.700Z"
+extracted_at: "2026-06-06T17:42:15.229Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1lmvyy8.md#c0"
+    char_span: [0, 1939]
+    sentence_count: 21
+    key_terms: [school, college, lot, high, education, back, "i'm", "don't"]
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/college/1lmvyy8.md#c1"
+    char_span: [1954, 2094]
+    sentence_count: 1
+    key_terms: [old-town-guy, traditional, program, either, likely, online, school, ged]
+    section: Comments
+    token_count: 40
+  - id: "social-intelligence/reddit-deep/college/1lmvyy8.md#c2"
+    char_span: [2096, 4387]
+    sentence_count: 18
+    key_terms: [college, high, test, school, major, ged, get, take]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1lmvyy8.md#c3"
+    char_span: [4075, 5566]
+    sentence_count: 11
+    key_terms: [college, like, sub, situation, required, schedule, courses, school]
+    section: Comments
+    token_count: 363
+  - id: "social-intelligence/reddit-deep/college/1lmvyy8.md#c4"
+    char_span: [5568, 7474]
+    sentence_count: 17
+    key_terms: [college, community, help, extracurricular, school, good, high, like]
+    section: Comments
+    token_count: 438
 ---
-
 # Not sure how I should advance my education
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1lmvyy8/not_sure_how_i_should_advance_my_education/)
-Posted by **224snug** · **7↑** · **20 comments**
+Posted by **224snug** · **6↑** · **20 comments**
 
 Hi y'all! I'm a 22-year-old who is trying to better myself, but I'm not really sure what the right way to go about it is, given my situation. I would love any advice you can throw my way! I was homeschooled and had a lot of trouble with school. I have a lot of basic knowledge, and while officially I have a high school degree, I didn't get enough education after middle school. So I don't know much biology, have large gaps in history and math, and have a decently solid understanding of English.
 

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1rnhzxx.md
 url: "https://www.reddit.com/r/artificial/comments/1rnhzxx/codegraphcontext_an_mcp_server_that_converts_your/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,27 @@ flair: "Project"
 extracted_at: "2026-05-11T17:27:04.765Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1rnhzxx.md#c0"
+    char_span: [0, 360]
+    sentence_count: 1
+    key_terms: [artificial, comments, desperate-ad-9679, codegraphcontext, reddit-deep, assistants, structured, codebase]
+    token_count: 90
+  - id: "social-intelligence/reddit-deep/artificial/1rnhzxx.md#c1"
+    char_span: [476, 2115]
+    sentence_count: 4
+    key_terms: [codegraphcontext, https, mcp, github, infrastructure, graph, code, adoption]
+    section: CodeGraphContext- the go to solution for graphical code indexing for Github Copilot or any IDE of your choice
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/artificial/1rnhzxx.md#c2"
+    char_span: [2130, 3491]
+    sentence_count: 7
+    key_terms: [relevant-magic-card, desperate-ad-9679, context, static, decorators, analysis, dynamic, support]
+    section: Comments
+    token_count: 326
 ---
-
 # CodeGraphContext - An MCP server that converts your codebase into a graph database, enabling AI assistants and humans to retrieve precise, structured context
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1rnhzxx/codegraphcontext_an_mcp_server_that_converts_your/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1msqkg4.md
 url: "https://www.reddit.com/r/careerguidance/comments/1msqkg4/what_are_the_best_ways_to_develop_skills_that/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,31 @@ flair: "Education & Qualifications"
 extracted_at: "2026-05-22T23:34:01.092Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1msqkg4.md#c0"
+    char_span: [0, 1885]
+    sentence_count: 12
+    key_terms: [careerguidance, years, portfolio, comments, personal, liberal, through, trading]
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/careerguidance/1msqkg4.md#c1"
+    char_span: [1887, 3923]
+    sentence_count: 8
+    key_terms: [additional, business, income, revenue, career, skills, professional, don]
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/careerguidance/1msqkg4.md#c2"
+    char_span: [3925, 5104]
+    sentence_count: 7
+    key_terms: [skills, employable, salesforce, tableau, experience, marketable, in-demand, current]
+    token_count: 263
+  - id: "social-intelligence/reddit-deep/careerguidance/1msqkg4.md#c3"
+    char_span: [5119, 5944]
+    sentence_count: 5
+    key_terms: [federal-court-reporting-program, ncra-a-to-z-online-program, discover, program, discoversteno-program, court, found, https]
+    section: Comments
+    token_count: 208
 ---
-
 # What are the best ways to develop skills that make me more employable and create additional income streams while feeling stuck in a dead-end career?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1msqkg4/what_are_the_best_ways_to_develop_skills_that/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1lh9zol.md
 url: "https://www.reddit.com/r/investing/comments/1lh9zol/investing_crypto_in_portfolio_management/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.197Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1lh9zol.md#c0"
+    char_span: [0, 937]
+    sentence_count: 9
+    key_terms: [investing, trading, good, copy, like, management, automated, portfolio]
+    token_count: 211
+  - id: "social-intelligence/reddit-deep/investing/1lh9zol.md#c1"
+    char_span: [952, 1849]
+    sentence_count: 6
+    key_terms: [bitcoin, buy, overthinking, hold, lovely7451, returns, "don't", month]
+    section: Comments
+    token_count: 233
 ---
-
 # Investing crypto in portfolio management platforms a good idea?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1lh9zol/investing_crypto_in_portfolio_management/)

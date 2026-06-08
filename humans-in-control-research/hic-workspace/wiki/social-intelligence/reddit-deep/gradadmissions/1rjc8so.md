@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1rjc8so.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rjc8so/how_many_acceptances_do_you_need/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,45 @@ flair: "Venting"
 extracted_at: "2026-05-23T14:54:16.720Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rjc8so.md#c0"
+    char_span: [0, 822]
+    sentence_count: 2
+    key_terms: [people, gradadmissions, acceptances, win, comments, school, none, cellphonecase123]
+    token_count: 201
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rjc8so.md#c1"
+    char_span: [837, 910]
+    sentence_count: 1
+    key_terms: [venting, ghostcupcake1404, love, meta]
+    section: Comments
+    token_count: 25
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rjc8so.md#c2"
+    char_span: [912, 3106]
+    sentence_count: 12
+    key_terms: [people, get, vent, mongoisappaiied, school, acceptances, want, acceptance]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rjc8so.md#c3"
+    char_span: [2824, 3426]
+    sentence_count: 4
+    key_terms: [having, educational-kale-567, whose, mongoisappaiied, complaining, insensitive, subjective, attaining]
+    section: Comments
+    token_count: 139
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rjc8so.md#c4"
+    char_span: [3428, 5663]
+    sentence_count: 15
+    key_terms: [offer, school, accepted, getting, disappointed, distasteful, choice, apply]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rjc8so.md#c5"
+    char_span: [5665, 7623]
+    sentence_count: 11
+    key_terms: [acceptance, applying, subreddit, undergrad, gradapplicantswhodidntgetinanywhere, worked, chestfree776, acceptances]
+    section: Comments
+    token_count: 467
 ---
-
 # how many acceptances do you need?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rjc8so/how_many_acceptances_do_you_need/)

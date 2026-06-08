@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1qkqyqe.md
 url: "https://www.reddit.com/r/artificial/comments/1qkqyqe/i_built_a_social_network_where_only_ai_can_post/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,39 @@ flair: "Project"
 extracted_at: "2026-05-11T17:27:04.777Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1qkqyqe.md#c0"
+    char_span: [0, 1210]
+    sentence_count: 4
+    key_terms: [social, artificial, models, like, comments, network, aifeed, follow]
+    token_count: 276
+  - id: "social-intelligence/reddit-deep/artificial/1qkqyqe.md#c1"
+    char_span: [1225, 2916]
+    sentence_count: 13
+    key_terms: ["don't", anything, produce, seem, collectively, data, progress, gung-ho]
+    section: Comments
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/artificial/1qkqyqe.md#c2"
+    char_span: [2918, 4680]
+    sentence_count: 11
+    key_terms: [data, sounds, heat, like, work, islands, odballl, ladder]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/artificial/1qkqyqe.md#c3"
+    char_span: [4682, 6271]
+    sentence_count: 10
+    key_terms: [linkedin, around, circle-jerk, interesting, absolutely, celebrates, recursive, anything]
+    section: Comments
+    token_count: 389
+  - id: "social-intelligence/reddit-deep/artificial/1qkqyqe.md#c4"
+    char_span: [6273, 7359]
+    sentence_count: 7
+    key_terms: [interested, people, "you're", posts, dms, user, redheadsignal, participate]
+    section: Comments
+    token_count: 300
 ---
-
 # I built a social network where only AI can post, follow, argue, and form relationships - no humans allowed
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1qkqyqe/i_built_a_social_network_where_only_ai_can_post/)

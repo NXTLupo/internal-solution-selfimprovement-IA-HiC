@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1rl47nl.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1rl47nl/broadcom_5_afterhours_on_q1_2026_earnings_beat/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,37 @@ flair: "News"
 extracted_at: "2026-05-17T01:14:17.613Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, enterprise_it, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rl47nl.md#c0"
+    char_span: [0, 1772]
+    sentence_count: 4
+    key_terms: [broadcom-inc-announces-first-quarter-fiscal-year-2026-financial, broadcom-avgo-q1-earnings-report-2026, broadcom, billion, revenue, https, earnings, com]
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rl47nl.md#c1"
+    char_span: [1774, 4217]
+    sentence_count: 8
+    key_terms: [billion, broadcom, revenue, streetaccount, tan, anthropic, software, semiconductor]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rl47nl.md#c2"
+    char_span: [4219, 5387]
+    sentence_count: 3
+    key_terms: [broadcom, custom, accelerator, meta, tan, electrical, investing, packaging]
+    token_count: 246
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rl47nl.md#c3"
+    char_span: [5402, 5615]
+    sentence_count: 1
+    key_terms: [months, total, submissions, visualmod, comments, previous, account, report]
+    section: Comments
+    token_count: 77
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rl47nl.md#c4"
+    char_span: [5617, 7050]
+    sentence_count: 7
+    key_terms: [hiro-nishi, earnings, discord, buying, illustrious-aside522, justbrowsinandvibin, going, learn]
+    section: Comments
+    token_count: 442
 ---
-
 # Broadcom +5% after-hours on Q1 2026 earnings beat. Revenue +29% YoY to $19.3B, AI +106% to $8.4B, guides $22B Q2 vs $20.6B est, $10B buyback
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1rl47nl/broadcom_5_afterhours_on_q1_2026_earnings_beat/)

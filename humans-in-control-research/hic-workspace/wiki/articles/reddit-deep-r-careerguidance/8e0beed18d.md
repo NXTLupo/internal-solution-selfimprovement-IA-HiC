@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/8e0beed18d.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tjifux/am_i_insane_to_leave_a_100k_job_at_23/"
 url_hash: "8e0beed18d"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T19:51:46.214902+00:00"
 chars: 3265
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/8e0beed18d.md#c0"
+    char_span: [0, 2125]
+    sentence_count: 13
+    key_terms: [long-term, years, training, higher, strong, stability, comments, security]
+    token_count: 503
+  - id: "articles/reddit-deep-r-careerguidance/8e0beed18d.md#c1"
+    char_span: [2127, 3448]
+    sentence_count: 9
+    key_terms: [job, work, healthcare, security, pretty, sounds, level, like]
+    token_count: 327
 ---
-
 # Am I insane to leave a $100k job at 23?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tjifux/am_i_insane_to_leave_a_100k_job_at_23/)

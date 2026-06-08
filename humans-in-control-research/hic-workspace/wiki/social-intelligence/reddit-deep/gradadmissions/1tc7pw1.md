@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1tc7pw1.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1tc7pw1/research_for_grad_school/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,27 @@ flair: "Computer Sciences"
 extracted_at: "2026-05-20T03:56:10.757Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1tc7pw1.md#c0"
+    char_span: [0, 334]
+    sentence_count: 2
+    key_terms: [gradadmissions, comments, research, grad, international, reddit-deep, important, published]
+    token_count: 86
+  - id: "social-intelligence/reddit-deep/gradadmissions/1tc7pw1.md#c1"
+    char_span: [349, 1695]
+    sentence_count: 11
+    key_terms: [research, zestyclose-tax2939, programs, papers, contributions, top, conference, authored]
+    section: Comments
+    token_count: 310
+  - id: "social-intelligence/reddit-deep/gradadmissions/1tc7pw1.md#c2"
+    char_span: [1697, 3735]
+    sentence_count: 11
+    key_terms: [phd, experience, seeking-for-entry-level-positions-with-20-years-of-experience, publications, application, yourself, program, top]
+    section: Comments
+    token_count: 474
 ---
-
 # Research for grad school
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1tc7pw1/research_for_grad_school/)

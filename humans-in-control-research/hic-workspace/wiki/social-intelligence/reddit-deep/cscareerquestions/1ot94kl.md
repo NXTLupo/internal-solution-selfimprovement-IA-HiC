@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1ot94kl.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1ot94kl/career_advice_what_other_skills_andor/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: "New Grad"
 extracted_at: "2026-05-26T12:54:26.410Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ot94kl.md#c0"
+    char_span: [0, 980]
+    sentence_count: 5
+    key_terms: [cscareerquestions, job, software, descriptions, engineering, something, comments, nothing]
+    token_count: 224
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ot94kl.md#c1"
+    char_span: [995, 2480]
+    sentence_count: 13
+    key_terms: [job, knowing, "you'll", "you're", stack, tools, good, something]
+    section: Comments
+    token_count: 326
 ---
-
 # Career advice: what other skills and/or technologies do I need
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1ot94kl/career_advice_what_other_skills_andor/)

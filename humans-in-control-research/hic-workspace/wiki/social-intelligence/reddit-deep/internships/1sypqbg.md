@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1sypqbg.md
 url: "https://www.reddit.com/r/internships/comments/1sypqbg/internshipcareer_advice/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 1
 flair: "General"
-extracted_at: "2026-05-26T14:30:47.897Z"
+extracted_at: "2026-06-05T19:19:58.911Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1sypqbg.md#c0"
+    char_span: [0, 227]
+    sentence_count: 1
+    key_terms: [internships, comments, monosoloone, reddit-deep, internship, advice, career, posted]
+    token_count: 69
+  - id: "social-intelligence/reddit-deep/internships/1sypqbg.md#c1"
+    char_span: [242, 559]
+    sentence_count: 3
+    key_terms: [resume, applications, nepternship, robertisaak, submissions, mattering, referrals, something]
+    section: Comments
+    token_count: 68
 ---
-
 # Internship/Career Advice
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1sypqbg/internshipcareer_advice/)

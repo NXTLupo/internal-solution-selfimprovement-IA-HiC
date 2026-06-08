@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rsgtry.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rsgtry/the_road_to_the_us_phd_vs_industry_experience_for/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -7,14 +8,36 @@ title: "The Road to the U.S.: PhD vs. Industry Experience for International Relo
 author: "Alvahod"
 date: "2026-03-13T07:31:46.000Z"
 score: 0
-upvote_ratio: 0.33
+upvote_ratio: 0.2
 num_comments: 6
 flair: "Student"
-extracted_at: "2026-05-23T19:45:00.914Z"
+extracted_at: "2026-06-06T17:43:22.937Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rsgtry.md#c0"
+    char_span: [0, 1722]
+    sentence_count: 16
+    key_terms: [experience, years, cscareerquestions, phd, relative, full-time, strategic, comments]
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rsgtry.md#c1"
+    char_span: [1724, 2813]
+    sentence_count: 7
+    key_terms: [country, here, algorithms, employment, industry, research, focus, given]
+    token_count: 228
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rsgtry.md#c2"
+    char_span: [2828, 4585]
+    sentence_count: 10
+    key_terms: [education, masters, get, need, phd, understand, pursuing, "there's"]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rsgtry.md#c3"
+    char_span: [4589, 6402]
+    sentence_count: 7
+    key_terms: [country, market, opportunities, "don't", place, usa, work, looking]
+    section: Comments
+    token_count: 409
 ---
-
 # The Road to the U.S.: PhD vs. Industry Experience for International Relocation. I need advice on Strategic Career Mapping.
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rsgtry/the_road_to_the_us_phd_vs_industry_experience_for/)
@@ -48,7 +71,7 @@ I feel like my approach needs more structure.
 
 ## Comments
 
-- **Known-Tourist-6102** (5↑): if working / living in the US is your main goal, from what i understand, you should aim for a lot of advanced education that is completed in the U.S. => so get a masters and phd here if you can
+- **Known-Tourist-6102** (4↑): if working / living in the US is your main goal, from what i understand, you should aim for a lot of advanced education that is completed in the U.S. => so get a masters and phd here if you can
 - **lhorie** (3↑): You'll do a masters and phd where? If you're as gung-ho about living in the US as you say, you really need to understand the visa stuff first and foremost. Typically people come to US under F-1 to qualify for OPT to get the foot in the door. H-1B right out of the gate is really really hard now. In practice, this means your relative needs to bank the cost of pursuing your education in the US (or you need a scholarship or some sort of plan for the financial side of things). Otherwise, you'll need some very serious experience (to the tune of 5+ very high quality YOE) to get yourself scouted into big tech. Alternatively, there's an extremely convoluted and slow path into the US via Canadian citizenship -> TN visa (I did this).
 
 Speaking as someone who's heavily involved with hiring, education-wise a masters doesn't really set you apart all that much from an undergrad in terms of hiring pipelines. Internationals do them mostly for the OPT. PhDs are a double edged sword, in the sense that you're pursuing education that \*narrows\* your expertise, so worst (and surprisingly common) case you've narrowed into an area nobody cares about and have to settle for a job you could've achieved without the PhD.

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-engineeringstudents/1fbeb04cd5.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1t8ndq2/taking_an_unpaid_internship_with_no_experience/"
 url_hash: "1fbeb04cd5"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:40:03.859247+00:00"
 chars: 4034
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-engineeringstudents/1fbeb04cd5.md#c0"
+    char_span: [0, 1674]
+    sentence_count: 11
+    key_terms: [experience, internship, engineeringstudents, unpaid, undergraduate, like, work, comments]
+    token_count: 365
+  - id: "articles/reddit-deep-r-engineeringstudents/1fbeb04cd5.md#c1"
+    char_span: [1676, 3873]
+    sentence_count: 17
+    key_terms: [research, internship, summer, hintothemagnificent, something, like, "you're", undergraduate]
+    token_count: 468
+  - id: "articles/reddit-deep-r-engineeringstudents/1fbeb04cd5.md#c2"
+    char_span: [3875, 4243]
+    sentence_count: 2
+    key_terms: [capabilities, considering, potentially, businesses, especially, experience, internship, recommend]
+    token_count: 70
 ---
-
 # Taking an unpaid internship with no experience
 
 Source: [Reddit Deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1t8ndq2/taking_an_unpaid_internship_with_no_experience/)

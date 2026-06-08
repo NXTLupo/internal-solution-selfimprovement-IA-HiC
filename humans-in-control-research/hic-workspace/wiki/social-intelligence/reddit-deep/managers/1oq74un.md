@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1oq74un.md
 url: "https://www.reddit.com/r/managers/comments/1oq74un/leaving_for_a_90_raise_right_when_my_manager/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,57 @@ flair: "Not a Manager"
 extracted_at: "2026-05-26T12:54:23.661Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1oq74un.md#c0"
+    char_span: [0, 2072]
+    sentence_count: 23
+    key_terms: [managers, manager, genuinely, conversation, transition, difficult, promotion, comments]
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/managers/1oq74un.md#c1"
+    char_span: [2087, 3812]
+    sentence_count: 21
+    key_terms: [manager, stay, leaving, department, situation, person, place, raise]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/managers/1oq74un.md#c2"
+    char_span: [3814, 5877]
+    sentence_count: 9
+    key_terms: [sometimes, manager, someone, answer, good, mentioned, thrilled, because]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/managers/1oq74un.md#c3"
+    char_span: [5880, 7707]
+    sentence_count: 14
+    key_terms: [manager, happy, team, want, training, because, company, enough]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/managers/1oq74un.md#c4"
+    char_span: [7709, 9027]
+    sentence_count: 7
+    key_terms: [looking, best, something, better, jazzliketradition519, asked, anotherleftistbot, got]
+    section: Comments
+    token_count: 339
+  - id: "social-intelligence/reddit-deep/managers/1oq74un.md#c5"
+    char_span: [9029, 10318]
+    sentence_count: 12
+    key_terms: [good, like, employee, sounds, goatymcgoatfacesings, best, "i'd", keep]
+    section: Comments
+    token_count: 315
+  - id: "social-intelligence/reddit-deep/managers/1oq74un.md#c6"
+    char_span: [10321, 11963]
+    sentence_count: 10
+    key_terms: [leave, information, want, department, clearly, current, getting, manager]
+    section: Comments
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/managers/1oq74un.md#c7"
+    char_span: [11965, 12899]
+    sentence_count: 10
+    key_terms: [initial, though, asked, offer, sheriffharrybawls, ask, work, dry-shower9037]
+    section: Comments
+    token_count: 230
 ---
-
 # Leaving for a 90% raise right when my manager needs me most. Managers, your honest thoughts?
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1oq74un/leaving_for_a_90_raise_right_when_my_manager/)

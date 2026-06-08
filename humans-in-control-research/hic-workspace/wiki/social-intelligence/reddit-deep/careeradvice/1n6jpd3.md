@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1n6jpd3.md
 url: "https://www.reddit.com/r/careeradvice/comments/1n6jpd3/i_was_stuck_in_a_successful_career_that_made_me/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,26 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.245Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1n6jpd3.md#c0"
+    char_span: [0, 2228]
+    sentence_count: 19
+    key_terms: [career, experiment, good, building, people, careeradvice, led, consulting]
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/careeradvice/1n6jpd3.md#c1"
+    char_span: [2230, 2722]
+    sentence_count: 6
+    key_terms: [through, anyone, small, transitioning, experiments, transitions, experiment, non-linear]
+    token_count: 100
+  - id: "social-intelligence/reddit-deep/careeradvice/1n6jpd3.md#c2"
+    char_span: [2737, 3929]
+    sentence_count: 20
+    key_terms: [passion, work, money, able, singularity, everywhere, fullfilled, energizes]
+    section: Comments
+    token_count: 307
 ---
-
 # I was stuck in a 'successful' career that made me miserable. Here's the framework that finally got me unstuck.
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1n6jpd3/i_was_stuck_in_a_successful_career_that_made_me/)

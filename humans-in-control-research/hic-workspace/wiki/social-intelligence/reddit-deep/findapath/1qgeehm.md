@@ -10,9 +10,9 @@ score: 7
 upvote_ratio: 1
 num_comments: 4
 flair: "Findapath-Job Search Support"
-extracted_at: "2026-05-25T13:04:07.382Z"
+extracted_at: "2026-06-06T23:22:15.456Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Help Finding a Career Path for My 66-Year-Old Mom - Retail Background, Amazing People Skills, Limited Computer Experience

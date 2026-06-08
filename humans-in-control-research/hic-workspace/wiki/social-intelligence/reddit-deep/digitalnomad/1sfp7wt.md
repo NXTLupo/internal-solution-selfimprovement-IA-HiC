@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1sfp7wt/did_anyone_here_move_to_thailand_southeast_asia/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,56 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:56.728Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c0"
+    char_span: [0, 2233]
+    sentence_count: 15
+    key_terms: [london, like, thailand, digitalnomad, been, life, move, southeast]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c1"
+    char_span: [2235, 2849]
+    sentence_count: 3
+    key_terms: [people, sound, does, like, move, real, underestimate, bureaucracy]
+    token_count: 119
+  - id: "social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c2"
+    char_span: [2864, 4902]
+    sentence_count: 17
+    key_terms: [london, bangkok, syllabubexpensive663, right, move, consistent, creati-hu, probably]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c3"
+    char_span: [4904, 6908]
+    sentence_count: 10
+    key_terms: [syllabubexpensive663, income, bali, part, work, coworking, creati-hu, probably]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c4"
+    char_span: [6910, 8944]
+    sentence_count: 16
+    key_terms: [chiang, mai, "you're", city, lots, around, coffee, slower]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c5"
+    char_span: [8946, 10973]
+    sentence_count: 15
+    key_terms: [syllabubexpensive663, whether, income, ready, something, probably, already, produce]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c6"
+    char_span: [10975, 12928]
+    sentence_count: 17
+    key_terms: [syllabubexpensive663, london, months, thanks, "it's", life, optimistic, burning]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c7"
+    char_span: [12930, 14295]
+    sentence_count: 10
+    key_terms: [philippines, less, like, probably, around, making, people, syllabubexpensive663]
+    section: Comments
+    token_count: 322
 ---
-
 # Did anyone here move to Thailand / Southeast Asia before they felt fully ready to become a digital nomad?
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1sfp7wt/did_anyone_here_move_to_thailand_southeast_asia/)

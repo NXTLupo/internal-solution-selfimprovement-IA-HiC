@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1pbhcq0.md
 url: "https://www.reddit.com/r/GenZ/comments/1pbhcq0/how_extensively_are_genz_using_ai_chatbots_to_vent/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,21 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.766Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research, healthcare]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1pbhcq0.md#c0"
+    char_span: [0, 1976]
+    sentence_count: 14
+    key_terms: [emotional, feel, people, companionship, using, help, like, chatbots]
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/genz/1pbhcq0.md#c1"
+    char_span: [1991, 3775]
+    sentence_count: 10
+    key_terms: [are-you-the-therapist-friend-things-you-must-know-to-deal-with-this-label-3d4e06179d6d, the-unseen-burden-of-being-the-therapist-friend, https, people, com, like, need, rouxjean]
+    section: Comments
+    token_count: 491
 ---
-
 # How Extensively Are Gen-Z Using AI Chatbots to Vent?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1pbhcq0/how_extensively_are_genz_using_ai_chatbots_to_vent/)

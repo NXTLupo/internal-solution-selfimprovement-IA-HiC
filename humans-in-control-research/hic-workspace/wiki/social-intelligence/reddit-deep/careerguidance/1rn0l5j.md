@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rn0l5j.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rn0l5j/what_is_hr_actually_there_for/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,63 @@ flair: ""
 extracted_at: "2026-05-24T14:09:04.418Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rn0l5j.md#c0"
+    char_span: [0, 1249]
+    sentence_count: 12
+    key_terms: [company, recently, careerguidance, quit, went, questions, comments, person]
+    token_count: 277
+  - id: "social-intelligence/reddit-deep/careerguidance/1rn0l5j.md#c1"
+    char_span: [1264, 3424]
+    sentence_count: 11
+    key_terms: [manager, company, department, planning, strategy, employees, potential, position]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/careerguidance/1rn0l5j.md#c2"
+    char_span: [3426, 5679]
+    sentence_count: 13
+    key_terms: [someone, manager, like, meetings, months, here, new, experience]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1rn0l5j.md#c3"
+    char_span: [5414, 5746]
+    sentence_count: 3
+    key_terms: [someone, emotionally, intentional, complain, another, dismiss, manager, meeting]
+    section: Comments
+    token_count: 79
+  - id: "social-intelligence/reddit-deep/careerguidance/1rn0l5j.md#c4"
+    char_span: [5748, 7052]
+    sentence_count: 7
+    key_terms: [someone, opportunities, sometimes, because, company, global, subject-hedgehog6278, strikingmixture8172]
+    section: Comments
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/careerguidance/1rn0l5j.md#c5"
+    char_span: [7054, 8945]
+    sentence_count: 17
+    key_terms: [management, senior, legal, retaliation, decisions, concern, illegal, manager]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/careerguidance/1rn0l5j.md#c6"
+    char_span: [8947, 10790]
+    sentence_count: 17
+    key_terms: [people, thats, been, turnover, "doesn't", manager, unhappy, policy]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/careerguidance/1rn0l5j.md#c7"
+    char_span: [10792, 12650]
+    sentence_count: 12
+    key_terms: [company, through, organization, lawyer, discrimination, better, manage, resources]
+    section: Comments
+    token_count: 405
+  - id: "social-intelligence/reddit-deep/careerguidance/1rn0l5j.md#c8"
+    char_span: [12652, 13248]
+    sentence_count: 6
+    key_terms: [leadership, help, company, eatinggrapes69, organizations, explanation, management, employees]
+    section: Comments
+    token_count: 144
 ---
-
 # What is HR actually there for?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rn0l5j/what_is_hr_actually_there_for/)

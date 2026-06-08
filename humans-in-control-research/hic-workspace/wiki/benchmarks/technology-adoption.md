@@ -1,3 +1,60 @@
+---
+id: benchmarks/technology-adoption.md
+chunks:
+  - id: "benchmarks/technology-adoption.md#c0"
+    char_span: [0, 379]
+    sentence_count: 3
+    key_terms: [benchmarks, technology, adoption, cross-referenced, transformation, corresponding, quantitative, initiatives]
+    token_count: 72
+  - id: "benchmarks/technology-adoption.md#c1"
+    char_span: [404, 1868]
+    sentence_count: 1
+    key_terms: [verified, martech, marketing, evidence, benchmarks, confidence, cross-refs, financial-impact]
+    section: MarTech Utilization
+    token_count: 412
+  - id: "benchmarks/technology-adoption.md#c2"
+    char_span: [1886, 3427]
+    sentence_count: 1
+    key_terms: [verified, evidence, data, confidence, cross-refs, organizations, digital-transformation, source]
+    section: AI Adoption
+    token_count: 420
+  - id: "benchmarks/technology-adoption.md#c3"
+    char_span: [3464, 4599]
+    sentence_count: 1
+    key_terms: [data, customer, verified, evidence, digital-transformation, confidence, cross-refs, source]
+    section: CDP and Data Platform Adoption
+    token_count: 303
+  - id: "benchmarks/technology-adoption.md#c4"
+    char_span: [4638, 5360]
+    sentence_count: 1
+    key_terms: [cloud, verified, evidence, report, confidence, cross-refs, frameworks, average]
+    section: "Cloud Migration & Infrastructure"
+    token_count: 213
+  - id: "benchmarks/technology-adoption.md#c5"
+    char_span: [5389, 6535]
+    sentence_count: 1
+    key_terms: [digital, transformation, verified, evidence, digital-transformation, benchmarks, confidence, cross-refs]
+    section: Digital Transformation
+    token_count: 301
+  - id: "benchmarks/technology-adoption.md#c6"
+    char_span: [6569, 7344]
+    sentence_count: 1
+    key_terms: [benchmarks, verified, chatbot, containment, data, confidence, cross-refs, cx-metrics]
+    section: "Chatbot & Conversational AI"
+    token_count: 213
+  - id: "benchmarks/technology-adoption.md#c7"
+    char_span: [7366, 8155]
+    sentence_count: 1
+    key_terms: [crm, data, verified, failure, entry, benchmarks, compliance, confidence]
+    section: CRM Utilization
+    token_count: 211
+  - id: "benchmarks/technology-adoption.md#c8"
+    char_span: [8178, 8799]
+    sentence_count: 4
+    key_terms: [represent, mckinsey, figure, cited, been, transformation, utilization, attributed]
+    section: Validation Notes
+    token_count: 121
+---
 # Technology Adoption Benchmarks
 
 This page collects quantitative benchmarks for technology adoption across

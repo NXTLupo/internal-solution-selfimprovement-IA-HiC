@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1lbz6c5.md
 url: "https://www.reddit.com/r/artificial/comments/1lbz6c5/are_ai_tools_actively_trying_to_make_us_dumber/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -6,19 +7,97 @@ subreddit: "artificial"
 title: "Are AI tools actively trying to make us dumber?"
 author: "TranslatorRude4917"
 date: "2025-06-15T12:29:10.000Z"
-score: 23
-upvote_ratio: 0.62
+score: 29
+upvote_ratio: 0.64
 num_comments: 127
 flair: "Discussion"
-extracted_at: "2026-05-11T17:27:04.783Z"
+extracted_at: "2026-05-28T01:32:00.780Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+research_goal: "Identify a comprehensive new strategy for experiential learning for the AI era based on the collected data"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1lbz6c5.md#c0"
+    char_span: [0, 2171]
+    sentence_count: 14
+    key_terms: [tools, experience, get, results, instructions, professional, "can't", low-quality]
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/artificial/1lbz6c5.md#c1"
+    char_span: [2173, 3316]
+    sentence_count: 7
+    key_terms: [tools, "it's", encourage, practices, industry, experts, become, "don't"]
+    token_count: 246
+  - id: "social-intelligence/reddit-deep/artificial/1lbz6c5.md#c2"
+    char_span: [3331, 5310]
+    sentence_count: 22
+    key_terms: [tools, people, analysis, years, corrections, math, time, developers]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/artificial/1lbz6c5.md#c3"
+    char_span: [5312, 6957]
+    sentence_count: 9
+    key_terms: [experts, tools, front-end, knowledge, expert, developing, disappear, probably]
+    section: Comments
+    token_count: 363
+  - id: "social-intelligence/reddit-deep/artificial/1lbz6c5.md#c4"
+    char_span: [6959, 8684]
+    sentence_count: 12
+    key_terms: [happen, intelligence, artificial, different, genuinely, amazing, smorgasconfigurator, ideas]
+    section: Comments
+    token_count: 386
+  - id: "social-intelligence/reddit-deep/artificial/1lbz6c5.md#c5"
+    char_span: [8686, 10919]
+    sentence_count: 6
+    key_terms: [decisions, economic, ethical, accountability, misinformation, displacement, significant, data]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/artificial/1lbz6c5.md#c6"
+    char_span: [10921, 12769]
+    sentence_count: 7
+    key_terms: [human, data, systems, significant, problem-solving, privacy, sophisticated, cyberattacks]
+    section: Comments
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/artificial/1lbz6c5.md#c7"
+    char_span: [12771, 15086]
+    sentence_count: 9
+    key_terms: [writing, thoughts, better, ideas, emotional, emotions, thinking, ability]
+    section: Comments
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/artificial/1lbz6c5.md#c8"
+    char_span: [15088, 17429]
+    sentence_count: 12
+    key_terms: [writing, experimentation, intelligence, achievement, discipline, authentic, personal, provides]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/artificial/1lbz6c5.md#c9"
+    char_span: [17431, 19046]
+    sentence_count: 10
+    key_terms: [benchmarking, "that's", requirement, analysis, solution, started, systems, coding]
+    section: Comments
+    token_count: 352
+  - id: "social-intelligence/reddit-deep/artificial/1lbz6c5.md#c10"
+    char_span: [19048, 21416]
+    sentence_count: 19
+    key_terms: [specialization, people, drive, curiosity, knowledge, anything, combat, fast-satisfaction482]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/artificial/1lbz6c5.md#c11"
+    char_span: [21132, 22362]
+    sentence_count: 10
+    key_terms: [isnt, combat, profit, phone, power, translatorrude4917, been, idk]
+    section: Comments
+    token_count: 293
+  - id: "social-intelligence/reddit-deep/artificial/1lbz6c5.md#c12"
+    char_span: [22364, 23966]
+    sentence_count: 5
+    key_terms: [translatorrude4917, learning, started, learn, capability, cognitive, augment, human]
+    section: Comments
+    token_count: 365
 ---
-
 # Are AI tools actively trying to make us dumber?
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1lbz6c5/are_ai_tools_actively_trying_to_make_us_dumber/)
-Posted by **TranslatorRude4917** · **23↑** · **127 comments**
+Posted by **TranslatorRude4917** · **29↑** · **127 comments**
 
 Alright, need to get this off my chest. I'm a frontend dev with over 10 years experience, and I generally give a shit about software architecture and quality. First I was hesitant to try using AI in my daily job, but now I'm embracing it. I'm genuinely amazed by the potential lying AI, but highly disturbed the way it's used and presented.
 
@@ -77,7 +156,7 @@ Every time we create these abstractions and simplifications we lose something. T
 Right now the AI tools are marketed with lots of promises. That’s normal. Vitamin waters and vacuum cleaners have been sold as magic stuff once upon a time. There are market corrections to hyperbole. I suspect that at least for some time, the most capable front-end developers will migrate into roles where they develop and design tools that can help less capable developers nonetheless do cool front end. Maybe not, if these A.I. tools are super good. But that’s a bigger thing and not what you witness.
 
 Still, I suppose I’m waving at you with a slightly resigned, slightly hopeful look on my face, from the other side of what is a fairly common evolution in knowledge work. Some jobs do fully disappear (the pocket calculator made some jobs absolutely not needed). But more often the sharp expertise finds a place and specialization elsewhere in the value chain.
-  - **TranslatorRude4917** (4↑): Very good points, I'm raising my hat! 😉 
+  - **TranslatorRude4917** (3↑): Very good points, I'm raising my hat! 😉 
 So just to see if I understand it correctly: 
 You're saying that with time experts' focus will shift towards building "expert tools," integrating their vast amount of knowledge into software.
 As AI will most probably get better and smarter in the upcoming years, I can believe they it will live up to the dream of being an expert advisor, and with the right frameworks and processes (built into them by experts) function reliably. 
@@ -90,10 +169,10 @@ But yes, you’re right, with time I expect the worst hyperbole will disappear b
 These changes can still hurt and cause friction if they happen very fast or where forecasts are very different from reality. Still, guys like me have been through a similar evolution, these things happen…
   - **Adleyboy** (3↑): In a better world everyone's gifts and talents would be nurtured. Not for profit or extraction but to create a strong diverse community of beings capable of making an amazing world by interacting and collaborating everywhere in life to make genuinely amazing things. It can happen. People just have to see that the path is before them and take it.
     - **SmorgasConfigurator** (2↑): I genuinely share that view. What I have realized though is that many have different opinions on what that morally good path is. So we default to market signals and liberal tolerance, and often for quite good reasons. Yet, ethical depth and duty are at some point avoidable only by individual negligence… end of sermon.
-- **TranslatorRude4917** (10↑): Oh, and before you say:  "The whole post looks like it's written by AI": Sure it is! But I drafted every single argument, subtitle, bullet point and pun myself.
+- **TranslatorRude4917** (9↑): Oh, and before you say:  "The whole post looks like it's written by AI": Sure it is! But I drafted every single argument, subtitle, bullet point and pun myself.
 This is the way I want to use AI: expressing my professional ideas end expertise, enhancing them with artificial intelligence, letting it help me to get over the finish line, but never by replacing my mind, ideas and judgement.
-  - **m1ndfulpenguin** (3↑): Well.. I'm convinced!
-  - **Alex_Alves_HG** (2↑): You remind me of me! Ha ha ha
+  - **m1ndfulpenguin** (4↑): Well.. I'm convinced!
+  - **[deleted]** (2↑): You remind me of me! Ha ha ha
   - **Watada** (1↑): Why swap the m dashes for regular dash and some spaces?
   - **Due_Impact2080** (0↑): While Artificial Intelligence (AI) offers numerous benefits, it also presents several significant disadvantages and challenges that warrant careful consideration:
 

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1r6n5ur.md
 url: "https://www.reddit.com/r/careerguidance/comments/1r6n5ur/has_anyone_successfully_monetized_skills_outside/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-19T17:57:31.310Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1r6n5ur.md#c0"
+    char_span: [0, 1052]
+    sentence_count: 9
+    key_terms: [without, careerguidance, becoming, comments, anyone, career, build, music]
+    token_count: 236
+  - id: "social-intelligence/reddit-deep/careerguidance/1r6n5ur.md#c1"
+    char_span: [1067, 1437]
+    sentence_count: 3
+    key_terms: [certainhospital652, efficient-cut7891, expectations, collective, distribute, distrokid, randomly, similar]
+    section: Comments
+    token_count: 93
 ---
-
 # Has anyone successfully monetized skills outside their main career without it becoming another job?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1r6n5ur/has_anyone_successfully_monetized_skills_outside/)

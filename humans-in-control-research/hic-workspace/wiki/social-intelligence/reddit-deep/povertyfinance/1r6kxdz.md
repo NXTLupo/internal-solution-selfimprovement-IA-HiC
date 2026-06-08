@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1r6kxdz.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1r6kxdz/pulling_money_out_of_my_retirement_as_a_last/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,45 @@ flair: "Vent/Rant (No Advice/Criticism!)"
 extracted_at: "2026-05-17T01:13:55.886Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1r6kxdz.md#c0"
+    char_span: [0, 1176]
+    sentence_count: 9
+    key_terms: [unemployment, money, been, povertyfinance, time, comments, position, people]
+    token_count: 278
+  - id: "social-intelligence/reddit-deep/povertyfinance/1r6kxdz.md#c1"
+    char_span: [1191, 2815]
+    sentence_count: 16
+    key_terms: [submitter, appropriate, need, advice, vents, vent, emotional, situation]
+    section: Comments
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/povertyfinance/1r6kxdz.md#c2"
+    char_span: [2817, 3953]
+    sentence_count: 11
+    key_terms: [retirement, choice, crappy, fit-combination-6211, debt, job, shit, ton]
+    section: Comments
+    token_count: 273
+  - id: "social-intelligence/reddit-deep/povertyfinance/1r6kxdz.md#c3"
+    char_span: [3955, 5048]
+    sentence_count: 5
+    key_terms: ["i'm", trade, pell, spooky3264, situation, company, driving, grant]
+    section: Comments
+    token_count: 290
+  - id: "social-intelligence/reddit-deep/povertyfinance/1r6kxdz.md#c4"
+    char_span: [5050, 7132]
+    sentence_count: 20
+    key_terms: ["it's", people, "don't", jobs, apply, like, corporate, applying]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1r6kxdz.md#c5"
+    char_span: [6907, 7411]
+    sentence_count: 3
+    key_terms: [skills, beepgoestheminivan, care, cash, earn, ill-entry-9707, miscellaneous, "children's"]
+    section: Comments
+    token_count: 132
 ---
-
 # Pulling money out of my retirement as a last resort
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1r6kxdz/pulling_money_out_of_my_retirement_as_a_last/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1p8o7zo.md
 url: "https://www.reddit.com/r/jobs/comments/1p8o7zo/careerrecruiting_question_bmgmt_vs_bcomm_for/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,15 @@ flair: "Career planning"
 extracted_at: "2026-05-25T13:03:11.723Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1p8o7zo.md#c0"
+    char_span: [0, 973]
+    sentence_count: 5
+    key_terms: [business, bcomm, bmgmt, long-term, comments, hiring, jobs, opportunities]
+    token_count: 223
 ---
-
 # Career/recruiting question: BMGMT vs BComm for long-term job options & US opportunities?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1p8o7zo/careerrecruiting_question_bmgmt_vs_bcomm_for/)

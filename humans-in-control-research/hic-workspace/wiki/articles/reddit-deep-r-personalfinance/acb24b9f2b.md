@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-personalfinance/acb24b9f2b.md
 url: "https://www.reddit.com/r/personalfinance/comments/1o9c1k6/i_kept_the_home_and_truck_through_my_divorce_but/"
 url_hash: "acb24b9f2b"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-16T20:59:42.519651+00:00"
 chars: 3668
+industries: [financial_services, real_estate]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-personalfinance/acb24b9f2b.md#c0"
+    char_span: [0, 1791]
+    sentence_count: 23
+    key_terms: [truck, get, personalfinance, worth, home, mortgage, paycheck, balance]
+    token_count: 451
+  - id: "articles/reddit-deep-r-personalfinance/acb24b9f2b.md#c1"
+    char_span: [1794, 2905]
+    sentence_count: 11
+    key_terms: [mortgage, mrlin705, right, take, alternatively, contributions, information, advantaged]
+    token_count: 297
+  - id: "articles/reddit-deep-r-personalfinance/acb24b9f2b.md#c2"
+    char_span: [2907, 3924]
+    sentence_count: 7
+    key_terms: [house, equity, worth, net, emergency, mortgage, divorce, turbulent-sky6636]
+    token_count: 255
 ---
-
 # I kept the home and truck through my divorce but now I'm paycheck to paycheck. What are my options?
 
 Source: [Reddit Deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1o9c1k6/i_kept_the_home_and_truck_through_my_divorce_but/)

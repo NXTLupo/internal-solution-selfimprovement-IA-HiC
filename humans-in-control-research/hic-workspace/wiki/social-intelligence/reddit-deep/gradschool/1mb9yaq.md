@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1mb9yaq.md
 url: "https://www.reddit.com/r/GradSchool/comments/1mb9yaq/career_change_into_becoming_a_therapist_and/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,26 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.335Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce, healthcare]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1mb9yaq.md#c0"
+    char_span: [0, 2209]
+    sentence_count: 10
+    key_terms: [school, grad, "i'm", schools, considering, programs, because, "don't"]
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/gradschool/1mb9yaq.md#c1"
+    char_span: [2214, 2707]
+    sentence_count: 1
+    key_terms: ["i'm", work, disorganized, application, competitive, considered, experience, investment]
+    token_count: 103
+  - id: "social-intelligence/reddit-deep/gradschool/1mb9yaq.md#c2"
+    char_span: [2722, 4735]
+    sentence_count: 21
+    key_terms: [school, best, programs, program, application, connections, grad, counseling]
+    section: Comments
+    token_count: 430
 ---
-
 # Career change into becoming a therapist and feeling under-qualified for grad school programs
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1mb9yaq/career_change_into_becoming_a_therapist_and/)

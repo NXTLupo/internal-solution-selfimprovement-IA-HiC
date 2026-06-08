@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/caa117c9ea.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1l3yxdm/6_months_unemployed_and_seeking_advice_on_what_to/"
 url_hash: "caa117c9ea"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T19:50:16.671682+00:00"
 chars: 2300
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/caa117c9ea.md#c0"
+    char_span: [0, 1459]
+    sentence_count: 12
+    key_terms: [exams, actuarial, cscareerquestions, like, software, actuary, seeking, advice]
+    token_count: 348
+  - id: "articles/reddit-deep-r-cscareerquestions/caa117c9ea.md#c1"
+    char_span: [1461, 2572]
+    sentence_count: 6
+    key_terms: [average, masters, new, deleted, grad, job, experience, sometimes]
+    token_count: 267
 ---
-
 # 6 months unemployed and seeking advice on what to do: Is a career in CS still worth pursuing this day and age?
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1l3yxdm/6_months_unemployed_and_seeking_advice_on_what_to/)

@@ -10,9 +10,9 @@ score: 1
 upvote_ratio: 0.67
 num_comments: 1
 flair: "General Advice"
-extracted_at: "2026-05-24T14:10:06.599Z"
+extracted_at: "2026-06-06T23:23:15.584Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Help with emailing PhD advisors and general grad school admission

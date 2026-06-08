@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1lwy05a.md
 url: "https://www.reddit.com/r/artificial/comments/1lwy05a/hidden_prompts_in_manuscripts_exploit_aiassisted/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -10,11 +11,44 @@ score: 1
 upvote_ratio: 1
 num_comments: 5
 flair: "Tutorial"
-extracted_at: "2026-05-11T16:53:08.153Z"
+extracted_at: "2026-05-28T01:32:00.772Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+research_goal: "Identify a comprehensive new strategy for experiential learning for the AI era based on the collected data"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1lwy05a.md#c0"
+    char_span: [0, 2453]
+    sentence_count: 11
+    key_terms: [instructions, exploit, hidden, injection, malicious, data, prompt, review]
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/artificial/1lwy05a.md#c1"
+    char_span: [2457, 4955]
+    sentence_count: 7
+    key_terms: [review, context-to-execution, strategies, epistemic, integrity, semantic, trustworthiness, prompts]
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/artificial/1lwy05a.md#c2"
+    char_span: [4957, 7256]
+    sentence_count: 7
+    key_terms: [review, meaning, application, violations, symbolic, concept, "ai's", integrity]
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/artificial/1lwy05a.md#c3"
+    char_span: [7258, 9582]
+    sentence_count: 6
+    key_terms: [prompts, review, peer, ai-assisted, prompt, system, application, prp]
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/artificial/1lwy05a.md#c4"
+    char_span: [9584, 10264]
+    sentence_count: 4
+    key_terms: [integrity, review, processing, academic, prompt, peer, manipulation, prioritizing]
+    token_count: 121
+  - id: "social-intelligence/reddit-deep/artificial/1lwy05a.md#c5"
+    char_span: [10279, 12454]
+    sentence_count: 15
+    key_terms: [prompt, chaitanya-growthmarketing, instructions, doing, https, odchplliabghblnlfalamofnnlghbmab, new-meeting, com]
+    section: Comments
+    token_count: 495
 ---
-
 # Hidden Prompts in Manuscripts Exploit AI-Assisted Peer Review,
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1lwy05a/hidden_prompts_in_manuscripts_exploit_aiassisted/)

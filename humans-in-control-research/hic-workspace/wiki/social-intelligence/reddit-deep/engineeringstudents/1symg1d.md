@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1symg1d.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1symg1d/still_worth_learning_python_as_an_aerospace/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,33 @@ flair: "Career Advice"
 extracted_at: "2026-05-20T12:57:40.598Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1symg1d.md#c0"
+    char_span: [0, 861]
+    sentence_count: 8
+    key_terms: [aerospace, engineering, engineeringstudents, student, python, worth, comments, learning]
+    token_count: 191
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1symg1d.md#c1"
+    char_span: [876, 2684]
+    sentence_count: 15
+    key_terms: [worldtallestengineer, code, "it's", python, get, want, results, future]
+    section: Comments
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1symg1d.md#c2"
+    char_span: [2686, 4433]
+    sentence_count: 14
+    key_terms: [python, learn, heythere1212121212, "it's", cabbbagedealer, aerospace, generally, project]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1symg1d.md#c3"
+    char_span: [4435, 5822]
+    sentence_count: 11
+    key_terms: [time, matlab, python, "it's", comments, learning, jubjjub, knowing]
+    section: Comments
+    token_count: 344
 ---
-
 # Still worth learning PYTHON as an Aerospace Engineering student?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1symg1d/still_worth_learning_python_as_an_aerospace/)

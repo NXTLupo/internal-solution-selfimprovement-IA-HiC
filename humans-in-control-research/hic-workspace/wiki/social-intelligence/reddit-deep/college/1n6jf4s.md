@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1n6jf4s.md
 url: "https://www.reddit.com/r/college/comments/1n6jf4s/how_much_should_i_work_while_being_a_student/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-22T13:32:26.400Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1n6jf4s.md#c0"
+    char_span: [0, 942]
+    sentence_count: 9
+    key_terms: [college, school, comments, classes, anyone, hours, hard, need]
+    token_count: 233
+  - id: "social-intelligence/reddit-deep/college/1n6jf4s.md#c1"
+    char_span: [957, 2856]
+    sentence_count: 17
+    key_terms: [classes, work, time, schedule, don, job, like, week]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/college/1n6jf4s.md#c2"
+    char_span: [2858, 4719]
+    sentence_count: 19
+    key_terms: [classes, tiefluid6347, sure, too, caregiver, semester, courses, student]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1n6jf4s.md#c3"
+    char_span: [4510, 5890]
+    sentence_count: 12
+    key_terms: [full, courses, online, time, classes, semester, because, deleted]
+    section: Comments
+    token_count: 366
+  - id: "social-intelligence/reddit-deep/college/1n6jf4s.md#c4"
+    char_span: [5892, 6850]
+    sentence_count: 8
+    key_terms: [classes, hours, depends, need, semester, courses, working, perpetuallytired74]
+    section: Comments
+    token_count: 226
 ---
-
 # How much should I work while being a student?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1n6jf4s/how_much_should_i_work_while_being_a_student/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1ks8zpz.md
 url: "https://www.reddit.com/r/internships/comments/1ks8zpz/1000_applications_later_finally_in_the_system/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,32 @@ flair: "Applications"
 extracted_at: "2026-05-20T06:39:47.108Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [workforce, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1ks8zpz.md#c0"
+    char_span: [0, 2112]
+    sentence_count: 31
+    key_terms: [data, got, engineering, experience, finally, porsche, posted, applications]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/internships/1ks8zpz.md#c1"
+    char_span: [2114, 3483]
+    sentence_count: 20
+    key_terms: [through, apply, considering, here, experience, market, master, hurts]
+    token_count: 315
+  - id: "social-intelligence/reddit-deep/internships/1ks8zpz.md#c2"
+    char_span: [3498, 4554]
+    sentence_count: 7
+    key_terms: [congratulations, interview, deleted, round, complex-poet-6809, keytradition2051, unfortunately, questioning]
+    section: Comments
+    token_count: 313
+  - id: "social-intelligence/reddit-deep/internships/1ks8zpz.md#c3"
+    char_span: [4556, 5444]
+    sentence_count: 9
+    key_terms: [deleted, thanks, international, offer, linkedin, revoked, student, apply]
+    section: Comments
+    token_count: 258
 ---
-
 # 1000+ Applications Later… Finally In the System! (Data Engineering Intern @ Porsche)
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1ks8zpz/1000_applications_later_finally_in_the_system/)

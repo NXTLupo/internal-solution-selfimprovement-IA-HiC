@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1o35dfg.md
 url: "https://www.reddit.com/r/financialindependence/comments/1o35dfg/year_update_after_1m_laid_off/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,65 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.706Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [cross_industry]
+industry_method: unclassified
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1o35dfg.md#c0"
+    char_span: [0, 570]
+    sentence_count: 4
+    key_terms: [financialindependence, reddit, comments, posted, update, https, since, com]
+    token_count: 166
+  - id: "social-intelligence/reddit-deep/financialindependence/1o35dfg.md#c1"
+    char_span: [572, 2622]
+    sentence_count: 20
+    key_terms: [went, snowboarding, did, got, job, back, been, feel]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/financialindependence/1o35dfg.md#c2"
+    char_span: [2311, 3797]
+    sentence_count: 9
+    key_terms: [because, current, interesting, feel, like, live, work, decided]
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/financialindependence/1o35dfg.md#c3"
+    char_span: [3802, 4906]
+    sentence_count: 1
+    key_terms: [history, breakdown, employer, income, faang, match, last, new]
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/financialindependence/1o35dfg.md#c4"
+    char_span: [4908, 5856]
+    sentence_count: 1
+    key_terms: [employer, match, tax, spreadsheets, rollover, sharing, google, https]
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/financialindependence/1o35dfg.md#c5"
+    char_span: [5871, 7146]
+    sentence_count: 12
+    key_terms: [individual, points, stocks, understand, winkahpack, investing, strategy, selling]
+    section: Comments
+    token_count: 315
+  - id: "social-intelligence/reddit-deep/financialindependence/1o35dfg.md#c6"
+    char_span: [7148, 9194]
+    sentence_count: 13
+    key_terms: [points, too, benefits, invested, jsir1999, flight, schwab, travel]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/financialindependence/1o35dfg.md#c7"
+    char_span: [9196, 10947]
+    sentence_count: 9
+    key_terms: [stock, beneficiary, coast-fire, percentile, previous, massive, income, stocks]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/financialindependence/1o35dfg.md#c8"
+    char_span: [10949, 12134]
+    sentence_count: 15
+    key_terms: [roth, years, happy, back, ira, job, tech, backdoor]
+    section: Comments
+    token_count: 304
+  - id: "social-intelligence/reddit-deep/financialindependence/1o35dfg.md#c9"
+    char_span: [12136, 13929]
+    sentence_count: 20
+    key_terms: [no-reaction-9364, funds, individual, expenses, adopted, example, living, stocks]
+    section: Comments
+    token_count: 443
 ---
-
 # Year Update after $1M: Laid Off
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1o35dfg/year_update_after_1m_laid_off/)

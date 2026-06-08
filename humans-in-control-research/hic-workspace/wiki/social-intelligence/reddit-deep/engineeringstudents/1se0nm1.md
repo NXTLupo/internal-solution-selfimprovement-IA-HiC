@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1se0nm1.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1se0nm1/final_year_engineering_student_with_6l_loan_tried/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,20 @@ flair: "Academic Advice"
 extracted_at: "2026-05-25T13:01:49.571Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1se0nm1.md#c0"
+    char_span: [0, 2193]
+    sentence_count: 19
+    key_terms: [opportunity, everything, engineeringstudents, college, engineering, didn, got, internship]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1se0nm1.md#c1"
+    char_span: [2195, 3193]
+    sentence_count: 9
+    key_terms: [development, because, family, months, didn, feel, next, time]
+    token_count: 218
 ---
-
 # Final Year Engineering Student with ₹6L Loan — Tried Everything but Still No Job, Feeling Lost
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1se0nm1/final_year_engineering_student_with_6l_loan_tried/)

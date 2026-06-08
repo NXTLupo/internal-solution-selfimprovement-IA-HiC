@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t7b5gt.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t7b5gt/stay_or_leave_a_high_paying_job_but_very_slow/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,27 @@ flair: "Advice"
 extracted_at: "2026-05-25T15:52:13.112Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t7b5gt.md#c0"
+    char_span: [0, 1066]
+    sentence_count: 8
+    key_terms: [learning, company, careerguidance, leave, job, pay, slow, currently]
+    token_count: 259
+  - id: "social-intelligence/reddit-deep/careerguidance/1t7b5gt.md#c1"
+    char_span: [1081, 1551]
+    sentence_count: 1
+    key_terms: [time, low, work, lazyhustlermusic, crashcaptainn, collecting, learning, paycheck]
+    section: Comments
+    token_count: 122
+  - id: "social-intelligence/reddit-deep/careerguidance/1t7b5gt.md#c2"
+    char_span: [1553, 3247]
+    sentence_count: 9
+    key_terms: [skills, job, get, time, current, develop, people, notdavidjustsomeguy]
+    section: Comments
+    token_count: 431
 ---
-
 # Stay or leave a high paying job but very slow learning?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t7b5gt/stay_or_leave_a_high_paying_job_but_very_slow/)

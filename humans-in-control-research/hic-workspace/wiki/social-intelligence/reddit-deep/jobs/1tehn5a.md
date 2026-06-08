@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1tehn5a.md
 url: "https://www.reddit.com/r/jobs/comments/1tehn5a/caught_off_guard_by_an_unsuspected_unannounced/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,48 @@ flair: "Interviews"
 extracted_at: "2026-05-22T21:35:36.550Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1tehn5a.md#c0"
+    char_span: [0, 1822]
+    sentence_count: 15
+    key_terms: [job, recruiter, inventory, like, operations, specialist, interview, applying]
+    token_count: 409
+  - id: "social-intelligence/reddit-deep/jobs/1tehn5a.md#c1"
+    char_span: [1827, 3574]
+    sentence_count: 14
+    key_terms: [interview, tour, another, because, "didn't", get, wear, structure]
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/jobs/1tehn5a.md#c2"
+    char_span: [3576, 4931]
+    sentence_count: 12
+    key_terms: [inventory, griping, "didn't", guy, like, facilities, interview, thought]
+    token_count: 307
+  - id: "social-intelligence/reddit-deep/jobs/1tehn5a.md#c3"
+    char_span: [4933, 6776]
+    sentence_count: 18
+    key_terms: [job, references, offer, start, get, "don't", day, "i'm"]
+    token_count: 406
+  - id: "social-intelligence/reddit-deep/jobs/1tehn5a.md#c4"
+    char_span: [6791, 8501]
+    sentence_count: 10
+    key_terms: [inventory, bullet, been, like, dodged, mindset, someone, el3gnt]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/jobs/1tehn5a.md#c5"
+    char_span: [8503, 10491]
+    sentence_count: 21
+    key_terms: [inventory, audit, start, been, strategy, training, handle, places]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/jobs/1tehn5a.md#c6"
+    char_span: [10495, 12268]
+    sentence_count: 17
+    key_terms: [inventory, mindset, start, startups, manager, months, people, "don't"]
+    section: Comments
+    token_count: 429
 ---
-
 # Caught off guard by an unsuspected unannounced lunch that turned out to be a final interview.
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1tehn5a/caught_off_guard_by_an_unsuspected_unannounced/)

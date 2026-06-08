@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1lxyj9p.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1lxyj9p/yet_to_be_cs_postgrad_breadth_vs_depth_should_i/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,27 @@ flair: "Student"
 extracted_at: "2026-05-19T17:57:56.728Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lxyj9p.md#c0"
+    char_span: [0, 1774]
+    sentence_count: 14
+    key_terms: [engineering, data, skills, knowledge, cscareerquestions, because, myself, employability]
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lxyj9p.md#c1"
+    char_span: [1789, 3775]
+    sentence_count: 14
+    key_terms: [something, project, learn, good, frontend, learning, engineering, interesting]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lxyj9p.md#c2"
+    char_span: [3777, 4700]
+    sentence_count: 5
+    key_terms: [infrastructure, data, being, engineering, important, breadth, build, depth]
+    section: Comments
+    token_count: 193
 ---
-
 # Yet to be CS postgrad. Breadth vs depth? Should I deepen my knowledge of Data Engineering or focus on building full-stack skills? Looking to maximise employability after I graduate.
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1lxyj9p/yet_to_be_cs_postgrad_breadth_vs_depth_should_i/)

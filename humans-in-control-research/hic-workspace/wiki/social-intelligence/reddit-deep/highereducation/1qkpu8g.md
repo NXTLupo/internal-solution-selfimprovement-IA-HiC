@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1qkpu8g.md
 url: "https://www.reddit.com/r/highereducation/comments/1qkpu8g/higher_ed_urged_to_stand_up_to_government_attacks/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -13,8 +14,26 @@ flair: ""
 extracted_at: "2026-05-23T14:53:59.512Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, government, policy]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1qkpu8g.md#c0"
+    char_span: [0, 2190]
+    sentence_count: 6
+    key_terms: [university, rights, stand, highereducation, creeley, higher, institutions, urged]
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/highereducation/1qkpu8g.md#c1"
+    char_span: [2194, 4771]
+    sentence_count: 5
+    key_terms: [higher, education, students, conflict-based, attack, constructive, institutions, necessarily]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/highereducation/1qkpu8g.md#c2"
+    char_span: [4775, 5924]
+    sentence_count: 8
+    key_terms: [institutions, americas-censored-campuses-25-web-of-control, higher, principles, education, survival, federal, prepare]
+    section: Comments
+    token_count: 254
 ---
-
 # Higher Ed Urged to “Stand Up” to Government Attacks
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1qkpu8g/higher_ed_urged_to_stand_up_to_government_attacks/)

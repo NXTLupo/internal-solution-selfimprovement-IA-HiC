@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1pzc17q.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1pzc17q/what_small_gadgets_have_actually_made_your/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,39 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:56.735Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1pzc17q.md#c0"
+    char_span: [0, 1356]
+    sentence_count: 7
+    key_terms: [phone, laptop, digitalnomad, stand, life, tiny, difference, comments]
+    token_count: 321
+  - id: "social-intelligence/reddit-deep/digitalnomad/1pzc17q.md#c1"
+    char_span: [1371, 3007]
+    sentence_count: 13
+    key_terms: [ryantylerthomas, grinder, coffee, pasaatituuli, phone, "it's", vssl, wikipedia]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/digitalnomad/1pzc17q.md#c2"
+    char_span: [3009, 3851]
+    sentence_count: 4
+    key_terms: [coffee, funnel, cards, "it's", shpongolised, randomweeb9, apartment, extension]
+    section: Comments
+    token_count: 214
+  - id: "social-intelligence/reddit-deep/digitalnomad/1pzc17q.md#c3"
+    char_span: [3854, 5683]
+    sentence_count: 8
+    key_terms: [keyboard, monitor, extra, ipad, already, better, cables, laptop]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/digitalnomad/1pzc17q.md#c4"
+    char_span: [5685, 7006]
+    sentence_count: 6
+    key_terms: [laptop, using, ergonomics, lighting, compact, never, stand, good]
+    section: Comments
+    token_count: 305
 ---
-
 # What small gadgets have actually made your digital nomad life easier in 2025?
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1pzc17q/what_small_gadgets_have_actually_made_your/)

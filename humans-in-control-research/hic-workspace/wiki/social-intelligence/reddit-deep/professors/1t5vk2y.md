@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1t5vk2y.md
 url: "https://www.reddit.com/r/Professors/comments/1t5vk2y/student_badmouths_me_on_rmp_and_evals_shocked/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,69 @@ flair: ""
 extracted_at: "2026-05-14T18:17:21.691Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c0"
+    char_span: [0, 1259]
+    sentence_count: 17
+    key_terms: [student, finance, did, post, professors, recommend, comments, somebody]
+    token_count: 283
+  - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c1"
+    char_span: [1274, 3234]
+    sentence_count: 12
+    key_terms: [students, letter, recommendation, ask, program, asking, person, skills]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c2"
+    char_span: [3236, 5574]
+    sentence_count: 17
+    key_terms: [recommendation, course, student, letter, letters, confidential, class, did]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c3"
+    char_span: [5576, 6485]
+    sentence_count: 10
+    key_terms: [reviews, students, negative, usually, better, letter, profdoesntsleepenuff, left]
+    section: Comments
+    token_count: 214
+  - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c4"
+    char_span: [6487, 8482]
+    sentence_count: 19
+    key_terms: [student, left, professor, address, reviews, similar, profdoesntsleepenuff, public-minimum1650]
+    section: Comments
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c5"
+    char_span: [8484, 9132]
+    sentence_count: 6
+    key_terms: [don, fun, job, need, sue, notlikeotherai, appropriate, appreciate]
+    section: Comments
+    token_count: 157
+  - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c6"
+    char_span: [9134, 11113]
+    sentence_count: 12
+    key_terms: [colleague, professor, seriously, reviews, student, review, wonder, fresh-requirement862]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c7"
+    char_span: [10904, 12257]
+    sentence_count: 8
+    key_terms: [grade, orangecatisback, student, people, class, students, because, posted]
+    section: Comments
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c8"
+    char_span: [12262, 13037]
+    sentence_count: 10
+    key_terms: [rule, finance, corporations, business, people, "don't", liabilities, obsessively]
+    section: Comments
+    token_count: 199
+  - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c9"
+    char_span: [13041, 14484]
+    sentence_count: 12
+    key_terms: [liabilities, fair-garlic8240, finance, notlikeotherai, good, rmp, student, assets]
+    section: Comments
+    token_count: 397
 ---
-
 # Student badmouths me on RMP and evals, shocked when I refuse to help them
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1t5vk2y/student_badmouths_me_on_rmp_and_evals_shocked/)

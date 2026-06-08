@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/freelance/1p3d2yp.md
 url: "https://www.reddit.com/r/freelance/comments/1p3d2yp/struggling_to_tell_whats_normal_vs_being/"
 kind: "social-post"
 source: "reddit-deep: r/freelance"
@@ -13,8 +14,44 @@ flair: ""
 extracted_at: "2026-05-26T12:53:48.701Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/freelance/1p3d2yp.md#c0"
+    char_span: [0, 2067]
+    sentence_count: 18
+    key_terms: [freelance, hours, work, comments, contract, creative, guidance, monthly]
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/freelance/1p3d2yp.md#c1"
+    char_span: [2069, 4159]
+    sentence_count: 19
+    key_terms: [work, like, don, time, creative, because, design, normal]
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/freelance/1p3d2yp.md#c2"
+    char_span: [4174, 6313]
+    sentence_count: 16
+    key_terms: [new, looking, afford, hours, negotiation, partnership, "i'd", time]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/freelance/1p3d2yp.md#c3"
+    char_span: [6315, 8405]
+    sentence_count: 16
+    key_terms: [hours, something, contract, wants, rate, time, everything, mentorship]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/freelance/1p3d2yp.md#c4"
+    char_span: [8407, 10182]
+    sentence_count: 13
+    key_terms: [time, client, hours, learn, set, boundaries, especially, business]
+    section: Comments
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/freelance/1p3d2yp.md#c5"
+    char_span: [10184, 11129]
+    sentence_count: 6
+    key_terms: [com, freelance-rate-calculator, freelancehourlyrate, creative, director, better, http, lancecalc]
+    section: Comments
+    token_count: 228
 ---
-
 # Struggling to tell what’s normal vs. being undervalued — need freelance advice
 
 Source: [reddit-deep: r/freelance](https://www.reddit.com/r/freelance/comments/1p3d2yp/struggling_to_tell_whats_normal_vs_being/)

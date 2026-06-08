@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1sdtgob.md
 url: "https://www.reddit.com/r/managers/comments/1sdtgob/if_you_had_a_tool_to_support_you_as_a_manager/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-26T12:54:23.672Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1sdtgob.md#c0"
+    char_span: [0, 1251]
+    sentence_count: 6
+    key_terms: [manager, something, comments, managers, moments, support, helps, day]
+    token_count: 298
+  - id: "social-intelligence/reddit-deep/managers/1sdtgob.md#c1"
+    char_span: [1266, 3311]
+    sentence_count: 11
+    key_terms: [work, narrow-ad-7856, small, operational, did, help, training, manager]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/managers/1sdtgob.md#c2"
+    char_span: [3119, 3703]
+    sentence_count: 6
+    key_terms: [kilimtilikum, context, "you're", great, bot, give, conversations, saduwastaken]
+    section: Comments
+    token_count: 169
+  - id: "social-intelligence/reddit-deep/managers/1sdtgob.md#c3"
+    char_span: [3705, 4915]
+    sentence_count: 10
+    key_terms: [everything, conversations, use, peopling, changes, context, place, app]
+    section: Comments
+    token_count: 286
 ---
-
 # If you had a tool to support you as a manager, what would it need to do?
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1sdtgob/if_you_had_a_tool_to_support_you_as_a_manager/)

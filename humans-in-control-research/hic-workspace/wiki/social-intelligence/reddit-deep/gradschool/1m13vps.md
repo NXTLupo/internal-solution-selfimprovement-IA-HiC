@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1m13vps.md
 url: "https://www.reddit.com/r/GradSchool/comments/1m13vps/the_big_beautiful_bill/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,39 @@ flair: "Finance"
 extracted_at: "2026-05-23T20:15:44.988Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1m13vps.md#c0"
+    char_span: [0, 1999]
+    sentence_count: 30
+    key_terms: [don, loans, degree, school, bill, let, gradschool, stormalynn]
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/gradschool/1m13vps.md#c1"
+    char_span: [2014, 2396]
+    sentence_count: 2
+    key_terms: [studentloanprofessor, bbb-passes, https, years, com, loan, www, additional]
+    section: Comments
+    token_count: 107
+  - id: "social-intelligence/reddit-deep/gradschool/1m13vps.md#c2"
+    char_span: [2398, 4457]
+    sentence_count: 20
+    key_terms: [students, scholarships, based, youzernayme, got, situation, current, nasfaa]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/gradschool/1m13vps.md#c3"
+    char_span: [4459, 6537]
+    sentence_count: 14
+    key_terms: [loans, private, stormalynn, student, johnapple42, everyone, students, option]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/gradschool/1m13vps.md#c4"
+    char_span: [6539, 7595]
+    sentence_count: 11
+    key_terms: [graduate, because, program, afford, failed, paced, been, debt]
+    section: Comments
+    token_count: 251
 ---
-
 # The Big Beautiful Bill
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1m13vps/the_big_beautiful_bill/)

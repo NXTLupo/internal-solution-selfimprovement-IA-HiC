@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1o8avx6.md
 url: "https://www.reddit.com/r/internships/comments/1o8avx6/has_anyone_successfully_gotten_a_music_publishing/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,22 @@ score: 3
 upvote_ratio: 1
 num_comments: 6
 flair: "Applications"
-extracted_at: "2026-05-19T17:57:20.770Z"
+extracted_at: "2026-06-03T18:52:51.185Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1o8avx6.md#c0"
+    char_span: [0, 1055]
+    sentence_count: 9
+    key_terms: [music, internships, internship, publishing, company, concord, anyone, gotten]
+    token_count: 241
+  - id: "social-intelligence/reddit-deep/internships/1o8avx6.md#c1"
+    char_span: [1070, 2498]
+    sentence_count: 8
+    key_terms: [connections, resume, because, posting, joinjukebox, hear, job, like]
+    section: Comments
+    token_count: 350
 ---
-
 # Has anyone successfully gotten a music publishing internship (especially at Concord, Sony, Warner, Disney, Amazon, or another major company)?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1o8avx6/has_anyone_successfully_gotten_a_music_publishing/)

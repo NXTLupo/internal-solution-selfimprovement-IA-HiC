@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1ser3y1.md
 url: "https://www.reddit.com/r/stocks/comments/1ser3y1/rstocks_daily_discussion_technicals_tuesday_apr/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,38 @@ flair: ""
 extracted_at: "2026-05-17T01:14:17.626Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1ser3y1.md#c0"
+    char_span: [0, 1932]
+    sentence_count: 5
+    key_terms: [https, com, news, market, stocks, streetinsider, stockcharts, technical]
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/stocks/1ser3y1.md#c1"
+    char_span: [1934, 2998]
+    sentence_count: 1
+    key_terms: [reddit, stocks, https, com, www, author, search, indicator]
+    token_count: 305
+  - id: "social-intelligence/reddit-deep/stocks/1ser3y1.md#c2"
+    char_span: [3013, 4155]
+    sentence_count: 4
+    key_terms: [congress, farrisat, idiot, sheep, fact, plan, dementia-riddled, elgrandorado]
+    section: Comments
+    token_count: 269
+  - id: "social-intelligence/reddit-deep/stocks/1ser3y1.md#c3"
+    char_span: [4157, 5720]
+    sentence_count: 8
+    key_terms: [market, going, something, bullish, "there's", happen, reddit, stocks]
+    section: Comments
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/stocks/1ser3y1.md#c4"
+    char_span: [5722, 7153]
+    sentence_count: 5
+    key_terms: [raptorsfan93849, trump, market, reddit, bears, times, empathyfabrication, good]
+    section: Comments
+    token_count: 402
 ---
-
 # r/Stocks Daily Discussion & Technicals Tuesday - Apr 07, 2026
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1ser3y1/rstocks_daily_discussion_technicals_tuesday_apr/)

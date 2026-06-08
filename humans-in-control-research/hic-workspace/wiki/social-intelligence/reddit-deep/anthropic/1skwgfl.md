@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/anthropic/1skwgfl.md
 url: "https://www.reddit.com/r/Anthropic/comments/1skwgfl/i_used_claude_to_help_me_build_an_apple_watch_app/"
 kind: "social-post"
 source: "reddit-deep: r/anthropic"
@@ -13,8 +14,45 @@ flair: "Other"
 extracted_at: "2026-05-11T17:26:51.919Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, saas, dtc]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/anthropic/1skwgfl.md#c0"
+    char_span: [0, 1849]
+    sentence_count: 13
+    key_terms: [claude, app, apple, anthropic, caffeine, native, completely, management]
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/anthropic/1skwgfl.md#c1"
+    char_span: [1864, 3761]
+    sentence_count: 8
+    key_terms: [pythononrailz, app, caffeine, lot, time, pseudorep, sensitive, awesome]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/anthropic/1skwgfl.md#c2"
+    char_span: [3763, 5033]
+    sentence_count: 12
+    key_terms: [app, took, business, store, like, llc, submission, building]
+    section: Comments
+    token_count: 286
+  - id: "social-intelligence/reddit-deep/anthropic/1skwgfl.md#c3"
+    char_span: [5035, 6828]
+    sentence_count: 12
+    key_terms: [pythononrailz, energy, reddit, apple, app, free, background, marketing]
+    section: Comments
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/anthropic/1skwgfl.md#c4"
+    char_span: [6830, 8749]
+    sentence_count: 16
+    key_terms: [pythononrailz, app, jason-griffin, swift, lemonades, marketing, software, spamming]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/anthropic/1skwgfl.md#c5"
+    char_span: [8440, 8875]
+    sentence_count: 5
+    key_terms: [codebase, swift, help, maintainable, professional, engineering, instantiate, programmer]
+    section: Comments
+    token_count: 92
 ---
-
 # I used Claude to help me build an Apple Watch app to track caffeine half life and it’s gotten 2,500 downloads and made $700 in revenue so far
 
 Source: [reddit-deep: r/anthropic](https://www.reddit.com/r/Anthropic/comments/1skwgfl/i_used_claude_to_help_me_build_an_apple_watch_app/)

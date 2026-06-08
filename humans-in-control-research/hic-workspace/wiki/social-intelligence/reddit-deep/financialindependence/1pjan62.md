@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1pjan62.md
 url: "https://www.reddit.com/r/financialindependence/comments/1pjan62/my_retired_dad_hid_650k_of_debt_from_his_family/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -6,19 +7,122 @@ subreddit: "financialindependence"
 title: "My retired dad hid $650k of debt from his family. Now he’s in a mental crisis and I’m trying to save my parents' retirement, but don't want to derail my own FIRE plans. What would you do?"
 author: "midnight-marmot"
 date: "2025-12-10T18:38:53.000Z"
-score: 239
+score: 233
 upvote_ratio: 0.83
-num_comments: 200
+num_comments: 198
 flair: ""
-extracted_at: "2026-05-16T20:55:12.702Z"
+extracted_at: "2026-06-03T19:16:52.317Z"
 extraction_method: "praw-deep"
-research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+research_goal: "Provide a strategic analysis of the ROI of financial advice for individual investors in 2026, extrapolating on this theme by integrating current trends in finance, investing, and generational behavioral shifts."
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c0"
+    char_span: [0, 2159]
+    sentence_count: 18
+    key_terms: [financialindependence, family, community, comments, retired, here, disclaimer, personally]
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c1"
+    char_span: [2161, 4257]
+    sentence_count: 29
+    key_terms: [dad, years, brother, credit, pay, everything, vacations, spending]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c2"
+    char_span: [4259, 6218]
+    sentence_count: 15
+    key_terms: [antidepressant, antipsychotic, short-term, financial, groceries, insurance, checking, spending]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c3"
+    char_span: [6220, 8508]
+    sentence_count: 25
+    key_terms: [house, parents, debt, brother, financial, live, proceeds, scenario]
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c4"
+    char_span: [8510, 10245]
+    sentence_count: 16
+    key_terms: [house, brother, parents, buy, dad, move, new, rent]
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c5"
+    char_span: [10260, 12023]
+    sentence_count: 9
+    key_terms: [dad, mom, poa, money, step, healthcare, financial, pursuing]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c6"
+    char_span: [12025, 14010]
+    sentence_count: 14
+    key_terms: [house, choices, debt, get, like, pay, rent, emergency]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c7"
+    char_span: [14012, 16204]
+    sentence_count: 14
+    key_terms: [family, little, optionality, good, budgeting, response, shopping, believe]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c8"
+    char_span: [16206, 17984]
+    sentence_count: 12
+    key_terms: [condo, always, feels, maintenance, good, loan, luxurious, suggested]
+    section: Comments
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c9"
+    char_span: [17987, 20108]
+    sentence_count: 15
+    key_terms: [debt, live, need, card, get, here, retirement, underlying]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c10"
+    char_span: [20110, 22346]
+    sentence_count: 18
+    key_terms: [loan, brokerage, house, insurance, debt, brother, secured, selling]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c11"
+    char_span: [22348, 23752]
+    sentence_count: 15
+    key_terms: [debt, need, credit, people, groceries, sometimes, interest, payments]
+    section: Comments
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c12"
+    char_span: [23754, 25957]
+    sentence_count: 19
+    key_terms: [debt, problem, spending, pay, sell, expenses, income, immediately]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c13"
+    char_span: [25959, 27909]
+    sentence_count: 25
+    key_terms: [probably, parents, experiences, don, own, step, wife, downsizing]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c14"
+    char_span: [27911, 29979]
+    sentence_count: 16
+    key_terms: [crisis, parents, time, financials, interest, brother, secrets, amount]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c15"
+    char_span: [29981, 31965]
+    sentence_count: 19
+    key_terms: [health, mental, physical, parents, please, doesn, set, current]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c16"
+    char_span: [31967, 33019]
+    sentence_count: 9
+    key_terms: [numbers, showing, anything, spending, willing, change, start, been]
+    section: Comments
+    token_count: 246
+  - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c17"
+    char_span: [33021, 34663]
+    sentence_count: 15
+    key_terms: [mom, take, get, because, months, loans, etc, like]
+    section: Comments
+    token_count: 392
 ---
-
 # My retired dad hid $650k of debt from his family. Now he’s in a mental crisis and I’m trying to save my parents' retirement, but don't want to derail my own FIRE plans. What would you do?
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1pjan62/my_retired_dad_hid_650k_of_debt_from_his_family/)
-Posted by **midnight-marmot** · **239↑** · **200 comments**
+Posted by **midnight-marmot** · **233↑** · **198 comments**
 
 **DISCLAIMER 1:**  
 This is a long post. This is *also* not AI-generated, and I am *not* a bot, but I *did* use ChatGPT to do some light copy-editing and to fix grammar. Apologies for all the em dashes. I’m using a throwaway account because I don’t want my real-life friends and acquaintances—who know my primary username—to know about my family’s sensitive situation. I’ll keep things somewhat vague and non–personally identifiable. I’m more than happy to share information to prove I am real and will be as responsive as possible in the comments. I’m simply seeking help for my family and looking to this community for opinions on the options in front of me, or to recommend options I haven’t considered.
@@ -172,9 +276,9 @@ Thank you.
 
 ## Comments
 
-- **JustPlainRude** (735↑): You're going to get a financial power of attorney over them, right? You shouldn't trust your dad with any amount of money anymore.
-  - **midnight-marmot** (126↑): Yes, I am pursuing this. I am currently named successor POA (after my Mom) but not durable unless doctors certify that he does not have mental capacity to manage money (he doesn't). We're pursuing having me step in legally as durable POA to get things stabilized. My mom is OK with it since she is clueless on how to manage finances (but she does understand the situation, just navigating financial institutions and managing money is not her thing). Instead of dad giving mom a credit card and telling her to buy whatever she wants, it's going to be me giving mom and dad cash and telling them how much they are allowed to spend and on what.
-    - **Prior-Lingonberry-70** (74↑): If your Dad is stable, wants your help, and agrees you having POA is a solid step, he can grant the POA to you, no doctors involved.
+- **JustPlainRude** (734↑): You're going to get a financial power of attorney over them, right? You shouldn't trust your dad with any amount of money anymore.
+  - **midnight-marmot** (131↑): Yes, I am pursuing this. I am currently named successor POA (after my Mom) but not durable unless doctors certify that he does not have mental capacity to manage money (he doesn't). We're pursuing having me step in legally as durable POA to get things stabilized. My mom is OK with it since she is clueless on how to manage finances (but she does understand the situation, just navigating financial institutions and managing money is not her thing). Instead of dad giving mom a credit card and telling her to buy whatever she wants, it's going to be me giving mom and dad cash and telling them how much they are allowed to spend and on what.
+    - **Prior-Lingonberry-70** (73↑): If your Dad is stable, wants your help, and agrees you having POA is a solid step, he can grant the POA to you, no doctors involved.
 
 If he disagrees...yeah, that's different .  :(
 
@@ -185,7 +289,7 @@ Editing to add: my folks granted my sibling and I both POA and HCPOA (healthcare
 My Dad still handles things on his own, but if they needed us to step in for any reason large or small (e.g. my Dad falls off a ladder and is unconscious for a week or two, or he's hit by a bus) now we can do so seamlessly and without delay.
 
 For families that have a baseline level of trust, getting these forms done *in advance* can be very helpful.  The last thing you want to be doing in an emergency is desperately going through paperwork and calling lawyers and trying to get this done, when you really need to focus on the emergency in front of you.
-    - **Majiir** (10↑): I don't know anything about this, but: If you have POA, can you buy the house from them, use that cash to pay off their debt, get their spending under control, and have them pay you rent to live in the house?
+    - **Majiir** (9↑): I don't know anything about this, but: If you have POA, can you buy the house from them, use that cash to pay off their debt, get their spending under control, and have them pay you rent to live in the house?
 
 As long as you set fair prices for the house and rent, you aren't really bailing them out of their debt. But I don't know if what I described is legal or trips over some kind of elder abuse protections.
     - **TexMom5** (1↑): Brilliant!
@@ -202,22 +306,22 @@ The budgeting will have to happen, but I can see a lot of easy hits from the lin
 I think 2C is the worst combo - it rushes big decisions, it minimizes optionality, and it ties you up in family finances for a LONG time. I would go out on a financial limb for my parents as a one-time save, but I'd think twice before being their landlord for potentially 2 decades...
 
 I'm sure others will correctly identify that option 1 is indeed a big risk on family. I don't believe that family is an automatic qualifier for help, but I also think that if you ARE in a position to help someone, your family might be the first people you'd want to use that for. $70k is a lot, but you are in good shape otherwise, and I don't think it would be a terrible idea to extend that to them if you believe that they really think they can adjust their lifestyle and come around.
-  - **Southern-Escape-7240** (46↑): Kudos to you on the thoughtful response.
+  - **Southern-Escape-7240** (49↑): Kudos to you on the thoughtful response.
   - **[deleted]** (46↑): Love this response.  I encourage any funds used to clear debts be documented as a loan to the parents.  This keeps things clear for taxes and just in case you end up needing to probate their estate before they pay you back.  
 
 Renting doesn’t always mean a condo as we have several homes for sale.  The nice thing about a condo at their age is so many come with extra services that make it feel luxurious.  And of course the lower maintenance of a condo is nice.
     - **midnight-marmot** (24↑): Yes, we would document any financial aid as a loan to our parents, to be repaid after the sale of the house. My dad suggested this himself after I suggested to him paying off his credit card debt - he certainly feels extreme guilt and shame that his son is considering bailing him out. But, we're also adamant that if circumstances change and they cannot pay us back, we would not pursue collection.
-    - **Crust-of-Capital** (10↑): Good point on documenting it as a loan rather than a gift, maybe even at a fair market interest rate, so it is as clean as possible in a potential probate case. They can always choose to forgive the loan later, but starting "clean" would be very wise.
+    - **Crust-of-Capital** (11↑): Good point on documenting it as a loan rather than a gift, maybe even at a fair market interest rate, so it is as clean as possible in a potential probate case. They can always choose to forgive the loan later, but starting "clean" would be very wise.
 
 I like the point about a condo feeling a bit more luxurious even at a lower cost. Some friends of mine sold their home and moved into a newer condo complex with tons of amenities (and a pretty high HOA fee). Not at all to my taste, but my friend loves it, he said, "I've always wanted to live in a hotel, and this feels just like that!" They use the spa, the movie room, the big fireplace and red leather chairs in the common lobby, etc. Feels fun and unique without the risk of major maintenance costs.
     - **TexMom5** (1↑): Good advice!
-- **galacticglorp** (186↑): Good news, your Dad's pension is more than enough for a decent life on its own and they don't owe more than they have in assets.  They don't have enough for their preferred lifestyle.  I would be grateful this came to light now and not 5 years from now.
+- **galacticglorp** (185↑): Good news, your Dad's pension is more than enough for a decent life on its own and they don't owe more than they have in assets.  They don't have enough for their preferred lifestyle.  I would be grateful this came to light now and not 5 years from now.
 
 
 I vote for renting.  If they truly hate living in your town, they can try your brother's.  They won't be able to take out more HELOCs.
   - **midnight-marmot** (44↑): Agree, he has a great pension and with social security, retirement income is on par with a multi million dollar portfolio. It's just that there's so much debt and his poor financial decisions intermingled in the situation, and now his mental state is a disaster. Their income is fine for a normal retirement, just need to correct the overspending and remove the debt, and get my dad thinking clearly (and NOT managing money)
-    - **aeb3** (16↑): Good luck getting them to agree to a lower budget, don't throw your money in to help until they can show that they can live without travel and perks racking up debt.
-    - **MetallicGray** (14↑): They spend 4k a month on traveling. Their main issue here isn’t even the debt, it’s their spending habits and behavior. 
+    - **aeb3** (14↑): Good luck getting them to agree to a lower budget, don't throw your money in to help until they can show that they can live without travel and perks racking up debt.
+    - **MetallicGray** (13↑): They spend 4k a month on traveling. Their main issue here isn’t even the debt, it’s their spending habits and behavior. 
 
 They need to practice basic budgeting. They could live off 9500/mo with that debt payment and live comfortable while paying down their debt. 
 
@@ -228,7 +332,7 @@ If I can live on 3k a month in one of the highest COL cities, your retired paren
 Yes, the house is a get out of jail free card here, but clearly there’s some lifestyle, behavior, and spending that needs to drastically change. Otherwise, they end up right back here again.
 
 One of the biggest red flags is that *manicures* is lumped in with utilities in their budget. They need to discern wants from *needs* and learn basic budgeting at this point, not just a get out of jail free card.
-    - **branstad** (5↑): As I think you're aware, there is a two-part problem: the debt that has been accrued and the underlying behaviors that led to this point. For the first:
+    - **branstad** (6↑): As I think you're aware, there is a two-part problem: the debt that has been accrued and the underlying behaviors that led to this point. For the first:
 
 > It's just that there's so much debt 
 
@@ -253,7 +357,7 @@ Speaking of your brother, I think you need to make sure he's on engaged in findi
 I think selling the house is likely part of that path forward, but could be done thoughtfully  next spring. For future living arrangements, I would suggest starting with a rental near you or your brother. Given your parents remaining assets after a sale of the house, finding a nice apartment - maybe in an independent senior living complex - would be fiscally reasonable. 
 
 Best of luck dealing with a challenging (but not unsolvable) situation.
-  - **MetallicGray** (14↑): The dad makes double on a pension was I make in one of the highest COL cities… 4k on traveling *a month*?? Jesus man. OP has *manicures* lumped in with utilities??
+  - **MetallicGray** (16↑): The dad makes double on a pension was I make in one of the highest COL cities… 4k on traveling *a month*?? Jesus man. OP has *manicures* lumped in with utilities??
 
 They don’t need crazy financial overhaul, they just need to learn basic budgeting. 
 
@@ -265,16 +369,16 @@ These people need to address their behavior and spending, not just sell their ho
 
 They need to budget, not sell their house.
     - **TexMom5** (2↑): Sometimes people aren’t responsible about money, but sometimes they’re starting to have failing faculties. It’s a slippery slope. And this probably should be assessed.
-- **[deleted]** (288↑): You have to stop the bleeding, if you bail them out, they will dig a new hole. How are they going to live on the income they have? Solve that riddle,  THEN consider a bail out.
-  - **Junior_Fig_1007** (68↑): Yes. However, the credit card debt is something that may need to be zeroed out sooner. That interest rate is too high to continue rolling over. Not sure about the specific calculations, but if it's 20%/12 * 90k, they'd need to spend $1,500/month just on interest payments to stop it from accruing.
+- **[deleted]** (285↑): You have to stop the bleeding, if you bail them out, they will dig a new hole. How are they going to live on the income they have? Solve that riddle,  THEN consider a bail out.
+  - **Junior_Fig_1007** (69↑): Yes. However, the credit card debt is something that may need to be zeroed out sooner. That interest rate is too high to continue rolling over. Not sure about the specific calculations, but if it's 20%/12 * 90k, they'd need to spend $1,500/month just on interest payments to stop it from accruing.
 
 Edit: On second read, if they can zero out the CC and if the remaining $560,000 is mortgage debt, aren't they in a high debt but somewhat manageable situation (if they can cut out the wild side spending)? $9500/month after-tax should be enough to service that mortgage though it is still pretty high.
-  - **midnight-marmot** (42↑): Agreed. The bailout only works if the spending problem is fixed. We've already stopped discretionary spending and started eliminating unneeded recurring expenses. Canceled/refunded bookings for an upcoming vacation, etc. I have drafted two budgets, one that goes into effect immediately until the house is sold (no travel, no shopping, no eating out -> focus on debt repayment and the project of selling/relocating), and one that goes into effect when they sell/pay of their remaining debt that returns them to a standard of living closer to (but not nearly as extravagant as) what they have now (to serve as a motivator to sell/get out of debt ASAP)
+  - **midnight-marmot** (40↑): Agreed. The bailout only works if the spending problem is fixed. We've already stopped discretionary spending and started eliminating unneeded recurring expenses. Canceled/refunded bookings for an upcoming vacation, etc. I have drafted two budgets, one that goes into effect immediately until the house is sold (no travel, no shopping, no eating out -> focus on debt repayment and the project of selling/relocating), and one that goes into effect when they sell/pay of their remaining debt that returns them to a standard of living closer to (but not nearly as extravagant as) what they have now (to serve as a motivator to sell/get out of debt ASAP)
     - **Limp_Dragonfly3868** (42↑): What about having them take a distribution from the brokerage to pay off the credit card debt?  To me, the glaring problem is that they aren’t using their own money to pay their bills. 
 
 They have a lot of money.
     - **CT_7** (2↑): Seems like Dave Ramsey plan would work perfectly in this situation. Heard many examples like this on his show and you/they should also. I don't agree with you taking over though. Your mom should be in charge then you check in now and then and get a professional. Need to cut up the credit cards immediately and sell the house and get on a strict cash budget. This is a behavior problem.
-  - **Scoutmaster-Jedi** (7↑): This. They have enough income to retire comfortably. The problem is primarily lifestyle. They must change lifestyle to drastically reduce expenses, then sell assets to pay off debt.
+  - **Scoutmaster-Jedi** (9↑): This. They have enough income to retire comfortably. The problem is primarily lifestyle. They must change lifestyle to drastically reduce expenses, then sell assets to pay off debt.
 - **safbutcho** (83↑): Let’s start with some facts. 
 
 If you remove the debt and they stop: 
@@ -298,10 +402,10 @@ Then revisit next year.
 But let’s be very clear - if they don’t acknowledge step 1 and agree that there’s a problem that needs fixing, then you’re all in a world of hurt. 
 
 Good luck.
-- **garoodah** (50↑): Realistically, your parents can get out of this situation on their own and they really should consider downsizing just due to their age. That SS/Pension combo is powerful, their monthly spending seems insane, and they clearly lived above means for too long and need to cut back. Its not like they need to make drastic cuts either, they arent beholden to 4% swr necessarily like you would plan. 
+- **garoodah** (54↑): Realistically, your parents can get out of this situation on their own and they really should consider downsizing just due to their age. That SS/Pension combo is powerful, their monthly spending seems insane, and they clearly lived above means for too long and need to cut back. Its not like they need to make drastic cuts either, they arent beholden to 4% swr necessarily like you would plan. 
 
 If you do feel compelled to help, 2&C probably makes the most sense with them covering property taxes/utilities on the property for the time they live there.
-- **sloth_333** (70↑): I mean it’s not good, and I skimmed most of the post, but it’s not really a financial crisis (certainly a mental health one).  Your parents have options.  Biggest one is probably selling the house and downsizing.
+- **sloth_333** (73↑): I mean it’s not good, and I skimmed most of the post, but it’s not really a financial crisis (certainly a mental health one).  Your parents have options.  Biggest one is probably selling the house and downsizing.
 
 I can provide some of my own (recent experiences) with this and my advice:
 
@@ -321,16 +425,16 @@ Good luck
   - **dennisgorelik** (1↑): >I tell my wife all the financials and show her it all. No secrets. (She hates this stuff ).
 
 Does your wife hate secrets or hates when you tell her all the financials?
-- **513-throw-away** (177↑): This isn’t even a crisis. This is stale upper middle class drama. 
+- **513-throw-away** (174↑): This isn’t even a crisis. This is stale upper middle class drama. 
 
 Sell the house, use that to pay off the debt, and finally downsize their living.
-  - **nuttedpre** (104↑): The only crisis is they will have to cut their international vacations from 10x a year to 3
-  - **hokageace** (46↑): Yup. Does not even qualify for any description of crisis. They have so many options to deal with it before the cherry on top of the kids helping.
+  - **nuttedpre** (105↑): The only crisis is they will have to cut their international vacations from 10x a year to 3
+  - **hokageace** (45↑): Yup. Does not even qualify for any description of crisis. They have so many options to deal with it before the cherry on top of the kids helping.
 
 OP - make sure your dad gets the mental help he needs. Involve him in all the decision making as much as possible so he doe not feel a burden or helpless. Other than that, he needs be ok to give up financial spending control. At least until he shows he he can manage it.
 
 Your parents are lucky to have you and your brother.
-  - **NorthLondoner1976** (23↑): These people have no clue about real world problems do they FML
+  - **NorthLondoner1976** (22↑): These people have no clue about real world problems do they FML
 - **Most_Manufacturer_78** (30↑): Something I don’t see in your thinking here would be consolidating the credit card debt on a 0% interest card. That lets you buy time without digging the hole deeper (at least from an interest rate perspective) while you figure out what you want to do. 
 
 Those usually have a limited term, but if your parents can make some immediate budget cuts (I’d put them on what Tiffany Aliche refers to as their ramen noodle budget) and start paying down the amount, you might be able to sell in the summer at a more favorable time and give them some space to resolve the mental health crisis. Adding moving on top of an already fraught situation may not be the best thing for your dad. 
@@ -355,9 +459,9 @@ I see a few viable ways to solve the immediate problem in your ideas, but not to
 Your dad isn’t going to be himself for a while, so start with your mom. 1. Basic financial education. 2. Showing her their recent spending numbers. 3. Showing her what the numbers look like for people reasonably living on $9500/mo, which is way higher than the national average, so nothing to sneeze at, but a significant change for her, and the extravagent life she’s become used to. 4. Show her the options for dealing with their debt, and get her to brainstorm with you, figure out pros and cons, etc  
 
 I think if you get your mom really involved in her own finances, and get her buyin for whatever plan, this will all go much better. Plan to take several months for those steps with your mom. Remember, this is actually not an emergency. They’ve got $ in the bank, $ coming in, etc. Of course, lock their credit so neither of them can take out any more loans, and take away all of their cards so they stop spending more. Your mom will have to spend a few months figuring out how normal living works. Like, for 2 people, groceries can easily be $600/mo, and no restaurants. However, that’s going to be a shock to her when she’s used to burning through that much in a week for food. It’s a whole new way of thinking .
-  - **Mego1989** (15↑): UTIs can cause symptoms like this in the elderly.
-    - **ThrowawayLDS_7gen** (5↑): And get his kidney function tested!!!
-  - **idreamofchickpea** (8↑): This is great advice. Absent a serious cognitive issue, mom has to learn the basics of financial management - at the very least, she needs to know how much money is or isn’t in the accounts. Maybe it is humiliating to do this in your seventies for the first time, but it will ultimately be empowering to be in charge of her own life.
+  - **Mego1989** (16↑): UTIs can cause symptoms like this in the elderly.
+    - **ThrowawayLDS_7gen** (7↑): And get his kidney function tested!!!
+  - **idreamofchickpea** (9↑): This is great advice. Absent a serious cognitive issue, mom has to learn the basics of financial management - at the very least, she needs to know how much money is or isn’t in the accounts. Maybe it is humiliating to do this in your seventies for the first time, but it will ultimately be empowering to be in charge of her own life.
 
 Definitely refund your parents for the plus loans, though.
   - **Judiva55** (3↑): You are absolutely correct here. I was my mom’s caregiver from beginning to end and the physical part can manifest itself in many different ways. Glad you’re looking out because it’s difficult and they and you have options. Best of luck and take pictures of everything, insurances, id’s, identifications, etc because you will need it.

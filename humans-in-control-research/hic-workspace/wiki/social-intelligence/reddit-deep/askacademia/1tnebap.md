@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1tnebap.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1tnebap/cutting_ties_with_former_phd_supervisor/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,56 @@ flair: "Interpersonal Issues"
 extracted_at: "2026-05-26T14:32:49.117Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1tnebap.md#c0"
+    char_span: [0, 2380]
+    sentence_count: 16
+    key_terms: [been, student, several, given, askacademia, phd, supervisor, university]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/askacademia/1tnebap.md#c1"
+    char_span: [2382, 2897]
+    sentence_count: 4
+    key_terms: [interested, colleague, email, feel, appreciated, situations, supervisor, academic]
+    token_count: 112
+  - id: "social-intelligence/reddit-deep/askacademia/1tnebap.md#c2"
+    char_span: [2912, 3845]
+    sentence_count: 10
+    key_terms: [decline, direct, having, opposite-bonus-1413, plate, right, "it's", like]
+    section: Comments
+    token_count: 256
+  - id: "social-intelligence/reddit-deep/askacademia/1tnebap.md#c3"
+    char_span: [3847, 5952]
+    sentence_count: 16
+    key_terms: [advisor, external, letter, reason, comfortable, candidate, colleague, situation]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/askacademia/1tnebap.md#c4"
+    char_span: [5954, 7954]
+    sentence_count: 6
+    key_terms: [work, authorship, icmje, defining-the-role-of-authors-and-contributors, following, roles-and-responsibilities, criteria, students]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/askacademia/1tnebap.md#c5"
+    char_span: [7956, 10015]
+    sentence_count: 5
+    key_terms: [authorship, contributions, general, acquisition, criteria, editing, administrative, investigators]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/askacademia/1tnebap.md#c6"
+    char_span: [10017, 10903]
+    sentence_count: 6
+    key_terms: [authorship, supervisor, research, "don't", grant, oldengoldentree, administrative, departmental]
+    section: Comments
+    token_count: 184
+  - id: "social-intelligence/reddit-deep/askacademia/1tnebap.md#c7"
+    char_span: [10905, 12500]
+    sentence_count: 9
+    key_terms: ["it's", supervisor, others, phd, required, because, author, common]
+    section: Comments
+    token_count: 349
 ---
-
 # Cutting ties with former PhD supervisor
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1tnebap/cutting_ties_with_former_phd_supervisor/)

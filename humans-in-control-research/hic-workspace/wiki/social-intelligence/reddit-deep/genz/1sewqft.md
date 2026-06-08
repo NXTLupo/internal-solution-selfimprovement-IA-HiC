@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1sewqft.md
 url: "https://www.reddit.com/r/GenZ/comments/1sewqft/psa_save_money_and_cook_from_home/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,39 @@ flair: "Other"
 extracted_at: "2026-05-17T01:11:40.763Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1sewqft.md#c0"
+    char_span: [0, 1875]
+    sentence_count: 14
+    key_terms: [food, people, money, save, definitely, especially, expensive, comments]
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/genz/1sewqft.md#c1"
+    char_span: [1890, 2731]
+    sentence_count: 5
+    key_terms: [throwaway2026z, discord, please, bratwithfreckles, followtheleads, automatically, automoderator, alextricity]
+    section: Comments
+    token_count: 235
+  - id: "social-intelligence/reddit-deep/genz/1sewqft.md#c2"
+    char_span: [2733, 3652]
+    sentence_count: 5
+    key_terms: [recipes, something, posting, entire, cook, good, "it's", life]
+    section: Comments
+    token_count: 281
+  - id: "social-intelligence/reddit-deep/genz/1sewqft.md#c3"
+    char_span: [3654, 5589]
+    sentence_count: 12
+    key_terms: [food, learning, bizarrealex, bell, cook, fast, look, taco]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/genz/1sewqft.md#c4"
+    char_span: [5298, 6197]
+    sentence_count: 8
+    key_terms: [week, saving, money, spend, eat, life, pleasseeeeeee, flammableice]
+    section: Comments
+    token_count: 233
 ---
-
 # PSA: Save money and cook from home!
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1sewqft/psa_save_money_and_cook_from_home/)

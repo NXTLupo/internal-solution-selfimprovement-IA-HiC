@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1mic0t8/im_about_to_enter_this_world_should_i_rethink_it/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,108 @@ subreddit: "cscareerquestions"
 title: "I'm about to enter this world. Should I rethink it?"
 author: "ThisBee6288"
 date: "2025-08-05T15:17:40.000Z"
-score: 85
+score: 86
 upvote_ratio: 0.73
 num_comments: 172
 flair: ""
-extracted_at: "2026-05-26T14:31:41.267Z"
+extracted_at: "2026-06-06T13:04:13.559Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c0"
+    char_span: [0, 847]
+    sentence_count: 10
+    key_terms: [cscareerquestions, programming, "i'm", job, comments, career, market, being]
+    token_count: 212
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c1"
+    char_span: [862, 2141]
+    sentence_count: 10
+    key_terms: [hours, programming, like, computers, because, people, "don't", world]
+    section: Comments
+    token_count: 290
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c2"
+    char_span: [2143, 4294]
+    sentence_count: 22
+    key_terms: ["it's", programming, job, time, school, get, like, projects]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c3"
+    char_span: [4296, 5777]
+    sentence_count: 10
+    key_terms: [job, people, get, employment, graduation, probably, market, though]
+    section: Comments
+    token_count: 340
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c4"
+    char_span: [5779, 7777]
+    sentence_count: 14
+    key_terms: [job, like, market, internship, cscareerquestions, applications, field, bad]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c5"
+    char_span: [7779, 9897]
+    sentence_count: 24
+    key_terms: [job, sub, career, careers, people, been, experience, generally]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c6"
+    char_span: [9899, 11821]
+    sentence_count: 17
+    key_terms: [people, software, trades, engineers, pay, engineering, hard, highly]
+    section: Comments
+    token_count: 405
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c7"
+    char_span: [11823, 14021]
+    sentence_count: 16
+    key_terms: [experience, people, loves, startup, recommend, growing, groups, likely]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c8"
+    char_span: [14023, 16328]
+    sentence_count: 21
+    key_terms: [always, roughly, significantly, been, get, told, understand, difficult]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c9"
+    char_span: [16330, 18562]
+    sentence_count: 34
+    key_terms: [learn, college, don, work, majors, cloud, field, comfortable]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c10"
+    char_span: [18564, 20334]
+    sentence_count: 19
+    key_terms: [jesta1215, industry, point, experience, rewritten, keeping, science, advice]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c11"
+    char_span: [20336, 21998]
+    sentence_count: 14
+    key_terms: [market, get, people, students, always, comfortable-insect-7, comes, going]
+    section: Comments
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c12"
+    char_span: [22000, 23661]
+    sentence_count: 14
+    key_terms: [get, because, degree, knows, years, "it's", companies, getting]
+    section: Comments
+    token_count: 391
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c13"
+    char_span: [23663, 25356]
+    sentence_count: 11
+    key_terms: [big, definitely, graduates, frontend, "would've", backend, towards, coding]
+    section: Comments
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c14"
+    char_span: [25358, 26480]
+    sentence_count: 17
+    key_terms: [enjoy, already, rethink, people, considerationtiny511, best, don, good]
+    section: Comments
+    token_count: 271
 ---
-
 # I'm about to enter this world. Should I rethink it?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1mic0t8/im_about_to_enter_this_world_should_i_rethink_it/)
-Posted by **ThisBee6288** · **85↑** · **172 comments**
+Posted by **ThisBee6288** · **86↑** · **172 comments**
 
 I'm 19 and aiming on getting a CS bachelor degree. I like programming and had finally decided on formally studying it in hopes of it being my professional career. 
 
@@ -31,17 +121,17 @@ Besides programming I don't really know what else to study.
 
 ## Comments
 
-- **netopiax** (204↑): If you actually like programming you will, in the long run, be fine. Part of the problem - a big part, IMO - is that there have been too many people chasing CS degrees for money and not because they like computers & software. These are people who will burn out quickly in the professional world and/or just not be able to land a job because employers can sense their lack of motivation / passion. 
+- **netopiax** (199↑): If you actually like programming you will, in the long run, be fine. Part of the problem - a big part, IMO - is that there have been too many people chasing CS degrees for money and not because they like computers & software. These are people who will burn out quickly in the professional world and/or just not be able to land a job because employers can sense their lack of motivation / passion. 
 
 I was 19 studying computer science when the dot-com bust happened. Things turned out fine for me. The CS world is changing rapidly, as it always has, but I don't believe the need for engineering talent is really going to decrease in the future.
-  - **Robdyson** (35↑): I love computers and tech, I hate my SWE career. I rather it wasn't a 40 hours a week job. And something interesting I actually don't enjoy programming. I love pushing compile and things working out though :) so dilemma gang.
-    - **met0xff** (10↑): I found myself to over the years becoming more motivated by the goal and less by the way to the goal.
+  - **Robdyson** (36↑): I love computers and tech, I hate my SWE career. I rather it wasn't a 40 hours a week job. And something interesting I actually don't enjoy programming. I love pushing compile and things working out though :) so dilemma gang.
+    - **met0xff** (11↑): I found myself to over the years becoming more motivated by the goal and less by the way to the goal.
 The typing itself annoys me and while 10+ years back searching a Heisenbug but a couple hours and finding it made me feel great, nowadays it just feels like I wasted hours of my life on some minor detail instead of getting things done.
 
 But that's fine, it's natural for many to go into more strategic roles over time.
     - **netopiax** (2↑): Maybe a different aspect of tech would be more interesting for you then? IT architect at a bank? Devops? Install fancy home wifi networks in mansions? Idk but OP said they like programming, you're saying you don't.
-  - **informed_expert** (6↑): I was in high school back in 2003 after the dot com bust, and had staff members warning about all the outsourcing to India that would threaten my job prospects.  But I really enjoyed programming and would make random projects in my free time for fun.  I took CS in college and they were usually my favorite classes and I enjoyed those as well.  It all worked out in the end.  Now I hear some of the same doom and gloom atmosphere that I remember from high school, but I think it's cyclical and will pass.
-  - **throwaway_losan** (5↑): And it's not like you have to be obsessed with programming either, i.e. do it on your free time as a hobby. As long as you have an inquisitive mind and enjoy problem solving, this field can be enjoyable. If you make apps or have passion projects, that's great. 
+  - **informed_expert** (5↑): I was in high school back in 2003 after the dot com bust, and had staff members warning about all the outsourcing to India that would threaten my job prospects.  But I really enjoyed programming and would make random projects in my free time for fun.  I took CS in college and they were usually my favorite classes and I enjoyed those as well.  It all worked out in the end.  Now I hear some of the same doom and gloom atmosphere that I remember from high school, but I think it's cyclical and will pass.
+  - **throwaway_losan** (6↑): And it's not like you have to be obsessed with programming either, i.e. do it on your free time as a hobby. As long as you have an inquisitive mind and enjoy problem solving, this field can be enjoyable. If you make apps or have passion projects, that's great. 
 
 The job market is competitive for entry level, but if you do it the right way and are a decent student, it's not too bad to get an entry level job. Many have one lined up before they even graduate. But the key is to get an internship during school. Do well in classes, apply for internships, and try to land a full-time job with that. Then get 1-2 years of full time experience, you should be set.
 
@@ -59,8 +149,8 @@ Hopefully the market improves in a few years, most of my classmates are working 
   - **Cuong_Nguyen_Hoang** (2↑): Your ideas are good motivation though - but as Keynes said: "In the long run, we are all dead".
 
 Probably he should prepare and make contingencies for when he could not find a job after graduation though, since as people commented earlier, market forces would still determine whether you get a job or not.
-  - **UltGamer07** (3↑): 10000% , would give an award if I could
-  - **NewSchoolBoxer** (3↑): I see the daily posts here. Plenty of people who like coding and going into CS with no job 6 months after graduation. You can't just say they will be fine in the long run. I agree with everyone else you said. People just in it for false belief of easy money will get burnt out or not pass job interviews. Then there's delusional bootcamp or self-study camp thinking lack of degree doesn't matter but seems like a small group these days.
+  - **UltGamer07** (4↑): 10000% , would give an award if I could
+  - **NewSchoolBoxer** (4↑): I see the daily posts here. Plenty of people who like coding and going into CS with no job 6 months after graduation. You can't just say they will be fine in the long run. I agree with everyone else you said. People just in it for false belief of easy money will get burnt out or not pass job interviews. Then there's delusional bootcamp or self-study camp thinking lack of degree doesn't matter but seems like a small group these days.
 
 More like, they can succeed but no guarantee. Job market not looking less crowded in 4-5 years. We all know the best chance of employment is landing an internship or co-op before graduation. Quite a few posts like this of [over 15,000 applications](https://www.reddit.com/r/cscareerquestions/comments/1lorlft/outsider_looking_in_is_it_normal_to_have_15000/) for a single in-person internship in Boston with low pay. Comment in there mentions internship at no name company getting [over 6,000 applications](https://www.reddit.com/r/cscareerquestions/comments/1lm0c5z/lmao/). Can guess half aren't studying CS or are even in college but doesn't help much.
   - **M4K1M4** (3↑): Bad take. I love tech, computers and software. Sadly interviews are too far from the real stuff that I do so now I just hate this career.
@@ -68,24 +158,24 @@ More like, they can succeed but no guarantee. Job market not looking less crowde
 
 I think it'll be good to see negative ones and positive ones and then from those, the op can evaluate if it's something they still want to pursue.
   - **TopNo6605** (2↑): You don't have to like your job to be good or excel at it.
-- **OccasionalGoodTakes** (196↑): You’re posting on a subreddit occupied by mostly those who have never held a job in the field, or are unemployed as is. Do not use this subreddit to gain insight, ask someone in your personal life or go to a schools career center.
-  - **[deleted]** (60↑): Completely agree. I'm 10YOE staff eng / sometimes eng manager and I occasionally drive by this sub and cringe.
-    - **Smart_Owl_9395** (-4↑): so what is the real situation like in ur opinion? is job market as bad as they say?
-  - **[deleted]** (24↑): This comment is pretty dumb.
+- **OccasionalGoodTakes** (199↑): You’re posting on a subreddit occupied by mostly those who have never held a job in the field, or are unemployed as is. Do not use this subreddit to gain insight, ask someone in your personal life or go to a schools career center.
+  - **[deleted]** (64↑): Completely agree. I'm 10YOE staff eng / sometimes eng manager and I occasionally drive by this sub and cringe.
+    - **Smart_Owl_9395** (-5↑): so what is the real situation like in ur opinion? is job market as bad as they say?
+  - **[deleted]** (23↑): This comment is pretty dumb.
 
 As a SWE in the field myself i can only speak about my job.
 
 However, these people here who have not had a job in the field or are unemployed are MORE qualified to speak on the job market because they are actively trying to ENTER the job market.
 
 Yes the negativity at this sub sucks but it sucks because its true. No one is trying to sugar coat anything here
-    - **microwavedHamster** (6↑): Thing is, this sub tends to attract people who haven’t been able to enter the market for various reasons. Those who have managed to do so generally don’t post here.
-  - **EnderMB** (7↑): Honestly, this should be the pinned comment on every post in this sub. Some of the advice I see on this sub frightens me.
+    - **microwavedHamster** (7↑): Thing is, this sub tends to attract people who haven’t been able to enter the market for various reasons. Those who have managed to do so generally don’t post here.
+  - **EnderMB** (8↑): Honestly, this should be the pinned comment on every post in this sub. Some of the advice I see on this sub frightens me.
   - **Stir_Up** (2↑): Yeah, message software engineers on LinkedIn and ask them if they’re open to a quick networking chat. Ask them if they enjoy their job, what they do, etc. Do NOT use reddit for career advice, or almost 90% of things.
   - **StoicallyGay** (1↑): Honestly school career centers would not even know. Tech is changing that rapidly. Unless they’re like 1 month up to date of course.
-  - **minegen88** (-5↑): You don't understand. I have been in the business for 89 years and it's never been like this before. Also i am a AI expert. Everyone will be replaced very soon. Trust me. I just made a todo app using ai. We are finished. 
+  - **minegen88** (-2↑): You don't understand. I have been in the business for 89 years and it's never been like this before. Also i am a AI expert. Everyone will be replaced very soon. Trust me. I just made a todo app using ai. We are finished. 
 
 PS please buy Claude Pro
-- **ProbablyANoobYo** (15↑): I’ve got about 10 years of experience. I’ll warn that to someone with my level of experience it’s obvious that this sub is full of people who are barely into their career, and people who have done very little research into other careers.
+- **ProbablyANoobYo** (16↑): I’ve got about 10 years of experience. I’ll warn that to someone with my level of experience it’s obvious that this sub is full of people who are barely into their career, and people who have done very little research into other careers.
 
 I can get another job easily even in this economy. It would be hard to get a job that pays as much as my current job does, but I’d still be making at least $180k. There’s very, very few other careers that can say something similar short of becoming a doctor. The reality is that becoming a software engineer is still one of your best options.
 
@@ -121,7 +211,7 @@ I can’t speak to the literal pay numbers, especially because for higher paying
 A colleague of mine asked about relocating to Spain and was told her TC would go from roughly $300k to roughly $160k. That’s the only roughly concrete numbers I know.
 
 From what I understand, the pay offers aren’t much lower then before, maybe like 10-15% at the higher end, but the issue is more there are less opportunities available and more competition for them.
-- **jesta1215** (20↑): I’m a software engineer with 19 years work experience. There will always be a need for software engineers as technology progresses. 
+- **jesta1215** (21↑): I’m a software engineer with 19 years work experience. There will always be a need for software engineers as technology progresses. 
 
 Here are the things you need to know, not immediately but keep them in mind:
 
@@ -159,24 +249,24 @@ Also, stats show that about 1 in 4 recent college grads of CS majors are either 
 You seriously need to rethink going into this major. I would recommend choosing another one that will actually lead to a reasonable chance of getting a job. Going into a top 10 major for unemployment is not a smart financial decision. Especially given that your college student loans can not be bankrupted.
   - **[deleted]** (1↑): Any advise on how you view data science as an career options? And im not including MLE in DS.
     - **jesta1215** (1↑): Unfortunately I don’t know anything about data science, so I can’t really help there. I’m sorry :(
-  - **Subnetwork** (-7↑): The entire industry is being rewritten right now, and this is the advice you give? 10 years are you kidding me? Are you keeping up with the newer models? Look up Genie 2 vs 3. Things are accelerating.
+  - **Subnetwork** (-6↑): The entire industry is being rewritten right now, and this is the advice you give? 10 years are you kidding me? Are you keeping up with the newer models? Look up Genie 2 vs 3. Things are accelerating.
 
 If you’d gave this advice 2-3 years ago Idd agreed, hell, maybe a year ago.
     - **jesta1215** (5↑): Thanks for taking one point out of many and nitpicking. 
 
 I think you understand the point I was making, yes? That you need to be keeping up with latest trends in this industry, unlike many other industries. That it’s not enough to learn CS concepts and a language.
-    - **jesta1215** (6↑): And no, the entire industry isn’t being rewritten. This is just the new hot thing, just like blockchain was before it. Granted, this has much bigger impact, but the point remains. 
+    - **jesta1215** (7↑): And no, the entire industry isn’t being rewritten. This is just the new hot thing, just like blockchain was before it. Granted, this has much bigger impact, but the point remains. 
 
 Engineers will always be needed. LLMs are not the end of critical thinking nor problem solving.
-- **EuroCultAV** (36↑): Yes. It's hard to get a job if you have over a decade of experience,  paying for a degree, and coming out with just that experience makes it an uphill battle.
+- **EuroCultAV** (38↑): Yes. It's hard to get a job if you have over a decade of experience,  paying for a degree, and coming out with just that experience makes it an uphill battle.
 - **Broad-Cranberry-9050** (62↑): I might advise against reading reddit. Many people here are the ones who like to doompost and comment. 
 
 Yes the market is not grerat right now, but the market always goes through highs and lows. Honestly I think now is the best time to start college for a CS degree because the market is low on it, it will detract people from going into the major and in 4 years, the market will get better, that's just how these things work, there may be a shitload of jobs and not that much competition for you. 
 
 When it comes to the market, the best time to get in is when people are to scared to get in. There is too much recency bias when it comes to the market. In 2021 people were acting like that boom was never going to end. ANd it did and the market reacted to that and now it's currentlyh trying to regulate itself back to the new normal.
-  - **Skaar1222** (14↑): Not to mention the high percentage of students who will us LLMs as a crutch and not actually learn the fundamentals. If OP puts an honest effort into his studies, he could have a significant edge over other recent graduates.
-    - **no-sleep-only-code** (5↑): Couldn’t agree more. Many of the students in my class barely got by as it was, with ChatGPT I can imagine it’s a lot worse.
-  - **Comfortable-Insect-7** (5↑): The market will never recover stop giving false hope
+  - **Skaar1222** (16↑): Not to mention the high percentage of students who will us LLMs as a crutch and not actually learn the fundamentals. If OP puts an honest effort into his studies, he could have a significant edge over other recent graduates.
+    - **no-sleep-only-code** (6↑): Couldn’t agree more. Many of the students in my class barely got by as it was, with ChatGPT I can imagine it’s a lot worse.
+  - **Comfortable-Insect-7** (4↑): The market will never recover stop giving false hope
   - **Wizywig** (2↑): \+1 to this. Also it is impossible to accurately chase trends as tech and other things will change. Just know the path will not always be straightforward.
 
 You might not get to become a web developer, you might need to get good at AI coding. Who knows. Example is, AI is being pushed to replace many functions of doctors. So who knows what'll happen in 10 years when you get your ability to practice on your own.
@@ -196,13 +286,13 @@ but also listen to this piece of advice....
 - **_ceejaydee** (5↑): YMMV, but just speaking from my experience I wish that I had gone down a different path. For background, I'm a FAANG engineer with 1.5 YOE; got an internship in 2022 toward the end of the big boom and got the return offer. Right now I feel very much stuck at my current role because it's basically the ONLY option I have (it's not gonna stop me from continuing to apply though! 😎).
 
 I definitely caved into the CS influencers which was a big mistake. Had I known that it would've been hit as hard as it did, I would've gone into something else (probably medical or another engineering discipline). I will say that I do love coding, and a huge caveat is that I love frontend coding but don't care too much about being hands-on with backend/ML. The market is catered towards backend/ML and honestly wouldn't be surprised if frontend engineers specifically gets hit even more. So, as other people have commented, if you truly are passionate and dedicate yourself to fundamentals (use AI as a TOOL, not a solution!), then it will definitely pay off. I'm someone who is big in the life part of WLB, and I can say that this field doesn't really cater towards those type of people.
-- **untetheredgrief** (17↑): I will tell you what I told CS students 20 years ago:
+- **untetheredgrief** (18↑): I will tell you what I told CS students 20 years ago:
 
 If you live in a western country like the United States, there is still room for Computer Science graduates.  But understand this:  All the low-hanging fruit is being offshored, and now AI looms.  There isn't much room for poor or mediocre CS graduates.
 
 You need to be the top of your game.  Best of the best.  Cream of the crop.
-- **GeuseyBetel** (15↑): Don’t do it unless you’re VERY passionate about CS. If you just enjoy it, that’s not enough. Do a traditional engineering discipline. They are hiring civil engineers like crazy… comfy government jobs with good benefits.
-- **Joaaayknows** (11↑): No you should not rethink it if you actually enjoy it. Don’t let these internet voices sway you with doom and gloom. Do what you want to do with your life.
+- **GeuseyBetel** (16↑): Don’t do it unless you’re VERY passionate about CS. If you just enjoy it, that’s not enough. Do a traditional engineering discipline. They are hiring civil engineers like crazy… comfy government jobs with good benefits.
+- **Joaaayknows** (12↑): No you should not rethink it if you actually enjoy it. Don’t let these internet voices sway you with doom and gloom. Do what you want to do with your life.
 
 Start with the end goal in mind. I’d like you to write down what the perfect candidate for your dream job graduating this year has on their resume. 
 

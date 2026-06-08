@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1rt3tmz.md
 url: "https://www.reddit.com/r/NEU/comments/1rt3tmz/i_got_in_but_now_i_have_so_many_questions/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,33 @@ score: 10
 upvote_ratio: 0.81
 num_comments: 13
 flair: "Global & Study Abroad"
-extracted_at: "2026-05-19T17:57:09.045Z"
+extracted_at: "2026-06-05T17:08:22.601Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1rt3tmz.md#c0"
+    char_span: [0, 222]
+    sentence_count: 2
+    key_terms: [comments, neu, ok-banana-2859, reddit-deep, questions, posted, reddit, source]
+    token_count: 74
+  - id: "social-intelligence/reddit-deep/neu/1rt3tmz.md#c1"
+    char_span: [224, 2484]
+    sentence_count: 19
+    key_terms: [northeastern, aid, estimated, financial, cost, circumstances, realistically, contribution]
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/neu/1rt3tmz.md#c2"
+    char_span: [2499, 4653]
+    sentence_count: 13
+    key_terms: [aid, slow-employment8774, usually, ok-banana-2859, unsubsidized, "don't", loans, like]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/neu/1rt3tmz.md#c3"
+    char_span: [4375, 6481]
+    sentence_count: 18
+    key_terms: [aid, financial, get, because, captain-marmot, ok-banana-2859, circumstances, major]
+    section: Comments
+    token_count: 505
 ---
-
 # I GOT IN!! BUT NOW I HAVE SO MANY QUESTIONS
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1rt3tmz/i_got_in_but_now_i_have_so_many_questions/)
@@ -58,11 +81,11 @@ Would really appreciate hearing from anyone who has gone through this process or
 
 - **Slow-Employment8774** (9↑): Total cost won’t go down, but co-ops help pay year by year because you essentially have 4-6 months to catch up and save up, in case that helps.
   - **Ok-Banana-2859** (3↑): Is that something I should worry about onve I commit or should I work on that right now?
-    - **Slow-Employment8774** (6↑): You can’t apply for co-op until you’re enrolled in a co-op class and approved (in your second year). Before you commit, take some time to read about the school, how co-ops work, etc. It’s different from most other schools.
-- **Samt217** (3↑): That's a lot of questions. For the Net price calculator it's usually pretty accurate and they might even give you more aid if they really want you. Although I think you should have received the financial aid package along with your acceptance so double check if that's there if not maybe reach out to the financial aid office. You can appeal for more aid to the fin aid office as well but usually they won't raise the aid they give you without a drastic reason like change in family income. You can definitely apply to outside scholarships too. The federal loans usually they'll split it into subsidized and unsubsidized. You can honestly just keep the subsidized one since there's no interest on it until you graduate and just get rid of the unsubsidized one (just reach out the fin aid and tell them which loan and the exact amount of the loan you don't want).
+    - **Slow-Employment8774** (5↑): You can’t apply for co-op until you’re enrolled in a co-op class and approved (in your second year). Before you commit, take some time to read about the school, how co-ops work, etc. It’s different from most other schools.
+- **Samt217** (4↑): That's a lot of questions. For the Net price calculator it's usually pretty accurate and they might even give you more aid if they really want you. Although I think you should have received the financial aid package along with your acceptance so double check if that's there if not maybe reach out to the financial aid office. You can appeal for more aid to the fin aid office as well but usually they won't raise the aid they give you without a drastic reason like change in family income. You can definitely apply to outside scholarships too. The federal loans usually they'll split it into subsidized and unsubsidized. You can honestly just keep the subsidized one since there's no interest on it until you graduate and just get rid of the unsubsidized one (just reach out the fin aid and tell them which loan and the exact amount of the loan you don't want).
   - **Ok-Banana-2859** (2↑): Well I cant like partake in interest at all as a result of my religious beliefs so like loans at all are not an option. Also thank you so much for reading through and taking the time ts honestly has me really worried. How about NUIN can that effect my aid in a good way? And how much is the increase to overall cost?
     - **Samt217** (5↑): If you can't take out the loans and you have to cover it yourself they also have monthly payments plans to help so you don't have to pay it all at once before a semester. For NUin I myself wasn't apart of it but I don't think if effects your aid since they calculate what you would need based on where you go (so the aid is proportion to that)
-- **OrangeLineEnjoyer** (3↑): Want to ask since someone brought up co-ops as a way to reduce the financial burden, what major do you intend on declaring? This will probably have some impact on what you can expect paywise.
+- **OrangeLineEnjoyer** (4↑): Want to ask since someone brought up co-ops as a way to reduce the financial burden, what major do you intend on declaring? This will probably have some impact on what you can expect paywise.
 - **Captain-Marmot** (3↑): Congrats! As for financial aid appeals, I have experience with that first hand. My family is middle class, and we received zero aid, only a small merit scholarship. They only really accept financial aid appeals if there have been changes in circumstances— major ones, like job loss, major medical bills, etc. In my experience, it was a job loss. They only consider such circumstances six months after they occur. It took me over a year to get about 10k off for one year. So, it is really difficult to get a reduction to the cost after they issue you your bill. I will say, my family has struggled a lot because of the costs of Northeastern. However, if you get a good financial aid offer from the start, you’ll be all set. It is a very good school otherwise.
   - **Ok-Banana-2859** (2↑): On thats note id you think you were going to get a good aid package? Because the cost estimator said I should but I dont know for sure I had a few issues with my verification statement so they havent issued my packages yet
   - **Captain-Marmot** (1↑): And, of course, co-ops help a lot. If you get a well-paying co-op, and even get it extended (if it’s in the Spring cycle), you can essentially pay your semesters forward. And you pay less overall than other colleges, because you’re only paying for three years of classes.

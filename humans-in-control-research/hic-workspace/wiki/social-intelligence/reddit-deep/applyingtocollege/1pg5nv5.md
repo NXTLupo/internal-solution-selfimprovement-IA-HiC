@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1pg5nv5.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1pg5nv5/how_do_i_balance_my_college_applications_with/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,21 @@ flair: "Application Question"
 extracted_at: "2026-05-22T23:33:52.658Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pg5nv5.md#c0"
+    char_span: [0, 972]
+    sentence_count: 8
+    key_terms: [applyingtocollege, mental, applications, maintaining, comments, navigate, balance, college]
+    token_count: 194
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pg5nv5.md#c1"
+    char_span: [987, 1624]
+    sentence_count: 3
+    key_terms: [yourself, school, "don't", try, supplementals, applications, remembering, assignment]
+    section: Comments
+    token_count: 155
 ---
-
 # How do I balance my college applications with maintaining good mental health?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1pg5nv5/how_do_i_balance_my_college_applications_with/)

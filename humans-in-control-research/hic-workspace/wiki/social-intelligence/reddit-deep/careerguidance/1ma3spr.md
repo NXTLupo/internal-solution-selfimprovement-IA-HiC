@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1ma3spr.md
 url: "https://www.reddit.com/r/careerguidance/comments/1ma3spr/is_anyone_else_surprised_how_hard_it_is_for_even/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -6,19 +7,99 @@ subreddit: "careerguidance"
 title: "Is anyone else surprised how hard it is for even top university grads to find jobs in 2025?"
 author: "mengxibitan"
 date: "2025-07-26T20:43:32.000Z"
-score: 134
+score: 135
 upvote_ratio: 0.9
 num_comments: 105
 flair: "Education & Qualifications"
-extracted_at: "2026-05-26T14:32:49.160Z"
+extracted_at: "2026-06-06T17:42:15.255Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c0"
+    char_span: [0, 1288]
+    sentence_count: 10
+    key_terms: [careerguidance, experience, comments, offers, people, saying, school, jobs]
+    token_count: 303
+  - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c1"
+    char_span: [1290, 3127]
+    sentence_count: 12
+    key_terms: [like, schools, fields, especially, engineers, graduates, happening, expected]
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c2"
+    char_span: [3129, 5166]
+    sentence_count: 18
+    key_terms: [universities, graduates, like, students, traditional, arts, humanities, digital]
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c3"
+    char_span: [5168, 6493]
+    sentence_count: 16
+    key_terms: [schools, different, people, school, does, else, here, international]
+    token_count: 273
+  - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c4"
+    char_span: [6508, 7812]
+    sentence_count: 15
+    key_terms: [experience, oceanbreeze871, get, high, hire, like, companies, training]
+    section: Comments
+    token_count: 317
+  - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c5"
+    char_span: [7814, 9535]
+    sentence_count: 9
+    key_terms: [going, level, good, new, generation, corporate, positions, problem]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c6"
+    char_span: [9537, 11586]
+    sentence_count: 11
+    key_terms: [market, job, problem, "don't", entry, level, take, experience]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c7"
+    char_span: [11347, 13599]
+    sentence_count: 19
+    key_terms: [col, degree, salary, school, areas, young, high, jobs]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c8"
+    char_span: [13601, 15398]
+    sentence_count: 6
+    key_terms: [schools, get, people, school, normalization, connections, job, top]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c9"
+    char_span: [15400, 17598]
+    sentence_count: 18
+    key_terms: [like, new, salaries, because, abroad, market, people, job]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c10"
+    char_span: [17600, 19308]
+    sentence_count: 18
+    key_terms: [income, money, generally, careers, college, entry, capital, reality]
+    section: Comments
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c11"
+    char_span: [19310, 20584]
+    sentence_count: 11
+    key_terms: [people, high, jedgarnaut, figures, little, salary, entry, right]
+    section: Comments
+    token_count: 329
+  - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c12"
+    char_span: [20586, 21596]
+    sentence_count: 10
+    key_terms: [universities, don, get, job, general-director401, guys, throwaway133731, expectations]
+    section: Comments
+    token_count: 215
+  - id: "social-intelligence/reddit-deep/careerguidance/1ma3spr.md#c13"
+    char_span: [21598, 22906]
+    sentence_count: 8
+    key_terms: [struggling, companies, deleted, foreign, harvard, parents, workers, "can't"]
+    section: Comments
+    token_count: 325
 ---
-
 # Is anyone else surprised how hard it is for even top university grads to find jobs in 2025?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1ma3spr/is_anyone_else_surprised_how_hard_it_is_for_even/)
-Posted by **mengxibitan** · **134↑** · **105 comments**
+Posted by **mengxibitan** · **135↑** · **105 comments**
 
 Hello everybody!
 
@@ -48,25 +129,25 @@ Thanks for reading.
 
 ## Comments
 
-- **Oceanbreeze871** (73↑): Companies don’t want to hire entry level. They want lean, high performing teams. Too much hand holding and mentorship needed on soft skills like showing up on time, hitting deadlines, multitasking and navigating basics of professionalism 5 days a week….or how in college you had a month for a task with rounds of feedback and now you get 2 days and are expected to nail it. 
+- **Oceanbreeze871** (75↑): Companies don’t want to hire entry level. They want lean, high performing teams. Too much hand holding and mentorship needed on soft skills like showing up on time, hitting deadlines, multitasking and navigating basics of professionalism 5 days a week….or how in college you had a month for a task with rounds of feedback and now you get 2 days and are expected to nail it. 
 
 A fresh grad is just not a very high value, high contribution hire on most teams, and for paying like 10-20% more you get a few years of experience and more self direction. 
 
 At my company of 500+ the unofficial policy and bare minimum is 2nd or 3rd job for the junior roles. We don’t even use interns often. Let somebody else do basic training cause it takes time and resources to train Someone green. It sucks to  hear but that’s the reality of a lot of places. 
 
 How do you get experience? I dunno. Small companies, contracting, luck?. Idk.
-  - **dsgross_reddit** (11↑): Doesn't that seem like a flawed model.  Never hiring new talent?
+  - **dsgross_reddit** (10↑): Doesn't that seem like a flawed model.  Never hiring new talent?
     - **Oceanbreeze871** (15↑): They do hire plenty of new talent. A 23-25 yr old with some experience is a better productivity value than a 20 yr old that needs a ton of rookie training. Everybody job hops, easy to wow someone with a 10% raise and title bump. 
 
 I know it sucks to hear but thats my professional observation on how corporate operates nowadays
-    - **AdJazzlike1002** (4↑): It's good for the business, bad for the economy and eventually will run into major issues in the long-run. We've had this in the trades (I now run a small construction company - previously worked in the corporate world), there's a massive shortage of tradies because apprenticeships weren't encouraged sufficiently and apprentices were seen as low-value and high effort. So now we have chronic shortages.
+    - **AdJazzlike1002** (5↑): It's good for the business, bad for the economy and eventually will run into major issues in the long-run. We've had this in the trades (I now run a small construction company - previously worked in the corporate world), there's a massive shortage of tradies because apprenticeships weren't encouraged sufficiently and apprentices were seen as low-value and high effort. So now we have chronic shortages.
     - **Lonatolam4** (1↑): new talent does not equal kids with inflated egos.
     - **nemuiblackbird** (1↑): I know many redditors pride themselves on being the contrarian force for keyboard warriors, but even this level of c\*ckery for the employer is surprising on this thread. It is flawed and will not lead to a good place. Colleges have a huge role in this problem, but the employers are going to have to do more to rectify the problem. The last generation handed this generation a scam and said "just chew harder" as if the glass they served us was going to turn into the steak they had. The chickens are coming home to roost.
   - **WinterHill** (3↑): I get that this is the current trend, but what’s changed? It’s always been a lot of work to hand-hold and train up someone new to the field.
-- **RevolutionaryRow1208** (32↑): I am often on hiring panels with my organization and I'm amazed at the number of new grads who think they should be making money like they've been there for 10 years. A degree gives you pretty good odds that down the line you're going to do well...but entry level staff positions are still entry level staff positions and you work your way up from there. 
+- **RevolutionaryRow1208** (31↑): I am often on hiring panels with my organization and I'm amazed at the number of new grads who think they should be making money like they've been there for 10 years. A degree gives you pretty good odds that down the line you're going to do well...but entry level staff positions are still entry level staff positions and you work your way up from there. 
 
 Markets are different so I don't want to speak too much on the $100K...in my state $100K or more puts you in the top 13% of wage earners and is not remotely an entry level rate of pay no matter what you do. I've been in the accounting and finance industry for 20 years and I am the controller for my organization which is relatively small...but I just hit $115K this year.
-  - **FlyChigga** (5↑): Well a lot of places you need 100k just to get by in a studio apartment and basic necessities nowadays so that’s part of it
+  - **FlyChigga** (6↑): Well a lot of places you need 100k just to get by in a studio apartment and basic necessities nowadays so that’s part of it
     - **Gloomy_Editor** (1↑): That's not the companies problem. Thats your problem. Doesn't mean you're entitled to receive $100K starting pay at an entry level
     - **DapperGas4982** (1↑): Don't live in those places.
   - **Choice_Marzipan5322** (2↑): Excellent comment
@@ -74,7 +155,7 @@ Markets are different so I don't want to speak too much on the $100K...in my sta
     - **vivianvanderpuss** (2↑): This is such an insane take if you are not in the job market right now. I have internship experience and 2 master degrees and even I am struggling to find work. We are willing to take lower income jobs the problem is that even for those positions they are hiring overqualified applicants because the market is so competitive at the moment. Let alone, the fact that AI is used to scan resumes which is a flawed system when it has inherent biases. The issue on the job market right now is that entry level jobs, don't exist, there is no value on degrees only experience. I am lucky enough to have a part-time job at the moment but if you knew the lengths i went too in order to secure it you would be shocked.
     - **Hockeyboss20** (1↑): To be honest 50-60k out of school in a degree like CS is way below market. It really depends on what you studied and the job because your take would only make sense depending on the field
   - **Primary-Fuel7578** (1↑): I notice the same thing. I graduated in 2016 with a Mech E degree now I do fire protection engineering and design. Started at 50k designing commercial plumbing systems. Work at the same company now doing fire protection making 150k including my bonus. There’s kids we interview that want 100k plus out of school. Thats not how it works. You need to pay your dues in the real world, no ones cares about the school you went to, your degree or your gpa. It’s how you perform in a business setting and many young adults graduating  today, don’t show up (the easiest part of work), don’t listen, and want to be in charge. When one comes in that acts like that I just let them fall flat. They usually are fired within the first 4 months. There’s been a few bright spots that have worked out though. Two of our young engineers are truly excellent and have all been taught by us. It’s the most satisfying thing in any work setting when a young person your mentored comes to you and thanks you for that guidance and knowledge. I’ve done it with those before me.
-- **pixel8knuckle** (10↑): One thing no one has mentioned but i have invented a theory that the proliferation of remote jobs allowing talent to be hired anywhere to any region creates a normalization effect on salaries where previously high CoL high salary jobs are dipping as they hire low CoL areas. And then the jobs in the low CoL areas bump their pay up. I dont believe weve reached critical mass, but i believe the trend is all salaries will begin to run closer to a middle ground regardless of location, which results in a net decrease of top salary on high col areas.
+- **pixel8knuckle** (11↑): One thing no one has mentioned but i have invented a theory that the proliferation of remote jobs allowing talent to be hired anywhere to any region creates a normalization effect on salaries where previously high CoL high salary jobs are dipping as they hire low CoL areas. And then the jobs in the low CoL areas bump their pay up. I dont believe weve reached critical mass, but i believe the trend is all salaries will begin to run closer to a middle ground regardless of location, which results in a net decrease of top salary on high col areas.
   - **Nidsy145** (1↑): Correct. Just like with outsourcing manufacturing, that allowed companies to reduce the cost of production but even that has now normalized as many factory workers abroad are getting paid close to minimum wage laws are here anyway
   - **Lonatolam4** (1↑): False, I just finished with organizing our salary bands globally. 
 US UK LT BG NL India South America
@@ -101,7 +182,7 @@ period.
 
   
 What has always matter in the job market historically matters. Post-covid is a totally different world where there is a lot of friction that hasn't been resolved. There's an oversupply of talent because of economic slowdown, and because of all the business uncertainty of the Trump administration. That's leading to new trends of not being fair to new hires that has never happened at this scale before. New hires are taking on a lot of risk with every employment situation, inflation has eroded purchasing power, and of course the covid hire boom has led to some unrealistic expectations. Generally for pre-covid $40-60k is what your classic engineer would start at, and computer science was more around $60k. Big tech with their salaries and stock options never represented what you could expect from the overall market.
-- **[deleted]** (13↑): You’re completely ignoring the macroeconomic picture. China likely has state backed incentives for such jobs. The US does not. Not to mention the visa situation which allows tons of foreign graduates into the job market.
+- **[deleted]** (12↑): You’re completely ignoring the macroeconomic picture. China likely has state backed incentives for such jobs. The US does not. Not to mention the visa situation which allows tons of foreign graduates into the job market.
 - **Orceles** (36↑): I get that inflation has eroded purchasing power since the pandemic. But why on earth are kids nowadays expecting 100k as an entry level income? I’m not saying 100k goes as far as it used to nor am I saying that some people don’t get that salary in entry level positions like at MAANG. But that’s a very tiny portion of the population. 
 
 If you’re graduating college with this expectation, then you’re in for major disappointment as reality sets in. This includes Ivy League graduates. 100k entry is not normal. In most careers you work your way up. A more realistic entry level income for a smart graduate in a good field is generally 60-80k. Everyone else starts at around 40-60k.
@@ -109,7 +190,7 @@ If you’re graduating college with this expectation, then you’re in for major
 15 years ago, those ranges would be ~15-20k less. And these numbers are for NYC. Adjust appropriately by your locale.
 
 Edit: generally careers have high income increases as you progres the ladder. Entry level income is but the tip of the iceberg. It’s not unusual for people to double or triple their income within 10 years and then again in another 10, on the right careers. This is the secret sauce in how college grads generally end up significantly out earning people who didn’t go to college, including those who went to Trades. Trading knowledge for money versus hours for money is how you build investment capital. Then investing that capital is how you build wealth - eventually your money will out earn you.
-  - **mengxibitan** (22↑): I was honestly shocked. When I started my master’s at SIT last semester, many international students insisted on staying in NYC and treated $100K–$120K as the norm — even though no one around them actually had offers. They even said: I don't like doing research,I want money,despite no elite internship experience in likes of Google or Amazon.
+  - **mengxibitan** (21↑): I was honestly shocked. When I started my master’s at SIT last semester, many international students insisted on staying in NYC and treated $100K–$120K as the norm — even though no one around them actually had offers. They even said: I don't like doing research,I want money,despite no elite internship experience in likes of Google or Amazon.
 
 
 My former roommate, a finance major with two internships in New York City, still couldn’t land a job after graduation.
@@ -119,23 +200,23 @@ What surprised me most was how these inflated expectations were dressed up as am
 When I was in my undergraduate, people usually target 70k~80k. Most people don't talk about 100k~120k. It is indeed a different world.
     - **yusuksong** (10↑): Well in high cost of living areas like the Bay Area or nyc a starting salary of 100k isn’t THAT special. I started with a lower end salary in the bay but quickly saw my pay rise over a few years
     - **Longjumping_Good6556** (1↑): Go to the Netherlands. Govt subsidizes lousy artwork
-  - **RadiantHC** (15↑): Right? Entry level is 40k-80k. The vast majority of graduates aren't going to be making six figures right after graduation.
-  - **jedgarnaut** (10↑): I just checked the most recent BLS numbers. Has the median full-time wage earner in the United States earning $62,000 a year. Granted that is all education levels, but I think people have too high expectations for what they'll be paid immediately out of school.
+  - **RadiantHC** (14↑): Right? Entry level is 40k-80k. The vast majority of graduates aren't going to be making six figures right after graduation.
+  - **jedgarnaut** (9↑): I just checked the most recent BLS numbers. Has the median full-time wage earner in the United States earning $62,000 a year. Granted that is all education levels, but I think people have too high expectations for what they'll be paid immediately out of school.
     - **jedgarnaut** (6↑): Looks like only 20% of all US workers make over six figures.
-  - **TheKingofSwing89** (11↑): Because these kids are spoiled rich pampered idiots… to be honest. 
+  - **TheKingofSwing89** (10↑): Because these kids are spoiled rich pampered idiots… to be honest. 
 
 College is easy as hell now, there’s very little academic rigor and very little discipline. These kids have had everything handed to them for their whole lives and thus they expect high entry salaries… 
 
 Don’t worry tho they aren’t paying their tuition, their rich parents are.
-- **General-Director401** (5↑): No. Job market sucks right now. Especially for tech workers. Doubly so if you’re trying to get a job on a work visa in the states.
-- **BarNext6046** (12↑): I think universities need to collaborate directly with private sector industries to set education programs to meet employer expectations and run their institutions accordingly. If so and so students skip classes, don’t hit certain grade levels etc. Turn in mediocre papers and show no serious improvement from when they enter. They don’t hang around in the universities. They get fired or expelled for poor performance. Employers will have greater respect for college graduates.
-  - **throwaway133731** (15↑): I don't know why you guys keep saying you're surprised by all this when companies continue to offshore those very STEM jobs and nobody does anything about it. Then you guys go on reddit and ask why can't the younger generation get a job? 
+- **General-Director401** (6↑): No. Job market sucks right now. Especially for tech workers. Doubly so if you’re trying to get a job on a work visa in the states.
+- **BarNext6046** (13↑): I think universities need to collaborate directly with private sector industries to set education programs to meet employer expectations and run their institutions accordingly. If so and so students skip classes, don’t hit certain grade levels etc. Turn in mediocre papers and show no serious improvement from when they enter. They don’t hang around in the universities. They get fired or expelled for poor performance. Employers will have greater respect for college graduates.
+  - **throwaway133731** (14↑): I don't know why you guys keep saying you're surprised by all this when companies continue to offshore those very STEM jobs and nobody does anything about it. Then you guys go on reddit and ask why can't the younger generation get a job? 
 
 the entire stock portfolio of Gen X and the boomers reward companies that maximize profits over hiring domestic workers
-  - **Sausage_Queen_of_Chi** (5↑): Yeah, I think universities would rather have their tuition dollars. Also I can only imagine what kind of headache they’d get from there parents of a kid who was kicked out.
+  - **Sausage_Queen_of_Chi** (6↑): Yeah, I think universities would rather have their tuition dollars. Also I can only imagine what kind of headache they’d get from there parents of a kid who was kicked out.
     - **[deleted]** (0↑): What would the parents have anything to do with it? Laugh in their face and hang up.
   - **Longjumping_Good6556** (1↑): 80 percent of grades issued by Harvard are in the A range. This is not real world
     - **AnAngrryWalrus** (1↑): pretty much everybody admitted to harvard had an A average while taking a ton of AP/IB/Honors courses in HS. This is not at all surprising to me
 - **ColumbiaWahoo** (8↑): Not at all. I graduated with my BSME from a good school in 2022 and most of my friends with 3.5+ GPAs AND internship experience were still struggling to find work. It’s probably even harder now.
   - **throwaway133731** (4↑): So if so many people are struggling, why do companies continue to go to the government and state that they can't find any workers, and therefore they need to sponsor foreign labor? Can you explain that?
-    - **[deleted]** (7↑): because foreign labour is cheaper so they save money by pretending they can't hire domestically.
+    - **[deleted]** (8↑): because foreign labour is cheaper so they save money by pretending they can't hire domestically.

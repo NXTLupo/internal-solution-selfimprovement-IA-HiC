@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1nsah8w.md
 url: "https://www.reddit.com/r/OpenAI/comments/1nsah8w/chatgpt_changed_my_life/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,39 @@ flair: "Miscellaneous"
 extracted_at: "2026-05-11T17:27:05.356Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1nsah8w.md#c0"
+    char_span: [0, 1368]
+    sentence_count: 17
+    key_terms: [chatgpt, openai, job, portfolio, comments, changed, support, hobby]
+    token_count: 345
+  - id: "social-intelligence/reddit-deep/openai/1nsah8w.md#c1"
+    char_span: [1383, 3057]
+    sentence_count: 6
+    key_terms: [engineer, right, job, bootcamp, believe, merningthemidniteoil, throwaway3847394739, posts]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/openai/1nsah8w.md#c2"
+    char_span: [2830, 3530]
+    sentence_count: 3
+    key_terms: [engineer, small, studiousmaximus, development, dreeampixie, nontheless, programmer, aliassuck]
+    section: Comments
+    token_count: 201
+  - id: "social-intelligence/reddit-deep/openai/1nsah8w.md#c3"
+    char_span: [3538, 4320]
+    sentence_count: 3
+    key_terms: [engineer, fabricated, cause, friendly-view4122, job, like, myboyfriendisai, girlnumber20]
+    section: Comments
+    token_count: 227
+  - id: "social-intelligence/reddit-deep/openai/1nsah8w.md#c4"
+    char_span: [4322, 5687]
+    sentence_count: 5
+    key_terms: [love, through, helped, people, el-duderino-the-dude, never, ornery-ticket-2332, wastingmyyouthaway]
+    section: Comments
+    token_count: 415
 ---
-
 # ChatGPT changed my life.
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1nsah8w/chatgpt_changed_my_life/)

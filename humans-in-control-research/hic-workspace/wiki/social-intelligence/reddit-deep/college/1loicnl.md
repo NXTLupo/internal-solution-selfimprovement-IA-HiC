@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1loicnl.md
 url: "https://www.reddit.com/r/college/comments/1loicnl/im_afraid_im_going_to_lose_my_mind_this_upcoming/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,21 @@ flair: "Health/Mental Health/Covid"
 extracted_at: "2026-05-26T14:31:29.701Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1loicnl.md#c0"
+    char_span: [0, 1979]
+    sentence_count: 23
+    key_terms: ["i'm", university, college, student, unfortunately, orientation, been, comments]
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/college/1loicnl.md#c1"
+    char_span: [1994, 3435]
+    sentence_count: 14
+    key_terms: [need, yourself, school, opportunities, give, grad, everything, schedule]
+    section: Comments
+    token_count: 337
 ---
-
 # I'm afraid I'm going to lose my mind this upcoming semester
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1loicnl/im_afraid_im_going_to_lose_my_mind_this_upcoming/)

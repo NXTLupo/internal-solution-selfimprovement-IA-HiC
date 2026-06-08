@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1rj3par.md
 url: "https://www.reddit.com/r/OpenAI/comments/1rj3par/if_you_didnt_move_yet_because_chatgpt_knows_you/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,63 @@ flair: "News"
 extracted_at: "2026-05-11T17:27:05.352Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1rj3par.md#c0"
+    char_span: [0, 277]
+    sentence_count: 1
+    key_terms: [comments, openai, reddit-deep, because, chatgpt, posted, reddit, source]
+    token_count: 89
+  - id: "social-intelligence/reddit-deep/openai/1rj3par.md#c1"
+    char_span: [292, 2207]
+    sentence_count: 14
+    key_terms: [use, claude, export, paid, caspercarr, chatgpt, better, gemini]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/openai/1rj3par.md#c2"
+    char_span: [1873, 2268]
+    sentence_count: 4
+    key_terms: [export, data, memory, conversations, restructures, reference, something, controls]
+    section: Comments
+    token_count: 78
+  - id: "social-intelligence/reddit-deep/openai/1rj3par.md#c3"
+    char_span: [2270, 3582]
+    sentence_count: 12
+    key_terms: [export, email, chat, data, download, clicked, memory, works]
+    section: Comments
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/openai/1rj3par.md#c4"
+    char_span: [3584, 5031]
+    sentence_count: 9
+    key_terms: [hours, mine, waiting, around, import, never, since, been]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/openai/1rj3par.md#c5"
+    char_span: [5033, 6930]
+    sentence_count: 11
+    key_terms: [claude, like, question, related, access, convos, google, phxees]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/openai/1rj3par.md#c6"
+    char_span: [6932, 7515]
+    sentence_count: 5
+    key_terms: [free, use, homermademedoit, assistant, developer, messages, personal, unusable]
+    section: Comments
+    token_count: 142
+  - id: "social-intelligence/reddit-deep/openai/1rj3par.md#c7"
+    char_span: [7517, 8885]
+    sentence_count: 4
+    key_terms: [prestigious-fix-4852, developer, free, remodev, preview, product, better, format]
+    section: Comments
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/openai/1rj3par.md#c8"
+    char_span: [8887, 10818]
+    sentence_count: 16
+    key_terms: [claude, reconstructed, well-structured, context, prompt, preferences, switching, because]
+    section: Comments
+    token_count: 470
 ---
-
 # If you didn’t move yet because ChatGPT “knows you”
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1rj3par/if_you_didnt_move_yet_because_chatgpt_knows_you/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1scbx7v.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1scbx7v/whats_with_all_the_hate_against_ms_degrees/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,45 @@ flair: "Venting"
 extracted_at: "2026-05-23T14:54:16.713Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1scbx7v.md#c0"
+    char_span: [0, 2259]
+    sentence_count: 16
+    key_terms: [comments, programs, get, degrees, people, undergrad, phd, research]
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/gradadmissions/1scbx7v.md#c1"
+    char_span: [2274, 3093]
+    sentence_count: 7
+    key_terms: [phd, education, never, danceswithsockson, take, floweryhimalayas, combat-wounded, flyingmeowbear]
+    section: Comments
+    token_count: 193
+  - id: "social-intelligence/reddit-deep/gradadmissions/1scbx7v.md#c2"
+    char_span: [3095, 5178]
+    sentence_count: 12
+    key_terms: [get, people, phd, everyone, degrees, jewishtigerpup, want, work]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/gradadmissions/1scbx7v.md#c3"
+    char_span: [5180, 6457]
+    sentence_count: 11
+    key_terms: [wanted, definitely, masters, career, school, "don't", rabbi, teach]
+    section: Comments
+    token_count: 324
+  - id: "social-intelligence/reddit-deep/gradadmissions/1scbx7v.md#c4"
+    char_span: [6459, 8762]
+    sentence_count: 7
+    key_terms: [phd, programs, masters, applicants, degrees, funded, sometimes, typically]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/gradadmissions/1scbx7v.md#c5"
+    char_span: [8764, 10961]
+    sentence_count: 17
+    key_terms: [masters, phd, "master's", need, program, degree, considered, field]
+    section: Comments
+    token_count: 511
 ---
-
 # What's with all the hate against MS degrees?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1scbx7v/whats_with_all_the_hate_against_ms_degrees/)

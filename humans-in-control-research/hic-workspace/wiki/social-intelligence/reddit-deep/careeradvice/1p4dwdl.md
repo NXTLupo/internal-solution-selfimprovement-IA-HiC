@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1p4dwdl.md
 url: "https://www.reddit.com/r/careeradvice/comments/1p4dwdl/need_career_advice_cybersecurity_role_at/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.245Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [saas, enterprise_it]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1p4dwdl.md#c0"
+    char_span: [0, 2168]
+    sentence_count: 18
+    key_terms: [cybersecurity, company, devops, logistics, option, opportunities, careeradvice, experienced]
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/careeradvice/1p4dwdl.md#c1"
+    char_span: [2183, 2736]
+    sentence_count: 8
+    key_terms: [become, people, hired, big, irreplaceable, accounting, difference, learning]
+    section: Comments
+    token_count: 137
 ---
-
 # Need Career Advice: Cybersecurity Role at Established Company vs Cybersecurity/DevOps Role at AI Logistics Startup
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1p4dwdl/need_career_advice_cybersecurity_role_at/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1ne79cv.md
 url: "https://www.reddit.com/r/financialindependence/comments/1ne79cv/how_to_quantitatively_evaluate_if_working_one/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,81 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.709Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [cross_industry]
+industry_method: unclassified
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c0"
+    char_span: [0, 1231]
+    sentence_count: 8
+    key_terms: [financialindependence, worth, year, working, work, lifestyle, comments, evaluate]
+    token_count: 259
+  - id: "social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c1"
+    char_span: [1246, 2812]
+    sentence_count: 9
+    key_terms: [retirement, big, etc, get, sequence, reduces, savings, return]
+    section: Comments
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c2"
+    char_span: [2814, 4973]
+    sentence_count: 9
+    key_terms: [big, expenses, earlier, extra, makes, smart, time, difference]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c3"
+    char_span: [4713, 5807]
+    sentence_count: 7
+    key_terms: [etc, like, time, exactly, choice, bigadministration368, pay, work]
+    section: Comments
+    token_count: 284
+  - id: "social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c4"
+    char_span: [5809, 7333]
+    sentence_count: 10
+    key_terms: [time, "i'm", disproportionate, unambiguously, extra, years, financially, year]
+    section: Comments
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c5"
+    char_span: [7335, 8705]
+    sentence_count: 17
+    key_terms: [annual, pounds, retirement, twenty, worth, expenditure, nineteen, income]
+    section: Comments
+    token_count: 330
+  - id: "social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c6"
+    char_span: [8707, 10568]
+    sentence_count: 21
+    key_terms: [health, years, feel, contract, customer, little, margin, though]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c7"
+    char_span: [10570, 12313]
+    sentence_count: 14
+    key_terms: [retirement, retire, working, step, year, scrollsaw, comments, another]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c8"
+    char_span: [12315, 14115]
+    sentence_count: 15
+    key_terms: [get, satisfaction, "don't", etc, financial, software, advisor, another]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c9"
+    char_span: [14117, 15910]
+    sentence_count: 12
+    key_terms: [year, month, number, years, did, portfolio, questions, homework]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c10"
+    char_span: [15912, 17906]
+    sentence_count: 14
+    key_terms: [portfolio, month, year, extra, look, earnings, profits, through]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/financialindependence/1ne79cv.md#c11"
+    char_span: [17908, 19050]
+    sentence_count: 9
+    key_terms: [extra, another, cushion, overall, income, margin, market, safety]
+    section: Comments
+    token_count: 276
 ---
-
 # How to quantitatively evaluate if working "one more year" is worth it?
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1ne79cv/how_to_quantitatively_evaluate_if_working_one/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1pi3gdl.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1pi3gdl/heavy_voice_mode_users_do_you_actually_like/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,51 @@ flair: "Other "
 extracted_at: "2026-05-11T16:54:08.819Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c0"
+    char_span: [0, 499]
+    sentence_count: 5
+    key_terms: [voice, chatgpt, experience, comments, mode, artemgetman, reddit-deep, constantly]
+    token_count: 127
+  - id: "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c1"
+    char_span: [514, 2395]
+    sentence_count: 19
+    key_terms: [chatgpt, pause, please, conversation, image, until, post, r-chatgpt-1050422060352024636]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c2"
+    char_span: [2397, 3386]
+    sentence_count: 10
+    key_terms: [voice, use, artemgetman, mode, time, without, sounds, like]
+    section: Comments
+    token_count: 256
+  - id: "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c3"
+    char_span: [3388, 5339]
+    sentence_count: 13
+    key_terms: [voice, artemgetman, daily, avm, use, like, ultrababyvegeta, used]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c4"
+    char_span: [5093, 6372]
+    sentence_count: 13
+    key_terms: [use, voice, fit-glass-2030, artemgetman, annoying, useless, sounds, going]
+    section: Comments
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c5"
+    char_span: [6374, 8292]
+    sentence_count: 16
+    key_terms: [use, voice, voice-to-text, artemgetman, mode, because, brainstorming, daily]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c6"
+    char_span: [8296, 9608]
+    sentence_count: 6
+    key_terms: [use, voice, feature, problem, conversation, like, time, something]
+    section: Comments
+    token_count: 294
 ---
-
 # Heavy voice mode users - do you actually like ChatGPT's voice experience?
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1pi3gdl/heavy_voice_mode_users_do_you_actually_like/)

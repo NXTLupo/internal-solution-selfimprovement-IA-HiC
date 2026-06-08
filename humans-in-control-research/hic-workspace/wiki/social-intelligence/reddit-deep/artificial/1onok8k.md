@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1onok8k.md
 url: "https://www.reddit.com/r/artificial/comments/1onok8k/the_revolution_will_be_documented_a_manifesto_for/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,21 @@ flair: "Discussion"
 extracted_at: "2026-05-11T16:53:08.152Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1onok8k.md#c0"
+    char_span: [0, 697]
+    sentence_count: 3
+    key_terms: [development, artificial, comments, software, better, method, helps, human]
+    token_count: 152
+  - id: "social-intelligence/reddit-deep/artificial/1onok8k.md#c1"
+    char_span: [712, 1616]
+    sentence_count: 8
+    key_terms: [adapt, "don't", gatekeeping, use, clients, people, illustrious-film4018, ways]
+    section: Comments
+    token_count: 223
 ---
-
 # The Revolution Will Be Documented: A Manifesto for AI-Assisted Software Development in the Age of Gatekeeping
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1onok8k/the_revolution_will_be_documented_a_manifesto_for/)

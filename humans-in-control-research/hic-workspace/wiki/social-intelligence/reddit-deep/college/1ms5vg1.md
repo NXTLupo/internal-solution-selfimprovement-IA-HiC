@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1ms5vg1.md
 url: "https://www.reddit.com/r/college/comments/1ms5vg1/more_women_are_being_hired_than_men_with_a_4_year/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -10,11 +11,58 @@ score: 614
 upvote_ratio: 0.91
 num_comments: 88
 flair: ""
-extracted_at: "2026-05-19T17:57:40.132Z"
+extracted_at: "2026-06-06T00:27:48.354Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1ms5vg1.md#c0"
+    char_span: [0, 1263]
+    sentence_count: 6
+    key_terms: [get, degree, women, college, hired, job, men, comments]
+    token_count: 304
+  - id: "social-intelligence/reddit-deep/college/1ms5vg1.md#c1"
+    char_span: [1278, 2971]
+    sentence_count: 12
+    key_terms: [women, healthcare, either, men, degree, news, childcare, college]
+    section: Comments
+    token_count: 386
+  - id: "social-intelligence/reddit-deep/college/1ms5vg1.md#c2"
+    char_span: [2973, 4726]
+    sentence_count: 12
+    key_terms: [dominated, like, college, market, traditionally, engineering, job, want]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/college/1ms5vg1.md#c3"
+    char_span: [4728, 6841]
+    sentence_count: 11
+    key_terms: [women, men, young, age, fact, education, educated, college]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/college/1ms5vg1.md#c4"
+    char_span: [6843, 8873]
+    sentence_count: 15
+    key_terms: [women, men, education, college, circumstantial, leave, average-college-gpa-statistics, take]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/college/1ms5vg1.md#c5"
+    char_span: [8875, 11089]
+    sentence_count: 12
+    key_terms: [academic-achievement-isnt-reason-there-are-more-men-women-majoring-physics-engineering-and, wide-and-lasting-consequences-teachers-give-girls-higher-grades-than-boys, teachers, gender, internships, got, like, professor]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/college/1ms5vg1.md#c6"
+    char_span: [11091, 13372]
+    sentence_count: 17
+    key_terms: [financial, college, getting, support, through, people, school, women]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/college/1ms5vg1.md#c7"
+    char_span: [13376, 15109]
+    sentence_count: 9
+    key_terms: [college, friends, ropethefreeze, participated, job, stem, impressive, getting]
+    section: Comments
+    token_count: 403
 ---
-
 # “More women are being hired than men with a 4- year degree”
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ms5vg1/more_women_are_being_hired_than_men_with_a_4_year/)
@@ -25,9 +73,9 @@ I find it hilarious how badly this news is being put out there, but I will say, 
 
 ## Comments
 
-- **scrambledeggsandrice** (362↑): I haven’t seen much positive news about the job market no matter the demographic (In the USA at any rate). Where are you seeing these reports? Also, something worth considering is that the hiring might be taking place in professions that have historically been dominated by women (nursing, childcare, teaching). Either way I’d welcome news of anyone being hired.
-  - **SecretTradition4493** (26↑): There are more women getting a 4 year degree than men… so this makes sense
-  - **LesliesLanParty** (69↑): I saw it in a tiktok, I haven't seen it on reddit or any of the nightly news programs. 
+- **scrambledeggsandrice** (369↑): I haven’t seen much positive news about the job market no matter the demographic (In the USA at any rate). Where are you seeing these reports? Also, something worth considering is that the hiring might be taking place in professions that have historically been dominated by women (nursing, childcare, teaching). Either way I’d welcome news of anyone being hired.
+  - **SecretTradition4493** (25↑): There are more women getting a 4 year degree than men… so this makes sense
+  - **LesliesLanParty** (72↑): I saw it in a tiktok, I haven't seen it on reddit or any of the nightly news programs. 
 
 I can't find the TikTok but there was mention of what you're talking about- basically women are going in to healthcare and men are going in to manual/skilled labor. Healthcare (that pays living wages) needs a degree while labor doesn't.
 
@@ -36,7 +84,7 @@ It stuck in my head bc I was like: oh, like my family. All the men I can think o
 ETA: literally this morning (the day after posting this) I was listening to NPR and there was a story about how college educated women are marrying men without college degrees at a higher rate than ever and talking about how these are the folks who can afford to get married.
 
 As a mom of 3 boys: if you're a dude reading this please don't feel defeated or like you should drop out and learn a trade if that's not what you want to do. Please! If you want to go to college and you want to earn a living, find a way to apply your interests to in demand stuff like healthcare and hospitality. Like, even if your whole life is really math and engineering look in to biomedical or something.
-    - **Platinumdogshit** (33↑): Also AI is replacing software developer/engineer jobs which is male dominated. Working with people is female dominated and cant be replaced by AI.
+    - **Platinumdogshit** (34↑): Also AI is replacing software developer/engineer jobs which is male dominated. Working with people is female dominated and cant be replaced by AI.
     - **Enigmatic_Stag** (0↑): "I saw it in a tiktok"
 
 Wow. What a time to be alive when this is how people are getting their information.
@@ -49,31 +97,31 @@ Either way, you’re correct about the nature of the job market atm. Women tradi
 
 The premise is correct, women are being hired more than men, but outside of a minor portion of the internet, no one is rallying again the evil woman stealing the good men’s jobs.
   - **widdowbanes** (1↑): Most men get degrees in business, stem or engineering. Those jobs are getting outsourced like crazy. I'm certain they're millions of Indians working for or indirectly for American companies to cut cost because their salary is only $10k a year.
-- **JustWerking** (25↑): There’s drive but also the fact that healthcare and education seem to be the main sectors of the economy that aren’t doing terribly when it comes to hiring. Women are more likely to major in fields related to these sectors. 
+- **JustWerking** (26↑): There’s drive but also the fact that healthcare and education seem to be the main sectors of the economy that aren’t doing terribly when it comes to hiring. Women are more likely to major in fields related to these sectors. 
 
 My Alma mater released photos of this year’s nursing school graduates. Women vastly outnumbered men. I’d imagine the same would be seen for school of education grads.
-- **mlm_24** (110↑): 58% of college undergrads are women. Women are far more mature at that age and have their stuff together. Young women are getting ahead of young men in many ways. This is part of the reason that young men have slowly become more conservative and want the traditional family. They believe it’s DEI is why they are being left behind but they are less educated and only had to compete against themselves until the last 35-40 years.
+- **mlm_24** (117↑): 58% of college undergrads are women. Women are far more mature at that age and have their stuff together. Young women are getting ahead of young men in many ways. This is part of the reason that young men have slowly become more conservative and want the traditional family. They believe it’s DEI is why they are being left behind but they are less educated and only had to compete against themselves until the last 35-40 years.
   - **klevyy** (42↑): White women benefit the most from DEI it’s a fact
-    - **mlm_24** (11↑): You would think that black women would since they are the most educated demographic but you know America
-    - **LesliesLanParty** (10↑): Something I learned in college are that facts are things we can prove
-    - **Harmania** (11↑): Whenever someone just says “it’s a fact” it’s a pretty good sign that they are just repeating some bullshit they saw on another online comment.
-  - **Orangutanion** (-5↑): They do indeed get told that they are very "mature for their age" by their age gap boyfriends.
-- **Wise-Lawfulness-3190** (19↑): I remember men making the exact same argument 10 years ago about the pay gap. “Men are more likely to ask for raises, stay late, work harder, come in early ” etc etc. 
+    - **mlm_24** (13↑): You would think that black women would since they are the most educated demographic but you know America
+    - **LesliesLanParty** (9↑): Something I learned in college are that facts are things we can prove
+    - **Harmania** (9↑): Whenever someone just says “it’s a fact” it’s a pretty good sign that they are just repeating some bullshit they saw on another online comment.
+  - **Orangutanion** (-2↑): They do indeed get told that they are very "mature for their age" by their age gap boyfriends.
+- **Wise-Lawfulness-3190** (17↑): I remember men making the exact same argument 10 years ago about the pay gap. “Men are more likely to ask for raises, stay late, work harder, come in early ” etc etc. 
 
 Either there is a problem, or inequality is circumstantial
-  - **TacoMedic** (4↑): Nailed it, it’s almost certainly circumstantial.
+  - **TacoMedic** (5↑): Nailed it, it’s almost certainly circumstantial.
 
 Anecdotally, I’d still say that on average men make more than women 5 years after college. Women generally choose fields with very little upward mobility (education, nursing, etc). But nurses almost certainly make more than most business/engineering grads right out of college. 
 
 Also, women take time off to have children. So long as maternity leave is 5x longer than paternity leave, men are going to be offered higher positions more often. Give men more paternity leave and I think we’d see similar salary growth across the board.
-- **Jayna333** (55↑): Yes! I think we can all agree that women (in general) are more school focused. Obviously very passionate and hardworking men, but I find that women in general have a goal for what grades they want in college [here’s a study, so it’s not just my anecdotal experience.](https://www.bestcolleges.com/research/average-college-gpa-statistics/) it’s not because women are naturally smarter than men, I think it’s just the overarching culture that very recently women have just been allowed to pursue higher education, so we take it more seriously. Even from then on, a women’s income was considered “supplemental” to a man’s. So it’s kind of like the kid that was given a birthday present every year, vs the kid who miraculously got one for the first time ever.
+- **Jayna333** (49↑): Yes! I think we can all agree that women (in general) are more school focused. Obviously very passionate and hardworking men, but I find that women in general have a goal for what grades they want in college [here’s a study, so it’s not just my anecdotal experience.](https://www.bestcolleges.com/research/average-college-gpa-statistics/) it’s not because women are naturally smarter than men, I think it’s just the overarching culture that very recently women have just been allowed to pursue higher education, so we take it more seriously. Even from then on, a women’s income was considered “supplemental” to a man’s. So it’s kind of like the kid that was given a birthday present every year, vs the kid who miraculously got one for the first time ever.
   - **th1s_fuck1ng_guy** (3↑): I think we need to take into account that primary and secondary education is catered towards girls and run by women.
 
 Many studies have also shown bias in grading. Where boys score lower for the same performance as girls. 
 
 I think this pushes a lot of young men away from further education at a young age
     - **Jayna333** (-2↑): Even in male dominated fields? They feel pushed away?
-  - **NEVER69ENOUGH** (2↑): The correlation between disagreeableness and testosterone levels may have an effect, too... schools reward conscientiousness and compliance.
+  - **NEVER69ENOUGH** (3↑): The correlation between disagreeableness and testosterone levels may have an effect, too... schools reward conscientiousness and compliance.
 
 Also, no matter gender of professor they on average, give 10% higher toward grading women. They removed that study from NCBI but here's another 
 https://scitechdaily.com/wide-and-lasting-consequences-teachers-give-girls-higher-grades-than-boys/
@@ -82,7 +130,7 @@ I tested with an 11th grade math teacher, and once she skimmed the chick's homew
 
 Further, every father or guy with a sister knows damn well this is true 😂
     - **Jayna333** (13↑): I’m not sure how a professor with 100 students is like “wait, Alex did this calculus problem, it’s correct, but are they a boy or girl… also what do these mysterious teachers do with non-binary people? [here is a good article form NYU on why women outperform men even in male dominated fields such as engineering, physics, and computer science.](https://steinhardt.nyu.edu/news/academic-achievement-isnt-reason-there-are-more-men-women-majoring-physics-engineering-and) would also like to add, which gender feels safer on campus, which ones are more likely to be sexually harassed by there teachers, raped, abused, left out of opportunities in the future due to not being seen as “leaders”. Plus men are non these over emotional people, there testosterone is not throwing them into such a fit that the teachers like “I got to give this guy a B+”
-- **[deleted]** (27↑): Im going to be downvoted for this, but it has more in common with why internships gatekeep minorities out of entire industries.
+- **[deleted]** (25↑): Im going to be downvoted for this, but it has more in common with why internships gatekeep minorities out of entire industries.
 
 When you are being supported by the income of another person (parent, significant other, family, etc), you are able to take unpaid internships or do other extra ciriculars because you have safety nets.
 
@@ -97,9 +145,9 @@ It isnt about men vs. women as much as it is about privelege. Maybe more men hav
 Edit: I'd be interested to see what percentage of students (broken down by demographics) are getting extra financial support from others.
   - **Panthernoodles** (15↑): Oh no that is exactly an important point, I noticed dozens of times the disparity in my friends able to take on internships, study abroad, etc. from my friends working to support themselves through school. In my mind it’s almost more impressive that there are people able to work full time serving or whatever odd jobs they find while also being in school. Privilege is present in every aspect of American society
   - **klevyy** (4↑): This
-  - **Orangutanion** (1↑): This applies to undergrads too. Anecdotally I knew multiple women in college who used their boyfriends for financial support, anywhere from receiving free food from them to literally getting their tuitions paid. A male student simply can't hop on Tinder and get financially pampered. Combine this with living with your parents and additional scholarships for being a woman and boom you're girlbossing your way through financial hoops that block other people.
+  - **Orangutanion** (0↑): This applies to undergrads too. Anecdotally I knew multiple women in college who used their boyfriends for financial support, anywhere from receiving free food from them to literally getting their tuitions paid. A male student simply can't hop on Tinder and get financially pampered. Combine this with living with your parents and additional scholarships for being a woman and boom you're girlbossing your way through financial hoops that block other people.
     - **10th_Patriot_Down** (7↑): When I was in the Army, saw this quite a bit too. Wife goes to local school. Since they are a military spouse, the requirement for residency gets waived, so they get in-state rates, plus grant money. Husband supports them with house and food. They can focus solely on college at that point. Sadly saw it end in divorce more than once.
-- **LostQuestionsss** (13↑): Maybe ppl won't like this, but I also think the generations that hold senior roles are predominantly men and enjoy interaction / attention from women.
+- **LostQuestionsss** (12↑): Maybe ppl won't like this, but I also think the generations that hold senior roles are predominantly men and enjoy interaction / attention from women.
   
 I see it at my job. An attractive woman gets hired, and ppl I've never seen offer help are now suddenly standing in front of their desk frequently.
 - **RopeTheFreeze** (6↑): Stem graduates, typically dominated by males, have been struggling to find entry level jobs. Might be at least a factor.

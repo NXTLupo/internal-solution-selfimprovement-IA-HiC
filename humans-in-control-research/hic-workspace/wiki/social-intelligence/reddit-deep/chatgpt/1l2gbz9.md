@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1l2gbz9.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1l2gbz9/i_tried_replacing_myself_with_ai_for_a_week_heres/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,39 @@ flair: "Other "
 extracted_at: "2026-05-17T01:12:48.210Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1l2gbz9.md#c0"
+    char_span: [0, 1081]
+    sentence_count: 10
+    key_terms: [tasks, here, week, replacing, comments, happened, chatgpt, emails]
+    token_count: 286
+  - id: "social-intelligence/reddit-deep/chatgpt/1l2gbz9.md#c1"
+    char_span: [1096, 2790]
+    sentence_count: 12
+    key_terms: [post, chatgpt, deleted, please, conversation, image, blah, cyrillite]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/chatgpt/1l2gbz9.md#c2"
+    char_span: [2792, 4205]
+    sentence_count: 6
+    key_terms: [using, chatgpt, reddit, something, calling, written, going, hours]
+    section: Comments
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/chatgpt/1l2gbz9.md#c3"
+    char_span: [4208, 5893]
+    sentence_count: 10
+    key_terms: [instructions, replaceable, quickbooks, previous, call, automated, drafting, yourself]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/chatgpt/1l2gbz9.md#c4"
+    char_span: [5895, 6256]
+    sentence_count: 1
+    key_terms: [limitations, characters, contradict, ridiculous, elaborate, generally, scenarios, confuse]
+    section: Comments
+    token_count: 88
 ---
-
 # I Tried Replacing Myself With AI for a Week. Here’s What Actually Happened
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1l2gbz9/i_tried_replacing_myself_with_ai_for_a_week_heres/)

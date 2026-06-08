@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1qseozs.md
 url: "https://www.reddit.com/r/careeradvice/comments/1qseozs/unsure_about_my_career_direction_after_graduation/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.242Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [ai_research, enterprise_it, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1qseozs.md#c0"
+    char_span: [0, 1454]
+    sentence_count: 13
+    key_terms: [direction, web, careeradvice, dev, java, comments, computer, advice]
+    token_count: 332
 ---
-
 # Unsure about my career direction after graduation (AI vs Web Dev)
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1qseozs/unsure_about_my_career_direction_after_graduation/)

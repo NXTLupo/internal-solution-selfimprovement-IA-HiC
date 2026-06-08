@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1rbi0v8.md
 url: "https://www.reddit.com/r/deeplearning/comments/1rbi0v8/trainingfree_metric_predicts_neural_network/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.045Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1rbi0v8.md#c0"
+    char_span: [0, 1831]
+    sentence_count: 9
+    key_terms: [https, architectures, com, wise314, quantum-phi-validation, github, zenodo, barnicle-ai-systems]
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/deeplearning/1rbi0v8.md#c1"
+    char_span: [1846, 3690]
+    sentence_count: 13
+    key_terms: [intrepid-water8672, code, patent, peer-reviewed, krismitka, preprints, psychosis, hammouse]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/deeplearning/1rbi0v8.md#c2"
+    char_span: [3692, 5341]
+    sentence_count: 11
+    key_terms: [intrepid-water8672, fidelity, entropy, across, neural, consistency, normalized, different]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/deeplearning/1rbi0v8.md#c3"
+    char_span: [5343, 7095]
+    sentence_count: 19
+    key_terms: ["don't", https, quantum-phi-validation, intrepid-water8672, stephenschneider, science, github, thermodynamic]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/deeplearning/1rbi0v8.md#c4"
+    char_span: [7097, 8246]
+    sentence_count: 9
+    key_terms: [time, prediction, successful, degrade, wise314, quantum-phi-validation, future, github]
+    section: Comments
+    token_count: 295
+  - id: "social-intelligence/reddit-deep/deeplearning/1rbi0v8.md#c5"
+    char_span: [8248, 10346]
+    sentence_count: 22
+    key_terms: [degradation, threshold, warning, qubits, time, lead, snapshot, failure]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/deeplearning/1rbi0v8.md#c6"
+    char_span: [10146, 10388]
+    sentence_count: 1
+    key_terms: [parameters, different, measuring, answers, outside, called, follow, error]
+    section: Comments
+    token_count: 74
+  - id: "social-intelligence/reddit-deep/deeplearning/1rbi0v8.md#c7"
+    char_span: [10390, 11074]
+    sentence_count: 11
+    key_terms: [error, determine, qubit, state, honest-debate-6863, mean, time, explorations]
+    section: Comments
+    token_count: 164
 ---
-
 # Training-free metric predicts neural network viability at epoch 1 — tested on 660+ architectures, 99.7% precision
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1rbi0v8/trainingfree_metric_predicts_neural_network/)

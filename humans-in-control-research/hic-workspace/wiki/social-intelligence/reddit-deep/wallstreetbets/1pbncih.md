@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1pbncih.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1pbncih/gold_king_midas_anus_b_barrick_mining_dd/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,44 @@ flair: "DD"
 extracted_at: "2026-05-16T20:54:42.978Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, manufacturing]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pbncih.md#c0"
+    char_span: [0, 1741]
+    sentence_count: 8
+    key_terms: [barrick, gold, like, wallstreetbets, price, comments, fraction, profits]
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pbncih.md#c1"
+    char_span: [1743, 3374]
+    sentence_count: 16
+    key_terms: [gold, barrick, money, price, share, prints, going, stock]
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pbncih.md#c2"
+    char_span: [3389, 4345]
+    sentence_count: 2
+    key_terms: [https, discord, preview, format, total, width, years, ago]
+    section: Comments
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pbncih.md#c3"
+    char_span: [4347, 5664]
+    sentence_count: 2
+    key_terms: [e73404d697d64ca1d30a4f1e11bb1c95dd4f7bf7, goblin561, holding, hotchicksplayingbass, anus, did, get, got]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pbncih.md#c4"
+    char_span: [5666, 6787]
+    sentence_count: 6
+    key_terms: [butterrollercoaster, duchamp1945, slop, goblin561, barrick, cantgetthistowork, buy, get]
+    section: Comments
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pbncih.md#c5"
+    char_span: [6789, 7540]
+    sentence_count: 2
+    key_terms: [goblin561, waiting4reccession, gold, intoxicated, optionscone, definitely, berserker, extremely]
+    section: Comments
+    token_count: 223
 ---
-
 # GOLD, King Midas Anus $B Barrick Mining DD
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1pbncih/gold_king_midas_anus_b_barrick_mining_dd/)

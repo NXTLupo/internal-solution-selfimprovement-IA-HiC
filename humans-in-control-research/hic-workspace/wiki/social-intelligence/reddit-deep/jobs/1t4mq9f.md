@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1t4mq9f.md
 url: "https://www.reddit.com/r/jobs/comments/1t4mq9f/how_am_i_supposed_to_get_experience_when_every/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,21 @@ flair: "Applications"
 extracted_at: "2026-05-20T06:41:17.647Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1t4mq9f.md#c0"
+    char_span: [0, 408]
+    sentence_count: 4
+    key_terms: [experience, entry-level, comments, requires, get, job, jobs, katyreddit00]
+    token_count: 103
+  - id: "social-intelligence/reddit-deep/jobs/1t4mq9f.md#c1"
+    char_span: [423, 988]
+    sentence_count: 4
+    key_terms: [want, someone, people, train, don, hate, historicalchew10, katyreddit00]
+    section: Comments
+    token_count: 157
 ---
-
 # How am I supposed to get experience when every entry-level job requires experience?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1t4mq9f/how_am_i_supposed_to_get_experience_when_every/)

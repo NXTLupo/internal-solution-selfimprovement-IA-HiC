@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tgakly.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tgakly/mid30s_career_pivot_hospitality_music_tech/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -6,19 +7,77 @@ subreddit: "careerguidance"
 title: "Mid-30s career pivot: Hospitality + Music Tech background — go back for Psychology, Biomedical Engineering, Nursing, or something else for stability?"
 author: "user303909"
 date: "2026-05-18T03:26:20.000Z"
-score: 94
+score: 91
 upvote_ratio: 0.99
-num_comments: 69
+num_comments: 68
 flair: "Advice"
-extracted_at: "2026-05-26T14:32:49.157Z"
+extracted_at: "2026-06-06T13:03:37.341Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c0"
+    char_span: [0, 2273]
+    sentence_count: 17
+    key_terms: [background, psychology, stability, careerguidance, tech, engineering, biomedical, nursing]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c1"
+    char_span: [2275, 2846]
+    sentence_count: 3
+    key_terms: [opportunities-education-training, right, troubleshooting, certifications, transferable, alternative, experiences, recommended]
+    token_count: 116
+  - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c2"
+    char_span: [2861, 5346]
+    sentence_count: 17
+    key_terms: [degree, background, psychology, positions, friends, medical, legitimately, work]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c3"
+    char_span: [5348, 7565]
+    sentence_count: 15
+    key_terms: [biomedical, engineering, technician, user303909, thank, myself, seems, job]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c4"
+    char_span: [7330, 7751]
+    sentence_count: 4
+    key_terms: [taking, engineering, user303909, different, counter, melting, reminds, started]
+    section: Comments
+    token_count: 105
+  - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c5"
+    char_span: [7753, 8674]
+    sentence_count: 5
+    key_terms: [job, degree, though, field, psych, whole-praline-5937, get, tech]
+    section: Comments
+    token_count: 235
+  - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c6"
+    char_span: [8676, 10199]
+    sentence_count: 8
+    key_terms: [engineering, audio, understanding, etc, user303909, software, general, product]
+    section: Comments
+    token_count: 323
+  - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c7"
+    char_span: [10201, 12283]
+    sentence_count: 15
+    key_terms: [nursing, engineering, bio, med, something, sometimes, degrees, getting]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c8"
+    char_span: [12285, 12536]
+    sentence_count: 2
+    key_terms: [technology, companies, different, vigilance, clinical, medicine, pharmaco, several]
+    section: Comments
+    token_count: 56
+  - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c9"
+    char_span: [12538, 14723]
+    sentence_count: 14
+    key_terms: [engineering, degree, bme, medical, "you're", dry-base7274, good, appreciate]
+    section: Comments
+    token_count: 488
 ---
-
 # Mid-30s career pivot: Hospitality + Music Tech background — go back for Psychology, Biomedical Engineering, Nursing, or something else for stability?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tgakly/mid30s_career_pivot_hospitality_music_tech/)
-Posted by **user303909** · **94↑** · **69 comments**
+Posted by **user303909** · **91↑** · **68 comments**
 
 Hi r/careerguidance (and any other relevant subs),  
 I’m in my mid-30s at a major career crossroads and feeling nervous about long-term stability. I’d really appreciate honest perspectives from people who’ve pivoted later in life.
@@ -54,14 +113,14 @@ Thank you so much for reading this far. Any advice, personal experiences, or res
 
 ## Comments
 
-- **Guilty_Pool_5355** (31↑): Your music tech background could actually be really valuable in biomedical engineering - there's tons of overlap with signal processing and audio equipment that translates well to medical devices. I work in financial sector but have friends who made similar pivots around your age and they all say the hardest part was just starting.
+- **Guilty_Pool_5355** (29↑): Your music tech background could actually be really valuable in biomedical engineering - there's tons of overlap with signal processing and audio equipment that translates well to medical devices. I work in financial sector but have friends who made similar pivots around your age and they all say the hardest part was just starting.
 
   
 Psychology path would probably need graduate school for decent pay so that's longer timeline, while nursing gets you working faster but the hours can be brutal. Have you looked at medical device companies? They love people who understand both the technical side and can troubleshoot under pressure like you do in kitchen management. Your computer skills plus audio background might open doors in companies that make hearing aids or diagnostic equipment.
 
   
 At 29 I'm just starting to think about career changes myself so can't speak from experience, but your mix of technical skills and people management seems pretty rare actually.
-  - **user303909** (5↑): Thank you very much for the well thought out reply it’s spot on that was initially the first major that got my interest when I was younger and looking at school initially. 
+  - **user303909** (4↑): Thank you very much for the well thought out reply it’s spot on that was initially the first major that got my interest when I was younger and looking at school initially. 
 
 Which is quite ironic, but absolutely agreed there is so much knowledge of signal processing I can put to good use that’s legitimately an excellent point. 
 
@@ -70,7 +129,7 @@ Psychology I absolutely agree I have friends who got their bachelors and often g
 As for your background that’s interesting to be in medical finance, my friends dad legitimately became a millionaire selling hospitals devices and big machines in the 1980s & 1990s. 
 
 Cheers and much luck for you ahead as well!!
-    - **PronatorTeres00** (8↑): As someone with a bachelor's degree in Psych, you can do next to nothing - psychology wise - with this degree, unless you'd prefer to work as a receptionist at a psychologist's clinic or a lab tech somewhere. However, neither of those positions typically require a degree, so the pay will likely be commensurate, unfortunately. 
+    - **PronatorTeres00** (7↑): As someone with a bachelor's degree in Psych, you can do next to nothing - psychology wise - with this degree, unless you'd prefer to work as a receptionist at a psychologist's clinic or a lab tech somewhere. However, neither of those positions typically require a degree, so the pay will likely be commensurate, unfortunately. 
 
 Clinical psychologists typically pursue a doctoral degree, and the competition for admission is *fierce*. Expect to apply to universities in different cities or possibly states. There are counseling/social work positions that only require a master's degree in their respective field, but these positions are far and fewer in between. 
 
@@ -87,18 +146,13 @@ Of the 3 that you have mentioned, nursing will offer the most stability and oppo
 Excellent point though, appreciate it.
 - **Inner_Ad_4725** (4↑): Do something with a strong & consistent job market. I.e. not psychology
   - **Inkpad_5QF** (1↑): Yo pivoté tarde y miraría salud informática: más constante que psicología y encaja con su audio/tech.
-- **RabbitActive3692** (4↑): I’ve personally known many people who had a bachelors degree in psych and couldn’t get a job using their degree. If you go to nursing school, you could eventually become a psych nurse practitioner. Starting pay is about 120k.
+- **RabbitActive3692** (5↑): I’ve personally known many people who had a bachelors degree in psych and couldn’t get a job using their degree. If you go to nursing school, you could eventually become a psych nurse practitioner. Starting pay is about 120k.
   - **user303909** (2↑): Yeah I am super familiar with the field it’s tough it’s hard work, good jobs though.
 - **Whole-Praline-5937** (3↑): Have you considered pivoting into a commercial A/V role? CS + music tech background would make you easily qualified and there are various online certs you can do quickly if necessary (but unlikely to be required to get a job in the field given your experience).
 
 This is my current path having previously worked in audio / consumer electronics design for 6 years, and it seems like a solid industry for further progression.
   - **user303909** (2↑): Whoa really??? This was the direction I hoped to go in but found some difficulty breaking through yeah I am super passionate about music and technology. That’s great to know I already have experience in the field this comment really took me off guard. I see a lot of reasonable takes but man that kind of work would make me feel quite fulfilled I believe. I loved working with synths and fx, samplers etc
     - **flele** (2↑): Habe you considered becoming a product manager for audio products? E.g. software. It combines your domain knowledge in audio tech with general technical understanding (you will be working closely with engineers to specify product requirements etc). It even has some psychology elements when it comes to understanding user pain points, defining your ideal customer etc
-  - **Valyrian001** (2↑): Commercial A/V feels like the annoyingly obvious bridge here, with OP’s live sound, studio setup, and CS troubleshooting already lining up.
-- **jorjiarose** (3↑): Your background is seriously unique. I'd lean into biomedical engineering or a technician role. Nursing stability is real but you'll burn out again if patient care isn't your thing. The audio tech + problem solving combo sounds perfect for medical devices or radiology tech.
-  - **user303909** (1↑): That’s funny you mention radiology tech that’s always been my “just in case” plan lol, not in a bad way either I strongly consider radiology or rad tech, nuclear medicine the pay and science is cool to me. A bit more technical and removed from nursing. I have a massive bias toward nursing I am working on but it’s hard. Lots of friends and family say mixed things usually denoting it’s stress levels and you nailed it my absolute fear is burning out again. It happened after those years as a Sous Chef. 
-
-Thanks for understanding and leaving a thought provoking comment.
 - **marge7777** (2↑): Getting accepted into an engineering program is extremely competitive.
   - **Damodred89** (5↑): So is absolutely everything apparently, which is half the reason we're all here deliberating endlessly?
   - **user303909** (1↑): Yeah that was a fear of mine, though I’m glad I kind of put off applying to them the only engineering I think I could do would be Biomedical Engineering or Audio but I feel the actual Audio Engineering world has been shifted more towards general software and it’s not quite engineering like EE. 
@@ -117,3 +171,4 @@ Get a copy of the Anatomy Coloring Book and a set of colored pencils and start y
 - **Dry-Base7274** (2↑): Already a lot of good advice here, but wanted to weigh in on the engineering conversation. I have a biomedical engineering degree myself, and my opinion is that there are very few situations where a BME degree is preferable over an EE or ME degree. This is because in BME you're going to be likely relying on EE or ME skillsets / approaches anyway, and the actual biological / medical knowledge you may use is so vast and varied that the odds of you having to learn most of it on the job is high. Therefore, EE or ME (depending on what interests you / what you're good at) will better prepare you, and you're more hireable than BMEs who have a hard time getting over the "jack of all trades" syndrome. I'm speaking here about jobs within the medical device space, but of course this is doubly true outside of it--if you need to, an EE or ME can find a job anywhere, but a BME will have a harder time getting a foot in the door.
   - **user303909** (1↑): Thank you I really appreciate you sharing your experience, this is really good to know and confirm I sort of staggered my degree in retrospect for a few reasons as listed but also engineering. When I clicked from Psychology to Computer Science or Engineering I began comparing the different engineering degrees and found EE to be the most employable as well. Thanks for sharing your experience because it helps remove some of the rose tinted glasses the colleges hit ya with when registering-declaring. Ha. Excellent reply thank you again!
     - **Dry-Base7274** (2↑): No problem, I'm very glad it helps! I read similar advice when declaring a major and wish I had taken more heed of it. By the way if you do end up pursuing engineering, try to join a BME research lab. They'll definitely benefit from EE skills, and it'll be a huge credibility boost on your resume when applying for medical device jobs.
+- **Miamiconnectionexo** (2↑): appreciate the honest breakdown. most people sugarcoat this kind of thing.

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1tdxm1h.md
 url: "https://www.reddit.com/r/findapath/comments/1tdxm1h/34_and_no_idea_what_im_doing/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,57 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-22T15:13:18.829Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1tdxm1h.md#c0"
+    char_span: [0, 1796]
+    sentence_count: 23
+    key_terms: [years, back, hard, jobs, findapath, comments, because, always]
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/findapath/1tdxm1h.md#c1"
+    char_span: [1811, 3535]
+    sentence_count: 12
+    key_terms: [thank, helpful, please, here, findapath, comments, everyone, guidance]
+    section: Comments
+    token_count: 389
+  - id: "social-intelligence/reddit-deep/findapath/1tdxm1h.md#c2"
+    char_span: [3537, 4280]
+    sentence_count: 7
+    key_terms: [distributionrare5409, build, local, thank, winningthegame100, superslugsister, flairpointsbot, certification]
+    section: Comments
+    token_count: 181
+  - id: "social-intelligence/reddit-deep/findapath/1tdxm1h.md#c3"
+    char_span: [4282, 6370]
+    sentence_count: 19
+    key_terms: [superslugsister, trading, management, wastewater, look, good, like, already]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/findapath/1tdxm1h.md#c4"
+    char_span: [6103, 6462]
+    sentence_count: 3
+    key_terms: [meritocracy-based, demonstrate, education, generally, landscape, mirroring, situation, bachelor]
+    section: Comments
+    token_count: 84
+  - id: "social-intelligence/reddit-deep/findapath/1tdxm1h.md#c5"
+    char_span: [6464, 8424]
+    sentence_count: 14
+    key_terms: [bls, look, use, want, different, interest, opiates, always]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/findapath/1tdxm1h.md#c6"
+    char_span: [8426, 10712]
+    sentence_count: 28
+    key_terms: [business, people, like, work, yourself, scholarships, niche, own]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/findapath/1tdxm1h.md#c7"
+    char_span: [10714, 11347]
+    sentence_count: 10
+    key_terms: [like, winningthegame100, "goldman's", already, capital, checked, crawled, dealing]
+    section: Comments
+    token_count: 163
 ---
-
 # 34 and no idea what im doing
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1tdxm1h/34_and_no_idea_what_im_doing/)

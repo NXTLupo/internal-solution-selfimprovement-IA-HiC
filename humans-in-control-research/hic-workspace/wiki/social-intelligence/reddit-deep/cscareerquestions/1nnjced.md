@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1nnjced.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1nnjced/seeking_career_advice_and_learning_path_for/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,15 @@ flair: "Experienced"
 extracted_at: "2026-05-23T19:45:00.920Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nnjced.md#c0"
+    char_span: [0, 1284]
+    sentence_count: 11
+    key_terms: [appworks, cscareerquestions, career, developer, viability, comments, official, courses]
+    token_count: 271
 ---
-
 # Seeking Career Advice and Learning Path for OpenText AppWorks
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1nnjced/seeking_career_advice_and_learning_path_for/)

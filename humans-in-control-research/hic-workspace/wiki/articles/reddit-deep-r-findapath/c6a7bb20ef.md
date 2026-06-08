@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-findapath/c6a7bb20ef.md
 url: "https://www.reddit.com/r/findapath/comments/1te05ng/i_feel_like_ive_wasted_my_life_at_24/"
 url_hash: "c6a7bb20ef"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T15:20:17.618193+00:00"
 chars: 4972
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-findapath/c6a7bb20ef.md#c0"
+    char_span: [0, 1955]
+    sentence_count: 4
+    key_terms: [years, findapath, "i'm", like, another, studies, behind, myself]
+    token_count: 453
+  - id: "articles/reddit-deep-r-findapath/c6a7bb20ef.md#c1"
+    char_span: [1957, 3796]
+    sentence_count: 17
+    key_terms: [therapist, life, thank, helpful, please, klistellacca, "he's", help]
+    token_count: 413
+  - id: "articles/reddit-deep-r-findapath/c6a7bb20ef.md#c2"
+    char_span: [3798, 5142]
+    sentence_count: 15
+    key_terms: [life, good, work, through, working, people, lukasgoestoamygdala, buddy]
+    token_count: 320
 ---
-
 # i feel like i've wasted my life at 24
 
 Source: [Reddit Deep: r/findapath](https://www.reddit.com/r/findapath/comments/1te05ng/i_feel_like_ive_wasted_my_life_at_24/)

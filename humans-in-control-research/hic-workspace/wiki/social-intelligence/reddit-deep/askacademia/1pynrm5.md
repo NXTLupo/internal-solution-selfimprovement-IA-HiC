@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1pynrm5.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1pynrm5/phd_in_saudi_vs_china_vs_tunisia/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,33 @@ flair: "STEM"
 extracted_at: "2026-05-26T14:32:49.126Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1pynrm5.md#c0"
+    char_span: [0, 1138]
+    sentence_count: 13
+    key_terms: [international, phd, askacademia, comments, computer, country, student, funded]
+    token_count: 261
+  - id: "social-intelligence/reddit-deep/askacademia/1pynrm5.md#c1"
+    char_span: [1153, 2561]
+    sentence_count: 6
+    key_terms: [research, preferential, universities, fraud, university, countries, academic, country]
+    section: Comments
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/askacademia/1pynrm5.md#c2"
+    char_span: [2563, 4175]
+    sentence_count: 11
+    key_terms: [countries, international, opportunities, good, deleted, funding, thought, tunisia]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/askacademia/1pynrm5.md#c3"
+    char_span: [4177, 4785]
+    sentence_count: 6
+    key_terms: [environment, country, professional, conferences, encouraging, accessible, countries, exploring]
+    section: Comments
+    token_count: 138
 ---
-
 # PhD in Saudi vs China vs Tunisia
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1pynrm5/phd_in_saudi_vs_china_vs_tunisia/)

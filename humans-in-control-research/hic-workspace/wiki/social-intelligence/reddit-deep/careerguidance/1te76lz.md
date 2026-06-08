@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1te76lz.md
 url: "https://www.reddit.com/r/careerguidance/comments/1te76lz/noncs_engineering_student_stuck_between_a_cs/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,16 @@ score: 1
 upvote_ratio: 1
 num_comments: 2
 flair: "Advice"
-extracted_at: "2026-05-23T20:15:29.970Z"
+extracted_at: "2026-06-03T18:53:36.153Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1te76lz.md#c0"
+    char_span: [0, 1746]
+    sentence_count: 8
+    key_terms: [filmmaking, video, confusion, careerguidance, career, doing, engineering, able]
+    token_count: 408
 ---
-
 # Non-CS engineering student stuck between a CS career and filmmaking—how do I fix my path?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1te76lz/noncs_engineering_student_stuck_between_a_cs/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1tn74ve.md
 url: "https://www.reddit.com/r/college/comments/1tn74ve/considering_switching_from_biology_to_psychology/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,33 @@ flair: "Career/work"
 extracted_at: "2026-05-26T14:31:29.696Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1tn74ve.md#c0"
+    char_span: [0, 2556]
+    sentence_count: 19
+    key_terms: [psychology, switching, occupations, behavioral, want, because, college, parents]
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/college/1tn74ve.md#c1"
+    char_span: [2571, 4634]
+    sentence_count: 9
+    key_terms: [psych, school, research, program, phd, clinical, psychologist, major]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/college/1tn74ve.md#c2"
+    char_span: [4636, 6819]
+    sentence_count: 19
+    key_terms: [psychology, "i'm", school, med, biology, burnout, major, years]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1tn74ve.md#c3"
+    char_span: [6563, 7264]
+    sentence_count: 5
+    key_terms: [psych, graduate, degree, premed, pharmaceutical, understanding, no-ease-8508, requirements]
+    section: Comments
+    token_count: 160
 ---
-
 # Considering Switching from Biology to Psychology: Need Honest Advice
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1tn74ve/considering_switching_from_biology_to_psychology/)

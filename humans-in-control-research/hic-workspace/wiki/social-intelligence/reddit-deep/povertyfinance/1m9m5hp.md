@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1m9m5hp/multigenerational_living_has_become_our_only/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,57 @@ flair: "Free talk"
 extracted_at: "2026-05-16T20:55:12.688Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [real_estate, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md#c0"
+    char_span: [0, 2309]
+    sentence_count: 16
+    key_terms: [living, costs, parents, husband, povertyfinance, money, everything, utilities]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md#c1"
+    char_span: [2324, 3708]
+    sentence_count: 9
+    key_terms: [opportunity, accident, railroad, exactly, parents, aromatic-warning1495, disastrous-deer-9137, important-aerie-5408]
+    section: Comments
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md#c2"
+    char_span: [3710, 5508]
+    sentence_count: 8
+    key_terms: [parents, living, relationship, shame, dont, home, sometimes, family]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md#c3"
+    char_span: [5510, 6193]
+    sentence_count: 8
+    key_terms: [school, college, "that's", debt, job, old, time, independently]
+    section: Comments
+    token_count: 144
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md#c4"
+    char_span: [6195, 8293]
+    sentence_count: 15
+    key_terms: [people, boundaries, parents, like, respect, individualism, "don't", get]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md#c5"
+    char_span: [8295, 9076]
+    sentence_count: 6
+    key_terms: [parents, situation, grateful, aware-influence-8622, moonandstarstarot, hopeful-ant-3509, generational, helplessness]
+    section: Comments
+    token_count: 200
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md#c6"
+    char_span: [9078, 11094]
+    sentence_count: 14
+    key_terms: [like, own, living, people, sounds, space, different, bathroom]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md#c7"
+    char_span: [11096, 11970]
+    sentence_count: 7
+    key_terms: [month, moonandstarstarot, grandparents, significant, immigrants, tightening, different, explained]
+    section: Comments
+    token_count: 207
 ---
-
 # Multigenerational living has become our only option
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1m9m5hp/multigenerational_living_has_become_our_only/)

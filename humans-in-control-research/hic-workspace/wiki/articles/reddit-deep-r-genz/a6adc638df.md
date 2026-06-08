@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-genz/a6adc638df.md
 url: "https://www.reddit.com/r/GenZ/comments/1taq406/so_do_we_really_have_no_other_choice_other_than/"
 url_hash: "a6adc638df"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:18:33.127654+00:00"
 chars: 5375
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-genz/a6adc638df.md#c0"
+    char_span: [0, 2324]
+    sentence_count: 12
+    key_terms: [work, because, workers, day, end, genz, job, week]
+    token_count: 511
+  - id: "articles/reddit-deep-r-genz/a6adc638df.md#c1"
+    char_span: [2327, 3952]
+    sentence_count: 8
+    key_terms: [power, public, "that's", leverage, ruling, social, class, altogether]
+    token_count: 335
+  - id: "articles/reddit-deep-r-genz/a6adc638df.md#c2"
+    char_span: [3954, 5623]
+    sentence_count: 8
+    key_terms: [like, gonna, thr0away76, philosopherberzerer, going, years, receptionmuch3790, been]
+    token_count: 393
 ---
-
 # So... do we really have no other choice other than to wait for nothing as the job market disappears from under us?
 
 Source: [Reddit Deep: r/genz](https://www.reddit.com/r/GenZ/comments/1taq406/so_do_we_really_have_no_other_choice_other_than/)

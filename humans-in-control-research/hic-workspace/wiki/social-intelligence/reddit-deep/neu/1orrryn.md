@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1orrryn.md
 url: "https://www.reddit.com/r/NEU/comments/1orrryn/how_do_students_sublet_at_northeastern/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -6,19 +7,36 @@ subreddit: "neu"
 title: "How do students sublet at Northeastern?"
 author: "TraditionalLake3608"
 date: "2025-11-08T15:10:58.000Z"
-score: 236
+score: 235
 upvote_ratio: 0.99
 num_comments: 34
 flair: "Housing & Dorms"
-extracted_at: "2026-05-19T17:57:09.036Z"
+extracted_at: "2026-06-03T18:34:36.361Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1orrryn.md#c0"
+    char_span: [0, 746]
+    sentence_count: 7
+    key_terms: [housing, neu, comments, facebook, boston, sublet, traditionallake3608, co-op]
+    token_count: 190
+  - id: "social-intelligence/reddit-deep/neu/1orrryn.md#c1"
+    char_span: [761, 2348]
+    sentence_count: 7
+    key_terms: [housing, getting, traditionallake3608, https, reddit, www, facebook, mcm998]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/neu/1orrryn.md#c2"
+    char_span: [2350, 4232]
+    sentence_count: 6
+    key_terms: [sublet, traditionallake3608, instagram, guy, housing, boston, post, apartment]
+    section: Comments
+    token_count: 475
 ---
-
 # How do students sublet at Northeastern?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1orrryn/how_do_students_sublet_at_northeastern/)
-Posted by **TraditionalLake3608** · **236↑** · **34 comments**
+Posted by **TraditionalLake3608** · **235↑** · **34 comments**
 
 I just got offered at co-op at HSBC in New York for spring 2026. I am really excited for it but don't know what to do because I need to sublet my room in Boston and find housing in NYC that is affordable.
 
@@ -29,17 +47,17 @@ Any advice?
 
 ## Comments
 
-- **mcm998** (30↑): Contact the off campus housing office to list your place: https://offcampus.housing.northeastern.edu/
+- **mcm998** (27↑): Contact the off campus housing office to list your place: https://offcampus.housing.northeastern.edu/
 
 Also consider posting on the Reddit group for Boston Housing: https://www.reddit.com/r/bostonhousing/s/xoAv1yNFZi
-  - **mcm998** (8↑): For NYC housing, I’ve seen recommendations for EHS:
+  - **mcm998** (7↑): For NYC housing, I’ve seen recommendations for EHS:
 
 https://www.studenthousing.org
     - **ComfortableHumble664** (2↑): EHS is definitely worth it! It’s an expensive rate but I got $400 off for a sign up bonus and referring a friend
 - **Logical_Warthog5212** (25↑): So get a Facebook account. As much as you young-ins shun FB, FB was originally created by and for the college crowd. As you move towards your graduation and enter adult life, you need to learn to be resourceful. Sometimes that involves being a little “untrendy” and bucking the stigmas. It’s about getting the job done. And if joining FB can get the job done, there is no shame in that. 😆
   - **TraditionalLake3608** (1↑): ill do that
     - **TraditionalLake3608** (1↑): Any facebook groups you recommend for subletting?
-- **JDSmagic** (4↑): As far as getting a subletter goes, you could try [our megathread](https://www.reddit.com/r/NEU/s/JyZSUpM8pg) for housing
+- **JDSmagic** (5↑): As far as getting a subletter goes, you could try [our megathread](https://www.reddit.com/r/NEU/s/JyZSUpM8pg) for housing
 - **michaelserotonin** (3↑): i graduated over a decade ago but when one of my roommates bailed on our apartment due to getting a co-op elsewhere, i used craigslist to find someone to move in for three months.
 
 i ended up lucking out because an international nu student ended up getting a late co-op placement and needed somewhere to live for a few months before he moved into his september 1 lease.

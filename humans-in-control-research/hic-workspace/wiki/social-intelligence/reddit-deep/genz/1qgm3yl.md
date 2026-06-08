@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1qgm3yl.md
 url: "https://www.reddit.com/r/GenZ/comments/1qgm3yl/will_ai_and_boomer_greed_push_genz_toward_a/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,51 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.763Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research, financial_services, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1qgm3yl.md#c0"
+    char_span: [0, 1480]
+    sentence_count: 14
+    key_terms: [bitcoin, boomers, boomer-owned, gen, genz, capitalism, comments, assets]
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/genz/1qgm3yl.md#c1"
+    char_span: [1495, 3559]
+    sentence_count: 12
+    key_terms: [people, pepsimax001, capitalism, feudalism, reason, human, politicians, politics]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/genz/1qgm3yl.md#c2"
+    char_span: [3561, 5423]
+    sentence_count: 13
+    key_terms: [boomers, gen, governments, capitalist, generation, everyone, security, bitcoin]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/genz/1qgm3yl.md#c3"
+    char_span: [5425, 7413]
+    sentence_count: 14
+    key_terms: [bitcoin, capitalism, humanity, people, hold, "it's", revolution, robotics]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/genz/1qgm3yl.md#c4"
+    char_span: [7415, 9518]
+    sentence_count: 12
+    key_terms: [money, bitcoin, holding, bigger, people, stocks, international, asset]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/genz/1qgm3yl.md#c5"
+    char_span: [9520, 11895]
+    sentence_count: 23
+    key_terms: [bitcoin, stocks, companies, own, asset, price, stock, hold]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/genz/1qgm3yl.md#c6"
+    char_span: [11897, 12798]
+    sentence_count: 8
+    key_terms: [bitcoin, empires, independently, theoretically, nonessential, self-custody, compromised, memberships]
+    section: Comments
+    token_count: 218
 ---
-
 # Will AI and Boomer greed Push GenZ Toward a Post-Capitalist Future?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1qgm3yl/will_ai_and_boomer_greed_push_genz_toward_a/)

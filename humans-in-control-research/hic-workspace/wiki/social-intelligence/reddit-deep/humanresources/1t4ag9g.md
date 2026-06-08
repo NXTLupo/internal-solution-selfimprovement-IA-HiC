@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1t4ag9g.md
 url: "https://www.reddit.com/r/humanresources/comments/1t4ag9g/i_passed_shrm_na/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,26 @@ flair: ""
 extracted_at: "2026-05-23T12:15:41.535Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1t4ag9g.md#c0"
+    char_span: [0, 2048]
+    sentence_count: 22
+    key_terms: [test, shrm, questions, humanresources, passed, phr, everything, irrelevant]
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/humanresources/1t4ag9g.md#c1"
+    char_span: [2050, 2555]
+    sentence_count: 8
+    key_terms: [shrm, knowledge, situational-aligned, ready, situational, understand, long-term, questions]
+    token_count: 116
+  - id: "social-intelligence/reddit-deep/humanresources/1t4ag9g.md#c2"
+    char_span: [2570, 3143]
+    sentence_count: 2
+    key_terms: [test, prometrics, congrats, center, inevitable-west-9032, helps, greedy-canary-5807, congratulations]
+    section: Comments
+    token_count: 182
 ---
-
 # I passed SHRM! [N/A]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1t4ag9g/i_passed_shrm_na/)

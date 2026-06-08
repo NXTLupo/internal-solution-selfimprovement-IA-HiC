@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1pxa9hx.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1pxa9hx/williams_college_robotics_engineering_32/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,21 @@ flair: "General Advice"
 extracted_at: "2026-05-20T06:42:01.112Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pxa9hx.md#c0"
+    char_span: [0, 2345]
+    sentence_count: 5
+    key_terms: [engineering, robotics, williams, school, years, best, long, term]
+    token_count: 515
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pxa9hx.md#c1"
+    char_span: [2360, 2613]
+    sentence_count: 3
+    key_terms: [fragrantbluebird8106, masters, considered, graduate, normally, realized, amount, doing]
+    section: Comments
+    token_count: 77
 ---
-
 # Williams College → Robotics Engineering? 3–2 Engineering (2 BAs + Engineering Degree) vs Grad School Path — Advice Wanted
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1pxa9hx/williams_college_robotics_engineering_32/)

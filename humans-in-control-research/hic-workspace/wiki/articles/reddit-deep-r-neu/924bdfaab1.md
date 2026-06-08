@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-neu/924bdfaab1.md
 url: "https://www.reddit.com/r/NEU/comments/1t6crmm/running_out_of_claude_credits_mahoraga_is_here/"
 url_hash: "924bdfaab1"
 kind: "article"
@@ -8,10 +9,22 @@ author: ""
 date: "2026-05-07T14:48:50.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-19T18:05:30.025090+00:00"
+extracted_at: "2026-06-05T17:19:03.368865+00:00"
 chars: 3098
+relevance: 30
+engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis.  "
+chunks:
+  - id: "articles/reddit-deep-r-neu/924bdfaab1.md#c0"
+    char_span: [0, 2102]
+    sentence_count: 17
+    key_terms: [models, claude, local, mahoraga, northeastern, run, honestly, "you're"]
+    token_count: 511
+  - id: "articles/reddit-deep-r-neu/924bdfaab1.md#c1"
+    char_span: [2104, 3277]
+    sentence_count: 10
+    key_terms: [greedyworking1499, credits, claude, own-professional3092, people, premium, friend, bunch]
+    token_count: 301
 ---
-
 # Running out of Claude credits? Mahoraga is here.
 
 Source: [Reddit Deep: r/neu](https://www.reddit.com/r/NEU/comments/1t6crmm/running_out_of_claude_credits_mahoraga_is_here/)
@@ -33,8 +46,8 @@ I ran 192 tasks across 8 agents (4 local Ollama models, 4 cloud CLIs) on a 16GB 
 Results, tables, and analysis is on the github. If you study CS/DS/AI, you probably know more than me. Input would be appreciated.
 
 --- TOP COMMENTS ---
-[7↑ GreedyWorking1499] How many people do you know run out of Claude credits monthly? Because I only know 1 (me)
-[5↑ Own-Professional3092] A bunch of my friends are CS students, and we happened to have one guy who sweats on claude all day. Naturally, we all hopped on and we consistently run out of credits now.   
+[6↑ GreedyWorking1499] How many people do you know run out of Claude credits monthly? Because I only know 1 (me)
+[4↑ Own-Professional3092] A bunch of my friends are CS students, and we happened to have one guy who sweats on claude all day. Naturally, we all hopped on and we consistently run out of credits now.   
   
 I know a bunch of people that request credits every month tho. People use it to create their own trading tools, all kinds of cool stuff.
 [3↑ GreedyWorking1499] That’s interesting. I’m the Claude guy of my friend group so I ran out but my closest friend only got to like $200 and we just graduated so we took hard classes.

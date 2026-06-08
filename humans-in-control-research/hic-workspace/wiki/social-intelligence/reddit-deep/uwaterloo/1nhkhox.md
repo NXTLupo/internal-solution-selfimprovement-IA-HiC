@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1nhkhox.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1nhkhox/fall_2026_admissions_megathread/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,39 @@ flair: "Admissions"
 extracted_at: "2026-05-25T18:33:12.668Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1nhkhox.md#c0"
+    char_span: [0, 1347]
+    sentence_count: 2
+    key_terms: [uwaterloo, https, comments, com, reddit, admissions, megathread, www]
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/uwaterloo/1nhkhox.md#c1"
+    char_span: [1362, 2712]
+    sentence_count: 8
+    key_terms: [secure-lake5784, aviation, directly, anyone, degree, admission, geography, geomatics]
+    section: Comments
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/uwaterloo/1nhkhox.md#c2"
+    char_span: [2714, 4765]
+    sentence_count: 13
+    key_terms: [futurerefrigerator68, submit, science, application, admission, question, average, aif]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/uwaterloo/1nhkhox.md#c3"
+    char_span: [4509, 5263]
+    sentence_count: 4
+    key_terms: [students, average, ontario, biomed, year, admission, science, trying]
+    section: Comments
+    token_count: 203
+  - id: "social-intelligence/reddit-deep/uwaterloo/1nhkhox.md#c4"
+    char_span: [5265, 6120]
+    sentence_count: 4
+    key_terms: [master-analysis-4473, mhf4u, get, ouac, says, sent, extracurriculars, chairman9876]
+    section: Comments
+    token_count: 238
 ---
-
 # Fall 2026 Admissions Megathread
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1nhkhox/fall_2026_admissions_megathread/)

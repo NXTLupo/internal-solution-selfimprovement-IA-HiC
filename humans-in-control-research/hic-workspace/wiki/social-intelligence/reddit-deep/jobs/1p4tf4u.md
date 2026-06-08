@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1p4tf4u.md
 url: "https://www.reddit.com/r/jobs/comments/1p4tf4u/the_job_market_is_fine_young_people_just_dont/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,39 @@ flair: "Unemployment"
 extracted_at: "2026-05-24T14:10:06.643Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1p4tf4u.md#c0"
+    char_span: [0, 283]
+    sentence_count: 2
+    key_terms: [comments, jobs, reddit-deep, trpsock97, anymore, market, people, posted]
+    token_count: 85
+  - id: "social-intelligence/reddit-deep/jobs/1p4tf4u.md#c1"
+    char_span: [298, 1459]
+    sentence_count: 14
+    key_terms: [february, figure, crazy, index, don, work, noexperience9717, ok-energy-9785]
+    section: Comments
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/jobs/1p4tf4u.md#c2"
+    char_span: [1461, 2932]
+    sentence_count: 12
+    key_terms: [job-openings-in-october-slumped-to-the-lowest-level-since-early-february-indeed-measure-shows, postings, https, com, job, february, indeed, number]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/jobs/1p4tf4u.md#c3"
+    char_span: [2934, 4541]
+    sentence_count: 7
+    key_terms: [need, covid, get, learn, least, worse, worst, humble-heart-5302]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/jobs/1p4tf4u.md#c4"
+    char_span: [4543, 5108]
+    sentence_count: 4
+    key_terms: [interview, average, people, feels, tasks, "we're", worse, neurodivergent]
+    section: Comments
+    token_count: 123
 ---
-
 # "The job market is fine! Young people just don't want to work anymore!"
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1p4tf4u/the_job_market_is_fine_young_people_just_dont/)

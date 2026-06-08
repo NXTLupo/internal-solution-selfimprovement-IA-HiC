@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1s2elmi.md
 url: "https://www.reddit.com/r/waterloo/comments/1s2elmi/help/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.125Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1s2elmi.md#c0"
+    char_span: [0, 899]
+    sentence_count: 5
+    key_terms: [help, waterloo, anything, comments, because, student, money, been]
+    token_count: 222
+  - id: "social-intelligence/reddit-deep/waterloo/1s2elmi.md#c1"
+    char_span: [914, 2969]
+    sentence_count: 12
+    key_terms: [guitarbright, don, give, need, pay, cautious, facebook, services]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/waterloo/1s2elmi.md#c2"
+    char_span: [2971, 4569]
+    sentence_count: 1
+    key_terms: [sell, items, pay, early, job, because, worked, money]
+    section: Comments
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/waterloo/1s2elmi.md#c3"
+    char_span: [4571, 6062]
+    sentence_count: 9
+    key_terms: [payment, pay, guitarbright, collections, back, bank, call, day]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/waterloo/1s2elmi.md#c4"
+    char_span: [6064, 7210]
+    sentence_count: 12
+    key_terms: [verify, call, company, someone, number, zestyclosebathroom31, waste, bank]
+    section: Comments
+    token_count: 270
+  - id: "social-intelligence/reddit-deep/waterloo/1s2elmi.md#c5"
+    char_span: [7212, 8184]
+    sentence_count: 8
+    key_terms: ["you'll", maybe, offer, expresskitchen235, dog, full, help, pay]
+    section: Comments
+    token_count: 257
 ---
-
 # !!!!HELP!!!!
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1s2elmi/help/)

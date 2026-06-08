@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tlb71m.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tlb71m/advice_needed_4th_prof_pharmd_student_looking_for/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,15 @@ flair: "Advice"
 extracted_at: "2026-05-23T19:45:11.368Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tlb71m.md#c0"
+    char_span: [0, 1776]
+    sentence_count: 14
+    key_terms: [looking, writing, skills, communication, student, careerguidance, background, experience]
+    token_count: 383
 ---
-
 # [Advice Needed] 4th Prof PharmD student looking for part-time work. Strong communication & writing skills what are my options and how do I start?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tlb71m/advice_needed_4th_prof_pharmd_student_looking_for/)

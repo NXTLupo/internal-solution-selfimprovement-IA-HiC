@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1pv0l8i.md
 url: "https://www.reddit.com/r/stocks/comments/1pv0l8i/if_you_had_to_pick_one_longterm_ai_winner_google/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,63 @@ flair: "Company Discussion"
 extracted_at: "2026-05-17T01:14:17.625Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research, financial_services, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c0"
+    char_span: [0, 1014]
+    sentence_count: 7
+    key_terms: [long-term, comments, google, nvidia, stocks, stock, pick, controversial]
+    token_count: 235
+  - id: "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c1"
+    char_span: [1029, 2872]
+    sentence_count: 4
+    key_terms: [google, company, reddit, year, people, worst, ago, investment]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c2"
+    char_span: [2874, 4623]
+    sentence_count: 16
+    key_terms: [google, shit, because, bought, transformers, fking, everyone, people]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c3"
+    char_span: [4625, 5005]
+    sentence_count: 3
+    key_terms: [yk5djvx2mh, wikipedia, anything, designed, geniuses, hardware, invented, position]
+    section: Comments
+    token_count: 99
+  - id: "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c4"
+    char_span: [5007, 7004]
+    sentence_count: 11
+    key_terms: [google, always, wikipedia, monopoly, against, bought, pmmeuroneweirdtrick, https]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c5"
+    char_span: [6749, 7386]
+    sentence_count: 5
+    key_terms: [google, etc, throwawaynewc, applications, continuously, companies, immediate, long-term]
+    section: Comments
+    token_count: 158
+  - id: "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c6"
+    char_span: [7388, 9097]
+    sentence_count: 13
+    key_terms: [nvidia, business, market, time, google, trying, going, buy]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c7"
+    char_span: [9099, 10966]
+    sentence_count: 17
+    key_terms: [google, nvidia, data, driving, self, yrrrrrrrr, behavior, example]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c8"
+    char_span: [10968, 12942]
+    sentence_count: 27
+    key_terms: [google, nvidia, tpus, use, twice, multiple, research, atleast]
+    section: Comments
+    token_count: 483
 ---
-
 # If you had to pick one long-term AI winner: Google or Nvidia and why?
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1pv0l8i/if_you_had_to_pick_one_longterm_ai_winner_google/)

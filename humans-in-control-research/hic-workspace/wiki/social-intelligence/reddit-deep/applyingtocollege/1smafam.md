@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1smafam.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1smafam/international_student_choosing_cs_umass_16kyr/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -10,11 +11,40 @@ score: 0
 upvote_ratio: 0.33
 num_comments: 41
 flair: "College Questions"
-extracted_at: "2026-05-19T15:08:48.301Z"
+extracted_at: "2026-06-05T18:53:26.948Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1smafam.md#c0"
+    char_span: [0, 1791]
+    sentence_count: 25
+    key_terms: [umass, scholarship, international, northeastern, purdue, expensive, applyingtocollege, madison]
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1smafam.md#c1"
+    char_span: [1806, 3810]
+    sentence_count: 17
+    key_terms: [umass, boston, internships, purdue, difficult, work, gautamagarwal75, graduation]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1smafam.md#c2"
+    char_span: [3812, 4272]
+    sentence_count: 5
+    key_terms: [phd, getting, being, international, competitive, employment, dependent, mentioned]
+    section: Comments
+    token_count: 106
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1smafam.md#c3"
+    char_span: [4274, 6113]
+    sentence_count: 12
+    key_terms: [boston, international, cherrychocolatepizza, internship, umass, gautamagarwal75, get, good]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1smafam.md#c4"
+    char_span: [6115, 7886]
+    sentence_count: 11
+    key_terms: [purdue, international, scholarships, admissions, colleges, students, plenty, co-op]
+    section: Comments
+    token_count: 423
 ---
-
 # International student choosing CS — UMass ($16k/yr scholarship), Northeastern Honors, Purdue, or UW Madison? Need help deciding
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1smafam/international_student_choosing_cs_umass_16kyr/)
@@ -60,11 +90,11 @@ She is gonna study CS
 
 ## Comments
 
-- **elkrange** (6↑): It's easier for others to respond if you edit your post to include *your net price* for each option. (example, Purdue and Northeastern are not in the same ballpark for cost.)
+- **elkrange** (5↑): It's easier for others to respond if you edit your post to include *your net price* for each option. (example, Purdue and Northeastern are not in the same ballpark for cost.)
 
 My understanding is that UMass has a decent reputation for CS. And there are tech employers in the Boston area.
   - **Gautamagarwal75** (2↑): Thanks for letting me know! Just updated it
-- **Alternative_Party277** (5↑): UMass, hands down. 
+- **Alternative_Party277** (6↑): UMass, hands down. 
 
 To me, it’s between Purdue and UMass. But Purdue is in Indiana which is difficult. UMass is in Boston so much more opportunity in every way. 
 
@@ -89,10 +119,10 @@ Finally, don’t be surprised if she switches out of CS into a different field. 
     - **Alternative_Party277** (1↑): Yeah, still closer to a major metro than Indiana.
   - **Purple_Umpire_8331** (0↑): UMass is about 2 hours from Boston just as a heads up.  If you get an internship in Boston, you will likely need to move closer to the city.  And rent is EXPENSIVE.
     - **CherryChocolatePizza** (2↑): UMass's Charles River Campus offers summer housing that makes this significantly less painful.
-- **Chemical_Result_6880** (4↑): Bear in mind that it may be harder to get a \[good\] co-op than it looks. My son struggled to find a good one while at Drexel. They needed him to have a car to get a good co-op.
-- **Artistic_Ad728** (3↑): International and CS? Bad idea
+- **Chemical_Result_6880** (3↑): Bear in mind that it may be harder to get a \[good\] co-op than it looks. My son struggled to find a good one while at Drexel. They needed him to have a car to get a good co-op.
+- **Artistic_Ad728** (4↑): International and CS? Bad idea
   - **Gautamagarwal75** (1↑): What do u mean
-    - **Artistic_Ad728** (6↑): I’m at one of those schools, and very few international CS have anything lined up (internship/job). Nowadays, you can’t expect a CS job from coming to the US and getting a BSCS here.
+    - **Artistic_Ad728** (5↑): I’m at one of those schools, and very few international CS have anything lined up (internship/job). Nowadays, you can’t expect a CS job from coming to the US and getting a BSCS here.
 - **Gautamagarwal75** (2↑): Also i just checked that the cost of attendance for international students at UW Madison is 70K per year- considering it's a state school
 - **NoSection2550** (2↑): Go for Purdue!
 - **nine_teeth** (2↑): had umass, purdue, uwisc, umd offer too.  had chancellor’s scholarship from umass too.  chose umd over all.  no regrets, enjoyed so much.

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1syngsc.md
 url: "https://www.reddit.com/r/deeplearning/comments/1syngsc/built_a_prompt_injection_detector_using_fisherrao/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.054Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, saas, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1syngsc.md#c0"
+    char_span: [0, 2136]
+    sentence_count: 16
+    key_terms: [prompts, layer, negatives, precision, data, hard, roleplay, prompt]
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/deeplearning/1syngsc.md#c1"
+    char_span: [2151, 3855]
+    sentence_count: 13
+    key_terms: [prompts, benign, ambiguous, "false", ones, classifier, compliance, legitimate]
+    section: Comments
+    token_count: 356
 ---
-
 # Built a prompt injection detector using Fisher-Rao geometry that outperforms LlamaGuard and OpenAI Moderation on indirect attacks
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1syngsc/built_a_prompt_injection_detector_using_fisherrao/)

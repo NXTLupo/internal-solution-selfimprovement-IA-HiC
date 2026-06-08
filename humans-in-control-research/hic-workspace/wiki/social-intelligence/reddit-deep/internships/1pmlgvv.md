@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1pmlgvv.md
 url: "https://www.reddit.com/r/internships/comments/1pmlgvv/informal_internship_opportunity_advice_for_future/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 5
 flair: "General"
-extracted_at: "2026-05-26T14:30:47.899Z"
+extracted_at: "2026-06-05T19:19:58.912Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1pmlgvv.md#c0"
+    char_span: [0, 1437]
+    sentence_count: 5
+    key_terms: [internships, internship, opportunity, office, management, structured, comments, exposure]
+    token_count: 314
+  - id: "social-intelligence/reddit-deep/internships/1pmlgvv.md#c1"
+    char_span: [1452, 2858]
+    sentence_count: 9
+    key_terms: [knockoffpatrick, worth, confident, discussed, payment, apprehensive-farm-58, being, doing]
+    section: Comments
+    token_count: 319
 ---
-
 # Informal Internship opportunity- advice for future internship/career
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1pmlgvv/informal_internship_opportunity_advice_for_future/)

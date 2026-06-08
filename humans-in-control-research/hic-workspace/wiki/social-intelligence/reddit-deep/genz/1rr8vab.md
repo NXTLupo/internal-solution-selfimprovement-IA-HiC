@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1rr8vab.md
 url: "https://www.reddit.com/r/GenZ/comments/1rr8vab/is_it_normal_to_not_want_to_date_anyone/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,27 @@ flair: "Discussion"
 extracted_at: "2026-05-16T20:55:01.231Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [healthcare]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1rr8vab.md#c0"
+    char_span: [0, 1141]
+    sentence_count: 8
+    key_terms: [friends, enjoyable, comments, thinking, cheated, maybe, back, genz]
+    token_count: 282
+  - id: "social-intelligence/reddit-deep/genz/1rr8vab.md#c1"
+    char_span: [1156, 2957]
+    sentence_count: 11
+    key_terms: [happy, "it's", anyone, amandwivedi98, relationship, "don't", want, attraction]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/genz/1rr8vab.md#c2"
+    char_span: [2959, 5005]
+    sentence_count: 18
+    key_terms: [someone, dating, people, going, "i'm", time, women, get]
+    section: Comments
+    token_count: 470
 ---
-
 # Is it normal to not want to date anyone?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1rr8vab/is_it_normal_to_not_want_to_date_anyone/)

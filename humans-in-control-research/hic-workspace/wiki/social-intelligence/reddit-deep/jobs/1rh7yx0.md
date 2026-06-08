@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1rh7yx0.md
 url: "https://www.reddit.com/r/jobs/comments/1rh7yx0/i_start_my_new_entrylevel_job_on_monday_and_im/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,33 @@ flair: "Onboarding"
 extracted_at: "2026-05-19T15:09:50.020Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1rh7yx0.md#c0"
+    char_span: [0, 1195]
+    sentence_count: 1
+    key_terms: [job, curriculum, monday, considering, comments, lesson, pretty, reason]
+    token_count: 292
+  - id: "social-intelligence/reddit-deep/jobs/1rh7yx0.md#c1"
+    char_span: [1210, 3116]
+    sentence_count: 25
+    key_terms: [day, new, yourself, mistakes, pressure, starting, working, always]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/jobs/1rh7yx0.md#c2"
+    char_span: [3119, 4690]
+    sentence_count: 21
+    key_terms: [anxious, anxiety, thinking, training, yourself, student, matter, "you're"]
+    section: Comments
+    token_count: 363
+  - id: "social-intelligence/reddit-deep/jobs/1rh7yx0.md#c3"
+    char_span: [4692, 5900]
+    sentence_count: 10
+    key_terms: [school, principal, job, happened, incident, present, sufficient-arm3645, feel]
+    section: Comments
+    token_count: 277
 ---
-
 # i start my new, entry-level job on monday and i’m panicking
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1rh7yx0/i_start_my_new_entrylevel_job_on_monday_and_im/)

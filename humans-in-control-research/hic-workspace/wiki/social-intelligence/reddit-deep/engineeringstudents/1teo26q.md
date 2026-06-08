@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1teo26q.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1teo26q/canada_how_good_is_mechanical_engineering_at/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -10,11 +11,22 @@ score: 2
 upvote_ratio: 1
 num_comments: 1
 flair: "Academic Advice"
-extracted_at: "2026-05-25T13:01:49.567Z"
+extracted_at: "2026-06-06T17:43:22.918Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1teo26q.md#c0"
+    char_span: [0, 2216]
+    sentence_count: 10
+    key_terms: [manitoba, mechanical, engineering, canada, university, students, international, job]
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1teo26q.md#c1"
+    char_span: [2231, 3234]
+    sentence_count: 6
+    key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
+    section: Comments
+    token_count: 225
 ---
-
 # (Canada) How Good Is Mechanical Engineering at University of Manitoba for International Students? Job Market, Career Advice & Future Master’s/PhD Plans
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1teo26q/canada_how_good_is_mechanical_engineering_at/)

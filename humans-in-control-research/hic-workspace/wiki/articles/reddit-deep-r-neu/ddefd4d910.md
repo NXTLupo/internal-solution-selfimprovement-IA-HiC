@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-neu/ddefd4d910.md
 url: "https://www.reddit.com/r/NEU/comments/1t3vkbh/neu_oakland_single_vs_random_roommate_firstyear/"
 url_hash: "ddefd4d910"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-19T18:01:57.058824+00:00"
 chars: 3237
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-neu/ddefd4d910.md#c0"
+    char_span: [0, 1790]
+    sentence_count: 8
+    key_terms: [roommate, "i'm", neu, medical, oakland, random, condition, because]
+    token_count: 411
+  - id: "articles/reddit-deep-r-neu/ddefd4d910.md#c1"
+    char_span: [1792, 3421]
+    sentence_count: 11
+    key_terms: [single, dorms, miathekoala, get, friends, oakland, singles, minifridge]
+    token_count: 406
 ---
-
 # NEU Oakland: single vs. random roommate (first-year)
 
 Source: [Reddit Deep: r/neu](https://www.reddit.com/r/NEU/comments/1t3vkbh/neu_oakland_single_vs_random_roommate_firstyear/)

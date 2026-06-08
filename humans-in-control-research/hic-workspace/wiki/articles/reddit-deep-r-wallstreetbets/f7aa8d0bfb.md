@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-wallstreetbets/f7aa8d0bfb.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1lxl1gc/yolod_500_crwv_150_calls_for_next_friday_no_hedge/"
 url_hash: "f7aa8d0bfb"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:22:44.163571+00:00"
 chars: 2300
+industries: [financial_services, ai_research]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-wallstreetbets/f7aa8d0bfb.md#c0"
+    char_span: [0, 1940]
+    sentence_count: 26
+    key_terms: [like, plan, friday, next, comments, wallstreetbets, crwv, absolutely]
+    token_count: 513
+  - id: "articles/reddit-deep-r-wallstreetbets/f7aa8d0bfb.md#c1"
+    char_span: [1942, 2549]
+    sentence_count: 4
+    key_terms: [nuts, wsb, beautiful, discord, electronic-force-729, https, scarletcarsonrose, gold]
+    token_count: 182
 ---
-
 # YOLO’d 500 $CRWV 150 Calls for Next Friday! No Hedge, No Braincells, Just AI-Induced Delusion
 
 Source: [Reddit Deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1lxl1gc/yolod_500_crwv_150_calls_for_next_friday_no_hedge/)

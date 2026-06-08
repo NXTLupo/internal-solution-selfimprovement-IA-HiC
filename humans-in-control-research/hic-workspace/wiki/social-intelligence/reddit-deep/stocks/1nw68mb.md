@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1nw68mb.md
 url: "https://www.reddit.com/r/stocks/comments/1nw68mb/regarding_the_recent_rddt_decline_i_want_to_point/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-17T01:14:17.624Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, media]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1nw68mb.md#c0"
+    char_span: [0, 1243]
+    sentence_count: 6
+    key_terms: [reddit, content, https, wiki, wikipedia, comments, visited, stocks]
+    token_count: 296
+  - id: "social-intelligence/reddit-deep/stocks/1nw68mb.md#c1"
+    char_span: [1258, 2685]
+    sentence_count: 12
+    key_terms: [reddit, stock, "it's", saying, rddt, overpriced, advertise, horrible]
+    section: Comments
+    token_count: 405
+  - id: "social-intelligence/reddit-deep/stocks/1nw68mb.md#c2"
+    char_span: [2687, 4743]
+    sentence_count: 8
+    key_terms: [people, like, lot, reddit, been, lol, new, subreddits]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/stocks/1nw68mb.md#c3"
+    char_span: [4745, 6427]
+    sentence_count: 11
+    key_terms: [reddit, alwaysfavoriteasian, ads, like, person, vanilaagorila, intrusive, people]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/stocks/1nw68mb.md#c4"
+    char_span: [6429, 8335]
+    sentence_count: 8
+    key_terms: [reddit, selling, though, product, google, growth, comes, money]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1nw68mb.md#c5"
+    char_span: [8082, 8858]
+    sentence_count: 2
+    key_terms: [money, selling, reddit, rev, i-state-facts, accidentally, antoniafauci, organically]
+    section: Comments
+    token_count: 210
+  - id: "social-intelligence/reddit-deep/stocks/1nw68mb.md#c6"
+    char_span: [8860, 10680]
+    sentence_count: 13
+    key_terms: [data, revenue, being, advertising, ptrboyz, selling, models, reddit]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/stocks/1nw68mb.md#c7"
+    char_span: [10682, 11546]
+    sentence_count: 2
+    key_terms: [people, orangehorton, high, since, accelerationfinish, genericusername71, nottakengreatname, soapinthepeehole]
+    section: Comments
+    token_count: 256
 ---
-
 # Regarding the recent RDDT decline, I want to point out something that some of you may not be aware of.
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1nw68mb/regarding_the_recent_rddt_decline_i_want_to_point/)

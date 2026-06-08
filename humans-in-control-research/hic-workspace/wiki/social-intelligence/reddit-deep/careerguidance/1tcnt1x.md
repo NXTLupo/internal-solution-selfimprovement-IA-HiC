@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tcnt1x.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tcnt1x/im_a_college_freshman_that_needs_career_guidance/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-20T12:56:27.148Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tcnt1x.md#c0"
+    char_span: [0, 1462]
+    sentence_count: 2
+    key_terms: [career, like, college, careerguidance, entertainment, interested, profession, direction]
+    token_count: 324
+  - id: "social-intelligence/reddit-deep/careerguidance/1tcnt1x.md#c1"
+    char_span: [1477, 3106]
+    sentence_count: 12
+    key_terms: [people, different, work, looking, writing, communications, fields, check]
+    section: Comments
+    token_count: 318
 ---
-
 # i’m a college freshman that needs career guidance - any advice?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tcnt1x/im_a_college_freshman_that_needs_career_guidance/)

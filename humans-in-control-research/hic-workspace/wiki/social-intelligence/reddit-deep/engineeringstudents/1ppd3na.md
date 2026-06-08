@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1ppd3na.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1ppd3na/dont_give_up_especially_you_low_gpa_kids/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,33 @@ flair: "Rant/Vent"
 extracted_at: "2026-05-25T18:32:19.217Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ppd3na.md#c0"
+    char_span: [0, 1136]
+    sentence_count: 15
+    key_terms: [engineeringstudents, gpa, job, comments, don, give, got, low]
+    token_count: 281
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ppd3na.md#c1"
+    char_span: [1151, 3000]
+    sentence_count: 11
+    key_terms: [gambingabacho, good, gpa, definitely, industry, hopeful, making, matter]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ppd3na.md#c2"
+    char_span: [2790, 3050]
+    sentence_count: 1
+    key_terms: [matter, "it's", exoduseducation, timewaster50455, goddamnit, attitude, sharpest, stubborn]
+    section: Comments
+    token_count: 78
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ppd3na.md#c3"
+    char_span: [3052, 4764]
+    sentence_count: 15
+    key_terms: [gambingabacho, because, traditional, general, getting, process, advice, people]
+    section: Comments
+    token_count: 454
 ---
-
 # Don’t Give Up! Especially you low GPA kids
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1ppd3na/dont_give_up_especially_you_low_gpa_kids/)

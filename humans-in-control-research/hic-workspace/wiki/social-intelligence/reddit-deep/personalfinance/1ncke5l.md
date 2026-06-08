@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1ncke5l.md
 url: "https://www.reddit.com/r/personalfinance/comments/1ncke5l/need_advice_for_investing_money_so_that_i_can/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,15 @@ flair: "Budgeting"
 extracted_at: "2026-05-17T01:13:31.186Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1ncke5l.md#c0"
+    char_span: [0, 732]
+    sentence_count: 3
+    key_terms: [personalfinance, comments, finance, spend, help, reddit-deep, authentic, clickbait]
+    token_count: 182
 ---
-
 # Need advice for investing money so that i can spend later on my higher studies . & and help me with some good finance creators
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1ncke5l/need_advice_for_investing_money_so_that_i_can/)

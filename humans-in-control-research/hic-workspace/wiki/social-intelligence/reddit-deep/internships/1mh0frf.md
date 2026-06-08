@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1mh0frf.md
 url: "https://www.reddit.com/r/internships/comments/1mh0frf/advice_for_firstyear_looking_to_secure_an/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,16 @@ score: 2
 upvote_ratio: 1
 num_comments: 3
 flair: "General"
-extracted_at: "2026-05-19T17:57:20.771Z"
+extracted_at: "2026-06-06T00:27:36.086Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1mh0frf.md#c0"
+    char_span: [0, 761]
+    sentence_count: 7
+    key_terms: [first-year, internships, internship, comments, advice, secure, hope, connections]
+    token_count: 174
 ---
-
 # Advice for first-year looking to secure an internship ASAP
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1mh0frf/advice_for_firstyear_looking_to_secure_an/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1oaapug.md
 url: "https://www.reddit.com/r/personalfinance/comments/1oaapug/advice_needed_to_develop_a_finance_strategy_for/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,21 @@ flair: "Investing"
 extracted_at: "2026-05-17T01:13:31.185Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1oaapug.md#c0"
+    char_span: [0, 1780]
+    sentence_count: 16
+    key_terms: [around, investments, personalfinance, earning, partner, pension, savings, investment]
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/personalfinance/1oaapug.md#c1"
+    char_span: [1795, 2456]
+    sentence_count: 3
+    key_terms: [personalfinance, automatically, automoderator, wiki, moderators, investing, performed, questions]
+    section: Comments
+    token_count: 164
 ---
-
 # Advice needed to develop a finance strategy for saving and investing (Eastern Europe)
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1oaapug/advice_needed_to_develop_a_finance_strategy_for/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1qeuff1.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1qeuff1/how_do_i_handle_the_emotional_ups_and_downs_of/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,27 @@ flair: "Application Question"
 extracted_at: "2026-05-22T23:33:52.644Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qeuff1.md#c0"
+    char_span: [0, 1103]
+    sentence_count: 9
+    key_terms: [emotional, applyingtocollege, comments, college, process, health, mental, myself]
+    token_count: 239
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qeuff1.md#c1"
+    char_span: [1118, 3102]
+    sentence_count: 9
+    key_terms: [prospective, friends, like, pre-college-application, college, choice, review, safety]
+    section: Comments
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qeuff1.md#c2"
+    char_span: [3104, 4477]
+    sentence_count: 15
+    key_terms: [happiness, "you're", find, get, cliches, harvard, accept, "didn't"]
+    section: Comments
+    token_count: 306
 ---
-
 # How do I handle the emotional ups and downs of college applications while maintaining my mental health?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1qeuff1/how_do_i_handle_the_emotional_ups_and_downs_of/)

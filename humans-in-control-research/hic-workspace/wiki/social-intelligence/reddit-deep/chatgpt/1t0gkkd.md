@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1t0gkkd.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1t0gkkd/asked_chatgpt_to_visualize_a_horizontal_integral/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,45 @@ flair: "Funny "
 extracted_at: "2026-05-11T16:54:08.820Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1t0gkkd.md#c0"
+    char_span: [0, 605]
+    sentence_count: 4
+    key_terms: [chatgpt, d514-83ea-a6d2-86474ae104dc, https, com, comments, prompt, share, dog]
+    token_count: 183
+  - id: "social-intelligence/reddit-deep/chatgpt/1t0gkkd.md#c1"
+    char_span: [620, 2486]
+    sentence_count: 8
+    key_terms: [horizontal, like, integral, image, model, r-chatgpt-1050422060352024636, constraint, structure]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/chatgpt/1t0gkkd.md#c2"
+    char_span: [2488, 4315]
+    sentence_count: 11
+    key_terms: [model, e524da9e65f5ae47fb7a3923735e6220a900fa1d, since, sometimes, geometry, happened, failing, parser]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/chatgpt/1t0gkkd.md#c3"
+    char_span: [4317, 4995]
+    sentence_count: 3
+    key_terms: [bro, ac73fdd6e5ea6d142ddebc2fc58d9fb558fb18de, cb82075ec74f65b7c6f37e98f9ba7251d6bb5d68, preview, format, https, width, auto]
+    section: Comments
+    token_count: 281
+  - id: "social-intelligence/reddit-deep/chatgpt/1t0gkkd.md#c4"
+    char_span: [4997, 6423]
+    sentence_count: 5
+    key_terms: [model, someone, dog, gave, accurately, diffusion, message, "else's"]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/chatgpt/1t0gkkd.md#c5"
+    char_span: [6425, 6755]
+    sentence_count: 1
+    key_terms: [dog, charmander787, mramazing111, brother, fucking, kidding, preview, symedia]
+    section: Comments
+    token_count: 133
 ---
-
 # Asked ChatGPT to visualize a horizontal integral. It gave me a dog. [LINK IN POST]
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1t0gkkd/asked_chatgpt_to_visualize_a_horizontal_integral/)

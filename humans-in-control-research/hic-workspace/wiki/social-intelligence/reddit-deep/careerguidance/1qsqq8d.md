@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1qsqq8d.md
 url: "https://www.reddit.com/r/careerguidance/comments/1qsqq8d/18m_transfer_student_what_highvalue_skills_or/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 2
 flair: "Advice"
-extracted_at: "2026-05-22T21:34:47.970Z"
+extracted_at: "2026-06-03T18:53:36.168Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1qsqq8d.md#c0"
+    char_span: [0, 1466]
+    sentence_count: 10
+    key_terms: [university, careerguidance, career, paths, "i'm", economics, comments, college]
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/careerguidance/1qsqq8d.md#c1"
+    char_span: [1481, 2427]
+    sentence_count: 7
+    key_terms: [skills, business, consider, learning, coding, "you're", maybe, sales]
+    section: Comments
+    token_count: 196
 ---
-
 # 18M Transfer Student — What high-value skills or career paths should I explore before university?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1qsqq8d/18m_transfer_student_what_highvalue_skills_or/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1mnn0il.md
 url: "https://www.reddit.com/r/college/comments/1mnn0il/starting_college_in_your_40s/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,96 @@ subreddit: "college"
 title: "Starting college in your 40s"
 author: "SawkeeReemo"
 date: "2025-08-11T19:44:10.000Z"
-score: 91
+score: 96
 upvote_ratio: 0.99
 num_comments: 60
 flair: "USA"
-extracted_at: "2026-05-25T15:51:48.249Z"
+extracted_at: "2026-06-06T00:27:48.361Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1mnn0il.md#c0"
+    char_span: [0, 1676]
+    sentence_count: 12
+    key_terms: [college, get, industry, getting, school, field, going, years]
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/college/1mnn0il.md#c1"
+    char_span: [1691, 3863]
+    sentence_count: 27
+    key_terms: [ges, "you're", least, maybe, get, like, interested, colleges]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/college/1mnn0il.md#c2"
+    char_span: [3865, 5901]
+    sentence_count: 19
+    key_terms: [learning, like, weirdos, challenging, love, professors, successful, sometimes]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/college/1mnn0il.md#c3"
+    char_span: [5903, 8064]
+    sentence_count: 19
+    key_terms: [because, school, knowledge, take, got, here, phd, successful]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1mnn0il.md#c4"
+    char_span: [8066, 8097]
+    sentence_count: 1
+    key_terms: [something, learn, new]
+    section: Comments
+    token_count: 7
+  - id: "social-intelligence/reddit-deep/college/1mnn0il.md#c5"
+    char_span: [8099, 10230]
+    sentence_count: 23
+    key_terms: [learn, cute-meringue2314, time, pharmacy, student, school, back, adventure]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1mnn0il.md#c6"
+    char_span: [10025, 10610]
+    sentence_count: 4
+    key_terms: [school, cute-meringue2314, like, disrespecting, orchestration, inferiority, performance, photography]
+    section: Comments
+    token_count: 141
+  - id: "social-intelligence/reddit-deep/college/1mnn0il.md#c7"
+    char_span: [10612, 12823]
+    sentence_count: 21
+    key_terms: [already, because, student, assignments, exceptional, traditional, here, like]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/college/1mnn0il.md#c8"
+    char_span: [12825, 14661]
+    sentence_count: 14
+    key_terms: [been, classes, toddler, working, career, matter, mostly, school]
+    section: Comments
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/college/1mnn0il.md#c9"
+    char_span: [14663, 15124]
+    sentence_count: 4
+    key_terms: [something, like, new, possibilities, combination, associates, attention, challenge]
+    section: Comments
+    token_count: 97
+  - id: "social-intelligence/reddit-deep/college/1mnn0il.md#c10"
+    char_span: [15126, 17293]
+    sentence_count: 18
+    key_terms: [programs, aprilbeingsocial, classes, college, sawkeereemo, community, already, degrees]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1mnn0il.md#c11"
+    char_span: [17077, 17352]
+    sentence_count: 3
+    key_terms: [larryherzogjr, sawkeereemo, traditional, available, structure, learning, programs, already]
+    section: Comments
+    token_count: 76
+  - id: "social-intelligence/reddit-deep/college/1mnn0il.md#c12"
+    char_span: [17354, 18919]
+    sentence_count: 20
+    key_terms: [college, school, sawkeereemo, work, different, collar, spring, years]
+    section: Comments
+    token_count: 383
 ---
-
 # Starting college in your 40s
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1mnn0il/starting_college_in_your_40s/)
-Posted by **SawkeeReemo** · **91↑** · **60 comments**
+Posted by **SawkeeReemo** · **96↑** · **60 comments**
 
 Life for me has been… different. I ended up getting into my dream career just a couple years out of high school while I was trying to figure out what I was going to do with the rest of my life, including school.
 
@@ -32,7 +110,7 @@ Curious to hear some thoughts on this. Thanks!
 
 ## Comments
 
-- **Awkward_Campaign_106** (35↑): Lean into the GEs. You have to take them either way, so try to make the most of them. Take things that you're interested in. Try to make connections between whatever the course is about and your career and/or your other interests. 
+- **Awkward_Campaign_106** (36↑): Lean into the GEs. You have to take them either way, so try to make the most of them. Take things that you're interested in. Try to make connections between whatever the course is about and your career and/or your other interests. 
 
 Some programs might require you to pass the GEs with a grade of C or better. Others will require only that you pass it. There will likely also be a GPA requirement though such that you have to keep a GPA of at least 2.5 or whatever to stay in good standing. 
 
@@ -42,7 +120,7 @@ But honestly the minimal possible grade is the wrong question. It's like asking 
 Maybe I’m just projecting my past feelings onto this, and I won’t know until I just give it a shot. The whole “time” aspect is messing with me a little too, honestly. By the time I’m finished I’ll be pushing 50… and the reality of that is not lost on me.
 
 I think why I asked this question is that I’m probably looking for the fastest way to “get through it” in order to be able to move on. But maybe that’s the wrong way to approach it.
-    - **Awkward_Campaign_106** (14↑): College isn't like high school though. There aren't as many bullshit hoops to jump through. Most colleges offer a wide range of GEs. You can find classes on things like archery, German, statistics for gamblers, Greek mythology, the Bible as literature, the US Constitution, etc. Find the things that really are interesting to you and figure out ways to count them as your GEs. Think of the GEs as gifts. Colleges just want to make sure you get some breadth of knowledge. 
+    - **Awkward_Campaign_106** (16↑): College isn't like high school though. There aren't as many bullshit hoops to jump through. Most colleges offer a wide range of GEs. You can find classes on things like archery, German, statistics for gamblers, Greek mythology, the Bible as literature, the US Constitution, etc. Find the things that really are interesting to you and figure out ways to count them as your GEs. Think of the GEs as gifts. Colleges just want to make sure you get some breadth of knowledge. 
 
 College is ideal for weirdos like us who have always loved learning. That's how it was originally designed anyways. There are a lot of people right now just going through the motions to try to get a secure income. Sometimes that works, and sometimes it doesn't. But if you also love learning, then lean into that. By and large, professors are also weirdos who love learning. Many professors go out of their way to connect with weirdos who love learning. It's just that your original post made it sound like you don't like learning.
 - **[deleted]** (17↑): If gen eds are really as “not challenging” as you think, then they shouldn’t be a big hurdle. But from the way you’re talking, it sounds like you’re already dreading them, which means they might be more challenging than you expect.

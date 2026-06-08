@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1sk48qv.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1sk48qv/best_career_counselor_for_abroad_students/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -10,11 +11,16 @@ score: 1
 upvote_ratio: 1
 num_comments: 1
 flair: "Advice"
-extracted_at: "2026-05-24T14:08:39.591Z"
+extracted_at: "2026-06-03T18:34:57.875Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sk48qv.md#c0"
+    char_span: [0, 459]
+    sentence_count: 2
+    key_terms: [applyingtocollege, applying, colleges, comments, career, reddit-deep, counselors, counselor]
+    token_count: 117
 ---
-
 # Best career counselor for abroad students applying to the usa colleges?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1sk48qv/best_career_counselor_for_abroad_students/)

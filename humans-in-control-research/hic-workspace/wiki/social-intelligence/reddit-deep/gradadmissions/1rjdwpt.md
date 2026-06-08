@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rjdwpt/dont_add_universities_for_which_you_dont_have_the/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,45 @@ flair: "Venting"
 extracted_at: "2026-05-23T14:54:16.721Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md#c0"
+    char_span: [0, 1560]
+    sentence_count: 10
+    key_terms: [transcripts, official, bachelors, gradadmissions, "don't", application, add, completely]
+    token_count: 344
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md#c1"
+    char_span: [1575, 2841]
+    sentence_count: 9
+    key_terms: [understand, roseflowerpetals, velcrodynamite, school, therainbowconnection, hungryhippopotami12, found, thank]
+    section: Comments
+    token_count: 311
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md#c2"
+    char_span: [2843, 5058]
+    sentence_count: 18
+    key_terms: [transcripts, email, explained, like, fine-lemon-4114, did, resistance, something]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md#c3"
+    char_span: [5060, 6831]
+    sentence_count: 12
+    key_terms: [university, documentation, admissions, official, possible, emails, person, therainbowconnection]
+    section: Comments
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md#c4"
+    char_span: [6833, 8616]
+    sentence_count: 10
+    key_terms: [system, being, application, transcripts, here, something, calling, getting]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md#c5"
+    char_span: [8618, 10207]
+    sentence_count: 8
+    key_terms: [university, transcripts, like, something, official, country, school, being]
+    section: Comments
+    token_count: 328
 ---
-
 # Don't add universities for which you don't have the official transcripts
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rjdwpt/dont_add_universities_for_which_you_dont_have_the/)

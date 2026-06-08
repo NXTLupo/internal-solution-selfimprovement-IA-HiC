@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1oof0og.md
 url: "https://www.reddit.com/r/careerguidance/comments/1oof0og/jobscareersfields_in_projectbased_research_and/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,26 @@ flair: ""
 extracted_at: "2026-05-24T14:09:04.410Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1oof0og.md#c0"
+    char_span: [0, 2060]
+    sentence_count: 12
+    key_terms: ["i'm", learning, "i've", something, careerguidance, doing, loved, considering]
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/careerguidance/1oof0og.md#c1"
+    char_span: [2062, 2446]
+    sentence_count: 2
+    key_terms: [lot, constructive, economically, aspirations, everywhere, right-wing, understand, realistic]
+    token_count: 79
+  - id: "social-intelligence/reddit-deep/careerguidance/1oof0og.md#c2"
+    char_span: [2461, 3083]
+    sentence_count: 6
+    key_terms: [writing, learning, design, too, alternatively, communication, instructional, particularly]
+    section: Comments
+    token_count: 115
 ---
-
 # Jobs/Careers/Fields in project-based research and learning?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1oof0og/jobscareersfields_in_projectbased_research_and/)

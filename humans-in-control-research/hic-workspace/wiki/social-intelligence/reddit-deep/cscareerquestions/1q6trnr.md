@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1q6trnr.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1q6trnr/what_are_some_more_stable_alternate_jobscareers/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,63 @@ flair: "Experienced"
 extracted_at: "2026-05-26T12:54:26.421Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q6trnr.md#c0"
+    char_span: [0, 976]
+    sentence_count: 7
+    key_terms: [software, cscareerquestions, easily, feel, get, "i'm", "i've", like]
+    token_count: 238
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q6trnr.md#c1"
+    char_span: [991, 3041]
+    sentence_count: 14
+    key_terms: [banking, banks, like, consulting, especially, companies, cultures, software]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q6trnr.md#c2"
+    char_span: [2782, 3189]
+    sentence_count: 7
+    key_terms: [shit, swe, specialized, different, donald711, logistics, marketing, everyone]
+    section: Comments
+    token_count: 99
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q6trnr.md#c3"
+    char_span: [3193, 4384]
+    sentence_count: 10
+    key_terms: [been, feel, laid, swe, everyone, friends, getting, manager]
+    section: Comments
+    token_count: 308
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q6trnr.md#c4"
+    char_span: [4386, 6421]
+    sentence_count: 9
+    key_terms: [jobs, kellojelloo, hellointerview, years, good, nissepelle, mmahowald, resources]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q6trnr.md#c5"
+    char_span: [6156, 6644]
+    sentence_count: 4
+    key_terms: [hellointerview, construction, youtube, instictively, interviewed, anticipate, management, nissepelle]
+    section: Comments
+    token_count: 120
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q6trnr.md#c6"
+    char_span: [6646, 8413]
+    sentence_count: 15
+    key_terms: [construction, project, people, engineer, growing, hate, job, mushrooms]
+    section: Comments
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q6trnr.md#c7"
+    char_span: [8415, 9770]
+    sentence_count: 10
+    key_terms: [hiring, employees, getting, work, companies, massively, fulltime, deleted]
+    section: Comments
+    token_count: 320
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q6trnr.md#c8"
+    char_span: [9772, 10908]
+    sentence_count: 5
+    key_terms: [contractors, healthcare, companies, contract, legitimate-turn4560, "don't", plans, critical-load-1452]
+    section: Comments
+    token_count: 258
 ---
-
 # What are some more stable alternate jobs/careers that a software developer could easily get into?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1q6trnr/what_are_some_more_stable_alternate_jobscareers/)

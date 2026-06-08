@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1ky8uq6.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1ky8uq6/yall_told_me_to_sell_when_fmcc_was_under_1/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,57 @@ flair: "Gain"
 extracted_at: "2026-05-17T01:14:17.607Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ky8uq6.md#c0"
+    char_span: [0, 422]
+    sentence_count: 3
+    key_terms: [wallstreetbets, comments, posted, fmcc, sell, told, reddit-deep, apresta16]
+    token_count: 130
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ky8uq6.md#c1"
+    char_span: [437, 641]
+    sentence_count: 1
+    key_terms: [total, years, submissions, visualmod, comments, previous, account, report]
+    section: Comments
+    token_count: 76
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ky8uq6.md#c2"
+    char_span: [643, 2365]
+    sentence_count: 5
+    key_terms: [wsb, bitcoin21mm, bro, like, bagholding, something, believed, comments]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ky8uq6.md#c3"
+    char_span: [2108, 2778]
+    sentence_count: 7
+    key_terms: [been, bagholding, popular-substance490, maybe, years, additional, conviction, allocated]
+    section: Comments
+    token_count: 174
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ky8uq6.md#c4"
+    char_span: [2780, 4597]
+    sentence_count: 12
+    key_terms: [apresta16, better, years, loss, tax, invested, probably, deleted]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ky8uq6.md#c5"
+    char_span: [4362, 5081]
+    sentence_count: 8
+    key_terms: [years, deleted, bro, gain, good, lol, sideshowglobs, considering]
+    section: Comments
+    token_count: 203
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ky8uq6.md#c6"
+    char_span: [5083, 6229]
+    sentence_count: 8
+    key_terms: [wrong, years, reddit, until, beneficial-swim843, chersprolapsedanus, down, draw]
+    section: Comments
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ky8uq6.md#c7"
+    char_span: [6231, 7078]
+    sentence_count: 5
+    key_terms: [accumulate, apresta16, dumpster, register, working, behind, time, opportunity]
+    section: Comments
+    token_count: 256
 ---
-
 # Y'all told me to sell when fmcc was under $1
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1ky8uq6/yall_told_me_to_sell_when_fmcc_was_under_1/)

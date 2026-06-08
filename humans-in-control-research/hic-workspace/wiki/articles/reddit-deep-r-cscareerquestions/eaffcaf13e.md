@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/eaffcaf13e.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rwcdge/is_software_engineering_a_career_suicide/"
 url_hash: "eaffcaf13e"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T06:46:30.771763+00:00"
 chars: 1798
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/eaffcaf13e.md#c0"
+    char_span: [0, 1992]
+    sentence_count: 12
+    key_terms: [cscareerquestions, engineering, been, career, healthcare, message, reddit, tech]
+    token_count: 473
 ---
-
 # Is software engineering a career suicide?
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rwcdge/is_software_engineering_a_career_suicide/)

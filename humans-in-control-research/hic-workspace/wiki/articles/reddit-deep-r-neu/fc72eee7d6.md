@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-neu/fc72eee7d6.md
 url: "https://www.reddit.com/r/NEU/comments/1n27nc2/courseload_for_firstyear_fall/"
 url_hash: "fc72eee7d6"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-12T21:01:03.162329+00:00"
 chars: 2384
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-neu/fc72eee7d6.md#c0"
+    char_span: [0, 475]
+    sentence_count: 3
+    key_terms: [reddit, "i'm", neu, altunkaynak, courseload, first-year, difficult, finalized]
+    token_count: 143
+  - id: "articles/reddit-deep-r-neu/fc72eee7d6.md#c1"
+    char_span: [477, 2528]
+    sentence_count: 15
+    key_terms: [physics, classes, study, back, class, engineering, long, time]
+    token_count: 492
 ---
-
 # Courseload for first-year Fall
 
 Source: [Reddit Deep: r/neu](https://www.reddit.com/r/NEU/comments/1n27nc2/courseload_for_firstyear_fall/)

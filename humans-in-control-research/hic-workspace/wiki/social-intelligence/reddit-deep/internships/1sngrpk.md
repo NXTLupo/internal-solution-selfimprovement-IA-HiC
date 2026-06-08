@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1sngrpk.md
 url: "https://www.reddit.com/r/internships/comments/1sngrpk/i_had_a_perfect_interview_last_month_and_woke_up/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "Interviews"
 extracted_at: "2026-05-19T15:08:33.804Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+industries: [workforce, healthcare]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1sngrpk.md#c0"
+    char_span: [0, 1365]
+    sentence_count: 11
+    key_terms: [interview, internships, internship, rejection, comments, honestly, asking, summer]
+    token_count: 319
+  - id: "social-intelligence/reddit-deep/internships/1sngrpk.md#c1"
+    char_span: [1380, 3207]
+    sentence_count: 12
+    key_terms: [appropriate-tutor587, interview, feedback, get, rejection, better, zealousideal-job6344, offer]
+    section: Comments
+    token_count: 459
 ---
-
 # I had a perfect interview last month and woke up to a rejection email. Is it worth asking why?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1sngrpk/i_had_a_perfect_interview_last_month_and_woke_up/)

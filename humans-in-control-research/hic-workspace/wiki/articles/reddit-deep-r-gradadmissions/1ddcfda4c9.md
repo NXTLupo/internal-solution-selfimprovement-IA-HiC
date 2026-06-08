@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-gradadmissions/1ddcfda4c9.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1smt4ya/2026_admissions_final_update/"
 url_hash: "1ddcfda4c9"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T15:02:03.751293+00:00"
 chars: 3404
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-gradadmissions/1ddcfda4c9.md#c0"
+    char_span: [0, 1605]
+    sentence_count: 27
+    key_terms: [giving, update, gradadmissions, final, hard, work, incredibly, professors]
+    token_count: 370
+  - id: "articles/reddit-deep-r-gradadmissions/1ddcfda4c9.md#c1"
+    char_span: [1607, 3567]
+    sentence_count: 14
+    key_terms: [like, nsf, projects, funded, astro, got, industry, career]
+    token_count: 463
 ---
-
 # 2026 admissions final update
 
 Source: [Reddit Deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1smt4ya/2026_admissions_final_update/)

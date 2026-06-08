@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1sofogu.md
 url: "https://www.reddit.com/r/OpenAI/comments/1sofogu/what_is_going_on/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,33 @@ flair: "News"
 extracted_at: "2026-05-11T17:27:05.359Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1sofogu.md#c0"
+    char_span: [0, 249]
+    sentence_count: 2
+    key_terms: [comments, openai, sufficient-rough-647, reddit-deep, cleaning, jumping, sinking, people]
+    token_count: 71
+  - id: "social-intelligence/reddit-deep/openai/1sofogu.md#c1"
+    char_span: [264, 1631]
+    sentence_count: 8
+    key_terms: [sora, png, db5afe6ab18682dca32ae99f9f911bdce38c259c, preview, dead, format, people, pleasant-contact-556]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/openai/1sofogu.md#c2"
+    char_span: [1633, 3459]
+    sentence_count: 9
+    key_terms: [winter-cabinet-2074, like, product, applications, weil, canned, openai, people]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/openai/1sofogu.md#c3"
+    char_span: [3461, 4754]
+    sentence_count: 9
+    key_terms: [step, company, expected, vesting, smuttynoserevolution, somethingwhateveryt, winter-cabinet-2074, claim]
+    section: Comments
+    token_count: 366
 ---
-
 # What is going on?
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1sofogu/what_is_going_on/)

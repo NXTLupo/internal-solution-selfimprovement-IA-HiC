@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1mzys0v.md
 url: "https://www.reddit.com/r/personalfinance/comments/1mzys0v/i_would_really_like_some_financial_advice_on_what/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,21 @@ flair: "Investing"
 extracted_at: "2026-05-17T01:13:31.184Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1mzys0v.md#c0"
+    char_span: [0, 905]
+    sentence_count: 5
+    key_terms: [personalfinance, behind, don, feel, investing, comments, money, like]
+    token_count: 219
+  - id: "social-intelligence/reddit-deep/personalfinance/1mzys0v.md#c1"
+    char_span: [920, 2347]
+    sentence_count: 6
+    key_terms: [personalfinance, wiki, no-parsley-5698, personal-income-spending-flowchart-united-states-lsouqr2, thejontorrweno, automatically, automoderator, commontopics]
+    section: Comments
+    token_count: 404
 ---
-
 # I would really like some financial advice on what to do with my money whether I should invest save or whatever because I feel very behind and not smart on finances
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1mzys0v/i_would_really_like_some_financial_advice_on_what/)

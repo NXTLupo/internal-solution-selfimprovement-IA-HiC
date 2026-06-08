@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/workonline/1mxld3y.md
 url: "https://www.reddit.com/r/WorkOnline/comments/1mxld3y/telus_international/"
 kind: "social-post"
 source: "reddit-deep: r/workonline"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-26T12:53:45.648Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/workonline/1mxld3y.md#c0"
+    char_span: [0, 643]
+    sentence_count: 9
+    key_terms: [did, workonline, comments, feel, job, like, part, time]
+    token_count: 159
+  - id: "social-intelligence/reddit-deep/workonline/1mxld3y.md#c1"
+    char_span: [658, 2509]
+    sentence_count: 12
+    key_terms: [get, tasks, got, paid, want, work, additional, onboarding]
+    section: Comments
+    token_count: 462
 ---
-
 # Telus international
 
 Source: [reddit-deep: r/workonline](https://www.reddit.com/r/WorkOnline/comments/1mxld3y/telus_international/)

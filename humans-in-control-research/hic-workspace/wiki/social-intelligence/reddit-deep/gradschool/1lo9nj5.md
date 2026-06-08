@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1lo9nj5.md
 url: "https://www.reddit.com/r/GradSchool/comments/1lo9nj5/assistant_professor_offer_pulled_feeling/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,39 @@ flair: "Professional"
 extracted_at: "2026-05-25T13:04:07.345Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1lo9nj5.md#c0"
+    char_span: [0, 2244]
+    sentence_count: 21
+    key_terms: [year, position, like, gradschool, assistant, candidate, positions, professor]
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/gradschool/1lo9nj5.md#c1"
+    char_span: [2259, 4251]
+    sentence_count: 17
+    key_terms: [position, funding, though, keep, positions, professor, hardest, people]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/gradschool/1lo9nj5.md#c2"
+    char_span: [4253, 5975]
+    sentence_count: 17
+    key_terms: [low-probability, investments, world, worlds, investment, however, payoffs, almost]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/gradschool/1lo9nj5.md#c3"
+    char_span: [5977, 7805]
+    sentence_count: 14
+    key_terms: [canada, australia, currently, probably, looking, midwest, postdoc, cycles]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/gradschool/1lo9nj5.md#c4"
+    char_span: [7808, 8741]
+    sentence_count: 6
+    key_terms: [instead, advice, ready, disastrous-wildcat, got, lost, decision-making, disappointment]
+    section: Comments
+    token_count: 208
 ---
-
 # Assistant Professor offer pulled... feeling demoralized.
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1lo9nj5/assistant_professor_offer_pulled_feeling/)

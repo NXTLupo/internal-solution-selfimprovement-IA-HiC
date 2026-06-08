@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1kuknzk.md
 url: "https://www.reddit.com/r/NEU/comments/1kuknzk/recent_grad_ama/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-14T12:20:30.877Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [higher_ed, education, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1kuknzk.md#c0"
+    char_span: [0, 1050]
+    sentence_count: 5
+    key_terms: [neu, involved, opportunities, definitely, comments, friends, ok-impression-3082, ask]
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/neu/1kuknzk.md#c1"
+    char_span: [1065, 3082]
+    sentence_count: 18
+    key_terms: [year, ok-impression-3082, campus, get, freshmen, housing, did, hard]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/neu/1kuknzk.md#c2"
+    char_span: [3084, 5031]
+    sentence_count: 13
+    key_terms: [ok-impression-3082, get, neu, year, expensive, shortlist, finance, however]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/neu/1kuknzk.md#c3"
+    char_span: [5033, 7055]
+    sentence_count: 14
+    key_terms: [ok-impression-3082, usctrojan98, connection, get, like, neu, time, definitely]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/neu/1kuknzk.md#c4"
+    char_span: [7057, 8648]
+    sentence_count: 11
+    key_terms: [business, co-ops, definitely, management, co-op, get, eve-7260, market]
+    section: Comments
+    token_count: 391
 ---
-
 # Recent Grad: AMA
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1kuknzk/recent_grad_ama/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-artificial/9bc3d73cbf.md
 url: "https://www.reddit.com/r/artificial/comments/1sjgytc/claude_cannot_be_trusted_to_perform_complex/"
 url_hash: "9bc3d73cbf"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T17:30:16.440361+00:00"
 chars: 3378
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-artificial/9bc3d73cbf.md#c0"
+    char_span: [0, 2073]
+    sentence_count: 21
+    key_terms: [claude, workflow, thinking, engineering, model, anthropic, amd, code]
+    token_count: 454
+  - id: "articles/reddit-deep-r-artificial/9bc3d73cbf.md#c1"
+    char_span: [2075, 3581]
+    sentence_count: 11
+    key_terms: [infinite-pheonix, expensive, providing, increase, insight, service, models, tokens]
+    token_count: 324
 ---
-
 # Claude cannot be trusted to perform complex engineering tasks
 
 Source: [Reddit Deep: r/artificial](https://www.reddit.com/r/artificial/comments/1sjgytc/claude_cannot_be_trusted_to_perform_complex/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1lurl0x.md
 url: "https://www.reddit.com/r/college/comments/1lurl0x/how_do_you_tell_your_parents_that_you_need_to/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-17T01:12:59.142Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1lurl0x.md#c0"
+    char_span: [0, 1298]
+    sentence_count: 7
+    key_terms: [college, because, need, take, currently, semesters, comments, parents]
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/college/1lurl0x.md#c1"
+    char_span: [1313, 2092]
+    sentence_count: 8
+    key_terms: [take, semesters, parents, yourself, okay, tell, time, told]
+    section: Comments
+    token_count: 183
+  - id: "social-intelligence/reddit-deep/college/1lurl0x.md#c2"
+    char_span: [2094, 3903]
+    sentence_count: 20
+    key_terms: [time, tell, needed, dad, okay, because, classes, behind]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/college/1lurl0x.md#c3"
+    char_span: [3905, 5419]
+    sentence_count: 11
+    key_terms: [because, college, parents, need, told, already, career, guilty]
+    section: Comments
+    token_count: 349
 ---
-
 # How Do You Tell Your Parents That You Need to Take More Semesters in College?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1lurl0x/how_do_you_tell_your_parents_that_you_need_to/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1t7kwor.md
 url: "https://www.reddit.com/r/GradSchool/comments/1t7kwor/grad_students_who_arent_taing_over_the_summer/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,39 @@ flair: "Health & Work/Life Balance"
 extracted_at: "2026-05-22T21:35:36.529Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1t7kwor.md#c0"
+    char_span: [0, 961]
+    sentence_count: 5
+    key_terms: [work, gradschool, university, comments, students, summer, grad, research-related]
+    token_count: 211
+  - id: "social-intelligence/reddit-deep/gradschool/1t7kwor.md#c1"
+    char_span: [976, 3187]
+    sentence_count: 7
+    key_terms: [like, genuinely, jobs, people, though, store, don, old]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1t7kwor.md#c2"
+    char_span: [2865, 3374]
+    sentence_count: 1
+    key_terms: [feels, side, tool, work, unemployment, copyediting, especially, everything]
+    section: Comments
+    token_count: 117
+  - id: "social-intelligence/reddit-deep/gradschool/1t7kwor.md#c3"
+    char_span: [3376, 5343]
+    sentence_count: 15
+    key_terms: [summer, research, get, funding, work, "didn't", "that's", scholarships]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/gradschool/1t7kwor.md#c4"
+    char_span: [5345, 6553]
+    sentence_count: 7
+    key_terms: [school, get, flexible, working, people, summer, field, good]
+    section: Comments
+    token_count: 292
 ---
-
 # Grad students who aren’t TAing over the summer, what are you doing for income that doesn’t completely derail your research/sanity?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1t7kwor/grad_students_who_arent_taing_over_the_summer/)

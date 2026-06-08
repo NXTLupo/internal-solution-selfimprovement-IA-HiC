@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1s4vcpi.md
 url: "https://www.reddit.com/r/GenZ/comments/1s4vcpi/credit_card_debt/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,63 @@ flair: "Discussion"
 extracted_at: "2026-05-16T20:55:01.225Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1s4vcpi.md#c0"
+    char_span: [0, 389]
+    sentence_count: 3
+    key_terms: [comments, credit, card, debt, genz, hard, reddit-deep, everything]
+    token_count: 110
+  - id: "social-intelligence/reddit-deep/genz/1s4vcpi.md#c1"
+    char_span: [404, 1603]
+    sentence_count: 8
+    key_terms: [poor, christmas, discord, always, credit, people, properobligation9779, "don't"]
+    section: Comments
+    token_count: 306
+  - id: "social-intelligence/reddit-deep/genz/1s4vcpi.md#c2"
+    char_span: [1605, 3515]
+    sentence_count: 9
+    key_terms: [credit, debt, people, card, get, bought, properobligation9779, over-transition9609]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/genz/1s4vcpi.md#c3"
+    char_span: [3517, 5312]
+    sentence_count: 9
+    key_terms: [credit, debt, interest, balance, card, here, like, getting]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/genz/1s4vcpi.md#c4"
+    char_span: [5314, 5991]
+    sentence_count: 4
+    key_terms: [balance, interest, period, limit, card, hit, immediately, additional]
+    section: Comments
+    token_count: 166
+  - id: "social-intelligence/reddit-deep/genz/1s4vcpi.md#c5"
+    char_span: [5993, 7897]
+    sentence_count: 8
+    key_terms: [cards, interest, expenses, credit, money, store, total, card]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/genz/1s4vcpi.md#c6"
+    char_span: [7899, 9605]
+    sentence_count: 14
+    key_terms: [pay, cancermoon2caprising, down, debt, don, "i'm", everything, relatives]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/genz/1s4vcpi.md#c7"
+    char_span: [9607, 11292]
+    sentence_count: 13
+    key_terms: [credit, card, get, irresponsible, bills, responsible, car, pay]
+    section: Comments
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/genz/1s4vcpi.md#c8"
+    char_span: [11294, 11970]
+    sentence_count: 3
+    key_terms: [interest, minimum, angstycarroteater, keep, pay, try, financially, responsible]
+    section: Comments
+    token_count: 169
 ---
-
 # Credit card debt
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1s4vcpi/credit_card_debt/)

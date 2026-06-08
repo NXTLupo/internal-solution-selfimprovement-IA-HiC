@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1r22zqr.md
 url: "https://www.reddit.com/r/highereducation/comments/1r22zqr/students_not_engaging/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-20T02:31:35.468Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1r22zqr.md#c0"
+    char_span: [0, 1137]
+    sentence_count: 11
+    key_terms: [highereducation, student, events, professors, comments, students, attend, coordinator]
+    token_count: 253
+  - id: "social-intelligence/reddit-deep/highereducation/1r22zqr.md#c1"
+    char_span: [1152, 3418]
+    sentence_count: 22
+    key_terms: [attendance, events, student, people, post-covid, "it's", faculty, advertising]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/highereducation/1r22zqr.md#c2"
+    char_span: [3420, 5640]
+    sentence_count: 17
+    key_terms: [students, events, event, get, campus, free, like, engagement]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/highereducation/1r22zqr.md#c3"
+    char_span: [5642, 7607]
+    sentence_count: 22
+    key_terms: [class, students, events, pop-up, fun, competency, something, homework]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/highereducation/1r22zqr.md#c4"
+    char_span: [7609, 9617]
+    sentence_count: 17
+    key_terms: [students, email, event, app, helicopterlife2620, problem, better, "don't"]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/highereducation/1r22zqr.md#c5"
+    char_span: [9619, 11810]
+    sentence_count: 16
+    key_terms: [events, don, student, campus, email, event, good, work]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/highereducation/1r22zqr.md#c6"
+    char_span: [11812, 12932]
+    sentence_count: 13
+    key_terms: [student, course, relevant, students, several, stories, workers, attend]
+    section: Comments
+    token_count: 231
 ---
-
 # Students not engaging?
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1r22zqr/students_not_engaging/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1n2apj4/the_atlantic_the_perverse_consequences_of_the/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,80 @@ subreddit: "applyingtocollege"
 title: "The Atlantic: “The Perverse Consequences of the Easy A”"
 author: "Somber_Goat952"
 date: "2025-08-28T12:20:01.000Z"
-score: 124
+score: 122
 upvote_ratio: 0.96
 num_comments: 40
 flair: "College Questions"
-extracted_at: "2026-05-20T02:31:57.186Z"
+extracted_at: "2026-06-05T19:53:34.572Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c0"
+    char_span: [0, 1941]
+    sentence_count: 14
+    key_terms: [students, harvard, applyingtocollege, academic, consequences, harvard-college-grade-inflation, high, university]
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c1"
+    char_span: [1943, 4272]
+    sentence_count: 21
+    key_terms: [students, harvard, course, grades, professors, because, became, trend]
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c2"
+    char_span: [4274, 6225]
+    sentence_count: 12
+    key_terms: [students, grades, told, get, harvard, percent, student, work]
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c3"
+    char_span: [6227, 8570]
+    sentence_count: 25
+    key_terms: [students, clubs, harvard, everyone, extracurriculars, college, join, told]
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c4"
+    char_span: [8572, 10269]
+    sentence_count: 12
+    key_terms: [students, committee, harvard, coursework, prioritize, prepare, student, internship-recruiting]
+    token_count: 313
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c5"
+    char_span: [10284, 10993]
+    sentence_count: 2
+    key_terms: [harvard, school, sector, goes, type, kindly-stop5113, cultivating, hurhurdedur]
+    section: Comments
+    token_count: 169
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c6"
+    char_span: [10995, 13060]
+    sentence_count: 12
+    key_terms: [students, grade, high, because, getting, grades, school, inflation]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c7"
+    char_span: [13062, 14963]
+    sentence_count: 13
+    key_terms: [average, schools, school, lot, professors, otherwise, undergrad, everyone]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c8"
+    char_span: [14965, 17113]
+    sentence_count: 14
+    key_terms: [education, harvard, grading-system, infoforfaculty, pretty, fact, grad, themselves]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c9"
+    char_span: [17115, 18934]
+    sentence_count: 11
+    key_terms: [harvard, because, "don't", case, terrifying, themselves, exclusive-extracurricular, magazine]
+    section: Comments
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c10"
+    char_span: [18936, 19641]
+    sentence_count: 3
+    key_terms: [grade, students, intelligent-rest-231, back, workingclassprep, demonstrate, coursework, misleading]
+    section: Comments
+    token_count: 177
 ---
-
 # The Atlantic: “The Perverse Consequences of the Easy A”
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1n2apj4/the_atlantic_the_perverse_consequences_of_the/)
-Posted by **Somber_Goat952** · **124↑** · **40 comments**
+Posted by **Somber_Goat952** · **122↑** · **40 comments**
 
 https://www.theatlantic.com/ideas/archive/2025/08/harvard-college-grade-inflation/684021/
 
@@ -73,14 +135,14 @@ Now that they know that making college easier doesn’t reduce stress, Harvard a
 
 ## Comments
 
-- **Kindly-Stop5113** (63↑): Well, I suppose if your holistic admissions and institution priorities drive students to go crazy racking up ECs of every type, what do you expect? We've been breeding this type of behavior from primary school!
+- **Kindly-Stop5113** (64↑): Well, I suppose if your holistic admissions and institution priorities drive students to go crazy racking up ECs of every type, what do you expect? We've been breeding this type of behavior from primary school!
   - **Top_Specific8490** (8↑): Maybe it's the tiger parents who think cultivating a college resume from elementary school is good parenting.
-- **hurhurdedur** (24↑): “As Harvard goes, so goes the rest of the sector.” This is such myopic ignorance from a journalist, Rose Horowitch, who went to Exeter and then Yale and is surrounded by other Ivy leaguers, and so is under the mistaken belief that the massive U.S. education sector revolves around Harvard and the Ivies.
+- **hurhurdedur** (25↑): “As Harvard goes, so goes the rest of the sector.” This is such myopic ignorance from a journalist, Rose Horowitch, who went to Exeter and then Yale and is surrounded by other Ivy leaguers, and so is under the mistaken belief that the massive U.S. education sector revolves around Harvard and the Ivies.
 
 Would love to see the journalists at the Atlantic and NYT start actually covering the education system outside their elite bubbles, at anywhere near the level of coverage they reserve for their elite finishing schools.
   - **Engineer1822** (8↑): Princeton literally tried this, and people said the same.  All that it resulted in was stressed students who had harder times getting jobs because employers have GPA minimums for new grads.  It sucked going through that.
     - **hurhurdedur** (2↑): Looks like you meant to reply to a different comment?
-- **Cool-Nerd8** (7↑): This also happens in HS. Everyone needs to get As because all the top kids get As. If getting high grades were more difficult, I and a lot of others wouldn't be pressured to constantly keep preforming with perfect tests and quizzes.
+- **Cool-Nerd8** (6↑): This also happens in HS. Everyone needs to get As because all the top kids get As. If getting high grades were more difficult, I and a lot of others wouldn't be pressured to constantly keep preforming with perfect tests and quizzes.
 - **CarolinZoebelein** (14↑): As a European looking at the US, I have to say that you definitely have grade inflation in high schools and colleges. Often, students here who want to go for an exchange semester/year overseas choose the US because getting very good grades there is much easier compared to at home in Europe.
 - **Dependent-Pie7857** (3↑): Maybe time to rethink grades entirely if you’re giving As to everyone.  My child’s high school is mastery based, revise your work until it meets muster, move up in grade based on portfolio of high quality work and a public talk presenting a major project or similar.   I’m honestly blown away by the academic rigor they manage to foster without hypercompetitive /grade optimization bullshit.   Is school for filtering or for learning?   Your goal drives your practice.
 - **lotsofgrading** (22↑): I mean, it's not surprising that A students, after they're admitted to Harvard, continue to be A students. Back in JFK's time, those students *weren't* A students; they were gentlemen who got gentlemen's C's.
@@ -120,12 +182,12 @@ If you come out of college never having struggled, you don’t really have what 
     - **Total-Lecture2888** (2↑): I feel like the fact that you went to grad school is a pretty important component. There’s pretty mid academic kids at any school- up to Harvard and yes- even at Caltech, you’ll find someone who’ll do worse in stem than someone from Utah state, especially for study abroad where people just wanna goof off lol.
 
 Grades are boosted for sure, but year over year, the asks of professors have increased if you’re in STEM. The education I currently get at a liberal arts college in statistics and physics is what you’d expect from a grad course literally 5-10 years ago. Also grad schools and fellowships have scrutinized poor GPAs to a point that it’s becoming a necessity to have a 3.5+. Add that with the fact that many of these ivy students are on their way to consulting and IB…and yeah, the grades are high. Doesn’t mean you’re getting a worse education or you aren’t working hard- in fact, I don’t think there’s an actual correlation.
-    - **lotsofgrading** (2↑): The grading scale you describe seems pretty standard. It's the same as Harvard's grading scale, for instance:
+    - **lotsofgrading** (3↑): The grading scale you describe seems pretty standard. It's the same as Harvard's grading scale, for instance:
 
 [https://infoforfaculty.fas.harvard.edu/book/grading-system](https://infoforfaculty.fas.harvard.edu/book/grading-system)
 
 I can't assess, for other people, your representation of your own experience. Everyone will have to assess that for themselves. Speaking only from what I've seen, I don't think it's fair to say students at these schools don't struggle. I think they struggle quite a lot, and I do believe the article when it says they really push themselves in their studies and their extracurriculars.
-  - **leafytimes** (38↑): Literally read the article. Number of A’s given have soared (now up 20% from just 10 years ago) while raw scores have dropped. 
+  - **leafytimes** (42↑): Literally read the article. Number of A’s given have soared (now up 20% from just 10 years ago) while raw scores have dropped. 
 
 This is the product of the extracurricular wars high schoolers are forced to fight in the application process. The prep school kids are so very much socked in this mentality. They’ve made Harvard a vocational program for IB/consulting gigs — even more so than 20, 25 years ago.
 

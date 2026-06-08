@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1qzcgos.md
 url: "https://www.reddit.com/r/NEU/comments/1qzcgos/volunteering_opportunities/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "Boston & Local Life"
 extracted_at: "2026-05-12T19:19:22.630Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [higher_ed, nonprofit]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1qzcgos.md#c0"
+    char_span: [0, 552]
+    sentence_count: 7
+    key_terms: [opportunities, volunteering, comments, bright-swimming-6576, neu, environmental, experiences, reddit-deep]
+    token_count: 131
+  - id: "social-intelligence/reddit-deep/neu/1qzcgos.md#c1"
+    char_span: [567, 1448]
+    sentence_count: 7
+    key_terms: [bright-swimming-6576, volunteer, opportunities, drive, semester, service, thanks, check]
+    section: Comments
+    token_count: 247
 ---
-
 # Volunteering opportunities
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1qzcgos/volunteering_opportunities/)

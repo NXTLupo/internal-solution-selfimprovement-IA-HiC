@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t0wmz9.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t0wmz9/agri_student_dilemma_stay_in_farming_or_shift_to/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,15 @@ flair: "Advice"
 extracted_at: "2026-05-22T23:34:01.112Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t0wmz9.md#c0"
+    char_span: [0, 1613]
+    sentence_count: 14
+    key_terms: [agriculture, agri, bpo, like, careerguidance, demand, philippines, graduates]
+    token_count: 349
 ---
-
 # Agri student dilemma: stay in farming or shift to BPO?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t0wmz9/agri_student_dilemma_stay_in_farming_or_shift_to/)

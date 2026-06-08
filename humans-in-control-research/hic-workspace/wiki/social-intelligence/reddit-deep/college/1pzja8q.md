@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1pzja8q.md
 url: "https://www.reddit.com/r/college/comments/1pzja8q/is_going_to_a_less_prestigious_school_better_than/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -10,11 +11,40 @@ score: 42
 upvote_ratio: 0.9
 num_comments: 43
 flair: ""
-extracted_at: "2026-05-23T20:15:18.457Z"
+extracted_at: "2026-06-03T18:34:53.698Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1pzja8q.md#c0"
+    char_span: [0, 1585]
+    sentence_count: 14
+    key_terms: [school, feel, college, prestigious, uga, southern, georgia, maybe]
+    token_count: 377
+  - id: "social-intelligence/reddit-deep/college/1pzja8q.md#c1"
+    char_span: [1600, 3716]
+    sentence_count: 20
+    key_terms: [school, going, confidence, debt, get, because, smaller, better]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/college/1pzja8q.md#c2"
+    char_span: [3718, 5149]
+    sentence_count: 8
+    key_terms: [school, want, medical, prestigious, scholarship, resources, research, southern]
+    section: Comments
+    token_count: 324
+  - id: "social-intelligence/reddit-deep/college/1pzja8q.md#c3"
+    char_span: [5151, 6922]
+    sentence_count: 8
+    key_terms: [school, important, good, normal, money, honestly, average, because]
+    section: Comments
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/college/1pzja8q.md#c4"
+    char_span: [6924, 7388]
+    sentence_count: 3
+    key_terms: [school, lazy-yogurtcloset784, field, pediatrics, personally, psychology, neurology, nuerology]
+    section: Comments
+    token_count: 120
 ---
-
 # Is going to a less prestigious school better than a prestigious school just to save money?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1pzja8q/is_going_to_a_less_prestigious_school_better_than/)
@@ -30,13 +60,13 @@ I think i feel like i would fit in at georgia southern because its smaller and i
 
 ## Comments
 
-- **Dijonobama** (116↑): Pick the option that lets you graduate with the least amount of debt. You’ll def be going into debt for medical school so it would be prudent to save money now if possible.
-  - **_babyfaced_assassin** (29↑): This. And you know what they call the guy that graduated at the bottom of his class in med school? Doctor.
-    - **bluebird-1515** (10↑): I so hate this. Technically it’s true but where will that person get a job? Would you want to be treated by that person?
-  - **Lazy-Yogurtcloset784** (1↑): If you can get a medical degree, the debt will be nothing. Go to the best school you can. It won’t necessarily be more money because the better school will have richer and more generous donors. 
+- **Dijonobama** (117↑): Pick the option that lets you graduate with the least amount of debt. You’ll def be going into debt for medical school so it would be prudent to save money now if possible.
+  - **_babyfaced_assassin** (28↑): This. And you know what they call the guy that graduated at the bottom of his class in med school? Doctor.
+    - **bluebird-1515** (9↑): I so hate this. Technically it’s true but where will that person get a job? Would you want to be treated by that person?
+  - **Lazy-Yogurtcloset784** (2↑): If you can get a medical degree, the debt will be nothing. Go to the best school you can. It won’t necessarily be more money because the better school will have richer and more generous donors. 
 
 Advisors will tell you how and where to get more outside aid. There is a reason that better schools are considered better.
-- **kk1289** (24↑): I flourished by going to a smaller school.
+- **kk1289** (22↑): I flourished by going to a smaller school.
 Not only was it cheaper but the classes were smaller and I felt like I could fit in and actually get to know people.
 
 I'm a biology major and I never thought I'd be a science major because I had awful grades in high school. But by going to a small college, I learned confidence and have the ability to ask for help from professors- who love to talk with me after class because they aren't swamped.
@@ -45,8 +75,8 @@ I'm a biology major and I never thought I'd be a science major because I had awf
 My sister is going to a prestigious school and she's also getting a science major but she's going to be in so much more debt. Still, we've both had great opportunities for internships, grants, ect.
 
 It really doesn't matter where you graduate from, it just matters that you're competent and you try.
-  - **astrasie** (4↑): I love to talk about what i learned. I deeply love biology and psychology and  sometimes i wish i didn’t doubt myself in my abilities to grasp knowledge. I lack so much confidence in myself when it comes to academics and i hope a smaller school will help me gain that confidence in myself. Apart of me feels like i should go there, almost like a gut feeling. Maybe im delusional.
-    - **kk1289** (8↑): No, you're describing exactly the personality that will do well in a small school.
+  - **astrasie** (5↑): I love to talk about what i learned. I deeply love biology and psychology and  sometimes i wish i didn’t doubt myself in my abilities to grasp knowledge. I lack so much confidence in myself when it comes to academics and i hope a smaller school will help me gain that confidence in myself. Apart of me feels like i should go there, almost like a gut feeling. Maybe im delusional.
+    - **kk1289** (7↑): No, you're describing exactly the personality that will do well in a small school.
 
 If your parents are worried, say you want to start there because it's cheaper and you don't want to waste money while you figure out exactly what you want to do.
 
@@ -54,12 +84,12 @@ The first two years are basically the same wherever you go anyway
 - **exhausted-caprid** (8↑): If you’re in-state and you have the grades to be thinking about medical school, you’ll probably have the Zell Miller scholarship, so either option is tuition-free. UGA has a lot more resources for pre-med students (getting involved in research, student organizations, that kind of thing), and sends hundreds of students to medical school every year. If you want to be in medicine, you’ll have to deal with competitive people, but you’ll have many more resources to handle it at UGA.
   - **astrasie** (2↑): Yes very true, i considered georgia southern is because i can commute. I may transfer to a more prestigious university if i feel like georgia southern is unfulfilling
 - **zuzoa** (12↑): Go to a prestigious school if they offer you a scholarship. If they don't, go to a cheaper school. Unless your dad is paying for your schooling, you need to make your own financial decisions.
-- **WorriedTurnip6458** (6↑): Part of getting into med school is developing a resume during college of research, volunteering, EMT stuff etc (all medical related). If the college you prefer gives you those opportunities then yes go there, excel at the academics and stand out in the crowd.
+- **WorriedTurnip6458** (5↑): Part of getting into med school is developing a resume during college of research, volunteering, EMT stuff etc (all medical related). If the college you prefer gives you those opportunities then yes go there, excel at the academics and stand out in the crowd.
 
 And yes if you are thinking med school saving money is going to be important for the long haul.
 - **JakeBrakin** (4↑): For most career paths, the degree, internships, practicums, etc. matter more than the college's prestige level. Honestly, as middle-aged person who went to an average college and average grad school, finished with $60k in student loan debt that took forever to pay off, and with a secure career in higher education, I question why anyone would go to a prestigious school unless they aren't paying for it. Seriously, if you are just a normal person from a normal family who plans on a normal job, please consider how the financial aspect will impact you within six months of graduation. I knew nothing about student loans until I had to start paying them back. I never had a solid foundation to start a nest egg or save much money because my loan payments ate up so money of my income for many years.
-- **icevermin** (3↑): Honestly, my takeaway from this is that you don't want to go to UGA regardless of what it would cost. Sit with that feeling and be really honest with yourself about why you don't want to go there, but ultimately go with your gut.
-- **Dry-Bug-9214** (5↑): Do to the cheapest and where you will thrive
+- **icevermin** (4↑): Honestly, my takeaway from this is that you don't want to go to UGA regardless of what it would cost. Sit with that feeling and be really honest with yourself about why you don't want to go there, but ultimately go with your gut.
+- **Dry-Bug-9214** (3↑): Do to the cheapest and where you will thrive
  Higher GPA because you fit in is more important than a expensive school you hate.
 - **Brief_Criticism_492** (3↑): I chose the cheap, small school and it’s been great. Being a “big fish in a small pond” means good professor relations/letters of rec, good scholarships, and an overall good time, not to mention the actual benefit of getting to graduate with no debt (in my case). 
 

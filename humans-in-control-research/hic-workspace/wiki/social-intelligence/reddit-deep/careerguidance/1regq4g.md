@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1regq4g.md
 url: "https://www.reddit.com/r/careerguidance/comments/1regq4g/what_should_i_do_to_save_and_improve_my_career_in/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-24T14:09:04.407Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1regq4g.md#c0"
+    char_span: [0, 1958]
+    sentence_count: 8
+    key_terms: [feel, learn, job, working, help, "it's", project, careerguidance]
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/careerguidance/1regq4g.md#c1"
+    char_span: [1973, 3606]
+    sentence_count: 10
+    key_terms: [people, skills, solid, start, interesting, bit, networking, mentioned]
+    section: Comments
+    token_count: 366
 ---
-
 # what should I do to save and improve my career in a job where I learn nothing from?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1regq4g/what_should_i_do_to_save_and_improve_my_career_in/)

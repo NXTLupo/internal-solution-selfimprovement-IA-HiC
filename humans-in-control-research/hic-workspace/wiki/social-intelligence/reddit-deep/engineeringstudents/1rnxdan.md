@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1rnxdan/18_year_old_senior_in_high_school_considering/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,51 @@ flair: "Major Choice"
 extracted_at: "2026-05-25T18:32:19.221Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c0"
+    char_span: [0, 1521]
+    sentence_count: 13
+    key_terms: [business, engineering, experience, engineeringstudents, definitely, mechanical, comments, majoring]
+    token_count: 323
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c1"
+    char_span: [1536, 3780]
+    sentence_count: 16
+    key_terms: [engineeringstudents, engineering, wiki, please, reddit, electrical, https, com]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c2"
+    char_span: [3782, 5901]
+    sentence_count: 16
+    key_terms: [engineering, basic, mechanical, business, ironicrobotics, trigonometric, forms, rules]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c3"
+    char_span: [5903, 7711]
+    sentence_count: 15
+    key_terms: [university, physics, writing, get, math, time, especially, practice]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c4"
+    char_span: [7716, 9886]
+    sentence_count: 12
+    key_terms: [engineering, "it's", business, ok-zucchini-1126, license, career, states, years]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c5"
+    char_span: [9630, 11940]
+    sentence_count: 40
+    key_terms: [business, engineer, engineering, manager, own, experience, like, chemical]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rnxdan.md#c6"
+    char_span: [11942, 12094]
+    sentence_count: 1
+    key_terms: [business, own, interested, mechanical, always, degree, random, major]
+    section: Comments
+    token_count: 33
 ---
-
 # 18 year old senior in high school considering going into mechanical engineering. Is it worth it?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1rnxdan/18_year_old_senior_in_high_school_considering/)

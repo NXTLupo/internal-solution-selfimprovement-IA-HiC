@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-deeplearning/e32e80cfef.md
 url: "https://www.reddit.com/r/deeplearning/comments/1sva0b9/qwen_36_27b_vs_qwen_36_35b_a3b_vs_gemma_4_models/"
 url_hash: "e32e80cfef"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T17:34:22.583858+00:00"
 chars: 2791
+industries: [ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-deeplearning/e32e80cfef.md#c0"
+    char_span: [0, 1404]
+    sentence_count: 5
+    key_terms: [gemma, qwen, throughput, a3b, deeplearning, dense, fp8, moe]
+    token_count: 525
+  - id: "articles/reddit-deep-r-deeplearning/e32e80cfef.md#c1"
+    char_span: [1406, 3011]
+    sentence_count: 12
+    key_terms: [prompt, token, numbers, cache, does, fp8, moe, concurrent]
+    token_count: 386
 ---
-
 # Qwen 3.6 27B vs Qwen 3.6 35B A3B vs Gemma 4 models Throughput on H100
 
 Source: [Reddit Deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1sva0b9/qwen_36_27b_vs_qwen_36_35b_a3b_vs_gemma_4_models/)

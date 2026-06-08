@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1ntxvbt/my_husband_wants_to_leave_being_a_nurse/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,87 @@ flair: ""
 extracted_at: "2026-05-25T13:02:11.349Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, healthcare, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c0"
+    char_span: [0, 759]
+    sentence_count: 7
+    key_terms: [cscareerquestions, anesthetist, comments, engineer, husband, nurse, days, flatbootyhere]
+    token_count: 199
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c1"
+    char_span: [774, 2573]
+    sentence_count: 12
+    key_terms: [job, desk, help, show, learned, market, "that's", "can't"]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c2"
+    char_span: [2575, 4757]
+    sentence_count: 23
+    key_terms: [value, software, developer, job, people, kind, like, developers]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c3"
+    char_span: [4759, 6808]
+    sentence_count: 11
+    key_terms: [career, software, though, entry, years, development, find, unemployed]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c4"
+    char_span: [6810, 8813]
+    sentence_count: 10
+    key_terms: [get, job, working, like, probably, earning, years, year]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c5"
+    char_span: [8649, 10049]
+    sentence_count: 10
+    key_terms: ["it's", market, faang, maybe, nurse, "anesthesiologist's", get, "i'd"]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c6"
+    char_span: [10051, 11711]
+    sentence_count: 16
+    key_terms: [work, newprint, friends, working, salary, "wife's", crazy, hours]
+    section: Comments
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c7"
+    char_span: [11713, 13806]
+    sentence_count: 13
+    key_terms: [nurses, pay, work, software, people, close, definitely, engineers]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c8"
+    char_span: [13808, 15835]
+    sentence_count: 16
+    key_terms: [take, financially, job, whatever, already, months, stripe, month]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c9"
+    char_span: [15837, 16194]
+    sentence_count: 4
+    key_terms: [day-to-day, experiment, time-boxed, understand, achieve, against, entrant, metrics]
+    section: Comments
+    token_count: 94
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c10"
+    char_span: [16196, 18036]
+    sentence_count: 11
+    key_terms: [financial-independence-retire-early-fire, achieve, money, years, "he's", possible, blowing, making]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c11"
+    char_span: [17827, 18920]
+    sentence_count: 5
+    key_terms: [deleted, years, bigrobcommunistdog, bad, cut, rare, yeah, ecethrowaway01]
+    section: Comments
+    token_count: 323
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ntxvbt.md#c12"
+    char_span: [18922, 20238]
+    sentence_count: 8
+    key_terms: [job, like, tech, week, healthcare, leaving, savings, better]
+    section: Comments
+    token_count: 317
 ---
-
 # My husband wants to leave being a nurse anesthetist to become a software engineer. Do you think he is crazy? Why or why not?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1ntxvbt/my_husband_wants_to_leave_being_a_nurse/)

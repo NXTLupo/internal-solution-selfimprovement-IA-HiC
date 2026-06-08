@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/ffff2c2b5e.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1l6v3w6/reminder_most_cs_grads_arent_flipping_burgers_77/"
 url_hash: "ffff2c2b5e"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T04:05:50.359011+00:00"
 chars: 2414
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/ffff2c2b5e.md#c0"
+    char_span: [0, 1115]
+    sentence_count: 9
+    key_terms: [college-labor-market, cscareerquestions, outcomes-by-major, https, "it's", www, newyorkfed, subreddit]
+    token_count: 282
+  - id: "articles/reddit-deep-r-cscareerquestions/ffff2c2b5e.md#c1"
+    char_span: [1117, 2673]
+    sentence_count: 11
+    key_terms: [github, git, use, job, like, learn, "it's", mind]
+    token_count: 377
 ---
-
 # Reminder: Most CS grads aren’t flipping burgers. ~77% land jobs that actually require a CS degree.
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1l6v3w6/reminder_most_cs_grads_arent_flipping_burgers_77/)

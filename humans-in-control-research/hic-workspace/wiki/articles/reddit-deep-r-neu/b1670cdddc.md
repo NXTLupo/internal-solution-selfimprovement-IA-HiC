@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-neu/b1670cdddc.md
 url: "https://www.reddit.com/r/NEU/comments/1qpygk3/got_into_northeastern_applied_ea/"
 url_hash: "b1670cdddc"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-13T23:07:04.498224+00:00"
 chars: 840
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-neu/b1670cdddc.md#c0"
+    char_span: [0, 992]
+    sentence_count: 6
+    key_terms: [international, engineering, scholarship, neu, mechanical, comments, congrats, honors]
+    token_count: 268
 ---
-
 # got into northeastern!!! applied EA
 
 Source: [Reddit Deep: r/neu](https://www.reddit.com/r/NEU/comments/1qpygk3/got_into_northeastern_applied_ea/)

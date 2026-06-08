@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/264ffeaaa0.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1lawdo8/which_new_grad_offer_to_take_entrylevel_swe_us/"
 url_hash: "264ffeaaa0"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T06:46:22.949032+00:00"
 chars: 3952
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/264ffeaaa0.md#c0"
+    char_span: [0, 1345]
+    sentence_count: 4
+    key_terms: [offer, cscareerquestions, "it's", canadian, canada, big, rsus, tech]
+    token_count: 339
+  - id: "articles/reddit-deep-r-cscareerquestions/264ffeaaa0.md#c1"
+    char_span: [1347, 3387]
+    sentence_count: 9
+    key_terms: [company, canada, startup, "i'm", tech, canadian, career, growth]
+    token_count: 476
+  - id: "articles/reddit-deep-r-cscareerquestions/264ffeaaa0.md#c2"
+    char_span: [3389, 4203]
+    sentence_count: 7
+    key_terms: [big, tech, surelynotlikethis, startup, grad, lead, new, experience]
+    token_count: 218
 ---
-
 # Which New Grad offer to take: Entry-level SWE @ US Big Tech OR Tech lead @ Canadian startup?
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1lawdo8/which_new_grad_offer_to_take_entrylevel_swe_us/)

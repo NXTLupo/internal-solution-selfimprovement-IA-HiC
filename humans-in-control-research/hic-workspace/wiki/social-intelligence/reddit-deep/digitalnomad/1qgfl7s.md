@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1qgfl7s/i_dont_want_to_be_a_nomad_anymore_but_i_dont_like/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,63 @@ flair: "Lifestyle"
 extracted_at: "2026-05-26T12:53:56.721Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c0"
+    char_span: [0, 1579]
+    sentence_count: 18
+    key_terms: [want, "don't", like, money, "i'm", nomading, afford, digitalnomad]
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c1"
+    char_span: [1594, 3633]
+    sentence_count: 11
+    key_terms: [front, singer, quote, resistance, situations, bothering, judgments, inflated]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c2"
+    char_span: [3635, 5337]
+    sentence_count: 11
+    key_terms: [adf21a, situation, similar, rather, being, "can't", quote, raped]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c3"
+    char_span: [5339, 5771]
+    sentence_count: 5
+    key_terms: [events, view, life-destroying, soul-destroying, manageable, responses, something, splitting]
+    section: Comments
+    token_count: 96
+  - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c4"
+    char_span: [5773, 7785]
+    sentence_count: 13
+    key_terms: [ohwhereareyoufrom, "don't", money, years, job, like, something, somewhere]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c5"
+    char_span: [7508, 9227]
+    sentence_count: 13
+    key_terms: [back, american, america, working, living, revolutionarysoft253, being, until]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c6"
+    char_span: [9229, 10881]
+    sentence_count: 13
+    key_terms: [money, like, life, live, want, something, caviar, learn]
+    section: Comments
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c7"
+    char_span: [10883, 12854]
+    sentence_count: 16
+    key_terms: ["it's", get, like, realistically, time, expensive, normal, people]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c8"
+    char_span: [12856, 13916]
+    sentence_count: 8
+    key_terms: ["you're", handcuffs, day, juneseyeball, learning, "that's", money, ohwhereareyoufrom]
+    section: Comments
+    token_count: 275
 ---
-
 # I don't want to be a nomad anymore, but I don't like it anywhere enough to stay
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1qgfl7s/i_dont_want_to_be_a_nomad_anymore_but_i_dont_like/)

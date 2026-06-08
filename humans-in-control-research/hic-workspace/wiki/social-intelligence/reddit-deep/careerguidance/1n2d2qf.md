@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1n2d2qf.md
 url: "https://www.reddit.com/r/careerguidance/comments/1n2d2qf/am_i_on_the_right_career_path_as_a_wordpress/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.150Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1n2d2qf.md#c0"
+    char_span: [0, 748]
+    sentence_count: 6
+    key_terms: [careerguidance, javascript, wordpress, comments, career, focus, right, node]
+    token_count: 192
 ---
-
 # Am I on the right career path as a WordPress designer learning JavaScript & Node.js?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1n2d2qf/am_i_on_the_right_career_path_as_a_wordpress/)

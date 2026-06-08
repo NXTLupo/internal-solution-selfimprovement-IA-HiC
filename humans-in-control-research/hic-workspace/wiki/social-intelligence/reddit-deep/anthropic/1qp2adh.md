@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/anthropic/1qp2adh.md
 url: "https://www.reddit.com/r/Anthropic/comments/1qp2adh/claude_code_on_phone_api_key_humor/"
 kind: "social-post"
 source: "reddit-deep: r/anthropic"
@@ -13,8 +14,15 @@ flair: "Compliment:snoo_hearteyes:"
 extracted_at: "2026-05-11T17:26:51.920Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, saas, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/anthropic/1qp2adh.md#c0"
+    char_span: [0, 610]
+    sentence_count: 6
+    key_terms: [awesome, claude, anthropic, reference, comments, https, humor, phone]
+    token_count: 155
 ---
-
 # Claude Code on phone - API key - humor
 
 Source: [reddit-deep: r/anthropic](https://www.reddit.com/r/Anthropic/comments/1qp2adh/claude_code_on_phone_api_key_humor/)

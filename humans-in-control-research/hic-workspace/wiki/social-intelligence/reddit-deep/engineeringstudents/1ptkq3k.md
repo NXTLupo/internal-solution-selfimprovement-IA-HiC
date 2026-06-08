@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1ptkq3k.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1ptkq3k/to_older_students_did_you_ever_have_issues/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,27 @@ flair: "Discussion"
 extracted_at: "2026-05-25T13:01:49.563Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ptkq3k.md#c0"
+    char_span: [0, 575]
+    sentence_count: 5
+    key_terms: [engineering, engineeringstudents, comments, military, substantial-shirt875, environmental, internships, reddit-deep]
+    token_count: 132
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ptkq3k.md#c1"
+    char_span: [590, 2290]
+    sentence_count: 14
+    key_terms: [internships, did, battlebots, experience, internship, interviews, finding, trouble]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ptkq3k.md#c2"
+    char_span: [2292, 4172]
+    sentence_count: 14
+    key_terms: [job, substantial-shirt875, graduating, got, yourself, market, internships, internship]
+    section: Comments
+    token_count: 493
 ---
-
 # To older students did you ever have issues getting internships or jobs?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1ptkq3k/to_older_students_did_you_ever_have_issues/)

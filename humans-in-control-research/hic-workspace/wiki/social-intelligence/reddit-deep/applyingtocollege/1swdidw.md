@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1swdidw.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1swdidw/if_colleges_are_need_blind_when_admitting_why/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,45 @@ flair: "College Questions"
 extracted_at: "2026-05-23T19:45:32.284Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1swdidw.md#c0"
+    char_span: [0, 888]
+    sentence_count: 1
+    key_terms: [someone, applyingtocollege, income, school, low, colleges, comments, probably]
+    token_count: 210
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1swdidw.md#c1"
+    char_span: [903, 2473]
+    sentence_count: 10
+    key_terms: [school, income, money, circumstances, spend, high, tell, available]
+    section: Comments
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1swdidw.md#c2"
+    char_span: [2475, 4134]
+    sentence_count: 13
+    key_terms: [income, opportunities, school, available, went, applying, essays, expect]
+    section: Comments
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1swdidw.md#c3"
+    char_span: [4136, 5343]
+    sentence_count: 11
+    key_terms: [kids, income, spots, parents, reality, tuition, weekend, blind]
+    section: Comments
+    token_count: 245
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1swdidw.md#c4"
+    char_span: [5345, 7670]
+    sentence_count: 13
+    key_terms: [school, schools, kids, someone, aos, feel, hang, like]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1swdidw.md#c5"
+    char_span: [7338, 8962]
+    sentence_count: 10
+    key_terms: [financial, need-blind, aid, school, need, pell, recipients, affluence]
+    section: Comments
+    token_count: 354
 ---
-
 # if colleges are need blind when admitting why does it matter if ur low income or not
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1swdidw/if_colleges_are_need_blind_when_admitting_why/)

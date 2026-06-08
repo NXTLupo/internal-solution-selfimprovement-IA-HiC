@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1rstji3.md
 url: "https://www.reddit.com/r/investing/comments/1rstji3/should_the_current_market_have_me35_rethinking/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,63 @@ flair: ""
 extracted_at: "2026-05-16T20:55:01.247Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1rstji3.md#c0"
+    char_span: [0, 981]
+    sentence_count: 7
+    key_terms: [stocks, "i'm", voo, investing, comments, strategy, entire, doing]
+    token_count: 240
+  - id: "social-intelligence/reddit-deep/investing/1rstji3.md#c1"
+    char_span: [996, 1826]
+    sentence_count: 3
+    key_terms: [opposite, reddit, says, deleted, exactly, market, saying, covid]
+    section: Comments
+    token_count: 223
+  - id: "social-intelligence/reddit-deep/investing/1rstji3.md#c2"
+    char_span: [1828, 3098]
+    sentence_count: 3
+    key_terms: [vxus, fearful, greedy, international, market, others, people, awkward-watercress33]
+    section: Comments
+    token_count: 356
+  - id: "social-intelligence/reddit-deep/investing/1rstji3.md#c3"
+    char_span: [3100, 5166]
+    sentence_count: 15
+    key_terms: [international, expensivetoes4729, historical, domestic, chances, stocks, trying, split]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1rstji3.md#c4"
+    char_span: [4918, 5373]
+    sentence_count: 3
+    key_terms: [watchstoredinass, anti-immigrant, international, experiencing, kleptocracy, innovation, outperform, autocracy]
+    section: Comments
+    token_count: 113
+  - id: "social-intelligence/reddit-deep/investing/1rstji3.md#c5"
+    char_span: [5375, 7338]
+    sentence_count: 16
+    key_terms: [expensivetoes4729, economy, international, manufacturing, voo, countries, because, easily]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/investing/1rstji3.md#c6"
+    char_span: [7340, 8303]
+    sentence_count: 7
+    key_terms: [scientology, voo, investing, church, decade, leftlanespawncamper, chill, index]
+    section: Comments
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/investing/1rstji3.md#c7"
+    char_span: [8305, 10077]
+    sentence_count: 9
+    key_terms: [global-stocks-are-forecast-to-return-7-point-7-percent-annually-in-coming-decade, press-release-vanguard-releases-2026-economic-and-market-outlook-121025, https, com, voo, billion, record, investment-directions-outlook]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/investing/1rstji3.md#c8"
+    char_span: [10079, 11160]
+    sentence_count: 7
+    key_terms: [like, strategy, bonds, been, cash, good, veu, voo]
+    section: Comments
+    token_count: 290
 ---
-
 # Should the current market have me(35) rethinking investment strategy of all in on the S&P?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1rstji3/should_the_current_market_have_me35_rethinking/)

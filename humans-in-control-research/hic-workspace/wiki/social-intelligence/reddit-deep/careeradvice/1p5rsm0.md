@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1p5rsm0.md
 url: "https://www.reddit.com/r/careeradvice/comments/1p5rsm0/25f_currently_in_ai_data_annotation_innodata_but/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,26 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.241Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [ai_research, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1p5rsm0.md#c0"
+    char_span: [0, 2118]
+    sentence_count: 12
+    key_terms: [annotation, innodata, working, careeradvice, data, here, want, experience]
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/careeradvice/1p5rsm0.md#c1"
+    char_span: [2120, 3251]
+    sentence_count: 8
+    key_terms: [build, stability, another, writing, career, need, tech, want]
+    token_count: 248
+  - id: "social-intelligence/reddit-deep/careeradvice/1p5rsm0.md#c2"
+    char_span: [3266, 5256]
+    sentence_count: 13
+    key_terms: [math, want, understanding, conversation, start, tech, specialty, without]
+    section: Comments
+    token_count: 468
 ---
-
 # 25F, currently in AI data annotation (Innodata), but I want a real AI career, and I’m scared of the impact of the AI bubble bursting soon. How do I build stability and move beyond these roles?
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1p5rsm0/25f_currently_in_ai_data_annotation_innodata_but/)

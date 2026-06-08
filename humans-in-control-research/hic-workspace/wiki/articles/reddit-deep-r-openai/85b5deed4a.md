@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-openai/85b5deed4a.md
 url: "https://www.reddit.com/r/OpenAI/comments/1mnuys2/weird_experiences_with_the_gpt5_api/"
 url_hash: "85b5deed4a"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T16:57:59.420528+00:00"
 chars: 4682
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-openai/85b5deed4a.md#c0"
+    char_span: [0, 2161]
+    sentence_count: 17
+    key_terms: [gpt-5, tools, thinking, personality, good, use, mentioned, either]
+    token_count: 498
+  - id: "articles/reddit-deep-r-openai/85b5deed4a.md#c1"
+    char_span: [2163, 3038]
+    sentence_count: 6
+    key_terms: [model, keeps, wants, good, keep, like, user, benchmarks]
+    token_count: 205
+  - id: "articles/reddit-deep-r-openai/85b5deed4a.md#c2"
+    char_span: [3040, 4844]
+    sentence_count: 21
+    key_terms: [use, work, models, system, possible-ad-6765, better, prompt, agent]
+    token_count: 449
 ---
-
 # Weird experiences with the GPT-5 API
 
 Source: [Reddit Deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1mnuys2/weird_experiences_with_the_gpt5_api/)

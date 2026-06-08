@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1qjeor2.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1qjeor2/is_waterloo_a_good_university/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,39 @@ flair: "Question"
 extracted_at: "2026-05-25T18:33:12.669Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1qjeor2.md#c0"
+    char_span: [0, 1250]
+    sentence_count: 10
+    key_terms: [uwaterloo, university, good, people, comments, students, answer, campus]
+    token_count: 316
+  - id: "social-intelligence/reddit-deep/uwaterloo/1qjeor2.md#c1"
+    char_span: [1265, 2995]
+    sentence_count: 7
+    key_terms: [waterloo, university, people, person, like, skindiacus, probably, similar]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/uwaterloo/1qjeor2.md#c2"
+    char_span: [2997, 4269]
+    sentence_count: 11
+    key_terms: [medicine, end, people, taking, lot, college, become, career]
+    section: Comments
+    token_count: 286
+  - id: "social-intelligence/reddit-deep/uwaterloo/1qjeor2.md#c3"
+    char_span: [4271, 6418]
+    sentence_count: 17
+    key_terms: [waterloo, great, like, physics, people, school, value, phys]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/uwaterloo/1qjeor2.md#c4"
+    char_span: [6420, 7815]
+    sentence_count: 11
+    key_terms: [waterloo, co-op, like, university, graduates, average, because, culture]
+    section: Comments
+    token_count: 308
 ---
-
 # Is Waterloo a good university?
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1qjeor2/is_waterloo_a_good_university/)

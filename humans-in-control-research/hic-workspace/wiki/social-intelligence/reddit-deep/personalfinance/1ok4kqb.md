@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1ok4kqb.md
 url: "https://www.reddit.com/r/personalfinance/comments/1ok4kqb/im_super_concerned_about_our_future/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,62 @@ flair: "Retirement"
 extracted_at: "2026-05-16T20:55:02.106Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c0"
+    char_span: [0, 1236]
+    sentence_count: 11
+    key_terms: [personalfinance, until, work, comments, continue, drawing, husband, working]
+    token_count: 288
+  - id: "social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c1"
+    char_span: [1238, 2744]
+    sentence_count: 18
+    key_terms: [job, year, retirement, expenses, mortgage, husband, payment, savings]
+    token_count: 348
+  - id: "social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c2"
+    char_span: [2759, 3484]
+    sentence_count: 6
+    key_terms: [retirement, situation, alarmingslothherder, adcomfortable2974, inheritance, semi-retire, certainly, financial]
+    section: Comments
+    token_count: 197
+  - id: "social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c3"
+    char_span: [3486, 5575]
+    sentence_count: 15
+    key_terms: [retirement, until, need, age, everything, situation, benefits, decision]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c4"
+    char_span: [5577, 7370]
+    sentence_count: 17
+    key_terms: [retirement, "that's", pension, people, month, retiring, later, average]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c5"
+    char_span: [7372, 8807]
+    sentence_count: 14
+    key_terms: [husband, retired, health, month, security, issues, people, retire]
+    section: Comments
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c6"
+    char_span: [8809, 10398]
+    sentence_count: 12
+    key_terms: [retirement, unemployment, let, retire, least, another, husband, fairly]
+    section: Comments
+    token_count: 406
+  - id: "social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c7"
+    char_span: [10400, 11783]
+    sentence_count: 11
+    key_terms: [georgeretire, benefits, unemployment, deleted, husband, reduced, person, cases]
+    section: Comments
+    token_count: 343
+  - id: "social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c8"
+    char_span: [11785, 13292]
+    sentence_count: 15
+    key_terms: [retirement, savings, work, decided, mistake, answer, income, retire]
+    section: Comments
+    token_count: 378
 ---
-
 # I'm super concerned about our future
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1ok4kqb/im_super_concerned_about_our_future/)

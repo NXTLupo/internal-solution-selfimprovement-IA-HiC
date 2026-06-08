@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1qh9q6h.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1qh9q6h/what_are_some_other_career_paths_if_one_doesnt/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,21 @@ flair: "Biological Sciences"
 extracted_at: "2026-05-20T06:42:01.110Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qh9q6h.md#c0"
+    char_span: [0, 1240]
+    sentence_count: 7
+    key_terms: [phd, admissions, committee, gradadmissions, group, independent, acceptance, mentioning]
+    token_count: 262
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qh9q6h.md#c1"
+    char_span: [1255, 3432]
+    sentence_count: 15
+    key_terms: [phd, research, "don't", independent, lead, want, phds, because]
+    section: Comments
+    token_count: 472
 ---
-
 # What are some other career paths if one doesn't want to lead an independent project after their STEM PhD? And does mentioning this to the admissions committee lower your chances of PhD acceptance?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1qh9q6h/what_are_some_other_career_paths_if_one_doesnt/)

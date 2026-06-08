@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1osovhy.md
 url: "https://www.reddit.com/r/GradSchool/comments/1osovhy/physically_cannot_bring_myself_to_write/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,63 @@ flair: ""
 extracted_at: "2026-05-23T20:15:44.986Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1osovhy.md#c0"
+    char_span: [0, 1338]
+    sentence_count: 8
+    key_terms: [gradschool, comments, procrastinating, presentation, paper, get, conference, started]
+    token_count: 318
+  - id: "social-intelligence/reddit-deep/gradschool/1osovhy.md#c1"
+    char_span: [1353, 3498]
+    sentence_count: 22
+    key_terms: [advice, better, playful-influence894, someone, uncomfortable, psychiatrist, adhd, been]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1osovhy.md#c2"
+    char_span: [3201, 3506]
+    sentence_count: 3
+    key_terms: [severe, suggested, medicate, research, anxiety, someone, writing, action]
+    section: Comments
+    token_count: 66
+  - id: "social-intelligence/reddit-deep/gradschool/1osovhy.md#c3"
+    char_span: [3508, 4039]
+    sentence_count: 5
+    key_terms: [write, minutes, comic, sans, scientifically, apparently, jumpstart, sometimes]
+    section: Comments
+    token_count: 120
+  - id: "social-intelligence/reddit-deep/gradschool/1osovhy.md#c4"
+    char_span: [4041, 6076]
+    sentence_count: 10
+    key_terms: [procrastination, writing, start, comic, data, like, sans, jesileighs]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/gradschool/1osovhy.md#c5"
+    char_span: [6078, 8142]
+    sentence_count: 14
+    key_terms: [minutes, timer, working, accountability, presentation, set, stop, work]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/gradschool/1osovhy.md#c6"
+    char_span: [8144, 10306]
+    sentence_count: 25
+    key_terms: [work, like, edit, page, beginning, projects, smaller, through]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/gradschool/1osovhy.md#c7"
+    char_span: [10308, 12345]
+    sentence_count: 13
+    key_terms: [paper, practice, slides, write, exhausted, research, prepare, begin]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/gradschool/1osovhy.md#c8"
+    char_span: [12347, 13224]
+    sentence_count: 10
+    key_terms: [get, plan, adderall, break, done, "it's", take, task]
+    section: Comments
+    token_count: 213
 ---
-
 # Physically cannot bring myself to write
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1osovhy/physically_cannot_bring_myself_to_write/)

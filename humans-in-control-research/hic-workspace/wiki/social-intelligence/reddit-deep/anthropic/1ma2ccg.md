@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/anthropic/1ma2ccg.md
 url: "https://www.reddit.com/r/Anthropic/comments/1ma2ccg/claude_code_full_system_prompt/"
 kind: "social-post"
 source: "reddit-deep: r/anthropic"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-11T17:26:51.917Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/anthropic/1ma2ccg.md#c0"
+    char_span: [0, 368]
+    sentence_count: 1
+    key_terms: [anthropic, comments, portkey, claude, prompt, system, code, reddit-deep]
+    token_count: 99
+  - id: "social-intelligence/reddit-deep/anthropic/1ma2ccg.md#c1"
+    char_span: [383, 2309]
+    sentence_count: 10
+    key_terms: [claude, system, prompts, https, using, api, code, absolutely]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/anthropic/1ma2ccg.md#c2"
+    char_span: [2113, 3090]
+    sentence_count: 3
+    key_terms: [prompts, leaked-system-prompts, system, lesterpaintstheworld, good, own, repo, redblackcanary]
+    section: Comments
+    token_count: 271
 ---
-
 # Claude Code Full System Prompt
 
 Source: [reddit-deep: r/anthropic](https://www.reddit.com/r/Anthropic/comments/1ma2ccg/claude_code_full_system_prompt/)

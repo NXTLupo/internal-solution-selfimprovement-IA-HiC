@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1soxtky.md
 url: "https://www.reddit.com/r/Professors/comments/1soxtky/what_are_some_small_things_you_do_that_you_have/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,57 @@ flair: "Teaching / Pedagogy"
 extracted_at: "2026-05-20T03:55:39.285Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1soxtky.md#c0"
+    char_span: [0, 1215]
+    sentence_count: 11
+    key_terms: [office, classroom, comments, students, culture, perspectives, attendance, engagement]
+    token_count: 269
+  - id: "social-intelligence/reddit-deep/professors/1soxtky.md#c1"
+    char_span: [1230, 1806]
+    sentence_count: 7
+    key_terms: [office, hours, information, attending, timetable, adjacent, computer, corridor]
+    section: Comments
+    token_count: 138
+  - id: "social-intelligence/reddit-deep/professors/1soxtky.md#c2"
+    char_span: [1808, 3511]
+    sentence_count: 8
+    key_terms: [office, hours, classes, wannabehazmattech, traditional, week, work, attendance]
+    section: Comments
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/professors/1soxtky.md#c3"
+    char_span: [3513, 5451]
+    sentence_count: 12
+    key_terms: [students, wannabehazmattech, office, hours, come, help, like, math]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/professors/1soxtky.md#c4"
+    char_span: [5453, 7058]
+    sentence_count: 13
+    key_terms: [come, office, wannabehazmattech, don, class, hours, work, research]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/professors/1soxtky.md#c5"
+    char_span: [7060, 7943]
+    sentence_count: 13
+    key_terms: [students, beyond, additional, areas, wannabehazmattech, year, controversial, institution]
+    section: Comments
+    token_count: 208
+  - id: "social-intelligence/reddit-deep/professors/1soxtky.md#c6"
+    char_span: [7945, 9264]
+    sentence_count: 10
+    key_terms: [wannabehazmattech, students, office, hours, understand, scroll, mylifeisprettyplain, email]
+    section: Comments
+    token_count: 344
+  - id: "social-intelligence/reddit-deep/professors/1soxtky.md#c7"
+    char_span: [9266, 10684]
+    sentence_count: 8
+    key_terms: [office, adventureontherocks, hours, tried, different, students, because, person]
+    section: Comments
+    token_count: 350
 ---
-
 # What are some small things you do that you have noticed make measurable differences in office hour attendance and classroom culture?
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1soxtky/what_are_some_small_things_you_do_that_you_have/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rpstdf.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rpstdf/1st_year_cs_student_here_was_focused_on_full/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -10,11 +11,27 @@ score: 0
 upvote_ratio: 0.25
 num_comments: 5
 flair: ""
-extracted_at: "2026-05-22T23:33:42.333Z"
+extracted_at: "2026-06-05T23:42:30.807Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rpstdf.md#c0"
+    char_span: [0, 2137]
+    sentence_count: 21
+    key_terms: [cybersecurity, stack, full, "i'm", like, student, everything, cscareerquestions]
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rpstdf.md#c1"
+    char_span: [2139, 2427]
+    sentence_count: 5
+    key_terms: [motivational, direction, grinding, industry, starting, advance, already, edited]
+    token_count: 66
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rpstdf.md#c2"
+    char_span: [2442, 3324]
+    sentence_count: 11
+    key_terms: [vigilante, discipline, super, done, face, hard, "i'm", ocix]
+    section: Comments
+    token_count: 240
 ---
-
 # 1st Year CS Student here Was focused on Full Stack Dev but AI is making me rethink everything. Cybersecurity? DevOps? AI/ML? I'm lost. Need real advice.
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rpstdf/1st_year_cs_student_here_was_focused_on_full/)

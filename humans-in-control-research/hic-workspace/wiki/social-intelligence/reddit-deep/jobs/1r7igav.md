@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1r7igav.md
 url: "https://www.reddit.com/r/jobs/comments/1r7igav/accept_new_job_opportunity_or_change_careers/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,15 @@ flair: "Career planning"
 extracted_at: "2026-05-25T13:03:11.721Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1r7igav.md#c0"
+    char_span: [0, 1796]
+    sentence_count: 11
+    key_terms: [career, been, benefits, change, years, days, "i've", week]
+    token_count: 416
 ---
-
 # Accept new job opportunity or change careers
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1r7igav/accept_new_job_opportunity_or_change_careers/)

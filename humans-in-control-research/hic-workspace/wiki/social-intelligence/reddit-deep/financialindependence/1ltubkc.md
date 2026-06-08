@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1ltubkc.md
 url: "https://www.reddit.com/r/financialindependence/comments/1ltubkc/the_slow_path_to_wealth_was_quicker_than/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,78 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.704Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [cross_industry]
+industry_method: unclassified
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c0"
+    char_span: [0, 2163]
+    sentence_count: 8
+    key_terms: [years, travel, financialindependence, corporate, love, careers, debt, help]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c1"
+    char_span: [2165, 3339]
+    sentence_count: 6
+    key_terms: [rather, spending, dramatically, money, years, like, take, time]
+    token_count: 261
+  - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c2"
+    char_span: [3341, 5127]
+    sentence_count: 10
+    key_terms: [school, private, around, number, wealth, potentially, net, per]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c3"
+    char_span: [5129, 5736]
+    sentence_count: 2
+    key_terms: [fantastic, happiness, journey, reading, wishing, thanks, wealth, ytd]
+    token_count: 275
+  - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c4"
+    char_span: [5751, 7112]
+    sentence_count: 1
+    key_terms: [wealth, net, user-no-relation, household, change, income, age, beg]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c5"
+    char_span: [6959, 7732]
+    sentence_count: 5
+    key_terms: [appreciation, andstuff233, assuming, executed, kwizzles, history, savings, across]
+    section: Comments
+    token_count: 283
+  - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c6"
+    char_span: [7734, 9360]
+    sentence_count: 14
+    key_terms: [japan, work, daycare, tokyo, free, like, wife, prefecture]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c7"
+    char_span: [9362, 11231]
+    sentence_count: 12
+    key_terms: [income, "that's", tokyo, toseta256, savings, pretty, child, early]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c8"
+    char_span: [10960, 12344]
+    sentence_count: 7
+    key_terms: ["that's", income, household, nonprofit, japanese, median, triple, early]
+    section: Comments
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c9"
+    char_span: [12346, 14629]
+    sentence_count: 15
+    key_terms: [friends, social, japanese, life, "you'll", people, years, been]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c10"
+    char_span: [14631, 16583]
+    sentence_count: 15
+    key_terms: [quick, toseta256, expectations, japan, life, work, discipline, understand]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c11"
+    char_span: [16326, 17022]
+    sentence_count: 8
+    key_terms: [japan, invested, "i'm", usa, combination, investments, percentages, everything]
+    section: Comments
+    token_count: 178
 ---
-
 # The Slow Path to Wealth Was Quicker Than Advertised
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1ltubkc/the_slow_path_to_wealth_was_quicker_than/)

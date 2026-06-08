@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1pahre1.md
 url: "https://www.reddit.com/r/careerguidance/comments/1pahre1/confused_22_cse_student_looking_for_guidance_on/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,16 @@ score: 0
 upvote_ratio: 0.5
 num_comments: 0
 flair: ""
-extracted_at: "2026-05-22T21:34:47.974Z"
+extracted_at: "2026-06-03T17:24:14.280Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1pahre1.md#c0"
+    char_span: [0, 1443]
+    sentence_count: 7
+    key_terms: [careerguidance, path, sure, comments, embedded, software, looking, science]
+    token_count: 349
 ---
-
 # Confused 2-2 CSE Student Looking for Guidance on Career Path: AI/ML, Embedded, or Software?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1pahre1/confused_22_cse_student_looking_for_guidance_on/)

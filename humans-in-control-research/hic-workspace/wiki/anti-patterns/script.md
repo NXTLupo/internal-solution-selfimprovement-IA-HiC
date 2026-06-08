@@ -1,4 +1,5 @@
 ---
+id: anti-patterns/script.md
 title: "Script Anti-Patterns"
 type: anti-pattern
 created: 2026-04-10
@@ -8,8 +9,62 @@ confidence: high
 status: active
 tags: [anti-patterns, script, quality-gates]
 evidence_count: 0
+chunks:
+  - id: "anti-patterns/script.md#c0"
+    char_span: [0, 2066]
+    sentence_count: 7
+    key_terms: [alternative, script, conversational, conversation, indefinitely, description, like, escalation]
+    section: "AP-SCRIPT-001: Robot Voice / AP-SCRIPT-002: Infinite Retry Loops"
+    token_count: 397
+  - id: "anti-patterns/script.md#c1"
+    char_span: [2124, 2915]
+    sentence_count: 5
+    key_terms: [fallback, attempt, unrecognized, progressive, message, offers, context-aware, alternative]
+    section: "AP-SCRIPT-003: Identical Fallback Messages Repeated"
+    token_count: 148
+  - id: "anti-patterns/script.md#c2"
+    char_span: [2957, 3746]
+    sentence_count: 1
+    key_terms: [order, script, information, asks, user, utterance, example, number]
+    section: "AP-SCRIPT-004: Missing Slot Filling"
+    token_count: 161
+  - id: "anti-patterns/script.md#c3"
+    char_span: [3798, 4613]
+    sentence_count: 3
+    key_terms: [subscription, confirmation, user, without, cancel, disambiguation, cancellations, irreversible]
+    section: "AP-SCRIPT-005: No Confirmation Before Actions"
+    token_count: 159
+  - id: "anti-patterns/script.md#c4"
+    char_span: [4657, 5529]
+    sentence_count: 5
+    key_terms: [conversation, without, alternative, refunds, orders, older, paths, days]
+    section: "AP-SCRIPT-006: Dead-End Conversations"
+    token_count: 175
+  - id: "anti-patterns/script.md#c5"
+    char_span: [5587, 6417]
+    sentence_count: 3
+    key_terms: [conversation, turn, number, order, description, bot, user, provided]
+    section: "AP-SCRIPT-007: Ignoring Context from Previous Turns"
+    token_count: 166
+  - id: "anti-patterns/script.md#c6"
+    char_span: [6471, 7376]
+    sentence_count: 6
+    key_terms: [persona, script, tone, emotional, defining, example, professional-casual, avoid]
+    section: "AP-SCRIPT-008: No Persona or Tone Documentation"
+    token_count: 179
+  - id: "anti-patterns/script.md#c7"
+    char_span: [7434, 8325]
+    sentence_count: 3
+    key_terms: [alternative, screen, script, carousels, reader, does, text, compatibility]
+    section: "AP-SCRIPT-009: Missing Accessibility Considerations"
+    token_count: 160
+  - id: "anti-patterns/script.md#c8"
+    char_span: [8382, 9309]
+    sentence_count: 2
+    key_terms: [script, channels, alternative, sms, elements, includes, channel, arrays]
+    section: "AP-SCRIPT-010: Assuming Single-Channel Interaction"
+    token_count: 170
 ---
-
 # Script Anti-Patterns
 
 Known failure modes in conversational script deliverables (chatbot flows, agent scripts, IVR scripts). Use as negative few-shot examples during generation to avoid common dialog design failures.

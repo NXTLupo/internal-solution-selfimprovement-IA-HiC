@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1oz1vb0.md
 url: "https://www.reddit.com/r/jobs/comments/1oz1vb0/only_18_of_my_companys_posted_jobs_are_for/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,45 @@ flair: "Job searching"
 extracted_at: "2026-05-24T14:10:06.649Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1oz1vb0.md#c0"
+    char_span: [0, 713]
+    sentence_count: 6
+    key_terms: [positions, jobs, comments, posted, selenevomersv, manufacturer, non-advanced, professional]
+    token_count: 176
+  - id: "social-intelligence/reddit-deep/jobs/1oz1vb0.md#c1"
+    char_span: [728, 2755]
+    sentence_count: 15
+    key_terms: [level, roles, entry, company, data, people, senior, individual]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/jobs/1oz1vb0.md#c2"
+    char_span: [2757, 4396]
+    sentence_count: 8
+    key_terms: [experience, shyleoging, companies, require, people, redact, "that's", entry]
+    section: Comments
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/jobs/1oz1vb0.md#c3"
+    char_span: [4400, 6147]
+    sentence_count: 10
+    key_terms: [entry, level, task, companies, currently, positions, deleted, throwawayfrompa1701]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/jobs/1oz1vb0.md#c4"
+    char_span: [6149, 8342]
+    sentence_count: 25
+    key_terms: [level, years, experience, company, workers, construction, entry, field]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/jobs/1oz1vb0.md#c5"
+    char_span: [8344, 8837]
+    sentence_count: 3
+    key_terms: [years, non-senior, junior, senior, next, undoubtedly, completely, experience]
+    section: Comments
+    token_count: 125
 ---
-
 # Only 18% of my company's posted jobs are for non-senior roles. This is the current reality of the US job market for those in the early years of their careers.
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1oz1vb0/only_18_of_my_companys_posted_jobs_are_for/)

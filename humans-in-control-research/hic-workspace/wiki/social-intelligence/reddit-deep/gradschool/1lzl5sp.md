@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1lzl5sp.md
 url: "https://www.reddit.com/r/GradSchool/comments/1lzl5sp/going_back_to_grad_school_after_10_years_how_do/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-22T21:35:36.526Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1lzl5sp.md#c0"
+    char_span: [0, 871]
+    sentence_count: 9
+    key_terms: [school, gradschool, full-time, comments, people, going, notes, paper]
+    token_count: 212
+  - id: "social-intelligence/reddit-deep/gradschool/1lzl5sp.md#c1"
+    char_span: [886, 1644]
+    sentence_count: 10
+    key_terms: [use, paper, pen, fashioned, notebook, version, google, notes]
+    section: Comments
+    token_count: 191
+  - id: "social-intelligence/reddit-deep/gradschool/1lzl5sp.md#c2"
+    char_span: [1646, 3060]
+    sentence_count: 9
+    key_terms: [notability, subscription, ipad, got, notability-subscription-faq, uleebunny, discount, purchase]
+    section: Comments
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/gradschool/1lzl5sp.md#c3"
+    char_span: [3062, 4151]
+    sentence_count: 11
+    key_terms: [paper, pen, notes, years, use, always, laptop, screen]
+    section: Comments
+    token_count: 282
+  - id: "social-intelligence/reddit-deep/gradschool/1lzl5sp.md#c4"
+    char_span: [4153, 6331]
+    sentence_count: 12
+    key_terms: [notes, laptop, class, paper, pen, works, take, formulas]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1lzl5sp.md#c5"
+    char_span: [6088, 6519]
+    sentence_count: 4
+    key_terms: [classes, slides, notes, pen, used, imjustaverage, memorization, downloaded]
+    section: Comments
+    token_count: 106
 ---
-
 # Going back to grad school after 10 years. How do people take notes now?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1lzl5sp/going_back_to_grad_school_after_10_years_how_do/)

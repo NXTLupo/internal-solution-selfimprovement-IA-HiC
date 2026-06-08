@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1piwfsz.md
 url: "https://www.reddit.com/r/careerguidance/comments/1piwfsz/should_i_wait_for_boeing_offernot_yet_come_or/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-23T20:15:29.962Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1piwfsz.md#c0"
+    char_span: [0, 2216]
+    sentence_count: 21
+    key_terms: [offer, data, boeing, center, aviation, industry, careerguidance, travel]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/careerguidance/1piwfsz.md#c1"
+    char_span: [2231, 3751]
+    sentence_count: 12
+    key_terms: [accept, boeing, center, offer, data, newuser2111, hear, deadline]
+    section: Comments
+    token_count: 367
 ---
-
 # Should I wait for Boeing offer(not yet come) or accept data center offer for summer 2026?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1piwfsz/should_i_wait_for_boeing_offernot_yet_come_or/)

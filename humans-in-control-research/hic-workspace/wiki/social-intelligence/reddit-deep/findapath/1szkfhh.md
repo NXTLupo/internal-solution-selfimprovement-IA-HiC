@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1szkfhh.md
 url: "https://www.reddit.com/r/findapath/comments/1szkfhh/lost_in_my_lab_work_career_path/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,21 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-25T13:04:07.380Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [healthcare, life_sciences, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1szkfhh.md#c0"
+    char_span: [0, 1336]
+    sentence_count: 9
+    key_terms: [samples, times, lab, work, management, findapath, situation, comments]
+    token_count: 295
+  - id: "social-intelligence/reddit-deep/findapath/1szkfhh.md#c1"
+    char_span: [1351, 2483]
+    sentence_count: 10
+    key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
+    section: Comments
+    token_count: 248
 ---
-
 # Lost in my lab work career path
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1szkfhh/lost_in_my_lab_work_career_path/)

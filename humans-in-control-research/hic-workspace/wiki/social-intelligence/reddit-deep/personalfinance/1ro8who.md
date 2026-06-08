@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1ro8who.md
 url: "https://www.reddit.com/r/personalfinance/comments/1ro8who/money_advice_paying_off_debt_and_saving/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,21 @@ flair: "Debt"
 extracted_at: "2026-05-16T20:55:02.108Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1ro8who.md#c0"
+    char_span: [0, 796]
+    sentence_count: 4
+    key_terms: [personalfinance, advice, debt, comments, paying, house, realistically, reddit-deep]
+    token_count: 188
+  - id: "social-intelligence/reddit-deep/personalfinance/1ro8who.md#c1"
+    char_span: [811, 1898]
+    sentence_count: 3
+    key_terms: ["there's", get, paying, substantial-pop-7529, basic, least, debt, down]
+    section: Comments
+    token_count: 236
 ---
-
 # Money advice - paying off debt and saving
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1ro8who/money_advice_paying_off_debt_and_saving/)

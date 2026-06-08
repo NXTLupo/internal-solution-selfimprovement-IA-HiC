@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1ryaczd.md
 url: "https://www.reddit.com/r/NEU/comments/1ryaczd/got_into_ms_ai_robotics_autonomous_systems_for/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,15 @@ flair: "Academics"
 extracted_at: "2026-05-12T19:19:22.630Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [higher_ed, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1ryaczd.md#c0"
+    char_span: [0, 1068]
+    sentence_count: 10
+    key_terms: [neu, suggestions, autonomous, comments, robotics, systems, going, right]
+    token_count: 252
 ---
-
 # Got into MS AI (Robotics & Autonomous Systems) for Fall 2026 – any suggestions?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1ryaczd/got_into_ms_ai_robotics_autonomous_systems_for/)

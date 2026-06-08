@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1qxstbe.md
 url: "https://www.reddit.com/r/careerguidance/comments/1qxstbe/job_search_log_is_cold_emailing_earlystage/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -6,19 +7,40 @@ subreddit: "careerguidance"
 title: "Job Search Log: Is cold emailing early-stage startups a realistic strategy for me?"
 author: "Personal-Mistake-957"
 date: "2026-02-06T20:24:07.000Z"
-score: 4
-upvote_ratio: 0.84
-num_comments: 6
+score: 6
+upvote_ratio: 1
+num_comments: 7
 flair: ""
-extracted_at: "2026-05-22T23:34:01.122Z"
+extracted_at: "2026-06-05T19:52:45.220Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1qxstbe.md#c0"
+    char_span: [0, 2336]
+    sentence_count: 12
+    key_terms: [startups, business, learning, linkedin, careerguidance, international, information, cold]
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/careerguidance/1qxstbe.md#c1"
+    char_span: [2338, 4736]
+    sentence_count: 13
+    key_terms: [company, myself, reflections, employees, workflows, building, outreach, practice]
+    token_count: 514
+  - id: "social-intelligence/reddit-deep/careerguidance/1qxstbe.md#c2"
+    char_span: [4738, 5430]
+    sentence_count: 9
+    key_terms: [feedback, startup, work, international, appreciated, early-stage, proposition, contractor]
+    token_count: 146
+  - id: "social-intelligence/reddit-deep/careerguidance/1qxstbe.md#c3"
+    char_span: [5445, 6604]
+    sentence_count: 4
+    key_terms: [personal-mistake-957, like, startups, doing, early, email, going, stage]
+    section: Comments
+    token_count: 286
 ---
-
 # Job Search Log: Is cold emailing early-stage startups a realistic strategy for me?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1qxstbe/job_search_log_is_cold_emailing_earlystage/)
-Posted by **Personal-Mistake-957** · **4↑** · **6 comments**
+Posted by **Personal-Mistake-957** · **6↑** · **7 comments**
 
 **Job Search Log: Cold emailing Canadian seed/Series A startups — sharing my process & results (live updates)**
 

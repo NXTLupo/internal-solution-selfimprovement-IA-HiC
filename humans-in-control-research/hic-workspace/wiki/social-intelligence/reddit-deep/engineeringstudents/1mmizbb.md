@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1mmizbb.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1mmizbb/engineeringcs_students_whats_your_biggest_career/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,15 @@ flair: "Career Advice"
 extracted_at: "2026-05-22T15:11:44.445Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1mmizbb.md#c0"
+    char_span: [0, 1356]
+    sentence_count: 9
+    key_terms: [engineeringstudents, engineering, job, internship, comments, students, biggest, getting]
+    token_count: 312
 ---
-
 # Engineering/CS students — what’s your biggest career anxiety right now?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1mmizbb/engineeringcs_students_whats_your_biggest_career/)

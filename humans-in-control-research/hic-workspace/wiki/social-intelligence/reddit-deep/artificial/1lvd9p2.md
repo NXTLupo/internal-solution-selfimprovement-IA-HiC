@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1lvd9p2.md
 url: "https://www.reddit.com/r/artificial/comments/1lvd9p2/experimenting_with_ai_agent_workflows_easy_no/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,21 @@ flair: "Discussion"
 extracted_at: "2026-05-11T16:53:08.154Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1lvd9p2.md#c0"
+    char_span: [0, 813]
+    sentence_count: 6
+    key_terms: [experimenting, agent, artificial, workflows, comments, virtual, agents, code]
+    token_count: 174
+  - id: "social-intelligence/reddit-deep/artificial/1lvd9p2.md#c1"
+    char_span: [828, 1626]
+    sentence_count: 7
+    key_terms: [no-code, bro, dev, like, receptionists, environments, intelligence, horizon-dev]
+    section: Comments
+    token_count: 166
 ---
-
 # Experimenting with AI Agent Workflows, Easy No Code Setup for Virtual Receptionists.
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1lvd9p2/experimenting_with_ai_agent_workflows_easy_no/)

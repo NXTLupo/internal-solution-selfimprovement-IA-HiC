@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rrayb2.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rrayb2/why_is_it_so_hard_to_find_a_clear_learning_path/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.147Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rrayb2.md#c0"
+    char_span: [0, 849]
+    sentence_count: 8
+    key_terms: [careerguidance, learn, comments, learning, breakfastaccurate966, tech, overwhelming, unstructured]
+    token_count: 196
+  - id: "social-intelligence/reddit-deep/careerguidance/1rrayb2.md#c1"
+    char_span: [864, 3024]
+    sentence_count: 15
+    key_terms: [analytics, data, skills, breakfastaccurate966, "it's", learning, foundational, learn]
+    section: Comments
+    token_count: 459
 ---
-
 # Why is it so hard to find a clear learning path for tech careers?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rrayb2/why_is_it_so_hard_to_find_a_clear_learning_path/)

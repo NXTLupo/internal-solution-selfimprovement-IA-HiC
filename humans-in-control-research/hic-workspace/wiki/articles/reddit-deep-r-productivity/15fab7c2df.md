@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-productivity/15fab7c2df.md
 url: "https://www.reddit.com/r/productivity/comments/1nlrfov/realized_i_am_stuck_in_the_productivity_trap/"
 url_hash: "15fab7c2df"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-26T12:57:10.967531+00:00"
 chars: 2499
+industries: [saas, workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-productivity/15fab7c2df.md#c0"
+    char_span: [0, 1972]
+    sentence_count: 14
+    key_terms: [productivity, need, been, new, trap, everything, comments, without]
+    token_count: 483
+  - id: "articles/reddit-deep-r-productivity/15fab7c2df.md#c1"
+    char_span: [1974, 2690]
+    sentence_count: 6
+    key_terms: [subconscious, flow, because, instead, myself, special-succotash688, mind, productivity]
+    token_count: 160
 ---
-
 # Realized I am stuck in the productivity trap
 
 Source: [Reddit Deep: r/productivity](https://www.reddit.com/r/productivity/comments/1nlrfov/realized_i_am_stuck_in_the_productivity_trap/)

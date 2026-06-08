@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1mux1nv.md
 url: "https://www.reddit.com/r/internships/comments/1mux1nv/looking_for_career_advice_drop_internship_delay/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 1
 flair: "General"
-extracted_at: "2026-05-26T14:30:47.900Z"
+extracted_at: "2026-06-05T19:19:58.913Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1mux1nv.md#c0"
+    char_span: [0, 2315]
+    sentence_count: 6
+    key_terms: [internship, role, graduation, interview, part-time, next, location, career]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/internships/1mux1nv.md#c1"
+    char_span: [2317, 2664]
+    sentence_count: 2
+    key_terms: [appropriate-tutor587, part, take, time, appreciated, graduation, internship, commuting]
+    section: Comments
+    token_count: 73
 ---
-
 # Looking for Career Advice — Drop Internship?, Delay Graduation?, and Next Steps
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1mux1nv/looking_for_career_advice_drop_internship_delay/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-engineeringstudents/cdcd8930af.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1q0pe50/is_there_any_point_to_applying_a_job_after/"
 url_hash: "cdcd8930af"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:40:01.144573+00:00"
 chars: 3024
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-engineeringstudents/cdcd8930af.md#c0"
+    char_span: [0, 2156]
+    sentence_count: 12
+    key_terms: ["don't", applying, school, engineeringstudents, point, job, resume, engineering]
+    token_count: 505
+  - id: "articles/reddit-deep-r-engineeringstudents/cdcd8930af.md#c1"
+    char_span: [2159, 3277]
+    sentence_count: 9
+    key_terms: [job, internship, apply, work, experience, "don't", field, get]
+    token_count: 264
 ---
-
 # Is there any point to applying a job after graduation if you don't have internship experience?
 
 Source: [Reddit Deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1q0pe50/is_there_any_point_to_applying_a_job_after/)

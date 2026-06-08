@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1thpyih.md
 url: "https://www.reddit.com/r/humanresources/comments/1thpyih/is_hr_still_for_me_tx/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,51 @@ flair: "Off-Topic / Other"
 extracted_at: "2026-05-23T12:15:41.519Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1thpyih.md#c0"
+    char_span: [0, 1412]
+    sentence_count: 12
+    key_terms: [people, humanresources, been, breakfast, comments, certain, beginningfragrant395, donut]
+    token_count: 334
+  - id: "social-intelligence/reddit-deep/humanresources/1thpyih.md#c1"
+    char_span: [1427, 3172]
+    sentence_count: 14
+    key_terms: [people, company, around, like, work, previous, probably, getting]
+    section: Comments
+    token_count: 409
+  - id: "social-intelligence/reddit-deep/humanresources/1thpyih.md#c2"
+    char_span: [3174, 5079]
+    sentence_count: 20
+    key_terms: [people, ask, good, time, something, everyone, manager, coffee]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/humanresources/1thpyih.md#c3"
+    char_span: [5081, 7040]
+    sentence_count: 18
+    key_terms: [people, like, lot, cultural, person, moved, here, "i'm"]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/humanresources/1thpyih.md#c4"
+    char_span: [7042, 8991]
+    sentence_count: 11
+    key_terms: [people, personality, get, here, lot, hrgooglefu, different, culture]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/humanresources/1thpyih.md#c5"
+    char_span: [8993, 10174]
+    sentence_count: 12
+    key_terms: [post, career, beginningfragrant395, mundane-jump-7546, lot, side, sure, work]
+    section: Comments
+    token_count: 290
+  - id: "social-intelligence/reddit-deep/humanresources/1thpyih.md#c6"
+    char_span: [10176, 11728]
+    sentence_count: 19
+    key_terms: [people, worked, like, compliance, introvert, yourecoolforagayguy, flakyassistant7681, care]
+    section: Comments
+    token_count: 381
 ---
-
 # Is HR still for me? [TX]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1thpyih/is_hr_still_for_me_tx/)

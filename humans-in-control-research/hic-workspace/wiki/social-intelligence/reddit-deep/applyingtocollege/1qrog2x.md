@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1qrog2x.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1qrog2x/hot_take_people_need_to_apply_to_less_safeties/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,38 @@ flair: "Discussion"
 extracted_at: "2026-05-20T12:57:06.070Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qrog2x.md#c0"
+    char_span: [0, 2060]
+    sentence_count: 16
+    key_terms: [apply, safeties, people, because, university, applyingtocollege, college, reaches]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qrog2x.md#c1"
+    char_span: [2062, 2270]
+    sentence_count: 1
+    key_terms: [circumstance, completely, understand, financial, subreddit, majority, strategy, reasons]
+    token_count: 41
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qrog2x.md#c2"
+    char_span: [2285, 4119]
+    sentence_count: 7
+    key_terms: [merit, safeties, state, good, different, prestige, deleted, iris700]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qrog2x.md#c3"
+    char_span: [3949, 5929]
+    sentence_count: 10
+    key_terms: [friends, safety, admission, gpa, apply, based, got, elixirceo]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qrog2x.md#c4"
+    char_span: [5669, 6828]
+    sentence_count: 6
+    key_terms: [safety, different, people, school, apply, don, safeties, strategy]
+    section: Comments
+    token_count: 288
 ---
-
 # Hot take: People need to apply to less safeties and more reaches
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1qrog2x/hot_take_people_need_to_apply_to_less_safeties/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1tkhfgf.md
 url: "https://www.reddit.com/r/internships/comments/1tkhfgf/social_work_internship_opportunity/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,16 @@ score: 1
 upvote_ratio: 1
 num_comments: 0
 flair: "Applications"
-extracted_at: "2026-05-22T13:32:14.563Z"
+extracted_at: "2026-06-06T13:03:30.730Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1tkhfgf.md#c0"
+    char_span: [0, 660]
+    sentence_count: 1
+    key_terms: [social, internships, opportunity, comments, performance-based, work, recommendation, organization]
+    token_count: 175
 ---
-
 # 🌟 Social Work Internship Opportunity 🌟
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1tkhfgf/social_work_internship_opportunity/)

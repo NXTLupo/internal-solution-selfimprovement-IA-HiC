@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1t6vu1l.md
 url: "https://www.reddit.com/r/college/comments/1t6vu1l/when_they_say_get_to_know_your_professor_how_the/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,72 @@ subreddit: "college"
 title: "When they say \"Get to know your professor\", how the hell do you actually do that?"
 author: "Rantingonstupidity"
 date: "2026-05-08T03:08:04.000Z"
-score: 246
+score: 253
 upvote_ratio: 0.97
-num_comments: 122
+num_comments: 123
 flair: "Academic Life"
-extracted_at: "2026-05-23T20:15:18.448Z"
+extracted_at: "2026-06-03T03:09:04.073Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Generate a strategic analysis identifying actionable opportunities for Northeastern University to enhance experiential learning and co-op success. Focus the analysis on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development."
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c0"
+    char_span: [0, 1247]
+    sentence_count: 7
+    key_terms: [professor, students, comments, college, lecture, order, rantingonstupidity, get]
+    token_count: 278
+  - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c1"
+    char_span: [1262, 2719]
+    sentence_count: 13
+    key_terms: [professors, hours, office, relationships, students, "haven't", "don't", rantingonstupidity]
+    section: Comments
+    token_count: 345
+  - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c2"
+    char_span: [2721, 4824]
+    sentence_count: 18
+    key_terms: [professor, office, philosophy, hours, doing, able, keep, like]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c3"
+    char_span: [4826, 6270]
+    sentence_count: 11
+    key_terms: [class, material, doing, students, already, content, office, hours]
+    section: Comments
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c4"
+    char_span: [6272, 8073]
+    sentence_count: 15
+    key_terms: [professors, rantingonstupidity, professor, "they're", manydoorsyes, being, get, late]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c5"
+    char_span: [8075, 9471]
+    sentence_count: 6
+    key_terms: [professors, professor, easier, class, get, "i'm", something, classes]
+    section: Comments
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c6"
+    char_span: [9473, 10451]
+    sentence_count: 13
+    key_terms: [office, hours, like, questions, rantingonstupidity, ask, etc, yap]
+    section: Comments
+    token_count: 245
+  - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c7"
+    char_span: [10453, 12390]
+    sentence_count: 10
+    key_terms: [professors, yourself, people, class, "don't", get, professor, questions]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c8"
+    char_span: [12392, 13998]
+    sentence_count: 15
+    key_terms: [professors, hours, office, because, "don't", community, students, teaching]
+    section: Comments
+    token_count: 336
 ---
-
 # When they say "Get to know your professor", how the hell do you actually do that?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1t6vu1l/when_they_say_get_to_know_your_professor_how_the/)
-Posted by **Rantingonstupidity** · **246↑** · **122 comments**
+Posted by **Rantingonstupidity** · **253↑** · **123 comments**
 
 I'm going to be a freshmen in August, and for a long while now I have been constantly hearing one piece of advice: "Get to know your professor". Now here's the problem:
 
@@ -33,10 +87,10 @@ My point is, does it not feel completely, utterly fake? Knowing that you as a pr
 
 ## Comments
 
-- **PhDapper** (296↑): I think you’re greatly overestimating the number of students who go out of their way to build relationships with their professors.
+- **PhDapper** (293↑): I think you’re greatly overestimating the number of students who go out of their way to build relationships with their professors.
   - **Rantingonstupidity** (66↑): Yep, definitely did. I haven't quite started college yet, so I assumed it was something most people have been doing already.
-    - **henare** (56↑): yeah. they don't do it. then, in their senior year they start sniffing around for letters but they haven't built any relationships.
-- **hornybutired** (420↑): Students hardly ever approach us. They don't even bother to show up to office hours, even when we beg. No one can be bothered.
+    - **henare** (58↑): yeah. they don't do it. then, in their senior year they start sniffing around for letters but they haven't built any relationships.
+- **hornybutired** (423↑): Students hardly ever approach us. They don't even bother to show up to office hours, even when we beg. No one can be bothered.
 
 Show up. Take notes, ask questions in class. Do good work. Drop by office hours whenever you need help with a concept or an assignment. We'll notice, I promise.
   - **No-Temporary-5978** (107↑): From a student: I make it a point at the beginning of every semester to go to every professors office hours to introduce myself. My friends think It's unnecessary, but it's helped me so much. 
@@ -48,10 +102,10 @@ On the other end, some professors become close mentors, connected me to co-ops, 
 And then of course everything in between too.
 
 Thank you for having open office hours, and encouraging people to go. The few people who take advantage of it definitely notice too - and they appreciate it more than you know :).
-    - **AppleHopeful2627** (17↑): Do you know what to do if the professor don't show up in office hours? I don't really know how to tell professor about this since he doesn't respond to emails and it is an asynchronous course
+    - **AppleHopeful2627** (18↑): Do you know what to do if the professor don't show up in office hours? I don't really know how to tell professor about this since he doesn't respond to emails and it is an asynchronous course
   - **LazyLich** (52↑): It really is this easy. And, like, say hello! In class and in the hallways.
-  - **TromboneIsNeat** (5↑): My mind is blown when a student does 5% more than the minimum.
-  - **v_bird_v** (3↑): I see that you're a philosophy professor!!! I'm just a random internet stranger but hi!! I'm a philosophy major and man do I ADORE philosophy profs! I wish I could go to your office hours :) keep up the good work!!
+  - **TromboneIsNeat** (4↑): My mind is blown when a student does 5% more than the minimum.
+  - **v_bird_v** (4↑): I see that you're a philosophy professor!!! I'm just a random internet stranger but hi!! I'm a philosophy major and man do I ADORE philosophy profs! I wish I could go to your office hours :) keep up the good work!!
     - **hornybutired** (4↑): Students like you keep us going! Keep it up and have a great summer!
   - **_OriamRiniDadelos_** (-4↑): What would you even ask in office hours that wouldn’t require you to already be done with all your work? Sounds like just asking your professor with help on your own studying/hw. And there’s tutoring and student group for that. 
 
@@ -60,34 +114,34 @@ If you are doing badly and don’t care then you won’t show up and go the extr
 The only technique that I’ve been able to make work is either go for help with one hard part of your hw before you even try to learn the topic, cause they’ll probably explain it really well, and if they don’t you can just nod and fake it politely. Or if you are sociable, open with any question about the subject or field and then socialize.  It’s really unhelpful learning wise. Much better for your career and for extra knowledge and opportunities than for your actual academic learning
 
 It’s a catch 22 if you want to do it as intended and with no ulterior motive. If you don’t know the concepts and need help, you have material to get through. And if you already know the material then you don’t need help. Still worth it to built a relationship and find out stuff thats not shared in class!
-    - **TdogIsOnline** (12↑): If you’re actually interested in the field you’re studying, it should be easy to come up with things to ask/talk to your professors about, even if you’re doing well in class.
+    - **TdogIsOnline** (14↑): If you’re actually interested in the field you’re studying, it should be easy to come up with things to ask/talk to your professors about, even if you’re doing well in class.
     - **robbie_the_cat** (14↑): > You’d have to be doing REALLY well 
 
 We'll, yes.  Exactly yes.  Who do you think deserves the letter of recommendation?
-    - **taybay462** (4↑): >You’d have to be doing REALLY well to be able to come up with new questions that won’t be answered already by the material, AND that make enough sense for the professor to be able to answer them.
+    - **taybay462** (6↑): >You’d have to be doing REALLY well to be able to come up with new questions that won’t be answered already by the material, AND that make enough sense for the professor to be able to answer them.
 
 It doesn't have to be completely about class content. Show interest, especially in classes of your major. If you cant take a whole shit load worth of content and not find 1 jumping off point to ask about..
-- **PlanMagnet38** (112↑): I miss the days when students would linger after lecture or visit office hours to try and curry favor. All of my current students scuttle away the moment I dismiss class, noses glued to their phones. 
+- **PlanMagnet38** (116↑): I miss the days when students would linger after lecture or visit office hours to try and curry favor. All of my current students scuttle away the moment I dismiss class, noses glued to their phones. 
 
 Show up to class, do the work, be respectful, and bring a genuine question to office hours and you’ll stand out plenty! 
 
 So yes, we can sniff out a student who views our interactions with a mercenary air, but the bar is so low that just being a polite, decent human being will get you plenty of notice.
-  - **JazzyG17** (37↑): Unfortunately most students have a whole other class to get to most of the time
-  - **Rantingonstupidity** (10↑): Here I was under the impression that everyone does it...
-- **No-Championship-4** (48↑): Professors love to talk, especially if they're in the humanities. They're not going to judge you for wanting to speak to them. Ask them about their research. I had anthropology professors so they would always talk about their fieldwork abroad. It was interesting.
+  - **JazzyG17** (42↑): Unfortunately most students have a whole other class to get to most of the time
+  - **Rantingonstupidity** (6↑): Here I was under the impression that everyone does it...
+- **No-Championship-4** (47↑): Professors love to talk, especially if they're in the humanities. They're not going to judge you for wanting to speak to them. Ask them about their research. I had anthropology professors so they would always talk about their fieldwork abroad. It was interesting.
   - **Immediate-Pool-4391** (16↑): Yeah I love the humanities professors to be honest they are the friendliest people. I had one Professor who was Sunshine itself and he loved talking about books.
-- **manydoorsyes** (42↑): Nerd out with them. Seriously. My micro professor was expanding into the environmental field because he cares about it. So we'd often spend a few minutes post-lecture yapping to each other about ecology, paleontology, anything biology related. 
+- **manydoorsyes** (43↑): Nerd out with them. Seriously. My micro professor was expanding into the environmental field because he cares about it. So we'd often spend a few minutes post-lecture yapping to each other about ecology, paleontology, anything biology related. 
 
 ~~Mayyyy have been late to trigonometry once because of this. Oops~~
-  - **Rantingonstupidity** (6↑): might be worth it, even being late to talk to a professor that knows ur late to another class, cuz then they're like "wow they value me" or smth
-    - **PlanMagnet38** (7↑): Not really. I have too much respect for colleagues to look kindly on students who disrespect their time.
+  - **Rantingonstupidity** (9↑): might be worth it, even being late to talk to a professor that knows ur late to another class, cuz then they're like "wow they value me" or smth
+    - **PlanMagnet38** (6↑): Not really. I have too much respect for colleagues to look kindly on students who disrespect their time.
     - **manydoorsyes** (1↑): Eh. I get the sentiment but this was more like a one-time mistake. I mean, someone is paying for those classes and if you're in the U.S, they ain't cheap. Plus you gotta respect your other professors time too. You signed up for their course after all.
 
 **for the record my trig professor was great too
-- **depressedstudent-** (21↑): I’ll will say getting to know professors was 1000 times easier at CC than at a private university
+- **depressedstudent-** (18↑): I’ll will say getting to know professors was 1000 times easier at CC than at a private university
   - **Rantingonstupidity** (3↑): I'm going to my state flagship, and I'd say it may be easier to make friends with the professor of something small like French than a CS professor.
     - **hornybutired** (2↑): It'll also be easier to build relationships with professors when you get out of the big lecture classes and into smaller classes where you get more face-time.
-- **Corka** (15↑): You get to know them (and have them know you) by engaging with them over the class material. Which can mean answering them when they are asking a question to the class, briefly asking for clarification of something from them after class, and making use of their office hours to clear up any confusion you might have. 
+- **Corka** (16↑): You get to know them (and have them know you) by engaging with them over the class material. Which can mean answering them when they are asking a question to the class, briefly asking for clarification of something from them after class, and making use of their office hours to clear up any confusion you might have. 
 
 Socially, you can turn up to department events that interest you. Like if there's a grad student poster competition unveiling you can check them out and make idle chit chat with other people there. Plus the general saying hi when you see them in public, which might have them stop and make conversation.
 - **DardS8Br** (16↑): I'm a first year and I'm already on a first name basis with multiple professors. All of my friends here are in awe of it because none of them know any of their professors 
@@ -96,8 +150,8 @@ My "secret"?
 
 I talk to them in office hours lmao. My professors love me because I go to their office hours and yap to them about random shit. Check out what they research, get an idea of their projects and stuff, and just yap in office hours
   - **Rantingonstupidity** (7↑): How does a usually anti-social, introverted individual who likes listening to banter than actually bantering become social?
-    - **alexx_sandraa** (7↑): Ask them lots of questions. If you want to be methodical about it, look up “motivational interviewing.” Curiosity will help you a lot as well
-    - **Crisp_white_linen** (6↑): Go to office hours and ask questions about the professor and the field. "How did you choose this career? What do you like about it, and what do you not like about it? How has it changed in the last 10 years?" Etc.
+    - **alexx_sandraa** (5↑): Ask them lots of questions. If you want to be methodical about it, look up “motivational interviewing.” Curiosity will help you a lot as well
+    - **Crisp_white_linen** (5↑): Go to office hours and ask questions about the professor and the field. "How did you choose this career? What do you like about it, and what do you not like about it? How has it changed in the last 10 years?" Etc.
 
 It's also good practice for talking to people your own age. "What classes are you taking? Which one is your favorite? Why? Any that you really didn't like? How come?" Etc.
 

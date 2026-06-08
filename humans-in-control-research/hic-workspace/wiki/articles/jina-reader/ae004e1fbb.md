@@ -1,4 +1,5 @@
 ---
+id: articles/jina-reader/ae004e1fbb.md
 url: "https://finance.jhu.edu/reports-policies/financial-reports/"
 url_hash: "ae004e1fbb"
 kind: "article"
@@ -10,8 +11,15 @@ tier: 3
 method: "jina"
 extracted_at: "2026-04-21T05:06:42.328323+00:00"
 chars: 279
+industries: [higher_ed, financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/jina-reader/ae004e1fbb.md#c0"
+    char_span: [0, 381]
+    sentence_count: 1
+    key_terms: [financial-reports, reports-policies, finance, https, edu, jhu, university, medicine]
+    token_count: 91
 ---
-
 # https://finance.jhu.edu/reports-policies/financial-reports/
 
 Source: [Jina Reader](https://finance.jhu.edu/reports-policies/financial-reports/)

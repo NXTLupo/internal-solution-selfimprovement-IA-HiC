@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1os9x0q.md
 url: "https://www.reddit.com/r/Professors/comments/1os9x0q/my_worst_class_ever/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,62 @@ flair: ""
 extracted_at: "2026-05-20T03:55:39.285Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1os9x0q.md#c0"
+    char_span: [0, 2410]
+    sentence_count: 24
+    key_terms: [students, class, submitted, instructions, assignments, notes, material, handwritten]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/professors/1os9x0q.md#c1"
+    char_span: [2412, 2918]
+    sentence_count: 6
+    key_terms: [class, consistently, instructions, demonstrate, corrective, feedback, followed, learning]
+    token_count: 100
+  - id: "social-intelligence/reddit-deep/professors/1os9x0q.md#c2"
+    char_span: [2933, 4912]
+    sentence_count: 20
+    key_terms: [students, life-education-8030, class, interesting, try, sometimes, cheating, better]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/professors/1os9x0q.md#c3"
+    char_span: [4914, 5078]
+    sentence_count: 3
+    key_terms: [protections, everything, respondus, anything, adjunct, classes, "doesn't", schools]
+    section: Comments
+    token_count: 35
+  - id: "social-intelligence/reddit-deep/professors/1os9x0q.md#c4"
+    char_span: [5080, 7252]
+    sentence_count: 22
+    key_terms: [students, flags, assistant, education, financial, realized, research, because]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1os9x0q.md#c5"
+    char_span: [6989, 7853]
+    sentence_count: 9
+    key_terms: [pleasant-season-2658, sillyconstruction872, "don't", secret-bobcat-4909, assignments, threatening, absolutely, interested]
+    section: Comments
+    token_count: 219
+  - id: "social-intelligence/reddit-deep/professors/1os9x0q.md#c6"
+    char_span: [7855, 8321]
+    sentence_count: 8
+    key_terms: [show, demoralizing, assignments, everything, guessing, provided, students, grading]
+    section: Comments
+    token_count: 108
+  - id: "social-intelligence/reddit-deep/professors/1os9x0q.md#c7"
+    char_span: [8323, 10469]
+    sentence_count: 16
+    key_terms: [class, students, asynchronous, teach, week, different, semester, grades]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/professors/1os9x0q.md#c8"
+    char_span: [10471, 12473]
+    sentence_count: 18
+    key_terms: [students, class, assignment, teaching, classes, asynchronous, "don't", get]
+    section: Comments
+    token_count: 452
 ---
-
 # My Worst Class Ever
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1os9x0q/my_worst_class_ever/)

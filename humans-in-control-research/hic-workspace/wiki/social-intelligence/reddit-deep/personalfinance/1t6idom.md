@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1t6idom.md
 url: "https://www.reddit.com/r/personalfinance/comments/1t6idom/just_turned_26_and_feel_like_im_drowning_in_debt/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,56 @@ flair: "Debt"
 extracted_at: "2026-05-16T20:55:02.110Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1t6idom.md#c0"
+    char_span: [0, 1643]
+    sentence_count: 5
+    key_terms: ["i'm", debt, personalfinance, paying, got, job, too, comments]
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/personalfinance/1t6idom.md#c1"
+    char_span: [1645, 3090]
+    sentence_count: 13
+    key_terms: [because, loans, "i'm", nothing, "didn't", people, "don't", "i've"]
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/personalfinance/1t6idom.md#c2"
+    char_span: [3105, 4015]
+    sentence_count: 4
+    key_terms: [money, loans, spending, habits, being, extra, spend, did]
+    section: Comments
+    token_count: 225
+  - id: "social-intelligence/reddit-deep/personalfinance/1t6idom.md#c3"
+    char_span: [4017, 5999]
+    sentence_count: 13
+    key_terms: [insurance, georgeretire, work, regardless, m0o0onpie, consider, increase, medicaid]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/personalfinance/1t6idom.md#c4"
+    char_span: [5738, 6207]
+    sentence_count: 4
+    key_terms: [multimillionaire, cool-crimes, investing, obligated, catering, compound, interest, yourself]
+    section: Comments
+    token_count: 117
+  - id: "social-intelligence/reddit-deep/personalfinance/1t6idom.md#c5"
+    char_span: [6209, 8143]
+    sentence_count: 16
+    key_terms: [opportunities, income, debt, like, need, m0o0onpie, yourself, numbers]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/personalfinance/1t6idom.md#c6"
+    char_span: [8145, 10275]
+    sentence_count: 19
+    key_terms: [design, graphic, "master's", jobs, get, job, extra, part]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/personalfinance/1t6idom.md#c7"
+    char_span: [10277, 12286]
+    sentence_count: 13
+    key_terms: ["that's", jobs, probably, faceslikeflowers, personalfinance, masters, commontopics, debt]
+    section: Comments
+    token_count: 491
 ---
-
 # Just turned 26 and feel like I'm drowning in debt
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1t6idom/just_turned_26_and_feel_like_im_drowning_in_debt/)

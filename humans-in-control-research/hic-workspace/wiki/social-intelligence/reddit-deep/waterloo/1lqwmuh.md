@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1lqwmuh.md
 url: "https://www.reddit.com/r/waterloo/comments/1lqwmuh/waterloos_every_increasing_creep_problem/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,44 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.126Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1lqwmuh.md#c0"
+    char_span: [0, 2139]
+    sentence_count: 20
+    key_terms: [waterloo, staff, everyone, happened, crowd, drone, been, knew]
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/waterloo/1lqwmuh.md#c1"
+    char_span: [2141, 2411]
+    sentence_count: 3
+    key_terms: [men, time, difficult, cowardly, critical, selfish, touched, filthy]
+    token_count: 64
+  - id: "social-intelligence/reddit-deep/waterloo/1lqwmuh.md#c2"
+    char_span: [2426, 4408]
+    sentence_count: 13
+    key_terms: [organizers, waterloo, get, behavior, assault, crowded, message, anyone]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/waterloo/1lqwmuh.md#c3"
+    char_span: [4410, 6362]
+    sentence_count: 21
+    key_terms: ["it's", happened, security, someone, moved, sorry, "who's", women]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/waterloo/1lqwmuh.md#c4"
+    char_span: [6364, 8256]
+    sentence_count: 14
+    key_terms: [wrong, face, like, time, catcalled, because, punched, impact]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/waterloo/1lqwmuh.md#c5"
+    char_span: [8258, 9095]
+    sentence_count: 7
+    key_terms: [happened, reported, sharing, sascwr, https, sorry, case, org]
+    section: Comments
+    token_count: 192
 ---
-
 # Waterloo's every increasing creep problem
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1lqwmuh/waterloos_every_increasing_creep_problem/)

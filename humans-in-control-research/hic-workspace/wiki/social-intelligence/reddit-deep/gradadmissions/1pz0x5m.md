@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1pz0x5m.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1pz0x5m/grad_school_decision_affordability_vs_research/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,21 @@ flair: "Biological Sciences"
 extracted_at: "2026-05-20T03:56:10.765Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pz0x5m.md#c0"
+    char_span: [0, 1868]
+    sentence_count: 16
+    key_terms: [research, interests, "i'm", gothenburg, interested, education, practical, academic]
+    token_count: 408
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pz0x5m.md#c1"
+    char_span: [1883, 2297]
+    sentence_count: 3
+    key_terms: [thisisventingaccount, grad, environment, experiences, appreciate, experience, practical, academic]
+    section: Comments
+    token_count: 86
 ---
-
 # Grad school decision - affordability vs research interests
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1pz0x5m/grad_school_decision_affordability_vs_research/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-applyingtocollege/4f2cb2fed0.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1ncpte2/benefits_of_going_to_a_college_with_a_higher/"
 url_hash: "4f2cb2fed0"
 kind: "article"
@@ -10,8 +11,30 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T19:53:52.070951+00:00"
 chars: 5747
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-applyingtocollege/4f2cb2fed0.md#c0"
+    char_span: [0, 2094]
+    sentence_count: 18
+    key_terms: [college, applyingtocollege, school, significantly, get, love, benefits, comments]
+    token_count: 484
+  - id: "articles/reddit-deep-r-applyingtocollege/4f2cb2fed0.md#c1"
+    char_span: [2096, 3287]
+    sentence_count: 9
+    key_terms: [school, experience, especially, selective, "you're", point, years, penguinpumpkin1701]
+    token_count: 277
+  - id: "articles/reddit-deep-r-applyingtocollege/4f2cb2fed0.md#c2"
+    char_span: [3289, 5128]
+    sentence_count: 14
+    key_terms: [undergraduate, students, school, graduate, universities, grade, top, colleges]
+    token_count: 412
+  - id: "articles/reddit-deep-r-applyingtocollege/4f2cb2fed0.md#c3"
+    char_span: [5130, 5964]
+    sentence_count: 5
+    key_terms: [ivy, grad, flagship, random, state, university, colleges, person]
+    token_count: 176
 ---
-
 # benefits of going to a college with a higher acceptance rate
 
 Source: [Reddit Deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1ncpte2/benefits_of_going_to_a_college_with_a_higher/)

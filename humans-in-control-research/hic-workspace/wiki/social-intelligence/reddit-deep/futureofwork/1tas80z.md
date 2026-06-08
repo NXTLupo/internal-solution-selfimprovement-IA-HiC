@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/futureofwork/1tas80z.md
 url: "https://www.reddit.com/r/FutureOfWork/comments/1tas80z/what_is_skills_for_future_jobs/"
 kind: "social-post"
 source: "reddit-deep: r/futureofwork"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-26T12:54:26.435Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/futureofwork/1tas80z.md#c0"
+    char_span: [0, 1155]
+    sentence_count: 11
+    key_terms: [skills, etc, future, futureofwork, skill, restaurant, comments, degree]
+    token_count: 283
+  - id: "social-intelligence/reddit-deep/futureofwork/1tas80z.md#c1"
+    char_span: [1170, 3094]
+    sentence_count: 11
+    key_terms: [skills, something, skill, people, communication, certificates, zyrn4rhbdwm, need]
+    section: Comments
+    token_count: 436
 ---
-
 # What is skills for future jobs?
 
 Source: [reddit-deep: r/futureofwork](https://www.reddit.com/r/FutureOfWork/comments/1tas80z/what_is_skills_for_future_jobs/)

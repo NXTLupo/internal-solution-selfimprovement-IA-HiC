@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1pbpqxm.md
 url: "https://www.reddit.com/r/careerguidance/comments/1pbpqxm/what_can_i_do_after_law_school_besides_law/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,32 @@ flair: "Advice"
 extracted_at: "2026-05-22T23:34:01.123Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1pbpqxm.md#c0"
+    char_span: [0, 1997]
+    sentence_count: 15
+    key_terms: [law, school, barista, college, enjoyed, careerguidance, did, feel]
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/careerguidance/1pbpqxm.md#c1"
+    char_span: [1999, 4157]
+    sentence_count: 16
+    key_terms: [law, job, work, plaintiff-side, office, school, bar, exam]
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/careerguidance/1pbpqxm.md#c2"
+    char_span: [4172, 6330]
+    sentence_count: 18
+    key_terms: [law, legal, compliance, management, licensing, work, research, without]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/careerguidance/1pbpqxm.md#c3"
+    char_span: [6332, 8122]
+    sentence_count: 14
+    key_terms: [research, law, school, sales, get, time, want, compliance]
+    section: Comments
+    token_count: 408
 ---
-
 # What can I do after law school besides law?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1pbpqxm/what_can_i_do_after_law_school_besides_law/)

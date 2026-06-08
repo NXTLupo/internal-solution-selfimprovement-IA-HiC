@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1n1posl.md
 url: "https://www.reddit.com/r/careerguidance/comments/1n1posl/first_real_job_offer_happens_to_be_remote_will/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 0
 upvote_ratio: 0.5
 num_comments: 4
 flair: "Advice"
-extracted_at: "2026-05-24T14:09:04.411Z"
+extracted_at: "2026-06-06T16:39:04.132Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1n1posl.md#c0"
+    char_span: [0, 1637]
+    sentence_count: 12
+    key_terms: [career, remote, job, role, careerguidance, offer, negatively, analytics]
+    token_count: 365
+  - id: "social-intelligence/reddit-deep/careerguidance/1n1posl.md#c1"
+    char_span: [1652, 2244]
+    sentence_count: 7
+    key_terms: [repulsive-minute-559, "don't", job, freshmctendies, absolutely, experience, overthink, questions]
+    section: Comments
+    token_count: 160
 ---
-
 # First real job offer happens to be remote... will this negatively impact my skill/career development?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1n1posl/first_real_job_offer_happens_to_be_remote_will/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1savqnq.md
 url: "https://www.reddit.com/r/waterloo/comments/1savqnq/local_events_this_weekend/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,46 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.130Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [media]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1savqnq.md#c0"
+    char_span: [0, 1748]
+    sentence_count: 9
+    key_terms: [apr, https, egg, waterloo, weekend, schneider-haus-national-historic-site, grandriverbuzz, events]
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/waterloo/1savqnq.md#c1"
+    char_span: [1750, 3485]
+    sentence_count: 7
+    key_terms: [spring-fling-a-family-easter-celebration-at-mcdougall-cottage-tickets-1955496224849, easter, https, calendar-b99bb0c3-064d-444b-beb6-37780f63cfe6, apr, district, cambridge, mcdougall]
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/waterloo/1savqnq.md#c2"
+    char_span: [3487, 4857]
+    sentence_count: 9
+    key_terms: [https, romeo-sex-fighter-at-dallas-nightclub-tickets-1981595767283, night, party, kitchener, musical-bingo-back-to-the-80s-vol-1-7, too-mutch-clutch-badd-thursday-party, "false"]
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/waterloo/1savqnq.md#c3"
+    char_span: [4859, 6542]
+    sentence_count: 6
+    key_terms: [charlie-and-the-chocolate-factory-the-broadway-musical-kitchener-tickets-1977324640227, kitchener, https, national-service-dogs-28th-annual-easter-egg-hunt, friendly-feud-evo-kitchen-bar-copy, com, www, chocolate]
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/waterloo/1savqnq.md#c4"
+    char_span: [6544, 8212]
+    sentence_count: 5
+    key_terms: [easter, https, com, egg, market, fun, hunt, www]
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/waterloo/1savqnq.md#c5"
+    char_span: [8214, 10088]
+    sentence_count: 8
+    key_terms: [https, waterloo, sugar-bush-tours-add-as-many-tickets-as-you-need, easter, claytime-tickets-1979743521165, com, egg, www]
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/waterloo/1savqnq.md#c6"
+    char_span: [10090, 10622]
+    sentence_count: 2
+    key_terms: [fragrant-divide240, queensmount-arena-skate-jam, mystery, murder, neglectovduty1999, ilikecrunchyfood, skateboarding, echinodermae]
+    section: Comments
+    token_count: 165
 ---
-
 # Local events this weekend!
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1savqnq/local_events_this_weekend/)

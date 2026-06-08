@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1t37wpz.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1t37wpz/is_500k_a_realistic_goal_to_hit_eventually/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -7,14 +8,43 @@ title: "Is 500k a realistic goal to hit eventually?"
 author: "Warningsignals"
 date: "2026-05-04T04:53:49.000Z"
 score: 0
-upvote_ratio: 0.33
+upvote_ratio: 0.34
 num_comments: 100
 flair: "Student"
-extracted_at: "2026-05-26T14:31:41.266Z"
+extracted_at: "2026-06-06T17:43:22.948Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t37wpz.md#c0"
+    char_span: [0, 906]
+    sentence_count: 6
+    key_terms: [cscareerquestions, eventually, comments, figured, coding, senior, hit, life]
+    token_count: 219
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t37wpz.md#c1"
+    char_span: [921, 2686]
+    sentence_count: 8
+    key_terms: [internships, hard, hit, like, tech, work, levels, senior]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t37wpz.md#c2"
+    char_span: [2688, 3850]
+    sentence_count: 8
+    key_terms: [average, making, compensation, "don't", salaries, likely, get, jobs]
+    section: Comments
+    token_count: 276
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t37wpz.md#c3"
+    char_span: [3852, 5705]
+    sentence_count: 12
+    key_terms: [alinroc, talking, warningsignals, career, comfortable, "it's", top, cyprovix]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t37wpz.md#c4"
+    char_span: [5707, 6674]
+    sentence_count: 9
+    key_terms: [eventually, percentile, income-percentile-calculator, adderall, income, income-percent-bot, "i'll", "i'm"]
+    section: Comments
+    token_count: 263
 ---
-
 # Is 500k a realistic goal to hit eventually?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1t37wpz/is_500k_a_realistic_goal_to_hit_eventually/)
@@ -26,16 +56,16 @@ My main question is; as someone who doesn’t have much coding experience before
 
 ## Comments
 
-- **ReverseMermaidMorty** (59↑): Even most summer internships pay like $700-800k you’ll be fine
+- **ReverseMermaidMorty** (62↑): Even most summer internships pay like $700-800k you’ll be fine
   - **Acceptable_Pen1696** (0↑): That math doesn't quite work out - most internships are more like 7-8k per month for the summer, not 700k total
-- **99Sold** (16↑): That amount is easily in the top percentile of earners among SWE
+- **99Sold** (18↑): That amount is easily in the top percentile of earners among SWE
 
 So while it’s possible it’s definitely not likely
   - **Slggyqo** (2↑): Yeah I’ve made that much money in a single year from equity. But never across multiple years, even if I went by HHI instead of individual.
   - **Annual_Negotiation44** (1↑): If he’s in VHCOL, it’s not guaranteed but also not hard if you grind and make the right connections…
-- **dankest_kitty** (16↑): Extremely rare. You must be specialized in an area that is highly sought after
+- **dankest_kitty** (17↑): Extremely rare. You must be specialized in an area that is highly sought after
   - **ParadiceSC2** (2↑): And basically start specializing in it a decade before it actually becomes sought after
-- **hibikir_40k** (14↑): It's not absolutely impossible if you work hard, are talented, and land the right employer in a very high cost of living area. But it's far from the median outcome. Go to [levels.fyi](http://levels.fyi) or something like that and see what happens in "normal" companies. Many people in tech in the US never hit $200k.
+- **hibikir_40k** (16↑): It's not absolutely impossible if you work hard, are talented, and land the right employer in a very high cost of living area. But it's far from the median outcome. Go to [levels.fyi](http://levels.fyi) or something like that and see what happens in "normal" companies. Many people in tech in the US never hit $200k.
   - **Warningsignals** (0↑): Thats suprising given what I’ve read online. How hard is it to hit senior, staff, or principal? Is big tech the only way to make 500k?
     - **shapeshiftercorgi** (18↑): Brother your last post you said you “ I don’t have passion for any certain educational topic or anything that I see as “work” “  you ain’t making it in big tech lmao
     - **Tiranous_r** (6↑): Yes or sell your own software
@@ -57,7 +87,7 @@ The 90th percentile earns 380k. If you limit to just the Bay Area, 500k. You wou
     - **alinroc** (1↑): Except most people aren't getting options and/or RSUs, or if they are they aren't enough to get you to that magic $500K number you've put up on a pedestal
   - **ConcentrateSubject23** (1↑): Wow, median of software devs is much higher than I thought. I’m really happy to hear that!
     - **alinroc** (1↑): It includes RSUs and options, and you're only getting those big numbers are a handful of companies.
-- **Cyprovix** (3↑): >its a career that can pay decently and give me a comfortable life.
+- **Cyprovix** (4↑): >its a career that can pay decently and give me a comfortable life.
 
 Absolutely!
 
@@ -69,7 +99,7 @@ OP, I don't think you have an understanding yet of what "pay decently" means and
     - **alinroc** (1↑): It's not Pac-Man. There's no salary scoreboard where you're going to see your initials up in the top 10 every time someone walks by.
 - **Effective-Band-8714** (2↑): 😂
 - **Major_Instance_4766** (2↑): Sure but only because inflation is gonna make 500k nothing
-- **magilit** (2↑): Anything is possible, especially if we are talking about 500k TC. You will have to apply yourself to this career to an incredible degree. The limiting factor will probably be lack of passion. 
+- **magilit** (4↑): Anything is possible, especially if we are talking about 500k TC. You will have to apply yourself to this career to an incredible degree. The limiting factor will probably be lack of passion. 
 
 If you want to bypass that, you can just buy some adderall and become a prodigy, eventually earning 500k.
   - **Slggyqo** (0↑): \> adderall 

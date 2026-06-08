@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1kyqmto.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1kyqmto/the_reality_of_being_a_digital_nomad_in_2025_bali/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,63 @@ flair: "Trip Report"
 extracted_at: "2026-05-26T12:53:56.726Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1kyqmto.md#c0"
+    char_span: [0, 1916]
+    sentence_count: 7
+    key_terms: [digitalnomad, nomad, considering, incredible, interviews, lifestyle, comments, reality]
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/digitalnomad/1kyqmto.md#c1"
+    char_span: [1931, 4010]
+    sentence_count: 16
+    key_terms: [been, strong, onewestern178, weeks, far, time, nomading, freedom]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/digitalnomad/1kyqmto.md#c2"
+    char_span: [4012, 5967]
+    sentence_count: 17
+    key_terms: [per, sustainable, whether, working, better, laptop, travel, enjoy]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/digitalnomad/1kyqmto.md#c3"
+    char_span: [5969, 7990]
+    sentence_count: 19
+    key_terms: [like, chandmor, travel, attitude, grounded, friends, massive, family]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/digitalnomad/1kyqmto.md#c4"
+    char_span: [7992, 9969]
+    sentence_count: 23
+    key_terms: [get, life, whaddyagot, apartment, account, details, beach, homes]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/digitalnomad/1kyqmto.md#c5"
+    char_span: [9971, 12162]
+    sentence_count: 13
+    key_terms: ["you're", recommendations, reality, gear, lot, sony, xm5, recommend]
+    section: Comments
+    token_count: 518
+  - id: "social-intelligence/reddit-deep/digitalnomad/1kyqmto.md#c6"
+    char_span: [12165, 14358]
+    sentence_count: 20
+    key_terms: [spiritual, western, canggu, woman, bali, male, next, desperate]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/digitalnomad/1kyqmto.md#c7"
+    char_span: [14360, 16394]
+    sentence_count: 16
+    key_terms: [bali, visa, portugal, nomad, threshold, chandmor, despite, digital]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/digitalnomad/1kyqmto.md#c8"
+    char_span: [16396, 16940]
+    sentence_count: 3
+    key_terms: [address, residential, visa, country, without, did, silly-crow1726, freelancing]
+    section: Comments
+    token_count: 117
 ---
-
 # The reality of being a digital nomad in 2025 (Bali → Mexico → Portugal)
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1kyqmto/the_reality_of_being_a_digital_nomad_in_2025_bali/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1osvh1k.md
 url: "https://www.reddit.com/r/GradSchool/comments/1osvh1k/what_do_you_play_in_the_background_when_studying/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-22T21:35:36.527Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1osvh1k.md#c0"
+    char_span: [0, 700]
+    sentence_count: 5
+    key_terms: [studying, background, gradschool, comments, student, writing, practical-plenty3028, play]
+    token_count: 169
+  - id: "social-intelligence/reddit-deep/gradschool/1osvh1k.md#c1"
+    char_span: [715, 1699]
+    sentence_count: 5
+    key_terms: [deleted, https, playlist, redact, ieat5orangeseveryday, youtu, "it's", need]
+    section: Comments
+    token_count: 292
+  - id: "social-intelligence/reddit-deep/gradschool/1osvh1k.md#c2"
+    char_span: [1701, 3378]
+    sentence_count: 6
+    key_terms: [playlist, youtube, ply7otrwy7p06a8dabyqzqgerlsuk, practical-plenty3028, https, com, list, www]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1osvh1k.md#c3"
+    char_span: [3150, 3972]
+    sentence_count: 4
+    key_terms: [music, like, osts, crossing, animal, practical-plenty3028, immoralapple, incorporates]
+    section: Comments
+    token_count: 210
+  - id: "social-intelligence/reddit-deep/gradschool/1osvh1k.md#c4"
+    char_span: [3975, 4937]
+    sentence_count: 1
+    key_terms: [https, youtu, music, d4kxhtdbaghxk8rx, dmdlc7ottrunebha, vrjkuhedaym3lygu, wjv8hwfkrnjxabnv, zo1u7uxzyqpqit0o]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/gradschool/1osvh1k.md#c5"
+    char_span: [4939, 5737]
+    sentence_count: 5
+    key_terms: [been, practical-plenty3028, listening, soundtracks, currently, recently, sweaty-discipline746, thanosisonespookyboi]
+    section: Comments
+    token_count: 229
 ---
-
 # What do you play in the background when studying?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1osvh1k/what_do_you_play_in_the_background_when_studying/)

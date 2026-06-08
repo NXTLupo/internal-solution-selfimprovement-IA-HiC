@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1th5uwf.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1th5uwf/what_should_an_international_masters_student_in/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Academic Advice"
 extracted_at: "2026-05-25T13:01:49.567Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1th5uwf.md#c0"
+    char_span: [0, 1542]
+    sentence_count: 12
+    key_terms: [reservoir, engineering, international, master, engineeringstudents, petroleum, student, skills]
+    token_count: 296
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1th5uwf.md#c1"
+    char_span: [1557, 2546]
+    sentence_count: 6
+    key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
+    section: Comments
+    token_count: 223
 ---
-
 # What should an international master’s student in petroleum engineering focus on to maximize career opportunities after graduation?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1th5uwf/what_should_an_international_masters_student_in/)

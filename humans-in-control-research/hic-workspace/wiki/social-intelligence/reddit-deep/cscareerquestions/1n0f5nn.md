@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1n0f5nn.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1n0f5nn/is_it_still_relatively_possible_to_get_100/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,45 @@ flair: "Student"
 extracted_at: "2026-05-20T02:33:39.311Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n0f5nn.md#c0"
+    char_span: [0, 540]
+    sentence_count: 3
+    key_terms: [cscareerquestions, comments, areas, major, urban, job, l-rockatansky, reddit-deep]
+    token_count: 146
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n0f5nn.md#c1"
+    char_span: [555, 2587]
+    sentence_count: 15
+    key_terms: [jobs, hybrid, get, actual, being, drive, hour, new]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n0f5nn.md#c2"
+    char_span: [2589, 3852]
+    sentence_count: 5
+    key_terms: [like, roles, easier, hiring, plenty, remote, illustrious-pound266, crazy]
+    section: Comments
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n0f5nn.md#c3"
+    char_span: [3854, 5973]
+    sentence_count: 16
+    key_terms: [companies, market, job, jobs, hiring, person, dynamichunter, expectations]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n0f5nn.md#c4"
+    char_span: [5725, 6179]
+    sentence_count: 3
+    key_terms: [jobs, willing, market, being, move, new, dynamichunter, definitely]
+    section: Comments
+    token_count: 114
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n0f5nn.md#c5"
+    char_span: [6181, 7607]
+    sentence_count: 8
+    key_terms: [jobs, area, remote, bigger, competitive, new, anywhere, compared]
+    section: Comments
+    token_count: 321
 ---
-
 # Is it still relatively possible to get 100% in-person jobs in major urban areas (i.e. Seattle, the Bay, etc) with a CS bachelors and some adjacent job experience?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1n0f5nn/is_it_still_relatively_possible_to_get_100/)

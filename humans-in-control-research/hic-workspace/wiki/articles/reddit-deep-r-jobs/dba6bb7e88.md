@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-jobs/dba6bb7e88.md
 url: "https://www.reddit.com/r/jobs/comments/1sclm9d/just_got_hired_at_my_first_actual_full_time_job/"
 url_hash: "dba6bb7e88"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T06:47:45.792959+00:00"
 chars: 2151
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-jobs/dba6bb7e88.md#c0"
+    char_span: [0, 1839]
+    sentence_count: 16
+    key_terms: [time, job, "don't", like, "wendy's", rileyluvsventi, hired, best]
+    token_count: 466
+  - id: "articles/reddit-deep-r-jobs/dba6bb7e88.md#c1"
+    char_span: [1841, 2440]
+    sentence_count: 3
+    key_terms: [rileyluvsventi, work, people, thank, keep, discouraging, everything, customers]
+    token_count: 161
 ---
-
 # Just got hired at my first actual full time job. It's just Wendy's, but to build that experience, I'll take it. Any tips while I wait til Tuesday to start?
 
 Source: [Reddit Deep: r/jobs](https://www.reddit.com/r/jobs/comments/1sclm9d/just_got_hired_at_my_first_actual_full_time_job/)

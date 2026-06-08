@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-engineeringstudents/a5a8fbe54a.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1pxuja5/decent_starting_salary_for_a_mechanical/"
 url_hash: "a5a8fbe54a"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T15:18:20.311640+00:00"
 chars: 2474
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-engineeringstudents/a5a8fbe54a.md#c0"
+    char_span: [0, 1777]
+    sentence_count: 10
+    key_terms: [experience, creamprofessional641, engineeringstudents, manufacturer, engineering, mechanical, equipment, comments]
+    token_count: 406
+  - id: "articles/reddit-deep-r-engineeringstudents/a5a8fbe54a.md#c1"
+    char_span: [1779, 2708]
+    sentence_count: 5
+    key_terms: [page, fresh, grad, points, bassprobachelor, automatically, aurorafinem, internships]
+    token_count: 225
 ---
-
 # Decent starting salary for a Mechanical Engineering student with my experience
 
 Source: [Reddit Deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1pxuja5/decent_starting_salary_for_a_mechanical/)

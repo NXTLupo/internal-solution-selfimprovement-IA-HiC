@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1pphvrq.md
 url: "https://www.reddit.com/r/GradSchool/comments/1pphvrq/should_i_wear_more_professional_clothes_to_class/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-23T20:15:44.992Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1pphvrq.md#c0"
+    char_span: [0, 1295]
+    sentence_count: 11
+    key_terms: [professional, dress, clothes, nice, sure, gradschool, undergrad, comments]
+    token_count: 300
+  - id: "social-intelligence/reddit-deep/gradschool/1pphvrq.md#c1"
+    char_span: [1310, 2888]
+    sentence_count: 8
+    key_terms: [people, presentations, dress, appropriate, "it's", week, masters, wearing]
+    section: Comments
+    token_count: 365
+  - id: "social-intelligence/reddit-deep/gradschool/1pphvrq.md#c2"
+    char_span: [2893, 4073]
+    sentence_count: 9
+    key_terms: [jeans, undergrad, sandals, t-shirt, casual, class, did, saw]
+    section: Comments
+    token_count: 315
+  - id: "social-intelligence/reddit-deep/gradschool/1pphvrq.md#c3"
+    char_span: [4075, 5913]
+    sentence_count: 8
+    key_terms: [wear, dress, leggings, class, casual, people, jeans, lot]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/gradschool/1pphvrq.md#c4"
+    char_span: [5915, 7766]
+    sentence_count: 17
+    key_terms: [wear, shorts, nicer, year, leggings, slightly, program, casual]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/gradschool/1pphvrq.md#c5"
+    char_span: [7768, 8511]
+    sentence_count: 4
+    key_terms: [cardigan, casual, outfit, themarshmallowfairy, professionality, significantly, professional, temperature]
+    section: Comments
+    token_count: 161
 ---
-
 # Should I wear more professional clothes to class?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1pphvrq/should_i_wear_more_professional_clothes_to_class/)

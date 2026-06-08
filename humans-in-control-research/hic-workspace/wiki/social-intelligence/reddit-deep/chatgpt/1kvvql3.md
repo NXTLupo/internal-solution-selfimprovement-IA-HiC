@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1kvvql3.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1kvvql3/anyone_else_have_chat_gpt_say_they_were_saving/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,45 @@ flair: "Educational Purpose Only "
 extracted_at: "2026-05-17T01:12:48.208Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvvql3.md#c0"
+    char_span: [0, 767]
+    sentence_count: 15
+    key_terms: [info, chat, gpt, "it's", time, suggested, comments, chatgpt]
+    token_count: 208
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvvql3.md#c1"
+    char_span: [782, 1996]
+    sentence_count: 11
+    key_terms: [please, conversation, image, post, concerns, chatgpt-shared-links-faq, chatgpt, discord]
+    section: Comments
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvvql3.md#c2"
+    char_span: [1998, 3358]
+    sentence_count: 13
+    key_terms: [missjenn503, peltonchicago, instructions, gpt, log, anything, obsidian, chatgpt]
+    section: Comments
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvvql3.md#c3"
+    char_span: [3360, 5126]
+    sentence_count: 20
+    key_terms: ["can't", "it's", missjenn503, like, "shouldn't", engaged, suggest, pleasant-shallot-707]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvvql3.md#c4"
+    char_span: [5128, 6848]
+    sentence_count: 17
+    key_terms: [png, "you're", missjenn503, ask, morning, preview, results, format]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvvql3.md#c5"
+    char_span: [6850, 7237]
+    sentence_count: 6
+    key_terms: [ready, discussions, missjenn503, something, figuring, learning, supposed, advance]
+    section: Comments
+    token_count: 98
 ---
-
 # Anyone else have chat gPT say they were saving info, logging, etc.. and then it turns out it was bullshitting you the entire time?  What AI tool actually saves info and tracks?  Chat GPT suggested I keep a morning log, so I did. Go to find out it wasn't saving anything. And it was it's idea I do.
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1kvvql3/anyone_else_have_chat_gpt_say_they_were_saving/)

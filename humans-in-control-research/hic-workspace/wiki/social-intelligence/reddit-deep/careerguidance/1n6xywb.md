@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1n6xywb.md
 url: "https://www.reddit.com/r/careerguidance/comments/1n6xywb/does_anyone_else_feel_scammed_by_corporate_jobs/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,50 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.163Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1n6xywb.md#c0"
+    char_span: [0, 2076]
+    sentence_count: 25
+    key_terms: [jobs, corporate, dont, life, because, feel, careerguidance, career]
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/careerguidance/1n6xywb.md#c1"
+    char_span: [2078, 2534]
+    sentence_count: 3
+    key_terms: [life, nothing, people, work, corporations, corporation, everything, experience]
+    token_count: 86
+  - id: "social-intelligence/reddit-deep/careerguidance/1n6xywb.md#c2"
+    char_span: [2549, 3802]
+    sentence_count: 9
+    key_terms: [best, "it's", candidates, interviews, screaming, process, career, "you're"]
+    section: Comments
+    token_count: 297
+  - id: "social-intelligence/reddit-deep/careerguidance/1n6xywb.md#c3"
+    char_span: [3804, 5511]
+    sentence_count: 21
+    key_terms: [universities, companies, everyone, india, jobs, candidates, students, because]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/careerguidance/1n6xywb.md#c4"
+    char_span: [5513, 6815]
+    sentence_count: 11
+    key_terms: [different, job, feel, like, career, decent, no-requirement-5357, add]
+    section: Comments
+    token_count: 305
+  - id: "social-intelligence/reddit-deep/careerguidance/1n6xywb.md#c5"
+    char_span: [6817, 8152]
+    sentence_count: 13
+    key_terms: [theflyinghambone, superronnie2, engineer, ability, english, conscious-quarter423, until, fall]
+    section: Comments
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/careerguidance/1n6xywb.md#c6"
+    char_span: [8154, 10362]
+    sentence_count: 18
+    key_terms: ["i'm", people, get, life, own, capitalism, experience, believe]
+    section: Comments
+    token_count: 510
 ---
-
 # Does anyone else feel scammed by corporate jobs like you wasted your life ?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1n6xywb/does_anyone_else_feel_scammed_by_corporate_jobs/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1tk1oeh.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1tk1oeh/23m_software_engineer_from_spain_15_yoe_feeling/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,33 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:56.735Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1tk1oeh.md#c0"
+    char_span: [0, 1951]
+    sentence_count: 15
+    key_terms: [experience, spain, "i'm", move, comments, software, digitalnomad, quite]
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/digitalnomad/1tk1oeh.md#c1"
+    char_span: [1966, 3549]
+    sentence_count: 8
+    key_terms: ["you're", living, find, like, experience, anyways, country, opinion]
+    section: Comments
+    token_count: 377
+  - id: "social-intelligence/reddit-deep/digitalnomad/1tk1oeh.md#c2"
+    char_span: [3554, 5438]
+    sentence_count: 13
+    key_terms: [experience, skills, international, engineering, anime00s, everyone, already, better]
+    section: Comments
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/digitalnomad/1tk1oeh.md#c3"
+    char_span: [5440, 7776]
+    sentence_count: 27
+    key_terms: [move, people, especially, demanding, crashing, burning, market, "it's"]
+    section: Comments
+    token_count: 511
 ---
-
 # 23M Software Engineer from Spain, 1.5 YOE, feeling completely lost: Emigrate, remote US/UK, or Digital Nomad?
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1tk1oeh/23m_software_engineer_from_spain_15_yoe_feeling/)

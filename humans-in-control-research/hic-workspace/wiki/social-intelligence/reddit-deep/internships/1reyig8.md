@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1reyig8.md
 url: "https://www.reddit.com/r/internships/comments/1reyig8/it_internships/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "Offers"
 extracted_at: "2026-05-25T18:31:15.453Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [enterprise_it, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1reyig8.md#c0"
+    char_span: [0, 675]
+    sentence_count: 4
+    key_terms: [internships, comments, company, adventurousbat1517, pharmaceutical, cybersecurity, opportunities, experiences]
+    token_count: 162
+  - id: "social-intelligence/reddit-deep/internships/1reyig8.md#c1"
+    char_span: [690, 1753]
+    sentence_count: 4
+    key_terms: [insurance, medical, common, prestigious-hour-215, adventurousbat1517, bank, oil, pharmaceuticals]
+    section: Comments
+    token_count: 250
 ---
-
 # IT internships
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1reyig8/it_internships/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1sgdd36.md
 url: "https://www.reddit.com/r/internships/comments/1sgdd36/early_career_dilemma/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "Offers"
 extracted_at: "2026-05-25T18:31:15.452Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce, higher_ed, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1sgdd36.md#c0"
+    char_span: [0, 1340]
+    sentence_count: 12
+    key_terms: [early, internships, internship, interview, comments, decision, directly, aligned]
+    token_count: 292
+  - id: "social-intelligence/reddit-deep/internships/1sgdd36.md#c1"
+    char_span: [1355, 1954]
+    sentence_count: 1
+    key_terms: [role, get, congratulations, internships, certainty, important, anything, applying]
+    section: Comments
+    token_count: 164
 ---
-
 # Early career dilemma
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1sgdd36/early_career_dilemma/)

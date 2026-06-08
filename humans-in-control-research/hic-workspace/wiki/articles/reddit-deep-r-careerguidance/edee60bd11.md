@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/edee60bd11.md
 url: "https://www.reddit.com/r/careerguidance/comments/1negl9l/job_market_is_down_whats_the_smartest_or_safest/"
 url_hash: "edee60bd11"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T14:58:59.162371+00:00"
 chars: 2190
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/edee60bd11.md#c0"
+    char_span: [0, 1054]
+    sentence_count: 8
+    key_terms: [job, careerguidance, receptionist, get, experience, comments, careers, medical]
+    token_count: 257
+  - id: "articles/reddit-deep-r-careerguidance/edee60bd11.md#c1"
+    char_span: [1056, 2413]
+    sentence_count: 10
+    key_terms: [receptionist, healthcare, positions, administrative, get, jobs, hospital, careers]
+    token_count: 305
 ---
-
 # Job market is down - what’s the smartest or safest careers right now?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1negl9l/job_market_is_down_whats_the_smartest_or_safest/)

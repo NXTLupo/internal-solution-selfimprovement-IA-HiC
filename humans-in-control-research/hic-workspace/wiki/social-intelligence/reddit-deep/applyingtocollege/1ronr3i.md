@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1ronr3i.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1ronr3i/indulge_me_a_bit_here_reflecting_on_14_years_ago/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,41 @@ subreddit: "applyingtocollege"
 title: "Indulge me a bit here — reflecting on 14 years ago and my advice for you all"
 author: "Brother_Ma_Education"
 date: "2026-03-09T02:12:51.000Z"
-score: 398
+score: 400
 upvote_ratio: 0.97
 num_comments: 22
 flair: "Advice"
-extracted_at: "2026-05-23T19:45:32.281Z"
+extracted_at: "2026-06-03T02:22:51.250Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ronr3i.md#c0"
+    char_span: [0, 2082]
+    sentence_count: 19
+    key_terms: [years, applyingtocollege, bowdoin, going, ago, comments, fourteen, harvard]
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ronr3i.md#c1"
+    char_span: [2084, 3749]
+    sentence_count: 21
+    key_terms: [life, been, interesting, fourteen, being, build, years, find]
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ronr3i.md#c2"
+    char_span: [3764, 5346]
+    sentence_count: 6
+    key_terms: [harvard, that-isnt-john-harvard, the-3-lies-of-harvard, pretend-cupcake-5057, thank, perfect, person, summer]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ronr3i.md#c3"
+    char_span: [5116, 5787]
+    sentence_count: 5
+    key_terms: [opportunities, successes, failures, mistakes, thank, time, wins, disappointment]
+    section: Comments
+    token_count: 170
 ---
-
 # Indulge me a bit here — reflecting on 14 years ago and my advice for you all
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1ronr3i/indulge_me_a_bit_here_reflecting_on_14_years_ago/)
-Posted by **Brother_Ma_Education** · **398↑** · **22 comments**
+Posted by **Brother_Ma_Education** · **400↑** · **22 comments**
 
 Fourteen years ago, I received one of the worst birthday presents I could imagine as a newly minted 17-year-old.
 
@@ -43,16 +66,16 @@ Good luck to all of you.
 ## Comments
 
 - **Pretend-Cupcake-5057** (73↑): Lmao John Harvard is a real person?
-  - **JumpingCuttlefish89** (48↑): This is why Reddit is perfect. This is a perfect response.
-  - **Brother_Ma_Education** (10↑): Technically, the statue wasn't of John Harvard! [https://summer.harvard.edu/blog/the-3-lies-of-harvard/#1-That-isnt-John-Harvard](https://summer.harvard.edu/blog/the-3-lies-of-harvard/#1-That-isnt-John-Harvard)
+  - **JumpingCuttlefish89** (49↑): This is why Reddit is perfect. This is a perfect response.
+  - **Brother_Ma_Education** (8↑): Technically, the statue wasn't of John Harvard! [https://summer.harvard.edu/blog/the-3-lies-of-harvard/#1-That-isnt-John-Harvard](https://summer.harvard.edu/blog/the-3-lies-of-harvard/#1-That-isnt-John-Harvard)
   - **S1159P** (3↑): Okay you're hurting me
-  - **hijetty** (-5↑): "Did the little rich boy have a problem with the butler?" Is all I could hear reading this.
-- **Cold_Transition5020** (30↑): Beautifully written. Thank you.
-- **Pretend-Cupcake-5057** (34↑): Wish you would’ve posted this earlier, if my personal essay looked like this I probably would’ve gotten into GT
-- **humbleratdog** (8↑): this is so important for people to hear! so many feel that their efforts went to waste simply because they didn't get into their dream school, but every late night, every extra mile, every effort -- it all culminates in creating the kind of person that ends up succeeding in life. our lives are all but beginning when we go to college :)
+  - **hijetty** (-8↑): "Did the little rich boy have a problem with the butler?" Is all I could hear reading this.
+- **Cold_Transition5020** (29↑): Beautifully written. Thank you.
+- **Pretend-Cupcake-5057** (35↑): Wish you would’ve posted this earlier, if my personal essay looked like this I probably would’ve gotten into GT
+- **humbleratdog** (11↑): this is so important for people to hear! so many feel that their efforts went to waste simply because they didn't get into their dream school, but every late night, every extra mile, every effort -- it all culminates in creating the kind of person that ends up succeeding in life. our lives are all but beginning when we go to college :)
 - **Fengteng** (10↑): Thank you! 我在前几天被最喜欢的学校拒绝了，这几天以来我脑子不断回荡着“为什么”。但感谢您的帖子，给了我更多面对生活的勇气。
 - **CaffeineInMyVeins22** (5↑): thanks for sharing this. It’s easy to get caught up in rankings and dream schools, but in the long run what you do with the opportunities you have matters much more
-- **AloxBluegrass** (4↑): Such a nice message. Thank you.
+- **AloxBluegrass** (6↑): Such a nice message. Thank you.
 - **Ok-Custard4126** (5↑): Thank you so much for taking the time to write this. I tell my son all the time that I am built on the shoulders of every mistake I have ever made. We learn so much more from the failures and mistakes than we do from the wins and successes. Without failures and mistakes there would never be wins and successes.
-- **Large_Lie9177** (3↑): Needed to hear this today. The rejection hurts now but youre right, it really is just a redirect.
 - **[deleted]** (2↑): إن شاء الله
+- **Low_Ice_8855** (2↑): Thanks for the reminder to live life and make the most of our opportunities rather than to let disappointment or what-ifs weigh us down.

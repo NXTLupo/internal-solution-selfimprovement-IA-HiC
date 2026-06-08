@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1shj3uk.md
 url: "https://www.reddit.com/r/internships/comments/1shj3uk/summer_internship_as_a_1st_year_vitian/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "General"
 extracted_at: "2026-05-22T21:34:37.050Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce, higher_ed, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1shj3uk.md#c0"
+    char_span: [0, 1298]
+    sentence_count: 9
+    key_terms: [sem, competition, internships, good, gpa, java, internship, currently]
+    token_count: 343
+  - id: "social-intelligence/reddit-deep/internships/1shj3uk.md#c1"
+    char_span: [1313, 2400]
+    sentence_count: 8
+    key_terms: [help, research, internship, prachub, intern, summer, iit, prep]
+    section: Comments
+    token_count: 263
 ---
-
 # Summer Internship as a 1st year VITian
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1shj3uk/summer_internship_as_a_1st_year_vitian/)

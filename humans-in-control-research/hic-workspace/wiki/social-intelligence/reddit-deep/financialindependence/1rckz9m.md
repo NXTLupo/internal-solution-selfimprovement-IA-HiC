@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1rckz9m.md
 url: "https://www.reddit.com/r/financialindependence/comments/1rckz9m/re_year_1_a_chubbyfire_income_tax_breakdown/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,105 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.707Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c0"
+    char_span: [0, 1254]
+    sentence_count: 8
+    key_terms: [financialindependence, income, expenses, taxes, tax, retirement, breakdown, questions]
+    token_count: 277
+  - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c1"
+    char_span: [1266, 1929]
+    sentence_count: 2
+    key_terms: [income, tax, total, federal, owed, tax-advantaged, "california's", california]
+    section: TL;DR
+    token_count: 194
+  - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c2"
+    char_span: [1944, 4035]
+    sentence_count: 13
+    key_terms: [income, tax, insurance, health, highest, lowest, state, total]
+    section: Overview
+    token_count: 514
+  - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c3"
+    char_span: [4037, 5680]
+    sentence_count: 9
+    key_terms: [accounts, tax-advantaged, bonds, taxable, traditional, allocation, retirement, portfolio]
+    section: Overview
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c4"
+    char_span: [5682, 7556]
+    sentence_count: 11
+    key_terms: [tax, income, dividends, marginal, property, years, low, year]
+    section: Overview
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c5"
+    char_span: [7558, 8099]
+    sentence_count: 2
+    key_terms: [unknowns, taxes, today, years, tax, recommendations, spreadsheet, personally]
+    section: Overview
+    token_count: 120
+  - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c6"
+    char_span: [8140, 9685]
+    sentence_count: 7
+    key_terms: [income, deduction, self-employment, tax, gains, total, capital, amount]
+    section: "2025 Income Tax - Federal: -$3,000"
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c7"
+    char_span: [9687, 10258]
+    sentence_count: 4
+    key_terms: [tax, repayment, therefore, advance, credits, credit, total, underestimated]
+    section: "2025 Income Tax - Federal: -$3,000"
+    token_count: 141
+  - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c8"
+    char_span: [10273, 12029]
+    sentence_count: 20
+    key_terms: [tax, years, conversions, work, whether, working, family, future]
+    section: Comments
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c9"
+    char_span: [12031, 13391]
+    sentence_count: 14
+    key_terms: [income, city, ira, work, california, paycheck, purposes, council]
+    section: Comments
+    token_count: 326
+  - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c10"
+    char_span: [13393, 15334]
+    sentence_count: 15
+    key_terms: [get, year, years, alternating, projections, aca, "i've", low]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c11"
+    char_span: [15336, 17226]
+    sentence_count: 6
+    key_terms: [etc, expenses, allocation, magnesiumcarbonate, insurance, property, transportation, maintenance]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c12"
+    char_span: [17228, 19097]
+    sentence_count: 8
+    key_terms: [cash, years, year, short, fund, correction, short-term, dividends]
+    section: Comments
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c13"
+    char_span: [19099, 21292]
+    sentence_count: 8
+    key_terms: [future, point, like, problem, income, roth, tax, thinking]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c14"
+    char_span: [21294, 22985]
+    sentence_count: 12
+    key_terms: [people, subsidies, aca, stay, qualify, like, insurance, spending]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c15"
+    char_span: [22987, 24133]
+    sentence_count: 9
+    key_terms: [getting, person, fireinnahole, tax, another, easily, wealth, tonguepunchmypoopbox]
+    section: Comments
+    token_count: 289
 ---
-
 # RE Year 1: A ChubbyFIRE Income Tax Breakdown
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1rckz9m/re_year_1_a_chubbyfire_income_tax_breakdown/)

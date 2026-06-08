@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1mk7v8w.md
 url: "https://www.reddit.com/r/OpenAI/comments/1mk7v8w/all_gpt5_models_has_a_400k_context_windows_per/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,21 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:05.361Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1mk7v8w.md#c0"
+    char_span: [0, 327]
+    sentence_count: 1
+    key_terms: [comments, context, openai, drinksbeerdaily, reddit-deep, openrouter, quality, windows]
+    token_count: 96
+  - id: "social-intelligence/reddit-deep/openai/1mk7v8w.md#c1"
+    char_span: [342, 2155]
+    sentence_count: 12
+    key_terms: [gpt-5, docs, page, outdated, million, cutoff, models, openai]
+    section: Comments
+    token_count: 460
 ---
-
 # All GPT-5 models has a 400k context windows per openrouter.ai
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1mk7v8w/all_gpt5_models_has_a_400k_context_windows_per/)

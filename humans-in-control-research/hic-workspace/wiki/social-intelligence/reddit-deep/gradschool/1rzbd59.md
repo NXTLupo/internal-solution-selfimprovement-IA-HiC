@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1rzbd59.md
 url: "https://www.reddit.com/r/GradSchool/comments/1rzbd59/how_to_cope_with_long_distance_in_grad_school/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.344Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1rzbd59.md#c0"
+    char_span: [0, 1294]
+    sentence_count: 13
+    key_terms: [school, difference, gradschool, comments, partner, stories, posted, boat]
+    token_count: 291
+  - id: "social-intelligence/reddit-deep/gradschool/1rzbd59.md#c1"
+    char_span: [1309, 3009]
+    sentence_count: 11
+    key_terms: [together, partner, either, like, distance, marrying, possible, yourself]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/gradschool/1rzbd59.md#c2"
+    char_span: [3011, 5224]
+    sentence_count: 21
+    key_terms: [together, expectations, hour, visiting, partner, moving, years, back]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1rzbd59.md#c3"
+    char_span: [4947, 5316]
+    sentence_count: 5
+    key_terms: [canada, seoul, back, came, live, difference, finishing, distance]
+    section: Comments
+    token_count: 85
+  - id: "social-intelligence/reddit-deep/gradschool/1rzbd59.md#c4"
+    char_span: [5318, 7407]
+    sentence_count: 19
+    key_terms: [distance, together, partner, time, because, communication, relationship, hard]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/gradschool/1rzbd59.md#c5"
+    char_span: [7409, 9589]
+    sentence_count: 8
+    key_terms: [distance, always, nights, school, relationship, movie, phone, date]
+    section: Comments
+    token_count: 493
 ---
-
 # How to cope with long distance in grad school
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1rzbd59/how_to_cope_with_long_distance_in_grad_school/)

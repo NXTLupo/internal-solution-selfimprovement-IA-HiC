@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1s5wn2k.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1s5wn2k/i_got_in/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,21 @@ flair: "Computer Sciences"
 extracted_at: "2026-05-23T12:15:55.836Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1s5wn2k.md#c0"
+    char_span: [0, 210]
+    sentence_count: 2
+    key_terms: [gradadmissions, comments, suicidalaatma, reddit-deep, posted, reddit, source, https]
+    token_count: 69
+  - id: "social-intelligence/reddit-deep/gradadmissions/1s5wn2k.md#c1"
+    char_span: [225, 964]
+    sentence_count: 6
+    key_terms: [congratulations, congrats, waiting, intelligent-tower853, professional-tip8998, veterinarianok3539, far-discount7046, sad-extreme-5762]
+    section: Comments
+    token_count: 235
 ---
-
 # I got in!!!
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1s5wn2k/i_got_in/)

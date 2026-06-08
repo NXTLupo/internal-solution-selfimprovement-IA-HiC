@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-investing/de65bbeaa0.md
 url: "https://www.reddit.com/r/investing/comments/1qimilb/should_i_be_moving_away_from_us_stocks_as_a/"
 url_hash: "de65bbeaa0"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:20:24.116096+00:00"
 chars: 3470
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-investing/de65bbeaa0.md#c0"
+    char_span: [0, 2043]
+    sentence_count: 14
+    key_terms: [investing, stocks, american, portfolio, "i'm", like, individual, companies]
+    token_count: 456
+  - id: "articles/reddit-deep-r-investing/de65bbeaa0.md#c1"
+    char_span: [2045, 3667]
+    sentence_count: 8
+    key_terms: [politics, equities, current, nothing, events, "don't", jemicarus, portfolio-composition]
+    token_count: 400
 ---
-
 # Should I be moving away from US stocks as a non-American?
 
 Source: [Reddit Deep: r/investing](https://www.reddit.com/r/investing/comments/1qimilb/should_i_be_moving_away_from_us_stocks_as_a/)

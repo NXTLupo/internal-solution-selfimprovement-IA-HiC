@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1lelk5t.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1lelk5t/we_were_doing_so_well/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,50 @@ flair: "Vent/Rant (No Advice/Criticism!)"
 extracted_at: "2026-05-17T01:13:55.887Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1lelk5t.md#c0"
+    char_span: [0, 2208]
+    sentence_count: 24
+    key_terms: [financial, "i'm", povertyfinance, month, been, get, "i've", sad]
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/povertyfinance/1lelk5t.md#c1"
+    char_span: [2210, 3837]
+    sentence_count: 19
+    key_terms: [games, discussed, been, long-term, playing, phone, slept, trust]
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/povertyfinance/1lelk5t.md#c2"
+    char_span: [3852, 5476]
+    sentence_count: 16
+    key_terms: [submitter, appropriate, need, advice, vents, vent, emotional, situation]
+    section: Comments
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/povertyfinance/1lelk5t.md#c3"
+    char_span: [5478, 7423]
+    sentence_count: 13
+    key_terms: [better, games, like, gambling, packs, game, characters, crystals]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/povertyfinance/1lelk5t.md#c4"
+    char_span: [7425, 8915]
+    sentence_count: 16
+    key_terms: [get, been, "i've", without, budget, future, little, wanted]
+    section: Comments
+    token_count: 337
+  - id: "social-intelligence/reddit-deep/povertyfinance/1lelk5t.md#c5"
+    char_span: [8917, 11064]
+    sentence_count: 21
+    key_terms: [like, relationship, "it'll", month, gets, hope, sell, building]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/povertyfinance/1lelk5t.md#c6"
+    char_span: [11066, 12988]
+    sentence_count: 23
+    key_terms: [account, available, payment, continuously, games, money, main, purchases]
+    section: Comments
+    token_count: 451
 ---
-
 # We were doing so well...
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1lelk5t/we_were_doing_so_well/)

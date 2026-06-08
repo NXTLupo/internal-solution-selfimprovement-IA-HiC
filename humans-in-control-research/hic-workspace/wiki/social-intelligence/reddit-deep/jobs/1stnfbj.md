@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1stnfbj.md
 url: "https://www.reddit.com/r/jobs/comments/1stnfbj/unemployed_for_8_months/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,39 @@ flair: "Unemployment"
 extracted_at: "2026-05-22T21:35:36.551Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1stnfbj.md#c0"
+    char_span: [0, 1724]
+    sentence_count: 14
+    key_terms: [job, positions, feel, hard, degree, employment, multimedia, part-time]
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/jobs/1stnfbj.md#c1"
+    char_span: [1739, 3828]
+    sentence_count: 18
+    key_terms: [resume, everything, through, applications, specifically, broad, "isn't", means]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/jobs/1stnfbj.md#c2"
+    char_span: [3833, 5877]
+    sentence_count: 18
+    key_terms: [get, resume, need, content, degree, check, internships, work]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/jobs/1stnfbj.md#c3"
+    char_span: [5879, 6851]
+    sentence_count: 8
+    key_terms: [around, weezay5000, degree, write, got, job, move, use]
+    section: Comments
+    token_count: 253
+  - id: "social-intelligence/reddit-deep/jobs/1stnfbj.md#c4"
+    char_span: [6853, 8489]
+    sentence_count: 10
+    key_terms: [linkedin, people, years, portfolio, positions, applying, always, degree]
+    section: Comments
+    token_count: 365
 ---
-
 # unemployed for 8 months
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1stnfbj/unemployed_for_8_months/)

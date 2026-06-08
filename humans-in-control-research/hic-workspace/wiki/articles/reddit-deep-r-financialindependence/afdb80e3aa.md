@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-financialindependence/afdb80e3aa.md
 url: "https://www.reddit.com/r/financialindependence/comments/1rttlz3/military_fire/"
 url_hash: "afdb80e3aa"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-16T21:02:01.837090+00:00"
 chars: 4198
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-financialindependence/afdb80e3aa.md#c0"
+    char_span: [0, 1445]
+    sentence_count: 6
+    key_terms: [fire, financialindependence, total, years, after-tax, portfolio, expenses, learning]
+    token_count: 441
+  - id: "articles/reddit-deep-r-financialindependence/afdb80e3aa.md#c1"
+    char_span: [1447, 3049]
+    sentence_count: 12
+    key_terms: [working, get, new, spending, friends, reading, realize, needed]
+    token_count: 348
+  - id: "articles/reddit-deep-r-financialindependence/afdb80e3aa.md#c2"
+    char_span: [3051, 4345]
+    sentence_count: 6
+    key_terms: [healthcare, socialism, jimzzz38, military, because, housing, parents, retired]
+    token_count: 315
 ---
-
 # Military FIRE
 
 Source: [Reddit Deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1rttlz3/military_fire/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1mkmahc.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1mkmahc/is_it_normal_to_feel_like_youre_falling_behind/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -10,11 +11,58 @@ score: 291
 upvote_ratio: 0.92
 num_comments: 85
 flair: ""
-extracted_at: "2026-05-20T12:57:40.625Z"
+extracted_at: "2026-06-06T00:28:32.214Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mkmahc.md#c0"
+    char_span: [0, 1442]
+    sentence_count: 12
+    key_terms: [cscareerquestions, like, everyone, experience, becoming, comments, reaction, already]
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mkmahc.md#c1"
+    char_span: [1457, 2380]
+    sentence_count: 4
+    key_terms: [senior, level, client, certainlyforgetful, got, like, ok-swimmer-2634, responsibility]
+    section: Comments
+    token_count: 248
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mkmahc.md#c2"
+    char_span: [2382, 4050]
+    sentence_count: 16
+    key_terms: [senior, title, salary, titles, interesting, principal, doing, big]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mkmahc.md#c3"
+    char_span: [4052, 6388]
+    sentence_count: 18
+    key_terms: [interesting, experience, work, systems, programming, back, came, did]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mkmahc.md#c4"
+    char_span: [6390, 8135]
+    sentence_count: 18
+    key_terms: [experience, similar, professionally, vue3, recruiters, exploring, knowledge, recruiter]
+    section: Comments
+    token_count: 391
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mkmahc.md#c5"
+    char_span: [8137, 10429]
+    sentence_count: 16
+    key_terms: [job, tech, bioinformatics, justuseansvm, big, did, like, technology]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mkmahc.md#c6"
+    char_span: [10431, 12424]
+    sentence_count: 13
+    key_terms: [senior, engineer, staff, bioinformatics, contributions, work, experience, companies]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mkmahc.md#c7"
+    char_span: [12426, 14599]
+    sentence_count: 15
+    key_terms: [senior, cscareerquestions, because, titles, want, different, comments, observed]
+    section: Comments
+    token_count: 493
 ---
-
 # Is it normal to feel like you're falling behind when everyone on LinkedIn is becoming a "Senior" something at 25?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1mkmahc/is_it_normal_to_feel_like_youre_falling_behind/)
@@ -30,14 +78,14 @@ When did you *know* which part of tech you wanted to focus on? Or are most of us
 
 ## Comments
 
-- **spike021** (493↑): title barely matters in this field
-  - **justUseAnSvm** (114↑): This. Most companies will recruit for senior, then aggressively down level for any reason they can think of.
+- **spike021** (497↑): title barely matters in this field
+  - **justUseAnSvm** (117↑): This. Most companies will recruit for senior, then aggressively down level for any reason they can think of.
     - **certainlyforgetful** (66↑): Then, after you're hired, give you senior+ level responsibility.
-  - **Ok-Swimmer-2634** (61↑): Reminds me of American Psycho and how everyone in the company was the "Vice President, Mergers and Acquisitions" lol
-    - **melodyze** (42↑): Still true at goldman sachs! VP is like the first level junior manager role at most client facing finance firms. It makes the client feel important that they got assigned a VP.
+  - **Ok-Swimmer-2634** (58↑): Reminds me of American Psycho and how everyone in the company was the "Vice President, Mergers and Acquisitions" lol
+    - **melodyze** (41↑): Still true at goldman sachs! VP is like the first level junior manager role at most client facing finance firms. It makes the client feel important that they got assigned a VP.
     - **LoweringPass** (4↑): VP in investment banking is like senior engineer in software
   - **xFallow** (15↑): Pretty much I got reached out to for two senior roles yesterday one was paying 100k the other 200k
-  - **Mimikyutwo** (4↑): Titles can matter in individual orgs. 
+  - **Mimikyutwo** (3↑): Titles can matter in individual orgs. 
 
 Been in multiple ones where ideas are weighed against the presenter’s title rather than the content.
     - **keshiii** (4↑): As well as salary. Sometimes titles align you within a certain salary bracket in some orgs, and to earn more you need that promotion.
@@ -46,14 +94,14 @@ Been in multiple ones where ideas are weighed against the presenter’s title ra
   - **leafynospleens** (1↑): Yea you can become a senior in 3 months by taking some high stress agency job with high turnover, companies give out big boy titles in exchange for low pay..
 I know so many "seniors" on half my salary.
   - **RagefireHype** (1↑): I’d disagree to some degree. If you reach staff/principal you will very rarely be down leveled and it looks better on resumes if that was actually your title
-- **DuckMySick_008** (182↑): I am a developer with 15yrs experience and yet never held a 'senior' title. The 'senior' folks at my place are maybe 12 yrs younger to me. Doesnt matter to me as long as I am doing interesting things. I kept on switching domains every 2-3 years. ERP, embedded systems, networking, web apps, backend, infrastructure, data pipelines, system programming etc etc. The only thing I havent probably touched yet is Compilers and if I get a chance, I am ready to do that as well. Thats what I love about this space: so many interesting tech to learn.
+- **DuckMySick_008** (181↑): I am a developer with 15yrs experience and yet never held a 'senior' title. The 'senior' folks at my place are maybe 12 yrs younger to me. Doesnt matter to me as long as I am doing interesting things. I kept on switching domains every 2-3 years. ERP, embedded systems, networking, web apps, backend, infrastructure, data pipelines, system programming etc etc. The only thing I havent probably touched yet is Compilers and if I get a chance, I am ready to do that as well. Thats what I love about this space: so many interesting tech to learn.
 
 So, choose your own path. Don't just optimize for title or TC.
-  - **Moose_not_mouse** (37↑): This. Word of wisdom from an actual senior.
+  - **Moose_not_mouse** (38↑): This. Word of wisdom from an actual senior.
 
 I got 13 years myself in business applications and I just made director. 9 times out of 10, when recruiting, I'd do a quick math to see if the experience matched the title. What your title say will get compared with what the company's ladder is. In my book at least.
-  - **excentio** (12↑): Unrelated question but how did you manage to switch domains easily? That's where I'm stuck at, recruiters usually don't recognize your coding experience in general, they're just focused on you having experience with X Y Z
-    - **DuckMySick_008** (5↑): TL;DR: Domain changes came with switching companies, going back to academia, joining BigTech and switching teams for interesting work, and most importantly inventing interesting work when nobody else prioritized those.
+  - **excentio** (11↑): Unrelated question but how did you manage to switch domains easily? That's where I'm stuck at, recruiters usually don't recognize your coding experience in general, they're just focused on you having experience with X Y Z
+    - **DuckMySick_008** (6↑): TL;DR: Domain changes came with switching companies, going back to academia, joining BigTech and switching teams for interesting work, and most importantly inventing interesting work when nobody else prioritized those.
 
   
 Long version:
@@ -83,27 +131,27 @@ This this this this this fucking this. Getting past the idiot recruiter is damn 
 
 Personally, I found that switching to niche domains like Compilers or OS etc are harder. So, take tiny steps, like maybe get into control plane of a database or DNS, and slowly contribute to the core libraries, improve things, collaborate with members from the core team. At least this was easy in big tech.
     - **Stealth528** (2↑): Lie. If there’s something they’re asking for that you haven’t technically worked with but are familiar enough with to be able to bullshit, then you tell them “what a coincidence, that’s exactly the tool/stack/whatever I’ve been working with for years at my current/recent job!”. Honesty is not rewarded in a job hunt, tell them whatever they want to hear. Especially if it’s a non technical recruiter that clearly doesn’t know anything and just wants to hear keywords from the job posting.
-- **justUseAnSvm** (50↑): I never figured out what I want to do in tech. Every single job I've had is a different role: bioinformatics, data science, backend with Haskell, cloud infra, and finally product at big tech.
+- **justUseAnSvm** (45↑): I never figured out what I want to do in tech. Every single job I've had is a different role: bioinformatics, data science, backend with Haskell, cloud infra, and finally product at big tech.
 
 Companies are always going to give out title, it's one thing that costs them nothing but means a lot to individual people. Instead of worrying about chasing titles, focus on your own trajectory. I didn't join a big tech company until well into my 30s, and spent my 20s in academia. Sure, some senior engineers are more than 10 years younger than me, but like, what am I going to do about it?
 
 Now that we are getting paid in tech, there's all sorts of status and money chasing that happens. I don't mind that stuff, but you need to keep the focus in the right place, and that's using the experience you accumulate to become an expert at software development. Not necessarily an expert at any one given skill or technology, but the type of engineer that can work from first principles and solve a problem using any technology.
   - **Grecale** (14↑): How did you actually make these jumps between such different areas (bioinformatics, data science, backend, etc.)? Did you have prior knowledge or did you learn on the job? I'm also pretty undecided on what to do and having the chance to do a little bit of everything could be the right thing to do to figure it out
-    - **justUseAnSvm** (3↑): Some combination of prior knowledge, and just applying.
+    - **justUseAnSvm** (4↑): Some combination of prior knowledge, and just applying.
 
 For that infra job, I had used k8s before and set up a cluster, and it was in the middle of 2022, so enough experience to pass an interview, and a very friendly hiring environment.
 
 For the earlier switches (bioinformatics, data science, SWE) it was a lot of work, and I was unemployed for about a year total during that transition
     - **Ok-Butterscotch-6955** (1↑): For my work in bioinformatics, at least, I didn’t have to have any medical knowledge. We had medical staff to instruct development staff on needed features.
   - **DuckMySick_008** (6↑): Similar path here. Worked in many different things and only recently gravitating towards system programming and databases.
-    - **justUseAnSvm** (8↑): Databases are sick. I've been slowly trying to learn more about them over the past two years. Some of the coolest jobs are building those engines. I was at a DB start up trying to get to the engine, but most of our problems were cloud infra, and the path to contributions would have been as a hobby. Anyway, I left for big tech and am now working on a code migration tool, which is still moderately interesting, but most of my contributions are making sure the project gets to it's impact number.
-- **pissposssweaty** (95↑): A senior engineer in tech isn’t that advanced of a role. It’s just the 3rd tier after junior engineer and engineer. Then you get staff, senior staff, principal, senior principal, fellow, vp, etc.
+    - **justUseAnSvm** (6↑): Databases are sick. I've been slowly trying to learn more about them over the past two years. Some of the coolest jobs are building those engines. I was at a DB start up trying to get to the engine, but most of our problems were cloud infra, and the path to contributions would have been as a hobby. Anyway, I left for big tech and am now working on a code migration tool, which is still moderately interesting, but most of my contributions are making sure the project gets to it's impact number.
+- **pissposssweaty** (96↑): A senior engineer in tech isn’t that advanced of a role. It’s just the 3rd tier after junior engineer and engineer. Then you get staff, senior staff, principal, senior principal, fellow, vp, etc.
 
 So it just means someone got promoted twice in 3-4 years of work. Totally doable especially at companies that don’t have junior titles.
   - **spike021** (43↑): i'd say in most major companies senior level is the terminal level too. most people don't progress further.
-  - **SamWest98** (9↑): [Removed]
+  - **SamWest98** (8↑): [Removed]
 - **Edraitheru14** (17↑): Titles can be totally meaningless.
-- **SomeRandomCSGuy** (11↑): "Senior" title is most definitely inflated. This is coming from someone who is a senior engineer and got here much faster than other engineers with 3-4x my experience haha.
+- **SomeRandomCSGuy** (10↑): "Senior" title is most definitely inflated. This is coming from someone who is a senior engineer and got here much faster than other engineers with 3-4x my experience haha.
 
 There is usually a misconception that "being a senior" means you need to be this 10X coder or your technical skills need to be at a different level. That is false.
 

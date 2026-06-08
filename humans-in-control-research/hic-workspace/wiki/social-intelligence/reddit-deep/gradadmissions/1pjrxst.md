@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1pjrxst.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1pjrxst/reasons_for_so_many_ivyonly_lists/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,57 @@ flair: "General Advice"
 extracted_at: "2026-05-23T14:54:16.717Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c0"
+    char_span: [0, 1521]
+    sentence_count: 14
+    key_terms: [people, research, gradadmissions, institutions, grad, list, name-brand, important]
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c1"
+    char_span: [1536, 3128]
+    sentence_count: 8
+    key_terms: [applying, students, international, kanoncyn, because, programmes, university, european]
+    section: Comments
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c2"
+    char_span: [3130, 5063]
+    sentence_count: 8
+    key_terms: [fantasticmrsfields, schools, applying, unlikely-sleep-7717, livable, people, fee, somewhere]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c3"
+    char_span: [5065, 7226]
+    sentence_count: 15
+    key_terms: [better, ivy, schools, top, university, generally, important, academia]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c4"
+    char_span: [7228, 9074]
+    sentence_count: 9
+    key_terms: [school, state, elite, low-tier, students, statistically, universities, ended]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c5"
+    char_span: [9076, 10715]
+    sentence_count: 6
+    key_terms: [better, ivy, outcomes, students, because, schools, people, researchers]
+    section: Comments
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c6"
+    char_span: [10717, 11836]
+    sentence_count: 6
+    key_terms: [top, professors, university, professor, academic, schools, student, people]
+    section: Comments
+    token_count: 234
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c7"
+    char_span: [11839, 13163]
+    sentence_count: 4
+    key_terms: [top, because, institutions, ivies, prestige, college, country, support]
+    section: Comments
+    token_count: 312
 ---
-
 # Reasons for so many Ivy-only lists?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1pjrxst/reasons_for_so_many_ivyonly_lists/)

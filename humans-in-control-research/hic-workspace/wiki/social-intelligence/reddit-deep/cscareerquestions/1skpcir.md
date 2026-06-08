@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1skpcir.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1skpcir/why_is_every_company_evil/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,57 @@ flair: "New Grad"
 extracted_at: "2026-05-23T12:16:24.345Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1skpcir.md#c0"
+    char_span: [0, 752]
+    sentence_count: 6
+    key_terms: [cscareerquestions, comments, company, defence, looking, seems, evil, like]
+    token_count: 178
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1skpcir.md#c1"
+    char_span: [767, 2821]
+    sentence_count: 15
+    key_terms: [good, work, world, engineering, financial, problems, research, looking]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1skpcir.md#c2"
+    char_span: [2550, 2983]
+    sentence_count: 3
+    key_terms: [ding, sufficient-dinner319, chemical-fault-7331, disappointing, perspective, successful, financial, investors]
+    section: Comments
+    token_count: 111
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1skpcir.md#c3"
+    char_span: [2985, 4896]
+    sentence_count: 10
+    key_terms: [ethical, bad, pay, candidates, profitable, competing, qualities, something]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1skpcir.md#c4"
+    char_span: [4898, 7248]
+    sentence_count: 15
+    key_terms: [companies, medical, money, big, find, good, like, tech]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1skpcir.md#c5"
+    char_span: [7251, 9286]
+    sentence_count: 16
+    key_terms: [people, jobs, building, wide-pop6050, here, healthcare, understand, careers]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1skpcir.md#c6"
+    char_span: [9288, 10579]
+    sentence_count: 8
+    key_terms: [capitalism, against, smith, lanaegleria, inventions, confusing, designed, original]
+    section: Comments
+    token_count: 281
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1skpcir.md#c7"
+    char_span: [10581, 12431]
+    sentence_count: 14
+    key_terms: [tech, companies, different, options, better, people, profit, system]
+    section: Comments
+    token_count: 448
 ---
-
 # Why is every company evil?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1skpcir/why_is_every_company_evil/)

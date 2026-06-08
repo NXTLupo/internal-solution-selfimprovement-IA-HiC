@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-genz/3c33cdcabd.md
 url: "https://www.reddit.com/r/GenZ/comments/1t61asn/how_do_i_stop_spending_all_of_my_money/"
 url_hash: "3c33cdcabd"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:19:02.810079+00:00"
 chars: 2439
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-genz/3c33cdcabd.md#c0"
+    char_span: [0, 706]
+    sentence_count: 5
+    key_terms: [comments, discord, reddit, https, money, genz, like, time]
+    token_count: 186
+  - id: "articles/reddit-deep-r-genz/3c33cdcabd.md#c1"
+    char_span: [709, 2603]
+    sentence_count: 11
+    key_terms: [account, savings, bills, checking, automatically, pay, year, attractive]
+    token_count: 467
 ---
-
 # How do I stop spending all of my money?
 
 Source: [Reddit Deep: r/genz](https://www.reddit.com/r/GenZ/comments/1t61asn/how_do_i_stop_spending_all_of_my_money/)

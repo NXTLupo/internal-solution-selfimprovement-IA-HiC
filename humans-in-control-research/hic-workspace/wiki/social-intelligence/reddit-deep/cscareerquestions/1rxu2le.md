@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rxu2le.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rxu2le/confused_between_cloud_vs_development_career_path/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-25T18:32:49.823Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rxu2le.md#c0"
+    char_span: [0, 2055]
+    sentence_count: 12
+    key_terms: [development, cloud, experience, engineer, roles, cscareerquestions, security, support]
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rxu2le.md#c1"
+    char_span: [2070, 2260]
+    sentence_count: 4
+    key_terms: [sde, secirity, security, becomes, concern, raising, better, demand]
+    section: Comments
+    token_count: 57
 ---
-
 # Confused between Cloud vs Development career path (need honest advice)
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rxu2le/confused_between_cloud_vs_development_career_path/)

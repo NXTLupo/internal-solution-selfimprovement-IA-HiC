@@ -6,19 +6,19 @@ subreddit: "internships"
 title: "Waiting on internship decision after Round 2 at a major entertainment company. Anyone experience a longer wait and still get the offer?"
 author: "mysignumfidei"
 date: "2026-03-13T02:25:10.000Z"
-score: 4
-upvote_ratio: 0.84
+score: 6
+upvote_ratio: 1
 num_comments: 7
 flair: "Interviews"
-extracted_at: "2026-05-19T17:57:20.768Z"
+extracted_at: "2026-06-06T23:20:46.226Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Waiting on internship decision after Round 2 at a major entertainment company. Anyone experience a longer wait and still get the offer?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rsb3l6/waiting_on_internship_decision_after_round_2_at_a/)
-Posted by **mysignumfidei** · **4↑** · **7 comments**
+Posted by **mysignumfidei** · **6↑** · **7 comments**
 
 I just finished a two-round interview process for a competitive summer 2026 internship at a well-known entertainment company in Southern California. It's a non-tech role and only open to students who are currently enrolled, so this is basically my one chance since I graduate in December and won't qualify after that.
 

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1phi8ci.md
 url: "https://www.reddit.com/r/GenZ/comments/1phi8ci/so_how_do_we_think_the_ai_wipes_jobs_thing_will/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,51 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.769Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1phi8ci.md#c0"
+    char_span: [0, 794]
+    sentence_count: 8
+    key_terms: [genz, interested, comments, people, non-technological, jobs, backgrounds, reddit-deep]
+    token_count: 197
+  - id: "social-intelligence/reddit-deep/genz/1phi8ci.md#c1"
+    char_span: [809, 2820]
+    sentence_count: 16
+    key_terms: [people, robots, crying, going, money, crispydave, everything, questions]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/genz/1phi8ci.md#c2"
+    char_span: [2822, 4516]
+    sentence_count: 9
+    key_terms: [happening, intelligent, government, already, idkfora, people, historical-relief777, money]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/genz/1phi8ci.md#c3"
+    char_span: [4518, 5565]
+    sentence_count: 6
+    key_terms: [like, afford, people, jobs, service, through, working, class]
+    section: Comments
+    token_count: 235
+  - id: "social-intelligence/reddit-deep/genz/1phi8ci.md#c4"
+    char_span: [5567, 7875]
+    sentence_count: 8
+    key_terms: [people, without, corporations, class, because, society, "they're", working]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/genz/1phi8ci.md#c5"
+    char_span: [7877, 9954]
+    sentence_count: 15
+    key_terms: [wikipedia, jobs, wiping, get, controlled, knowledge, because, limited]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/genz/1phi8ci.md#c6"
+    char_span: [9956, 12110]
+    sentence_count: 11
+    key_terms: [wikipedia, work, people, ai-reasoning-math-olympiad-imo, continue, tolopono, global, randomshadeofpurple]
+    section: Comments
+    token_count: 506
 ---
-
 # So how do we think the “AI wipes jobs” thing will turn out in the long run?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1phi8ci/so_how_do_we_think_the_ai_wipes_jobs_thing_will/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1mlrhlj/no_ai_isnt_the_reason_you_cant_find_a_job/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,99 @@ flair: ""
 extracted_at: "2026-05-26T12:54:26.397Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c0"
+    char_span: [0, 1038]
+    sentence_count: 14
+    key_terms: [cscareerquestions, "it's", people, time, companies, different, comments, pattern]
+    token_count: 271
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c1"
+    char_span: [1053, 2864]
+    sentence_count: 13
+    key_terms: [people, unqualified, being, hired, building, making, job, droves]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c2"
+    char_span: [2866, 4735]
+    sentence_count: 16
+    key_terms: [tech, underqualified, government, position, doing, sites, years, c-u-in-da-ballpit]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c3"
+    char_span: [4737, 6643]
+    sentence_count: 14
+    key_terms: [making, being, wrong, handholding, something, because, people, spring]
+    section: Comments
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c4"
+    char_span: [6645, 8404]
+    sentence_count: 11
+    key_terms: [work, form, everyone, backend, fields, talent, values, videos]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c5"
+    char_span: [8406, 10239]
+    sentence_count: 12
+    key_terms: [people, because, got, chili-lime-chihuahua, agree, place, years, billyblobsabillion]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c6"
+    char_span: [10241, 12389]
+    sentence_count: 19
+    key_terms: [people, market, job, companies, administration, trying, "i've", "it's"]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c7"
+    char_span: [12391, 13896]
+    sentence_count: 9
+    key_terms: [lol, inflation, actively, economic, trying, chili-lime-chihuahua, white, years]
+    section: Comments
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c8"
+    char_span: [13898, 15718]
+    sentence_count: 20
+    key_terms: ["it's", like, hired, distraction, job, investment, people, any-competition8494]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c9"
+    char_span: [15720, 17861]
+    sentence_count: 17
+    key_terms: [hiring, "don't", investment, companies, huge, lot, bubble, market]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c10"
+    char_span: [17864, 19407]
+    sentence_count: 10
+    key_terms: [layoffs, companies, company, junior, market, people, money, stock]
+    section: Comments
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c11"
+    char_span: [19409, 21591]
+    sentence_count: 22
+    key_terms: [people, headcount, products, layoffs, months, time, offshoring, companies]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c12"
+    char_span: [21593, 23047]
+    sentence_count: 9
+    key_terms: [work, people, lot, companies, needed, built, going, early-surround7413]
+    section: Comments
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c13"
+    char_span: [23049, 25164]
+    sentence_count: 10
+    key_terms: [deleted, time, applicants, companies, talking, around, hiring, market]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c14"
+    char_span: [25166, 26236]
+    sentence_count: 9
+    key_terms: [tech, interest, getting, thatfeelingisbliss88, rates, train, job, like]
+    section: Comments
+    token_count: 291
 ---
-
 # No, AI Isn't The Reason You Can't Find A Job
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1mlrhlj/no_ai_isnt_the_reason_you_cant_find_a_job/)

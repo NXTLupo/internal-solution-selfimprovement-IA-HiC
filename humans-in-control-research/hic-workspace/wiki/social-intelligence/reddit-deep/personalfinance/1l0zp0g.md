@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1l0zp0g.md
 url: "https://www.reddit.com/r/personalfinance/comments/1l0zp0g/the_intelligent_investor_kinda_rewired_how_i/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,39 @@ flair: "Investing"
 extracted_at: "2026-05-17T01:13:31.188Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1l0zp0g.md#c0"
+    char_span: [0, 818]
+    sentence_count: 7
+    key_terms: [like, personalfinance, intelligent, comments, everyday, investor, market, money]
+    token_count: 196
+  - id: "social-intelligence/reddit-deep/personalfinance/1l0zp0g.md#c1"
+    char_span: [833, 2903]
+    sentence_count: 12
+    key_terms: [time, read, market, "don't", hold, too, updated, change]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/personalfinance/1l0zp0g.md#c2"
+    char_span: [2905, 4867]
+    sentence_count: 18
+    key_terms: [read, better, get, everyone, minutes, thought, advice, bought]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/personalfinance/1l0zp0g.md#c3"
+    char_span: [4869, 5777]
+    sentence_count: 8
+    key_terms: [financial, fastlane, dachieftainofthirsk, books, book, tax-advantaged, consolidated, explanations]
+    section: Comments
+    token_count: 226
+  - id: "social-intelligence/reddit-deep/personalfinance/1l0zp0g.md#c4"
+    char_span: [5779, 6888]
+    sentence_count: 4
+    key_terms: [edition, revised, get, "it's", changed, gskinny, pretty, saving]
+    section: Comments
+    token_count: 303
 ---
-
 # The Intelligent Investor kinda rewired how I think about money
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1l0zp0g/the_intelligent_investor_kinda_rewired_how_i/)

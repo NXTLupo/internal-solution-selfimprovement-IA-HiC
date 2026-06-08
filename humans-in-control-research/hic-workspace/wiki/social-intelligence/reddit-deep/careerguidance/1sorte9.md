@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sorte9.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sorte9/is_there_any_good_tools_or_devices_that_can/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Education & Qualifications"
 extracted_at: "2026-05-19T17:57:31.306Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sorte9.md#c0"
+    char_span: [0, 832]
+    sentence_count: 6
+    key_terms: [organizing, careerguidance, good, comments, career, photos, ok-philosophy-7756, lot]
+    token_count: 186
+  - id: "social-intelligence/reddit-deep/careerguidance/1sorte9.md#c1"
+    char_span: [847, 1421]
+    sentence_count: 4
+    key_terms: [technical-entry9372, later, documentation, inspiration, everything, organizing, screenshot, reference]
+    section: Comments
+    token_count: 114
 ---
-
 # Is there any good tools or devices that can arrange my own career knowledge and help me to develop good skills in my future career?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sorte9/is_there_any_good_tools_or_devices_that_can/)

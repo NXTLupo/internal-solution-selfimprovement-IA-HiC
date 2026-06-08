@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1q93pnb.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1q93pnb/community_college_cs_student_looking_for_advice/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,30 @@ subreddit: "cscareerquestions"
 title: "Community college CS student looking for advice on internships"
 author: "Kitchen-Patience8176"
 date: "2026-01-10T13:12:08.000Z"
-score: 6
-upvote_ratio: 0.81
+score: 9
+upvote_ratio: 1
 num_comments: 2
 flair: "Student"
-extracted_at: "2026-05-23T19:45:00.915Z"
+extracted_at: "2026-06-03T12:16:59.538Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q93pnb.md#c0"
+    char_span: [0, 1288]
+    sentence_count: 11
+    key_terms: [cscareerquestions, projects, certifications, internships, don, community, comments, college]
+    token_count: 304
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q93pnb.md#c1"
+    char_span: [1303, 1849]
+    sentence_count: 6
+    key_terms: [projects, support, apply, certs, roles, don, swe, marcablefluke]
+    section: Comments
+    token_count: 137
 ---
-
 # Community college CS student looking for advice on internships
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1q93pnb/community_college_cs_student_looking_for_advice/)
-Posted by **Kitchen-Patience8176** · **6↑** · **2 comments**
+Posted by **Kitchen-Patience8176** · **9↑** · **2 comments**
 
 I’m almost 21, studying Computer Science at a community college in NJ and planning to transfer to a 4-year school. I’m trying to land a tech internship and start my career.
 

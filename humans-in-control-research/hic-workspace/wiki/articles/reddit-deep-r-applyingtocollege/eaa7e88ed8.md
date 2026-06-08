@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-applyingtocollege/eaa7e88ed8.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1n2mjdu/colleges_only_deliver_on_65_of_what_they_sell_to/"
 url_hash: "eaa7e88ed8"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:41:17.231222+00:00"
 chars: 2951
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-applyingtocollege/eaa7e88ed8.md#c0"
+    char_span: [0, 1037]
+    sentence_count: 7
+    key_terms: [experience, applyingtocollege, through, professors, comments, college, reddit, great]
+    token_count: 240
+  - id: "articles/reddit-deep-r-applyingtocollege/eaa7e88ed8.md#c1"
+    char_span: [1039, 3174]
+    sentence_count: 12
+    key_terms: [college, school, professors, university, "you're", keybother7510, great, kids]
+    token_count: 457
 ---
-
 # Colleges only deliver on 65% of what they "sell" to applicants
 
 Source: [Reddit Deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1n2mjdu/colleges_only_deliver_on_65_of_what_they_sell_to/)

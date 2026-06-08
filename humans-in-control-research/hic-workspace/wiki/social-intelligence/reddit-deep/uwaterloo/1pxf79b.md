@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1pxf79b.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1pxf79b/clout_is_destroying_our_community/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,33 @@ flair: "Discussion"
 extracted_at: "2026-05-25T18:33:12.674Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1pxf79b.md#c0"
+    char_span: [0, 1692]
+    sentence_count: 13
+    key_terms: [students, uwaterloo, blogs, clout, don, community, preparing, comments]
+    token_count: 379
+  - id: "social-intelligence/reddit-deep/uwaterloo/1pxf79b.md#c1"
+    char_span: [1707, 2222]
+    sentence_count: 2
+    key_terms: [meowmeowmeowmeow09, microinfluencers, advertising, causeno2813, definitely, eventually, personally, instagram]
+    section: Comments
+    token_count: 128
+  - id: "social-intelligence/reddit-deep/uwaterloo/1pxf79b.md#c2"
+    char_span: [2224, 4122]
+    sentence_count: 7
+    key_terms: [people, years, cali, like, tips, interested, jhtstreams, preparing]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/uwaterloo/1pxf79b.md#c3"
+    char_span: [4124, 4814]
+    sentence_count: 5
+    key_terms: [people, useful, substantialresist864, blogs, doing, administration, realistically, influencers]
+    section: Comments
+    token_count: 136
 ---
-
 # Clout is destroying our community
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1pxf79b/clout_is_destroying_our_community/)

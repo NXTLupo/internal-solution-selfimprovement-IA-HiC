@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1qp74fx.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1qp74fx/what_is_it_with_all_of_these_tech_jobs_requiring/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-25T13:02:11.348Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qp74fx.md#c0"
+    char_span: [0, 438]
+    sentence_count: 2
+    key_terms: [cscareerquestions, experience, comments, jobs, reddit-deep, requiring, postings, software]
+    token_count: 112
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qp74fx.md#c1"
+    char_span: [453, 2130]
+    sentence_count: 12
+    key_terms: [software, "you're", get, job, experience, companies, another, current]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qp74fx.md#c2"
+    char_span: [2132, 3920]
+    sentence_count: 5
+    key_terms: [oracle, software, adb, back, erp, honestly, company, details]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qp74fx.md#c3"
+    char_span: [3922, 4341]
+    sentence_count: 2
+    key_terms: [workers, internationalend8934, certifications, frighteningly, insignificant, diminishing, companies, expensive]
+    section: Comments
+    token_count: 84
 ---
-
 # What is it with all of these “tech jobs” requiring experience using really niche Oracle software?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1qp74fx/what_is_it_with_all_of_these_tech_jobs_requiring/)

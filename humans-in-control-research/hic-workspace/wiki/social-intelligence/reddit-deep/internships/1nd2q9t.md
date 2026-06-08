@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1nd2q9t.md
 url: "https://www.reddit.com/r/internships/comments/1nd2q9t/got_sent_a_return_offer_by_mistake_lmao/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,42 @@ subreddit: "internships"
 title: "Got sent a return offer by mistake LMAO"
 author: "Ambitious_Claim_6162"
 date: "2025-09-10T02:42:39.000Z"
-score: 851
+score: 841
 upvote_ratio: 0.99
 num_comments: 45
 flair: "Post-Internship"
-extracted_at: "2026-05-19T17:57:20.771Z"
+extracted_at: "2026-06-03T18:52:51.186Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1nd2q9t.md#c0"
+    char_span: [0, 672]
+    sentence_count: 6
+    key_terms: [internships, comments, contract, mistake, offer, sent, disappointment, reddit-deep]
+    token_count: 169
+  - id: "social-intelligence/reddit-deep/internships/1nd2q9t.md#c1"
+    char_span: [687, 2506]
+    sentence_count: 6
+    key_terms: [offer, sufficient-onion4785, return, realneilpeart, want, anything, letter, person]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1nd2q9t.md#c2"
+    char_span: [2324, 2964]
+    sentence_count: 3
+    key_terms: [contract, already, signed, purple-measurement47, inspiringpineapple, pushyladynjina, international, jamesbibarnes]
+    section: Comments
+    token_count: 172
+  - id: "social-intelligence/reddit-deep/internships/1nd2q9t.md#c3"
+    char_span: [2966, 4402]
+    sentence_count: 8
+    key_terms: [employment, offer, application, offers, people, reason, practical-anything66, given]
+    section: Comments
+    token_count: 357
 ---
-
 # Got sent a return offer by mistake LMAO
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1nd2q9t/got_sent_a_return_offer_by_mistake_lmao/)
-Posted by **Ambitious_Claim_6162** · **851↑** · **45 comments**
+Posted by **Ambitious_Claim_6162** · **841↑** · **45 comments**
 
 I am gonna laugh at it because if I don’t I will cry. Apparently the company has been mistaking me for this one person, and come the end of the internship, they wanted to extend her throughout the school year but sent the offer letter and contract to ME. WITH MY NAME AND EVERYTHING!! A Docusign contract that I ALREADY SIGNED.
 
@@ -26,9 +50,9 @@ They admitted their mistake and are working on rectifying it. But holy crap talk
 
 ## Comments
 
-- **Beneficial_Split3147** (144↑): That's actually insane. They should've also given you the return offer after that situation
-  - **Ambitious_Claim_6162** (38↑): Would do anything for a return offer💔💔
-    - **Beneficial_Split3147** (63↑): Honestly it's worth it to email and state the fact that this is really unethical/unprofessional of them and you planned your academic/career trajectory around this opportunity and how this is an utter shock especially if it's been weeks/months
+- **Beneficial_Split3147** (140↑): That's actually insane. They should've also given you the return offer after that situation
+  - **Ambitious_Claim_6162** (37↑): Would do anything for a return offer💔💔
+    - **Beneficial_Split3147** (62↑): Honestly it's worth it to email and state the fact that this is really unethical/unprofessional of them and you planned your academic/career trajectory around this opportunity and how this is an utter shock especially if it's been weeks/months
     - **HedgieHunterGME** (1↑): Anything?
   - **RealProfessorTom** (2↑): I wonder if you could sue and make them hire you.
     - **RealNeilPeart** (1↑): No.
@@ -36,11 +60,11 @@ They admitted their mistake and are working on rectifying it. But holy crap talk
     - **Beneficial_Split3147** (1↑): If they've been dragged along this far with the offer on a stick gimmick then I believe the only way they can remedy this is by giving OP a return offer too
   - **Ambitious_Claim_6162** (1↑): I want to give you an update. They’re now completely denying that they sent me a contract in the first place.😍 I don’t even care anymore at this point. I just want them to leave me alone.
 - **Alarming-Ladder-8902** (33↑): How are they planning on rectifying it?
-  - **Ambitious_Claim_6162** (48↑): By sending the offer letter to the right person 🫩
-- **Sufficient-Onion4785** (11↑): Damn that’s crazy
-  - **Ambitious_Claim_6162** (11↑): The day before I got the offer letter, the manager emailed me talking about the other person’s project as if it was mine lol. I corrected her immediately but I should’ve known.
-    - **Sufficient-Onion4785** (3↑): How the hell they mess up so bad
-- **Salty_Astronaut_2998** (7↑): That’s so stupid , which company ?
+  - **Ambitious_Claim_6162** (46↑): By sending the offer letter to the right person 🫩
+- **Sufficient-Onion4785** (9↑): Damn that’s crazy
+  - **Ambitious_Claim_6162** (12↑): The day before I got the offer letter, the manager emailed me talking about the other person’s project as if it was mine lol. I corrected her immediately but I should’ve known.
+    - **Sufficient-Onion4785** (2↑): How the hell they mess up so bad
+- **Salty_Astronaut_2998** (8↑): That’s so stupid , which company ?
   - **Pushyladynjina** (3↑): Name and shame
 - **Purple-Measurement47** (6↑): I mean it sounds like they signed a contract with you, ask them to honor it?
 - **inspiringpineapple** (5↑): Far from a legal expert but perhaps you could have argued that since you already signed the contract you’re already an employee? A last ditch effort to test their sincerity.

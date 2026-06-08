@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1nrdn09.md
 url: "https://www.reddit.com/r/careerguidance/comments/1nrdn09/ai_ate_my_job_do_you_have_any_ideas_for_a_new/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-24T14:09:04.411Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1nrdn09.md#c0"
+    char_span: [0, 1013]
+    sentence_count: 12
+    key_terms: [careerguidance, career, job, comments, like, new, strategy-focused, communication]
+    token_count: 252
 ---
-
 # AI ate my job. Do you have any ideas for a new strategy-focused career?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1nrdn09/ai_ate_my_job_do_you_have_any_ideas_for_a_new/)

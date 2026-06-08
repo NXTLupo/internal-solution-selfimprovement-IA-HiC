@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-stocks/8abfa5fa39.md
 url: "https://www.reddit.com/r/stocks/comments/1l5vyh4/earnings_up_yields_up_is_trumps_3t_bill_a_bull/"
 url_hash: "8abfa5fa39"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:21:19.269506+00:00"
 chars: 5037
+industries: [financial_services, government]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-stocks/8abfa5fa39.md#c0"
+    char_span: [0, 1995]
+    sentence_count: 16
+    key_terms: [bill, like, earnings, stocks, trump, permanent, probably, because]
+    token_count: 454
+  - id: "articles/reddit-deep-r-stocks/8abfa5fa39.md#c1"
+    char_span: [1997, 4133]
+    sentence_count: 11
+    key_terms: [stocks, market, please, "you're", here, off-topic, political, earnings]
+    token_count: 463
+  - id: "articles/reddit-deep-r-stocks/8abfa5fa39.md#c2"
+    char_span: [4135, 5243]
+    sentence_count: 12
+    key_terms: [goebbels, people, flood, zone, striking-money-7792, party, pizza, uncriticalthinking]
+    token_count: 278
 ---
-
 # Earnings up, yields up   is Trump’s $3T bill a bull trap in disguise?
 
 Source: [Reddit Deep: r/stocks](https://www.reddit.com/r/stocks/comments/1l5vyh4/earnings_up_yields_up_is_trumps_3t_bill_a_bull/)

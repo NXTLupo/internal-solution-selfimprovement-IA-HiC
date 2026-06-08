@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1mrydzj.md
 url: "https://www.reddit.com/r/OpenAI/comments/1mrydzj/prompt_engineering_for_gpt_5/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,27 @@ flair: "Discussion"
 extracted_at: "2026-05-11T16:53:06.861Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1mrydzj.md#c0"
+    char_span: [0, 303]
+    sentence_count: 1
+    key_terms: [engineering, comments, openai, prompt, gpt, particularly, slowfail2433, reddit-deep]
+    token_count: 83
+  - id: "social-intelligence/reddit-deep/openai/1mrydzj.md#c1"
+    char_span: [318, 2330]
+    sentence_count: 20
+    key_terms: [avoid, description, optional, o1-mini, prompts, full, grimreefer, different]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/openai/1mrydzj.md#c2"
+    char_span: [2332, 3470]
+    sentence_count: 9
+    key_terms: [prompt-optimizer-automated-meta-prompting, ferenczai, substack, example, explain, prompts, expect, prompt]
+    section: Comments
+    token_count: 284
 ---
-
 # Prompt engineering for GPT 5
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1mrydzj/prompt_engineering_for_gpt_5/)

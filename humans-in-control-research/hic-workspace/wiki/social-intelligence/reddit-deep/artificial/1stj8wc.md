@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1stj8wc.md
 url: "https://www.reddit.com/r/artificial/comments/1stj8wc/google_says_75_of_the_companys_new_code_is/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,21 @@ flair: "News"
 extracted_at: "2026-05-11T17:27:04.763Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1stj8wc.md#c0"
+    char_span: [0, 449]
+    sentence_count: 3
+    key_terms: [ai-generated, artificial, "company's", comments, google, number, code, reddit-deep]
+    token_count: 123
+  - id: "social-intelligence/reddit-deep/artificial/1stj8wc.md#c1"
+    char_span: [464, 1409]
+    sentence_count: 5
+    key_terms: [like, explains, protobuf, buggier, detouristcollective, tanishkacantcopee, code, temporaryuser10]
+    section: Comments
+    token_count: 253
 ---
-
 # Google says 75% of the company's new code is AI-generated
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1stj8wc/google_says_75_of_the_companys_new_code_is/)

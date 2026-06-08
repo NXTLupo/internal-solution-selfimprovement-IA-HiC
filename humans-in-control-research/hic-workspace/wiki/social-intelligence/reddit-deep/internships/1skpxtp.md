@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1skpxtp.md
 url: "https://www.reddit.com/r/internships/comments/1skpxtp/how_to_get_fall_internships_at_big_companies/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "General"
 extracted_at: "2026-05-20T02:30:49.750Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1skpxtp.md#c0"
+    char_span: [0, 338]
+    sentence_count: 1
+    key_terms: [internships, comments, fall, find, opportunities, reddit-deep, internship, companies]
+    token_count: 88
+  - id: "social-intelligence/reddit-deep/internships/1skpxtp.md#c1"
+    char_span: [353, 1984]
+    sentence_count: 6
+    key_terms: [fall, appropriate-tutor587, internship, summer, start, rivocareers, companies, positions]
+    section: Comments
+    token_count: 417
 ---
-
 # How to get fall internships at big companies
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1skpxtp/how_to_get_fall_internships_at_big_companies/)

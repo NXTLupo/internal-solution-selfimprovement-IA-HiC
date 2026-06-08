@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1tbdm3f.md
 url: "https://www.reddit.com/r/GradSchool/comments/1tbdm3f/applying_to_grad_school_in_public_policy_with_low/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,21 @@ flair: "Admissions & Applications"
 extracted_at: "2026-05-26T14:32:49.130Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [government, policy]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1tbdm3f.md#c0"
+    char_span: [0, 1412]
+    sentence_count: 12
+    key_terms: [experience, gpa, work, get, good, like, "bachelor's", gradschool]
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/gradschool/1tbdm3f.md#c1"
+    char_span: [1427, 1905]
+    sentence_count: 2
+    key_terms: [college, learn, get, gpa, non-matriculated, significantly, application, cinemacatty]
+    section: Comments
+    token_count: 122
 ---
-
 # Applying to Grad School in Public Policy with low GPA and no research experience
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1tbdm3f/applying_to_grad_school_in_public_policy_with_low/)

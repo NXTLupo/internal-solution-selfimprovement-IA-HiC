@@ -1,3 +1,66 @@
+---
+id: benchmarks/cx-metrics.md
+chunks:
+  - id: "benchmarks/cx-metrics.md#c0"
+    char_span: [0, 325]
+    sentence_count: 3
+    key_terms: [benchmarks, metrics, cross-referenced, corresponding, quantitative, experience, hypothesis, knowledge]
+    token_count: 62
+  - id: "benchmarks/cx-metrics.md#c1"
+    char_span: [367, 2086]
+    sentence_count: 2
+    key_terms: [benchmarks, nps, verified, evidence, financial-impact, confidence, cross-refs, benchmark]
+    section: Net Promoter Score (NPS) by Industry
+    token_count: 500
+  - id: "benchmarks/cx-metrics.md#c2"
+    char_span: [2121, 3212]
+    sentence_count: 1
+    key_terms: [csat, verified, data, benchmarks, confidence, cross-refs, evidence, financial-impact]
+    section: Customer Satisfaction (CSAT)
+    token_count: 308
+  - id: "benchmarks/cx-metrics.md#c3"
+    char_span: [3246, 4412]
+    sentence_count: 1
+    key_terms: [experience, customers, verified, data, benchmarks, confidence, cross-refs, low-effort]
+    section: Customer Effort Score (CES)
+    token_count: 333
+  - id: "benchmarks/cx-metrics.md#c4"
+    char_span: [4454, 5948]
+    sentence_count: 1
+    key_terms: [benchmarks, verified, financial-impact, technology-adoption, confidence, cross-refs, evidence, matched]
+    section: "Contact Center & Resolution Metrics"
+    token_count: 453
+  - id: "benchmarks/cx-metrics.md#c5"
+    char_span: [5990, 6793]
+    sentence_count: 1
+    key_terms: [customers, data, financial-impact, benchmarks, confidence, cross-refs, hypothesis, retention]
+    section: "Customer Lifetime Value & Retention"
+    token_count: 210
+  - id: "benchmarks/cx-metrics.md#c6"
+    char_span: [6821, 7926]
+    sentence_count: 1
+    key_terms: [benchmarks, financial-impact, churn, verified, data, confidence, cross-refs, competitive-intel]
+    section: Churn Rate Benchmarks
+    token_count: 320
+  - id: "benchmarks/cx-metrics.md#c7"
+    char_span: [7960, 9095]
+    sentence_count: 2
+    key_terms: [benchmarks, financial-impact, verified, data, confidence, cross-refs, source, last]
+    section: "CX ROI & Investment Returns"
+    token_count: 310
+  - id: "benchmarks/cx-metrics.md#c8"
+    char_span: [9134, 9939]
+    sentence_count: 1
+    key_terms: [personalization, data, benchmarks, confidence, cross-refs, hypothesis, verified, current]
+    section: Customer Experience Expectations
+    token_count: 212
+  - id: "benchmarks/cx-metrics.md#c9"
+    char_span: [9962, 10454]
+    sentence_count: 3
+    key_terms: [evidenced, retention-to-profitability, cited, data, cost-of-bad-cx, benchmarks, consulting, frequently]
+    section: Validation Notes
+    token_count: 113
+---
 # CX Metrics Benchmarks
 
 This page collects quantitative benchmarks for core customer experience metrics.

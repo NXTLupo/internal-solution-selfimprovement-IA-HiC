@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1t2vyn4.md
 url: "https://www.reddit.com/r/deeplearning/comments/1t2vyn4/3iatlas_diagnostic_run_on_a_transformer_dnn_via/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,25 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.057Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1t2vyn4.md#c0"
+    char_span: [0, 2170]
+    sentence_count: 12
+    key_terms: [transformer, interfaces, orientation, diagnostic, invariants, scope, contract, architecture]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/deeplearning/1t2vyn4.md#c1"
+    char_span: [2172, 3911]
+    sentence_count: 9
+    key_terms: [transformer, intelligence, invariants, invariant, attention, lens, model, explicitly]
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/deeplearning/1t2vyn4.md#c2"
+    char_span: [3913, 5836]
+    sentence_count: 10
+    key_terms: [transformer, intelligence, attention, diagnostic, gradient, sensing, weights, system]
+    token_count: 448
 ---
-
 # 3I-ATLAS diagnostic run on a Transformer DNN (via Manus AI)
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1t2vyn4/3iatlas_diagnostic_run_on_a_transformer_dnn_via/)

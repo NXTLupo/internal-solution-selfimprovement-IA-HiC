@@ -6,19 +6,19 @@ subreddit: "findapath"
 title: "I finally got a job offer with a big salary and I had to tell someone"
 author: "Far_Lifeguard_2570"
 date: "2026-03-25T14:41:15.000Z"
-score: 543
+score: 540
 upvote_ratio: 0.99
 num_comments: 49
 flair: "Success Story Post"
-extracted_at: "2026-05-25T13:04:07.388Z"
+extracted_at: "2026-06-06T23:22:15.459Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # I finally got a job offer with a big salary and I had to tell someone
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1s3co8v/i_finally_got_a_job_offer_with_a_big_salary_and_i/)
-Posted by **Far_Lifeguard_2570** · **543↑** · **49 comments**
+Posted by **Far_Lifeguard_2570** · **540↑** · **49 comments**
 
 Hey everyone, I'm over the moon right now and have no one to tell, so I decided to write here. I work in the tech field, and my current salary is $80,000 a year. My career path has honestly been like a rollercoaster. I dropped out of college and was making about $50,000 a year.
 
@@ -44,15 +44,15 @@ Sorry for the long ramble, but I just needed to get this off my chest. I'm incre
 
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/findapath) if you have any questions or concerns.*
-- **trynavi** (61↑): Congrats - you absolutely deserve it! Your dad would have been so incredibly proud of you.
-- **Stock-Reindeer-5078** (34↑): Dad would be proud🤞🏻
+- **trynavi** (59↑): Congrats - you absolutely deserve it! Your dad would have been so incredibly proud of you.
+- **Stock-Reindeer-5078** (32↑): Dad would be proud🤞🏻
 - **LoveSexDrugs97** (14↑): Congratulations OP! I’m (28M) in a very similar boat to as you but just crossed my 1 year mark at my 120k job! I was making 70k in healthcare and got an offer at 120,000. It did in fact change my life! I filled a 401K and IRA for the first time in my life, and was able to enjoy dates, concerts, nights out with friends, and hobbies without stressing about the financial aspect of things! This year my real focus is on saving for a house. 
 
 My advice to you would be work hard and be grateful! I work harder than I did at my 70k job, mostly because I actually care about losing this job. But it’s worth it because the lifestyle is so much better!
 
 I’m proud of you and I don’t even know you so I can’t imagine how proud your dad would be!
-- **NecessaryDoughnut222** (15↑): Congratulations! Good things happen to good people. Your dad played a part in your success, I’m sure he’d be beyond proud of your accomplishments.
-- **Lyxn0** (4↑): Congratulations 🎉!! That’s amazing and you should be so proud of yourself. Wishing you the best!
+- **NecessaryDoughnut222** (14↑): Congratulations! Good things happen to good people. Your dad played a part in your success, I’m sure he’d be beyond proud of your accomplishments.
+- **Lyxn0** (5↑): Congratulations 🎉!! That’s amazing and you should be so proud of yourself. Wishing you the best!
 - **Reasonable_Angel_** (3↑): Congratulations, love that for you! May thinks continue to go the way you desire🩷
   - **Reasonable_Angel_** (2↑): Things *
 - **CastlewithTits** (3↑): Congrats.

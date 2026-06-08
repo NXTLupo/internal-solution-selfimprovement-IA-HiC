@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1psp9j2.md
 url: "https://www.reddit.com/r/financialindependence/comments/1psp9j2/fire_with_17mil_when_the_majority_is_in_bitcoin_1/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,89 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.704Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c0"
+    char_span: [0, 1921]
+    sentence_count: 12
+    key_terms: [financialindependence, original, btc, post, fire, comments, majority, around]
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c1"
+    char_span: [1923, 3815]
+    sentence_count: 11
+    key_terms: [job, person, applications, unemployment, jobs, like, term, positions]
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c2"
+    char_span: [3817, 6208]
+    sentence_count: 19
+    key_terms: [interview, "i'd", feeling, better, being, trips, searching, been]
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c3"
+    char_span: [6210, 8311]
+    sentence_count: 14
+    key_terms: ["i'm", like, time, working, myself, feel, job, months]
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c4"
+    char_span: [8313, 10123]
+    sentence_count: 14
+    key_terms: [cash, sell, btc, year, enough, years, time, number]
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c5"
+    char_span: [10138, 11308]
+    sentence_count: 5
+    key_terms: [year, stock, yield, did, job, working, crypto, bond]
+    section: Comments
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c6"
+    char_span: [11311, 13087]
+    sentence_count: 13
+    key_terms: [year, gains, capital, btc, subtract, federal, limit, "i'm"]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c7"
+    char_span: [13089, 14982]
+    sentence_count: 11
+    key_terms: [btc, crypto, basis, cost, plan, sell, year, "wouldn't"]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c8"
+    char_span: [14985, 16601]
+    sentence_count: 12
+    key_terms: [delicious-plastic-44, btc, "i'm", sell, playing, crypto, though, bonds]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c9"
+    char_span: [16603, 17957]
+    sentence_count: 7
+    key_terms: [gains, sell, tax, year, years, "i'm", advisable, creating]
+    section: Comments
+    token_count: 338
+  - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c10"
+    char_span: [17959, 19862]
+    sentence_count: 13
+    key_terms: [bitcoin, henfruiteater, advice, overexposed, btc, cash, year, bitcoinmd]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c11"
+    char_span: [19629, 20260]
+    sentence_count: 3
+    key_terms: [btc, cash, "i'm", run, sell, year, outrageous, continue]
+    section: Comments
+    token_count: 161
+  - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c12"
+    char_span: [20262, 22125]
+    sentence_count: 19
+    key_terms: [property, house, insurance, utilities, like, expenses, car, paid]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c13"
+    char_span: [22127, 23976]
+    sentence_count: 9
+    key_terms: [year, insurance, half, budget, eventually, unexpected, continue, coverage]
+    section: Comments
+    token_count: 474
 ---
-
 # FIRE with $1.7~mil when the majority is in Bitcoin? - 1 YEAR UPDATE
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1psp9j2/fire_with_17mil_when_the_majority_is_in_bitcoin_1/)

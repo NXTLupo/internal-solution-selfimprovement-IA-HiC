@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1s9rf8p.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1s9rf8p/beginning_of_career_advice_pay_or_experience/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: "New Grad"
 extracted_at: "2026-05-23T19:45:00.913Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s9rf8p.md#c0"
+    char_span: [0, 1669]
+    sentence_count: 15
+    key_terms: [company, development, cscareerquestions, been, "it's", new, soon, experience]
+    token_count: 386
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s9rf8p.md#c1"
+    char_span: [1684, 3619]
+    sentence_count: 11
+    key_terms: [job, experience, something, because, java, pay, difference, companies]
+    section: Comments
+    token_count: 440
 ---
-
 # Beginning of Career Advice: Pay or Experience?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1s9rf8p/beginning_of_career_advice_pay_or_experience/)

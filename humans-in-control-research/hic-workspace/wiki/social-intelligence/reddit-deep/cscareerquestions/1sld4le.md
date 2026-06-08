@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1sld4le.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1sld4le/new_economic_study_from_lse_shows_ai_has_led_to/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,59 @@ subreddit: "cscareerquestions"
 title: "New Economic Study from LSE shows AI has led to 500k less coding jobs"
 author: "tuckfrump69"
 date: "2026-04-14T16:08:21.000Z"
-score: 81
+score: 85
 upvote_ratio: 0.64
 num_comments: 62
 flair: ""
-extracted_at: "2026-05-20T06:40:32.323Z"
+extracted_at: "2026-06-06T00:28:32.214Z"
 extraction_method: "praw-deep"
-research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sld4le.md#c0"
+    char_span: [0, 2175]
+    sentence_count: 6
+    key_terms: [employment, percent, jobs, effect, coder, estimates, cscareerquestions, job]
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sld4le.md#c1"
+    char_span: [2177, 3829]
+    sentence_count: 10
+    key_terms: [occupations, displaced, jobs, demand, productivity, swes, automation, aggregate]
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sld4le.md#c2"
+    char_span: [3844, 5785]
+    sentence_count: 5
+    key_terms: [jobs, eliminated, economy, lambdawaves, here, read, interpret, evidence]
+    section: Comments
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sld4le.md#c3"
+    char_span: [5787, 6017]
+    sentence_count: 1
+    key_terms: [occupations, jobs, good, occupational, well-matched, possibly, average, matches]
+    section: Comments
+    token_count: 49
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sld4le.md#c4"
+    char_span: [6019, 8260]
+    sentence_count: 11
+    key_terms: [jobs, coder, been, "it's", like, engineers, because, chatgpt]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sld4le.md#c5"
+    char_span: [7955, 8943]
+    sentence_count: 1
+    key_terms: [like, architecture, seeing, maybe, "we're", mediocre-pizza-guy, data, jobs]
+    section: Comments
+    token_count: 213
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sld4le.md#c6"
+    char_span: [8945, 11136]
+    sentence_count: 10
+    key_terms: [quantumpencil, non-technical, right, "it's", everywhere, employees, clueless, codebase]
+    section: Comments
+    token_count: 510
 ---
-
 # New Economic Study from LSE shows AI has led to 500k less coding jobs
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sld4le/new_economic_study_from_lse_shows_ai_has_led_to/)
-Posted by **tuckfrump69** · **81↑** · **62 comments**
+Posted by **tuckfrump69** · **85↑** · **62 comments**
 
 I'm going to just post the most relevant parts:
 
@@ -56,25 +97,23 @@ But if you are a CS student who isn't particularly interested in what you do you
 
 ## Comments
 
-- **lambdawaves** (160↑): “Has led to”
+- **lambdawaves** (158↑): “Has led to”
 
 “We caution against interpreting this as a causal effect” 
 
 🙄
-  - **Angriestanteater** (60↑): I see stuff like this and suddenly the unemployment stats for folks around here makes sense.
+  - **Angriestanteater** (59↑): I see stuff like this and suddenly the unemployment stats for folks around here makes sense.
     - **Pristine-Item680** (11↑): “Man when my older cousin graduated college in 2021, he got $120k a year because he could kind of build with React. Why is no one giving me $120k a year to copy-paste AI output?”
-  - **cy_kelly** (17↑): My pet hill that I will die on is that instead of the default being pre-calc and AP calculus, we should funnel high school kids into a statistics course instead.
-    - **KruegerFishBabeblade** (11↑): The irony here is that everyone here should in theory have a BS degree
+  - **cy_kelly** (16↑): My pet hill that I will die on is that instead of the default being pre-calc and AP calculus, we should funnel high school kids into a statistics course instead.
+    - **KruegerFishBabeblade** (9↑): The irony here is that everyone here should in theory have a BS degree
     - **lambdawaves** (2↑): 100% agree
-  - **pydry** (6↑): Gotta keep that stock market bubble pumped. It's even more critical now with an incoming Iran shaped pin.
-  - **Dependent-Cash-3405** (2↑): ya but this is like every single paper lmao
-    - **lambdawaves** (2↑): And people still assume causation anyway, which is wrong
-- **WinonasChainsaw** (310↑): > For a number of reasons, we do not interpret the results as evidence that AI has eliminated 500,000 jobs from the economy.
+  - **pydry** (5↑): Gotta keep that stock market bubble pumped. It's even more critical now with an incoming Iran shaped pin.
+- **WinonasChainsaw** (309↑): > For a number of reasons, we do not interpret the results as evidence that AI has eliminated 500,000 jobs from the economy.
 
 Reading comprehension fried
   - **LordOfThe_Pings** (104↑): is it really a surprise that people like this can’t land intellectually challenging jobs?
-    - **evo_moment_37** (27↑): They can’t even read this there’s 99% chance they can’t read documentation or understand leetcode questions.
-  - **genericusername71** (23↑): tbf OP does say 500k less *coding* jobs
+    - **evo_moment_37** (26↑): They can’t even read this there’s 99% chance they can’t read documentation or understand leetcode questions.
+  - **genericusername71** (22↑): tbf OP does say 500k less *coding* jobs
 
 one context of the quote you provided is that coders would have found jobs in other occupations
 
@@ -87,13 +126,13 @@ so those are not contradictory
 >**First, many coders would have found jobs—and possibly good, well-matched jobs—in other occupations.** If occupational task mix and demand for other occupations are stable, then those jobs may not be as good matches on average. 
 
 the implication of this is that if some cs grad is now working at mcdonald's it doesn't count as a job lost for the economy, because the net number of jobs is still 1.
-    - **Tree8282** (28↑): If you read the paper, what they did was compare coder vs non coder jobs after ChatGPT release. They found significant differences in number of coder and non coder jobs; which does not at all imply causality of ChatGPT and loss of coder jobs
-    - **this_is_theone** (-1↑): Right, but your title is still wrong
-- **SignificanceShotc** (56↑): We really just making threads without reading the articles we post, huh?
+    - **Tree8282** (26↑): If you read the paper, what they did was compare coder vs non coder jobs after ChatGPT release. They found significant differences in number of coder and non coder jobs; which does not at all imply causality of ChatGPT and loss of coder jobs
+    - **this_is_theone** (1↑): Right, but your title is still wrong
+- **SignificanceShotc** (53↑): We really just making threads without reading the articles we post, huh?
   - **[deleted]** (6↑): This has been just about every headline. How many of those companies x laid off x people, and like 10-20% were not tech roles. Not all but more than should be posted in a sub for intellectual thinkers.
 - **Marcostbo** (19↑): Or maybe because economy is shitty? The "recession" word has been avoided everywhere
 - **1millionnotameme** (6↑): This all makes sense but then there's the obvious point that is said again and again. With AI it's still technology. Even now it's very software engineering heavy to come up with a decent workflow and pipeline, engineers will be needed and there will be new jobs spun up in order to manage this. Either from cost cutting solutions to whatever. If for some reason AI completely eliminated engineers and operates from itself then no major or job is safe, it'll exponentially start working to displace every industry. Why pay someone to do your taxes, represent you in law etc. eventually robotics will become better too ultimately replacing most jobs and then what? It's easier to just ride the wave and see what happens
-- **Puzzleheaded_Air4884** (4↑): question: has anyone on here actually worked on a team where ai straight up replaced coders, or is this study more about slowed growth than total wipeout? i've been digging into that ssrn paper, and it talks about employment growth dipping post-chatgpt, but coder jobs didn't vanish, they just grew slower. from my corner in ux research, we're seeing ai handle rote stuff like initial wireframe sketches or basic data cleaning in user interviews, but it flops hard on the empathy bits, like probing why someone rage-quits an app during usability testing. you still need humans to run those sessions, synthesize messy qualitative data, and iterate on information architecture without turning it into ai slop. tbh, coders might be in a similar spot, tools like cursor speeding up boilerplate but not the architecture or debugging edge cases. been seeing chatter about juniors freaking out over entry-level evaporation, which sucks, but maybe it's a push to level up faster. makes me wonder if we'll see more hybrid roles. damn, this market's wild, feels like we're all just adapting on the fly.
+- **Puzzleheaded_Air4884** (6↑): question: has anyone on here actually worked on a team where ai straight up replaced coders, or is this study more about slowed growth than total wipeout? i've been digging into that ssrn paper, and it talks about employment growth dipping post-chatgpt, but coder jobs didn't vanish, they just grew slower. from my corner in ux research, we're seeing ai handle rote stuff like initial wireframe sketches or basic data cleaning in user interviews, but it flops hard on the empathy bits, like probing why someone rage-quits an app during usability testing. you still need humans to run those sessions, synthesize messy qualitative data, and iterate on information architecture without turning it into ai slop. tbh, coders might be in a similar spot, tools like cursor speeding up boilerplate but not the architecture or debugging edge cases. been seeing chatter about juniors freaking out over entry-level evaporation, which sucks, but maybe it's a push to level up faster. makes me wonder if we'll see more hybrid roles. damn, this market's wild, feels like we're all just adapting on the fly.
 - **Mediocre-Pizza-Guy** (3↑): Maybe we should accept that the insane increase in coding jobs wasn't normal?
 
 As an example, Google had 98k employees in 2018. Maybe a reasonable and sustainable amount of growth would mean we should have  115k
@@ -101,11 +140,11 @@ As an example, Google had 98k employees in 2018. Maybe a reasonable and sustaina
 But by 2022 they had 190k employees.
 
 10 year ago was 2016. What percentage decrease have we had since then?
-- **quantumpencil** (17↑): It's going to be great when this doesn't materialize, the economy turns around and all these businesses start hiring developers again because they're still too retarded to properly operate AI and create/maintain products at scale
+- **quantumpencil** (16↑): It's going to be great when this doesn't materialize, the economy turns around and all these businesses start hiring developers again because they're still too retarded to properly operate AI and create/maintain products at scale
   - **Leather-Rice5025** (18↑): Maybe this is just cope, but while I can absolutely acknowledge AI is a helpful tool in the right hands, it has enabled some really shitty practices at my own job. My manager is pushing unreviewed code out faster than ever and breaking things left and right. We spend a good amount of time trying to debug and fix the shit AI breaks. Complexity is increasing rapidly in our codebase because nobody takes the proper time to question whether features *should* be implemented this way.
     - **quantumpencil** (7↑): Yep, this is the reality of things everywhere these tools are being relied on by clueless non-technical people.
-  - **htraos** (-3↑): Stage 4: Bargaining.
-    - **quantumpencil** (2↑): Nah, I'm just correct. I'm not having any problem finding leads, and am still employed. Most of this panic is coming from people who have never worked on a production codebase that actually has users. It's student freaking out cause they can vibecode toy apps and clueless non-technical managers salivating over their dream of a 1 employee business.
+  - **htraos** (-2↑): Stage 4: Bargaining.
+    - **quantumpencil** (3↑): Nah, I'm just correct. I'm not having any problem finding leads, and am still employed. Most of this panic is coming from people who have never worked on a production codebase that actually has users. It's student freaking out cause they can vibecode toy apps and clueless non-technical managers salivating over their dream of a 1 employee business.
 - **Puzzleheaded_Air4884** (1↑): yeah that study popped up everywhere. lse paper, right? solid source but feels like it's capturing a snapshot.
 
 tbh ai's shaking things up, but coders aren't vanishing overnight. been seeing chatter about folks blending skills instead of pure coding gigs.

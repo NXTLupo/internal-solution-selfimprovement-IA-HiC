@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1opisws.md
 url: "https://www.reddit.com/r/GPT/comments/1opisws/gpt_become_awfully_filtered_recently/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,33 @@ flair: "ChatGPT"
 extracted_at: "2026-05-11T17:26:37.723Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1opisws.md#c0"
+    char_span: [0, 1312]
+    sentence_count: 8
+    key_terms: [gpt, write, responds, thinking, man, comments, recently, usually]
+    token_count: 318
+  - id: "social-intelligence/reddit-deep/gpt/1opisws.md#c1"
+    char_span: [1327, 2841]
+    sentence_count: 8
+    key_terms: [like, deepseek, https, imgur, com, grok, bljjdfk, suggest]
+    section: Comments
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/gpt/1opisws.md#c2"
+    char_span: [2843, 4623]
+    sentence_count: 14
+    key_terms: [like, https, com, ywjywpr, imgur, re-generating, re-generated, use]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/gpt/1opisws.md#c3"
+    char_span: [4625, 5023]
+    sentence_count: 3
+    key_terms: [gpt, like, holyredbeard, megastathio, everytime, accusing, probably, thinking]
+    section: Comments
+    token_count: 104
 ---
-
 # Gpt become awfully filtered recently
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1opisws/gpt_become_awfully_filtered_recently/)

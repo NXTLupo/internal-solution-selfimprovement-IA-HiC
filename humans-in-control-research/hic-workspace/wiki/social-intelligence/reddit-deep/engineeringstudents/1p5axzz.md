@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1p5axzz/being_a_female_engineering_student_is_alienating/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,51 @@ flair: "Rant/Vent"
 extracted_at: "2026-05-22T21:34:47.621Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c0"
+    char_span: [0, 1466]
+    sentence_count: 8
+    key_terms: [engineering, engineeringstudents, get, male, experience, isolating, meanwhile, comments]
+    token_count: 316
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c1"
+    char_span: [1481, 3274]
+    sentence_count: 14
+    key_terms: [engineering, friends, women, computer, outside, people, school, girls]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c2"
+    char_span: [3276, 3919]
+    sentence_count: 3
+    key_terms: [engineering, women, classes, strangedell123, unfortunately, netherlands, chemistry, clasisftw]
+    section: Comments
+    token_count: 161
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c3"
+    char_span: [3922, 5538]
+    sentence_count: 20
+    key_terms: [women, engineering, hang, mechanical, majority, probably, programs, deleted]
+    section: Comments
+    token_count: 408
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c4"
+    char_span: [5540, 6318]
+    sentence_count: 8
+    key_terms: [women, being, feel, get, like, acknowledged, appreciated, engineering]
+    section: Comments
+    token_count: 189
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c5"
+    char_span: [6320, 8560]
+    sentence_count: 24
+    key_terms: [engineering, women, friends, people, social, being, heard, students]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1p5axzz.md#c6"
+    char_span: [8562, 9202]
+    sentence_count: 6
+    key_terms: [engineer, engineers, others, people, women, men, fuzzypluto86, differences]
+    section: Comments
+    token_count: 148
 ---
-
 # Being a female engineering student is alienating
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1p5axzz/being_a_female_engineering_student_is_alienating/)

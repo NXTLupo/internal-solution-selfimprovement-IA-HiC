@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1sj9oes.md
 url: "https://www.reddit.com/r/jobs/comments/1sj9oes/confused_about_zorvyn_got_offer_letter_hr_replied/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,21 @@ flair: "Onboarding"
 extracted_at: "2026-05-22T21:35:36.548Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [media, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1sj9oes.md#c0"
+    char_span: [0, 1605]
+    sentence_count: 10
+    key_terms: [received, onboarding, offer, confused, zorvyn, sent, comments, concerns]
+    token_count: 353
+  - id: "social-intelligence/reddit-deep/jobs/1sj9oes.md#c1"
+    char_span: [1620, 3443]
+    sentence_count: 12
+    key_terms: [bengaluru-techie-calls-out-hiring-scam-after-spotting-fake-employee-profiles-dont-waste-your-time-101775650579679-amp, interview, details, check, scams, bank, fake, job]
+    section: Comments
+    token_count: 510
 ---
-
 # “Confused About Zorvyn: Got Offer Letter, HR Replied, Onboarding Started… But Social Media Says Scam?”
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1sj9oes/confused_about_zorvyn_got_offer_letter_hr_replied/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/65e2cbaf8d.md
 url: "https://www.reddit.com/r/careerguidance/comments/1oo75vr/looking_for_guidance_where_should_i_focus_my_job/"
 url_hash: "65e2cbaf8d"
 kind: "article"
@@ -10,8 +11,45 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:40:43.360409+00:00"
 chars: 12000
+industries: [real_estate, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/65e2cbaf8d.md#c0"
+    char_span: [0, 1420]
+    sentence_count: 11
+    key_terms: [internship, months, experience, careerguidance, job, project, working, estate]
+    token_count: 331
+  - id: "articles/reddit-deep-r-careerguidance/65e2cbaf8d.md#c1"
+    char_span: [1422, 2465]
+    sentence_count: 2
+    key_terms: [environments, feedback, learning, without, rather, tasks, work, administrative]
+    token_count: 201
+  - id: "articles/reddit-deep-r-careerguidance/65e2cbaf8d.md#c2"
+    char_span: [2467, 4653]
+    sentence_count: 2
+    key_terms: [working, long-term, learning, leaders, success, market, clear, encouraging]
+    token_count: 395
+  - id: "articles/reddit-deep-r-careerguidance/65e2cbaf8d.md#c3"
+    char_span: [4655, 7309]
+    sentence_count: 8
+    key_terms: [feedback, roles, market, encouragement, constructive, goals, acquisition, work]
+    token_count: 506
+  - id: "articles/reddit-deep-r-careerguidance/65e2cbaf8d.md#c4"
+    char_span: [7311, 9517]
+    sentence_count: 14
+    key_terms: [analyst, private, whether, underwriting, firms, focus, years, development]
+    token_count: 474
+  - id: "articles/reddit-deep-r-careerguidance/65e2cbaf8d.md#c5"
+    char_span: [9519, 11879]
+    sentence_count: 18
+    key_terms: [management, acquisitions, industrial, asset, multifamily, firms, good, experience]
+    token_count: 499
+  - id: "articles/reddit-deep-r-careerguidance/65e2cbaf8d.md#c6"
+    char_span: [11881, 12227]
+    sentence_count: 3
+    key_terms: [industrial, culture-screen, underwriting, reach-outs, rotational, dashboard, questions, feedback]
+    token_count: 75
 ---
-
 # Looking for Guidance: Where Should I Focus My Job Search in Real Estate?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1oo75vr/looking_for_guidance_where_should_i_focus_my_job/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rvanty.md
 url: "https://www.reddit.com/r/internships/comments/1rvanty/looking_for_advice_on_finding_a_paid_data_science/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,22 @@ score: 0
 upvote_ratio: 0.5
 num_comments: 1
 flair: "Offers"
-extracted_at: "2026-05-20T02:30:49.745Z"
+extracted_at: "2026-06-05T19:52:26.153Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rvanty.md#c0"
+    char_span: [0, 1241]
+    sentence_count: 4
+    key_terms: [data, internships, science, currently, learning, machine, engineering, paid]
+    token_count: 271
+  - id: "social-intelligence/reddit-deep/internships/1rvanty.md#c1"
+    char_span: [1256, 1552]
+    sentence_count: 1
+    key_terms: [sweet-frosting4839, internshipdaily, constantly, everything, foundation, portfolio, applying, dropouts]
+    section: Comments
+    token_count: 67
 ---
-
 # Looking for advice on finding a paid Data Science internship
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rvanty/looking_for_advice_on_finding_a_paid_data_science/)

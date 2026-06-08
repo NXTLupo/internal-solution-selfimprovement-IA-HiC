@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1rvkwpb.md
 url: "https://www.reddit.com/r/NEU/comments/1rvkwpb/fall_2026_coop_search_checkin_50_apps_on_nuworks/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,22 @@ score: 3
 upvote_ratio: 0.71
 num_comments: 7
 flair: "Co-op & Career"
-extracted_at: "2026-05-13T23:02:38.894Z"
+extracted_at: "2026-06-06T00:27:19.936Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1rvkwpb.md#c0"
+    char_span: [0, 1268]
+    sentence_count: 12
+    key_terms: [fall, nuworks, co-op, data, interview, comments, looking, student]
+    token_count: 318
+  - id: "social-intelligence/reddit-deep/neu/1rvkwpb.md#c1"
+    char_span: [1283, 2309]
+    sentence_count: 11
+    key_terms: [draweramazing6498, got, applying, interview, something, offer, "i'm", job]
+    section: Comments
+    token_count: 284
 ---
-
 # Fall 2026 Co-op Search Check-in: 50 apps on NUworks, 1 interview (rejected). Am I cooked? Is it too late?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1rvkwpb/fall_2026_coop_search_checkin_50_apps_on_nuworks/)
@@ -38,7 +50,7 @@ Any advice, reality checks, or just shared misery would be highly appreciated ri
 
 ## Comments
 
-- **ChilllFam** (3↑): Im in CS, I have applied to 75 through NUworks and 25 or so more from other job boards. I have my first interview tomorrow, and have gotten 3 OA’s other than that. Kind of in a similar position. Not too sure how to feel right now, but hoping something sticks soon.
+- **ChilllFam** (4↑): Im in CS, I have applied to 75 through NUworks and 25 or so more from other job boards. I have my first interview tomorrow, and have gotten 3 OA’s other than that. Kind of in a similar position. Not too sure how to feel right now, but hoping something sticks soon.
   - **DrawerAmazing6498** (1↑): well,good luck!
 - **[deleted]** (3↑): I'm in CS. Only got one interview (rejected).
 - **saagggssss** (2↑): You should do both. Nu works and LinkedIn. And in this current job market for tech, you most likely need to do more. I had a call back of 1.5%. I interned in summer 25 and had 300+ applications.

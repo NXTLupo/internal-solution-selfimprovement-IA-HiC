@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-techforgood/79fff1ccf5.md
 url: "https://reddit.com/r/techforgood/comments/1raow1i/feedback_request_gdprsafe_partner_rooms_for/"
 url_hash: "79fff1ccf5"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-04-28T05:33:40.118580+00:00"
 chars: 776
+industries: [nonprofit, saas]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-techforgood/79fff1ccf5.md#c0"
+    char_span: [0, 985]
+    sentence_count: 10
+    key_terms: [techforgood, gdpr, building, feedback, partner, reddit, draft, rooms]
+    token_count: 242
 ---
-
 # Feedback request: GDPR‑safe ‘partner rooms’ for nonprofits – worth building?
 
 Source: [reddit: techforgood](https://reddit.com/r/techforgood/comments/1raow1i/feedback_request_gdprsafe_partner_rooms_for/)

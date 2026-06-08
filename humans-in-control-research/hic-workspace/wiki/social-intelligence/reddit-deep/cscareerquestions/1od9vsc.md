@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1od9vsc.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1od9vsc/repost_firstsemester_cs_student_at_city_tech/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -10,11 +11,27 @@ score: 0
 upvote_ratio: 0.33
 num_comments: 1
 flair: "Student"
-extracted_at: "2026-05-24T14:08:50.773Z"
+extracted_at: "2026-06-05T23:42:30.813Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1od9vsc.md#c0"
+    char_span: [0, 2296]
+    sentence_count: 11
+    key_terms: [computer, cst, associate, transfer, city, tech, program, science]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1od9vsc.md#c1"
+    char_span: [2298, 2716]
+    sentence_count: 6
+    key_terms: [better, cst, transferring, competitive, perspective, appreciate, especially, everything]
+    token_count: 89
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1od9vsc.md#c2"
+    char_span: [2731, 3178]
+    sentence_count: 6
+    key_terms: [understand, degree, years, difference, experience, mid-sized, rosenvine, something]
+    section: Comments
+    token_count: 97
 ---
-
 # REPOST - First-semester CS student at City Tech - debating switching to Computer Systems Technology or Cybersecurity because of the job market. Need advice.
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1od9vsc/repost_firstsemester_cs_student_at_city_tech/)

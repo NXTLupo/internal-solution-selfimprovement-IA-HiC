@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1q3w7dj.md
 url: "https://www.reddit.com/r/careeradvice/comments/1q3w7dj/career_switch_into_mlai/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.239Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [ai_research, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1q3w7dj.md#c0"
+    char_span: [0, 479]
+    sentence_count: 3
+    key_terms: [career, careeradvice, comments, switch, judgemental, reddit-deep, background, discussion]
+    token_count: 130
+  - id: "social-intelligence/reddit-deep/careeradvice/1q3w7dj.md#c1"
+    char_span: [494, 2798]
+    sentence_count: 16
+    key_terms: [understanding, learning, science, technologies, tools, value, data, job]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/careeradvice/1q3w7dj.md#c2"
+    char_span: [2800, 4128]
+    sentence_count: 12
+    key_terms: [banking, because, crowded, scratch, models, people, get, try]
+    section: Comments
+    token_count: 312
 ---
-
 # career switch into ML/AI
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1q3w7dj/career_switch_into_mlai/)

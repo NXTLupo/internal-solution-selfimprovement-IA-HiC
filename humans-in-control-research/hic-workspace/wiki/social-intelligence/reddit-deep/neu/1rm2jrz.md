@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1rm2jrz.md
 url: "https://www.reddit.com/r/NEU/comments/1rm2jrz/first_year_dorming/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "Housing & Dorms"
 extracted_at: "2026-05-12T20:58:42.340Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive digital strategy and engagement strategy for Northeastern, based on uploaded transcripts and external research, articles, youtube videos, data, etc., to be used in First-Year advising during orientation to help students identify opportunities and resources to support experiential learning in ways that will improve co-op readiness from day one. Intervention is needed to improve searcher outcomes by identifying skill gaps earlier than the first search semester, democratizing access to knowledge and resources, and enabling students to build competitive profiles and portfolios. Provide plenty of quotes and evidence to support the strategy from extracted research."
+industries: [higher_ed, real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1rm2jrz.md#c0"
+    char_span: [0, 505]
+    sentence_count: 1
+    key_terms: [comments, private, health, llc, neu, pre, northeastern, appreciated]
+    token_count: 125
+  - id: "social-intelligence/reddit-deep/neu/1rm2jrz.md#c1"
+    char_span: [520, 2502]
+    sentence_count: 2
+    key_terms: [buildings, private, triples, melvin, speare, takamishroud, like, llcs]
+    section: Comments
+    token_count: 505
 ---
-
 # first year dorming
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1rm2jrz/first_year_dorming/)

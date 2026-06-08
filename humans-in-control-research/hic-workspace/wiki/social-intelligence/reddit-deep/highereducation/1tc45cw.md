@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1tc45cw.md
 url: "https://www.reddit.com/r/highereducation/comments/1tc45cw/summer_reading_recommendations/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T14:53:59.512Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1tc45cw.md#c0"
+    char_span: [0, 496]
+    sentence_count: 3
+    key_terms: [highereducation, reading, summer, leadership, comments, recommendations, reddit-deep, innovation]
+    token_count: 115
+  - id: "social-intelligence/reddit-deep/highereducation/1tc45cw.md#c1"
+    char_span: [511, 764]
+    sentence_count: 1
+    key_terms: [peak-higher-ed-survive-academic, amazon, https, com, www, stevefoerster, alexander, "haven't"]
+    section: Comments
+    token_count: 83
 ---
-
 # Summer reading recommendations
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1tc45cw/summer_reading_recommendations/)

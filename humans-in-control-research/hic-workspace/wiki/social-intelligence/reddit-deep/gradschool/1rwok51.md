@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1rwok51.md
 url: "https://www.reddit.com/r/GradSchool/comments/1rwok51/should_i_leave_my_job_that_is_extremely_high/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,38 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.142Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1rwok51.md#c0"
+    char_span: [0, 1924]
+    sentence_count: 11
+    key_terms: [school, good, high, grades, like, want, gradschool, extremely]
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/gradschool/1rwok51.md#c1"
+    char_span: [1926, 2506]
+    sentence_count: 3
+    key_terms: [want, degree, comfortable, compromised, absolutely, hopefully, undergrad, "couldn't"]
+    token_count: 128
+  - id: "social-intelligence/reddit-deep/gradschool/1rwok51.md#c2"
+    char_span: [2521, 4510]
+    sentence_count: 21
+    key_terms: [research, get, job, masters, paying, experience, opportunities, high]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/gradschool/1rwok51.md#c3"
+    char_span: [4515, 6431]
+    sentence_count: 17
+    key_terms: [get, job, degree, school, grad, per, because, pkr]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/gradschool/1rwok51.md#c4"
+    char_span: [6433, 7735]
+    sentence_count: 17
+    key_terms: [publication, "you're", work, get, job, time, experience, academia]
+    section: Comments
+    token_count: 321
 ---
-
 # Should I leave my job that is extremely high paying, perhaps the upper ceiling of the maximum comp I could have gotten as an SWE, to pursue a Masters in CS?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1rwok51/should_i_leave_my_job_that_is_extremely_high/)

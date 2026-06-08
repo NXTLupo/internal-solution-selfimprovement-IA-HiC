@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1smt4ya.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1smt4ya/2026_admissions_final_update/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,27 @@ flair: "Physical Sciences"
 extracted_at: "2026-05-23T14:54:16.719Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1smt4ya.md#c0"
+    char_span: [0, 1657]
+    sentence_count: 27
+    key_terms: [giving, update, gradadmissions, final, hard, work, incredibly, professors]
+    token_count: 386
+  - id: "social-intelligence/reddit-deep/gradadmissions/1smt4ya.md#c1"
+    char_span: [1672, 3354]
+    sentence_count: 10
+    key_terms: [like, nsf, projects, funded, astro, got, moment, cycle]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/gradadmissions/1smt4ya.md#c2"
+    char_span: [3356, 4327]
+    sentence_count: 9
+    key_terms: [masters, neoliberalsocialist, maybe, feel, give, good, salty-war-9354, heartbreaking]
+    section: Comments
+    token_count: 242
 ---
-
 # 2026 admissions final update
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1smt4ya/2026_admissions_final_update/)

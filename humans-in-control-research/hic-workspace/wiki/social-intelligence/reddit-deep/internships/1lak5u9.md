@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1lak5u9.md
 url: "https://www.reddit.com/r/internships/comments/1lak5u9/should_i_ask_for_a_stipend_raise_at_my_ai/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,39 @@ flair: "During the Internship"
 extracted_at: "2026-05-25T18:31:15.454Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [ai_research, workforce, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1lak5u9.md#c0"
+    char_span: [0, 2157]
+    sentence_count: 14
+    key_terms: [raise, been, internships, internship, ask, year, stipend, good]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/internships/1lak5u9.md#c1"
+    char_span: [2172, 2884]
+    sentence_count: 6
+    key_terms: [full, raise, time, absolutely, employee, robotics-kid, lordofchubs, internship]
+    section: Comments
+    token_count: 170
+  - id: "social-intelligence/reddit-deep/internships/1lak5u9.md#c2"
+    char_span: [2886, 4700]
+    sentence_count: 6
+    key_terms: [zestyclose-rub-4693, ask, time, bulky-strawberry-110, prestigious-hour-215, raise, asking, hourly]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1lak5u9.md#c3"
+    char_span: [4478, 4923]
+    sentence_count: 4
+    key_terms: [zestyclose-rub-4693, keep, mind, time, everything, scratching, comments, thinking]
+    section: Comments
+    token_count: 120
+  - id: "social-intelligence/reddit-deep/internships/1lak5u9.md#c4"
+    char_span: [4925, 5642]
+    sentence_count: 3
+    key_terms: [potential-mind-6997, zestyclose-rub-4693, don, bakertheoptionmaker, offer, raise, get, currently]
+    section: Comments
+    token_count: 228
 ---
-
 # Should I Ask for a Stipend Raise at My AI Internship? Advice Needed 🙏
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1lak5u9/should_i_ask_for_a_stipend_raise_at_my_ai/)

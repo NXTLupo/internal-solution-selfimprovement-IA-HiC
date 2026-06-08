@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1nblesf.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1nblesf/remember_when_chatgpt_could_just_talk_thats_gone/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,115 @@ flair: "Serious replies only :closed-ai:"
 extracted_at: "2026-05-17T01:12:48.211Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c0"
+    char_span: [0, 2000]
+    sentence_count: 24
+    key_terms: [chatgpt, conversation, accessibility, intelligence, agi, like, comments, general]
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c1"
+    char_span: [2002, 4189]
+    sentence_count: 22
+    key_terms: [conversation, chatgpt, access, agi, accessible, enterprise, anything, building]
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c2"
+    char_span: [4191, 5688]
+    sentence_count: 13
+    key_terms: [gatekeeping, harassment, argument, control, exactly, people, "you're", post]
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c3"
+    char_span: [5703, 6340]
+    sentence_count: 4
+    key_terms: [comments, serious, tag, interstellarsofu, automatically, automoderator, appropriate, cooperation]
+    section: Comments
+    token_count: 155
+  - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c4"
+    char_span: [6342, 7811]
+    sentence_count: 9
+    key_terms: [use, people, entrepreneurbehavior, gpt-5, did, gpt, here, "it's"]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c5"
+    char_span: [7814, 8778]
+    sentence_count: 8
+    key_terms: [translate, language, english, people, low, because, chatgpt, opinion]
+    section: Comments
+    token_count: 247
+  - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c6"
+    char_span: [8780, 10812]
+    sentence_count: 19
+    key_terms: [because, writing, language, opinion, speak, definitely, unpopular, thoughts]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c7"
+    char_span: [10814, 11073]
+    sentence_count: 2
+    key_terms: [basonpiano, brainstorm, allyreon, stretch, writing, people, polish, reddit]
+    section: Comments
+    token_count: 78
+  - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c8"
+    char_span: [11075, 13066]
+    sentence_count: 10
+    key_terms: [chatgpt, entire, post, written, sometimes, everyone, comment, writing]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c9"
+    char_span: [12807, 13512]
+    sentence_count: 4
+    key_terms: [freely, lumiplayergames, entrepreneur, adjumpy4594, dissonance, technology, cognitive, companies]
+    section: Comments
+    token_count: 175
+  - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c10"
+    char_span: [13514, 15469]
+    sentence_count: 9
+    key_terms: [like, openai, architecture, never, performance, agi, because, started]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c11"
+    char_span: [15471, 17163]
+    sentence_count: 13
+    key_terms: [because, "aren't", exact, observations, using, hate, extremely, something]
+    section: Comments
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c12"
+    char_span: [17166, 17880]
+    sentence_count: 9
+    key_terms: [gave, back, rows, wanted, asked, csv, fuck, give]
+    section: Comments
+    token_count: 183
+  - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c13"
+    char_span: [17882, 19921]
+    sentence_count: 15
+    key_terms: [like, "it's", chatgpt, better, seems, users, using, profitable]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c14"
+    char_span: [19923, 20374]
+    sentence_count: 2
+    key_terms: [creative, fuck, less, text, happyghosst, repetition, creatives, customer]
+    section: Comments
+    token_count: 158
+  - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c15"
+    char_span: [20376, 21735]
+    sentence_count: 6
+    key_terms: [creative, writing, gpt-4o, been, rewritten, competitive-dot-3333, being, gpt-5]
+    section: Comments
+    token_count: 379
+  - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c16"
+    char_span: [21737, 23755]
+    sentence_count: 26
+    key_terms: [chatgpt, without, model, better, conversation, brain, using, post]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/chatgpt/1nblesf.md#c17"
+    char_span: [23757, 24464]
+    sentence_count: 4
+    key_terms: [chatgpt, use, dialogue, brain, users, work, maybemarmelade, differentiate]
+    section: Comments
+    token_count: 164
 ---
-
 # Remember when ChatGPT could just talk? That’s gone and it's investor driven.
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1nblesf/remember_when_chatgpt_could_just_talk_thats_gone/)

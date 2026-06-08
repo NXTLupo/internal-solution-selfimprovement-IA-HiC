@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gemini/1kytxag.md
 url: "https://www.reddit.com/r/Gemini/comments/1kytxag/scam_attempt/"
 kind: "social-post"
 source: "reddit-deep: r/gemini"
@@ -13,8 +14,21 @@ flair: "Support:Support:"
 extracted_at: "2026-05-11T17:27:04.759Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gemini/1kytxag.md#c0"
+    char_span: [0, 289]
+    sentence_count: 2
+    key_terms: [comments, gemini, number, various-parfait-6477, phone, reddit-deep, changing, paranoid]
+    token_count: 79
+  - id: "social-intelligence/reddit-deep/gemini/1kytxag.md#c1"
+    char_span: [304, 1195]
+    sentence_count: 6
+    key_terms: [email, gemini, phishing, mediocrewowtank, report, various-parfait-6477, got, too]
+    section: Comments
+    token_count: 226
 ---
-
 # Scam attempt?
 
 Source: [reddit-deep: r/gemini](https://www.reddit.com/r/Gemini/comments/1kytxag/scam_attempt/)

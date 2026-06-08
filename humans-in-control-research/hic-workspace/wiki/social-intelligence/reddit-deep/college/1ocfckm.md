@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1ocfckm.md
 url: "https://www.reddit.com/r/college/comments/1ocfckm/graduating_with_my_masters_degree_but_now/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,26 @@ flair: "Grad school"
 extracted_at: "2026-05-26T14:31:29.701Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1ocfckm.md#c0"
+    char_span: [0, 2076]
+    sentence_count: 18
+    key_terms: [phd, something, research, degree, prevention, "master's", college, public]
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/college/1ocfckm.md#c1"
+    char_span: [2078, 2909]
+    sentence_count: 7
+    key_terms: [opportunity, degree, educational, thought, done, get, phd, "university's"]
+    token_count: 175
+  - id: "social-intelligence/reddit-deep/college/1ocfckm.md#c2"
+    char_span: [2924, 3355]
+    sentence_count: 4
+    key_terms: [years, undergrad, school, worked, jobs, opportunities, professors, claisen33]
+    section: Comments
+    token_count: 110
 ---
-
 # Graduating with my Master's degree but now considering going for a PhD if presented with the opportunity - advice?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ocfckm/graduating_with_my_masters_degree_but_now/)

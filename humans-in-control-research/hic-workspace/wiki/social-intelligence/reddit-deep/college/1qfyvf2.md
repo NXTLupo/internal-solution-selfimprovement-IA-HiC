@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1qfyvf2.md
 url: "https://www.reddit.com/r/college/comments/1qfyvf2/college_student_looking_for_summer_job/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,30 @@ subreddit: "college"
 title: "College student looking for summer job"
 author: "Thatonepersonat2am"
 date: "2026-01-18T04:29:42.000Z"
-score: 7
-upvote_ratio: 0.89
-num_comments: 11
+score: 9
+upvote_ratio: 0.91
+num_comments: 12
 flair: ""
-extracted_at: "2026-05-22T23:33:39.754Z"
+extracted_at: "2026-06-06T17:42:15.227Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1qfyvf2.md#c0"
+    char_span: [0, 814]
+    sentence_count: 7
+    key_terms: [college, recommendations, experience, summer, comments, looking, student, thatonepersonat2am]
+    token_count: 183
+  - id: "social-intelligence/reddit-deep/college/1qfyvf2.md#c1"
+    char_span: [829, 2966]
+    sentence_count: 14
+    key_terms: [summer, experience, camps, work, job, kids, look, college]
+    section: Comments
+    token_count: 504
 ---
-
 # College student looking for summer job
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1qfyvf2/college_student_looking_for_summer_job/)
-Posted by **Thatonepersonat2am** · **7↑** · **11 comments**
+Posted by **Thatonepersonat2am** · **9↑** · **12 comments**
 
 I am currently a 20 F college student who is looking at different jobs for the summer. I have lots of outdoor experience along with customer service experience, and babysitting. I did a gap year with FEMACorps and have lots of experience working with others. I have gotten some recommendations on websites to use like coolworks and backroads. One question I had is will most places be ok with the fact that I might not be able to work the whole season. My break from college is June till end of August. Also any summer camp recommendations to apply to our job recommendations appreciated
 

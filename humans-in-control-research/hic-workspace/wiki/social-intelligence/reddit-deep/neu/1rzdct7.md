@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1rzdct7.md
 url: "https://www.reddit.com/r/NEU/comments/1rzdct7/is_it_actually_bad_coming_back_from_nuin/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,34 @@ score: 16
 upvote_ratio: 0.94
 num_comments: 23
 flair: "Global & Study Abroad"
-extracted_at: "2026-05-19T17:57:09.040Z"
+extracted_at: "2026-06-03T15:25:46.506Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Provide a strategic analysis for Northeastern University detailing opportunities to enhance experiential learning and co-op success, specifically across First Year Student Preparedness, 360 student profiles, advisor capabilities, and corporate partner development. Heavily cite and reference external articles, social media posts, and other external data to support themes and recommendations."
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1rzdct7.md#c0"
+    char_span: [0, 842]
+    sentence_count: 2
+    key_terms: [program, comments, abroad, people, super, back, neu, opportunities]
+    token_count: 197
+  - id: "social-intelligence/reddit-deep/neu/1rzdct7.md#c1"
+    char_span: [857, 3003]
+    sentence_count: 9
+    key_terms: [nuin, friends, people, back, boston, campus, year, semester]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/neu/1rzdct7.md#c2"
+    char_span: [2694, 4910]
+    sentence_count: 12
+    key_terms: [because, people, nuin, lot, spoiled, abroad, superthebean, complaining]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/neu/1rzdct7.md#c3"
+    char_span: [4647, 5706]
+    sentence_count: 7
+    key_terms: [efficiencymotor5057, friends, boston, decision, someone, waiting, campus, altruistic-most-463]
+    section: Comments
+    token_count: 271
 ---
-
 # is it actually bad coming back from nuin??
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1rzdct7/is_it_actually_bad_coming_back_from_nuin/)
@@ -24,12 +48,12 @@ hi, im a high school senior and i was just accepted into northeastern for their 
 
 ## Comments
 
-- **tishBD** (35↑): No one cares after your first year back. I was nuin and theres kind of a joke about hating the nuin kids because campus gets super crowded when they come back but everyone ive ever talked to about it thought it was cool more than anything else. No one was ever mean
+- **tishBD** (37↑): No one cares after your first year back. I was nuin and theres kind of a joke about hating the nuin kids because campus gets super crowded when they come back but everyone ive ever talked to about it thought it was cool more than anything else. No one was ever mean
 - **LondonIsBoss** (13↑): I was on campus all freshman year and for me and most people I know, we made as many if not more friends in the second than first semester. It’s still your first year and everyone’s still hanging out in dorms together
-- **Riseofping** (14↑): Bro go, it’s the best thing ever much better than being in boston for a whole year 🤮
-- **yu_ku1t33** (6↑): i'm lowk jealous of nu.in admits 💔 if financial aid wasn't a factor, i would've loovvveed to go abroad my first semester but i got extremely good aid for being a boston campus admit. would love to be friends though! maybe we can hang out when you come back from abroad :)
+- **Riseofping** (15↑): Bro go, it’s the best thing ever much better than being in boston for a whole year 🤮
+- **yu_ku1t33** (8↑): i'm lowk jealous of nu.in admits 💔 if financial aid wasn't a factor, i would've loovvveed to go abroad my first semester but i got extremely good aid for being a boston campus admit. would love to be friends though! maybe we can hang out when you come back from abroad :)
 - **Tumbleweed_Helpful** (5↑): I was NUin last semester, campus hates us because we are basically super freshman if that makes sense? We take up space and aren’t spatially aware and block walkways in the beginning. But I have made so many more friends here in Boston than I did in Spain. A lot of the people in ur classes back in Boston will be other first years and from NUin and they are all also looking to make new friends, I also found a lot more clubs here and met more people that way than I did in NUin. I think NUin was a great experience and it gave me a lot of independence I didn’t have before at home (I was afraid of the grocery store now I have no issues walking alone or taking public transport or going grocery shopping etc) so I would definitely recommend it if it is within ur budget!
-- **k3nny704** (9↑): literally all my friends that lasted throughout college weren't people I met at NUin and I had 0 issue making friends with people when I got back (this is also coming from someone who absolutely despised social interaction at the start of college). I think the hate might come from the fact that NUin kids selected are largely more wealthy than typical fall admits because that's by NEU's design so it could(?) be that some of them are spoiled. I will say my nuin group, which was the first in Canada at McGill, was full of kids who came from money and almost everyone was pretty painfully spoiled and entitled and that's saying something because I grew up in Hong Kong before I came to Boston. As long as you dont fit the spoiled and entitled rich NUin kid mold and you treat other students respectfully then you will be treated the same just like any other NEU student :)
+- **k3nny704** (8↑): literally all my friends that lasted throughout college weren't people I met at NUin and I had 0 issue making friends with people when I got back (this is also coming from someone who absolutely despised social interaction at the start of college). I think the hate might come from the fact that NUin kids selected are largely more wealthy than typical fall admits because that's by NEU's design so it could(?) be that some of them are spoiled. I will say my nuin group, which was the first in Canada at McGill, was full of kids who came from money and almost everyone was pretty painfully spoiled and entitled and that's saying something because I grew up in Hong Kong before I came to Boston. As long as you dont fit the spoiled and entitled rich NUin kid mold and you treat other students respectfully then you will be treated the same just like any other NEU student :)
   - **superthebean** (3↑): okay thank you so much!! that makes a lot more sense if all the new people coming to campus are really bratty 😭
   - **Ok-Banana-2859** (1↑): We're they all rich? Cause I got in too and im like really worried abt aid😭. If I got into NUin does that mean they think Im wealthy will I not get a lot of aid? My estimate says I should only be paying abt 24k which is a lot still but idk. I haven't recieved aid yet because I had to submit some extra verification documents.
     - **superthebean** (3↑): probably not then! it might just be a general trend but not the rule. they also but people in that program they think would benefit from study abroad! my personal essay was about my pervious study abroad experience and how it changed my life so im not surprised i was offered the nu.in program

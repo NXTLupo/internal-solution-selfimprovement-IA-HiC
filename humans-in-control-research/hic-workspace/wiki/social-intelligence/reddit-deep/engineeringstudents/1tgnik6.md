@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1tgnik6.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1tgnik6/4_years_of_experience_postgrad_for_engineering/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,15 @@ flair: "Career Help"
 extracted_at: "2026-05-22T23:33:47.040Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tgnik6.md#c0"
+    char_span: [0, 1009]
+    sentence_count: 6
+    key_terms: [experience, technology, engineeringstudents, years, engineering, mechanical, graduated, post-grad]
+    token_count: 227
 ---
-
 # 4 Years of Experience Post-Grad for Engineering Technology?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1tgnik6/4_years_of_experience_postgrad_for_engineering/)

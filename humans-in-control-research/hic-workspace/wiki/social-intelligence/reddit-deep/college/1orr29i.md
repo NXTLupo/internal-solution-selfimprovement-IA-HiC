@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1orr29i.md
 url: "https://www.reddit.com/r/college/comments/1orr29i/my_inperson_class_has_no_lectures_just_sitting_in/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,45 @@ flair: "Academic Life"
 extracted_at: "2026-05-26T14:31:29.695Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1orr29i.md#c0"
+    char_span: [0, 1823]
+    sentence_count: 15
+    key_terms: [international, in-person, comments, college, student, government, lectures, semester]
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/college/1orr29i.md#c1"
+    char_span: [1838, 3924]
+    sentence_count: 15
+    key_terms: [chair, department, students, advisor, significant-mud-2066, report, international, conversation]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/college/1orr29i.md#c2"
+    char_span: [3926, 5280]
+    sentence_count: 13
+    key_terms: [class, in-person, students, person, international, requirements, professor, happens]
+    section: Comments
+    token_count: 309
+  - id: "social-intelligence/reddit-deep/college/1orr29i.md#c3"
+    char_span: [5282, 7305]
+    sentence_count: 20
+    key_terms: [class, math, significant-mud-2066, "it's", classes, college, like, analytics]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1orr29i.md#c4"
+    char_span: [7041, 7887]
+    sentence_count: 9
+    key_terms: [class, significant-mud-2066, classes, does, college, talking, level, "it's"]
+    section: Comments
+    token_count: 223
+  - id: "social-intelligence/reddit-deep/college/1orr29i.md#c5"
+    char_span: [7889, 9762]
+    sentence_count: 16
+    key_terms: [class, people, get, "it's", lectures, format, online, videos]
+    section: Comments
+    token_count: 433
 ---
-
 # My “in-person” class has no lectures — just sitting in silence and doing online work. Is this normal or can I report it?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1orr29i/my_inperson_class_has_no_lectures_just_sitting_in/)

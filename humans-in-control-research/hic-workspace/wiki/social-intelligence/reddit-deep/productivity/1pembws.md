@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1pembws.md
 url: "https://www.reddit.com/r/productivity/comments/1pembws/whats_the_simplest_habit_that_boosted_your/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,39 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:45.654Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1pembws.md#c0"
+    char_span: [0, 657]
+    sentence_count: 5
+    key_terms: [productivity, comments, habit, overthinking, william45623, reddit-deep, difference, frameworks]
+    token_count: 150
+  - id: "social-intelligence/reddit-deep/productivity/1pembws.md#c1"
+    char_span: [672, 1906]
+    sentence_count: 4
+    key_terms: [head, like, mental, brain, bad, day, get, tab]
+    section: Comments
+    token_count: 302
+  - id: "social-intelligence/reddit-deep/productivity/1pembws.md#c2"
+    char_span: [1908, 3846]
+    sentence_count: 18
+    key_terms: [minutes, luckyone9591, focus, day, like, listening, instead, podcast]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/productivity/1pembws.md#c3"
+    char_span: [3848, 6029]
+    sentence_count: 18
+    key_terms: [brain-dumping, used, iwantboringtimes, waiting, want, week, something, advice]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/productivity/1pembws.md#c4"
+    char_span: [6031, 6420]
+    sentence_count: 4
+    key_terms: [stress, procrastinating, procrastination, considerations, especially, regulation, strategies, increases]
+    section: Comments
+    token_count: 79
 ---
-
 # What’s the simplest habit that boosted your productivity the most?
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1pembws/whats_the_simplest_habit_that_boosted_your/)

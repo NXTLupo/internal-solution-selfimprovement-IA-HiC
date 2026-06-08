@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-gradadmissions/b5ea1a0be3.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1qk4d4v/which_majorscareer_paths_would_you_recommend_a/"
 url_hash: "b5ea1a0be3"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T06:47:22.966875+00:00"
 chars: 1083
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-gradadmissions/b5ea1a0be3.md#c0"
+    char_span: [0, 1308]
+    sentence_count: 10
+    key_terms: [business, "i'm", recommend, gradadmissions, doing, years, job, comments]
+    token_count: 305
 ---
-
 # Which Majors/Career paths would you recommend a business grad to pursue?
 
 Source: [Reddit Deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1qk4d4v/which_majorscareer_paths_would_you_recommend_a/)

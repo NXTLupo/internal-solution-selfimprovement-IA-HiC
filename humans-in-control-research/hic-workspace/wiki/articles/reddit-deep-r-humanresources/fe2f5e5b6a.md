@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-humanresources/fe2f5e5b6a.md
 url: "https://www.reddit.com/r/humanresources/comments/1srzhql/best_book_for_new_hr_professional_na/"
 url_hash: "fe2f5e5b6a"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T12:19:25.190735+00:00"
 chars: 1840
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-humanresources/fe2f5e5b6a.md#c0"
+    char_span: [0, 2022]
+    sentence_count: 16
+    key_terms: [humanresources, book, program, post, work, leadership, management, psychology]
+    token_count: 481
 ---
-
 # Best Book for New HR Professional [N/A]
 
 Source: [Reddit Deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1srzhql/best_book_for_new_hr_professional_na/)

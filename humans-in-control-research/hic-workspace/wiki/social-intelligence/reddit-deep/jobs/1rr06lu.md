@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1rr06lu.md
 url: "https://www.reddit.com/r/jobs/comments/1rr06lu/so_im_about_to_start_applying_to_jobs_entry_level/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -10,11 +11,28 @@ score: 0
 upvote_ratio: 0.5
 num_comments: 24
 flair: "Applications"
-extracted_at: "2026-05-20T02:33:39.340Z"
+extracted_at: "2026-06-03T02:23:12.397Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1rr06lu.md#c0"
+    char_span: [0, 624]
+    sentence_count: 6
+    key_terms: [applying, jobs, comments, places, "don't", shiny-baby-cheetah, reddit-deep, employment]
+    token_count: 160
+  - id: "social-intelligence/reddit-deep/jobs/1rr06lu.md#c1"
+    char_span: [639, 2238]
+    sentence_count: 12
+    key_terms: [work, online, recruiters, shiny-baby-cheetah, remote, "you're", apply, going]
+    section: Comments
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/jobs/1rr06lu.md#c2"
+    char_span: [2240, 3899]
+    sentence_count: 16
+    key_terms: [job, shiny-baby-cheetah, listing, separate, right, jobs, luck, time]
+    section: Comments
+    token_count: 420
 ---
-
 # So, I'm about to start applying to jobs. Entry level. This sub has me prepared for the worst..my question is, if it really comes down to luck + timing, then is there anything wrong with applying multiple times to the same places?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1rr06lu/so_im_about_to_start_applying_to_jobs_entry_level/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1nbkvnc.md
 url: "https://www.reddit.com/r/managers/comments/1nbkvnc/the_strangest_part_of_becoming_a_manager_you_stop/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,93 @@ flair: ""
 extracted_at: "2026-05-26T12:54:23.667Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c0"
+    char_span: [0, 1431]
+    sentence_count: 15
+    key_terms: [feedback, managers, asking, peers, comments, manager, doing, uncomfortable]
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c1"
+    char_span: [1446, 3314]
+    sentence_count: 12
+    key_terms: [feedback, because, people, recognise, anything, negative, clients, manager]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c2"
+    char_span: [3316, 3863]
+    sentence_count: 3
+    key_terms: [manager, taotaoloomins, absolutely, attempting, experience, direction, something, sometimes]
+    section: Comments
+    token_count: 142
+  - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c3"
+    char_span: [3865, 5926]
+    sentence_count: 15
+    key_terms: [bad, boss, negative, themselves, messenger, something, honest, issues]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c4"
+    char_span: [5664, 7668]
+    sentence_count: 16
+    key_terms: [manager, speaking, consequences, get, like, management, themselves, helping]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c5"
+    char_span: [7670, 9517]
+    sentence_count: 11
+    key_terms: [feedback, manager, feel, "don't", like, promotion, disagree, culture]
+    section: Comments
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c6"
+    char_span: [9520, 11603]
+    sentence_count: 15
+    key_terms: [feedback, manager, people, "i'm", problem, understand, promotion, coworker]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c7"
+    char_span: [11606, 13099]
+    sentence_count: 14
+    key_terms: [feedback, information, "it's", anonymous, someone, sense, share, long]
+    section: Comments
+    token_count: 339
+  - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c8"
+    char_span: [13101, 14085]
+    sentence_count: 7
+    key_terms: [manager, "manager's", feedback, feel, uncomfortable, anonymously, comfortable, performance]
+    section: Comments
+    token_count: 223
+  - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c9"
+    char_span: [14087, 16219]
+    sentence_count: 20
+    key_terms: [manager, need, feedback, unprofessional, relationships, department, potential, negative]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c10"
+    char_span: [16221, 17962]
+    sentence_count: 9
+    key_terms: [information, soviet, intel, party, cia, data, because, grain]
+    section: Comments
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c11"
+    char_span: [17964, 19953]
+    sentence_count: 12
+    key_terms: [team, manager, numbers, people, update, etc, effective, feedback]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c12"
+    char_span: [19955, 21381]
+    sentence_count: 11
+    key_terms: [got, don, team, important, vacation, because, company, guiding]
+    section: Comments
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/managers/1nbkvnc.md#c13"
+    char_span: [21383, 22643]
+    sentence_count: 9
+    key_terms: [like, feedback, get, team, current, little, weird, ihadtopickthisname]
+    section: Comments
+    token_count: 313
 ---
-
 # The strangest part of becoming a manager: you stop getting “real” feedback
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1nbkvnc/the_strangest_part_of_becoming_a_manager_you_stop/)

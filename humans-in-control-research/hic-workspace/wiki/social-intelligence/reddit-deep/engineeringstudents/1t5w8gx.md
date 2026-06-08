@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1t5w8gx.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1t5w8gx/upcoming_gradi_graduate_in_3_days_with_a_degree/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,33 @@ flair: "Career Advice"
 extracted_at: "2026-05-25T13:01:49.563Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1t5w8gx.md#c0"
+    char_span: [0, 510]
+    sentence_count: 4
+    key_terms: [engineeringstudents, comments, universitystrange705, job, applications, engineering, internships, reddit-deep]
+    token_count: 121
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1t5w8gx.md#c1"
+    char_span: [525, 1031]
+    sentence_count: 4
+    key_terms: [companies, job, investmentgreen, definitely, handshake, linkedin, prepared, starting]
+    section: Comments
+    token_count: 116
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1t5w8gx.md#c2"
+    char_span: [1033, 3168]
+    sentence_count: 12
+    key_terms: [universitystrange705, shot-violinist4069, luck, applying, network, advice, disappointed, apply]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1t5w8gx.md#c3"
+    char_span: [2867, 4027]
+    sentence_count: 9
+    key_terms: [engineering, applying, sure, everything, graduate, company, project, market]
+    section: Comments
+    token_count: 274
 ---
-
 # upcoming grad(I graduate in 3 days) with a degree in Engineering Technology, how long should I be expecting my job search to go? I have no relevant experience or internships. Where should I be looking for job posting(I feel like applications on indeed die on submission)?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1t5w8gx/upcoming_gradi_graduate_in_3_days_with_a_degree/)

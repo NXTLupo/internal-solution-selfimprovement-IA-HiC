@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1q2flm6.md
 url: "https://www.reddit.com/r/jobs/comments/1q2flm6/got_laid_off_but_feel_like_i_lost_my_identity/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,45 @@ flair: "Career development"
 extracted_at: "2026-05-20T02:33:39.341Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1q2flm6.md#c0"
+    char_span: [0, 720]
+    sentence_count: 7
+    key_terms: [comments, guidance, myself, feel, job, jobs, like, lost]
+    token_count: 180
+  - id: "social-intelligence/reddit-deep/jobs/1q2flm6.md#c1"
+    char_span: [735, 2724]
+    sentence_count: 15
+    key_terms: [letter, recommendation, get, help, job, like, use, reference]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/jobs/1q2flm6.md#c2"
+    char_span: [2726, 4606]
+    sentence_count: 14
+    key_terms: [identity, yourself, unemployment, uncle, whatsapp, around, layoff, flatyogurtcloset2423]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1q2flm6.md#c3"
+    char_span: [4332, 5053]
+    sentence_count: 7
+    key_terms: [identity, around, flatyogurtcloset2423, never, clammyhandedfreak, job, wrap, relationships]
+    section: Comments
+    token_count: 188
+  - id: "social-intelligence/reddit-deep/jobs/1q2flm6.md#c4"
+    char_span: [5055, 6671]
+    sentence_count: 12
+    key_terms: [family, job, anyone, people, never, state, double-area1152, disorientation]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/jobs/1q2flm6.md#c5"
+    char_span: [6673, 8570]
+    sentence_count: 8
+    key_terms: [dash, single, does, work, something, someone, manual, myself]
+    section: Comments
+    token_count: 479
 ---
-
 # Got laid off but feel like I lost my identity
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1q2flm6/got_laid_off_but_feel_like_i_lost_my_identity/)

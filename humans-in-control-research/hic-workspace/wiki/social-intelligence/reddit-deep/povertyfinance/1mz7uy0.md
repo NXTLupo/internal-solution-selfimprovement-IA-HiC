@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1mz7uy0.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1mz7uy0/stop_stereotyping_people_on_welfare_you_wouldnt/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,43 @@ flair: "Vent/Rant (No Advice/Criticism!)"
 extracted_at: "2026-05-16T20:55:12.686Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [government, policy, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1mz7uy0.md#c0"
+    char_span: [0, 1798]
+    sentence_count: 14
+    key_terms: [people, bad, povertyfinance, school, work, full-time, comments, because]
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/povertyfinance/1mz7uy0.md#c1"
+    char_span: [1800, 3268]
+    sentence_count: 16
+    key_terms: [kids, because, don, pick, time, government, pathetic, parents]
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/povertyfinance/1mz7uy0.md#c2"
+    char_span: [3272, 4150]
+    sentence_count: 6
+    key_terms: [pay, because, able, childcare, homeless, without, wouldn, full]
+    token_count: 203
+  - id: "social-intelligence/reddit-deep/povertyfinance/1mz7uy0.md#c3"
+    char_span: [4165, 5990]
+    sentence_count: 9
+    key_terms: [people, years, get, section, issue, place, find, got]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/povertyfinance/1mz7uy0.md#c4"
+    char_span: [5992, 7918]
+    sentence_count: 14
+    key_terms: [pay, section, rent, portion, historianno9484, income, price, apartment]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/povertyfinance/1mz7uy0.md#c5"
+    char_span: [7920, 9914]
+    sentence_count: 15
+    key_terms: [get, kids, historianno9484, welfare, people, being, money, fed]
+    section: Comments
+    token_count: 485
 ---
-
 # Stop Stereotyping People on Welfare – You Wouldn’t Survive a Day in Our Shoes
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1mz7uy0/stop_stereotyping_people_on_welfare_you_wouldnt/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-professors/f44bdc73db.md
 url: "https://www.reddit.com/r/Professors/comments/1sdl17b/are_students_today_really_that_different_from_how/"
 url_hash: "f44bdc73db"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T04:05:36.653677+00:00"
 chars: 2922
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-professors/f44bdc73db.md#c0"
+    char_span: [0, 1886]
+    sentence_count: 16
+    key_terms: [students, professors, class, back, like, exception, becoming, comments]
+    token_count: 432
+  - id: "articles/reddit-deep-r-professors/f44bdc73db.md#c1"
+    char_span: [1888, 3154]
+    sentence_count: 10
+    key_terms: [students, diggingupophelia, drop, feeling, recommend-reject-r2, teach, been, mad]
+    token_count: 285
 ---
-
 # Are students today really that different from how they used to be "back in the day?"
 
 Source: [Reddit Deep: r/professors](https://www.reddit.com/r/Professors/comments/1sdl17b/are_students_today_really_that_different_from_how/)

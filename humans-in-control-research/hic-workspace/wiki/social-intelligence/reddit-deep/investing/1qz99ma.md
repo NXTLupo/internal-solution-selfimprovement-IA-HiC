@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1qz99ma.md
 url: "https://www.reddit.com/r/investing/comments/1qz99ma/are_index_funds_investors_about_to_get_fleeced_by/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,116 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.192Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c0"
+    char_span: [0, 1647]
+    sentence_count: 8
+    key_terms: [valuations, investors, openai, index, price, ipo, musk, companies]
+    token_count: 378
+  - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c1"
+    char_span: [1649, 2247]
+    sentence_count: 4
+    key_terms: [vanguard, weighed, openai, shift, fund, dimensional, problematic, thankfully]
+    token_count: 136
+  - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c2"
+    char_span: [2262, 3954]
+    sentence_count: 10
+    key_terms: [everypassage, float, shares, market, index, companies, sell, included]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c3"
+    char_span: [3956, 4682]
+    sentence_count: 4
+    key_terms: [billion, company, better, losing, index, heironymous123123, sophonparticle, multi-billion]
+    section: Comments
+    token_count: 183
+  - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c4"
+    char_span: [4684, 6690]
+    sentence_count: 15
+    key_terms: [ipo, companies, public, retail, snorlax42meow, going, "it's", investors]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c5"
+    char_span: [6461, 6815]
+    sentence_count: 4
+    key_terms: [revolutionarygate742, "i'm", "it's", snorlax42meow, perspective, mentioning, overpriced, successful]
+    section: Comments
+    token_count: 96
+  - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c6"
+    char_span: [6817, 8419]
+    sentence_count: 16
+    key_terms: [market, companies, float, index, "isn't", space, free, openai]
+    section: Comments
+    token_count: 375
+  - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c7"
+    char_span: [8421, 9955]
+    sentence_count: 16
+    key_terms: [leaders, space, openai, apple, early, good, investment, leader]
+    section: Comments
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c8"
+    char_span: [9957, 12040]
+    sentence_count: 14
+    key_terms: [spacex, billion, company, buy, like, companies, something, indexes]
+    section: Comments
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c9"
+    char_span: [12042, 13321]
+    sentence_count: 10
+    key_terms: [subscribers, high, retention, valuation, profits, around, openai, people]
+    section: Comments
+    token_count: 288
+  - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c10"
+    char_span: [13323, 14958]
+    sentence_count: 11
+    key_terms: [starlink, demand, launch, artificial, satellites, launches, fit-stress3300, spacex]
+    section: Comments
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c11"
+    char_span: [14960, 17108]
+    sentence_count: 10
+    key_terms: [podcast, skylinedrop, index, rational, reminder, performance, mylord420, slightly]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c12"
+    char_span: [17110, 18846]
+    sentence_count: 16
+    key_terms: [funds, "you're", index, unconfirmed, vcx, valuation, fundrise, trillion]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c13"
+    char_span: [18848, 20924]
+    sentence_count: 14
+    key_terms: [value, companies, profitability, index, get, autonomous, salesman, vehicles]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c14"
+    char_span: [20670, 21412]
+    sentence_count: 5
+    key_terms: [companies, company, acrobatic-song-3151, deathbyclownshoes, narrative-based, self-driving, datacenters, apparently]
+    section: Comments
+    token_count: 174
+  - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c15"
+    char_span: [21414, 22264]
+    sentence_count: 5
+    key_terms: [philippines, satoshisvisiontm, burlyjohnbrown, brute-forced, corrections, macewindu89, philipinnes, autonomous]
+    section: Comments
+    token_count: 232
+  - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c16"
+    char_span: [22266, 24016]
+    sentence_count: 10
+    key_terms: [people, don, states, united, car, like, brute-forced, philippines]
+    section: Comments
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/investing/1qz99ma.md#c17"
+    char_span: [24019, 25118]
+    sentence_count: 9
+    key_terms: [company, brute-forced, tesla, regulatory, technology, deliver, austin, years]
+    section: Comments
+    token_count: 255
 ---
-
 # Are index funds investors about to get fleeced by Musk and Altman?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1qz99ma/are_index_funds_investors_about_to_get_fleeced_by/)

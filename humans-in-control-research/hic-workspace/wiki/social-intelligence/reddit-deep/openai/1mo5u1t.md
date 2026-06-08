@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1mo5u1t.md
 url: "https://www.reddit.com/r/OpenAI/comments/1mo5u1t/gpt5_thinking_is_confirmed_to_have_196k_context/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,33 @@ flair: "News"
 extracted_at: "2026-05-11T17:27:05.355Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1mo5u1t.md#c0"
+    char_span: [0, 296]
+    sentence_count: 1
+    key_terms: [comments, openai, obvithrowaway34434, reddit-deep, confirmed, thinking, context, posted]
+    token_count: 90
+  - id: "social-intelligence/reddit-deep/openai/1mo5u1t.md#c1"
+    char_span: [311, 933]
+    sentence_count: 4
+    key_terms: [tokens, model, capabilities, angelfirela, aggresive, mescallan, paperzach, reasoning]
+    section: Comments
+    token_count: 168
+  - id: "social-intelligence/reddit-deep/openai/1mo5u1t.md#c2"
+    char_span: [935, 2735]
+    sentence_count: 9
+    key_terms: [context, tokens, reasoning, prompts, conversation, input, model, like]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/openai/1mo5u1t.md#c3"
+    char_span: [2737, 4101]
+    sentence_count: 8
+    key_terms: [queries, query, reasoning, messages, thinking, context, blank, been]
+    section: Comments
+    token_count: 372
 ---
-
 # GPT-5 Thinking is confirmed to have 196k context window for Plus Users
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1mo5u1t/gpt5_thinking_is_confirmed_to_have_196k_context/)

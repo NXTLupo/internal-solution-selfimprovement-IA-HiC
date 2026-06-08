@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1s0aiuu.md
 url: "https://www.reddit.com/r/NEU/comments/1s0aiuu/thoughts_on_computer_science_and_design_and_also/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,34 @@ score: 3
 upvote_ratio: 1
 num_comments: 2
 flair: "Academics"
-extracted_at: "2026-05-19T15:08:27.152Z"
+extracted_at: "2026-06-03T17:59:17.601Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1s0aiuu.md#c0"
+    char_span: [0, 1146]
+    sentence_count: 9
+    key_terms: [design, game, computer, science, development, neu, interested, comments]
+    token_count: 277
+  - id: "social-intelligence/reddit-deep/neu/1s0aiuu.md#c1"
+    char_span: [1161, 1368]
+    sentence_count: 1
+    key_terms: [lavishsphere, first-year, business, pursuing, friends, oakland, staying, design]
+    section: Comments
+    token_count: 53
+  - id: "social-intelligence/reddit-deep/neu/1s0aiuu.md#c2"
+    char_span: [1370, 3647]
+    sentence_count: 15
+    key_terms: [courses, requirements, professor, game, get, oakland, majors, major]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/neu/1s0aiuu.md#c3"
+    char_span: [3649, 4536]
+    sentence_count: 3
+    key_terms: [feels, like, students, general, "they're", people, makes, practically]
+    section: Comments
+    token_count: 181
 ---
-
 # Thoughts on Computer Science and Design (and also Computer Science and Game Development?)
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1s0aiuu/thoughts_on_computer_science_and_design_and_also/)

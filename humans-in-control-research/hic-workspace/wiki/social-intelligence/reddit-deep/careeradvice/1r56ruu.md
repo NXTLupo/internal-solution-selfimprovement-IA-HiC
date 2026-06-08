@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1r56ruu.md
 url: "https://www.reddit.com/r/careeradvice/comments/1r56ruu/do_not_go_into_tech_unless_you_are_really/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,75 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.238Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [enterprise_it, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1r56ruu.md#c0"
+    char_span: [0, 1433]
+    sentence_count: 11
+    key_terms: [tech, passionate, willing, market, careeradvice, sacrifice, comments, because]
+    token_count: 340
+  - id: "social-intelligence/reddit-deep/careeradvice/1r56ruu.md#c1"
+    char_span: [1448, 3111]
+    sentence_count: 13
+    key_terms: [code, learn, tech, graduated, cryptographerkey6391, worklessonsfrommy20s, "don't", seems]
+    section: Comments
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/careeradvice/1r56ruu.md#c2"
+    char_span: [3114, 4224]
+    sentence_count: 7
+    key_terms: [states, work, pretty, oversaturated, shortage, nurses, job, jobs]
+    section: Comments
+    token_count: 244
+  - id: "social-intelligence/reddit-deep/careeradvice/1r56ruu.md#c3"
+    char_span: [4226, 5752]
+    sentence_count: 8
+    key_terms: [level, deepstuff81, tech, permanent, deleted, though, short, staff]
+    section: Comments
+    token_count: 357
+  - id: "social-intelligence/reddit-deep/careeradvice/1r56ruu.md#c4"
+    char_span: [5754, 7929]
+    sentence_count: 15
+    key_terms: [tech, passion, enough, get, people, skills, coder, going]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careeradvice/1r56ruu.md#c5"
+    char_span: [7687, 8150]
+    sentence_count: 3
+    key_terms: [tech, skills, automatically, no-dig-4371, industries, applicant, bachelors, companies]
+    section: Comments
+    token_count: 112
+  - id: "social-intelligence/reddit-deep/careeradvice/1r56ruu.md#c6"
+    char_span: [8152, 10072]
+    sentence_count: 22
+    key_terms: [tech, because, passion, icy-public-965, overqualified, get, job, keep]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/careeradvice/1r56ruu.md#c7"
+    char_span: [10074, 11240]
+    sentence_count: 10
+    key_terms: [tech, people, passionate, companies, mundane, damage, family, area]
+    section: Comments
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/careeradvice/1r56ruu.md#c8"
+    char_span: [11242, 13462]
+    sentence_count: 18
+    key_terms: [tech, faang, work, company, role, hyperscaling, cool, companies]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/careeradvice/1r56ruu.md#c9"
+    char_span: [13465, 14658]
+    sentence_count: 8
+    key_terms: [passionate, school, books, "don't", hobby, weird, "i'm", downtownbake8289]
+    section: Comments
+    token_count: 308
+  - id: "social-intelligence/reddit-deep/careeradvice/1r56ruu.md#c10"
+    char_span: [14661, 16780]
+    sentence_count: 15
+    key_terms: [tech, working, support, customer, product, figure, jobs, companies]
+    section: Comments
+    token_count: 479
 ---
-
 # Do not go into tech unless you are REALLY passionate
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1r56ruu/do_not_go_into_tech_unless_you_are_really/)

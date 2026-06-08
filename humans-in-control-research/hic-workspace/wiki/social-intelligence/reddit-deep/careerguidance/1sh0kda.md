@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sh0kda.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sh0kda/feeling_directionless_in_my_career_in_my_early/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,26 @@ flair: ""
 extracted_at: "2026-05-23T12:15:46.639Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sh0kda.md#c0"
+    char_span: [0, 2049]
+    sentence_count: 14
+    key_terms: [like, marketing, careerguidance, being, years, been, experience, passionate]
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/careerguidance/1sh0kda.md#c1"
+    char_span: [2051, 3839]
+    sentence_count: 12
+    key_terms: ["i'm", like, get, been, feel, "i've", job, direction]
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/careerguidance/1sh0kda.md#c2"
+    char_span: [3854, 4162]
+    sentence_count: 1
+    key_terms: [traditional, corporate, immediate, marketing, figuring, pressure, explore, hosting]
+    section: Comments
+    token_count: 65
 ---
-
 # Feeling directionless in my career in my early 30's. Feel like I wasted so much time doing things that I was never passionate about, and now my financial future feels like it's in limbo. Advice?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sh0kda/feeling_directionless_in_my_career_in_my_early/)

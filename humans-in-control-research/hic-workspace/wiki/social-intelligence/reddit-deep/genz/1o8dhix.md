@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1o8dhix.md
 url: "https://www.reddit.com/r/GenZ/comments/1o8dhix/why_does_every_piece_of_financial_advice_assume/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,44 @@ flair: "Discussion"
 extracted_at: "2026-05-16T20:55:01.231Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1o8dhix.md#c0"
+    char_span: [0, 1522]
+    sentence_count: 11
+    key_terms: [credit, already, people, like, advice, trying, comments, finance]
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/genz/1o8dhix.md#c1"
+    char_span: [1524, 2574]
+    sentence_count: 10
+    key_terms: [credit, people, money, been, card, like, lot, applications]
+    token_count: 222
+  - id: "social-intelligence/reddit-deep/genz/1o8dhix.md#c2"
+    char_span: [2589, 3879]
+    sentence_count: 12
+    key_terms: [money, advice, people, like, financial, personal, spending, discord]
+    section: Comments
+    token_count: 311
+  - id: "social-intelligence/reddit-deep/genz/1o8dhix.md#c3"
+    char_span: [3881, 4781]
+    sentence_count: 4
+    key_terms: [financial, building, problems, ramsey, steps, baby, dave, rent]
+    section: Comments
+    token_count: 219
+  - id: "social-intelligence/reddit-deep/genz/1o8dhix.md#c4"
+    char_span: [4783, 6867]
+    sentence_count: 9
+    key_terms: [operations, money, because, order, debt, spending, already, advice]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/genz/1o8dhix.md#c5"
+    char_span: [6869, 7565]
+    sentence_count: 3
+    key_terms: [afmboorfh9f-cd6mthlia0vgr1citcmtgntsbvhwl4zkk0acpazvn2zp, dave-ramsey-7-baby-steps, because, content, getting, methods, poverty, ramseysolutions]
+    section: Comments
+    token_count: 187
 ---
-
 # Why does every piece of financial advice assume you already have money or perfect credit?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1o8dhix/why_does_every_piece_of_financial_advice_assume/)

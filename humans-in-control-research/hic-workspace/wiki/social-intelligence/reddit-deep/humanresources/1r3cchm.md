@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1r3cchm.md
 url: "https://www.reddit.com/r/humanresources/comments/1r3cchm/passed_shrmscp_today_with_minimal_prep_ma/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-23T12:15:41.546Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1r3cchm.md#c0"
+    char_span: [0, 1936]
+    sentence_count: 17
+    key_terms: [exam, shrm, test, practice, humanresources, passed, night, last]
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/humanresources/1r3cchm.md#c1"
+    char_span: [1951, 3724]
+    sentence_count: 17
+    key_terms: [pocket, exam, questions, prep, passed, lot, time, took]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/humanresources/1r3cchm.md#c2"
+    char_span: [3726, 5376]
+    sentence_count: 11
+    key_terms: [soxpatsbruinscelts, taskfinancial5922, shrm, passed, certification, exam, sphr, studying]
+    section: Comments
+    token_count: 459
 ---
-
 # Passed SHRM-SCP today with minimal prep [MA]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1r3cchm/passed_shrmscp_today_with_minimal_prep_ma/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1qepjl3.md
 url: "https://www.reddit.com/r/NEU/comments/1qepjl3/cs_coop_success_rate/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -6,19 +7,42 @@ subreddit: "neu"
 title: "CS Co-Op Success Rate"
 author: "ChilllFam"
 date: "2026-01-16T19:24:21.000Z"
-score: 15
-upvote_ratio: 0.95
+score: 16
+upvote_ratio: 1
 num_comments: 13
 flair: "Co-op & Career"
-extracted_at: "2026-05-13T23:02:38.894Z"
+extracted_at: "2026-06-05T19:19:55.804Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1qepjl3.md#c0"
+    char_span: [0, 765]
+    sentence_count: 4
+    key_terms: [co-op, percentage, comments, everyone, curious, class, neu, reddit-deep]
+    token_count: 188
+  - id: "social-intelligence/reddit-deep/neu/1qepjl3.md#c1"
+    char_span: [780, 2466]
+    sentence_count: 6
+    key_terms: [nuworks, get, co-op, chilllfam, androidslash, cumminghippo, northeastern, jobs]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/neu/1qepjl3.md#c2"
+    char_span: [2468, 4216]
+    sentence_count: 16
+    key_terms: [experience, co-op, cycle, company, chance, grades, people, quite]
+    section: Comments
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/neu/1qepjl3.md#c3"
+    char_span: [4219, 4789]
+    sentence_count: 6
+    key_terms: [companies, chances, adorable-cut-7925, get, straightforward, internship, generally, guarantee]
+    section: Comments
+    token_count: 129
 ---
-
 # CS Co-Op Success Rate
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1qepjl3/cs_coop_success_rate/)
-Posted by **ChilllFam** · **15↑** · **13 comments**
+Posted by **ChilllFam** · **16↑** · **13 comments**
 
 Just curious what percentage of people in the co-op prep class for Khoury actually end up leaving with a position in the next cycle. From my class meeting, the advisor said that just about everyone that tries to get one and puts the effort in ends up with *something*, but from hearing everyone talk about the job market, I feel like that can’t possibly be true. He didn’t give me an exact percentage, but I’m just curious what your experience was with the co-op search.
 
@@ -26,11 +50,11 @@ I have a prior internship and my GPA is high, so I hope I have good chances but 
 
 ## Comments
 
-- **Gabraf** (6↑): 5 days ago in the admitted student webinar for Khoury they said that around 75% of students get a co-op per year
-  - **ChilllFam** (5↑): Good to know, just gotta hope I'm not in the bottom 25%
-- **Turbulent-Toe1278** (4↑): Based off my advisor, half of the people on my co-op class didn’t get a co-op offer by December for spring cycle if that gives you an idea
+- **Gabraf** (7↑): 5 days ago in the admitted student webinar for Khoury they said that around 75% of students get a co-op per year
+  - **ChilllFam** (6↑): Good to know, just gotta hope I'm not in the bottom 25%
+- **Turbulent-Toe1278** (5↑): Based off my advisor, half of the people on my co-op class didn’t get a co-op offer by December for spring cycle if that gives you an idea
 - **cumminghippo** (6↑): If you actually put in the time and work to apply, you will most likely get one. They don’t guarantee one though
-  - **ChilllFam** (12↑): Thank you, cumminghippo
+  - **ChilllFam** (11↑): Thank you, cumminghippo
 - **androidslash** (3↑): i myself didnt get any response from nuworks because i got mine from direct applying, but i have seen people getting jobs from nuworks, infact my close friend got it from nuworks, i have noticed the interview process of jobs on nuworks is relatively easier (no leetcode and normal technical round) and that makes sense because you are just competing with northeastern students (many jobs on nuworks are there to hire student from northeastern only).
   - **ChilllFam** (2↑): What's your GPA/resume look like?
     - **androidslash** (3↑): 3.7 and dm me for resume

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1secwe9.md
 url: "https://www.reddit.com/r/careerguidance/comments/1secwe9/be_honest_do_you_think_a_phd_on_autism_and_job/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Education & Qualifications"
 extracted_at: "2026-05-23T14:54:05.576Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1secwe9.md#c0"
+    char_span: [0, 1391]
+    sentence_count: 11
+    key_terms: [phd, job, careerguidance, future, market, rejection, academia, comments]
+    token_count: 341
+  - id: "social-intelligence/reddit-deep/careerguidance/1secwe9.md#c1"
+    char_span: [1406, 2392]
+    sentence_count: 8
+    key_terms: [disability, academia, companies, inclusion, autism, people, leagueaggravating595, roles]
+    section: Comments
+    token_count: 204
 ---
-
 # Be honest, do you think a PhD on autism and job market is a good career move?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1secwe9/be_honest_do_you_think_a_phd_on_autism_and_job/)

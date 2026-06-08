@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-internships/fc263eddb0.md
 url: "https://www.reddit.com/r/internships/comments/1sya3go/last_minute_internships_in_nyc_as_a_first_year/"
 url_hash: "fc263eddb0"
 kind: "article"
@@ -8,10 +9,17 @@ author: ""
 date: "2026-04-28T18:36:17.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-19T18:01:17.984258+00:00"
-chars: 1508
+extracted_at: "2026-06-06T00:37:00.368976+00:00"
+chars: 1318
+relevance: 50
+engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "articles/reddit-deep-r-internships/fc263eddb0.md#c0"
+    char_span: [0, 1534]
+    sentence_count: 5
+    key_terms: [internships, internship, maybe, "you're", nyc, interested, competing, comments]
+    token_count: 356
 ---
-
 # Last minute internships in NYC as a first year undergraduate student?
 
 Source: [Reddit Deep: r/internships](https://www.reddit.com/r/internships/comments/1sya3go/last_minute_internships_in_nyc_as_a_first_year/)
@@ -19,7 +27,6 @@ Source: [Reddit Deep: r/internships](https://www.reddit.com/r/internships/commen
 I've been stressed and on the hunt for an internship in NYC since that is my place of residence. I want to ask for advice on what websites are actually helpful for finding internships that are rolling and still accepting
 
 --- TOP COMMENTS ---
-[2↑ chocolate_asshole] handshake, directly on company career pages, and linkedin filters for internships only still work a bit better than the others. but yeah, finding anything now is hell
 [2↑ These-Age-4667] applications are basically wrapped up man.  even if you do apply for internship in the city with the last job postings there are, you're competing with everyone else and there mother.
 [1↑ PutOk9903] Following
 [1↑ robertisaak] First year is the hardest because you're competing with juniors and the cold app side is basically dead. NYC roles tend to fall through warm intros more than any other market. Check Nepternship, Boardy, and Series So, that's the layer they sit in.

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1lmgkil.md
 url: "https://www.reddit.com/r/artificial/comments/1lmgkil/grok_turned_on_elon_with_almost_no_prompting/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,92 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:04.780Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c0"
+    char_span: [0, 357]
+    sentence_count: 2
+    key_terms: [artificial, comments, jmoneygraves, reddit-deep, committed, political, prompting, uncanny]
+    token_count: 94
+  - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c1"
+    char_span: [359, 3053]
+    sentence_count: 12
+    key_terms: [right-wing, violence, left-wing, extremists, incidents, political, data, extremist-related]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c2"
+    char_span: [3055, 4117]
+    sentence_count: 8
+    key_terms: [musk, grok, model, political, violence, major, wrote, data]
+    token_count: 253
+  - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c3"
+    char_span: [4119, 6653]
+    sentence_count: 13
+    key_terms: [grok, like, violence, left-wing, right-wing, data, musk, csis]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c4"
+    char_span: [6334, 7308]
+    sentence_count: 7
+    key_terms: [musk, especially, right-wing, knowledge, violence, being, data, grok]
+    token_count: 199
+  - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c5"
+    char_span: [7310, 7373]
+    sentence_count: 2
+    key_terms: [thoughts, prompt, since, grok]
+    token_count: 20
+  - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c6"
+    char_span: [7375, 9738]
+    sentence_count: 17
+    key_terms: [data, left-wing, violence, like, users, grok, reflecting, right-wing]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c7"
+    char_span: [9457, 10147]
+    sentence_count: 7
+    key_terms: [data, evidence, new, protest-related, counterclaim, politically, underscores, hypothesis]
+    token_count: 153
+  - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c8"
+    char_span: [10149, 12026]
+    sentence_count: 11
+    key_terms: [happened, interesting, grok, incoherent, situation, because, nothing, trained]
+    section: Comments
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c9"
+    char_span: [12028, 12545]
+    sentence_count: 1
+    key_terms: [point, breaking, subject, specialization, foundational, intelligence, dissonance, cognitive]
+    section: Comments
+    token_count: 100
+  - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c10"
+    char_span: [12547, 14797]
+    sentence_count: 12
+    key_terms: [machine, llm, enough, okdaikon9101, human, truth, information, get]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c11"
+    char_span: [14459, 15870]
+    sentence_count: 6
+    key_terms: [don, incoherent, ideology, jackiechannelsurfer, given, human, model, right]
+    section: Comments
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c12"
+    char_span: [15872, 17544]
+    sentence_count: 8
+    key_terms: [intersectionality, wing, understand, because, "don't", right, views, elon]
+    section: Comments
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c13"
+    char_span: [17546, 18495]
+    sentence_count: 2
+    key_terms: [grok, redact, ivan8-forgotpassword, elon, like, musk, jmoneygraves, truth-seeker]
+    section: Comments
+    token_count: 267
+  - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c14"
+    char_span: [18497, 19949]
+    sentence_count: 3
+    key_terms: [something, happened, because, clearly, thought, hatred, though, thats]
+    section: Comments
+    token_count: 380
 ---
-
 # Grok turned on Elon with almost no prompting. Uncanny is the only word I have
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1lmgkil/grok_turned_on_elon_with_almost_no_prompting/)

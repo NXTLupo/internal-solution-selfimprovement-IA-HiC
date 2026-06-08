@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1rxk6t2.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1rxk6t2/how_cooked_am_i_with_no_internships/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,45 @@ flair: "Career Advice"
 extracted_at: "2026-05-25T18:32:19.215Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rxk6t2.md#c0"
+    char_span: [0, 963]
+    sentence_count: 6
+    key_terms: [engineering, engineeringstudents, internship, comments, research, physics, summer, "don't"]
+    token_count: 218
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rxk6t2.md#c1"
+    char_span: [978, 1775]
+    sentence_count: 4
+    key_terms: [engineering, navy, internship, designing, ships, pristine-judge640, got, queenofruneblade]
+    section: Comments
+    token_count: 195
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rxk6t2.md#c2"
+    char_span: [1777, 3967]
+    sentence_count: 20
+    key_terms: [team, internship, entry, something, pristine-judge640, queenofruneblade, design, senior]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rxk6t2.md#c3"
+    char_span: [3969, 5320]
+    sentence_count: 10
+    key_terms: [volunteer, queenofruneblade, company, volunteering, "can't", something, deleted, optical]
+    section: Comments
+    token_count: 344
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rxk6t2.md#c4"
+    char_span: [5322, 7176]
+    sentence_count: 8
+    key_terms: [optical, engineering, queenofruneblade, degree, masters, optics, abravexstove, get]
+    section: Comments
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rxk6t2.md#c5"
+    char_span: [7178, 8214]
+    sentence_count: 6
+    key_terms: [projects, internships, job, personal, several, secure, capital-spring1682, show-and-tell]
+    section: Comments
+    token_count: 235
 ---
-
 # How cooked am I with no internships?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1rxk6t2/how_cooked_am_i_with_no_internships/)

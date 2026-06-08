@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1t1to0m.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1t1to0m/recently_got_transfer_offer_from_uchicago_and/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-25T18:33:12.676Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1t1to0m.md#c0"
+    char_span: [0, 1521]
+    sentence_count: 11
+    key_terms: [waterloo, uchicago, tech, network, math, reputation, uwaterloo, comments]
+    token_count: 358
+  - id: "social-intelligence/reddit-deep/uwaterloo/1t1to0m.md#c1"
+    char_span: [1536, 2997]
+    sentence_count: 10
+    key_terms: [waterloo, uchicago, chicago, want, resources, prestige, students, school]
+    section: Comments
+    token_count: 352
+  - id: "social-intelligence/reddit-deep/uwaterloo/1t1to0m.md#c2"
+    char_span: [2999, 4612]
+    sentence_count: 10
+    key_terms: [admissions, uwaterloo, uchicago, waterloo, automoderator, skyl0rdxdcs, year, moderators]
+    section: Comments
+    token_count: 415
 ---
-
 # Recently got transfer offer from UChicago and wondering
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1t1to0m/recently_got_transfer_offer_from_uchicago_and/)

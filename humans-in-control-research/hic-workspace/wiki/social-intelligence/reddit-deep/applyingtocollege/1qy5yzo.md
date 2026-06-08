@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1qy5yzo.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1qy5yzo/im_having_the_worst_college_decisions_experience/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,51 @@ flair: "Rant"
 extracted_at: "2026-05-23T19:45:32.281Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qy5yzo.md#c0"
+    char_span: [0, 1154]
+    sentence_count: 4
+    key_terms: [applyingtocollege, got, people, school, good, kids, comments, everyone]
+    token_count: 272
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qy5yzo.md#c1"
+    char_span: [1169, 3255]
+    sentence_count: 14
+    key_terms: [school, schools, happy, immature, amazing, sorry, snarchetype, good]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qy5yzo.md#c2"
+    char_span: [3011, 3394]
+    sentence_count: 3
+    key_terms: [engineering, samspayedpi, beautiful, confident, education, seriously, boulder, classes]
+    section: Comments
+    token_count: 99
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qy5yzo.md#c3"
+    char_span: [3396, 4243]
+    sentence_count: 5
+    key_terms: [difference, lottery, simply, lot, packing-tape-man, applications, standardized, universities]
+    section: Comments
+    token_count: 195
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qy5yzo.md#c4"
+    char_span: [4245, 6460]
+    sentence_count: 25
+    key_terms: [school, ohio, college, people, opportunities, large, state, competitive]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qy5yzo.md#c5"
+    char_span: [6197, 6551]
+    sentence_count: 4
+    key_terms: [competitive, super, environment, grasshopper, colleges, position, snobbery, yourself]
+    section: Comments
+    token_count: 86
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qy5yzo.md#c6"
+    char_span: [6553, 7105]
+    sentence_count: 5
+    key_terms: [top, students, schools, dontchuckitup, runnykinepity, insufferable, challenging, classmates]
+    section: Comments
+    token_count: 136
 ---
-
 # I’m having the worst college decisions experience out of my entire graduating class
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1qy5yzo/im_having_the_worst_college_decisions_experience/)

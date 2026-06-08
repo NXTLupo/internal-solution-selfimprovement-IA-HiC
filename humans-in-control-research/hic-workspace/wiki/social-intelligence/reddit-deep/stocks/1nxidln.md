@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1nxidln.md
 url: "https://www.reddit.com/r/stocks/comments/1nxidln/reddit_rddt_everyones_missing_what_actually/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,86 @@ flair: "Company Discussion"
 extracted_at: "2026-05-17T01:14:17.624Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, media, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c0"
+    char_span: [0, 1984]
+    sentence_count: 17
+    key_terms: [reddit, google, pricing, drop, free, chatgpt, content, access]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c1"
+    char_span: [1986, 4006]
+    sentence_count: 22
+    key_terms: [reddit, google, revenue, negotiations, competition, eliminated, catalysts, earnings]
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c2"
+    char_span: [4021, 4665]
+    sentence_count: 10
+    key_terms: [potential, better, chunk, ratio, room, usd, use, notoriousjmo]
+    section: Comments
+    token_count: 186
+  - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c3"
+    char_span: [4667, 6580]
+    sentence_count: 16
+    key_terms: [reddit, use, google, people, lot, real, instagram, daughter]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c4"
+    char_span: [6321, 8107]
+    sentence_count: 11
+    key_terms: [reddit, get, republicans, commenting, answers, scholar, through, answer]
+    section: Comments
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c5"
+    char_span: [8109, 9782]
+    sentence_count: 8
+    key_terms: [reddit, dip, exactly, shares, ok-seaworthiness3874, outlandishnessdry365, super, bots]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c6"
+    char_span: [9784, 11730]
+    sentence_count: 11
+    key_terms: [revenue, reddit, like, iiiiiiiiiateeyes, future, don, year, dependent]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c7"
+    char_span: [11732, 13477]
+    sentence_count: 12
+    key_terms: [search, deal, reddit, licensing, glitteringflounder46, real-time, scraping, openai]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c8"
+    char_span: [13479, 15669]
+    sentence_count: 19
+    key_terms: [reddit, data, google, openai, ads, been, like, licensing]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c9"
+    char_span: [15671, 16925]
+    sentence_count: 16
+    key_terms: [people, info, twitter, maybe, quite, users, use, deleteaftermeat]
+    section: Comments
+    token_count: 296
+  - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c10"
+    char_span: [16927, 18688]
+    sentence_count: 17
+    key_terms: [twitter, reddit, people, discussions, elon, here, "it's", news]
+    section: Comments
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c11"
+    char_span: [18690, 20309]
+    sentence_count: 16
+    key_terms: [valuation, growth, forward, like, competitor, earnings, instead, future]
+    section: Comments
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/stocks/1nxidln.md#c12"
+    char_span: [20311, 21451]
+    sentence_count: 10
+    key_terms: [meta, reddit, shares, overreaction, twitter, bought, outlandishnessdry365, like]
+    section: Comments
+    token_count: 335
 ---
-
 # Reddit (RDDT) - Everyone’s Missing What Actually Happened
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1nxidln/reddit_rddt_everyones_missing_what_actually/)

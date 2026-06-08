@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-financialindependence/b0d1fcf23c.md
 url: "https://www.reddit.com/r/financialindependence/comments/1me1wc1/5_years_into_fire_from_5k_after_divorce_to_214k/"
 url_hash: "b0d1fcf23c"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-16T21:01:48.608500+00:00"
 chars: 6030
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-financialindependence/b0d1fcf23c.md#c0"
+    char_span: [0, 1952]
+    sentence_count: 14
+    key_terms: [financialindependence, divorce, became, career, driver, reddit, worth, years]
+    token_count: 490
+  - id: "articles/reddit-deep-r-financialindependence/b0d1fcf23c.md#c1"
+    char_span: [1954, 4051]
+    sentence_count: 15
+    key_terms: [year, percent, bonus, plus, pastor, salary, budget, income]
+    token_count: 482
+  - id: "articles/reddit-deep-r-financialindependence/b0d1fcf23c.md#c2"
+    char_span: [4053, 6277]
+    sentence_count: 24
+    key_terms: [keep, significant, hard, work, inspiring, congrats, staying, almost]
+    token_count: 511
 ---
-
 # 5 Years into FIRE: From $5k After Divorce to $214k Net Worth and a New Marriage
 
 Source: [Reddit Deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1me1wc1/5_years_into_fire_from_5k_after_divorce_to_214k/)

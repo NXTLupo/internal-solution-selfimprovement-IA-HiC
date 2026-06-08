@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1s4i4fg.md
 url: "https://www.reddit.com/r/careerguidance/comments/1s4i4fg/three_year_career_gap_how_do_i_get_back_into_the/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 3
 upvote_ratio: 1
 num_comments: 7
 flair: ""
-extracted_at: "2026-05-23T14:54:05.575Z"
+extracted_at: "2026-06-03T03:09:46.187Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Generate a strategic analysis identifying actionable opportunities for Northeastern University to enhance experiential learning and co-op success. Focus the analysis on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development."
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1s4i4fg.md#c0"
+    char_span: [0, 1059]
+    sentence_count: 12
+    key_terms: [careerguidance, back, been, gap, get, appreciate, interviews, comments]
+    token_count: 243
+  - id: "social-intelligence/reddit-deep/careerguidance/1s4i4fg.md#c1"
+    char_span: [1074, 2024]
+    sentence_count: 4
+    key_terms: [trying, gap, year, projects, because, doing, work, exitexisting2108]
+    section: Comments
+    token_count: 245
 ---
-
 # Three year career gap ,how do I get back into the job market?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1s4i4fg/three_year_career_gap_how_do_i_get_back_into_the/)

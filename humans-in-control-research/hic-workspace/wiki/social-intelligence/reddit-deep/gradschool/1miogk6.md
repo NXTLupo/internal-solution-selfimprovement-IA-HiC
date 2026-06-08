@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1miogk6.md
 url: "https://www.reddit.com/r/GradSchool/comments/1miogk6/postgrad_school_blues/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.336Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1miogk6.md#c0"
+    char_span: [0, 1099]
+    sentence_count: 9
+    key_terms: [school, did, gradschool, comments, jealous, campus, being, face]
+    token_count: 264
 ---
-
 # Post-Grad school blues
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1miogk6/postgrad_school_blues/)

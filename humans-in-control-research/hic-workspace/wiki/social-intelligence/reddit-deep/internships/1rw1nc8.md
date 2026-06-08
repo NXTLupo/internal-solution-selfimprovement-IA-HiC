@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rw1nc8.md
 url: "https://www.reddit.com/r/internships/comments/1rw1nc8/junior_econ_student_thinking_about_an_internship/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "General"
 extracted_at: "2026-05-20T12:56:20.014Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rw1nc8.md#c0"
+    char_span: [0, 1262]
+    sentence_count: 8
+    key_terms: [internship, abroad, internships, been, like, especially, personally, comments]
+    token_count: 278
+  - id: "social-intelligence/reddit-deep/internships/1rw1nc8.md#c1"
+    char_span: [1277, 2808]
+    sentence_count: 12
+    key_terms: [placement, internship, abroad, europe, legal, worth, asia, fee]
+    section: Comments
+    token_count: 315
 ---
-
 # Junior econ student thinking about an internship abroad next summer, any advice?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rw1nc8/junior_econ_student_thinking_about_an_internship/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1r3kkl8.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1r3kkl8/after_3_years_with_chatgpt_i_tried_claude_and/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,105 @@ flair: "Funny "
 extracted_at: "2026-05-11T16:54:08.816Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c0"
+    char_span: [0, 2099]
+    sentence_count: 16
+    key_terms: [chatgpt, like, claude, gemini, feels, been, feel, "it's"]
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c1"
+    char_span: [2114, 4150]
+    sentence_count: 13
+    key_terms: [chatgpt, gemini, temporary-wallaby829, complex, better, openai, please, conversation]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c2"
+    char_span: [4152, 5804]
+    sentence_count: 13
+    key_terms: [controls, claude, post-training, cycle, sure, chatgpt, tighter, asking]
+    section: Comments
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c3"
+    char_span: [5806, 6606]
+    sentence_count: 4
+    key_terms: [history, gemini, gpt, chatgpt, latest, revolutionarypie5223, chat, use]
+    section: Comments
+    token_count: 203
+  - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c4"
+    char_span: [6608, 8125]
+    sentence_count: 12
+    key_terms: [chatgpt, email, information, interesting, chat, history, answer, export]
+    section: Comments
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c5"
+    char_span: [8127, 9962]
+    sentence_count: 11
+    key_terms: [gemini, like, prompt, rules, gpt, instructions, memoryplugin, blah]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c6"
+    char_span: [9964, 11606]
+    sentence_count: 12
+    key_terms: [like, gemini, use, chatgpt, idolovecrisps, feels, day, gpt]
+    section: Comments
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c7"
+    char_span: [11608, 13155]
+    sentence_count: 12
+    key_terms: [claude, "they're", gemini, surreybird, something, "doesn't", mention, better]
+    section: Comments
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c8"
+    char_span: [13157, 14772]
+    sentence_count: 13
+    key_terms: [temporary-wallaby829, like, surreybird, research, exactly, models, sanity, "that's"]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c9"
+    char_span: [14776, 16460]
+    sentence_count: 9
+    key_terms: ["i'm", like, "don't", gpt, claude, intelligence, surreybird, emotional]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c10"
+    char_span: [16462, 16635]
+    sentence_count: 3
+    key_terms: [pre-emptively, execution, already, exactly, sharing, advice, asking, "don't"]
+    section: Comments
+    token_count: 44
+  - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c11"
+    char_span: [16639, 18822]
+    sentence_count: 9
+    key_terms: [like, "i'm", feeling, competition, gpt, "it's", move, something]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c12"
+    char_span: [18550, 19662]
+    sentence_count: 7
+    key_terms: [gemini, projects, chatgpt, attachments, gems, like, contents, claude]
+    section: Comments
+    token_count: 265
+  - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c13"
+    char_span: [19664, 21613]
+    sentence_count: 17
+    key_terms: [chatgpt, claude, project, gemini, temporary-wallaby829, gpt, projects, chat]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c14"
+    char_span: [21615, 23339]
+    sentence_count: 16
+    key_terms: [opinion, temporary-wallaby829, using, strong, like, time, reasoning, requiring]
+    section: Comments
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/chatgpt/1r3kkl8.md#c15"
+    char_span: [23341, 25155]
+    sentence_count: 11
+    key_terms: [like, temporary-wallaby829, psychopath, personalnature1795, straight, d01542acc80786dd9eb1f7899450f3ee7dd1bf5a, act, "i'm"]
+    section: Comments
+    token_count: 512
 ---
-
 # After 3 years with ChatGPT, I tried Claude and Gemini - and now GPT feels... generic?
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1r3kkl8/after_3_years_with_chatgpt_i_tried_claude_and/)

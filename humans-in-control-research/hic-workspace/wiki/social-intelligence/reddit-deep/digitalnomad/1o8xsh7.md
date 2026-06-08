@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1o8xsh7/icydk_you_dont_need_travel_medical_insurance_for/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,56 @@ flair: "Health"
 extracted_at: "2026-05-26T12:53:56.734Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [healthcare, financial_services]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c0"
+    char_span: [0, 2178]
+    sentence_count: 16
+    key_terms: [free, public, insurance, brazil, need, "you're", digitalnomad, "don't"]
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c1"
+    char_span: [2180, 2566]
+    sentence_count: 2
+    key_terms: [countries, experiences, healthcare, regardless, according, emergency, slovenia, ecuador]
+    token_count: 91
+  - id: "social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c2"
+    char_span: [2581, 3364]
+    sentence_count: 7
+    key_terms: [healthcare, emergency, services, haberdasher42, cardiologist, consultation, appointment, overcrowded]
+    section: Comments
+    token_count: 170
+  - id: "social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c3"
+    char_span: [3366, 5320]
+    sentence_count: 11
+    key_terms: [insurance, brazil, system, healthcare, travel, abuse, scdws, sus]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c4"
+    char_span: [5322, 5576]
+    sentence_count: 4
+    key_terms: ["that's", immediately, healthcare, emergency, accident, everyone, medical, support]
+    section: Comments
+    token_count: 54
+  - id: "social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c5"
+    char_span: [5578, 7597]
+    sentence_count: 13
+    key_terms: [get, treatment, emergency, insurance, free, uninsured, hospital, ignorant]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c6"
+    char_span: [7325, 8812]
+    sentence_count: 13
+    key_terms: [emergency, receive, care, don, insurance, hospital, public, being]
+    section: Comments
+    token_count: 330
+  - id: "social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c7"
+    char_span: [8814, 9952]
+    sentence_count: 6
+    key_terms: [free, healthcare, argentina, brazilian, education, hospitals, insurance, universal]
+    section: Comments
+    token_count: 265
 ---
-
 # ICYDK: you don't need travel medical insurance for Brazil as they offer free healthcare for everyone, including non-residents/citizens
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1o8xsh7/icydk_you_dont_need_travel_medical_insurance_for/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1o5qnek.md
 url: "https://www.reddit.com/r/college/comments/1o5qnek/just_a_girl_budgeting_for_college/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-17T01:12:59.140Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1o5qnek.md#c0"
+    char_span: [0, 777]
+    sentence_count: 9
+    key_terms: [college, necessities, budgeting, wondering, comments, working, money, spend]
+    token_count: 197
+  - id: "social-intelligence/reddit-deep/college/1o5qnek.md#c1"
+    char_span: [792, 1030]
+    sentence_count: 2
+    key_terms: [contribute, devaluing, investing, something, currency, research, looking, sitting]
+    section: Comments
+    token_count: 55
+  - id: "social-intelligence/reddit-deep/college/1o5qnek.md#c2"
+    char_span: [1032, 2913]
+    sentence_count: 9
+    key_terms: [budget, dear-fig-3728, money, month, spend, groceries, fun, always]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/college/1o5qnek.md#c3"
+    char_span: [2915, 4291]
+    sentence_count: 13
+    key_terms: [money, month, spend, get, allowance, beginning, spending, together]
+    section: Comments
+    token_count: 311
+  - id: "social-intelligence/reddit-deep/college/1o5qnek.md#c4"
+    char_span: [4293, 6247]
+    sentence_count: 19
+    key_terms: [like, etc, food, week, month, eat, groceries, otherwise]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/college/1o5qnek.md#c5"
+    char_span: [6249, 6750]
+    sentence_count: 4
+    key_terms: [figure, fun, half, savings, going, rainy, split, day]
+    section: Comments
+    token_count: 122
 ---
-
 # Just a girl budgeting for college
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1o5qnek/just_a_girl_budgeting_for_college/)

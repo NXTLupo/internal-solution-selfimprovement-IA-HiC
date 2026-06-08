@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/cx-mesh.md
 title: "CX Mesh Integration Layer"
 type: framework
 created: 2026-04-10
@@ -8,8 +9,70 @@ confidence: high
 status: active
 tags: [cx-mesh, reddit, trustpilot, playstore, social-data, voice-of-customer]
 evidence_count: 0
+industries: [saas, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/cx-mesh.md#c0"
+    char_span: [0, 926]
+    sentence_count: 5
+    key_terms: [research, social, services, backend, integration, data, mesh, collection]
+    section: Architecture
+    token_count: 188
+  - id: "social-intelligence/cx-mesh.md#c1"
+    char_span: [955, 2880]
+    sentence_count: 4
+    key_terms: [count, parameters, reddit, jobid, collect, returns, socialcollectionconfig, source]
+    section: Social Data Collection
+    token_count: 469
+  - id: "social-intelligence/cx-mesh.md#c2"
+    char_span: [2906, 3791]
+    sentence_count: 2
+    key_terms: [string, subreddit, relevant, research, communities, researchfabricorchestrator, subredditrecommendation, estimatedengagement]
+    section: Subreddit Discovery
+    token_count: 187
+  - id: "social-intelligence/cx-mesh.md#c3"
+    char_span: [3838, 5219]
+    sentence_count: 5
+    key_terms: [subreddit, analysis, journey, returns, posts, api, data, rag]
+    section: Integration with Social Research Backend
+    token_count: 345
+  - id: "social-intelligence/cx-mesh.md#c4"
+    char_span: [5251, 5692]
+    sentence_count: 2
+    key_terms: [servicestatus, string, checkservicehealth, typescript, available, endpoints, interface, operation]
+    section: Service Health Monitoring
+    token_count: 98
+  - id: "social-intelligence/cx-mesh.md#c5"
+    char_span: [5742, 6677]
+    sentence_count: 8
+    key_terms: [social, evidence, nodes, tier, research, credibility, data, community]
+    section: How CX Mesh Data Enters the Research Corpus
+    token_count: 181
+  - id: "social-intelligence/cx-mesh.md#c6"
+    char_span: [6716, 7404]
+    sentence_count: 1
+    key_terms: [social, competitive, research, users, authentically, intelligence, ambivalence, communities]
+    section: Voice of Customer (VoC) Patterns
+    token_count: 118
+  - id: "social-intelligence/cx-mesh.md#c7"
+    char_span: [7433, 8226]
+    sentence_count: 3
+    key_terms: [connector, forums, channels, social, datasourceconnectors, credibilitytier, machinelearning, social-relevant]
+    section: Data Source Connectors
+    token_count: 177
+  - id: "social-intelligence/cx-mesh.md#c8"
+    char_span: [8255, 9061]
+    sentence_count: 1
+    key_terms: [wiki, evidence, trustpilot, playstore, subreddit, social, themes, pages]
+    section: Wiki Integration Rules
+    token_count: 158
+  - id: "social-intelligence/cx-mesh.md#c9"
+    char_span: [9084, 9568]
+    sentence_count: 1
+    key_terms: [social-intelligence, sources-registry, competitive, frameworks, analysis, social, sentiment-pipeline, connector-catalog]
+    section: Cross-References
+    token_count: 104
 ---
-
 # CX Mesh Integration Layer
 
 The CX Mesh is the integration fabric that connects HiC Research to live social intelligence services. It routes social data from collection through analysis into the research corpus, enforcing human checkpoints at each boundary crossing.

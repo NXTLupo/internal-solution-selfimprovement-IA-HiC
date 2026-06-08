@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t9vxws.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t9vxws/career_advice_needed_need_guidance_on_how_to_up/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-20T12:56:27.147Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t9vxws.md#c0"
+    char_span: [0, 1822]
+    sentence_count: 13
+    key_terms: [project, background, business, analyst, product, careerguidance, advice, devops]
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/careerguidance/1t9vxws.md#c1"
+    char_span: [1837, 3482]
+    sentence_count: 12
+    key_terms: [technical, product, devops, sql, learning, python, help, automation]
+    section: Comments
+    token_count: 331
 ---
-
 # Career advice needed , need guidance on how to up skill myself for my next role ?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t9vxws/career_advice_needed_need_guidance_on_how_to_up/)

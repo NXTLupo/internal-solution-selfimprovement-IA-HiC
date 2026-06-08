@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1qjvthj.md
 url: "https://www.reddit.com/r/careerguidance/comments/1qjvthj/feeling_stuck_careerwise_whats_a_realistic_path/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -6,19 +7,48 @@ subreddit: "careerguidance"
 title: "Feeling stuck career-wise: what’s a realistic path to a stable job in 2026?"
 author: "u_HiredIn48"
 date: "2026-01-22T14:22:49.000Z"
-score: 21
-upvote_ratio: 0.97
+score: 22
+upvote_ratio: 1
 num_comments: 21
 flair: ""
-extracted_at: "2026-05-25T18:32:57.386Z"
+extracted_at: "2026-06-03T17:59:52.588Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1qjvthj.md#c0"
+    char_span: [0, 1364]
+    sentence_count: 9
+    key_terms: [applications, interviews, applying, careerguidance, job, qualified, comments, company]
+    token_count: 314
+  - id: "social-intelligence/reddit-deep/careerguidance/1qjvthj.md#c1"
+    char_span: [1379, 3099]
+    sentence_count: 8
+    key_terms: [interviews, job, honestly, resume, conversations, applications, been, too]
+    section: Comments
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/careerguidance/1qjvthj.md#c2"
+    char_span: [3104, 4787]
+    sentence_count: 13
+    key_terms: [job, messaging, applications, apply, right, recruiters, linkedin, probably]
+    section: Comments
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/careerguidance/1qjvthj.md#c3"
+    char_span: [4789, 7172]
+    sentence_count: 19
+    key_terms: [applications, applying, roles, job, linkedin, resume, "you're", doing]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/careerguidance/1qjvthj.md#c4"
+    char_span: [7174, 7966]
+    sentence_count: 8
+    key_terms: [applications, apply, companies, anyway, accomplished-win9630, right, "it's", jobs]
+    section: Comments
+    token_count: 185
 ---
-
 # Feeling stuck career-wise: what’s a realistic path to a stable job in 2026?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1qjvthj/feeling_stuck_careerwise_whats_a_realistic_path/)
-Posted by **u_HiredIn48** · **21↑** · **21 comments**
+Posted by **u_HiredIn48** · **22↑** · **21 comments**
 
 What’s the most effective way to get interviews when I’m applying consistently but not hearing back?
 

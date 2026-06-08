@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1sl1me2.md
 url: "https://www.reddit.com/r/internships/comments/1sl1me2/hsbc_working_placement/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -8,17 +9,28 @@ author: "Desperate_Milk_3676"
 date: "2026-04-14T07:28:01.000Z"
 score: 2
 upvote_ratio: 1
-num_comments: 12
+num_comments: 14
 flair: "Offers"
-extracted_at: "2026-05-23T19:44:46.349Z"
+extracted_at: "2026-06-05T16:18:00.475Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1sl1me2.md#c0"
+    char_span: [0, 509]
+    sentence_count: 4
+    key_terms: [internships, working, hsbc, placement, comments, offer, hong, kong]
+    token_count: 131
+  - id: "social-intelligence/reddit-deep/internships/1sl1me2.md#c1"
+    char_span: [524, 2150]
+    sentence_count: 6
+    key_terms: [sure, congrats, thanks, authorization, here, hey, visa, work]
+    section: Comments
+    token_count: 481
 ---
-
 # HSBC working placement
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1sl1me2/hsbc_working_placement/)
-Posted by **Desperate_Milk_3676** · **2↑** · **12 comments**
+Posted by **Desperate_Milk_3676** · **2↑** · **14 comments**
 
 It’s finally over for my 100 internships application search!🥹 I just got an offer for HSBC working placement in Hong Kong.
 
@@ -41,3 +53,5 @@ Thanks
     - **thunblazin** (1↑): dm-ed!
 - **duckingmoss** (1↑): Hii congrats on getting your SWP offer!! I am also an upcoming HSBC SWP intern and would love to connect :)) Feel free to message me here!!
   - **Desperate_Milk_3676** (1↑): Hey thanks! and congrats to you too!!, let me dm you
+- **thanklesstactic** (1↑): can I dm you? i am just confused with timeline?
+  - **Desperate_Milk_3676** (1↑): sure!

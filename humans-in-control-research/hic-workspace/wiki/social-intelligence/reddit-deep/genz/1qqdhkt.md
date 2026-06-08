@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1qqdhkt.md
 url: "https://www.reddit.com/r/GenZ/comments/1qqdhkt/read_this_prenup_article_and_sent_it_to_my/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,33 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.768Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1qqdhkt.md#c0"
+    char_span: [0, 2057]
+    sentence_count: 15
+    key_terms: [prenups, because, everything, girlfriend, article, parents, else, "it's"]
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/genz/1qqdhkt.md#c1"
+    char_span: [2072, 3523]
+    sentence_count: 9
+    key_terms: [girlfriend, "i'm", different, article, because, brought, discord, student]
+    section: Comments
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/genz/1qqdhkt.md#c2"
+    char_span: [3525, 5501]
+    sentence_count: 9
+    key_terms: [prenups, assets, prenup, considering, good, sometimes, setting, "there's"]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/genz/1qqdhkt.md#c3"
+    char_span: [5503, 7391]
+    sentence_count: 10
+    key_terms: [prenup, get, like, marriage, "you're", certificate, something, stability]
+    section: Comments
+    token_count: 472
 ---
-
 # Read this prenup article and sent it to my girlfriend immediately
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1qqdhkt/read_this_prenup_article_and_sent_it_to_my/)

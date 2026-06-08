@@ -10,9 +10,9 @@ score: 1
 upvote_ratio: 0.6
 num_comments: 13
 flair: "Biological Sciences"
-extracted_at: "2026-05-24T14:10:06.601Z"
+extracted_at: "2026-06-06T23:23:15.585Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Does undergraduate research count as a publication for grad school admissions?
@@ -24,15 +24,15 @@ I am currently in the process of completing an independent undergraduate researc
 
 ## Comments
 
-- **madie7392** (18↑): you can definitely still list it on your CV, and if it’s somehow accessible online it may allow profs to look it up and read it to get an idea of your work. But generally when people say publications they mean peer-reviewed journals, not internal publications.
+- **madie7392** (17↑): you can definitely still list it on your CV, and if it’s somehow accessible online it may allow profs to look it up and read it to get an idea of your work. But generally when people say publications they mean peer-reviewed journals, not internal publications.
   - **DankAshMemes** (-3↑): The fellowship research might be peer-reviewed, but I think its unlikely the research published internally is. How are undergraduates even getting first author publication opportunities? Just connections and PI's with the time and funds to support it?
     - **crucial_geek** (3↑): Some are pushed by the PI to publish, others just do it themselves.  
 
 For the most part, becuase of the time costs, and the culture, most PIs will not fund an undergrad to publish.  The trick is to draft as you go.  The other trick is use your proprosal as the backbone, and then update as you go.  Although "you" won't specifically get paid to write the manuscript, this is a way to do it while still getting paid to RA or whatever.  Otherwise, once the project is over, or, once your role is over, the paper-writing becomes a collaborative effort.
-- **frostluna11037** (10↑): I wouldn’t consider this a publication and would recommend putting it under a projects or poster presentation section. I have something similar and even though I have a journal entry in the schools journal for it I did not put it as a publication since it’s not peer reviewed.
+- **frostluna11037** (11↑): I wouldn’t consider this a publication and would recommend putting it under a projects or poster presentation section. I have something similar and even though I have a journal entry in the schools journal for it I did not put it as a publication since it’s not peer reviewed.
   - **DankAshMemes** (1↑): That seems like great advice, thank you.
     - **dragonflybruises** (1↑): I agree. I would put this under conference presentations
-- **crucial_geek** (4↑): No, not a 'publication'.  But, the psoter session still counts and can be listed in the appropriate section in your CV, and, getting printed in your school's undergrad research journal is something, and should also be listed in the appropriate CV section, but this is not publishing so do not try to pass it off as such. 
+- **crucial_geek** (3↑): No, not a 'publication'.  But, the psoter session still counts and can be listed in the appropriate section in your CV, and, getting printed in your school's undergrad research journal is something, and should also be listed in the appropriate CV section, but this is not publishing so do not try to pass it off as such. 
 
 Publishing assumes that you wrote a manuscript that was targetted to a specific journal and was vetted by a peer review / editor process and was accpeted for publication.  It's a process that can take a year or longer. 
 

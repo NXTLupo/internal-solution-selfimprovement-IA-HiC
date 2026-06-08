@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1skmt3h.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1skmt3h/will_field_experience_help_or_hinder_my_chances/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,27 @@ flair: "Career Advice"
 extracted_at: "2026-05-22T23:33:47.032Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1skmt3h.md#c0"
+    char_span: [0, 797]
+    sentence_count: 5
+    key_terms: [experience, engineeringstudents, becoming, engineer, directional, currently, comments, drilling]
+    token_count: 170
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1skmt3h.md#c1"
+    char_span: [812, 2378]
+    sentence_count: 7
+    key_terms: [experience, degree, level, advantage, companies, engineer, getting, engineering]
+    section: Comments
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1skmt3h.md#c2"
+    char_span: [2380, 3982]
+    sentence_count: 11
+    key_terms: [assumptions, experience, textbook, "you'll", "you're", world, real, learning]
+    section: Comments
+    token_count: 339
 ---
-
 # Will field experience help or hinder my chances of becoming an engineer?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1skmt3h/will_field_experience_help_or_hinder_my_chances/)

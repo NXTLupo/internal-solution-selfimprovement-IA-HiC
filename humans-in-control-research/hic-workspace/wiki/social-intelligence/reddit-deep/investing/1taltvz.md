@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1taltvz.md
 url: "https://www.reddit.com/r/investing/comments/1taltvz/how_does_anyone_take_cathie_wood_seriously/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.193Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1taltvz.md#c0"
+    char_span: [0, 978]
+    sentence_count: 10
+    key_terms: [innovation, fund, investing, comments, returned, market, trades, years]
+    token_count: 233
+  - id: "social-intelligence/reddit-deep/investing/1taltvz.md#c1"
+    char_span: [993, 1479]
+    sentence_count: 2
+    key_terms: [market, current, genius, hulksinvinciblepants, doing, moron, "i'm", time]
+    section: Comments
+    token_count: 133
+  - id: "social-intelligence/reddit-deep/investing/1taltvz.md#c2"
+    char_span: [1481, 3300]
+    sentence_count: 11
+    key_terms: [earnings, broken, did, sold, yeah, remember, wonder, airplanealjefferson]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/investing/1taltvz.md#c3"
+    char_span: [3302, 4943]
+    sentence_count: 9
+    key_terms: [fund, investors, netflix, space, picking, cramer, stocks, thenorthernwhiteboy]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/investing/1taltvz.md#c4"
+    char_span: [4945, 6100]
+    sentence_count: 9
+    key_terms: [portfolio, rebalance, manager, notapersonaltrainer, early, etf, got, sold]
+    section: Comments
+    token_count: 297
+  - id: "social-intelligence/reddit-deep/investing/1taltvz.md#c5"
+    char_span: [6102, 7401]
+    sentence_count: 7
+    key_terms: [glasses, stock, fund, "it's", need, greatness, millions, believe]
+    section: Comments
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/investing/1taltvz.md#c6"
+    char_span: [7403, 9402]
+    sentence_count: 18
+    key_terms: [god, gametime2325, years, don, saw, bible, picks, right]
+    section: Comments
+    token_count: 511
 ---
-
 # How does anyone take Cathie Wood seriously?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1taltvz/how_does_anyone_take_cathie_wood_seriously/)

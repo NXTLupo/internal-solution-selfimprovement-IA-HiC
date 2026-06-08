@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1najnc6.md
 url: "https://www.reddit.com/r/careerguidance/comments/1najnc6/jobs_paying_30hr/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,39 @@ flair: "Advice"
 extracted_at: "2026-05-26T14:32:49.162Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1najnc6.md#c0"
+    char_span: [0, 1786]
+    sentence_count: 19
+    key_terms: [school, career, back, kids, working, careerguidance, suggestions, get]
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/careerguidance/1najnc6.md#c1"
+    char_span: [1801, 2661]
+    sentence_count: 6
+    key_terms: [maintenance, industrial, someone, ihatechoosngusername, fan, good, hits, shit]
+    section: Comments
+    token_count: 238
+  - id: "social-intelligence/reddit-deep/careerguidance/1najnc6.md#c2"
+    char_span: [2663, 4192]
+    sentence_count: 13
+    key_terms: [runningsquirrels, girlgangx3, assistant, community, positions, adjuster, probably, timeline]
+    section: Comments
+    token_count: 408
+  - id: "social-intelligence/reddit-deep/careerguidance/1najnc6.md#c3"
+    char_span: [4195, 5665]
+    sentence_count: 16
+    key_terms: [don, good, become, degree, cna, pay, meepoclock, training]
+    section: Comments
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/careerguidance/1najnc6.md#c4"
+    char_span: [5667, 6234]
+    sentence_count: 4
+    key_terms: [pay, management, nursing, brand, good, mynameishuman42, greta-garbage, advancement]
+    section: Comments
+    token_count: 157
 ---
-
 # Jobs paying $30+/hr?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1najnc6/jobs_paying_30hr/)

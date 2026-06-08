@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1oaf7ku.md
 url: "https://www.reddit.com/r/findapath/comments/1oaf7ku/29f_with_some_college_education_willing_to_go/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,21 @@ flair: "Findapath-College/Certs"
 extracted_at: "2026-05-25T13:04:07.384Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1oaf7ku.md#c0"
+    char_span: [0, 602]
+    sentence_count: 7
+    key_terms: [findapath, comments, school, try, reddit-deep, suggestions, brightest, education]
+    token_count: 165
+  - id: "social-intelligence/reddit-deep/findapath/1oaf7ku.md#c1"
+    char_span: [617, 2594]
+    sentence_count: 20
+    key_terms: [thank, helpful, please, find, findapath, questions, comments, everyone]
+    section: Comments
+    token_count: 449
 ---
-
 # 29F with some college education (willing to go back), not the brightest, but will try my best at anything. Need something that can be a steady career path with a livable wage. I feel it's too late. Any suggestions?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1oaf7ku/29f_with_some_college_education_willing_to_go/)

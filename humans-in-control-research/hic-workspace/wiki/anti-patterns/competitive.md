@@ -1,4 +1,5 @@
 ---
+id: anti-patterns/competitive.md
 title: "Competitive Analysis Anti-Patterns"
 type: anti-pattern
 created: 2026-04-10
@@ -8,8 +9,56 @@ confidence: high
 status: active
 tags: [anti-patterns, competitive, porter, blue-ocean, quality-gates]
 evidence_count: 0
+chunks:
+  - id: "anti-patterns/competitive.md#c0"
+    char_span: [0, 2026]
+    sentence_count: 9
+    key_terms: [analysis, feature, without, alternative, competitive, description, client, comparison]
+    section: "AP-COMP-01: Feature Matrix Only / AP-COMP-02: Stale Intelligence / AP-COMP-03: Self-Congratulatory Analysis"
+    token_count: 414
+  - id: "anti-patterns/competitive.md#c1"
+    char_span: [2071, 2681]
+    sentence_count: 5
+    key_terms: [strong, description, enterprise, mid-market, strategic, highest-probability, enterprise-grade, purpose-built]
+    section: "AP-COMP-04: No Differentiation Insight"
+    token_count: 128
+  - id: "anti-patterns/competitive.md#c2"
+    char_span: [2718, 3245]
+    sentence_count: 3
+    key_terms: [battlecard, sales, page, second-scannable, implementation, operator-grade, analyst-grade, integrations]
+    section: "AP-COMP-05: Missing Battlecard"
+    token_count: 125
+  - id: "anti-patterns/competitive.md#c3"
+    char_span: [3290, 3863]
+    sentence_count: 2
+    key_terms: [reviews, competitor, marketing, implementation, descriptions, acquisition, alternative, description]
+    section: "AP-COMP-06: No Customer Sentiment Data"
+    token_count: 130
+  - id: "anti-patterns/competitive.md#c4"
+    char_span: [3906, 4413]
+    sentence_count: 5
+    key_terms: [pricing, tco, comparison, effective, price, differentiation, implementation, capabilities]
+    section: "AP-COMP-07: Missing Pricing Analysis"
+    token_count: 121
+  - id: "anti-patterns/competitive.md#c5"
+    char_span: [4451, 4981]
+    sentence_count: 5
+    key_terms: [competitors, categorization, salesforce, hubspot, monday, notion, excel, com]
+    section: "AP-COMP-08: Archetype Confusion"
+    token_count: 117
+  - id: "anti-patterns/competitive.md#c6"
+    char_span: [5014, 5584]
+    sentence_count: 2
+    key_terms: [competitive, analysis, response, description, alternative, battlecards, prioritized, customers]
+    section: "AP-COMP-09: No Action Plan"
+    token_count: 123
+  - id: "anti-patterns/competitive.md#c7"
+    char_span: [5632, 6116]
+    sentence_count: 2
+    key_terms: [market, through, without, cagr, acceleration, quantitative, alternative, attribution]
+    section: "AP-COMP-10: Data Without Source Citations"
+    token_count: 117
 ---
-
 # Competitive Analysis Anti-Patterns
 
 Known failure modes for competitive analysis deliverables. Cross-reference: [[frameworks/competitive]]

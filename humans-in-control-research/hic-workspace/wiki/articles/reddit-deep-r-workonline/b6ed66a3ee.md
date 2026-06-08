@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-workonline/b6ed66a3ee.md
 url: "https://www.reddit.com/r/WorkOnline/comments/1mweapl/scam_pgmainstreetcom_data_entry_job/"
 url_hash: "b6ed66a3ee"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-26T12:56:15.402320+00:00"
 chars: 1451
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-workonline/b6ed66a3ee.md#c0"
+    char_span: [0, 1622]
+    sentence_count: 11
+    key_terms: [pgmainstreet, com, job, legitimate, workonline, comments, process, warning]
+    token_count: 371
 ---
-
 # SCAM: pgmainstreet.com data entry job
 
 Source: [Reddit Deep: r/workonline](https://www.reddit.com/r/WorkOnline/comments/1mweapl/scam_pgmainstreetcom_data_entry_job/)

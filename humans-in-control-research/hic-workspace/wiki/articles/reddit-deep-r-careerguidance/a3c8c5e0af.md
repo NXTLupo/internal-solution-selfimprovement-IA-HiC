@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/a3c8c5e0af.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tbspit/which_career_path_is_better_for_bsc_csit_students/"
 url_hash: "a3c8c5e0af"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T20:21:40.962735+00:00"
 chars: 2177
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/a3c8c5e0af.md#c0"
+    char_span: [0, 2408]
+    sentence_count: 7
+    key_terms: [data, analytics, companies, need, security, careerguidance, market, reddit]
+    token_count: 512
 ---
-
 # Which career path is better for bsc csit students currently in second year?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tbspit/which_career_path_is_better_for_bsc_csit_students/)

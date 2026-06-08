@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1l8co7v.md
 url: "https://www.reddit.com/r/college/comments/1l8co7v/idk_which_minor_to_choose/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -10,11 +11,22 @@ score: 2
 upvote_ratio: 0.76
 num_comments: 3
 flair: ""
-extracted_at: "2026-05-23T14:53:53.128Z"
+extracted_at: "2026-06-03T12:16:23.757Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1l8co7v.md#c0"
+    char_span: [0, 581]
+    sentence_count: 1
+    key_terms: [choose, "don't", comments, college, minor, hand, year, intermediate]
+    token_count: 146
+  - id: "social-intelligence/reddit-deep/college/1l8co7v.md#c1"
+    char_span: [596, 1270]
+    sentence_count: 5
+    key_terms: [literature, english, adventurous-level831, major, thousandshardships, international, research-wise, background]
+    section: Comments
+    token_count: 147
 ---
-
 # Idk which minor to choose
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1l8co7v/idk_which_minor_to_choose/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1n73lcv.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1n73lcv/just_moved_here_for_the_first_time_wtf/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,33 @@ flair: "Serious"
 extracted_at: "2026-05-25T18:33:12.668Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1n73lcv.md#c0"
+    char_span: [0, 712]
+    sentence_count: 5
+    key_terms: [uwaterloo, comments, roommate, waterloo, educationaljump5162, moved, here, room]
+    token_count: 186
+  - id: "social-intelligence/reddit-deep/uwaterloo/1n73lcv.md#c1"
+    char_span: [727, 2653]
+    sentence_count: 10
+    key_terms: [room, thespoiciestmemelord, agentindependent306, reach, worst, management, mattress, housing]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/uwaterloo/1n73lcv.md#c2"
+    char_span: [2391, 3132]
+    sentence_count: 4
+    key_terms: [like, housing, delicious-feature334, bed, year, ryebreadepic, responsible, management]
+    section: Comments
+    token_count: 190
+  - id: "social-intelligence/reddit-deep/uwaterloo/1n73lcv.md#c3"
+    char_span: [3134, 3910]
+    sentence_count: 4
+    key_terms: [bedsheets, afford, redact, agentindependent306, objective-cup-2242, bed, eats, like]
+    section: Comments
+    token_count: 208
 ---
-
 # Just moved here for the first time, WTF!
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1n73lcv/just_moved_here_for_the_first_time_wtf/)

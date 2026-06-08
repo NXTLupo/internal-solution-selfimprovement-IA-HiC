@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1smcfkx.md
 url: "https://www.reddit.com/r/careerguidance/comments/1smcfkx/12th_pcb_student_need_highpay_career_path_no_mbbs/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 0.67
 num_comments: 9
 flair: "Advice"
-extracted_at: "2026-05-23T20:15:29.966Z"
+extracted_at: "2026-06-03T18:53:36.148Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1smcfkx.md#c0"
+    char_span: [0, 981]
+    sentence_count: 7
+    key_terms: [bangalore, biotech, careerguidance, pay, forensics, comments, career, mbbs]
+    token_count: 262
+  - id: "social-intelligence/reddit-deep/careerguidance/1smcfkx.md#c1"
+    char_span: [996, 3176]
+    sentence_count: 8
+    key_terms: [pay, biotech, course, notcallipygian, dead, etc, get, too]
+    section: Comments
+    token_count: 502
 ---
-
 # 12th PCB Student: Need high-pay career path (No MBBS). Is Biotech/Forensics in Bangalore worth it (urgent)?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1smcfkx/12th_pcb_student_need_highpay_career_path_no_mbbs/)

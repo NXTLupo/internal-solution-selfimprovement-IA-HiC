@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1qxylpv.md
 url: "https://www.reddit.com/r/internships/comments/1qxylpv/need_advice_accept_onsite_internship_now_or_wait/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,16 @@ score: 2
 upvote_ratio: 1
 num_comments: 1
 flair: "Offers"
-extracted_at: "2026-05-26T14:30:47.898Z"
+extracted_at: "2026-06-01T18:48:35.714Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1qxylpv.md#c0"
+    char_span: [0, 1691]
+    sentence_count: 13
+    key_terms: [internships, internship, better, months, onsite, opportunities, offer, been]
+    token_count: 385
 ---
-
 # Need advice: Accept onsite internship now or wait for better FTE opportunities?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1qxylpv/need_advice_accept_onsite_internship_now_or_wait/)

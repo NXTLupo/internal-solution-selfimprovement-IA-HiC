@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1srufft.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1srufft/bulding_my_own_diffusion_language_model_from/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -13,8 +14,39 @@ flair: "Project"
 extracted_at: "2026-05-11T17:27:06.571Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1srufft.md#c0"
+    char_span: [0, 1265]
+    sentence_count: 11
+    key_terms: [diffusion, machinelearning, https, model, code, com, like, comments]
+    token_count: 309
+  - id: "social-intelligence/reddit-deep/machinelearning/1srufft.md#c1"
+    char_span: [1280, 2632]
+    sentence_count: 10
+    key_terms: [diffusion, pretty, idiot, like, grandiose, transport, optimal, technical-debate1303]
+    section: Comments
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/machinelearning/1srufft.md#c2"
+    char_span: [2634, 3809]
+    sentence_count: 6
+    key_terms: [diffusion, transformer, discrete, because, family, models, pitter-patter-rain, "it's"]
+    section: Comments
+    token_count: 297
+  - id: "social-intelligence/reddit-deep/machinelearning/1srufft.md#c3"
+    char_span: [3811, 5984]
+    sentence_count: 11
+    key_terms: [diffusion, encrux615, did, project, similar, architecture, shakespeare, lot]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/machinelearning/1srufft.md#c4"
+    char_span: [5986, 6173]
+    sentence_count: 2
+    key_terms: [implementing, implemented, annoying, batching, breaking, training, without, actual]
+    section: Comments
+    token_count: 34
 ---
-
 # Bulding my own Diffusion Language Model from scratch was easier than I thought [P]
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1srufft/bulding_my_own_diffusion_language_model_from/)

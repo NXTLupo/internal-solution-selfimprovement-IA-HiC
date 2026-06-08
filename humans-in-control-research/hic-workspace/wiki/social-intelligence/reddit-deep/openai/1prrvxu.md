@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1prrvxu.md
 url: "https://www.reddit.com/r/OpenAI/comments/1prrvxu/paying_users_is_chatgpt_as_bad_as_people_here_say/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,57 @@ flair: "Discussion"
 extracted_at: "2026-05-11T16:53:06.862Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1prrvxu.md#c0"
+    char_span: [0, 877]
+    sentence_count: 6
+    key_terms: [experience, comments, advice, better, openai, paying, reddit, topics]
+    token_count: 210
+  - id: "social-intelligence/reddit-deep/openai/1prrvxu.md#c1"
+    char_span: [892, 2527]
+    sentence_count: 10
+    key_terms: [code, leopardcomfortable99, find, pro, complain, psychologicalself170, free, got]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/openai/1prrvxu.md#c2"
+    char_span: [2529, 3616]
+    sentence_count: 12
+    key_terms: [get, like, need, assistant, helping, overall, though, find]
+    section: Comments
+    token_count: 292
+  - id: "social-intelligence/reddit-deep/openai/1prrvxu.md#c3"
+    char_span: [3618, 5156]
+    sentence_count: 14
+    key_terms: [use, instructions, completely, generation, blindly, better, image, month]
+    section: Comments
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/openai/1prrvxu.md#c4"
+    char_span: [5158, 7101]
+    sentence_count: 22
+    key_terms: [like, prompt, detailed, watercolours, worse, instruction, "i'm", honestly]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/openai/1prrvxu.md#c5"
+    char_span: [7103, 9125]
+    sentence_count: 16
+    key_terms: [model, completion, flash, safe, be60c07b-6bc2-4f54-bcee-4141e1d6c69a, gemini, people, complaining]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/openai/1prrvxu.md#c6"
+    char_span: [9127, 11149]
+    sentence_count: 18
+    key_terms: [people, chatgpt, better, bad, like, time, use, especially]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/openai/1prrvxu.md#c7"
+    char_span: [11151, 11896]
+    sentence_count: 4
+    key_terms: [opinion, here, type, therapy-like, background, excellent, immediate, questions]
+    section: Comments
+    token_count: 202
 ---
-
 # Paying users: is ChatGPT as bad as people here say?
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1prrvxu/paying_users_is_chatgpt_as_bad_as_people_here_say/)

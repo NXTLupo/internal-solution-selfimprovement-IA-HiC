@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1sej5tn.md
 url: "https://www.reddit.com/r/NEU/comments/1sej5tn/help_im_scared/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -6,19 +7,42 @@ subreddit: "neu"
 title: "HELP IM SCARED"
 author: "Ancient_Mongoose2058"
 date: "2026-04-07T02:18:39.000Z"
-score: 3
-upvote_ratio: 0.64
+score: 4
+upvote_ratio: 0.67
 num_comments: 11
 flair: "Academics"
-extracted_at: "2026-05-19T17:57:09.043Z"
+extracted_at: "2026-06-06T00:27:19.933Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1sej5tn.md#c0"
+    char_span: [0, 855]
+    sentence_count: 8
+    key_terms: [final, neu, comments, semester, student, scared, school, mocks]
+    token_count: 229
+  - id: "social-intelligence/reddit-deep/neu/1sej5tn.md#c1"
+    char_span: [870, 942]
+    sentence_count: 1
+    key_terms: [year]
+    section: Comments
+    token_count: 23
+  - id: "social-intelligence/reddit-deep/neu/1sej5tn.md#c2"
+    char_span: [944, 2979]
+    sentence_count: 8
+    key_terms: [fine, get, email, final, freshman, yourself, america, average]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/neu/1sej5tn.md#c3"
+    char_span: [2696, 3962]
+    sentence_count: 15
+    key_terms: [lot, transcript, student, finals, school, "don't", place, potential-visit741]
+    section: Comments
+    token_count: 326
 ---
-
 # HELP IM SCARED
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1sej5tn/help_im_scared/)
-Posted by **Ancient_Mongoose2058** · **3↑** · **11 comments**
+Posted by **Ancient_Mongoose2058** · **4↑** · **11 comments**
 
 So basically, I got admitted into NEU as a first-year student in the Fall semester of 2026 for ED1 (International Student btw) I already paid my deposit and rooming. I did great in high school - constantly getting 7s, 6s, 5s, with the occasional 4s - (As and Bs, rare Cs). But in my final year of high school, senior year, last semester, my final grades had dropped tremendously due to the over-weighted mocks that we took (in which I had been struggling with mental health problems and burnout). Since I did shit in my mocks, my overall final grade ended up with 2 Ds. 
 

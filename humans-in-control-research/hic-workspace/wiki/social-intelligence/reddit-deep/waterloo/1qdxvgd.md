@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1qdxvgd.md
 url: "https://www.reddit.com/r/waterloo/comments/1qdxvgd/local_events_this_weekend/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.135Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [media, government]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1qdxvgd.md#c0"
+    char_span: [0, 1748]
+    sentence_count: 6
+    key_terms: [https, events, com, dry-humour-the-boathouse-tickets-1978758204055, kitchener, grandriverbuzz, cards, goal]
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/waterloo/1qdxvgd.md#c1"
+    char_span: [1750, 3492]
+    sentence_count: 6
+    key_terms: [https, candlelight-concerts-presents-tribute-to-coldplay-jan16, calendar-076eb80e-4bc1-4f25-a3e9-914c641d83ef, kitchener, trivia, night, candlelight, the-hangout-mario-kart-madness]
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/waterloo/1qdxvgd.md#c2"
+    char_span: [3494, 5371]
+    sentence_count: 4
+    key_terms: [https, pottery-workshop-handmade-ceramic-coffee-mug-and-spoon-rest-tickets-1979623940496, waterloo, www, tournament, com, waterlan, the-brian-byrne-era-of-i-mother-earth]
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/waterloo/1qdxvgd.md#c3"
+    char_span: [5373, 6992]
+    sentence_count: 2
+    key_terms: [calendar-397c8666-7ad0-4e56-b2c7-d884438cbebd-event-a9bbbc46-4c45-4063-9815-6fab2b6dd474, kitchener, https, goal-setting-vision-board-workshop-tickets-1852905613569, synchronized, com, www, district]
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/waterloo/1qdxvgd.md#c4"
+    char_span: [6994, 8572]
+    sentence_count: 3
+    key_terms: [kitchener, music, stained-glass-style-painting-workshop-tickets-1979717885488, https, sunday, advanced-musical-theatre-companies, david-occhipintis-camera-ensemble, draytonentertainmentyouthacademy]
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/waterloo/1qdxvgd.md#c5"
+    char_span: [8574, 9975]
+    sentence_count: 3
+    key_terms: [anthony-dalessandro-featuring-benny-bennack-iii-special-sunday-concert-400-630pm-doors-at-300, carry-on-the-music-of-crosby-stills-nash-young-tickets-1979772167848, https, com, show, bingemans, canadian, waterloo]
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/waterloo/1qdxvgd.md#c6"
+    char_span: [9977, 10206]
+    sentence_count: 1
+    key_terms: [pd-day-camp-science-below-zero-ken-seiling-waterloo-region-museum-tickets-1661057219859, eventbrite, https, www, kitchener, science, seiling, website]
+    token_count: 74
 ---
-
 # Local events this weekend!
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1qdxvgd/local_events_this_weekend/)

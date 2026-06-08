@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1l9awmf.md
 url: "https://www.reddit.com/r/Professors/comments/1l9awmf/why_do_so_many_students_expect_professors_to/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,75 @@ flair: ""
 extracted_at: "2026-05-20T03:55:39.268Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1l9awmf.md#c0"
+    char_span: [0, 964]
+    sentence_count: 10
+    key_terms: [professors, notes, lecture, class, get, comments, students, posted]
+    token_count: 238
+  - id: "social-intelligence/reddit-deep/professors/1l9awmf.md#c1"
+    char_span: [979, 1655]
+    sentence_count: 3
+    key_terms: [covid, courses, thisisnotagabe, asynchronous, pandemic, getting, online, though]
+    section: Comments
+    token_count: 173
+  - id: "social-intelligence/reddit-deep/professors/1l9awmf.md#c2"
+    char_span: [1657, 3469]
+    sentence_count: 13
+    key_terms: [students, notes, customers, "don't", get, everything, education, diploma]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/professors/1l9awmf.md#c3"
+    char_span: [3471, 5193]
+    sentence_count: 20
+    key_terms: [don, notes, take, lecture, student, come, attendance, subjects]
+    section: Comments
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/professors/1l9awmf.md#c4"
+    char_span: [5195, 7186]
+    sentence_count: 17
+    key_terms: [attendance, "don't", semester, grade, assignments, performance, care, take]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/professors/1l9awmf.md#c5"
+    char_span: [7188, 7825]
+    sentence_count: 3
+    key_terms: [class, adventurekitty74, expectation, zabaran2120, everything, multi-page, surprising, mgguy1970]
+    section: Comments
+    token_count: 157
+  - id: "social-intelligence/reddit-deep/professors/1l9awmf.md#c6"
+    char_span: [7827, 9661]
+    sentence_count: 15
+    key_terms: [students, notes, class, use, attendance, troopersjp, absences, lectures]
+    section: Comments
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/professors/1l9awmf.md#c7"
+    char_span: [9663, 10704]
+    sentence_count: 7
+    key_terms: [time, recording, lectures, seconds, policy, done, targaryenpenguin, snowblindalbino]
+    section: Comments
+    token_count: 250
+  - id: "social-intelligence/reddit-deep/professors/1l9awmf.md#c8"
+    char_span: [10707, 12831]
+    sentence_count: 20
+    key_terms: [students, lectures, learning, accessible, another, chance, needed, record]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/professors/1l9awmf.md#c9"
+    char_span: [12833, 14167]
+    sentence_count: 8
+    key_terms: [attendance, issue, year, recording, students, classes, solved, "don't"]
+    section: Comments
+    token_count: 312
+  - id: "social-intelligence/reddit-deep/professors/1l9awmf.md#c10"
+    char_span: [14169, 16179]
+    sentence_count: 16
+    key_terms: [students, materials, dancingbear62, want, disability, understand, learning, thinking]
+    section: Comments
+    token_count: 469
 ---
-
 # Why do so many students expect professors to upload lecture notes and record videos?
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1l9awmf/why_do_so_many_students_expect_professors_to/)

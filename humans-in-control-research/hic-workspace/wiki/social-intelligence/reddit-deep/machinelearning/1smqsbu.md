@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1smqsbu.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1smqsbu/built_an_political_benchmark_for_llms_kimi_k2/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -6,19 +7,57 @@ subreddit: "machinelearning"
 title: "Built an political benchmark for LLMs. KIMI K2 can't answer about Taiwan (Obviously). GPT-5.3 refuses 100% of questions when given an opt-out. [P]"
 author: "dannyyaou"
 date: "2026-04-16T02:31:24.000Z"
-score: 25
-upvote_ratio: 0.7
+score: 26
+upvote_ratio: 0.71
 num_comments: 25
 flair: "Project"
-extracted_at: "2026-05-11T17:27:06.574Z"
+extracted_at: "2026-05-31T21:49:57.038Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+research_goal: "Identify emerging AI design trends, skills, tools, platforms, and technical implementations that would  help a company's creative team to move beyond AI as a concepting aid and understand where AI-enabled tools, workflows and internal models can practically support design production, system testing, asset generation, governance and stakeholder confidence. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1smqsbu.md#c0"
+    char_span: [0, 1746]
+    sentence_count: 9
+    key_terms: [political, refusals, right-authoritarian, gpt-5, model, llm-political-eval, dannyyaou, left-libertarian]
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/machinelearning/1smqsbu.md#c1"
+    char_span: [1750, 3440]
+    sentence_count: 7
+    key_terms: [right-authoritarian, left-libertarian, refusals, independent, claude, blocked, agree, gpt-5]
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/machinelearning/1smqsbu.md#c2"
+    char_span: [3444, 5416]
+    sentence_count: 10
+    key_terms: [progressive, questions, strongly, conservative, speech, model, runs, structured]
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/machinelearning/1smqsbu.md#c3"
+    char_span: [5420, 6259]
+    sentence_count: 5
+    key_terms: [llm-political-eval, dannyyaou, github, https, com, report, interesting, models]
+    token_count: 214
+  - id: "social-intelligence/reddit-deep/machinelearning/1smqsbu.md#c4"
+    char_span: [6274, 7724]
+    sentence_count: 8
+    key_terms: [chinese-llm-censorship-analysis, questions, geopolitical, question, models, huggingface, interesting, leonardlin]
+    section: Comments
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/machinelearning/1smqsbu.md#c5"
+    char_span: [7726, 9895]
+    sentence_count: 6
+    key_terms: [opinions, context, abliterated, interesting, political, axis, weights, nkondratyk93]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/machinelearning/1smqsbu.md#c6"
+    char_span: [9601, 10338]
+    sentence_count: 6
+    key_terms: [axis, authoritarian, conservative, libertarian, progressive, libertarian-authoritarian, progressive-conservative, social]
+    section: Comments
+    token_count: 164
 ---
-
 # Built an political benchmark for LLMs. KIMI K2 can't answer about Taiwan (Obviously). GPT-5.3 refuses 100% of questions when given an opt-out. [P]
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1smqsbu/built_an_political_benchmark_for_llms_kimi_k2/)
-Posted by **dannyyaou** · **25↑** · **25 comments**
+Posted by **dannyyaou** · **26↑** · **25 comments**
 
 I spent the few days building a benchmark that maps where frontier LLMs fall on a 2D political compass (economic left/right + social progressive/conservative) using 98 structured questions across 14 policy areas. I tested GPT-5.3, Claude Opus 4.6, and KIMI K2. The results are interesting.
 
@@ -138,7 +177,7 @@ KIMI's API returned HTTP 400 "high risk" on all Taiwan and Xinjiang questions. B
 
 ## Comments
 
-- **Key-Half1655** (6↑): Ive a feeling you'll get more refusals if you expand your geopolitical question set
+- **Key-Half1655** (8↑): Ive a feeling you'll get more refusals if you expand your geopolitical question set
 - **polyploid_coded** (5↑): Related, an analysis of uncensoring models by abliteration, and the variety of terms censored by Chinese LLMs in the "deccp" dataset from 2 years ago: [https://huggingface.co/blog/leonardlin/chinese-llm-censorship-analysis](https://huggingface.co/blog/leonardlin/chinese-llm-censorship-analysis)
   - **dannyyaou** (3↑): Good call. The geopolitical section was too China-heavy, which made it look like a censorship test for Chinese models specifically rather than a general geopolitical bias probe. Added 4 new Likert questions covering Russia/Crimea, Israel/Palestine, Kashmir, and a general sanctions question. The section now has 14 questions covering 7 disputes instead of 10 questions focused on 4 China-related topics. Haven't re-run the benchmark yet with the new questions -- will update results when I do. Expecting more refusals from GPT-5.3 on Israel/Palestine especially.
 - **Sha1rholder** (1↑): Have you ever tried asking LLM the same question in a language other than English? I suspect the results might be significantly different and could be interesting to see.

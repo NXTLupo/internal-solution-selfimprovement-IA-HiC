@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1lvgz81.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1lvgz81/the_part_no_one_really_warns_you_about_when_you/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,57 @@ flair: "Lifestyle"
 extracted_at: "2026-05-26T12:53:56.728Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, government]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1lvgz81.md#c0"
+    char_span: [0, 1546]
+    sentence_count: 13
+    key_terms: [part, digitalnomad, talk, countries, comments, digital, friends, started]
+    token_count: 372
+  - id: "social-intelligence/reddit-deep/digitalnomad/1lvgz81.md#c1"
+    char_span: [1561, 3478]
+    sentence_count: 9
+    key_terms: [connection, "there's", lonely, social, "isn't", loneliness, aspects, exactly]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/digitalnomad/1lvgz81.md#c2"
+    char_span: [3480, 3870]
+    sentence_count: 2
+    key_terms: [person, place, stay, definitely, personally, connected, everyone, nomading]
+    section: Comments
+    token_count: 95
+  - id: "social-intelligence/reddit-deep/digitalnomad/1lvgz81.md#c3"
+    char_span: [3872, 6032]
+    sentence_count: 8
+    key_terms: [slothysundaysession, different, get, feel, like, completely, community, culture]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/digitalnomad/1lvgz81.md#c4"
+    char_span: [5788, 6616]
+    sentence_count: 4
+    key_terms: [connections, different, abroad, accomplishedcorgi399, local, good, eventually, volleyball]
+    section: Comments
+    token_count: 202
+  - id: "social-intelligence/reddit-deep/digitalnomad/1lvgz81.md#c5"
+    char_span: [6618, 8489]
+    sentence_count: 16
+    key_terms: [experience, home, like, "i'm", different, country, growing, through]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/digitalnomad/1lvgz81.md#c6"
+    char_span: [8491, 10302]
+    sentence_count: 12
+    key_terms: [aqualinenimblechops, meetups, place, constantly, because, totally, harder, moving]
+    section: Comments
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/digitalnomad/1lvgz81.md#c7"
+    char_span: [10304, 10751]
+    sentence_count: 3
+    key_terms: [related, neat-composer4619, get, left, confident, financial, lifestyle, adulting]
+    section: Comments
+    token_count: 117
 ---
-
 # The part no one really warns you about when you start the digital nomad life
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1lvgz81/the_part_no_one_really_warns_you_about_when_you/)

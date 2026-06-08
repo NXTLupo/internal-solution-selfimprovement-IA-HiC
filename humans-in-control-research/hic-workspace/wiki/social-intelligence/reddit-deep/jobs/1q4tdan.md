@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1q4tdan.md
 url: "https://www.reddit.com/r/jobs/comments/1q4tdan/comfortable_job_unclear_direction_how_do_i_make/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,26 @@ flair: "Career planning"
 extracted_at: "2026-05-25T13:03:11.722Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1q4tdan.md#c0"
+    char_span: [0, 2159]
+    sentence_count: 18
+    key_terms: ["i'm", "it's", job, power, best, sure, day, too]
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/jobs/1q4tdan.md#c1"
+    char_span: [2163, 3787]
+    sentence_count: 13
+    key_terms: [another, job, career, future, "i'd", "i'm", like, side]
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/jobs/1q4tdan.md#c2"
+    char_span: [3802, 4302]
+    sentence_count: 6
+    key_terms: [get, potentially, bankruptcy, personally, companies, happening, mrsam1998, recommend]
+    section: Comments
+    token_count: 117
 ---
-
 # Comfortable job, unclear direction: how do I make sure I'm not wasting a great early-career opportunity?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1q4tdan/comfortable_job_unclear_direction_how_do_i_make/)

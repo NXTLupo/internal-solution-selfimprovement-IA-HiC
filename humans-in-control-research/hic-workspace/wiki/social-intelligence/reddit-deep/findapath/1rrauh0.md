@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1rrauh0.md
 url: "https://www.reddit.com/r/findapath/comments/1rrauh0/ive_wasted_my_life_20m/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,39 @@ flair: "Findapath-Health Factor"
 extracted_at: "2026-05-22T15:13:18.837Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1rrauh0.md#c0"
+    char_span: [0, 1312]
+    sentence_count: 12
+    key_terms: [don, job, findapath, comments, besides, degree, people, twenty]
+    token_count: 323
+  - id: "social-intelligence/reddit-deep/findapath/1rrauh0.md#c1"
+    char_span: [1327, 3228]
+    sentence_count: 20
+    key_terms: [behind, thank, helpful, please, thebigcicero, help, findapath, comments]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/findapath/1rrauh0.md#c2"
+    char_span: [3230, 4378]
+    sentence_count: 13
+    key_terms: [people, taptheforwardassist, being, early, older, raspberryteakettle, need, thekenji2004]
+    section: Comments
+    token_count: 326
+  - id: "social-intelligence/reddit-deep/findapath/1rrauh0.md#c3"
+    char_span: [4380, 5262]
+    sentence_count: 13
+    key_terms: [college, "you're", pitiful-quality1628, don, get, good, help, life]
+    section: Comments
+    token_count: 228
+  - id: "social-intelligence/reddit-deep/findapath/1rrauh0.md#c4"
+    char_span: [5264, 6511]
+    sentence_count: 17
+    key_terms: [degree, college, "i'm", something, competitive-safe-452, years, like, want]
+    section: Comments
+    token_count: 325
 ---
-
 # I’ve wasted my life (20M)
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1rrauh0/ive_wasted_my_life_20m/)

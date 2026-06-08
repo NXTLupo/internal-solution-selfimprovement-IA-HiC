@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/anthropic/1na0wzh.md
 url: "https://www.reddit.com/r/Anthropic/comments/1na0wzh/ai_augmented_software_development_as_an/"
 kind: "social-post"
 source: "reddit-deep: r/anthropic"
@@ -13,8 +14,42 @@ flair: "Other"
 extracted_at: "2026-05-11T17:26:51.907Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, workforce, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/anthropic/1na0wzh.md#c0"
+    char_span: [0, 2194]
+    sentence_count: 17
+    key_terms: [time, used, coding, augmented, work, tests, calculating, concurrency]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/anthropic/1na0wzh.md#c1"
+    char_span: [2196, 4304]
+    sentence_count: 17
+    key_terms: [code, claude, mcp, context, simone, tasks, does, zen]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/anthropic/1na0wzh.md#c2"
+    char_span: [4306, 6037]
+    sentence_count: 15
+    key_terms: [plan, task, tell, cc-sessions, changes, implementation, gemini, prompt]
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/anthropic/1na0wzh.md#c3"
+    char_span: [6039, 7089]
+    sentence_count: 11
+    key_terms: [code, write, certainty, knowledge, process, working, fix, lot]
+    token_count: 226
+  - id: "social-intelligence/reddit-deep/anthropic/1na0wzh.md#c4"
+    char_span: [7104, 9015]
+    sentence_count: 16
+    key_terms: [code, projects, understand, fosterkittenpurrs, work, outcome, project, working]
+    section: Comments
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/anthropic/1na0wzh.md#c5"
+    char_span: [9017, 10440]
+    sentence_count: 14
+    key_terms: [zen, definitely, expressly, myself, places, useful, "don't", needs]
+    section: Comments
+    token_count: 359
 ---
-
 # AI augmented software development - as an experienced SDE you are not going to like it
 
 Source: [reddit-deep: r/anthropic](https://www.reddit.com/r/Anthropic/comments/1na0wzh/ai_augmented_software_development_as_an/)

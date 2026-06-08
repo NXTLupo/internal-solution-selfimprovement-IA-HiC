@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1pbz8tq.md
 url: "https://www.reddit.com/r/personalfinance/comments/1pbz8tq/21_blew_most_of_my_internship_money_now_stressed/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,27 @@ flair: "Budgeting"
 extracted_at: "2026-05-16T20:55:02.109Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1pbz8tq.md#c0"
+    char_span: [0, 1910]
+    sentence_count: 18
+    key_terms: [savings, internship, back, get, personalfinance, around, credit, track]
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/personalfinance/1pbz8tq.md#c1"
+    char_span: [1925, 3803]
+    sentence_count: 13
+    key_terms: [savings, debt, pay, budget, credit, income, "you're", overspending]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/personalfinance/1pbz8tq.md#c2"
+    char_span: [3805, 5149]
+    sentence_count: 11
+    key_terms: [money, don, learned, credit, lesson, "you're", chickenmysterious586, cards]
+    section: Comments
+    token_count: 353
 ---
-
 # 21 — Blew most of my internship money, now stressed about debt/savings. How do I get back on track?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1pbz8tq/21_blew_most_of_my_internship_money_now_stressed/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1n2mjdu.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1n2mjdu/colleges_only_deliver_on_65_of_what_they_sell_to/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,27 @@ flair: "Discussion"
 extracted_at: "2026-05-22T23:33:52.650Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n2mjdu.md#c0"
+    char_span: [0, 952]
+    sentence_count: 5
+    key_terms: [applyingtocollege, through, experience, comments, college, times, sell, administration]
+    token_count: 221
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n2mjdu.md#c1"
+    char_span: [967, 2716]
+    sentence_count: 11
+    key_terms: [college, professors, university, kids, school, "you're", keybother7510, great]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1n2mjdu.md#c2"
+    char_span: [2718, 4258]
+    sentence_count: 7
+    key_terms: [accountcontent6734, ucadmissions, subreddit, something, academic, advisors, students, reddit]
+    section: Comments
+    token_count: 377
 ---
-
 # Colleges only deliver on 65% of what they "sell" to applicants
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1n2mjdu/colleges_only_deliver_on_65_of_what_they_sell_to/)

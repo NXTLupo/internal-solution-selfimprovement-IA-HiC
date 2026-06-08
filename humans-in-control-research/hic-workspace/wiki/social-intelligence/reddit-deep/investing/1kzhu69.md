@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1kzhu69.md
 url: "https://www.reddit.com/r/investing/comments/1kzhu69/proposed_us_foreign_tax_bill_would_make_us_assets/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-16T20:55:01.248Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [government, policy, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1kzhu69.md#c0"
+    char_span: [0, 2266]
+    sentence_count: 9
+    key_terms: [foreign, us-set-to-weaponize-taxes-on-foreign-investors-via-section-899, taxes, section, individuals, countries, tax, representatives]
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/investing/1kzhu69.md#c1"
+    char_span: [2281, 4187]
+    sentence_count: 16
+    key_terms: [tariffs, investments, convinced, already, buy, currency, deleted, foreign]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/investing/1kzhu69.md#c2"
+    char_span: [4189, 5701]
+    sentence_count: 9
+    key_terms: [read, single, bills, tax, want, understand, investing, because]
+    section: Comments
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/investing/1kzhu69.md#c3"
+    char_span: [5703, 7659]
+    sentence_count: 6
+    key_terms: [beat, been, foreign, super, the-one-big-beautiful-bill-act, attention, congress, investor]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/investing/1kzhu69.md#c4"
+    char_span: [7661, 9537]
+    sentence_count: 18
+    key_terms: [tax, withholding, beat, countries, dividends, rate, foreign, taxable]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/investing/1kzhu69.md#c5"
+    char_span: [9539, 11219]
+    sentence_count: 13
+    key_terms: [synthetic, "they're", assets, etfs, policies, "you're", pleasant-shallot-707, crash]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/investing/1kzhu69.md#c6"
+    char_span: [11221, 13411]
+    sentence_count: 10
+    key_terms: [taxes, index, synthetic, withholding, etf, federal, cities, estate]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1kzhu69.md#c7"
+    char_span: [13156, 13538]
+    sentence_count: 1
+    key_terms: [back, "administration's", deliberately, governments, deductions, corporate, encourage, convince]
+    section: Comments
+    token_count: 89
 ---
-
 # Proposed U.S. foreign tax bill would make US assets a lot less desirable worldwide.
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1kzhu69/proposed_us_foreign_tax_bill_would_make_us_assets/)

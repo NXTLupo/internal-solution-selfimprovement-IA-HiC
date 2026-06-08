@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1lcppz5.md
 url: "https://www.reddit.com/r/internships/comments/1lcppz5/i_got_into_a_unicorn_it_was_this_one_cold_email/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,27 @@ flair: "Offers"
 extracted_at: "2026-05-22T21:34:37.047Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce, higher_ed, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1lcppz5.md#c0"
+    char_span: [0, 749]
+    sentence_count: 13
+    key_terms: [internships, led, comments, unicorn, email, cold, got, clevelchaos]
+    token_count: 186
+  - id: "social-intelligence/reddit-deep/internships/1lcppz5.md#c1"
+    char_span: [764, 2625]
+    sentence_count: 10
+    key_terms: [clevelchaos, companyname, background, tinkering, get, beginner, research, context]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1lcppz5.md#c2"
+    char_span: [2627, 3269]
+    sentence_count: 4
+    key_terms: [email, unicorn, please, ok-revolution-1565, did, congratulations, aquarianbeyond, heissofluffy]
+    section: Comments
+    token_count: 193
 ---
-
 # I got into a unicorn!! It was this one cold email.
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1lcppz5/i_got_into_a_unicorn_it_was_this_one_cold_email/)

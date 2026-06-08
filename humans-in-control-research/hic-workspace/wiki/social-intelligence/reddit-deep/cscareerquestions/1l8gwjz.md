@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1l8gwjz/breaking_google_offering_buyouts_to_us_employees/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,99 @@ flair: ""
 extracted_at: "2026-05-26T12:54:26.383Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c0"
+    char_span: [0, 1482]
+    sentence_count: 5
+    key_terms: [google-is-offering-buyouts-to-us-employees-throughout-the-company-report-says-11752129, google, company, investopedia, teams, employees, cscareerquestions, offering]
+    token_count: 339
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c1"
+    char_span: [1497, 2786]
+    sentence_count: 10
+    key_terms: [significantly, job, play, offshoring, company, google, living, people]
+    section: Comments
+    token_count: 340
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c2"
+    char_span: [2788, 4569]
+    sentence_count: 11
+    key_terms: [manufacturing, peachscary413, trump, years, outsourcing, jobs, nothing, dollar]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c3"
+    char_span: [4571, 6607]
+    sentence_count: 11
+    key_terms: [outsourced, hyderabad, amortized, companies, customer, already, entire, person]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c4"
+    char_span: [6609, 8437]
+    sentence_count: 9
+    key_terms: [grads, new, technicianunlikely99, deleted, vep, planning, getting, google]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c5"
+    char_span: [8439, 10513]
+    sentence_count: 10
+    key_terms: [hiring, people, devs, "there's", google, major, employees, engineers]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c6"
+    char_span: [10515, 12406]
+    sentence_count: 5
+    key_terms: [employees, devs, hiring, people, technicianunlikely99, anything, firing, voluntary]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c7"
+    char_span: [12191, 12696]
+    sentence_count: 2
+    key_terms: [voluntary, iamathing420yoloswag, exits, thebrinkstruck, productivity, bwainfweeze, involuntary, researching]
+    section: Comments
+    token_count: 144
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c8"
+    char_span: [12698, 14455]
+    sentence_count: 5
+    key_terms: [offshoring, tax, software, pringlesaremyfav, engineering, like, engineers, salaries]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c9"
+    char_span: [14457, 15972]
+    sentence_count: 5
+    key_terms: [america, though, accounting, threatened, students, funding, student, workers]
+    section: Comments
+    token_count: 335
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c10"
+    char_span: [15974, 17360]
+    sentence_count: 8
+    key_terms: [compared, products, google, insane, corporations, software, talking, places]
+    section: Comments
+    token_count: 294
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c11"
+    char_span: [17362, 18849]
+    sentence_count: 7
+    key_terms: [google, search, because, version, ads, bad, cost, shockingly]
+    section: Comments
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c12"
+    char_span: [18851, 19644]
+    sentence_count: 5
+    key_terms: [search, because, trivial, pretty, delicious-hurry-8373, working-language8266, best, "it's"]
+    section: Comments
+    token_count: 210
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c13"
+    char_span: [19646, 21157]
+    sentence_count: 6
+    key_terms: [going, market, fucking, revenue, anyone, bubble, happen, people]
+    section: Comments
+    token_count: 406
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l8gwjz.md#c14"
+    char_span: [21159, 21643]
+    sentence_count: 3
+    key_terms: [straightforward, retirements, supersultan, sweatyrobot, companies, corporate, somewhere, earnings]
+    section: Comments
+    token_count: 130
 ---
-
 # [Breaking] Google offering buyouts to US employees throughout the company.
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1l8gwjz/breaking_google_offering_buyouts_to_us_employees/)

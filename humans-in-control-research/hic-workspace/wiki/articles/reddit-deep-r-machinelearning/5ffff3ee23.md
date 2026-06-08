@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-machinelearning/5ffff3ee23.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1kr9w8l/p_openevolve_open_source_implementation_of/"
 url_hash: "5ffff3ee23"
 kind: "article"
@@ -10,8 +11,51 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T17:35:06.211302+00:00"
 chars: 5675
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-machinelearning/5ffff3ee23.md#c0"
+    char_span: [0, 541]
+    sentence_count: 3
+    key_terms: [alphaevolve, machinelearning, implementation, "deepmind's", openevolve, reddit, source, system]
+    token_count: 125
+  - id: "articles/reddit-deep-r-machinelearning/5ffff3ee23.md#c1"
+    char_span: [567, 1144]
+    sentence_count: 3
+    key_terms: [programs, using, program, code, llms, modifications, context-rich, continuously]
+    section: What is OpenEvolve?
+    token_count: 111
+  - id: "articles/reddit-deep-r-machinelearning/5ffff3ee23.md#c2"
+    char_span: [1173, 1523]
+    sentence_count: 1
+    key_terms: [gemini-flash-2, works, openai-compatible, multi-objective, checkpointing, optimization, distributed, engineering]
+    section: What makes it special?
+    token_count: 84
+  - id: "articles/reddit-deep-r-machinelearning/5ffff3ee23.md#c3"
+    char_span: [1566, 2268]
+    sentence_count: 3
+    key_terms: [optimization, evolved, arrangements, mathematical, minimization, successfully, alphaevolve, constrained]
+    section: "We replicated AlphaEvolve's results!"
+    token_count: 131
+  - id: "articles/reddit-deep-r-machinelearning/5ffff3ee23.md#c4"
+    char_span: [2299, 2611]
+    sentence_count: 1
+    key_terms: [openai-compatible, api, claude-sonnet-3, gemini-flash-2, architecture, generations, inference, cerebras]
+    section: LLM Performance Insights
+    token_count: 77
+  - id: "articles/reddit-deep-r-machinelearning/5ffff3ee23.md#c5"
+    char_span: [2634, 4753]
+    sentence_count: 10
+    key_terms: [openevolve, github, codelion, https, examples, com, packing, optimization]
+    section: "Try it yourself!"
+    token_count: 503
+  - id: "articles/reddit-deep-r-machinelearning/5ffff3ee23.md#c6"
+    char_span: [4755, 5899]
+    sentence_count: 9
+    key_terms: [crossover, traditional, evaluation, operators, mutation, project, never, own]
+    section: "Try it yourself!"
+    token_count: 229
 ---
-
 # [P] OpenEvolve: Open Source Implementation of DeepMind's AlphaEvolve System
 
 Source: [Reddit Deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1kr9w8l/p_openevolve_open_source_implementation_of/)

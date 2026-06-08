@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1mgz0y9.md
 url: "https://www.reddit.com/r/findapath/comments/1mgz0y9/help_i_quit_tech_because_i_hated_it_now_im_30_and/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,63 @@ flair: "Findapath-Career Change"
 extracted_at: "2026-05-22T15:13:18.825Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1mgz0y9.md#c0"
+    char_span: [0, 1770]
+    sentence_count: 6
+    key_terms: [something, don, through, years, been, "i'm", want, work]
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/findapath/1mgz0y9.md#c1"
+    char_span: [1785, 2732]
+    sentence_count: 9
+    key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/findapath/1mgz0y9.md#c2"
+    char_span: [2735, 4745]
+    sentence_count: 15
+    key_terms: [turtlekryptonien, tech, work, industry, deleted, teacher, pretty, school]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/findapath/1mgz0y9.md#c3"
+    char_span: [4469, 4778]
+    sentence_count: 2
+    key_terms: [pretty, new, work, environment, investment, factoring, concrete, criteria]
+    section: Comments
+    token_count: 71
+  - id: "social-intelligence/reddit-deep/findapath/1mgz0y9.md#c4"
+    char_span: [4780, 6927]
+    sentence_count: 25
+    key_terms: [work, different, going, moved, get, got, "it's", meaningful]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/findapath/1mgz0y9.md#c5"
+    char_span: [6929, 8331]
+    sentence_count: 20
+    key_terms: [something, "i'm", "i've", job, co-workers, excited, people, "don't"]
+    section: Comments
+    token_count: 311
+  - id: "social-intelligence/reddit-deep/findapath/1mgz0y9.md#c6"
+    char_span: [8333, 10403]
+    sentence_count: 21
+    key_terms: [passion, want, something, already, "don't", find, hate, "it's"]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/findapath/1mgz0y9.md#c7"
+    char_span: [10405, 12186]
+    sentence_count: 19
+    key_terms: [field, something, else, take, meaning, change, study, teams]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/findapath/1mgz0y9.md#c8"
+    char_span: [12188, 13092]
+    sentence_count: 4
+    key_terms: [meaningful, lotsofcatsfi, pay, work, passion, expect, larger, cut]
+    section: Comments
+    token_count: 211
 ---
-
 # [Help] I quit tech because I hated it — now I’m 30 and totally lost
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1mgz0y9/help_i_quit_tech_because_i_hated_it_now_im_30_and/)

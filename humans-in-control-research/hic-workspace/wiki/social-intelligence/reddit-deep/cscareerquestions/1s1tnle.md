@@ -6,19 +6,19 @@ subreddit: "cscareerquestions"
 title: "Is computer science really that good of a market from 2026 onwards?"
 author: "SmoothChemistry8564"
 date: "2026-03-23T21:08:00.000Z"
-score: 60
-upvote_ratio: 0.77
-num_comments: 104
+score: 63
+upvote_ratio: 0.78
+num_comments: 105
 flair: ""
-extracted_at: "2026-05-26T14:31:41.265Z"
+extracted_at: "2026-06-06T23:23:15.634Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Is computer science really that good of a market from 2026 onwards?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1s1tnle/is_computer_science_really_that_good_of_a_market/)
-Posted by **SmoothChemistry8564** · **60↑** · **104 comments**
+Posted by **SmoothChemistry8564** · **63↑** · **105 comments**
 
 I'm in my last year of college studying Computer Science. I've been debating for the past year whether it's really worth it. Everyone I know is studying Computer Science, every guy I ask says they want to do something in the future with CS, it is so over saturated. I don't feel like it'll land me a good future.
 
@@ -28,8 +28,8 @@ However, i'm only 18 myself and I have no sort of experience regarding this stuf
 
 ## Comments
 
-- **rulerdude** (218↑): Honestly, the market is at the point now where even those with years of experience are having trouble landing jobs. It’s not how it was a few years ago
-  - **garden_speech** (54↑): > even those with years of experience are having trouble landing jobs. It’s not how it was a few years ago
+- **rulerdude** (217↑): Honestly, the market is at the point now where even those with years of experience are having trouble landing jobs. It’s not how it was a few years ago
+  - **garden_speech** (55↑): > even those with years of experience are having trouble landing jobs. It’s not how it was a few years ago
 
 I have been on Reddit since 2014 and I swear on my life I have read this exact sentiment every single year except 2021 and it's been popular / upvoted every single time. Not saying it's wrong now, just saying, this has been the belief for over a decade and maybe the single exception was the hiring surge in 2021.
 
@@ -37,7 +37,7 @@ I wish we had better data. There's [this FRED data](https://fred.stlouisfed.org/
     - **rulerdude** (39↑): I mean from personal experience, 4 years ago I was having recruiters bombarding my inbox and landed 3 competing offers. Fast forward to mid 2024 and I lost my  job and for a year and a half was putting in applications every day and only got 3 interviews. The only reason I landed the job I have now is due to my connections at the company
 
 ETA: 6 years experience
-    - **NewSchoolBoxer** (10↑): There's always a negative vibe from people who went to shit state schools with no internship. Even in good years they're at the bottom. The vibe now is very negative for everyone, including me with 15 YoE. I'm telling people not to major in CS if there's something else they'd rather do like Finance, Accounting, Electrical or Mechanical Engineering. Not Computer Engineering.
+    - **NewSchoolBoxer** (11↑): There's always a negative vibe from people who went to shit state schools with no internship. Even in good years they're at the bottom. The vibe now is very negative for everyone, including me with 15 YoE. I'm telling people not to major in CS if there's something else they'd rather do like Finance, Accounting, Electrical or Mechanical Engineering. Not Computer Engineering.
 
 You might like to combine those job posting numbers with the [New York Fed](https://www.newyorkfed.org/research/college-labor-market#--:explore:outcomes-by-major) rates sorting by unemployment and this [New York Times video](https://youtu.be/86rdUhx-b4U?si=eloXooBlfc8_IQ5K&t=532) pulling states from the same source [here](https://archive.is/mPNcX). 170,000 CS grads in 2024 is insane, up from 50,000 in 2014.
     - **[deleted]** (7↑): Absolute bullshit
@@ -59,7 +59,7 @@ I asked some of my seniors who got here a decade ago, their original interviews 
 On the other hand, I'm not seeing juniors being hired much anywhere at the moment. 
 
 On the upside, this likely won't last much longer. It may be a great time to start a CS career right now because by the time you graduate is just about the time I'm estimating this period of not hiring juniors is going to be biting these companies in the ass the hardest.
-- **ShinHayato** (35↑): It’s my turn to ask this question next week
+- **ShinHayato** (36↑): It’s my turn to ask this question next week
 - **[deleted]** (75↑): It's important to remember that the people with jobs are too busy playing with their kids in their nice house to be bitching and moaning on Reddit.
 
 CS is still a specialized field, and the good part about that is that if you allocated dedicated time to hone your craft, you will be fine. Yes, there are a lot of people trying to break into the industry, but as someone who is passionate about computer science as a whole, and spends a lot of time after working going back to my old college and helping students, I can say that many of them are not great.
@@ -93,15 +93,15 @@ Recognizing the subskills in your main stack is important, so you can identify y
 The drills themselves are not flashy. You need to get your hands dirty tracing syscalls, explaining why every function exists, explain invariants in plain english, find real bugs, reproduce them locally, and bisect to find the cause.
 
 Of course, my examples are tailored to someone in the kernel engineering space, as that's what I'm currently working on, but the same principles apply to all subfields, from web dev all the way to data engineering.
-  - **Aj100rise** (-2↑): I'm struggling to find a path in life and I was recommended by few family relatives that why don't you go college for i.t. or computer science most of the jobs you can get by doing certifications online. But I really don't have any clear direction on what to do. Thing is I have no clue about tech field sounds like a huge broad field. Is it true that most jobs in this field are non tech? So like can I go community college and do a course or get associate degree? 😅
-    - **[deleted]** (5↑): The main thing I would recommend for anyone trying to find a path, is make sure that whatever you're doing is actually fulfilling. You don't need to be acting like Spongebob every morning, but your career should be at the very least interesting to you in my opinion.
+  - **Aj100rise** (-3↑): I'm struggling to find a path in life and I was recommended by few family relatives that why don't you go college for i.t. or computer science most of the jobs you can get by doing certifications online. But I really don't have any clear direction on what to do. Thing is I have no clue about tech field sounds like a huge broad field. Is it true that most jobs in this field are non tech? So like can I go community college and do a course or get associate degree? 😅
+    - **[deleted]** (4↑): The main thing I would recommend for anyone trying to find a path, is make sure that whatever you're doing is actually fulfilling. You don't need to be acting like Spongebob every morning, but your career should be at the very least interesting to you in my opinion.
 
 Let's say hypothetically you can get a non-tech job with an AA in the CS field. Off the top of my head, I'm thinking maybe a help desk position would fit? Helping people who forgot to change their passwords by the due date or setting up laptops for new hires type of job.
 
 Is that really something you think you can clock into work for the rest of your life and not feel drained by the end of it?
 
 Reminder to take my opinion with a grain of salt. I'm fortunate enough to be deeply passionate about kernel engineering and theoretical computer science, so needless to say, I love my job, which absolutely has an impact on how I approach a question like yours. Hearing "You should love your job" from somebody who loves their job shouldn't lead to a complete overhaul of your life.
-    - **Perrenski** (6↑): If you’re in an English speaking country I’d implore you to work first on your communication skills. It’ll be impossible for you to become an engineer if you don’t manage that first. 
+    - **Perrenski** (7↑): If you’re in an English speaking country I’d implore you to work first on your communication skills. It’ll be impossible for you to become an engineer if you don’t manage that first. 
 
 If you’re not in an english country and are able to speak multiple languages; then good for you and I’m jealous! Also most of us can’t give you advice on what this field would be like outside of our own country
 - **lhorie** (25↑): Stats say unemployment/undewremployment rates are \~7% and \~23% respectively, so majority (77-93%) of people do get a job. Anecdotally, I've been seeing an uptick of "which of these two offers" posts since the bottom last year.
@@ -109,15 +109,14 @@ If you’re not in an english country and are able to speak multiple languages; 
 Stop dooming, focus on being competitive in the market and you'll be fine.
 
 On a side note, how are you on your last year of college at 18? That seems like an incredibly early graduation and ought to give you a lot of time to figure what you actually want to do with your life.
-  - **sottyl** (4↑): Dual enrollment with a community college and then transfer credits to a 4-year
-- **Intelligent-Youth-63** (28↑): I think things on Reddit are a little skewed to the doomer point of view. 
+  - **sottyl** (5↑): Dual enrollment with a community college and then transfer credits to a 4-year
+- **Intelligent-Youth-63** (29↑): I think things on Reddit are a little skewed to the doomer point of view. 
 
 Lots of people aren’t having trouble. Some vocal people are.
 
 If you’re 18 and in your last year… at college? That’s an accomplishment.
 
 Do what you love. Work hard. You’ll be ok.
-- **John-Helldiver404** (5↑): I would have chosen another field given the chance, for example telecommunications engineering. But if you're really passionate about it and have realistic expectations you'll be fine. Especially in cyber security, those jobs aren't going anywhere.
 - **Massive_Instance_452** (5↑): No one knows. That's the truth. 
 
 But since you are in your last year of studying CS you certainly are better off finishing it than changing when you are so close.
@@ -135,7 +134,7 @@ If I were you:
 \-consider what you would do if you can't find a CS job, would you study something else, getting any kind of job to pay the bills, etc
 
 What seems likely to me is that things will start to stabilize over the next few years once people and businesses feel more confident in what AIs strength/weaknesses are.
-- **zpilot55** (5↑): No matter what you study, there's never a guarantee of a job at the end. You could have straight As and still not get a job in this field. You could also get Bs and land a great position.
+- **zpilot55** (6↑): No matter what you study, there's never a guarantee of a job at the end. You could have straight As and still not get a job in this field. You could also get Bs and land a great position.
 
 Do what you love and the money will follow, providing you're willing to work for it. It's a lot easier to build projects to market yourself if you're passionate about CS. There are also exciting opportunities in pretty much every other field.
 - **mtnzeal99** (5↑): If you don’t study in your free time and expect the stereotypical SWE salary, yeah you are fucked.
@@ -148,3 +147,4 @@ Of that subset, some will never make it to senior, or survive past their 1st, or
 
 Of that subset that make it to senior, only a few are actual seniors that can jump into most/any problem space with almost no context, and come up with a near optimal solution. Even if it is not in their domain of expertise.
 - **PressureAvailable615** (3↑): Last year of college or hs?
+- **uwais_ish** (4↑): The market is tough for generic devs but there's still huge demand for people who can actually build things. I've been building deeprepo.dev as a solo project and the skills I'm using (AI integration, full-stack, infra) are exactly what companies are hiring for. The devs who'll do fine are the ones who can ship end to end, not just write React components.

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1qd9wws.md
 url: "https://www.reddit.com/r/OpenAI/comments/1qd9wws/why_does_assistants_api_use_45x_fewer_tokens_than/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,15 @@ flair: "Question"
 extracted_at: "2026-05-11T17:27:05.357Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1qd9wws.md#c0"
+    char_span: [0, 1796]
+    sentence_count: 8
+    key_terms: [assistants, images, tokens, completions, api, vision, chat, gpt-4o]
+    token_count: 485
 ---
-
 # Why does Assistants API use 4-5x fewer tokens than Chat Completions for the exact same vision task with images? (GPT-4o / 4.1)
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1qd9wws/why_does_assistants_api_use_45x_fewer_tokens_than/)

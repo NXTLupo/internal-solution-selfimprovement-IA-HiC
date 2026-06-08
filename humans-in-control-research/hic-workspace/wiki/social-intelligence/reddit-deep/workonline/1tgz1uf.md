@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/workonline/1tgz1uf.md
 url: "https://www.reddit.com/r/WorkOnline/comments/1tgz1uf/sciencemedical_transcription_or_editing/"
 kind: "social-post"
 source: "reddit-deep: r/workonline"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-26T12:53:45.645Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [healthcare, life_sciences, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/workonline/1tgz1uf.md#c0"
+    char_span: [0, 1975]
+    sentence_count: 14
+    key_terms: [transcription, editing, jobs, experience, schedule, medical, workonline, comments]
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/workonline/1tgz1uf.md#c1"
+    char_span: [1990, 2544]
+    sentence_count: 4
+    key_terms: [medical, transcription, entry-level, fortheloveofbugs, positioning, background, everything, experience]
+    section: Comments
+    token_count: 117
 ---
-
 # Science/medical transcription or editing?
 
 Source: [reddit-deep: r/workonline](https://www.reddit.com/r/WorkOnline/comments/1tgz1uf/sciencemedical_transcription_or_editing/)

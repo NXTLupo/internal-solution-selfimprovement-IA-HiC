@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1nkqks3.md
 url: "https://www.reddit.com/r/careerguidance/comments/1nkqks3/how_do_you_approach_doubts_in_your_undergrad_and/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,20 @@ flair: ""
 extracted_at: "2026-05-22T23:34:01.146Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1nkqks3.md#c0"
+    char_span: [0, 1578]
+    sentence_count: 10
+    key_terms: [major, dentistry, neuroscience, careerguidance, doubts, doing, high, undergrad]
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/careerguidance/1nkqks3.md#c1"
+    char_span: [1580, 3656]
+    sentence_count: 18
+    key_terms: [engineering, pre-dental, dentistry, want, extracurricular, career, dental, pursue]
+    token_count: 456
 ---
-
 # How do you approach doubts in your undergrad and how do I work through questions I won't have the answer to right away? Life advice for an undergrad who has no idea what they are doing.
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1nkqks3/how_do_you_approach_doubts_in_your_undergrad_and/)

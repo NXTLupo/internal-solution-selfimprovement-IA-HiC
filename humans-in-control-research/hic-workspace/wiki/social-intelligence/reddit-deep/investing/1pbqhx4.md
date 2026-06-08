@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1pbqhx4.md
 url: "https://www.reddit.com/r/investing/comments/1pbqhx4/michael_burry_calls_out_tesla_stating_they_are/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,56 @@ flair: ""
 extracted_at: "2026-05-16T20:55:01.239Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1pbqhx4.md#c0"
+    char_span: [0, 2035]
+    sentence_count: 8
+    key_terms: [tesla, billion, burry, company, compensation, equity, raises, ridiculously]
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/investing/1pbqhx4.md#c1"
+    char_span: [2037, 2441]
+    sentence_count: 2
+    key_terms: [company, free-cash-flow, equity-linked, share-buyback, particularly, shareholders, predictable, repurchases]
+    token_count: 72
+  - id: "social-intelligence/reddit-deep/investing/1pbqhx4.md#c2"
+    char_span: [2456, 3944]
+    sentence_count: 6
+    key_terms: [overvalued, been, "it's", since, obvious, stock, against, "doesn't"]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/investing/1pbqhx4.md#c3"
+    char_span: [3946, 5320]
+    sentence_count: 5
+    key_terms: [compensation, people, redact, reddit, based, maybe, stack, stock]
+    section: Comments
+    token_count: 335
+  - id: "social-intelligence/reddit-deep/investing/1pbqhx4.md#c4"
+    char_span: [5322, 7169]
+    sentence_count: 8
+    key_terms: [timing, early, wrong, bust, predicting, usually, educationcultural736, being]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/investing/1pbqhx4.md#c5"
+    char_span: [7172, 8080]
+    sentence_count: 9
+    key_terms: [stock, "it's", shorted, right, tesla, wrong, devolutionator, unfortunately]
+    section: Comments
+    token_count: 235
+  - id: "social-intelligence/reddit-deep/investing/1pbqhx4.md#c6"
+    char_span: [8083, 9866]
+    sentence_count: 13
+    key_terms: [right, stock, bad, lemons714, everyone, some-conversation613, money, tesla]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1pbqhx4.md#c7"
+    char_span: [9617, 10517]
+    sentence_count: 10
+    key_terms: [stock, tsla, overvalued, valuation, everyone, crazy, tesla, snoopingforpooping]
+    section: Comments
+    token_count: 254
 ---
-
 # Michael Burry Calls Out Tesla Stating They Are "Ridiculously Overvalued"
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1pbqhx4/michael_burry_calls_out_tesla_stating_they_are/)

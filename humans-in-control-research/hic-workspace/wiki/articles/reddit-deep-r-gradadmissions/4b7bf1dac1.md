@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-gradadmissions/4b7bf1dac1.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1thx612/nothing_more_than_average/"
 url_hash: "4b7bf1dac1"
 kind: "article"
@@ -10,8 +11,40 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T12:22:11.170123+00:00"
 chars: 9878
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-gradadmissions/4b7bf1dac1.md#c0"
+    char_span: [0, 1885]
+    sentence_count: 21
+    key_terms: [university, everything, programs, gradadmissions, scholarships, feel, like, professors]
+    token_count: 399
+  - id: "articles/reddit-deep-r-gradadmissions/4b7bf1dac1.md#c1"
+    char_span: [1887, 3623]
+    sentence_count: 9
+    key_terms: ["i'm", "don't", because, afford, school, scholarships, help, own]
+    token_count: 376
+  - id: "articles/reddit-deep-r-gradadmissions/4b7bf1dac1.md#c2"
+    char_span: [3625, 5699]
+    sentence_count: 29
+    key_terms: ["i'm", students, like, program, better, trying, opportunities, phd]
+    token_count: 462
+  - id: "articles/reddit-deep-r-gradadmissions/4b7bf1dac1.md#c3"
+    char_span: [5701, 6414]
+    sentence_count: 5
+    key_terms: [better, especially, resources, criteria, students, "didn't", school, independentstatus377]
+    token_count: 152
+  - id: "articles/reddit-deep-r-gradadmissions/4b7bf1dac1.md#c4"
+    char_span: [6416, 8823]
+    sentence_count: 23
+    key_terms: [interview, interviews, applications, students, "didn't", "isn't", did, let]
+    token_count: 512
+  - id: "articles/reddit-deep-r-gradadmissions/4b7bf1dac1.md#c5"
+    char_span: [8498, 10036]
+    sentence_count: 15
+    key_terms: [minute-cockroach440, jealous, hard, "it's", work, experience, applying, students]
+    token_count: 341
 ---
-
 # Nothing more than average.
 
 Source: [Reddit Deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1thx612/nothing_more_than_average/)

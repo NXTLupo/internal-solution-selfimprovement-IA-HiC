@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1q6nckl.md
 url: "https://www.reddit.com/r/careeradvice/comments/1q6nckl/has_anyone_successfully_transitioned_careers/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.243Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1q6nckl.md#c0"
+    char_span: [0, 2005]
+    sentence_count: 9
+    key_terms: [business, broadcasting, transition, media, because, careeradvice, successfully, transitioned]
+    token_count: 439
 ---
-
 # Has anyone successfully transitioned careers while feeling scared and unsure how to do it?
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1q6nckl/has_anyone_successfully_transitioned_careers/)

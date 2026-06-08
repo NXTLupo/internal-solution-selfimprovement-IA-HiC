@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1lp3rql.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1lp3rql/never_give_up_25k_10k_75k/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,27 @@ flair: "YOLO"
 extracted_at: "2026-05-16T20:54:42.980Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1lp3rql.md#c0"
+    char_span: [0, 380]
+    sentence_count: 2
+    key_terms: [wallstreetbets, comments, account, buying, beneficialbuffalo815, puts, reddit-deep, switches]
+    token_count: 119
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1lp3rql.md#c1"
+    char_span: [395, 1682]
+    sentence_count: 3
+    key_terms: [smart, wsb, d1b3532c26c99ef88456d41314cf2bb31620f7a6, https, discord, beneficialbuffalo815, total, fallweathercamping]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1lp3rql.md#c2"
+    char_span: [1684, 2984]
+    sentence_count: 9
+    key_terms: [beneficialbuffalo815, gambling, tomorrow, account, muted-woodpecker-469, hostileenvironments, close, "don't"]
+    section: Comments
+    token_count: 404
 ---
-
 # Never give up. $25k ->$10k -> $75k
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1lp3rql/never_give_up_25k_10k_75k/)

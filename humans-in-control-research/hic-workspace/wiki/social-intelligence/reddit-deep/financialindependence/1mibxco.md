@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1mibxco.md
 url: "https://www.reddit.com/r/financialindependence/comments/1mibxco/one_year_fi_how_i_got_here_and_how_its_going_a/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,65 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.710Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [cross_industry]
+industry_method: unclassified
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1mibxco.md#c0"
+    char_span: [0, 2017]
+    sentence_count: 12
+    key_terms: [financialindependence, get, comments, "didn't", father, mother, people, worked]
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/financialindependence/1mibxco.md#c1"
+    char_span: [2019, 4195]
+    sentence_count: 18
+    key_terms: [because, money, like, bought, next, inflation, mortgage, college]
+    token_count: 517
+  - id: "social-intelligence/reddit-deep/financialindependence/1mibxco.md#c2"
+    char_span: [4200, 6241]
+    sentence_count: 16
+    key_terms: [car, accounts, months, cash, pay, retirement, sometimes, surviving]
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/financialindependence/1mibxco.md#c3"
+    char_span: [6243, 8338]
+    sentence_count: 13
+    key_terms: [retirement, something, mortgage, non-retirement, wanted, condo, house, low]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/financialindependence/1mibxco.md#c4"
+    char_span: [8340, 10320]
+    sentence_count: 20
+    key_terms: [mortgage, non-retirement, knew, paid, retirement, starting, company, figured]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/financialindependence/1mibxco.md#c5"
+    char_span: [10335, 12283]
+    sentence_count: 16
+    key_terms: [sharing, redqueenwhitequeen, thank, car, love, too, inspiring, paralyzed]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/financialindependence/1mibxco.md#c6"
+    char_span: [12285, 14281]
+    sentence_count: 23
+    key_terms: [great, like, thanks, years, periodic, deaths, enough, lesson]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/financialindependence/1mibxco.md#c7"
+    char_span: [14283, 16192]
+    sentence_count: 15
+    key_terms: ["i'm", taxable, people, fine, everything, financial, because, husband]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/financialindependence/1mibxco.md#c8"
+    char_span: [16194, 17405]
+    sentence_count: 10
+    key_terms: [years, accounts, taxable, market, doing, house, until, redqueenwhitequeen]
+    section: Comments
+    token_count: 309
+  - id: "social-intelligence/reddit-deep/financialindependence/1mibxco.md#c9"
+    char_span: [17407, 19244]
+    sentence_count: 16
+    key_terms: [gruntbuggly, colleagues, because, company, pretty, "that's", least, alpacamytoothbrush]
+    section: Comments
+    token_count: 429
 ---
-
 # One year FI: How I got here and how it's going, a novella. (Alt title: A Sentimental Journey)
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1mibxco/one_year_fi_how_i_got_here_and_how_its_going_a/)

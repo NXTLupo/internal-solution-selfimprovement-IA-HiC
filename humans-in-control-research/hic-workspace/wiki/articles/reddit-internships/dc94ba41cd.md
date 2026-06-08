@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-internships/dc94ba41cd.md
 url: "https://reddit.com/r/internships/comments/1ki4nyx/got_an_offer_today_still_cant_believe_it/"
 url_hash: "dc94ba41cd"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-07T16:34:21.702770+00:00"
 chars: 1731
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-internships/dc94ba41cd.md#c0"
+    char_span: [0, 1904]
+    sentence_count: 15
+    key_terms: [com, youtube, http, interviews, https, case, leetcode, learned]
+    token_count: 439
 ---
-
 # Got an offer today, still can’t believe it!
 
 Source: [reddit: internships](https://reddit.com/r/internships/comments/1ki4nyx/got_an_offer_today_still_cant_believe_it/)

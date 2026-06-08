@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1pfzo2c.md
 url: "https://www.reddit.com/r/stocks/comments/1pfzo2c/in_jan_2025_i_invested_in_11_stocks_because_of/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -6,19 +7,143 @@ subreddit: "stocks"
 title: "In Jan 2025 I invested in 11 stocks because of reddit. Here's how it went"
 author: "CopsNroberts"
 date: "2025-12-06T20:51:17.000Z"
-score: 1074
+score: 1077
 upvote_ratio: 0.83
 num_comments: 397
 flair: ""
-extracted_at: "2026-05-17T01:14:17.619Z"
+extracted_at: "2026-06-03T19:16:52.352Z"
 extraction_method: "praw-deep"
-research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+research_goal: "Provide a strategic analysis of the ROI of financial advice for individual investors in 2026, extrapolating on this theme by integrating current trends in finance, investing, and generational behavioral shifts."
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c0"
+    char_span: [0, 1429]
+    sentence_count: 6
+    key_terms: [stocks, mentioned, different, investing, comments, pullback, allowed, average]
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c1"
+    char_span: [1431, 2037]
+    sentence_count: 4
+    key_terms: [continue, maybe, safer, big, tech, conclusions, microsoft, believes]
+    token_count: 178
+  - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c2"
+    char_span: [2052, 2331]
+    sentence_count: 2
+    key_terms: [purplebuffalo55, reformatted, experiment, difficult, generous, clarity, through, "here's"]
+    section: Comments
+    token_count: 85
+  - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c3"
+    char_span: [2348, 2718]
+    sentence_count: 3
+    key_terms: ["didn't", most-mentioned, aggressive, subreddits, investing, portfolio, sidelines, personal]
+    section: Background
+    token_count: 93
+  - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c4"
+    char_span: [2758, 3038]
+    sentence_count: 1
+    key_terms: [return, average, stock, amd, asts, aur, bbai, btc]
+    section: My January 2025 Picks (11 Stocks)
+    token_count: 129
+  - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c5"
+    char_span: [3088, 3585]
+    sentence_count: 1
+    key_terms: [redacted, return, average, stock, amd, asml, asts, avgo]
+    section: Most-Mentioned Stocks This Year (22 Stocks)
+    token_count: 234
+  - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c6"
+    char_span: [3626, 4101]
+    sentence_count: 1
+    key_terms: [etf, semiconductor, return, mag, individual, investment, microsoft, average]
+    section: "Benchmark Comparison: ETFs & Mag 7"
+    token_count: 177
+  - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c7"
+    char_span: [4120, 4854]
+    sentence_count: 5
+    key_terms: [continue, pullback, safer, years, big, tech, importantly, performance]
+    section: My Takeaways
+    token_count: 167
+  - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c8"
+    char_span: [4856, 6513]
+    sentence_count: 8
+    key_terms: [xixiruckusixix, better, dumb, "it's", like, too, advertise, chatgpt]
+    section: My Takeaways
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c9"
+    char_span: [6515, 8177]
+    sentence_count: 7
+    key_terms: [picks, investing, something, anyportinahurricane, stock, whole, done, nvda]
+    section: My Takeaways
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c10"
+    char_span: [8179, 9233]
+    sentence_count: 10
+    key_terms: [stocks, did, portfolio, december, start, happilydisengaged, back, fall]
+    section: My Takeaways
+    token_count: 286
+  - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c11"
+    char_span: [9235, 10509]
+    sentence_count: 1
+    key_terms: [gain, percent, "today's", shares, stock, total, value, cost]
+    section: My Takeaways
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c12"
+    char_span: [10343, 11553]
+    sentence_count: 1
+    key_terms: [gain, percent, "today's", shares, stock, total, value, cost]
+    section: My Takeaways
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c13"
+    char_span: [11555, 12850]
+    sentence_count: 6
+    key_terms: [good, overall, reddit, stocks, brain, total, pabloscocainehippo, fool]
+    section: My Takeaways
+    token_count: 401
+  - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c14"
+    char_span: [12852, 14338]
+    sentence_count: 8
+    key_terms: [reddit, bought, agitatedstranger9698, banned3rdtimesacharm, imaginationenough414, funds, heard, index]
+    section: My Takeaways
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c15"
+    char_span: [14340, 16477]
+    sentence_count: 19
+    key_terms: [investing, stocks, research, through, interesting, decision, earnings, patient]
+    section: My Takeaways
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c16"
+    char_span: [16479, 17982]
+    sentence_count: 7
+    key_terms: [years, like, correction, changed, reddit, found, posts, ready]
+    section: My Takeaways
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c17"
+    char_span: [17984, 20072]
+    sentence_count: 12
+    key_terms: [stocks, growth, market, like, bear, something, everyone, through]
+    section: My Takeaways
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c18"
+    char_span: [20075, 21600]
+    sentence_count: 13
+    key_terms: [stocks, reddit, technical-music5015, asts, buy, crash, particular, community]
+    section: My Takeaways
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c19"
+    char_span: [21602, 23371]
+    sentence_count: 10
+    key_terms: [technical-music5015, stocks, since, bshaman1993, like, year, circuits, invested]
+    section: My Takeaways
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c20"
+    char_span: [23373, 25035]
+    sentence_count: 6
+    key_terms: [careless-age-4290, couchpotatofamine, here, everyone, time, reporting, "reddit's", because]
+    section: My Takeaways
+    token_count: 472
 ---
-
 # In Jan 2025 I invested in 11 stocks because of reddit. Here's how it went
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1pfzo2c/in_jan_2025_i_invested_in_11_stocks_because_of/)
-Posted by **CopsNroberts** · **1074↑** · **397 comments**
+Posted by **CopsNroberts** · **1077↑** · **397 comments**
 
 80% of my portfolio is in the s&p but I want to be more aggressive while I'm younger and knew I could afford to gamble some so I bought 11 of the most mentioned stocks on different investing subreddits in Jan of 2025.
 There's some I didn't invest in for personal reasons and I didn't invest all 20% into these as I still have cash on the sidelines but here's how it went:
@@ -85,12 +210,9 @@ What conclusions do you draw from this?
 
 ## Comments
 
-- **Holy_01** (2011↑): umm, that was difficult to read.
-  - **purplebuffalo55** (697↑): That is being very generous
-  - **Missjd87** (314↑): Yeah, formatting is rough. Would've taken 30 seconds to make that actually readable but instead we get a wall of tickers and numbers mashed together.
-    - **AnotherThroneAway** (84↑): A nice clean TLDR wouldn't hurt, either..
-    - **BirdiesAndBrews** (15↑): Sometimes using chatgpt to write for you isn’t a bad thing lmao
-  - **DROP_DAT_DURKA_DURK** (382↑): I ran it through an LLM.  Here's OP's post reformatted for clarity:
+- **Holy_01** (2014↑): umm, that was difficult to read.
+  - **purplebuffalo55** (699↑): That is being very generous
+  - **DROP_DAT_DURKA_DURK** (392↑): I ran it through an LLM.  Here's OP's post reformatted for clarity:
 
 ----
 
@@ -195,19 +317,20 @@ All that to say: **a tech ETF might be safer than choosing the wrong individual 
 
 *What conclusions do you draw from this?*
     - **DeciduousMath12** (1↑): There's a data center etf? I'm intrigued but also it's not exactly flying under the radar.
-  - **Tuckerthedog08** (40↑): It’s like watching a beautiful mind all over again
-  - **imtotallybananas** (11↑): I guess it's not written by chatgpt
+  - **Tuckerthedog08** (42↑): It’s like watching a beautiful mind all over again
+  - **imtotallybananas** (10↑): I guess it's not written by chatgpt
   - **mathakoot** (15↑): this one time i want to force someone to use AI for their writing. 😅
   - **juicedfrank** (1↑): TL:DR you saved me when my brain said what.
   - **poulan9** (1↑): Sometimes I wish people run things truth chatgpt first
   - **xIxIRuckusIxIx** (1↑): and here I thought...ya Im too dumb to read this. thx you for making me feel better.
   - **xIxIRuckusIxIx** (1↑): and here I thought...ya Im too dumb to read this. thx you for making me feel better.
-- **daninsatx** (1039↑): I did something like that in 2021.  bought 10 stocks recommended in  Motly fool.  lost so much money in them.  Like enphase, PayPal, square, and some other losers.  but I got Nvidia too, 2k went to about 40k today.  so I came out way ahead   just dumb luck.
-  - **Party_Shoe104** (416↑): Motley Fool is awful. Every single article is the same. "This stock could return 107% next year." or "Cathy Wood sold $2 Million of an AI stock," All they do is advertise to sign up with them.  Just Terrible.
+  - **devonhezter** (1↑): Just fishined reading it
+- **daninsatx** (1040↑): I did something like that in 2021.  bought 10 stocks recommended in  Motly fool.  lost so much money in them.  Like enphase, PayPal, square, and some other losers.  but I got Nvidia too, 2k went to about 40k today.  so I came out way ahead   just dumb luck.
+  - **Party_Shoe104** (418↑): Motley Fool is awful. Every single article is the same. "This stock could return 107% next year." or "Cathy Wood sold $2 Million of an AI stock," All they do is advertise to sign up with them.  Just Terrible.
     - **desquibnt** (125↑): It's Cosmo for finance
 
 "3 Tips for a Better ~~Blowjob~~ Portfolio"
-    - **EllaquentPhilosophy** (44↑): I bought the first sales pitch…only to learn that there’s a higher tier tip sheet that they now constantly advertise to me. Pisses me off. 
+    - **EllaquentPhilosophy** (40↑): I bought the first sales pitch…only to learn that there’s a higher tier tip sheet that they now constantly advertise to me. Pisses me off. 
 
 Their advice is not great. 
 
@@ -224,25 +347,25 @@ but MF have sucked rotten eggs for over 20 years
 
   
 old news
-  - **Basic_8675309** (36↑): I put $26k in NVDIA in early 2020. Saw it go down to about $16k during 2022. I held on tight (white knuckles) and now it’s at $610k.  My coworker told me about it in 2013. Imagine if I had bought back then!
+  - **Basic_8675309** (35↑): I put $26k in NVDIA in early 2020. Saw it go down to about $16k during 2022. I held on tight (white knuckles) and now it’s at $610k.  My coworker told me about it in 2013. Imagine if I had bought back then!
     - **Sandvik95** (22↑): Uh… I’m glad you’re holding $610k, but from the lows of 2022 to now, NVDA is up about 12 fold. 
 That should take you $16k to $192k
 
 Were you buying options or something or was this a typo?
     - **E_STACKS** (2↑): You did not turn $26k to $610k on NVDA from 2020
-  - **sweetoother** (110↑): I’m not a big MF fan, but i do kinda feel like that is their whole strategy. 9/10 picks will be losers, but the one that hits may be a 20bagger
-    - **GLGarou** (86↑): That's basically how venture capital investing works.
-    - **Spl00ky** (30↑): Motely Fool makes a whole bunch of stock picks and then through selective hindsight investing, only emphasizes the ones that generated a strong return.
-    - **MindfulK9Coach** (57↑): Can't stand their recommendations half the time. 
+  - **sweetoother** (112↑): I’m not a big MF fan, but i do kinda feel like that is their whole strategy. 9/10 picks will be losers, but the one that hits may be a 20bagger
+    - **GLGarou** (83↑): That's basically how venture capital investing works.
+    - **Spl00ky** (31↑): Motely Fool makes a whole bunch of stock picks and then through selective hindsight investing, only emphasizes the ones that generated a strong return.
+    - **MindfulK9Coach** (58↑): Can't stand their recommendations half the time. 
 
 They're either behind the trends or straight-up speculating on something that'll be a dud.
 
 Can't take anything they say too seriously.
     - **HappilyDisengaged** (1↑): aka guessing
-  - **Beefstu409** (9↑): They've basically come out and said 2021 was specifically their worst year and they did terrible.  I did the same thing but only 5 stocks and got wiped.  I also realized they always recommend to buy 25+ to start and have a better categorization to help you not get fucked.  I'm enjoying it so far.
+  - **Beefstu409** (8↑): They've basically come out and said 2021 was specifically their worst year and they did terrible.  I did the same thing but only 5 stocks and got wiped.  I also realized they always recommend to buy 25+ to start and have a better categorization to help you not get fucked.  I'm enjoying it so far.
   - **TheSilverFoxwins** (5↑): Motley fools is garbage. I lost a lot with them in the past.
-  - **Ok_Entrepreneur_dbl** (7↑): 2021 unfortunate was great until it wasn’t.  Dec 2021 was the start of a downfall in the markets that found a bottom in late fall of 2022.  I actually rebalance my entire portfolio into mag 7 stocks and NFLX.  They seemed like a bargain in fall of 2022.  By December 2023 Nasdaq recovered to December 2021 levels and never looked back.
-  - **daninsatx** (5↑): Here is a list of stocks i bought back then and how they did.  I tried to put it into a table but reddit wouldn't post it.  
+  - **Ok_Entrepreneur_dbl** (5↑): 2021 unfortunate was great until it wasn’t.  Dec 2021 was the start of a downfall in the markets that found a bottom in late fall of 2022.  I actually rebalance my entire portfolio into mag 7 stocks and NFLX.  They seemed like a bargain in fall of 2022.  By December 2023 Nasdaq recovered to December 2021 levels and never looked back.
+  - **daninsatx** (6↑): Here is a list of stocks i bought back then and how they did.  I tried to put it into a table but reddit wouldn't post it.  
 
 # Fool Stocks Portfolio Data
 
@@ -338,45 +461,45 @@ Can't take anything they say too seriously.
 If MF didn’t recommend that you’d be screwed.
   - **bdh2067** (3↑): Don’t forget their perennial favorite, teledoc 🙄
     - **Kind-Ad-4756** (2↑): docu pton zoom luckin I could go on
-  - **anonuemus** (5↑): It's in the name, you fool.
+  - **anonuemus** (6↑): It's in the name, you fool.
   - **ChikkuAndT** (5↑): I got Motley Fool Premium once through an AMEX offer. Worst decision ever. Every pick they recommended tanked.
     - **-HOSPIK-** (6↑): So a good place to find stock to short
-- **PablosCocaineHippo** (609↑): Reddit is a good way to get to know stocks you havent heard of before, and invest in them if you use your brain and do some research, and are patient.
+- **PablosCocaineHippo** (608↑): Reddit is a good way to get to know stocks you havent heard of before, and invest in them if you use your brain and do some research, and are patient.
 
 Brain and patience is what most of WSB lacks, but i found some good stocks on there for long term.
-  - **No-Strike-2015** (135↑): Reddit is how I've discovered things like PNG, RKLB, NBIS, etc. 
+  - **No-Strike-2015** (134↑): Reddit is how I've discovered things like PNG, RKLB, NBIS, etc. 
 
 I'm very optimistic long term, but who knows if they'll actually pan out.
 
 There is a lot of good information on Reddit.
-    - **femboyharmonie** (86↑): There is also a LOT of manipulation and abusers on Reddit. Especially /r/pennystocks and /r/10xpennystocks is full of pumpers and dumpers preying on the unsuspecting. Buyer beware!!!
+    - **femboyharmonie** (87↑): There is also a LOT of manipulation and abusers on Reddit. Especially /r/pennystocks and /r/10xpennystocks is full of pumpers and dumpers preying on the unsuspecting. Buyer beware!!!
     - **Banned3rdTimesaCharm** (25↑): Some dude mentioned OKLO back in March, ended up 8 bagging 25k for me. I would like to thank that anonymous stranger for moving up my retirement timeline.
     - **Hour-Finish744** (2↑): Is nbis worth it now
-  - **Educational-Dot318** (49↑): Reddit is where i discovered the Bogleheads and the index funds investment philosophy; i've stuck to it since.
+  - **Educational-Dot318** (51↑): Reddit is where i discovered the Bogleheads and the index funds investment philosophy; i've stuck to it since.
 
 before that, i was clueless what to do; so i just bought alot of my company stock.   (i still hold it,  but strictly do index funds here on out.)  🧐📈
     - **optimaleverage** (2↑): I've always heard investing too heavily in your own workplace can become a major liability if that business fails or has trouble with share price in general.
-  - **AgitatedStranger9698** (33↑): Sofi made me 400k. 
+  - **AgitatedStranger9698** (35↑): Sofi made me 400k. 
 
 Would have never even heard of it when it was sub 7 without wsbs. 
 
 However fuck I wish I didnt sell at 15 and instead held until 30....
     - **ImaginationEnough414** (9↑): You and me both! It's not even the worst one for me as far as opportunity cost selling too early. Not even close unfortunately  😔
-    - **8InchDaks** (4↑): I bought some sofi at 9 in april since I use them, but was not expecting them to jump this high so soon tbh.
+    - **8InchDaks** (3↑): I bought some sofi at 9 in april since I use them, but was not expecting them to jump this high so soon tbh.
 
 Feels like I blinked for one second and was planning on doing more due diligence on sofi to buy more and boom, it 3x itself. I feel theres a lot more value in it to go way further but I was hoping it wouldnt take off so quick haha. Same with asts and whatnot.
-  - **The_Real_Krampus** (17↑): This was my best year investing from things I found on Reddit. I agree, a little research and common sense goes along way with weeding out the junk
-  - **_hiddenscout** (45↑): That’s how I view this place. I post mainly more in the daily’s, but I actually enjoy doing research and learning about new companies. 
+  - **The_Real_Krampus** (16↑): This was my best year investing from things I found on Reddit. I agree, a little research and common sense goes along way with weeding out the junk
+  - **_hiddenscout** (41↑): That’s how I view this place. I post mainly more in the daily’s, but I actually enjoy doing research and learning about new companies. 
 
 Always posting interesting stuff the daily thread.
-    - **TechTuna1200** (24↑): Yup. There are a lot of interesting stocks posted. 
+    - **TechTuna1200** (22↑): Yup. There are a lot of interesting stocks posted. 
 
 It’s just the Redditors are often packing and many often conflate trading with investing. Trading and investing account should be completely separate.
 
 According to Peter Lynch, 4 out of 5 stocks will make you money back if you hold them long enough.
-  - **Remarkable_Net_6977** (17↑): 100 percent agree. This is a great way to hear about stocks. Unfortunately, people aren’t patient with their entries. Read up on the stock, and if you like it, look at the chart to find a range that you would be comfortable investing at. Then, set an alert on your phone or place limit orders in that range and forget about it.
-    - **Technical-Music5015** (3↑): This!!! Facts facts
-  - **MindfulK9Coach** (17↑): This. I take any stocks I see and run them through my AI investing assistant and deep dive into fundamentals, finances, the leadership, transcripts from events, relevant news, and earnings calls, and running different scenarios with provided variables for the next hour before making a decision.
+  - **Remarkable_Net_6977** (16↑): 100 percent agree. This is a great way to hear about stocks. Unfortunately, people aren’t patient with their entries. Read up on the stock, and if you like it, look at the chart to find a range that you would be comfortable investing at. Then, set an alert on your phone or place limit orders in that range and forget about it.
+    - **Technical-Music5015** (4↑): This!!! Facts facts
+  - **MindfulK9Coach** (18↑): This. I take any stocks I see and run them through my AI investing assistant and deep dive into fundamentals, finances, the leadership, transcripts from events, relevant news, and earnings calls, and running different scenarios with provided variables for the next hour before making a decision.
 
 Alot better than surfing the web through a million links, docs, and sitting through boring earnings calls.
 
@@ -393,9 +516,9 @@ Also found out about rklb, hasn't changed my life as much but up a few hundred g
 
 Also also found out about Kraken Robotics because of reddit, hasn't changed my life yet...but it took 3 years for ASTS to do that...so I dont mind waiting.
   - **Fritzkreig** (3↑): Yeah, I had to start a new brokerages account to get in on the RDDT DSO, it is only 20 months old but up 112.6% by doing exactly what you said.
-- **risky-cat** (320↑): In a bull market every idiot looks like a genius.
+- **risky-cat** (325↑): In a bull market every idiot looks like a genius.
   - **RunningJay** (62↑): Yeah, when I start to see posts like this it makes me think we’re ready for a correction.
-    - **imadogg** (10↑): We've been seeing posts like this for years. We're always ready for a correction
+    - **imadogg** (9↑): We've been seeing posts like this for years. We're always ready for a correction
     - **MindfulK9Coach** (5↑): You'll be right, one day.
 
 Y'all been saying this for 5 years.
@@ -404,12 +527,12 @@ Y'all been saying this for 5 years.
 I have seen this meme so many times on reddit each year for the past 7 or 8 years.
 
 Sell all your stocks and wait for the correction then
-  - **Spl00ky** (7↑): Except for bears
+  - **Spl00ky** (8↑): Except for bears
+  - **AyumiHikaru** (6↑): In a bull market every bear looks like a clown.
   - **TheUltimateGoldenBul** (5↑): Actually the data says that growth stocks(the trend ones usually) have been outperforming other factors in the last 15 years by a lot, technically sounds like an legitimate strategy to invest in growth stocks, though the over reliance in high valuations isnt usually something I would recommend, there is a good book on this from Jack Bogle by the way, and he was in 2012… today js even worse
-  - **AyumiHikaru** (3↑): In a bull market every bear looks like a clown.
   - **youre_being_creepy** (3↑): Right? You really think Reddit of all places is going to get 80 percent right on stock picks? The one thing in the world consistently referred to as a monkey throwing darts at a board?
   - **KaspaRocketMan** (7↑): Is that the current market?
-  - **notseelen** (3↑): Sometimes I have a bit of a dumb hypothetical that breezes through my brain...why not buy a bunch of growth and meme stocks when we're deep into the next bear market?
+  - **notseelen** (4↑): Sometimes I have a bit of a dumb hypothetical that breezes through my brain...why not buy a bunch of growth and meme stocks when we're deep into the next bear market?
 
 
 Wouldn't it then be "easy" to set a time limit, and sell them all two years later for presumably a high profit?
@@ -422,7 +545,7 @@ I own 95% index funds, so I have not actually done this, nor am I advocating for
 
 
 Howard Marks made an absolute shit ton of money buying Distressed Debt during the GFC...I guess I'm asking something like that, but maybe with growth/momentum (since an idiot like me isn't gonna be able to do Due Diligence and pick the true long-term winners?)
-    - **KingHenry13th** (6↑): What?  Just buy anything in the next bear market. Why meme stocks?
+    - **KingHenry13th** (7↑): What?  Just buy anything in the next bear market. Why meme stocks?
 
 
 Early 2000s tech crash.  Buy tech
@@ -438,14 +561,14 @@ Covid stay home crash, buy hotels, casinos and cruise lines.
 
 
 The hard part is having the balls and the money to follow thru without worries.
-- **Technical-Music5015** (106↑): Reddit gave ASTS at 6$ OKLO at $7 RKLB at $7 NNE SMR AMPX all 1000 percent gains and still hold all of them in tax free savings account.
+- **Technical-Music5015** (103↑): Reddit gave ASTS at 6$ OKLO at $7 RKLB at $7 NNE SMR AMPX all 1000 percent gains and still hold all of them in tax free savings account.
 
 I thank Reddit from the bottom of my heart
-  - **KrustyLemon** (36↑): Same.
+  - **KrustyLemon** (35↑): Same.
 
 I'm up 400k+ this year on reddit stocks alone.
-  - **iseeyouboo** (13↑): Which subreddits do you visit to get these picks? Also any particular users you follow?
-    - **Technical-Music5015** (32↑): I’m in many financial subs but these particular stocks  kinda all branched off. 
+  - **iseeyouboo** (12↑): Which subreddits do you visit to get these picks? Also any particular users you follow?
+    - **Technical-Music5015** (34↑): I’m in many financial subs but these particular stocks  kinda all branched off. 
 
 I started looking into Sam Altman and found his spac and invested (mini nuclear reactors to power data centres) that merged and became oklo and the rest is history. Went from 6$ to over 100. 
 
@@ -462,10 +585,10 @@ I sometimes gauge the stock by the community sometimes like asts
 Asts has the best DD of any community I ever seen it’s absolutely incredible that helped keep my conviction in the stock as well.
 
 Tbh if you bought anything space data energy related in march-April of 2024 you are rich today
-  - **Mmmelanie** (8↑): They aren’t always winners but if you can sift through, there’s some good ones. Made my largest gain ever this year because of Reddit, over 300k. Won’t ever happen to me again.
+  - **Mmmelanie** (9↑): They aren’t always winners but if you can sift through, there’s some good ones. Made my largest gain ever this year because of Reddit, over 300k. Won’t ever happen to me again.
     - **Technical-Music5015** (2↑): You would be surprised congrats
   - **ballisticbuddha** (3↑): What stocks are you seeing popup now for 2026?
-    - **Technical-Music5015** (21↑): Right now I’m looking into photonic circuits which w are going to need for AI. These circuits use photons instead of electrons to process this makes it cheaper and more efficient etc.
+    - **Technical-Music5015** (23↑): Right now I’m looking into photonic circuits which w are going to need for AI. These circuits use photons instead of electrons to process this makes it cheaper and more efficient etc.
 
 Companies like 
 
@@ -486,30 +609,30 @@ That’s where my heads at now.
 NFA
   - **CanadianUnderpants** (3↑): Where did you pick up the first signals on those like what subreddits and what made you jump in
 - **bshaman1993** (100↑): Conclusion: it was a bull market since Jan 2025
-  - **tylerduzstuff** (14↑): 100%. Every high growth no earnings company is mooning this year. 
+  - **tylerduzstuff** (13↑): 100%. Every high growth no earnings company is mooning this year. 
 
 I hope new investors don’t think all these 70% in one year jumps won’t pop in a downturn.
     - **gamjatang111** (1↑): we have seen a preview november, ASTS and RKLB both lost close to 50% along with OKLO
-  - **[deleted]** (6↑): It's been a bull market since October 2023 in my books
+  - **[deleted]** (7↑): It's been a bull market since October 2023 in my books
     - **bshaman1993** (3↑): OP is pointing to positions opened in Jan 25
 - **[deleted]** (21↑): Read fooled by randomness, what you’re experiencing is survivorship bias
-- **havenyahon** (34↑): I invested in stocks that Reddit were saying not to invest in.
+- **havenyahon** (33↑): I invested in stocks that Reddit were saying not to invest in.
 
 Invested in Alibaba last December, when everyone was saying to stay away from Chinese stocks. Up about 90% since.
 
 Then I invested in Micron, too, when everyone said to stay away because it was a cyclical memory play. Up about 260% since.
-  - **TheUltimateGoldenBul** (4↑): I sold alibaba afraid of chinese valuations, I had an little profit😢
+  - **TheUltimateGoldenBul** (5↑): I sold alibaba afraid of chinese valuations, I had an little profit😢
   - **Learning-Power** (4↑): Intel and AMD recently.
-  - **Careless-Age-4290** (4↑): Reddit's a good place to find out about stocks but Reddit's a great place to tell when it's a good time to buy as sentiment will be in the dumps
+  - **Careless-Age-4290** (3↑): Reddit's a good place to find out about stocks but Reddit's a great place to tell when it's a good time to buy as sentiment will be in the dumps
 - **CouchPotatoFamine** (95↑): No offense but you have to be pretty brain dead to lose money in the market since Jan 2025
   - **langfordw** (62↑): MSTR bag holder reporting for duty 🫡
     - **Nota-downer** (5↑): Hey, rare earths here!
-    - **CouchPotatoFamine** (10↑): No BYND?
-  - **sirbigmacwilly** (26↑): This isn’t really true. The market dropped 20% in April. At the time everyone on here was screaming to sell because Trump was going to destroy the economy. 
+    - **CouchPotatoFamine** (9↑): No BYND?
+  - **sirbigmacwilly** (25↑): This isn’t really true. The market dropped 20% in April. At the time everyone on here was screaming to sell because Trump was going to destroy the economy. 
 
 I’m sure a lot of people on here sold at a loss and then bought at ATH a couple months later. Maybe they’re brain dead lol, but we can’t act like this year has been straight up and to the right.
     - **Careless-Age-4290** (2↑): When I saw posts saying it's going to take decades to recover with lots of votes I knew it was a great time to buy
-    - **Technical-Music5015** (1↑): There’s a Dude took out his entire 401k and
+    - **Technical-Music5015** (2↑): There’s a Dude took out his entire 401k and
 Put it in cash when that happened 
 
 Absolute moron

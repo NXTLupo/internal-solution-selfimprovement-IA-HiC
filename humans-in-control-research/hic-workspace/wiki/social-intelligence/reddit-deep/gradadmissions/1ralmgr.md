@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1ralmgr.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1ralmgr/cmu_vs_berkeley/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,26 @@ flair: "Computer Sciences"
 extracted_at: "2026-05-22T23:33:50.652Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ralmgr.md#c0"
+    char_span: [0, 2302]
+    sentence_count: 11
+    key_terms: [engineering, science, data, berkeley, master, cmu, learning, software]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ralmgr.md#c1"
+    char_span: [2304, 4011]
+    sentence_count: 10
+    key_terms: [significantly, courses, engineering, gsi, program, career, school, technical]
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ralmgr.md#c2"
+    char_span: [4026, 4333]
+    sentence_count: 2
+    key_terms: [quinqueis-giyph-i728, got, cloudmaster6277, consider, because, tuition, insane, making]
+    section: Comments
+    token_count: 100
 ---
-
 # CMU VS BERKELEY
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1ralmgr/cmu_vs_berkeley/)

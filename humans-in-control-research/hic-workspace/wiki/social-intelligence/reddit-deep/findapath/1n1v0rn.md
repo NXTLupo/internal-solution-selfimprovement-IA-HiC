@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1n1v0rn.md
 url: "https://www.reddit.com/r/findapath/comments/1n1v0rn/figuring_it_out_career_path_exploration_as_a_25f/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,50 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-25T13:04:07.380Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce, higher_ed, healthcare]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1n1v0rn.md#c0"
+    char_span: [0, 2193]
+    sentence_count: 1
+    key_terms: [therapist, low, work, client-facing, roles, assessments, sensitivity, good]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/findapath/1n1v0rn.md#c1"
+    char_span: [2195, 4220]
+    sentence_count: 7
+    key_terms: [research, planning, recommendations, empathy, intelligence, being, discomfort, psychology]
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/findapath/1n1v0rn.md#c2"
+    char_span: [4235, 5969]
+    sentence_count: 14
+    key_terms: [thank, helpful, please, pattymayo8701, introverted, help, findapath, comments]
+    section: Comments
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/findapath/1n1v0rn.md#c3"
+    char_span: [5971, 7232]
+    sentence_count: 6
+    key_terms: [revolutionwooden5638, compliance, healthcare, documentation, etc, work, management, probably]
+    section: Comments
+    token_count: 266
+  - id: "social-intelligence/reddit-deep/findapath/1n1v0rn.md#c4"
+    char_span: [7234, 8843]
+    sentence_count: 12
+    key_terms: [amazing, pivoted, fullupfinish, assurance, something, sometimes, quality, performancecrazy514]
+    section: Comments
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/findapath/1n1v0rn.md#c5"
+    char_span: [8845, 9901]
+    sentence_count: 8
+    key_terms: [something, like, worth, job, effort, performancecrazy514, being, doing]
+    section: Comments
+    token_count: 259
+  - id: "social-intelligence/reddit-deep/findapath/1n1v0rn.md#c6"
+    char_span: [9903, 12169]
+    sentence_count: 13
+    key_terms: [specialist, roles, talent, organisational, development, good, job, assessment]
+    section: Comments
+    token_count: 499
 ---
-
 # Figuring It Out – Career Path Exploration as a 25F
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1n1v0rn/figuring_it_out_career_path_exploration_as_a_25f/)

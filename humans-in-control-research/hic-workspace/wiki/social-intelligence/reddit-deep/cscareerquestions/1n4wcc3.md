@@ -6,19 +6,19 @@ subreddit: "cscareerquestions"
 title: "Asking Hiring Managers: How does low experiece candidate land the job?"
 author: "badsignalnow"
 date: "2025-08-31T14:36:18.000Z"
-score: 76
+score: 74
 upvote_ratio: 0.9
 num_comments: 95
 flair: ""
-extracted_at: "2026-05-22T21:34:54.422Z"
+extracted_at: "2026-06-06T23:23:15.638Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Asking Hiring Managers: How does low experiece candidate land the job?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1n4wcc3/asking_hiring_managers_how_does_low_experiece/)
-Posted by **badsignalnow** · **76↑** · **95 comments**
+Posted by **badsignalnow** · **74↑** · **95 comments**
 
 As a hiring manager you are making the hiring decision for low experience candidates.  You have a 360 degree view on how to get that job. Tell us how to do it?
 
@@ -72,7 +72,7 @@ For juniors I hire for attitude, passion, and ability to learn.  My experience i
 But, if they are passionate and approach things with the attitude of “I don’t know this but I can learn it” then they generally do pretty well.  So, in the interview if you are interviewing with someone like me you get extra points for admitting you don’t know something and taking a stab at it if you have an idea or saying you can ramp up on it.  If you follow up after the interview with a well researched answer as well as your thoughts it will make you a top candidate in my eval.  Just don’t copy/paste someone else’s, this includes AI, answer.  I need to see that you taught yourself something.
 
 Also on my teams I want people to be willing to ask the “dumb questions” they think everyone already knows.  More times than not it clarifies what we are doing and fills in holes I didn’t realize were there.  Sometimes I just completely missed something and it is my turn to learn something.  Either way we are better for it.  Not every team operates this way though.
-  - **andhausen** (27↑): > For juniors I hire for attitude, passion, and ability to learn. My experience is that most Juniors don’t know much coming out of college and that is ok.
+  - **andhausen** (24↑): > For juniors I hire for attitude, passion, and ability to learn. My experience is that most Juniors don’t know much coming out of college and that is ok.
 
 You’re taking about people that you’re interviewing. How does one show their attitude on a resume?
     - **Leading-Ability-7317** (2↑): Harder to do for sure but there are some things that you can put there.  
@@ -80,8 +80,8 @@ You’re taking about people that you’re interviewing. How does one show their
 On the cover letter or resume summary you can use phrases like “I am a lifelong student and approach every challenge as an opportunity to learn”.  I have close to 20YoE and I still have something like that on my resume.
 
 For projects or experience from college or internships highlight where you needed to learn new things.  Your focus here is how you ramped up quickly and got the job done.  Since you lack expertise you are focusing on other strengths.  You are adaptable, learn quickly, and have boundless energy; this is a resume, don’t lie, but this is where you get to brag a bit about yourself
-    - **Various_Mobile4767** (-1↑): Write "I have good attitude, passion and ability to learn" as a bullet point. Duh.
-  - **NewSchoolBoxer** (4↑): I'm glad you mentioned attitude, passion and ability to learn and giving your own answer and not a manufactured one the internet says is correct. Hard skills can be much more easily improved than soft skills and we're talking junior / entry level.
+    - **Various_Mobile4767** (-2↑): Write "I have good attitude, passion and ability to learn" as a bullet point. Duh.
+  - **NewSchoolBoxer** (5↑): I'm glad you mentioned attitude, passion and ability to learn and giving your own answer and not a manufactured one the internet says is correct. Hard skills can be much more easily improved than soft skills and we're talking junior / entry level.
   - **[deleted]** (2↑): > If you follow up after the interview with a well researched answer as well as your thoughts it will make you a top candidate in my eval.
 
 Can you expand more on this? I thought the post interview email is just a thank you with maybe a quick reference to something that was discussed to re-affirm your interest. Didn't realize you can use it try and shove in more answers or use it as a chance to re-do an answer you fumbled, figured that would just come off as overbearing or desperate.
@@ -101,9 +101,9 @@ Anyone who did get through this process but is looking for a job with less than 
 No, it’s not fair but it stresses the importance of getting a good internship that’s likely to result in a return offer.
 
 It also shows how going back to school for a masters can play to your advantage by putting you back into the intern university recruiting pipeline.
-- **Academic-Pizza9787** (36↑): Luck
+- **Academic-Pizza9787** (35↑): Luck
   - **brutalanglosaxon** (3↑): And embellishing on your CV.
-- **Altruistic-Cattle761** (18↑): I mean, you don't, really.\*
+- **Altruistic-Cattle761** (17↑): I mean, you don't, really.\*
 
 This is not a dig at you personally for asking this -- this is a normal or at least common question that I myself have asked -- but "How can I get a job while being objectively less experience than the median candidate?" is a how-do-i-get-rich-quick scheme masquerading as a question. Your question, taken at face value, makes no sense. Why would an employer willingly choose a candidate with less demonstrated experience? The answer to this question is "get more experienced".
 
@@ -116,12 +116,12 @@ Find companies you think would be good to work for, and start looking through th
 \*Sure maybe once in a blue moon this happens for mostly unique or at least impractical reasons ("candidate has 200k followers on Twitter and a strong social media brand as a SWE influencer", "candidate is a maintainer on some piece of OSS that is important to us", etc), but by and large it's not a thing.\*\*
 
 \*\*Also my answer is calibrated specifically for your situation: breaking into the industry. If this question is coming from someone farther along in their career, the answer is different.
-  - **wesborland1234** (8↑): Ok but just apply for Solutions Architect or Data Analyst?
+  - **wesborland1234** (7↑): Ok but just apply for Solutions Architect or Data Analyst?
 
 Except you can’t get either of those without experience, especially the former.
 
 Customer Service I can see. But is it really plausible to do customer at Meta (for example) and transition to SWE? They’d probably view you more or less the same as an external candidate.. possibly worse, because you’re now a “customer service agent” trying to  code instead of just an out of work coder.
-    - **Altruistic-Cattle761** (2↑): I'm saying that if you only view your path to a role like SWE (especially in this market) as a Boolean "it's that or nothing", then you are setting up a situation that increases the likelihood of the "nothing" part of that equation.
+    - **Altruistic-Cattle761** (3↑): I'm saying that if you only view your path to a role like SWE (especially in this market) as a Boolean "it's that or nothing", then you are setting up a situation that increases the likelihood of the "nothing" part of that equation.
 
 Whereas viewing your career as a path or journey, a series of incremental steps in which your task is to make \*progress\* toward a goal, not realize it immediately, then the problem becomes more tractable.
 
@@ -149,7 +149,7 @@ There are things that can be done by the average early career/aspiring person. B
 
 For someone pivoting later in life or coming in self taught, one might have success looking for less mature companies where hiring practices/titles are less established and there’s more room to prove your hustling chops by getting thrown into the deep end of the pool
 - **No-Measurement2005** (18↑): That’s the neat part. You don’t
-- **jmutiny1993** (6↑): Networking. All my previous jobs were because I knew someone in the company who either got my resume directly to the manager or put in a good word for me during the interview. In my current position I've also been able to get my friends/family interviews to positions throughout my company.
+- **jmutiny1993** (5↑): Networking. All my previous jobs were because I knew someone in the company who either got my resume directly to the manager or put in a good word for me during the interview. In my current position I've also been able to get my friends/family interviews to positions throughout my company.
 - **lhorie** (3↑): From the hiring manager perspective, most if not all resumes will have checked most if not all of those boxes. The recuiter’s job was to filter out all but a few high quality resumes before they get in front of a hiring manager.
 
 “Few” is around 10-30 resumes per open role

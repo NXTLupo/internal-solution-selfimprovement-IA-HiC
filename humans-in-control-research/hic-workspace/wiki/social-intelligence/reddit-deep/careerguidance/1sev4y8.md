@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sev4y8.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sev4y8/is_this_just_earlycareer_burnout_or_is_it_time_to/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 3
 flair: "Advice"
-extracted_at: "2026-05-19T17:57:31.306Z"
+extracted_at: "2026-06-06T16:39:04.122Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sev4y8.md#c0"
+    char_span: [0, 1623]
+    sentence_count: 15
+    key_terms: [careerguidance, early-career, feel, job, like, role, work, boundaries]
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/careerguidance/1sev4y8.md#c1"
+    char_span: [1638, 3387]
+    sentence_count: 11
+    key_terms: [job, everything, "that's", "you're", "i'd", like, boundaries, normal]
+    section: Comments
+    token_count: 368
 ---
-
 # Is this just early-career burnout, or is it time to quit my first post-grad job 6 months in ?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sev4y8/is_this_just_earlycareer_burnout_or_is_it_time_to/)

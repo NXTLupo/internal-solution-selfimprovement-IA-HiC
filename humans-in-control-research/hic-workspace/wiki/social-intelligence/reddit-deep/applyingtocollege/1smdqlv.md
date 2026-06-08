@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1smdqlv.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1smdqlv/i_could_just_be_coping_but_did_anyone_else/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,21 @@ flair: "College Questions"
 extracted_at: "2026-05-23T14:54:48.685Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1smdqlv.md#c0"
+    char_span: [0, 1907]
+    sentence_count: 14
+    key_terms: [vanderbilt, applicant, applyingtocollege, students, transfer, college, please, application]
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1smdqlv.md#c1"
+    char_span: [1922, 3667]
+    sentence_count: 8
+    key_terms: [rejected, transfer, got, only-decision-5198, manipulation, like, year, rejection]
+    section: Comments
+    token_count: 425
 ---
-
 # I could just be coping but did anyone else recieve the same rejection letter from Vandy? They asked me to consider applying as a transfer student.
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1smdqlv/i_could_just_be_coping_but_did_anyone_else/)

@@ -7,12 +7,12 @@ title: "My manager made me cry. Is this treatment normal? Am I the problem?"
 author: "Passenger-Upset"
 date: "2026-03-03T19:59:06.000Z"
 score: 33
-upvote_ratio: 1
+upvote_ratio: 0.98
 num_comments: 9
 flair: "During the Internship"
-extracted_at: "2026-05-23T12:15:55.806Z"
+extracted_at: "2026-06-06T23:20:46.220Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # My manager made me cry. Is this treatment normal? Am I the problem?
@@ -42,7 +42,7 @@ I might be the problem, but am I not allowed to make mistakes? The lack of patie
   - **Passenger-Upset** (1↑): Thank you for the comment. It means a lot to me
 - **AdMurky5620** (6↑): Not the problem
 - **JamesJohnBushyTail** (3↑): Shame is fear of losing connection. Get out. What you wrote about is a toxic work environment. I would quit and find someplace I could actually learn something.
-- **selfcenteredhospital** (5↑): Hello, as a supply chain major who has completed one co-op and is currently in their second, here is my opinion.  Going to go top to bottom as I read.
+- **selfcenteredhospital** (4↑): Hello, as a supply chain major who has completed one co-op and is currently in their second, here is my opinion.  Going to go top to bottom as I read.
 
 First of all, not getting onboarding material is perfectly normal. Some teams may just not have material prepared, and they may just try to teach you through a series of 1:1 or have you learn through hands-on experience. Moving to the part where you got the powerpoints and the videos. You say that there is a lot of Jargon you don't understand, that is the point where you should ask questions to your manager to clarify what all the terms mean. If you don't speak up she assumes that you understand all the material. As for the 1:1, that is a time where you can just talk about whatever you want with your manager. For ex, what have you been working on, do you know anybody I can connect with on X team, and questions you have. This is not a meeting where the manager takes the lead, but more so they listen to what you have been doing and for them to be a sponge.
 

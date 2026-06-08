@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sj2gx5.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sj2gx5/people_working_in_semiconductior_chips/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-19T17:57:31.306Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sj2gx5.md#c0"
+    char_span: [0, 816]
+    sentence_count: 4
+    key_terms: [biomedical, working, careerguidance, manufacturing, comments, develop, skills, chips]
+    token_count: 199
+  - id: "social-intelligence/reddit-deep/careerguidance/1sj2gx5.md#c1"
+    char_span: [831, 2174]
+    sentence_count: 8
+    key_terms: [research, engineering, experience, projects, getting, work, assistantships, semiconductor]
+    section: Comments
+    token_count: 252
 ---
-
 # People working in semi-conductior (chips manufacturing), or biomedical eng, what skills did you develop to get the job that you have now?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sj2gx5/people_working_in_semiconductior_chips/)

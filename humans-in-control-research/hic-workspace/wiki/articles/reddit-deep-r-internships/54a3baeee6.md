@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-internships/54a3baeee6.md
 url: "https://www.reddit.com/r/internships/comments/1r8lrcw/still_dont_have_a_summer_internship_here_is_what/"
 url_hash: "54a3baeee6"
 kind: "article"
@@ -8,10 +9,32 @@ author: ""
 date: "2026-02-19T01:28:03.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-26T14:35:25.448268+00:00"
-chars: 6409
+extracted_at: "2026-06-06T16:42:06.869076+00:00"
+chars: 6410
+relevance: 40
+engagement_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "articles/reddit-deep-r-internships/54a3baeee6.md#c0"
+    char_span: [0, 2178]
+    sentence_count: 1
+    key_terms: [intern, internships, don, summer, internship, late, postings, apply]
+    token_count: 504
+  - id: "articles/reddit-deep-r-internships/54a3baeee6.md#c1"
+    char_span: [2180, 4300]
+    sentence_count: 1
+    key_terms: [internships, don, companies, outreach, ask, get, someone, spring]
+    token_count: 514
+  - id: "articles/reddit-deep-r-internships/54a3baeee6.md#c2"
+    char_span: [4302, 5730]
+    sentence_count: 2
+    key_terms: [relationships, offer, got, keep, relationship-building, hiring, cycle, later]
+    token_count: 330
+  - id: "articles/reddit-deep-r-internships/54a3baeee6.md#c3"
+    char_span: [5732, 6650]
+    sentence_count: 2
+    key_terms: [life-journalist-2790, experience, suitable-jelly-3693, relationships, anything, opportunities, additionally, competencies]
+    token_count: 223
 ---
-
 # still don't have a summer internship? here is what i would do. you aren't cooked (just yet)
 
 Source: [Reddit Deep: r/internships](https://www.reddit.com/r/internships/comments/1r8lrcw/still_dont_have_a_summer_internship_here_is_what/)
@@ -175,13 +198,13 @@ shift toward newest postings, direct outreach, and warm intros.
 and if it doesn’t land this round, don’t waste the miss. build proof, keep relationships alive, and start next cycle early so you’re the one announcing an offer months ahead.
 
 --- TOP COMMENTS ---
-[9↑ stickybarbie] Last year I got my offer in April with a small-ish company of about 150 people in our site. The intern I worked alongside got her offer in May. 
+[11↑ stickybarbie] Last year I got my offer in April with a small-ish company of about 150 people in our site. The intern I worked alongside got her offer in May. 
 
 Additionally, I was granted an extension and was able to work part-time remotely during the fall school semester. Sometimes those small companies allow for closer relationships and way more flexibility!
 [3↑ Emotional_Spread528] W
 [2↑ Suitable-Jelly-3693] dude that is awesome. i had a really similar experience last year, i was rejected from a bunch of faang/big tech opportunities, but ended up having a blast at a local studio during the summer.
 [2↑ stickybarbie] exactly! i wouldn’t trade my experience for anything else. plus company size ≠ experience quality, those close relationships build trust and you can end up being trained on higher-level tasks if your team sees your competencies!
-[11↑ Life-Journalist-2790] Thank you so much 😊
+[10↑ Life-Journalist-2790] Thank you so much 😊
 [1↑ Suitable-Jelly-3693] for sure!! reach out if there is anything i can do to help. you got this!
 [2↑ Life-Journalist-2790] Can I dm u
 [1↑ unknown_boy2004] Can i also dm you?

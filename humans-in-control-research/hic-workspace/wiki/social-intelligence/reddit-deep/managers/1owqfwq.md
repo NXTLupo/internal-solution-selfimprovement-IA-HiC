@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1owqfwq.md
 url: "https://www.reddit.com/r/managers/comments/1owqfwq/why_is_hiring_a_remote_software_engineer_harder/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,33 @@ flair: "Business Owner"
 extracted_at: "2026-05-26T12:54:23.668Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1owqfwq.md#c0"
+    char_span: [0, 900]
+    sentence_count: 7
+    key_terms: [managers, hiring, remote, comments, team, reddit-deep, absolutely, copy-paste]
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/managers/1owqfwq.md#c1"
+    char_span: [915, 2939]
+    sentence_count: 14
+    key_terms: [interview, always, either, remote, experience, companies, hiring, resume]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/managers/1owqfwq.md#c2"
+    char_span: [2698, 3077]
+    sentence_count: 3
+    key_terms: [late-following792, malvojenkins, applicants, interviews, expedited, includes, question, training]
+    section: Comments
+    token_count: 91
+  - id: "social-intelligence/reddit-deep/managers/1owqfwq.md#c3"
+    char_span: [3080, 4412]
+    sentence_count: 10
+    key_terms: [people, remote, interviewing, job, time, interviews, skilled, answer]
+    section: Comments
+    token_count: 322
 ---
-
 # Why is hiring a remote software engineer harder than managing the whole damn team??
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1owqfwq/why_is_hiring_a_remote_software_engineer_harder/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1q3wdjq/from_a_harvard_neuro_phd_how_to_prep_for/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,101 @@ flair: "Biological Sciences"
 extracted_at: "2026-05-23T12:15:55.832Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c0"
+    char_span: [0, 2307]
+    sentence_count: 15
+    key_terms: [interviews, phd, biomedical, program, interview, like, gradadmissions, years]
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c1"
+    char_span: [2309, 4559]
+    sentence_count: 13
+    key_terms: [professional, comfortable, here, scientific, interview, practical, question, research]
+    token_count: 514
+  - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c2"
+    char_span: [4561, 6814]
+    sentence_count: 10
+    key_terms: [questions, program, lab, here, like, research, students, faculty]
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c3"
+    char_span: [6816, 8905]
+    sentence_count: 8
+    key_terms: [don, interviews, interview, want, admit, like, committee, faculty]
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c4"
+    char_span: [8907, 9931]
+    sentence_count: 10
+    key_terms: [offers, people, fit, considerate, information, applicants, colleagues, confidence]
+    token_count: 222
+  - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c5"
+    char_span: [9946, 12096]
+    sentence_count: 24
+    key_terms: [questions, lab, civil-willingness164, like, research, trainees, project, phd]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c6"
+    char_span: [12098, 13595]
+    sentence_count: 12
+    key_terms: [specific, question, problem, project, computational, pitch, lab, especially]
+    section: Comments
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c7"
+    char_span: [13597, 16042]
+    sentence_count: 17
+    key_terms: [choroid, plexus, development, interview, secretion, developmental, neurodevelopmental, research]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c8"
+    char_span: [16044, 18022]
+    sentence_count: 13
+    key_terms: [interview, "i'd", camera, "you're", civil-willingness164, questions, time, prepare]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c9"
+    char_span: [18026, 20289]
+    sentence_count: 9
+    key_terms: [civil-willingness164, interviews, pitch, questions, like, question, research, version]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c10"
+    char_span: [20000, 20472]
+    sentence_count: 3
+    key_terms: [short, unpack, ask, specifically, interviews, unofficial, interview, applying]
+    section: Comments
+    token_count: 103
+  - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c11"
+    char_span: [20474, 22454]
+    sentence_count: 7
+    key_terms: [project, especially, direction, want, because, excited, program, working]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c12"
+    char_span: [22456, 24554]
+    sentence_count: 16
+    key_terms: [thank, adspare4966, interesting, ask, keep, labs, time, work]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c13"
+    char_span: [24558, 26565]
+    sentence_count: 12
+    key_terms: [specific, especially, pitch, questions, lab, project, like, challenge]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c14"
+    char_span: [26567, 28840]
+    sentence_count: 11
+    key_terms: [choroid, plexus, development, secretion, developmental, neurodevelopmental, changes, brain]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c15"
+    char_span: [28842, 30511]
+    sentence_count: 22
+    key_terms: [lab, trainees, project, phd, want, interested, questions, research]
+    section: Comments
+    token_count: 374
 ---
-
 # From a Harvard Neuro PhD: how to prep for biomedical PhD interviews (and what to expect)
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1q3wdjq/from_a_harvard_neuro_phd_how_to_prep_for/)

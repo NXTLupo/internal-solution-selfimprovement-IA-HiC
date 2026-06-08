@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1oe1luo.md
 url: "https://www.reddit.com/r/jobs/comments/1oe1luo/am_i_being_too_hard_on_my_unemployed_son/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,123 @@ flair: "Unemployment"
 extracted_at: "2026-05-19T15:09:50.018Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c0"
+    char_span: [0, 1593]
+    sentence_count: 13
+    key_terms: [jobs, encountered, "i've", job, son, eventually, comments, continue]
+    token_count: 356
+  - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c1"
+    char_span: [1608, 2722]
+    sentence_count: 12
+    key_terms: [making, almost, living, rising, years, back, get, yeah]
+    section: Comments
+    token_count: 295
+  - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c2"
+    char_span: [2724, 4938]
+    sentence_count: 19
+    key_terms: [been, get, work, government, supportive, employed, probably, because]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c3"
+    char_span: [4685, 5037]
+    sentence_count: 2
+    key_terms: [literal, "add--there's", helplessness, advancement, happen--the, absolutely, something, frenzied]
+    section: Comments
+    token_count: 91
+  - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c4"
+    char_span: [5039, 6952]
+    sentence_count: 17
+    key_terms: [worse, been, job, insurance, because, receive, through, hiring]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c5"
+    char_span: [6954, 8602]
+    sentence_count: 15
+    key_terms: [like, frustration, job, depressed, stranger, charactergeneral5769, "can't", right]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c6"
+    char_span: [8605, 10857]
+    sentence_count: 21
+    key_terms: [job, encourage, molecular, like, because, being, find, probably]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c7"
+    char_span: [10859, 11555]
+    sentence_count: 6
+    key_terms: [because, feels, like, intelligence, unemployment, drastically, encouraging, inspiration]
+    section: Comments
+    token_count: 155
+  - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c8"
+    char_span: [11557, 13610]
+    sentence_count: 27
+    key_terms: [help, advice, connections, everything, veetoo151, probably, already, instead]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c9"
+    char_span: [13321, 14008]
+    sentence_count: 9
+    key_terms: [connections, help, support, people, great, get, interviewing, definitely]
+    section: Comments
+    token_count: 142
+  - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c10"
+    char_span: [14010, 15401]
+    sentence_count: 17
+    key_terms: [experience, hard, tech, assuming, stocking, shelves, people, right]
+    section: Comments
+    token_count: 318
+  - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c11"
+    char_span: [15403, 16307]
+    sentence_count: 5
+    key_terms: [easy, get, job, stocking, shelves, degree, jobs, honestly]
+    section: Comments
+    token_count: 239
+  - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c12"
+    char_span: [16309, 18456]
+    sentence_count: 15
+    key_terms: [job, experience, tech, stocking, shelves, charactergeneral5769, get, getting]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c13"
+    char_span: [18201, 19036]
+    sentence_count: 7
+    key_terms: [market, experience, probably, itybitygreenieweenie, right, deal, job, constructive]
+    section: Comments
+    token_count: 179
+  - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c14"
+    char_span: [19038, 20767]
+    sentence_count: 11
+    key_terms: [helped, people, pretty, being, saved, hanagin-dengalbury, justgimmiethelight, been]
+    section: Comments
+    token_count: 405
+  - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c15"
+    char_span: [20770, 22345]
+    sentence_count: 9
+    key_terms: [job, covid, been, unemployed, davo300zx, superhero, probably, justice]
+    section: Comments
+    token_count: 401
+  - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c16"
+    char_span: [22348, 24534]
+    sentence_count: 11
+    key_terms: [job, right, requirements, good, son, time, experience, interviews]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c17"
+    char_span: [24536, 26709]
+    sentence_count: 35
+    key_terms: [ask, like, times, shit, already, "doesn't", crappy, "didn't"]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c18"
+    char_span: [26711, 27456]
+    sentence_count: 9
+    key_terms: [been, unemployed, applying, masters, professional-act8414, day, here, "it's"]
+    section: Comments
+    token_count: 180
 ---
-
 # Am I being too hard on my unemployed son?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1oe1luo/am_i_being_too_hard_on_my_unemployed_son/)

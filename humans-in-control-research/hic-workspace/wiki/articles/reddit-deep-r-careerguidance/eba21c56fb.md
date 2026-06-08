@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/eba21c56fb.md
 url: "https://www.reddit.com/r/careerguidance/comments/1q89wk7/what_skills_actually_matter_in_tech_careers/"
 url_hash: "eba21c56fb"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T06:46:42.115763+00:00"
 chars: 1813
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/eba21c56fb.md#c0"
+    char_span: [0, 2034]
+    sentence_count: 13
+    key_terms: [business, chatyourcareer, communication, interviews, majesticparsley9002, value, careerguidance, impact]
+    token_count: 452
 ---
-
 # What skills actually matter in tech careers (beyond what job ads list)?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1q89wk7/what_skills_actually_matter_in_tech_careers/)

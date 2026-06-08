@@ -6,19 +6,19 @@ subreddit: "jobs"
 title: "First entry level, now internships?"
 author: "nerddude_79"
 date: "2026-05-15T12:38:16.000Z"
-score: 18
-upvote_ratio: 0.96
+score: 17
+upvote_ratio: 1
 num_comments: 5
 flair: "Unemployment"
-extracted_at: "2026-05-20T02:33:39.341Z"
+extracted_at: "2026-06-06T23:23:15.626Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # First entry level, now internships?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1tdv4il/first_entry_level_now_internships/)
-Posted by **nerddude_79** · **18↑** · **5 comments**
+Posted by **nerddude_79** · **17↑** · **5 comments**
 
 I'm nearing the end of my 2nd year of uni and, as part of my 3rd year, required for me to GRADUATE, I have to complete 70 hours of work experience relating to my degree. 
 
@@ -32,10 +32,10 @@ Sorry for the rant but I'm just so \*tired\* of this stupid economy that is acti
 
 ## Comments
 
-- **Historical-Cress8985** (9↑): All job postings are this way right now.
+- **Historical-Cress8985** (7↑): All job postings are this way right now.
 
 They're looking for unicorns, so that they can say they're hiring and make it look like they're growing to investors and shareholders, without actually meaning it.
-  - **Jolly_Mongoose_8800** (4↑): Unicorn here, these jobs are also a one way ticket to burning out early in your career. Likely, this is a small or medium sized company looking to groom an early grad into senior management by giving them a senior position in early career. It looks cool on a resume, but you will suffer and likely not succeed unless you are very special.
+  - **Jolly_Mongoose_8800** (3↑): Unicorn here, these jobs are also a one way ticket to burning out early in your career. Likely, this is a small or medium sized company looking to groom an early grad into senior management by giving them a senior position in early career. It looks cool on a resume, but you will suffer and likely not succeed unless you are very special.
 
 You have to be a special kind of ambitious and past the curve on resilience to even want an "internship" like this.
 - **PumpkinBrain** (4↑): Internships are strongly associated with low/no play. So, companies have been trying to call more and more things internships, in order to create lower pay expectations.
@@ -46,4 +46,4 @@ It’s been happening for a while.
 They can make an unpaid intern shadow and practice on machines but they can't send them out into the floor and actually DO meaningful stuff.
 
 Doesn't been small companies won't try to skirt this but reporting it to the university you are associated with will rapidly shut this stuff down.
-- **Willing-Vegetable629** (7↑): 25+ years ago internships were *almost* exclusively unpaid, and required to graduate.
+- **Willing-Vegetable629** (6↑): 25+ years ago internships were *almost* exclusively unpaid, and required to graduate.

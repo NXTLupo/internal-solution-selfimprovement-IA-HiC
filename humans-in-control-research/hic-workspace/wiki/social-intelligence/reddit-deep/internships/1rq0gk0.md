@@ -6,19 +6,19 @@ subreddit: "internships"
 title: "Guys I'm available for internships. Thanks."
 author: "i-invincible"
 date: "2026-03-10T15:45:39.000Z"
-score: 71
-upvote_ratio: 0.83
+score: 68
+upvote_ratio: 0.82
 num_comments: 59
 flair: "Resume"
-extracted_at: "2026-05-25T15:51:38.719Z"
+extracted_at: "2026-06-06T23:20:46.207Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Guys I'm available for internships. Thanks.
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rq0gk0/guys_im_available_for_internships_thanks/)
-Posted by **i-invincible** · **71↑** · **59 comments**
+Posted by **i-invincible** · **68↑** · **59 comments**
 
 Final Year CSE Student (Backend / Full-Stack) 
 
@@ -62,18 +62,18 @@ Tools: Git, JWT, Auth0, WebSockets, Swagger
 
 ## Comments
 
-- **edgyboi555** (39↑): ![gif](giphy|kECuK1uwIWEjn3nEyC)
-  - **i-invincible** (3↑): ![gif](giphy|wWYaQjh779pY1ai7yA)
-- **Practical-Minute4299** (72↑): ![gif](giphy|aaFz1Arg0h5cOwAu2w)
-  - **i-invincible** (9↑): ![gif](giphy|XZkLULhNntm72uhgAG)
+- **edgyboi555** (42↑): ![gif](giphy|kECuK1uwIWEjn3nEyC)
+  - **i-invincible** (1↑): ![gif](giphy|wWYaQjh779pY1ai7yA)
+- **Practical-Minute4299** (73↑): ![gif](giphy|aaFz1Arg0h5cOwAu2w)
+  - **i-invincible** (8↑): ![gif](giphy|XZkLULhNntm72uhgAG)
 - **starkman1111** (32↑): Margot Robbie I’m available and single. Thanks.
-  - **i-invincible** (5↑): I’m also single btw, thanks.
+  - **i-invincible** (2↑): I’m also single btw, thanks.
 - **ajavathon** (19↑): Hi its me mark zuckerbrerg and i am offing you a job please send me your social security thanks
 
 /j
   - **i-invincible** (1↑): 😭😭😭LOL
-- **cyberking610** (22↑): I respect the hustle.
-  - **i-invincible** (7↑): Me too.
+- **cyberking610** (24↑): I respect the hustle.
+  - **i-invincible** (8↑): Me too.
 - **Patient-Buddy3697** (6↑): Guys I'm also available 😭
   - **i-invincible** (1↑): I hope you find it.
     - **Patient-Buddy3697** (2↑): 🤞🏻

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1seshaq.md
 url: "https://www.reddit.com/r/jobs/comments/1seshaq/im_finally_employed_after_6_months_but_i_feel/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,92 @@ flair: "Work/Life balance"
 extracted_at: "2026-05-24T14:10:06.647Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c0"
+    char_span: [0, 1580]
+    sentence_count: 12
+    key_terms: [like, feel, months, in-office, comments, finally, process, back]
+    token_count: 375
+  - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c1"
+    char_span: [1582, 2238]
+    sentence_count: 4
+    key_terms: [office, day, life, financially, flexibility, frustration, opportunity, sustainable]
+    token_count: 139
+  - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c2"
+    char_span: [2253, 4295]
+    sentence_count: 17
+    key_terms: [work, don, "it's", needhelpmaxing, being, get, like, unemployed]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c3"
+    char_span: [4074, 4420]
+    sentence_count: 4
+    key_terms: ["it's", always, "i've", writeronthemoon, personally, so-called, because, freedom]
+    section: Comments
+    token_count: 98
+  - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c4"
+    char_span: [4422, 6587]
+    sentence_count: 20
+    key_terms: [time, week, parents, days, life, work, especially, spending]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c5"
+    char_span: [6589, 8645]
+    sentence_count: 23
+    key_terms: [sorry, loss, needhelpmaxing, feeling, purpose, going, lives, times]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c6"
+    char_span: [8383, 10587]
+    sentence_count: 23
+    key_terms: [life, work, businesses, employment, community, benefits, survival, balance]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c7"
+    char_span: [10329, 11680]
+    sentence_count: 12
+    key_terms: [dy0nbrbua2v8q2b7j, balance, working, mamadaddy, google, https, share, care]
+    section: Comments
+    token_count: 340
+  - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c8"
+    char_span: [11682, 13378]
+    sentence_count: 13
+    key_terms: [time, flexibility, get, job, work, taylorr713, understand, through]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c9"
+    char_span: [13380, 15449]
+    sentence_count: 19
+    key_terms: [office, job, get, too, absolutely, teenagers, walking, myself]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c10"
+    char_span: [15451, 17628]
+    sentence_count: 25
+    key_terms: [work, because, needhelpmaxing, perspective, get, hard, pay, role]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c11"
+    char_span: [17630, 19133]
+    sentence_count: 11
+    key_terms: [job, already, terms, come, always, months, myself, office]
+    section: Comments
+    token_count: 380
+  - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c12"
+    char_span: [19135, 21105]
+    sentence_count: 16
+    key_terms: ["i'm", like, life, because, commute, entire, people, makes]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/jobs/1seshaq.md#c13"
+    char_span: [21107, 21749]
+    sentence_count: 10
+    key_terms: [live, thanks, life, work, needhelpmaxing, blackdahlia28, experiences, summarizing]
+    section: Comments
+    token_count: 164
 ---
-
 # I’m finally employed after 6 months, but I feel like I’ve traded my soul for a cubicle
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1seshaq/im_finally_employed_after_6_months_but_i_feel/)

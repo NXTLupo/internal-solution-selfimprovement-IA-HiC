@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-college/ab534ba6af.md
 url: "https://reddit.com/r/college/comments/1oll9cb/prof_nearly_made_me_tear_up_in_class/"
 url_hash: "ab534ba6af"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-14T12:24:47.952781+00:00"
 chars: 1361
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-college/ab534ba6af.md#c0"
+    char_span: [0, 1515]
+    sentence_count: 30
+    key_terms: [students, here, time, college, increase, midsems, without, papers]
+    token_count: 374
 ---
-
 # Prof nearly made me tear up in class
 
 Source: [reddit: college](https://reddit.com/r/college/comments/1oll9cb/prof_nearly_made_me_tear_up_in_class/)

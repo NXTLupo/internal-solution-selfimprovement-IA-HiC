@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sujk3f.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sujk3f/what_matters_more_in_2026your_degree_or_your/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-25T15:52:13.112Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sujk3f.md#c0"
+    char_span: [0, 1180]
+    sentence_count: 19
+    key_terms: [degree, skills, careerguidance, opportunities, comments, because, matters, being]
+    token_count: 259
+  - id: "social-intelligence/reddit-deep/careerguidance/1sujk3f.md#c1"
+    char_span: [1195, 3282]
+    sentence_count: 11
+    key_terms: [degree, masters, field, bachelors, companies, get, job, schools]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/careerguidance/1sujk3f.md#c2"
+    char_span: [3284, 5472]
+    sentence_count: 14
+    key_terms: [degree, hiring, skills, skills-based, roles, engineering, candidates, important]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/careerguidance/1sujk3f.md#c3"
+    char_span: [5474, 6491]
+    sentence_count: 11
+    key_terms: [skills, degree, work, because, geologistvisual3097, going, speed, care]
+    section: Comments
+    token_count: 240
 ---
-
 # What matters more in 2026—your degree or your skills?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sujk3f/what_matters_more_in_2026your_degree_or_your/)

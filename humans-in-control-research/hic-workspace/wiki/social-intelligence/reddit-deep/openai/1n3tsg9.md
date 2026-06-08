@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1n3tsg9.md
 url: "https://www.reddit.com/r/OpenAI/comments/1n3tsg9/gpt_5pro_context_window/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,21 @@ flair: "Question"
 extracted_at: "2026-05-11T17:27:05.361Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1n3tsg9.md#c0"
+    char_span: [0, 548]
+    sentence_count: 3
+    key_terms: [openai, pro, gpt-5-in-chatgpt, https, com, articles, comments, context]
+    token_count: 163
+  - id: "social-intelligence/reddit-deep/openai/1n3tsg9.md#c1"
+    char_span: [563, 1697]
+    sentence_count: 3
+    key_terms: [category, pro, thinking, context, model, fast, subscription, austeane]
+    section: Comments
+    token_count: 301
 ---
-
 # GPT 5-Pro Context Window
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1n3tsg9/gpt_5pro_context_window/)

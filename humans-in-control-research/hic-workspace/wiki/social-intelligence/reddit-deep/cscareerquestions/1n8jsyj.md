@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1n8jsyj.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1n8jsyj/midcareer_swap_cs_student_37_military_retiree/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-24T14:08:50.766Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n8jsyj.md#c0"
+    char_span: [0, 1685]
+    sentence_count: 14
+    key_terms: [prospects, undergrad, cscareerquestions, military, degree, market, comments, question]
+    token_count: 380
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n8jsyj.md#c1"
+    char_span: [1700, 3330]
+    sentence_count: 13
+    key_terms: [clearance, skillbridge, security, veterans, alice-miner, recommend, eligible, programs]
+    section: Comments
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n8jsyj.md#c2"
+    char_span: [3332, 4867]
+    sentence_count: 11
+    key_terms: [doff87, "that's", subnetwork, thailand, program, veteran, omscs, one-scientist-6997]
+    section: Comments
+    token_count: 386
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n8jsyj.md#c3"
+    char_span: [4869, 6224]
+    sentence_count: 12
+    key_terms: [hybrid-cloud-email-with-amazon-ses-and-dovecot, ex200-red-hat-certified-system-administrator-rhcsa-exam, https, com, lot, www, effort, market]
+    section: Comments
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n8jsyj.md#c4"
+    char_span: [6226, 7901]
+    sentence_count: 15
+    key_terms: [clearance, pretty, experience, security, cybersecurity, electrician, job, tech]
+    section: Comments
+    token_count: 377
 ---
-
 # Mid-career swap CS student (37, military retiree), concerned about job prospects
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1n8jsyj/midcareer_swap_cs_student_37_military_retiree/)

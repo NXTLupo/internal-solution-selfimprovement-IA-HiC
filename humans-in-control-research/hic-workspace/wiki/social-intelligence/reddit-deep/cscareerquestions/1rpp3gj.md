@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rpp3gj.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rpp3gj/looking_to_reenter_techdevelopment_after_a/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,38 @@ flair: ""
 extracted_at: "2026-05-25T18:32:49.822Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rpp3gj.md#c0"
+    char_span: [0, 2112]
+    sentence_count: 19
+    key_terms: [years, cscareerquestions, projects, career, build, development, electronics, been]
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rpp3gj.md#c1"
+    char_span: [2114, 2877]
+    sentence_count: 5
+    key_terms: [realistically, industry, possible, preparation, background, motivation, rebuilding, understand]
+    token_count: 176
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rpp3gj.md#c2"
+    char_span: [2892, 4868]
+    sentence_count: 18
+    key_terms: [experience, something, people, competing, honestly, possible, backend, course]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rpp3gj.md#c3"
+    char_span: [4870, 6830]
+    sentence_count: 16
+    key_terms: [backend, month, interview, projects, software, project, basics, prep]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rpp3gj.md#c4"
+    char_span: [6832, 7498]
+    sentence_count: 3
+    key_terms: [learn, path, time, extraordinary, employment, impressive, innovation, otherwise]
+    section: Comments
+    token_count: 144
 ---
-
 # Looking to Re-enter tech/development after a mental-health break in my early 30s. Is it still realistic to build my career in tech?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rpp3gj/looking_to_reenter_techdevelopment_after_a/)

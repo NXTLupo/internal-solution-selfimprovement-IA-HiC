@@ -6,19 +6,19 @@ subreddit: "findapath"
 title: "Anyone else realize way too late that they had advantages they never knew to use?"
 author: "grooveman15"
 date: "2025-12-27T18:48:10.000Z"
-score: 1247
+score: 1248
 upvote_ratio: 0.97
 num_comments: 198
 flair: "Findapath-Mindset Adjustment"
-extracted_at: "2026-05-25T13:04:07.379Z"
+extracted_at: "2026-06-06T23:22:15.451Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Anyone else realize way too late that they had advantages they never knew to use?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1px5bbc/anyone_else_realize_way_too_late_that_they_had/)
-Posted by **grooveman15** · **1247↑** · **198 comments**
+Posted by **grooveman15** · **1248↑** · **198 comments**
 
 I just turned 40 and a couple of years ago I had a pretty brutal realization: I grew up with a ton of advantages, but no one ever explained what they were or how to use them …  so I just… didn’t. And now they’re pretty much gone.
 
@@ -107,12 +107,12 @@ That school taught you how to perform, but not how to navigate the world?
 
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/findapath) if you have any questions or concerns.*
-- **Yokubo-Dom** (399↑): This is so fckng real. I had that realization at 34-35. Really intense year, made me  realize a lot of this things.
+- **Yokubo-Dom** (392↑): This is so fckng real. I had that realization at 34-35. Really intense year, made me  realize a lot of this things.
   - **grooveman15** (70↑): That was pretty much my time period of ‘awakening’ and “oh sit…”
-  - **SirCicSensation** (33↑): Is it too late for guys like us getting to 35? Feels like there's no way sometimes.
-    - **TrainingOwl** (47↑): I'm 35 and I really resonate with this post. I could have benefited from some guidance. I still feel like I'm missing opportunities. I can't seem to put the blocks together and gain some momentum (in my life or with my own advantages). I don't think it's too late for us, but it still does feel like I missed the boat sometimes. I think it's just removing fear! You think if you would go back to high school, you would make different choices, maybe more directly ask for help, or take more chances, more risks. You can still make those different choices now, but you're still too scared. -My perspective at the moment
+  - **SirCicSensation** (35↑): Is it too late for guys like us getting to 35? Feels like there's no way sometimes.
+    - **TrainingOwl** (44↑): I'm 35 and I really resonate with this post. I could have benefited from some guidance. I still feel like I'm missing opportunities. I can't seem to put the blocks together and gain some momentum (in my life or with my own advantages). I don't think it's too late for us, but it still does feel like I missed the boat sometimes. I think it's just removing fear! You think if you would go back to high school, you would make different choices, maybe more directly ask for help, or take more chances, more risks. You can still make those different choices now, but you're still too scared. -My perspective at the moment
     - **CoconutForward8315** (13↑): Never quit
-- **Comfortable-Bread249** (203↑): I relate immensely to this—and am deep in processing my own similar resentments. Similar age, Millenial, which I think speaks to the mindset of the early 2000s and the absolutely damaging messages/anti-guidance we got about launching careers. (I also did “what I love”—and the money absolutely did *not* follow.) 
+- **Comfortable-Bread249** (200↑): I relate immensely to this—and am deep in processing my own similar resentments. Similar age, Millenial, which I think speaks to the mindset of the early 2000s and the absolutely damaging messages/anti-guidance we got about launching careers. (I also did “what I love”—and the money absolutely did *not* follow.) 
 
 I didn’t have as much financial privilege. I grew up in the Midwest, with an accountant and a school teacher for parents. 
 
@@ -125,67 +125,67 @@ I was a smart kid who tested very well, so I guess everyone thought I didn’t n
 , I lost my 20s chasing an ill-conceived career in journalism. Had to take out student loans at 30 to go back to school, to retrain for an actual career—and here I am 10 years later dragging myself to the finish line of public service loan forgiveness. 
 
 To this day, my parents have said NOTHING to me about retirement strategy, investing, saving, nothing. And my dad is a fucking accountant.
-  - **grooveman15** (56↑): So much of the same here. We are not alone in that.
-  - **ominous_squirrel** (31↑): I was an underachiever in high school but most of the valedictorians (my school had 11) were my acquaintances and friends so when they were all applying to Stanford I misunderstood that that meant you should go out of state
+  - **grooveman15** (54↑): So much of the same here. We are not alone in that.
+  - **ominous_squirrel** (32↑): I was an underachiever in high school but most of the valedictorians (my school had 11) were my acquaintances and friends so when they were all applying to Stanford I misunderstood that that meant you should go out of state
 
 I went to a state school in a different state, so out-of-state tuition. The first warning I got was during the mandatory one-on-one financial aid counseling session where the counselor said “wow, going into all this debt for a *journalism* degree?”
 
 To my credit, I ended up double majoring and taking a lot of credits over summers at community college, testing out of a lot of requirements and also remote classes and I had a tiny scholarship and the cheaper honors dorm. In the end I would have ended up better off with in-state tuition but nobody except that one counselor ever made a peep
-  - **Happy_N_Mountains** (19↑): I completely relate to this whole string too.  My father is a financial advisor and he never sat me down to talk talk about the power of financial compounding, retirement, financial planning.. or provide a kind of career direction.   He cared about me.. but, having this kind of guidance would have been very helpful!!!
-  - **Empty_Wolf_3378** (7↑): what did you return to school for?
-    - **Comfortable-Bread249** (31↑): Speech-language pathology. Given my experiences in my 20s, I was seduced by the near-guaranteed job placements after graduation. 
+  - **Happy_N_Mountains** (18↑): I completely relate to this whole string too.  My father is a financial advisor and he never sat me down to talk talk about the power of financial compounding, retirement, financial planning.. or provide a kind of career direction.   He cared about me.. but, having this kind of guidance would have been very helpful!!!
+  - **Empty_Wolf_3378** (9↑): what did you return to school for?
+    - **Comfortable-Bread249** (30↑): Speech-language pathology. Given my experiences in my 20s, I was seduced by the near-guaranteed job placements after graduation. 
 
 Which turned out to be true. There are plenty of jobs, but precious few good ones. It’s a total burnout scene, similar to nursing, but with lower pay. I’m hoping to transition into something else after my plans timeout.
   - **rohbhocop** (3↑): I can relate to this SO much!
-- **VulgarSensei** (466↑): I got one better. My grandmother is retired from the military with disability which means a number of benefits for any of her dependents. She offered my mom to take care of me and claim me under her taxes for my senior year of high school so that I can go to any state school in California for free. 
+- **VulgarSensei** (463↑): I got one better. My grandmother is retired from the military with disability which means a number of benefits for any of her dependents. She offered my mom to take care of me and claim me under her taxes for my senior year of high school so that I can go to any state school in California for free. 
 
 My mom turned her down and now I have thousands of dollars in student loans. I didn’t find this out until I was in my late 20s. Thanks mom!
-  - **grooveman15** (110↑): Oh man… that sucks. I’m sorry. Was there a reason, as dumb as it might have been, for your mom to turn down free college for her child?
-    - **VulgarSensei** (158↑): There’s a number of reasons. But to put it simply, my mom didn’t understand how valuable it would be to have your loans paid off as she never went to college so she assumed we would have high paying jobs that would pay these loans off fast.
-  - **thatonemikeguy** (49↑): Hey, same thing, dad was a disabled vet, could have gone to a state school for free. Was too poor to even consider college in highschool so I never knew, dad never said anything. Didn't find out until I was too old.
-- **Dont_Ask_Me_Again_** (521↑): Sounds like typical successful boomer parents. Loving and supportive, but absolutely out to lunch when it comes to helping their children build on their own success.
-  - **grooveman15** (177↑): My parents now had the same realization and are besides themselves. 
+  - **grooveman15** (111↑): Oh man… that sucks. I’m sorry. Was there a reason, as dumb as it might have been, for your mom to turn down free college for her child?
+    - **VulgarSensei** (160↑): There’s a number of reasons. But to put it simply, my mom didn’t understand how valuable it would be to have your loans paid off as she never went to college so she assumed we would have high paying jobs that would pay these loans off fast.
+  - **thatonemikeguy** (50↑): Hey, same thing, dad was a disabled vet, could have gone to a state school for free. Was too poor to even consider college in highschool so I never knew, dad never said anything. Didn't find out until I was too old.
+- **Dont_Ask_Me_Again_** (519↑): Sounds like typical successful boomer parents. Loving and supportive, but absolutely out to lunch when it comes to helping their children build on their own success.
+  - **grooveman15** (176↑): My parents now had the same realization and are besides themselves. 
 
 It’s been fun talking them off the ledge at thanksgiving
-    - **Dont_Ask_Me_Again_** (161↑): Hey at least yours acknowledge it and take some culpability! That’s pretty advanced emotional intelligence for the typical boomer.
-    - **JumpCutVandal** (18↑): But you did what you wanted to do, no? Isn’t that the way? My Dad worked high up at a Swiss bank, I could have started with 150k job out of college but I left the country, moved to Hollywood to break into film. Had no money and struggled for the first 10 years but now I make top 2% income, have a great career, bought a house and have kids. I did it myself with zero connections and grinded just like you. Isn’t that the more satisfying way to live? 
+    - **Dont_Ask_Me_Again_** (160↑): Hey at least yours acknowledge it and take some culpability! That’s pretty advanced emotional intelligence for the typical boomer.
+    - **JumpCutVandal** (17↑): But you did what you wanted to do, no? Isn’t that the way? My Dad worked high up at a Swiss bank, I could have started with 150k job out of college but I left the country, moved to Hollywood to break into film. Had no money and struggled for the first 10 years but now I make top 2% income, have a great career, bought a house and have kids. I did it myself with zero connections and grinded just like you. Isn’t that the more satisfying way to live? 
 
 I’m low key proud of you!
-  - **blankabitch** (27↑): Your boomer parents were loving and supportive??
-    - **Dont_Ask_Me_Again_** (14↑): After I typed that, I kind of went back and re-read it, because honestly it didn’t sound right. I think maybe “loving and supportive *in their own way*”, might be more appropriate. And really only one of them… idk man
-    - **grooveman15** (5↑): Very much so… they’re also very flawed in their own right
+  - **blankabitch** (26↑): Your boomer parents were loving and supportive??
+    - **Dont_Ask_Me_Again_** (15↑): After I typed that, I kind of went back and re-read it, because honestly it didn’t sound right. I think maybe “loving and supportive *in their own way*”, might be more appropriate. And really only one of them… idk man
+    - **grooveman15** (4↑): Very much so… they’re also very flawed in their own right
   - **Beneficial_Cry_9152** (9↑): Exactly…haha I still remember my dad saying he couldn’t help me and that I’d have to figure it out on my own. Thinking I was being smart I went to the library each day since the internet wasn’t a thing yet and read the parachute book. His first response was ‘you don’t get jobs in the library’ go find one…ok thx, Dad. I ended up getting my first job answering a blind PO Box ad in the newspaper but those days were brutal sending blind resumes and cover letters by mail and being lucky to get a response by mail 6 weeks later🤦🙈
-  - **FocusedIntention** (9↑): Except the “why can’t you work hard and make it “ mentality the boomers have. They obsess over you “paying your dues “and working your way up. It’s total whiplash messaging from them and absolutely doesn’t apply to reality of today. I’m quite bitter about it because it’s been so unnecessarily hard and such a waste of my youth. Not sure really what path to go next tbh. 
+  - **FocusedIntention** (8↑): Except the “why can’t you work hard and make it “ mentality the boomers have. They obsess over you “paying your dues “and working your way up. It’s total whiplash messaging from them and absolutely doesn’t apply to reality of today. I’m quite bitter about it because it’s been so unnecessarily hard and such a waste of my youth. Not sure really what path to go next tbh. 
 
 Great post op! Definitely resonate with this.
-  - **onacloverifalive** (4↑): As opposed to now where you offer your teenagers any form of assistance, and they’re all no thanks, everything points to careers won’t exist after we graduate
-    - **Dont_Ask_Me_Again_** (7↑): I think part of your job is to literally force your kids to do things that are proactively preparing them for the real world. And yes, that includes holding their hand and monitoring them through it in your spare time + making time to do it.
+  - **onacloverifalive** (5↑): As opposed to now where you offer your teenagers any form of assistance, and they’re all no thanks, everything points to careers won’t exist after we graduate
+    - **Dont_Ask_Me_Again_** (9↑): I think part of your job is to literally force your kids to do things that are proactively preparing them for the real world. And yes, that includes holding their hand and monitoring them through it in your spare time + making time to do it.
 - **titano83** (72↑): This resonates
-  - **grooveman15** (63↑): I feel like a lot of millennials had this happen. Like boomer parents didn’t pass down connections and guidance as much as love and support (which is super important too)
+  - **grooveman15** (66↑): I feel like a lot of millennials had this happen. Like boomer parents didn’t pass down connections and guidance as much as love and support (which is super important too)
 
 And schools became solely about test scores, AP classes, and college placement
-    - **sadman81** (-27↑): You’re complaining about not being a nepo baby. Geez.
-- **NauseatedLamp** (57↑): I have the same thing, except I went in to writing instead of film. I always felt like I should have done better, and I never did—but I also had no idea how to network or use those advantages, like you said. My parents didn’t use many connections, so it never occurred to me or to them. (There are also a lot of latent neurodivergencies among us.) 
+    - **sadman81** (-26↑): You’re complaining about not being a nepo baby. Geez.
+- **NauseatedLamp** (58↑): I have the same thing, except I went in to writing instead of film. I always felt like I should have done better, and I never did—but I also had no idea how to network or use those advantages, like you said. My parents didn’t use many connections, so it never occurred to me or to them. (There are also a lot of latent neurodivergencies among us.) 
 
 Thank you for posting this. It was so vindicating to see it clearly spelled out like this, and it is helping me to separate myself from some of that mid-thirties-I-should’ve-done-everything-differently shame.
-  - **grooveman15** (25↑): It’s one of those things where you have to both take responsibility for your own action-inaction BUT also realize that you were denied guidance on how to use the tools you inherited. 
+  - **grooveman15** (23↑): It’s one of those things where you have to both take responsibility for your own action-inaction BUT also realize that you were denied guidance on how to use the tools you inherited. 
 
 Therapy has helped me, not go into crippling regret and ennui about fucking it all up.
-- **Empty_Wolf_3378** (57↑): I relate deeply to this. This is the first time, I"ve come across post that accurately explains what I've been trying to put into words.
+- **Empty_Wolf_3378** (59↑): I relate deeply to this. This is the first time, I"ve come across post that accurately explains what I've been trying to put into words.
   - **grooveman15** (24↑): I’ve been thinking about this for the past 3-4 years. You’re not alone. 
 
 “There are dozens of us!” - Tobias Fucke
-    - **No_Match8210** (3↑): Thanks for sharing what you wrote!
+    - **No_Match8210** (4↑): Thanks for sharing what you wrote!
     - **Empty_Wolf_3378** (3↑): Thank you for the validation.
-- **Krakatoast** (38↑): Absolutely. It’s nice to know that I’m not the only person who’s had this realization. It was borderline crippling for a while. I’d think about it almost daily, in the back of my mind. I’d lay awake at night, staring at the ceiling, thinking about this 😂
+- **Krakatoast** (40↑): Absolutely. It’s nice to know that I’m not the only person who’s had this realization. It was borderline crippling for a while. I’d think about it almost daily, in the back of my mind. I’d lay awake at night, staring at the ceiling, thinking about this 😂
 
 My gf said something like “that version of you in the past doesn’t exist.” Basically, we can idealize past possibilities and cringe over how much “better” things could’ve been/could go. But that’s not actually “real.” If that makes sense. 
 
 Still, I do hold regrets. The way I think about it is that all I can do is use what I’ve learned and move forward. But yes, definitely have had similar realizations and was kicking myself for a while. The life advice I got from my parents (who were awesome, loving and supportive) was “Go to church, go to school, trades are a thing and the military has great benefits. Ok good luck❤️“
 
 Lol
-  - **grooveman15** (13↑): Oh man - I’m with you with the long nights of the soul with this realization. Therapy helped, my wife helped. 
+  - **grooveman15** (12↑): Oh man - I’m with you with the long nights of the soul with this realization. Therapy helped, my wife helped. 
 
 My mom kept saying during my 20’s and early 30’s “I just wish you could have had an easier life”… despite the fact that she had a whole career in banking with ties in business and my father had a ton of connections in medicine.
-- **breadspac3** (25↑): In recent years, after spending my young adult life aimlessly hopping from school to school and job to job, I finally discovered a career field that felt like my perfect match. It’s too late to pursue it now, but I wish I had know about it in high school… which is really weird, considering it’s *literally what my mother went to school for* lmao
-  - **Negative_Aerie2825** (15↑): Why is it too late? Whats the career field?
+- **breadspac3** (27↑): In recent years, after spending my young adult life aimlessly hopping from school to school and job to job, I finally discovered a career field that felt like my perfect match. It’s too late to pursue it now, but I wish I had know about it in high school… which is really weird, considering it’s *literally what my mother went to school for* lmao
+  - **Negative_Aerie2825** (16↑): Why is it too late? Whats the career field?

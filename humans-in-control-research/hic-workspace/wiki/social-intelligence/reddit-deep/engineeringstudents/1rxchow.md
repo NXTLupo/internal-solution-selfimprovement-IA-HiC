@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1rxchow.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1rxchow/i_just_accepted_my_first_summer_mechanical/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -7,14 +8,43 @@ title: "I just accepted my first summer mechanical engineering internship. What 
 author: "darnoc11"
 date: "2026-03-18T18:47:36.000Z"
 score: 19
-upvote_ratio: 0.82
+upvote_ratio: 0.86
 num_comments: 10
 flair: "Career Advice"
-extracted_at: "2026-05-22T23:33:47.030Z"
+extracted_at: "2026-06-03T03:10:18.412Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Generate a strategic analysis identifying actionable opportunities for Northeastern University to enhance experiential learning and co-op success. Focus the analysis on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development."
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rxchow.md#c0"
+    char_span: [0, 1204]
+    sentence_count: 7
+    key_terms: [engineering, internship, engineeringstudents, mechanical, operations, accepted, comments, utility]
+    token_count: 239
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rxchow.md#c1"
+    char_span: [1219, 2640]
+    sentence_count: 22
+    key_terms: [ask, work, everything, engineers, interest, ability, company, monkey]
+    section: Comments
+    token_count: 340
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rxchow.md#c2"
+    char_span: [2642, 4982]
+    sentence_count: 20
+    key_terms: [use, company, "don't", work, probably, anyone, never, ask]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rxchow.md#c3"
+    char_span: [4678, 5674]
+    sentence_count: 11
+    key_terms: [probably, use, database, outlook, profile, hours, photo, teams]
+    section: Comments
+    token_count: 226
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rxchow.md#c4"
+    char_span: [5676, 6571]
+    sentence_count: 7
+    key_terms: [mentor, work, assigned, career, "don't", hard, seek, departments]
+    section: Comments
+    token_count: 203
 ---
-
 # I just accepted my first summer mechanical engineering internship. What advice would you give someone for their first internship?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1rxchow/i_just_accepted_my_first_summer_mechanical/)
@@ -32,18 +62,18 @@ Job Description for context:
 
 ## Comments
 
-- **NuclearBread** (20↑): They may give you a project that's intended to be bite sized and be accomplished by a monkey, do what they tell you to do.
+- **NuclearBread** (21↑): They may give you a project that's intended to be bite sized and be accomplished by a monkey, do what they tell you to do.
 
 They may assign you to a team and have monkey work for you to do that no one else wants to do. Ask who needs help/show interest in everything.
 
 You are there to learn, learn everything you can. Don't expect to make a huge impact. But if you show interest and the ability to work well with others, they might invite you back.
 
 The difference between employable engineers unemployable engineers is usually their ability to work with a group. Not technical skill.
-- **Weak-Oven5498** (14↑): Hey its probably not a big deal but you should maybe give a bit less information. You gave you're company, position and pay. Say the company sees this post and for whatever reason doesn't like it they can track you down and rescind the offer. I doubt it will happen but it's better to be careful.
+- **Weak-Oven5498** (15↑): Hey its probably not a big deal but you should maybe give a bit less information. You gave you're company, position and pay. Say the company sees this post and for whatever reason doesn't like it they can track you down and rescind the offer. I doubt it will happen but it's better to be careful.
 
 As for advice, I find that my superiors at my internships just want to be treated like any other person. Maybe I'm wrong but treating them as if they were my friend (Without telling them anything that could get me fired) worked well.
-- **buttscootinbastard** (10↑): Try hard. Don’t be late. Take notes. Keep good documentation of projects.
-- **paperbag51** (7↑): Ask ask ask!
+- **buttscootinbastard** (9↑): Try hard. Don’t be late. Take notes. Keep good documentation of projects.
+- **paperbag51** (6↑): Ask ask ask!
 You don’t have any work? Ask for some. 
 You need help? Ask. 
 You want to know what someone’s working on? Ask. 

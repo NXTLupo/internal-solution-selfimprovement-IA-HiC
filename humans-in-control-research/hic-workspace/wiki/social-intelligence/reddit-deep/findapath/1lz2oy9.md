@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1lz2oy9.md
 url: "https://www.reddit.com/r/findapath/comments/1lz2oy9/what_jobs_are_people_doing_in_their_mid_20s_to_30s/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,57 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-25T13:04:07.388Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce, retail]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1lz2oy9.md#c0"
+    char_span: [0, 905]
+    sentence_count: 7
+    key_terms: [working, people, good, "i'm", jobs, findapath, comments, seeing]
+    token_count: 214
+  - id: "social-intelligence/reddit-deep/findapath/1lz2oy9.md#c1"
+    char_span: [920, 1867]
+    sentence_count: 9
+    key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/findapath/1lz2oy9.md#c2"
+    char_span: [1870, 3679]
+    sentence_count: 19
+    key_terms: [job, "i'm", retail, ways, inescapablefree, makes, feel, life]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/findapath/1lz2oy9.md#c3"
+    char_span: [3681, 4792]
+    sentence_count: 13
+    key_terms: [school, buzzyscruggs94, trade, hvac, job, classes, doing, money]
+    section: Comments
+    token_count: 266
+  - id: "social-intelligence/reddit-deep/findapath/1lz2oy9.md#c4"
+    char_span: [4794, 6577]
+    sentence_count: 12
+    key_terms: [breakiteven, life, apprenticeship, tehtexasranger, school, going, get, time]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/findapath/1lz2oy9.md#c5"
+    char_span: [6579, 8167]
+    sentence_count: 14
+    key_terms: [spectrum1523, good, get, "it's", job, rewarding, something, sometimes]
+    section: Comments
+    token_count: 405
+  - id: "social-intelligence/reddit-deep/findapath/1lz2oy9.md#c6"
+    char_span: [8169, 8882]
+    sentence_count: 8
+    key_terms: [unlikely-loss5616, working, mid, time, confidence, determined, struggling, understand]
+    section: Comments
+    token_count: 195
+  - id: "social-intelligence/reddit-deep/findapath/1lz2oy9.md#c7"
+    char_span: [8884, 10194]
+    sentence_count: 5
+    key_terms: [engineering, did, work, wildlife, certification, got, job, biologist]
+    section: Comments
+    token_count: 322
 ---
-
 # What jobs are people doing in their mid 20s to 30s ?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1lz2oy9/what_jobs_are_people_doing_in_their_mid_20s_to_30s/)

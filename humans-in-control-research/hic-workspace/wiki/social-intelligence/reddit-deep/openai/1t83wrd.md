@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1t83wrd.md
 url: "https://www.reddit.com/r/OpenAI/comments/1t83wrd/i_got_tired_of_the_api_bills_for_100k_context/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,32 @@ flair: "Research"
 extracted_at: "2026-05-11T17:27:05.353Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1t83wrd.md#c0"
+    char_span: [0, 1986]
+    sentence_count: 13
+    key_terms: [agents, history, persistent, state, semantic, context, memory, built]
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/openai/1t83wrd.md#c1"
+    char_span: [1988, 3658]
+    sentence_count: 13
+    key_terms: [architecture, community, tracking, project, memory, semvec, tokens, https]
+    token_count: 378
+  - id: "social-intelligence/reddit-deep/openai/1t83wrd.md#c2"
+    char_span: [3673, 5933]
+    sentence_count: 12
+    key_terms: [state, context, memory, debugging, scheitelpunk1337, updates, handle, vector]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/openai/1t83wrd.md#c3"
+    char_span: [5935, 6653]
+    sentence_count: 6
+    key_terms: [architecture, fligglymcgee, semantically, agent-heavy, degradation, information, prioritized, collecting]
+    section: Comments
+    token_count: 147
 ---
-
 # I got tired of the API bills for 100k+ context windows, so I built a persistent O(1) semantic memory state engine to compress history
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1t83wrd/i_got_tired_of_the_api_bills_for_100k_context/)

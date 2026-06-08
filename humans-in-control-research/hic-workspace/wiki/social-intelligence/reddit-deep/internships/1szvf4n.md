@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1szvf4n.md
 url: "https://www.reddit.com/r/internships/comments/1szvf4n/looking_for_advice_from_people_who_got_hired_in/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,60 @@ subreddit: "internships"
 title: "Looking for advice from people who got hired in 2025-2026"
 author: "ArleyX949"
 date: "2026-04-30T13:00:45.000Z"
-score: 23
-upvote_ratio: 0.94
+score: 25
+upvote_ratio: 1
 num_comments: 34
 flair: "General"
-extracted_at: "2026-05-26T14:30:47.904Z"
+extracted_at: "2026-06-05T19:19:58.917Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1szvf4n.md#c0"
+    char_span: [0, 930]
+    sentence_count: 11
+    key_terms: [internships, advice, comments, people, hired, right, did, got]
+    token_count: 236
+  - id: "social-intelligence/reddit-deep/internships/1szvf4n.md#c1"
+    char_span: [945, 2726]
+    sentence_count: 11
+    key_terms: [internship, referral, people, internships, got, arleyx949, something, without]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/internships/1szvf4n.md#c2"
+    char_span: [2728, 4686]
+    sentence_count: 16
+    key_terms: [internship, arleyx949, applying, got, getting, people, internships, referrals]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1szvf4n.md#c3"
+    char_span: [4427, 5206]
+    sentence_count: 10
+    key_terms: [applying, experience, through, people, best, application, graduating, internally]
+    section: Comments
+    token_count: 170
+  - id: "social-intelligence/reddit-deep/internships/1szvf4n.md#c4"
+    char_span: [5208, 7424]
+    sentence_count: 21
+    key_terms: [experience, because, accounting, professional, local, story, gain, compelling]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/internships/1szvf4n.md#c5"
+    char_span: [7426, 9427]
+    sentence_count: 16
+    key_terms: [experience, get, doesn, job, arleyx949, companies, network, mostly]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/internships/1szvf4n.md#c6"
+    char_span: [9429, 10383]
+    sentence_count: 9
+    key_terms: [internship, working, degree, get, got, want, swigofravioli349, interactive]
+    section: Comments
+    token_count: 226
 ---
-
 # Looking for advice from people who got hired in 2025-2026
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1szvf4n/looking_for_advice_from_people_who_got_hired_in/)
-Posted by **ArleyX949** · **23↑** · **34 comments**
+Posted by **ArleyX949** · **25↑** · **34 comments**
 
 Hey everyone! I’m a third-year student right now, and I’m starting to think seriously about internships and future full-time jobs. I’d really love to hear from people who got hired recently, like in 2025 or 2026. Things change so fast, and I want advice that feels up-to-date.
 
@@ -28,11 +70,9 @@ I’m serious about this, but I’m also not rushing. I want to take my time and
 
 ## Comments
 
-- **chocolate_asshole** (4↑): junior now, got summer 24 then return offer. biggest thing was grinding leetcode, spam applying, heavy networking on linkedin. talk to alums constantly. start projects that actually ship something small. tailor resume per posting. even with all that, finding anything right now is stupid hard
-  - **ArleyX949** (1↑): Yeah man it is hard but I will keep working hard!! Thank you so much for your response.
 - **robertisaak** (5↑): Most people I know who landed something this cycle had a referral or warm intro, almost no one got in cold. The market filters out cold apps before humans see them. Nepternship, Boardy, and Series So are all built for warm intros, worth checking.
   - **ArleyX949** (1↑): Sure Will give them a try
-- **Living_Individual839** (5↑): Compounding. The first internship is always the hardest, and it gets much easier if u just have your first one. It is incredibly hard to get an internship without prior experience and a referral. When you graduate without an internship, full time recruiting gets even harder. That is why so many people are struggling to find entry level jobs.
+- **Living_Individual839** (4↑): Compounding. The first internship is always the hardest, and it gets much easier if u just have your first one. It is incredibly hard to get an internship without prior experience and a referral. When you graduate without an internship, full time recruiting gets even harder. That is why so many people are struggling to find entry level jobs.
   - **ArleyX949** (2↑): Ineed first internship is hard to land ,Let's see will start applying again once exams are over.
   - **oriyamio** (2↑): ive been apllying and my internship hasnt helped for the next one and its sooo discouraging
   - **Appropriate-Tutor587** (1↑): You can land your first internship with no referral and no prior internships as long as your GPA is great, you have done previous undergraduate research or worked in a lab or held any part time jobs on your resume plus extra curricula activities. 
@@ -86,3 +126,4 @@ That doesn’t mean I don’t have previous experience, and doesn’t mean I had
 Working on projects outside of school helped me as well. But this internship I got was really in thanks to my sister. No ask for a transcript or resume, just straight talking to the head and HR people. Got my offer and I start working when I’m done with this semester.
   - **ArleyX949** (1↑): Congrats on the paid internship!! It’s great that you had that connection, but clearly your background made it happen
     - **SwigOfRavioli349** (2↑): Honestly, I wanna get out of CS and tech. I want to finish this degree obv, but I want to get another degree in mechanical and aerospace, or electrical, cause I’m tired of this, and I feel like this would be a good stepping stone.
+- **Much_Somewhere7831** (1↑): Do your practice. Try the Canary Wharfian website's HireVue tool. Add the name for the role and AI will generate a question and will review your answer and suggest how to improve. You can also practise interactive phone interviews with an AI agent!

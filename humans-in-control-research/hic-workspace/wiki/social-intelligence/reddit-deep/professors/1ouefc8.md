@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1ouefc8.md
 url: "https://www.reddit.com/r/Professors/comments/1ouefc8/offensive_word_used_out_loud_in_class/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,63 @@ flair: "Teaching / Pedagogy"
 extracted_at: "2026-05-14T18:17:21.701Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1ouefc8.md#c0"
+    char_span: [0, 1227]
+    sentence_count: 11
+    key_terms: [students, loud, experience, professors, comments, reading, "didn't", quoted]
+    token_count: 287
+  - id: "social-intelligence/reddit-deep/professors/1ouefc8.md#c1"
+    char_span: [1242, 1517]
+    sentence_count: 3
+    key_terms: [complaint, ravenhill-2171, belaboring, department, seriously, surprised, students, already]
+    section: Comments
+    token_count: 74
+  - id: "social-intelligence/reddit-deep/professors/1ouefc8.md#c2"
+    char_span: [1519, 3732]
+    sentence_count: 20
+    key_terms: [student, complaint, word, students, context, reading, someone, inappropriate]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1ouefc8.md#c3"
+    char_span: [3431, 4490]
+    sentence_count: 8
+    key_terms: [triggering, chair, question, answers, someone, people, white, been]
+    section: Comments
+    token_count: 230
+  - id: "social-intelligence/reddit-deep/professors/1ouefc8.md#c4"
+    char_span: [4492, 6148]
+    sentence_count: 15
+    key_terms: [students, email, situation, context, better, immediately, instructor, escalate]
+    section: Comments
+    token_count: 378
+  - id: "social-intelligence/reddit-deep/professors/1ouefc8.md#c5"
+    char_span: [6150, 6727]
+    sentence_count: 6
+    key_terms: [context, hearing, matters, confusedinseminary, rap, completely, impossible, different]
+    section: Comments
+    token_count: 148
+  - id: "social-intelligence/reddit-deep/professors/1ouefc8.md#c6"
+    char_span: [6729, 8741]
+    sentence_count: 17
+    key_terms: [word, students, used, context, reading, class, use, contextual]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/professors/1ouefc8.md#c7"
+    char_span: [8743, 10288]
+    sentence_count: 8
+    key_terms: [discussion, because, difference, african-americans, word, offended, capable, condescending]
+    section: Comments
+    token_count: 317
+  - id: "social-intelligence/reddit-deep/professors/1ouefc8.md#c8"
+    char_span: [10290, 12155]
+    sentence_count: 18
+    key_terms: [bibliophilebroad, black, "don't", word, "wouldn't", deleted, someone, always]
+    section: Comments
+    token_count: 445
 ---
-
 # Offensive word used out loud in class
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1ouefc8/offensive_word_used_out_loud_in_class/)

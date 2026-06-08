@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1sqkrqp.md
 url: "https://www.reddit.com/r/deeplearning/comments/1sqkrqp/the_nonautoregressive_decoder_won_cpu_neural_tts/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,20 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.057Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1sqkrqp.md#c0"
+    char_span: [0, 1531]
+    sentence_count: 3
+    key_terms: [real-time, rtf, decoder, cpu, piper, onnx, vits, deeplearning]
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/deeplearning/1sqkrqp.md#c1"
+    char_span: [1533, 3522]
+    sentence_count: 8
+    key_terms: [architecture, blog, gauravvij, frontier, variants, better, faster, github]
+    token_count: 431
 ---
-
 # The non-autoregressive decoder won CPU neural TTS - benchmarks across Piper, MeloTTS, Kokoro, Parler-TTS, XTTSv2
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1sqkrqp/the_nonautoregressive_decoder_won_cpu_neural_tts/)

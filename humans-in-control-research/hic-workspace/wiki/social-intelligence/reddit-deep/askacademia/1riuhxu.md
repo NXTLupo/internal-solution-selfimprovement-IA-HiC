@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1riuhxu.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1riuhxu/wanting_to_be_an_english_professor_in_a_time_when/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,75 @@ flair: "Humanities"
 extracted_at: "2026-05-26T14:32:49.119Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c0"
+    char_span: [0, 2016]
+    sentence_count: 8
+    key_terms: [english, humanities, professors, value, askacademia, "i'm", completely, professor]
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c1"
+    char_span: [2031, 2166]
+    sentence_count: 2
+    key_terms: [suggestion, different, undergrad, explore, options, years, job, take]
+    section: Comments
+    token_count: 35
+  - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c2"
+    char_span: [2168, 4475]
+    sentence_count: 17
+    key_terms: [phd, years, getting, career, right, "i'm", job, humanities]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c3"
+    char_span: [4204, 5557]
+    sentence_count: 9
+    key_terms: [income, school, opportunities, years, grad, year, experience, investment]
+    section: Comments
+    token_count: 296
+  - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c4"
+    char_span: [5559, 7437]
+    sentence_count: 16
+    key_terms: [because, english, school, skills, job, another, "didn't", going]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c5"
+    char_span: [7439, 9330]
+    sentence_count: 14
+    key_terms: [people, academic, learn, completely, incredibly, difficult, ai-proof, anything]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c6"
+    char_span: [9332, 11274]
+    sentence_count: 14
+    key_terms: [lost, humanities, years, getting, school, get, academic, prepared]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c7"
+    char_span: [11276, 12781]
+    sentence_count: 8
+    key_terms: [careers, school, work, especially, teachers, friends, worked, "don't"]
+    section: Comments
+    token_count: 328
+  - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c8"
+    char_span: [12783, 14514]
+    sentence_count: 15
+    key_terms: [education, phd, program, competitive, "it's", professor, pursuing, english]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c9"
+    char_span: [14517, 16528]
+    sentence_count: 20
+    key_terms: [english, professors, practitioner, doctorates, humanities, doctorate, positive, passion]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c10"
+    char_span: [16530, 17047]
+    sentence_count: 5
+    key_terms: [english, enter, phd, communications, accomplished, bestsellers, previously, professors]
+    section: Comments
+    token_count: 99
 ---
-
 # wanting to be an English professor in a time when the humanities are dying
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1riuhxu/wanting_to_be_an_english_professor_in_a_time_when/)

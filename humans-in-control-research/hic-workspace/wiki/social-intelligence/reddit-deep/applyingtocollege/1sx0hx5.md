@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1sx0hx5.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1sx0hx5/northeastern_boston_honors_vs_cornell_for/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,26 @@ flair: "Advice"
 extracted_at: "2026-05-23T14:54:48.687Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sx0hx5.md#c0"
+    char_span: [0, 1919]
+    sentence_count: 1
+    key_terms: [colleges-and-universities, collegeconfidential, cornell-university, com, northeastern-university, http, talk, cornell]
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sx0hx5.md#c1"
+    char_span: [1921, 2525]
+    sentence_count: 1
+    key_terms: [colleges-and-universities, collegeconfidential, northeastern, northeastern-university, cornell-university, com, http, talk]
+    token_count: 164
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sx0hx5.md#c2"
+    char_span: [2540, 3964]
+    sentence_count: 10
+    key_terms: [cornell, ownrequirement8689, northeastern, like, nyc, sure, better, change]
+    section: Comments
+    token_count: 362
 ---
-
 # Northeastern Boston Honors vs Cornell for potential pre-med
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1sx0hx5/northeastern_boston_honors_vs_cornell_for/)

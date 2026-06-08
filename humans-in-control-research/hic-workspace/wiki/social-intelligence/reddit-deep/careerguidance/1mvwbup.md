@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1mvwbup.md
 url: "https://www.reddit.com/r/careerguidance/comments/1mvwbup/65_years_into_my_engineering_career_making_77000/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,45 @@ flair: "Advice"
 extracted_at: "2026-05-26T14:32:49.160Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1mvwbup.md#c0"
+    char_span: [0, 1377]
+    sentence_count: 10
+    key_terms: [job, company, careerguidance, doing, engineering, day, work, comments]
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/careerguidance/1mvwbup.md#c1"
+    char_span: [1392, 3418]
+    sentence_count: 21
+    key_terms: [doing, start, job, work, yourself, responsibility, self-medicate, years]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1mvwbup.md#c2"
+    char_span: [3420, 5471]
+    sentence_count: 29
+    key_terms: [get, find, company, money, got, job, impression, protection]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/careerguidance/1mvwbup.md#c3"
+    char_span: [5473, 7494]
+    sentence_count: 23
+    key_terms: [employees, private, equity, get, easy, facilities, management, company]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/careerguidance/1mvwbup.md#c4"
+    char_span: [7496, 9665]
+    sentence_count: 18
+    key_terms: [been, employees, time, get, like, engineers, contract, process]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/careerguidance/1mvwbup.md#c5"
+    char_span: [9667, 11055]
+    sentence_count: 15
+    key_terms: [project, management, experience, manufacturing, engineering, mentioned, company, higher]
+    section: Comments
+    token_count: 286
 ---
-
 # 6.5 years into my engineering career making $77,000, completely tired and burnt out, should I just quit?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1mvwbup/65_years_into_my_engineering_career_making_77000/)

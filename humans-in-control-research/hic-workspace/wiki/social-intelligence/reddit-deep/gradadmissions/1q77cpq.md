@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1q77cpq.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1q77cpq/accepted/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,21 @@ flair: "Physical Sciences"
 extracted_at: "2026-05-23T14:54:16.717Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1q77cpq.md#c0"
+    char_span: [0, 704]
+    sentence_count: 5
+    key_terms: [gradadmissions, accepted, comments, andrew, crazy, applications, achievement, necessarily]
+    token_count: 169
+  - id: "social-intelligence/reddit-deep/gradadmissions/1q77cpq.md#c1"
+    char_span: [719, 1676]
+    sentence_count: 5
+    key_terms: [congratulations, congrats, andrews, because, lovely, flaky-preference3645, otherwise-celery-280, doesn]
+    section: Comments
+    token_count: 294
 ---
-
 # Accepted!
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1q77cpq/accepted/)

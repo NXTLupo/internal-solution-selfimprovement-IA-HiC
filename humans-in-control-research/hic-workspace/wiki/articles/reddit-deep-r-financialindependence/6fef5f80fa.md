@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-financialindependence/6fef5f80fa.md
 url: "https://www.reddit.com/r/financialindependence/comments/1qrasca/moving_goalposts_and_future_anxiety/"
 url_hash: "6fef5f80fa"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-16T21:02:27.415724+00:00"
 chars: 4473
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-financialindependence/6fef5f80fa.md#c0"
+    char_span: [0, 1983]
+    sentence_count: 22
+    key_terms: [fire, financialindependence, worth, been, healthcare, retirement, currently, goalposts]
+    token_count: 463
+  - id: "articles/reddit-deep-r-financialindependence/6fef5f80fa.md#c1"
+    char_span: [1985, 3418]
+    sentence_count: 8
+    key_terms: [fire, number, people, bumping, curious, without, closer, others]
+    token_count: 348
+  - id: "articles/reddit-deep-r-financialindependence/6fef5f80fa.md#c2"
+    char_span: [3420, 4664]
+    sentence_count: 10
+    key_terms: [husband, retiring, without, having, number, though, years, ago]
+    token_count: 312
 ---
-
 # Moving Goalposts and Future Anxiety
 
 Source: [Reddit Deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1qrasca/moving_goalposts_and_future_anxiety/)

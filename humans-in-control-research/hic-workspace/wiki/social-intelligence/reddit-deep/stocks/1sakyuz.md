@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1sakyuz.md
 url: "https://www.reddit.com/r/stocks/comments/1sakyuz/michael_burry_flags_structural_manipulation_risk/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,75 @@ flair: "Industry Discussion"
 extracted_at: "2026-05-17T01:14:17.622Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1sakyuz.md#c0"
+    char_span: [0, 1300]
+    sentence_count: 7
+    key_terms: [michael-burry-flags-structural-manipulation-ri***REDACTED-KEY***, nasdaq, spacex, index, company, manipulation, elon, structural]
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/stocks/1sakyuz.md#c1"
+    char_span: [1326, 2037]
+    sentence_count: 3
+    key_terms: [nasdaq, changes, public, float, nasdaq-100, february, company, trading]
+    section: What Nasdaq changed
+    token_count: 178
+  - id: "social-intelligence/reddit-deep/stocks/1sakyuz.md#c2"
+    char_span: [2081, 2713]
+    sentence_count: 4
+    key_terms: [shares, artificially, available, company, public, means, small, actually-available]
+    section: What “float” means in normal language
+    token_count: 126
+  - id: "social-intelligence/reddit-deep/stocks/1sakyuz.md#c3"
+    char_span: [2741, 3866]
+    sentence_count: 5
+    key_terms: [index, stock, investors, price, get, nasdaq-100, company, concern]
+    section: Why this is a problem
+    token_count: 246
+  - id: "social-intelligence/reddit-deep/stocks/1sakyuz.md#c4"
+    char_span: [3904, 4256]
+    sentence_count: 2
+    key_terms: [people, guaranteed, nasdaq-100, retirement, discovery, investors, workplace, accounts]
+    section: Why ordinary people should care
+    token_count: 77
+  - id: "social-intelligence/reddit-deep/stocks/1sakyuz.md#c5"
+    char_span: [4270, 4944]
+    sentence_count: 1
+    key_terms: [elon-musks-spacex-weighs-nasdaq-listing-after-seeking-early-index-entry-sources-2026-03-10, new-nasdaq-rules-include-fast-entry-new-listings-benchmark-index-2026-03-30, https, com, nasdaq-concludes-public-consultation-nasdaq-100-indexr, reuters, nasdaq, pdf]
+    section: Sources
+    token_count: 194
+  - id: "social-intelligence/reddit-deep/stocks/1sakyuz.md#c6"
+    char_span: [4959, 5887]
+    sentence_count: 5
+    key_terms: [ticker, spacex, wanted, zestyclose-ice-3434, bags, ipo, national-two2417, radioactive-235]
+    section: Comments
+    token_count: 304
+  - id: "social-intelligence/reddit-deep/stocks/1sakyuz.md#c7"
+    char_span: [5889, 7733]
+    sentence_count: 7
+    key_terms: [https, sec, www, nasdaq, gov, something, gamestop, submit-tip-or-complaint]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/stocks/1sakyuz.md#c8"
+    char_span: [7735, 9398]
+    sentence_count: 5
+    key_terms: [tips, public, bloomberg, comments, governance, investment, propublica, retirement]
+    section: Comments
+    token_count: 391
+  - id: "social-intelligence/reddit-deep/stocks/1sakyuz.md#c9"
+    char_span: [9400, 10733]
+    sentence_count: 4
+    key_terms: [elon-musks-spacex-weighs-nasdaq-listing-after-seeking-early-index-entry-sources-2026-03-10, new-nasdaq-rules-include-fast-entry-new-listings-benchmark-index-2026-03-30, https, com, nasdaq-concludes-public-consultation-nasdaq-100-indexr, reuters, nasdaq, pdf]
+    section: Comments
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/stocks/1sakyuz.md#c10"
+    char_span: [10736, 11901]
+    sentence_count: 8
+    key_terms: [being, smooth-limit-1712, "it's", like, coachdennisgreen, scary-oven8260, manipulation, absolutely]
+    section: Comments
+    token_count: 286
 ---
-
 # Michael Burry Flags 'Structural Manipulation' Risk In Nasdaq Rules Ahead Of Potential SpaceX Listing
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1sakyuz/michael_burry_flags_structural_manipulation_risk/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-applyingtocollege/1aecaac3aa.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1stolqp/parent_of_a_soon_to_be_9th_grader_what_do_you/"
 url_hash: "1aecaac3aa"
 kind: "article"
@@ -10,8 +11,30 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T13:03:59.660600+00:00"
 chars: 6485
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-applyingtocollege/1aecaac3aa.md#c0"
+    char_span: [0, 2198]
+    sentence_count: 25
+    key_terms: [school, high, college, "don't", applyingtocollege, differently, university, teenagers]
+    token_count: 504
+  - id: "articles/reddit-deep-r-applyingtocollege/1aecaac3aa.md#c1"
+    char_span: [2200, 4304]
+    sentence_count: 20
+    key_terms: [year, school, high, highschool, academics, computer, already, college]
+    token_count: 475
+  - id: "articles/reddit-deep-r-applyingtocollege/1aecaac3aa.md#c2"
+    char_span: [4306, 6639]
+    sentence_count: 19
+    key_terms: [college, school, interests, schools, major, high, life, math]
+    token_count: 502
+  - id: "articles/reddit-deep-r-applyingtocollege/1aecaac3aa.md#c3"
+    char_span: [6641, 6745]
+    sentence_count: 1
+    key_terms: [wonderful-click9431, hopeful, gaming, social, media, video, damn, less]
+    token_count: 28
 ---
-
 # Parent of a soon to be 9th grader - what do you wish you had known or done differently in high school?
 
 Source: [Reddit Deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1stolqp/parent_of_a_soon_to_be_9th_grader_what_do_you/)

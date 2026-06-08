@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1ryptox.md
 url: "https://www.reddit.com/r/GradSchool/comments/1ryptox/i_see_people_say_that_a_b_is_considered_failing/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-22T21:35:36.526Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1ryptox.md#c0"
+    char_span: [0, 1122]
+    sentence_count: 8
+    key_terms: [average, course, engineering, performance, considered, gradschool, comments, failing]
+    token_count: 245
+  - id: "social-intelligence/reddit-deep/gradschool/1ryptox.md#c1"
+    char_span: [1137, 2858]
+    sentence_count: 9
+    key_terms: [students, schools, get, probably, people, class, curve, grade]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/gradschool/1ryptox.md#c2"
+    char_span: [2860, 3892]
+    sentence_count: 6
+    key_terms: [classes, students, core, got, program, quarters, sections, quarter]
+    section: Comments
+    token_count: 245
+  - id: "social-intelligence/reddit-deep/gradschool/1ryptox.md#c3"
+    char_span: [3894, 5913]
+    sentence_count: 16
+    key_terms: [ru-tris-bpy, definitely, parrotwouldntvoom, grades, people, fellowships, didn, get]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1ryptox.md#c4"
+    char_span: [5683, 5969]
+    sentence_count: 2
+    key_terms: [getting, parrotwouldntvoom, laziestindian, applications, fellowship, gradschool, biosketch, downvoted]
+    section: Comments
+    token_count: 80
+  - id: "social-intelligence/reddit-deep/gradschool/1ryptox.md#c5"
+    char_span: [5971, 7144]
+    sentence_count: 12
+    key_terms: [average, traditionally, around, grades, middle, school, above, grade]
+    section: Comments
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/gradschool/1ryptox.md#c6"
+    char_span: [7146, 8907]
+    sentence_count: 12
+    key_terms: [class, grad, program, graduate, students, course, expectations, undergrad]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/gradschool/1ryptox.md#c7"
+    char_span: [8910, 10324]
+    sentence_count: 11
+    key_terms: [mastery, grad, test, expected, students, tell, instructor, particular]
+    section: Comments
+    token_count: 298
 ---
-
 # I see people say that a “B is considered failing,” but the class exam average in my grad course is 70?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1ryptox/i_see_people_say_that_a_b_is_considered_failing/)

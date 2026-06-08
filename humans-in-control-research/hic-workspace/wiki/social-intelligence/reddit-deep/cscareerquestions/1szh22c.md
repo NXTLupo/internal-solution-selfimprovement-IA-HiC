@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1szh22c.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1szh22c/does_anyone_else_feel_like_this_entire_industry/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,81 @@ flair: "Experienced"
 extracted_at: "2026-05-23T20:15:57.471Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1szh22c.md#c0"
+    char_span: [0, 1866]
+    sentence_count: 10
+    key_terms: [like, cscareerquestions, turned, tech, blockchain, comments, products, better]
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1szh22c.md#c1"
+    char_span: [1881, 4154]
+    sentence_count: 18
+    key_terms: [company, everything, years, work, department, leadership, repeatedly, director]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1szh22c.md#c2"
+    char_span: [4156, 6118]
+    sentence_count: 16
+    key_terms: ["i'm", good, shitty, "don't", never, been, find, job]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1szh22c.md#c3"
+    char_span: [6120, 8363]
+    sentence_count: 16
+    key_terms: [like, nobody, good, want, companies, actively, pressure, products]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1szh22c.md#c4"
+    char_span: [8365, 9848]
+    sentence_count: 6
+    key_terms: [industry, products, used, working, build, miamiconnectionexo, cool, evil]
+    section: Comments
+    token_count: 375
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1szh22c.md#c5"
+    char_span: [9850, 11746]
+    sentence_count: 15
+    key_terms: [honestly, lying, like, ones, carmychael, executives, companies, industry]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1szh22c.md#c6"
+    char_span: [11748, 13292]
+    sentence_count: 10
+    key_terms: [industry, negative, happening, anymore, effect, greed, world, been]
+    section: Comments
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1szh22c.md#c7"
+    char_span: [13294, 14824]
+    sentence_count: 13
+    key_terms: [sector, responsible, tech, capitalism, industry, failing, largely, society]
+    section: Comments
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1szh22c.md#c8"
+    char_span: [14828, 16490]
+    sentence_count: 8
+    key_terms: [empathy-paul-bloom-joe-rigney-hannah-arendt-allie-beth-stuckey, capitalism, years, industry, "you're", power, stage, mindsufficient769]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1szh22c.md#c9"
+    char_span: [16492, 17591]
+    sentence_count: 12
+    key_terms: [word, innovation, something, machine, amish, part, enshitification, icy-hunter-9600]
+    section: Comments
+    token_count: 249
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1szh22c.md#c10"
+    char_span: [17593, 19700]
+    sentence_count: 16
+    key_terms: [people, automation, bad, used, job, dashboards, ourselves, unethical]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1szh22c.md#c11"
+    char_span: [19702, 20458]
+    sentence_count: 7
+    key_terms: [company, emojis, people, level, using, ex-investmentment, meowmeowhappy, xiongchiamiov]
+    section: Comments
+    token_count: 191
 ---
-
 # Does anyone else feel like this entire industry has turned proudly evil lately?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1szh22c/does_anyone_else_feel_like_this_entire_industry/)

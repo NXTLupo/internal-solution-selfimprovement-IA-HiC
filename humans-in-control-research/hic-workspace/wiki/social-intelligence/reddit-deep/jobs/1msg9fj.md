@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1msg9fj.md
 url: "https://www.reddit.com/r/jobs/comments/1msg9fj/dear_entrylevel_job_seeker/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,44 @@ flair: "Career development"
 extracted_at: "2026-05-20T02:33:39.341Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1msg9fj.md#c0"
+    char_span: [0, 2396]
+    sentence_count: 25
+    key_terms: [entry-level, companies, hire, job, especially, experience, industries, assigned]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/jobs/1msg9fj.md#c1"
+    char_span: [2398, 3562]
+    sentence_count: 17
+    key_terms: [learn, industry, better, struggles, climate, stand, don, role]
+    token_count: 263
+  - id: "social-intelligence/reddit-deep/jobs/1msg9fj.md#c2"
+    char_span: [3577, 5215]
+    sentence_count: 10
+    key_terms: [jobs, being, experienced, get, job, definitely, networking, hardcore]
+    section: Comments
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/jobs/1msg9fj.md#c3"
+    char_span: [5217, 6911]
+    sentence_count: 9
+    key_terms: [myself, people, introverted, been, keep, networking, always, events]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/jobs/1msg9fj.md#c4"
+    char_span: [6913, 8739]
+    sentence_count: 13
+    key_terms: [businesses, "i'm", job, nothing, people, "don't", "it's", experience]
+    section: Comments
+    token_count: 406
+  - id: "social-intelligence/reddit-deep/jobs/1msg9fj.md#c5"
+    char_span: [8741, 10050]
+    sentence_count: 9
+    key_terms: [recommendation, applications, free, because, network, trusted, hiring, people]
+    section: Comments
+    token_count: 305
 ---
-
 # Dear entry-level job seeker
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1msg9fj/dear_entrylevel_job_seeker/)

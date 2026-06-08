@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1stdot6.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1stdot6/i_started_talking_to_claude_like_a_caveman_my/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,62 @@ flair: "Prompt engineering "
 extracted_at: "2026-05-17T01:12:48.204Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1stdot6.md#c0"
+    char_span: [0, 2090]
+    sentence_count: 3
+    key_terms: [claude, caveman, information, words, sentences, full, credits, "doesn't"]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/chatgpt/1stdot6.md#c1"
+    char_span: [2092, 3905]
+    sentence_count: 1
+    key_terms: [caveman, business, instead, theory, claude, says, summarise, audience]
+    token_count: 405
+  - id: "social-intelligence/reddit-deep/chatgpt/1stdot6.md#c2"
+    char_span: [3920, 4570]
+    sentence_count: 4
+    key_terms: [openai, conversation, image, post, r-chatgpt-1050422060352024636, chatgpt-shared-links-faq, discord, support]
+    section: Comments
+    token_count: 172
+  - id: "social-intelligence/reddit-deep/chatgpt/1stdot6.md#c3"
+    char_span: [4573, 6003]
+    sentence_count: 4
+    key_terms: [lot, butterfliesandallama, terse, bc9czlgcmtw4cj8rgh, centrifugalmalaise, remarkablewish2508, willingnessok3081, post]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1stdot6.md#c4"
+    char_span: [5836, 6771]
+    sentence_count: 3
+    key_terms: [amaze, response, tokens, costs, input, token, iwilltalkaboutguns, vp6b55t5f41koebdvo]
+    section: Comments
+    token_count: 341
+  - id: "social-intelligence/reddit-deep/chatgpt/1stdot6.md#c5"
+    char_span: [6774, 7911]
+    sentence_count: 13
+    key_terms: [caveman, language, like, time, neurological, good, credits, saves]
+    section: Comments
+    token_count: 311
+  - id: "social-intelligence/reddit-deep/chatgpt/1stdot6.md#c6"
+    char_span: [7914, 9798]
+    sentence_count: 8
+    key_terms: [like, language, affect, conversation, llm, use, emotions, complex]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/chatgpt/1stdot6.md#c7"
+    char_span: [9803, 11743]
+    sentence_count: 12
+    key_terms: [languages, poetry-for-neanderthals-board-game-rules-and-instructions-for-how-to-play, computer, language, tokens, human, something, complex]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/chatgpt/1stdot6.md#c8"
+    char_span: [11745, 12445]
+    sentence_count: 3
+    key_terms: [amaze, tokens, whatever, whatrusernamesused4, gaym38znd1kyled0du, wumbleinthejungle, lordsnowgaryen, rodebaksteen]
+    section: Comments
+    token_count: 238
 ---
-
 # i started talking to Claude like a caveman. my credits lasted 3x longer. i'm not joking.
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1stdot6/i_started_talking_to_claude_like_a_caveman_my/)

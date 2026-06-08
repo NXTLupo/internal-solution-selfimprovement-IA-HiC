@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1ks0hgq.md
 url: "https://www.reddit.com/r/jobs/comments/1ks0hgq/job_hired_someone_with_no_experience_and_no/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,69 @@ flair: "Companies"
 extracted_at: "2026-05-20T06:41:17.628Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c0"
+    char_span: [0, 742]
+    sentence_count: 7
+    key_terms: [knowledge, comments, train, using, job, jobs, reddit-deep, experience]
+    token_count: 190
+  - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c1"
+    char_span: [757, 1858]
+    sentence_count: 7
+    key_terms: [computers, computer, people, classes, teaches, basic, local, snootangerines4359]
+    section: Comments
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c2"
+    char_span: [1860, 3787]
+    sentence_count: 19
+    key_terms: [computer, skills, like, constantly, instructor, computers, classes, started]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c3"
+    char_span: [3789, 5538]
+    sentence_count: 15
+    key_terms: [games, video, everything, language, college, english, friends, getting]
+    section: Comments
+    token_count: 409
+  - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c4"
+    char_span: [5540, 6850]
+    sentence_count: 7
+    key_terms: [computer, folks, literacy, people, deal, because, younger, others]
+    section: Comments
+    token_count: 309
+  - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c5"
+    char_span: [6852, 8730]
+    sentence_count: 15
+    key_terms: [understanding, computers, people, kids, everything, experience, computer, "didn't"]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c6"
+    char_span: [8732, 10479]
+    sentence_count: 16
+    key_terms: [computer, never, did, hire, job, japanese, basic85, company]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c7"
+    char_span: [10481, 12069]
+    sentence_count: 9
+    key_terms: [english, completely, underpaid, because, "doesn't", workers, unless, ok-neighborhood2109]
+    section: Comments
+    token_count: 372
+  - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c8"
+    char_span: [12071, 13745]
+    sentence_count: 11
+    key_terms: [train, computer, classes, courses, online, did, free, job]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c9"
+    char_span: [13747, 15311]
+    sentence_count: 6
+    key_terms: [use, jbjhill, someone, chromebooks, good, computers, browser, getting]
+    section: Comments
+    token_count: 414
 ---
-
 # Job hired someone with no experience and no knowledge of a computer
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1ks0hgq/job_hired_someone_with_no_experience_and_no/)

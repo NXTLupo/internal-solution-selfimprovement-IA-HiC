@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1pndnmd.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1pndnmd/firstyear_engineering_student_need_help_with/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -10,11 +11,16 @@ score: 0
 upvote_ratio: 0.5
 num_comments: 1
 flair: "Homework Help"
-extracted_at: "2026-05-22T21:34:47.622Z"
+extracted_at: "2026-06-05T23:43:26.910Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pndnmd.md#c0"
+    char_span: [0, 1346]
+    sentence_count: 8
+    key_terms: [poster, experiment, chemistry, engineeringstudents, project, engineering, first-year, scientific]
+    token_count: 287
 ---
-
 # First-Year Engineering Student – Need Help with Chemistry Project (Toothpaste Experiment,poster outline & Poster
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1pndnmd/firstyear_engineering_student_need_help_with/)

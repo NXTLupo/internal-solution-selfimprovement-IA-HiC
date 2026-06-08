@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-gradadmissions/cfdbec2d21.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rgigpf/roast_my_recommendation_letter/"
 url_hash: "cfdbec2d21"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:41:34.997669+00:00"
 chars: 1111
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-gradadmissions/cfdbec2d21.md#c0"
+    char_span: [0, 1278]
+    sentence_count: 9
+    key_terms: [recommendation, letter, professor, gradadmissions, greenpelican24, josephnoexiste, comments, reddit]
+    token_count: 303
 ---
-
 # Roast my recommendation letter
 
 Source: [Reddit Deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rgigpf/roast_my_recommendation_letter/)

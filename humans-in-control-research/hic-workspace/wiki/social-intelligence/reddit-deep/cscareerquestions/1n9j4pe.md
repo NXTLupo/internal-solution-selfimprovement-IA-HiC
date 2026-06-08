@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1n9j4pe.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1n9j4pe/t20_school_700_applications_and_nothing_at_all_so/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,54 @@ subreddit: "cscareerquestions"
 title: "T20 school, 700 applications and nothing at all.. so tired"
 author: "awesomeness2078"
 date: "2025-09-05T22:31:59.000Z"
-score: 78
+score: 79
 upvote_ratio: 0.8
 num_comments: 69
 flair: ""
-extracted_at: "2026-05-22T21:34:54.424Z"
+extracted_at: "2026-06-05T19:52:48.718Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n9j4pe.md#c0"
+    char_span: [0, 1981]
+    sentence_count: 22
+    key_terms: ["i'm", get, "i've", applications, resume, experience, cscareerquestions, https]
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n9j4pe.md#c1"
+    char_span: [1996, 3945]
+    sentence_count: 12
+    key_terms: ["don't", people, friends, advice, either, google, better, market]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n9j4pe.md#c2"
+    char_span: [3947, 5619]
+    sentence_count: 12
+    key_terms: [resume, stack, full, good, experience, company, deleted, generic]
+    section: Comments
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n9j4pe.md#c3"
+    char_span: [5621, 7253]
+    sentence_count: 16
+    key_terms: [university, people, resume, like, low, experience, already, posting]
+    section: Comments
+    token_count: 366
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n9j4pe.md#c4"
+    char_span: [7255, 9324]
+    sentence_count: 15
+    key_terms: [applying, get, graduate, awesomeness2078, internships, full, next, time]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n9j4pe.md#c5"
+    char_span: [9326, 9453]
+    sentence_count: 2
+    key_terms: [apps, internship, include, anyway, highly, summer, zacce, does]
+    section: Comments
+    token_count: 38
 ---
-
 # T20 school, 700 applications and nothing at all.. so tired
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1n9j4pe/t20_school_700_applications_and_nothing_at_all_so/)
-Posted by **awesomeness2078** · **78↑** · **69 comments**
+Posted by **awesomeness2078** · **79↑** · **69 comments**
 
 I've put out 700 applications and have had zero interviews. I'm so tired of this process, I see my friends and people all around me getting FAANG+ offers and I can't even get interviews. Rising junior at a T20 school, 3.86 GPA and I don't know how I can get the experience they want. I'm only applying for internships for next summer. How am I supposed to build experience when I'm getting rejected from minimum wage startup internships right now?? I applied as a junior last year and didn't have any luck either.
 
@@ -39,20 +75,20 @@ I mean... If I had people I could interact with in meat space who are successful
 I don't want to discourage you from asking for help here, but if those are real people that you might be able to develop real relationships with then that's far more useful than generic "tech job market in 2025 is hard for many people" advice you'll likely get online.
 
 Moreover, if you are truly out of other options for advice, you're better off scrolling this thread than posting in it. The topic has been beaten to death over and over again on a weekly basis in this sub.
-  - **awesomeness2078** (6↑): Yeah I have, but they are still just interns who don't really know much about the process either, They've taken looks at my resume and don't really know what to say. I'm rather close friends with them but we are really all just 20 year olds who don't know much about internal processes
+  - **awesomeness2078** (5↑): Yeah I have, but they are still just interns who don't really know much about the process either, They've taken looks at my resume and don't really know what to say. I'm rather close friends with them but we are really all just 20 year olds who don't know much about internal processes
 
   
 I've tried to network with alumni on LinkedIn, but I really haven't gotten much either. Referrals still lead to auto-rejects and many of them don't really have experience with the current CS market.
-    - **the-code-father** (4↑): If it makes you feel any better, I have 8YOE now. I’m a senior engineer at Meta and I just finished a 3 year stint at Google. When I applied in school, I got auto rejected by Google for both internships and full time employment. At the time I was also surrounded by friends in school who had landed roles in FAANG. I worked for a small local company and looking back that job was probably more fun than working at either Meta or Google. 
+    - **the-code-father** (5↑): If it makes you feel any better, I have 8YOE now. I’m a senior engineer at Meta and I just finished a 3 year stint at Google. When I applied in school, I got auto rejected by Google for both internships and full time employment. At the time I was also surrounded by friends in school who had landed roles in FAANG. I worked for a small local company and looking back that job was probably more fun than working at either Meta or Google. 
 
 You don’t have to start working at FAANG in school to have a successful career. Who knows how long it will last but right now these places all seem to have an aversion to hiring juniors. Just keep your head down and apply to literally any company that will hire you. Once you’ve had your first role, your options and mobility should increase dramatically.
-- **[deleted]** (40↑): You should move the club work out of experience, experience is usually reserved for work at an actual company.
+- **[deleted]** (38↑): You should move the club work out of experience, experience is usually reserved for work at an actual company.
 
 Your projects are also painfully generic. You're targeting full stack swe in a market that has way too many full stack devs.
-  - **Pikarat_Nova** (8↑): Genuine question, their project seems solid and looks great for full stack development. Honestly puts my resume to shame when I was at that grade level. What can they do to make it better or less generic?
+  - **Pikarat_Nova** (7↑): Genuine question, their project seems solid and looks great for full stack development. Honestly puts my resume to shame when I was at that grade level. What can they do to make it better or less generic?
 - **SUPERSAM76** (9↑): Are you a US citizen?
-  - **awesomeness2078** (5↑): Yes I am
-    - **[deleted]** (13↑): International folks are cooked then
+  - **awesomeness2078** (6↑): Yes I am
+    - **[deleted]** (14↑): International folks are cooked then
   - **Sublime_7365** (1↑): That probably hurts their chances
 - **HugeRichard11** (8↑): I would say to look at your friends resumes even if they don't know what is best, you should get a better idea to pick up things the recruiters saw potential in. 
 
@@ -74,16 +110,16 @@ Perhaps it's because I always worked in "tech" and for startups and never really
 People who tend to put in the most effort tend to (but not always) end up at the best universities. When you can only hire in a very limited job market, they will get more share of that market. It's mostly correlation. However, startups and hedge funds are often tricked by university name above all else.
 - **AlmoschFamous** (6↑): If you expect to graduate in 2027 then why are you applying?
   - **awesomeness2078** (4↑): Only applying to internship positions for next summer, sorry forgot to clarify
-- **sudden_aggression** (8↑): You graduate in two years, relax and take a deep breath. 
+- **sudden_aggression** (6↑): You graduate in two years, relax and take a deep breath. 
 
 You are getting auto rejected because you're probably applying to positions that are a) not internships b) hiring people right now, not next year or the year after.
-  - **awesomeness2078** (7↑): I'm applying to only internships, not full time offers.
-- **TheCrowWhisperer3004** (6↑): Application season for 2026 interns basically just started lol. We’re barely into September right now.
+  - **awesomeness2078** (8↑): I'm applying to only internships, not full time offers.
+- **TheCrowWhisperer3004** (5↑): Application season for 2026 interns basically just started lol. We’re barely into September right now.
 
 Just keep trying and hopefully you’ll get call backs throughout this month and next month.
-- **Thanatine** (4↑): Send your resume to some ATS test website. Maybe there is some format issues that make your resumes less possible to be selected.
+- **Thanatine** (5↑): Send your resume to some ATS test website. Maybe there is some format issues that make your resumes less possible to be selected.
 
 Other than this I don't really know. I can tell you nothing is wrong with you judging by the resume. 
 
 Internship is a highly RNG game anyway.
-- **zacce** (3↑): Is "700" for 2026 summer apps? Or does it include apps from the past?
+- **zacce** (4↑): Is "700" for 2026 summer apps? Or does it include apps from the past?

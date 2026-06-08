@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-financialindependence/eebdb6afd9.md
 url: "https://www.reddit.com/r/financialindependence/comments/1q2wqi1/handing_in_my_resignation_on_monday/"
 url_hash: "eebdb6afd9"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-16T21:01:35.489318+00:00"
 chars: 2901
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-financialindependence/eebdb6afd9.md#c0"
+    char_span: [0, 1689]
+    sentence_count: 14
+    key_terms: [financialindependence, reddit, money, comments, family, https, com, etc]
+    token_count: 399
+  - id: "articles/reddit-deep-r-financialindependence/eebdb6afd9.md#c1"
+    char_span: [1691, 3093]
+    sentence_count: 13
+    key_terms: [independence, financial, "i'm", thank, "i've", "it's", retirement, yourself]
+    token_count: 383
 ---
-
 # Handing in my resignation on Monday.
 
 Source: [Reddit Deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1q2wqi1/handing_in_my_resignation_on_monday/)

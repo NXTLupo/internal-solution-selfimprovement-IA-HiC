@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1s21qxy.md
 url: "https://www.reddit.com/r/internships/comments/1s21qxy/are_undergrads_not_taught_how_to_interview_anymore/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,51 @@ flair: "Interviews"
 extracted_at: "2026-05-25T13:01:40.285Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1s21qxy.md#c0"
+    char_span: [0, 1354]
+    sentence_count: 9
+    key_terms: [interview, internship, internships, tell, comments, position, students, anymore]
+    token_count: 299
+  - id: "social-intelligence/reddit-deep/internships/1s21qxy.md#c1"
+    char_span: [1369, 3647]
+    sentence_count: 16
+    key_terms: [colleges, graduation, interview, courses, advice, career, course, school]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/internships/1s21qxy.md#c2"
+    char_span: [3649, 5731]
+    sentence_count: 11
+    key_terms: [services, students, career, friendly-example-701, colleges, "didn't", interviewing, mock]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/internships/1s21qxy.md#c3"
+    char_span: [5733, 7764]
+    sentence_count: 13
+    key_terms: [school, university, taught, bigopossums, good, work, interviews, services]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/internships/1s21qxy.md#c4"
+    char_span: [7766, 8800]
+    sentence_count: 13
+    key_terms: [behaviours, interview, cultivated, managers, learned, hiring, years, socialisation]
+    section: Comments
+    token_count: 197
+  - id: "social-intelligence/reddit-deep/internships/1s21qxy.md#c5"
+    char_span: [8802, 11032]
+    sentence_count: 11
+    key_terms: [career, interview, time, students, professionally, center, resume, don]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1s21qxy.md#c6"
+    char_span: [10737, 11541]
+    sentence_count: 6
+    key_terms: [interview, college, business, resume, sheepherdernext3196, class, far-emergency-6777, didn]
+    section: Comments
+    token_count: 193
 ---
-
 # Are undergrads not taught how to interview anymore?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1s21qxy/are_undergrads_not_taught_how_to_interview_anymore/)

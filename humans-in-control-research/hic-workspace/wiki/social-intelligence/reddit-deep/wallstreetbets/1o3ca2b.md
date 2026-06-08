@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1o3ca2b.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1o3ca2b/this_is_what_happens_when_you_get_greedy_and_yolo/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,33 @@ flair: "Loss"
 extracted_at: "2026-05-16T20:54:42.975Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1o3ca2b.md#c0"
+    char_span: [0, 1172]
+    sentence_count: 14
+    key_terms: [spy, wallstreetbets, loss, bottomed, comments, recovery, thinking, greedy]
+    token_count: 330
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1o3ca2b.md#c1"
+    char_span: [1187, 2496]
+    sentence_count: 4
+    key_terms: [https, cf50c2bd07f79caa545209f87b89d255ab42b983, backfire10z, guy, discord, nearly, money, total]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1o3ca2b.md#c2"
+    char_span: [2498, 4052]
+    sentence_count: 5
+    key_terms: [a7da5f713e131607d55183998912082d68776b47, dreamvveaver, bad, day, dip, shit, absolute, weekend]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1o3ca2b.md#c3"
+    char_span: [4054, 5467]
+    sentence_count: 12
+    key_terms: [nostraskolmusii, monday, d4e560275cda0ce53883305bb90afee2fee6192b, bounce, extremeaddict, highs, deleted, antique-sundae-8842]
+    section: Comments
+    token_count: 439
 ---
-
 # This is what happens when you get greedy and YOLO thinking the market has bottomed out
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1o3ca2b/this_is_what_happens_when_you_get_greedy_and_yolo/)

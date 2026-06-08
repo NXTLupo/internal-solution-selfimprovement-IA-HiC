@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1limpg2.md
 url: "https://www.reddit.com/r/college/comments/1limpg2/career_services_office/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -10,11 +11,22 @@ score: 3
 upvote_ratio: 1
 num_comments: 2
 flair: ""
-extracted_at: "2026-05-19T15:08:26.266Z"
+extracted_at: "2026-06-06T17:42:15.235Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1limpg2.md#c0"
+    char_span: [0, 563]
+    sentence_count: 5
+    key_terms: [services, career, office, comments, college, did, help, internships]
+    token_count: 144
+  - id: "social-intelligence/reddit-deep/college/1limpg2.md#c1"
+    char_span: [578, 1174]
+    sentence_count: 7
+    key_terms: [helped, readinginthestorm, didn, completely, graduating, professors, anything, pathways]
+    section: Comments
+    token_count: 141
 ---
-
 # Career services office
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1limpg2/career_services_office/)

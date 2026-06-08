@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1tc2xsw.md
 url: "https://www.reddit.com/r/personalfinance/comments/1tc2xsw/first_money_moves_when_starting_first_engineering/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,21 @@ flair: "Debt"
 extracted_at: "2026-05-16T20:55:02.106Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1tc2xsw.md#c0"
+    char_span: [0, 1320]
+    sentence_count: 9
+    key_terms: [car, debt, personalfinance, savings, loans, like, emergency, comments]
+    token_count: 328
+  - id: "social-intelligence/reddit-deep/personalfinance/1tc2xsw.md#c1"
+    char_span: [1335, 1783]
+    sentence_count: 3
+    key_terms: [personalfinance, questions, wiki, automatically, automoderator, information, flinters17, moderators]
+    section: Comments
+    token_count: 111
 ---
-
 # First money moves when starting first engineering job; no savings + some debt
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1tc2xsw/first_money_moves_when_starting_first_engineering/)

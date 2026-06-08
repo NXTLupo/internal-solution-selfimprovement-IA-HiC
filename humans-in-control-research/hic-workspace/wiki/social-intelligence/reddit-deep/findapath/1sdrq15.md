@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1sdrq15.md
 url: "https://www.reddit.com/r/findapath/comments/1sdrq15/25_years_old_and_lost_job/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,56 @@ flair: "Findapath-Career Change"
 extracted_at: "2026-05-22T15:13:18.837Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1sdrq15.md#c0"
+    char_span: [0, 204]
+    sentence_count: 1
+    key_terms: [findapath, comments, fresh-section-5575, reddit-deep, posted, reddit, source, https]
+    token_count: 65
+  - id: "social-intelligence/reddit-deep/findapath/1sdrq15.md#c1"
+    char_span: [206, 2428]
+    sentence_count: 25
+    key_terms: [like, didn, getting, making, money, corporate, feel, love]
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/findapath/1sdrq15.md#c2"
+    char_span: [2443, 3983]
+    sentence_count: 12
+    key_terms: [thank, helpful, people, please, help, supportive, findapath, comments]
+    section: Comments
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/findapath/1sdrq15.md#c3"
+    char_span: [3985, 5495]
+    sentence_count: 11
+    key_terms: [exist, good, especially, consider, honestly, monotony, toxicity, another]
+    section: Comments
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/findapath/1sdrq15.md#c4"
+    char_span: [5497, 7393]
+    sentence_count: 18
+    key_terms: [because, workforce, volunteering, heart, job, lol, compassion, corporate]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/findapath/1sdrq15.md#c5"
+    char_span: [7395, 9508]
+    sentence_count: 29
+    key_terms: [people, principles, back, nursing, similar, school, specifically, narcissists]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/findapath/1sdrq15.md#c6"
+    char_span: [9510, 11531]
+    sentence_count: 18
+    key_terms: [because, organization, human, agapeflood, unemployed, resources, starting, manager]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/findapath/1sdrq15.md#c7"
+    char_span: [11533, 12432]
+    sentence_count: 6
+    key_terms: [something, friends, totally, working, myself, remind, trying, fresh-section-5575]
+    section: Comments
+    token_count: 211
 ---
-
 # 25 years old and lost job
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1sdrq15/25_years_old_and_lost_job/)

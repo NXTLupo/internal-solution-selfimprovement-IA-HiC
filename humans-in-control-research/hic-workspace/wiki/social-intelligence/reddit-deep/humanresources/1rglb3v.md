@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1rglb3v.md
 url: "https://www.reddit.com/r/humanresources/comments/1rglb3v/employer_wants_me_to_get_shrmcp_very_little_hr/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,39 @@ flair: "Learning & Development"
 extracted_at: "2026-05-23T12:15:41.551Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1rglb3v.md#c0"
+    char_span: [0, 1165]
+    sentence_count: 8
+    key_terms: [studying, humanresources, little, exam, experience, comments, employer, shrm-cp]
+    token_count: 272
+  - id: "social-intelligence/reddit-deep/humanresources/1rglb3v.md#c1"
+    char_span: [1180, 2372]
+    sentence_count: 10
+    key_terms: [questions, get, shrm, used, consistent, experience, hrstudypro, learning]
+    section: Comments
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/humanresources/1rglb3v.md#c2"
+    char_span: [2374, 3420]
+    sentence_count: 9
+    key_terms: [post, interesting-bug2812, case, "i'm", work, moldy-nectarine, automoderator, encouragement]
+    section: Comments
+    token_count: 257
+  - id: "social-intelligence/reddit-deep/humanresources/1rglb3v.md#c3"
+    char_span: [3422, 5321]
+    sentence_count: 11
+    key_terms: [mometrix, recruiting, passed, sense, shrm, definitely, experience, generalist]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/humanresources/1rglb3v.md#c4"
+    char_span: [5323, 6187]
+    sentence_count: 6
+    key_terms: [shrm, experience, no-suggestion-9433, lms, certification, understanding, unfortunately, vanillax2018]
+    section: Comments
+    token_count: 202
 ---
-
 # Employer wants me to get SHRM-CP, very little HR experience, need advice for studying and exam [FL]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1rglb3v/employer_wants_me_to_get_shrmcp_very_little_hr/)

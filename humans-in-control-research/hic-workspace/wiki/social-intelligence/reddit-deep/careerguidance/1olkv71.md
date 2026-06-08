@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1olkv71.md
 url: "https://www.reddit.com/r/careerguidance/comments/1olkv71/whats_one_career_decision_you_made_that/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,99 @@ flair: "Discussion"
 extracted_at: "2026-05-24T14:09:04.408Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c0"
+    char_span: [0, 1062]
+    sentence_count: 8
+    key_terms: [decision, careerguidance, job, comments, changed, better, career, back]
+    token_count: 252
+  - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c1"
+    char_span: [1077, 1877]
+    sentence_count: 11
+    key_terms: [work, wanted, engineering, field, did, role, opportunities, bimmerjustin]
+    section: Comments
+    token_count: 195
+  - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c2"
+    char_span: [1879, 4125]
+    sentence_count: 13
+    key_terms: [analysis, environmental, city, properties, different, leaders, looking, systems]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c3"
+    char_span: [3826, 4341]
+    sentence_count: 4
+    key_terms: [properties, city, etc, applications, requirements, consulting, contracts, decisions]
+    section: Comments
+    token_count: 109
+  - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c4"
+    char_span: [4343, 5761]
+    sentence_count: 11
+    key_terms: [data, gis, navigon, certification, job, management, research, manager]
+    section: Comments
+    token_count: 318
+  - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c5"
+    char_span: [5763, 7375]
+    sentence_count: 14
+    key_terms: [google, work, thanks, revolutionaryegg4399, sufficient-hawk-7245, historicaldrawing29, field, learn]
+    section: Comments
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c6"
+    char_span: [7377, 8835]
+    sentence_count: 15
+    key_terms: [work, new, career, retail, asked, field, weeks, call]
+    section: Comments
+    token_count: 372
+  - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c7"
+    char_span: [8837, 10514]
+    sentence_count: 17
+    key_terms: [wherewegoingto, years, people, led, var, asked, house, later]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c8"
+    char_span: [10516, 11415]
+    sentence_count: 9
+    key_terms: [bulliedatmicrosoft, people, years, pale-weather-2328, best, day, dog, led]
+    section: Comments
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c9"
+    char_span: [11417, 12972]
+    sentence_count: 9
+    key_terms: [bulliedatmicrosoft, microsoft, working, better, global, dream, heard, since]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c10"
+    char_span: [12974, 15038]
+    sentence_count: 16
+    key_terms: [pay, cut, job, marketing, college, better, career, making]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c11"
+    char_span: [14779, 15752]
+    sentence_count: 9
+    key_terms: [get, marketing, teacher, decade, school, no-communication2190, long, administrative]
+    section: Comments
+    token_count: 238
+  - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c12"
+    char_span: [15754, 17569]
+    sentence_count: 14
+    key_terms: [teaching, years, back, new, boyfriend, services, station, moving]
+    section: Comments
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c13"
+    char_span: [17571, 19092]
+    sentence_count: 9
+    key_terms: [doing, edinburgh, better, city, "he's", son, london, adventurous-wolf777]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c14"
+    char_span: [19094, 20376]
+    sentence_count: 12
+    key_terms: [work, refugees, job, edinburgh, expensive, french, needed, back]
+    section: Comments
+    token_count: 289
 ---
-
 # What’s one career decision you made that completely changed your trajectory (for better or worse)?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1olkv71/whats_one_career_decision_you_made_that/)

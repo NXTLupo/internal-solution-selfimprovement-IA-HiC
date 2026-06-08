@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1qxxsxi.md
 url: "https://www.reddit.com/r/investing/comments/1qxxsxi/would_the_majority_of_investors_across_all/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-16T20:55:01.241Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1qxxsxi.md#c0"
+    char_span: [0, 712]
+    sentence_count: 5
+    key_terms: [investors, stock, market, investing, ownership, comments, nations, rather]
+    token_count: 154
+  - id: "social-intelligence/reddit-deep/investing/1qxxsxi.md#c1"
+    char_span: [727, 2494]
+    sentence_count: 26
+    key_terms: [estate, real, countries, easier, easy, business, deleted, having]
+    section: Comments
+    token_count: 406
+  - id: "social-intelligence/reddit-deep/investing/1qxxsxi.md#c2"
+    char_span: [2496, 4427]
+    sentence_count: 16
+    key_terms: [estate, real, returns, stocks, wealth, did, here, tax]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/investing/1qxxsxi.md#c3"
+    char_span: [4429, 6217]
+    sentence_count: 12
+    key_terms: [investing, percent, being, stock, inflation, portfolio, business, probably]
+    section: Comments
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/investing/1qxxsxi.md#c4"
+    char_span: [6219, 7080]
+    sentence_count: 2
+    key_terms: [don, invest, property, gamble, put, paperhandsthedip, prolapsejerky, preservation]
+    section: Comments
+    token_count: 233
 ---
-
 # Would the majority of investors across all nations benefit more from stock market assets rather than property ownership?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1qxxsxi/would_the_majority_of_investors_across_all/)

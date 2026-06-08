@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1monai0.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1monai0/postbacc_options/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,32 @@ flair: "Biological Sciences"
 extracted_at: "2026-05-20T03:56:10.755Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1monai0.md#c0"
+    char_span: [0, 2146]
+    sentence_count: 9
+    key_terms: [experience, opportunities, institution, gradadmissions, good, "i'm", lab, phd]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/gradadmissions/1monai0.md#c1"
+    char_span: [2148, 4079]
+    sentence_count: 5
+    key_terms: [institution, area, expensive, less, industry, amazing, opportunities, good]
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/gradadmissions/1monai0.md#c2"
+    char_span: [4094, 6255]
+    sentence_count: 14
+    key_terms: [lab, students, institution, nih, definitely, especially, expensive, getting]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/gradadmissions/1monai0.md#c3"
+    char_span: [6257, 7057]
+    sentence_count: 8
+    key_terms: [like, program, boston, lab, well-structured, stereoisomer, universities, institution]
+    section: Comments
+    token_count: 199
 ---
-
 # Postbacc options
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1monai0/postbacc_options/)

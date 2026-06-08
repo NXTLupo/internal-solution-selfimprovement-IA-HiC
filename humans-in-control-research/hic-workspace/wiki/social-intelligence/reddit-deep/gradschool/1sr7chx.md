@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1sr7chx.md
 url: "https://www.reddit.com/r/GradSchool/comments/1sr7chx/should_i_keep_trying_for_grad_programs_or_give_up/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.139Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1sr7chx.md#c0"
+    char_span: [0, 2016]
+    sentence_count: 15
+    key_terms: [trying, "don't", feel, "it's", like, want, work, gradschool]
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/gradschool/1sr7chx.md#c1"
+    char_span: [2031, 3910]
+    sentence_count: 12
+    key_terms: [job, next, consider, "that's", oceansrising, depending, geography, undergrad]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/gradschool/1sr7chx.md#c2"
+    char_span: [3912, 5337]
+    sentence_count: 5
+    key_terms: [pay, funding, tuition, watership-down, funded, investments, "master's", masters]
+    section: Comments
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/gradschool/1sr7chx.md#c3"
+    char_span: [5339, 7281]
+    sentence_count: 21
+    key_terms: [passion, grad, "i'm", try, experience, postfuture, position, yourself]
+    section: Comments
+    token_count: 483
 ---
-
 # Should I keep trying for grad programs, or give up and seek stability?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1sr7chx/should_i_keep_trying_for_grad_programs_or_give_up/)

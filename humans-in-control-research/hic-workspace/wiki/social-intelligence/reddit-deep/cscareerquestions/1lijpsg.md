@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1lijpsg/ms_cs_7_years_experience_and_unemployed_for_months/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,71 @@ subreddit: "cscareerquestions"
 title: "MS CS, 7 years experience and unemployed for months"
 author: "rizzosaurusrhex"
 date: "2025-06-23T15:33:43.000Z"
-score: 146
+score: 148
 upvote_ratio: 0.91
 num_comments: 90
 flair: ""
-extracted_at: "2026-05-22T15:11:47.160Z"
+extracted_at: "2026-06-06T13:04:13.564Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md#c0"
+    char_span: [0, 1718]
+    sentence_count: 22
+    key_terms: [roles, cscareerquestions, job, etc, jobs, experience, recruiter, responses]
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md#c1"
+    char_span: [1720, 2075]
+    sentence_count: 2
+    key_terms: [year, making, school, point, long, residency, complain, doctors]
+    token_count: 92
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md#c2"
+    char_span: [2090, 3963]
+    sentence_count: 20
+    key_terms: [company, experience, field, "it's", director, people, non-technical, engineering]
+    section: Comments
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md#c3"
+    char_span: [3965, 5943]
+    sentence_count: 14
+    key_terms: ["don't", applications, engineering, get, like, recruiters, something, advice]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md#c4"
+    char_span: [5945, 7956]
+    sentence_count: 13
+    key_terms: [school, https, chocolate-emmi-87, outreach, resume, free-chapters, "don't", "it's"]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md#c5"
+    char_span: [7958, 9363]
+    sentence_count: 11
+    key_terms: [medicine, schools, family, med, want, carribean, because, people]
+    section: Comments
+    token_count: 339
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md#c6"
+    char_span: [9365, 10758]
+    sentence_count: 10
+    key_terms: [interviews, interviewing, being, "i've", time, companies, responses, applying]
+    section: Comments
+    token_count: 335
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md#c7"
+    char_span: [10761, 12910]
+    sentence_count: 19
+    key_terms: [engineering, programming, software, comparison, work, rizzosaurusrhex, worked, like]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md#c8"
+    char_span: [12912, 13716]
+    sentence_count: 5
+    key_terms: [convictions, criminal, medicine, going, magnifuckingicient, rizzosaurusrhex, pessimistprime, opportunities]
+    section: Comments
+    token_count: 210
 ---
-
 # MS CS, 7 years experience and unemployed for months
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1lijpsg/ms_cs_7_years_experience_and_unemployed_for_months/)
-Posted by **rizzosaurusrhex** · **146↑** · **90 comments**
+Posted by **rizzosaurusrhex** · **148↑** · **90 comments**
 
 I have a BS and a MS in CS from a well known university, 7 years of experience. US citizen. I have 0 criminal convictions. 
 
@@ -38,7 +91,7 @@ Many complain about how doctors go to school for so long and make so little, but
 
 ## Comments
 
-- **dj911ice** (60↑): Unfortunately, this is a common occurrence. There is no real advice other than upskilling in the field, perhaps adding AI/ML to your knowledge base? Otherwise, welcome to reality where corporations don't care about your experience, degrees, or anything. They simply bias select who they want for hire.
+- **dj911ice** (59↑): Unfortunately, this is a common occurrence. There is no real advice other than upskilling in the field, perhaps adding AI/ML to your knowledge base? Otherwise, welcome to reality where corporations don't care about your experience, degrees, or anything. They simply bias select who they want for hire.
   - **rizzosaurusrhex** (26↑): Yeah I learned this the hard way at my last job. They hired a director of engineering who had a BA in Sociology or something and no other real degree. He had a year of dev experience, then failed upward into a eng management role at the same company, and then later got the director of eng role at the company I was working at. It made me question why I even got a CS degree.
     - **Chili-Lime-Chihuahua** (11↑): Rather than making that silly situation reflect on you, I'd make it reflect on the company. I worked as a consultant at a company that promoted a non-technical product owner to Director of Engineering. And there are a ton of people I worked with who are non-technical who are trying to sell themselves as AI specialists. It's a mix of weird organizations and people being opportunistic. But not every company is like that. Don't get too discouraged by a the tough times you are going through. 
 
@@ -53,10 +106,10 @@ These are strange times indeed.
   - **DeOh** (2↑): >There is no real advice other than upskilling in the field?
 
 "Sorry, *professional* experience only."
-- **Good_Focus2665** (33↑): Go back to school and become a doctor.
+- **Good_Focus2665** (31↑): Go back to school and become a doctor.
   - **WendlersEditor** (17↑): that was truly the most eyebrow raising part of this post lol like I'm sure at some point this guy was totally able to get into med school
-    - **rizzosaurusrhex** (6↑): Carribean MD schools are easy to get into if you pass the pre reqs(chem bio etc) and take the MCAT. The only issue with offshore is I would expect to only match into pediatrics, pathology, or family med. Not gonna match derm or something competitive
-  - **Natural-Door-2640** (4↑): this is such an useless advice. OP don't listen to these doomers. Stick to your career, get more education if necessary, don't give up.
+    - **rizzosaurusrhex** (7↑): Carribean MD schools are easy to get into if you pass the pre reqs(chem bio etc) and take the MCAT. The only issue with offshore is I would expect to only match into pediatrics, pathology, or family med. Not gonna match derm or something competitive
+  - **Natural-Door-2640** (5↑): this is such an useless advice. OP don't listen to these doomers. Stick to your career, get more education if necessary, don't give up.
 
 I remember engineering subs were exactly like this 5 years ago, "yeah we should move to CS, there are no jobs in engineering!"
 - **alinelerner** (68↑): Before you entirely abandon this field, here are some things that might help.
@@ -74,11 +127,11 @@ So, what to do? I'm one of the authors of Beyond Cracking the Coding Interview. 
 When you do your outreach, in the part of the template where you should mention something unique about you, try writing about how you were able to automate your job. I bet it's a good story.
 
 Finally, if you post a link to your resume/LinkedIn in a response to this comment, I'd be happy to review and share some notes. That said, you (and others in your shoes) probably don't need to spend lots of time on your resumes because recruiters typically scan them for brands, and either you have them or you don't. Anyone who tells you to spend a lot of time polishing your resume is probably selling snake oil.
-  - **illnotsic** (7↑): I have your book! :) glad to see an author responding to people in times of their own personal crises, do you mind taking a look at my resume and providing feedback? (I've switched education and technical skills from each other fyi)
+  - **illnotsic** (6↑): I have your book! :) glad to see an author responding to people in times of their own personal crises, do you mind taking a look at my resume and providing feedback? (I've switched education and technical skills from each other fyi)
 
 Link: [https://chocolate-emmi-87.tiiny.site](https://chocolate-emmi-87.tiiny.site)
-    - **alinelerner** (2↑): Happy to take a look but getting a 404 at the moment
-- **downtimeredditor** (9↑): If you wanna go med school don't go carribean just go to an American medical school 
+    - **alinelerner** (3↑): Happy to take a look but getting a 404 at the moment
+- **downtimeredditor** (7↑): If you wanna go med school don't go carribean just go to an American medical school 
 
 Do post bacc courses and if needed do the special masters program and go to a medical school. 
 
@@ -99,12 +152,12 @@ Keep your head up, 6+ months isn’t that long to be out of a job. I know it fee
 So i've had interviews, just not being selected since there are a lot of people in the market right now, plus I've had to rework my strategy of interviewing (fixing my responses, leetcode style interviews etc...). I also recently re-worked my resume to be in XYZ format (past week) and so I should get more hits for interviews now as I see it being more impactful.
 
 Keeping your head up, and being optimistic of having opportunities come to you is key. Plus, a supporting and loving SO all the time definitely helps!
-- **Quintic** (10↑): "I am 10x more productive with copilot"
+- **Quintic** (9↑): "I am 10x more productive with copilot"
 
 
 Whenever I hear someone say this, I assume they must not be very good to start with to get that kind of multiplier.
-  - **rizzosaurusrhex** (2↑): There is a significant difference between software engineering and programming. They arent the same. Programming is writing code to solve specific problems, while software engineering is designing, building, and maintaining scalable, reliable systems over time. Copilot or other forms of AI is the programmer. AI lets you offload the typing so you can focus on the thinking. It’s like hiring a super-fast intern who never gets tired, freeing you up to actually design clean systems instead of grinding through syntax.
-    - **Quintic** (1↑): Focus less on playing semantics with the words software engineering and programming, and more on actually doing software engineering and programming and I betcha the AI is not going to make you 10x faster.
+  - **rizzosaurusrhex** (3↑): There is a significant difference between software engineering and programming. They arent the same. Programming is writing code to solve specific problems, while software engineering is designing, building, and maintaining scalable, reliable systems over time. Copilot or other forms of AI is the programmer. AI lets you offload the typing so you can focus on the thinking. It’s like hiring a super-fast intern who never gets tired, freeing you up to actually design clean systems instead of grinding through syntax.
+    - **Quintic** (-1↑): Focus less on playing semantics with the words software engineering and programming, and more on actually doing software engineering and programming and I betcha the AI is not going to make you 10x faster.
   - **Pretend_Listen** (1↑): 10-50% tops depending on the task at hand.
 - **code_in_420p** (3↑): You mention being in a tech hub, are you looking for in-person roles exclusively in your current city? Being open to relocation might help if you weren’t considering doing so. Also that MD comparison isn’t great imo, two very different styles of working and a vast difference when looking at wlb
   - **rizzosaurusrhex** (2↑): Im applying all across the US and willing to relocate anywhere. 

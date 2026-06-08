@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1kmh4dr.md
 url: "https://www.reddit.com/r/NEU/comments/1kmh4dr/cps_gradates_not_invited_to_fenway/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-14T18:16:34.814Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1kmh4dr.md#c0"
+    char_span: [0, 608]
+    sentence_count: 3
+    key_terms: [cps, comments, student, fenway, neu, disappointing, celebration, contributed]
+    token_count: 147
+  - id: "social-intelligence/reddit-deep/neu/1kmh4dr.md#c1"
+    char_span: [623, 2708]
+    sentence_count: 6
+    key_terms: [cps, professionals, students, degree, time, admissions, education, undergrad]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/neu/1kmh4dr.md#c2"
+    char_span: [2434, 3756]
+    sentence_count: 10
+    key_terms: [cps, "it's", programs, spawnofangels, part, time, different, college]
+    section: Comments
+    token_count: 297
+  - id: "social-intelligence/reddit-deep/neu/1kmh4dr.md#c3"
+    char_span: [3758, 4762]
+    sentence_count: 7
+    key_terms: [cps, different, northeastern, graduation, colleges, students, fenway, "it's"]
+    section: Comments
+    token_count: 213
 ---
-
 # CPS gradates not invited to Fenway
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1kmh4dr/cps_gradates_not_invited_to_fenway/)

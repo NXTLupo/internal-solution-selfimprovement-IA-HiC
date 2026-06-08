@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1m2lmqn.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1m2lmqn/ditching_swe_and_going_to_law_school/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,60 @@ subreddit: "cscareerquestions"
 title: "Ditching SWE and going to law school"
 author: "AreaMaleficent4593"
 date: "2025-07-17T22:38:57.000Z"
-score: 96
+score: 95
 upvote_ratio: 0.8
 num_comments: 136
 flair: "New Grad"
-extracted_at: "2026-05-26T14:31:41.272Z"
+extracted_at: "2026-06-06T13:04:13.563Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m2lmqn.md#c0"
+    char_span: [0, 1579]
+    sentence_count: 14
+    key_terms: [school, swe, success, cscareerquestions, research, never, law, comments]
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m2lmqn.md#c1"
+    char_span: [1594, 3020]
+    sentence_count: 8
+    key_terms: [swe, school, "don't", law, work, because, giving, illustrious-pound266]
+    section: Comments
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m2lmqn.md#c2"
+    char_span: [3022, 4763]
+    sentence_count: 8
+    key_terms: [whathaveicontinued, jobs, embedded, either, engineering, "it's", swe, consulting]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m2lmqn.md#c3"
+    char_span: [4765, 7040]
+    sentence_count: 15
+    key_terms: ["you're", roles, like, swe, skills, citizenship, jobs, engineers]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m2lmqn.md#c4"
+    char_span: [7042, 8519]
+    sentence_count: 9
+    key_terms: [people, money, sub, passionate, passion, selling, always, become]
+    section: Comments
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m2lmqn.md#c5"
+    char_span: [8521, 9930]
+    sentence_count: 16
+    key_terms: [engineer, mentalextensi0n, job, software, school, managementmedical138, maybe, areamaleficent4593]
+    section: Comments
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m2lmqn.md#c6"
+    char_span: [9932, 10951]
+    sentence_count: 1
+    key_terms: [applicants, school, good, law, killesau, areamaleficent4593, best, last]
+    section: Comments
+    token_count: 280
 ---
-
 # Ditching SWE and going to law school
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1m2lmqn/ditching_swe_and_going_to_law_school/)
-Posted by **AreaMaleficent4593** · **96↑** · **136 comments**
+Posted by **AreaMaleficent4593** · **95↑** · **136 comments**
 
 Hi everyone. I’m earning my B.A. in CS next at a T5 CS school with a 3.8 GPA next month and my career development has been… an all-around flop. I was never able to get any internship, never developed a robust networked, and never saw any benefit from majoring in CS besides stress and a piece of paper.
 
@@ -32,29 +74,29 @@ At this point, I’m about 90% sure I want to abandon any SWE dreams I once had 
 
 ## Comments
 
-- **cs_pewpew** (199↑): You haven't even graduated and you're already giving up? Good luck becoming a lawyer 🤣
-  - **Illustrious-Pound266** (72↑): I mean, I don't blame OP. There literally just aren't enough software jobs at the junior or entry level to accommodate all CS/STEM grads. Some people will most likely have to give up because the numbers just don't work out.
-    - **cs_pewpew** (14↑): The point is he has to at least *try* before he gives up.
+- **cs_pewpew** (200↑): You haven't even graduated and you're already giving up? Good luck becoming a lawyer 🤣
+  - **Illustrious-Pound266** (70↑): I mean, I don't blame OP. There literally just aren't enough software jobs at the junior or entry level to accommodate all CS/STEM grads. Some people will most likely have to give up because the numbers just don't work out.
+    - **cs_pewpew** (13↑): The point is he has to at least *try* before he gives up.
   - **mightythunderman** (7↑): Nah, sounds like a very driven individual.
-  - **JosephHabun** (-3↑): it's not "giving up" it's "moving on"
-- **hello2u3** (19↑): Not sure why law school is seen as an option it was cooked back in 08.
-- **YakFull8300** (35↑): > However, I *really* don’t want to work in law school
+  - **JosephHabun** (-4↑): it's not "giving up" it's "moving on"
+- **hello2u3** (20↑): Not sure why law school is seen as an option it was cooked back in 08.
+- **YakFull8300** (37↑): > However, I *really* don’t want to work in law school
 
 How are you gonna pass the bar..lol
   - **AreaMaleficent4593** (10↑): Sorry typo meant “SWE” not “law school”
-- **whathaveicontinued** (22↑): I'm an Electrical Engineer trying to change to SWE. 
+- **whathaveicontinued** (24↑): I'm an Electrical Engineer trying to change to SWE. 
 
 The biggest theme I see in this sub is the doomerism and the fact that ya'll actually don't understand how good you got it. 
 
 In EE I have to work way harder to get way less money than a SWE. Our degree is disgustingly hard, if not one of the hardest 4 year degrees that exist. There's fuck all jobs for us in our industry to the point where most engineers go into project management, manager, business, finance, SWE or sales because that's where the money is. 
 
 All this to say that you can have it all, but still feel like the grass is greener.
-  - **Sleples** (10↑): EE who switched to SWE here, in terms of the industry and pay in the engineering field as a whole I agree. As a degree, it's difficult but it's the best degree you can get if you can crack it in this market imo, you're basically equivalent to CS grads for typical SWE jobs, favored for any hardware/embedded jobs, have access to traditional engineering jobs, and even consulting/finance if you want to go that route. Going with EE instead of CS was one of the best decisions I made, though maybe I shouldn't say that on this sub since doomerism is what it's all about here.
+  - **Sleples** (11↑): EE who switched to SWE here, in terms of the industry and pay in the engineering field as a whole I agree. As a degree, it's difficult but it's the best degree you can get if you can crack it in this market imo, you're basically equivalent to CS grads for typical SWE jobs, favored for any hardware/embedded jobs, have access to traditional engineering jobs, and even consulting/finance if you want to go that route. Going with EE instead of CS was one of the best decisions I made, though maybe I shouldn't say that on this sub since doomerism is what it's all about here.
     - **SwaeTech** (2↑): I did the same, but I’m also looking at the current market and wondering if I can still switch over to an embedded or PLC job considering I graduated 10 years ago.
     - **whathaveicontinued** (1↑): thanks for the response, this is very uplifting. i think im a good position then cheers.
     - **Prize_Response6300** (1↑): Consulting and finance are just as open to CS grads tbf. Embedded jobs can be accessed by CS as well.
   - **AreaMaleficent4593** (4↑): So you’re saying I’d just go from angry CS soyjack —> angry lawyer soyjack?
-    - **whathaveicontinued** (4↑): well I look at it this way, if you work hard in either field you're going to be a successful chad meme. 
+    - **whathaveicontinued** (5↑): well I look at it this way, if you work hard in either field you're going to be a successful chad meme. 
 
 Both are what you make them, either way you'll be living comfortably (granted you sit average). My close friend is a lawyer and I'm an EE we both laugh at how we got "scammed" into thinking we were gonna be millionaires in our 20's. The money in law is either high profile cases or opening a firm. So the equivalent for a SWE would be a startup/business/SaaS. 
 
@@ -87,9 +129,9 @@ My friends and I in the industry have not had nearly as bad and horrible of a ti
 Naive take. I've been a 'traditional' engineer and a 'software' engineer. They are both challenging in there own ways. The simple fact that software is a lot less credential based means significantly more competition. Have fun differentiating yourself from all the self taught folks spamming job postings with AI bots btw.
     - **whathaveicontinued** (1↑): you're very negative and deeply projecting. Anyway God bless and hlpe you have a good week.
   - **ManagementMedical138** (1↑): Same boat bro, mechanical engineer here.
-- **Mentalextensi0n** (32↑): you’re scared to start real life, adulthood. You have the onset of grief over the loss of your childhood. At best you’re trying to avoid getting out of school.
-  - **AreaMaleficent4593** (4↑): If that’s true, which maybe it is, I must be really masochistic since I hated school so much 😭😂
-    - **Mentalextensi0n** (6↑): The devil you know kinda thing maybe? idk. 
+- **Mentalextensi0n** (30↑): you’re scared to start real life, adulthood. You have the onset of grief over the loss of your childhood. At best you’re trying to avoid getting out of school.
+  - **AreaMaleficent4593** (3↑): If that’s true, which maybe it is, I must be really masochistic since I hated school so much 😭😂
+    - **Mentalextensi0n** (7↑): The devil you know kinda thing maybe? idk. 
 
 In any case, I don’t think you should follow success as its typically defined. You can be successful in SWE. You can get an internship or job now, in swe or adjacent, or get a job as a cs research assistant. 
 
@@ -101,9 +143,9 @@ that sucess
 
 as fuck
 - **YakFull8300** (30↑): Cool
-- **killesau** (18↑): Increase in law school applicants was the last recession Indicator 😵‍💫
-  - **AreaMaleficent4593** (2↑): Talk to any law school and they’ll tell you their number of qualified applicants dramatically increased in the last year, and they are getting way more applicants that do not fit the straight Poly Sci/English B.A. —> J.D. pipeline
-    - **killesau** (8↑): Thoughts and prayers to the economy.
+- **killesau** (19↑): Increase in law school applicants was the last recession Indicator 😵‍💫
+  - **AreaMaleficent4593** (3↑): Talk to any law school and they’ll tell you their number of qualified applicants dramatically increased in the last year, and they are getting way more applicants that do not fit the straight Poly Sci/English B.A. —> J.D. pipeline
+    - **killesau** (6↑): Thoughts and prayers to the economy.
 - **Dear-Captain1095** (7↑): Problem with law is that it’s stressful and underpaid. best of luck! 🤞 you’ve got this!
-- **Magiic56** (16↑): Not a lot of advice here, but as a senior swe I would tell you this: If you’re good enough to do well on the LSAT while having a good gpa and majoring in CS at a good school, you could definitely cut it in this field gl
-- **Conscious_Jeweler196** (6↑): You should go with what you feel you'd do best at, it sounds you've clearly given up SWE and CS anyways within yourself, and with that mindset you will likely not do well
+- **Magiic56** (15↑): Not a lot of advice here, but as a senior swe I would tell you this: If you’re good enough to do well on the LSAT while having a good gpa and majoring in CS at a good school, you could definitely cut it in this field gl
+- **Conscious_Jeweler196** (4↑): You should go with what you feel you'd do best at, it sounds you've clearly given up SWE and CS anyways within yourself, and with that mindset you will likely not do well

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1nvs8v7.md
 url: "https://www.reddit.com/r/internships/comments/1nvs8v7/18_months_of_searching_1870_applications_i/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,30 @@ subreddit: "internships"
 title: "18 months of searching, 1870 applications, I received my dream offer"
 author: "DefinitelyGallagher"
 date: "2025-10-02T02:45:13.000Z"
-score: 384
+score: 391
 upvote_ratio: 1
 num_comments: 35
 flair: "Offers"
-extracted_at: "2026-05-25T15:51:38.720Z"
+extracted_at: "2026-06-05T23:41:05.400Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1nvs8v7.md#c0"
+    char_span: [0, 1624]
+    sentence_count: 12
+    key_terms: [internships, searching, months, applications, job, experience, full-time, interview]
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/internships/1nvs8v7.md#c1"
+    char_span: [1639, 2826]
+    sentence_count: 4
+    key_terms: [congratulations, congrats, deserved, comfortable-lime-936, consistent-serve-701, professional-age-948, repulsive-news-9610, big]
+    section: Comments
+    token_count: 323
 ---
-
 # 18 months of searching, 1870 applications, I received my dream offer
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1nvs8v7/18_months_of_searching_1870_applications_i/)
-Posted by **DefinitelyGallagher** · **384↑** · **35 comments**
+Posted by **DefinitelyGallagher** · **391↑** · **35 comments**
 
 I couldn’t help but cry... Since graduating in December 2024, I haven’t slept more than 6 hours a day. Nothing can truly describe how I feel right now, only that tonight I can finally sleep in peace. Don’t stop applying!! I almost gave up just last week and considered returning to my home country. I'm an international student as my OPT was set to expire in Dec. But today… I don’t have to pack my luggage, at least, not this fall.
 
@@ -38,7 +50,7 @@ My journey: 12 months of casual job searching during college, followed by 6 mont
 - **chipi_chipi_cat** (2↑): Congratulations!!! Take a well deserved break now!
 - **MD_Husnain** (1↑): Congrats
 - **Comfortable-Lime-936** (1↑): Congratulations..🎉
-- **huhebi** (1↑): congrats!!!
 - **Consistent-Serve-701** (1↑): Congratulations this is insane bro im glad u finally did it! i am also an international student and I was wondering how were you able to stay in the US after graduating in December 2024 past the 2 months of allowed job search duration? do they usually not enforce it when it ends, you just cant leave the country until you find a job?
 - **Professional-Age-948** (1↑): Congratulations OP.
 - **probono84** (1↑): Well shoot, we graduated at the same time, and I just got frustrated and decided to start my masters instead throwing my resume around.
+- **Google-CEO_MV** (1↑): Congrats well deserved .Which company ?

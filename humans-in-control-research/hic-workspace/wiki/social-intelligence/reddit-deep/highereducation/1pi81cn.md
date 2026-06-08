@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1pi81cn.md
 url: "https://www.reddit.com/r/highereducation/comments/1pi81cn/how_can_students_best_contribute_to_solving/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -10,11 +11,52 @@ score: 7
 upvote_ratio: 0.71
 num_comments: 17
 flair: ""
-extracted_at: "2026-05-23T14:53:59.506Z"
+extracted_at: "2026-06-05T23:42:16.774Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1pi81cn.md#c0"
+    char_span: [0, 1365]
+    sentence_count: 10
+    key_terms: [students, curriculum, highereducation, https, com, challenges, comments, burnout]
+    token_count: 319
+  - id: "social-intelligence/reddit-deep/highereducation/1pi81cn.md#c1"
+    char_span: [1380, 3673]
+    sentence_count: 33
+    key_terms: [students, everything, "don't", college, skills, phone, "it's", need]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/highereducation/1pi81cn.md#c2"
+    char_span: [3675, 5823]
+    sentence_count: 20
+    key_terms: [reach, audience, building, people, relationships, scale, conferences, newsletters]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/highereducation/1pi81cn.md#c3"
+    char_span: [5825, 7623]
+    sentence_count: 17
+    key_terms: [looking, conferences, "i'm", seen, knowledge, audience, students, better]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/highereducation/1pi81cn.md#c4"
+    char_span: [7625, 10012]
+    sentence_count: 19
+    key_terms: [university, wisconsin, students, institutional, universities, interesting, long, chancellor]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/highereducation/1pi81cn.md#c5"
+    char_span: [10014, 12464]
+    sentence_count: 15
+    key_terms: [education, need, students, higher, people, learn, communities, university]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/highereducation/1pi81cn.md#c6"
+    char_span: [12466, 13940]
+    sentence_count: 7
+    key_terms: [benefit, universities, koh-zlf9dwc, livestreams, good, learning, podcasts, students]
+    section: Comments
+    token_count: 330
 ---
-
 # How can students best contribute to solving higher ed's challenges?
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1pi81cn/how_can_students_best_contribute_to_solving/)
@@ -59,7 +101,7 @@ Students use phones for 10 percent of what a smart phone is capable of.
 I learn most of this when I sit a struggling student down and watch their process in a judgement free observation. 
 
 I don't blame them. I show them what they are missing.
-- **CartographerMany1716** (6↑): It's great to have thoughtful, curious medical students engaging this way. I don't mean that to sound patronizing ... only to point out that I think you're onto something, and it's rare, and it's tough to have this insight while you're also in the throes of intensive, immersive learning. 
+- **CartographerMany1716** (5↑): It's great to have thoughtful, curious medical students engaging this way. I don't mean that to sound patronizing ... only to point out that I think you're onto something, and it's rare, and it's tough to have this insight while you're also in the throes of intensive, immersive learning. 
 
 A podcast is great. You might speak with your medical school, or the university it's associated with, about elevating it, or incorporating your voices into their platform. There are many other traditional (even if they're new) ways to reach an audience, and all of them have pros/cons, and all of them require time and effort to scale. Newsletters, conferences, socials, etc. 
 
@@ -140,4 +182,4 @@ And a great place to start is to research the term “common good,” because it
 - **Strong-Republic-5918** (1↑): this is a wonderful initiative. I am biased because I have loved podcasts for more than 15 years and I am a firm believer that it is a strong pillar to build learning communities like what you are doing. It might be early days still but if you have a good audience for your podcast, you might think about ways to strengthen that community, maybe do a few livestreams, that can then build to in-person events. I did something like that in the pandemic where my series of podcasts/livestreams culminated in a 24 hour online learning event. 
 
 Since you are medical students, you might enjoy this livestream I did with Nobel Chemistry winner Prof Venki Ramakrishnan [https://www.youtube.com/watch?v=kOh-Zlf9DWc](https://www.youtube.com/watch?v=kOh-Zlf9DWc)
-- **fingeringballs** (-2↑): can help by not going to universities; degrees are a joke with the financial toll they take on their holders
+- **fingeringballs** (-4↑): can help by not going to universities; degrees are a joke with the financial toll they take on their holders

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1shf2s9.md
 url: "https://www.reddit.com/r/careerguidance/comments/1shf2s9/earlycareer_researcher_advice/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T12:15:46.640Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1shf2s9.md#c0"
+    char_span: [0, 724]
+    sentence_count: 7
+    key_terms: [careerguidance, advice, interviews, comments, research, according-ad-5235, been, get]
+    token_count: 172
+  - id: "social-intelligence/reddit-deep/careerguidance/1shf2s9.md#c1"
+    char_span: [739, 1228]
+    sentence_count: 1
+    key_terms: [free, like, revorian, work, storytelling, differently, perspective, confidence]
+    section: Comments
+    token_count: 98
 ---
-
 # Early-career researcher advice?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1shf2s9/earlycareer_researcher_advice/)

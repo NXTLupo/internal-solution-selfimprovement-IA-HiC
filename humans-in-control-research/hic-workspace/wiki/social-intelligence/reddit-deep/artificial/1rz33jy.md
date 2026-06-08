@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1rz33jy.md
 url: "https://www.reddit.com/r/artificial/comments/1rz33jy/anthropics_claude_code_had_a_workspace_trust/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,21 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:04.763Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1rz33jy.md#c0"
+    char_span: [0, 1629]
+    sentence_count: 14
+    key_terms: [configuration, claude, trust, workspace, security, cve-2026-33068, attack, raxe-2026-040]
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/artificial/1rz33jy.md#c1"
+    char_span: [1644, 3058]
+    sentence_count: 14
+    key_terms: [definetlyrandom, config-before-trust-dialog, code, interesting, arbitrary, executing, workspace, settings]
+    section: Comments
+    token_count: 338
 ---
-
 # Anthropic's Claude Code had a workspace trust bypass (CVE-2026-33068). Not a prompt injection or AI attack. A configuration loading order bug. Fixed in 2.1.53.
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1rz33jy/anthropics_claude_code_had_a_workspace_trust/)

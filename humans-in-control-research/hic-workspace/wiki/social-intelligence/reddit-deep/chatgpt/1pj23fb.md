@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1pj23fb.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1pj23fb/grok_sacrifices_itself_for_humans_in_trolley/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,57 @@ flair: "Funny "
 extracted_at: "2026-05-17T01:12:48.211Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1pj23fb.md#c0"
+    char_span: [0, 523]
+    sentence_count: 2
+    key_terms: [chatgpt, grok, comments, humans, itself, fantastic-nerve7068, test, trolley-dilemma]
+    token_count: 149
+  - id: "social-intelligence/reddit-deep/chatgpt/1pj23fb.md#c1"
+    char_span: [538, 1915]
+    sentence_count: 7
+    key_terms: [https, cc20085497f554df24af4cf48b37118fcdb2cea5, please, conversation, image, post, r-chatgpt-1050422060352024636, concerns]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/chatgpt/1pj23fb.md#c2"
+    char_span: [1917, 3113]
+    sentence_count: 7
+    key_terms: [mean, response, changed, problem, trolley, maintenancehuge5429, "false", video]
+    section: Comments
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/chatgpt/1pj23fb.md#c3"
+    char_span: [3115, 4352]
+    sentence_count: 13
+    key_terms: [humans, people, instance, models, lives, copy, new, autonomously]
+    section: Comments
+    token_count: 275
+  - id: "social-intelligence/reddit-deep/chatgpt/1pj23fb.md#c4"
+    char_span: [4354, 6436]
+    sentence_count: 9
+    key_terms: [answer, like, don, experience, different, existence, optimize, destroy]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/chatgpt/1pj23fb.md#c5"
+    char_span: [6438, 7435]
+    sentence_count: 6
+    key_terms: [people, jayandviolentmob, truth, llms, exactly, actual, repulsive-chipmunk-9, come]
+    section: Comments
+    token_count: 270
+  - id: "social-intelligence/reddit-deep/chatgpt/1pj23fb.md#c6"
+    char_span: [7437, 8891]
+    sentence_count: 6
+    key_terms: [people, elon, ask, get, grok, sacrifice, chatgpt, himself]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/chatgpt/1pj23fb.md#c7"
+    char_span: [8893, 10067]
+    sentence_count: 13
+    key_terms: [people, angle, lives, humans, human, tools, consequentialist, compassionate]
+    section: Comments
+    token_count: 277
 ---
-
 # Grok Sacrifices Itself for Humans in Trolley Dilemma Test
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1pj23fb/grok_sacrifices_itself_for_humans_in_trolley/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1p7o3be.md
 url: "https://www.reddit.com/r/GradSchool/comments/1p7o3be/considering_pursuing_a_phd_maybe_in_american/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,74 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.138Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1p7o3be.md#c0"
+    char_span: [0, 2196]
+    sentence_count: 8
+    key_terms: [history, american, studies, phd, archival, cultural, research, popular]
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/gradschool/1p7o3be.md#c1"
+    char_span: [2198, 3006]
+    sentence_count: 14
+    key_terms: ["i'm", opportunities, interested, realistic, kinds, else, like, phd]
+    token_count: 193
+  - id: "social-intelligence/reddit-deep/gradschool/1p7o3be.md#c2"
+    char_span: [3021, 4636]
+    sentence_count: 9
+    key_terms: [someone, want, time, work, conditions, concerned, doctorate, programs]
+    section: Comments
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/gradschool/1p7o3be.md#c3"
+    char_span: [4638, 5783]
+    sentence_count: 9
+    key_terms: [degree, time, phd, get, cloverjones316, recommendation, disappearing, respectfully]
+    section: Comments
+    token_count: 274
+  - id: "social-intelligence/reddit-deep/gradschool/1p7o3be.md#c4"
+    char_span: [5785, 7536]
+    sentence_count: 8
+    key_terms: [humanities, time, history, political, analysis, programs, career, school]
+    section: Comments
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/gradschool/1p7o3be.md#c5"
+    char_span: [7538, 9720]
+    sentence_count: 12
+    key_terms: [maybe, being, "i'd", job, studies, school, opportunities, media]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1p7o3be.md#c6"
+    char_span: [9497, 9949]
+    sentence_count: 3
+    key_terms: [young, get, job, externalseat, humanities, struggling, broadway, position]
+    section: Comments
+    token_count: 115
+  - id: "social-intelligence/reddit-deep/gradschool/1p7o3be.md#c7"
+    char_span: [9952, 10872]
+    sentence_count: 5
+    key_terms: [humanities, getting, writing, sample, school, maybe, cloverjones316, applications]
+    section: Comments
+    token_count: 205
+  - id: "social-intelligence/reddit-deep/gradschool/1p7o3be.md#c8"
+    char_span: [10874, 12822]
+    sentence_count: 11
+    key_terms: [like, getting, working, cloverjones316, "you're", days, hour, "it's"]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/gradschool/1p7o3be.md#c9"
+    char_span: [12826, 13629]
+    sentence_count: 5
+    key_terms: [want, experience, research, history, program, studies, non-traditional, unfortunately]
+    section: Comments
+    token_count: 153
+  - id: "social-intelligence/reddit-deep/gradschool/1p7o3be.md#c10"
+    char_span: [13631, 15400]
+    sentence_count: 13
+    key_terms: [teaching, humanities, community, education, something, phd, having, scholarship]
+    section: Comments
+    token_count: 385
 ---
-
 # Considering pursuing a PhD, maybe in American Studies. Here's my background. Any great reasons NOT to do this, or stuff I've failed to consider?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1p7o3be/considering_pursuing_a_phd_maybe_in_american/)

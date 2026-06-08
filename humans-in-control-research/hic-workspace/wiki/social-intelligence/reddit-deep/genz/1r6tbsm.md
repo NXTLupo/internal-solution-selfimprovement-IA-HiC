@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1r6tbsm.md
 url: "https://www.reddit.com/r/GenZ/comments/1r6tbsm/how_does_one_not_feel_like_a_total_failure_man/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,51 @@ flair: "Rant"
 extracted_at: "2026-05-17T01:11:40.771Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1r6tbsm.md#c0"
+    char_span: [0, 2001]
+    sentence_count: 25
+    key_terms: [supposed, because, feel, job, like, manufacturing, idea, comments]
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/genz/1r6tbsm.md#c1"
+    char_span: [2016, 3863]
+    sentence_count: 12
+    key_terms: [apartmentworried5692, far, feel, less, work, american, already, discord]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/genz/1r6tbsm.md#c2"
+    char_span: [3865, 6022]
+    sentence_count: 25
+    key_terms: [service, civil, college, instead, around, "that's", "don't", dream]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/genz/1r6tbsm.md#c3"
+    char_span: [6024, 8040]
+    sentence_count: 15
+    key_terms: [state, position, service, police, "don't", level, year, depending]
+    section: Comments
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/genz/1r6tbsm.md#c4"
+    char_span: [8042, 10130]
+    sentence_count: 13
+    key_terms: [job, work, because, years, feel, together, advance, service]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/genz/1r6tbsm.md#c5"
+    char_span: [10132, 12074]
+    sentence_count: 15
+    key_terms: [fault, financial, "it's", job, anything, because, worse, get]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/genz/1r6tbsm.md#c6"
+    char_span: [12076, 13765]
+    sentence_count: 21
+    key_terms: [people, like, failure, feeling, change, failed, stayed, worked]
+    section: Comments
+    token_count: 373
 ---
-
 # How does one not feel like a total failure, man
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1r6tbsm/how_does_one_not_feel_like_a_total_failure_man/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1t8v1zm/reflections_from_someone_who_didnt_go_to_the/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,70 @@ subreddit: "applyingtocollege"
 title: "Reflections from someone who didn't go to the prestige choice"
 author: "mattmurdockfr"
 date: "2026-05-10T03:02:56.000Z"
-score: 39
+score: 40
 upvote_ratio: 0.82
-num_comments: 84
+num_comments: 89
 flair: "Discussion"
-extracted_at: "2026-05-23T12:15:36.206Z"
+extracted_at: "2026-06-05T18:53:26.935Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c0"
+    char_span: [0, 2146]
+    sentence_count: 5
+    key_terms: [school, applyingtocollege, prestige, connections, like, top, anything, comments]
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c1"
+    char_span: [2148, 3965]
+    sentence_count: 7
+    key_terms: [school, because, friends, less, top, different, obviously, everyone]
+    token_count: 372
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c2"
+    char_span: [3967, 5683]
+    sentence_count: 5
+    key_terms: [school, balanced, schools, names, connections, big, feel, prob]
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c3"
+    char_span: [5698, 6598]
+    sentence_count: 7
+    key_terms: [prestige, general, getting, matters, schools, matter, option, comfortable-fun1718]
+    section: Comments
+    token_count: 217
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c4"
+    char_span: [6600, 8247]
+    sentence_count: 8
+    key_terms: [prestige, prestigious, afford, georgetown, affordability, cew-reports, perspective, does]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c5"
+    char_span: [8249, 10522]
+    sentence_count: 13
+    key_terms: [prestige, here, notavalgrinder, school, undergraduate, "don't", university, realized]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c6"
+    char_span: [10256, 12356]
+    sentence_count: 15
+    key_terms: [school, prestige, prestigious, t20, different, outcomes, positive, matters]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c7"
+    char_span: [12071, 12914]
+    sentence_count: 6
+    key_terms: [everything, understand, college, working, school, single, "don't", else]
+    section: Comments
+    token_count: 200
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c8"
+    char_span: [12916, 14158]
+    sentence_count: 8
+    key_terms: [applyingtocollege, essays, wiki, boomers, reddit, collegeessays, https, com]
+    section: Comments
+    token_count: 294
 ---
-
 # Reflections from someone who didn't go to the prestige choice
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1t8v1zm/reflections_from_someone_who_didnt_go_to_the/)
-Posted by **mattmurdockfr** · **39↑** · **84 comments**
+Posted by **mattmurdockfr** · **40↑** · **89 comments**
 
 I rejected the prestige choice I got into for reasons and I don't feel like explaining because I already wanna kms when another old uncle or auntie asks me why im going to this school instead of our flagship or a t20 but here are my thoughts:
 
@@ -50,27 +102,27 @@ Anyways, these cons started to give a balanced view but as I continued writing I
 
 ## Comments
 
-- **Additional_Sun3823** (79↑): I don’t get the continued insistence from some posts that prestige has zero impact. It doesn’t have to be either 0% or 100%, it’s okay to say it matters without it being the only thing that matters
+- **Additional_Sun3823** (78↑): I don’t get the continued insistence from some posts that prestige has zero impact. It doesn’t have to be either 0% or 100%, it’s okay to say it matters without it being the only thing that matters
   - **Comfortable-Fun1718** (6↑): I agree with you that it is getting way too repetitive the “prestige doesn’t matter at all” posts. But there’s also the other spectrum that say “you are crazy for choosing state school for cheap vs Ivy” or “it’s crazy to choose Duke over Princeton”.
-  - **Senior-Dog-9735** (8↑): Because if we are talking in general terms to the general student. Prestige does not matter. Georgetown has a good study on this showing ROI is better for public schools. Unless your doing a niche with a very small chance of even getting the job.  
+  - **Senior-Dog-9735** (9↑): Because if we are talking in general terms to the general student. Prestige does not matter. Georgetown has a good study on this showing ROI is better for public schools. Unless your doing a niche with a very small chance of even getting the job.  
   
 90% of the time cheapest option is the best option. Yes that includes prestigious schools if its free.  
 
 [https://cew.georgetown.edu/cew-reports/roi2025/](https://cew.georgetown.edu/cew-reports/roi2025/)
-    - **Satisest** (5↑): Once again, this genre of comment mixes up affordability with the intrinsic value of prestige. They are independent axes. Prestige does indeed matter, but if you can’t afford your most prestigious option, you don’t have to rationalize it by pretending that prestige doesn’t matter. You couldn’t afford it (or you didn’t want to afford it); that’s unfortunate but it happens, so you make the best of the college you can afford. Rankings based on “ROI” bring affordability, or career earnings per tuition dollar spent, which is a very different perspective than a pure evaluation of the well-demonstrated value of prestigious colleges.
+    - **Satisest** (4↑): Once again, this genre of comment mixes up affordability with the intrinsic value of prestige. They are independent axes. Prestige does indeed matter, but if you can’t afford your most prestigious option, you don’t have to rationalize it by pretending that prestige doesn’t matter. You couldn’t afford it (or you didn’t want to afford it); that’s unfortunate but it happens, so you make the best of the college you can afford. Rankings based on “ROI” bring affordability, or career earnings per tuition dollar spent, which is a very different perspective than a pure evaluation of the well-demonstrated value of prestigious colleges.
     - **Sure-Ability2023** (-2↑): idk how credible the Georgetown study is but I’m pretty sure us news and Forbes factor ROI into their rankings and the prestigious privates are still at the top
   - **mattmurdockfr** (3↑): I am just saying my perspective and what I have experienced, I have not missed out on any opportunities turning down a t20, and I feel that other students who choose to take the same path won't either. If you think it does or it makes you feel better to think it does thats u
-    - **Suitable-Training661** (2↑): Have you graduated from college / do you have a job?
+    - **Suitable-Training661** (0↑): Have you graduated from college / do you have a job?
     - **Additional_Sun3823** (0↑): Compared to you in a different universe picking the T20??
   - **AC10021** (1↑): Exactly. For certain after-graduation professions (consulting, IB) prestige/ranking of undergraduate institutions is the number one factor to getting hired. For other careers it’s not. 
 
 It’s also important to point out that certain institutions are massively prestigious in one specific field. Going to University of Illinois Urbana Champaign is not that impressive…unless you are in their CS program, in which case it’s exceptional. Georgetown is not as highly ranked as, say, Harvard, unless you are talking about the SFS, which is the best undergraduate IR in the nation.
   - **Nearby_Task9041** (1↑): Because there is a lot of cope to make themselves feel better. That's what these posts are all about. They're putting other kids down.
-- **NotaValgrinder** (11↑): There's a tendency on here to over-romanticize prestige. I was someone who didn't get into my prestige choice for undergraduate but got into there while applying for PhD programs. But after I visited that school, I realized it wasn't what I thought it would be. The increase in prestige wasn't worth it over the other option I had of staying at my alma mater. I'm not saying that prestige doesn't matter but it's not the end all be all like people here seem to believe it to be. Like OP said, any solid R1 will give you plenty of amazing opportunities.
+- **NotaValgrinder** (12↑): There's a tendency on here to over-romanticize prestige. I was someone who didn't get into my prestige choice for undergraduate but got into there while applying for PhD programs. But after I visited that school, I realized it wasn't what I thought it would be. The increase in prestige wasn't worth it over the other option I had of staying at my alma mater. I'm not saying that prestige doesn't matter but it's not the end all be all like people here seem to believe it to be. Like OP said, any solid R1 will give you plenty of amazing opportunities.
   - **mattmurdockfr** (7↑): I agree but I honestly don't think it matters at all, I sort of thought it did before I wrote this post, but as I wrote and worked through my reflections I realized I really don't think I've missed out on anything. I think coming out of high school and learning more about how the world really operates and being around actual professionals, its such a small part of their lives and in a workplace. The main thing is really networking, even at the internships in the major city close to my college I had, a lot of the head honchos went to good grad schools but the undergrads were very mixed.
-    - **NotaValgrinder** (5↑): I'm not going to say that prestige doesn't matter because it's true in the grad school scene those with more famous recommenders have a leg up, and obviously there's a big difference if someone went to Liberty University vs Harvard, but I just don't think it matters much as this sub thinks it does.
+    - **NotaValgrinder** (6↑): I'm not going to say that prestige doesn't matter because it's true in the grad school scene those with more famous recommenders have a leg up, and obviously there's a big difference if someone went to Liberty University vs Harvard, but I just don't think it matters much as this sub thinks it does.
     - **Satisest** (1↑): Your commentary here is of a very different nature than the advertised “wisdom” of your post. You’re talking here about the value of fit rather than the value of prestige. Both are important, but they’re very different considerations. Prestigious colleges yield superior career outcomes for the median student, above any beyond any selection effects based on SAT, GPA, etc. That’s not even debatable. But that doesn’t mean you can’t have successful career outcomes from a lower tier school. It just means your chances are not as good.
-- **Madisonwisco** (6↑): Bro that’s a lot of words
+- **Madisonwisco** (5↑): Bro that’s a lot of words
 - **Competitive-Luck-251** (2↑): What non-flagship do you attend? It sounds like you have had great opportunities and a positive experience.  I know most people on this sub might disagree, but I would love to hear more about positive experiences at non -flagship/t20 schools. I have no interest in a pressure cooker environment after attending cutthroat high school.
   - **mattmurdockfr** (2↑): u can dm me if u want to hear more abt it! I think honestly any R1 close to a major city could fit the bill, I just don't wanna spread info abt myself out to everyone.
 - **snowsna1l** (2↑): guys, so true!!! let's all not apply to prestigious schools next cycle!

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1rtho66.md
 url: "https://www.reddit.com/r/managers/comments/1rtho66/ceo_taught_me_something_great_this_week/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,45 @@ flair: "Seasoned Manager"
 extracted_at: "2026-05-26T12:54:23.680Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1rtho66.md#c0"
+    char_span: [0, 1684]
+    sentence_count: 16
+    key_terms: [questions, answer, managers, ceo, something, comments, language, research]
+    token_count: 379
+  - id: "social-intelligence/reddit-deep/managers/1rtho66.md#c1"
+    char_span: [1699, 3797]
+    sentence_count: 11
+    key_terms: [learn, experience, alignment, important, questions, teachings, buzzword, "there's"]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/managers/1rtho66.md#c2"
+    char_span: [3799, 4635]
+    sentence_count: 8
+    key_terms: [like, different, answers, "that's", right, lot, believer2687, performative]
+    section: Comments
+    token_count: 182
+  - id: "social-intelligence/reddit-deep/managers/1rtho66.md#c3"
+    char_span: [4637, 6237]
+    sentence_count: 11
+    key_terms: [believer2687, supportive, managers, manager, process, sharing, trained, update]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/managers/1rtho66.md#c4"
+    char_span: [6239, 8264]
+    sentence_count: 21
+    key_terms: [information, because, "don't", direct, trying, irreplaceable, communicate, "i'm"]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/managers/1rtho66.md#c5"
+    char_span: [8266, 10609]
+    sentence_count: 18
+    key_terms: [information, because, working, going, jccaclimber, ship, definitely, priorities]
+    section: Comments
+    token_count: 510
 ---
-
 # CEO taught me something great this week
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1rtho66/ceo_taught_me_something_great_this_week/)

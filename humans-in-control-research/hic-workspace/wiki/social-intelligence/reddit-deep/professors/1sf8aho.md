@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1sf8aho.md
 url: "https://www.reddit.com/r/Professors/comments/1sf8aho/i_told_them_exactly_what_would_be_on_the_exam/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,99 @@ flair: "Teaching / Pedagogy"
 extracted_at: "2026-05-20T03:55:39.262Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c0"
+    char_span: [0, 1333]
+    sentence_count: 17
+    key_terms: [students, class, study, exam, professors, comments, student, entire]
+    token_count: 309
+  - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c1"
+    char_span: [1348, 1382]
+    sentence_count: 1
+    key_terms: [jaguaraugaj, college]
+    section: Comments
+    token_count: 14
+  - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c2"
+    char_span: [1384, 3318]
+    sentence_count: 15
+    key_terms: [study, associsteprofessor, guide, students, responded, favorite, thursday, animal]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c3"
+    char_span: [3102, 3461]
+    sentence_count: 4
+    key_terms: [asked, guide, study, never, universities, themselves, homework, studying]
+    section: Comments
+    token_count: 101
+  - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c4"
+    char_span: [3463, 5301]
+    sentence_count: 16
+    key_terms: [week, responded, e9935829f8a47b097416d90b021697958eacb7c7, f1498f2230fd48dd552115c16448e6816728faa0, problem-solving, class, "don't", assignments]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c5"
+    char_span: [5303, 7123]
+    sentence_count: 16
+    key_terms: [assignments, did, work, students, regular, course, announcements, announcement]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c6"
+    char_span: [7125, 8626]
+    sentence_count: 12
+    key_terms: ["don't", view, announcements, list, read, students, instructions, regular]
+    section: Comments
+    token_count: 363
+  - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c7"
+    char_span: [8628, 9846]
+    sentence_count: 8
+    key_terms: [study, answers, average, little, bunch, lower, associsteprofessor, dgaf]
+    section: Comments
+    token_count: 345
+  - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c8"
+    char_span: [9848, 11823]
+    sentence_count: 20
+    key_terms: [students, accept, gatekeeping, late, test, told, work, committee]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c9"
+    char_span: [11825, 12801]
+    sentence_count: 9
+    key_terms: [classes, questions, question, students, guide, study, badwithnamesagain, wheezygonzalez]
+    section: Comments
+    token_count: 253
+  - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c10"
+    char_span: [12803, 14148]
+    sentence_count: 14
+    key_terms: [questions, give, students, answers, several, class, topic, exam]
+    section: Comments
+    token_count: 334
+  - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c11"
+    char_span: [14150, 15783]
+    sentence_count: 13
+    key_terms: [students, education, questions, american, teaching, answers, session, common]
+    section: Comments
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c12"
+    char_span: [15785, 16984]
+    sentence_count: 8
+    key_terms: [students, french, educational, americans, clearly, become, entire, far]
+    section: Comments
+    token_count: 244
+  - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c13"
+    char_span: [16986, 18510]
+    sentence_count: 7
+    key_terms: [leifragnarsson, responsibility, something, ornery-anteater1934, thank, helpful-orchid2710, armchairdetective, squatbootyjezebel]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c14"
+    char_span: [18512, 19214]
+    sentence_count: 5
+    key_terms: [difficult, conversations, insanityaproaches, like, safe, conversation, complaining, entitlement]
+    section: Comments
+    token_count: 167
 ---
-
 # I told them exactly what would be on the exam. Half the class still failed.
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1sf8aho/i_told_them_exactly_what_would_be_on_the_exam/)

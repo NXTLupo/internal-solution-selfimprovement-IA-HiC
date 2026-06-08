@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1micrej.md
 url: "https://www.reddit.com/r/Professors/comments/1micrej/how_did_you_move_past_the_ai_is_the_end_of/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,93 @@ flair: "Advice / Support"
 extracted_at: "2026-05-14T18:17:21.702Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1micrej.md#c0"
+    char_span: [0, 1174]
+    sentence_count: 10
+    key_terms: [assignments, don, humanities, professors, ai-proof, comments, defeated, learning]
+    token_count: 296
+  - id: "social-intelligence/reddit-deep/professors/1micrej.md#c1"
+    char_span: [1189, 2810]
+    sentence_count: 12
+    key_terms: [handwriting, assignments, handwritten, classwork, reading, student, summary, writing]
+    section: Comments
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/professors/1micrej.md#c2"
+    char_span: [2812, 4715]
+    sentence_count: 11
+    key_terms: [students, work, countryzestyclose, student, babypintojuniorlube, class, "isn't", stopslappingmybaby]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/professors/1micrej.md#c3"
+    char_span: [4717, 6477]
+    sentence_count: 10
+    key_terms: [online, own, days, everybody, critical, pressure, teaching, thinking]
+    section: Comments
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/professors/1micrej.md#c4"
+    char_span: [6479, 8507]
+    sentence_count: 10
+    key_terms: [students, cautious-yellow, handwritten, exams, exam, use, cheat, going]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1micrej.md#c5"
+    char_span: [8256, 8694]
+    sentence_count: 2
+    key_terms: [constraints, prohibitive, classroom, solutions, designed, division, homework, in-class]
+    section: Comments
+    token_count: 101
+  - id: "social-intelligence/reddit-deep/professors/1micrej.md#c6"
+    char_span: [8696, 10668]
+    sentence_count: 23
+    key_terms: [work, point, students, "that's", write, "i'm", understand, anything]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/professors/1micrej.md#c7"
+    char_span: [10670, 12736]
+    sentence_count: 16
+    key_terms: [experience, themselves, used, assignments, philosophy, "true", students, short]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/professors/1micrej.md#c8"
+    char_span: [12738, 14811]
+    sentence_count: 16
+    key_terms: [students, code, instructor, similar, written, coding, grade, camp]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/professors/1micrej.md#c9"
+    char_span: [14813, 17104]
+    sentence_count: 20
+    key_terms: [did, citations, students, categories, use, student, "it's", teaching]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/professors/1micrej.md#c10"
+    char_span: [17106, 18947]
+    sentence_count: 13
+    key_terms: [because, students, evaluation, correctly, important, focusing, learning, course]
+    section: Comments
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/professors/1micrej.md#c11"
+    char_span: [18949, 21299]
+    sentence_count: 21
+    key_terms: [students, communicate, mechanics, learning, purpose, writing, assignments, experiences]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/professors/1micrej.md#c12"
+    char_span: [21301, 23126]
+    sentence_count: 15
+    key_terms: [been, assignments, class, going, suggestions, chatgpt, classes, faculty]
+    section: Comments
+    token_count: 406
+  - id: "social-intelligence/reddit-deep/professors/1micrej.md#c13"
+    char_span: [23128, 24241]
+    sentence_count: 9
+    key_terms: [myself, going, microsoft, academia, problem, likely, teach, "i'm"]
+    section: Comments
+    token_count: 258
 ---
-
 # How did you move past the “AI is the end of learning/teaching in the Humanities” stage?
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1micrej/how_did_you_move_past_the_ai_is_the_end_of/)

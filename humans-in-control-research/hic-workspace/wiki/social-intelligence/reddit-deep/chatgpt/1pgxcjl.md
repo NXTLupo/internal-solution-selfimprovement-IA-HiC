@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1pgxcjl.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1pgxcjl/if_each_input_costs_openai_money_why_does_chatgpt/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,33 @@ flair: "Serious replies only :closed-ai:"
 extracted_at: "2026-05-17T01:12:48.206Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1pgxcjl.md#c0"
+    char_span: [0, 1366]
+    sentence_count: 8
+    key_terms: [chatgpt, questions, answer, continuation, want, comments, training, users]
+    token_count: 316
+  - id: "social-intelligence/reddit-deep/chatgpt/1pgxcjl.md#c1"
+    char_span: [1381, 2413]
+    sentence_count: 7
+    key_terms: [engagement, comments, serious, bakraofwallstreet, did, keep, tag, automatically]
+    section: Comments
+    token_count: 249
+  - id: "social-intelligence/reddit-deep/chatgpt/1pgxcjl.md#c2"
+    char_span: [2415, 4359]
+    sentence_count: 17
+    key_terms: [money, reddit, engagement, million, costs, serve, times, get]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/chatgpt/1pgxcjl.md#c3"
+    char_span: [4361, 5959]
+    sentence_count: 18
+    key_terms: [reddit, expensive, inference, cost, instructions, pay, per, user]
+    section: Comments
+    token_count: 377
 ---
-
 # If each input costs OpenAI money, why does chatGPT offer continuation questions after each response?
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1pgxcjl/if_each_input_costs_openai_money_why_does_chatgpt/)

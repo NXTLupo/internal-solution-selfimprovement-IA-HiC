@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-machinelearning/bba142db1b.md
 url: "https://reddit.com/r/MachineLearning/comments/1m3v7ll/r_neuralos_a_generative_os_entirely_powered_by/"
 url_hash: "bba142db1b"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T13:51:19.375049+00:00"
 chars: 1549
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-machinelearning/bba142db1b.md#c0"
+    char_span: [0, 1758]
+    sentence_count: 8
+    key_terms: [neuralos, com, traditional, generative, entirely, machinelearning, fully, yuntiandeng]
+    token_count: 401
 ---
-
 # [R] NeuralOS: a generative OS entirely powered by neural networks
 
 Source: [reddit: MachineLearning](https://reddit.com/r/MachineLearning/comments/1m3v7ll/r_neuralos_a_generative_os_entirely_powered_by/)

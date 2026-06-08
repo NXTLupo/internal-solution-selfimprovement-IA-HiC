@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1siewy1.md
 url: "https://www.reddit.com/r/internships/comments/1siewy1/finally_got_the_summer_offer/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,68 @@ subreddit: "internships"
 title: "Finally got the Summer Offer!!"
 author: "Pretend_Monitor_5457"
 date: "2026-04-11T09:57:13.000Z"
-score: 44
-upvote_ratio: 0.95
+score: 47
+upvote_ratio: 0.96
 num_comments: 15
 flair: "General"
-extracted_at: "2026-05-26T14:30:47.906Z"
+extracted_at: "2026-06-06T16:39:04.096Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1siewy1.md#c0"
+    char_span: [0, 337]
+    sentence_count: 3
+    key_terms: [offer, internships, comments, finally, got, reddit-deep, background, meetings]
+    token_count: 93
+  - id: "social-intelligence/reddit-deep/internships/1siewy1.md#c1"
+    char_span: [339, 2634]
+    sentence_count: 23
+    key_terms: [school, get, year, got, interview, applying, freshman, company]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1siewy1.md#c2"
+    char_span: [2337, 4661]
+    sentence_count: 31
+    key_terms: [internship, summer, got, went, applied, offered, return, application]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1siewy1.md#c3"
+    char_span: [4371, 6429]
+    sentence_count: 21
+    key_terms: [get, internship, work, internships, call, interview, checking, because]
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/internships/1siewy1.md#c4"
+    char_span: [6433, 6924]
+    sentence_count: 1
+    key_terms: [internships, finally, ghosted, landed, opportunities, competitive, eventually, graduation]
+    token_count: 104
+  - id: "social-intelligence/reddit-deep/internships/1siewy1.md#c5"
+    char_span: [6939, 7174]
+    sentence_count: 2
+    key_terms: [internships, necessary-pipe-5971, gpa, congratulations, jackadvises, fantastic, journey, great]
+    section: Comments
+    token_count: 77
+  - id: "social-intelligence/reddit-deep/internships/1siewy1.md#c6"
+    char_span: [7176, 9457]
+    sentence_count: 26
+    key_terms: [internship, got, year, congratulations, started, ago, did, half]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1siewy1.md#c7"
+    char_span: [9175, 11396]
+    sentence_count: 23
+    key_terms: [get, congratulations, apply, good, like, interviews, networking, questions]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1siewy1.md#c8"
+    char_span: [11153, 11574]
+    sentence_count: 4
+    key_terms: [need, recommendation, interviewing, interviews, izephry, morning, offered, weekend]
+    section: Comments
+    token_count: 125
 ---
-
 # Finally got the Summer Offer!!
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1siewy1/finally_got_the_summer_offer/)
-Posted by **Pretend_Monitor_5457** · **44↑** · **15 comments**
+Posted by **Pretend_Monitor_5457** · **47↑** · **15 comments**
 
 Hello all! I finally got the offer, still have to go through background, offer meetings and sign it but it is there. 
 
@@ -34,7 +84,7 @@ Struggled hard early (no internships, bad GPA), finally landed one sophomore yea
 
 ## Comments
 
-- **Necessary-Pipe-5971** (4↑): Lowk I feel like I had good internships just a bad gpa
+- **Necessary-Pipe-5971** (5↑): Lowk I feel like I had good internships just a bad gpa
   - **Pretend_Monitor_5457** (0↑): Yeah, my gpa ain’t great but the internships are bomb
 - **JackAdvises** (3↑): Fantastic journey. Congratulations!
 

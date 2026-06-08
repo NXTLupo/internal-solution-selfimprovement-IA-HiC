@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1rsj8yb.md
 url: "https://www.reddit.com/r/GradSchool/comments/1rsj8yb/realised_i_hate_my_masters_program_but_i_feel/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.347Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, healthcare]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1rsj8yb.md#c0"
+    char_span: [0, 2184]
+    sentence_count: 18
+    key_terms: [feel, program, through, career, don, like, gradschool, interested]
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/gradschool/1rsj8yb.md#c1"
+    char_span: [2199, 3748]
+    sentence_count: 11
+    key_terms: [program, degree, therapist, projects, syllabus, enough, reddit, "you're"]
+    section: Comments
+    token_count: 337
+  - id: "social-intelligence/reddit-deep/gradschool/1rsj8yb.md#c2"
+    char_span: [3750, 5510]
+    sentence_count: 15
+    key_terms: [writer, editor, job, like, work, rejection, something, writing]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/gradschool/1rsj8yb.md#c3"
+    char_span: [5512, 7190]
+    sentence_count: 12
+    key_terms: [people, like, writing, arugulafanclub, novels, maybe, something, switching]
+    section: Comments
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/gradschool/1rsj8yb.md#c4"
+    char_span: [7192, 9063]
+    sentence_count: 20
+    key_terms: [like, right, direction, pressure, because, degrees, parents, career]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/gradschool/1rsj8yb.md#c5"
+    char_span: [9065, 10205]
+    sentence_count: 6
+    key_terms: [people, since, been, working, cohort, school, help, "i've"]
+    section: Comments
+    token_count: 265
+  - id: "social-intelligence/reddit-deep/gradschool/1rsj8yb.md#c6"
+    char_span: [10207, 12449]
+    sentence_count: 16
+    key_terms: [through, "it's", bearcub42, engaged, program, always, cohort, people]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1rsj8yb.md#c7"
+    char_span: [12124, 12982]
+    sentence_count: 6
+    key_terms: [question, feeling, alone, being, early, been, lot, okay]
+    section: Comments
+    token_count: 190
 ---
-
 # Realised I hate my master’s program but I feel stuck...has anyone been through this?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1rsj8yb/realised_i_hate_my_masters_program_but_i_feel/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1te87ea.md
 url: "https://www.reddit.com/r/humanresources/comments/1te87ea/switching_career_paths_na/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -6,19 +7,30 @@ subreddit: "humanresources"
 title: "Switching Career Paths [N/A]"
 author: "Livid_Egg1439"
 date: "2026-05-15T20:29:01.000Z"
-score: 6
-upvote_ratio: 0.8
+score: 7
+upvote_ratio: 0.82
 num_comments: 9
 flair: ""
-extracted_at: "2026-05-23T12:15:41.549Z"
+extracted_at: "2026-06-06T17:42:52.451Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1te87ea.md#c0"
+    char_span: [0, 1337]
+    sentence_count: 6
+    key_terms: [humanresources, "i'm", marketing, comments, services, content, anyone, career]
+    token_count: 303
+  - id: "social-intelligence/reddit-deep/humanresources/1te87ea.md#c1"
+    char_span: [1352, 3190]
+    sentence_count: 15
+    key_terms: [roles, thank, certification, applications, years, definitely, management, marketing]
+    section: Comments
+    token_count: 447
 ---
-
 # Switching Career Paths [N/A]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1te87ea/switching_career_paths_na/)
-Posted by **Livid_Egg1439** · **6↑** · **9 comments**
+Posted by **Livid_Egg1439** · **7↑** · **9 comments**
 
 Hi all-
 
@@ -44,7 +56,7 @@ Amy input or advice would be so appreciated
 - **Gonebabythoughts** (3↑): Patient advocacy roles would be a good fit, either in a hospital setting, social services, or even working for a pharma company. Marketing is being overrun by AI, so I would not waste your time there. Project management requires a certification without experience so you'll want to look into getting a PMP. Construction project management is red hot right now.
   - **Livid_Egg1439** (2↑): Thank you so much for the insight and the perspective! Will keep pushing for the patient oriented roles; I just completed a trauma informed care course as well so definitely open to doing more to get my foot in the door. Thank you!!
 - **WeedThrough** (2↑): Make sure to really lean in to your cover letter when submitting applications!
-  - **Livid_Egg1439** (1↑): GREAT idea, super key I think too. Especially for non profit roles I’m treating that I’m genuinely passionate about, it feels easy to write about those
+  - **Livid_Egg1439** (2↑): GREAT idea, super key I think too. Especially for non profit roles I’m treating that I’m genuinely passionate about, it feels easy to write about those
 - **No_Piccolo6337** (1↑): I’m trying to do the same. I’ve been in HR for 13 years and am ready to pivot out.
   - **Livid_Egg1439** (1↑): Ugh I feel for you!! Also amazing on 13 years, I’m sure you’ve seen SO much. Let me know if you have any thoughts on what you’re targeting!!
-    - **No_Piccolo6337** (1↑): Thank you! I appreciate that. I was a generalist for the first five years and I’ve been doing compensation for the last 8. It’s soooo much Excel work and collective bargaining / union negotiations.
+    - **No_Piccolo6337** (2↑): Thank you! I appreciate that. I was a generalist for the first five years and I’ve been doing compensation for the last 8. It’s soooo much Excel work and collective bargaining / union negotiations.

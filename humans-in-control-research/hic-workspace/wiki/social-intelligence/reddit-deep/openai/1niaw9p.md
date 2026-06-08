@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1niaw9p.md
 url: "https://www.reddit.com/r/OpenAI/comments/1niaw9p/new_openai_study_reveals_how_700_million_people/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,74 @@ flair: "Discussion"
 extracted_at: "2026-05-11T16:53:06.853Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c0"
+    char_span: [0, 2074]
+    sentence_count: 4
+    key_terms: [chatgpt, information, openai, usage, use, personal, million, people]
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c1"
+    char_span: [2076, 2421]
+    sentence_count: 1
+    key_terms: [economic-research-chatgpt-usage-paper, a253471f-8260-40c6-a2cc-aa93fe9f142e, https, privacy-preserving, pdf, comprehensive, classifiers, researchers]
+    token_count: 86
+  - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c2"
+    char_span: [2436, 3404]
+    sentence_count: 5
+    key_terms: [through, codex, because, chatgpt, models, pretty, search, going]
+    section: Comments
+    token_count: 279
+  - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c3"
+    char_span: [3406, 5299]
+    sentence_count: 5
+    key_terms: [openai, paid, professional, data, plan, use, hundreds, chatgpt]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c4"
+    char_span: [5086, 5957]
+    sentence_count: 2
+    key_terms: [sustainable, free, whatever, idontcareaboutthenam, users, wrote, paid, brainstorming]
+    section: Comments
+    token_count: 251
+  - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c5"
+    char_span: [5960, 6769]
+    sentence_count: 4
+    key_terms: [seems, messages, thinking, coding, take, per-conversation, anecdotally, computation]
+    section: Comments
+    token_count: 209
+  - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c6"
+    char_span: [6772, 8559]
+    sentence_count: 15
+    key_terms: [families, tutoring, jobs, starting, wealthy, access, advice, afford]
+    section: Comments
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c7"
+    char_span: [8561, 10566]
+    sentence_count: 10
+    key_terms: [jobs, chatgpt, professional, work, anything, happened, effects, people]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c8"
+    char_span: [10568, 12527]
+    sentence_count: 13
+    key_terms: ["it's", use, gpt, sharing, therapy, coding, going, money]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c9"
+    char_span: [12529, 14397]
+    sentence_count: 12
+    key_terms: [media, users, conversations, relationship, proportion, million, wanting, number]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c10"
+    char_span: [14399, 15322]
+    sentence_count: 5
+    key_terms: [chatgpt, everything, fluffypolicepeanut, been, end, get, less, conversation]
+    section: Comments
+    token_count: 230
 ---
-
 # New OpenAI Study Reveals How 700 Million People Actually Use ChatGPT
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1niaw9p/new_openai_study_reveals_how_700_million_people/)

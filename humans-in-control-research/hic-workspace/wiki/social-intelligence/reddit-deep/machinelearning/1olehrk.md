@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1olehrk.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1olehrk/d_realized_i_like_the_coding_and_ml_side_of_my/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -13,8 +14,33 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:06.580Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1olehrk.md#c0"
+    char_span: [0, 1522]
+    sentence_count: 8
+    key_terms: [like, machinelearning, physics, phd, algorithms, comments, modeling, physical]
+    token_count: 339
+  - id: "social-intelligence/reddit-deep/machinelearning/1olehrk.md#c1"
+    char_span: [1537, 3685]
+    sentence_count: 14
+    key_terms: [learn, supergeilerkollege, job, empirical, engineer, software, physics, writing]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/machinelearning/1olehrk.md#c2"
+    char_span: [3687, 5789]
+    sentence_count: 15
+    key_terms: [college-graduates-face-toughest-job-market-in-more-than-a-decade-as-hiring-slows, software, physics, job, skills, requirements, engineering, what-s-the-short-timeline-plan]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/machinelearning/1olehrk.md#c3"
+    char_span: [5791, 7846]
+    sentence_count: 17
+    key_terms: [domain, experience, code, lot, projects, software, helped, skills]
+    section: Comments
+    token_count: 456
 ---
-
 # [D] Realized I like the coding and ML side of my PhD way more than the physics
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1olehrk/d_realized_i_like_the_coding_and_ml_side_of_my/)

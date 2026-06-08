@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1lldp4s.md
 url: "https://www.reddit.com/r/GenZ/comments/1lldp4s/do_any_of_you_have_hobbies_heres_mine/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,27 @@ flair: "Discussion"
 extracted_at: "2026-05-16T20:55:01.230Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [cross_industry]
+industry_method: unclassified
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1lldp4s.md#c0"
+    char_span: [0, 250]
+    sentence_count: 3
+    key_terms: [comments, genz, alphamassdebeta, reddit-deep, hobbies, "here's", posted, reddit]
+    token_count: 77
+  - id: "social-intelligence/reddit-deep/genz/1lldp4s.md#c1"
+    char_span: [265, 1666]
+    sentence_count: 5
+    key_terms: [meaning, https, favorite, comment, cornell, discord, preview, format]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/genz/1lldp4s.md#c2"
+    char_span: [1668, 2785]
+    sentence_count: 4
+    key_terms: [alphamassdebeta, maserati, biturbo, deleted, someone, big-maintenance2544, live, sold]
+    section: Comments
+    token_count: 359
 ---
-
 # Do any of you have hobbies? Here's mine.
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1lldp4s/do_any_of_you_have_hobbies_heres_mine/)

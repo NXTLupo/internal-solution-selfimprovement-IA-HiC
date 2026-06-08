@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1ra9uca.md
 url: "https://www.reddit.com/r/findapath/comments/1ra9uca/30f_been_a_neet_near_15_years_never_had_a_job/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,63 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-25T13:04:07.383Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1ra9uca.md#c0"
+    char_span: [0, 1872]
+    sentence_count: 27
+    key_terms: [get, parents, been, money, never, job, life, work]
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/findapath/1ra9uca.md#c1"
+    char_span: [1887, 2834]
+    sentence_count: 9
+    key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/findapath/1ra9uca.md#c2"
+    char_span: [2837, 4746]
+    sentence_count: 15
+    key_terms: [volunteering, something, community, good, time, college, library, place]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/findapath/1ra9uca.md#c3"
+    char_span: [4748, 6522]
+    sentence_count: 12
+    key_terms: [community, too, college, get, like, lot, education, degree]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/findapath/1ra9uca.md#c4"
+    char_span: [6524, 8409]
+    sentence_count: 22
+    key_terms: [try, something, fail, immediately, addicted, anything, commando, realized]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/findapath/1ra9uca.md#c5"
+    char_span: [8411, 10482]
+    sentence_count: 26
+    key_terms: [doing, something, get, nothing, trying, start, community, college]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/findapath/1ra9uca.md#c6"
+    char_span: [10484, 12211]
+    sentence_count: 10
+    key_terms: [work, college, wizzlewazzel, good, job, community, education, classes]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/findapath/1ra9uca.md#c7"
+    char_span: [12213, 14222]
+    sentence_count: 11
+    key_terms: [job, work, training, school, worked, study, part, time]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/findapath/1ra9uca.md#c8"
+    char_span: [14224, 15062]
+    sentence_count: 11
+    key_terms: [get, experience, started, working, coffee, income, money, start]
+    section: Comments
+    token_count: 183
 ---
-
 # 30f, been a NEET near 15 years. Never had a job.
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1ra9uca/30f_been_a_neet_near_15_years_never_had_a_job/)

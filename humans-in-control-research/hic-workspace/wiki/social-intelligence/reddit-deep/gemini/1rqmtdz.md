@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gemini/1rqmtdz.md
 url: "https://www.reddit.com/r/Gemini/comments/1rqmtdz/i_built_acploop_a_recurring_prompt_scheduler_for/"
 kind: "social-post"
 source: "reddit-deep: r/gemini"
@@ -13,8 +14,15 @@ flair: "Derivatives :Derivatives:"
 extracted_at: "2026-05-11T17:27:04.757Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gemini/1rqmtdz.md#c0"
+    char_span: [0, 1141]
+    sentence_count: 4
+    key_terms: [gemini, acp-loop, interval, deploy, recurring, succeeded, workflows, comments]
+    token_count: 304
 ---
-
 # I built acp-loop: a recurring prompt scheduler for ACP agents
 
 Source: [reddit-deep: r/gemini](https://www.reddit.com/r/Gemini/comments/1rqmtdz/i_built_acploop_a_recurring_prompt_scheduler_for/)

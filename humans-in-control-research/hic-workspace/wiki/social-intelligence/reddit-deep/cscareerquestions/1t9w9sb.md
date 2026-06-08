@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1t9w9sb.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1t9w9sb/30_year_old_cs_student_debating_whether_coop_is/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -10,11 +11,28 @@ score: 10
 upvote_ratio: 0.78
 num_comments: 18
 flair: "Student"
-extracted_at: "2026-05-24T14:08:50.763Z"
+extracted_at: "2026-06-06T00:28:32.205Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t9w9sb.md#c0"
+    char_span: [0, 1254]
+    sentence_count: 9
+    key_terms: [cscareerquestions, year, co-op, portfolio, comments, projects, another, degrees]
+    token_count: 313
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t9w9sb.md#c1"
+    char_span: [1269, 3199]
+    sentence_count: 13
+    key_terms: [projects, co-op, specialization, experience, internship, full, time, coding]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t9w9sb.md#c2"
+    char_span: [3201, 4391]
+    sentence_count: 5
+    key_terms: [experience, internship, job, graduating, without, choose, insane, co-op]
+    section: Comments
+    token_count: 289
 ---
-
 # 30+ year old CS student debating whether co-op is worth another year
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1t9w9sb/30_year_old_cs_student_debating_whether_coop_is/)
@@ -32,8 +50,8 @@ Am I making a dumb move by skipping co-op, or is this a reasonable path given my
 
 ## Comments
 
-- **TiTan0s** (12↑): Experience over everything. Nowadays, everyone has projects.
-- **SnooDrawings405** (7↑): I’d do it simply for the fact you may have a chance of converting that to a full time job. It can take a year for you to find your first job. You have much better chances at converting to full time from internship and just applying with an internship on your resume.
+- **TiTan0s** (14↑): Experience over everything. Nowadays, everyone has projects.
+- **SnooDrawings405** (6↑): I’d do it simply for the fact you may have a chance of converting that to a full time job. It can take a year for you to find your first job. You have much better chances at converting to full time from internship and just applying with an internship on your resume.
 - **drew_eckhardt2** (3↑): Given the current market down-turn I wouldn't skip co-op if I didn't have other internship experience.
 - **lhorie** (2↑): Do you have a feel for whether your projects are relevant enough to land a job in whatever specialization you're aiming at? If so, you could skip the co-ops and lean on those projects. If your projects aren't relevant for your desired specialization, then a co-op would help bridge the experience gap.
 
@@ -47,7 +65,7 @@ I also want to get back to a normal life I feel like  I've been on pause for 3 y
 
 If I don't end up getting a return offer I'm at least  going to graduate with over 2 years of professional experience. Personally, If I went back in time and had to choose between my co-op experience or graduating sooner I would choose the co-op every time.
 - **nichogenius** (2↑): A CS degree without experience isn't worth the paper it's printed on right now.
-- **Ornery-Car92** (5↑): It's insane that people still enter CS, like why, do you all really want 0 job security and lengthy periods of unemployment?
+- **Ornery-Car92** (6↑): It's insane that people still enter CS, like why, do you all really want 0 job security and lengthy periods of unemployment?
 - **googleguyst** (1↑): Graduating without an internship in this job market, even from a top-tier CS program, is going to be _very_ rough. Unless you have a solid alternative plan to get your foot in the door, I would not turn down the opportunity to gain job experience.
 
 On the plus side, anecdotally, faang recruiters seem to love candidates with non-traditional career paths

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1qi8uyx.md
 url: "https://www.reddit.com/r/personalfinance/comments/1qi8uyx/im_doing_okay_on_paper_but_still_feel_weirdly/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,57 @@ flair: "Other"
 extracted_at: "2026-05-17T01:13:31.189Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1qi8uyx.md#c0"
+    char_span: [0, 1882]
+    sentence_count: 19
+    key_terms: [like, money, personalfinance, feel, fine, time, something, comments]
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/personalfinance/1qi8uyx.md#c1"
+    char_span: [1897, 3990]
+    sentence_count: 22
+    key_terms: [money, years, laptop, don, get, "i've", work, essentials]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/personalfinance/1qi8uyx.md#c2"
+    char_span: [3993, 5814]
+    sentence_count: 18
+    key_terms: [spending, like, need, "don't", maybe, tires, free, scarcity]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/personalfinance/1qi8uyx.md#c3"
+    char_span: [5816, 7982]
+    sentence_count: 16
+    key_terms: [like, budget, monthly, set, money, expenses, expense, great]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/personalfinance/1qi8uyx.md#c4"
+    char_span: [7984, 9824]
+    sentence_count: 13
+    key_terms: [discover, irresponsible, cheap, feel, like, emergency, week-long, vacation]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/personalfinance/1qi8uyx.md#c5"
+    char_span: [9826, 10868]
+    sentence_count: 8
+    key_terms: [mindset, entire, tires, unbridledoptimism, like, irresponsible, preventative, specifically]
+    section: Comments
+    token_count: 235
+  - id: "social-intelligence/reddit-deep/personalfinance/1qi8uyx.md#c6"
+    char_span: [10870, 12975]
+    sentence_count: 17
+    key_terms: [income, single, therapist, helpful, therapy, like, new, important]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/personalfinance/1qi8uyx.md#c7"
+    char_span: [12977, 13441]
+    sentence_count: 6
+    key_terms: [category, budget, money, spend, dumb, got, permission, understand]
+    section: Comments
+    token_count: 107
 ---
-
 # I’m doing 'okay' on paper but still feel weirdly anxious about spending any money
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1qi8uyx/im_doing_okay_on_paper_but_still_feel_weirdly/)

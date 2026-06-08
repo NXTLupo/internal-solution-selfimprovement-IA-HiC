@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1s3otou.md
 url: "https://www.reddit.com/r/managers/comments/1s3otou/floored_by_how_underperforming_employee_would/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,63 @@ flair: "Seasoned Manager"
 extracted_at: "2026-05-26T12:54:23.669Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c0"
+    char_span: [0, 1579]
+    sentence_count: 12
+    key_terms: [underperforming, trained, rather, get, pip, told, wfh, processes]
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c1"
+    char_span: [1594, 3504]
+    sentence_count: 15
+    key_terms: [unemployment, job, conversationmore4104, company, market, get, like, process]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c2"
+    char_span: [3507, 3981]
+    sentence_count: 2
+    key_terms: [job, market, bad, seeing, happy-personality-15, let, "true", specialization]
+    section: Comments
+    token_count: 118
+  - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c3"
+    char_span: [3983, 6278]
+    sentence_count: 12
+    key_terms: [unemployment, cause, fired, job, employee, states, state, got]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c4"
+    char_span: [6280, 6629]
+    sentence_count: 2
+    key_terms: [come, saying, won, unemployment, resignation, attendance, terminated, agreement]
+    section: Comments
+    token_count: 76
+  - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c5"
+    char_span: [6631, 8618]
+    sentence_count: 11
+    key_terms: [conversationmore4104, stickydeltastrike, pip, unemployment, needs, get, like, anything]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c6"
+    char_span: [8345, 9392]
+    sentence_count: 8
+    key_terms: [come, admitting, environmentalluck515, fired, days, get, job, like]
+    section: Comments
+    token_count: 265
+  - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c7"
+    char_span: [9394, 11147]
+    sentence_count: 11
+    key_terms: [like, conversationmore4104, pip, insubordination, job, company, nothing, person]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c8"
+    char_span: [11149, 13125]
+    sentence_count: 12
+    key_terms: [work, conversationmore4104, considered, like, pip, someone, termination, come]
+    section: Comments
+    token_count: 482
 ---
-
 # Floored by how underperforming employee would rather go on a PIP instead of coming in office
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1s3otou/floored_by_how_underperforming_employee_would/)

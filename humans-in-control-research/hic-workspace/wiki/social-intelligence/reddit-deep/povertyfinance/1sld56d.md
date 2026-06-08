@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1sld56d.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1sld56d/reducing_my_budget/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,62 @@ flair: "Budgeting/Saving/Investing/Spending"
 extracted_at: "2026-05-17T01:13:55.885Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [workforce, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sld56d.md#c0"
+    char_span: [0, 1659]
+    sentence_count: 8
+    key_terms: [hour, povertyfinance, making, car, get, half, job, loan]
+    token_count: 408
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sld56d.md#c1"
+    char_span: [1661, 2128]
+    sentence_count: 5
+    key_terms: [better, plan, rap, flexibility, calculator, discussing, thankfully, donation]
+    token_count: 108
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sld56d.md#c2"
+    char_span: [2143, 4081]
+    sentence_count: 21
+    key_terms: [job, experience, maintenance, jadedunionoperator, manufacturing, got, janitorial, education]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sld56d.md#c3"
+    char_span: [4086, 5721]
+    sentence_count: 12
+    key_terms: [eggs, around, clearance, grocery, freeze, cut, definitely, something]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sld56d.md#c4"
+    char_span: [5725, 7250]
+    sentence_count: 19
+    key_terms: [internet, food, like, retention, probably, qualify, xfinity, asking]
+    section: Comments
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sld56d.md#c5"
+    char_span: [7252, 8682]
+    sentence_count: 11
+    key_terms: [particular-fly3409, gas, "i'm", meal, plan, partner, "it's", depends]
+    section: Comments
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sld56d.md#c6"
+    char_span: [8685, 10417]
+    sentence_count: 13
+    key_terms: [like, policy, bill, internet, recipes, charge, beans, "y'all"]
+    section: Comments
+    token_count: 401
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sld56d.md#c7"
+    char_span: [10420, 12470]
+    sentence_count: 10
+    key_terms: [customer, new, cancel, call, insurance, car, deal, get]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sld56d.md#c8"
+    char_span: [12473, 12893]
+    sentence_count: 6
+    key_terms: [internet, name, new, plan, rate, unfortunately, investigate, "shouldn't"]
+    section: Comments
+    token_count: 94
 ---
-
 # Reducing my budget
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1sld56d/reducing_my_budget/)

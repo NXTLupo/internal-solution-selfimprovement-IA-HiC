@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1oip8c9.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1oip8c9/is_anybody_else_completely_sick_of_the_culture_in/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,62 @@ flair: "Rant/Vent"
 extracted_at: "2026-05-25T18:32:19.213Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1oip8c9.md#c0"
+    char_span: [0, 2457]
+    sentence_count: 17
+    key_terms: [engineering, people, engineeringstudents, culture, least, lot, absolutely, appreciate]
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1oip8c9.md#c1"
+    char_span: [2459, 3556]
+    sentence_count: 12
+    key_terms: [like, classmates, completely, engineers, people, "don't", enjoy, find]
+    token_count: 228
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1oip8c9.md#c2"
+    char_span: [3571, 5575]
+    sentence_count: 19
+    key_terms: [engineering, problem, fields, engineers, probably, issue, field-wide, behavior]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1oip8c9.md#c3"
+    char_span: [5577, 7842]
+    sentence_count: 17
+    key_terms: [engineering, experience, "you're", culture, school, like, people, specifically]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1oip8c9.md#c4"
+    char_span: [7844, 10122]
+    sentence_count: 16
+    key_terms: [understanding, levels, people, creativity, get, better, higher, unfortunately]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1oip8c9.md#c5"
+    char_span: [10124, 12019]
+    sentence_count: 16
+    key_terms: [teachers, people, "can't", good, classmates, engineers, research, crappy]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1oip8c9.md#c6"
+    char_span: [12021, 14197]
+    sentence_count: 23
+    key_terms: [professors, engineering, program, grades, "i'm", like, attracts, research]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1oip8c9.md#c7"
+    char_span: [14199, 14978]
+    sentence_count: 5
+    key_terms: [students, social, "don't", get, far-highway-9925, disciplines, engineering, businesses]
+    section: Comments
+    token_count: 173
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1oip8c9.md#c8"
+    char_span: [14982, 16849]
+    sentence_count: 12
+    key_terms: [engineering, people, engineers, love, everywhere, something, thinking, enough]
+    section: Comments
+    token_count: 436
 ---
-
 # Is anybody else completely sick of the culture in engineering?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1oip8c9/is_anybody_else_completely_sick_of_the_culture_in/)

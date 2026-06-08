@@ -12,6 +12,8 @@ extracted_at: "2026-04-29T23:56:37.776351+00:00"
 chars: 4073
 channel: "University of Iowa Alumni"
 duration_sec: 232
+industries: [higher_ed]
+industry_method: deterministic
 ---
 
 # Hidden Gems of the University of Iowa Libraries

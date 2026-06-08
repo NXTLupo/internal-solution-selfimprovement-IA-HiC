@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/fb51d3c1bf.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rfvqqt/feeling_lost_in_8th_semester_cs_with_year_back/"
 url_hash: "fb51d3c1bf"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T19:50:30.764087+00:00"
 chars: 1494
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/fb51d3c1bf.md#c0"
+    char_span: [0, 1746]
+    sentence_count: 8
+    key_terms: [year, cscareerquestions, backlogs, considering, back, currently, preparing, comments]
+    token_count: 439
 ---
-
 # Feeling lost in 8th semester (CS) with year back due to backlogs – Need serious career advice
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rfvqqt/feeling_lost_in_8th_semester_cs_with_year_back/)

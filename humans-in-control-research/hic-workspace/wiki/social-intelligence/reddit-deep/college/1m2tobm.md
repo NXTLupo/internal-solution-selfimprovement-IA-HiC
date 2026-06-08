@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1m2tobm.md
 url: "https://www.reddit.com/r/college/comments/1m2tobm/csecon_double_major_or_switch_to_business/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 1
 flair: "Career/work"
-extracted_at: "2026-05-23T14:53:53.127Z"
+extracted_at: "2026-06-05T16:17:48.499Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1m2tobm.md#c0"
+    char_span: [0, 2160]
+    sentence_count: 20
+    key_terms: [business, accounting, credits, double, major, econ, school, currently]
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/college/1m2tobm.md#c1"
+    char_span: [2175, 2895]
+    sentence_count: 5
+    key_terms: [business, accounting, economics, because, finance, degree, econ, like]
+    section: Comments
+    token_count: 140
 ---
-
 # CS/Econ double major or switch to business?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1m2tobm/csecon_double_major_or_switch_to_business/)

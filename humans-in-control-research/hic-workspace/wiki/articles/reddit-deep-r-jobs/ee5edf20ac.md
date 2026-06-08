@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-jobs/ee5edf20ac.md
 url: "https://www.reddit.com/r/jobs/comments/1p1095k/companies_started_cutting_entry_level_hiring_in/"
 url_hash: "ee5edf20ac"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-19T15:13:44.302231+00:00"
 chars: 3497
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-jobs/ee5edf20ac.md#c0"
+    char_span: [0, 2354]
+    sentence_count: 15
+    key_terms: [companies, entry, level, papers, automation, jobs, tier, research]
+    token_count: 496
+  - id: "articles/reddit-deep-r-jobs/ee5edf20ac.md#c1"
+    char_span: [2356, 3718]
+    sentence_count: 6
+    key_terms: [companies, research, development, big, tech, government, deleted, redact]
+    token_count: 317
 ---
-
 # Companies started cutting entry level hiring in early 2023 and the timing is suspicious
 
 Source: [Reddit Deep: r/jobs](https://www.reddit.com/r/jobs/comments/1p1095k/companies_started_cutting_entry_level_hiring_in/)

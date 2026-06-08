@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1suzrlt.md
 url: "https://www.reddit.com/r/jobs/comments/1suzrlt/fired_for_the_first_time_in_30_years_weird/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,63 @@ flair: "Unemployment"
 extracted_at: "2026-05-24T14:10:06.658Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1suzrlt.md#c0"
+    char_span: [0, 2257]
+    sentence_count: 15
+    key_terms: [meeting, project, been, company, manager, time, email, told]
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/jobs/1suzrlt.md#c1"
+    char_span: [2272, 4019]
+    sentence_count: 18
+    key_terms: [lawyer, boss, negotiable, separation, agreement, severance, projects, "there's"]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/jobs/1suzrlt.md#c2"
+    char_span: [4021, 5613]
+    sentence_count: 9
+    key_terms: [manager, something, deadline, probably, because, company, meeting, project]
+    section: Comments
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/jobs/1suzrlt.md#c3"
+    char_span: [5615, 7727]
+    sentence_count: 17
+    key_terms: [boss, get, reach, potentially, vp-of-vibes, leadership, narrative, because]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/jobs/1suzrlt.md#c4"
+    char_span: [7729, 8934]
+    sentence_count: 9
+    key_terms: [maleficentcherry7116, agreement, company, someone, sometimes, people, internationalspray79, offer]
+    section: Comments
+    token_count: 281
+  - id: "social-intelligence/reddit-deep/jobs/1suzrlt.md#c5"
+    char_span: [8936, 10305]
+    sentence_count: 7
+    key_terms: [severance, company, month, subcontract, work, employment, companies, eligible]
+    section: Comments
+    token_count: 340
+  - id: "social-intelligence/reddit-deep/jobs/1suzrlt.md#c6"
+    char_span: [10307, 12324]
+    sentence_count: 17
+    key_terms: [lawyer, job, boss, get, getting, project, anything, complete]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/jobs/1suzrlt.md#c7"
+    char_span: [12326, 14396]
+    sentence_count: 19
+    key_terms: [boss, review, email, ready, upset, platform, sent, team]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/jobs/1suzrlt.md#c8"
+    char_span: [14398, 16193]
+    sentence_count: 13
+    key_terms: [boss, people, sorry, get, "i'm", definitely, ton-mantis, something]
+    section: Comments
+    token_count: 433
 ---
-
 # Fired for the first time in 30 years, weird separation agreement
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1suzrlt/fired_for_the_first_time_in_30_years_weird/)

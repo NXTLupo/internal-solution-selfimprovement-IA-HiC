@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1rcrcbx.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rcrcbx/anybody_went_to_robertson_college_in_calgary_for/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,15 @@ flair: "College Questions"
 extracted_at: "2026-05-24T14:08:39.592Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rcrcbx.md#c0"
+    char_span: [0, 691]
+    sentence_count: 5
+    key_terms: [college, applyingtocollege, program, experiences, technician, robertson, comments, pharmacy]
+    token_count: 160
 ---
-
 # Anybody went to Robertson College in Calgary for the Pharmacy Technician program? Please share your experiences
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rcrcbx/anybody_went_to_robertson_college_in_calgary_for/)

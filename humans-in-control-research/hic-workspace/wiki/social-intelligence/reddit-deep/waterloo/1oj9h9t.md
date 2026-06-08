@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1oj9h9t.md
 url: "https://www.reddit.com/r/waterloo/comments/1oj9h9t/really_need_help_finding_work_or_ways_to_make/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.127Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1oj9h9t.md#c0"
+    char_span: [0, 1261]
+    sentence_count: 14
+    key_terms: [waterloo, money, been, anything, comments, anyone, right, help]
+    token_count: 300
+  - id: "social-intelligence/reddit-deep/waterloo/1oj9h9t.md#c1"
+    char_span: [1276, 3098]
+    sentence_count: 24
+    key_terms: [hiring, lot, retail, employment, suggest, youth-programs, people, places]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/waterloo/1oj9h9t.md#c2"
+    char_span: [3100, 4989]
+    sentence_count: 9
+    key_terms: [snooploopssecret, need, employment, llunedd, centre, resume, skills, great]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/waterloo/1oj9h9t.md#c3"
+    char_span: [4992, 6976]
+    sentence_count: 17
+    key_terms: [work, snooploopssecret, looking, hiring, people, skills, construction, usually]
+    section: Comments
+    token_count: 476
 ---
-
 # Really need help finding work or ways to make money in Waterloo, ON
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1oj9h9t/really_need_help_finding_work_or_ways_to_make/)

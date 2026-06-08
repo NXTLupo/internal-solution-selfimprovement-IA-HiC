@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1pjldq9.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1pjldq9/in_honor_of_eds_coming_out_soon_im_releasing_the/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,32 @@ flair: "Shitpost Wednesdays"
 extracted_at: "2026-05-23T14:54:48.679Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pjldq9.md#c0"
+    char_span: [0, 2278]
+    sentence_count: 18
+    key_terms: [essay, applyingtocollege, tutoring, myself, experiences, help, community, comments]
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pjldq9.md#c1"
+    char_span: [2280, 2659]
+    sentence_count: 3
+    key_terms: [want, experiences, assistance, challenges, difficult, something, revising, stepping]
+    token_count: 81
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pjldq9.md#c2"
+    char_span: [2674, 3897]
+    sentence_count: 6
+    key_terms: [justthewriter, queen4jesus, hey, zealousideal-act4003, writingridingrunner, asked, inside-agency-2701, fusiondrifter5]
+    section: Comments
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pjldq9.md#c3"
+    char_span: [3901, 4941]
+    sentence_count: 7
+    key_terms: [famoustouch833, plagiarism, archive, essays, please, zealousideal-act4003, gs559, https]
+    section: Comments
+    token_count: 286
 ---
-
 # In honor of EDs coming out soon, I'm releasing the essay that got me into Columbia, MIT, Gtech, and Vandy
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1pjldq9/in_honor_of_eds_coming_out_soon_im_releasing_the/)

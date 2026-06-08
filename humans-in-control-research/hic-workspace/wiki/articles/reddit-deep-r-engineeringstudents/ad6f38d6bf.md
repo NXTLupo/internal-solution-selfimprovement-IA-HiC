@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-engineeringstudents/ad6f38d6bf.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1leq4ke/stop_complaining_your_internship_for_not_doing/"
 url_hash: "ad6f38d6bf"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T15:16:55.328592+00:00"
 chars: 3216
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-engineeringstudents/ad6f38d6bf.md#c0"
+    char_span: [0, 1964]
+    sentence_count: 16
+    key_terms: ["you're", engineeringstudents, work, meetings, company, interns, doing, unimportant]
+    token_count: 434
+  - id: "articles/reddit-deep-r-engineeringstudents/ad6f38d6bf.md#c1"
+    char_span: [1967, 3439]
+    sentence_count: 12
+    key_terms: [complain, doing, like, completely, internship, meaningful, aircraft, fixtures]
+    token_count: 331
 ---
-
 # Stop complaining your internship for not doing something big
 
 Source: [Reddit Deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1leq4ke/stop_complaining_your_internship_for_not_doing/)

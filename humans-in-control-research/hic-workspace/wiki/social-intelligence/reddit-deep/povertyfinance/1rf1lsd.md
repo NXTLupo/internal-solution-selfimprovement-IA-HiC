@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1rf1lsd.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1rf1lsd/i_saw_a_recent_post_where_someone_was_financially/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,110 @@ flair: "Misc Advice"
 extracted_at: "2026-05-16T20:55:12.681Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, healthcare]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rf1lsd.md#c0"
+    char_span: [0, 2357]
+    sentence_count: 27
+    key_terms: [pet, advice, people, because, povertyfinance, figure, financially, care]
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rf1lsd.md#c1"
+    char_span: [2359, 3345]
+    sentence_count: 15
+    key_terms: [medical, income, costs, years, safe, having, humane, pookie]
+    token_count: 222
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rf1lsd.md#c2"
+    char_span: [3360, 5488]
+    sentence_count: 14
+    key_terms: [cost, foster, meds, society, through, afford, humane, pay]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rf1lsd.md#c3"
+    char_span: [5239, 5693]
+    sentence_count: 4
+    key_terms: [floppyferrett1, dramatically, gratifying, incredibly, emaciated, fostering, vagabonne, horrible]
+    section: Comments
+    token_count: 126
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rf1lsd.md#c4"
+    char_span: [5695, 7710]
+    sentence_count: 14
+    key_terms: [pet, best, dog, get, plus, insurance, option, people]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rf1lsd.md#c5"
+    char_span: [7712, 9471]
+    sentence_count: 18
+    key_terms: [vet, dog, surgery, year, emergency, something, handle, "that's"]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rf1lsd.md#c6"
+    char_span: [9474, 10944]
+    sentence_count: 10
+    key_terms: [vet, water, somehow, ignore, visits, excellent-piglet8217, until, back]
+    section: Comments
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rf1lsd.md#c7"
+    char_span: [10946, 11729]
+    sentence_count: 8
+    key_terms: [prescription, "i'm", getting, without, cat, food, got, life]
+    section: Comments
+    token_count: 190
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rf1lsd.md#c8"
+    char_span: [11731, 13241]
+    sentence_count: 10
+    key_terms: [month, though, prescription, afford, almost, kittykittycatcat1000, "she's", shots]
+    section: Comments
+    token_count: 381
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rf1lsd.md#c9"
+    char_span: [13243, 14620]
+    sentence_count: 9
+    key_terms: [vets, expensive, important, quality, afford, people, "can't", often]
+    section: Comments
+    token_count: 292
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rf1lsd.md#c10"
+    char_span: [14622, 16635]
+    sentence_count: 20
+    key_terms: [people, years, dog, vet, please, cat, another, usually]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rf1lsd.md#c11"
+    char_span: [16365, 17623]
+    sentence_count: 13
+    key_terms: [dog, checkups, vaccines, wellness, another, regular, annual, senior]
+    section: Comments
+    token_count: 304
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rf1lsd.md#c12"
+    char_span: [17625, 18779]
+    sentence_count: 8
+    key_terms: [pet, paycheck, ceiling, savings, figure, fluffy, lastunbannedaccount, phoenixrisingtoday]
+    section: Comments
+    token_count: 290
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rf1lsd.md#c13"
+    char_span: [18781, 20148]
+    sentence_count: 7
+    key_terms: [emergency, insurance, probably, pet, old, nba2k11er, audacesfortunajuvat, lastunbannedaccount]
+    section: Comments
+    token_count: 366
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rf1lsd.md#c14"
+    char_span: [20153, 21558]
+    sentence_count: 13
+    key_terms: [insurance, pet, emergency, card, dog, got, groomer, nibbles]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rf1lsd.md#c15"
+    char_span: [21560, 23499]
+    sentence_count: 16
+    key_terms: [https, old, vet, year, resources, coverage, expenses, exactly]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rf1lsd.md#c16"
+    char_span: [23218, 23720]
+    sentence_count: 6
+    key_terms: [monkeymoves101, financial, something, remarkable-host405, financially, responsible, thousands, "could've"]
+    section: Comments
+    token_count: 120
 ---
-
 # I saw a recent post where someone was financially devastated by vet bills. I wanted to share some general advice.
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1rf1lsd/i_saw_a_recent_post_where_someone_was_financially/)

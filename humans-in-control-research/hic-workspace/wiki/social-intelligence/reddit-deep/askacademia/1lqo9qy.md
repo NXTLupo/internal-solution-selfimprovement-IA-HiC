@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1lqo9qy.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1lqo9qy/struggling_with_phd_student_who_isnt/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,50 @@ flair: "Interpersonal Issues"
 extracted_at: "2026-05-26T14:32:49.121Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1lqo9qy.md#c0"
+    char_span: [0, 2015]
+    sentence_count: 10
+    key_terms: [student, students, instructions, askacademia, scholarship, supervision, phd, engagement]
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/askacademia/1lqo9qy.md#c1"
+    char_span: [2017, 4383]
+    sentence_count: 12
+    key_terms: [because, primary, supervisor, issue, like, work, incredibly, deadlines]
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/askacademia/1lqo9qy.md#c2"
+    char_span: [4398, 5720]
+    sentence_count: 7
+    key_terms: [student, issues, help, already, unable, antiquearachnid9380, back, step]
+    section: Comments
+    token_count: 259
+  - id: "social-intelligence/reddit-deep/askacademia/1lqo9qy.md#c3"
+    char_span: [5722, 7527]
+    sentence_count: 20
+    key_terms: [students, professional, struggling, mentoring, learning, because, choices, faculty]
+    section: Comments
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/askacademia/1lqo9qy.md#c4"
+    char_span: [7529, 9779]
+    sentence_count: 19
+    key_terms: [student, health, issues, mental, sounds, communicate, interaction, does]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/askacademia/1lqo9qy.md#c5"
+    char_span: [9781, 11513]
+    sentence_count: 13
+    key_terms: [student, imagine, doing, adhd, back, let, like, accomodations]
+    section: Comments
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/askacademia/1lqo9qy.md#c6"
+    char_span: [11515, 13440]
+    sentence_count: 18
+    key_terms: [student, support, experience, phd, english, master, topic, years]
+    section: Comments
+    token_count: 394
 ---
-
 # Struggling with PhD student who isn’t communicating needs
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1lqo9qy/struggling_with_phd_student_who_isnt/)

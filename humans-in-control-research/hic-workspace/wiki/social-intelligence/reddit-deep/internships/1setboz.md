@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1setboz.md
 url: "https://www.reddit.com/r/internships/comments/1setboz/feeling_like_a_loser_i_havent_got_a_summer_intern/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,46 @@ subreddit: "internships"
 title: "Feeling like a loser i havent got a summer intern for 2026"
 author: "Wild-Ad-2346"
 date: "2026-04-07T11:31:41.000Z"
-score: 38
-upvote_ratio: 0.98
+score: 41
+upvote_ratio: 1
 num_comments: 17
 flair: "Interviews"
-extracted_at: "2026-05-22T13:32:14.556Z"
+extracted_at: "2026-06-06T16:39:04.096Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1setboz.md#c0"
+    char_span: [0, 2199]
+    sentence_count: 1
+    key_terms: [experience, internship, companies, almabase, enough, right, internships, kong]
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/internships/1setboz.md#c1"
+    char_span: [2201, 4680]
+    sentence_count: 1
+    key_terms: [interview, round, process, kong, went, hiring, asked, experience]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/internships/1setboz.md#c2"
+    char_span: [4682, 4741]
+    sentence_count: 1
+    key_terms: [pls, futher, help, tips, use]
+    token_count: 15
+  - id: "social-intelligence/reddit-deep/internships/1setboz.md#c3"
+    char_span: [4756, 6794]
+    sentence_count: 14
+    key_terms: [internship, wild-ad-2346, people, get, keep, projects, these-age-4667, resume]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1setboz.md#c4"
+    char_span: [6506, 7878]
+    sentence_count: 9
+    key_terms: [handshake, applying, projects, prachub, future, bills, https, start]
+    section: Comments
+    token_count: 358
 ---
-
 # Feeling like a loser i havent got a summer intern for 2026
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1setboz/feeling_like_a_loser_i_havent_got_a_summer_intern/)
-Posted by **Wild-Ad-2346** · **38↑** · **17 comments**
+Posted by **Wild-Ad-2346** · **41↑** · **17 comments**
 
 hi there
 

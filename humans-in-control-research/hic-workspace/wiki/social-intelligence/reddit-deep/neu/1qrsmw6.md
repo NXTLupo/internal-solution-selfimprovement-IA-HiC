@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1qrsmw6.md
 url: "https://www.reddit.com/r/NEU/comments/1qrsmw6/ms_in_ai_cv_at_neu_boston_worth_accepting_if_my/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,16 @@ score: 3
 upvote_ratio: 1
 num_comments: 1
 flair: "Co-op & Career"
-extracted_at: "2026-05-26T14:30:23.764Z"
+extracted_at: "2026-06-05T16:17:50.283Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1qrsmw6.md#c0"
+    char_span: [0, 2205]
+    sentence_count: 9
+    key_terms: [engineering, neu, concentration, roles, data, program, boston, dueinspection3568]
+    token_count: 494
 ---
-
 # MS in AI (CV) at NEU Boston — worth accepting if my goal is Data Engineering?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1qrsmw6/ms_in_ai_cv_at_neu_boston_worth_accepting_if_my/)

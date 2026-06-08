@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-povertyfinance/df4d9fff34.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1mz7uy0/stop_stereotyping_people_on_welfare_you_wouldnt/"
 url_hash: "df4d9fff34"
 kind: "article"
@@ -10,8 +11,30 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-16T21:01:06.558615+00:00"
 chars: 5908
+industries: [government, policy]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-povertyfinance/df4d9fff34.md#c0"
+    char_span: [0, 1738]
+    sentence_count: 14
+    key_terms: [people, bad, povertyfinance, school, work, full-time, because, daycare]
+    token_count: 416
+  - id: "articles/reddit-deep-r-povertyfinance/df4d9fff34.md#c1"
+    char_span: [1740, 3208]
+    sentence_count: 16
+    key_terms: [kids, because, don, pick, time, government, pathetic, parents]
+    token_count: 354
+  - id: "articles/reddit-deep-r-povertyfinance/df4d9fff34.md#c2"
+    char_span: [3212, 4502]
+    sentence_count: 9
+    key_terms: [pay, because, able, childcare, homeless, housing, section, without]
+    token_count: 319
+  - id: "articles/reddit-deep-r-povertyfinance/df4d9fff34.md#c3"
+    char_span: [4505, 6139]
+    sentence_count: 8
+    key_terms: [section, people, issue, place, find, got, because, couldn]
+    token_count: 393
 ---
-
 # Stop Stereotyping People on Welfare – You Wouldn’t Survive a Day in Our Shoes
 
 Source: [Reddit Deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1mz7uy0/stop_stereotyping_people_on_welfare_you_wouldnt/)

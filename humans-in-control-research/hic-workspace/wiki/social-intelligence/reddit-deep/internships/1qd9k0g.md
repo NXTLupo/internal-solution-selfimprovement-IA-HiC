@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1qd9k0g.md
 url: "https://www.reddit.com/r/internships/comments/1qd9k0g/high_school_student_looking_for_a_research_or/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "General"
 extracted_at: "2026-05-25T15:51:38.717Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1qd9k0g.md#c0"
+    char_span: [0, 775]
+    sentence_count: 6
+    key_terms: [research, student, school, internships, high, experience, internship, comments]
+    token_count: 177
+  - id: "social-intelligence/reddit-deep/internships/1qd9k0g.md#c1"
+    char_span: [790, 2167]
+    sentence_count: 12
+    key_terms: [guptaprateeek, opportunities, development, kshatralabs, contribute, business, market, high]
+    section: Comments
+    token_count: 313
 ---
-
 # High school student looking for a research or internship opportunity
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1qd9k0g/high_school_student_looking_for_a_research_or/)

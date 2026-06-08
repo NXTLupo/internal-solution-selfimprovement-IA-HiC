@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1ryivqa.md
 url: "https://www.reddit.com/r/waterloo/comments/1ryivqa/jobs/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.128Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1ryivqa.md#c0"
+    char_span: [0, 623]
+    sentence_count: 5
+    key_terms: [opportunities, "i'm", comments, waterloo, job, jobs, reddit-deep, everywhere]
+    token_count: 151
+  - id: "social-intelligence/reddit-deep/waterloo/1ryivqa.md#c1"
+    char_span: [638, 1911]
+    sentence_count: 10
+    key_terms: [like, https, employment, now-hiring, starlingcs, recommend, herrles, student]
+    section: Comments
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/waterloo/1ryivqa.md#c2"
+    char_span: [1913, 3478]
+    sentence_count: 11
+    key_terms: [hiring, jobs, students, sumknowbuddy, positions, westmount, "harvey's", location]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/waterloo/1ryivqa.md#c3"
+    char_span: [3480, 4395]
+    sentence_count: 8
+    key_terms: [service, years, job, jobs, blackwoodjohnson, nursestephykat, frustrations, professional]
+    section: Comments
+    token_count: 243
 ---
-
 # jobs
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1ryivqa/jobs/)

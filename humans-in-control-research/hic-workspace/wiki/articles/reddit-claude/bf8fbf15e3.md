@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-claude/bf8fbf15e3.md
 url: "https://reddit.com/r/claude/comments/1sk36n3/there_is_absolutely_no_way_this_is_the_same_opus/"
 url_hash: "bf8fbf15e3"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T13:51:48.570065+00:00"
 chars: 645
+industries: [ai_research, saas]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-claude/bf8fbf15e3.md#c0"
+    char_span: [0, 842]
+    sentence_count: 10
+    key_terms: [model, absolutely, problems, schedule, claude, reddit, month, today]
+    token_count: 217
 ---
-
 # There is absolutely no way this is the same Opus 4.6 from a month ago
 
 Source: [reddit: claude](https://reddit.com/r/claude/comments/1sk36n3/there_is_absolutely_no_way_this_is_the_same_opus/)

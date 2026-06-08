@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1pe6hf3.md
 url: "https://www.reddit.com/r/findapath/comments/1pe6hf3/indians_working_in_europe_except_germany_what/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,21 @@ flair: "Findapath-Career Change"
 extracted_at: "2026-05-25T13:04:07.384Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1pe6hf3.md#c0"
+    char_span: [0, 1002]
+    sentence_count: 6
+    key_terms: [comments, europe, opportunities, did, operations, findapath, germany, career]
+    token_count: 239
+  - id: "social-intelligence/reddit-deep/findapath/1pe6hf3.md#c1"
+    char_span: [1017, 2334]
+    sentence_count: 10
+    key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
+    section: Comments
+    token_count: 299
 ---
-
 # Indians working in Europe (except Germany) — what career paths actually worked for you?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1pe6hf3/indians_working_in_europe_except_germany_what/)

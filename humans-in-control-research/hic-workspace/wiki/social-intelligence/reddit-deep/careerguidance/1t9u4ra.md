@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t9u4ra.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t9u4ra/22_years_old_ba_english_graduate_no_job_no/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,16 @@ score: 1
 upvote_ratio: 1
 num_comments: 0
 flair: ""
-extracted_at: "2026-05-23T20:15:29.974Z"
+extracted_at: "2026-06-06T00:28:11.721Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t9u4ra.md#c0"
+    char_span: [0, 1403]
+    sentence_count: 16
+    key_terms: [like, english, careerguidance, career, need, comments, guidance, earning]
+    token_count: 331
 ---
-
 # 22 Years Old, BA English Graduate, No Job, No Direction — Need Genuine Career Advice 2. Feeling Like a Failure After BA English Honours — What Should I Do Next? 3. Arts Student Feeling Lost in Life — Need Guidance From Experienced People 4. I’m 22 and Still Not Earning Anything — Need Career A
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t9u4ra/22_years_old_ba_english_graduate_no_job_no/)

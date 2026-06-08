@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1mouqzh.md
 url: "https://www.reddit.com/r/waterloo/comments/1mouqzh/what_the_hell_happened_to_alam_at_that_uni/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.129Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1mouqzh.md#c0"
+    char_span: [0, 269]
+    sentence_count: 1
+    key_terms: [comments, waterloo, reddit-deep, happened, posted, reddit, source, https]
+    token_count: 85
+  - id: "social-intelligence/reddit-deep/waterloo/1mouqzh.md#c1"
+    char_span: [284, 2031]
+    sentence_count: 17
+    key_terms: [card, minimumrest7893, lyric, bigepidural, like, remember, teyhasfk, waterloo]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/waterloo/1mouqzh.md#c2"
+    char_span: [2033, 3112]
+    sentence_count: 3
+    key_terms: [student, card, postgrad, punched, themanofstruggle, understanding, sarahstanley, unimaginable]
+    section: Comments
+    token_count: 301
 ---
-
 # What the hell happened to Alam at that uni
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1mouqzh/what_the_hell_happened_to_alam_at_that_uni/)

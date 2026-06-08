@@ -10,9 +10,9 @@ score: 140
 upvote_ratio: 0.76
 num_comments: 74
 flair: "Findapath-Job Choice/Clarity"
-extracted_at: "2026-05-22T15:13:18.832Z"
+extracted_at: "2026-06-06T23:22:15.476Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # 28F, entire life changed from multi-millionaire lifestyle to homeless, I need hope
@@ -54,23 +54,23 @@ Thank you for any and all advice.
 
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/findapath) if you have any questions or concerns.*
-- **notyourstranger** (128↑): I encourage you to read the book "why does he do that?" by Lundy Bancroft. You can read if for free [here](https://freebooksmania.com/2021/01/why-does-he-do-that-pdf-free-download-by-lundy-bancroft.html) 
+- **notyourstranger** (129↑): I encourage you to read the book "why does he do that?" by Lundy Bancroft. You can read if for free [here](https://freebooksmania.com/2021/01/why-does-he-do-that-pdf-free-download-by-lundy-bancroft.html) 
 
 You have been manipulated for 7 years. It's no wonder you don't know who you are and what you want. I think you need to go back to what you used to love and explore from there. Take classes that interest you. Maybe don't take a full load so you don't burn out too quick with work too. Do you very best to not take out loans, they enslave you to banks and shitty jobs you can't afford to quit. 
 
 $17/hour is exploitative in today's US. You need more money. 
 
 You were an athlete and interested in physiology. Do you think there's a way to make $$ as a coach or trainer? What did you learn from living 'that lifestyle' that can benefit you now? Any good connections you can reach out to? Can you do things like event planning and management?
-- **BreakItEven** (21↑): Did you have an allowance or any savings from it?
-  - **Hour-Print8519** (28↑): I did not. Everything was purchased on credit cards or through a business account so I did leave with nothing. I have been saving my income for emergency expenses currently. My job also does not allow OT, I took this job because it allowed me some freedom and reassurance in a field I was interested in but I am not pursuing a long term career in. I have not been provided any more opportunities to grow in this job so I am looking to my next stepping stone.
+- **BreakItEven** (19↑): Did you have an allowance or any savings from it?
+  - **Hour-Print8519** (29↑): I did not. Everything was purchased on credit cards or through a business account so I did leave with nothing. I have been saving my income for emergency expenses currently. My job also does not allow OT, I took this job because it allowed me some freedom and reassurance in a field I was interested in but I am not pursuing a long term career in. I have not been provided any more opportunities to grow in this job so I am looking to my next stepping stone.
     - **Sweaty_Reputation650** (6↑): Nursing would be the smartest choice.
 - **salty-mind** (15↑): Hey, I am sorry you went through all of that, I hope everything works out for you
-- **TheHungryRabbit** (5↑): It's hard. I don't have this situation but I'm similar in a way that I'm also 28 and my parents give a job at our family company and let me stay with them, so all of my stuff is payed for me, I can drive their cars too, but I still feel like I have no control over my life, or if I don't want to listen to their stuff anymore, I have to because I could not find a job in my field for years and it sucks because I can't move forward without them.
+- **TheHungryRabbit** (6↑): It's hard. I don't have this situation but I'm similar in a way that I'm also 28 and my parents give a job at our family company and let me stay with them, so all of my stuff is payed for me, I can drive their cars too, but I still feel like I have no control over my life, or if I don't want to listen to their stuff anymore, I have to because I could not find a job in my field for years and it sucks because I can't move forward without them.
 - **CapitalAd4933** (11↑): I’m actually going through something similar-ish, divorced stay at home spouse that had a comfortable life (not billionaire status though) but experienced lots of emotional abuse, especially the last few years. I think what we are experiencing is grief, grief for the loss of the relationship, and for the life we know/had, and of course trauma from the abuse. I’m looking into get therapy for both, otherwise I don’t know how I’ll ever get over it. And I completely understand the shock to your system, I might be the only commenter here who does. You are doing really well working already though, I haven’t managed to sort that out completely yet myself. I was luckily to walk away with some assets, since we were married for a long time
 
 
 Fell free to message if you need someone to talk to
-- **crazydressagelady** (5↑): If you were an equestrian, why not flip into a working student or trainer position where your housing and utilities are covered? At 28 and given that you were training for 2028/have FEI groom experience, you should have the resume to immediately hop on 10-12 rides and manage a barn. Not having a horse (assuming everything horse related was in boyfriend’s name) shouldn’t be an issue. Have you spoken to your trainer? The equestrian community can be there for you if you’re willing to work. 
+- **crazydressagelady** (4↑): If you were an equestrian, why not flip into a working student or trainer position where your housing and utilities are covered? At 28 and given that you were training for 2028/have FEI groom experience, you should have the resume to immediately hop on 10-12 rides and manage a barn. Not having a horse (assuming everything horse related was in boyfriend’s name) shouldn’t be an issue. Have you spoken to your trainer? The equestrian community can be there for you if you’re willing to work. 
 
 I walked away from a multimillionaire lifestyle in 2014 to manage a barn 1000+ miles from my abuser. I slept in my car the first month. It sucked but I gained a sense of agency and accomplishment, I ended up getting my horse back, I was able to work my way up nearly to the position you were in prior to your breakup (FEI groom, managed a barn in Florida for an Olympian, etc) and while I didn’t pursue a relationship while in Florida/amongst that level of wealth, it sounds as if you are already very used to how to forge connections amongst the ultra wealthy. Why not use them to find a working relationship like Jan Ebeling/the Romneys have (to use the most dramatic example) or more realistically, several of them? It’s called being a trainer and you’ve got the skill set. 
 
@@ -80,15 +80,15 @@ My point here is you’re an equestrian, you’re a problem solver, you can do t
 - **Temporary-Detail-400** (3↑): Damn that sucks ass. Find a top level trainer for your discipline and be their working student. Do you have a horse/s you were going to compete on? If you’re a working student then your costs may be covered until 2028?
 
 Alternative is sell the horses for $$$$$, and go to school for something (nursing, rad, etc). Then get back into riding later when you have the cash for it…..we all know they ain’t cheap 🥲
-  - **Neopint15** (6↑): Bad bad idea with horses. We have a saying in the horse world “to make a small fortune, you need to start with a large fortune.” It’s not really a place to make money in unless you have your own barn and horses to breed that you can sell/flip without much expense at all. Otherwise, it is a huge money hole and you need a secondary source of income to back things up. 
+  - **Neopint15** (4↑): Bad bad idea with horses. We have a saying in the horse world “to make a small fortune, you need to start with a large fortune.” It’s not really a place to make money in unless you have your own barn and horses to breed that you can sell/flip without much expense at all. Otherwise, it is a huge money hole and you need a secondary source of income to back things up. 
 
 I do agree with going for something stable though.
     - **Temporary-Detail-400** (1↑): If she was an on site working student trying to qualify for 2028 her costs would mostly be covered outside of show fees. She would most likely need to move to FL and crowd fund to make Olympics a reality. I ride so I get it. I’m not ignorant. I know there is no money in horses. I was saying she should sell the GP horses she has for the six figures they are worth (assuming gp level/i1/i2 if she wanted to go to the Olympics)
   - **Hour-Print8519** (2↑): I don’t have any horses right now, my horse died. 
 I wasn’t training in Equestrian for 2028, it was a different sport. I’ve worked for some top level trainers in the industry and really want to not tie my job to my house in case I need to get out of a bad situation in the horse world, that it doesn’t render me scrambling without housing.
     - **Temporary-Detail-400** (1↑): No fs not, I thought you’d do that if you were trying to qualify for equestrian. You should just go to school instead….
-- **fredotwoatatime** (10↑): I hope things work out for you
-  - **Hour-Print8519** (2↑): Thank you :)
+- **fredotwoatatime** (8↑): I hope things work out for you
+  - **Hour-Print8519** (1↑): Thank you :)
     - **FlairPointsBot** (-12↑): Thank you for confirming that /u/fredotwoatatime has provided helpful advice for you. 1 point awarded.
 - **Sunlight72** (4↑): I don’t imagine it is the right time for this thought yet. You really need to heal and become your own, present person.
 
@@ -104,7 +104,7 @@ Perhaps you could work with someone like that, and later become an independent s
 
 Best wishes.
   - **dogunmyrkur** (4↑): Strongly agree with this. OP, you likely developed a lot of soft skills just by being immersed in that lifestyle that will help you as you find your way. Even something like fine dining etiquette are things that can absolutely help in a number of careers. Or be a career/side hustle itself if you taught it.
-  - **jacuzziwarmer7** (3↑): This is what poor people think the life of the rich is like. Those deals are about leverage not "grace". 
+  - **jacuzziwarmer7** (4↑): This is what poor people think the life of the rich is like. Those deals are about leverage not "grace". 
 
 
 This girl needs to move on and build the grit here to start her own life and not fantasize about the possibility of somehow getting an easy way again. Then she should on this basis try to quickly use the last mile of her youth to find a dentist or something to marry.

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rce5pr.md
 url: "https://www.reddit.com/r/internships/comments/1rce5pr/looking_for_advice_on_an_internship_offer_i/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 5
 flair: "Offers"
-extracted_at: "2026-05-25T18:31:15.453Z"
+extracted_at: "2026-06-03T17:24:13.605Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rce5pr.md#c0"
+    char_span: [0, 2106]
+    sentence_count: 19
+    key_terms: [internship, job, advice, decent, month, internships, role, experience]
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/internships/1rce5pr.md#c1"
+    char_span: [2121, 2735]
+    sentence_count: 3
+    key_terms: [feralunity, remote, traditional-roof1663, month, "i'd", role, try, manojbakshikumar]
+    section: Comments
+    token_count: 184
 ---
-
 # Looking for advice on an internship offer I received recently
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rce5pr/looking_for_advice_on_an_internship_offer_i/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1ml0zcj.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1ml0zcj/junior_in_cs_feeling_lost_i_like_simple_coding/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,38 @@ flair: "Student"
 extracted_at: "2026-05-23T19:45:00.916Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ml0zcj.md#c0"
+    char_span: [0, 2072]
+    sentence_count: 15
+    key_terms: [like, never, cscareerquestions, projects, friends, coding, doing, competitive]
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ml0zcj.md#c1"
+    char_span: [2074, 2655]
+    sentence_count: 7
+    key_terms: [don, been, feel, kind, like, essentially, compared, interest]
+    token_count: 139
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ml0zcj.md#c2"
+    char_span: [2670, 4749]
+    sentence_count: 30
+    key_terms: [discipline, doing, don, whatever, cares, enjoy, start, lost]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ml0zcj.md#c3"
+    char_span: [4751, 6745]
+    sentence_count: 19
+    key_terms: [don, pivot, everyone, start, like, need, okay, management]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ml0zcj.md#c4"
+    char_span: [6747, 8679]
+    sentence_count: 13
+    key_terms: [management, career, projects, coordination, roles, need, want, strengths]
+    section: Comments
+    token_count: 380
 ---
-
 # Junior in CS feeling lost. I like simple coding but not hardcore SWE, no internships, friends way ahead, need honest advice
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1ml0zcj/junior_in_cs_feeling_lost_i_like_simple_coding/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1mqpqz4.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1mqpqz4/list_of_chatgpt_prompts_which_could_be_exactly/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,45 @@ flair: "Prompt engineering "
 extracted_at: "2026-05-17T01:12:48.212Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1mqpqz4.md#c0"
+    char_span: [0, 291]
+    sentence_count: 1
+    key_terms: [chatgpt, comments, practical-remote-183, reddit-deep, exactly, prompts, posted, reddit]
+    token_count: 87
+  - id: "social-intelligence/reddit-deep/chatgpt/1mqpqz4.md#c1"
+    char_span: [306, 2053]
+    sentence_count: 11
+    key_terms: [chatgpt, please, openai, prompt, conversation, intelligence, image, super]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/chatgpt/1mqpqz4.md#c2"
+    char_span: [2055, 3694]
+    sentence_count: 8
+    key_terms: [important, lot, want, prompts, thomaswhitmore, "don't", ask, language]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/chatgpt/1mqpqz4.md#c3"
+    char_span: [3696, 5617]
+    sentence_count: 9
+    key_terms: [prompt, pixels, practical-remote-183, guide, human, image, thank, add]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1mqpqz4.md#c4"
+    char_span: [5431, 5828]
+    sentence_count: 2
+    key_terms: [ordinarylandscape999, illiilliilliill, prompstitutes, organization, engineering, randomboy89, expecting, mysteryy7]
+    section: Comments
+    token_count: 134
+  - id: "social-intelligence/reddit-deep/chatgpt/1mqpqz4.md#c5"
+    char_span: [5830, 6558]
+    sentence_count: 5
+    key_terms: [ask, questions, chatgpt, people, prompt, farewellsovereignty, grofvolkoren, unironically]
+    section: Comments
+    token_count: 205
 ---
-
 # List of ChatGPT prompts which could be exactly what you need
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1mqpqz4/list_of_chatgpt_prompts_which_could_be_exactly/)

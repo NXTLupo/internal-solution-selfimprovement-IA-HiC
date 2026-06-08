@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t6bfe2.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t6bfe2/why_do_people_call_the_usa_the_land_of/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,111 @@ flair: ""
 extracted_at: "2026-05-22T23:34:01.152Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c0"
+    char_span: [0, 777]
+    sentence_count: 7
+    key_terms: [careerguidance, people, opportunity, expensive, comments, here, job, land]
+    token_count: 187
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c1"
+    char_span: [792, 2690]
+    sentence_count: 17
+    key_terms: [people, texas, collapsing, stories, better, living, missed, mostly]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c2"
+    char_span: [2692, 3932]
+    sentence_count: 15
+    key_terms: ["you're", glittering-let-2888, "don't", wages, world, waaaaaaaaaaaaaaaay, common-swing-4347, "i'm"]
+    section: Comments
+    token_count: 353
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c3"
+    char_span: [3934, 6088]
+    sentence_count: 16
+    key_terms: [people, good, race, "it's", business, religion, family, "that's"]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c4"
+    char_span: [5802, 7926]
+    sentence_count: 13
+    key_terms: [caste, limitations, hard, home, blatantly, business, country, imagine]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c5"
+    char_span: [7928, 9709]
+    sentence_count: 13
+    key_terms: [people, countries, working, access, harder, top, repeatedly, education]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c6"
+    char_span: [9711, 11118]
+    sentence_count: 13
+    key_terms: [countries, business, country, asianaddict247, family, "don't", nepotism, america]
+    section: Comments
+    token_count: 338
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c7"
+    char_span: [11120, 13044]
+    sentence_count: 10
+    key_terms: [countries, difficult, business, because, "you're", "don't", engineering, high]
+    section: Comments
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c8"
+    char_span: [13047, 15044]
+    sentence_count: 17
+    key_terms: [people, america, countries, opportunities, here, talking, better, canada]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c9"
+    char_span: [15046, 16319]
+    sentence_count: 6
+    key_terms: [median, canada, engineering, top, different, higher, mostly, salary]
+    section: Comments
+    token_count: 312
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c10"
+    char_span: [16322, 18390]
+    sentence_count: 17
+    key_terms: [people, countries, usa, family, good, jobs, won, work]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c11"
+    char_span: [18392, 20452]
+    sentence_count: 15
+    key_terms: [countries, country, living, people, significantly, etc, like, developing]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c12"
+    char_span: [20454, 22675]
+    sentence_count: 13
+    key_terms: [healthcare, people, country, doing, expensive, insurance, better, bit]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c13"
+    char_span: [22677, 24413]
+    sentence_count: 7
+    key_terms: [countries, paying, high, better, middle, class, job, like]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c14"
+    char_span: [24415, 26243]
+    sentence_count: 19
+    key_terms: [recruiters, multiple, cousins, degree, europe, drove, means, notimeforniceties]
+    section: Comments
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c15"
+    char_span: [26245, 28306]
+    sentence_count: 17
+    key_terms: [people, high, jobs, country, guaranteed, drinking, problem, success]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6bfe2.md#c16"
+    char_span: [28308, 28748]
+    sentence_count: 3
+    key_terms: [easier, guy, lot, futurethonk, proficient, countries, repairing, unskilled]
+    section: Comments
+    token_count: 101
 ---
-
 # Why do people call the USA the "land of opportunity" when literally no one can get a high paying job?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t6bfe2/why_do_people_call_the_usa_the_land_of/)

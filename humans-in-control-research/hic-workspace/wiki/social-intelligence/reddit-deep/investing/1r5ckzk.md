@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1r5ckzk.md
 url: "https://www.reddit.com/r/investing/comments/1r5ckzk/netherlands_parliament_passes_insane_new_law_to/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,75 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.190Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, government, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1r5ckzk.md#c0"
+    char_span: [0, 1083]
+    sentence_count: 8
+    key_terms: [investments, dutch-lawmakers-advance-36-capital-092300720, tax, unrealized, investing, comments, capital, crypto]
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/investing/1r5ckzk.md#c1"
+    char_span: [1098, 3410]
+    sentence_count: 13
+    key_terms: [people, needs, tax, already, because, returns, money, old]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/investing/1r5ckzk.md#c2"
+    char_span: [3412, 4980]
+    sentence_count: 7
+    key_terms: [unrealized, gains, sense, worth, net, dragon, losses, offset]
+    section: Comments
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/investing/1r5ckzk.md#c3"
+    char_span: [4982, 6526]
+    sentence_count: 9
+    key_terms: [people, being, investments, year, government, pensioners, spending, bracket]
+    section: Comments
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/investing/1r5ckzk.md#c4"
+    char_span: [6529, 7469]
+    sentence_count: 8
+    key_terms: [better, social, sweden, worked, sense, get, hard, like]
+    section: Comments
+    token_count: 246
+  - id: "social-intelligence/reddit-deep/investing/1r5ckzk.md#c5"
+    char_span: [7472, 8821]
+    sentence_count: 6
+    key_terms: [tax, unrealized, gains, sense, "it's", bitcoinoperatedgirl, immodestpolitician, successfulsir9611]
+    section: Comments
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/investing/1r5ckzk.md#c6"
+    char_span: [8823, 9768]
+    sentence_count: 4
+    key_terms: [politicians, like, few-engineering9803, right, tax, moonrust-app, calculation, netherlands]
+    section: Comments
+    token_count: 242
+  - id: "social-intelligence/reddit-deep/investing/1r5ckzk.md#c7"
+    char_span: [9770, 11349]
+    sentence_count: 7
+    key_terms: [rich, people, reason, population, deficit, society, whoever, without]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/investing/1r5ckzk.md#c8"
+    char_span: [11351, 12988]
+    sentence_count: 6
+    key_terms: [stop-belasting-op-papieren-winst-behoud-rente-op-rente-voor-de-kleine-spaarder, people, bureaucracy, rich, capitalism, million, poverty, losing]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/investing/1r5ckzk.md#c9"
+    char_span: [12990, 14463]
+    sentence_count: 9
+    key_terms: [capital, dutch, tax, company, wealth, constructions, professionals, individuals]
+    section: Comments
+    token_count: 324
+  - id: "social-intelligence/reddit-deep/investing/1r5ckzk.md#c10"
+    char_span: [14466, 15726]
+    sentence_count: 7
+    key_terms: [stop-belasting-op-papieren-winst-behoud-rente-op-rente-voor-de-kleine-spaarder, tax, gains, people, unrealised, increase, bracket, few-engineering9803]
+    section: Comments
+    token_count: 333
 ---
-
 # Netherlands parliament passes insane new law to crush investors
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1r5ckzk/netherlands_parliament_passes_insane_new_law_to/)

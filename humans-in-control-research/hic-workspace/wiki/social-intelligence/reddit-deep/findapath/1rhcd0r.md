@@ -6,19 +6,19 @@ subreddit: "findapath"
 title: "Barista with a Bachelors. Where to go from here?"
 author: "Afraid-Inside4891"
 date: "2026-02-28T19:59:43.000Z"
-score: 81
+score: 79
 upvote_ratio: 0.95
 num_comments: 43
 flair: "Findapath-Job Choice/Clarity"
-extracted_at: "2026-05-22T15:13:18.830Z"
+extracted_at: "2026-06-06T23:22:15.475Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Barista with a Bachelors. Where to go from here?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1rhcd0r/barista_with_a_bachelors_where_to_go_from_here/)
-Posted by **Afraid-Inside4891** · **81↑** · **43 comments**
+Posted by **Afraid-Inside4891** · **79↑** · **43 comments**
 
 I (24/F/USA) currently work as a barista at a very large chain of cafes (not naming it directly so it doesn't show up in searches, but you can probably guess). 
 
@@ -73,11 +73,11 @@ IN SHORT, I have no idea what I'm doing, what viable careers or career paths exi
 
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/findapath) if you have any questions or concerns.*
-- **Shoty6966-_-** (89↑): What’s the point of this subreddit if 85% of replies are just gonna be ai slop
-  - **Afraid-Inside4891** (29↑): Yeah, super frustrating. 
+- **Shoty6966-_-** (88↑): What’s the point of this subreddit if 85% of replies are just gonna be ai slop
+  - **Afraid-Inside4891** (30↑): Yeah, super frustrating. 
 
 If I wanted an AI response to my post, I would've just copy pasted it to some chatbot myself and skipped making a burner account. I posted it here because I wanted real opinions, out-of-the-box stuff I might not have thought of, and I was hoping for some responses from people who've been in similar situations to me. Luckily I've gotten a lot of good responses so far, but those AI ones are beyond useless.
-    - **Shoty6966-_-** (16↑): Yeah it’s so stupid. Also, I’m 25 in the US with a bachelors in economics working retail as a night manager who also got the family member ‘just work for the government’ vague hand wave. Good luck out there
+    - **Shoty6966-_-** (18↑): Yeah it’s so stupid. Also, I’m 25 in the US with a bachelors in economics working retail as a night manager who also got the family member ‘just work for the government’ vague hand wave. Good luck out there
 - **thebigmanhastherock** (20↑): A lot of people with your background end up going back to school for something like law. That can be pretty lucrative but it's hard work and competitive. 
 
 Also you can truly make a career doing just about anything if you are willing to expand what you do and work really hard. You can manage a cafe, open a cafe or a franchise.
@@ -90,8 +90,8 @@ As I’ve gotten older I’ve really noticed how success is often skilled based.
     - **lartinos** (2↑): I started an internet based business while I worked full time. Outside of school (2.5 GPA) I’ve always been a bit of a horse. That’s how I became an SM in my 20’s to begin with. 
 
 Eventually the last corporation put me on PIP so I gave them my 2 weeks.
-- **vegasaquinas** (17↑): I think you can teach English in China. It pays decent money. Know a few who did so.
-- **CHSummers** (12↑): I taught in a Chinese university, and many of the other foreign teachers did not have more than a BA. My understand is that the Chinese government kind of cracked down on the whole foreign English teacher business a few years ago, but I’m sure the underlying demand is still there.  
+- **vegasaquinas** (16↑): I think you can teach English in China. It pays decent money. Know a few who did so.
+- **CHSummers** (10↑): I taught in a Chinese university, and many of the other foreign teachers did not have more than a BA. My understand is that the Chinese government kind of cracked down on the whole foreign English teacher business a few years ago, but I’m sure the underlying demand is still there.  
 
 My hunch is that a job in China (or Taiwan) would get your language skills up to a level that you could use them in business, although you would never be competing directly against Chinese people.
 
@@ -102,11 +102,11 @@ I realize this is out of left field for you, but maybe look into military lingui
 
 That’s actually the route I plan on taking myself. Rather than stepping into a region or job market that’s dealing with an oversupply issue, similar to what we’re seeing in the U.S., it makes more sense to target a market experiencing the opposite flow, where demand is outpacing supply.
     - **CHSummers** (2↑): Very interesting. Could you share some of those agencies in Japan?
-- **United-Apartment-269** (12↑): You sound like a great candidate in any European think tank looking into policy strategy between Europe & Asia. Apply to grad. school in Europe & focus on becoming a researcher.
-- **TapTheForwardAssist** (13↑): Just to throw one option out there that could be strategic: have you considered joining the US military for an Intelligence job? You could ride out the bad economy in a steady job that gives you life experience and a security clearance, and then exit service in 4-5 years and go right into federal service or contracting, or use the GI Bill to get an MA first.
+- **United-Apartment-269** (11↑): You sound like a great candidate in any European think tank looking into policy strategy between Europe & Asia. Apply to grad. school in Europe & focus on becoming a researcher.
+- **TapTheForwardAssist** (14↑): Just to throw one option out there that could be strategic: have you considered joining the US military for an Intelligence job? You could ride out the bad economy in a steady job that gives you life experience and a security clearance, and then exit service in 4-5 years and go right into federal service or contracting, or use the GI Bill to get an MA first.
 
 I more or less ended up doing the above, not totally intentionally, but it worked for me.
-  - **Afraid-Inside4891** (11↑): I've definitely considered it. I'd love one of those jobs where they push you through a language school as part of your training, lol. 
+  - **Afraid-Inside4891** (10↑): I've definitely considered it. I'd love one of those jobs where they push you through a language school as part of your training, lol. 
 
 I will say current events have me a little wary about joining the military as of now - I'm not sure if those concerns are well-founded or not, my knowledge of that realm is extremely slim.
     - **TapTheForwardAssist** (3↑): It’s honestly pretty hard to tell, moment to moment. I joined before 9/11, then that happened and pretty quickly I deployed to war multiple times. Other folks signed up while we had two wars going on. A lot of it’s roll of the dice, but all the wars we’ve had in the last half-century have been relatively very low-casualty compared to previous wars.

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1rvvrvu.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rvvrvu/should_i_apply_to_questbridge_college_prep/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,26 @@ flair: "Application Question"
 extracted_at: "2026-05-24T14:08:39.592Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rvvrvu.md#c0"
+    char_span: [0, 1934]
+    sentence_count: 3
+    key_terms: [sophomore, applyingtocollege, year, college, program, questbridge, comments, scholars]
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rvvrvu.md#c1"
+    char_span: [1936, 2256]
+    sentence_count: 4
+    key_terms: [year, junior, coursework, confident, strongest, concerns, algebra, biggest]
+    token_count: 84
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rvvrvu.md#c2"
+    char_span: [2271, 2833]
+    sentence_count: 7
+    key_terms: [competitive, questbridge, optional, applied, rare-frosting-3514, got, sat, test]
+    section: Comments
+    token_count: 142
 ---
-
 # Should I Apply to Questbridge College Prep Scholars Program?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rvvrvu/should_i_apply_to_questbridge_college_prep/)

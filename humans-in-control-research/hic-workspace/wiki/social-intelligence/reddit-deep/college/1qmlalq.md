@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1qmlalq.md
 url: "https://www.reddit.com/r/college/comments/1qmlalq/i_was_given_confirmation_that_i_graduatedor_so_i/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,47 @@ subreddit: "college"
 title: "I was given confirmation that I graduated…or so I thought"
 author: "mylefttiddy"
 date: "2026-01-25T14:59:30.000Z"
-score: 145
+score: 142
 upvote_ratio: 0.97
 num_comments: 22
 flair: ""
-extracted_at: "2026-05-25T15:51:48.250Z"
+extracted_at: "2026-06-06T00:27:48.362Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1qmlalq.md#c0"
+    char_span: [0, 1910]
+    sentence_count: 16
+    key_terms: [college, graduation, happened, officially, university, situation, comments, because]
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/college/1qmlalq.md#c1"
+    char_span: [1912, 4117]
+    sentence_count: 28
+    key_terms: [degree, emails, email, university, receiving, requirements, list, graduation]
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/college/1qmlalq.md#c2"
+    char_span: [4132, 6387]
+    sentence_count: 16
+    key_terms: [advisor, graduation, graduate, application, active, semester, applied, degree]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1qmlalq.md#c3"
+    char_span: [6102, 7123]
+    sentence_count: 11
+    key_terms: [graduation, degree, grades, institution, "registrar's", depending, graduated, registrar]
+    section: Comments
+    token_count: 224
+  - id: "social-intelligence/reddit-deep/college/1qmlalq.md#c4"
+    char_span: [7125, 9276]
+    sentence_count: 14
+    key_terms: [graduation, "i've", requirements, students, courses, degree, "you're", hours]
+    section: Comments
+    token_count: 485
 ---
-
 # I was given confirmation that I graduated…or so I thought
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1qmlalq/i_was_given_confirmation_that_i_graduatedor_so_i/)
-Posted by **mylefttiddy** · **145↑** · **22 comments**
+Posted by **mylefttiddy** · **142↑** · **22 comments**
 
 \*UPDATE: I’ve contacted the registrars office at my previous university, and here’s what happened. Before I go into detail, my credits were all met, I completed everything I needed to, my graduation application was processed and accepted, and my gpa was well above the minimum requirement.
 
@@ -50,17 +79,17 @@ Edit(s): I applied to graduate and confirmed that my application went through an
 
 ## Comments
 
-- **msimms001** (100↑): When you say you talked to your advisor and everything, did you ever actually apply for graduation? Sounds like at every step, you just checked to see if you qualified, and never actually applied to graduate. At a lot of schools there's a few to apply to graduate too, but not all.
-  - **mylefttiddy** (63↑): I forgot to add this but yes, I applied to graduate when applications were first opened. I double checked that my application went through, and that it was accepted. At that point, my advisor and department confirmed that by the end of this semester, I would be done with my credits for my degree.
-    - **moxie-maniac** (63↑): You want to contact the Registrar's Office via email or phone.  They are the ones who manage graduation, not your advisor.
-    - **msimms001** (2↑): Then your next step would be to make an appointment with your advisor to talk it through with them
+- **msimms001** (102↑): When you say you talked to your advisor and everything, did you ever actually apply for graduation? Sounds like at every step, you just checked to see if you qualified, and never actually applied to graduate. At a lot of schools there's a few to apply to graduate too, but not all.
+  - **mylefttiddy** (62↑): I forgot to add this but yes, I applied to graduate when applications were first opened. I double checked that my application went through, and that it was accepted. At that point, my advisor and department confirmed that by the end of this semester, I would be done with my credits for my degree.
+    - **moxie-maniac** (61↑): You want to contact the Registrar's Office via email or phone.  They are the ones who manage graduation, not your advisor.
+    - **msimms001** (1↑): Then your next step would be to make an appointment with your advisor to talk it through with them
     - **cricketcounselor** (1↑): Did you enroll for the following semester/quarter? That can cancel an active degree application for some institutions.
 - **Blood_Wonder** (37↑): Reach out to your registrar with a copy of anything that shows you applied to graduate and it was accepted. It's the beginning of the semester and you will be a low priority because they need to deal with current students who are trying to get in their classes. Follow up every week until it's resolved. Either your graduation application was not processed or it's a manual process at your school to update graduation statuses and somehow your account was not updated.
 - **278urmombiggay** (19↑): Sounds like those are just automatic emails. I think you're fine if you didn't register for classes. I was a December grad and think I still got those emails & my student ID was active until the end of the academic year. Give it a couple weeks then ask tour advisor when it is going to change from active to graduated.
-- **DeskRider** (8↑): It sounds like a data entry error on the part of the Registrar's Office.  Contact them (but be prepared with your proof if they push back), and have them correct the information.
+- **DeskRider** (7↑): It sounds like a data entry error on the part of the Registrar's Office.  Contact them (but be prepared with your proof if they push back), and have them correct the information.
   - **College_student_444** (4↑): This was my exact situation. Including registration - Active. I just got the email that the degree has been mailed.
-- **minimalshade** (6↑): Degree conferral can take some time depending on the institution. Grades post > degree audits x size of grad class… Hope this is the case, check in with your registrar. 🎓 optimistic—congrats!
-- **meldean9** (4↑): Registrar here. Sorry to say, but I have worked at many institutions where advisors have no idea what graduation requirements are. Email the Registrar's office. If you graduated in December/Fall, they are likely still working on graduation. Depending on the institution, it can take a few weeks or months. Our students graduated in December and I'm still working on graduation because there are still so many missing grades. In my experience, missing grades are the #1 reason for graduation delays. 
+- **minimalshade** (7↑): Degree conferral can take some time depending on the institution. Grades post > degree audits x size of grad class… Hope this is the case, check in with your registrar. 🎓 optimistic—congrats!
+- **meldean9** (5↑): Registrar here. Sorry to say, but I have worked at many institutions where advisors have no idea what graduation requirements are. Email the Registrar's office. If you graduated in December/Fall, they are likely still working on graduation. Depending on the institution, it can take a few weeks or months. Our students graduated in December and I'm still working on graduation because there are still so many missing grades. In my experience, missing grades are the #1 reason for graduation delays. 
 
 I will add that it gets overwhelming when students are emailing a lot during graduation processing. I can either answer emails, or work on graduation, but I can't do both at the same time. If you were a December grad, you should hang tight a few more weeks. If you're not registered for spring courses, ignore those emails about books etc as they're just automated.
 - **mredd3** (1↑): Go to the Office of the Registrar in person with ID and ask. They may actually award degrees weeks after commencement so check on that.

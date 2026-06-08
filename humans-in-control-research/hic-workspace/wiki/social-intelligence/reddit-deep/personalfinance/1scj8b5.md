@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1scj8b5.md
 url: "https://www.reddit.com/r/personalfinance/comments/1scj8b5/sil_in_debt_how_do_we_help/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,69 @@ flair: "Debt"
 extracted_at: "2026-05-17T01:13:31.187Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, government, real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c0"
+    char_span: [0, 1428]
+    sentence_count: 21
+    key_terms: [wife, personalfinance, house, month, contributes, debt, help, year]
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c1"
+    char_span: [1443, 3110]
+    sentence_count: 12
+    key_terms: [get, help, mentioned, debt, spending, burneradvice2, track, financial]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c2"
+    char_span: [3113, 5069]
+    sentence_count: 12
+    key_terms: [burneradvice2, "she's", debt, help, apresledepart, wife, contribute, retirement]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c3"
+    char_span: [4827, 5222]
+    sentence_count: 5
+    key_terms: [burneradvice2, contractually, silvertripod, contribute, eventually, promotion, paycheck, company]
+    section: Comments
+    token_count: 111
+  - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c4"
+    char_span: [5224, 7084]
+    sentence_count: 10
+    key_terms: [help, provide, likely, money, rates, stay, thoughts, airing]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c5"
+    char_span: [7088, 8902]
+    sentence_count: 15
+    key_terms: [wife, help, burneradvice2, month, financially, ask, something, literate]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c6"
+    char_span: [8904, 10800]
+    sentence_count: 16
+    key_terms: [month, wife, relationship, going, help, burneradvice2, discretionary, offer]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c7"
+    char_span: [10802, 12801]
+    sentence_count: 17
+    key_terms: [financial, help, sil, "don't", going, down, understand, different]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c8"
+    char_span: [12803, 14803]
+    sentence_count: 20
+    key_terms: [help, like, plan, sister, going, money, right, let]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c9"
+    char_span: [14805, 16565]
+    sentence_count: 15
+    key_terms: [otherwise, debt, down, "she's", job, pay, alcohol, context]
+    section: Comments
+    token_count: 427
 ---
-
 # SIL in debt. How do we help?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1scj8b5/sil_in_debt_how_do_we_help/)

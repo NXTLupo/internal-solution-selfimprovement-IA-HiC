@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1skmy9k.md
 url: "https://www.reddit.com/r/careerguidance/comments/1skmy9k/does_the_job_market_is_brutal_right_now_heres/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,20 @@ flair: "Advice"
 extracted_at: "2026-05-23T14:54:05.577Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1skmy9k.md#c0"
+    char_span: [0, 2134]
+    sentence_count: 5
+    key_terms: [job, applications, resume, right, careerguidance, market, exact, "i'd"]
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/careerguidance/1skmy9k.md#c1"
+    char_span: [2136, 4320]
+    sentence_count: 8
+    key_terms: [applications, people, "you're", feels, works, job, networking, submitted]
+    token_count: 451
 ---
-
 # Does the job market is brutal right now? here's what I learned after 200 applications
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1skmy9k/does_the_job_market_is_brutal_right_now_heres/)

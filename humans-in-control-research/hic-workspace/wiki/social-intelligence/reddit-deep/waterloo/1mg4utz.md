@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1mg4utz.md
 url: "https://www.reddit.com/r/waterloo/comments/1mg4utz/international_student_in_kw_struggling_to_find/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.135Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1mg4utz.md#c0"
+    char_span: [0, 1516]
+    sentence_count: 11
+    key_terms: [international, student, advice, been, year, experience, struggling, comments]
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/waterloo/1mg4utz.md#c1"
+    char_span: [1531, 2699]
+    sentence_count: 8
+    key_terms: [students, international, probably, studying, "there's", secure, trying, doing]
+    section: Comments
+    token_count: 257
+  - id: "social-intelligence/reddit-deep/waterloo/1mg4utz.md#c2"
+    char_span: [2701, 4710]
+    sentence_count: 14
+    key_terms: [quiet-divide-3982, co-op, school, appreciate, job, dronedesigner, did, kind]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/waterloo/1mg4utz.md#c3"
+    char_span: [4510, 4722]
+    sentence_count: 1
+    key_terms: [quiet-divide-3982, appreciate, housing, bamboo, taking, great, means, quite]
+    section: Comments
+    token_count: 67
 ---
-
 # International Student in KW — Struggling to Find Work and Housing, Any Advice or Leads Appreciated
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1mg4utz/international_student_in_kw_struggling_to_find/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-gradadmissions/6f5e03fcfc.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1qjhd7j/advice_on_choosing_possible_grad_school_paths_as/"
 url_hash: "6f5e03fcfc"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T06:47:19.142674+00:00"
 chars: 2370
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-gradadmissions/6f5e03fcfc.md#c0"
+    char_span: [0, 2304]
+    sentence_count: 22
+    key_terms: [programs, get, policy, good, schools, student, gradadmissions, school]
+    token_count: 501
+  - id: "articles/reddit-deep-r-gradadmissions/6f5e03fcfc.md#c1"
+    char_span: [2306, 2598]
+    sentence_count: 3
+    key_terms: [funded, fully, extraordinarily, gossipgal1324, competitive, admissions, experience, generally]
+    token_count: 63
 ---
-
 # Advice on choosing possible grad school paths as an international student
 
 Source: [Reddit Deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1qjhd7j/advice_on_choosing_possible_grad_school_paths_as/)

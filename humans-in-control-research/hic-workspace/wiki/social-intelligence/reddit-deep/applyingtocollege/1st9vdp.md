@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1st9vdp.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1st9vdp/i_dont_get_how_t20_admits_can_be_worried_about/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,51 @@ flair: "Rant"
 extracted_at: "2026-05-20T12:57:06.076Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1st9vdp.md#c0"
+    char_span: [0, 1378]
+    sentence_count: 6
+    key_terms: ["isn't", applyingtocollege, college, grades, grade, get, "i'm", like]
+    token_count: 328
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1st9vdp.md#c1"
+    char_span: [1393, 3677]
+    sentence_count: 14
+    key_terms: [get, people, orthopedicdishonesty, sometimes, through, grades, good, everything]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1st9vdp.md#c2"
+    char_span: [3679, 5231]
+    sentence_count: 5
+    key_terms: [happens, slack, transcript, concerned, rescinded, semester, students, college]
+    section: Comments
+    token_count: 352
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1st9vdp.md#c3"
+    char_span: [5233, 7331]
+    sentence_count: 14
+    key_terms: [people, because, getting, valuableassociate505, "you're", especially, classes, letting]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1st9vdp.md#c4"
+    char_span: [7024, 7418]
+    sentence_count: 1
+    key_terms: [environment, constantly, physically, top-ranked, generally, treatment, families, followed]
+    section: Comments
+    token_count: 80
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1st9vdp.md#c5"
+    char_span: [7420, 9636]
+    sentence_count: 9
+    key_terms: [college, like, responsibilities, process, people, etc, senioritis, anything]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1st9vdp.md#c6"
+    char_span: [9638, 9816]
+    sentence_count: 1
+    key_terms: [got, probably, syllabus, already, history, looking, couple, guess]
+    section: Comments
+    token_count: 44
 ---
-
 # I don't get how T20 admits can be worried about getting rescinded for grades
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1st9vdp/i_dont_get_how_t20_admits_can_be_worried_about/)

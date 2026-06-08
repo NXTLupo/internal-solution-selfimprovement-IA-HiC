@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-applyingtocollege/cfd4bda928.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1teyhcj/colleges_to_apply_to_if_you_are_uppermiddle_class/"
 url_hash: "cfd4bda928"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T13:04:02.655487+00:00"
 chars: 3694
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-applyingtocollege/cfd4bda928.md#c0"
+    char_span: [0, 1721]
+    sentence_count: 16
+    key_terms: [apply, class, applyingtocollege, upper-middle, kid, year, colleges, comments]
+    token_count: 428
+  - id: "articles/reddit-deep-r-applyingtocollege/cfd4bda928.md#c1"
+    char_span: [1723, 3906]
+    sentence_count: 13
+    key_terms: [income, paying, years, like, household, increased, getting, people]
+    token_count: 508
 ---
-
 # Colleges to apply to if you are upper-middle class
 
 Source: [Reddit Deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1teyhcj/colleges_to_apply_to_if_you_are_uppermiddle_class/)

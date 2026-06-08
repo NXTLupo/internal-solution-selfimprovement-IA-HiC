@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1nm2oth.md
 url: "https://www.reddit.com/r/highereducation/comments/1nm2oth/salaryquality_of_life_in_higher_ed/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-23T14:53:59.511Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1nm2oth.md#c0"
+    char_span: [0, 1216]
+    sentence_count: 9
+    key_terms: [higher, highereducation, salary, comments, quality, without, thesecretlifeofnani, ideas]
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/highereducation/1nm2oth.md#c1"
+    char_span: [1231, 3444]
+    sentence_count: 23
+    key_terms: [university, support, management, pay, project, student, administration, roles]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/highereducation/1nm2oth.md#c2"
+    char_span: [3446, 4316]
+    sentence_count: 8
+    key_terms: [higher, month, southerncalifornia, foreignlibrary424, work, instructional, professionals, realistically]
+    section: Comments
+    token_count: 213
+  - id: "social-intelligence/reddit-deep/highereducation/1nm2oth.md#c3"
+    char_span: [4318, 5910]
+    sentence_count: 14
+    key_terms: [higher, working, "don't", environment, move, retirement, inflation, students]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/highereducation/1nm2oth.md#c4"
+    char_span: [5912, 7559]
+    sentence_count: 11
+    key_terms: [higher, supervisory, jobs, management, university, education, technical, analysts]
+    section: Comments
+    token_count: 378
 ---
-
 # Salary/Quality of Life in Higher Ed
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1nm2oth/salaryquality_of_life_in_higher_ed/)

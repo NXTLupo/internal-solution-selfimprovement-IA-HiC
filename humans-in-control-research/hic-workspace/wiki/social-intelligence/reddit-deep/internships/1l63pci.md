@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1l63pci.md
 url: "https://www.reddit.com/r/internships/comments/1l63pci/looking_for_advice_how_to_get_a_remote_internship/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,15 @@ flair: "During the Internship"
 extracted_at: "2026-05-20T12:56:20.017Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1l63pci.md#c0"
+    char_span: [0, 1230]
+    sentence_count: 6
+    key_terms: [internship, internships, remote, data, comments, projects, looking, science]
+    token_count: 267
 ---
-
 # Looking for Advice: How to Get a Remote Internship in Data Science / AI / ML as a Student from India?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1l63pci/looking_for_advice_how_to_get_a_remote_internship/)

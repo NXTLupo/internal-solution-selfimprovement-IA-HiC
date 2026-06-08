@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1mbkgg0.md
 url: "https://www.reddit.com/r/waterloo/comments/1mbkgg0/best_moving_method_from_waterloo_to_toronto/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.136Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1mbkgg0.md#c0"
+    char_span: [0, 530]
+    sentence_count: 6
+    key_terms: [waterloo, moving, comments, toronto, saltygiraffe6400, reddit-deep, affordable, experience]
+    token_count: 137
+  - id: "social-intelligence/reddit-deep/waterloo/1mbkgg0.md#c1"
+    char_span: [545, 2298]
+    sentence_count: 10
+    key_terms: [drop, kms, cearrach, waterloo, toronto, local, truck, uhaul]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/waterloo/1mbkgg0.md#c2"
+    char_span: [2300, 2901]
+    sentence_count: 6
+    key_terms: [student, van, speechrecent1898, move-pooling, especially, something, checking, facebook]
+    section: Comments
+    token_count: 141
 ---
-
 # Best moving method from Waterloo to Toronto
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1mbkgg0/best_moving_method_from_waterloo_to_toronto/)

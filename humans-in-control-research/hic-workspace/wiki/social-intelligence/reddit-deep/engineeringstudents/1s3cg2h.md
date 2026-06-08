@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1s3cg2h/is_a_masters_in_an_engineering_discipline_without/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,39 @@ flair: "Career Advice"
 extracted_at: "2026-05-25T18:32:19.219Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c0"
+    char_span: [0, 1117]
+    sentence_count: 11
+    key_terms: [engineering, degree, bachelors, engineeringstudents, masters, without, photonics, comments]
+    token_count: 243
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c1"
+    char_span: [1132, 2351]
+    sentence_count: 7
+    key_terms: [masters, holoporcupine, engineering, background, good, experience, ashi4days, programs]
+    section: Comments
+    token_count: 316
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c2"
+    char_span: [2353, 3647]
+    sentence_count: 9
+    key_terms: [engineering, requirements, undergrad, classes, college, courses, degree, school]
+    section: Comments
+    token_count: 291
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c3"
+    char_span: [3649, 5250]
+    sentence_count: 12
+    key_terms: [engineering, math, physics, familyrootsquest, masters, holoporcupine, "i'm", finishing]
+    section: Comments
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c4"
+    char_span: [5252, 6874]
+    sentence_count: 11
+    key_terms: [engineering, masters, "i'm", physics, mechatronics, interested, projects, getting]
+    section: Comments
+    token_count: 362
 ---
-
 # Is a masters in an engineering discipline without an engineering bachelors still valuable?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1s3cg2h/is_a_masters_in_an_engineering_discipline_without/)

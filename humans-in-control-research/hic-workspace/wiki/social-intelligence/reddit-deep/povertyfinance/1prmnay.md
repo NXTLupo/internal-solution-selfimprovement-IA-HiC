@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1prmnay.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1prmnay/cheapest_auto_insurance_2026_strategies_for_low/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,27 @@ flair: "Budgeting/Saving/Investing/Spending"
 extracted_at: "2026-05-16T20:55:12.685Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1prmnay.md#c0"
+    char_span: [0, 1658]
+    sentence_count: 2
+    key_terms: [insurance, need, cheapest, minimum, povertyfinance, legal, price, strategies]
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/povertyfinance/1prmnay.md#c1"
+    char_span: [1673, 2975]
+    sentence_count: 14
+    key_terms: [insurance, windshields, claim, independent, save, everybody, replaced, farmers]
+    section: Comments
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/povertyfinance/1prmnay.md#c2"
+    char_span: [2977, 4070]
+    sentence_count: 8
+    key_terms: [insurance, company, check, legit, vehicle, elegant-homework6166, helps, hope]
+    section: Comments
+    token_count: 293
 ---
-
 # cheapest auto insurance 2026 strategies for low income drivers, my budget is beyond tight and i need the absolute cheapest legal insurance.
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1prmnay/cheapest_auto_insurance_2026_strategies_for_low/)

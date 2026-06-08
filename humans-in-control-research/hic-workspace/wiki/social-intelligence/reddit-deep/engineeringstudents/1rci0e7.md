@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1rci0e7.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1rci0e7/how_do_you_guys_make_time_for_other_things/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,39 @@ flair: "Discussion"
 extracted_at: "2026-05-22T21:34:47.627Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rci0e7.md#c0"
+    char_span: [0, 644]
+    sentence_count: 4
+    key_terms: [engineeringstudents, comments, public-hamster-9224, gym, time, work, engineering, reddit-deep]
+    token_count: 154
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rci0e7.md#c1"
+    char_span: [659, 2276]
+    sentence_count: 11
+    key_terms: [life, conversations, relationship, engineering, heppernaut, important, struggles, schedule]
+    section: Comments
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rci0e7.md#c2"
+    char_span: [2278, 4055]
+    sentence_count: 11
+    key_terms: [work, finish, idea, like, "didn't", assignment, something, complete]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rci0e7.md#c3"
+    char_span: [4057, 6169]
+    sentence_count: 22
+    key_terms: [time, work, life, engineering, absolutely, hours, straight-tower8776, full]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rci0e7.md#c4"
+    char_span: [6171, 8147]
+    sentence_count: 21
+    key_terms: [time, school, hours, sleep, job, life, everything, sometimes]
+    section: Comments
+    token_count: 489
 ---
-
 # How do you guys make time for other things?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1rci0e7/how_do_you_guys_make_time_for_other_things/)

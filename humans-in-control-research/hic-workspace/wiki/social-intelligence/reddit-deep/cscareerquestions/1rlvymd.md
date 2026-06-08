@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rlvymd.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rlvymd/how_important_was_your_internship_experience_in/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-20T02:33:39.314Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rlvymd.md#c0"
+    char_span: [0, 416]
+    sentence_count: 2
+    key_terms: [cscareerquestions, experience, comments, nationaluniofficial, job, opportunities, internships, reddit-deep]
+    token_count: 94
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rlvymd.md#c1"
+    char_span: [431, 1379]
+    sentence_count: 4
+    key_terms: [internships, internship, hiring, illustrioushead7878, got, job, densetension3468, apprenticeships]
+    section: Comments
+    token_count: 225
 ---
-
 # How important was your internship experience in landing your first full-time job?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rlvymd/how_important_was_your_internship_experience_in/)

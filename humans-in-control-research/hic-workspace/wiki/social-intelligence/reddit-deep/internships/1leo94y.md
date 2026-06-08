@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1leo94y.md
 url: "https://www.reddit.com/r/internships/comments/1leo94y/advice_regarding_finding_internship/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,39 @@ flair: "General"
 extracted_at: "2026-05-20T02:30:49.745Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1leo94y.md#c0"
+    char_span: [0, 516]
+    sentence_count: 5
+    key_terms: [internships, internship, comments, advice, kind-acanthisitta735, engineering, reddit-deep, appreciate]
+    token_count: 126
+  - id: "social-intelligence/reddit-deep/internships/1leo94y.md#c1"
+    char_span: [531, 858]
+    sentence_count: 2
+    key_terms: [internship, moonhive, startup, real, mentorship, dhanoojbs, ecosystem, front-row]
+    section: Comments
+    token_count: 96
+  - id: "social-intelligence/reddit-deep/internships/1leo94y.md#c2"
+    char_span: [860, 2900]
+    sentence_count: 14
+    key_terms: [internship, linkedin, apply, offer, get, job, portfolio, applying]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1leo94y.md#c3"
+    char_span: [2644, 3062]
+    sentence_count: 7
+    key_terms: [applying, kind-acanthisitta735, cold, get, opportunities, consistency, discouraged, intenshala]
+    section: Comments
+    token_count: 119
+  - id: "social-intelligence/reddit-deep/internships/1leo94y.md#c4"
+    char_span: [3064, 4383]
+    sentence_count: 5
+    key_terms: [internship, moonhive, startup, offer, real, work, mentorship, projects]
+    section: Comments
+    token_count: 344
 ---
-
 # Advice Regarding Finding  Internship
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1leo94y/advice_regarding_finding_internship/)

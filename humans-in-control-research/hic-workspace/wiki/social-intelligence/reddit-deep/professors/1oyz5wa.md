@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1oyz5wa.md
 url: "https://www.reddit.com/r/Professors/comments/1oyz5wa/fyi_for_us_faculty_new_2026_accountability/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,50 @@ flair: ""
 extracted_at: "2026-05-14T18:17:21.702Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1oyz5wa.md#c0"
+    char_span: [0, 1836]
+    sentence_count: 9
+    key_terms: [frequently-asked-questions-about-the-one-big-beautiful-bill-act, reconciliation-advocacy-center, accountability, eligibility, advocacy-resources, financial, students, policy-advocacy]
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/professors/1oyz5wa.md#c1"
+    char_span: [1838, 3406]
+    sentence_count: 10
+    key_terms: [median, students, against, compared, graduate, career, income, institution]
+    token_count: 312
+  - id: "social-intelligence/reddit-deep/professors/1oyz5wa.md#c2"
+    char_span: [3421, 5676]
+    sentence_count: 16
+    key_terms: [school, programs, years, graduate, students, like, careers, salary]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/professors/1oyz5wa.md#c3"
+    char_span: [5678, 7301]
+    sentence_count: 8
+    key_terms: [public, service, graduates, college, higher, nope, education, students]
+    section: Comments
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/professors/1oyz5wa.md#c4"
+    char_span: [7303, 9119]
+    sentence_count: 6
+    key_terms: [institution, department, collegescorecard, professional, baronhousen, development, data, changes]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/professors/1oyz5wa.md#c5"
+    char_span: [9121, 11339]
+    sentence_count: 18
+    key_terms: [graduates, years, community, education, hospitals, college, florida, program]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/professors/1oyz5wa.md#c6"
+    char_span: [11341, 13162]
+    sentence_count: 17
+    key_terms: [year, years, different, graduate, programs, finally, people, learn]
+    section: Comments
+    token_count: 427
 ---
-
 # FYI for US Faculty: New 2026 Accountability Provisions May Remove Financial Aid Eligibility for Low-Earning Majors
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1oyz5wa/fyi_for_us_faculty_new_2026_accountability/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1s5tk2h.md
 url: "https://www.reddit.com/r/GradSchool/comments/1s5tk2h/two_pis_told_me_im_not_worth_funding_how_bad_does/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,68 @@ flair: "Health & Work/Life Balance"
 extracted_at: "2026-05-23T19:45:05.859Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, life_sciences]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c0"
+    char_span: [0, 1954]
+    sentence_count: 13
+    key_terms: [told, accommodations, been, lab, phd, year, gradschool, questions]
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c1"
+    char_span: [1956, 3481]
+    sentence_count: 11
+    key_terms: [feeling, whether, been, tell, year, affected, position, already]
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c2"
+    char_span: [3496, 5470]
+    sentence_count: 14
+    key_terms: [program, environment, work, yourself, because, staying, whether, option]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c3"
+    char_span: [5472, 7224]
+    sentence_count: 17
+    key_terms: [likely, conversations, goals, lab, okay, feedback, progress, regular]
+    section: Comments
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c4"
+    char_span: [7226, 9327]
+    sentence_count: 21
+    key_terms: [like, people, lab, side, absolutely, reactions, rotation, opinion]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c5"
+    char_span: [9329, 11401]
+    sentence_count: 30
+    key_terms: [people, unfortunately, understand, issues, disabilities, dont, lot, different]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c6"
+    char_span: [11403, 13096]
+    sentence_count: 14
+    key_terms: [implemented, ago, post, questions, semester, verbatim, changed, nothing]
+    section: Comments
+    token_count: 386
+  - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c7"
+    char_span: [13098, 15545]
+    sentence_count: 24
+    key_terms: [questions, last, comments, feedback, hundreds, received, account, advice]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c8"
+    char_span: [15547, 17848]
+    sentence_count: 22
+    key_terms: [change, hearing, administrators, "can't", going, toxic, behaviours, department]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c9"
+    char_span: [17850, 18194]
+    sentence_count: 4
+    key_terms: [pis, statistically, following, possible, research, however, unlucky, gotten]
+    section: Comments
+    token_count: 88
 ---
-
 # Two PIs told me I’m “not worth funding.” How bad does a first year in a PhD program have to be before leaving makes sense?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1s5tk2h/two_pis_told_me_im_not_worth_funding_how_bad_does/)

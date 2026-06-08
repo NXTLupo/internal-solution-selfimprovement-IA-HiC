@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/c9ea5df11d.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1sg6t04/future_career_advice/"
 url_hash: "c9ea5df11d"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:39:31.474515+00:00"
 chars: 3082
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/c9ea5df11d.md#c0"
+    char_span: [0, 1668]
+    sentence_count: 10
+    key_terms: [market, tech, cscareerquestions, future, ive, wondering, comments, probably]
+    token_count: 384
+  - id: "articles/reddit-deep-r-cscareerquestions/c9ea5df11d.md#c1"
+    char_span: [1670, 3235]
+    sentence_count: 7
+    key_terms: [because, effectively, like, need, medicine, ideally, blah, keep]
+    token_count: 356
 ---
-
 # Future career advice
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sg6t04/future_career_advice/)

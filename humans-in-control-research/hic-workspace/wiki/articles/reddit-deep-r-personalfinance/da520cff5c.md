@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-personalfinance/da520cff5c.md
 url: "https://www.reddit.com/r/personalfinance/comments/1mspnvj/testing_a_concept_debt_recovery_financial/"
 url_hash: "da520cff5c"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-16T20:57:59.925365+00:00"
 chars: 3244
+industries: [financial_services, nonprofit]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-personalfinance/da520cff5c.md#c0"
+    char_span: [0, 1243]
+    sentence_count: 8
+    key_terms: [adults, young, financial, debt, personalfinance, programme, wellbeing, recovery]
+    token_count: 255
+  - id: "articles/reddit-deep-r-personalfinance/da520cff5c.md#c1"
+    char_span: [1245, 3473]
+    sentence_count: 10
+    key_terms: [financial, support, structured, debt, participants, participant, challenges, peer]
+    token_count: 414
 ---
-
 # Testing a Concept: Debt Recovery & Financial Wellbeing Charity for Young Adults
 
 Source: [Reddit Deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1mspnvj/testing_a_concept_debt_recovery_financial/)

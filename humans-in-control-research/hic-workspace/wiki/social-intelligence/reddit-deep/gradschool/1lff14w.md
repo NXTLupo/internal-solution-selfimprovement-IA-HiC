@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1lff14w.md
 url: "https://www.reddit.com/r/GradSchool/comments/1lff14w/considering_going_to_grad_school_one_year_post/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,21 @@ flair: "Admissions & Applications"
 extracted_at: "2026-05-25T13:04:07.334Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1lff14w.md#c0"
+    char_span: [0, 1053]
+    sentence_count: 6
+    key_terms: [school, graduate, gradschool, comments, going, been, year, communications]
+    token_count: 239
+  - id: "social-intelligence/reddit-deep/gradschool/1lff14w.md#c1"
+    char_span: [1068, 2487]
+    sentence_count: 11
+    key_terms: [journalism, like, fields, turpentinei, vandymarine, marketing, starting, gurprofessional9534]
+    section: Comments
+    token_count: 340
 ---
-
 # Considering going to grad school one year post undergrad
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1lff14w/considering_going_to_grad_school_one_year_post/)

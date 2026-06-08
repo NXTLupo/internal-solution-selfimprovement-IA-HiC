@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1os4cj4.md
 url: "https://www.reddit.com/r/financialindependence/comments/1os4cj4/another_successful_earlyish_retirement_story/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -10,11 +11,56 @@ score: 267
 upvote_ratio: 0.92
 num_comments: 64
 flair: ""
-extracted_at: "2026-05-16T20:55:12.709Z"
+extracted_at: "2026-06-03T19:16:52.320Z"
 extraction_method: "praw-deep"
-research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+research_goal: "Provide a strategic analysis of the ROI of financial advice for individual investors in 2026, extrapolating on this theme by integrating current trends in finance, investing, and generational behavioral shifts."
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1os4cj4.md#c0"
+    char_span: [0, 1983]
+    sentence_count: 18
+    key_terms: [financialindependence, money, part-time, got, sub-optimal, age, went, recession]
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/financialindependence/1os4cj4.md#c1"
+    char_span: [1985, 3939]
+    sentence_count: 26
+    key_terms: [part-time, income, "i'm", job, pay, "this-isn't-fun-why-am-i-doing-it-again", retired, semi-retired]
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/financialindependence/1os4cj4.md#c2"
+    char_span: [3941, 4335]
+    sentence_count: 8
+    key_terms: [fuck, whatever, stop, get-rich-quick, algorithm, bernstein, recommend, gambling]
+    token_count: 91
+  - id: "social-intelligence/reddit-deep/financialindependence/1os4cj4.md#c3"
+    char_span: [4350, 5352]
+    sentence_count: 12
+    key_terms: [percent, maxing, big, get, went, year, forgivemefashion, get-rich-quick]
+    section: Comments
+    token_count: 293
+  - id: "social-intelligence/reddit-deep/financialindependence/1os4cj4.md#c4"
+    char_span: [5354, 7298]
+    sentence_count: 15
+    key_terms: [like, roth, backdoor, invest, job, post-tax, staying, maxed]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/financialindependence/1os4cj4.md#c5"
+    char_span: [7003, 7321]
+    sentence_count: 3
+    key_terms: [wrong, additionally, satisfaction, absolutely, everything, elsewhere, financial, nothing]
+    section: Comments
+    token_count: 68
+  - id: "social-intelligence/reddit-deep/financialindependence/1os4cj4.md#c6"
+    char_span: [7323, 9017]
+    sentence_count: 14
+    key_terms: [been, good, job, like, get, paid, work, situations]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/financialindependence/1os4cj4.md#c7"
+    char_span: [9019, 10242]
+    sentence_count: 9
+    key_terms: [job, "i'm", good, huge, work, difference, talking, working]
+    section: Comments
+    token_count: 300
 ---
-
 # Another successful early-ish retirement story
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1os4cj4/another_successful_earlyish_retirement_story/)
@@ -46,36 +92,36 @@ Take-aways:
 
 ## Comments
 
-- **37347** (86↑): The maxing of 401k is absolutely true. It’s that simple. A solid 10-20 year of maxing 401k can easily get you to FI.
-  - **sschow** (11↑): Agreed. I thought I was so ahead of the curve contributing 10% when I started out of college (on a sub-$75K salary) but only because I was comparing myself to my peers who were only doing 4% for the match.
-    - **YankeesJunkie** (4↑): You always have to start somewhere and 10 percent is big. Big takeaway is to increase when you get a raise even if it is 2 to 4 percent
-- **forgivemefashion** (35↑): Thanks for the encouragment! 
+- **37347** (87↑): The maxing of 401k is absolutely true. It’s that simple. A solid 10-20 year of maxing 401k can easily get you to FI.
+  - **sschow** (12↑): Agreed. I thought I was so ahead of the curve contributing 10% when I started out of college (on a sub-$75K salary) but only because I was comparing myself to my peers who were only doing 4% for the match.
+    - **YankeesJunkie** (5↑): You always have to start somewhere and 10 percent is big. Big takeaway is to increase when you get a raise even if it is 2 to 4 percent
+- **forgivemefashion** (33↑): Thanks for the encouragment! 
 Went from customer service to product manager during the 2021/22 hiring craze. Relocated from FL to the NE. Pay went from $50k to $90k. Still not quite able to max out my 401k but super proud of my progress! Just hit $100k this year on the 401k (after 8 yrs)! Slow and steady wins the race!
-- **ALL_IN_VTSAX** (53↑): > Stop gambling on get-rich-quick schemes. Look at what's worked for 100 years and stick to it.
+- **ALL_IN_VTSAX** (54↑): > Stop gambling on get-rich-quick schemes. Look at what's worked for 100 years and stick to it.
 
 So buy VTSAX and hold it forever.
-  - **human743** (9↑): Well, until you retire anyway.
+  - **human743** (10↑): Well, until you retire anyway.
 - **cellulite_marathon** (30↑): Upvoted for "invest like a grownup. Fuck crypto." Other tips are solid advice too.
 - **ghalta** (8↑): By "max" do you include post-tax mega backdoor?  I've maxed my allowed traditional/roth for several years, plus backdoor Roth IRA, plus used my employers' ESPP to funnel money into a broker to bridge to 59.5, but I've never been able to manage the post-tax mega-backdoor amounts.
-  - **yetanothernerd** (11↑): I only had mega backdoor Roth available at my last job, for one year.  But I maxed it while I had it.
-- **macula_transfer** (7↑): Same month as me, high five!
-- **Far_Needleworker1501** (7↑): Man, I love seeing stories like this. Straight discipline, no fluff, maxing the 401k and staying consistent through multiple recessions. The part about “invest like a grown-up” is gold. It’s crazy how many people still chase memes instead of just letting time do its job. You basically wrote the blueprint for 90% of us lurking here.
-- **qredar** (17↑): Man, this was such a good read 😅
+  - **yetanothernerd** (10↑): I only had mega backdoor Roth available at my last job, for one year.  But I maxed it while I had it.
+- **macula_transfer** (6↑): Same month as me, high five!
+- **Far_Needleworker1501** (6↑): Man, I love seeing stories like this. Straight discipline, no fluff, maxing the 401k and staying consistent through multiple recessions. The part about “invest like a grown-up” is gold. It’s crazy how many people still chase memes instead of just letting time do its job. You basically wrote the blueprint for 90% of us lurking here.
+- **qredar** (16↑): Man, this was such a good read 😅
 Feels like talking to that one older friend who actually figured life out.
 Thanks for sharing — this kind of honesty and experience really hits different ☕💭
-- **KGBspy** (5↑): I tell guys at work to steady contribute to our deferred comp and up it every time we get a contract raise. Open up Roth Ira’s. Do you want to meet with my CFP?…In one ear, out the other with my words. They think the pension will be all they need. Whatever.
-- **capitalsfan08** (9↑): I'll push back on #2, particularly if you are able to do #1 (max out your 401k) and invest additionally. FI is cool and all, don't get me wrong, but you should not sell everything out for the sake of money. If you are in a job you like or gain satisfaction from and it still lets you meet your financial goals, there's absolutely nothing wrong with staying that path if it makes sense elsewhere.
+- **KGBspy** (4↑): I tell guys at work to steady contribute to our deferred comp and up it every time we get a contract raise. Open up Roth Ira’s. Do you want to meet with my CFP?…In one ear, out the other with my words. They think the pension will be all they need. Whatever.
+- **capitalsfan08** (7↑): I'll push back on #2, particularly if you are able to do #1 (max out your 401k) and invest additionally. FI is cool and all, don't get me wrong, but you should not sell everything out for the sake of money. If you are in a job you like or gain satisfaction from and it still lets you meet your financial goals, there's absolutely nothing wrong with staying that path if it makes sense elsewhere.
 
 As a software engineer, I have interviewed and gotten offers in the past from FAANG companies and while they would have been massive (~2x each time) pay raises, it would have been to a team I wasn't thrilled about, and the interviewers just didn't give me good vibes. I make ~$220k now and am able to work on cool projects, with cool people, and have a fulfilling life outside of work hours. My wife and I are on pace to retire at ~42ish, if we wanted to, but more likely closer to 50. We are 31 now, and I cannot imagine loathing going to work for the next, let's say, 6 years just to get to FI halfway earlier.
 
 But, I am seeking FI, not the earliest possible RE, so YMMV.
-  - **faanGringo** (4↑): This is a good perspective to have if your choices are “loathe your job to make more” vs “like your job and still make good money”. I’ve been at a FAANG for 6 years and it’s been amazing financially and I’ve like it okay most of the time with periods of loathing. I’ve managed good WLB though, so it that helps. Like OP, I felt the same way about my job before this so I may as well get paid better for my trouble. 
+  - **faanGringo** (5↑): This is a good perspective to have if your choices are “loathe your job to make more” vs “like your job and still make good money”. I’ve been at a FAANG for 6 years and it’s been amazing financially and I’ve like it okay most of the time with periods of loathing. I’ve managed good WLB though, so it that helps. Like OP, I felt the same way about my job before this so I may as well get paid better for my trouble. 
 
 But now I would be happy to take a pay cut for something more chill and enjoyable. We’ll see.
     - **capitalsfan08** (1↑): Yeah, totally agree. I was speaking specifically in my situation. If I had come across an opportunity that paid more and satisfied the things I like about my current job, I'd leave in a heartbeat. I know people who are in those situations, so they exist. I would also say that if you are younger and have no real responsibilities, you should bias more towards those situations where you get paid more so you can take advantage of compounding for longer.
 
 I wasn't really trying to say OP is wrong on the face of things, just that it should be a more nuanced decision making process when figuring out what you want in a career/job.
-  - **yetanothernerd** (5↑): I'm not talking good job vs. bad job, I'm talking equally good jobs except one pays twice as much as the other.  It's a no brainer to go for the higher-paying job, but it's work, and change, and not everyone is motivated to do it.
+  - **yetanothernerd** (6↑): I'm not talking good job vs. bad job, I'm talking equally good jobs except one pays twice as much as the other.  It's a no brainer to go for the higher-paying job, but it's work, and change, and not everyone is motivated to do it.
   - **mmoyborgen** (3↑): To be fair, I don't think there are many folks earning $220k/year not working at FAANG working on cool projects, with cool people, and able to have a fulfilling life outside of work hours.  I don't work in tech, so maybe I'm way off base.
 
 Being able to retire at 42 is one thing, but actually retiring close to 50 is a huge difference compared to 37.  Even those 5 years from 37 to 42 is a huge difference.

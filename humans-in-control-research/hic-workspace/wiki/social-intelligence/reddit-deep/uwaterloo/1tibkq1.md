@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1tibkq1.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1tibkq1/what_waterloo_builds/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,48 @@ flair: "Discussion"
 extracted_at: "2026-05-25T18:33:12.675Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1tibkq1.md#c0"
+    char_span: [0, 2402]
+    sentence_count: 21
+    key_terms: [waterloo, culture, hierarchy, co-op, work, self-worth, companies, employers]
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/uwaterloo/1tibkq1.md#c1"
+    char_span: [2404, 4994]
+    sentence_count: 30
+    key_terms: [students, person, city, company, compensation, combination, hour, name]
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/uwaterloo/1tibkq1.md#c2"
+    char_span: [4996, 7618]
+    sentence_count: 29
+    key_terms: [students, does, people, being, companies, term, because, working]
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/uwaterloo/1tibkq1.md#c3"
+    char_span: [7620, 8362]
+    sentence_count: 5
+    key_terms: [students, seriously, because, co-op, spreadsheet, circulates, impossible, structural]
+    token_count: 143
+  - id: "social-intelligence/reddit-deep/uwaterloo/1tibkq1.md#c4"
+    char_span: [8377, 10214]
+    sentence_count: 10
+    key_terms: [people, culture, like, lot, tech, waterloo, myself, didyoutrainnecktoday]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/uwaterloo/1tibkq1.md#c5"
+    char_span: [10216, 12409]
+    sentence_count: 17
+    key_terms: [people, culture, social, game, shit, highschool, popularity, genuinely]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/uwaterloo/1tibkq1.md#c6"
+    char_span: [12411, 14439]
+    sentence_count: 17
+    key_terms: [somebody, placements, always, people, feel, personal, better, growth]
+    section: Comments
+    token_count: 455
 ---
-
 # What Waterloo Builds
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1tibkq1/what_waterloo_builds/)

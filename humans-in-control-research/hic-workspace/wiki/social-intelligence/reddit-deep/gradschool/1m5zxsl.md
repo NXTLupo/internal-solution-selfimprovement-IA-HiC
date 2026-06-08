@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1m5zxsl.md
 url: "https://www.reddit.com/r/GradSchool/comments/1m5zxsl/advice_for_a_first_gen_grad_student/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,21 @@ flair: "Health & Work/Life Balance"
 extracted_at: "2026-05-23T20:15:44.984Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1m5zxsl.md#c0"
+    char_span: [0, 663]
+    sentence_count: 6
+    key_terms: [gradschool, comments, semester, student, advice, school, savings-variation701, grad]
+    token_count: 157
+  - id: "social-intelligence/reddit-deep/gradschool/1m5zxsl.md#c1"
+    char_span: [678, 1176]
+    sentence_count: 4
+    key_terms: [congratulations, congrats, writing, aidoniastan, technical, undergrad, academic, yourself]
+    section: Comments
+    token_count: 132
 ---
-
 # Advice for a first gen Grad student?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1m5zxsl/advice_for_a_first_gen_grad_student/)

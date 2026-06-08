@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1kxnq7s.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1kxnq7s/feel_like_people_think_im_stupid_for_graduating/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,56 @@ flair: "Rant/Vent"
 extracted_at: "2026-05-22T21:34:47.625Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kxnq7s.md#c0"
+    char_span: [0, 2079]
+    sentence_count: 18
+    key_terms: [people, years, engineeringstudents, family, school, professional, experiences, graduating]
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kxnq7s.md#c1"
+    char_span: [2081, 3114]
+    sentence_count: 12
+    key_terms: [always, college, years, everyone, student, behind, being, field]
+    token_count: 236
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kxnq7s.md#c2"
+    char_span: [3129, 4625]
+    sentence_count: 16
+    key_terms: [like, age, people, years, old, definitely, graduation, starting]
+    section: Comments
+    token_count: 386
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kxnq7s.md#c3"
+    char_span: [4627, 6100]
+    sentence_count: 9
+    key_terms: [therapy, advanced-guidance482, someone, issues, life, like, definitely, experience]
+    section: Comments
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kxnq7s.md#c4"
+    char_span: [6102, 7859]
+    sentence_count: 19
+    key_terms: [graduated, degree, doing, years, "bachelor's", finished, learning, already]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kxnq7s.md#c5"
+    char_span: [7861, 9855]
+    sentence_count: 21
+    key_terms: [people, college, social, age, work, friends, "don't", life]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kxnq7s.md#c6"
+    char_span: [9857, 11464]
+    sentence_count: 17
+    key_terms: [people, college, graduated, friend, age, down, life, met]
+    section: Comments
+    token_count: 408
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kxnq7s.md#c7"
+    char_span: [11467, 12021]
+    sentence_count: 6
+    key_terms: [people, cares, analoghedgehog, themselves, concerned, graduated, jojowiese, becomes]
+    section: Comments
+    token_count: 149
 ---
-
 # Feel like people think I’m stupid for graduating at 26
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1kxnq7s/feel_like_people_think_im_stupid_for_graduating/)

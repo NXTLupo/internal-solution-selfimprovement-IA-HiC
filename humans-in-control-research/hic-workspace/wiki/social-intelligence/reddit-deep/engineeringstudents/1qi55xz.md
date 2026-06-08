@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1qi55xz/my_engineering_internship_and_entrylevel_job/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -6,19 +7,68 @@ subreddit: "engineeringstudents"
 title: "My engineering internship and entry-level job application guide. Stop mass applying into the void."
 author: "lazydictionary"
 date: "2026-01-20T16:07:30.000Z"
-score: 453
+score: 459
 upvote_ratio: 0.96
 num_comments: 33
 flair: "Career Advice"
-extracted_at: "2026-05-25T18:32:19.205Z"
+extracted_at: "2026-06-06T17:43:22.924Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md#c0"
+    char_span: [0, 2284]
+    sentence_count: 21
+    key_terms: [resume, applying, job, getting, interviews, engineeringstudents, engineeringresumes, materials]
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md#c1"
+    char_span: [2286, 4450]
+    sentence_count: 28
+    key_terms: [job, linkedin, indeed, resume, application, everything, applying, "you're"]
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md#c2"
+    char_span: [4452, 6741]
+    sentence_count: 18
+    key_terms: [job, company, fair, companies, work, interest, applications, ask]
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md#c3"
+    char_span: [6743, 7896]
+    sentence_count: 12
+    key_terms: [presenting, business, practice, specific, casual, google, clean, "don't"]
+    token_count: 265
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md#c4"
+    char_span: [7898, 10232]
+    sentence_count: 32
+    key_terms: [resume, people, employees, want, already, applied, conversation, cover]
+    token_count: 514
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md#c5"
+    char_span: [10234, 12450]
+    sentence_count: 14
+    key_terms: [people, interviews, offer, different, start-ups, applications, got, job]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md#c6"
+    char_span: [12452, 14105]
+    sentence_count: 11
+    key_terms: [application, resume, asked, cover, find, letters, resumes, through]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md#c7"
+    char_span: [14107, 16181]
+    sentence_count: 18
+    key_terms: [school, applications, internships, job, applicants, especially, undergrad, honestly]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md#c8"
+    char_span: [16183, 18332]
+    sentence_count: 17
+    key_terms: [lazydictionary, right, shirt, internships, don, job, especially, something]
+    section: Comments
+    token_count: 500
 ---
-
 # My engineering internship and entry-level job application guide. Stop mass applying into the void.
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1qi55xz/my_engineering_internship_and_entrylevel_job/)
-Posted by **lazydictionary** · **453↑** · **33 comments**
+Posted by **lazydictionary** · **459↑** · **33 comments**
 
 Here's a guide for your internship, co-op, or job search. It is targeted at US job applicants in the private sector. Resumes and applications for academia, the federal government, and niche industries may require different approaches, so do your own research for those specific paths.
 
@@ -86,14 +136,12 @@ Okay, so you passed the pre-screens and are doing an in-person or virtual interv
 
 ## Comments
 
-- **zacce** (28↑): Well written. 
+- **zacce** (27↑): Well written. 
 
 > They'll give your resume a 10 sec glance  
 
 10 seconds is pretty generous, imo. An experienced recruiter can skim through a well formatted resume in less than 5 seconds and still retain a lot of information.
-- **its_moodle** (44↑): This is really great advice, even for people who are gearing up for more mid-level roles such as myself. Thanks for putting this together!
-  - **lazydictionary** (8↑): No problem. I have a bad habit of binge-watching YouTube on topics for hours and I've been on a job market/job application kick, so it's a distillation of recruiter/HR YouTube advice and what worked for me recently.
-- **Olikhovski** (19↑): Coming from a BS Mech E, soon to be graduating MS Mech E, for other hard-tech people:
+- **Olikhovski** (18↑): Coming from a BS Mech E, soon to be graduating MS Mech E, for other hard-tech people:
 
 I always encourage people looking for internships to consider start-ups. For whatever reason, a lot of people I knew didn't really consider them at all. They can be hard to find sometimes, but just dig around with keywords that interest you followed by "start up", basically. 9 times out of 10, soon-to-be-graduating interns are rolled into these new grad positions, so for new grads, it is tougher, but for people with 1 summer/free session before graduation, getting a full-time offer before my final year was the biggest stress reducer I have ever had. There are some sweet perks, so little red tape, and so much opportunity to go beyond your regular job role. 
 
@@ -110,14 +158,14 @@ It's probably different for massive companies, but as someone who targeted and i
 One company I was at had a total of 30 people, including interns (I think they are at over 100 now?). In the center of the room where everyone worked was a big meeting table, where they held interviews and application reviews. Cover letters were the first thing they read: While I don't have a clear reason why, I am under the idea that it's sort of an instant vibe check on who this person is, *why* do they want this job, and (when not written with AI), makes the application more personable than scanning thousands of resumes for the same keywords. At some point, you have enough resumes where anyone would do fine here, but its all about who do I want to work with. 
 
 The most recent start-up I was at was in the Bay Area and when I applied to it, *I didn't attach my resume*. But a few weeks after submitting, HR emailed me and said there was no resume, asked me for it, I interviewed through several rounds, and I ultimately got the job. When they asked if I had any questions when getting my offer, I straight up asked, "I would have assumed I'd get filtered out without a resume. What prompted you to ask for it?", and they replied that the hiring manager loved my cover letter and wanted to know more. Niche case, but you never know what really makes or breaks it for you in the application process.
-  - **ConversationNo9592** (6↑): Startups? How do you even find them?
+  - **ConversationNo9592** (4↑): Startups? How do you even find them?
   - **Worried_Ice2836** (3↑): What do you normally include in your cover letters. I find it hard to find a median between being professional and showing my individuality
-- **zacce** (11↑): > What usually happens is they look through the first 50-100 applicants (maybe fewer)
+- **zacce** (12↑): > What usually happens is they look through the first 50-100 applicants (maybe fewer)
 
 The 1st 50-100 applicants that passed ATS filtering.
-- **jakep623** (15↑): Nice post. I agree, just recently got a new (dream) job as a pretty recent grad (10 months of experience, and 6 engineering internships in undergrad). Can confirm, this is the way.
+- **jakep623** (16↑): Nice post. I agree, just recently got a new (dream) job as a pretty recent grad (10 months of experience, and 6 engineering internships in undergrad). Can confirm, this is the way.
   - **lazydictionary** (10↑): Six internships is crazy. Did you have some in high school too?
-    - **FlowerPowerCagney** (5↑): it says BS/MS in his bio, so presumably he got some as a masters student as well
+    - **FlowerPowerCagney** (6↑): it says BS/MS in his bio, so presumably he got some as a masters student as well
     - **jakep623** (4↑): All in undergrad. Government aerospace (5) and childrens hospital (1). Long story.
 
 Need to update my flair. Never did MS in EECS but I am waiting on a decision from a large state school for PhD in aero.
@@ -130,7 +178,7 @@ The referral angle is becoming huge too, especially in tech. Even for new grads,
 Also want to emphasize what you said about job fairs. I know they feel old school, but honestly some of the best placements I saw came through face-to-face interactions. Recruiters are drowning in digital applications but they remember the kid who asked smart questions about their specific tech stack at the career fair.
 
 The prayer part at the end is painfully accurate. You can do everything right and still get ghosted because they decided to promote internally or freeze hiring. Don't take it personally - just keep the pipeline full.
-- **PozPoz__** (5↑): As a senior who didn’t have any internships, it all feels pretty hopeless…
+- **PozPoz__** (4↑): As a senior who didn’t have any internships, it all feels pretty hopeless…
   - **lazydictionary** (2↑): It's not hopeless, but I hope you have some interesting projects to write about on your resume.
 
 There are a bunch of success stories on /r/EngineeringResumes of students landing their first jobs with no internships
@@ -142,3 +190,4 @@ Most new applicants don’t know what a blazer really is, let alone what a sport
 Last note is about what you say about the process sucking right now. (You’re right.) Recent job data is not inspiring to me. Unfortunately, many - if not most - people will have to search for a while before they find something good or desirable to them. This is especially true of recent BS graduates. Anticipate about 6 months and be willing to accept something you don’t love so you can make a bit of money while you continue to search.
 - **BRLA406** (3↑): it’s over for me
   - **lazydictionary** (1↑): How so?
+- **Hirtomikko** (3↑): Job interviews are where I crumble since I can never put my thoughts into words due to extreme stagefright. But give me a paper and I can write things down and show and tell. After many years I tend to function the best in background roles.

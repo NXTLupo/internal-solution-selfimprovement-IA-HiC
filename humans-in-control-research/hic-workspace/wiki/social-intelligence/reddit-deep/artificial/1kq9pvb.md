@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1kq9pvb.md
 url: "https://www.reddit.com/r/artificial/comments/1kq9pvb/ai_is_cheap_cognitive_labor_and_that_breaks/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,87 @@ flair: "Discussion"
 extracted_at: "2026-05-11T16:53:08.155Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c0"
+    char_span: [0, 1583]
+    sentence_count: 21
+    key_terms: [labor, economic, white-collar, write, cost, artificial, classical, cognitive]
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c1"
+    char_span: [1598, 3810]
+    sentence_count: 18
+    key_terms: [capital, labor, resources, economic, inputs, people, result, unemployment]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c2"
+    char_span: [3812, 5224]
+    sentence_count: 7
+    key_terms: [theory, labor, increased, capital, traffic, something, economic, outcomes]
+    section: Comments
+    token_count: 302
+  - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c3"
+    char_span: [5226, 7249]
+    sentence_count: 14
+    key_terms: [labor, humans, entertainment, human, new, "people's", question, average]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c4"
+    char_span: [7251, 8656]
+    sentence_count: 11
+    key_terms: [human, economics, capitalism, deleted, intelligence, labor, comment, "doesn't"]
+    section: Comments
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c5"
+    char_span: [8658, 9784]
+    sentence_count: 11
+    key_terms: [economics, replacement, capitalism, efficient, accuracy, biology, nervous, studies]
+    section: Comments
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c6"
+    char_span: [9786, 11939]
+    sentence_count: 19
+    key_terms: [get, good, work, industry, already, graphic, enough, people]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c7"
+    char_span: [11942, 13148]
+    sentence_count: 6
+    key_terms: [level, cognitive, output, entry, guess, jobs, tonysoprano300, aureliusvarro]
+    section: Comments
+    token_count: 283
+  - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c8"
+    char_span: [13150, 15185]
+    sentence_count: 16
+    key_terms: [tasks, accuracy, new, time, preparing, required, correct, experts]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c9"
+    char_span: [15187, 17326]
+    sentence_count: 14
+    key_terms: [compute, communication, human, replacement, zero, ultimately, assistive, community]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c10"
+    char_span: [17328, 19519]
+    sentence_count: 34
+    key_terms: [pain, multiplier, customers, employees, sell, replacement, gets, another]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c11"
+    char_span: [19521, 21569]
+    sentence_count: 12
+    key_terms: [labor, skill, years, fivenine235, tool, recommend, changes, project]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c12"
+    char_span: [21571, 23804]
+    sentence_count: 17
+    key_terms: [day, different, significantly, work, physically, available, cognitive, internet]
+    section: Comments
+    token_count: 477
 ---
-
 # AI Is Cheap Cognitive Labor And That Breaks Classical Economics
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1kq9pvb/ai_is_cheap_cognitive_labor_and_that_breaks/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-genz/91becccc50.md
 url: "https://www.reddit.com/r/GenZ/comments/1nv8as6/how_loaded_these_billionaires_bastards_are_is/"
 url_hash: "91becccc50"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:18:43.277349+00:00"
 chars: 2311
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-genz/91becccc50.md#c0"
+    char_span: [0, 1681]
+    sentence_count: 18
+    key_terms: [elon, genz, comments, discord, filled, health, reddit, earns]
+    token_count: 430
+  - id: "articles/reddit-deep-r-genz/91becccc50.md#c1"
+    char_span: [1683, 2495]
+    sentence_count: 3
+    key_terms: [eclecticevergreen, value, multiple, annual-audience-2569, hard, hate, contribution, thelastbyte]
+    token_count: 198
 ---
-
 # How LOADED these billionaires bastards are is CRAZY.
 
 Source: [Reddit Deep: r/genz](https://www.reddit.com/r/GenZ/comments/1nv8as6/how_loaded_these_billionaires_bastards_are_is/)

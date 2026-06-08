@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1rrrkg1.md
 url: "https://www.reddit.com/r/jobs/comments/1rrrkg1/anyone_else_have_clueless_friends_that_dont_know/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,50 @@ flair: "Unemployment"
 extracted_at: "2026-05-24T14:10:06.650Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1rrrkg1.md#c0"
+    char_span: [0, 923]
+    sentence_count: 3
+    key_terms: [back, job, jobs, comments, getting, hiring, don, ok-flower2584]
+    token_count: 232
+  - id: "social-intelligence/reddit-deep/jobs/1rrrkg1.md#c1"
+    char_span: [928, 2306]
+    sentence_count: 9
+    key_terms: [job, because, get, charged, despite, either, places, legal]
+    token_count: 300
+  - id: "social-intelligence/reddit-deep/jobs/1rrrkg1.md#c2"
+    char_span: [2321, 3843]
+    sentence_count: 11
+    key_terms: [server, job, incredibly, felonies, charged, advice, people, hired]
+    section: Comments
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/jobs/1rrrkg1.md#c3"
+    char_span: [3845, 5868]
+    sentence_count: 10
+    key_terms: [because, people, get, python, interview, sql, ok-flower2584, basic]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/jobs/1rrrkg1.md#c4"
+    char_span: [5870, 7655]
+    sentence_count: 17
+    key_terms: [ok-flower2584, yeetyateyote666, lonely, going, get, like, try, realistic]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/jobs/1rrrkg1.md#c5"
+    char_span: [7657, 9889]
+    sentence_count: 19
+    key_terms: [like, people, rich, straight, got, guy, influence, laughing]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/jobs/1rrrkg1.md#c6"
+    char_span: [9891, 11246]
+    sentence_count: 9
+    key_terms: [ok-flower2584, maybe, job, something, customer, america, doctors, service]
+    section: Comments
+    token_count: 326
 ---
-
 # Anyone else have clueless friends that don’t know how the job market works?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1rrrkg1/anyone_else_have_clueless_friends_that_dont_know/)

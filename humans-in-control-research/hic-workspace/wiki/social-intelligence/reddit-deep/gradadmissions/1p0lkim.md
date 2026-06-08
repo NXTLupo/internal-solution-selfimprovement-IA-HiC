@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1p0lkim.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1p0lkim/perspective_on_lors_after_sending_a_big_batch/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,55 @@ flair: "General Advice"
 extracted_at: "2026-05-23T12:15:55.833Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c0"
+    char_span: [0, 917]
+    sentence_count: 3
+    key_terms: [gradadmissions, letter, write, perspective, comments, provide, sending, student]
+    token_count: 224
+  - id: "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c1"
+    char_span: [919, 2296]
+    sentence_count: 9
+    key_terms: [letter, "don't", want, customize, professor, signature, explain, however]
+    token_count: 328
+  - id: "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c2"
+    char_span: [2298, 3898]
+    sentence_count: 11
+    key_terms: [request, student, send, dynaroars, phd-cs-us, reminders, deadline, students]
+    token_count: 378
+  - id: "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c3"
+    char_span: [3913, 5800]
+    sentence_count: 10
+    key_terms: [application, system, write, letter, prompt, profs, immediately, lor]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c4"
+    char_span: [5802, 7429]
+    sentence_count: 8
+    key_terms: [letter, especially, ask, research, letters, usually, answer, draft]
+    section: Comments
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c5"
+    char_span: [7431, 9661]
+    sentence_count: 13
+    key_terms: [write, letter, program, student, applicants, applicant, programs, specific]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c6"
+    char_span: [9663, 11128]
+    sentence_count: 9
+    key_terms: [letter, student, minutes, request, schools, upload, minimumtelevision217, email]
+    section: Comments
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c7"
+    char_span: [11130, 12600]
+    sentence_count: 6
+    key_terms: [thank, cool, want, deadlines, reminders, signature, believe, sending]
+    section: Comments
+    token_count: 354
 ---
-
 # Perspective on LoRs (after sending a big batch today)
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1p0lkim/perspective_on_lors_after_sending_a_big_batch/)

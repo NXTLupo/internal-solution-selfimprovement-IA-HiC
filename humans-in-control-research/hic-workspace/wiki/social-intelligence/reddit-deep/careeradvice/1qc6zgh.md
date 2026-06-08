@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1qc6zgh.md
 url: "https://www.reddit.com/r/careeradvice/comments/1qc6zgh/blindsided_after_being_let_go_from_a_job_i_was/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,86 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.242Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1qc6zgh.md#c0"
+    char_span: [0, 2112]
+    sentence_count: 16
+    key_terms: [training, job, explaining, day, position, received, office, careeradvice]
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/careeradvice/1qc6zgh.md#c1"
+    char_span: [2114, 3632]
+    sentence_count: 18
+    key_terms: [training, never, completely, something, feeling, anyone, career, reason]
+    token_count: 339
+  - id: "social-intelligence/reddit-deep/careeradvice/1qc6zgh.md#c2"
+    char_span: [3647, 4368]
+    sentence_count: 4
+    key_terms: [violating, employer, "you're", developmenteastern75, find, dirttraining3804, unenforceable, self-enforce]
+    section: Comments
+    token_count: 169
+  - id: "social-intelligence/reddit-deep/careeradvice/1qc6zgh.md#c3"
+    char_span: [4370, 6218]
+    sentence_count: 17
+    key_terms: [like, company, time, industry, compete, prevent, working, lawyer]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/careeradvice/1qc6zgh.md#c4"
+    char_span: [6220, 8055]
+    sentence_count: 14
+    key_terms: [reason, non-compete, case, time, compete, legally, shitty, states]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careeradvice/1qc6zgh.md#c5"
+    char_span: [7791, 8407]
+    sentence_count: 4
+    key_terms: [conscious-egg-2232, willacceptpancakes, new, considered, noncompete, jcarlough, something, exchange]
+    section: Comments
+    token_count: 162
+  - id: "social-intelligence/reddit-deep/careeradvice/1qc6zgh.md#c6"
+    char_span: [8409, 9486]
+    sentence_count: 5
+    key_terms: [staffing, montana, period, affectionate-sir-784, union, conscious-egg-2232, grungecheap56119, right-to-work]
+    section: Comments
+    token_count: 290
+  - id: "social-intelligence/reddit-deep/careeradvice/1qc6zgh.md#c7"
+    char_span: [9488, 11584]
+    sentence_count: 17
+    key_terms: [like, hiring, years, guy, work, contracts, sometimes, attorney]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/careeradvice/1qc6zgh.md#c8"
+    char_span: [11586, 13510]
+    sentence_count: 14
+    key_terms: [conscious-egg-2232, original, training, vacation, working, happen, fired, going]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/careeradvice/1qc6zgh.md#c9"
+    char_span: [13513, 15499]
+    sentence_count: 16
+    key_terms: [business, job, redditisfacist3, "didn't", months, happened, because, metrics]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/careeradvice/1qc6zgh.md#c10"
+    char_span: [15501, 16994]
+    sentence_count: 15
+    key_terms: [company, agency, role, year, regardless, different, position, c-suite]
+    section: Comments
+    token_count: 366
+  - id: "social-intelligence/reddit-deep/careeradvice/1qc6zgh.md#c11"
+    char_span: [16996, 18307]
+    sentence_count: 6
+    key_terms: [egxnd3mtd2l6lxnlcnaisgvtcgxvew1lbnqgbgf3cyboaxjpbmcgyw5kigltbwvkawf0zsb0zxjtaw5hdglvbibhznrlcibszwf2aw5nig90agvyigpvykjjmfcrcvj6lnaceagqaqgyab0boag5gkobbdaumjs4aqpiaqd4aqgyag6gaognwgikeaaysamy1gqyr8icbrahgkabwgifeceyqwlcaguqirifbzgdaiggazagcjihbdiumtkgb6l7sgcemc4xmrg, employer, interference, "i'm", something, tortious, ltxmae-jhkg4wn4po8za0aq, company]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careeradvice/1qc6zgh.md#c12"
+    char_span: [18216, 19075]
+    sentence_count: 3
+    key_terms: [aognwgikeaaysamy1gqyr8icbrahgkabwgifeceyqwlcaguqirifbzgdaiggazagcjihbdiumtkgb6l7sgcemc4xmrgh-wzcbwuwljgunsghjyaiaa, autexfc0xsgozjsioh1c6b1mo5ntij2aovxquyr7owbktf-, conscious-egg-2232, company, quarterdisastrous479, stopelectingwealthy, name, gws-wiz-serp]
+    section: Comments
+    token_count: 399
 ---
-
 # Blindsided After Being Let Go From a Job I Was Poached For After Just A Month
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1qc6zgh/blindsided_after_being_let_go_from_a_job_i_was/)

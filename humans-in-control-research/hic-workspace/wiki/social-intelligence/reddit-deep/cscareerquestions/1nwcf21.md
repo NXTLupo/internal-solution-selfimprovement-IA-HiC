@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1nwcf21/market_is_even_worse_for_nonml_phds/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -10,11 +11,58 @@ score: 205
 upvote_ratio: 0.87
 num_comments: 138
 flair: ""
-extracted_at: "2026-05-23T14:54:48.648Z"
+extracted_at: "2026-06-06T17:43:22.946Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c0"
+    char_span: [0, 1109]
+    sentence_count: 6
+    key_terms: [computational-social-science, computational, microsoft, cscareerquestions, comments, research, market, social]
+    token_count: 260
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c1"
+    char_span: [1124, 2622]
+    sentence_count: 9
+    key_terms: [social, computational, science, media, methods, etc, like, use]
+    section: Comments
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c2"
+    char_span: [2624, 4378]
+    sentence_count: 11
+    key_terms: [degree, degrees, colleges, computational, employment, scientific, university, programs]
+    section: Comments
+    token_count: 356
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c3"
+    char_span: [4380, 6598]
+    sentence_count: 17
+    key_terms: [data, science, skills, social, processing, statistics, job, resume]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c4"
+    char_span: [6601, 8659]
+    sentence_count: 14
+    key_terms: [specialization, understanding, intelligence, publications, development, government, business, probably]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c5"
+    char_span: [8662, 10933]
+    sentence_count: 14
+    key_terms: [companies, research, through, understanding, phd, sociology, soggyclue, industry]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c6"
+    char_span: [10935, 12651]
+    sentence_count: 16
+    key_terms: [computational, people, social, scientist, interdisciplinary, fields, good, work]
+    section: Comments
+    token_count: 389
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c7"
+    char_span: [12654, 14505]
+    sentence_count: 10
+    key_terms: [social, like, science, sounds, computational, kinda, jobs, computer]
+    section: Comments
+    token_count: 440
 ---
-
 # Market is even worse for non-ML PhDs
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1nwcf21/market_is_even_worse_for_nonml_phds/)
@@ -32,23 +80,23 @@ Original Post:
 
 ## Comments
 
-- **AljoGOAT** (258↑): What is computational social science
-  - **neko_farts** (104↑): They use computation for conducting social science experiments. Like simulations, algorithms based of real world social conundrums. Basically study society.
+- **AljoGOAT** (256↑): What is computational social science
+  - **neko_farts** (102↑): They use computation for conducting social science experiments. Like simulations, algorithms based of real world social conundrums. Basically study society.
 
 Few e.g. are predicting disease outbreaks, NLP, 6 degrees of separation, social media misinformation spread, effects of social media etc.
-    - **Cuddlyaxe** (92↑): Honestly it's a ridiculously interesting field and there absolutely are applications for it, especially in social media companies or consulting
+    - **Cuddlyaxe** (90↑): Honestly it's a ridiculously interesting field and there absolutely are applications for it, especially in social media companies or consulting
 
 But it IS very niche, and tbh I dont think op should be super surprised theyre not getting a ton of interest back
-    - **SoggyClue** (5↑): Thank you for the explanation. We work with a lot of different kind of data. For example, my recent project involved building pipelines for spatio temporal datasets.
+    - **SoggyClue** (4↑): Thank you for the explanation. We work with a lot of different kind of data. For example, my recent project involved building pipelines for spatio temporal datasets.
     - **wolfpwner9** (3↑): So basically creating Throngs?
   - **monserrat77** (4↑): Check out the Knowledge Lab website, form U Chicago.
   - **GrammmyNorma** (-28↑): Something a university made up for money. Maybe I'm being ignorant.
-    - **[deleted]** (18↑): You guys can just use Google rather than asking others or making sarcastic guesses you know. 
+    - **[deleted]** (19↑): You guys can just use Google rather than asking others or making sarcastic guesses you know. 
 
 Computational social science is just like any other computational <subject>, e.g. computational biology, physics, chemistry, etc. The application of math, statistics, numerical methods, and computer science to the theory and methods of another domain, in this case social science. 
 
 Now I'm not saying there is, or should be, a robust employment market for PhD graduates in the field. Some areas of scientific investigation do not translate to the private sector and you won't be able to look for jobs that want your specific PhD degree, especially nowadays if you don't do anything with ML or AI in your computational research. But just because you haven't heard of it doesn't mean it's not a perfectly legitimate scientific domain, or something a university "made up for money."
-    - **jobgh** (4↑): After undergrad, degrees get increasingly focused and niche. OPs degree sounds pretty legit, just not where the jobs are these days
+    - **jobgh** (2↑): After undergrad, degrees get increasingly focused and niche. OPs degree sounds pretty legit, just not where the jobs are these days
     - **Cuddlyaxe** (3↑): Half true? Universities are overzealous about creating new hyperspecific degrees to attract students but at the same time it is a real field
 
 What is questionable is whether or not
@@ -64,10 +112,10 @@ Take for example data science degrees. Some colleges have amazing tailor built p
 DS degrees have become somewhat more mature at this point but Computational Social Sciences are still very much in the position DS used to be. No one really knows is a CPSS degree means you're a sociology major with a little bit of R skills or if you're a fully fledged programmer with a focus in social sciences
 
 Until the field becomes more standardized, this will remain a problem
-- **hereforbanos** (140↑): This is just my opinion and it's worth nothing or less but distance yourself from using "social science" on your resume and focus on the software you built or the data processing pipelines you automated.  I'd try to not even put social science on my resume if at all possible. My instinct tells me people would see that and move on but I'm not a hiring manager and never have been.  PhD in CS would be better and talk about the stats and computation.  Papers you published could def be interesting talking points in interviews depending on what company you're applying to.
-  - **SoggyClue** (47↑): Thanks for the suggestion. Maybe I'll highlight on the Data processing and stat skills rather than the studies themselves.
+- **hereforbanos** (133↑): This is just my opinion and it's worth nothing or less but distance yourself from using "social science" on your resume and focus on the software you built or the data processing pipelines you automated.  I'd try to not even put social science on my resume if at all possible. My instinct tells me people would see that and move on but I'm not a hiring manager and never have been.  PhD in CS would be better and talk about the stats and computation.  Papers you published could def be interesting talking points in interviews depending on what company you're applying to.
+  - **SoggyClue** (48↑): Thanks for the suggestion. Maybe I'll highlight on the Data processing and stat skills rather than the studies themselves.
     - **hereforbanos** (40↑): That is exactly what you should do. Exude passion for data processing pipelines and the outcomes & results you got from them. Like what type of insights you gained from the data.
-    - **samelaaaa** (21↑): This is what you need to do. My wife has a PhD in computational psychology, and as soon as she reframed it as statistics (she taught statistics classes) she got an awesome data science job.
+    - **samelaaaa** (19↑): This is what you need to do. My wife has a PhD in computational psychology, and as soon as she reframed it as statistics (she taught statistics classes) she got an awesome data science job.
 
 The reality is that social sciences are a negative on your résumé. I think this is stupid — social science data is very messy and requires complex statistics and tech to handle properly — but it is what it is.
     - **Inebriated_Economist** (3↑): 1. Look at big tech or fortune 500 companies and find something that might be related to what you studied, like software engineering or data science.
@@ -98,14 +146,14 @@ Good luck! 🍀
   - **SoggyClue** (1↑): Haha, that’s a good one
   - **speptuple** (0↑): Hp company?
     - **-BunsenBurn-** (3↑): High performance computing
-- **Dihedralman** (7↑): You are going to need to look into government contractors which is something else right now. But often finance will also give you a shot. 
+- **Dihedralman** (6↑): You are going to need to look into government contractors which is something else right now. But often finance will also give you a shot. 
 
 
 One issue is that AI promises are eating your lunch right now. Not results delivered but there are researchers and companies that want to model people using LLMs. Even filling out surveys.
   - **SoggyClue** (2↑): Yes, thats the current trend unfortunately
 - **BejahungEnjoyer** (6↑): It's rare that any PhD subfield is 'hot' in the job market. In the 90s networking and database systems were hot, then distributed systems was during the initial cloud buildout, now CV and NLP is. Most PhDs in industry work as general problem solvers, not continuing their dissertation research.
   - **SoggyClue** (1↑): I guess the problem lies with the market being so bad right now, not my field specifically. Hopefully I will be able to land something
-- **AaronDCA** (6↑): So I’m a bit older than most in here but was a global CTO who worked with a ton of different companies and I actually have a family member who has a sociology PhD focusing on research which is the standard survey type work you referenced.  A couple thoughts that may help from what I’ve seen:
+- **AaronDCA** (5↑): So I’m a bit older than most in here but was a global CTO who worked with a ton of different companies and I actually have a family member who has a sociology PhD focusing on research which is the standard survey type work you referenced.  A couple thoughts that may help from what I’ve seen:
 
 Need to look at companies that are solving macro problems such as smart mobility, health insurance, public utilities or even large consulting that operate at a large city/state/country scale.  
 
@@ -119,18 +167,18 @@ Lastly, the job market actually is pure ass right now.  It’s all of us and not
 
 Good luck and you got this. Hope all this helps.
   - **SoggyClue** (1↑): This is some really good advice! I have been looking into Data Scientist roles, but UX researcher positions make sense as well. Thank you so much on guiding me how to pitch my work. This really helps a ton!
-- **No_Try6944** (39↑): Bruh, these new interdisciplinary fields like “computational social science” have a huge stigma and instantly puts people off. Are you a social scientist or a computer scientist…?
-  - **SoggyClue** (21↑): We look at societal problem through a computational lens. If you look at research papers in this area, you will find a lot of interesting work trying to mitigate bias in transportation, healthcare and other important fields.
-    - **Brownl33d** (40↑): Hey man the commenters on here are most definitely freshmen. You're doing something computational and what people fail to realize is statistics is huge in social sciences as well. So whatever projects you're working on, emphasize your data and statistical work and skills. Your skills are more transferable than a normie CS student. Interdisciplinary people are gold mines.
-    - **[deleted]** (4↑): By they description, I would consider that a social science degree, not a CS degree. 
+- **No_Try6944** (37↑): Bruh, these new interdisciplinary fields like “computational social science” have a huge stigma and instantly puts people off. Are you a social scientist or a computer scientist…?
+  - **SoggyClue** (22↑): We look at societal problem through a computational lens. If you look at research papers in this area, you will find a lot of interesting work trying to mitigate bias in transportation, healthcare and other important fields.
+    - **Brownl33d** (41↑): Hey man the commenters on here are most definitely freshmen. You're doing something computational and what people fail to realize is statistics is huge in social sciences as well. So whatever projects you're working on, emphasize your data and statistical work and skills. Your skills are more transferable than a normie CS student. Interdisciplinary people are gold mines.
+    - **[deleted]** (5↑): By they description, I would consider that a social science degree, not a CS degree. 
 
 
 I understand it is CS but it's not what people have ever wanted when they say they want a CS PhD
-    - **OkTank1822** (-6↑): > other *important* fields
+    - **OkTank1822** (-7↑): > other *important* fields
 
 
 If those fields were important, there'd have been jobs in those fields.
-    - **No_Try6944** (-6↑): That’s great, but it sounds like you should be applying to jobs in social work instead of tech…
+    - **No_Try6944** (-7↑): That’s great, but it sounds like you should be applying to jobs in social work instead of tech…
   - **RadiantHC** (2↑): Both
   - **Infamous_Mud482** (1↑): There no stigma against computational biology or bioinformatics that I'm aware of (maybe because ML is a pretty standard part of the skillset? idk) and it's also currently a pretty shit job market with the same issues asking for a bunch of pointless LLM GenAI resume padding
   - **Kyanche** (1↑): > instantly puts people off

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1oziapg.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1oziapg/if_your_employer_were_to_pay_100_for_any_degree/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,48 @@ subreddit: "cscareerquestions"
 title: "If your employer were to pay 100% for any degree (no strings attached), what part-time program would you pursue to best level up your tech career?"
 author: "MajorWang-"
 date: "2025-11-17T14:52:06.000Z"
-score: 71
-upvote_ratio: 0.94
+score: 73
+upvote_ratio: 0.95
 num_comments: 87
 flair: ""
-extracted_at: "2026-05-26T14:31:41.274Z"
+extracted_at: "2026-06-06T13:04:13.563Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oziapg.md#c0"
+    char_span: [0, 2222]
+    sentence_count: 16
+    key_terms: [degree, pursue, part-time, something, cscareerquestions, post-secondary, career, don]
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oziapg.md#c1"
+    char_span: [2237, 3777]
+    sentence_count: 9
+    key_terms: [management, something, misingnoglic, "don't", get, "it's", background, technical]
+    section: Comments
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oziapg.md#c2"
+    char_span: [3780, 5268]
+    sentence_count: 13
+    key_terms: [economics, industry, georgia, masters, always, chance, degree, domain]
+    section: Comments
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oziapg.md#c3"
+    char_span: [5270, 6677]
+    sentence_count: 9
+    key_terms: [like, program, doing, prestigious, rate, work, yeah, graduation]
+    section: Comments
+    token_count: 363
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oziapg.md#c4"
+    char_span: [6679, 7483]
+    sentence_count: 7
+    key_terms: [product, mba, management, sisyphusandmyboulder, level, hardware-software, saas, jollytheory783]
+    section: Comments
+    token_count: 202
 ---
-
 # If your employer were to pay 100% for any degree (no strings attached), what part-time program would you pursue to best level up your tech career?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1oziapg/if_your_employer_were_to_pay_100_for_any_degree/)
-Posted by **MajorWang-** · **71↑** · **87 comments**
+Posted by **MajorWang-** · **73↑** · **87 comments**
 
 Hello all.  Software/Web Dev here, 8 YOE.
 
@@ -40,8 +70,8 @@ with AI making it easier for people to fake experience or inflate resumes, do yo
 
 ## Comments
 
-- **misingnoglic** (108↑): I would get a gemology degree. It has nothing to do with my job but I like rocks.
-  - **WhoLivesInAPineappal** (42↑): Jesus Christ Marie, they’re minerals!
+- **misingnoglic** (105↑): I would get a gemology degree. It has nothing to do with my job but I like rocks.
+  - **WhoLivesInAPineappal** (38↑): Jesus Christ Marie, they’re minerals!
     - **misingnoglic** (7↑): Based on your name I thought you'd say "it's not a rock, it's a boulder!'
   - **nighhawkrr** (4↑): I actually was a geology major, but I was too soft for it so I became a software engineer instead.
   - **sudosussudio** (1↑): I was a dev at two Universities and studied archaeology and ecology. I knew devs there who got C.S. Masters degrees but I wanted to take something fun.
@@ -65,10 +95,10 @@ Remember SWE is ultimately a tool used in every industry and domain and having a
 She is currently taking a combined CS/ML masters from Georgia Tech. This will give her an unambiguous CS degree, as well as demonstrating serious ML depth. This program is an excellent deal, at about $8000 total. It’s well respected in the industry. Georgia Tech has a lot of master’s degrees for people with various backgrounds.
 
 The degree involves real work, though. She has had to drop classes a few times when she was overloaded at work, e.g., when they laid people off and she was doing the work of multiple people. When she is done, assuming the AI bubble hasn’t burst, she will be very well positioned.
-  - **redkit42** (6↑): Georgia Tech OMSCS is a very prestigious, but is also a very difficult program. You need to spend lots of time studying, doing assignments, and preparing for exams. It is no joke. Their graduation rate is around 20-30% or something like that.
+  - **redkit42** (5↑): Georgia Tech OMSCS is a very prestigious, but is also a very difficult program. You need to spend lots of time studying, doing assignments, and preparing for exams. It is no joke. Their graduation rate is around 20-30% or something like that.
     - **nighhawkrr** (2↑): Yeah I took a couple classes and it was like my undergraduate cs program. I realized I didn’t want to code in my off hours.
     - **ForgotMyNameeee** (-1↑): its not prestigious it has like a 90% acceptance rate. the graduation rate is around 60% if i recall correctly. source: doing the program as well
-- **AdventurousTime** (5↑): rustic angle theory scary oatmeal absorbed wide squeeze touch label
+- **AdventurousTime** (6↑): rustic angle theory scary oatmeal absorbed wide squeeze touch label
 
  *This post was mass deleted and anonymized with [Redact](https://redact.dev/home)*
   - **MajorWang-** (2↑): Thanks, yeah I don't want to let this go to waste.  But what degrees did you pursue to propel your career?

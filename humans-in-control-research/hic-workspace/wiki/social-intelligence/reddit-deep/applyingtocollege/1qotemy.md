@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1qotemy.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1qotemy/anyone_has_positive_experience_with_zenith_prep/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -10,11 +11,40 @@ score: 1
 upvote_ratio: 1
 num_comments: 15
 flair: "Advice"
-extracted_at: "2026-05-24T14:08:39.590Z"
+extracted_at: "2026-06-03T18:53:09.733Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qotemy.md#c0"
+    char_span: [0, 348]
+    sentence_count: 2
+    key_terms: [applyingtocollege, comments, academy, zenith, prep, reddit-deep, experience, positive]
+    token_count: 88
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qotemy.md#c1"
+    char_span: [363, 2501]
+    sentence_count: 9
+    key_terms: [experience, guarantee, ok-signature-6892, get, college, beneficial, offputting, contract]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qotemy.md#c2"
+    char_span: [2290, 2681]
+    sentence_count: 5
+    key_terms: [focused, ok-signature-6892, paid, counselors, leadership, directly, freshman, because]
+    section: Comments
+    token_count: 101
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qotemy.md#c3"
+    char_span: [2683, 4892]
+    sentence_count: 10
+    key_terms: [like, money, guarantee, program, anyone, zenith, get, help]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qotemy.md#c4"
+    char_span: [4616, 5162]
+    sentence_count: 5
+    key_terms: [zenith, goals, "it's", dangerzonefinder, extracurriculars, challenging, experience, productive]
+    section: Comments
+    token_count: 120
 ---
-
 # Anyone has positive experience with Zenith prep academy and have gotten into their dream college in the recent years?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1qotemy/anyone_has_positive_experience_with_zenith_prep/)

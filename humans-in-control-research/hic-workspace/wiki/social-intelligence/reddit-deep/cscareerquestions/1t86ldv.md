@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1t86ldv/my_job_search_experience_11_yoe_564_applications/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,82 @@ subreddit: "cscareerquestions"
 title: "My job search experience (11 YOE, 564 applications, 1 offer)"
 author: "ImportantSquirrel"
 date: "2026-05-09T14:32:04.000Z"
-score: 222
+score: 223
 upvote_ratio: 0.97
 num_comments: 72
 flair: "Experienced"
-extracted_at: "2026-05-26T12:54:26.427Z"
+extracted_at: "2026-06-03T03:09:49.663Z"
 extraction_method: "praw-deep"
-research_goal: "Identify emerging needs in the remote work sector."
+research_goal: "Generate a strategic analysis identifying actionable opportunities for Northeastern University to enhance experiential learning and co-op success. Focus the analysis on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development."
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c0"
+    char_span: [0, 1993]
+    sentence_count: 19
+    key_terms: [interviews, did, applications, offer, roles, cscareerquestions, came, applying]
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c1"
+    char_span: [1995, 3895]
+    sentence_count: 16
+    key_terms: [companies, interviews, interview, contracting, applications, get, less, experience]
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c2"
+    char_span: [3897, 5569]
+    sentence_count: 16
+    key_terms: ["don't", interview, connections, interviews, recruiters, managers, resulted, clearly]
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c3"
+    char_span: [5584, 7401]
+    sentence_count: 6
+    key_terms: [companies, importantsquirrel, been, getting, bombed, banks, implement, questions]
+    section: Comments
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c4"
+    char_span: [7403, 9477]
+    sentence_count: 17
+    key_terms: [questions, asked, never, interviewed, got, "i'm", experience, different]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c5"
+    char_span: [9482, 11570]
+    sentence_count: 18
+    key_terms: [importantsquirrel, jobs, multimodeviber, descriptions, roles, job, like, pay]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c6"
+    char_span: [11318, 11796]
+    sentence_count: 4
+    key_terms: [government-adjacent, congratulations, universities, governments, fallwindss, government, foolproof, hospitals]
+    section: Comments
+    token_count: 114
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c7"
+    char_span: [11798, 13656]
+    sentence_count: 17
+    key_terms: [interviews, did, got, sent, swe, particular, companies, engineer]
+    section: Comments
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c8"
+    char_span: [13658, 15772]
+    sentence_count: 20
+    key_terms: [interview, pretty, asked, companies, importantsquirrel, did, company, fairly]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c9"
+    char_span: [15774, 17196]
+    sentence_count: 14
+    key_terms: [companies, applications, people, job, yoe, variance, experience, impressive]
+    section: Comments
+    token_count: 336
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c10"
+    char_span: [17198, 18549]
+    sentence_count: 16
+    key_terms: [company, "it's", never, experience, university, companies, referrals, shallow86]
+    section: Comments
+    token_count: 326
 ---
-
 # My job search experience (11 YOE, 564 applications, 1 offer)
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1t86ldv/my_job_search_experience_11_yoe_564_applications/)
-Posted by **ImportantSquirrel** · **222↑** · **72 comments**
+Posted by **ImportantSquirrel** · **223↑** · **72 comments**
 
 I started my job search in October 2025. I was employed at a fairly well known tech company, but things had gotten a lot worse on my team and I wanted out. I am a senior software developer with 11 years of experience so I thought it would take a month or two to find something, like it did the last time I switched jobs (2019). This time it took until April to get an offer. A total of 564 applications. I was applying mostly to backend and full stack roles. I live an hour out of Toronto so I was applying only to hybrid roles in Toronto, as well as any remote roles open to Canadians. As time went on I started applying to fully on-site positions too. The offer I ended up getting is hybrid twice a week in Toronto.
 
@@ -46,7 +110,7 @@ Anyways I hope this summary helps people who are searching for a new role and if
 
 ## Comments
 
-- **I-Groot** (52↑): Congratulations 
+- **I-Groot** (51↑): Congratulations 
 
 I have been recently laid off from TD, been applying everywhere and it’s funny like how you described I am getting calls from faang adjacent companies than from other banks and insurance companies.
 
@@ -55,7 +119,7 @@ All that banking jobs have been moved to WITCH companies now.
 With third parties and staffing it is getting difficult, they are checking it with job description and expecting to match every single technology as far as same testing library and monitoring tool.
   - **ImportantSquirrel** (14↑): Dang I thought banks didn't do much layoffs, too bad. I guess there is no such thing as a stable job any more.
   - **MasterFricker** (2↑): I didnt think banks did much layoffs either
-- **Glum_Worldliness4904** (133↑): > Leetcode seems to be getting less prevalent
+- **Glum_Worldliness4904** (131↑): > Leetcode seems to be getting less prevalent
 
 Also noticed that and it’s actually a bad news.
 
@@ -68,22 +132,22 @@ We know how to prepare to LC style questions, but here are some examples which I
 - We have some code, tune GC configuration so for the throughput (totally bombed)
 
 I’m not sure that sort of questions can be prepared in any way unless one have faced them before
-  - **Vemyx** (69↑): that's kind of extreme, what title was this?
-    - **Glum_Worldliness4904** (27↑): The first 2 was from HFT hedge funds and the GC tune I was asked for a performance engineer role at big data team (mid size company)
+  - **Vemyx** (63↑): that's kind of extreme, what title was this?
+    - **Glum_Worldliness4904** (24↑): The first 2 was from HFT hedge funds and the GC tune I was asked for a performance engineer role at big data team (mid size company)
   - **ImportantSquirrel** (35↑): Sounds like they were searching for someone with very specific skills. I'm more of a jack-of-all-trades java developer so I wouldn't have been able to solve those, at least not without significant hints.
 
 One of the interviews I bombed, they asked very specific questions about authentication protocols and OAuth. I have used those and knew how they worked at a high level but they asked about the inner workings which I didn't know in detail. I'm sure I could have learned it given some time but I guess they wanted someone who could hit the ground running. Sometimes the role is just a bad fit.
-  - **azuredota** (31↑): Interviewing at fucking SkyNet or something? Jesus
-  - **CapableHerring** (24↑): I'm pretty sure most SWE's would bomb those questions... was this for a very niche role/title? Or for some extremely prestigious company?
+  - **azuredota** (30↑): Interviewing at fucking SkyNet or something? Jesus
+  - **CapableHerring** (23↑): I'm pretty sure most SWE's would bomb those questions... was this for a very niche role/title? Or for some extremely prestigious company?
 
 I can't imagine Geico asking those questions for example, even in this AI-landscape.
     - **uuhson** (7↑): 6 years at faang and I wouldn't even know where to begin with any of those without heavy prompting. I asked Claude to show me and I've legit never heard of AtomicReference or the unsafe memory management  libs in Java
-  - **Otherwise-Tree-7654** (11↑): These are aweosme questions, were u allowed to use AI/google?
+  - **Otherwise-Tree-7654** (10↑): These are aweosme questions, were u allowed to use AI/google?
 
 In my recent job search i had similar experience but a bit more specific, was given a zip- containing java/kafka - request was to write thread safe consumer/build rudimentary analytics (no AI but ok with google/stackoverflow) - loved that interview
-    - **Mundane-Fox-1669** (8↑): How can we prep for something like this if we have no exp with kafka
+    - **Mundane-Fox-1669** (7↑): How can we prep for something like this if we have no exp with kafka
     - **gpacsu** (2↑): Howd you do it? I have no clue where to even start
-- **user2776632** (29↑): It wasn't you. It's the current market. If I was you I'd follow up on LinkedIn to see if any of those positions you interviewed for even got filled. There's a couple different ways to do people searches on LinkedIn that show new hires and people that change positions. Personally, I interviewed with 12 different places and I'd say over half never got filled. Even when they said they were very motivated to fill the position it never happened.
+- **user2776632** (30↑): It wasn't you. It's the current market. If I was you I'd follow up on LinkedIn to see if any of those positions you interviewed for even got filled. There's a couple different ways to do people searches on LinkedIn that show new hires and people that change positions. Personally, I interviewed with 12 different places and I'd say over half never got filled. Even when they said they were very motivated to fill the position it never happened.
 
 My experience was very similar to yours, though I'm US based. Out of nearly 150 apps I got two offers after 5 months.
 
@@ -96,8 +160,8 @@ Additionally, I would say at least 1/3 or more of the positions that I applied f
   - **ImportantSquirrel** (8↑): The big banks in Toronto seem to pay from 90-115 for senior dev roles, maybe a little more for lead roles. Junior and intermediate roles are more like 70-90. This is just from what I was able to observe from job descriptions, not all job descriptions had a salary listed.
   - **Proper_Jeweler_9238** (1↑): still no harm to sharp your interview skills, you never know when you will be let go and you abs don't want to start preparing it that time.
     - **multimodeviber** (3↑): Ugh true but I hate it. I need the fear. What I do instead is spend nothing and have a large cushion. Not foolproof but better for my mental health for sure
-- **fallwindss** (10↑): Thank you for the detailed account and congratulations on the offer!
-- **paranoid_throwaway51** (11↑): "I also applied to several government and government-adjacent roles such as municipal governments, hospitals, and universities and colleges, and none of them would interview me"
+- **fallwindss** (11↑): Thank you for the detailed account and congratulations on the offer!
+- **paranoid_throwaway51** (10↑): "I also applied to several government and government-adjacent roles such as municipal governments, hospitals, and universities and colleges, and none of them would interview me"
 
 \- i sympathise with this.
 
@@ -118,10 +182,10 @@ For places I was very suited for, even with hundreds of applicants (according to
 I have 3-4yoe, also in Toronto. I wanted to see how bad the market was for myself so I sent out 8 applications. I got 3 interviews, and 2 offers, both over 170k.
 
 How could there be this much variance? And you said you worked at a big tech company?
-  - **Proper_Jeweler_9238** (14↑): crazy. How you can get 3/8 interviews ? Stripe and Okta are 2 companies I know that can give such a TC and still hiring.
+  - **Proper_Jeweler_9238** (13↑): crazy. How you can get 3/8 interviews ? Stripe and Okta are 2 companies I know that can give such a TC and still hiring.
 
 Market is pretty bad based on my experiences.
-    - **ImportantSquirrel** (8↑): I had interviews with both of those companies. The Okta interview was quite difficult, although from what I remember I interviewed for a lead position. The Stripe interview was a bit easier, they gave me some code and asked me to make a pretty simple addition to it. When I did that, they asked me to write some tests to verify the correctness. After that, they asked me to make another addition to the code, this time harder but still not too difficult. After I did that they let me ask them any questions about their company, and we had a discussion about what it was like to work there. Then the interview was over, and a few days later I got a rejection. Not sure what I did wrong, I thought the code I wrote was pretty good and it solved the problems they asked me to solve. I guess somebody else did it even better. Despite the rejection I still came away with a fairly positive impression of the company, the interviewers seemed pretty smart and I liked their interview format. I may apply there again some day.
+    - **ImportantSquirrel** (9↑): I had interviews with both of those companies. The Okta interview was quite difficult, although from what I remember I interviewed for a lead position. The Stripe interview was a bit easier, they gave me some code and asked me to make a pretty simple addition to it. When I did that, they asked me to write some tests to verify the correctness. After that, they asked me to make another addition to the code, this time harder but still not too difficult. After I did that they let me ask them any questions about their company, and we had a discussion about what it was like to work there. Then the interview was over, and a few days later I got a rejection. Not sure what I did wrong, I thought the code I wrote was pretty good and it solved the problems they asked me to solve. I guess somebody else did it even better. Despite the rejection I still came away with a fairly positive impression of the company, the interviewers seemed pretty smart and I liked their interview format. I may apply there again some day.
     - **Crazy_Rockman** (3↑): Maybe he has experience in a fairly niche domain where there aren't so many offers but there aren't many candidates either.
     - **8004612286** (3↑): I had a stripe OA that I failed in one of those 8 lol
 
@@ -129,11 +193,10 @@ Both of those offers came from F500. It was max of their band - I was pretty imp
   - **ImportantSquirrel** (20↑): I don't know how that's possible. Maybe you're just brilliant, or maybe it's dumb luck. Were you applying to backend dev roles? Are you able to name any of the companies you got offers from?
 
 I have worked for 3 companies prior to my current job. Two nobody has heard of, but the last one (where I worked since 2019) was a fairly well known big tech company, though not a particularly well regarded one.
-    - **nimbus-dimbus** (4↑): Do you have a degree?
+    - **nimbus-dimbus** (5↑): Do you have a degree?
     - **8004612286** (3↑): Backend. One OA plus one failed interview from big tech.
 
 The two offers both came from random F500s, hence why I didn't jump.
-    - **Dependent-Cash-3405** (1↑): i mean thats probably why
   - **CapableHerring** (9↑): >How could there be this much variance?
 
 There's always been this much variance. Even people that look very similar on paper can have completely different job searching experiences depending on a million factors besides just the companies you've worked for.

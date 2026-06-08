@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1nnpoxo.md
 url: "https://www.reddit.com/r/investing/comments/1nnpoxo/is_ai_the_future_of_the_stock_market_and/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.196Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1nnpoxo.md#c0"
+    char_span: [0, 2081]
+    sentence_count: 18
+    key_terms: [investing, invest, companies, money, day, tsmc, comments, continue]
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/investing/1nnpoxo.md#c1"
+    char_span: [2096, 3076]
+    sentence_count: 4
+    key_terms: [investing, infrastructure, investing-technological-revolutions, companies, "you're", financial-respond-37, justbrowsinandvibin, right]
+    section: Comments
+    token_count: 248
 ---
-
 # Is AI the Future of the Stock Market and Investing? And is it Smart to Invest in AI now or in a Few Months?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1nnpoxo/is_ai_the_future_of_the_stock_market_and/)

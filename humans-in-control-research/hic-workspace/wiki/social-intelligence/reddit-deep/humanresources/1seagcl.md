@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1seagcl.md
 url: "https://www.reddit.com/r/humanresources/comments/1seagcl/i_passed_my_sphr_ca/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,26 @@ flair: "Off-Topic / Other"
 extracted_at: "2026-05-23T12:15:41.527Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1seagcl.md#c0"
+    char_span: [0, 1840]
+    sentence_count: 16
+    key_terms: [prep, understand, exam, humanresources, hrci, reasoning, scheduled, comments]
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/humanresources/1seagcl.md#c1"
+    char_span: [1842, 2430]
+    sentence_count: 8
+    key_terms: [passed, leadership, surprised, strategy, highest, talent, acquisition, management]
+    token_count: 125
+  - id: "social-intelligence/reddit-deep/humanresources/1seagcl.md#c2"
+    char_span: [2445, 3301]
+    sentence_count: 8
+    key_terms: [congratulations, glum-manufacturer-21, congrats, thank, mine, greedy-canary-5807, salty-mortgage9738, hope]
+    section: Comments
+    token_count: 272
 ---
-
 # I passed my SPHR! [CA]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1seagcl/i_passed_my_sphr_ca/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1nrvesf.md
 url: "https://www.reddit.com/r/personalfinance/comments/1nrvesf/what_are_the_essential_ways_to_avoid_debt_as_a/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,33 @@ flair: "Planning"
 extracted_at: "2026-05-16T20:55:02.105Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, workforce, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1nrvesf.md#c0"
+    char_span: [0, 843]
+    sentence_count: 5
+    key_terms: [personalfinance, got, financial, comments, classes, avoid, debt, time]
+    token_count: 201
+  - id: "social-intelligence/reddit-deep/personalfinance/1nrvesf.md#c1"
+    char_span: [858, 2110]
+    sentence_count: 12
+    key_terms: [car, "it's", buying, cars, buy, cash, fine, save]
+    section: Comments
+    token_count: 339
+  - id: "social-intelligence/reddit-deep/personalfinance/1nrvesf.md#c2"
+    char_span: [2112, 3610]
+    sentence_count: 15
+    key_terms: [car, people, cars, paycheck, buy, get, new, insurance]
+    section: Comments
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/personalfinance/1nrvesf.md#c3"
+    char_span: [3613, 5571]
+    sentence_count: 18
+    key_terms: [don, maintenance, buy, pay, credit, expensive, car, cars]
+    section: Comments
+    token_count: 491
 ---
-
 # What are the essential ways to avoid debt as a young adult?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1nrvesf/what_are_the_essential_ways_to_avoid_debt_as_a/)

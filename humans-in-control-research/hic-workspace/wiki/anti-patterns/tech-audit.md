@@ -1,4 +1,5 @@
 ---
+id: anti-patterns/tech-audit.md
 title: "Tech Audit Anti-Patterns"
 type: anti-pattern
 created: 2026-04-10
@@ -8,8 +9,50 @@ confidence: high
 status: active
 tags: [anti-patterns, tech-audit, cobit, quality-gates]
 evidence_count: 0
+chunks:
+  - id: "anti-patterns/tech-audit.md#c0"
+    char_span: [0, 2510]
+    sentence_count: 7
+    key_terms: [alternative, description, systems, vendor, recommendations, detection, inventory, criteria]
+    section: "AP-TECHAUDIT-01: Vendor Name Hallucination / AP-TECHAUDIT-02: Audit Without Inventory / AP-TECHAUDIT-03: Missing Shadow IT / AP-TECHAUDIT-04: No \"Do Nothing\" Cost Scenario"
+    token_count: 505
+  - id: "anti-patterns/tech-audit.md#c1"
+    char_span: [2559, 3040]
+    sentence_count: 3
+    key_terms: [red, retirement, flagged, systems, review, keep, optimization, alternative]
+    section: "AP-TECHAUDIT-05: Green-Lighting Everything"
+    token_count: 113
+  - id: "anti-patterns/tech-audit.md#c2"
+    char_span: [3091, 3657]
+    sentence_count: 4
+    key_terms: [utilization, salesforce, marketing, cloud, used, organization, alternative, description]
+    section: "AP-TECHAUDIT-06: Missing License Utilization"
+    token_count: 114
+  - id: "anti-patterns/tech-audit.md#c3"
+    char_span: [3707, 4253]
+    sentence_count: 1
+    key_terms: [security, without, framework, generic, mapping, csf, nist, recommendations]
+    section: "AP-TECHAUDIT-07: Security Without Framework"
+    token_count: 137
+  - id: "anti-patterns/tech-audit.md#c4"
+    char_span: [4299, 4825]
+    sentence_count: 3
+    key_terms: [recommendations, alternative, without, team, microservices, conditional, considering, description]
+    section: "AP-TECHAUDIT-08: No Skills Gap Analysis"
+    token_count: 110
+  - id: "anti-patterns/tech-audit.md#c5"
+    char_span: [4886, 5380]
+    sentence_count: 2
+    key_terms: [business, trends, recommendations, alternative, description, connection, generative, operations]
+    section: "AP-TECHAUDIT-09: Technology Without Business Alignment"
+    token_count: 110
+  - id: "anti-patterns/tech-audit.md#c6"
+    char_span: [5430, 6007]
+    sentence_count: 2
+    key_terms: [dimensions, critical, equally, identical-length, approximately, superficially, architecture, alternative]
+    section: "AP-TECHAUDIT-10: Audit as Checkbox Exercise"
+    token_count: 111
 ---
-
 # Tech Audit Anti-Patterns
 
 Known failure modes for technology audit deliverables. Cross-reference: [[frameworks/tech-audit]]

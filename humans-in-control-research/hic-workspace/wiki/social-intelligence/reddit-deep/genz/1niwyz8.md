@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1niwyz8.md
 url: "https://www.reddit.com/r/GenZ/comments/1niwyz8/spx6900_a_financialized_protest_for_genz/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,32 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.771Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1niwyz8.md#c0"
+    char_span: [0, 2113]
+    sentence_count: 18
+    key_terms: [crypto, coin, meme, because, value, generations, genz, new]
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/genz/1niwyz8.md#c1"
+    char_span: [2115, 3534]
+    sentence_count: 15
+    key_terms: [spx6900, financial, dissatisfaction, stopped, system, element, squeeze, occupy]
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/genz/1niwyz8.md#c2"
+    char_span: [3549, 4959]
+    sentence_count: 2
+    key_terms: [pull, rug, youchasechickens, future-bet4783, lol, because, discord, simple-designer-4121]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/genz/1niwyz8.md#c3"
+    char_span: [4961, 5873]
+    sentence_count: 2
+    key_terms: [future-bet4783, youchasechickens, checkmatefluff, asymmetrical, summerechoes, advertising, volatility, diversify]
+    section: Comments
+    token_count: 269
 ---
-
 # SPX6900: A financialized protest for GenZ
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1niwyz8/spx6900_a_financialized_protest_for_genz/)

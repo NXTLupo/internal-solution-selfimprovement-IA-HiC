@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1rwurlf.md
 url: "https://www.reddit.com/r/GPT/comments/1rwurlf/chatgpt_got_a_lot_less_frustrating_for_me_after_i/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,20 @@ flair: "ChatGPT"
 extracted_at: "2026-05-11T17:26:37.724Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1rwurlf.md#c0"
+    char_span: [0, 2060]
+    sentence_count: 2
+    key_terms: [chatgpt, less, wrong, coding, starts, debugging, txt, router]
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/gpt/1rwurlf.md#c1"
+    char_span: [2062, 3977]
+    sentence_count: 1
+    key_terms: [point, did, workflows, txt, wfgy-ai-problem-map-troubleshooting-atlas, earlier, entry, wrong]
+    token_count: 481
 ---
-
 # ChatGPT got a lot less frustrating for me after I forced one routing step first
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1rwurlf/chatgpt_got_a_lot_less_frustrating_for_me_after_i/)

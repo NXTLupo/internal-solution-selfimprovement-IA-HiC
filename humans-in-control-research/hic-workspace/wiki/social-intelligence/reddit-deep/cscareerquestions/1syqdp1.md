@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1syqdp1.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1syqdp1/facing_a_career_crossroads_after_an_8month_gap/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,26 @@ flair: "Experienced"
 extracted_at: "2026-05-25T18:32:49.823Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1syqdp1.md#c0"
+    char_span: [0, 2339]
+    sentence_count: 18
+    key_terms: [development, career, frontend, role, cscareerquestions, gap, path, support]
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1syqdp1.md#c1"
+    char_span: [2341, 3111]
+    sentence_count: 4
+    key_terms: [development, whether, career, trying, role, cybersecurity, engineering, feasibility]
+    token_count: 142
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1syqdp1.md#c2"
+    char_span: [3126, 4982]
+    sentence_count: 16
+    key_terms: [job, because, direction, sometimes, technical, whatever, support, people]
+    section: Comments
+    token_count: 390
 ---
-
 # Facing a Career Crossroads After an 8-Month Gap: Should I Accept a Pay Cut Role or Rebuild My Path in Development?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1syqdp1/facing_a_career_crossroads_after_an_8month_gap/)

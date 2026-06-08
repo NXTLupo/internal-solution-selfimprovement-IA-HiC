@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1rovod5.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rovod5/i_made_it/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,32 @@ flair: "Biological Sciences"
 extracted_at: "2026-05-24T14:10:06.607Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rovod5.md#c0"
+    char_span: [0, 1927]
+    sentence_count: 20
+    key_terms: [because, research, gradadmissions, applications, wanna, application, get, last]
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rovod5.md#c1"
+    char_span: [1929, 2728]
+    sentence_count: 12
+    key_terms: [wait, school, been, best, got, like, excruciating, application]
+    token_count: 193
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rovod5.md#c2"
+    char_span: [2743, 4430]
+    sentence_count: 9
+    key_terms: [congratulations, thank, work, university, applying, program, having, track]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rovod5.md#c3"
+    char_span: [4169, 4971]
+    sentence_count: 5
+    key_terms: ["it's", thankyouuu, moment, please, track, keep, resident-egg7549, congratulations]
+    section: Comments
+    token_count: 221
 ---
-
 # I MADE IT???!
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rovod5/i_made_it/)

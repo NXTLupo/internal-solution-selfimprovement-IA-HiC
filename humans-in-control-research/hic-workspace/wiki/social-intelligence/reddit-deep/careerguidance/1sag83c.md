@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sag83c.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sag83c/how_do_you_figure_out_your_career_path_when_youre/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 5
 flair: "Advice"
-extracted_at: "2026-05-22T21:34:47.967Z"
+extracted_at: "2026-06-03T18:53:36.155Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sag83c.md#c0"
+    char_span: [0, 1339]
+    sentence_count: 4
+    key_terms: [careerguidance, india, pcmb, comments, studying, options, student, abroad]
+    token_count: 313
+  - id: "social-intelligence/reddit-deep/careerguidance/1sag83c.md#c1"
+    char_span: [1354, 2659]
+    sentence_count: 5
+    key_terms: [career, creativecupcake6640, best, test, boostgrad, minutes, request, session]
+    section: Comments
+    token_count: 306
 ---
-
 # How do you figure out your career path when you’re good at multiple things but don’t feel strongly about the ‘mainstream’ options like engineering or MBBS as an indian student?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sag83c/how_do_you_figure_out_your_career_path_when_youre/)

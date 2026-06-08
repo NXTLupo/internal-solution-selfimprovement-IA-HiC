@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1npokzv.md
 url: "https://www.reddit.com/r/careerguidance/comments/1npokzv/for_those_in_their_30s_like_me_has_anyone_changed/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,75 @@ flair: "Advice"
 extracted_at: "2026-05-25T18:32:57.394Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1npokzv.md#c0"
+    char_span: [0, 738]
+    sentence_count: 7
+    key_terms: [careerguidance, comments, reddit, like, side, reddit-deep, mahbirchat, meaningful]
+    token_count: 190
+  - id: "social-intelligence/reddit-deep/careerguidance/1npokzv.md#c1"
+    char_span: [753, 2593]
+    sentence_count: 16
+    key_terms: [compassfollower, sales, corporate, apprenticeship, years, firefighter, got, job]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1npokzv.md#c2"
+    char_span: [2353, 4424]
+    sentence_count: 15
+    key_terms: [apprenticeship, years, job, change, trades, days, work, year]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1npokzv.md#c3"
+    char_span: [4163, 5786]
+    sentence_count: 16
+    key_terms: [life, sendnadez, did, basketball818, apprentice, career, health, living]
+    section: Comments
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/careerguidance/1npokzv.md#c4"
+    char_span: [5788, 7717]
+    sentence_count: 14
+    key_terms: [enigmaticsince87, "i'm", nursing, slight-indication750, school, spain, switzerland, did]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1npokzv.md#c5"
+    char_span: [7479, 8019]
+    sentence_count: 5
+    key_terms: [school, waudmasterwaudi, berrykiwi93, successful, happening, nightmare, personal, rerouted]
+    section: Comments
+    token_count: 143
+  - id: "social-intelligence/reddit-deep/careerguidance/1npokzv.md#c6"
+    char_span: [8021, 8497]
+    sentence_count: 3
+    key_terms: [decided, field, get, continuing, breakdown, corporate, learning, studying]
+    section: Comments
+    token_count: 108
+  - id: "social-intelligence/reddit-deep/careerguidance/1npokzv.md#c7"
+    char_span: [8499, 10535]
+    sentence_count: 11
+    key_terms: [meaningful, money, nursing, job, deleted, doing, going, work]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1npokzv.md#c8"
+    char_span: [10283, 11974]
+    sentence_count: 13
+    key_terms: [like, because, nursing, people, don, physically, education, deleted]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/careerguidance/1npokzv.md#c9"
+    char_span: [11976, 13754]
+    sentence_count: 20
+    key_terms: [job, work, meaning, friend, lighthousejr, money, good, marketing]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/careerguidance/1npokzv.md#c10"
+    char_span: [13757, 15525]
+    sentence_count: 16
+    key_terms: [job, easy, good, business, inside, "that's", "wasn't", turbulent-dance6220]
+    section: Comments
+    token_count: 462
 ---
-
 # For those in their 30s like me, has anyone changed careers for more meaning, not just money?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1npokzv/for_those_in_their_30s_like_me_has_anyone_changed/)

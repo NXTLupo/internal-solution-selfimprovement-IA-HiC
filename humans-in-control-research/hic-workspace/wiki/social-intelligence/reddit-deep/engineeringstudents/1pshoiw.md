@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1pshoiw/how_i_got_into_a_mechanical_engineering_phd_with/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -6,19 +7,86 @@ subreddit: "engineeringstudents"
 title: "how i got into a mechanical engineering PhD with a 3.2 gpa (and other suboptimal credentials)"
 author: "Boskadoff"
 date: "2025-12-21T21:32:19.000Z"
-score: 140
+score: 141
 upvote_ratio: 0.94
 num_comments: 37
 flair: "Career Advice"
-extracted_at: "2026-05-25T18:32:19.222Z"
+extracted_at: "2026-06-06T17:43:22.927Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c0"
+    char_span: [0, 1906]
+    sentence_count: 9
+    key_terms: [university, video, engineering, mechanical, engineeringstudents, gpa, phd, applied]
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c1"
+    char_span: [1908, 4235]
+    sentence_count: 21
+    key_terms: [get, because, school, information, interested, demanding, applying, invested]
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c2"
+    char_span: [4237, 6376]
+    sentence_count: 17
+    key_terms: [professor, years, degree, field, get, phd, possible, research]
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c3"
+    char_span: [6378, 8411]
+    sentence_count: 23
+    key_terms: [research, schools, undergrad, a0175c971d0a884f1bae70a0fcdb0311fe117038, did, like, mech, phd]
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c4"
+    char_span: [8413, 10309]
+    sentence_count: 18
+    key_terms: [professor, university, research, school, lab, accepted, schools, application]
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c5"
+    char_span: [10324, 11388]
+    sentence_count: 10
+    key_terms: [phd, subfield, get, convinced, excited, within, niche, years]
+    section: Comments
+    token_count: 278
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c6"
+    char_span: [11390, 12687]
+    sentence_count: 10
+    key_terms: [research, get, bachelors, because, example, postdoc, people, years]
+    section: Comments
+    token_count: 330
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c7"
+    char_span: [12689, 13856]
+    sentence_count: 8
+    key_terms: [get, phd, positions, crash-55, position, research, easier, holder]
+    section: Comments
+    token_count: 284
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c8"
+    char_span: [13858, 15418]
+    sentence_count: 8
+    key_terms: [boskadoff, pay, need, school, company, getting, masters, program]
+    section: Comments
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c9"
+    char_span: [15420, 17060]
+    sentence_count: 9
+    key_terms: [masters, classes, bachelors, melodicpudding2557, doing, get, take, year]
+    section: Comments
+    token_count: 405
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c10"
+    char_span: [17062, 19122]
+    sentence_count: 12
+    key_terms: [research, get, phd, schools, project, final, information, etc]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c11"
+    char_span: [19124, 19404]
+    sentence_count: 4
+    key_terms: [different, mandatory, solutions, exchange, national, company, program, service]
+    section: Comments
+    token_count: 67
 ---
-
 # how i got into a mechanical engineering PhD with a 3.2 gpa (and other suboptimal credentials)
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1pshoiw/how_i_got_into_a_mechanical_engineering_phd_with/)
-Posted by **Boskadoff** · **140↑** · **37 comments**
+Posted by **Boskadoff** · **141↑** · **37 comments**
 
 # Hi
 
@@ -173,7 +241,7 @@ So instead what I did was filter out which schools my credentials (my GPA and GR
 
 ## Comments
 
-- **Tall-Cat-8890** (29↑): Great guide! Congrats on getting in. I applied to 5–really only expecting to get into 1. *Maybe* 2. But my field is also very niche (I mean like… subfield within a subfield within a subfield niche)  and I had long zoom chats with professors from 3 out of those 5 schools. That one school’s professor is really excited and I’m really excited. It literally is like dating or courtship. “I can offer you a dowry of 5 mules and an ox in exchange for 5 years of your life…”  
+- **Tall-Cat-8890** (28↑): Great guide! Congrats on getting in. I applied to 5–really only expecting to get into 1. *Maybe* 2. But my field is also very niche (I mean like… subfield within a subfield within a subfield niche)  and I had long zoom chats with professors from 3 out of those 5 schools. That one school’s professor is really excited and I’m really excited. It literally is like dating or courtship. “I can offer you a dowry of 5 mules and an ox in exchange for 5 years of your life…”  
 
 My only advice to those reading: 
 
@@ -194,7 +262,7 @@ But like, if you’re applying to a staff scientist position at a national lab, 
   - **Crash-55** (4↑): It varies greatly by field / job type.  Where I am we have to submit proposals for funding the PhD makes it far easier to get those submitted.  Also a PhD lets you question the greybeards in most organizations.
   - **BooBot97** (1↑): It is accurate in many situations
   - **Boskadoff** (1↑): Yeah I guess it varies by position lolol
-- **Crash-55** (7↑): There is another path for PhD if in the US.  The Federal Government sponsors several different programs to get PhDs. All of these come with work requirements afterwards but will pay for grad school and provide a stipend. This can make it easier to get the thesis advisor you want as they don’t have to pay for you.  
+- **Crash-55** (8↑): There is another path for PhD if in the US.  The Federal Government sponsors several different programs to get PhDs. All of these come with work requirements afterwards but will pay for grad school and provide a stipend. This can make it easier to get the thesis advisor you want as they don’t have to pay for you.  
 
 The SMART program  (https://www.smartscholarship.org/smart/en) is the one for DoD.  
 

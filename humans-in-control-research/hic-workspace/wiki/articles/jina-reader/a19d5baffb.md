@@ -1,4 +1,5 @@
 ---
+id: articles/jina-reader/a19d5baffb.md
 url: "https://projects.propublica.org/nonprofits/organizations/941156365"
 url_hash: "a19d5baffb"
 kind: "article"
@@ -10,8 +11,56 @@ tier: 3
 method: "jina"
 extracted_at: "2026-04-29T23:57:34.422899+00:00"
 chars: 10000
+industries: [higher_ed, nonprofit]
+industry_method: llm
+chunks:
+  - id: "articles/jina-reader/a19d5baffb.md#c0"
+    char_span: [0, 1795]
+    sentence_count: 1
+    key_terms: [propublica, https, org, www, topics, organizations, nonprofits, projects]
+    token_count: 493
+  - id: "articles/jina-reader/a19d5baffb.md#c1"
+    char_span: [1797, 2951]
+    sentence_count: 1
+    key_terms: [propublica, https, www, org, com, search, nonprofits, projects]
+    token_count: 315
+  - id: "articles/jina-reader/a19d5baffb.md#c2"
+    char_span: [2978, 4649]
+    sentence_count: 8
+    key_terms: [organization, reported, schedule, details, transactions, donor-advised, organizations, educational]
+    section: Organization summary
+    token_count: 347
+  - id: "articles/jina-reader/a19d5baffb.md#c3"
+    char_span: [4686, 6440]
+    sentence_count: 8
+    key_terms: [data, revenue, audits, nonprofit, form, irs, net, federal]
+    section: Tax Filings and Audits by Year
+    token_count: 494
+  - id: "articles/jina-reader/a19d5baffb.md#c4"
+    char_span: [6442, 6997]
+    sentence_count: 1
+    key_terms: [assets, compensation, total, expenses, operated, donor-advised, professional, transactions]
+    section: Tax Filings and Audits by Year
+    token_count: 174
+  - id: "articles/jina-reader/a19d5baffb.md#c5"
+    char_span: [6999, 8319]
+    sentence_count: 3
+    key_terms: [affairs, chief, president, former, robert, alum, appt, smc]
+    section: Tax Filings and Audits by Year
+    token_count: 512
+  - id: "articles/jina-reader/a19d5baffb.md#c6"
+    char_span: [8168, 9024]
+    sentence_count: 2
+    key_terms: [affairs, thru, communication, organizations, compensation, government, nonprofits, propublica]
+    section: Tax Filings and Audits by Year
+    token_count: 320
+  - id: "articles/jina-reader/a19d5baffb.md#c7"
+    char_span: [9026, 10161]
+    sentence_count: 1
+    key_terms: [nonprofits, propublica, projects, https, org, revenue, organizations, extracted]
+    section: Tax Filings and Audits by Year
+    token_count: 345
 ---
-
 # https://projects.propublica.org/nonprofits/organizations/941156365
 
 Source: [Jina Reader](https://projects.propublica.org/nonprofits/organizations/941156365)

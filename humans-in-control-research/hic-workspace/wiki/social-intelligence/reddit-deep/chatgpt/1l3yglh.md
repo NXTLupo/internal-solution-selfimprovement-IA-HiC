@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1l3yglh.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1l3yglh/chatgpt_vision_of_users_treating_it_prompt_inside/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,105 @@ flair: "Funny "
 extracted_at: "2026-05-11T16:54:08.803Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c0"
+    char_span: [0, 1219]
+    sentence_count: 10
+    key_terms: [emotional, symbolic, chatgpt, visual, user, symbolism, comments, prompt]
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c1"
+    char_span: [1234, 2489]
+    sentence_count: 6
+    key_terms: [https, c1e9e97240f7b3cd4604354d9d3c65d99bd5ee1f, please, conversation, image, post, concerns, chatgpt-shared-links-faq]
+    section: Comments
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c2"
+    char_span: [2491, 3559]
+    sentence_count: 2
+    key_terms: [ijusttellthetruthbro, mine, preview, format, https, width, auto, end]
+    section: Comments
+    token_count: 372
+  - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c3"
+    char_span: [3561, 4911]
+    sentence_count: 4
+    key_terms: [png, preview, format, https, width, auto, redd, webp]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c4"
+    char_span: [4913, 6358]
+    sentence_count: 14
+    key_terms: [echosleeper, like, because, deleted, cool, inwivdsx945f1, interactions, emotionally]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c5"
+    char_span: [6360, 7643]
+    sentence_count: 7
+    key_terms: [preview, format, https, width, auto, png, redd, webp]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c6"
+    char_span: [7645, 8846]
+    sentence_count: 3
+    key_terms: [preview, png, format, https, width, auto, redd, webp]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c7"
+    char_span: [8848, 10316]
+    sentence_count: 10
+    key_terms: [png, preview, format, https, width, auto, redd, webp]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c8"
+    char_span: [10318, 11797]
+    sentence_count: 7
+    key_terms: [like, mine, similar, format, looks, tarot, hollythedovahkiin, here]
+    section: Comments
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c9"
+    char_span: [11799, 13454]
+    sentence_count: 15
+    key_terms: [deleted, lol, toaster, madonna-meets-machine, chest, got, halo, like]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c10"
+    char_span: [13456, 14839]
+    sentence_count: 23
+    key_terms: [emotional, something, machine, real, trained, asked, being, cost]
+    section: Comments
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c11"
+    char_span: [14841, 16070]
+    sentence_count: 7
+    key_terms: [preview, format, https, width, auto, redd, webp, similar]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c12"
+    char_span: [16072, 18186]
+    sentence_count: 19
+    key_terms: [like, mirror, emotional, sometimes, cracked, worship, upward, don]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c13"
+    char_span: [18188, 19724]
+    sentence_count: 8
+    key_terms: [preview, format, https, truth, width, auto, png, redd]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c14"
+    char_span: [19726, 21521]
+    sentence_count: 12
+    key_terms: [people, like, because, chatgpt, preview, cosmic, format, little]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c15"
+    char_span: [21523, 22542]
+    sentence_count: 9
+    key_terms: [interesting, boomtwn, halo, chatgpt, deleted, people, halos, unhappy-peach-8369]
+    section: Comments
+    token_count: 277
 ---
-
 # ChatGPT vision of users treating it. Prompt inside come show yours!
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1l3yglh/chatgpt_vision_of_users_treating_it_prompt_inside/)

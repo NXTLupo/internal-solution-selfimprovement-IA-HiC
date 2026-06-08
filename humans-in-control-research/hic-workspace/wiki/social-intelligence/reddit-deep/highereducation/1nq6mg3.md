@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1nq6mg3.md
 url: "https://www.reddit.com/r/highereducation/comments/1nq6mg3/most_schools_lose_80_of_students_after_12_generic/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -7,14 +8,42 @@ title: "Most schools lose +80% of students after 1–2 generic messages. Here’
 author: "Think_Bunch3020"
 date: "2025-09-25T13:21:50.000Z"
 score: 0
-upvote_ratio: 0.31
+upvote_ratio: 0.32
 num_comments: 13
 flair: ""
-extracted_at: "2026-05-20T03:54:48.185Z"
+extracted_at: "2026-06-05T23:42:16.778Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1nq6mg3.md#c0"
+    char_span: [0, 2055]
+    sentence_count: 21
+    key_terms: [students, whatsapp, email, don, highereducation, schools, comments, everyone]
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/highereducation/1nq6mg3.md#c1"
+    char_span: [2057, 2201]
+    sentence_count: 2
+    key_terms: [approaches, different, objection, biggest, curious, dropout, hardest, schools]
+    token_count: 29
+  - id: "social-intelligence/reddit-deep/highereducation/1nq6mg3.md#c2"
+    char_span: [2216, 4837]
+    sentence_count: 22
+    key_terms: [schools, different, application, get, students, better, school, researching]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/highereducation/1nq6mg3.md#c3"
+    char_span: [4839, 6239]
+    sentence_count: 3
+    key_terms: [strategy, schools, take, different, marketing, tracking, deleted, decent]
+    section: Comments
+    token_count: 311
+  - id: "social-intelligence/reddit-deep/highereducation/1nq6mg3.md#c4"
+    char_span: [6241, 7499]
+    sentence_count: 15
+    key_terms: ["don't", crm, "it's", like, marketing, deadline, students, always]
+    section: Comments
+    token_count: 288
 ---
-
 # Most schools lose +80% of students after 1–2 generic messages. Here’s what I’ve learned to fix that.
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1nq6mg3/most_schools_lose_80_of_students_after_12_generic/)
@@ -39,7 +68,7 @@ Curious if anyone here has tried different approaches in their schools/edtech or
 
 ## Comments
 
-- **llksg** (15↑): You over estimate the CRM capabilities of most schools.
+- **llksg** (16↑): You over estimate the CRM capabilities of most schools.
 
 Many schools still don’t have a proper CRM. You suggest other simpler/free tools but you need manpower and know-how. Personalisation also takes a lot of time in regard to content gathering and creation.
 
@@ -61,7 +90,7 @@ One thing you didn't mention is social proof. Students want to see what graduate
 
 The hardest objection is usually "I'm just looking around" which really means "I'm not ready to make a decision yet." Schools that nurture these prospects over months instead of trying to close immediately see much better long-term conversion rates.
   - **Think_Bunch3020** (1↑): super interesting take, especially the bit about tracking (or rather, not tracking). i’ve seen the same: schools are often blind to where they’re actually losing people. totally agree on segmentation and speed too. even with the best social proof or nurturing strategy, if the basics (fast, relevant, channel-fit outreach) aren’t there, dropout stays high.
-- **[deleted]** (4↑): This sounds like a LinkedInLunatics post.
+- **[deleted]** (3↑): This sounds like a LinkedInLunatics post.
   - **Think_Bunch3020** (1↑): if you’ve got a different take on the points i shared, would be glad to read it! always keen on other perspectives. if it’s just about the writing style, not much i can add since your comment itself doesn’t bring anything to the discussion.
     - **[deleted]** (3↑): Different take:  
 

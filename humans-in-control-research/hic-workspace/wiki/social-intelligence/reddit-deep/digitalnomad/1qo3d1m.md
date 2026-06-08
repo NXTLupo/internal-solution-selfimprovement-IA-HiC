@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1qo3d1m.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1qo3d1m/best_place_to_be_a_digital_nomad_for_nature_and/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,39 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:56.733Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1qo3d1m.md#c0"
+    char_span: [0, 1349]
+    sentence_count: 10
+    key_terms: [ocean, digitalnomad, best, live, want, somewhere, comments, digital]
+    token_count: 323
+  - id: "social-intelligence/reddit-deep/digitalnomad/1qo3d1m.md#c1"
+    char_span: [1364, 3332]
+    sentence_count: 22
+    key_terms: ["it's", life, pacific, ocean, like, consistent, snorkeling, caeru1ean]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/digitalnomad/1qo3d1m.md#c2"
+    char_span: [3334, 4449]
+    sentence_count: 14
+    key_terms: [diving, daily, sites, life, around, people, beach, scene]
+    section: Comments
+    token_count: 248
+  - id: "social-intelligence/reddit-deep/digitalnomad/1qo3d1m.md#c3"
+    char_span: [4451, 5619]
+    sentence_count: 11
+    key_terms: [island, small, get, tourist, traffic, little, people, "you'll"]
+    section: Comments
+    token_count: 273
+  - id: "social-intelligence/reddit-deep/digitalnomad/1qo3d1m.md#c4"
+    char_span: [5621, 6920]
+    sentence_count: 8
+    key_terms: [digital, nomads, costa, considering, definitely, expensive, nicaragua, girona]
+    section: Comments
+    token_count: 326
 ---
-
 # Best place to be a digital nomad for nature and ocean lovers
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1qo3d1m/best_place_to_be_a_digital_nomad_for_nature_and/)

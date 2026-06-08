@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/freelance/1ny03pu.md
 url: "https://www.reddit.com/r/freelance/comments/1ny03pu/freelance_work_at_twine/"
 kind: "social-post"
 source: "reddit-deep: r/freelance"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-26T12:53:48.704Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/freelance/1ny03pu.md#c0"
+    char_span: [0, 2350]
+    sentence_count: 23
+    key_terms: [illustration, illustrator, project, experience, freelance, adobe, thank, photoshop]
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/freelance/1ny03pu.md#c1"
+    char_span: [2352, 4240]
+    sentence_count: 15
+    key_terms: [twine, pay, work, gotten, audio, engineering, pure-ad-821, experience]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/freelance/1ny03pu.md#c2"
+    char_span: [4242, 5841]
+    sentence_count: 14
+    key_terms: [work, because, undervalue, explained, something, everyone, platform, looking]
+    section: Comments
+    token_count: 331
 ---
-
 # Freelance work at Twine
 
 Source: [reddit-deep: r/freelance](https://www.reddit.com/r/freelance/comments/1ny03pu/freelance_work_at_twine/)

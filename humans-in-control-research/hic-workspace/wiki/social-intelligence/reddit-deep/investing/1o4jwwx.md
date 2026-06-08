@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1o4jwwx.md
 url: "https://www.reddit.com/r/investing/comments/1o4jwwx/experts_say_the_us_president_does_not_control_the/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.195Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, government]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1o4jwwx.md#c0"
+    char_span: [0, 649]
+    sentence_count: 5
+    key_terms: [stock, president, market, investing, comments, seconds, within, trump]
+    token_count: 151
+  - id: "social-intelligence/reddit-deep/investing/1o4jwwx.md#c1"
+    char_span: [664, 2109]
+    sentence_count: 7
+    key_terms: [manipulation, like, take, presidents, because, bitcoin, someone, enrich]
+    section: Comments
+    token_count: 375
+  - id: "social-intelligence/reddit-deep/investing/1o4jwwx.md#c2"
+    char_span: [2111, 2883]
+    sentence_count: 6
+    key_terms: [presidents, deep-fucking-legend, sheriffbartholomew, long, term, intelligence, absolutely, gtfoh11201]
+    section: Comments
+    token_count: 193
+  - id: "social-intelligence/reddit-deep/investing/1o4jwwx.md#c3"
+    char_span: [2885, 4471]
+    sentence_count: 6
+    key_terms: [country, fox, "it's", controlled, blatant, insider, totally, trading]
+    section: Comments
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/investing/1o4jwwx.md#c4"
+    char_span: [4473, 5891]
+    sentence_count: 9
+    key_terms: [control, insider, trading, anyone, coming, inside, market, single]
+    section: Comments
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/investing/1o4jwwx.md#c5"
+    char_span: [5893, 8086]
+    sentence_count: 16
+    key_terms: [irs, trump, happens, itsaconspiracy, "it's", mean, certainly, president]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/investing/1o4jwwx.md#c6"
+    char_span: [8088, 10272]
+    sentence_count: 15
+    key_terms: [get, economic, economy, trust, instability, buy, fed, huge]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/investing/1o4jwwx.md#c7"
+    char_span: [10274, 11505]
+    sentence_count: 6
+    key_terms: [market, thebarnacle63, political, blatant, stock, trump, highpriestofshiloh, down]
+    section: Comments
+    token_count: 331
 ---
-
 # Experts say the US President does not control the stock market (I disagree!)
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1o4jwwx/experts_say_the_us_president_does_not_control_the/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1tj3bgw.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1tj3bgw/waterloo_meng_ece_coop_or_mdsai_coop_any_current/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-25T18:33:12.664Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1tj3bgw.md#c0"
+    char_span: [0, 926]
+    sentence_count: 7
+    key_terms: [co-op, comments, uwaterloo, students, waterloo, current, program, student]
+    token_count: 219
+  - id: "social-intelligence/reddit-deep/uwaterloo/1tj3bgw.md#c1"
+    char_span: [941, 2161]
+    sentence_count: 6
+    key_terms: [admissions, uwaterloo, branding, automoderator, mdsai, data, moderators, relevant]
+    section: Comments
+    token_count: 286
 ---
-
 # Waterloo MEng ECE Co-op or MDSAI Co-op: any current student thoughts?
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1tj3bgw/waterloo_meng_ece_coop_or_mdsai_coop_any_current/)

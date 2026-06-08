@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1n86lkn.md
 url: "https://www.reddit.com/r/college/comments/1n86lkn/nobody_told_me_how_lonely_college_can_feel/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,45 @@ flair: "Social Life"
 extracted_at: "2026-05-22T15:12:02.779Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1n86lkn.md#c0"
+    char_span: [0, 1538]
+    sentence_count: 15
+    key_terms: [college, people, feel, "everyone's", something, sometimes, comments, "doesn't"]
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/college/1n86lkn.md#c1"
+    char_span: [1553, 1904]
+    sentence_count: 4
+    key_terms: [transactional, especially, friendship, networking, "groupme's", everyone, transfer, college]
+    section: Comments
+    token_count: 80
+  - id: "social-intelligence/reddit-deep/college/1n86lkn.md#c2"
+    char_span: [1906, 4185]
+    sentence_count: 20
+    key_terms: [college, school, "you're", university, people, high, "it's", connection]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1n86lkn.md#c3"
+    char_span: [3870, 6226]
+    sentence_count: 17
+    key_terms: [people, help, time, friends, campus, feel, get, lot]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1n86lkn.md#c4"
+    char_span: [5967, 6258]
+    sentence_count: 2
+    key_terms: [worse, room, want, pathetic, getting, housing, anyone, people]
+    section: Comments
+    token_count: 70
+  - id: "social-intelligence/reddit-deep/college/1n86lkn.md#c5"
+    char_span: [6260, 8294]
+    sentence_count: 19
+    key_terms: [alone, events, time, yourself, friends, joined, feel, everyone]
+    section: Comments
+    token_count: 484
 ---
-
 # Nobody told me how lonely college can feel sometimes , even when you're surrounded by people
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1n86lkn/nobody_told_me_how_lonely_college_can_feel/)

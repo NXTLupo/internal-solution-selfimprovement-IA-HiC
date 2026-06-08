@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1p2szqh.md
 url: "https://www.reddit.com/r/productivity/comments/1p2szqh/how_do_you_prevent_your_brain_from_dumping/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,33 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:45.660Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1p2szqh.md#c0"
+    char_span: [0, 855]
+    sentence_count: 6
+    key_terms: [productivity, comments, learned, system, brain, comes, abhisshekdhama, reddit-deep]
+    token_count: 204
+  - id: "social-intelligence/reddit-deep/productivity/1p2szqh.md#c1"
+    char_span: [870, 2602]
+    sentence_count: 15
+    key_terms: [abhisshekdhama, use, repetition, concepts, practice, solution, learned, retain]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/productivity/1p2szqh.md#c2"
+    char_span: [2604, 4437]
+    sentence_count: 12
+    key_terms: [use, people, understanding, information, journal, process, sounds, brain]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/productivity/1p2szqh.md#c3"
+    char_span: [4439, 6673]
+    sentence_count: 12
+    key_terms: [information, components, phase, skill, concepts, neurological, knowledge, understandable]
+    section: Comments
+    token_count: 473
 ---
-
 # How do you prevent your brain from “dumping” everything you learned after a few days?
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1p2szqh/how_do_you_prevent_your_brain_from_dumping/)

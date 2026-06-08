@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1qxdz7q.md
 url: "https://www.reddit.com/r/artificial/comments/1qxdz7q/anthropic_and_openai_released_flagship_models_27/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,38 @@ flair: "News"
 extracted_at: "2026-05-11T17:27:04.782Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1qxdz7q.md#c0"
+    char_span: [0, 1564]
+    sentence_count: 9
+    key_terms: [opus, pricing, gpt-5, gemini, model, gap, artificial, anthropic]
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/artificial/1qxdz7q.md#c1"
+    char_span: [1566, 2221]
+    sentence_count: 8
+    key_terms: [context, getting, pricing, writing, claude, gpt-5, opus, claude-opus-4-6]
+    token_count: 162
+  - id: "social-intelligence/reddit-deep/artificial/1qxdz7q.md#c2"
+    char_span: [2236, 4365]
+    sentence_count: 12
+    key_terms: [models, use, model, real, because, "don't", cost, own]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/artificial/1qxdz7q.md#c3"
+    char_span: [4367, 6172]
+    sentence_count: 10
+    key_terms: ["don't", model, believe, happens, writing, models, openai, "that's"]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/artificial/1qxdz7q.md#c4"
+    char_span: [6174, 7020]
+    sentence_count: 7
+    key_terms: [use, production, reasoning, terminal, routing, codex, model, needle-in-haystack]
+    section: Comments
+    token_count: 184
 ---
-
 # Anthropic and OpenAI released flagship models 27 minutes apart -- the AI pricing and capability gap is getting weird
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1qxdz7q/anthropic_and_openai_released_flagship_models_27/)

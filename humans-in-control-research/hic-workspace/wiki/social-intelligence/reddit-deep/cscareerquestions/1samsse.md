@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1samsse.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1samsse/internship_before_grad_school/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-25T15:52:30.668Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1samsse.md#c0"
+    char_span: [0, 568]
+    sentence_count: 6
+    key_terms: [internship, cscareerquestions, graduate, school, grad, comments, reddit-deep, researccher]
+    token_count: 146
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1samsse.md#c1"
+    char_span: [583, 886]
+    sentence_count: 2
+    key_terms: [glitteringlaw3215, researccher, companies, undergrad, probably, dipping, instead, interns]
+    section: Comments
+    token_count: 76
 ---
-
 # Internship before grad school?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1samsse/internship_before_grad_school/)

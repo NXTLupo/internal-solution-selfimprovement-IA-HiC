@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1runf61.md
 url: "https://www.reddit.com/r/GradSchool/comments/1runf61/ms_first_or_keep_trying_for_phd/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-23T19:45:05.862Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1runf61.md#c0"
+    char_span: [0, 2010]
+    sentence_count: 14
+    key_terms: [undergrad, programs, school, phd, experience, gradschool, comments, research]
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/gradschool/1runf61.md#c1"
+    char_span: [2025, 4179]
+    sentence_count: 15
+    key_terms: [masters, phd, because, want, beneficial, experience, undergrad, anything]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1runf61.md#c2"
+    char_span: [4181, 5817]
+    sentence_count: 13
+    key_terms: [phd, age, masters, people, specifically, get, msc, admissions]
+    section: Comments
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/gradschool/1runf61.md#c3"
+    char_span: [5819, 7139]
+    sentence_count: 8
+    key_terms: [ducksarewildbruh, funding, experience, resource, straight, students, wildlife, natural]
+    section: Comments
+    token_count: 330
+  - id: "social-intelligence/reddit-deep/gradschool/1runf61.md#c4"
+    char_span: [7141, 9134]
+    sentence_count: 18
+    key_terms: [phd, programs, masters, thank, lol, experience, kianaanaik, graduate]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1runf61.md#c5"
+    char_span: [8846, 9565]
+    sentence_count: 6
+    key_terms: [masters, year, double, old, part, time, concentration, discriminate]
+    section: Comments
+    token_count: 168
 ---
-
 # MS first, or keep trying for PhD?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1runf61/ms_first_or_keep_trying_for_phd/)

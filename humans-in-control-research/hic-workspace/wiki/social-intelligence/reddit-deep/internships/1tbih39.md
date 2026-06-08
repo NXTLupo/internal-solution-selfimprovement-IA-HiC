@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1tbih39.md
 url: "https://www.reddit.com/r/internships/comments/1tbih39/i_run_a_vc_fund_and_reviewed_271_apps_for_our/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,54 @@ subreddit: "internships"
 title: "I run a VC fund and reviewed 271 apps for our summer internship. AMA."
 author: "Final_jelly_7"
 date: "2026-05-12T23:32:28.000Z"
-score: 27
-upvote_ratio: 0.89
-num_comments: 44
+score: 28
+upvote_ratio: 0.91
+num_comments: 47
 flair: "General"
-extracted_at: "2026-05-26T14:30:47.903Z"
+extracted_at: "2026-06-05T19:19:58.916Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1tbih39.md#c0"
+    char_span: [0, 1477]
+    sentence_count: 12
+    key_terms: [internships, career, ama, internship, comments, resumes, advice, market]
+    token_count: 336
+  - id: "social-intelligence/reddit-deep/internships/1tbih39.md#c1"
+    char_span: [1492, 1951]
+    sentence_count: 5
+    key_terms: [like, short, ai-generated, attachments, structure, value-add, directly, everyone]
+    section: Comments
+    token_count: 106
+  - id: "social-intelligence/reddit-deep/internships/1tbih39.md#c2"
+    char_span: [1953, 3994]
+    sentence_count: 12
+    key_terms: [personality, non-traditional, thesis, unique, work, education, jash-6898, portfolio]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/internships/1tbih39.md#c3"
+    char_span: [3996, 6039]
+    sentence_count: 17
+    key_terms: [did, outreach, answer, failed, maybe, video, like, internship]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/internships/1tbih39.md#c4"
+    char_span: [6041, 7046]
+    sentence_count: 5
+    key_terms: [internships, resume, never, witty-cabinet-3534, delhihousingsucks, use, company-closing, understandable]
+    section: Comments
+    token_count: 249
+  - id: "social-intelligence/reddit-deep/internships/1tbih39.md#c5"
+    char_span: [7048, 8597]
+    sentence_count: 10
+    key_terms: [resume, undergrads, business, students, student, common, people, witty-cabinet-3534]
+    section: Comments
+    token_count: 367
 ---
-
 # I run a VC fund and reviewed 271 apps for our summer internship. AMA.
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1tbih39/i_run_a_vc_fund_and_reviewed_271_apps_for_our/)
-Posted by **Final_jelly_7** · **27↑** · **44 comments**
+Posted by **Final_jelly_7** · **28↑** · **47 comments**
 
 After wrapping up our process, I thought it might be useful to offer some concrete advice in whatever way possible so doing an AMA.
 
@@ -69,17 +105,6 @@ A cleaner version would be:
 “What did the cold emails that got responses have in common? Did outreach after applying move the needle?”
 
 The second version gives the other person more room to answer honestly. Maybe the answer is specificity. Maybe it is clarity. Maybe it is timing, tone, prior work, or something else entirely.
-- **Joemamamia-6** (1↑): As students, with little to no professional experience what can be added to the resume to at least receive a shortlisting? 
-What are the things that a recruiter usually expects from a student/fresh grad?
-  - **Final_jelly_7** (2↑): I’d need more context to give a useful answer.
-
-A freshman with no experience and a graduating senior with no internships are not the same applicant. A pre-med student pivoting into finance, a D1 athlete, a research assistant, someone with part-time jobs, a break for personal or family responsibilities, and someone with personal projects all have different ways to position themselves.
-
-If you reframe this in terms of your (or at least a specific) situation, that gives me something real to work with. ie:
-
-“I’m a \[year\] targeting \[type of role\]. I’ve done \[classes/projects/research/jobs/clubs/etc.\]. What would you emphasize?”
-
-Without that, it's just generic resume advice, which I don't think the internet needs any more of...
 - **Common_Knee1430** (1↑): A little out of topic. What is your deal flow like?
   - **Final_jelly_7** (1↑): In what regard? Overall volume, quality, source?
     - **Common_Knee1430** (1↑): No I mean since you are a VC how to get deals from? Warm intros?
@@ -113,3 +138,5 @@ Would you be more inclined to a student like that? I try not to keep it too basi
     - **Witty-Cabinet-3534** (1↑): True that’s my goal. But with online applications and all, it’s pretty hard. I know people say to reach out to recruiters after, but most of the time (In my experience) they don’t respond.
 - **Select_Barnacle4616** (1↑): do you care more about a common thread in a resume, even if the activities are not necessarily VC related? ie., student has done a deep dive into healthcare business, for example?
   - **Final_jelly_7** (1↑): My strategy is relatively generalist within software so people who are too specialized scare me. But there needs to be some general cohesion. That tells me you know how to organize your thoughts.
+- **Select_Barnacle4616** (1↑): fascinating that you hire undergrads (i assume you mean undergrads) for a VC fund given that students don't really come in with industry exposure at all for making bets on something so pre revenue. what do you look for in students to account for that?
+  - **Final_jelly_7** (1↑): Common misconception about where value lies in venture capital. Yes, we actually do diligence and market sizing and all that stuff. But honestly we’re in the content marketing business. It’s how you get deal flow and LPs and build relationships.

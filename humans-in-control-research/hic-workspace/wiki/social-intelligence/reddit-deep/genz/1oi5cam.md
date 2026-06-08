@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1oi5cam.md
 url: "https://www.reddit.com/r/GenZ/comments/1oi5cam/why_is_dating_in_gen_z_such_a_challenge/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,44 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.768Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1oi5cam.md#c0"
+    char_span: [0, 2196]
+    sentence_count: 13
+    key_terms: [love, people, like, comments, romantic, together, instead, person]
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/genz/1oi5cam.md#c1"
+    char_span: [2198, 3217]
+    sentence_count: 6
+    key_terms: [writing, years, past, gotten, watch, hypocritical, spirituality, maintenance]
+    token_count: 228
+  - id: "social-intelligence/reddit-deep/genz/1oi5cam.md#c2"
+    char_span: [3232, 4892]
+    sentence_count: 10
+    key_terms: [politics, ruined, relationships, generations, like, something, deleted, discord]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/genz/1oi5cam.md#c3"
+    char_span: [4894, 5904]
+    sentence_count: 13
+    key_terms: [people, normal, virtual-scarcity-463, gettinwiggywiddit, talk, entertainment, tunapizzacat, generations]
+    section: Comments
+    token_count: 269
+  - id: "social-intelligence/reddit-deep/genz/1oi5cam.md#c4"
+    char_span: [5906, 7960]
+    sentence_count: 17
+    key_terms: [people, dating, woman, find, men, nerd, financial, sometimes]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/genz/1oi5cam.md#c5"
+    char_span: [7962, 9971]
+    sentence_count: 13
+    key_terms: [dating, people, person, connections, apps, like, generation, because]
+    section: Comments
+    token_count: 460
 ---
-
 # why is dating in Gen Z such a challenge, especially in comparisons to previous generations?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1oi5cam/why_is_dating_in_gen_z_such_a_challenge/)

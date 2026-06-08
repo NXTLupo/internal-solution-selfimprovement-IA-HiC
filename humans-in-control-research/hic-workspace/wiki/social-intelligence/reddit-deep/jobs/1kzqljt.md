@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1kzqljt.md
 url: "https://www.reddit.com/r/jobs/comments/1kzqljt/i_quit_today_walked_out_after_2_years_of_anxiety/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,44 @@ flair: "Leaving a job"
 extracted_at: "2026-05-25T13:03:11.722Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1kzqljt.md#c0"
+    char_span: [0, 1974]
+    sentence_count: 19
+    key_terms: [today, don, anything, comments, personal, already, anxiety, needed]
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/jobs/1kzqljt.md#c1"
+    char_span: [1976, 2353]
+    sentence_count: 5
+    key_terms: [new, opportunity, everything, experience, expected, grateful, grinding, industry]
+    token_count: 86
+  - id: "social-intelligence/reddit-deep/jobs/1kzqljt.md#c2"
+    char_span: [2368, 4324]
+    sentence_count: 28
+    key_terms: [enough, good, proud, thefuntruck, hold, work, mentally, yourself]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/jobs/1kzqljt.md#c3"
+    char_span: [4326, 6183]
+    sentence_count: 24
+    key_terms: [get, new, hannahmayberry, thefuntruck, job, life, paycheck, people]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1kzqljt.md#c4"
+    char_span: [5955, 6780]
+    sentence_count: 9
+    key_terms: [like, hannahmayberry, back, anxiety, "karma's", bitch, anxious-slip-8955, get]
+    section: Comments
+    token_count: 209
+  - id: "social-intelligence/reddit-deep/jobs/1kzqljt.md#c5"
+    char_span: [6782, 7287]
+    sentence_count: 4
+    key_terms: [people, familiar-range9014, pumpupthevaluum, thefuntruck, ridiculous, shittiest, congrats, leashing]
+    section: Comments
+    token_count: 151
 ---
-
 # I quit today. Walked out after 2 years of anxiety
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1kzqljt/i_quit_today_walked_out_after_2_years_of_anxiety/)

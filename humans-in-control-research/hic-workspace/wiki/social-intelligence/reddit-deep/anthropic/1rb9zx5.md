@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/anthropic/1rb9zx5.md
 url: "https://www.reddit.com/r/Anthropic/comments/1rb9zx5/how_to_connect_my_local_windows_claude_code_with/"
 kind: "social-post"
 source: "reddit-deep: r/anthropic"
@@ -13,8 +14,15 @@ flair: "Other"
 extracted_at: "2026-05-11T17:26:51.918Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, enterprise_it, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/anthropic/1rb9zx5.md#c0"
+    char_span: [0, 694]
+    sentence_count: 6
+    key_terms: [claude, desktop, app, anthropic, comments, windows, code, harjjotsinghh]
+    token_count: 178
 ---
-
 # How to connect my local windows claude code with desktop app?
 
 Source: [reddit-deep: r/anthropic](https://www.reddit.com/r/Anthropic/comments/1rb9zx5/how_to_connect_my_local_windows_claude_code_with/)

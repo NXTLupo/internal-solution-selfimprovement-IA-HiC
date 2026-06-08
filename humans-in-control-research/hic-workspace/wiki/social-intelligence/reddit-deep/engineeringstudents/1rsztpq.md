@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1rsztpq/civil_mechanical_or_mechatronics_help_me_choose/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,63 @@ flair: "Major Choice"
 extracted_at: "2026-05-25T18:32:19.218Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c0"
+    char_span: [0, 1384]
+    sentence_count: 5
+    key_terms: [mechatronics, mechanical, engineeringstudents, salary, civil, allowances, currently, engineers]
+    token_count: 307
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c1"
+    char_span: [1399, 3460]
+    sentence_count: 18
+    key_terms: [civil, lot, getting, hot, per, want, discipline, mechanical]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c2"
+    char_span: [3462, 4552]
+    sentence_count: 9
+    key_terms: [definitely, backwards, instead, school, "that's", becominganastronaut, start, area]
+    section: Comments
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c3"
+    char_span: [4554, 6618]
+    sentence_count: 14
+    key_terms: [engineer, engineering, lawyer, pay, year, hours, hard, unlimited]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c4"
+    char_span: [6349, 7763]
+    sentence_count: 10
+    key_terms: [financial, engineering, because, passion, illogical, argument, interest, medicine]
+    section: Comments
+    token_count: 318
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c5"
+    char_span: [7765, 9613]
+    sentence_count: 15
+    key_terms: [engineer, structural, civil, mechanical, engineering, leadership, analysis, industry]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c6"
+    char_span: [9616, 11793]
+    sentence_count: 16
+    key_terms: [mechanical, life, mechatronics, civil, paycheck, bigger, opportunities, engineering]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c7"
+    char_span: [11795, 12319]
+    sentence_count: 5
+    key_terms: [money, engineering, "i'm", job, senior-dog-9735, considering, everything, passionate]
+    section: Comments
+    token_count: 122
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c8"
+    char_span: [12321, 14035]
+    sentence_count: 8
+    key_terms: [engineering, question, financial, passion, thinking, because, "doesn't", matter]
+    section: Comments
+    token_count: 394
 ---
-
 # Civil, Mechanical, or Mechatronics? Help me choose based ONLY on salary and benefits (Ignoring "Passion")
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1rsztpq/civil_mechanical_or_mechatronics_help_me_choose/)

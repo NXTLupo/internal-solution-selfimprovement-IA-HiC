@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1tcwrq1.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1tcwrq1/i_cant_stop_focusing_on_rankings_and_prestige/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,50 @@ flair: "Social Science"
 extracted_at: "2026-05-26T14:32:49.118Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1tcwrq1.md#c0"
+    char_span: [0, 2175]
+    sentence_count: 14
+    key_terms: [field, school, department, worldwide, here, phd, top-20, accomplished]
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/askacademia/1tcwrq1.md#c1"
+    char_span: [2177, 4245]
+    sentence_count: 17
+    key_terms: ["i'm", get, here, phd, "can't", positions, because, program]
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/askacademia/1tcwrq1.md#c2"
+    char_span: [4260, 5355]
+    sentence_count: 8
+    key_terms: [prestige, connections, unbecoming, obsession, getting, started, matter, school]
+    section: Comments
+    token_count: 269
+  - id: "social-intelligence/reddit-deep/askacademia/1tcwrq1.md#c3"
+    char_span: [5357, 6958]
+    sentence_count: 8
+    key_terms: ["i'm", prestigious, ability, believe, schools, people, swordfishresident256, quite]
+    section: Comments
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/askacademia/1tcwrq1.md#c4"
+    char_span: [6960, 8971]
+    sentence_count: 12
+    key_terms: [university, school, phd, top, important, resources, oxbridge, advisor]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/askacademia/1tcwrq1.md#c5"
+    char_span: [8974, 10425]
+    sentence_count: 8
+    key_terms: [placement, program, "that's", connections, important, rankings, because, ranking]
+    section: Comments
+    token_count: 330
+  - id: "social-intelligence/reddit-deep/askacademia/1tcwrq1.md#c6"
+    char_span: [10427, 12033]
+    sentence_count: 13
+    key_terms: [prestige, top, university, position, sciences, program, schools, better]
+    section: Comments
+    token_count: 381
 ---
-
 # I can't stop focusing on rankings and prestige with the school I chose for my PhD
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1tcwrq1/i_cant_stop_focusing_on_rankings_and_prestige/)

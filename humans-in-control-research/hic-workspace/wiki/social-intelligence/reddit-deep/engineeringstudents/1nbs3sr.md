@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1nbs3sr.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1nbs3sr/is_it_normal_to_struggle_in_calculus_ii/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,45 @@ flair: "Academic Advice"
 extracted_at: "2026-05-25T18:32:19.220Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1nbs3sr.md#c0"
+    char_span: [0, 772]
+    sentence_count: 5
+    key_terms: [engineeringstudents, calculus, comments, semester, reddit, calc, engineering, reddit-deep]
+    token_count: 187
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1nbs3sr.md#c1"
+    char_span: [787, 2410]
+    sentence_count: 9
+    key_terms: [engineeringstudents, wiki, please, reddit, https, calc, com, students]
+    section: Comments
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1nbs3sr.md#c2"
+    char_span: [2412, 3511]
+    sentence_count: 17
+    key_terms: [tutor, classes, possible, hardest, list, weed, stumpythegiant, intentionally]
+    section: Comments
+    token_count: 256
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1nbs3sr.md#c3"
+    char_span: [3513, 5424]
+    sentence_count: 23
+    key_terms: [calc, diff, class, appearanceable6646, professor, hardest, got, math]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1nbs3sr.md#c4"
+    char_span: [5149, 5559]
+    sentence_count: 5
+    key_terms: [took, substitution, progression, eventually, everything, lightbulb, reference, something]
+    section: Comments
+    token_count: 92
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1nbs3sr.md#c5"
+    char_span: [5561, 6662]
+    sentence_count: 11
+    key_terms: [calc, class, trig, eventually, struggles, found, pre, retrospectively]
+    section: Comments
+    token_count: 272
 ---
-
 # Is it normal to struggle in Calculus II?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1nbs3sr/is_it_normal_to_struggle_in_calculus_ii/)

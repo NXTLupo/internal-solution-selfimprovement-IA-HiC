@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1rwm3ul.md
 url: "https://www.reddit.com/r/humanresources/comments/1rwm3ul/current_senior_hrbp_do_i_need_to_study_for_sphr_ca/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-23T12:15:41.571Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1rwm3ul.md#c0"
+    char_span: [0, 552]
+    sentence_count: 4
+    key_terms: [humanresources, comments, senior, study, years, hrbp, need, sphr]
+    token_count: 149
+  - id: "social-intelligence/reddit-deep/humanresources/1rwm3ul.md#c1"
+    char_span: [567, 2679]
+    sentence_count: 19
+    key_terms: [study, prep, practice, problem, answer, got, pass, experience]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/humanresources/1rwm3ul.md#c2"
+    char_span: [2440, 3594]
+    sentence_count: 12
+    key_terms: [post, practice, cantaloupepublic2539, consistent-sun-4360, tests, book, case, hrci]
+    section: Comments
+    token_count: 293
+  - id: "social-intelligence/reddit-deep/humanresources/1rwm3ul.md#c3"
+    char_span: [3596, 4445]
+    sentence_count: 7
+    key_terms: [longjumpingarcher628, level, workflowsidechat, differentiator, humanresources, automatically, certification, nice-to-have]
+    section: Comments
+    token_count: 188
 ---
-
 # Current Senior HRBP - Do I need to study for SPHR? [CA]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1rwm3ul/current_senior_hrbp_do_i_need_to_study_for_sphr_ca/)

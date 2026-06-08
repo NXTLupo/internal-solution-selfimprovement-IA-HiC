@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1p7zis6.md
 url: "https://www.reddit.com/r/GradSchool/comments/1p7zis6/professor_asked_me_to_write_my_own_letter_of/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,75 @@ flair: "Admissions & Applications"
 extracted_at: "2026-05-22T21:35:36.524Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1p7zis6.md#c0"
+    char_span: [0, 706]
+    sentence_count: 4
+    key_terms: [recommendation, write, letter, asked, gradschool, professor, comments, own]
+    token_count: 171
+  - id: "social-intelligence/reddit-deep/gradschool/1p7zis6.md#c1"
+    char_span: [721, 2857]
+    sentence_count: 15
+    key_terms: [particular-one-1368, write, letter, normal, wrote, recommender, admissions, admission]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/gradschool/1p7zis6.md#c2"
+    char_span: [2859, 4366]
+    sentence_count: 17
+    key_terms: [write, understandingsmall66, deserve, student, through, right, don, lot]
+    section: Comments
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/gradschool/1p7zis6.md#c3"
+    char_span: [4368, 6074]
+    sentence_count: 12
+    key_terms: [letter, write, letters, class, help, "i've", "wouldn't", because]
+    section: Comments
+    token_count: 365
+  - id: "social-intelligence/reddit-deep/gradschool/1p7zis6.md#c4"
+    char_span: [6076, 7113]
+    sentence_count: 10
+    key_terms: [draft, find, letters, student, never, stand, wrote, thousandshardships]
+    section: Comments
+    token_count: 232
+  - id: "social-intelligence/reddit-deep/gradschool/1p7zis6.md#c5"
+    char_span: [7115, 8945]
+    sentence_count: 13
+    key_terms: [letter, write, letters, recommender, odd, stem, definitely, humanities]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/gradschool/1p7zis6.md#c6"
+    char_span: [8947, 10941]
+    sentence_count: 14
+    key_terms: [faculty, letter, professors, schools, common, agree, never, write]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/gradschool/1p7zis6.md#c7"
+    char_span: [10943, 11928]
+    sentence_count: 10
+    key_terms: [letter, typically, professor, "they're", hours, jadermcdanersstan, bit, let]
+    section: Comments
+    token_count: 225
+  - id: "social-intelligence/reddit-deep/gradschool/1p7zis6.md#c8"
+    char_span: [11930, 14033]
+    sentence_count: 18
+    key_terms: [student, "it's", professor, students, professors, write, time, requests]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/gradschool/1p7zis6.md#c9"
+    char_span: [14035, 16188]
+    sentence_count: 20
+    key_terms: [letter, letters, school, programs, program, going, write, care]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/gradschool/1p7zis6.md#c10"
+    char_span: [16190, 16880]
+    sentence_count: 6
+    key_terms: [profs, writing, student, write, like, lor, curioscientity, different]
+    section: Comments
+    token_count: 163
 ---
-
 # Professor asked me to write my own letter of recommendation
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1p7zis6/professor_asked_me_to_write_my_own_letter_of/)

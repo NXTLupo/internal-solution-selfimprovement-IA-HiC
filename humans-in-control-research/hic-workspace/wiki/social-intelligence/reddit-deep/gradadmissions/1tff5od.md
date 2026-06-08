@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1tff5od.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1tff5od/i_still_cant_believe_i_got_in/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,32 @@ flair: "Venting"
 extracted_at: "2026-05-23T14:54:16.720Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1tff5od.md#c0"
+    char_span: [0, 2168]
+    sentence_count: 1
+    key_terms: [undergrad, got, school, ive, been, grad, applying, because]
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/gradadmissions/1tff5od.md#c1"
+    char_span: [2173, 2490]
+    sentence_count: 1
+    key_terms: [scared, background, everything, somewhere, excited, excites, reading, sitting]
+    token_count: 72
+  - id: "social-intelligence/reddit-deep/gradadmissions/1tff5od.md#c2"
+    char_span: [2505, 3695]
+    sentence_count: 4
+    key_terms: [thank, congratulations, myself, represents, totally, future, efficient-morning616, tasteprofessional560]
+    section: Comments
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/gradadmissions/1tff5od.md#c3"
+    char_span: [3697, 5290]
+    sentence_count: 5
+    key_terms: [fall, step, congratulations, school, thank, grad, like, daunting]
+    section: Comments
+    token_count: 416
 ---
-
 # i still cant believe i got in
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1tff5od/i_still_cant_believe_i_got_in/)

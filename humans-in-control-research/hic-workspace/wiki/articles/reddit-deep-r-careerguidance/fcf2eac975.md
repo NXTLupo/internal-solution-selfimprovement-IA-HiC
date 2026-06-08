@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/fcf2eac975.md
 url: "https://www.reddit.com/r/careerguidance/comments/1o1z01b/need_advice_my_brother_2_years_experience_in_it/"
 url_hash: "fcf2eac975"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:40:43.399510+00:00"
 chars: 2691
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/fcf2eac975.md#c0"
+    char_span: [0, 1875]
+    sentence_count: 12
+    key_terms: [years, coimbatore, bangalore, company, project, careerguidance, role, engineer]
+    token_count: 481
+  - id: "articles/reddit-deep-r-careerguidance/fcf2eac975.md#c1"
+    char_span: [1877, 2973]
+    sentence_count: 11
+    key_terms: [project, move, role, developer, internal, transfer, career, devops]
+    token_count: 282
 ---
-
 # Need advice: My brother (2 years experience in IT) stuck in a long project, wants to switch role or company – what should he do?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1o1z01b/need_advice_my_brother_2_years_experience_in_it/)

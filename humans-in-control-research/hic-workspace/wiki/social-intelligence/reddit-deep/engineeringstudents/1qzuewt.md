@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1qzuewt.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1qzuewt/what_to_do_at_a_career_fair_if_i_accepted_an/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,27 @@ flair: "Academic Advice"
 extracted_at: "2026-05-22T23:33:47.027Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qzuewt.md#c0"
+    char_span: [0, 622]
+    sentence_count: 4
+    key_terms: [engineeringstudents, internship, accepted, comments, career, fair, appreciated, engineering]
+    token_count: 147
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qzuewt.md#c1"
+    char_span: [637, 2770]
+    sentence_count: 13
+    key_terms: [engineeringstudents, wiki, please, reddit, https, com, accepted, better]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qzuewt.md#c2"
+    char_span: [2772, 4953]
+    sentence_count: 13
+    key_terms: [internship, good, getting, network, resume, professional, get, networking]
+    section: Comments
+    token_count: 491
 ---
-
 # What to do at a Career Fair if I accepted an Internship?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1qzuewt/what_to_do_at_a_career_fair_if_i_accepted_an/)

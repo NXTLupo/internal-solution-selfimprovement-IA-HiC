@@ -10,9 +10,9 @@ score: 1
 upvote_ratio: 1
 num_comments: 1
 flair: "Academic Life"
-extracted_at: "2026-05-20T03:54:35.452Z"
+extracted_at: "2026-06-06T23:23:15.572Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Still feel stuck(Junior In College)

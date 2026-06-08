@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1pp2ims.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1pp2ims/which_cad_solidworks_fusion_360_or_autocad_is/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -6,19 +7,54 @@ subreddit: "engineeringstudents"
 title: "Which Cad (SOLIDWORKS, Fusion 360, or Autocad) is probably better for me to learn first as Mechanical Engineer first year Student?"
 author: "Hallowalls"
 date: "2025-12-17T17:29:13.000Z"
-score: 40
-upvote_ratio: 0.94
+score: 46
+upvote_ratio: 0.97
 num_comments: 40
 flair: "Academic Advice"
-extracted_at: "2026-05-20T12:57:40.598Z"
+extracted_at: "2026-06-05T23:43:26.891Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pp2ims.md#c0"
+    char_span: [0, 534]
+    sentence_count: 3
+    key_terms: [engineeringstudents, learn, cad, comments, significantly, reddit-deep, hallowalls, mechanical]
+    token_count: 132
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pp2ims.md#c1"
+    char_span: [549, 1780]
+    sentence_count: 8
+    key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
+    section: Comments
+    token_count: 279
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pp2ims.md#c2"
+    char_span: [1782, 3762]
+    sentence_count: 16
+    key_terms: [modeling, onshape, industry, license, free, use, used, definitely]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pp2ims.md#c3"
+    char_span: [3533, 3763]
+    sentence_count: 4
+    key_terms: [bonebuttonborscht, automotive, especially, experience, industry, center, though, makes]
+    section: Comments
+    token_count: 65
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pp2ims.md#c4"
+    char_span: [3765, 5845]
+    sentence_count: 18
+    key_terms: [solidworks, inventor, software, use, catia, industry, never, works]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pp2ims.md#c5"
+    char_span: [5847, 6916]
+    sentence_count: 9
+    key_terms: [solidworks, autocad, personally, university, recommend, access, fusion, start]
+    section: Comments
+    token_count: 261
 ---
-
 # Which Cad (SOLIDWORKS, Fusion 360, or Autocad) is probably better for me to learn first as Mechanical Engineer first year Student?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1pp2ims/which_cad_solidworks_fusion_360_or_autocad_is/)
-Posted by **Hallowalls** · **40↑** · **40 comments**
+Posted by **Hallowalls** · **46↑** · **40 comments**
 
 I wanted to know which one I should learn first, without mixing them all, and only focusing on one Cad time being. Since learning one Cad makes other significantly easier to learn and master.
 
@@ -40,15 +76,15 @@ Check our [Resources Landing Page](https://reddit.com/r/EngineeringStudents/wiki
 - **LitRick6** (86↑): 1. Whichever your school pays for and requires for coursework.  If your school pays for solidworks and Autocad, id go solidworks unless you plan on working alongside civil engineers in building design and whatnot.  
 
 2. If the school doesn't pay for any, then use whichever is free (ie fusion 360).
-  - **Victor_Stein** (16↑): Other good free program is OnShape.  They even got a browser version so as long as you got a hard drive with your files on it you can continue your work from wherever.  Not as widely used in industry but it is good just to whip up some stuff for a portfolio or personal projects.
+  - **Victor_Stein** (15↑): Other good free program is OnShape.  They even got a browser version so as long as you got a hard drive with your files on it you can continue your work from wherever.  Not as widely used in industry but it is good just to whip up some stuff for a portfolio or personal projects.
     - **barstowtovegas** (3↑): OnShape is amazing for personal use, but barely used in industry. I wish it was more popular though. I have an enterprise license, and it’s indispensable for quick fixtures on the 3D printer. It has really strong Boolean and direct modeling features.
-    - **3_14159td** (6↑): ^ I would onshape over Confusion360
+    - **3_14159td** (5↑): ^ I would onshape over Confusion360
 The modeling tools are more similar to Solid works, Fusion is a bit of an oddball. Acceptable if you plan to do CAM.
   - **1978JD316** (1↑): Autocad and inventor (autodesk 3-d modeling) is free with an .edu email. But, having used onshape, I would definitely recommend it. It being cloud based will be really nice if you’re ever doing a group project.
     - **Tavrock** (1↑): AutoCAD has a full suite of tools for 3D modeling and a wonderful (albeit slow) rendering engine. Inventor is designed for parametric modeling, kinematics, and has a nice library of standard features and parts.
-- **KremitTheFrogg** (33↑): Definitely SolidWorks but if you can get your hands on a Siemens NX license that would be even better since a lot of companies are switching to it.
-  - **riverturtle** (4↑): 100%. I have worked for two different large corporations and a tiny startup now, all three are on NX. Solidworks is #2 for adoption and real world utility, so that’s what I have a license for at home.
-    - **Sp0kenTruth** (4↑): NX is the GOAT. Especially if you go into the aero industry.. lots of automotive use it too. NX / CREO are the top
+- **KremitTheFrogg** (30↑): Definitely SolidWorks but if you can get your hands on a Siemens NX license that would be even better since a lot of companies are switching to it.
+  - **riverturtle** (5↑): 100%. I have worked for two different large corporations and a tiny startup now, all three are on NX. Solidworks is #2 for adoption and real world utility, so that’s what I have a license for at home.
+    - **Sp0kenTruth** (6↑): NX is the GOAT. Especially if you go into the aero industry.. lots of automotive use it too. NX / CREO are the top
   - **bonebuttonborscht** (3↑): Team center makes me want to KMS though. Or maybe I just had a bad IT experience. 
 
 Coming from SW I also found some assembly features in NX a bit clunky. Catia was an easier transition.
@@ -59,7 +95,7 @@ Coming from SW I also found some assembly features in NX a bit clunky. Catia was
 NX is a lot more complex and less fluent, but has way more options and never crashes.
 
 What is preferred depends on the specific type of engineering you do.
-- **robotNumberOne** (8↑): Depending on industry you want to get into, of the 3 listed, I would choose SOLIDWORKS and to gain some basic familiarity with AutoCAD just in case. 
+- **robotNumberOne** (6↑): Depending on industry you want to get into, of the 3 listed, I would choose SOLIDWORKS and to gain some basic familiarity with AutoCAD just in case. 
 
 SOLIDWORKS provides an accessible introduction to the way most parametric modeling software operates.
 
@@ -73,7 +109,7 @@ For overall capability vs. ease of use, my vote goes to Inventor, but there is n
   - **ilikecubes42** (2↑): Fusion's inability to handle assemblies is a big downside for it. I absolutely despise CATIA. Solid works is okay I guess but I haven't had the chance to use it much. 
 
 Inventor is my one true love. I was grinding away on CAM and CAD with it for my capstone project and I loved it. The design accelerator tool was especially useful.
-- **[deleted]** (4↑): Solidworks or creo, Fusion is great though but I've not seen to many companies use it
+- **[deleted]** (5↑): Solidworks or creo, Fusion is great though but I've not seen to many companies use it
 - **OverSearch** (3↑): This will depend VERY much on what industry you want to go into.
 
 I can say from experience, people who come to work for us knowing one CAD platform tend to be able to very quickly pick up a different one.

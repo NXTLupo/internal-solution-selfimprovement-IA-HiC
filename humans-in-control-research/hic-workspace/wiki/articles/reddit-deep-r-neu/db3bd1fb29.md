@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-neu/db3bd1fb29.md
 url: "https://www.reddit.com/r/NEU/comments/1s57bn6/things_i_wish_i_knew_before_starting_mscs_at/"
 url_hash: "db3bd1fb29"
 kind: "article"
@@ -8,10 +9,17 @@ author: ""
 date: "2026-03-27T15:27:47.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-13T20:27:38.703697+00:00"
-chars: 968
+extracted_at: "2026-06-06T00:36:13.706660+00:00"
+chars: 789
+relevance: 50
+engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "articles/reddit-deep-r-neu/db3bd1fb29.md#c0"
+    char_span: [0, 987]
+    sentence_count: 8
+    key_terms: [advice, mscs, neu, khoury, reddit, co-op, take, wish]
+    token_count: 245
 ---
-
 # things i  wish i knew before starting mscs at khoury.[ Advice needed]
 
 Source: [Reddit Deep: r/neu](https://www.reddit.com/r/NEU/comments/1s57bn6/things_i_wish_i_knew_before_starting_mscs_at/)
@@ -39,7 +47,3 @@ Also  an random one question does NEU have a field hockey team?
 
 
 Any advice, big or small, is truly appreciated. Thanks so much for your time!
-
---- TOP COMMENTS ---
-[3↑ Left-Log-9942] Lol I know where you are coming from😂😂
-TA is first sem lol bro take the class first and try to adjust instead of focusing on making money

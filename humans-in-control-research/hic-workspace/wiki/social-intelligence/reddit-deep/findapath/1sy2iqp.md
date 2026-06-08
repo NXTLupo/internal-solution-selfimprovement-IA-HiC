@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1sy2iqp.md
 url: "https://www.reddit.com/r/findapath/comments/1sy2iqp/career_path_advice_anyone_i_thought_id_have_a/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,33 @@ flair: "Findapath-Career Change"
 extracted_at: "2026-05-25T13:04:07.378Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [life_sciences, workforce, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1sy2iqp.md#c0"
+    char_span: [0, 1931]
+    sentence_count: 19
+    key_terms: [job, masters, working, career, secure, neuroscience, occupational, been]
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/findapath/1sy2iqp.md#c1"
+    char_span: [1946, 3705]
+    sentence_count: 14
+    key_terms: [thank, creative, helpful, please, alongside, findapath, comments, everyone]
+    section: Comments
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/findapath/1sy2iqp.md#c2"
+    char_span: [3707, 5880]
+    sentence_count: 15
+    key_terms: [day, degree, doing, healthcare, currently, something, country, problem]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/findapath/1sy2iqp.md#c3"
+    char_span: [5883, 7173]
+    sentence_count: 9
+    key_terms: ["don't", research, degree, another, masters, grads, miamiconnectionexo, get]
+    section: Comments
+    token_count: 296
 ---
-
 # Career path advice anyone ? I thought I’d have a secure job, house and husband at 24. I graduated with an honours Bsc 2 years ago yet I’m working min wage in my home town
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1sy2iqp/career_path_advice_anyone_i_thought_id_have_a/)

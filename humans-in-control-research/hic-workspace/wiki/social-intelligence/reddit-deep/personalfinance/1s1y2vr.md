@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1s1y2vr.md
 url: "https://www.reddit.com/r/personalfinance/comments/1s1y2vr/young_adult_money_spending_problem/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,33 @@ flair: "Other"
 extracted_at: "2026-05-16T20:55:02.104Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1s1y2vr.md#c0"
+    char_span: [0, 887]
+    sentence_count: 10
+    key_terms: [money, spending, personalfinance, discipline, comments, problem, advice, individual-turn6417]
+    token_count: 221
+  - id: "social-intelligence/reddit-deep/personalfinance/1s1y2vr.md#c1"
+    char_span: [902, 2378]
+    sentence_count: 17
+    key_terms: [spending, spend, good, want, eating, days, expensive, something]
+    section: Comments
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/personalfinance/1s1y2vr.md#c2"
+    char_span: [2382, 4346]
+    sentence_count: 14
+    key_terms: [money, personal, cash, month, quick, eat, plan, envelopes]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/personalfinance/1s1y2vr.md#c3"
+    char_span: [4348, 5110]
+    sentence_count: 5
+    key_terms: [others, "that's", extra, "isn't", oktechnician636, flexibility, practically, sustainable]
+    section: Comments
+    token_count: 181
 ---
-
 # Young Adult Money Spending Problem
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1s1y2vr/young_adult_money_spending_problem/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1otpb39.md
 url: "https://www.reddit.com/r/Professors/comments/1otpb39/extremely_hot_take_highpowered_research_labs_are/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,93 @@ flair: ""
 extracted_at: "2026-05-20T03:55:39.277Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c0"
+    char_span: [0, 1685]
+    sentence_count: 11
+    key_terms: [students, undergraduate, labs, professors, education, high-powered, pis, undergrads]
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c1"
+    char_span: [1700, 3102]
+    sentence_count: 12
+    key_terms: [research, universities, different, students, faculty, chance, having, model]
+    section: Comments
+    token_count: 316
+  - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c2"
+    char_span: [3104, 4419]
+    sentence_count: 11
+    key_terms: [teaching, big, positions, employer, starting, dollars, faculty, realize]
+    section: Comments
+    token_count: 311
+  - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c3"
+    char_span: [4421, 6753]
+    sentence_count: 16
+    key_terms: [research, teaching, security, faculty, better, certainly, important, argument]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c4"
+    char_span: [6755, 8254]
+    sentence_count: 7
+    key_terms: [university, researchers, share, universities, labs, definitely, function, separate]
+    section: Comments
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c5"
+    char_span: [8256, 9935]
+    sentence_count: 14
+    key_terms: [learn, people, best, want, undergrads, university, undergrad, building]
+    section: Comments
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c6"
+    char_span: [9937, 11298]
+    sentence_count: 14
+    key_terms: [research, training, because, universities, train, education, current, faculty]
+    section: Comments
+    token_count: 306
+  - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c7"
+    char_span: [11300, 13568]
+    sentence_count: 15
+    key_terms: [teaching, research, undergrads, state, university, education, professor, flagship]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c8"
+    char_span: [13570, 15681]
+    sentence_count: 15
+    key_terms: [professor, researchers, additional, endowments, funding, researcher, "doesn't", tuition]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c9"
+    char_span: [15683, 16957]
+    sentence_count: 15
+    key_terms: [teaching, institutions, funding, tuition, research, grants, state, program]
+    section: Comments
+    token_count: 276
+  - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c10"
+    char_span: [16959, 18531]
+    sentence_count: 8
+    key_terms: [companies, funding, partnerships, small, revenue, public-private, work, different]
+    section: Comments
+    token_count: 307
+  - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c11"
+    char_span: [18533, 20329]
+    sentence_count: 9
+    key_terms: [institution, university, teaching, funding, new, work, professors, knowledge]
+    section: Comments
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c12"
+    char_span: [20331, 22516]
+    sentence_count: 16
+    key_terms: [research, teaching, institutions, undergrad, pis, smaller, undergraduate, mentorship]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c13"
+    char_span: [22518, 23449]
+    sentence_count: 9
+    key_terms: [university, mission, powered, sports, entertainment, disseminate, high, athletics]
+    section: Comments
+    token_count: 187
 ---
-
 # EXTREMELY Hot Take: high-powered research labs are almost as irrelevant to undergraduate education as D1 sports.
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1otpb39/extremely_hot_take_highpowered_research_labs_are/)

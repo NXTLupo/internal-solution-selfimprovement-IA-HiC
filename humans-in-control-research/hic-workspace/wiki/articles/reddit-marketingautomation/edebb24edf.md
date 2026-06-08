@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-marketingautomation/edebb24edf.md
 url: "https://reddit.com/r/MarketingAutomation/comments/1r2i2gz/ai_tools_for_making_ad_creatives_actual_game/"
 url_hash: "edebb24edf"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-04-21T04:40:15.611015+00:00"
 chars: 1072
+industries: [retail, dtc]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-marketingautomation/edebb24edf.md#c0"
+    char_span: [0, 1302]
+    sentence_count: 16
+    key_terms: [marketingautomation, creatives, honestly, thinking, another, reddit, right, solid]
+    token_count: 292
 ---
-
 # AI tools for making ad creatives… actual game changer or just another money trap?
 
 Source: [reddit: marketingautomation](https://reddit.com/r/MarketingAutomation/comments/1r2i2gz/ai_tools_for_making_ad_creatives_actual_game/)

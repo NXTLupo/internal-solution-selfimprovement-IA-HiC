@@ -7,18 +7,18 @@ title: "⚡ Urgently Hiring HR Interns (Remote | Limited Slots | Immediate Start
 author: "Shal270"
 date: "2026-05-08T07:02:26.000Z"
 score: 0
-upvote_ratio: 0.2
-num_comments: 19
+upvote_ratio: 0.27
+num_comments: 20
 flair: "During the Internship"
-extracted_at: "2026-05-24T14:08:27.828Z"
+extracted_at: "2026-06-06T23:20:46.210Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # ⚡ Urgently Hiring HR Interns (Remote | Limited Slots | Immediate Start)
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1t70bju/urgently_hiring_hr_interns_remote_limited_slots/)
-Posted by **Shal270** · **0↑** · **19 comments**
+Posted by **Shal270** · **0↑** · **20 comments**
 
 **We’re actively hiring HR Interns and looking for people who are ready to start immediately and actually work (not just add an internship to their resume).**
 
@@ -78,9 +78,11 @@ Stipend: Unpaid
 
 ## Comments
 
+- **chipmunkkkkk** (1↑): INTERESTED
+  - **Shal270** (1↑): DM ME
 - **CODING_HUNT** (1↑): Interested
-  - **Shal270** (1↑): DM me
   - **Unique_Influence_262** (1↑): Also got a great opportunity, kindly dm if interested.
+  - **Shal270** (1↑): DM me
 - **Nice_Pomegranate_216** (1↑): Interested
   - **Shal270** (1↑): DM me
 - **karthikota** (1↑): Interested
@@ -88,11 +90,9 @@ Stipend: Unpaid
 - **I_See_You_Not_Me** (1↑): This is unpaid, yes?
   - **Shal270** (1↑): Yes
 - **minie_titi** (1↑): Intersted
-  - **Shal270** (1↑): DM ME
   - **Unique_Influence_262** (1↑): Also got a great opportunity, kindly dm if interested.
+  - **Shal270** (1↑): DM ME
 - **Feather_of_falcon** (1↑): Which programs are offered in this internship?
   - **Shal270** (1↑): The internship is for the Human Resource (HR) domain. It mainly focuses on recruitment, candidate handling, and team management.
 - **Timely_Programmer898** (1↑): Interested
-  - **Shal270** (1↑): DM ME
-- **chipmunkkkkk** (1↑): INTERESTED
   - **Shal270** (1↑): DM ME

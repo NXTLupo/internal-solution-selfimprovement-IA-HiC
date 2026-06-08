@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1q4e8un.md
 url: "https://www.reddit.com/r/careerguidance/comments/1q4e8un/computer_science_student_graduating_in_6_months/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,16 @@ score: 2
 upvote_ratio: 1
 num_comments: 2
 flair: "Advice"
-extracted_at: "2026-05-22T21:34:47.972Z"
+extracted_at: "2026-06-03T18:53:36.172Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1q4e8un.md#c0"
+    char_span: [0, 1301]
+    sentence_count: 9
+    key_terms: [cybersecurity, analytics, data, "i'm", careerguidance, experience, comments, booming]
+    token_count: 300
 ---
-
 # Computer Science student graduating in 6 months, what career path should I pursue?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1q4e8un/computer_science_student_graduating_in_6_months/)

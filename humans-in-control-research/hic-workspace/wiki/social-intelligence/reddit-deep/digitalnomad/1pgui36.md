@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1pgui36.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1pgui36/help_me_decide_digital_nomad_base_spain_or/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,45 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:56.728Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, government]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1pgui36.md#c0"
+    char_span: [0, 1672]
+    sentence_count: 11
+    key_terms: [thailand, spain, digital, nomad, travel, digitalnomad, speak, visa]
+    token_count: 401
+  - id: "social-intelligence/reddit-deep/digitalnomad/1pgui36.md#c1"
+    char_span: [1687, 3731]
+    sentence_count: 7
+    key_terms: [thailand, permanent, residency, spain, europe, passport, cosmicaceituna, taxes]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/digitalnomad/1pgui36.md#c2"
+    char_span: [3501, 4014]
+    sentence_count: 2
+    key_terms: [amazing, cheap, helpful-staff9562, lots, adventurours, activities, apartments, designer]
+    section: Comments
+    token_count: 130
+  - id: "social-intelligence/reddit-deep/digitalnomad/1pgui36.md#c3"
+    char_span: [4016, 6017]
+    sentence_count: 18
+    key_terms: [thailand, spain, interested, years, "i'm", "it's", long, thai]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/digitalnomad/1pgui36.md#c4"
+    char_span: [6019, 7536]
+    sentence_count: 16
+    key_terms: [thailand, spain, europe, another, connect, reason, "you'll", no-programmer7358]
+    section: Comments
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/digitalnomad/1pgui36.md#c5"
+    char_span: [7538, 8623]
+    sentence_count: 10
+    key_terms: [thailand, countries, clients, locals, great, apac, did, end]
+    section: Comments
+    token_count: 257
 ---
-
 # Help Me Decide: Digital Nomad Base -> Spain or Thailand?
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1pgui36/help_me_decide_digital_nomad_base_spain_or/)

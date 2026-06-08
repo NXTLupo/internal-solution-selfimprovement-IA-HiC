@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t6y4tp.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t6y4tp/title_finance_student_deeply_interested_in/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-22T13:32:21.478Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6y4tp.md#c0"
+    char_span: [0, 2505]
+    sentence_count: 17
+    key_terms: [finance, engineering, genuinely, cybersecurity, reverse, systems, deeply, side]
+    token_count: 525
 ---
-
 # Title: Finance Student Deeply Interested in Reverse Engineering / Computer Systems – Career Confusion and Need Honest Advice?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t6y4tp/title_finance_student_deeply_interested_in/)

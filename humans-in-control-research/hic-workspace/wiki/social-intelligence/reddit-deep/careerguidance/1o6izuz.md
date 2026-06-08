@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1o6izuz.md
 url: "https://www.reddit.com/r/careerguidance/comments/1o6izuz/just_want_to_vent_i_graduated_with_a_masters/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-24T14:09:04.409Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1o6izuz.md#c0"
+    char_span: [0, 938]
+    sentence_count: 5
+    key_terms: [job, careerguidance, career, error, comments, learning, costing, costed]
+    token_count: 222
+  - id: "social-intelligence/reddit-deep/careerguidance/1o6izuz.md#c1"
+    char_span: [953, 2740]
+    sentence_count: 15
+    key_terms: [talltelevision4121, response, taboverspaces, fired, interviews, because, geocsw, resume]
+    section: Comments
+    token_count: 440
 ---
-
 # Just want to vent : I graduated with a Masters degree few years ago and made a big error which costed my job and is now costing my career at 27, am I stupid or is this a learning curve?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1o6izuz/just_want_to_vent_i_graduated_with_a_masters/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1l8mflq.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1l8mflq/too_old_for_career_change_into_cs/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-22T23:33:42.310Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l8mflq.md#c0"
+    char_span: [0, 756]
+    sentence_count: 7
+    key_terms: [cscareerquestions, career, comments, computer, research, science, change, field]
+    token_count: 172
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l8mflq.md#c1"
+    char_span: [771, 2985]
+    sentence_count: 11
+    key_terms: [problem, math, willing, going, get, "it's", practice, someone]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l8mflq.md#c2"
+    char_span: [2987, 4043]
+    sentence_count: 7
+    key_terms: [because, move, nothing, hard, new, newchameleon, application, california]
+    section: Comments
+    token_count: 257
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l8mflq.md#c3"
+    char_span: [4045, 5885]
+    sentence_count: 14
+    key_terms: [degree, get, try, difficult, probably, because, started, through]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l8mflq.md#c4"
+    char_span: [5889, 6735]
+    sentence_count: 6
+    key_terms: [company, get, good, internship, probably, degree, lucky, bit]
+    section: Comments
+    token_count: 191
 ---
-
 # Too old for career change into CS?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1l8mflq/too_old_for_career_change_into_cs/)

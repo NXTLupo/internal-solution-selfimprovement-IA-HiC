@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-neu/b1ee4fc49b.md
 url: "https://www.reddit.com/r/NEU/comments/1q9urg4/would_you_use_an_app_to_find_other_students_on/"
 url_hash: "b1ee4fc49b"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T06:45:18.439902+00:00"
 chars: 1251
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-neu/b1ee4fc49b.md#c0"
+    char_span: [0, 1435]
+    sentence_count: 10
+    key_terms: [like, people, use, co-op, city, good, something, building]
+    token_count: 336
 ---
-
 # Would you use an app to find other students on co-op?
 
 Source: [Reddit Deep: r/neu](https://www.reddit.com/r/NEU/comments/1q9urg4/would_you_use_an_app_to_find_other_students_on/)

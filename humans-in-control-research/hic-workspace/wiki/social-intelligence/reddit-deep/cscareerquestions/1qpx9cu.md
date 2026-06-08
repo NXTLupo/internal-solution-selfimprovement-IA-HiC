@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1qpx9cu.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1qpx9cu/completely_stumped_on_next_steps_need_some_career/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,44 @@ flair: "New Grad"
 extracted_at: "2026-05-22T23:33:42.318Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qpx9cu.md#c0"
+    char_span: [0, 2187]
+    sentence_count: 18
+    key_terms: [though, cscareerquestions, applications, programming, job, like, absolutely, interviews]
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qpx9cu.md#c1"
+    char_span: [2190, 2976]
+    sentence_count: 6
+    key_terms: ["don't", something, "i'm", like, comfortably, potentially, absolutely, considered]
+    token_count: 174
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qpx9cu.md#c2"
+    char_span: [2991, 4493]
+    sentence_count: 11
+    key_terms: [experience, companies, years, back, support, people, home, recommend]
+    section: Comments
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qpx9cu.md#c3"
+    char_span: [4496, 6554]
+    sentence_count: 20
+    key_terms: [tech, something, job, doing, good, "i'm", isn, like]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qpx9cu.md#c4"
+    char_span: [6556, 7004]
+    sentence_count: 4
+    key_terms: [unemployment, applicants, difference, passionate, personally, transition, competing, positions]
+    section: Comments
+    token_count: 88
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qpx9cu.md#c5"
+    char_span: [7006, 8894]
+    sentence_count: 11
+    key_terms: [pivot, tech, cjlcjl12, "i'm", need, countries, deleted, afford]
+    section: Comments
+    token_count: 437
 ---
-
 # Completely Stumped on Next Steps. Need some career advice :(
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1qpx9cu/completely_stumped_on_next_steps_need_some_career/)

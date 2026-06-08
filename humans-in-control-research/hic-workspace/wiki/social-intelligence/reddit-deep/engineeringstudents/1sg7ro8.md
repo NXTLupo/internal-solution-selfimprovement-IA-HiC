@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1sg7ro8.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1sg7ro8/ee_student_without_coop_experience_how_to_stay/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Career Advice"
 extracted_at: "2026-05-25T13:01:49.569Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sg7ro8.md#c0"
+    char_span: [0, 1182]
+    sentence_count: 7
+    key_terms: [experience, engineeringstudents, co-op, competitive, entry-level, comments, student, without]
+    token_count: 270
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sg7ro8.md#c1"
+    char_span: [1197, 1841]
+    sentence_count: 3
+    key_terms: [no-reporter-1651, without, connections, nepternship, robertisaak, experience, instantly, applying]
+    section: Comments
+    token_count: 170
 ---
-
 # EE student without co-op experience — how to stay competitive for entry-level roles ?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1sg7ro8/ee_student_without_coop_experience_how_to_stay/)

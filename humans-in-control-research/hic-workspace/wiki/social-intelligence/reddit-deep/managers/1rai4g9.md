@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1rai4g9.md
 url: "https://www.reddit.com/r/managers/comments/1rai4g9/time_theft/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,86 @@ flair: ""
 extracted_at: "2026-05-26T12:54:23.656Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c0"
+    char_span: [0, 2100]
+    sentence_count: 25
+    key_terms: [time, hours, sick, day, put, asked, leave, manager]
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c1"
+    char_span: [2102, 3552]
+    sentence_count: 20
+    key_terms: [time, manager, entering, supposed, blocked, hours, today, edit]
+    token_count: 337
+  - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c2"
+    char_span: [3567, 5261]
+    sentence_count: 14
+    key_terms: [employee, manager, conversation, time, especially, inevitably, companies, important]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c3"
+    char_span: [5263, 7255]
+    sentence_count: 20
+    key_terms: [time, "can't", management, deleted, manager, couple, confident-version820, being]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c4"
+    char_span: [7003, 8378]
+    sentence_count: 12
+    key_terms: ["you're", break, "can't", time, punches, working, sleepaltruistic2367, being]
+    section: Comments
+    token_count: 363
+  - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c5"
+    char_span: [8380, 10394]
+    sentence_count: 24
+    key_terms: [manager, fired, been, boss, loop, tell, want, warning]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c6"
+    char_span: [10396, 11208]
+    sentence_count: 8
+    key_terms: [deliberately, miscoding, attitude, category, depends, weeks, etc, like]
+    section: Comments
+    token_count: 187
+  - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c7"
+    char_span: [11210, 12992]
+    sentence_count: 17
+    key_terms: [time, employee, disciplinary, boss, timesheets, instances, evidence, notified]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c8"
+    char_span: [12994, 14471]
+    sentence_count: 11
+    key_terms: [time, employee, stealing, theft, revengeoftheidiot, done, gone, pto]
+    section: Comments
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c9"
+    char_span: [14473, 16456]
+    sentence_count: 20
+    key_terms: [enforce, conversation, good, time, work, strongly, passive, others]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c10"
+    char_span: [16458, 18268]
+    sentence_count: 9
+    key_terms: [time, day, hours, days, handbook, salaried, noting, theft]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c11"
+    char_span: [18270, 20043]
+    sentence_count: 11
+    key_terms: [hours, time, get, step, elsewhere, employee, exempt, monday]
+    section: Comments
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/managers/1rai4g9.md#c12"
+    char_span: [20045, 21279]
+    sentence_count: 10
+    key_terms: [consequences, going, company, getting, manager, handle, people, doing]
+    section: Comments
+    token_count: 292
 ---
-
 # Time theft
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1rai4g9/time_theft/)

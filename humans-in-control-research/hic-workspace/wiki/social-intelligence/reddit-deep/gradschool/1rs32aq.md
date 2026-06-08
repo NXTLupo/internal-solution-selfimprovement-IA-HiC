@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1rs32aq.md
 url: "https://www.reddit.com/r/GradSchool/comments/1rs32aq/im_getting_frustrated_with_the_balancing_act_of/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,33 @@ flair: "Health & Work/Life Balance"
 extracted_at: "2026-05-22T21:35:36.530Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, life_sciences]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1rs32aq.md#c0"
+    char_span: [0, 1488]
+    sentence_count: 10
+    key_terms: ["i'm", work, getting, time, gradschool, balancing, bullshit, comments]
+    token_count: 341
+  - id: "social-intelligence/reddit-deep/gradschool/1rs32aq.md#c1"
+    char_span: [1503, 3444]
+    sentence_count: 9
+    key_terms: [actual, part, meetings, research, classes, finish, phd, work]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/gradschool/1rs32aq.md#c2"
+    char_span: [3447, 5459]
+    sentence_count: 14
+    key_terms: [research, hours, day, want, work, professional, "i'm", like]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/gradschool/1rs32aq.md#c3"
+    char_span: [5461, 6458]
+    sentence_count: 7
+    key_terms: [research, pipette, likely, others, school, though, grad, work]
+    section: Comments
+    token_count: 213
 ---
-
 # I'm getting frustrated with the balancing act of grad school
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1rs32aq/im_getting_frustrated_with_the_balancing_act_of/)

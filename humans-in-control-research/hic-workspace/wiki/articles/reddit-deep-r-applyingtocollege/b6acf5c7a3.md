@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-applyingtocollege/b6acf5c7a3.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1thl5qd/how_helpful_are_personal_projects_in_college/"
 url_hash: "b6acf5c7a3"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:42:01.909637+00:00"
 chars: 5094
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-applyingtocollege/b6acf5c7a3.md#c0"
+    char_span: [0, 2169]
+    sentence_count: 13
+    key_terms: [projects, "i've", competitions, applyingtocollege, been, personal, because, applications]
+    token_count: 459
+  - id: "articles/reddit-deep-r-applyingtocollege/b6acf5c7a3.md#c1"
+    char_span: [2171, 4625]
+    sentence_count: 18
+    key_terms: [competitions, impressive, projects, passion, schools, "don't", engineering, far]
+    token_count: 507
+  - id: "articles/reddit-deep-r-applyingtocollege/b6acf5c7a3.md#c2"
+    char_span: [4627, 5309]
+    sentence_count: 4
+    key_terms: [competitions, compelling, projects, least, "applicant's", exploration, applicants, competitor]
+    token_count: 137
 ---
-
 # How helpful are personal projects in college applications?
 
 Source: [Reddit Deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1thl5qd/how_helpful_are_personal_projects_in_college/)

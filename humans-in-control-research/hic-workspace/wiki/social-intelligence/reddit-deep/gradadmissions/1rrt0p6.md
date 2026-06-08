@@ -7,12 +7,12 @@ title: "Conditional grad school offer requires 3.5 GPA but I’ll likely finish 
 author: "Zookjaeger"
 date: "2026-03-12T14:58:07.000Z"
 score: 4
-upvote_ratio: 1
+upvote_ratio: 0.84
 num_comments: 1
 flair: "General Advice"
-extracted_at: "2026-05-24T14:10:06.603Z"
+extracted_at: "2026-06-06T23:23:15.587Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Conditional grad school offer requires 3.5 GPA but I’ll likely finish with ~3.48 — how should I approach admissions?
@@ -48,4 +48,4 @@ How would you email admissions to ask about this without sounding like you’re 
 
 ## Comments
 
-- **Enough_Amount_9529** (3↑): follow up with adcom. this is crazy
+- **Enough_Amount_9529** (4↑): follow up with adcom. this is crazy

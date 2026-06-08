@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1kvyfjb.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1kvyfjb/if_youre_over_30_get_ready_things_have_changed/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,139 @@ flair: "Serious replies only :closed-ai:"
 extracted_at: "2026-05-11T16:54:08.809Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvyfjb.md#c0"
+    char_span: [0, 1922]
+    sentence_count: 18
+    key_terms: [time, came, last, technology, comments, internet, changed, chatgpt]
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvyfjb.md#c1"
+    char_span: [1924, 3900]
+    sentence_count: 24
+    key_terms: [time, years, "it's", generation, smartphone, necessity, fucked, myself]
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvyfjb.md#c2"
+    char_span: [3902, 5808]
+    sentence_count: 15
+    key_terms: [glad, real, time, internet, world, smartphones, day, here]
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvyfjb.md#c3"
+    char_span: [5823, 6626]
+    sentence_count: 3
+    key_terms: [comments, serious, realistic-mind-6239, tag, automatically, automoderator, face-to-face, appropriate]
+    section: Comments
+    token_count: 186
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvyfjb.md#c4"
+    char_span: [6628, 8157]
+    sentence_count: 7
+    key_terms: [maybe, restaurants, too, internet, because, thought, better, "that's"]
+    section: Comments
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvyfjb.md#c5"
+    char_span: [8159, 10416]
+    sentence_count: 11
+    key_terms: [internet, story, new, emotional, verified, noticed, outlook, thought]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvyfjb.md#c6"
+    char_span: [10128, 10756]
+    sentence_count: 3
+    key_terms: [internet, face, like, peer, communication, interaction, livinglogic, realization]
+    section: Comments
+    token_count: 125
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvyfjb.md#c7"
+    char_span: [10758, 12863]
+    sentence_count: 16
+    key_terms: [people, deepfake, "i'm", "true", generated, nothing, reality, "don't"]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvyfjb.md#c8"
+    char_span: [12865, 14039]
+    sentence_count: 3
+    key_terms: [people, own, probably, content, deleted, almost, redact, historical-term-9657]
+    section: Comments
+    token_count: 282
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvyfjb.md#c9"
+    char_span: [14041, 16122]
+    sentence_count: 17
+    key_terms: [people, because, "i'm", old, tech, year, computer, deleted]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvyfjb.md#c10"
+    char_span: [15814, 18067]
+    sentence_count: 22
+    key_terms: [critical, thinking, learned, tech, deleted, people, makes, worth]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvyfjb.md#c11"
+    char_span: [17811, 19663]
+    sentence_count: 10
+    key_terms: [people, school, technological, technology, critical, thinking, deleted, output]
+    section: Comments
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvyfjb.md#c12"
+    char_span: [19665, 21750]
+    sentence_count: 13
+    key_terms: [technology, generations, younger, understanding, being, application, anyone, output]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvyfjb.md#c13"
+    char_span: [21752, 23084]
+    sentence_count: 13
+    key_terms: [use, computers, kids, computer, forget, "dad's", today, tech]
+    section: Comments
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvyfjb.md#c14"
+    char_span: [23086, 24959]
+    sentence_count: 12
+    key_terms: [work, removed, people, like, tech, computer, making, "don't"]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvyfjb.md#c15"
+    char_span: [24961, 27106]
+    sentence_count: 15
+    key_terms: [balance, over-reliance, understanding, hand, tool, copying, someone, without]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvyfjb.md#c16"
+    char_span: [27108, 28254]
+    sentence_count: 6
+    key_terms: [opportunity, tool, always, people, fearmongering, genereddit123, neo-keynesian, revolutionize]
+    section: Comments
+    token_count: 235
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvyfjb.md#c17"
+    char_span: [28256, 30452]
+    sentence_count: 10
+    key_terms: [social, media, reddiit-researchers-ai-bots-rcna203597, people, misinformation, tech, completely, optimistic]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvyfjb.md#c18"
+    char_span: [30138, 31380]
+    sentence_count: 7
+    key_terms: [misinformation, future, screen, maybe, dead, saw, barryhakker, communities]
+    section: Comments
+    token_count: 270
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvyfjb.md#c19"
+    char_span: [31382, 33430]
+    sentence_count: 16
+    key_terms: [city, buildings, "doesn't", easier, years, underground, fix, "i'm"]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvyfjb.md#c20"
+    char_span: [33432, 35363]
+    sentence_count: 9
+    key_terms: [movies, get, accomplish, everything, purchased, company, nothing, trying]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/chatgpt/1kvyfjb.md#c21"
+    char_span: [35365, 37101]
+    sentence_count: 10
+    key_terms: [games, birds, fruit, point, video, lot, roblox, thanks]
+    section: Comments
+    token_count: 425
 ---
-
 # If you're over 30, get ready. Things have changed once again
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1kvyfjb/if_youre_over_30_get_ready_things_have_changed/)

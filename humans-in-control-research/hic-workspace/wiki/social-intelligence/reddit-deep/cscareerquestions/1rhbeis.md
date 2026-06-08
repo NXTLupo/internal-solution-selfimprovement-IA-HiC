@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rhbeis/do_you_think_the_job_market_will_improve_as/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,81 @@ flair: ""
 extracted_at: "2026-05-20T03:56:10.734Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c0"
+    char_span: [0, 650]
+    sentence_count: 4
+    key_terms: [cscareerquestions, comments, improve, market, death, job, counteracted, reddit-deep]
+    token_count: 161
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c1"
+    char_span: [665, 1833]
+    sentence_count: 5
+    key_terms: [fair, world, nylockian, everyone, common, base, born, lie]
+    section: Comments
+    token_count: 335
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c2"
+    char_span: [1837, 2813]
+    sentence_count: 6
+    key_terms: [e9e21f1e-b893-40cc-a12f-413656d8b9a6, imageassetref, tech, paramount, southpark, applying, boomers, quality]
+    section: Comments
+    token_count: 283
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c3"
+    char_span: [2815, 4393]
+    sentence_count: 10
+    key_terms: [get, market, work, working, degree, "don't", grads, offer]
+    section: Comments
+    token_count: 405
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c4"
+    char_span: [4395, 6473]
+    sentence_count: 12
+    key_terms: [people, jobs, new, grads, developers, developer, competition, code]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c5"
+    char_span: [6475, 8207]
+    sentence_count: 9
+    key_terms: [people, invented, valuable, machine, oppositeworking19, guy, job, "true"]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c6"
+    char_span: [8209, 10213]
+    sentence_count: 11
+    key_terms: [people, starve, "i'm", unemployed, something, anything, interest, trough]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c7"
+    char_span: [10215, 12207]
+    sentence_count: 12
+    key_terms: [faang, work, people, anything, always, sub, industry, leetcode]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c8"
+    char_span: [12209, 14213]
+    sentence_count: 7
+    key_terms: [engineers, lot, work, generating, data, "it's", bangalore, decades]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c9"
+    char_span: [14215, 14935]
+    sentence_count: 7
+    key_terms: [something, degree, people, "it's", went, reciprocity, tuckfrump69, capitalist]
+    section: Comments
+    token_count: 167
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c10"
+    char_span: [14937, 16978]
+    sentence_count: 16
+    key_terms: [hallucinations, people, going, been, get, offshored, tcoder7, "what's"]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rhbeis.md#c11"
+    char_span: [16731, 17669]
+    sentence_count: 5
+    key_terms: [hallucinations, improvements, market, years, ones, swe, leetcodeispain, oversaturated]
+    section: Comments
+    token_count: 209
 ---
-
 # do you think the job market will improve as unemployed CS grads starve to death?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rhbeis/do_you_think_the_job_market_will_improve_as/)

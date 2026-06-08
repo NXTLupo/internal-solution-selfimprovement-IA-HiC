@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1oal9ol.md
 url: "https://www.reddit.com/r/careerguidance/comments/1oal9ol/what_skills_are_worth_learning_in_2025_to_get_a/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.354Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1oal9ol.md#c0"
+    char_span: [0, 290]
+    sentence_count: 2
+    key_terms: [careerguidance, comments, historyhot2807, reddit-deep, learning, posted, reddit, skills]
+    token_count: 86
+  - id: "social-intelligence/reddit-deep/careerguidance/1oal9ol.md#c1"
+    char_span: [305, 886]
+    sentence_count: 6
+    key_terms: [better, excel, job, contrenox, leverage, finding, slothysundaysession, "i'm"]
+    section: Comments
+    token_count: 176
+  - id: "social-intelligence/reddit-deep/careerguidance/1oal9ol.md#c2"
+    char_span: [888, 2960]
+    sentence_count: 8
+    key_terms: [skills, office, communication, understanding, excel, learn, tools, tech-sensei]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1oal9ol.md#c3"
+    char_span: [2691, 4744]
+    sentence_count: 15
+    key_terms: [excel, get, job, sap, getting, without, course, communication]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1oal9ol.md#c4"
+    char_span: [4500, 6790]
+    sentence_count: 17
+    key_terms: [like, communication, tools, "it's", people, communicate, automation, aadamkhor]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1oal9ol.md#c5"
+    char_span: [6432, 7643]
+    sentence_count: 10
+    key_terms: [skills, perspective, like, automation, thinking, puzzleheadedself3631, human, hey]
+    section: Comments
+    token_count: 278
+  - id: "social-intelligence/reddit-deep/careerguidance/1oal9ol.md#c6"
+    char_span: [7646, 8912]
+    sentence_count: 5
+    key_terms: [live, friend, get, related, resume, skills, going, sense]
+    section: Comments
+    token_count: 300
 ---
-
 # What skills are worth learning in 2025 to get a good job?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1oal9ol/what_skills_are_worth_learning_in_2025_to_get_a/)

@@ -1,3 +1,54 @@
+---
+id: benchmarks/financial-impact.md
+chunks:
+  - id: "benchmarks/financial-impact.md#c0"
+    char_span: [0, 410]
+    sentence_count: 3
+    key_terms: [benchmarks, financial, cross-referenced, corresponding, quantitative, initiatives, experience, hypothesis]
+    token_count: 79
+  - id: "benchmarks/financial-impact.md#c1"
+    char_span: [422, 1623]
+    sentence_count: 1
+    key_terms: [verified, data, revenue, impact, benchmarks, confidence, cross-refs, frameworks]
+    section: CX ROI
+    token_count: 322
+  - id: "benchmarks/financial-impact.md#c2"
+    char_span: [1644, 2866]
+    sentence_count: 1
+    key_terms: [benchmarks, verified, data, confidence, cross-refs, cx-metrics, experience, customer]
+    section: Cost of Bad CX
+    token_count: 331
+  - id: "benchmarks/financial-impact.md#c3"
+    char_span: [2908, 4193]
+    sentence_count: 2
+    key_terms: [customer, data, probability, benchmarks, confidence, cross-refs, hypothesis, retention]
+    section: Acquisition vs. Retention Economics
+    token_count: 328
+  - id: "benchmarks/financial-impact.md#c4"
+    char_span: [4226, 5071]
+    sentence_count: 1
+    key_terms: [personalization, customers, data, benchmarks, confidence, cross-refs, hypothesis, satisfied]
+    section: CLV and Lifetime Economics
+    token_count: 219
+  - id: "benchmarks/financial-impact.md#c5"
+    char_span: [5102, 5918]
+    sentence_count: 1
+    key_terms: [cost, benchmarks, resolution, data, self-service, improvement, confidence, cross-refs]
+    section: Operational Cost Impacts
+    token_count: 224
+  - id: "benchmarks/financial-impact.md#c6"
+    char_span: [5951, 6887]
+    sentence_count: 1
+    key_terms: [digital, benchmarks, technology-adoption, data, transformation, mature, roi, confidence]
+    section: Digital Transformation ROI
+    token_count: 227
+  - id: "benchmarks/financial-impact.md#c7"
+    char_span: [6910, 7908]
+    sentence_count: 8
+    key_terms: [qualtrics, business, research, specific, acquisition-vs-retention, figures, sample, ratio]
+    section: Validation Notes
+    token_count: 221
+---
 # Financial Impact Benchmarks
 
 This page collects quantitative benchmarks linking customer experience

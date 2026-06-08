@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1pmz8cc.md
 url: "https://www.reddit.com/r/NEU/comments/1pmz8cc/academic_probation_as_a_graduate_student_gpa/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "Academics"
 extracted_at: "2026-05-11T20:15:11.698Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1pmz8cc.md#c0"
+    char_span: [0, 1479]
+    sentence_count: 8
+    key_terms: [graduate, probation, academic, dismissal, semester, appeal, gpa, advising]
+    token_count: 330
+  - id: "social-intelligence/reddit-deep/neu/1pmz8cc.md#c1"
+    char_span: [1494, 2160]
+    sentence_count: 2
+    key_terms: [update, specialist-ease-6322, levzn, gpa, information, ereqsxxevd, struggling, extension]
+    section: Comments
+    token_count: 215
 ---
-
 # Academic probation as a graduate student (GPA still below 3.0)
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1pmz8cc/academic_probation_as_a_graduate_student_gpa/)

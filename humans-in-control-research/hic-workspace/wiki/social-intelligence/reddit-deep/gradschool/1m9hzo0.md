@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1m9hzo0.md
 url: "https://www.reddit.com/r/GradSchool/comments/1m9hzo0/should_i_apply_for_grad_school_this_year_or_work/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-22T21:35:36.522Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1m9hzo0.md#c0"
+    char_span: [0, 1420]
+    sentence_count: 10
+    key_terms: [year, international, grad, student, school, graduate, opt, work]
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/gradschool/1m9hzo0.md#c1"
+    char_span: [1435, 2196]
+    sentence_count: 11
+    key_terms: [school, grad, working, people, resume, try, international, undergraduate]
+    section: Comments
+    token_count: 170
 ---
-
 # Should I apply for grad school this year or work first as an international student with 3-year OPT?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1m9hzo0/should_i_apply_for_grad_school_this_year_or_work/)

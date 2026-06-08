@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1ralva3.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1ralva3/can_someone_review_my_sop_first_time_writing_it/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,33 @@ flair: "General Advice"
 extracted_at: "2026-05-22T23:33:50.639Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ralva3.md#c0"
+    char_span: [0, 333]
+    sentence_count: 4
+    key_terms: [gradadmissions, comments, reddit-deep, feedback, helpful, someone, writing, posted]
+    token_count: 91
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ralva3.md#c1"
+    char_span: [348, 2465]
+    sentence_count: 16
+    key_terms: [want, experience, past, because, neuroscience, experiences, etc, like]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ralva3.md#c2"
+    char_span: [2467, 4145]
+    sentence_count: 14
+    key_terms: [program, degree, paragraph, interest, include, exeter, start, creatororinsanity]
+    section: Comments
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ralva3.md#c3"
+    char_span: [4150, 4911]
+    sentence_count: 5
+    key_terms: [like, phrasing, noticed, errors, space, start, good, observer-ship]
+    section: Comments
+    token_count: 181
 ---
-
 # Can someone review my SOP. First time writing it. It will be really helpful to get some feedback..
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1ralva3/can_someone_review_my_sop_first_time_writing_it/)

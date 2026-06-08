@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1tcft8q.md
 url: "https://www.reddit.com/r/GradSchool/comments/1tcft8q/can_i_still_get_into_grad_school_if_i_have_an_f/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.350Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1tcft8q.md#c0"
+    char_span: [0, 1599]
+    sentence_count: 15
+    key_terms: [classes, class, feel, grad, gradschool, transcript, comments, freaking]
+    token_count: 377
+  - id: "social-intelligence/reddit-deep/gradschool/1tcft8q.md#c1"
+    char_span: [1614, 3351]
+    sentence_count: 20
+    key_terms: [did, phd, year, important, finished, freshman, masters, grades]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/gradschool/1tcft8q.md#c2"
+    char_span: [3353, 5292]
+    sentence_count: 20
+    key_terms: [get, year, throughout, undergrad, programs, semester, classes, college]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/gradschool/1tcft8q.md#c3"
+    char_span: [5294, 6315]
+    sentence_count: 12
+    key_terms: [school, english, health, mental, though, best, grad, "i'd"]
+    section: Comments
+    token_count: 245
+  - id: "social-intelligence/reddit-deep/gradschool/1tcft8q.md#c4"
+    char_span: [6317, 8518]
+    sentence_count: 15
+    key_terms: ["you're", help, show, creative, programs, reading, writing, immediately]
+    section: Comments
+    token_count: 438
 ---
-
 # Can I still get into grad school if I have an F on my transcript?? Freaking out!
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1tcft8q/can_i_still_get_into_grad_school_if_i_have_an_f/)

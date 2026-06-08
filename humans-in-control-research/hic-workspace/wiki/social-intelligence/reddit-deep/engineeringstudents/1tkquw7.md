@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1tkquw7.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1tkquw7/there_is_some_hope_its_still_possible_to_find_an/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,15 @@ flair: "Career Advice"
 extracted_at: "2026-05-25T13:01:49.566Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tkquw7.md#c0"
+    char_span: [0, 1956]
+    sentence_count: 12
+    key_terms: [engineering, resumes, job, resume, engineeringstudents, "it's", land, possible]
+    token_count: 418
 ---
-
 # There is some hope, it's still possible to find an entry level engineering job in 2026 (even without experience)
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1tkquw7/there_is_some_hope_its_still_possible_to_find_an/)

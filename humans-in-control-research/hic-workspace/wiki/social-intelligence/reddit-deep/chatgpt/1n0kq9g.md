@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1n0kq9g.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1n0kq9g/chatgpt5_tries_to_gaslight_me_that_the_luigi/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,75 @@ flair: "Gone Wild "
 extracted_at: "2026-05-11T16:54:08.816Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c0"
+    char_span: [0, 566]
+    sentence_count: 2
+    key_terms: [comments, chatgpt, icystatistician8716, case, real, went, conversation, instructions]
+    token_count: 157
+  - id: "social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c1"
+    char_span: [581, 1171]
+    sentence_count: 5
+    key_terms: [conversation, image, post, r-chatgpt-1050422060352024636, chatgpt-shared-links-faq, discord, openai, please]
+    section: Comments
+    token_count: 157
+  - id: "social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c2"
+    char_span: [1174, 3103]
+    sentence_count: 9
+    key_terms: [web, search, chatgpt, asks, don, questions, because, current]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c3"
+    char_span: [3105, 3975]
+    sentence_count: 5
+    key_terms: [fd69da89588dc31d0f40eb156a943675996148fd, chatgpt, totally, abjectgovernment1247, prove, big, omg, xc6865y5delf1]
+    section: Comments
+    token_count: 262
+  - id: "social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c4"
+    char_span: [3979, 5786]
+    sentence_count: 12
+    key_terms: [cutoff, "it's", openai, people, search, web, knowledge, president]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c5"
+    char_span: [5788, 7829]
+    sentence_count: 13
+    key_terms: [knowledge, web, chatgpt, points, ask, base, like, president]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c6"
+    char_span: [7573, 8843]
+    sentence_count: 9
+    key_terms: [gaslighting, knowledge, teaching, misused, people, "what's", going, base]
+    section: Comments
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c7"
+    char_span: [8845, 9714]
+    sentence_count: 6
+    key_terms: [gaslighting, certain, mislead, misinformation, theoretically, derbernd123, bluehelmet, completely]
+    section: Comments
+    token_count: 208
+  - id: "social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c8"
+    char_span: [9716, 11457]
+    sentence_count: 7
+    key_terms: [understand, people, "don't", gaslighting, knowledge, current, provide, cutoff]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c9"
+    char_span: [11278, 11580]
+    sentence_count: 2
+    key_terms: [cheffromspace, condescending, squirrel698, hesitation, longknives, happening, response, figure]
+    section: Comments
+    token_count: 97
+  - id: "social-intelligence/reddit-deep/chatgpt/1n0kq9g.md#c10"
+    char_span: [11582, 12261]
+    sentence_count: 3
+    key_terms: [acd67d6f7bb45b8c5b8dbef00d7eb1923cdfe958, https, chatgpt, search, share, parking-track-7151, com, web]
+    section: Comments
+    token_count: 247
 ---
-
 # ChatGPT-5 Tries to gaslight me that the Luigi Mangione case isn’t real
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1n0kq9g/chatgpt5_tries_to_gaslight_me_that_the_luigi/)

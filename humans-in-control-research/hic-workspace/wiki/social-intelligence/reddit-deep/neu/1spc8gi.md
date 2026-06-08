@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1spc8gi.md
 url: "https://www.reddit.com/r/NEU/comments/1spc8gi/name_your_coopinternship/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,22 @@ score: 2
 upvote_ratio: 0.75
 num_comments: 2
 flair: "Co-op & Career"
-extracted_at: "2026-05-26T14:30:23.760Z"
+extracted_at: "2026-06-03T17:59:17.597Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1spc8gi.md#c0"
+    char_span: [0, 461]
+    sentence_count: 4
+    key_terms: [information, internship, comments, co-op, like, neu, reddit-deep, experience]
+    token_count: 120
+  - id: "social-intelligence/reddit-deep/neu/1spc8gi.md#c1"
+    char_span: [476, 1317]
+    sentence_count: 8
+    key_terms: [coop, major, been, nice, northeastern, communicate, development, employers]
+    section: Comments
+    token_count: 192
 ---
-
 # Name your CO-OP/Internship
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1spc8gi/name_your_coopinternship/)

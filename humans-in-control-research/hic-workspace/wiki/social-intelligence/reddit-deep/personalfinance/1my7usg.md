@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1my7usg.md
 url: "https://www.reddit.com/r/personalfinance/comments/1my7usg/parent_in_poverty_retirement_denial/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,68 @@ flair: "Retirement"
 extracted_at: "2026-05-17T01:13:31.188Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1my7usg.md#c0"
+    char_span: [0, 2258]
+    sentence_count: 13
+    key_terms: [retirement, accounts, parent, personalfinance, time, investment, comments, because]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/personalfinance/1my7usg.md#c1"
+    char_span: [2260, 3406]
+    sentence_count: 11
+    key_terms: [parent, help, financial, recognize, options, people, condo, ideas]
+    token_count: 247
+  - id: "social-intelligence/reddit-deep/personalfinance/1my7usg.md#c2"
+    char_span: [3421, 4245]
+    sentence_count: 12
+    key_terms: [parent, money, point, years, case, life, male, year]
+    section: Comments
+    token_count: 201
+  - id: "social-intelligence/reddit-deep/personalfinance/1my7usg.md#c3"
+    char_span: [4247, 6208]
+    sentence_count: 13
+    key_terms: [housing, get, senior, care, good, time, retirement, annuities]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/personalfinance/1my7usg.md#c4"
+    char_span: [6210, 7798]
+    sentence_count: 15
+    key_terms: [issue, renting, selling, condo, years, rent, proceeds, looking]
+    section: Comments
+    token_count: 381
+  - id: "social-intelligence/reddit-deep/personalfinance/1my7usg.md#c5"
+    char_span: [7800, 9604]
+    sentence_count: 15
+    key_terms: [parents, help, need, pay, belongings, boundaries, accounts, directly]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/personalfinance/1my7usg.md#c6"
+    char_span: [9606, 10962]
+    sentence_count: 11
+    key_terms: [condo, floor, money, possible, renting, without, necessaryemployer488, ask]
+    section: Comments
+    token_count: 297
+  - id: "social-intelligence/reddit-deep/personalfinance/1my7usg.md#c7"
+    char_span: [10964, 12883]
+    sentence_count: 16
+    key_terms: [wide-bonus-4319, responsibility, money, help, housing, savings, filial, parent]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/personalfinance/1my7usg.md#c8"
+    char_span: [12885, 14950]
+    sentence_count: 22
+    key_terms: [people, retirement, average-net-worth-by-age-how-do-you-measure-up, less, live, filial-responsibility-laws, medicaid, annuity]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/personalfinance/1my7usg.md#c9"
+    char_span: [14952, 16222]
+    sentence_count: 9
+    key_terms: [housing, downsizing, without, option, money, put, unit, appreciated]
+    section: Comments
+    token_count: 262
 ---
-
 # Parent in poverty retirement & denial
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1my7usg/parent_in_poverty_retirement_denial/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1ti8twh/uc_berkeley_eecs_instate_other_t1_engineering/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,77 @@ subreddit: "applyingtocollege"
 title: "UC Berkeley EECS instate >> other T1 engineering schools for upper middle class families"
 author: "ritzcraackerz"
 date: "2026-05-20T02:52:12.000Z"
-score: 17
-upvote_ratio: 0.82
+score: 18
+upvote_ratio: 0.87
 num_comments: 52
 flair: "Discussion"
-extracted_at: "2026-05-25T18:32:06.244Z"
+extracted_at: "2026-06-03T18:34:57.884Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c0"
+    char_span: [0, 2166]
+    sentence_count: 3
+    key_terms: [berkeley, eecs, within, mit, applyingtocollege, school, class, tier]
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c1"
+    char_span: [2168, 2750]
+    sentence_count: 3
+    key_terms: [berkeley, because, did, get, mit, connections, financially, prestigious]
+    token_count: 126
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c2"
+    char_span: [2765, 4741]
+    sentence_count: 6
+    key_terms: [engineering, mit, flexibility, schools, big, tech, berkeley, natural]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c3"
+    char_span: [4743, 6619]
+    sentence_count: 4
+    key_terms: [major, day, engineering, additional, transfer, degree, majors, public]
+    section: Comments
+    token_count: 406
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c4"
+    char_span: [6621, 8607]
+    sentence_count: 11
+    key_terms: [mit, employment, scared-traffic-4060, vast-operation3463, berkeley, primary, degree, market]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c5"
+    char_span: [8609, 10457]
+    sentence_count: 9
+    key_terms: [coast, schools, east, engineering, collegetransitions, top-feeders-tech, school, cmu]
+    section: Comments
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c6"
+    char_span: [10459, 12674]
+    sentence_count: 8
+    key_terms: [berkeley, flagship, waterloo, independent-tart608, people, "don't", get, acceptance]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c7"
+    char_span: [12676, 14688]
+    sentence_count: 6
+    key_terms: [berkeley, schools, outcome, people, time, developing, generation, honestly]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c8"
+    char_span: [14690, 16451]
+    sentence_count: 11
+    key_terms: [berkeley, mit, lawrence, been, cost, new, roi, in-state]
+    section: Comments
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c9"
+    char_span: [16453, 17577]
+    sentence_count: 9
+    key_terms: [berkeley, because, labs, students, private, schools, bigstatistician4166, range]
+    section: Comments
+    token_count: 245
 ---
-
 # UC Berkeley EECS instate >> other T1 engineering schools for upper middle class families
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1ti8twh/uc_berkeley_eecs_instate_other_t1_engineering/)
-Posted by **ritzcraackerz** · **17↑** · **52 comments**
+Posted by **ritzcraackerz** · **18↑** · **52 comments**
 
 i know of someone who was accepted into UC Berkeley EECS (5% acceptance rate) and MIT (also 5% acceptance rate). he was upper middle class and instate, so MIT was 400K for all four years while Berkeley was 200K. he ended up picking Berkeley EECS.
 
@@ -34,15 +93,15 @@ I just wanted to share these thoughts for any other seniors struggling because t
 
 ## Comments
 
-- **Brave_Speaker_8336** (15↑): I mean yeah, I don’t think it’s a controversial opinion at all that for most people, MIT is financially not worth an additional 200k over Berkeley EECS. There’s only a handful of other public schools that this would apply to though
-  - **No-Biscotti-6891** (8↑): idk i think cal is an exception to this. i would go to mit over ucla cs or ut cs
+- **Brave_Speaker_8336** (16↑): I mean yeah, I don’t think it’s a controversial opinion at all that for most people, MIT is financially not worth an additional 200k over Berkeley EECS. There’s only a handful of other public schools that this would apply to though
+  - **No-Biscotti-6891** (9↑): idk i think cal is an exception to this. i would go to mit over ucla cs or ut cs
     - **ritzcraackerz** (1↑): agree. if costs were the same even for Cal and MIT, id pick MIT with my eyes closed. 
 
 costs play a factor when you're comparing the the big 4 / T1 engineering schools against each other (MIT/CMU/Stanford/Berkeley). these 4 have established themselves as the primary places to be if youre looking for big tech, with the tier below including many other wonderful public schools. the goal should be to make it to either tier and then choose the most cost effective one within it. 
 
 this distinction is however is only for tech and people who know for sure theyd want to go into tech. obviously tiers differ based on major and overall flexibility within programs for sure.
 - **Such_Ambassador2751** (5↑): eecs is prestigious enough to the point where it barely matters, especially not 200k
-- **NiceUnparticularMan** (4↑): As a sort of related observation, one of the more concrete benefits of going to many generally well-regarded and highly-resourced private colleges is the flexibility.  Like, you don't have to end up majoring in whatever you thought you wanted in high school, you can explore and do something different, and it will likely still be very good.
+- **NiceUnparticularMan** (5↑): As a sort of related observation, one of the more concrete benefits of going to many generally well-regarded and highly-resourced private colleges is the flexibility.  Like, you don't have to end up majoring in whatever you thought you wanted in high school, you can explore and do something different, and it will likely still be very good.
 
 The thing is, the most highly resourced flagship publics also offer a lot of flexibility.  The big difference is often it can be a lot harder to go some directions than others.  Like, going out of engineering and into a natural science might be easy, but out of a natural science and into engineering might be harder, at least at certain publics with sharp capacity limits on their engineering majors/school.
 
@@ -55,7 +114,7 @@ this is to say that most public universities do have back doors, which lower the
     - **Independent-Tart608** (2↑): CMU also has the additional major loophole. If you try to transfer into CS, good luck. But if you're adding on CS as an additional major, it's quite trivial. 
 
 Unfortunately, CMU is so hard that most people who add it on, from the anecdotes I heard, fail and switch to a major similar to CS but with less workload.
-- **Vast-Operation3463** (3↑): Tend to agree.. I did similar (in my case I got into MIT and Cal Haas spieker) stuff and few other ivys.. I’m out of state for both. My interests are Applied economics and finance with idea of going to IB and PE. I didn’t go with MIT(though have to admit i did want to check whether they would accept me). At the end the fit matters a lot along with financial viability.
+- **Vast-Operation3463** (4↑): Tend to agree.. I did similar (in my case I got into MIT and Cal Haas spieker) stuff and few other ivys.. I’m out of state for both. My interests are Applied economics and finance with idea of going to IB and PE. I didn’t go with MIT(though have to admit i did want to check whether they would accept me). At the end the fit matters a lot along with financial viability.
   - **ritzcraackerz** (1↑): thats amazing congratulations! im so happy for you that it all worked out!
     - **Vast-Operation3463** (2↑): Thx. Best of luck to you with your EECS!
 - **Scared-Traffic-4060** (3↑): When you have two offers the incremental cost of the more expensive one has to be justified by something.  Berkeley is arguably better in the aggregate simply because it feeds directly into the primary employment market for those degrees.  I don’t see any incremental value here.
@@ -101,4 +160,14 @@ https://www.collegenpv.com/programrankings?query=&page=1&sort=rank\_desc
 I believe that site is factoring OOS tuition for Cal as well, which is very close to MIT's tuition. if someone is picking between OOS Berkeley EECS and MIT both at fully pay, MIT is the very obvious answer. 
 
 the ROI for Cal is substantially more when you're in-state, because you're paying half the total cost for outcomes with arguably better numbers.
-- **hanc3n** (2↑): MIT is worth that 200k extra, but only if u are hella rich and like the name. Yes, Berkeley is more than good enough considering that 200k and has better ROI than in-state for most families
+- **Choice_Border_386** (2↑): One thing most high school students and lay people does not know is that Berkeley runs two most important federal labs in Lawrence Berkeley and Lawrence Livermore.  The federal government just placed the new generation supercomputers at Lawrence Berkeley which cost at least one billion.  They named these supercomputer systems after Berkeley Nobel Prize winners.  These computers will allow the new AI innovations.
+
+Even as undergrads, if you manage to get an internship at one of these labs, you can go to any PhD program you want or be a quant or an AI researcher anywhere. 
+
+People outside of academia don’t discuss Berkeley’s relationship with these labs because all stakeholders want to keep it very low profile.  If private schools had these, they would pay someone to make movies about it.
+  - **ritzcraackerz** (1↑): awesome! I didn't know about this; that's so cool! no wonder its a research powerhouse despite not being privatized.
+  - **BigStatistician4166** (1↑): MIT runs Lincoln Labs, Hopkins runs APL. A lot of universities are involved with federally funded labs, that isn’t unique to Berkeley. 
+
+Also it isn’t true that just because you intern at then you get auto admitted to every PhD program. I’ve interned at several FFRDCs and they accept a broad range of students from a wide range of schools with varying grad school outcomes. 
+
+Berkeley is really good, but it mainly shines at the graduate level. As an undergrad it is difficult to be exposed to this because there’s just so many students. This is why going to a smaller private university like MIT is likely favorable unless you are absolutely sure you can be in the top 10% within Berkeley EECS to access these opportunities.

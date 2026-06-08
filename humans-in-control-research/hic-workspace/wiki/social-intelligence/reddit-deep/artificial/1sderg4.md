@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1sderg4.md
 url: "https://www.reddit.com/r/artificial/comments/1sderg4/i_have_been_coding_for_11_years_and_i_caught/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,63 @@ flair: "Discussion"
 extracted_at: "2026-05-11T16:53:08.146Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1sderg4.md#c0"
+    char_span: [0, 2314]
+    sentence_count: 31
+    key_terms: [years, myself, something, without, maybe, been, bug, use]
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/artificial/1sderg4.md#c1"
+    char_span: [2329, 3680]
+    sentence_count: 8
+    key_terms: [myself, years, problem, enough, figure, people, though, good]
+    section: Comments
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/artificial/1sderg4.md#c2"
+    char_span: [3682, 5063]
+    sentence_count: 8
+    key_terms: [claude, far, warnings, engine, ambitious-garbage-73, areas, taken, years]
+    section: Comments
+    token_count: 336
+  - id: "social-intelligence/reddit-deep/artificial/1sderg4.md#c3"
+    char_span: [5065, 7035]
+    sentence_count: 8
+    key_terms: [claude, code, dr-otto, always, skills, use, solution, thinking]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/artificial/1sderg4.md#c4"
+    char_span: [7037, 9025]
+    sentence_count: 12
+    key_terms: [unrelated-undocumented-property, "it's", knowing, limited, without, always, anyone, search]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/artificial/1sderg4.md#c5"
+    char_span: [9027, 10389]
+    sentence_count: 12
+    key_terms: ["it's", like, reaching, claude, coding, mental, myself, trace]
+    section: Comments
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/artificial/1sderg4.md#c6"
+    char_span: [10391, 12592]
+    sentence_count: 10
+    key_terms: [the-company-whose--ai--was-actually-700-humans-in-india, like, too, across, wanted, explanation, does, decisions]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/artificial/1sderg4.md#c7"
+    char_span: [12594, 14616]
+    sentence_count: 16
+    key_terms: [like, too, technology, dangerous, helpful, opinion, access, advice]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/artificial/1sderg4.md#c8"
+    char_span: [14618, 15692]
+    sentence_count: 7
+    key_terms: [people, therapist, compared, without, ambitious-garbage-73, back, good, gps]
+    section: Comments
+    token_count: 229
 ---
-
 # I have been coding for 11 years and I caught myself completely unable to debug a problem without AI assistance last month. That scared me more than anything I have seen in this industry.
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1sderg4/i_have_been_coding_for_11_years_and_i_caught/)

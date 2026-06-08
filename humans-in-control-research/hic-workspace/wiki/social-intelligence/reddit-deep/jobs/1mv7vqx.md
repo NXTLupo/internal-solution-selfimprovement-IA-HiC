@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1mv7vqx.md
 url: "https://www.reddit.com/r/jobs/comments/1mv7vqx/we_no_longer_require_your_services/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,73 @@ flair: "Onboarding"
 extracted_at: "2026-05-20T06:41:17.645Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c0"
+    char_span: [0, 1705]
+    sentence_count: 13
+    key_terms: [comments, company, flunkie, replied, called, saying, signed, wanted]
+    token_count: 406
+  - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c1"
+    char_span: [1707, 3612]
+    sentence_count: 16
+    key_terms: [position, consulting, requested, company, engineering, contractor, contract, director]
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c2"
+    char_span: [3614, 4820]
+    sentence_count: 7
+    key_terms: [position, interesting, "it's", work, department, "doesn't", require, office]
+    token_count: 249
+  - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c3"
+    char_span: [4835, 6410]
+    sentence_count: 11
+    key_terms: [like, refused, wanted, worked, notyourkidfrommotown, crazy, going, story]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c4"
+    char_span: [6412, 8422]
+    sentence_count: 16
+    key_terms: [companies, insurance, work, unemployment, did, like, employment, because]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c5"
+    char_span: [8424, 10505]
+    sentence_count: 18
+    key_terms: [good, work, contract, offer, job, like, employment, checklist]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c6"
+    char_span: [10507, 10631]
+    sentence_count: 4
+    key_terms: [regardless, unlimited, illegal, switch, being, flags, here, pto]
+    section: Comments
+    token_count: 32
+  - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c7"
+    char_span: [10633, 12716]
+    sentence_count: 12
+    key_terms: [pto, work, unlimited, companies, policy, state, paid, pay]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c8"
+    char_span: [12416, 12784]
+    sentence_count: 3
+    key_terms: [benefits, work, iheartnjdevils, government, countries, exporting, providing, retaining]
+    section: Comments
+    token_count: 78
+  - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c9"
+    char_span: [12786, 15085]
+    sentence_count: 14
+    key_terms: [work, required, engineering, cannot, scope, license, institutional, state]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c10"
+    char_span: [15087, 16037]
+    sentence_count: 11
+    key_terms: [company, job, "didn't", notyourkidfrommotown, signal-response449, good, run, manufacturing]
+    section: Comments
+    token_count: 235
 ---
-
 # We No Longer Require Your Services
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1mv7vqx/we_no_longer_require_your_services/)

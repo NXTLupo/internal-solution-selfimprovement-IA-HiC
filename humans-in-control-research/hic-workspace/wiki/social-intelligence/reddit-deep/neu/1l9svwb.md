@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1l9svwb.md
 url: "https://www.reddit.com/r/NEU/comments/1l9svwb/cs_seniors_and_recent_grads_share_your_job_search/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "general question"
 extracted_at: "2026-05-12T20:36:08.368Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [higher_ed, education, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1l9svwb.md#c0"
+    char_span: [0, 1613]
+    sentence_count: 11
+    key_terms: [university, survey, looking, recent, pennsylvania, job, neu, understand]
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/neu/1l9svwb.md#c1"
+    char_span: [1628, 2150]
+    sentence_count: 6
+    key_terms: ["we'll", results, school, study, part, representing, cross-post, engagement]
+    section: Comments
+    token_count: 125
 ---
-
 # CS Seniors and Recent Grads: Share Your Job Search Experience (10-25 min survey; Mod-Approved)
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1l9svwb/cs_seniors_and_recent_grads_share_your_job_search/)

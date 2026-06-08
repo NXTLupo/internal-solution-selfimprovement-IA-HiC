@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1tj3uqn.md
 url: "https://www.reddit.com/r/GradSchool/comments/1tj3uqn/is_it_realisticpossible_for_me_to_apply_for_an_ma/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T20:15:44.994Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1tj3uqn.md#c0"
+    char_span: [0, 1320]
+    sentence_count: 13
+    key_terms: [gradschool, undergrad, comments, accidentallyclingy, debt, high, horrifically, advertising]
+    token_count: 314
+  - id: "social-intelligence/reddit-deep/gradschool/1tj3uqn.md#c1"
+    char_span: [1335, 3471]
+    sentence_count: 15
+    key_terms: [degree, want, help, working, career, plenty, academically, pivot]
+    section: Comments
+    token_count: 473
 ---
-
 # Is it realistic/possible for me to apply for an MA program?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1tj3uqn/is_it_realisticpossible_for_me_to_apply_for_an_ma/)

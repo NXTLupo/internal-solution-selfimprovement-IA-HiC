@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-artificial/eea5a6c9f6.md
 url: "https://www.reddit.com/r/artificial/comments/1l5pkcc/how_reliable_is_aigenerated_code_for_production/"
 url_hash: "eea5a6c9f6"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T17:31:04.473090+00:00"
 chars: 2993
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-artificial/eea5a6c9f6.md#c0"
+    char_span: [0, 1711]
+    sentence_count: 12
+    key_terms: [code, ai-generated, reliable, testing, review, human, artificial, production]
+    token_count: 391
+  - id: "articles/reddit-deep-r-artificial/eea5a6c9f6.md#c1"
+    char_span: [1713, 3196]
+    sentence_count: 13
+    key_terms: [code, time, people, "don't", good, "it's", production, deleted]
+    token_count: 321
 ---
-
 # How reliable is AI-generated code for production in 2025?
 
 Source: [Reddit Deep: r/artificial](https://www.reddit.com/r/artificial/comments/1l5pkcc/how_reliable_is_aigenerated_code_for_production/)

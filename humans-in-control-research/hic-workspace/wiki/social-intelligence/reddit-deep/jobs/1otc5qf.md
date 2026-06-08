@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1otc5qf.md
 url: "https://www.reddit.com/r/jobs/comments/1otc5qf/what_careers_are_doing_fine_right_now/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,93 @@ flair: "Job searching"
 extracted_at: "2026-05-24T14:10:06.648Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c0"
+    char_span: [0, 1045]
+    sentence_count: 10
+    key_terms: [field, market, here, jobs, comments, teachers, always, region]
+    token_count: 253
+  - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c1"
+    char_span: [1060, 3241]
+    sentence_count: 12
+    key_terms: [engineering, civil, projects, infrastructure, recruiters, landscape, proposal, project]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c2"
+    char_span: [3027, 3511]
+    sentence_count: 5
+    key_terms: [been, year, looking, "i've", infrastructure, interviewed, absolutely, recruiters]
+    section: Comments
+    token_count: 119
+  - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c3"
+    char_span: [3513, 4525]
+    sentence_count: 9
+    key_terms: [deep-appearance-8543, accountant, definitely, state, been, bit, end, new]
+    section: Comments
+    token_count: 255
+  - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c4"
+    char_span: [4527, 6774]
+    sentence_count: 10
+    key_terms: [definitely, construction, like, want, accountant, automation, divergence, offshoring]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c5"
+    char_span: [6556, 8392]
+    sentence_count: 13
+    key_terms: [years, accounting, definitely, job, accountant, experience, government, always]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c6"
+    char_span: [8394, 9259]
+    sentence_count: 7
+    key_terms: [started, grooming, konf323, mobile, dog, own, work, demiseofreality]
+    section: Comments
+    token_count: 206
+  - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c7"
+    char_span: [9261, 11252]
+    sentence_count: 12
+    key_terms: [insurance, doing, deleted, people, supply, "you're", area, commercial]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c8"
+    char_span: [11040, 12509]
+    sentence_count: 7
+    key_terms: [insanity8016, dying, get, like, utilities, probably, demand, fairly]
+    section: Comments
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c9"
+    char_span: [12511, 14688]
+    sentence_count: 14
+    key_terms: [job, administrative, work, experience, kiki-1983, company, bodies, ground]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c10"
+    char_span: [14394, 16412]
+    sentence_count: 23
+    key_terms: [company, job, health, years, ehr, work, electronic, receivable]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c11"
+    char_span: [16147, 18125]
+    sentence_count: 20
+    key_terms: [state, hard, job, tech, aireine, careful, always, being]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c12"
+    char_span: [17889, 18514]
+    sentence_count: 4
+    key_terms: [taken, economyoffice9000, good, long, mean, time, trueredditmartyr, troubleshoot]
+    section: Comments
+    token_count: 168
+  - id: "social-intelligence/reddit-deep/jobs/1otc5qf.md#c13"
+    char_span: [18517, 20144]
+    sentence_count: 12
+    key_terms: [nursing, lookmeuponsoundcloud, california, experience, jobs, level, weak, healthcare]
+    section: Comments
+    token_count: 402
 ---
-
 # What careers are doing fine right now
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1otc5qf/what_careers_are_doing_fine_right_now/)

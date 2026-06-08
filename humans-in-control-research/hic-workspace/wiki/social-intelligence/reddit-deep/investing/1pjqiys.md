@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1pjqiys.md
 url: "https://www.reddit.com/r/investing/comments/1pjqiys/i_joined_a_stock_investment_scam_group_to_see_how/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,104 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.191Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c0"
+    char_span: [0, 2090]
+    sentence_count: 26
+    key_terms: [stock, screenshots, scam, advertise, "it's", group, advisor, transactions]
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c1"
+    char_span: [2092, 2355]
+    sentence_count: 3
+    key_terms: [transactions, everything, imaginary, including, photoshop, promising, yesterday, evidence]
+    token_count: 60
+  - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c2"
+    char_span: [2370, 4106]
+    sentence_count: 9
+    key_terms: [ciao, scammers, like, internet, ticker, wooden-teaching-8343, doing, stock]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c3"
+    char_span: [4108, 5507]
+    sentence_count: 10
+    key_terms: [invested, scammers, victims, ticker, flat-tumbleweed-2613, maybe, scams, stock]
+    section: Comments
+    token_count: 358
+  - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c4"
+    char_span: [5509, 7484]
+    sentence_count: 16
+    key_terms: [fish, scam, group, scammers, victims, real, successful, resources]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c5"
+    char_span: [7486, 9075]
+    sentence_count: 18
+    key_terms: [people, government, right, constitution, state, christians, current, islamic]
+    section: Comments
+    token_count: 341
+  - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c6"
+    char_span: [9077, 10553]
+    sentence_count: 6
+    key_terms: [people, stocks, stock, get, half, scam, week, recommend]
+    section: Comments
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c7"
+    char_span: [10557, 12488]
+    sentence_count: 7
+    key_terms: [told, sell, stocks, dump, pump, privately, thursday, earlier]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c8"
+    char_span: [12490, 14281]
+    sentence_count: 14
+    key_terms: [short, dump, money, want, scammers, account, caught, orders]
+    section: Comments
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c9"
+    char_span: [14283, 16097]
+    sentence_count: 9
+    key_terms: [money, scam, caught, going, short, stock, dump, probably]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c10"
+    char_span: [16099, 17608]
+    sentence_count: 9
+    key_terms: [getting, scammed, people, money, stock, victimless, probably, "they're"]
+    section: Comments
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c11"
+    char_span: [17611, 19859]
+    sentence_count: 17
+    key_terms: [increase, people, money, stock, day, days, sell, everything]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c12"
+    char_span: [19568, 21876]
+    sentence_count: 8
+    key_terms: [screenshot, losses, saying, stock, fake, assistant, investors, anything]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c13"
+    char_span: [21616, 22103]
+    sentence_count: 4
+    key_terms: [september, stock, dump, pump, invisibleear, happened, sabiondo, changed]
+    section: Comments
+    token_count: 119
+  - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c14"
+    char_span: [22106, 24066]
+    sentence_count: 10
+    key_terms: [stock, people, money, price, trade, neutralpoliticsbot, dump, get]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c15"
+    char_span: [24068, 24699]
+    sentence_count: 7
+    key_terms: [shares, day, group, trade, associated, actuality, involved, starting]
+    section: Comments
+    token_count: 161
 ---
-
 # I joined a stock investment scam group to see how it worked.
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1pjqiys/i_joined_a_stock_investment_scam_group_to_see_how/)

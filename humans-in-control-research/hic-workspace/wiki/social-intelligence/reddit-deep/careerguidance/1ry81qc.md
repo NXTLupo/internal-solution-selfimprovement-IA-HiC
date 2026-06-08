@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1ry81qc.md
 url: "https://www.reddit.com/r/careerguidance/comments/1ry81qc/what_career_should_i_pursue_as_a_failed_med/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,56 @@ flair: "South Florida"
 extracted_at: "2026-05-22T23:34:01.155Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1ry81qc.md#c0"
+    char_span: [0, 1771]
+    sentence_count: 7
+    key_terms: [med, prereqs, school, careerguidance, loans, embarrassed, debt, take]
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/careerguidance/1ry81qc.md#c1"
+    char_span: [1773, 3459]
+    sentence_count: 5
+    key_terms: [school, nursing, program, anesthesiology, apply, get, med, "bachelor's"]
+    token_count: 380
+  - id: "social-intelligence/reddit-deep/careerguidance/1ry81qc.md#c2"
+    char_span: [3474, 5379]
+    sentence_count: 25
+    key_terms: [sales, did, everything, experience, okamipiano, shelli1206, sometimes, looking]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/careerguidance/1ry81qc.md#c3"
+    char_span: [5381, 7399]
+    sentence_count: 23
+    key_terms: [program, career, degree, school, med, graduating, probably, nursing]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/careerguidance/1ry81qc.md#c4"
+    char_span: [7401, 9684]
+    sentence_count: 12
+    key_terms: [medical, debt, job, insurance, school, embarrassment, substantial, like]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/careerguidance/1ry81qc.md#c5"
+    char_span: [9686, 10958]
+    sentence_count: 22
+    key_terms: [forgiven, loans, debt, healthcare, non-profit, payments, student, fucked]
+    section: Comments
+    token_count: 313
+  - id: "social-intelligence/reddit-deep/careerguidance/1ry81qc.md#c6"
+    char_span: [10960, 12808]
+    sentence_count: 12
+    key_terms: [healthcare, already, nursing, roles, informatics, data, debt, technology]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/careerguidance/1ry81qc.md#c7"
+    char_span: [12813, 13528]
+    sentence_count: 7
+    key_terms: [another, working, been, too, certifications, embarrassment, background, classmates]
+    section: Comments
+    token_count: 158
 ---
-
 # What Career Should I Pursue as a Failed Med Student?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1ry81qc/what_career_should_i_pursue_as_a_failed_med/)

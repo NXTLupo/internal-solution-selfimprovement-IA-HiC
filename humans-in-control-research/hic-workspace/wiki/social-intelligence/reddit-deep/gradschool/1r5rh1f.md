@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1r5rh1f.md
 url: "https://www.reddit.com/r/GradSchool/comments/1r5rh1f/i_am_thinking_of_quitting_my_phd_and_need_any/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,69 @@ flair: "Health & Work/Life Balance"
 extracted_at: "2026-05-19T15:08:48.784Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1r5rh1f.md#c0"
+    char_span: [0, 1498]
+    sentence_count: 14
+    key_terms: [interesting, quit, day, get, gradschool, comments, quitting, research]
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/gradschool/1r5rh1f.md#c1"
+    char_span: [1513, 3553]
+    sentence_count: 19
+    key_terms: [phd, money, job, program, opportunity, find, potential, applying]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/gradschool/1r5rh1f.md#c2"
+    char_span: [3555, 5426]
+    sentence_count: 20
+    key_terms: [advisor, process, opportunities, cold, did, feet, department, experience]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/gradschool/1r5rh1f.md#c3"
+    char_span: [5428, 7106]
+    sentence_count: 16
+    key_terms: [phd, research, year, program, reasons, started, student, data]
+    section: Comments
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/gradschool/1r5rh1f.md#c4"
+    char_span: [7108, 8469]
+    sentence_count: 10
+    key_terms: [phd, degree, don, get, industry, research, already, masters]
+    section: Comments
+    token_count: 313
+  - id: "social-intelligence/reddit-deep/gradschool/1r5rh1f.md#c5"
+    char_span: [8471, 10555]
+    sentence_count: 10
+    key_terms: [justking1414, definitely, probably, get, year, something, interest, defense]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/gradschool/1r5rh1f.md#c6"
+    char_span: [10557, 11100]
+    sentence_count: 3
+    key_terms: [interest, pay, speciality, sufficient, supporting, principle, proximity, careers]
+    section: Comments
+    token_count: 113
+  - id: "social-intelligence/reddit-deep/gradschool/1r5rh1f.md#c7"
+    char_span: [11102, 13262]
+    sentence_count: 14
+    key_terms: [phd, materials, tiredbiochemist, science, school, get, material, biochem]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1r5rh1f.md#c8"
+    char_span: [13041, 15137]
+    sentence_count: 17
+    key_terms: [day, phd, like, work, academiasupport, classes, going, get]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1r5rh1f.md#c9"
+    char_span: [14933, 15481]
+    sentence_count: 9
+    key_terms: [good, life, feels, days, don, long, quit, references]
+    section: Comments
+    token_count: 148
 ---
-
 # I am thinking of quitting my PhD and need any advice that I can get
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1r5rh1f/i_am_thinking_of_quitting_my_phd_and_need_any/)

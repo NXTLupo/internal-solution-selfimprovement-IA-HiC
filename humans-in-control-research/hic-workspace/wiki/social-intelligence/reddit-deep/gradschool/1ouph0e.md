@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1ouph0e.md
 url: "https://www.reddit.com/r/GradSchool/comments/1ouph0e/debating_between_filing_a_harassment_case_against/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,79 @@ flair: ""
 extracted_at: "2026-05-23T20:15:44.990Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1ouph0e.md#c0"
+    char_span: [0, 1754]
+    sentence_count: 17
+    key_terms: [advisor, phd, prospective, "i've", want, year, gradschool, situation]
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/gradschool/1ouph0e.md#c1"
+    char_span: [1756, 4182]
+    sentence_count: 19
+    key_terms: [advisor, funding, health, issues, told, because, time, director]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/gradschool/1ouph0e.md#c2"
+    char_span: [4184, 6365]
+    sentence_count: 24
+    key_terms: [advisor, "it's", situation, "i'm", new, everything, harassment, university]
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/gradschool/1ouph0e.md#c3"
+    char_span: [6380, 7809]
+    sentence_count: 12
+    key_terms: [funding, legal, experiences, grad, programs, unlikely, advisor, against]
+    section: Comments
+    token_count: 309
+  - id: "social-intelligence/reddit-deep/gradschool/1ouph0e.md#c4"
+    char_span: [7811, 10033]
+    sentence_count: 16
+    key_terms: [students, advisor, union, help, new, because, program, student]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/gradschool/1ouph0e.md#c5"
+    char_span: [10035, 11549]
+    sentence_count: 19
+    key_terms: [accommodations, reasonable, documentation, protection, official, students, advisor, believe]
+    section: Comments
+    token_count: 308
+  - id: "social-intelligence/reddit-deep/gradschool/1ouph0e.md#c6"
+    char_span: [11551, 13894]
+    sentence_count: 17
+    key_terms: [disability, accommodations, students, disabled, rilkehaydensuche, advisor, another, discrimination]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/gradschool/1ouph0e.md#c7"
+    char_span: [13896, 15748]
+    sentence_count: 13
+    key_terms: [advisor, help, graduate, research, student, don, professors, disabled]
+    section: Comments
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/gradschool/1ouph0e.md#c8"
+    char_span: [15750, 17780]
+    sentence_count: 20
+    key_terms: [funding, requirement, next, situation, advisors, semester, minimal, suggest]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/gradschool/1ouph0e.md#c9"
+    char_span: [17782, 18947]
+    sentence_count: 16
+    key_terms: [complaint, graduate, advisor, through, formal, state, union, away]
+    section: Comments
+    token_count: 285
+  - id: "social-intelligence/reddit-deep/gradschool/1ouph0e.md#c10"
+    char_span: [18949, 21061]
+    sentence_count: 15
+    key_terms: [yelling, shouting, tone, people, "they're", volume, folks, "isn't"]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/gradschool/1ouph0e.md#c11"
+    char_span: [21063, 22479]
+    sentence_count: 20
+    key_terms: [rep, students, meeting, union, prof, harassment, measures, speaking]
+    section: Comments
+    token_count: 308
 ---
-
 # Debating between filing a harassment case against my PhD advisor
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1ouph0e/debating_between_filing_a_harassment_case_against/)

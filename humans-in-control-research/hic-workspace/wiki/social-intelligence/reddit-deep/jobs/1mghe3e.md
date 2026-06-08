@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1mghe3e.md
 url: "https://www.reddit.com/r/jobs/comments/1mghe3e/150000_federal_workers_just_left_their_jobs_this/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,135 @@ flair: "Article"
 extracted_at: "2026-05-24T14:10:06.645Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1mghe3e.md#c0"
+    char_span: [0, 876]
+    sentence_count: 9
+    key_terms: [jobs, comments, federal, sector, government-only, professionals, transparency, credentials]
+    token_count: 200
+  - id: "social-intelligence/reddit-deep/jobs/1mghe3e.md#c1"
+    char_span: [891, 3114]
+    sentence_count: 11
+    key_terms: [private, sector, shit, federal, public, got, went, government]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/jobs/1mghe3e.md#c2"
+    char_span: [3116, 3544]
+    sentence_count: 2
+    key_terms: [whistleblowers, federal, private, end, particularly, accountants, definitely, department]
+    section: Comments
+    token_count: 78
+  - id: "social-intelligence/reddit-deep/jobs/1mghe3e.md#c3"
+    char_span: [3546, 5670]
+    sentence_count: 23
+    key_terms: [government, private, years, federal, sector, work, workforce, "doesn't"]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1mghe3e.md#c4"
+    char_span: [5423, 5840]
+    sentence_count: 6
+    key_terms: [procurement, federal, brightest, contract, happened, programs, process, reports]
+    section: Comments
+    token_count: 104
+  - id: "social-intelligence/reddit-deep/jobs/1mghe3e.md#c5"
+    char_span: [5842, 7533]
+    sentence_count: 9
+    key_terms: [years, security, redditsniper, contracting, epa, get, pensions, penalty]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/jobs/1mghe3e.md#c6"
+    char_span: [7535, 9552]
+    sentence_count: 9
+    key_terms: [sector, job, lot, ones, took, because, private, retire]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/jobs/1mghe3e.md#c7"
+    char_span: [9554, 11627]
+    sentence_count: 17
+    key_terms: [government, jobs, contractors, people, management, employees, communications, nearly]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/jobs/1mghe3e.md#c8"
+    char_span: [11629, 13743]
+    sentence_count: 13
+    key_terms: [program, housekeeping, roles, years, contractors, specialized, epa, last]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/jobs/1mghe3e.md#c9"
+    char_span: [13746, 14364]
+    sentence_count: 5
+    key_terms: [contractors, federal, overgeneralization, motherclucker454, evilshadow004, exclusively, contractor, illiterate]
+    section: Comments
+    token_count: 148
+  - id: "social-intelligence/reddit-deep/jobs/1mghe3e.md#c10"
+    char_span: [14366, 15900]
+    sentence_count: 14
+    key_terms: [government, employees, civilian, federal, jobs, lot, controls, numbers]
+    section: Comments
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/jobs/1mghe3e.md#c11"
+    char_span: [15902, 16675]
+    sentence_count: 6
+    key_terms: [private, people, significantwear1310, bingle-cowabungle, job, communications, mrlaneslament, unemployment]
+    section: Comments
+    token_count: 187
+  - id: "social-intelligence/reddit-deep/jobs/1mghe3e.md#c12"
+    char_span: [16677, 18888]
+    sentence_count: 13
+    key_terms: [sector, state, different, employees, because, federal, private, public]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1mghe3e.md#c13"
+    char_span: [18644, 20105]
+    sentence_count: 4
+    key_terms: [entry-level, employees, jobs, experience, mid-career, taking, state, years]
+    section: Comments
+    token_count: 320
+  - id: "social-intelligence/reddit-deep/jobs/1mghe3e.md#c14"
+    char_span: [20107, 21045]
+    sentence_count: 2
+    key_terms: [government, trump-administration-layoffs-flood-job-market-for-consultants, sector, bloomberg, affected, private, market, civil]
+    section: Comments
+    token_count: 197
+  - id: "social-intelligence/reddit-deep/jobs/1mghe3e.md#c15"
+    char_span: [21047, 23250]
+    sentence_count: 14
+    key_terms: [federal, receptionist, degree, experience, exp, work, yrs, bachelor]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/jobs/1mghe3e.md#c16"
+    char_span: [23252, 23929]
+    sentence_count: 4
+    key_terms: [state, government, deleted, states, like, bonelegs442, especially, hillmantle]
+    section: Comments
+    token_count: 175
+  - id: "social-intelligence/reddit-deep/jobs/1mghe3e.md#c17"
+    char_span: [23931, 25923]
+    sentence_count: 18
+    key_terms: [maryland, state, federal, people, end, jobs, pay, december]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1mghe3e.md#c18"
+    char_span: [25647, 26337]
+    sentence_count: 7
+    key_terms: [moore, state, everything, shortfall, courtesy, already, federal, warned]
+    section: Comments
+    token_count: 161
+  - id: "social-intelligence/reddit-deep/jobs/1mghe3e.md#c19"
+    char_span: [26339, 27328]
+    sentence_count: 11
+    key_terms: [right, gov, contractor, private, working, sector, spring, "don't"]
+    section: Comments
+    token_count: 240
+  - id: "social-intelligence/reddit-deep/jobs/1mghe3e.md#c20"
+    char_span: [27331, 29379]
+    sentence_count: 13
+    key_terms: [workers, excellent-big-1581, doing, going, trump, job, work, background]
+    section: Comments
+    token_count: 490
 ---
-
 # 150,000 Federal Workers Just Left Their Jobs. This Changes Everything.
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1mghe3e/150000_federal_workers_just_left_their_jobs_this/)

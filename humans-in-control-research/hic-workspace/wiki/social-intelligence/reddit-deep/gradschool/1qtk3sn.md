@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1qtk3sn.md
 url: "https://www.reddit.com/r/GradSchool/comments/1qtk3sn/question_about_grad_school_admission/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,27 @@ flair: "Admissions & Applications"
 extracted_at: "2026-05-26T14:32:49.132Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1qtk3sn.md#c0"
+    char_span: [0, 813]
+    sentence_count: 7
+    key_terms: [school, research, grad, experience, berkeley, gradschool, comments, graduate]
+    token_count: 184
+  - id: "social-intelligence/reddit-deep/gradschool/1qtk3sn.md#c1"
+    char_span: [828, 1606]
+    sentence_count: 6
+    key_terms: [research, experience, programs, applied, did, phd, time, year]
+    section: Comments
+    token_count: 187
+  - id: "social-intelligence/reddit-deep/gradschool/1qtk3sn.md#c2"
+    char_span: [1608, 3439]
+    sentence_count: 13
+    key_terms: [research, junior, experience, professors, intelligentcat3311, students, babygoldenbear, thelastnoelll]
+    section: Comments
+    token_count: 460
 ---
-
 # Question about grad school admission
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1qtk3sn/question_about_grad_school_admission/)

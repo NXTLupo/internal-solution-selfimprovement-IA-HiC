@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1sry1ac.md
 url: "https://www.reddit.com/r/personalfinance/comments/1sry1ac/it_never_feels_like_enough/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,57 @@ flair: "Budgeting"
 extracted_at: "2026-05-17T01:13:31.182Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c0"
+    char_span: [0, 962]
+    sentence_count: 9
+    key_terms: [personalfinance, comments, savings, always, feels, like, too, aggressively]
+    token_count: 249
+  - id: "social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c1"
+    char_span: [977, 3100]
+    sentence_count: 14
+    key_terms: [marketing, transferable, skills, definitely, like, lot, interest, something]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c2"
+    char_span: [3102, 4634]
+    sentence_count: 12
+    key_terms: [degree, "don't", get, yourself, job, program, income, people]
+    section: Comments
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c3"
+    char_span: [4636, 6215]
+    sentence_count: 13
+    key_terms: [savings, saving, consistently, doing, money, roth, building, income]
+    section: Comments
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c4"
+    char_span: [6217, 7678]
+    sentence_count: 11
+    key_terms: [saving, goals, life, like, retirement, emergency, tangible, whatever]
+    section: Comments
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c5"
+    char_span: [7680, 9754]
+    sentence_count: 12
+    key_terms: [saving, fun, save, goal, like, enough, cover, get]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c6"
+    char_span: [9756, 11655]
+    sentence_count: 21
+    key_terms: [saving, like, set, goals, goal, cash, invested, yourself]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c7"
+    char_span: [11657, 13424]
+    sentence_count: 26
+    key_terms: [want, don, need, people, retirement, savings, wedding, always]
+    section: Comments
+    token_count: 431
 ---
-
 # It never feels like enough.
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1sry1ac/it_never_feels_like_enough/)

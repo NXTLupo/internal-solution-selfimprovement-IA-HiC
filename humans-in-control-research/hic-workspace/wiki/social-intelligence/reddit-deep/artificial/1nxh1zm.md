@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1nxh1zm.md
 url: "https://www.reddit.com/r/artificial/comments/1nxh1zm/are_we_actually_becoming_better_engineers_with_ai/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,33 @@ flair: "Discussion"
 extracted_at: "2026-05-11T16:53:08.149Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1nxh1zm.md#c0"
+    char_span: [0, 1338]
+    sentence_count: 10
+    key_terms: [assistants, better, faster, tools, artificial, assistant, different, engineers]
+    token_count: 295
+  - id: "social-intelligence/reddit-deep/artificial/1nxh1zm.md#c1"
+    char_span: [1353, 3082]
+    sentence_count: 14
+    key_terms: [companies, going, like, llm, absolutely, production, pushing, output]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/artificial/1nxh1zm.md#c2"
+    char_span: [3084, 4955]
+    sentence_count: 15
+    key_terms: [code, get, level, software, actual, coding, commas, higher]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/artificial/1nxh1zm.md#c3"
+    char_span: [4957, 7010]
+    sentence_count: 15
+    key_terms: [code, coding, using, use, providing, language, because, design]
+    section: Comments
+    token_count: 485
 ---
-
 # Are we actually becoming better engineers with AI code assistants, or just faster copy-pasters?
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1nxh1zm/are_we_actually_becoming_better_engineers_with_ai/)

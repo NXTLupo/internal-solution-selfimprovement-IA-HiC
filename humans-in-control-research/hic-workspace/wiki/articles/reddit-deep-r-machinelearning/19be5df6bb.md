@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-machinelearning/19be5df6bb.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1rlnwsk/d_ama_secure_version_of_openclaw/"
 url_hash: "19be5df6bb"
 kind: "article"
@@ -8,10 +9,25 @@ author: ""
 date: "2026-03-05T17:36:21.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-11T17:30:40.417581+00:00"
+extracted_at: "2026-05-31T21:52:14.586723+00:00"
 chars: 5089
+chunks:
+  - id: "articles/reddit-deep-r-machinelearning/19be5df6bb.md#c0"
+    char_span: [0, 1610]
+    sentence_count: 18
+    key_terms: [openclaw, machinelearning, incredibly, ironclaw, security, machine, version, reddit]
+    token_count: 376
+  - id: "articles/reddit-deep-r-machinelearning/19be5df6bb.md#c1"
+    char_span: [1612, 3696]
+    sentence_count: 13
+    key_terms: [policy, access, information, credential, prevention, database, actions, ensure]
+    token_count: 440
+  - id: "articles/reddit-deep-r-machinelearning/19be5df6bb.md#c2"
+    char_span: [3698, 5264]
+    sentence_count: 11
+    key_terms: [ironclaw, here, com, project, github, skills, ilblackdragon, agent]
+    token_count: 393
 ---
-
 # [D] AMA Secure version of OpenClaw
 
 Source: [Reddit Deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1rlnwsk/d_ama_secure_version_of_openclaw/)
@@ -49,14 +65,14 @@ The Claw framework is a game-changer and I truly believe AI agents are the final
 The GitHub is here: [github.com/nearai/ironclaw](http://github.com/nearai/ironclaw) and the frontend is [ironclaw.com](http://ironclaw.com). Confidential hosting for any agent is also available at [agent.near.ai](http://agent.near.ai). I’m happy to answer questions about how it works or why I think it’s a better claw!
 
 --- TOP COMMENTS ---
-[32↑ rahulgoel1995] OpenClaw got exposed with 21,000+ public instances and malicious skills, how can we trust IronClaw won't suffer the same fate once it goes viral?
-[26↑ ilblackdragon] There are a number of protections that we already have and implementing. 
+[31↑ rahulgoel1995] OpenClaw got exposed with 21,000+ public instances and malicious skills, how can we trust IronClaw won't suffer the same fate once it goes viral?
+[25↑ ilblackdragon] There are a number of protections that we already have and implementing. 
 
 Credentials are always encrypted and never touch LLM so skills won't be able to exfiltrate them. Skills are not able to run scripts on the main host - they can only run inside a container. 
 
 We are planning to do red teaming and proper security review as well as we stabilize the core.
-[92↑ highdimensionaldata] Damn, named author on Attention Is All You Need. That’s celebrity status round here.
-[27↑ xantrel] Yeah, I was honestly reading fully expecting a vibe coded project from someone with no idea of how LLMs really work. That thought got shutdown as soon as I got to that line.
+[93↑ highdimensionaldata] Damn, named author on Attention Is All You Need. That’s celebrity status round here.
+[28↑ xantrel] Yeah, I was honestly reading fully expecting a vibe coded project from someone with no idea of how LLMs really work. That thought got shutdown as soon as I got to that line.
 [3↑ AnosenSan] I mean, not to lower their credit, but the breakthrough is not as much on ML than security here. So their experience with LLMs is virtually irrelevant. Although I tend to be more trusting than a vibe coded project indeed.
 [37↑ ilblackdragon] Great to be here!
 [1↑ banatage] Big fan Illia! Glad that you’re here!

@@ -10,9 +10,9 @@ score: 0
 upvote_ratio: 0.5
 num_comments: 2
 flair: "General Advice"
-extracted_at: "2026-05-20T03:56:10.762Z"
+extracted_at: "2026-06-06T23:23:15.588Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Got a dream summer research internship offer - is it too late to update grad schools about this?

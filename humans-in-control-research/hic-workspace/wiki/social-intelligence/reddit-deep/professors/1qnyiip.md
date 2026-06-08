@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1qnyiip.md
 url: "https://www.reddit.com/r/Professors/comments/1qnyiip/getting_tired_of_conferences/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,63 @@ flair: ""
 extracted_at: "2026-05-20T03:55:39.267Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1qnyiip.md#c0"
+    char_span: [0, 945]
+    sentence_count: 10
+    key_terms: [conferences, conference, mid-career, professors, comments, global-sandwich5281, got, "i'm"]
+    token_count: 225
+  - id: "social-intelligence/reddit-deep/professors/1qnyiip.md#c1"
+    char_span: [960, 2955]
+    sentence_count: 16
+    key_terms: [conference, conferences, great, local, interesting, ding, talk, went]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/professors/1qnyiip.md#c2"
+    char_span: [2957, 4026]
+    sentence_count: 12
+    key_terms: [students, conference, conferences, been, emergency, never, time, decompressing]
+    section: Comments
+    token_count: 254
+  - id: "social-intelligence/reddit-deep/professors/1qnyiip.md#c3"
+    char_span: [4028, 5955]
+    sentence_count: 14
+    key_terms: [registration, conferences, conference, national, expense, almost, pocket, travel]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1qnyiip.md#c4"
+    char_span: [5692, 7157]
+    sentence_count: 12
+    key_terms: [conferences, research, registration, recognition, university, anything, approach, service]
+    section: Comments
+    token_count: 344
+  - id: "social-intelligence/reddit-deep/professors/1qnyiip.md#c5"
+    char_span: [7159, 7919]
+    sentence_count: 8
+    key_terms: [travel, "it's", anymore, "i'm", like, snowblindalbino, professional, interesting]
+    section: Comments
+    token_count: 181
+  - id: "social-intelligence/reddit-deep/professors/1qnyiip.md#c6"
+    char_span: [7921, 9946]
+    sentence_count: 13
+    key_terms: [conferences, work, felixir-the-cat, full, need, year, conference, friends]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1qnyiip.md#c7"
+    char_span: [9657, 11252]
+    sentence_count: 16
+    key_terms: [conferences, scholarship, anybody, learned, someone, events, myself, social]
+    section: Comments
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/professors/1qnyiip.md#c8"
+    char_span: [11254, 11806]
+    sentence_count: 8
+    key_terms: [money, paying, "i'm", professional, conferences, development, kaesekopfnw, absolutely]
+    section: Comments
+    token_count: 129
 ---
-
 # Getting tired of conferences
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1qnyiip/getting_tired_of_conferences/)

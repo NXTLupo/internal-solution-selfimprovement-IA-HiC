@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1rqzbne.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rqzbne/accepted_to_harvard_for_phd/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,33 @@ flair: "Biological Sciences"
 extracted_at: "2026-05-22T13:33:02.821Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rqzbne.md#c0"
+    char_span: [0, 638]
+    sentence_count: 4
+    key_terms: [gradadmissions, comments, posted, reddit, unlucky-drink-9277, phd, undergraduate, appreciated]
+    token_count: 159
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rqzbne.md#c1"
+    char_span: [653, 2281]
+    sentence_count: 13
+    key_terms: [undergrad, gpa, unlucky-drink-9277, congratulations, harvard, process, publications, admissions]
+    section: Comments
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rqzbne.md#c2"
+    char_span: [2283, 4236]
+    sentence_count: 17
+    key_terms: [unlucky-drink-9277, school, good, like, congrats, congratulations, hope, low]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rqzbne.md#c3"
+    char_span: [4040, 5106]
+    sentence_count: 12
+    key_terms: [congratulations, unlucky-drink-9277, experience, interested, harvard, program, school, argumentmysterious31]
+    section: Comments
+    token_count: 277
 ---
-
 # Accepted to Harvard for PhD :')
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rqzbne/accepted_to_harvard_for_phd/)

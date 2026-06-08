@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1syw3ti.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1syw3ti/sofi_9_premarket_as_earnings_meet_eps_but_tech/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,38 @@ flair: "News"
 extracted_at: "2026-05-16T20:54:42.974Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1syw3ti.md#c0"
+    char_span: [0, 2079]
+    sentence_count: 10
+    key_terms: [sofi-earnings-meet-expectations-while-its-tech-platform-struggles-110124682, sofi, million, year, platform, revenue, wallstreetbets, https]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1syw3ti.md#c1"
+    char_span: [2081, 3750]
+    sentence_count: 11
+    key_terms: [sofi, platform, company, million, financial, year, services, last]
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1syw3ti.md#c2"
+    char_span: [3765, 4491]
+    sentence_count: 2
+    key_terms: [loans, sofi, earnings, discord, profit, shares, stock, total]
+    section: Comments
+    token_count: 220
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1syw3ti.md#c3"
+    char_span: [4493, 6173]
+    sentence_count: 7
+    key_terms: [earnings, sofi, time, company, growth, killerbeeswaxkill, buy, call]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1syw3ti.md#c4"
+    char_span: [6175, 6918]
+    sentence_count: 5
+    key_terms: [loan, dickpicdoug, easy, sofi, knowledgeable, performance, cjrjjkosmw, doglog4948]
+    section: Comments
+    token_count: 212
 ---
-
 # SOFI -9% premarket as earnings meet EPS but tech platform revenue falls 27% despite 41% revenue growth
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1syw3ti/sofi_9_premarket_as_earnings_meet_eps_but_tech/)

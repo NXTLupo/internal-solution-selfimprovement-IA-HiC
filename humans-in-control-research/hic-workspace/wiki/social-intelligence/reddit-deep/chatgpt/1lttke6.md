@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1lttke6.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1lttke6/confession_im_a_senior_marketer_at_a_fortune_500/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,95 @@ flair: "Educational Purpose Only "
 extracted_at: "2026-05-17T01:12:48.204Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c0"
+    char_span: [0, 2164]
+    sentence_count: 19
+    key_terms: [marketing, prompts, strategy, thinking, chatgpt, prompt, big, comments]
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c1"
+    char_span: [2166, 4104]
+    sentence_count: 14
+    key_terms: [business, use, intermediate, assumptions, data, structured, audience, beginner]
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c2"
+    char_span: [4106, 5873]
+    sentence_count: 21
+    key_terms: [favour, archetypes, awareness, psychographics, levels, market, brand, temperature]
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c3"
+    char_span: [5875, 8030]
+    sentence_count: 9
+    key_terms: [using, emotional, emphasise, business, logic, identity, product, value]
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c4"
+    char_span: [8032, 9163]
+    sentence_count: 11
+    key_terms: [competitors, axis, competitor, simplicity, variation, primary, product, format]
+    token_count: 314
+  - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c5"
+    char_span: [9178, 11165]
+    sentence_count: 16
+    key_terms: [prompt, data, post, accurate, chatgpt, please, conversation, image]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c6"
+    char_span: [11167, 13264]
+    sentence_count: 11
+    key_terms: [kbartman, data, prompt, get, particular, estimates, mentioned, research]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c7"
+    char_span: [12966, 13737]
+    sentence_count: 10
+    key_terms: [thinking, partner, always, capital-raspberry860, trust, use, hallucination, proofreading]
+    section: Comments
+    token_count: 172
+  - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c8"
+    char_span: [13739, 15709]
+    sentence_count: 18
+    key_terms: [acanthopterygiicool5, solution, prospect, market, people, prompt, within, logic]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c9"
+    char_span: [15711, 17128]
+    sentence_count: 14
+    key_terms: [correspondence, chatgpt, deleted, use, already, written, custom, armypuzzleheaded7532]
+    section: Comments
+    token_count: 366
+  - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c10"
+    char_span: [17130, 19352]
+    sentence_count: 11
+    key_terms: [use, build, potential, identify, scraping, prompts, helps, ideas]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c11"
+    char_span: [19354, 21175]
+    sentence_count: 14
+    key_terms: [data, jobs, use, persona, segment, closed, "that's", print]
+    section: Comments
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c12"
+    char_span: [21177, 23018]
+    sentence_count: 9
+    key_terms: ["it's", change, prompt, going, write, did, get, jobs]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c13"
+    char_span: [23020, 24616]
+    sentence_count: 9
+    key_terms: [https, b83a-4119-9e79-1850c94061d3, github, druce, com, data, mcp, prompts]
+    section: Comments
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/chatgpt/1lttke6.md#c14"
+    char_span: [24618, 26442]
+    sentence_count: 10
+    key_terms: [prompt, prompts, single, conversation, use, kbartman, multiple, possible]
+    section: Comments
+    token_count: 429
 ---
-
 # Confession: I’m a senior marketer at a Fortune 500. I'm not supposed to say this next part (and that scares me)
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1lttke6/confession_im_a_senior_marketer_at_a_fortune_500/)

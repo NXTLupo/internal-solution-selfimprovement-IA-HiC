@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1mlif1r.md
 url: "https://www.reddit.com/r/OpenAI/comments/1mlif1r/openai_has_halved_paying_users_context_windows/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,111 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:05.351Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c0"
+    char_span: [0, 1106]
+    sentence_count: 11
+    key_terms: [context, openai, available, paying, window, plus, comments, halved]
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c1"
+    char_span: [1121, 2925]
+    sentence_count: 13
+    key_terms: [context, gemini, tokens, conversation, like, pro, sometimes, google]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c2"
+    char_span: [2927, 4580]
+    sentence_count: 9
+    key_terms: [pro, context, better, gemini, flash, model, different, commands]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c3"
+    char_span: [4583, 6060]
+    sentence_count: 5
+    key_terms: [use, thinking, models, model, question, select, level, betterprophet5585]
+    section: Comments
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c4"
+    char_span: [6062, 7493]
+    sentence_count: 6
+    key_terms: [unsubscribed, back, anthropic, yesterday, google, usefulmasterpiece261, model, betterprophet5585]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c5"
+    char_span: [7495, 9009]
+    sentence_count: 11
+    key_terms: [thinking, likely, select, going, usage, statistics, reasoning, majority]
+    section: Comments
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c6"
+    char_span: [9012, 11027]
+    sentence_count: 8
+    key_terms: [experience, openai, expectations, apple, "don't", gpt, like, want]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c7"
+    char_span: [10685, 11141]
+    sentence_count: 4
+    key_terms: [expectations, environment, consistent, armno7463, overnight, platforms, quicksand, treatment]
+    section: Comments
+    token_count: 97
+  - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c8"
+    char_span: [11143, 11890]
+    sentence_count: 4
+    key_terms: [facing, public, "you're", overlydelicioustea, away, cost, sbenfsonwffif, hemorrhaging]
+    section: Comments
+    token_count: 188
+  - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c9"
+    char_span: [11892, 13677]
+    sentence_count: 17
+    key_terms: [need, try, perplexity, business, started, create, nearly, college-throwaway87]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c10"
+    char_span: [13679, 14119]
+    sentence_count: 4
+    key_terms: [plus, enterprise, compute, context, discourage, eventually, crippling, inference]
+    section: Comments
+    token_count: 90
+  - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c11"
+    char_span: [14121, 16072]
+    sentence_count: 8
+    key_terms: [context, deleted, cptcaramack, million, better, models, tokens, cause]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c12"
+    char_span: [15870, 16688]
+    sentence_count: 4
+    key_terms: [context, cptcaramack, people, window, does, "i'm", lot, fourlastthings]
+    section: Comments
+    token_count: 225
+  - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c13"
+    char_span: [16690, 19149]
+    sentence_count: 19
+    key_terms: [gemini, context, architecture, massive, tokens, like, multimodal, processing]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c14"
+    char_span: [19151, 19489]
+    sentence_count: 3
+    key_terms: [long, gemini, deceitfulillusion, pro, nevertheless, chapters, thinking, thoughts]
+    section: Comments
+    token_count: 92
+  - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c15"
+    char_span: [19491, 21404]
+    sentence_count: 8
+    key_terms: [gemini, deleted, competition, claude, sbenfsonwffif, architecture, cptcaramack, pro]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/openai/1mlif1r.md#c16"
+    char_span: [21140, 22424]
+    sentence_count: 7
+    key_terms: [x-ray, like, need, use, cautionary, analyze, chatgpt, gemini]
+    section: Comments
+    token_count: 327
 ---
-
 # OpenAI has HALVED paying user's context windows, overnight, without warning.
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1mlif1r/openai_has_halved_paying_users_context_windows/)

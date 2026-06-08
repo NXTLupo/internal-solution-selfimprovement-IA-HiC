@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1r6no1t.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1r6no1t/whats_the_worst_engineering_advice_youve_ever/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,63 @@ flair: "Discussion"
 extracted_at: "2026-05-25T18:32:19.213Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r6no1t.md#c0"
+    char_span: [0, 497]
+    sentence_count: 3
+    key_terms: [engineering, engineeringstudents, comments, advice, "you've", reddit-deep, "shouldn't", received]
+    token_count: 123
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r6no1t.md#c1"
+    char_span: [512, 1803]
+    sentence_count: 8
+    key_terms: [internships, thunderthighlasagna, relevant, job, experience, positions, couldn, resume]
+    section: Comments
+    token_count: 310
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r6no1t.md#c2"
+    char_span: [1805, 3722]
+    sentence_count: 10
+    key_terms: [davyjoneslocker, advice, people, technical, degree, engineering, bad, children]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r6no1t.md#c3"
+    char_span: [3724, 5932]
+    sentence_count: 19
+    key_terms: [grades, students, matter, engineers, gpa, better, people, school]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r6no1t.md#c4"
+    char_span: [5934, 7840]
+    sentence_count: 11
+    key_terms: [because, teacher, matter, engineering, math, graduated, knowledge, certain]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r6no1t.md#c5"
+    char_span: [7842, 9004]
+    sentence_count: 4
+    key_terms: [solidride5853, engineering, school, like, skills, civil, girls, firstpersonwinner]
+    section: Comments
+    token_count: 299
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r6no1t.md#c6"
+    char_span: [9006, 10798]
+    sentence_count: 12
+    key_terms: [professor, learn, teaching, because, better, matter, something, prestige]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r6no1t.md#c7"
+    char_span: [10800, 11594]
+    sentence_count: 5
+    key_terms: [school, certainty, matter, grade, code, does, get, job]
+    section: Comments
+    token_count: 197
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r6no1t.md#c8"
+    char_span: [11596, 13232]
+    sentence_count: 7
+    key_terms: [engineering, don, get, scratchdue440, hard, jobs, undergrad, programs]
+    section: Comments
+    token_count: 410
 ---
-
 # What's the worst engineering advice you've ever gotten?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1r6no1t/whats_the_worst_engineering_advice_youve_ever/)

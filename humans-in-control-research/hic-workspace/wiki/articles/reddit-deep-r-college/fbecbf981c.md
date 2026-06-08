@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-college/fbecbf981c.md
 url: "https://www.reddit.com/r/college/comments/1lrcdty/how_to_find_advisors_for_an_undergrad_student_club/"
 url_hash: "fbecbf981c"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T14:58:11.903689+00:00"
 chars: 1925
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-college/fbecbf981c.md#c0"
+    char_span: [0, 2118]
+    sentence_count: 16
+    key_terms: [undergrad, advisor, club, college, student, office, hours, help]
+    token_count: 449
 ---
-
 # How to find advisors for an Undergrad Student Club
 
 Source: [Reddit Deep: r/college](https://www.reddit.com/r/college/comments/1lrcdty/how_to_find_advisors_for_an_undergrad_student_club/)

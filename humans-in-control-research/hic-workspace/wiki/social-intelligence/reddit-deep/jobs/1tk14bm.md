@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1tk14bm.md
 url: "https://www.reddit.com/r/jobs/comments/1tk14bm/overqualified_for_entry/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,45 @@ flair: "Applications"
 extracted_at: "2026-05-22T21:35:36.550Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1tk14bm.md#c0"
+    char_span: [0, 726]
+    sentence_count: 3
+    key_terms: [fucking, experience, entry, job, comments, school, level, high]
+    token_count: 186
+  - id: "social-intelligence/reddit-deep/jobs/1tk14bm.md#c1"
+    char_span: [741, 2659]
+    sentence_count: 11
+    key_terms: [job, better, being, roles, back, experience, different, something]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/jobs/1tk14bm.md#c2"
+    char_span: [2661, 4016]
+    sentence_count: 9
+    key_terms: [thanks, bro, job, experience, something, denied, unhappy-homework-812, best]
+    section: Comments
+    token_count: 340
+  - id: "social-intelligence/reddit-deep/jobs/1tk14bm.md#c3"
+    char_span: [4018, 5356]
+    sentence_count: 9
+    key_terms: [resume, back, work, working, complete-cricket-351, end, tech, yeah]
+    section: Comments
+    token_count: 332
+  - id: "social-intelligence/reddit-deep/jobs/1tk14bm.md#c4"
+    char_span: [5358, 6551]
+    sentence_count: 12
+    key_terms: [care, kid, adult, job, research, specific, capable, younger]
+    section: Comments
+    token_count: 290
+  - id: "social-intelligence/reddit-deep/jobs/1tk14bm.md#c5"
+    char_span: [6553, 7505]
+    sentence_count: 9
+    key_terms: [job, candidates, "you're", miserable-western292, bad, bro, did, cknowledgement]
+    section: Comments
+    token_count: 223
 ---
-
 # Overqualified for ENTRY
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1tk14bm/overqualified_for_entry/)

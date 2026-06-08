@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1ry99rd.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1ry99rd/civil_engineering_tech_student_advice_needed/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Academic Advice"
 extracted_at: "2026-05-23T20:15:19.045Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ry99rd.md#c0"
+    char_span: [0, 1175]
+    sentence_count: 8
+    key_terms: [civil, program, engineeringstudents, tech, engineering, experience, comments, transfer]
+    token_count: 261
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ry99rd.md#c1"
+    char_span: [1190, 2265]
+    sentence_count: 6
+    key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
+    section: Comments
+    token_count: 248
 ---
-
 # Civil Engineering Tech student advice needed.
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1ry99rd/civil_engineering_tech_student_advice_needed/)

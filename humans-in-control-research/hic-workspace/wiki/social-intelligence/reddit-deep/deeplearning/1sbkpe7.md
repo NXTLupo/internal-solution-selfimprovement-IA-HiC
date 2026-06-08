@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1sbkpe7.md
 url: "https://www.reddit.com/r/deeplearning/comments/1sbkpe7/any_suggestion_for_making_ai_write_understandable/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.052Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1sbkpe7.md#c0"
+    char_span: [0, 1216]
+    sentence_count: 11
+    key_terms: [code, deeplearning, programming, experience, comments, project, pygame, hand]
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/deeplearning/1sbkpe7.md#c1"
+    char_span: [1231, 2684]
+    sentence_count: 2
+    key_terms: [prompt, structure, rules, time, constraint, passes, pygame, review]
+    section: Comments
+    token_count: 336
+  - id: "social-intelligence/reddit-deep/deeplearning/1sbkpe7.md#c2"
+    char_span: [2686, 4114]
+    sentence_count: 9
+    key_terms: [code, intraluminal, ask, patterns, planning, clearly, defined, writing]
+    section: Comments
+    token_count: 325
 ---
-
 # Any suggestion for making AI write understandable code?
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1sbkpe7/any_suggestion_for_making_ai_write_understandable/)

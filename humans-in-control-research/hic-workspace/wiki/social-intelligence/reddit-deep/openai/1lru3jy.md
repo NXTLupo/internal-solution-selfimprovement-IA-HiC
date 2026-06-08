@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1lru3jy.md
 url: "https://www.reddit.com/r/OpenAI/comments/1lru3jy/prompt_engineering_context_engineering_protocol/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,27 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:05.358Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1lru3jy.md#c0"
+    char_span: [0, 2209]
+    sentence_count: 26
+    key_terms: [engine, engineering, programming, language, linguistics, prompt, specific, thinking]
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/openai/1lru3jy.md#c1"
+    char_span: [2224, 3835]
+    sentence_count: 9
+    key_terms: [bidwestern1056, language, instructions, programming, able, jdonavan, believe, natural]
+    section: Comments
+    token_count: 409
+  - id: "social-intelligence/reddit-deep/openai/1lru3jy.md#c2"
+    char_span: [3837, 4541]
+    sentence_count: 3
+    key_terms: [sql, anything, warmdragonfruit8783, get, theorysudden5996, consistently, axfmzlz9xxm, interesting]
+    section: Comments
+    token_count: 172
 ---
-
 # Prompt engineering, Context Engineering, Protocol Whatever... It's all Linguistics Programming...
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1lru3jy/prompt_engineering_context_engineering_protocol/)

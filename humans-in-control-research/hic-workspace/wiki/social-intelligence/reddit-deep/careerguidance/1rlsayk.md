@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rlsayk.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rlsayk/former_teacher_now_with_an_office_job_glad_for/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,38 @@ flair: ""
 extracted_at: "2026-05-20T02:32:24.880Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [education, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rlsayk.md#c0"
+    char_span: [0, 2036]
+    sentence_count: 21
+    key_terms: [dislike, teacher, job, miss, work, teaching, feeling, careerguidance]
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/careerguidance/1rlsayk.md#c1"
+    char_span: [2038, 2632]
+    sentence_count: 2
+    key_terms: [management, event, communications, accreditation, encouragement, arrangements, coordination, registration]
+    token_count: 110
+  - id: "social-intelligence/reddit-deep/careerguidance/1rlsayk.md#c2"
+    char_span: [2647, 3826]
+    sentence_count: 9
+    key_terms: [training, since, corporate, teaching, face, find, keep, look]
+    section: Comments
+    token_count: 238
+  - id: "social-intelligence/reddit-deep/careerguidance/1rlsayk.md#c3"
+    char_span: [3831, 5991]
+    sentence_count: 14
+    key_terms: [teaching, corporate, lovelyladylilac, teacher, move, work, because, intellectually]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/careerguidance/1rlsayk.md#c4"
+    char_span: [5993, 6925]
+    sentence_count: 8
+    key_terms: [work, lovelyladylilac, outside, experience, fulfilled, teachers, least, does]
+    section: Comments
+    token_count: 235
 ---
-
 # Former teacher, now with an office job. Glad for the higher pay, but overall more unsatisfied in my career. Seeking a change, any advice?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rlsayk/former_teacher_now_with_an_office_job_glad_for/)

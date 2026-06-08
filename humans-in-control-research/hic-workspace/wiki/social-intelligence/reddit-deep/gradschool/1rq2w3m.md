@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1rq2w3m.md
 url: "https://www.reddit.com/r/GradSchool/comments/1rq2w3m/would_it_be_worth_taking_a_60k_loan_for_a_masters/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-23T20:15:44.986Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, life_sciences, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1rq2w3m.md#c0"
+    char_span: [0, 1601]
+    sentence_count: 10
+    key_terms: [biomedical, engineering, biotech, program, master, loans, data, gradschool]
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/gradschool/1rq2w3m.md#c1"
+    char_span: [1616, 3196]
+    sentence_count: 11
+    key_terms: [masters, engineering, debt, employment, hjohns23, programs, hopkins, allamericanbreakfast]
+    section: Comments
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/gradschool/1rq2w3m.md#c2"
+    char_span: [3198, 4707]
+    sentence_count: 7
+    key_terms: [michigan-engineering-student-salary-information, salary, masters-biomedical-engineering-ay24, career, engin, https, umich, methodology]
+    section: Comments
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/gradschool/1rq2w3m.md#c3"
+    char_span: [4709, 6570]
+    sentence_count: 12
+    key_terms: [masters, phd, seeking, grad, graduates, sometimes, program, student]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/gradschool/1rq2w3m.md#c4"
+    char_span: [6572, 7249]
+    sentence_count: 6
+    key_terms: [debt, pitiful-army-1625, been, loan, forgiveness, patrickj86, presumably, certainly]
+    section: Comments
+    token_count: 190
 ---
-
 # Would it be worth taking a ~$60K loan for a master’s degree?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1rq2w3m/would_it_be_worth_taking_a_60k_loan_for_a_masters/)

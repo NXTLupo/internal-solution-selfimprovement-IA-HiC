@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-investing/c2b6dbfe9d.md
 url: "https://www.reddit.com/r/investing/comments/1s5g9vv/dow_jones_nasdaq_composite_close_in_10_correction/"
 url_hash: "c2b6dbfe9d"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-16T21:00:34.057066+00:00"
 chars: 2942
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-investing/c2b6dbfe9d.md#c0"
+    char_span: [0, 1389]
+    sentence_count: 9
+    key_terms: [market, record, last, correction, industries, composite, investing, markets]
+    token_count: 339
+  - id: "articles/reddit-deep-r-investing/c2b6dbfe9d.md#c1"
+    char_span: [1391, 3151]
+    sentence_count: 6
+    key_terms: [currently, down, topped, get, "it's", shicken684, markets, numbers]
+    token_count: 465
 ---
-
 # Dow Jones & NASDAQ Composite close in -10% correction territory
 
 Source: [Reddit Deep: r/investing](https://www.reddit.com/r/investing/comments/1s5g9vv/dow_jones_nasdaq_composite_close_in_10_correction/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1orzpv4.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1orzpv4/how_important_is_it_to_specialize_in_a_specific/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-25T18:32:49.824Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, fundraising, nonprofit]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1orzpv4.md#c0"
+    char_span: [0, 1143]
+    sentence_count: 9
+    key_terms: [cscareerquestions, advancement, specialize, developer, important, comments, software, specific]
+    token_count: 239
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1orzpv4.md#c1"
+    char_span: [1158, 3083]
+    sentence_count: 18
+    key_terms: [stack, tech, "don't", companies, senior, thegodzilla25, overindexing, depth]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1orzpv4.md#c2"
+    char_span: [3085, 5372]
+    sentence_count: 20
+    key_terms: [specialist, generalist, people, backend, knowing, being, doesn, bar]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1orzpv4.md#c3"
+    char_span: [5374, 6460]
+    sentence_count: 9
+    key_terms: [well-rounded, specialization, specialized, supposed, valuable, doing, makes, job]
+    section: Comments
+    token_count: 226
 ---
-
 # How important is it to specialize in a specific tech stack for career advancement in software development?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1orzpv4/how_important_is_it_to_specialize_in_a_specific/)

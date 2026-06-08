@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-deeplearning/f3eb72b2cc.md
 url: "https://www.reddit.com/r/deeplearning/comments/1syngsc/built_a_prompt_injection_detector_using_fisherrao/"
 url_hash: "f3eb72b2cc"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T17:34:25.818117+00:00"
 chars: 3503
+industries: [ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-deeplearning/f3eb72b2cc.md#c0"
+    char_span: [0, 2079]
+    sentence_count: 16
+    key_terms: [prompts, layer, negatives, precision, data, hard, roleplay, prompt]
+    token_count: 478
+  - id: "articles/reddit-deep-r-deeplearning/f3eb72b2cc.md#c1"
+    char_span: [2081, 3784]
+    sentence_count: 13
+    key_terms: [prompts, benign, ambiguous, "false", ones, classifier, compliance, legitimate]
+    token_count: 349
 ---
-
 # Built a prompt injection detector using Fisher-Rao geometry that outperforms LlamaGuard and OpenAI Moderation on indirect attacks
 
 Source: [Reddit Deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1syngsc/built_a_prompt_injection_detector_using_fisherrao/)

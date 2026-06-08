@@ -6,19 +6,19 @@ subreddit: "college"
 title: "Can/Should I ask for a stipend for an informal, unpaid TA position?"
 author: "lulu7008"
 date: "2026-01-24T22:23:33.000Z"
-score: 3
-upvote_ratio: 0.56
+score: 2
+upvote_ratio: 0.54
 num_comments: 16
 flair: ""
-extracted_at: "2026-05-26T14:31:29.697Z"
+extracted_at: "2026-06-06T23:23:15.570Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Can/Should I ask for a stipend for an informal, unpaid TA position?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1qm0wa8/canshould_i_ask_for_a_stipend_for_an_informal/)
-Posted by **lulu7008** · **3↑** · **16 comments**
+Posted by **lulu7008** · **2↑** · **16 comments**
 
 Sorry in advance for the wordiness, I wanted to include context just in case. I have no idea if this was the best sub to ask this on.
 
@@ -36,12 +36,12 @@ All in all, the question of payment is lower-stakes than it might usually be. I 
 
 ## Comments
 
-- **th1s_fuck1ng_guy** (39↑): The professor cannot and should not be paying you under the table. This is an undergraduate TA position. You use this as a resume builder/letter of rec. You will absolutely look like an ass asking for money. If this is too much for you, simply say you now realize you can't balance this with your other obligations.
+- **th1s_fuck1ng_guy** (38↑): The professor cannot and should not be paying you under the table. This is an undergraduate TA position. You use this as a resume builder/letter of rec. You will absolutely look like an ass asking for money. If this is too much for you, simply say you now realize you can't balance this with your other obligations.
   - **lulu7008** (0↑): Thanks for the reply, this is all I wanted to know. I definitely don't want to hurt this opportunity, which I feel fortunate for having. I still want to stick with it because I feel like I can learn a lot more from the process than otherwise.
     - **th1s_fuck1ng_guy** (5↑): Clarify with them that for your services they will provide you a reference or LOR. You can tactfully go about this by saying something like "hey if I do a good job would you consider writing ...." at the end of semester collect their contact information
-- **SpoonyBrad** (16↑): There isn't a big pot of money that can be used for whatever comes up. The money that goes to specific items is all planned and budgeted behind-the-scenes. So when she says she can't pay you, there really isn't any money to pay you with, even if you see the school spending money on other things. A student definitely can't invent their own stipend, unfortunately.
-- **HappyLifeCoffeeHelps** (14↑): You don't get paid to be a TA.  If it is too time-consuming, I would message letting them know that you will either need to dial back or resign from the TA position, as it is beyond the demand you can manage.
-  - **5ir_yeet** (10↑): FWIW, At my (very large and well funded) uni, all TA positions in the engineering college pay a stipend of 1500 per semester per section. The honors college doesn't pay, but offers 1-3 credits per semester per section.
+- **SpoonyBrad** (15↑): There isn't a big pot of money that can be used for whatever comes up. The money that goes to specific items is all planned and budgeted behind-the-scenes. So when she says she can't pay you, there really isn't any money to pay you with, even if you see the school spending money on other things. A student definitely can't invent their own stipend, unfortunately.
+- **HappyLifeCoffeeHelps** (15↑): You don't get paid to be a TA.  If it is too time-consuming, I would message letting them know that you will either need to dial back or resign from the TA position, as it is beyond the demand you can manage.
+  - **5ir_yeet** (12↑): FWIW, At my (very large and well funded) uni, all TA positions in the engineering college pay a stipend of 1500 per semester per section. The honors college doesn't pay, but offers 1-3 credits per semester per section.
 
 EDIT: This is all for undegrad, and my experience was as a freshman
     - **MangosAndManga** (2↑): I also got a stipend at my tiny albeit moderately well-funded undergraduate university. This is the first time I've ever heard of an unpaid TA position. I bet they don't even have a union...

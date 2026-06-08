@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1qelxnl.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1qelxnl/accepted_cant_believe_it/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,21 @@ flair: "Physical Sciences"
 extracted_at: "2026-05-14T18:17:36.004Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qelxnl.md#c0"
+    char_span: [0, 331]
+    sentence_count: 6
+    key_terms: [gradadmissions, comments, teachingelectronic86, reddit-deep, completely, admission, yesterday, accepted]
+    token_count: 88
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qelxnl.md#c1"
+    char_span: [346, 1730]
+    sentence_count: 9
+    key_terms: [congratulations, congrats, awesome, smolaniashki, admitted, brief-dragonfly-4127, teachingelectronic86, final]
+    section: Comments
+    token_count: 378
 ---
-
 # Accepted! Can't believe it!
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1qelxnl/accepted_cant_believe_it/)

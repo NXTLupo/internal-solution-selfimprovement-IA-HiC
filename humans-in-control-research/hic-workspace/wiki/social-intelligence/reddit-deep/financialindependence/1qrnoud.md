@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1qrnoud.md
 url: "https://www.reddit.com/r/financialindependence/comments/1qrnoud/need_advice_wwyd_hit_fi_struggling_to_quit_work/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,62 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.712Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1qrnoud.md#c0"
+    char_span: [0, 2197]
+    sentence_count: 21
+    key_terms: [kids, time, financialindependence, annual, income, get, jobs, eventually]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/financialindependence/1qrnoud.md#c1"
+    char_span: [2199, 2932]
+    sentence_count: 7
+    key_terms: [finances, buffer, family, opportunity, appreciate, healthcare, breakdown, brokerage]
+    token_count: 185
+  - id: "social-intelligence/reddit-deep/financialindependence/1qrnoud.md#c2"
+    char_span: [2947, 4782]
+    sentence_count: 14
+    key_terms: [home, spouse, boundaries, available, working, having, health, start]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/financialindependence/1qrnoud.md#c3"
+    char_span: [4784, 5258]
+    sentence_count: 3
+    key_terms: [daddyerik84, especially, leadership, performers, heartbeat, insurance, coverage, incomers]
+    section: Comments
+    token_count: 118
+  - id: "social-intelligence/reddit-deep/financialindependence/1qrnoud.md#c4"
+    char_span: [5260, 7359]
+    sentence_count: 20
+    key_terms: [car, expenses, budget, buffer, "don't", maintenance, home, year]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/financialindependence/1qrnoud.md#c5"
+    char_span: [7103, 7413]
+    sentence_count: 4
+    key_terms: [killersquirel11, pickleball, detailed, exercise, expenses, kayaking, tracking, cooking]
+    section: Comments
+    token_count: 81
+  - id: "social-intelligence/reddit-deep/financialindependence/1qrnoud.md#c6"
+    char_span: [7416, 9154]
+    sentence_count: 18
+    key_terms: [retirement, money, household, away, "it's", american, expenses, medicaid]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/financialindependence/1qrnoud.md#c7"
+    char_span: [9157, 11403]
+    sentence_count: 24
+    key_terms: ["don't", lifestyle, buy, investments, kids, try, ourselves, combined]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/financialindependence/1qrnoud.md#c8"
+    char_span: [11405, 13498]
+    sentence_count: 30
+    key_terms: [income, market, independence, build, count, away, people, retire]
+    section: Comments
+    token_count: 435
 ---
-
 # Need Advice- WWYD? Hit FI, Struggling to Quit Work
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1qrnoud/need_advice_wwyd_hit_fi_struggling_to_quit_work/)

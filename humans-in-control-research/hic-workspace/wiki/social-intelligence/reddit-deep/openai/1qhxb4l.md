@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1qhxb4l.md
 url: "https://www.reddit.com/r/OpenAI/comments/1qhxb4l/chatgpt_in_browser_performance_dropoff_not/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,21 @@ flair: "Question"
 extracted_at: "2026-05-11T17:27:05.356Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1qhxb4l.md#c0"
+    char_span: [0, 1492]
+    sentence_count: 12
+    key_terms: [performance, previously, context, away, window, laggy, comments, happens]
+    token_count: 320
+  - id: "social-intelligence/reddit-deep/openai/1qhxb4l.md#c1"
+    char_span: [1507, 1820]
+    sentence_count: 3
+    key_terms: [chatgpt, rsyncmyhomiedrive, lightsession, ryanmonroe82, appreciate, difference, expecting, extension]
+    section: Comments
+    token_count: 88
 ---
-
 # ChatGPT in browser performance dropoff (not talking about logic or thinking performance, just slowing down quicker than previously, and the context window seemingly dropping away sooner than previously.)
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1qhxb4l/chatgpt_in_browser_performance_dropoff_not/)

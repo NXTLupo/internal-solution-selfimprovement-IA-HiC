@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1meb2r3.md
 url: "https://www.reddit.com/r/internships/comments/1meb2r3/what_internship_did_you_get_into_and_what_were/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,33 @@ flair: "General"
 extracted_at: "2026-05-23T19:44:46.352Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1meb2r3.md#c0"
+    char_span: [0, 1001]
+    sentence_count: 7
+    key_terms: [internships, https, stats, com, internship, comments, viewform, google]
+    token_count: 310
+  - id: "social-intelligence/reddit-deep/internships/1meb2r3.md#c1"
+    char_span: [1016, 2858]
+    sentence_count: 9
+    key_terms: [school, internship, research, internships, people, experience, grade, previous]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/internships/1meb2r3.md#c2"
+    char_span: [2860, 4549]
+    sentence_count: 5
+    key_terms: [internship, school, research, ranking, extra-alps-3127, grade, previous, gpa]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/internships/1meb2r3.md#c3"
+    char_span: [4551, 5136]
+    sentence_count: 3
+    key_terms: [internship, company, school, rank, top, honeypop1113, immediately, interviewed]
+    section: Comments
+    token_count: 142
 ---
-
 # What internship did you get into and what were your stats?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1meb2r3/what_internship_did_you_get_into_and_what_were/)

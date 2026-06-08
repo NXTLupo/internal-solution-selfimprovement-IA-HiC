@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1n5ktn3.md
 url: "https://www.reddit.com/r/OpenAI/comments/1n5ktn3/i_built_a_securityfocused_opensource_ai_coding/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,15 @@ flair: "Project"
 extracted_at: "2026-05-11T16:53:06.863Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1n5ktn3.md#c0"
+    char_span: [0, 2040]
+    sentence_count: 19
+    key_terms: [like, commands, security, vispheration, https, open-source, here, assistant]
+    token_count: 463
 ---
-
 # I built a security-focused, open-source AI coding assistant for the terminal (GPT-CLI) and wanted to share.
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1n5ktn3/i_built_a_securityfocused_opensource_ai_coding/)

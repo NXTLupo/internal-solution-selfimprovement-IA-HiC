@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rqe8si.md
 url: "https://www.reddit.com/r/internships/comments/1rqe8si/students_who_landed_internships_what_helped_you/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,54 @@ subreddit: "internships"
 title: "Students who landed internships — What helped you most in the interview?"
 author: "HireMeEnergy_6767"
 date: "2026-03-11T00:07:31.000Z"
-score: 57
+score: 56
 upvote_ratio: 1
 num_comments: 32
 flair: "Interviews"
-extracted_at: "2026-05-23T14:53:57.165Z"
+extracted_at: "2026-06-05T19:52:26.145Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rqe8si.md#c0"
+    char_span: [0, 514]
+    sentence_count: 4
+    key_terms: [internships, interview, comments, students, helped, landed, successfully, reddit-deep]
+    token_count: 121
+  - id: "social-intelligence/reddit-deep/internships/1rqe8si.md#c1"
+    char_span: [529, 2630]
+    sentence_count: 3
+    key_terms: [experience, interview, questions, ask, helped, penguin15243, interviewer, personality]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/internships/1rqe8si.md#c2"
+    char_span: [2632, 4510]
+    sentence_count: 2
+    key_terms: [don, answer, company, interviewing, like, experience, networking, understand]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/internships/1rqe8si.md#c3"
+    char_span: [4512, 5210]
+    sentence_count: 3
+    key_terms: [interview, small, don, own, talk, conversation, discouraged, internships]
+    section: Comments
+    token_count: 170
+  - id: "social-intelligence/reddit-deep/internships/1rqe8si.md#c4"
+    char_span: [5212, 7114]
+    sentence_count: 9
+    key_terms: [being, company, researching, able, interviews, preparing, referrals, approach]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/internships/1rqe8si.md#c5"
+    char_span: [7116, 7561]
+    sentence_count: 3
+    key_terms: [technical, objective-ad-2643, conversational, competition, connections, engineering, preparation, difference]
+    section: Comments
+    token_count: 100
 ---
-
 # Students who landed internships — What helped you most in the interview?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rqe8si/students_who_landed_internships_what_helped_you/)
-Posted by **HireMeEnergy_6767** · **57↑** · **32 comments**
+Posted by **HireMeEnergy_6767** · **56↑** · **32 comments**
 
 For students who successfully landed an internship:
 
@@ -72,9 +108,9 @@ RESEARCH TIPS
 - this isn’t a common question for outside of banks i believe, but know who the CEO is and what the company (if public) is trading at. that means checking the stock morning of!
 
 just one last thing: don’t be discouraged if you don’t get the position, or ur not even getting interviews. forget about linkedin posts about other students accepting offers and all these success stories. everyone has their own path and you’re the only one who can make your own. y’all got this 💯
-- **Tight_Labs** (13↑): A couple of minutes of small talk when starting interview, lowkey breaks the ice and relieve some of the pressure imo
+- **Tight_Labs** (10↑): A couple of minutes of small talk when starting interview, lowkey breaks the ice and relieve some of the pressure imo
   - **HireMeEnergy_6767** (2↑): That’s true. A little small talk at the start can really help calm the nerves and make the interview feel more like a conversation.
-- **Bibybow** (4↑): Having multiple years of previous internships and co-ops! Hope this helps! 
+- **Bibybow** (5↑): Having multiple years of previous internships and co-ops! Hope this helps! 
 
 /s
 - **Royal_Winner_5049** (3↑): cheat sheet. for banking i had the stuff i knew they were going to ask written down. my story, valuation, other formulas, why this company and why banking. stuff like that. it was also online atp. once i got in person it was more culture fit and less technical but if you interviews are like mine id suggest what i did

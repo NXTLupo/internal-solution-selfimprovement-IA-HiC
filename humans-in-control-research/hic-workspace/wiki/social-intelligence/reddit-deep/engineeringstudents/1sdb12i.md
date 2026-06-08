@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1sdb12i.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1sdb12i/is_it_normal_to_have_cs_as_a_first_year/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -10,11 +11,52 @@ score: 38
 upvote_ratio: 0.81
 num_comments: 51
 flair: "Academic Advice"
-extracted_at: "2026-05-22T21:34:47.628Z"
+extracted_at: "2026-06-05T23:43:26.889Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sdb12i.md#c0"
+    char_span: [0, 1946]
+    sentence_count: 20
+    key_terms: [engineering, engineeringstudents, like, classes, feel, year, chemistry, countless]
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sdb12i.md#c1"
+    char_span: [1961, 4127]
+    sentence_count: 24
+    key_terms: [problem, struggling, read, sets, through, study, understand, procedure]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sdb12i.md#c2"
+    char_span: [4129, 6221]
+    sentence_count: 18
+    key_terms: [get, study, thepowerfulpaet, always, fundamentals, accommodate, back, bit]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sdb12i.md#c3"
+    char_span: [6223, 8162]
+    sentence_count: 10
+    key_terms: [upper, want, classes, college, grades, engineering, bme, good]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sdb12i.md#c4"
+    char_span: [8164, 10261]
+    sentence_count: 17
+    key_terms: [understand, college, fundamentals, being, going, understands, don, technician]
+    section: Comments
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sdb12i.md#c5"
+    char_span: [10263, 12338]
+    sentence_count: 10
+    key_terms: [year, best, semester, get, something, figuring, studying, because]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sdb12i.md#c6"
+    char_span: [12064, 12644]
+    sentence_count: 3
+    key_terms: [easy, something, semester, classes, cold-supermarket-440, boost, gpa, take]
+    section: Comments
+    token_count: 141
 ---
-
 # Is it normal to have C’s as a first year engineering student?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1sdb12i/is_it_normal_to_have_cs_as_a_first_year/)
@@ -28,9 +70,9 @@ I’m just wondering if this is pretty normal for engineering students and if it
 
 ## Comments
 
-- **CNBGVepp** (76↑): All about quality over quantity of study time. Also remember, sleep is a CRITICAL factor in the equation. Gotta let that grey matter grow.
-  - **Upset_Maybe_25** (8↑): Yeah I’ve been trying to prioritize sleep a lot more. Do you have any advice on how to study more efficiently? I think that my problem is definitely that I don’t have a good technique down but I’m not sure what else to do for studying.
-    - **Tyler89558** (6↑): Practice.
+- **CNBGVepp** (75↑): All about quality over quantity of study time. Also remember, sleep is a CRITICAL factor in the equation. Gotta let that grey matter grow.
+  - **Upset_Maybe_25** (9↑): Yeah I’ve been trying to prioritize sleep a lot more. Do you have any advice on how to study more efficiently? I think that my problem is definitely that I don’t have a good technique down but I’m not sure what else to do for studying.
+    - **Tyler89558** (8↑): Practice.
 
 Do problem sets
 
@@ -50,7 +92,7 @@ Find a procedure that works for you. Mine is: Have AI condense and break down th
 
 ALWAYS be open to switch gears. If the YouTube videos from some dude did not work, go and find other ones, if the TA sucks, go and ask for help to someone else. Always be on the look for more resources, the ones that accommodate to your needs, you DO NOT accommodate to the material. 
 ALSO!! Always write down your thoughts on the material, if you are confused on something, emphasize that in your reflection!! You might need to let your your thoughts sink in for a little bit, by the time you’re back at studying you might be able to see things differently!
-- **ThePowerfulPaet** (26↑): Well they do say C's get degrees, but it's only going to get harder from here. If your grades go down further in accordance with the difficulty, it's not looking good.
+- **ThePowerfulPaet** (27↑): Well they do say C's get degrees, but it's only going to get harder from here. If your grades go down further in accordance with the difficulty, it's not looking good.
 
 Once this semester is over, you have to study your ass off over the summer to get those fundamentals where they need to be. Study your next courses in advance too. You'll need every advantage you can get.
   - **Upset_Maybe_25** (1↑): Yeah I that’s why I’m a bit nervous. I’m hoping once I get into class that I enjoy and are the reason I went into this major (such as a design and prototyping class in excited about that I think should be way more hands on) it’ll be better but we’ll see. I really want to go into this field and I’m passionate about it. It just sucks taking gen ed courses that I’m not super passionate about. 
@@ -62,7 +104,7 @@ The usual go-to's on YouTube like Organic Chemistry Tutor and Professor Leonard 
 - **hattrem1** (8↑): Seems like an accurate experience in BME, don't worry I had a similar experience where I struggled alot in my first 2 years and got a ton of C's and my GPA was really bad compared to highschool. Now here I am close to graduating with finding the upper level engineering classes to be way much more easier and manageable
   - **Upset_Maybe_25** (2↑): This is really nice to hear. Do you think the upper level class are more hands on work? I want to go into prototyping and design through BME and I just feel like right now my classes and labs are just concepts and not super interesting to me. Also, what’s a good GPA to strive for? I only really need a 2.0 to get into upper division BME but of course want to get better than that and want to excel and have good job opportunities after college
     - **hattrem1** (1↑): I'd say yeah, in most of my upper division classes we did alot more hands on lab work such as (BioRadio, Arduino, Coding (such as Machine Learning etc), tissue engineering/bio-material labs). Also I'd say usually 3.0+ gpa is what they tell you to strive for typically.
-- **OMGIMASIAN** (6↑): As with many things, it's not necessarily the amount of time you put into something but the quality of the effort that gets put in. 
+- **OMGIMASIAN** (3↑): As with many things, it's not necessarily the amount of time you put into something but the quality of the effort that gets put in. 
 
 Not saying that you aren't studying well and competent, but that if your current system isn't returning you the grades you expect then maybe you have to adjust you entire approach to studying to try to adapt from a high school to college situation. Good grades in high school in my opinion are rarely indicative now of performance in college. 
 

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-internships/64e8f2ddda.md
 url: "https://reddit.com/r/internships/comments/1r0nk5p/how_to_get_an_internship_in_2026_everything_i_am/"
 url_hash: "64e8f2ddda"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-14T12:24:00.396104+00:00"
 chars: 3558
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-internships/64e8f2ddda.md#c0"
+    char_span: [0, 1884]
+    sentence_count: 1
+    key_terms: [internships, apply, the-10-best-websites-for-finding-an-internship, how-many-internships-should-i-apply-to, indeed, resume, https, com]
+    token_count: 479
+  - id: "articles/reddit-internships/64e8f2ddda.md#c1"
+    char_span: [1886, 3757]
+    sentence_count: 1
+    key_terms: [follow-ups, resume, follow-up, recruiter, applying, how-and-why-write-great-cover-letter, cover, track]
+    token_count: 475
 ---
-
 # how to get an internship in 2026: everything i am using/doing
 
 Source: [reddit: internships](https://reddit.com/r/internships/comments/1r0nk5p/how_to_get_an_internship_in_2026_everything_i_am/)

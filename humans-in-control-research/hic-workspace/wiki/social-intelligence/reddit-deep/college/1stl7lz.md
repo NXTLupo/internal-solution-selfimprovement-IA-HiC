@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1stl7lz.md
 url: "https://www.reddit.com/r/college/comments/1stl7lz/would_it_be_proper_to_ask_my_professor_to_be_a/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,27 @@ flair: "Career/work"
 extracted_at: "2026-05-25T15:51:48.250Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1stl7lz.md#c0"
+    char_span: [0, 1001]
+    sentence_count: 9
+    key_terms: [education, professor, reference, college, ask, comments, position, school]
+    token_count: 229
+  - id: "social-intelligence/reddit-deep/college/1stl7lz.md#c1"
+    char_span: [1016, 2933]
+    sentence_count: 8
+    key_terms: [reference, professor, ask, good, professors, willing, "they'd", write]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/college/1stl7lz.md#c2"
+    char_span: [2935, 3955]
+    sentence_count: 4
+    key_terms: [request, totally, ask, give, good, got, job, jobs]
+    section: Comments
+    token_count: 221
 ---
-
 # Would it be proper to ask my professor to be a job reference for me?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1stl7lz/would_it_be_proper_to_ask_my_professor_to_be_a/)

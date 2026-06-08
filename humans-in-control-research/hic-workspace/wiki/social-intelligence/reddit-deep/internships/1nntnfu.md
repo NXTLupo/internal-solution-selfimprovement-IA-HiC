@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1nntnfu.md
 url: "https://www.reddit.com/r/internships/comments/1nntnfu/my_lessons_from_1482_job_applications_and_5_offers/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,35 @@ subreddit: "internships"
 title: "My Lessons From 1482 Job Applications and 5 Offers"
 author: "OfComputer"
 date: "2025-09-22T17:59:05.000Z"
-score: 158
+score: 157
 upvote_ratio: 1
 num_comments: 9
 flair: "Offers"
-extracted_at: "2026-05-22T13:32:14.566Z"
+extracted_at: "2026-06-05T18:53:04.656Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1nntnfu.md#c0"
+    char_span: [0, 2249]
+    sentence_count: 27
+    key_terms: [difference, apply, companies, job, better, internships, jobs, different]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1nntnfu.md#c1"
+    char_span: [2251, 4002]
+    sentence_count: 20
+    key_terms: [experience, interview, interviews, questions, job, real, company, resume]
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/internships/1nntnfu.md#c2"
+    char_span: [4017, 4894]
+    sentence_count: 3
+    key_terms: [helpful, thanks, student, openingkitchen7220, want, work, congratulations, real-role872]
+    section: Comments
+    token_count: 238
 ---
-
 # My Lessons From 1482 Job Applications and 5 Offers
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1nntnfu/my_lessons_from_1482_job_applications_and_5_offers/)
-Posted by **OfComputer** · **158↑** · **9 comments**
+Posted by **OfComputer** · **157↑** · **9 comments**
 
 It’s now been a full year since I started job hunting. The first several months were full of failure, disappointment, and nights spent questioning everything. But that pain taught me how to slow down and stand back up. I lost count of how many rejections I got. There were weeks where I felt completely invisible. There were days when I questioned if I was cut out for this. But what kept me going was the quiet belief that one “Congrats” could make all the difference. And it did. I’ve put together the tips and tools that made a real difference. If you’re struggling right now, I hope this helps even a little.
 
@@ -40,10 +57,9 @@ It’s now been a full year since I started job hunting. The first several month
 
 ## Comments
 
-- **Ok_Impact_8418** (5↑): Thank you, this is so helpful and the timing couldn’t be better. I’m a software engineering student, and I’ve started losing hope in finding an internship for my graduation project.
+- **Ok_Impact_8418** (6↑): Thank you, this is so helpful and the timing couldn’t be better. I’m a software engineering student, and I’ve started losing hope in finding an internship for my graduation project.
 - **OpeningKitchen7220** (3↑): Thanks, I am a 4th yr student it is going to helpful
 - **Jichen123** (2↑): I’m not confident given my past experience, but don’t want to spend time on non paid intern. Can I have some advice please
-  - **sumpyori** (1↑): DM me i’ll see if I have some advice, I just recently landed a tech role with not too much experience
 - **Real-Role872** (1↑): Save
 - **brook-hehe** (1↑): Thanks, super helpful.
 - **pritish31v** (1↑): Thanks it helps a lot  ,I am fresher to looking for data analysis job trying hard to to get placed even low paying would work I just want to work in the field I related to ..RN I am in TCS working at back office operations getting played 10k a month I'll start to apply as you instructed..

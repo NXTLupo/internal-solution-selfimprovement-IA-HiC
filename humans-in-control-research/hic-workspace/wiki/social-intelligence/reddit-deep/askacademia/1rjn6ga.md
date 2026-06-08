@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1rjn6ga.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1rjn6ga/would_you_consider_an_advancedlevel_research/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,50 @@ flair: "Administrative"
 extracted_at: "2026-05-26T14:32:49.122Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1rjn6ga.md#c0"
+    char_span: [0, 2181]
+    sentence_count: 11
+    key_terms: [research, project, thesis, bachelor, course, ects, independent, defense]
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/askacademia/1rjn6ga.md#c1"
+    char_span: [2183, 2660]
+    sentence_count: 3
+    key_terms: [level, project, cycle, ects, educational, high-stakes, requirement, assessment]
+    token_count: 101
+  - id: "social-intelligence/reddit-deep/askacademia/1rjn6ga.md#c2"
+    char_span: [2675, 4744]
+    sentence_count: 13
+    key_terms: [experience, another, perspective, good, "bachelor's", motivation, university, programme]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/askacademia/1rjn6ga.md#c3"
+    char_span: [4748, 5912]
+    sentence_count: 8
+    key_terms: [university, experience, another, because, doing, administrative, accreditation, unnecessarily]
+    section: Comments
+    token_count: 236
+  - id: "social-intelligence/reddit-deep/askacademia/1rjn6ga.md#c4"
+    char_span: [5914, 7857]
+    sentence_count: 16
+    key_terms: [like, degree, thesis, exception, bachelor, complete, another, enough]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/askacademia/1rjn6ga.md#c5"
+    char_span: [7859, 9823]
+    sentence_count: 16
+    key_terms: [thesis, work, university, did, alaskawolfjoe, requirements, "don't", institution]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/askacademia/1rjn6ga.md#c6"
+    char_span: [9825, 11717]
+    sentence_count: 12
+    key_terms: [course, degree, university, program, thesis, retroactively, part, situations]
+    section: Comments
+    token_count: 392
 ---
-
 # Would you consider an advanced-level research project (with formal defense) equivalent to a bachelor thesis?
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1rjn6ga/would_you_consider_an_advancedlevel_research/)

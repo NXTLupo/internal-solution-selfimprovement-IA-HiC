@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1p63kqo.md
 url: "https://www.reddit.com/r/findapath/comments/1p63kqo/career_paths_that_have_good_work_life_balance_or/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,21 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-25T13:04:07.384Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1p63kqo.md#c0"
+    char_span: [0, 664]
+    sentence_count: 3
+    key_terms: [work, findapath, comments, balance, "i'm", job, less, life]
+    token_count: 163
+  - id: "social-intelligence/reddit-deep/findapath/1p63kqo.md#c1"
+    char_span: [679, 2631]
+    sentence_count: 14
+    key_terms: [thank, like, work, everyone, helpful, please, findapath, comments]
+    section: Comments
+    token_count: 454
 ---
-
 # Career paths that have good work life balance or less than average hours
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1p63kqo/career_paths_that_have_good_work_life_balance_or/)

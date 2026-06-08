@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1tcaik8.md
 url: "https://www.reddit.com/r/investing/comments/1tcaik8/south_koreas_stock_market_capitalization_has/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,50 @@ flair: ""
 extracted_at: "2026-05-16T20:55:01.244Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1tcaik8.md#c0"
+    char_span: [0, 1320]
+    sentence_count: 3
+    key_terms: [trillion, capitalization, market, australia, germany, kingdom, canada, france]
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/investing/1tcaik8.md#c1"
+    char_span: [1322, 2535]
+    sentence_count: 4
+    key_terms: [financials, korea, south, materials, heavily, energy, global, market]
+    token_count: 259
+  - id: "social-intelligence/reddit-deep/investing/1tcaik8.md#c2"
+    char_span: [2550, 4609]
+    sentence_count: 13
+    key_terms: [birth, korean, korea, companies, economy, rates, years, back]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1tcaik8.md#c3"
+    char_span: [4611, 6027]
+    sentence_count: 7
+    key_terms: [population, less, developed, problem, around, canada, europe, academicastronomer71]
+    section: Comments
+    token_count: 380
+  - id: "social-intelligence/reddit-deep/investing/1tcaik8.md#c4"
+    char_span: [6029, 7238]
+    sentence_count: 13
+    key_terms: [china, india, skilliard7, market, reddit, secretpantyworshiper, japan, moojo]
+    section: Comments
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/investing/1tcaik8.md#c5"
+    char_span: [7240, 9431]
+    sentence_count: 9
+    key_terms: [reunification, scared-discussion443, korea, economic, people, north, long-term, south]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1tcaik8.md#c6"
+    char_span: [9433, 10086]
+    sentence_count: 2
+    key_terms: [secretpantyworshiper, longconsideration662, reunification, economically, vegasbjorne1, politically, difference, meaningful]
+    section: Comments
+    token_count: 178
 ---
-
 # South Korea’s stock market capitalization has surpassed Canada, the United Kingdom, France, Germany, and Australia to become the seventh-largest equity market in the world.
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1tcaik8/south_koreas_stock_market_capitalization_has/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1ror3op.md
 url: "https://www.reddit.com/r/jobs/comments/1ror3op/im_stuck_in_this_period_in_my_life_and_im_trying/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,21 @@ flair: "Job searching"
 extracted_at: "2026-05-20T06:41:17.648Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1ror3op.md#c0"
+    char_span: [0, 1851]
+    sentence_count: 18
+    key_terms: ["i'm", job, people, trying, been, "i've", jobs, work]
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/jobs/1ror3op.md#c1"
+    char_span: [1866, 3116]
+    sentence_count: 12
+    key_terms: [get, job, experience, "doesn't", "don't", start, study, thank]
+    section: Comments
+    token_count: 322
 ---
-
 # I'm Stuck In This Period In My Life And I'm Trying To Find A Job That Hires With No Experience...
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1ror3op/im_stuck_in_this_period_in_my_life_and_im_trying/)

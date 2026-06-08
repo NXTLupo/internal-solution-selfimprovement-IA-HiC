@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1qp4ilp.md
 url: "https://www.reddit.com/r/internships/comments/1qp4ilp/experience_as_a_employee_in_glowlogics_solutions/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,15 @@ flair: "Salary"
 extracted_at: "2026-05-25T18:31:15.454Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1qp4ilp.md#c0"
+    char_span: [0, 991]
+    sentence_count: 6
+    key_terms: [internships, experience, glowlogics, solutions, comments, reddit, able-contact9097, professionally]
+    token_count: 211
 ---
-
 # Experience as a employee in Glowlogics solutions
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1qp4ilp/experience_as_a_employee_in_glowlogics_solutions/)

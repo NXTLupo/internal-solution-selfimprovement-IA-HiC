@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1rocy1k.md
 url: "https://www.reddit.com/r/GradSchool/comments/1rocy1k/really_difficult_decision_attend_grad_school_or/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,57 @@ flair: "Admissions & Applications"
 extracted_at: "2026-05-26T14:32:49.135Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1rocy1k.md#c0"
+    char_span: [0, 1386]
+    sentence_count: 10
+    key_terms: [difficult, town, partner, relationship, gradschool, accepted, comments, decision]
+    token_count: 299
+  - id: "social-intelligence/reddit-deep/gradschool/1rocy1k.md#c1"
+    char_span: [1401, 2739]
+    sentence_count: 11
+    key_terms: [offer, relationship, prestigious, don, get, take, searches, yourself]
+    section: Comments
+    token_count: 321
+  - id: "social-intelligence/reddit-deep/gradschool/1rocy1k.md#c2"
+    char_span: [2741, 3976]
+    sentence_count: 9
+    key_terms: [partner, phd, partners, program, support, health, mental, being]
+    section: Comments
+    token_count: 271
+  - id: "social-intelligence/reddit-deep/gradschool/1rocy1k.md#c3"
+    char_span: [3978, 5947]
+    sentence_count: 14
+    key_terms: [partner, school, together, like, willing, got, phd, sacrifice]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/gradschool/1rocy1k.md#c4"
+    char_span: [5949, 7997]
+    sentence_count: 13
+    key_terms: [relationship, decision, clinton, hilary, school, pinkdictator, "don't", bill]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/gradschool/1rocy1k.md#c5"
+    char_span: [7999, 10036]
+    sentence_count: 17
+    key_terms: [relationship, like, years, marriage, school, professional, redditskippy, decision]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1rocy1k.md#c6"
+    char_span: [9767, 10323]
+    sentence_count: 4
+    key_terms: [partner, opportunities, professional, difference, sacrifices, long-term, sometimes, approach]
+    section: Comments
+    token_count: 140
+  - id: "social-intelligence/reddit-deep/gradschool/1rocy1k.md#c7"
+    char_span: [10325, 11280]
+    sentence_count: 8
+    key_terms: [long, together, school, away, grad, long-distance, relationship, definitely]
+    section: Comments
+    token_count: 212
 ---
-
 # Really difficult decision; attend grad school or stay with partner?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1rocy1k/really_difficult_decision_attend_grad_school_or/)

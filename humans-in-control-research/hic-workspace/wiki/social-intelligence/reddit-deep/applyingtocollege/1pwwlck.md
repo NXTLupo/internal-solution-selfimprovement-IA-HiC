@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1pwwlck/would_you_prefer_an_examonly_acceptance_system/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,69 @@ flair: "Discussion"
 extracted_at: "2026-05-20T12:57:06.070Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c0"
+    char_span: [0, 796]
+    sentence_count: 2
+    key_terms: [admission, applyingtocollege, system, comments, people, prefer, major, complicated]
+    token_count: 179
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c1"
+    char_span: [811, 3125]
+    sentence_count: 16
+    key_terms: [people, diversity, income, meritocracy, correlated, different, argument, national]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c2"
+    char_span: [3127, 4668]
+    sentence_count: 16
+    key_terms: [diversity, colleges, because, engineering, approach, amounts, example, schools]
+    section: Comments
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c3"
+    char_span: [4671, 6966]
+    sentence_count: 13
+    key_terms: [diversity, engineers, physicists, example, physics, good, experience, humanities]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c4"
+    char_span: [6968, 8780]
+    sentence_count: 16
+    key_terms: [opportunities, connections, good, idea, scientists, accepted, einstein, because]
+    section: Comments
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c5"
+    char_span: [8782, 10418]
+    sentence_count: 9
+    key_terms: [admissions, system, grades, flawed, standardized, grade, like, side]
+    section: Comments
+    token_count: 357
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c6"
+    char_span: [10420, 12479]
+    sentence_count: 10
+    key_terms: [system, china, worse, probably, extracurriculars, "china's", income, ecs]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c7"
+    char_span: [12481, 13637]
+    sentence_count: 8
+    key_terms: [system, college, school, "it's", rest, packing-tape-man, standardized, competition]
+    section: Comments
+    token_count: 249
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c8"
+    char_span: [13639, 15716]
+    sentence_count: 12
+    key_terms: [exam, entrance, system, "you're", life, colleges, parental, pressure]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c9"
+    char_span: [15718, 17749]
+    sentence_count: 9
+    key_terms: [system, get, people, academics, ecs, test, because, prefer]
+    section: Comments
+    token_count: 465
 ---
-
 # Would you prefer an exam-only acceptance system?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1pwwlck/would_you_prefer_an_examonly_acceptance_system/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1phczgc.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1phczgc/confluent_jumps_30_premarket_after_ibm_buys_it/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,50 @@ flair: "News"
 extracted_at: "2026-05-17T01:14:17.612Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, saas, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1phczgc.md#c0"
+    char_span: [0, 2044]
+    sentence_count: 3
+    key_terms: [confluent, ibm-buy-confluent-11-billion-130718587, ibm, cloud, data, billion, company, infrastructure]
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1phczgc.md#c1"
+    char_span: [2046, 2450]
+    sentence_count: 1
+    key_terms: [expected, cash, deal, png, year, l1up2pwakz5g1, "transaction's", transaction]
+    token_count: 124
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1phczgc.md#c2"
+    char_span: [2465, 2675]
+    sentence_count: 1
+    key_terms: [months, total, submissions, visualmod, comments, previous, account, report]
+    section: Comments
+    token_count: 77
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1phczgc.md#c3"
+    char_span: [2677, 4425]
+    sentence_count: 12
+    key_terms: [ibm, thatguyfrmboston, discord, indian, months, cheaptechnology6193, stretchantique9147, dev]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1phczgc.md#c4"
+    char_span: [4180, 4857]
+    sentence_count: 5
+    key_terms: [ibm, underpaid--sysadmin, blue, dev, does, shop, exhoberant, slick2hold]
+    section: Comments
+    token_count: 176
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1phczgc.md#c5"
+    char_span: [4859, 6352]
+    sentence_count: 12
+    key_terms: [ibm, year, products, realize, "you'll", sales, start, liquidpele]
+    section: Comments
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1phczgc.md#c6"
+    char_span: [6354, 7132]
+    sentence_count: 2
+    key_terms: [good, software, ibm, confectiondry7881, josephkambourakis, aliensweetpotato, capitalize, gatovision]
+    section: Comments
+    token_count: 222
 ---
-
 # Confluent jumps 30% premarket after IBM buys it for $11B in cash as AI data demand surges
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1phczgc/confluent_jumps_30_premarket_after_ibm_buys_it/)

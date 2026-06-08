@@ -1,4 +1,5 @@
 ---
+id: anti-patterns/prd.md
 title: "PRD Anti-Patterns"
 type: anti-pattern
 created: 2026-04-10
@@ -8,8 +9,62 @@ confidence: high
 status: active
 tags: [anti-patterns, prd, quality-gates]
 evidence_count: 0
+chunks:
+  - id: "anti-patterns/prd.md#c0"
+    char_span: [0, 2318]
+    sentence_count: 11
+    key_terms: [problem, features, strategic, business, alternative, description, need, user]
+    section: "AP-PRD-001: Solution Masquerading as Problem / AP-PRD-002: Feature List Without Strategic Context"
+    token_count: 439
+  - id: "anti-patterns/prd.md#c1"
+    char_span: [2364, 3390]
+    sentence_count: 4
+    key_terms: [criteria, acceptance, queries, results, language, search, fast, implementation]
+    section: "AP-PRD-003: Vacuous Acceptance Criteria"
+    token_count: 201
+  - id: "anti-patterns/prd.md#c2"
+    char_span: [3437, 4444]
+    sentence_count: 3
+    key_terms: [search, scope, analytics, language, requires, natural, built, state]
+    section: "AP-PRD-004: Missing Out-of-Scope Section"
+    token_count: 199
+  - id: "anti-patterns/prd.md#c3"
+    char_span: [4483, 5470]
+    sentence_count: 6
+    key_terms: [metrics, success, metric, self-service, resolution, trade-offs, guardrail, increase]
+    section: "AP-PRD-005: No Guardrail Metrics"
+    token_count: 205
+  - id: "anti-patterns/prd.md#c4"
+    char_span: [5522, 6324]
+    sentence_count: 2
+    key_terms: [current, without, months, target, nps, baseline, achieve, metrics]
+    section: "AP-PRD-006: Success Metrics Without Baselines"
+    token_count: 184
+  - id: "anti-patterns/prd.md#c5"
+    char_span: [6379, 7321]
+    sentence_count: 2
+    key_terms: [implementation, stories, technical, user, search, perspective, developer, describe]
+    section: "AP-PRD-007: User Stories That Are Actually Tasks"
+    token_count: 183
+  - id: "anti-patterns/prd.md#c6"
+    char_span: [7363, 8320]
+    sentence_count: 3
+    key_terms: [risks, risk, mitigation, payment, dependency, processor, adoption, severity]
+    section: "AP-PRD-008: Missing Risk Assessment"
+    token_count: 181
+  - id: "anti-patterns/prd.md#c7"
+    char_span: [8354, 9480]
+    sentence_count: 3
+    key_terms: [requirements, prd, incorporating, specification, validated, document, learning, exactly]
+    section: "AP-PRD-009: PRD-as-Contract"
+    token_count: 215
+  - id: "anti-patterns/prd.md#c8"
+    char_span: [9523, 10630]
+    sentence_count: 7
+    key_terms: [stakeholder, alignment, disagreements, stakeholders, engineering, unresolved, approved, document]
+    section: "AP-PRD-010: No Stakeholder Alignment"
+    token_count: 218
 ---
-
 # PRD Anti-Patterns
 
 Known failure modes in product requirements document deliverables. Use as negative few-shot examples during generation to ensure PRDs are problem-anchored, measurable, and actionable.

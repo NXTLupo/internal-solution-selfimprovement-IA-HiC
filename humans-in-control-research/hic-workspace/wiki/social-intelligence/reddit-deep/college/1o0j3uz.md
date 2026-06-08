@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1o0j3uz.md
 url: "https://www.reddit.com/r/college/comments/1o0j3uz/the_2026_best_colleges_in_america_stanford_babson/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,21 @@ flair: "North America"
 extracted_at: "2026-05-23T12:15:24.658Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1o0j3uz.md#c0"
+    char_span: [0, 886]
+    sentence_count: 4
+    key_terms: [best-colleges-america-2026-f64d590e, college, wsj, https, com, www, education, wsjreddit]
+    token_count: 246
+  - id: "social-intelligence/reddit-deep/college/1o0j3uz.md#c1"
+    char_span: [901, 1407]
+    sentence_count: 3
+    key_terms: [school, authoritarian, automatically, hannahneedle, university, political, academic, business]
+    section: Comments
+    token_count: 118
 ---
-
 # The 2026 Best Colleges in America: Stanford, Babson and Yale Take Top Spots
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1o0j3uz/the_2026_best_colleges_in_america_stanford_babson/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1teevie.md
 url: "https://www.reddit.com/r/GradSchool/comments/1teevie/what_time_do_you_guys_schedule_your_grad_classes/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,27 @@ flair: "Academics"
 extracted_at: "2026-05-26T14:32:49.143Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1teevie.md#c0"
+    char_span: [0, 1030]
+    sentence_count: 9
+    key_terms: [grad, time, school, class, gradschool, comments, choices, program]
+    token_count: 255
+  - id: "social-intelligence/reddit-deep/gradschool/1teevie.md#c1"
+    char_span: [1045, 2431]
+    sentence_count: 12
+    key_terms: [classes, semester, class, choices, morning, didn, time, scheduled]
+    section: Comments
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/gradschool/1teevie.md#c2"
+    char_span: [2433, 3777]
+    sentence_count: 8
+    key_terms: [time, class, day, classes, evening, choice, early, get]
+    section: Comments
+    token_count: 371
 ---
-
 # What time do you guys schedule your grad classes?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1teevie/what_time_do_you_guys_schedule_your_grad_classes/)

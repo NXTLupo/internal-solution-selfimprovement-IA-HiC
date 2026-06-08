@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1s9yyv7.md
 url: "https://www.reddit.com/r/GradSchool/comments/1s9yyv7/would_it_be_wrong_to_message_connect_with/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,27 @@ flair: "Admissions & Applications"
 extracted_at: "2026-05-26T14:32:49.131Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1s9yyv7.md#c0"
+    char_span: [0, 479]
+    sentence_count: 3
+    key_terms: [gradschool, comments, soon, consequences, reddit-deep, admissions, everything, currently]
+    token_count: 115
+  - id: "social-intelligence/reddit-deep/gradschool/1s9yyv7.md#c1"
+    char_span: [494, 2322]
+    sentence_count: 9
+    key_terms: [program, questions, students, "you're", admissions, start, year, pis]
+    section: Comments
+    token_count: 386
+  - id: "social-intelligence/reddit-deep/gradschool/1s9yyv7.md#c2"
+    char_span: [2324, 3545]
+    sentence_count: 11
+    key_terms: [administrative, field, staff, fall, work, semester, summer, though]
+    section: Comments
+    token_count: 279
 ---
-
 # Would it be wrong to message & connect with staff/admissions of grad schools I'm applying to soon?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1s9yyv7/would_it_be_wrong_to_message_connect_with/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1rsekow.md
 url: "https://www.reddit.com/r/GradSchool/comments/1rsekow/got_my_bachelors_degree_now_grad_school_what_are/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-20T12:57:40.640Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1rsekow.md#c0"
+    char_span: [0, 804]
+    sentence_count: 10
+    key_terms: [grad, school, gradschool, comments, college, spicyspagettinoodle, want, inconveniences]
+    token_count: 206
+  - id: "social-intelligence/reddit-deep/gradschool/1rsekow.md#c1"
+    char_span: [819, 2211]
+    sentence_count: 14
+    key_terms: [reading, undergrad, outside, "you're", ahead, responsible, grad, help]
+    section: Comments
+    token_count: 314
+  - id: "social-intelligence/reddit-deep/gradschool/1rsekow.md#c2"
+    char_span: [2213, 4556]
+    sentence_count: 15
+    key_terms: [different, undergrad, class, classes, reading, information, grad, took]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/gradschool/1rsekow.md#c3"
+    char_span: [4558, 6321]
+    sentence_count: 3
+    key_terms: [week, hours, means, undergrad, expected, already, program, subject]
+    section: Comments
+    token_count: 406
+  - id: "social-intelligence/reddit-deep/gradschool/1rsekow.md#c4"
+    char_span: [6323, 8009]
+    sentence_count: 14
+    key_terms: [get, lot, sure, yourself, electrical-lobster64, placeeducational1705, doing, going]
+    section: Comments
+    token_count: 419
 ---
-
 # Got my bachelors degree. Now grad school? What are the things that no one prepared you for in grad school (even minor inconveniences)?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1rsekow/got_my_bachelors_degree_now_grad_school_what_are/)

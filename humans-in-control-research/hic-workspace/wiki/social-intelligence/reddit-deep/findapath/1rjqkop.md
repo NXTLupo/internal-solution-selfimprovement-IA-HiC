@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1rjqkop.md
 url: "https://www.reddit.com/r/findapath/comments/1rjqkop/27m_current_career_path_has_nothing_to_do_with/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,51 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-25T13:04:07.377Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1rjqkop.md#c0"
+    char_span: [0, 1229]
+    sentence_count: 10
+    key_terms: [career, working, life, findapath, something, comments, someone, anyone]
+    token_count: 299
+  - id: "social-intelligence/reddit-deep/findapath/1rjqkop.md#c1"
+    char_span: [1244, 2191]
+    sentence_count: 9
+    key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/findapath/1rjqkop.md#c2"
+    char_span: [2194, 4200]
+    sentence_count: 13
+    key_terms: [caviarbentley, traveling, doing, did, work, dividends, working, greece]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/findapath/1rjqkop.md#c3"
+    char_span: [4202, 6338]
+    sentence_count: 14
+    key_terms: [something, entrepreneurship, people, job, time, business, starting, content]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/findapath/1rjqkop.md#c4"
+    char_span: [6340, 8280]
+    sentence_count: 10
+    key_terms: [onacloverifalive, brutallyhonestb, thought, independent, experience, journalism, something, channel]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/findapath/1rjqkop.md#c5"
+    char_span: [8282, 9916]
+    sentence_count: 9
+    key_terms: [electrician, get, businesses, people, skills, snoopredictions7570, years, misappropriations]
+    section: Comments
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/findapath/1rjqkop.md#c6"
+    char_span: [9918, 10623]
+    sentence_count: 7
+    key_terms: [own, work, sales, job, brutallyhonestb, counseling, meaningful, overpriced]
+    section: Comments
+    token_count: 181
 ---
-
 # 27M, current career path has nothing to do with desired career path. Has anyone here made a 180 in their working life? Please share.
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1rjqkop/27m_current_career_path_has_nothing_to_do_with/)

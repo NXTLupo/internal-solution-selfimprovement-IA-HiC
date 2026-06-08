@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/c3e8ebc6bd.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1puwtmr/21m_cs_data_science_major_unable_to_find_fulltime/"
 url_hash: "c3e8ebc6bd"
 kind: "article"
@@ -8,10 +9,27 @@ author: ""
 date: "2025-12-24T20:40:28.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-23T15:00:54.013801+00:00"
-chars: 5627
+extracted_at: "2026-06-06T13:09:53.128484+00:00"
+chars: 5628
+relevance: 45
+engagement_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/c3e8ebc6bd.md#c0"
+    char_span: [0, 1885]
+    sentence_count: 12
+    key_terms: [been, "i've", interviews, cscareerquestions, data, "i'm", job, find]
+    token_count: 414
+  - id: "articles/reddit-deep-r-cscareerquestions/c3e8ebc6bd.md#c1"
+    char_span: [1887, 3880]
+    sentence_count: 18
+    key_terms: ["i'm", "don't", "i've", people, clear, right, like, christmas]
+    token_count: 459
+  - id: "articles/reddit-deep-r-cscareerquestions/c3e8ebc6bd.md#c2"
+    char_span: [3882, 5889]
+    sentence_count: 12
+    key_terms: [leetcode, like, something, projects, coding, chili-lime-chihuahua, responsible-elk-1939, "don't"]
+    token_count: 470
 ---
-
 # 21M, CS + Data Science major unable to find full-time job, even in the NYC metro area. Am I doomed?
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1puwtmr/21m_cs_data_science_major_unable_to_find_fulltime/)
@@ -31,15 +49,15 @@ I've received mixed messaging on whether to consider grad school. My parents are
 I just want to know what to do, because things seem absolutely grim, and people who've been through 2008 keep calling me entitled and telling me that the job market now isn't nearly as bad as 2008. Keep doing what I'm doing and hope something lands? But if nothing lands, what then? Certmaxx and pivot to IT? Push boxes in some Amazon warehouse alongside people without college degrees, rendering the degree worthless?
 
 --- TOP COMMENTS ---
-[159↑ AugusteToulmouche] > I barely even grind Leetcode anymore, since it just makes me disappointed whenever I fail questions that are supposedly "Easy" or "Medium". If you gave me a Leetcode-style interview or OA right now, I'd probably fail it.
+[158↑ AugusteToulmouche] > I barely even grind Leetcode anymore, since it just makes me disappointed whenever I fail questions that are supposedly "Easy" or "Medium". If you gave me a Leetcode-style interview or OA right now, I'd probably fail it.
 
 I mean sounds like you know exactly what you’d have to do to turn things around but are hoping that we’d offer u a secret solution that doesn’t involve that. 
 
 Sorry but there’s no such magic wand and more importantly no one’s coming to save you. 
 
 To put it bluntly, put in the hours now or stay cooked, you owe it to your future-self, good luck.
-[17↑ Plat_A_Puss] Is griding leet code really the only way
-[22↑ Cuddlyaxe] I'm much more on the data science side so leetcode isn't as important, but personally I focused on projects I was passionate about and it actually landed me a job in a pretty nice niche
+[18↑ Plat_A_Puss] Is griding leet code really the only way
+[24↑ Cuddlyaxe] I'm much more on the data science side so leetcode isn't as important, but personally I focused on projects I was passionate about and it actually landed me a job in a pretty nice niche
 
 If you don't want to go through the leetcode bullshit, then you need to show something actually impressive in terms of projects. If you actually build something it's much harder to ignore
 
@@ -48,10 +66,10 @@ My friend hustled a bit more than me and literally called some small businesses 
 Yet other people do open source work 
 
 Again tho idk how applicable this is for SWEs since I think the coding level demanded is usually higher than for DS
-[9↑ [deleted]] no but its still the most low-risk way to employment
-[4↑ Chili-Lime-Chihuahua] Not every company uses LeetCode. Some use practical coding tests in very specific languages. Some of it depends on the kinds of companies being targeted.
+[10↑ [deleted]] no but its still the most low-risk way to employment
+[5↑ Chili-Lime-Chihuahua] Not every company uses LeetCode. Some use practical coding tests in very specific languages. Some of it depends on the kinds of companies being targeted.
 [2↑ Responsible-Elk-1939] This is harsh but honestly needed to hear. The market sucks right now but giving up on leetcode when you know that's what's blocking you is basically self-sabotage
-[-40↑ MarathonMarathon] What if I really really despise Leetcode?
-[59↑ hannahbay] Do you like getting paid?
+[-45↑ MarathonMarathon] What if I really really despise Leetcode?
+[58↑ hannahbay] Do you like getting paid?
 
 Sometimes you have to do things you don't like to get paid.

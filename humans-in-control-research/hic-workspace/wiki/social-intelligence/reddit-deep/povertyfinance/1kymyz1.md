@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1kymyz1.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1kymyz1/what_can_i_do/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,81 @@ flair: "Budgeting/Saving/Investing/Spending"
 extracted_at: "2026-05-17T01:13:55.879Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c0"
+    char_span: [0, 742]
+    sentence_count: 8
+    key_terms: [currently, "i'm", povertyfinance, comments, phones, trying, phone, since]
+    token_count: 197
+  - id: "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c1"
+    char_span: [757, 2629]
+    sentence_count: 10
+    key_terms: [watch, phone, unlimited, answer, calls, "don't", dumb, "it's"]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c2"
+    char_span: [2388, 4321]
+    sentence_count: 10
+    key_terms: [unlimited, month, like, phones, gsm, line, networks, outright]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c3"
+    char_span: [4102, 4595]
+    sentence_count: 4
+    key_terms: [car, old, fyiyouareamoron, opening-ad4543, anonymous4986, temporarily, insurance, liability]
+    section: Comments
+    token_count: 139
+  - id: "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c4"
+    char_span: [4597, 6322]
+    sentence_count: 13
+    key_terms: [phone, youtube, coverage, state, watch, commercials, like, probably]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c5"
+    char_span: [6324, 8236]
+    sentence_count: 22
+    key_terms: [phone, car, need, insurance, mint, youtube, mobile, take]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c6"
+    char_span: [8238, 10179]
+    sentence_count: 16
+    key_terms: [subscriptions, get, youtube, phones, car, free, something, prepaid]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c7"
+    char_span: [10181, 11824]
+    sentence_count: 19
+    key_terms: [phone, insurance, cat, biggest, around, either, litter, seems]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c8"
+    char_span: [11826, 13673]
+    sentence_count: 18
+    key_terms: [mint, number, mobile, phone, bananavixen, data, unlimited, verizon]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c9"
+    char_span: [13675, 14738]
+    sentence_count: 14
+    key_terms: [phones, temporarily, car, income, payoff, "you're", bring, "can't"]
+    section: Comments
+    token_count: 256
+  - id: "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c10"
+    char_span: [14740, 16636]
+    sentence_count: 18
+    key_terms: [phone, get, pay, interest, payments, phones, buy, debt]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/povertyfinance/1kymyz1.md#c11"
+    char_span: [16638, 18050]
+    sentence_count: 11
+    key_terms: [extra, promotions, car, month, year, depending, watches, without]
+    section: Comments
+    token_count: 378
 ---
-
 # What can I do?
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1kymyz1/what_can_i_do/)

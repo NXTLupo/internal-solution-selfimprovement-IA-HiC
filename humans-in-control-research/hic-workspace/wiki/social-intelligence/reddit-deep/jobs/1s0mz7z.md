@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1s0mz7z.md
 url: "https://www.reddit.com/r/jobs/comments/1s0mz7z/ive_applied_to_1500_jobs_improved_my_skills_and/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,39 @@ flair: "Interviews"
 extracted_at: "2026-05-20T06:41:17.637Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1s0mz7z.md#c0"
+    char_span: [0, 1817]
+    sentence_count: 22
+    key_terms: [get, jobs, told, right, back, work, everything, experience]
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/jobs/1s0mz7z.md#c1"
+    char_span: [1832, 3932]
+    sentence_count: 27
+    key_terms: [people, years, don, job, too, candidates, depression, experience]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/jobs/1s0mz7z.md#c2"
+    char_span: [3934, 4801]
+    sentence_count: 8
+    key_terms: [interviews, probably, getting, resume, point, gap, "i'm", "i've"]
+    section: Comments
+    token_count: 190
+  - id: "social-intelligence/reddit-deep/jobs/1s0mz7z.md#c3"
+    char_span: [4803, 6935]
+    sentence_count: 17
+    key_terms: [through, years, been, jobs, temp, situation, applying, getting]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/jobs/1s0mz7z.md#c4"
+    char_span: [6937, 8044]
+    sentence_count: 10
+    key_terms: [experience, companies, multiple, broken, like, work, hour-two-3104, overqualified]
+    section: Comments
+    token_count: 247
 ---
-
 # I’ve applied to 1,500+ jobs, improved my skills, and still can’t get hired. What am I doing wrong?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1s0mz7z/ive_applied_to_1500_jobs_improved_my_skills_and/)

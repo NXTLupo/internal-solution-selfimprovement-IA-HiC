@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1redjn9.md
 url: "https://www.reddit.com/r/careerguidance/comments/1redjn9/what_skills_to_focus_on_collage_life_as_bba_mba/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Education & Qualifications"
 extracted_at: "2026-05-19T17:57:31.309Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1redjn9.md#c0"
+    char_span: [0, 871]
+    sentence_count: 2
+    key_terms: [skills, mumbai, marketing, bba, collage, careerguidance, nimms, internships]
+    token_count: 227
+  - id: "social-intelligence/reddit-deep/careerguidance/1redjn9.md#c1"
+    char_span: [886, 1720]
+    sentence_count: 2
+    key_terms: [marketing, ads, internship, analytics, facebook, manager, google, skills]
+    section: Comments
+    token_count: 197
 ---
-
 # What skills to focus on  collage life as bba + mba student  (marketing roles) to secure high placements or internships  need guidance roadmap.. what tools or skills to opt as first year bba student (Nimms mumbai)??
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1redjn9/what_skills_to_focus_on_collage_life_as_bba_mba/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-deeplearning/6f7b9dbddc.md
 url: "https://www.reddit.com/r/deeplearning/comments/1swsbca/we_proved_that_every_supervised_model_youve_ever/"
 url_hash: "6f7b9dbddc"
 kind: "article"
@@ -10,8 +11,45 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T17:33:58.393236+00:00"
 chars: 12000
+industries: [ai_research]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-deeplearning/6f7b9dbddc.md#c0"
+    char_span: [0, 2452]
+    sentence_count: 20
+    key_terms: [training, model, texture, erm, distribution, directions, supervised, data]
+    token_count: 516
+  - id: "articles/reddit-deep-r-deeplearning/6f7b9dbddc.md#c1"
+    char_span: [2454, 4189]
+    sentence_count: 14
+    key_terms: [jacobian, erm, pgd, directions, representations, adversarial, tdi, robustness]
+    token_count: 454
+  - id: "articles/reddit-deep-r-deeplearning/6f7b9dbddc.md#c2"
+    char_span: [4191, 6096]
+    sentence_count: 8
+    key_terms: [blind, ratio, spot, jacobian, nuisance, geometric-analysis-of-deep-learning, model, erm]
+    token_count: 498
+  - id: "articles/reddit-deep-r-deeplearning/6f7b9dbddc.md#c3"
+    char_span: [6098, 7809]
+    sentence_count: 15
+    key_terms: [directions, preference, uniformly, across, correlations, distribution, adversarial, rlhf]
+    token_count: 402
+  - id: "articles/reddit-deep-r-deeplearning/6f7b9dbddc.md#c4"
+    char_span: [7811, 9721]
+    sentence_count: 10
+    key_terms: [tdi, model, frobenius, jacobian, theorem, distribution, "it's", norm]
+    token_count: 509
+  - id: "articles/reddit-deep-r-deeplearning/6f7b9dbddc.md#c5"
+    char_span: [9723, 11537]
+    sentence_count: 8
+    key_terms: [picture, adversarial, learn, "it's", always, grass, fine-tuning, specific]
+    token_count: 418
+  - id: "articles/reddit-deep-r-deeplearning/6f7b9dbddc.md#c6"
+    char_span: [11539, 12287]
+    sentence_count: 5
+    key_terms: [models, nightmarelogic420, generalisation, intraluminal, self-driving, taranpula39, confidence, end-to-end]
+    token_count: 189
 ---
-
 # We proved that every supervised model you've ever trained has a geometric blind spot; and adversarial training makes it worse, not better
 
 Source: [Reddit Deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1swsbca/we_proved_that_every_supervised_model_youve_ever/)

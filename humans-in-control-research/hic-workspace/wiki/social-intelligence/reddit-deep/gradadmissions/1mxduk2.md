@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1mxduk2.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1mxduk2/low_gpa_acceptance/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,39 @@ flair: "Humanities"
 extracted_at: "2026-05-23T14:54:16.714Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1mxduk2.md#c0"
+    char_span: [0, 654]
+    sentence_count: 2
+    key_terms: [gradadmissions, gpa, comments, because, reddit, grad, low, reddit-deep]
+    token_count: 165
+  - id: "social-intelligence/reddit-deep/gradadmissions/1mxduk2.md#c1"
+    char_span: [669, 2571]
+    sentence_count: 9
+    key_terms: [gpa, like, low, undergrad, roseyardgraves, addressed, genuinely, radianthc]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1mxduk2.md#c2"
+    char_span: [2418, 4089]
+    sentence_count: 11
+    key_terms: [gpa, did, statement, congrats, application, thank, low, admissions]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/gradadmissions/1mxduk2.md#c3"
+    char_span: [4091, 6196]
+    sentence_count: 15
+    key_terms: [gpa, experience, did, confidence, addressed, interview, professor, undergrad]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/gradadmissions/1mxduk2.md#c4"
+    char_span: [6198, 6857]
+    sentence_count: 8
+    key_terms: [experience, got, gpa, gre, research, publication, university, australia]
+    section: Comments
+    token_count: 173
 ---
-
 # LOW GPA ACCEPTANCE!!
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1mxduk2/low_gpa_acceptance/)

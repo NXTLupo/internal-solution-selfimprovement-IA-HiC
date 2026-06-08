@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1t6pw4a.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1t6pw4a/new_grad_job_but_feel_lost/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: "New Grad"
 extracted_at: "2026-05-20T03:56:10.753Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t6pw4a.md#c0"
+    char_span: [0, 678]
+    sentence_count: 6
+    key_terms: [cscareerquestions, feel, lost, comments, setup, grad, job, new]
+    token_count: 169
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t6pw4a.md#c1"
+    char_span: [693, 2177]
+    sentence_count: 8
+    key_terms: ["you're", comfortable, environment, experience, yesterday, feeling, working, months]
+    section: Comments
+    token_count: 358
 ---
-
 # New Grad Job But Feel Lost
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1t6pw4a/new_grad_job_but_feel_lost/)

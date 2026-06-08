@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1oijglr.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1oijglr/i_find_it_strange_how_many_people_who_grew_up/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,63 @@ flair: "Budgeting/Saving/Investing/Spending"
 extracted_at: "2026-05-16T20:55:12.689Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c0"
+    char_span: [0, 1433]
+    sentence_count: 11
+    key_terms: [year, poor, povertyfinance, income, girlfriend, comments, dollars, around]
+    token_count: 386
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c1"
+    char_span: [1448, 3416]
+    sentence_count: 16
+    key_terms: [money, "i'm", opposite, people, spend, good, something, poverty]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c2"
+    char_span: [3418, 5514]
+    sentence_count: 9
+    key_terms: [money, house, lottery, going, buy, poor, meatloaf, mortgage]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c3"
+    char_span: [5516, 7093]
+    sentence_count: 14
+    key_terms: [money, women, judged, spend, clothing, mindset, enjoy, going]
+    section: Comments
+    token_count: 366
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c4"
+    char_span: [7095, 8392]
+    sentence_count: 8
+    key_terms: [people, something, feel, save, learning, professorghost-x, budget, essential]
+    section: Comments
+    token_count: 302
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c5"
+    char_span: [8394, 10435]
+    sentence_count: 17
+    key_terms: [spend, money, professorghost-x, because, anything, poverty, "it's", time]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c6"
+    char_span: [10437, 12569]
+    sentence_count: 15
+    key_terms: [money, like, having, currency, housing, income, people, saving]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c7"
+    char_span: [12571, 14059]
+    sentence_count: 9
+    key_terms: [money, time, girlfriend, anything, being, never, justanotherday1977, onions-make-me-cry]
+    section: Comments
+    token_count: 401
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c8"
+    char_span: [14061, 14726]
+    sentence_count: 4
+    key_terms: [money, marriage, account, dating, person, "you're", house, turquoisestar]
+    section: Comments
+    token_count: 154
 ---
-
 # I find it strange how many people who grew up poor don’t really know how to live poor, and maybe that’s part of why they stay poor.
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1oijglr/i_find_it_strange_how_many_people_who_grew_up/)

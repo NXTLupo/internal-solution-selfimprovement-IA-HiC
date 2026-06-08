@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1lgjl8y.md
 url: "https://www.reddit.com/r/NEU/comments/1lgjl8y/is_it_just_me_or_is_this_school_really_awful/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-26T14:30:23.765Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1lgjl8y.md#c0"
+    char_span: [0, 1702]
+    sentence_count: 15
+    key_terms: [school, semester, through, neu, seriously, comments, teaching, college]
+    token_count: 380
+  - id: "social-intelligence/reddit-deep/neu/1lgjl8y.md#c1"
+    char_span: [1717, 3476]
+    sentence_count: 10
+    key_terms: [professors, classes, good, choose, school, northeastern, been, definitely]
+    section: Comments
+    token_count: 389
+  - id: "social-intelligence/reddit-deep/neu/1lgjl8y.md#c2"
+    char_span: [3478, 4589]
+    sentence_count: 9
+    key_terms: [professors, been, classes, ratings, better, choose, based, get]
+    section: Comments
+    token_count: 259
+  - id: "social-intelligence/reddit-deep/neu/1lgjl8y.md#c3"
+    char_span: [4591, 6876]
+    sentence_count: 19
+    key_terms: [professors, here, time, classes, knowledgeable, architecture, northeastern, loved]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/neu/1lgjl8y.md#c4"
+    char_span: [6587, 6887]
+    sentence_count: 1
+    key_terms: [architecture, professors, design, cryptography, northeastern, computation, elegantly, around]
+    section: Comments
+    token_count: 68
 ---
-
 # Is it just me or is this school really awful?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1lgjl8y/is_it_just_me_or_is_this_school_really_awful/)

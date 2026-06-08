@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tnv2fd.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tnv2fd/wish_i_knew_how_to_spot_toxic_workplace_signs/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,37 @@ flair: "Advice"
 extracted_at: "2026-05-26T14:32:49.164Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tnv2fd.md#c0"
+    char_span: [0, 2169]
+    sentence_count: 21
+    key_terms: ["you're", careerguidance, good, workplaces, decisions, genuinely, comments, earlier]
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/careerguidance/1tnv2fd.md#c1"
+    char_span: [2171, 4129]
+    sentence_count: 15
+    key_terms: [something, situation, conversations, books, real, feedback, learning, dealing]
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/careerguidance/1tnv2fd.md#c2"
+    char_span: [4131, 5220]
+    sentence_count: 12
+    key_terms: [career, good, genuinely, therapist, earlier, people, trying, "you've"]
+    token_count: 226
+  - id: "social-intelligence/reddit-deep/careerguidance/1tnv2fd.md#c3"
+    char_span: [5235, 7294]
+    sentence_count: 17
+    key_terms: [performance, people, job, get, "it's", life, work, negative]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/careerguidance/1tnv2fd.md#c4"
+    char_span: [7296, 8498]
+    sentence_count: 10
+    key_terms: [toxic, scheduled, helpful, someone, "didn't", giving, books, thank]
+    section: Comments
+    token_count: 285
 ---
-
 # Wish I knew how to spot toxic workplace signs earlier. Sharing what I've learned in my late 30s for anyone newer to work life. Have you experienced this ?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tnv2fd/wish_i_knew_how_to_spot_toxic_workplace_signs/)

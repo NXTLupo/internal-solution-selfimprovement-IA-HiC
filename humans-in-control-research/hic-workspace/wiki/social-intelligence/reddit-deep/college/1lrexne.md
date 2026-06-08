@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1lrexne.md
 url: "https://www.reddit.com/r/college/comments/1lrexne/how_will_the_big_beautiful_bill_affect_students/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,39 @@ flair: "USA"
 extracted_at: "2026-05-26T14:31:29.698Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1lrexne.md#c0"
+    char_span: [0, 1183]
+    sentence_count: 12
+    key_terms: [like, college, scared, feel, comments, affect, future, trying]
+    token_count: 274
+  - id: "social-intelligence/reddit-deep/college/1lrexne.md#c1"
+    char_span: [1198, 2821]
+    sentence_count: 14
+    key_terms: [something, like, students, tuition, international, local, want, government]
+    section: Comments
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/college/1lrexne.md#c2"
+    char_span: [2823, 4088]
+    sentence_count: 11
+    key_terms: [backlash, sucks, wonderful, "there's", always, back, "it's", iohannesrhetor]
+    section: Comments
+    token_count: 288
+  - id: "social-intelligence/reddit-deep/college/1lrexne.md#c3"
+    char_span: [4090, 6092]
+    sentence_count: 12
+    key_terms: [removes, college, iohannesrhetor, get, here, "i'm", nolanc23, because]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/college/1lrexne.md#c4"
+    char_span: [6094, 7499]
+    sentence_count: 12
+    key_terms: [support, don, job, canada, trumps, professional-fuel889, great, start]
+    section: Comments
+    token_count: 366
 ---
-
 # How will the big beautiful bill affect students like me? I’m scared for my future!
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1lrexne/how_will_the_big_beautiful_bill_affect_students/)

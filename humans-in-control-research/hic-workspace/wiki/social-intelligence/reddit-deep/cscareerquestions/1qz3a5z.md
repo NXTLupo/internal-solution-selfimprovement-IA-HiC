@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1qz3a5z/do_you_think_have_above_average_social_skills_is/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,45 @@ flair: "Experienced"
 extracted_at: "2026-05-20T06:40:32.328Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c0"
+    char_span: [0, 1354]
+    sentence_count: 8
+    key_terms: [programming, skills, being, cscareerquestions, average, better, able, don]
+    token_count: 306
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c1"
+    char_span: [1369, 3107]
+    sentence_count: 14
+    key_terms: [skills, average, social, like, coding, unfortunately, above, below]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c2"
+    char_span: [3109, 4185]
+    sentence_count: 5
+    key_terms: [skills, get, industry, promoted, myself, normal, social, worked]
+    section: Comments
+    token_count: 262
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c3"
+    char_span: [4188, 5599]
+    sentence_count: 9
+    key_terms: [skills, asking, social, being, programming, good, l00babies, improve]
+    section: Comments
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c4"
+    char_span: [5601, 7465]
+    sentence_count: 20
+    key_terms: [test, skills, technical, social, left-right-middle, need, job, average]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qz3a5z.md#c5"
+    char_span: [7467, 9676]
+    sentence_count: 14
+    key_terms: [average, programming, skills, social, technical, fun, work, person]
+    section: Comments
+    token_count: 482
 ---
-
 # Do you think have above average social skills is better than having above average programming skills
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1qz3a5z/do_you_think_have_above_average_social_skills_is/)

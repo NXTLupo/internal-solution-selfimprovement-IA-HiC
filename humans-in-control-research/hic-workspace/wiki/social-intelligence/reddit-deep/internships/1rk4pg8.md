@@ -6,19 +6,19 @@ subreddit: "internships"
 title: "Tips to make your resume ATS friendly"
 author: "ddddeeeeg"
 date: "2026-03-03T23:08:15.000Z"
-score: 70
+score: 71
 upvote_ratio: 0.97
 num_comments: 9
 flair: "Resume"
-extracted_at: "2026-05-23T19:44:46.351Z"
+extracted_at: "2026-06-06T23:20:46.215Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Tips to make your resume ATS friendly
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rk4pg8/tips_to_make_your_resume_ats_friendly/)
-Posted by **ddddeeeeg** · **70↑** · **9 comments**
+Posted by **ddddeeeeg** · **71↑** · **9 comments**
 
 In my [recent post about the public list of 2026/2027 internships](https://www.reddit.com/r/internships/comments/1rff7qh/its_not_too_late_for_summer_2026_internships/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button) I built, several people asked me to review their resumes - I spent some time going through them and a common theme of my feedback was to make your resume as ATS (applicant tracking system) friendly as possible. I figured I’d share a few quick tips for making your resume more ATS-friendly and getting your resume in front of actual recruiters.
 

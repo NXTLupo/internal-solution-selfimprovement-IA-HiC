@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1n1qlk7.md
 url: "https://www.reddit.com/r/GenZ/comments/1n1qlk7/i_feel_like_its_too_late_for_me_to_succeed_in_life/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,39 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.769Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [workforce, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1n1qlk7.md#c0"
+    char_span: [0, 1488]
+    sentence_count: 16
+    key_terms: [time, "haven't", "don't", money, "it's", life, try, comments]
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/genz/1n1qlk7.md#c1"
+    char_span: [1503, 3273]
+    sentence_count: 12
+    key_terms: [life, years, get, credit, card, don, new, emergency]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/genz/1n1qlk7.md#c2"
+    char_span: [3275, 4783]
+    sentence_count: 13
+    key_terms: [deleted, professional, https, comments, college, finance, grocery, advice]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/genz/1n1qlk7.md#c3"
+    char_span: [4785, 6569]
+    sentence_count: 17
+    key_terms: [get, too, sure, yourself, program, enough, people, money]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/genz/1n1qlk7.md#c4"
+    char_span: [6571, 6941]
+    sentence_count: 3
+    key_terms: [c1dbca746e745e78ccf0ae07e25d62c5e65c3a0e, franklindrizzevelt32, foundation, benefits, military, another, joining, preview]
+    section: Comments
+    token_count: 134
 ---
-
 # I feel like it's too late for me to succeed in life.
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1n1qlk7/i_feel_like_its_too_late_for_me_to_succeed_in_life/)

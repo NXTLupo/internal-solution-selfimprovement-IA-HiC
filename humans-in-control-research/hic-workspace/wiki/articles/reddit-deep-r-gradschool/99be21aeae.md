@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-gradschool/99be21aeae.md
 url: "https://www.reddit.com/r/GradSchool/comments/1t7kwor/grad_students_who_arent_taing_over_the_summer/"
 url_hash: "99be21aeae"
 kind: "article"
@@ -10,8 +11,30 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-19T15:17:34.739098+00:00"
 chars: 3812
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-gradschool/99be21aeae.md#c0"
+    char_span: [0, 904]
+    sentence_count: 5
+    key_terms: [work, gradschool, university, students, reddit, summer, grad, research-related]
+    token_count: 192
+  - id: "articles/reddit-deep-r-gradschool/99be21aeae.md#c1"
+    char_span: [906, 3146]
+    sentence_count: 7
+    key_terms: [like, genuinely, jobs, people, though, store, don, old]
+    token_count: 512
+  - id: "articles/reddit-deep-r-gradschool/99be21aeae.md#c2"
+    char_span: [2850, 3277]
+    sentence_count: 1
+    key_terms: [feels, side, tool, work, unemployment, especially, everything, impossible]
+    token_count: 100
+  - id: "articles/reddit-deep-r-gradschool/99be21aeae.md#c3"
+    char_span: [3279, 4086]
+    sentence_count: 6
+    key_terms: [summer, scholarships, starting, funding, through, "didn't", gotten, wanted]
+    token_count: 189
 ---
-
 # Grad students who aren’t TAing over the summer, what are you doing for income that doesn’t completely derail your research/sanity?
 
 Source: [Reddit Deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1t7kwor/grad_students_who_arent_taing_over_the_summer/)

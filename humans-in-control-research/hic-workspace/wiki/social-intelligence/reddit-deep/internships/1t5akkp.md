@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1t5akkp.md
 url: "https://www.reddit.com/r/internships/comments/1t5akkp/first_year_bba_student_looking_for_business/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,22 @@ score: 2
 upvote_ratio: 1
 num_comments: 4
 flair: "General"
-extracted_at: "2026-05-25T13:01:40.286Z"
+extracted_at: "2026-06-06T00:27:36.085Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1t5akkp.md#c0"
+    char_span: [0, 1366]
+    sentence_count: 8
+    key_terms: [development, internships, business, analytics, sure, experience, internship, comments]
+    token_count: 296
+  - id: "social-intelligence/reddit-deep/internships/1t5akkp.md#c1"
+    char_span: [1381, 1992]
+    sentence_count: 3
+    key_terms: [internshipdaily, com, apply, financial-rich-273, sweet-frosting4839, city, reccomended, acceptence]
+    section: Comments
+    token_count: 143
 ---
-
 # First year BBA student looking for Business Analytics/Business Development internships, need advice
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1t5akkp/first_year_bba_student_looking_for_business/)
@@ -43,7 +55,5 @@ Thanks in advance!
 
 ## Comments
 
-- **bootyhole_licker69** (2↑): lean hard on 66pixels, show numbers, build 2 strong projects, hit linkedin dms daily, market is trash
-  - **Financial-Rich-273** (1↑): We did a few projects and case studies recently and still working on it, the thing is idk whom to reach out on linkedin. my network is quite shallow
 - **Sweet-Frosting4839** (2↑): youre early, not late. summer 2026 roles are still dropping daily and internshipdaily.com makes this way easier since it tracks new postings fast, filter for business analytics and biz dev and apply in batches. what city are you targeting?
   - **Financial-Rich-273** (1↑): Isn't it generally reccomended not apply online as it has very low acceptence rates and companies typically do this to create talent pools? I was thinking on using referals and networking. However, I will try [internshipdaily.com](http://internshipdaily.com) and I'm trying in my home city Hyderabad, India.

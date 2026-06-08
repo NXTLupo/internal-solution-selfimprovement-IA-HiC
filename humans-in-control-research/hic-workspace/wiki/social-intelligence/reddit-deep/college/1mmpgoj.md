@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1mmpgoj.md
 url: "https://www.reddit.com/r/college/comments/1mmpgoj/older_students_promised_a_2_person_unit_now_stuck/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,44 @@ flair: "Living Arrangements/roommates"
 extracted_at: "2026-05-23T20:15:18.465Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1mmpgoj.md#c0"
+    char_span: [0, 2127]
+    sentence_count: 20
+    key_terms: [person, housing, unit, college, office, students, school, older]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/college/1mmpgoj.md#c1"
+    char_span: [2129, 2676]
+    sentence_count: 5
+    key_terms: [leasing, person, back, lot, aggressive, responding, scheduled, everyone]
+    token_count: 126
+  - id: "social-intelligence/reddit-deep/college/1mmpgoj.md#c2"
+    char_span: [2691, 4695]
+    sentence_count: 15
+    key_terms: [person, difference, housing, title, woman, "it's", need, definitely]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/college/1mmpgoj.md#c3"
+    char_span: [4697, 6695]
+    sentence_count: 21
+    key_terms: [housing, "she's", because, transitioning, comfortable, told, roommate, stalking]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/college/1mmpgoj.md#c4"
+    char_span: [6697, 8875]
+    sentence_count: 14
+    key_terms: [housing, being, year-old, because, person, get, guaranteed, treatment]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/college/1mmpgoj.md#c5"
+    char_span: [8877, 11211]
+    sentence_count: 19
+    key_terms: [housing, university, roommate, "don't", situation, somewhere, change, potentially]
+    section: Comments
+    token_count: 495
 ---
-
 # Older students promised a 2 person unit, now stuck in a 3 person with a freshman. Advice?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1mmpgoj/older_students_promised_a_2_person_unit_now_stuck/)

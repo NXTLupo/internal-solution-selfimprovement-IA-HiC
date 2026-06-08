@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careeradvice/ce50a2b8dd.md
 url: "https://www.reddit.com/r/careeradvice/comments/1sb7y4e/leveraging_ai_to_accelerate_your_career/"
 url_hash: "ce50a2b8dd"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T18:59:14.473956+00:00"
 chars: 2203
+industries: [workforce, ai_research]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-careeradvice/ce50a2b8dd.md#c0"
+    char_span: [0, 991]
+    sentence_count: 7
+    key_terms: [work, skills, careeradvice, accelerate, leveraging, learning, career, reddit]
+    token_count: 230
+  - id: "articles/reddit-deep-r-careeradvice/ce50a2b8dd.md#c1"
+    char_span: [993, 2384]
+    sentence_count: 4
+    key_terms: [workflows, replace, agents, agent, quick, doc, real, seen]
+    token_count: 300
 ---
-
 # Leveraging AI to accelerate your career
 
 Source: [Reddit Deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1sb7y4e/leveraging_ai_to_accelerate_your_career/)

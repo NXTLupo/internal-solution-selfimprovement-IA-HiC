@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1kz5khl.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1kz5khl/chatgpt_has_ruined_the_em_dash_forever/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,75 @@ flair: "Use cases "
 extracted_at: "2026-05-11T16:54:08.814Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1kz5khl.md#c0"
+    char_span: [0, 918]
+    sentence_count: 5
+    key_terms: [chatgpt, dash, mdash, html, use, redditors, comments, because]
+    token_count: 242
+  - id: "social-intelligence/reddit-deep/chatgpt/1kz5khl.md#c1"
+    char_span: [933, 1169]
+    sentence_count: 2
+    key_terms: [discord, withoutreason1729, post, contribution, appreciate, featured, rchatgpt, getting]
+    section: Comments
+    token_count: 58
+  - id: "social-intelligence/reddit-deep/chatgpt/1kz5khl.md#c2"
+    char_span: [1171, 2993]
+    sentence_count: 6
+    key_terms: [dash, hyphen, used, becomes, hyphens, double, automatically, autocorrects]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1kz5khl.md#c3"
+    char_span: [2752, 3660]
+    sentence_count: 4
+    key_terms: [dash, use, though, because, always, reasonable-letter582, until, "i've"]
+    section: Comments
+    token_count: 251
+  - id: "social-intelligence/reddit-deep/chatgpt/1kz5khl.md#c4"
+    char_span: [3662, 5016]
+    sentence_count: 7
+    key_terms: [time, best, dash, word, dashes, highcontrastrainbow, years, lotusgrowsfrommud]
+    section: Comments
+    token_count: 377
+  - id: "social-intelligence/reddit-deep/chatgpt/1kz5khl.md#c5"
+    char_span: [5018, 5669]
+    sentence_count: 2
+    key_terms: [complextechnician, tell, disagreement, expressing, suggesting, indicator, sovereign, facebook]
+    section: Comments
+    token_count: 150
+  - id: "social-intelligence/reddit-deep/chatgpt/1kz5khl.md#c6"
+    char_span: [5671, 7449]
+    sentence_count: 9
+    key_terms: ["it's", emojis, like, use, structure, followed, already, because]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/chatgpt/1kz5khl.md#c7"
+    char_span: [7451, 9304]
+    sentence_count: 11
+    key_terms: [dashes, like, use, because, people, "that's", elitistcarrot, dash]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/chatgpt/1kz5khl.md#c8"
+    char_span: [9306, 11331]
+    sentence_count: 16
+    key_terms: [people, writing, common, dashes, publications, posts, post, used]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1kz5khl.md#c9"
+    char_span: [11086, 11675]
+    sentence_count: 3
+    key_terms: [emdash, people, use, commenting, shadowolf, somewhere, coherent, comments]
+    section: Comments
+    token_count: 150
+  - id: "social-intelligence/reddit-deep/chatgpt/1kz5khl.md#c10"
+    char_span: [11677, 12809]
+    sentence_count: 12
+    key_terms: [reddit, option-shift-minus, professionally, footnotes, seriously, because, em-dash, either]
+    section: Comments
+    token_count: 309
 ---
-
 # ChatGPT has ruined the "em dash" forever
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1kz5khl/chatgpt_has_ruined_the_em_dash_forever/)

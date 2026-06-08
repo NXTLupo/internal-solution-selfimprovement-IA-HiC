@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1pejus9.md
 url: "https://www.reddit.com/r/jobs/comments/1pejus9/advice_on_career_development_when_to_leave/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,21 @@ flair: "Leaving a job"
 extracted_at: "2026-05-25T13:03:11.722Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1pejus9.md#c0"
+    char_span: [0, 1088]
+    sentence_count: 7
+    key_terms: [experience, jobs, years, job, new, management, comments, account]
+    token_count: 253
+  - id: "social-intelligence/reddit-deep/jobs/1pejus9.md#c1"
+    char_span: [1103, 1780]
+    sentence_count: 5
+    key_terms: [job, making, legitimatefig792, applications, bob-dolemite, interviews, submitting, potential]
+    section: Comments
+    token_count: 177
 ---
-
 # Advice on career development - when to leave current job
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1pejus9/advice_on_career_development_when_to_leave/)

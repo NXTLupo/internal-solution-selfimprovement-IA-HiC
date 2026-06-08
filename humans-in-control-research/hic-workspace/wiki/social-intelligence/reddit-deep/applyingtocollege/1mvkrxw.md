@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1mvkrxw.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1mvkrxw/good_colleges_for_premed_programsexperience/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,21 @@ flair: "College Questions"
 extracted_at: "2026-05-24T14:08:39.594Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mvkrxw.md#c0"
+    char_span: [0, 625]
+    sentence_count: 1
+    key_terms: [applyingtocollege, experience, comments, programs, pre-med, necessarily, reddit-deep, financial]
+    token_count: 156
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mvkrxw.md#c1"
+    char_span: [640, 2208]
+    sentence_count: 5
+    key_terms: [financial, aid, need-based, help, students, college, premed, well-regarded]
+    section: Comments
+    token_count: 383
 ---
-
 # Good colleges for pre-med programs/experience + financial aid? (undergrad)
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1mvkrxw/good_colleges_for_premed_programsexperience/)

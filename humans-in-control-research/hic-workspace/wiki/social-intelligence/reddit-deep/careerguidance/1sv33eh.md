@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sv33eh.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sv33eh/im_26_burnt_out_on_stressful_sales_and_dont_have/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,38 @@ flair: "Advice"
 extracted_at: "2026-05-26T14:32:49.165Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sv33eh.md#c0"
+    char_span: [0, 1984]
+    sentence_count: 18
+    key_terms: [like, feel, careerguidance, unethical, comments, expected, because, degrees]
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/careerguidance/1sv33eh.md#c1"
+    char_span: [1986, 3516]
+    sentence_count: 15
+    key_terms: [something, sales, like, work, someone, being, small, find]
+    token_count: 356
+  - id: "social-intelligence/reddit-deep/careerguidance/1sv33eh.md#c2"
+    char_span: [3531, 5276]
+    sentence_count: 13
+    key_terms: [misaligned, sales, like, people, burnt, internet, figure, start]
+    section: Comments
+    token_count: 405
+  - id: "social-intelligence/reddit-deep/careerguidance/1sv33eh.md#c3"
+    char_span: [5278, 7379]
+    sentence_count: 14
+    key_terms: [work, answer, people, sales, life, treatment, industry, thinking]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/careerguidance/1sv33eh.md#c4"
+    char_span: [7381, 9421]
+    sentence_count: 18
+    key_terms: [rich, sales, business, start, job, like, new, something]
+    section: Comments
+    token_count: 426
 ---
-
 # I’m 26, burnt out on stressful sales, and don't have a degree. How do I find a stable career that doesn't feel like an unethical 'sprint'?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sv33eh/im_26_burnt_out_on_stressful_sales_and_dont_have/)

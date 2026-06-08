@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1lcq7k9.md
 url: "https://www.reddit.com/r/careerguidance/comments/1lcq7k9/is_learning_google_cloud_platform_gcp_a_good/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-22T15:13:18.809Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1lcq7k9.md#c0"
+    char_span: [0, 1766]
+    sentence_count: 11
+    key_terms: [cloud, bangalore, gcp, training, careerguidance, google, especially, comments]
+    token_count: 381
 ---
-
 # Is Learning Google Cloud Platform (GCP) a Good Career Move in 2025 for IT Students in  Bangalore ?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1lcq7k9/is_learning_google_cloud_platform_gcp_a_good/)

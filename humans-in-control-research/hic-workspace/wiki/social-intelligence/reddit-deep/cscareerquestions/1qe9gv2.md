@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1qe9gv2.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1qe9gv2/should_i_even_keep_trying/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,51 @@ flair: "New Grad"
 extracted_at: "2026-05-20T12:57:40.623Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qe9gv2.md#c0"
+    char_span: [0, 815]
+    sentence_count: 10
+    key_terms: [cscareerquestions, trying, got, job, tech, comments, programming, reddit-deep]
+    token_count: 197
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qe9gv2.md#c1"
+    char_span: [830, 2729]
+    sentence_count: 5
+    key_terms: [get, network, years, like, show, experience, something, relevant]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qe9gv2.md#c2"
+    char_span: [2731, 3971]
+    sentence_count: 3
+    key_terms: [jobs, anything, robotics, updates, done, help, like, opportunities]
+    section: Comments
+    token_count: 284
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qe9gv2.md#c3"
+    char_span: [3973, 5943]
+    sentence_count: 13
+    key_terms: [role, did, candidates, interview, industry, answer, market, aintnobodygottime89]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qe9gv2.md#c4"
+    char_span: [5945, 7276]
+    sentence_count: 18
+    key_terms: [programming, resume, been, "it's", going, time, reflection, anything]
+    section: Comments
+    token_count: 320
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qe9gv2.md#c5"
+    char_span: [7278, 9339]
+    sentence_count: 18
+    key_terms: [getting, companies, job, people, engineering, own, projects, amazing]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qe9gv2.md#c6"
+    char_span: [9341, 11143]
+    sentence_count: 18
+    key_terms: [resume, interviews, years, people, entry, level, maybe, "it's"]
+    section: Comments
+    token_count: 396
 ---
-
 # Should I Even Keep Trying?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1qe9gv2/should_i_even_keep_trying/)

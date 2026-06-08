@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1roq8t3/wanting_to_start_a_family_but_genuinely_unsure_if/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,87 @@ flair: "New Grad"
 extracted_at: "2026-05-26T12:54:26.404Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c0"
+    char_span: [0, 1872]
+    sentence_count: 27
+    key_terms: [career, cscareerquestions, "i'm", kids, like, want, wife, engineers]
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c1"
+    char_span: [1887, 4221]
+    sentence_count: 20
+    key_terms: [opportunities, jobs, pristine-item680, people, means, here, role, absolutely]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c2"
+    char_span: [4223, 6300]
+    sentence_count: 16
+    key_terms: [timelysuccess7537, getting, unemployment, lose, automated, average, because, coaches]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c3"
+    char_span: [6302, 8331]
+    sentence_count: 20
+    key_terms: [jobs, work, pristine-item680, people, "don't", human, replaced, around]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c4"
+    char_span: [8333, 10496]
+    sentence_count: 16
+    key_terms: [lostquestionsss, careers, happens, likely, disappearing, average, destroy, smarter]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c5"
+    char_span: [10498, 12406]
+    sentence_count: 22
+    key_terms: [jobs, like, career, exist, maybe, pivot, knowledge, trying]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c6"
+    char_span: [12408, 14124]
+    sentence_count: 17
+    key_terms: [strings, job, automate, because, leasing, friend, future, mining]
+    section: Comments
+    token_count: 409
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c7"
+    char_span: [14126, 16369]
+    sentence_count: 13
+    key_terms: [engineering, automated, jobs, software, leasing, "can't", years, llm]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c8"
+    char_span: [16371, 17678]
+    sentence_count: 11
+    key_terms: [languages, new, frameworks, different, systems, human, code, etc]
+    section: Comments
+    token_count: 286
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c9"
+    char_span: [17680, 19648]
+    sentence_count: 16
+    key_terms: [engineers, engineering, get, job, kids, replaced, scenario, father]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c10"
+    char_span: [19650, 21403]
+    sentence_count: 12
+    key_terms: [kids, having, people, offshoring, engineers, bloated, idiotic, layoffs]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c11"
+    char_span: [21405, 23616]
+    sentence_count: 21
+    key_terms: [people, valuable, change, likely, "you're", "i'm", jobs, automated]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1roq8t3.md#c12"
+    char_span: [23618, 25035]
+    sentence_count: 11
+    key_terms: [care, kids, life, having, don, wife, current-fig8840, internetcookiez]
+    section: Comments
+    token_count: 338
 ---
-
 # Wanting to start a family but genuinely unsure if my career will exist in 10 years
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1roq8t3/wanting_to_start_a_family_but_genuinely_unsure_if/)

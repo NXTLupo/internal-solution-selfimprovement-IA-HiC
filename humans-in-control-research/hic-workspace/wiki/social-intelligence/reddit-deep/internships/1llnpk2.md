@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1llnpk2.md
 url: "https://www.reddit.com/r/internships/comments/1llnpk2/meti_japan_internship_program_2025/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -7,14 +8,37 @@ title: "METI Japan Internship Program 2025"
 author: "daylight_0605"
 date: "2025-06-27T07:20:26.000Z"
 score: 19
-upvote_ratio: 0.96
+upvote_ratio: 1
 num_comments: 89
 flair: "Applications"
-extracted_at: "2026-05-26T14:30:47.905Z"
+extracted_at: "2026-06-06T13:03:30.725Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1llnpk2.md#c0"
+    char_span: [0, 1038]
+    sentence_count: 7
+    key_terms: [internship, internshipprogram, program, https, japan, internships, experience, comments]
+    token_count: 242
+  - id: "social-intelligence/reddit-deep/internships/1llnpk2.md#c1"
+    char_span: [1053, 2656]
+    sentence_count: 2
+    key_terms: [odd-indication-8237, connect, too, applied, deleted, mail, contest, receive]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1llnpk2.md#c2"
+    char_span: [2441, 4549]
+    sentence_count: 4
+    key_terms: [enrollment, letter, form, provide, university, odd-indication-8237, got, interview]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1llnpk2.md#c3"
+    char_span: [4317, 4567]
+    sentence_count: 1
+    key_terms: [anyone, update, ineedtoselectaname, acceptance, rejection, accepted, received, updates]
+    section: Comments
+    token_count: 73
 ---
-
 # METI Japan Internship Program 2025
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1llnpk2/meti_japan_internship_program_2025/)

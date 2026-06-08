@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1pzul5l.md
 url: "https://www.reddit.com/r/NEU/comments/1pzul5l/10_tips_for_succeeding_at_northeastern/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,44 @@ flair: "Advice & Experiences"
 extracted_at: "2026-05-12T20:36:08.369Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1pzul5l.md#c0"
+    char_span: [0, 1772]
+    sentence_count: 16
+    key_terms: [get, northeastern, "you're", class, delta, "don't", major, life]
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/neu/1pzul5l.md#c1"
+    char_span: [1774, 2882]
+    sentence_count: 13
+    key_terms: [abroad, accept, study, feel, get, like, experience, something]
+    token_count: 243
+  - id: "social-intelligence/reddit-deep/neu/1pzul5l.md#c2"
+    char_span: [2897, 4381]
+    sentence_count: 8
+    key_terms: [classes, class, drop, like, students, advice, better, school]
+    section: Comments
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/neu/1pzul5l.md#c3"
+    char_span: [4383, 6697]
+    sentence_count: 18
+    key_terms: [friends, greek, life, because, does, being, co-op, "isn't"]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/neu/1pzul5l.md#c4"
+    char_span: [6407, 6719]
+    sentence_count: 3
+    key_terms: [friends, because, become, grungusmalungus, collectively, socializing, instantly, brothers]
+    section: Comments
+    token_count: 68
+  - id: "social-intelligence/reddit-deep/neu/1pzul5l.md#c5"
+    char_span: [6721, 7670]
+    sentence_count: 5
+    key_terms: [getting, people, odd-possibility-6233, greek, point, share, wholewonderful9478, delt]
+    section: Comments
+    token_count: 259
 ---
-
 # 10 Tips for Succeeding at Northeastern
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1pzul5l/10_tips_for_succeeding_at_northeastern/)

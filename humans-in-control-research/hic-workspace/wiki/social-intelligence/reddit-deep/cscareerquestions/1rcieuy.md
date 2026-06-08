@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rcieuy.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rcieuy/posttech_career_options/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,63 @@ flair: "Experienced"
 extracted_at: "2026-05-26T12:54:26.424Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rcieuy.md#c0"
+    char_span: [0, 1089]
+    sentence_count: 7
+    key_terms: [cscareerquestions, "i'm", folks, comments, thanks, years, here, experimenting]
+    token_count: 246
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rcieuy.md#c1"
+    char_span: [1104, 1722]
+    sentence_count: 2
+    key_terms: [roles, less, work, meaningfully, transitioned, autonomous, difficult, knowledge]
+    section: Comments
+    token_count: 140
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rcieuy.md#c2"
+    char_span: [1724, 3887]
+    sentence_count: 11
+    key_terms: [engineer, "i'm", years, aws, did, absolutely, interview, solutions]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rcieuy.md#c3"
+    char_span: [3597, 4792]
+    sentence_count: 8
+    key_terms: [magicsign, software, years, "i'm", solutions, skills, post-acceleration, sure]
+    section: Comments
+    token_count: 293
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rcieuy.md#c4"
+    char_span: [4794, 6721]
+    sentence_count: 10
+    key_terms: [lot, tech, people, specialized, profession, companies, software, becomes]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rcieuy.md#c5"
+    char_span: [6723, 8570]
+    sentence_count: 14
+    key_terms: [business, already, wages, able, "i'm", "i've", work, industry]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rcieuy.md#c6"
+    char_span: [8572, 10519]
+    sentence_count: 11
+    key_terms: [years, people, collar, "you're", electricians, get, "it's", like]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rcieuy.md#c7"
+    char_span: [10521, 12534]
+    sentence_count: 8
+    key_terms: [tatankaymontiay, people, year, services, because, driving, "there's", bubble]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rcieuy.md#c8"
+    char_span: [12536, 14331]
+    sentence_count: 15
+    key_terms: [minuetinursamajor, "you're", tech, someone, redact, skills, maybe, pivot]
+    section: Comments
+    token_count: 443
 ---
-
 # Post-Tech Career Options
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rcieuy/posttech_career_options/)

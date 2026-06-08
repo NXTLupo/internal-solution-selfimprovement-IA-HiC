@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1r93zts.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1r93zts/33m_trying_to_choose_between_settling_down_vs/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,56 @@ flair: "Lifestyle"
 extracted_at: "2026-05-26T12:53:56.733Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c0"
+    char_span: [0, 2235]
+    sentence_count: 17
+    key_terms: [like, feels, digitalnomad, citizenship, countries, currently, lifestyle, somewhere]
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c1"
+    char_span: [2237, 3370]
+    sentence_count: 8
+    key_terms: [traveling, dating, build, base, lean, want, opportunities, experiences]
+    token_count: 233
+  - id: "social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c2"
+    char_span: [3385, 4904]
+    sentence_count: 12
+    key_terms: [citizenship, german, get, "it's", canada, europe, great, bit]
+    section: Comments
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c3"
+    char_span: [4906, 6890]
+    sentence_count: 11
+    key_terms: ["it's", house, equity, "there's", happen, important, although, "sister's"]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c4"
+    char_span: [6892, 8993]
+    sentence_count: 12
+    key_terms: [property, citizenship, especially, need, canada, place, buy, want]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c5"
+    char_span: [8995, 10842]
+    sentence_count: 12
+    key_terms: [like, citizenship, europe, until, "it's", lot, yetimaverick, get]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c6"
+    char_span: [10844, 13003]
+    sentence_count: 13
+    key_terms: [country, poland, ukrainian, probably, context, someone, ukraine, europe]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c7"
+    char_span: [13005, 14173]
+    sentence_count: 9
+    key_terms: [canada, here, stabilize, bought, making, moving, month, place]
+    section: Comments
+    token_count: 295
 ---
-
 # 33M trying to choose between settling down vs continuing the nomad life, feeling stuck between Canada and Europe
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1r93zts/33m_trying_to_choose_between_settling_down_vs/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1rgks60.md
 url: "https://www.reddit.com/r/jobs/comments/1rgks60/they_gave_me_an_offer_for_more_than_what_i_asked/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,51 @@ flair: "Compensation"
 extracted_at: "2026-05-24T14:10:06.652Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1rgks60.md#c0"
+    char_span: [0, 1110]
+    sentence_count: 8
+    key_terms: [job, comments, mentiontechnical9805, asked, offer, right, start, tells]
+    token_count: 277
+  - id: "social-intelligence/reddit-deep/jobs/1rgks60.md#c1"
+    char_span: [1125, 1247]
+    sentence_count: 3
+    key_terms: [opportunity, boombappat, congrats, success, wishing, works, deal, hope]
+    section: Comments
+    token_count: 33
+  - id: "social-intelligence/reddit-deep/jobs/1rgks60.md#c2"
+    char_span: [1249, 3183]
+    sentence_count: 20
+    key_terms: [position, years, been, didn, flag, job, red, year]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1rgks60.md#c3"
+    char_span: [2919, 4878]
+    sentence_count: 17
+    key_terms: [experience, range, job, because, salary, years, been, something]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1rgks60.md#c4"
+    char_span: [4622, 6186]
+    sentence_count: 12
+    key_terms: [happened, people, company, around, medicineconstant7130, asked, gonna, years]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/jobs/1rgks60.md#c5"
+    char_span: [6191, 7352]
+    sentence_count: 9
+    key_terms: [mean, higher, hiring, above, offer, onyxlabyrinth1979, pay, accountability]
+    section: Comments
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/jobs/1rgks60.md#c6"
+    char_span: [7354, 9306]
+    sentence_count: 16
+    key_terms: [get, industry, software, years, programmers, job, profession, bootcamp]
+    section: Comments
+    token_count: 468
 ---
-
 # They gave me an offer for more than what I asked..!
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1rgks60/they_gave_me_an_offer_for_more_than_what_i_asked/)

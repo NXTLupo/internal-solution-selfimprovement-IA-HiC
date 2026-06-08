@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1td9fu5.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1td9fu5/how_to_grow_in_this_career_looking_for_advice_for/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: "New Grad"
 extracted_at: "2026-05-22T23:33:42.300Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1td9fu5.md#c0"
+    char_span: [0, 749]
+    sentence_count: 8
+    key_terms: [cscareerquestions, advice, comments, career, donts, dos, catsweaty4883, reddit-deep]
+    token_count: 186
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1td9fu5.md#c1"
+    char_span: [764, 2320]
+    sentence_count: 12
+    key_terms: [catsweaty4883, technical, managers, decided, "doesn't", manager, impact, matter]
+    section: Comments
+    token_count: 354
 ---
-
 # How to grow in this career? Looking for advice for dos and donts.
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1td9fu5/how_to_grow_in_this_career_looking_for_advice_for/)

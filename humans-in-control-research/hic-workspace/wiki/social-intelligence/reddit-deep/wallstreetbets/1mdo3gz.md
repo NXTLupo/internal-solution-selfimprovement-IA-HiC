@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1mdo3gz/i_lost_everything_cvna/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,75 @@ flair: "Loss"
 extracted_at: "2026-05-16T20:54:42.964Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, retail]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c0"
+    char_span: [0, 703]
+    sentence_count: 12
+    key_terms: [everything, wallstreetbets, comments, tomorrow, anyways, wanted, sucks, don]
+    token_count: 192
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c1"
+    char_span: [718, 1921]
+    sentence_count: 4
+    key_terms: [wsb, degenerate, discord, called, making, https, money, never]
+    section: Comments
+    token_count: 338
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c2"
+    char_span: [1924, 2890]
+    sentence_count: 3
+    key_terms: [rope, playing, doing, until, yacht, teslaselectricbill, thebourbonoftruth, png]
+    section: Comments
+    token_count: 317
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c3"
+    char_span: [2892, 4665]
+    sentence_count: 19
+    key_terms: [like, loss, individual, minutes, options, outcome, boring, stocks]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c4"
+    char_span: [4667, 5901]
+    sentence_count: 7
+    key_terms: [million, did, yippiekayyaymrfalcon, sword, stunning-power8885, dumb, get, hit]
+    section: Comments
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c5"
+    char_span: [5903, 6840]
+    sentence_count: 1
+    key_terms: [e947d670e7b9c241137c624c4ff063b0aeb89a03, couple, options-n-hookers, popularplanet3000, some-elevator3065, post-rock-mickey, idkwhatimbrewin, dolphingarden]
+    section: Comments
+    token_count: 302
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c6"
+    char_span: [6842, 8036]
+    sentence_count: 7
+    key_terms: [tsla, short, cvna, down, time, shorting, selling, report]
+    section: Comments
+    token_count: 315
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c7"
+    char_span: [8038, 9607]
+    sentence_count: 10
+    key_terms: [cvna, shorting, wendies, anbu-black-ops, short, bro, get, last]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c8"
+    char_span: [9612, 10500]
+    sentence_count: 4
+    key_terms: [stock, earnings, never, sofi, isospeedrix, wafflepiezz, expiration, logicbully]
+    section: Comments
+    token_count: 236
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c9"
+    char_span: [10502, 12262]
+    sentence_count: 6
+    key_terms: [too, least, unionadventurous3831, calls, overcookedfantasy, ball, cvna, get]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c10"
+    char_span: [12265, 14091]
+    sentence_count: 13
+    key_terms: [cars, cooking, fucking, people, short, been, hype, inventory]
+    section: Comments
+    token_count: 498
 ---
-
 # I lost everything - CVNA
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1mdo3gz/i_lost_everything_cvna/)

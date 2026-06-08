@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1m5kqv2.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1m5kqv2/softbank_1000_ai_agents_replace_1_job_one_billion/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,69 @@ flair: ""
 extracted_at: "2026-05-25T13:02:11.354Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m5kqv2.md#c0"
+    char_span: [0, 1483]
+    sentence_count: 8
+    key_terms: [softbank-1-000-ai-agents-replace-1-job-10490309, agents, cscareerquestions, softbank, https, human, programming, end]
+    token_count: 352
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m5kqv2.md#c1"
+    char_span: [1498, 3418]
+    sentence_count: 4
+    key_terms: [wework, bankruptcy, masayoshi, company, without, dashingthroughsnow12, inevitable-craft-745, recognitionsignal425]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m5kqv2.md#c2"
+    char_span: [3133, 5027]
+    sentence_count: 7
+    key_terms: ["doesn't", bets, rate, masayoshi, getting, agents, recognitionsignal425, abject-kitchen3198]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m5kqv2.md#c3"
+    char_span: [4780, 5546]
+    sentence_count: 2
+    key_terms: [costs, openai, rate, profitable, operating, dashingthroughsnow12, "isn't", burn]
+    section: Comments
+    token_count: 200
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m5kqv2.md#c4"
+    char_span: [5548, 7534]
+    sentence_count: 15
+    key_terms: ["it's", cheaper, media, lie, pay, compared, falling, better]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m5kqv2.md#c5"
+    char_span: [7536, 9032]
+    sentence_count: 13
+    key_terms: [agents, talent, competitive, competitors, advantage, workforce, everyone, access]
+    section: Comments
+    token_count: 343
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m5kqv2.md#c6"
+    char_span: [9034, 10469]
+    sentence_count: 8
+    key_terms: [low, situations, because, cheaper, pretty, human, cost, llm]
+    section: Comments
+    token_count: 365
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m5kqv2.md#c7"
+    char_span: [10471, 12174]
+    sentence_count: 10
+    key_terms: [companies, programming, "i've", hungover, invested, company, anyone, burned]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m5kqv2.md#c8"
+    char_span: [12176, 14094]
+    sentence_count: 16
+    key_terms: [right, yesterday, chatgpt, outages, claims, making, random, asked]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m5kqv2.md#c9"
+    char_span: [14098, 16064]
+    sentence_count: 22
+    key_terms: [dick, solve, water, get, problem, right, work, absolutely]
+    section: Comments
+    token_count: 465
 ---
-
 # Softbank: 1,000 AI agents replace 1 job. One billion AI agents are set to be deployed this year. "The era of human programmers is coming to an end", says Masayoshi Son
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1m5kqv2/softbank_1000_ai_agents_replace_1_job_one_billion/)

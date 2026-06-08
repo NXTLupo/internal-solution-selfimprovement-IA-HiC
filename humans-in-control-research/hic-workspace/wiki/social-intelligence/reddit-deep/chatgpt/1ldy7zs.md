@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1ldy7zs.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1ldy7zs/i_asked_chatgpt_the_top_ten_things_humanity/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,164 @@ flair: "Educational Purpose Only "
 extracted_at: "2026-05-17T01:12:48.202Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c0"
+    char_span: [0, 2302]
+    sentence_count: 23
+    key_terms: [chatgpt, money, sanitized, comments, digital, history, private, quietly]
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c1"
+    char_span: [2304, 2858]
+    sentence_count: 5
+    key_terms: [faster, fast, png, r86i8b78zn7f1, instability, progressing, confidence, discussion]
+    token_count: 152
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c2"
+    char_span: [2873, 5150]
+    sentence_count: 20
+    key_terms: [please, rights, conversation, human, image, post, r-chatgpt-1050422060352024636, concerns]
+    section: Comments
+    token_count: 519
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c3"
+    char_span: [5152, 7480]
+    sentence_count: 25
+    key_terms: [human, chatgpt, health, understanding, civilization, innovation, technology, education]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c4"
+    char_span: [7482, 9231]
+    sentence_count: 29
+    key_terms: [chatgpt, ethical, history, being, near-universal, civilizations, deforestation, irreversible]
+    section: Comments
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c5"
+    char_span: [9233, 10667]
+    sentence_count: 13
+    key_terms: [answers, answer, asked, here, different, naturally, clinical, question]
+    section: Comments
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c6"
+    char_span: [10669, 12884]
+    sentence_count: 28
+    key_terms: [meaning, change, consciousness, institutions, intelligence, neuroscience, information, decisions]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c7"
+    char_span: [12886, 14912]
+    sentence_count: 10
+    key_terms: [like, conspiracy, response, chatgpt, people, point, without, sounds]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c8"
+    char_span: [14914, 16090]
+    sentence_count: 2
+    key_terms: [differences, protecting, life, like, need, self-reflection, relationships, understanding]
+    section: Comments
+    token_count: 328
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c9"
+    char_span: [16092, 18452]
+    sentence_count: 35
+    key_terms: [something, without, accountability, environmental, consequences, tools, truth, compassion]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c10"
+    char_span: [18454, 20542]
+    sentence_count: 28
+    key_terms: [everything, global, consciousness, consequences, compassion, inequality, collapse, survival]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c11"
+    char_span: [20544, 22939]
+    sentence_count: 30
+    key_terms: [implication, life, cooperation, human, "it's", survival, systems, others]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c12"
+    char_span: [22941, 25162]
+    sentence_count: 18
+    key_terms: [society, health, social, question, history, science, mental, understanding]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c13"
+    char_span: [25165, 27425]
+    sentence_count: 15
+    key_terms: [health, "it's", trained, mental, people, reflection, globally, survival]
+    section: Comments
+    token_count: 515
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c14"
+    char_span: [27427, 29670]
+    sentence_count: 14
+    key_terms: [matters, systems, human, shape, connection, education, medicine, universe]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c15"
+    char_span: [29672, 31708]
+    sentence_count: 18
+    key_terms: [truth, people, interesting, responses, watching, reality, living, thread]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c16"
+    char_span: [31710, 32983]
+    sentence_count: 16
+    key_terms: [time, like, science, "you're", don, everything, certainty, something]
+    section: Comments
+    token_count: 315
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c17"
+    char_span: [32985, 34965]
+    sentence_count: 17
+    key_terms: [cognitive-defusion-techniques-and-exercises, cogbtherapy, extinction, cbt-blog, artificial-intelligence, million, someone, action]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c18"
+    char_span: [34967, 37063]
+    sentence_count: 16
+    key_terms: [like, trillions, humanity, media-and-information, health, mental, toward, wonder]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c19"
+    char_span: [37065, 39219]
+    sentence_count: 26
+    key_terms: [everything, evolution, listening, universe, change, choice, doesn, heart]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c20"
+    char_span: [39221, 40939]
+    sentence_count: 26
+    key_terms: [century, civilization, caretakers, extinction, becoming, perceive, survival, without]
+    section: Comments
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c21"
+    char_span: [40941, 42798]
+    sentence_count: 10
+    key_terms: [conspiracy, because, subjective, negative, doomer, system, money, scary]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c22"
+    char_span: [42800, 45165]
+    sentence_count: 16
+    key_terms: [knowledge, life, responsibility, throwaway92715, understanding, asked, conspiracy, chatgpt]
+    section: Comments
+    token_count: 516
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c23"
+    char_span: [45167, 47165]
+    sentence_count: 21
+    key_terms: [understanding, emotional, humility, universe, affects, meaning, brings, builds]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c24"
+    char_span: [47169, 49240]
+    sentence_count: 18
+    key_terms: [global, truth, water, scientists, already, nuclear, states, early]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/chatgpt/1ldy7zs.md#c25"
+    char_span: [49242, 50378]
+    sentence_count: 6
+    key_terms: [asteroid, editing, global, transformative, international, organisations, human-rights, out-innovate]
+    section: Comments
+    token_count: 261
 ---
-
 # I asked ChatGPT the top ten things humanity should know.
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1ldy7zs/i_asked_chatgpt_the_top_ten_things_humanity/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1s74mmw.md
 url: "https://www.reddit.com/r/careerguidance/comments/1s74mmw/paychecktopaycheck_pizza_driver_in_texas_sales/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-19T17:57:31.308Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1s74mmw.md#c0"
+    char_span: [0, 1428]
+    sentence_count: 14
+    key_terms: [texas, sales, washington, ibew, move, careerguidance, job, want]
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/careerguidance/1s74mmw.md#c1"
+    char_span: [1443, 2587]
+    sentence_count: 8
+    key_terms: ["you're", job, locals, "you'd", pre-apprenticeship, get, ibew, "it's"]
+    section: Comments
+    token_count: 254
 ---
-
 # Paycheck-to-paycheck pizza driver in Texas (sales background, job anxiety) wants out of sales and into IBEW — move to Washington now or prep in Texas first?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1s74mmw/paychecktopaycheck_pizza_driver_in_texas_sales/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sjy3jc.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sjy3jc/what_are_some_decentpaying_longterm_career_paths/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,27 @@ score: 1
 upvote_ratio: 1
 num_comments: 4
 flair: ""
-extracted_at: "2026-05-25T13:04:07.367Z"
+extracted_at: "2026-06-03T17:59:52.601Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sjy3jc.md#c0"
+    char_span: [0, 1984]
+    sentence_count: 13
+    key_terms: [people, social, careerguidance, skills, connections, comments, linkedin, anxiety]
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/careerguidance/1sjy3jc.md#c1"
+    char_span: [1986, 3056]
+    sentence_count: 8
+    key_terms: [people, tech, something, decent, get, gpa, job, communicating]
+    token_count: 238
+  - id: "social-intelligence/reddit-deep/careerguidance/1sjy3jc.md#c2"
+    char_span: [3071, 4832]
+    sentence_count: 12
+    key_terms: [roles, technical, like, engineering, find, stability, back-end, because]
+    section: Comments
+    token_count: 348
 ---
-
 # What are some decent-paying long-term career paths for people with poor human/social skills (can’t build rapport or connections/networks or show “visibility”) but fairly decent communication skills (no social anxiety or issues talking to random people)?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sjy3jc/what_are_some_decentpaying_longterm_career_paths/)

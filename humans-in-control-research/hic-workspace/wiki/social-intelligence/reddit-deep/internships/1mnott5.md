@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1mnott5.md
 url: "https://www.reddit.com/r/internships/comments/1mnott5/internship_experience_for_international_students/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "Post-Internship"
 extracted_at: "2026-05-25T15:51:38.717Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1mnott5.md#c0"
+    char_span: [0, 530]
+    sentence_count: 4
+    key_terms: [international, internships, experience, internship, comments, mathematics, reddit-deep, background]
+    token_count: 120
+  - id: "social-intelligence/reddit-deep/internships/1mnott5.md#c1"
+    char_span: [545, 1417]
+    sentence_count: 7
+    key_terms: [internship, competitive, especially, analysis, projects, market, major, tough]
+    section: Comments
+    token_count: 197
 ---
-
 # Internship Experience for International Students
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1mnott5/internship_experience_for_international_students/)

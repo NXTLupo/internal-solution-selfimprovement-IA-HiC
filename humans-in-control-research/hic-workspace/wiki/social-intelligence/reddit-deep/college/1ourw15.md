@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1ourw15.md
 url: "https://www.reddit.com/r/college/comments/1ourw15/navigating_getting_my_masters_with_finding_a_job/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,15 @@ flair: "Finances/financial aid"
 extracted_at: "2026-05-19T15:08:26.264Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1ourw15.md#c0"
+    char_span: [0, 1331]
+    sentence_count: 8
+    key_terms: [living, masters, help, job, want, experience, situation, comments]
+    token_count: 300
 ---
-
 # Navigating Getting My Masters With Finding A Job to Help Offset Living Costs
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ourw15/navigating_getting_my_masters_with_finding_a_job/)

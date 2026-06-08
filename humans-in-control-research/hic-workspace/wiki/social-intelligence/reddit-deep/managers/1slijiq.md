@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1slijiq.md
 url: "https://www.reddit.com/r/managers/comments/1slijiq/managing_a_toxic_high_performer_who_hits_150_of/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,105 @@ flair: ""
 extracted_at: "2026-05-26T12:54:23.636Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c0"
+    char_span: [0, 1392]
+    sentence_count: 20
+    key_terms: [team, sarah, comments, protect, high, performer, managers, numbers]
+    token_count: 319
+  - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c1"
+    char_span: [1407, 3552]
+    sentence_count: 20
+    key_terms: [need, meetings, been, like, team, work, something, behavior]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c2"
+    char_span: [3554, 5264]
+    sentence_count: 13
+    key_terms: [team, meetings, rest, probably, because, support, direct, professional-mind439]
+    section: Comments
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c3"
+    char_span: [5266, 7320]
+    sentence_count: 19
+    key_terms: [everyone, meetings, else, like, better, people, distributed, been]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c4"
+    char_span: [7322, 9414]
+    sentence_count: 12
+    key_terms: [sarah, team, individual, management, performer, fun-to-grab-a-beer-with, because, morale]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c5"
+    char_span: [9174, 9528]
+    sentence_count: 2
+    key_terms: [graceofthenorth, brain-power, iamgrzegorz, management, managerial, decisions, improving, behavior]
+    section: Comments
+    token_count: 92
+  - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c6"
+    char_span: [9530, 11530]
+    sentence_count: 15
+    key_terms: [better, dwight, others, cares, sarah, achieving, promoted, asshole]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c7"
+    char_span: [11532, 13555]
+    sentence_count: 10
+    key_terms: [toxic, high, team, performer, others, people, relationships, contributors]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c8"
+    char_span: [13557, 15652]
+    sentence_count: 9
+    key_terms: [hazard-warning-the-unacceptable-cost-of-toxic-workers, performer, high, toxic, working-knowledge, person, productivity, did]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c9"
+    char_span: [15654, 17414]
+    sentence_count: 15
+    key_terms: ["you're", sarah, performer, sensitive, question, exactly, without, direct]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c10"
+    char_span: [17416, 19010]
+    sentence_count: 23
+    key_terms: [sarah, job, meetings, others, does, need, manager, asking]
+    section: Comments
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c11"
+    char_span: [19012, 21127]
+    sentence_count: 18
+    key_terms: [everyone, work, else, team, people, makes, sarah, cry]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c12"
+    char_span: [21129, 23290]
+    sentence_count: 10
+    key_terms: [being, important, questions, situation, autistic, herself, someone, autism]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c13"
+    char_span: [23292, 25120]
+    sentence_count: 12
+    key_terms: [direct, being, "it's", tell, pushback, because, improve, rolling]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c14"
+    char_span: [25122, 26849]
+    sentence_count: 11
+    key_terms: [direct, people, criticism, herself, handle, being, sarah, isn]
+    section: Comments
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/managers/1slijiq.md#c15"
+    char_span: [26851, 27328]
+    sentence_count: 2
+    key_terms: [already, company, elonmuskhuffingfarts, noestablishment1221, danielleelucky2024, incompetence, outfitter540, replacement]
+    section: Comments
+    token_count: 144
 ---
-
 # Managing a toxic high performer who hits 150% of targets. How do I protect my team without losing the numbers?
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1slijiq/managing_a_toxic_high_performer_who_hits_150_of/)

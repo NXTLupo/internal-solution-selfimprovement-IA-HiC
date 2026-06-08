@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1sya3go.md
 url: "https://www.reddit.com/r/internships/comments/1sya3go/last_minute_internships_in_nyc_as_a_first_year/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,25 +7,35 @@ subreddit: "internships"
 title: "Last minute internships in NYC as a first year undergraduate student?"
 author: "RowEntire8894"
 date: "2026-04-28T18:36:17.000Z"
-score: 6
-upvote_ratio: 1
-num_comments: 7
+score: 5
+upvote_ratio: 0.86
+num_comments: 8
 flair: "Applications"
-extracted_at: "2026-05-19T17:57:20.767Z"
+extracted_at: "2026-06-06T00:27:36.092Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1sya3go.md#c0"
+    char_span: [0, 488]
+    sentence_count: 3
+    key_terms: [internships, comments, nyc, rowentire8894, undergraduate, reddit-deep, internship, accepting]
+    token_count: 118
+  - id: "social-intelligence/reddit-deep/internships/1sya3go.md#c1"
+    char_span: [503, 1613]
+    sentence_count: 3
+    key_terms: [maybe, "you're", interested, internship, competing, "that's", check, youre]
+    section: Comments
+    token_count: 266
 ---
-
 # Last minute internships in NYC as a first year undergraduate student?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1sya3go/last_minute_internships_in_nyc_as_a_first_year/)
-Posted by **RowEntire8894** · **6↑** · **7 comments**
+Posted by **RowEntire8894** · **5↑** · **8 comments**
 
 I've been stressed and on the hunt for an internship in NYC since that is my place of residence. I want to ask for advice on what websites are actually helpful for finding internships that are rolling and still accepting
 
 ## Comments
 
-- **chocolate_asshole** (2↑): handshake, directly on company career pages, and linkedin filters for internships only still work a bit better than the others. but yeah, finding anything now is hell
 - **These-Age-4667** (2↑): applications are basically wrapped up man.  even if you do apply for internship in the city with the last job postings there are, you're competing with everyone else and there mother.
 - **PutOk9903** (1↑): Following
 - **robertisaak** (1↑): First year is the hardest because you're competing with juniors and the cold app side is basically dead. NYC roles tend to fall through warm intros more than any other market. Check Nepternship, Boardy, and Series So, that's the layer they sit in.

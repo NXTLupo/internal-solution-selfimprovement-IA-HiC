@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1t9cv7p.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1t9cv7p/neuro_phd_germany_vs_other_eu_countries/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,27 @@ flair: "STEM"
 extracted_at: "2026-05-26T14:32:49.125Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, life_sciences, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1t9cv7p.md#c0"
+    char_span: [0, 925]
+    sentence_count: 7
+    key_terms: [phd, germany, askacademia, countries, currently, comments, doing, neuro]
+    token_count: 217
+  - id: "social-intelligence/reddit-deep/askacademia/1t9cv7p.md#c1"
+    char_span: [940, 2221]
+    sentence_count: 7
+    key_terms: [phd, academia, publications, redditboy117, hard, determine, graduate, balance]
+    section: Comments
+    token_count: 281
+  - id: "social-intelligence/reddit-deep/askacademia/1t9cv7p.md#c2"
+    char_span: [2223, 3185]
+    sentence_count: 6
+    key_terms: [working-abrocoma4122, unemployment, immigration, phd, germany, suggest, right, get]
+    section: Comments
+    token_count: 242
 ---
-
 # Neuro PhD: Germany vs other EU countries?
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1t9cv7p/neuro_phd_germany_vs_other_eu_countries/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1sgviob.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1sgviob/cs_grads_who_ended_up_not_becoming_an_engineer/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,42 @@ subreddit: "cscareerquestions"
 title: "CS grads who ended up not becoming an engineer: what did you career path turn out to be?"
 author: "TheObstacleIsTheWay3"
 date: "2026-04-09T17:02:40.000Z"
-score: 51
+score: 52
 upvote_ratio: 0.93
 num_comments: 36
 flair: "Experienced"
-extracted_at: "2026-05-25T18:32:49.819Z"
+extracted_at: "2026-06-03T18:35:34.171Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sgviob.md#c0"
+    char_span: [0, 1205]
+    sentence_count: 7
+    key_terms: [cscareerquestions, did, becoming, comments, engineer, product, career, theobstacleistheway3]
+    token_count: 283
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sgviob.md#c1"
+    char_span: [1220, 3107]
+    sentence_count: 13
+    key_terms: [theobstacleistheway3, tech, software, grads, sales, snowcroc, tree8282, selling]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sgviob.md#c2"
+    char_span: [3109, 5015]
+    sentence_count: 16
+    key_terms: [starting, like, companies, sdet, people, pivots, roles, get]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sgviob.md#c3"
+    char_span: [5017, 6635]
+    sentence_count: 13
+    key_terms: [get, patent, cyber, traditional, went, college, become, supply]
+    section: Comments
+    token_count: 384
 ---
-
 # CS grads who ended up not becoming an engineer: what did you career path turn out to be?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sgviob/cs_grads_who_ended_up_not_becoming_an_engineer/)
-Posted by **TheObstacleIsTheWay3** · **51↑** · **36 comments**
+Posted by **TheObstacleIsTheWay3** · **52↑** · **36 comments**
 
 So prefacing this question guessing probably 99% of people on this sub are engineers (or will end up becoming one), and therefore have a bias towards being one which is cool. 
 
@@ -32,7 +56,7 @@ But what about those that didnt start with swe right off the bat? curious to see
 
 ## Comments
 
-- **Tree8282** (25↑): I briefly worked in tech sales after a graduated and i know a lot of CS/SWE grads ended up here. It’s a huge industry globally (cuz US makes most of the software and every other global office just sells it). 
+- **Tree8282** (24↑): I briefly worked in tech sales after a graduated and i know a lot of CS/SWE grads ended up here. It’s a huge industry globally (cuz US makes most of the software and every other global office just sells it). 
 
 When I joined they hired a ton of CS grads, cuz that’s where the moneys at for those areas without a need for devs; like I said, most devs are in the US. I genuinely hated it. In my region, they hired CS grads just to be presentable and seem more knowledgable to the regional managers and CTOs to make them way overpay for absolute crap products. For example selling universities SPSS, R; selling HR software that didn’t work; AI platforms that is 10x worse than chatgpt; which all often uses a majority of the company budget + service and maintenance.
 
@@ -41,7 +65,7 @@ Basically these guys work maybe 6 hours a day max, and wastes time all day chatt
 I’m very thankful that i left very soon and landed a better job. Sorry if I offended anyone but this is just my experience at tech sales
   - **TheObstacleIsTheWay3** (2↑): whatr region/country are you from? im from a similar office and interestingly most of the tech sales folls didnt even graduate a tech degree
     - **Tree8282** (2↑): East asian at a large american firm before. AFAIK most people here (incl Japan, Singapore, TW, Aus, Korea) has a CS/IT degree.
-- **snowcroc** (4↑): Girl in university I knew was a top student in CS. 
+- **snowcroc** (3↑): Girl in university I knew was a top student in CS. 
 
 She is in HR now.
   - **TheObstacleIsTheWay3** (3↑): now thats a first im hearing
@@ -57,8 +81,8 @@ In my mind starting off in data analytics engineering for example is closely adj
 For later career pivots, I’ve seen people go from IC to management and vice versa. There are hybrid IC/EM roles like TLM. But these are typically somewhat incremental pivots towards climbing a ladder in one track or another. So from a strat/ops starting point, normally one would aim to climb that ladder to get more involved on the strat definition side of things more so than ops.
 
  Hard pivots always will come with questions about preparedness.
-  - **Useful_Perception620** (4↑): SDET is underemployed? That’s like $200k+ TC starting salary at good companies lmao. This sub is hilarious. DevOps guys are also cleaning up nowadays, they make good money.
-    - **lhorie** (-2↑): \> That’s like $200k+ TC starting salary at good companies lmao
+  - **Useful_Perception620** (5↑): SDET is underemployed? That’s like $200k+ TC starting salary at good companies lmao. This sub is hilarious. DevOps guys are also cleaning up nowadays, they make good money.
+    - **lhorie** (-3↑): \> That’s like $200k+ TC starting salary at good companies lmao
 
 Source? SDETs typically get paid quite a bit lower than SWEs and can get pigeonholed, my sources say they start at 120k at FAANGs with 200k starting TC for L3 SWE. And the trend is similar across the board for lower pay companies as well. The entire point of QA/SDET is that they're cheaper than a full blown SWE (who are usually perfectly able to do all of their tasks in addition to development). So if your goal was a entry level SWE role that pays 80k and you were only able to land a low pay SDET role paying 60k, yes that'd be underployed in my view. Not by a huge margin compared to blue collar work, but still.
 
@@ -70,4 +94,4 @@ Also been thinking about cyber, but roles more like cyber officer at a company o
 - **_insignificant_being** (1↑): I did a marketing role in my first year of college, and I'm curious if that could be an option I can start applying for if I don't get a traditional CS job.
 - **no-sleep-only-code** (1↑): From my graduating class the best went for engineering or research. Some went into sales and some that barely passed just stayed in retail. About almost half of the people I knew went into Cyber/IT and not development.
 - **doingittodeath** (1↑): My first degree was in CS, worked as a dev for 10 years. Ended up pursuing an ABSN later on down the line, studying for boards now and finishing up clinicals.
-- **Big-Pea-6074** (-7↑): Founder. CS and all college degrees get you into the door. They become a nice to have once you have an established career
+- **Big-Pea-6074** (-5↑): Founder. CS and all college degrees get you into the door. They become a nice to have once you have an established career

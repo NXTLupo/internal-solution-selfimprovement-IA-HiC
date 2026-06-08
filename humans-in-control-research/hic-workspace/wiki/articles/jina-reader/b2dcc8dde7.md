@@ -1,4 +1,5 @@
 ---
+id: articles/jina-reader/b2dcc8dde7.md
 url: "https://projects.propublica.org/nonprofits/organizations/520595110"
 url_hash: "b2dcc8dde7"
 kind: "article"
@@ -10,8 +11,50 @@ tier: 3
 method: "jina"
 extracted_at: "2026-04-21T04:35:14.331239+00:00"
 chars: 10000
+industries: [higher_ed, nonprofit]
+industry_method: llm
+chunks:
+  - id: "articles/jina-reader/b2dcc8dde7.md#c0"
+    char_span: [0, 1719]
+    sentence_count: 1
+    key_terms: [propublica, https, org, www, topics, organizations, nonprofits, projects]
+    token_count: 477
+  - id: "articles/jina-reader/b2dcc8dde7.md#c1"
+    char_span: [1721, 2836]
+    sentence_count: 1
+    key_terms: [propublica, https, www, org, com, search, nonprofits, projects]
+    token_count: 308
+  - id: "articles/jina-reader/b2dcc8dde7.md#c2"
+    char_span: [2863, 5255]
+    sentence_count: 12
+    key_terms: [organization, reported, schedule, significant, details, assets, organizations, transactions]
+    section: Organization summary
+    token_count: 467
+  - id: "articles/jina-reader/b2dcc8dde7.md#c3"
+    char_span: [5292, 7012]
+    sentence_count: 8
+    key_terms: [data, audit, fiscal, form, year, federal, audits, nonprofits]
+    section: Tax Filings and Audits by Year
+    token_count: 413
+  - id: "articles/jina-reader/b2dcc8dde7.md#c4"
+    char_span: [7014, 8071]
+    sentence_count: 1
+    key_terms: [assets, total, revenue, compensation, fundraising, net, expenses, operated]
+    section: Tax Filings and Audits by Year
+    token_count: 353
+  - id: "articles/jina-reader/b2dcc8dde7.md#c5"
+    char_span: [8073, 9488]
+    sentence_count: 8
+    key_terms: [professor, sched, faculty, medical, former, ceo, dean, paul]
+    section: Tax Filings and Audits by Year
+    token_count: 512
+  - id: "articles/jina-reader/b2dcc8dde7.md#c6"
+    char_span: [9306, 10161]
+    sentence_count: 2
+    key_terms: [provost, chief, academic, affairs, interim, officer, estate, former]
+    section: Tax Filings and Audits by Year
+    token_count: 292
 ---
-
 # https://projects.propublica.org/nonprofits/organizations/520595110
 
 Source: [Jina Reader](https://projects.propublica.org/nonprofits/organizations/520595110)

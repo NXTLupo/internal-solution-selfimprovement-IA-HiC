@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1q72vsq.md
 url: "https://www.reddit.com/r/careerguidance/comments/1q72vsq/need_serious_career_advice_and_guidance_feeling/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,20 @@ flair: ""
 extracted_at: "2026-05-20T12:56:27.158Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1q72vsq.md#c0"
+    char_span: [0, 2225]
+    sentence_count: 13
+    key_terms: [experience, communication, work, without, background, cat, profile, careerguidance]
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/careerguidance/1q72vsq.md#c1"
+    char_span: [2227, 3517]
+    sentence_count: 6
+    key_terms: [career, india, background, long-term, stability, academia, decision, guidance]
+    token_count: 239
 ---
-
 # Need serious career advice and guidance . Feeling stuck and confused . Can anyone guide ?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1q72vsq/need_serious_career_advice_and_guidance_feeling/)

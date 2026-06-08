@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1lvt29o.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1lvt29o/23_yo_adult_stuck_in_debt_car_trouble_lowpaying/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,27 @@ flair: "Misc Advice"
 extracted_at: "2026-05-16T20:55:12.697Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, workforce, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1lvt29o.md#c0"
+    char_span: [0, 1265]
+    sentence_count: 13
+    key_terms: [school, car, povertyfinance, right, debt, job, comments, continue]
+    token_count: 306
+  - id: "social-intelligence/reddit-deep/povertyfinance/1lvt29o.md#c1"
+    char_span: [1280, 2988]
+    sentence_count: 15
+    key_terms: [school, work, job, "don't", get, student, finish, car]
+    section: Comments
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/povertyfinance/1lvt29o.md#c2"
+    char_span: [2990, 4153]
+    sentence_count: 8
+    key_terms: [school, getting, "don't", debt, job, another, deleted, finish]
+    section: Comments
+    token_count: 283
 ---
-
 # 23 y/o adult stuck in debt, car trouble, low-paying job — need advice on finding a better job or if I should pause school
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1lvt29o/23_yo_adult_stuck_in_debt_car_trouble_lowpaying/)

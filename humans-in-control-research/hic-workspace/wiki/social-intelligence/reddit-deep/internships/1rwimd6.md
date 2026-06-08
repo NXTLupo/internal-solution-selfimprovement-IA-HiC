@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rwimd6.md
 url: "https://www.reddit.com/r/internships/comments/1rwimd6/sick_of_being_unable_to_get_an_internship/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,28 @@ score: 39
 upvote_ratio: 0.91
 num_comments: 17
 flair: "General"
-extracted_at: "2026-05-26T14:30:47.908Z"
+extracted_at: "2026-06-05T17:08:23.537Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rwimd6.md#c0"
+    char_span: [0, 1789]
+    sentence_count: 12
+    key_terms: [internships, connections, get, got, internship, interviews, comments, because]
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/internships/1rwimd6.md#c1"
+    char_span: [1804, 3758]
+    sentence_count: 18
+    key_terms: [applying, engineering, internships, land, experience, structured, interview, domestic]
+    section: Comments
+    token_count: 406
+  - id: "social-intelligence/reddit-deep/internships/1rwimd6.md#c2"
+    char_span: [3760, 5667]
+    sentence_count: 9
+    key_terms: [internships, resume, everything, maybe, right, american, graduate, applied]
+    section: Comments
+    token_count: 490
 ---
-
 # Sick of being unable to get an internship
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rwimd6/sick_of_being_unable_to_get_an_internship/)
@@ -35,7 +53,7 @@ Your resume will get you an interview, but your interview will land you a job.
 
 “ It’s pissing me off so much seeing freshman who barely have any engineering knowledge land technical internships that I would be perfect for “ - Their timelines are different than yours.  Worry less about them and stay focus in your journey. Also, you cannot be better than everyone else’s in everything. You can be a bright straight A student during highs school and your undergrad program, but an average student will surpass you in real life or in professional workforce. That’s how it is.
   - **anmdkskd1** (2↑): Agreed. That quote of comparison of the thief of joy. Focus on yourself and not the achievements of others.
-- **vdhau_** (8↑): 200+ applications and still nothing is genuinely demoralising, and honestly the fact that you have research experience, letters of rec, and a good GPA makes the silence even more confusing. You're clearly not the problem on paper.
+- **vdhau_** (9↑): 200+ applications and still nothing is genuinely demoralising, and honestly the fact that you have research experience, letters of rec, and a good GPA makes the silence even more confusing. You're clearly not the problem on paper.
 
 What helped me shift my approach was getting way more specific with where I was applying. I spent so long applying to big names and structured graduate schemes that I almost missed the smaller firms and organisations that actually had bandwidth to take someone on and invest in them. Less competition, more human process.
 

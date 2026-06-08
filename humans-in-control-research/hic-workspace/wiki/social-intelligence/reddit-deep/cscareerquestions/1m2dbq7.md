@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1m2dbq7.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1m2dbq7/differences_i_see_from_my_experience_in_defense/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,83 @@ flair: ""
 extracted_at: "2026-05-20T12:57:40.626Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m2dbq7.md#c0"
+    char_span: [0, 2040]
+    sentence_count: 20
+    key_terms: [onboarding, system, get, defense, cscareerquestions, doc, gave, company]
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m2dbq7.md#c1"
+    char_span: [2042, 3758]
+    sentence_count: 17
+    key_terms: [work, defense, worked, extra, never, times, practically, late]
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m2dbq7.md#c2"
+    char_span: [3760, 5801]
+    sentence_count: 24
+    key_terms: [meetings, did, hour, like, seemed, underperforming, parking, someone]
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m2dbq7.md#c3"
+    char_span: [5803, 7586]
+    sentence_count: 19
+    key_terms: [questions, like, defense, around, bonus, promoted, company, faang]
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m2dbq7.md#c4"
+    char_span: [7588, 8751]
+    sentence_count: 13
+    key_terms: [benefits, reimbursement, good, hours, pto, week, special, bank]
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m2dbq7.md#c5"
+    char_span: [8766, 10236]
+    sentence_count: 12
+    key_terms: [oncall, google, compensation, extra, faang, lot, pto, microsoft]
+    section: Comments
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m2dbq7.md#c6"
+    char_span: [10238, 12244]
+    sentence_count: 14
+    key_terms: [faang, base, compensation, pay, defense, people, bonus, "it's"]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m2dbq7.md#c7"
+    char_span: [12246, 13767]
+    sentence_count: 10
+    key_terms: [maintenance, work, years, lot, defense, getting, project, devops]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m2dbq7.md#c8"
+    char_span: [13769, 15735]
+    sentence_count: 15
+    key_terms: [work, defense, outside, without, people, hours, phone, come]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m2dbq7.md#c9"
+    char_span: [15737, 17845]
+    sentence_count: 18
+    key_terms: [security, government, job, jobs, defense, people, level, like]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m2dbq7.md#c10"
+    char_span: [17847, 19940]
+    sentence_count: 25
+    key_terms: [people, project, work, hours, projects, defense, code, get]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m2dbq7.md#c11"
+    char_span: [19942, 21968]
+    sentence_count: 16
+    key_terms: [broad-cranberry-9050, work, interviewing, faang, like, experience, companies, different]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1m2dbq7.md#c12"
+    char_span: [21970, 22483]
+    sentence_count: 6
+    key_terms: [work, office, been, get, joecamroberon, typescript, graduated, interview]
+    section: Comments
+    token_count: 128
 ---
-
 # Differences I see from my experience in Defense, MAANG and Big tech industries.
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1m2dbq7/differences_i_see_from_my_experience_in_defense/)

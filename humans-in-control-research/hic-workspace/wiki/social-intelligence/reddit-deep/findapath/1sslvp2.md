@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1sslvp2.md
 url: "https://www.reddit.com/r/findapath/comments/1sslvp2/class_12th_student_which_career_path_should_i/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,21 @@ flair: "Findapath-College/Certs"
 extracted_at: "2026-05-22T15:13:18.822Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1sslvp2.md#c0"
+    char_span: [0, 1320]
+    sentence_count: 8
+    key_terms: [data, skills, career, relatively, findapath, analysis, comments, science]
+    token_count: 292
+  - id: "social-intelligence/reddit-deep/findapath/1sslvp2.md#c1"
+    char_span: [1335, 3156]
+    sentence_count: 12
+    key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, nursing]
+    section: Comments
+    token_count: 425
 ---
-
 # Class 12th student - Which career path should I choose that are relatively safe from AI?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1sslvp2/class_12th_student_which_career_path_should_i/)

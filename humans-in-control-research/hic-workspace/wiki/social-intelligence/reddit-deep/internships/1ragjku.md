@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1ragjku.md
 url: "https://www.reddit.com/r/internships/comments/1ragjku/doubts_about_coop/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "Offers"
 extracted_at: "2026-05-25T18:31:15.454Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1ragjku.md#c0"
+    char_span: [0, 1927]
+    sentence_count: 1
+    key_terms: [internships, co-op, experience, internship, "i'm", applying, summer, offer]
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/internships/1ragjku.md#c1"
+    char_span: [1942, 2506]
+    sentence_count: 5
+    key_terms: [graduate, experiences, graduation, semester, appropriate-tutor587, co-op, years, year]
+    section: Comments
+    token_count: 148
 ---
-
 # doubts about co-op
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1ragjku/doubts_about_coop/)

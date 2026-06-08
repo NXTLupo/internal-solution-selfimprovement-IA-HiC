@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t3h2pr.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t3h2pr/27_male_100k_inheritance_what_should_i_do/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -6,19 +7,95 @@ subreddit: "careerguidance"
 title: "27, Male, 100k inheritance. What should I do?"
 author: "GladLine6757"
 date: "2026-05-04T13:02:30.000Z"
-score: 135
+score: 137
 upvote_ratio: 0.86
-num_comments: 254
+num_comments: 250
 flair: "Advice"
-extracted_at: "2026-05-20T12:56:27.158Z"
+extracted_at: "2026-06-06T16:39:04.130Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t3h2pr.md#c0"
+    char_span: [0, 1844]
+    sentence_count: 10
+    key_terms: [inheritance, cleaning, company, exhaust, careerguidance, degree, get, buisness]
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/careerguidance/1t3h2pr.md#c1"
+    char_span: [1846, 2646]
+    sentence_count: 4
+    key_terms: [school, job, something, doing, good, high, mom, too]
+    token_count: 186
+  - id: "social-intelligence/reddit-deep/careerguidance/1t3h2pr.md#c2"
+    char_span: [2661, 4207]
+    sentence_count: 8
+    key_terms: [flight, school, something, current, driving, trucks, east-technician2015, truck]
+    section: Comments
+    token_count: 372
+  - id: "social-intelligence/reddit-deep/careerguidance/1t3h2pr.md#c3"
+    char_span: [4209, 5555]
+    sentence_count: 9
+    key_terms: [years, return, approximately, guaranteed, flying, being, job, look]
+    section: Comments
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/careerguidance/1t3h2pr.md#c4"
+    char_span: [5557, 7370]
+    sentence_count: 8
+    key_terms: [business, insurance, year, probably, someone, amount, collar, "don't"]
+    section: Comments
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/careerguidance/1t3h2pr.md#c5"
+    char_span: [7372, 9513]
+    sentence_count: 17
+    key_terms: [business, "it's", run, because, flood, complicated, lot, put]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/careerguidance/1t3h2pr.md#c6"
+    char_span: [9515, 11276]
+    sentence_count: 21
+    key_terms: [enough, get, hvac, classroom, regarding, college, setting, without]
+    section: Comments
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/careerguidance/1t3h2pr.md#c7"
+    char_span: [11278, 13135]
+    sentence_count: 13
+    key_terms: [money, working, good, like, put, work, population, thinking]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/careerguidance/1t3h2pr.md#c8"
+    char_span: [13140, 14782]
+    sentence_count: 12
+    key_terms: [years, people, inheritance, don, put, possible, visiting, million]
+    section: Comments
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/careerguidance/1t3h2pr.md#c9"
+    char_span: [14784, 17052]
+    sentence_count: 15
+    key_terms: [away, inheritance, put, savings, extremecod2999, always, figure, trying]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1t3h2pr.md#c10"
+    char_span: [16777, 17772]
+    sentence_count: 4
+    key_terms: [year, decided, advice, invest, big-engineering-5323, dannyjsinclairhotma, solid, associates]
+    section: Comments
+    token_count: 265
+  - id: "social-intelligence/reddit-deep/careerguidance/1t3h2pr.md#c11"
+    char_span: [17774, 19760]
+    sentence_count: 12
+    key_terms: [flight, pilot, school, need, people, force, competitive, air]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/careerguidance/1t3h2pr.md#c12"
+    char_span: [19762, 21138]
+    sentence_count: 19
+    key_terms: [flight, dream, live, school, get, own, business, regret]
+    section: Comments
+    token_count: 323
 ---
-
 # 27, Male, 100k inheritance. What should I do?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t3h2pr/27_male_100k_inheritance_what_should_i_do/)
-Posted by **GladLine6757** · **135↑** · **254 comments**
+Posted by **GladLine6757** · **137↑** · **250 comments**
 
 So just as the title says, I’m 27, Male, and have just over $100k from inheritance and I’m really not too sure what to do with it.
 
@@ -41,23 +118,22 @@ Not to sound cocky.. but I feel like I have too good of a head on my shoulders t
 ## Comments
 
 - **RareDetective141** (111↑): That $100k looks more valuable as runway than as one giant bet on flight school. You already have 9 years in exhaust cleaning, so I’d price out whether a license, certificate, and 6 to 12 months of living costs gets you a cleaner shot at stable roles or a small operation before burning the whole amount on training. Airline and CDL paths are still there if you hate the numbers once you model them.
-  - **Minimum_Spring3904** (24↑): They are putting out self driving trucks now though, and while I don’t think it’ll “take over” per se, this is still something to keep in mind when getting your CDLs. Make sure it’s doing something not easily replaceable.
-    - **Difficult-Mango312** (14↑): They said self-driving trucks would replace everyone by 2020.
+  - **Minimum_Spring3904** (23↑): They are putting out self driving trucks now though, and while I don’t think it’ll “take over” per se, this is still something to keep in mind when getting your CDLs. Make sure it’s doing something not easily replaceable.
+    - **Difficult-Mango312** (15↑): They said self-driving trucks would replace everyone by 2020.
 
 Also, what does an AI truck do if anything goes wrong? Or when the truck arrives at the dock, who connects and unloads?
 
 The “magic AI” is decades away.
     - **TminusTech** (0↑): Current AI tech is not going to lead to self driving vehicles, and the current applications of them require overwhelming resources and support even within one single deeply mapped city, trucking is a incredible endeavor to automate if you want to use our existing infrastructure.
   - **Dull_Dark_899** (5↑): DO NOT do your last options.  Degree mill diplomas are worth almost nothing.
-    - **chale122** (1↑): ?
     - **East-Technician2015** (1↑): it’s all about networking
-  - **bojangler69420** (2↑): When you go to the right flight school/program, you a guaranteed a job upon completion of flight school.
+  - **bojangler69420** (3↑): When you go to the right flight school/program, you a guaranteed a job upon completion of flight school.
 
 Look up the LIFT Program.
-    - **avi8torman** (4↑): Look real hard into their "guaranteed" job offers before you sign up with them.
+    - **avi8torman** (3↑): Look real hard into their "guaranteed" job offers before you sign up with them.
     - **LiveTheDream2026** (1↑): I have a real issue with being "guaranteed" a flying job.  Flying requires a ton of attention to detail and just because someone has a license does not mean they are good at it.
   - **Mundane_Feeling_6308** (0↑): based
-- **mx5plus2cones** (62↑): I think the best thing for you do to is to go to r/investing and do the boring "put $100k in an index ETF" and forget it exists. Reopen your account 20 years later.
+- **mx5plus2cones** (61↑): I think the best thing for you do to is to go to r/investing and do the boring "put $100k in an index ETF" and forget it exists. Reopen your account 20 years later.
 
 Plan life accordingly as if you didn't have $100k. For practical purposes, $100k isn't a lot of money these days, and if you aren't careful, you can blow through this pretty quick.
 
@@ -70,7 +146,7 @@ And If you manage to tuck away another $50k,$150k invested in 10 years is $324k 
 Congrats, you'll be a millionaire in 20 years if all you do is put $150k to work for you now.
 
 Of course, my unpopular opinion is....  most people here probably don't know that, and or if they do, they still don't do something about it and they will offer terrible advice telling you to spend it early....Which is why they probably still looking for career advice 20 years from now..... While you, probably don't need to work 20 years from now.
-  - **cheetah611** (27↑): This is amazing in theory, but for someone who has never had the option for different paths (OP said they’ve been doing blue collar since out of highschool), this amount of money can open up potential runways they didn’t have before - such as a 4 year degree. 
+  - **cheetah611** (26↑): This is amazing in theory, but for someone who has never had the option for different paths (OP said they’ve been doing blue collar since out of highschool), this amount of money can open up potential runways they didn’t have before - such as a 4 year degree. 
 
 I do agree that taking a sizable amount, be it $50k or $80k, and putting that into investments is the best possible thing to do, while using the remaining amount to better their current career path. University, licenses, flight school, whatever that decide on.
     - **mx5plus2cones** (3↑): What is wrong with a blue collar business?
@@ -123,7 +199,7 @@ Career and personal finance go hand in hand. People visiting r/careeradvice  r/c
   - **The_Nice_Marmot** (-1↑): This is probably the right move. Looking to capitalize on the rule of seven and exponential growth, which is most beneficial if you can put that money away when you’re as young as possible. Assuming it doubles every 7 years, OP is at $800,000 in 21 years, and $1.6 million in 28. $3.2 in 35. $6.4 million in 42 etc. aOP is young enough that those numbers are possible because they also have a nice sum to start. 
 
 Put it away and don’t touch it. Don’t try to get rich quick and take huge gambles. Day trading and crypto are not needed. This is the scenario of “time in the market beats timing the market.”Sit down with a planner, and a pay for expertise if you don’t like the idea of buying products from that person. Where I am, at least a portion of that can be put into a vehicle that makes all investment growth tax-exempt. OP needs to know what’s available to them.
-- **Friendly-Victory5517** (15↑): The path to bring a self funded pilot is littered with people who spent a LOT of money but never quite made it.  I think it’s a huge risk.  
+- **Friendly-Victory5517** (13↑): The path to bring a self funded pilot is littered with people who spent a LOT of money but never quite made it.  I think it’s a huge risk.  
 
 If you really want to fly I’d say invest the inheritance, enlist in military for 4 years then use your GI benefits to pursue degree/flight training with your inheritance as a safety net.
   - **Rdhilde18** (1↑): Pay off debts.
@@ -138,7 +214,7 @@ Put the rest into a mutual fund and pretend it doesn’t exist is exactly what I
   - **Brave_Locksmith798** (1↑): I said the same thing!
 - **Past_Championship827** (5↑): Get a two year associates degree in Radiology and make $70-100k a year
 - **Wizard_Cat112** (5↑): Try to use some of it to improve your life quality then save and invest it. Continue what you’re doing or live like you didn’t have it
-- **Big-Engineering-5323** (6↑): Bet on yourself.
+- **Big-Engineering-5323** (5↑): Bet on yourself.
 
 Go to flight school.
   - **mx5plus2cones** (12↑): If OP wants to be a pilot, he's better off joining the Air Force or Navy, where the placement rate into commercial aviation is way higher than out of private flight school. Plus it would be free, and  he would get paid for it, and his $100k would stay invested and waiting for him at slightly more than $1m after 20 years.
@@ -148,8 +224,8 @@ It's a no brainer.
 But I understand very few people think in terms of this, and hence why they need to work for a long long time  and never retire. 
 
 People, particular in this country suck at personal finance, which is why most people still are slaving away at a job all the way until they are 60.
-    - **TheManSpiders** (4↑): Sure except it’s likely he’d want to be a pilot in the Air Force if given that route, and he’d still need a degree and be a commissioned officer before he can even apply to compete with time and a whole bunch of other like-minded individuals wanting a slot before they can even enjoy the benefits of flying part 121 or 135 right after their service with flight time experience.
-    - **AskAndYoullBeTested** (5↑): I don’t think this is accurate. Plenty of pilots come from the civilian side. There’s also the possibility you join the military and don’t get to fly.
+    - **TheManSpiders** (5↑): Sure except it’s likely he’d want to be a pilot in the Air Force if given that route, and he’d still need a degree and be a commissioned officer before he can even apply to compete with time and a whole bunch of other like-minded individuals wanting a slot before they can even enjoy the benefits of flying part 121 or 135 right after their service with flight time experience.
+    - **AskAndYoullBeTested** (4↑): I don’t think this is accurate. Plenty of pilots come from the civilian side. There’s also the possibility you join the military and don’t get to fly.
     - **BoleroMuyPicante** (1↑): >If OP wants to be a pilot, he's better off joining the Air Force or Navy, where the placement rate into commercial aviation is way higher than out of private flight school. 
 
 He would need to have a 4 year degree to even be eligible to be a pilot.  Not to mention selection is *incredibly* competitive, he'll need top-notch grades.  ROTC is the best option to become a pilot at least in the AF, but it's still no guarantee.  Plus he can't have basically any health conditions at all.

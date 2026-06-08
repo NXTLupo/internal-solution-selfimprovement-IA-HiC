@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1rtnlo3.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1rtnlo3/the_future_of_ai_in_our_everyday_lives_how_we/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,37 @@ flair: "Other "
 extracted_at: "2026-05-17T01:12:48.200Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1rtnlo3.md#c0"
+    char_span: [0, 2314]
+    sentence_count: 17
+    key_terms: [car, electricity, simply, autonomous, chatgpt, morning, service, future]
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/chatgpt/1rtnlo3.md#c1"
+    char_span: [2316, 4655]
+    sentence_count: 22
+    key_terms: [groceries, order, car, generate, simply, entertainment, units, game]
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/chatgpt/1rtnlo3.md#c2"
+    char_span: [4657, 6717]
+    sentence_count: 17
+    key_terms: [work, people, services, economy, evolved, administrative, infrastructure, today]
+    token_count: 366
+  - id: "social-intelligence/reddit-deep/chatgpt/1rtnlo3.md#c3"
+    char_span: [6732, 8685]
+    sentence_count: 14
+    key_terms: [openai, please, conversation, image, post, r-chatgpt-1050422060352024636, character, subreddit]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/chatgpt/1rtnlo3.md#c4"
+    char_span: [8687, 8844]
+    sentence_count: 1
+    key_terms: [together, essentially, combine, objects, prompts, create, number, series]
+    section: Comments
+    token_count: 31
 ---
-
 # The future of AI in our everyday lives | How we probably won’t avoid it - or won’t even want to :)
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1rtnlo3/the_future_of_ai_in_our_everyday_lives_how_we/)

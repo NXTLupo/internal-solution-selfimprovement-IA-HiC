@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1ndjzwr.md
 url: "https://www.reddit.com/r/investing/comments/1ndjzwr/what_is_happening_with_asset_prices/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,75 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.195Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1ndjzwr.md#c0"
+    char_span: [0, 920]
+    sentence_count: 16
+    key_terms: [world, investing, comments, getting, almost, money, yoy, approaching]
+    token_count: 253
+  - id: "social-intelligence/reddit-deep/investing/1ndjzwr.md#c1"
+    char_span: [935, 2427]
+    sentence_count: 5
+    key_terms: [since, debt, people, increased, deleted, nothing, "there's", been]
+    section: Comments
+    token_count: 391
+  - id: "social-intelligence/reddit-deep/investing/1ndjzwr.md#c2"
+    char_span: [2429, 3990]
+    sentence_count: 14
+    key_terms: [bubble, gold, started, companies, investors, euphoria, getting, surging]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/investing/1ndjzwr.md#c3"
+    char_span: [3992, 6052]
+    sentence_count: 8
+    key_terms: [value, mustafak2108, money, blah, "i'm", less, work, unchanged]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1ndjzwr.md#c4"
+    char_span: [5739, 6776]
+    sentence_count: 5
+    key_terms: [exchange, tokens, gains, value, required, crypto, stores, paper]
+    section: Comments
+    token_count: 218
+  - id: "social-intelligence/reddit-deep/investing/1ndjzwr.md#c5"
+    char_span: [6778, 7364]
+    sentence_count: 1
+    key_terms: [oracle, cash, pickpocketjones, exponential, necessarily, sidelines, volatilty, increase]
+    section: Comments
+    token_count: 161
+  - id: "social-intelligence/reddit-deep/investing/1ndjzwr.md#c6"
+    char_span: [7366, 9188]
+    sentence_count: 9
+    key_terms: [dollar, cash, value, donasaskan, performing, people, redact, aggravating-salad441]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/investing/1ndjzwr.md#c7"
+    char_span: [9190, 11289]
+    sentence_count: 18
+    key_terms: [negative, chose, countries, inflation, dollar, highs, aid, "it's"]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/investing/1ndjzwr.md#c8"
+    char_span: [11291, 12362]
+    sentence_count: 7
+    key_terms: [educationcultural736, "it's", depression, everything, against, dollar, great, looks]
+    section: Comments
+    token_count: 278
+  - id: "social-intelligence/reddit-deep/investing/1ndjzwr.md#c9"
+    char_span: [12364, 13791]
+    sentence_count: 12
+    key_terms: [people, keep, worthless, because, becomes, hov2787, working, assets]
+    section: Comments
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/investing/1ndjzwr.md#c10"
+    char_span: [13793, 15239]
+    sentence_count: 12
+    key_terms: [currencies, being, something, money, beginning-fig-9089, medicsansgarantee, euro, "it's"]
+    section: Comments
+    token_count: 377
 ---
-
 # What is happening with asset prices?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1ndjzwr/what_is_happening_with_asset_prices/)

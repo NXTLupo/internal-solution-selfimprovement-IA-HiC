@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1tb6abr.md
 url: "https://www.reddit.com/r/Professors/comments/1tb6abr/dont_know_what_to_do/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -6,64 +7,145 @@ subreddit: "professors"
 title: "Don't know what to do"
 author: "Old-Team-4298"
 date: "2026-05-12T16:12:41.000Z"
-score: 260
+score: 261
 upvote_ratio: 0.95
-num_comments: 107
+num_comments: 106
 flair: ""
-extracted_at: "2026-05-20T03:55:39.272Z"
+extracted_at: "2026-06-06T16:39:04.352Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c0"
+    char_span: [0, 194]
+    sentence_count: 1
+    key_terms: [professors, comments, old-team-4298, reddit-deep, posted, reddit, source, "don't"]
+    token_count: 66
+  - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c1"
+    char_span: [196, 2522]
+    sentence_count: 21
+    key_terms: [students, "i've", like, lot, year, feedback, teaching, thought]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c2"
+    char_span: [2236, 2800]
+    sentence_count: 4
+    key_terms: ["don't", "i'm", "it's", move, emotionally, tremendous, declining, logically]
+    token_count: 129
+  - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c3"
+    char_span: [2815, 4011]
+    sentence_count: 9
+    key_terms: [teaching, doing, disastrous-pair-9466, covid, group, least, aromatic-rule-5679, sign]
+    section: Comments
+    token_count: 330
+  - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c4"
+    char_span: [4013, 6198]
+    sentence_count: 15
+    key_terms: [reading, evaluations, class, sections, student, always, review, tenure]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c5"
+    char_span: [5942, 7071]
+    sentence_count: 7
+    key_terms: [tenure, semester, anyway, review, expensive-mention-90, class, point, aromatic-rule-5679]
+    section: Comments
+    token_count: 259
+  - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c6"
+    char_span: [7073, 8515]
+    sentence_count: 13
+    key_terms: [description, been, teaching, preview, support, answer, format, thissaladtastesweird]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c7"
+    char_span: [8517, 10716]
+    sentence_count: 15
+    key_terms: [feedback, students, guides, study, angry, class, evals, "i'm"]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c8"
+    char_span: [10718, 12558]
+    sentence_count: 11
+    key_terms: [students, "i'm", expected, memory, online, please, saying, school]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c9"
+    char_span: [12560, 14722]
+    sentence_count: 14
+    key_terms: [students, get, come, activities, discussion, interested, professors, anything]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c10"
+    char_span: [14724, 16899]
+    sentence_count: 12
+    key_terms: [lecture, professor, because, did, attempts, question, culture, fucking]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c11"
+    char_span: [16901, 18594]
+    sentence_count: 10
+    key_terms: [lecture, did, kind, especially, anything, students, teaching, because]
+    section: Comments
+    token_count: 378
+  - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c12"
+    char_span: [18596, 19197]
+    sentence_count: 4
+    key_terms: ["here's", watching, reading, "it's", own, comprehension, documentaries, comparative]
+    section: Comments
+    token_count: 139
+  - id: "social-intelligence/reddit-deep/professors/1tb6abr.md#c13"
+    char_span: [19199, 20855]
+    sentence_count: 12
+    key_terms: [student, class, doing, keep, cannellita, disengaged, experience, semester]
+    section: Comments
+    token_count: 389
 ---
-
 # Don't know what to do
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1tb6abr/dont_know_what_to_do/)
-Posted by **Old-Team-4298** · **260↑** · **107 comments**
+Posted by **Old-Team-4298** · **261↑** · **106 comments**
 
 I'm a tenured associate prof at an R1. I've always been a bit of an odd duck in that I truly love teaching, and really consider it my passion more so than research (which is fine, and interesting, but not a calling). I've won two university-wide teaching awards. But this year, things have gone to shit. I teach both graduate and undergraduate students. In both levels, AI has been a real issue and an intense cheating case took up a lot of my time and sanity this year. But beyond that, the students just seem so different and entitled. A huge cohort of them don't like my sense of humor (dry wit) or method (Socratic) and seriously just want to be lectured to and told exactly what to do and execute on it without a lot of grappling or independent thought. I spend a lot of time designing interactive and experiential learning activities and thinking about engaging students - one of my assignments this year was a creative project (which I thought they would love), and the students whined and complained about it. I got my evaluations back and they were the worst I've ever had in 17 years. One of them said that they just wanted rubrics and instantaneous feedback. I do use rubrics, grudgingly, but the assignments are in-depth and require a lot of thoughtful grading / assessment / feedback - the opposite of something that I could give instantaneous feedback for. And one person wrote that "this is the worst course I've ever taken in my life" and another said "Anyone could teach this class." Who would write something like that? Suffice it to say, I spiraled. I know everyone gets reamed at some point - and it's not like I haven't had one-off students be like this in the past - but I guess I arrogantly thought I wasn't going to be taken down by a class? I was deeply, deeply depressed. I work so hard on my courses, and take my students very seriously, and I truly care. But this has made me want to leave academia - not just this one class, but several in the past year that have just had a marked shift in tone. I love my job, but it's not worth my declining mental health. I don't know what to do - I am filled with tremendous anxiety every time I think about working with these students again (I'll have many of them again in the fall). I think my teaching is so tied to my identity that I fear that if I don't have it, I'm just a mid academic with no real value. And I know logically that all of this is not true in reality, but it's sending me into a dark place emotionally, so I'm just looking for support as I try to pick myself up from this and move forward, or move out of academia.
 
 ## Comments
 
-- **IAmBoring_AMA** (183↑): Just extending some empathy because this group was the hardest I've taught since 2013, even Covid included. To quote the youth: "the vibes are off."
-  - **Old-Team-4298** (24↑): Thank you <3
+- **IAmBoring_AMA** (181↑): Just extending some empathy because this group was the hardest I've taught since 2013, even Covid included. To quote the youth: "the vibes are off."
+  - **Old-Team-4298** (26↑): Thank you <3
   - **kokuryuukou** (4↑): what happened in 2013 ?
     - **IAmBoring_AMA** (3↑): That’s when I started teaching, so it’s my timeframe…this year has been worse by far than any other, even Covid years.
-  - **shealeigh** (4↑): This was my most challenging group too! At least we aren’t alone
+  - **shealeigh** (3↑): This was my most challenging group too! At least we aren’t alone
     - **Lychee_489** (2↑): Same it’s existential crisis inducing
   - **Disastrous-Pair-9466** (2↑): Completely off 😭
-- **Aromatic-Rule-5679** (81↑): I'm in a similar boat (tenured at an R1) but I love teaching. First, stop reading your teaching evaluations. Second, as someone who studies social influence, it only takes one persuasive person to turn a class for or against a professor. Try not to see it as the sign of all future students but perhaps as a sign of this cohort. 
+- **Aromatic-Rule-5679** (82↑): I'm in a similar boat (tenured at an R1) but I love teaching. First, stop reading your teaching evaluations. Second, as someone who studies social influence, it only takes one persuasive person to turn a class for or against a professor. Try not to see it as the sign of all future students but perhaps as a sign of this cohort. 
 
 I'd focus a bit more on AI and how you can manage that. I would keep doing what you're doing and consider doing a mid-semester in-person survey to get feedback. At least that's my plan for this upcoming year. 
 
 What do you teach? I recently attended a workshop where one professor will put an exam question into AI (or you can always give a fake AI answer) and ask students to evaluate the answer. I have moved entirely to in-person paper/pencil exams and quizzes with a paper study sheet.
-  - **anhaga2090** (42↑): Good advice, I stopped reading my teaching evaluations the day I got tenure. It doesn't even matter if all but one are positive - that one negative one will ruin my week. I need to protect my sanity and part of that effort includes not constantly bombarding myself with teenager assessments of a job that I've been doing longer than most of them have been alive.
-    - **StonedSimple** (3↑): Thanks. That last sentence was the one I needed today. Much, much appreciated.
+  - **anhaga2090** (39↑): Good advice, I stopped reading my teaching evaluations the day I got tenure. It doesn't even matter if all but one are positive - that one negative one will ruin my week. I need to protect my sanity and part of that effort includes not constantly bombarding myself with teenager assessments of a job that I've been doing longer than most of them have been alive.
+    - **StonedSimple** (5↑): Thanks. That last sentence was the one I needed today. Much, much appreciated.
     - **Infinite-Gur-0603** (3↑): And there will always be at least one nasty one folks.
-    - **Luitgi** (2↑): I’m tenured and administrators in my institution use bad evaluations to give you a bad annual performance review. I wish I had the luxury of not reading and reflecting on them in writing…
-  - **JGF24** (22↑): Great response - I am always rather intrigued by how each section of each class develops its own "personality". I can teach two sections of the same lecture or lab and have them be completely different, despite me being pretty much the exact same across those two sections.
-    - **Quirky_Pain_6508** (8↑): Been there. Done that. Fascinated me initially but after a  few semesters I realized that it's the nature of the beast. Class sections have personalities.
+    - **Luitgi** (3↑): I’m tenured and administrators in my institution use bad evaluations to give you a bad annual performance review. I wish I had the luxury of not reading and reflecting on them in writing…
+  - **JGF24** (24↑): Great response - I am always rather intrigued by how each section of each class develops its own "personality". I can teach two sections of the same lecture or lab and have them be completely different, despite me being pretty much the exact same across those two sections.
+    - **Quirky_Pain_6508** (6↑): Been there. Done that. Fascinated me initially but after a  few semesters I realized that it's the nature of the beast. Class sections have personalities.
   - **catylg** (12↑): I agree with the one poisonous student possibility.  Such a student will wreak havoc in a class full of kids who are driven by peer approval and social media likes.  A class discord channel can easily become a toxic stew of venom targeted at the professor.
-  - **cm0011** (15↑): You’re tenured, you can avoid reading student evaluations :(
+  - **cm0011** (13↑): You’re tenured, you can avoid reading student evaluations :(
     - **Aromatic-Rule-5679** (2↑): I stopped reading after year 2 on the tenure track - that one bad review would just destroy me. The only time you really need them is during your 3rd year review and when you go up for tenure, and I didn't read any comments until going up for tenure. At that point, I just pulled a few nice quotes to include in my teaching materials. The scores are automatically added to your tenure case so it's not like you can do anything at that point anyway. I find that mid-semester surveys are the best way for students to feel heard and to improve your class anyway.
-  - **Expensive-Mention-90** (3↑): Best response here!
+  - **Expensive-Mention-90** (5↑): Best response here!
   - **quietlikesnow** (2↑): Just gonna pile on here as another tenured at an R1- I had the weird experience of thinking I was the worst teacher I’ve ever been this semester. I had to take on an enormous unexpected admin load without a course reduction(someone got fired) this semester and so I relied on rubrics and multiple choice assessments and other things that made me feel terrible about myself… just to survive. Then I got really sick from the stress and missed a bunch of class. 
 
 My evals have never been better. Somehow that feels almost as bad as getting bad comments that I think I deserve.
-- **BurnShoesBoilRice** (126↑): I don’t have an answer, but I am in the same boat. Recently tenured, R1, always been in it for the teaching—even down to the uni wife teaching awards.  Watching the decline in student curiosity and engagement is just ripping my guts out. I wish I had an answer, but what I do have is solidarity. Dm if you want an ear ❤️. And in the mean time, keep fighting the good fight—for yourself and for pedagogy.
-  - **Old-Team-4298** (34↑): Thank you so much, this means a lot. Parallel lives! I will DM - maybe we can get a support group going :)
+- **BurnShoesBoilRice** (123↑): I don’t have an answer, but I am in the same boat. Recently tenured, R1, always been in it for the teaching—even down to the uni wife teaching awards.  Watching the decline in student curiosity and engagement is just ripping my guts out. I wish I had an answer, but what I do have is solidarity. Dm if you want an ear ❤️. And in the mean time, keep fighting the good fight—for yourself and for pedagogy.
+  - **Old-Team-4298** (33↑): Thank you so much, this means a lot. Parallel lives! I will DM - maybe we can get a support group going :)
     - **shealeigh** (4↑): If yall start a support group or a discord community can I pleaseeee join? This subreddit has been my only solace through the semester - especially this week with all the grade grubbing and entitlement 😣
-- **ThisSaladTastesWeird** (56↑): https://preview.redd.it/skcvejamsq0h1.jpeg?width=1658&format=pjpg&auto=webp&s=62bfe1b593bc68b83e46a20bf129c74903fcf113
+- **ThisSaladTastesWeird** (54↑): https://preview.redd.it/skcvejamsq0h1.jpeg?width=1658&format=pjpg&auto=webp&s=62bfe1b593bc68b83e46a20bf129c74903fcf113
 
 I’ve shared this a few times. It’s the best visual description I’ve seen of what it’s like to read evals. Don’t let a few cranks get you down.
-  - **DrBlankslate** (7↑): https://preview.redd.it/1hp6toaouv0h1.jpeg?width=600&format=pjpg&auto=webp&s=874ccf1baa61d334dac1d013aff69d368baf1e94
+  - **DrBlankslate** (6↑): https://preview.redd.it/1hp6toaouv0h1.jpeg?width=600&format=pjpg&auto=webp&s=874ccf1baa61d334dac1d013aff69d368baf1e94
 
 I'll share this as a similar description. I've had this experience more than once. 
 
 I no longer read my evals unless I'm forced to.
-- **WillowsEnd** (62↑): A lot of students don't know what they're talking about and are just angry and venting. Pay them no heed beyond looking for actionable patterns. For example, my evals in the Fall said I don't post study guides but I had a whole tab on canvas called "study guides" and I mentioned them in class. So this semester, I took those silly 'no study guides' comments and just thought, "oh, they probably weren't coming to class or looking through Canvas," so I started making announcements about the study guides to better reach students like them. In your case, ignore anything angry/personal and only attend to actionable stuff, like maybe just better explain why you use the methods you do or can't provide instantaneous feedback and call it a day.
+- **WillowsEnd** (59↑): A lot of students don't know what they're talking about and are just angry and venting. Pay them no heed beyond looking for actionable patterns. For example, my evals in the Fall said I don't post study guides but I had a whole tab on canvas called "study guides" and I mentioned them in class. So this semester, I took those silly 'no study guides' comments and just thought, "oh, they probably weren't coming to class or looking through Canvas," so I started making announcements about the study guides to better reach students like them. In your case, ignore anything angry/personal and only attend to actionable stuff, like maybe just better explain why you use the methods you do or can't provide instantaneous feedback and call it a day.
 
 Edit: I also give my students multiple opportunities to vent BEFORE evals :) I have them write me some off-the-record feedback once after the midterm and once before the final. I sometimes even incorporate or address comments from the midterm feedback, which helps them feel heard and less angry (I think/hope).
-  - **Old-Team-4298** (11↑): Great advice! Thank you!
+  - **Old-Team-4298** (10↑): Great advice! Thank you!
     - **StonedSimple** (2↑): That part about "explain slow feedback" works really well for me. I teach English Comp at a rural technical/community college that very much takes the Burger King "have it your way" approach to education, so my students come in expecting to be catered to instantly. I tell them every major assignment that it takes me x time to read a paper through once, x time to read it again while grading and taking notes, and x time to write their feedback. 
 
 
@@ -92,11 +174,8 @@ You are not imagining it.
   - **NielsBohron** (15↑): I'm hopeful that what we're seeing this academic year is mostly the tail end of the COVID students.  A lot of really important norms and study habits are established in middle school when this cohort was completely online, and high school never really brought the standards back up to pre-COVID times, so as near as I can tell, this group is just fucked academically (and in terms of work ethic, social skills, general competence, etc.)
 
 My eldest son is in middle school now, and his cohort is frankly more competent and self-sufficient than anything I've seen from my current students, so I'm clinging to the hope that if we keep our standards up, students in the future will get back to the levels we're expecting.
-  - **suzderp** (3↑): I think it's important to note that if you pursue a graduate degree and become a faculty member, \*you were not the average undergraduate student,\* and your friends probably weren't, either.
-
-This is not to say that students haven't changed in the ensuring 20 years. They have. But the gulf between the student you were and the average student has always been wide.
   - **No_Understanding1098** (1↑): I went back to teach at my Alma mater, and it feels the exact same way. I remember how rigorous our program was and how interested everyone was in just learning and getting experience, and now everyone is doing the bare minimum. Even the co-curricular activities died because no one was interested in doing work outside of class.
-- **InsanityAproaches** (19↑): I have had similar feelings. I doubt that my students "want" to get lectured at, exactly.  I think it's a combination of 1) they are used to it, have come to expect it, and get confused when we try to do anything different; and 2) general apathy and decline in the "value" of college.  The last couple of years, even small group discussion or think-pair-share type activities are a slog.  I don't really do "creative" projects - though I have tried some more creative things in the past - but I often come up with things that sound \*intellectually\* challenging and interesting, at least to me, and every time there is just zero interest or engagement.  
+- **InsanityAproaches** (18↑): I have had similar feelings. I doubt that my students "want" to get lectured at, exactly.  I think it's a combination of 1) they are used to it, have come to expect it, and get confused when we try to do anything different; and 2) general apathy and decline in the "value" of college.  The last couple of years, even small group discussion or think-pair-share type activities are a slog.  I don't really do "creative" projects - though I have tried some more creative things in the past - but I often come up with things that sound \*intellectually\* challenging and interesting, at least to me, and every time there is just zero interest or engagement.  
 
 Honestly, I think many of my students, perhaps most, just want the easiest path possible to some kind of "bonafide adult" certification.  They have grown up being told that going to college is how you "get a good job".  It's very transactional.  Very few come in with a scholarly aptitude or even (apparently) basic curiosity about the world.
   - **LivingBizzaroWorld** (6↑): My students get me third in a 3-course sequence. The other two professors (who are both good) use a lecture-heavy style. My course is more active learning plus discussion and light on lecture which some students resist and some like. Every semester a few students will write on my evaluations:  "be more like the other professors."
@@ -124,12 +203,8 @@ I started out with a more conventional lecture approach, but at every stage of m
 My approach now is based on modeling my own learning process - basically, reading a lot, watching documentaries and news stories, reading/watching for comprehension, taking notes, comparative analysis of multiple sources, etc.  While it's active, and not "just" lecture, sometimes I do have to answer my own questions. That's always good for a bit of snark - announcing that "the suspense is killing me", while waiting for someone to speak up.  But even if I do most of the talking, it's less "here's what I \*know\*", and more "here's how I found this out" or "here's how I make sense of this topic".
 
 As a student I probably would have avoided the active learning classes.  I was very shy and disengaged in class, but made up for it by reading a lot on my own and talking with instructors one on one.​  I also learned very early on to trust my own understanding over that of most classmates! Sometimes those who talk the most have the least to say.
-- **ivaorn** (15↑): In my experience, no matter how disengaged the majority of a class may be, I look for ONE student who is engaging with the material and continues to keep hope alive. That student is the reason I keep teaching. And in the moments where I’ve had to be every second person to continue a class conversation, I’m just gonna do what I can. At the end of the day, that’s all I can do. I’m sorry about your brutal experience and I wish there was more I can offer.
-- **cannellita** (14↑): Students behave like Internet trolls when they think they’re anonymous. This is no indication of your actual ability as an instructor. I wish peer reviewing was a thing for this profession, as in, other professors could give you feedback.
-  - **gravitysrainbow1979** (7↑): In a friendly department, that would be great, but I've been in some that were so poisoned and competitive that peer review would just be used as an opportunity to get rid of colleagues perceived as a threat (I taught in Florida)... it IS a lovely idea though
+- **ivaorn** (16↑): In my experience, no matter how disengaged the majority of a class may be, I look for ONE student who is engaging with the material and continues to keep hope alive. That student is the reason I keep teaching. And in the moments where I’ve had to be every second person to continue a class conversation, I’m just gonna do what I can. At the end of the day, that’s all I can do. I’m sorry about your brutal experience and I wish there was more I can offer.
+- **cannellita** (15↑): Students behave like Internet trolls when they think they’re anonymous. This is no indication of your actual ability as an instructor. I wish peer reviewing was a thing for this profession, as in, other professors could give you feedback.
+  - **gravitysrainbow1979** (8↑): In a friendly department, that would be great, but I've been in some that were so poisoned and competitive that peer review would just be used as an opportunity to get rid of colleagues perceived as a threat (I taught in Florida)... it IS a lovely idea though
     - **cannellita** (2↑): That’s awful. One wants to think it’s better than the students doing it but perhaps not 😭
-  - **Otherwise_Coach_8174** (2↑): Well.
-
-I once had a colleague, I shit you not, photocopy his second classroom observation because he was so fucking good for nothing and lazy.
-    - **cannellita** (2↑): That’s crazy!
 - **QuesoCadaDia** (14↑): Keep doing what you're doing. Some years and semesters are off. I was feeling that way last semester, and this semester was amazing.

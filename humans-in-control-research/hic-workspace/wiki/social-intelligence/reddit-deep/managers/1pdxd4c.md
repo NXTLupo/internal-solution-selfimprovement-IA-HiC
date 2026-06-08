@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1pdxd4c.md
 url: "https://www.reddit.com/r/managers/comments/1pdxd4c/managing_remote_teams_could_virtual_frosted_glass/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,21 @@ flair: "Not a Manager"
 extracted_at: "2026-05-26T12:54:23.683Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1pdxd4c.md#c0"
+    char_span: [0, 1934]
+    sentence_count: 13
+    key_terms: [video, frosted, glass, unfrost, visibility, managers, meetings, presence]
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/managers/1pdxd4c.md#c1"
+    char_span: [1949, 2751]
+    sentence_count: 8
+    key_terms: [off-camera, penalising, deleted, others, people, unable, disability, experience]
+    section: Comments
+    token_count: 189
 ---
-
 # Managing Remote Teams: Could "Virtual Frosted Glass" Video Meetings Improve Trust & Reduce Burnout?
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1pdxd4c/managing_remote_teams_could_virtual_frosted_glass/)

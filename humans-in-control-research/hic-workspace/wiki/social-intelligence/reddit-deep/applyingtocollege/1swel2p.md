@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1swel2p.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1swel2p/am_i_crazy_for_wanting_to_go_to_ut_over_yale/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,52 @@ subreddit: "applyingtocollege"
 title: "Am I crazy for wanting to go to UT over Yale…?"
 author: "Aggressive-Scale-326"
 date: "2026-04-26T17:58:05.000Z"
-score: 21
+score: 20
 upvote_ratio: 0.78
 num_comments: 44
 flair: "College Questions"
-extracted_at: "2026-05-25T18:32:06.249Z"
+extracted_at: "2026-06-05T18:53:26.944Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1swel2p.md#c0"
+    char_span: [0, 1900]
+    sentence_count: 15
+    key_terms: [yale, cold, weather, applyingtocollege, sick, crazy, engineering, comments]
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1swel2p.md#c1"
+    char_span: [1902, 4144]
+    sentence_count: 15
+    key_terms: [opportunities, yale, felt, people, super, bdd, get, work]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1swel2p.md#c2"
+    char_span: [4146, 4807]
+    sentence_count: 7
+    key_terms: [people, boola, years, representative, suggestions, difference, monetarily, understand]
+    token_count: 146
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1swel2p.md#c3"
+    char_span: [4822, 6743]
+    sentence_count: 13
+    key_terms: [validation, yale, get, "it's", genuinely, strangers, because, seeking]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1swel2p.md#c4"
+    char_span: [6745, 9034]
+    sentence_count: 29
+    key_terms: [experience, yale, undergraduates, research, campus, school, experiences, residential]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1swel2p.md#c5"
+    char_span: [9036, 10747]
+    sentence_count: 15
+    key_terms: [yale, different, already, believe, illness, people, united-hearing8582, down]
+    section: Comments
+    token_count: 404
 ---
-
 # Am I crazy for wanting to go to UT over Yale…?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1swel2p/am_i_crazy_for_wanting_to_go_to_ut_over_yale/)
-Posted by **Aggressive-Scale-326** · **21↑** · **44 comments**
+Posted by **Aggressive-Scale-326** · **20↑** · **44 comments**
 
 Reposting from [r/yale](r/yale) cause I want a broader range of experiences.
 
@@ -60,10 +94,10 @@ BOOLA BOOLA!
 
 ## Comments
 
-- **Nearby_Task9041** (65↑): Yes it's kinda crazy to not go outside your comfort zone for such a small delta cost over the span of a 40 year career. But it's your life and you don't need to seek validation from strangers on the Internet.
+- **Nearby_Task9041** (67↑): Yes it's kinda crazy to not go outside your comfort zone for such a small delta cost over the span of a 40 year career. But it's your life and you don't need to seek validation from strangers on the Internet.
   - **PlentyD1** (23↑): I believe he genuinely wants to attend Yale, but is seeking validation from Reddit 😁
-    - **Nearby_Task9041** (12↑): Yeah but why seek validation from strangers? It's weird. Plus, this is his 2nd or 3rd post on the topic already.
-    - **Aggressive-Scale-326** (-5↑): It’s honestly the other way around. I can see how it might come off as validation seeking, but I think that’s mostly because I’m a genuinely confused, stressed, and concerned highschool senior 
+    - **Nearby_Task9041** (13↑): Yeah but why seek validation from strangers? It's weird. Plus, this is his 2nd or 3rd post on the topic already.
+    - **Aggressive-Scale-326** (-3↑): It’s honestly the other way around. I can see how it might come off as validation seeking, but I think that’s mostly because I’m a genuinely confused, stressed, and concerned highschool senior 
 
 I loved the UT campus, the price would be less stressful, job opps seem the same, I wouldn’t be sick for months on end, Austin is nice. 
 
@@ -74,19 +108,19 @@ It’d be a different case if Yale was cheaper, but I mostly made this post to g
 The sickness is a very big factor. I don’t know if I’d be able to even get to classes with how sick I get in cold weather. 
 
 For anyone seeing this, please comment or even DM thoughts. I need all the advice I can get, and I’m asking out of sincere conflict and stress
-- **PeacockInTime** (7↑): You have your reasons. I think your decision makes a lot of sense.
-- **Euphoric_Designer164** (16↑): No its not wrong to choose UT. I do think you might be unconsciously playing up your presumptions about what your life at Yale would actually be like though because in your heart you want to attend UT.
+- **PeacockInTime** (8↑): You have your reasons. I think your decision makes a lot of sense.
+- **Euphoric_Designer164** (17↑): No its not wrong to choose UT. I do think you might be unconsciously playing up your presumptions about what your life at Yale would actually be like though because in your heart you want to attend UT.
   - **Important-Drop-3338** (1↑): If OP cares about money, then Yale connections in CS/ML could be superior in getting into the top startup companies that lead to millions in stock gains.
 
 Apart from that, OP's arguments for UT make sense. Further, UT has a huge endowment, some of which is spent on top research profs. Get in their labs if you want to explore research and a possible PhD.
-- **Satisest** (7↑): Honestly, it seems like you’re looking for excuses to justify turning down Yale. Maybe you’re just not ready to venture outside your local comfort zone. Maybe you’ll never want to leave. So I’m not sure what anyone could tell you to persuade you that Yale is a far better opportunity and a once-in-a-lifetime experience. 
+- **Satisest** (8↑): Honestly, it seems like you’re looking for excuses to justify turning down Yale. Maybe you’re just not ready to venture outside your local comfort zone. Maybe you’ll never want to leave. So I’m not sure what anyone could tell you to persuade you that Yale is a far better opportunity and a once-in-a-lifetime experience. 
 
 Yes it’s cold in winter but that’s part of the Ivy League experience. Many people come to appreciate the changing of seasons. The neo-Gothic campus is beautiful when blanketed in snow. You’re over-generalizing from a couple cloudy days when you were there. New Haven has 204 sunny days per year. Dallas has 234. Not a huge difference. 
 
 You’re comparing a commuter school with 21,000 undergraduates to a residential Ivy League college with 6,800 undergraduates. The experiences are vastly different. Yale offers a much more undergraduate-focused and personal experience. Students live on campus in residential colleges and there’s a very close-knit culture with a vibrant social scene. There’s a reason Yale is consistently ranked as having one of the best student experiences in the country (e.g. WSJ, Niche). 
 
 The Yale name will carry more weight throughout your career than you can perhaps imagine. It will put you in a position to do so much more. But no amount of rational explanation of the huge advantages of attending Yale will matter if you’re just not ready to embrace the experience.
-  - **WolverineMom** (-1↑): What on earth leaves you with the impression that UT Austin is a commuter school? That makes no sense.
+  - **WolverineMom** (-2↑): What on earth leaves you with the impression that UT Austin is a commuter school? That makes no sense.
     - **Satisest** (-3↑): Around half of students commute and 80% live off campus. 
 
 And I checked, I got the undergraduate population wrong by a factor of 2. There are 45,000 undergraduates. That’s massive. Almost 7x more than Yale. Going to be a lot of competition for resources, research projects, etc. Just a very different experience between an Ivy and a state school the size of a small city.
@@ -97,6 +131,6 @@ So if weather and friendliness are already pinch points, it’s safe to conclude
 It’s unwise to assume something you already find worrisome will magically fade away when you’re exposed to it full time.
 - **-GalaxyCrow-** (3↑): Wow we had totally different experiences at BDD. I come from a small town and have a lot less prestigious awards and I thought most people I talked to with the exclusion of some rich kids were welcoming and down to earth. Sorry your experience was so much different! About the illness- Yale does have a nice insurance plan and an easily accessible medical facility near campus for students who get sick. If an illness plays a big factor there is definitely support there.
 - **Sufficient_Mirror_12** (3↑): There are really active Yale alumni clubs in Texas, which a nice bridge between the two worlds.
-- **United-Hearing8582** (5↑): I think a lot of the issues you raised about Yale are likely all in your head. Choose Yale and dont look back. Having an undergrad as strong as Yale will benefit you so much more in the long run. 4 years also goes by incredibly fast and enjoy it!
-- **UntowardAdvance** (5↑): 2 OPTIONS- 1. Try Yale and if it doesn’t work it out, transfer to UT. Trying UT and transferring to Yale is impossible. 2. Or just go to UT and then tell everyone that you got into Yale and you turned it down. They either won’t believe you or will believe you and think you’re crazy.
-- **fineline3061** (4↑): Going to Yale will change your life, the people you meet, and the opportunities you will have.  It would be insane to go to ut instead of yale. But you do you.  Someone on the waitlist is about to get lucky.
+- **United-Hearing8582** (6↑): I think a lot of the issues you raised about Yale are likely all in your head. Choose Yale and dont look back. Having an undergrad as strong as Yale will benefit you so much more in the long run. 4 years also goes by incredibly fast and enjoy it!
+- **UntowardAdvance** (6↑): 2 OPTIONS- 1. Try Yale and if it doesn’t work it out, transfer to UT. Trying UT and transferring to Yale is impossible. 2. Or just go to UT and then tell everyone that you got into Yale and you turned it down. They either won’t believe you or will believe you and think you’re crazy.
+- **fineline3061** (5↑): Going to Yale will change your life, the people you meet, and the opportunities you will have.  It would be insane to go to ut instead of yale. But you do you.  Someone on the waitlist is about to get lucky.

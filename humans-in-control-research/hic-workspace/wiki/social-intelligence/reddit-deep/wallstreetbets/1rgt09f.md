@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1rgt09f.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1rgt09f/oil_is_mispriced_ignore_headlines_and_look_at/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,55 @@ flair: "DD"
 extracted_at: "2026-05-16T20:54:42.973Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, energy, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rgt09f.md#c0"
+    char_span: [0, 2101]
+    sentence_count: 15
+    key_terms: [oil, iran, trump, strikes, war, wallstreetbets, been, escalation]
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rgt09f.md#c1"
+    char_span: [2103, 4681]
+    sentence_count: 17
+    key_terms: [oil, russian, ukraine, war, opec, economic, nations, market]
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rgt09f.md#c2"
+    char_span: [4683, 7122]
+    sentence_count: 17
+    key_terms: [energy, oil, renewable, large, whilst, reductions, trump, term]
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rgt09f.md#c3"
+    char_span: [7137, 7226]
+    sentence_count: 1
+    key_terms: [including, positions, "should've", removed, ago, been]
+    section: Comments
+    token_count: 26
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rgt09f.md#c4"
+    char_span: [7228, 9036]
+    sentence_count: 4
+    key_terms: [iran, oil, companies, insider, comprehensivedoor130, no-understanding2406, price, sectorratiogeneral]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rgt09f.md#c5"
+    char_span: [8849, 9207]
+    sentence_count: 1
+    key_terms: [iran, no-understanding2406, museum-quality, shotbandicoot7, overpriced, genuinely, headlines, bombing]
+    section: Comments
+    token_count: 101
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rgt09f.md#c6"
+    char_span: [9209, 11308]
+    sentence_count: 7
+    key_terms: [years, oil, "you're", fundamentals, gonna, gdp, perfectly, probably]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rgt09f.md#c7"
+    char_span: [11310, 11805]
+    sentence_count: 1
+    key_terms: [like, aged, milk, astronomical, invalidated, sillyhands1, definitely, enfuego138]
+    section: Comments
+    token_count: 145
 ---
-
 # Oil is mispriced - ignore headlines and look at fundamentals
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1rgt09f/oil_is_mispriced_ignore_headlines_and_look_at/)

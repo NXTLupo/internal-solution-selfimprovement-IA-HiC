@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1pbmngx.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1pbmngx/how_to_convince_my_mom/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -10,11 +11,69 @@ score: 24
 upvote_ratio: 0.93
 num_comments: 53
 flair: "College Questions"
-extracted_at: "2026-05-23T12:15:36.233Z"
+extracted_at: "2026-06-05T18:53:26.955Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pbmngx.md#c0"
+    char_span: [0, 1942]
+    sentence_count: 15
+    key_terms: [applyingtocollege, convince, because, parents, ready, don, want, comments]
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pbmngx.md#c1"
+    char_span: [1944, 2494]
+    sentence_count: 5
+    key_terms: [consider, plan-5-years-in-advanced, "haven't", been, requirements, decisions, financial, in-spirit]
+    token_count: 131
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pbmngx.md#c2"
+    char_span: [2509, 3525]
+    sentence_count: 6
+    key_terms: [live, abroad, parent, school, dad, does, kids, love]
+    section: Comments
+    token_count: 248
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pbmngx.md#c3"
+    char_span: [3527, 4876]
+    sentence_count: 12
+    key_terms: [visa, express, student, intent, mom, year, understand, college]
+    section: Comments
+    token_count: 336
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pbmngx.md#c4"
+    char_span: [4878, 6827]
+    sentence_count: 14
+    key_terms: [school, rahbloxqueen, being, defer, start, "he's", accepted, country]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pbmngx.md#c5"
+    char_span: [6829, 8809]
+    sentence_count: 11
+    key_terms: [school, federal, signing, like, part, understand, accepted, already]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pbmngx.md#c6"
+    char_span: [8811, 10992]
+    sentence_count: 22
+    key_terms: [semester, because, country, necessarily, get, year, financial, generally]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pbmngx.md#c7"
+    char_span: [10994, 13405]
+    sentence_count: 20
+    key_terms: [parents, understand, concerns, college, like, counselor, colleges, navigate]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pbmngx.md#c8"
+    char_span: [13407, 15594]
+    sentence_count: 18
+    key_terms: [school, get, college, need, financial, traveling, convince, concern]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pbmngx.md#c9"
+    char_span: [15596, 17211]
+    sentence_count: 8
+    key_terms: [scotland, school, looking, program, weather, been, love, want]
+    section: Comments
+    token_count: 380
 ---
-
 # How to convince my mom!
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1pbmngx/how_to_convince_my_mom/)
@@ -33,17 +92,17 @@ No I haven't been to Scotland, just in-spirit, and no I haven't been accepted ye
 
 ## Comments
 
-- **Smooth-Fox-6419** (45↑): First get accepted then worry about all this.
+- **Smooth-Fox-6419** (47↑): First get accepted then worry about all this.
   - **Scypher_Tzu** (0↑): Judging by their writing they already are.
-    - **Scypher_Tzu** (6↑): Reading the comments tells me they havent.   
+    - **Scypher_Tzu** (7↑): Reading the comments tells me they havent.   
 It is really unwise to start preparing for visa or planning a future there without an acceptance at the very least.
 - **stiletto929** (9↑): Would your dad sign….? What is your reasoning for that particular school?
 
 Your parents may be nervous being so far away from you, particularly if there was an emergency. From a parent’s perspective, it is HARD when your kids go off to college, much less moving to another country. They may fear you will live in England permanently and then their grandkids will live there. (Personally I would love for my kids to go abroad/live abroad and would support them in it but I can see it would be difficult as a parent.)
-  - **RahbloxQueen** (4↑): My mom makes all the money so my dad does what she does… and lots of reasons, I love everything about that school! 
+  - **RahbloxQueen** (3↑): My mom makes all the money so my dad does what she does… and lots of reasons, I love everything about that school! 
 
 I 100% understand my mom’s perspective (and I do infact plan on permanently moving to the UK) and we’ve had that discussion so many times- I just want her to sorta understand I got this, which may be hard to believe I suppose.
-    - **[deleted]** (5↑): Now now, if you express intent to settle in the UK, your student visa will be rejected IMMEDIATELY. Do not ever express intent to reside on a student visa. It is a nonimmigrant visa. The only permitted intent is to study and fuck off to home. Are there clearly paths to settle from being a student, 100%. But express that once you get a visa and cross the border.
+    - **[deleted]** (3↑): Now now, if you express intent to settle in the UK, your student visa will be rejected IMMEDIATELY. Do not ever express intent to reside on a student visa. It is a nonimmigrant visa. The only permitted intent is to study and fuck off to home. Are there clearly paths to settle from being a student, 100%. But express that once you get a visa and cross the border.
 - **SmilingAmericaAmazon** (8↑): As a mom with a child studying abroad, let her know that European schools tend to be more international and do a better job of helping students acclimate to college. Also, most UK/EU first years are more mature and chill than their US counterparts. Also, med insurance is super cheap! Is your program a 3 or 4 year one?
   - **RahbloxQueen** (2↑): Thank you! It’s four years but I plan on applying for the 5-year once I am in (MSci).
 - **MegaMiles08** (8↑): As someone who started college in spring, it sucked. Hardly anyone starts in spring and you'll miss out on all the incoming freshmen activities. If you get in, either convince your mom to start in 2026 or delay a whole year to start in 2027. 
@@ -51,10 +110,10 @@ I 100% understand my mom’s perspective (and I do infact plan on permanently mo
 Also, it may take some time for her to process this. My son is planning to study in Europe as well, but he's been talking about it for years. (He actually first brought it up in middle school.) I definitely was very much against it from the start, but he's done a lot to show he's serious and this isn't just a whim. As a mom, I'm going to miss him so much, but I also know my son acts very mature for his age and I'm excited for him to have this opportunity. It still doesn't stop fears from running through my head all the time about all the terrible things that can go wrong.
   - **Scypher_Tzu** (1↑): Depends on the country\* Some countries start mainly in spring
     - **MegaMiles08** (2↑): That's not the case at the university OP wants to attend, and that's my point.
-- **[deleted]** (3↑): What country are you in now?
+- **[deleted]** (4↑): What country are you in now?
   - **RahbloxQueen** (1↑): US!
 - **GeishaGal8486** (4↑): If accepted, you could defer for a year and use the year to work and save some cash. Ask her if this would be ok with her, as you’ll be an adult. If she still says no, it’s obviously not about your age.
-- **Irritable_Curmudgeon** (3↑): >she thinks I should start in the spring if I must go
+- **Irritable_Curmudgeon** (5↑): >she thinks I should start in the spring if I must go
 
 Why?  If accepted, will they allow you to defer a semester?
 

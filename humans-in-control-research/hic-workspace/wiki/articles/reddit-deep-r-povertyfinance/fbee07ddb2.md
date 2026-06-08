@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-povertyfinance/fbee07ddb2.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1lfgjm9/if_you_cant_afford_to_pay_for_your_childs_college/"
 url_hash: "fbee07ddb2"
 kind: "article"
@@ -10,8 +11,40 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-16T20:57:59.889365+00:00"
 chars: 12000
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c0"
+    char_span: [0, 2209]
+    sentence_count: 9
+    key_terms: [college, children, parents, school, povertyfinance, taking, universities, loans]
+    token_count: 461
+  - id: "articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c1"
+    char_span: [2211, 4730]
+    sentence_count: 12
+    key_terms: [school, high, enrollment, students, classes, college, dual, take]
+    token_count: 480
+  - id: "articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c2"
+    char_span: [4732, 7144]
+    sentence_count: 16
+    key_terms: [college, university, students, universities, associates, community, live, tuition]
+    token_count: 485
+  - id: "articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c3"
+    char_span: [7146, 9552]
+    sentence_count: 13
+    key_terms: [college, year, tuition, scholarships, enrollment, child, classes, credit]
+    token_count: 495
+  - id: "articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c4"
+    char_span: [9554, 11646]
+    sentence_count: 11
+    key_terms: [tuition, reimburse, etc, research, college, universities, "it's", jobs]
+    token_count: 477
+  - id: "articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c5"
+    char_span: [11649, 12229]
+    sentence_count: 5
+    key_terms: [schools, kids, employees, states, objective-kangaroo-7, free, give, freecollegenow]
+    token_count: 132
 ---
-
 # If you can’t afford to pay for your child’s college education, read this.
 
 Source: [Reddit Deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1lfgjm9/if_you_cant_afford_to_pay_for_your_childs_college/)

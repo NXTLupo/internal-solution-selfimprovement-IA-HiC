@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1stzx6h.md
 url: "https://www.reddit.com/r/GradSchool/comments/1stzx6h/i_am_deeply_frustrated_with_phd_funding_in_canada/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,27 @@ flair: "Finance"
 extracted_at: "2026-05-19T15:08:48.779Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1stzx6h.md#c0"
+    char_span: [0, 1845]
+    sentence_count: 22
+    key_terms: [phd, funding, financial, makes, canada, gradschool, comments, supposed]
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/gradschool/1stzx6h.md#c1"
+    char_span: [1860, 3768]
+    sentence_count: 9
+    key_terms: [canada, substantially, years, phd, research, because, getting, working]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/gradschool/1stzx6h.md#c2"
+    char_span: [3770, 4639]
+    sentence_count: 7
+    key_terms: [tuition, stipends, people, school, correct-shine-1692, lot, work, thealexanderpach]
+    section: Comments
+    token_count: 237
 ---
-
 # I am deeply frustrated with PhD funding in Canada
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1stzx6h/i_am_deeply_frustrated_with_phd_funding_in_canada/)

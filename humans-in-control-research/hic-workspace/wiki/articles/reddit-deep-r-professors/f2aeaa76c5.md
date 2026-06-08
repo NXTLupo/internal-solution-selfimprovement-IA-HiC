@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-professors/f2aeaa76c5.md
 url: "https://www.reddit.com/r/Professors/comments/1skh6l3/martin_peterson_philosophy_professor_at_texas_am/"
 url_hash: "f2aeaa76c5"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T04:05:25.409934+00:00"
 chars: 3256
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-professors/f2aeaa76c5.md#c0"
+    char_span: [0, 1917]
+    sentence_count: 12
+    key_terms: [texas, university, academic, freedom, martinpeterson, chair, dean, colleagues]
+    token_count: 434
+  - id: "articles/reddit-deep-r-professors/f2aeaa76c5.md#c1"
+    char_span: [1919, 3496]
+    sentence_count: 8
+    key_terms: [professor-banned-from-teaching-plato-excerpt-to-leave-texas-a-m-its-getting-worse, like, weirdonightowl, censorship, che-social, academics, chronicle, teaching]
+    token_count: 401
 ---
-
 # Martin Peterson, Philosophy professor at Texas A&M University, resigns in protest to join SMU
 
 Source: [Reddit Deep: r/professors](https://www.reddit.com/r/Professors/comments/1skh6l3/martin_peterson_philosophy_professor_at_texas_am/)

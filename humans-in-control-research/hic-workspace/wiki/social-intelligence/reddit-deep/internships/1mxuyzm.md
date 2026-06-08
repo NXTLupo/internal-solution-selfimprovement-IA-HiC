@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1mxuyzm.md
 url: "https://www.reddit.com/r/internships/comments/1mxuyzm/summer_internships_for_indian_girls/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -7,14 +8,19 @@ title: "Summer internships for Indian girls"
 author: "Fiyaaaaa_"
 date: "2025-08-23T07:24:31.000Z"
 score: 0
-upvote_ratio: 0.14
+upvote_ratio: 0.17
 num_comments: 6
 flair: "Offers"
-extracted_at: "2026-05-22T15:10:56.587Z"
+extracted_at: "2026-06-05T19:52:26.156Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1mxuyzm.md#c0"
+    char_span: [0, 1387]
+    sentence_count: 2
+    key_terms: [internship, internships, lernx, opportunity, marketing, resources, comments, freshers]
+    token_count: 383
 ---
-
 # Summer internships for Indian girls
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1mxuyzm/summer_internships_for_indian_girls/)
@@ -59,7 +65,6 @@ Eligibility: Open to all undergraduates and freshers
 
 ## Comments
 
-- **Kind-Office8694** (1↑): Interested
 - **[deleted]** (1↑): Intersted
   - **Fiyaaaaa_** (1↑): Dm plz
 - **damonsalvatore4eva** (1↑): Intrested

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1s8rxmo.md
 url: "https://www.reddit.com/r/internships/comments/1s8rxmo/looking_for_internship_opportunities_btech_student/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,15 @@ flair: "Offers"
 extracted_at: "2026-05-25T15:51:38.717Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1s8rxmo.md#c0"
+    char_span: [0, 995]
+    sentence_count: 8
+    key_terms: [internship, looking, opportunities, internships, tech, experience, comments, https]
+    token_count: 239
 ---
-
 # Looking for Internship Opportunities | B.Tech Student
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1s8rxmo/looking_for_internship_opportunities_btech_student/)

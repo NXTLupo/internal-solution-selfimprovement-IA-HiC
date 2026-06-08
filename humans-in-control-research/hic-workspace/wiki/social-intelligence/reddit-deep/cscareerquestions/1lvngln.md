@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1lvngln.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1lvngln/torn_between_two_job_paths_looking_for_career/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,26 @@ flair: "Experienced"
 extracted_at: "2026-05-23T19:45:00.919Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lvngln.md#c0"
+    char_span: [0, 2229]
+    sentence_count: 18
+    key_terms: [role, cscareerquestions, startup, remote, client-facing, feels, raise, been]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lvngln.md#c1"
+    char_span: [2231, 2544]
+    sentence_count: 3
+    key_terms: [client-facing, perspective, enterprise, questions, situation, stability, structure, internal]
+    token_count: 67
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lvngln.md#c2"
+    char_span: [2559, 4251]
+    sentence_count: 16
+    key_terms: [startup, option, stability, flexible, startups, already, looking, growth]
+    section: Comments
+    token_count: 370
 ---
-
 # Torn Between Two Job Paths – Looking for Career Advice
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1lvngln/torn_between_two_job_paths_looking_for_career/)

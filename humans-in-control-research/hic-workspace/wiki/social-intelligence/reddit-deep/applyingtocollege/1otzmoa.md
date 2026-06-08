@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1otzmoa.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1otzmoa/how_much_do_colleges_value_art_and_music_ecs_on/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,21 @@ flair: "Application Question"
 extracted_at: "2026-05-22T23:33:52.660Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1otzmoa.md#c0"
+    char_span: [0, 1067]
+    sentence_count: 8
+    key_terms: [applyingtocollege, art, been, colleges, comments, guitar, thoroughfaredefender, music]
+    token_count: 259
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1otzmoa.md#c1"
+    char_span: [1082, 3240]
+    sentence_count: 16
+    key_terms: [music, campus, art, ecs, skills, participation, application, background]
+    section: Comments
+    token_count: 474
 ---
-
 # How much do colleges value art and music ecs on applications?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1otzmoa/how_much_do_colleges_value_art_and_music_ecs_on/)

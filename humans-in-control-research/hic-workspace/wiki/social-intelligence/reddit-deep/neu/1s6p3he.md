@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1s6p3he.md
 url: "https://www.reddit.com/r/NEU/comments/1s6p3he/neu_coop/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,27 @@ flair: "Co-op & Career"
 extracted_at: "2026-05-26T14:30:23.758Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1s6p3he.md#c0"
+    char_span: [0, 871]
+    sentence_count: 7
+    key_terms: [neu, students, boston, co-op, comments, schools, co-ops, cybersecurity]
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/neu/1s6p3he.md#c1"
+    char_span: [886, 2839]
+    sentence_count: 14
+    key_terms: [student, international, students, co-op, harvard, program, northeastern, employers]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/neu/1s6p3he.md#c2"
+    char_span: [2841, 3632]
+    sentence_count: 6
+    key_terms: [financial, same-cap7233, aid, expensive, package, hey, neu, too]
+    section: Comments
+    token_count: 216
 ---
-
 # NEU co-op
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1s6p3he/neu_coop/)

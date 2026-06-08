@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1r7hahx.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1r7hahx/daughter_in_the_hospital_i_dont_know_how_we_will/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,51 @@ flair: "Budgeting/Saving/Investing/Spending"
 extracted_at: "2026-05-16T20:55:12.686Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [healthcare]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1r7hahx.md#c0"
+    char_span: [0, 1849]
+    sentence_count: 21
+    key_terms: [hospital, blood, povertyfinance, okay, took, anything, comments, paycheck]
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/povertyfinance/1r7hahx.md#c1"
+    char_span: [1864, 2617]
+    sentence_count: 7
+    key_terms: [hospital, assistance, negotiate, qualify, credit, need, plusharmadillo, application]
+    section: Comments
+    token_count: 178
+  - id: "social-intelligence/reddit-deep/povertyfinance/1r7hahx.md#c2"
+    char_span: [2619, 4653]
+    sentence_count: 11
+    key_terms: [hospital, qualify, hospitals, medicaid, charity, medical, "don't", great]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1r7hahx.md#c3"
+    char_span: [4363, 5224]
+    sentence_count: 2
+    key_terms: [bill, hospital, payments, programs, paying, wubbalubbadubbitydo, start, did]
+    section: Comments
+    token_count: 213
+  - id: "social-intelligence/reddit-deep/povertyfinance/1r7hahx.md#c4"
+    char_span: [5226, 7100]
+    sentence_count: 16
+    key_terms: [hospital, medicaid, medical, bill, event, quietlifter, days, pay]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/povertyfinance/1r7hahx.md#c5"
+    char_span: [7103, 9060]
+    sentence_count: 19
+    key_terms: [bills, get, leavemebeicry, foundations, etc, need, rent, utilities]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/povertyfinance/1r7hahx.md#c6"
+    char_span: [9063, 10883]
+    sentence_count: 15
+    key_terms: [hospital, medicaid, everything, application, pay, handle, income, possible-barnacle-78]
+    section: Comments
+    token_count: 444
 ---
-
 # Daughter in the hospital I don’t know how we will get it paid for
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1r7hahx/daughter_in_the_hospital_i_dont_know_how_we_will/)

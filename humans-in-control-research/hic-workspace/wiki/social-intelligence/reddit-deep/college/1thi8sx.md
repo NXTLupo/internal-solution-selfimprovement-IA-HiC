@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1thi8sx.md
 url: "https://www.reddit.com/r/college/comments/1thi8sx/should_i_shift_to_development_studies_or/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,15 @@ flair: "Career/work"
 extracted_at: "2026-05-19T15:08:26.261Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1thi8sx.md#c0"
+    char_span: [0, 2181]
+    sentence_count: 1
+    key_terms: [studies, law, something, international, want, development, advice, policy]
+    token_count: 468
 ---
-
 # should i shift to development studies or international studies? need honest advice
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1thi8sx/should_i_shift_to_development_studies_or/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/f2c9c2aace.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rlvymd/how_important_was_your_internship_experience_in/"
 url_hash: "f2c9c2aace"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T02:36:37.084306+00:00"
 chars: 1051
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/f2c9c2aace.md#c0"
+    char_span: [0, 1292]
+    sentence_count: 5
+    key_terms: [internships, internship, cscareerquestions, job, experience, important, interview, comments]
+    token_count: 290
 ---
-
 # How important was your internship experience in landing your first full-time job?
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rlvymd/how_important_was_your_internship_experience_in/)

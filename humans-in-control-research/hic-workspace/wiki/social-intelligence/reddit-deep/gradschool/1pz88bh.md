@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1pz88bh.md
 url: "https://www.reddit.com/r/GradSchool/comments/1pz88bh/jobs_during_grad_school/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-22T21:35:36.525Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1pz88bh.md#c0"
+    char_span: [0, 348]
+    sentence_count: 3
+    key_terms: [gradschool, comments, grad, jobs, few-sky-3793, reddit-deep, full-time, "master's"]
+    token_count: 92
+  - id: "social-intelligence/reddit-deep/gradschool/1pz88bh.md#c1"
+    char_span: [363, 2377]
+    sentence_count: 17
+    key_terms: [work, get, tutors, tutor, "won't", grad, time, part]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/gradschool/1pz88bh.md#c2"
+    char_span: [2379, 4464]
+    sentence_count: 8
+    key_terms: [disastrous-pair-9466, worked, few-sky-3793, good, kept, phd, assistant, positions]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1pz88bh.md#c3"
+    char_span: [4216, 4860]
+    sentence_count: 4
+    key_terms: [either, worked, disastrous-pair-9466, work, consulting, academics, coworkers, probably]
+    section: Comments
+    token_count: 163
+  - id: "social-intelligence/reddit-deep/gradschool/1pz88bh.md#c4"
+    char_span: [4862, 6787]
+    sentence_count: 8
+    key_terms: [full-time, few-sky-3793, research, because, grad, work, probably, cflow26]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1pz88bh.md#c5"
+    char_span: [6520, 8240]
+    sentence_count: 10
+    key_terms: [work, program, serotonin, because, meowmeowbiatch, few-sky-3793, flexibility, time]
+    section: Comments
+    token_count: 440
 ---
-
 # Jobs during grad school
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1pz88bh/jobs_during_grad_school/)

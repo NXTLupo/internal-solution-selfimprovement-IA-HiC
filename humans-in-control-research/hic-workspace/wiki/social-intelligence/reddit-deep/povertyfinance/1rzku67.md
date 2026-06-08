@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1rzku67.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1rzku67/apologies_for_my_terrible_handwriting_but_this_is/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,51 @@ flair: "Budgeting/Saving/Investing/Spending"
 extracted_at: "2026-05-16T20:55:12.693Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rzku67.md#c0"
+    char_span: [0, 883]
+    sentence_count: 7
+    key_terms: [povertyfinance, month, comments, income, loans, asparagusinner6577, done, handwriting]
+    token_count: 215
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rzku67.md#c1"
+    char_span: [898, 2833]
+    sentence_count: 10
+    key_terms: [asparagusinner6577, usually, hsa, max, work, tribbans95, breakfast, dinner]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rzku67.md#c2"
+    char_span: [2835, 4263]
+    sentence_count: 8
+    key_terms: [ill-jellyfish6101, get, spectrum, spotify, strict-confusion-570, month, phone, asparagusinner6577]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rzku67.md#c3"
+    char_span: [4265, 4906]
+    sentence_count: 5
+    key_terms: [spectrum, internet, spectrum-internet-assist, don, fireprostan, nationalize, depending, emergency]
+    section: Comments
+    token_count: 182
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rzku67.md#c4"
+    char_span: [4908, 7009]
+    sentence_count: 12
+    key_terms: [spotify, get, cheaper, budget, family, job, plan, situation]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rzku67.md#c5"
+    char_span: [6752, 7953]
+    sentence_count: 8
+    key_terms: [spotify, music, family, friends, student, wentoburningmanonce, never, ads]
+    section: Comments
+    token_count: 314
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rzku67.md#c6"
+    char_span: [7955, 8434]
+    sentence_count: 4
+    key_terms: [spotify, okresolution4275, queenarreic, probably, iphones, mention, student, towards]
+    section: Comments
+    token_count: 136
 ---
-
 # Apologies for my terrible handwriting, but this is what my monthly expenses have looked like while I lock in to pay off my remaining student loan debt.
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1rzku67/apologies_for_my_terrible_handwriting_but_this_is/)

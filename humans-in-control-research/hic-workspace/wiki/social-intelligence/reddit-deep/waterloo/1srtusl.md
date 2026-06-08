@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1srtusl.md
 url: "https://www.reddit.com/r/waterloo/comments/1srtusl/any_advice_for_a_recent_grad_struggling_to_find_a/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.128Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce, healthcare]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1srtusl.md#c0"
+    char_span: [0, 1388]
+    sentence_count: 9
+    key_terms: [waterloo, information, been, job, comments, advice, health, region]
+    token_count: 304
+  - id: "social-intelligence/reddit-deep/waterloo/1srtusl.md#c1"
+    char_span: [1403, 3359]
+    sentence_count: 17
+    key_terms: [health, insurance, districtcurrent, like, companies, industry, commute, ontario]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/waterloo/1srtusl.md#c2"
+    char_span: [3361, 5551]
+    sentence_count: 17
+    key_terms: [entry-level, help, resume, build, data, get, interested, applying]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/waterloo/1srtusl.md#c3"
+    char_span: [5553, 5862]
+    sentence_count: 3
+    key_terms: [use, articulate, especially, companies, configure, becoming, familiar, agentic]
+    section: Comments
+    token_count: 66
 ---
-
 # Any advice for a recent grad struggling to find a job in Waterloo?
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1srtusl/any_advice_for_a_recent_grad_struggling_to_find_a/)

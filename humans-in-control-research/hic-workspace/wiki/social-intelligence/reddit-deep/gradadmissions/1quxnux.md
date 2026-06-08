@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1quxnux.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1quxnux/got_acceptedinto_the_rejection_pile_at_my_top/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,33 @@ flair: "Humanities"
 extracted_at: "2026-05-23T14:54:16.716Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1quxnux.md#c0"
+    char_span: [0, 1648]
+    sentence_count: 10
+    key_terms: [favorite, university, everyone, gradadmissions, place, love, comments, because]
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/gradadmissions/1quxnux.md#c1"
+    char_span: [1663, 2827]
+    sentence_count: 11
+    key_terms: [flightofwonder, times, appreciate, jmeshelton, mindset, always, mysteriouspolicy4354, thank]
+    section: Comments
+    token_count: 312
+  - id: "social-intelligence/reddit-deep/gradadmissions/1quxnux.md#c2"
+    char_span: [2829, 3997]
+    sentence_count: 10
+    key_terms: [flightofwonder, interview, places, moonbat1334, good, like, luck, bisensual]
+    section: Comments
+    token_count: 318
+  - id: "social-intelligence/reddit-deep/gradadmissions/1quxnux.md#c3"
+    char_span: [3999, 5211]
+    sentence_count: 8
+    key_terms: [flightofwonder, best, thank, luck, too, appreciate, professor, programs]
+    section: Comments
+    token_count: 330
 ---
-
 # Got accepted...(into the rejection pile) at my top choice!
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1quxnux/got_acceptedinto_the_rejection_pile_at_my_top/)

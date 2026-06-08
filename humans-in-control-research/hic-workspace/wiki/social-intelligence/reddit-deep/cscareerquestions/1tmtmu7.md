@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1tmtmu7.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1tmtmu7/autistic_high_school_grad_relative_of_mine/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-25T15:52:30.666Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tmtmu7.md#c0"
+    char_span: [0, 1347]
+    sentence_count: 11
+    key_terms: [cscareerquestions, recently, school, been, high, comments, relative, classes]
+    token_count: 300
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tmtmu7.md#c1"
+    char_span: [1362, 3376]
+    sentence_count: 15
+    key_terms: [skills, something, good, software, asking, maybe, job, interested]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tmtmu7.md#c2"
+    char_span: [3379, 5664]
+    sentence_count: 17
+    key_terms: [people, technical, because, skills, professionals, candidates, autistic, function]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tmtmu7.md#c3"
+    char_span: [5666, 7718]
+    sentence_count: 15
+    key_terms: [goldenshackles, "i'm", little, being, awkwardly, interest, spectrum, better]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tmtmu7.md#c4"
+    char_span: [7720, 10033]
+    sentence_count: 15
+    key_terms: [interest, durable, parents, through, coding, too, nurturing, flywheel]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tmtmu7.md#c5"
+    char_span: [10035, 12402]
+    sentence_count: 19
+    key_terms: [people, successful, autistic, software, connect, career, communication, independently]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tmtmu7.md#c6"
+    char_span: [12404, 13167]
+    sentence_count: 9
+    key_terms: [people, understand, autistic, places, accommodating, architecture, intuitively, programmers]
+    section: Comments
+    token_count: 159
 ---
-
 # Autistic High School grad (relative of mine) options towards CS
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1tmtmu7/autistic_high_school_grad_relative_of_mine/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1tkobp3.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1tkobp3/you_dont_need_to_go_to_an_ivy/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,33 @@ flair: "Advice"
 extracted_at: "2026-05-23T19:45:32.280Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tkobp3.md#c0"
+    char_span: [0, 1635]
+    sentence_count: 12
+    key_terms: [school, people, applyingtocollege, college, ivy, comments, doesn, hypsm]
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tkobp3.md#c1"
+    char_span: [1650, 3342]
+    sentence_count: 4
+    key_terms: [school, ivy, uiuc, went, senior-dog-9735, state, half, mill]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tkobp3.md#c2"
+    char_span: [3344, 4710]
+    sentence_count: 8
+    key_terms: [acceptance, cornell, rate, undergraduate-admissions, applications, university-factbook, https, edu]
+    section: Comments
+    token_count: 375
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tkobp3.md#c3"
+    char_span: [4712, 5854]
+    sentence_count: 10
+    key_terms: [school, state, uiuc, students, cornell, picked, connectionscatergory, right]
+    section: Comments
+    token_count: 286
 ---
-
 # You don't need to go to an ivy
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1tkobp3/you_dont_need_to_go_to_an_ivy/)

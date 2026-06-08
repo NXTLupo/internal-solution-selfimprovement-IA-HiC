@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1pmoufl.md
 url: "https://www.reddit.com/r/careerguidance/comments/1pmoufl/career_guidanceadvice/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-20T12:56:27.157Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1pmoufl.md#c0"
+    char_span: [0, 1389]
+    sentence_count: 10
+    key_terms: [certifications, change, careerguidance, advice, career, job, need, comments]
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/careerguidance/1pmoufl.md#c1"
+    char_span: [1404, 2302]
+    sentence_count: 4
+    key_terms: [tech, networking, support, cybersecurity, additionally, background, beneficial, depressing]
+    section: Comments
+    token_count: 196
 ---
-
 # Career guidance/advice?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1pmoufl/career_guidanceadvice/)

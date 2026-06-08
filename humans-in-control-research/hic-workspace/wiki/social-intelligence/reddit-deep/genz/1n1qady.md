@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1n1qady.md
 url: "https://www.reddit.com/r/GenZ/comments/1n1qady/do_yall_want_kids/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,57 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.767Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1n1qady.md#c0"
+    char_span: [0, 1079]
+    sentence_count: 11
+    key_terms: [kids, want, having, gen, like, comments, choice, people]
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/genz/1n1qady.md#c1"
+    char_span: [1094, 2915]
+    sentence_count: 19
+    key_terms: [kids, adoption, gaybrandflakes, people, definetly, realized, because, discord]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/genz/1n1qady.md#c2"
+    char_span: [2917, 3314]
+    sentence_count: 4
+    key_terms: [different, kids, conversation, brotherhood, furthermore, perspective, belittling, mentorship]
+    section: Comments
+    token_count: 87
+  - id: "social-intelligence/reddit-deep/genz/1n1qady.md#c3"
+    char_span: [3316, 5287]
+    sentence_count: 12
+    key_terms: [kids, davidbosley353, issues, fallingender, want, asexual, sensory, working]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/genz/1n1qady.md#c4"
+    char_span: [5075, 6634]
+    sentence_count: 7
+    key_terms: [like, kids, cool, want, anything, country, parents, force]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/genz/1n1qady.md#c5"
+    char_span: [6636, 8343]
+    sentence_count: 9
+    key_terms: [kids, want, "don't", lot, unpopular, probably, deleted, through]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/genz/1n1qady.md#c6"
+    char_span: [8345, 10259]
+    sentence_count: 9
+    key_terms: [kids, want, dont, people, person, different, friends, reddit]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/genz/1n1qady.md#c7"
+    char_span: [10023, 10422]
+    sentence_count: 2
+    key_terms: [care, take, environment, eventhough, another, azulan5, healthy, nephews]
+    section: Comments
+    token_count: 105
 ---
-
 # Do y’all want kids?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1n1qady/do_yall_want_kids/)

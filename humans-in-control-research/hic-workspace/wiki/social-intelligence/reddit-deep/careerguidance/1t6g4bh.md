@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t6g4bh.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t6g4bh/career_option_for_swe_with_8_years_of_experience/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,26 @@ flair: "Advice"
 extracted_at: "2026-05-22T23:34:01.161Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6g4bh.md#c0"
+    char_span: [0, 2177]
+    sentence_count: 22
+    key_terms: [experience, careerguidance, career, course, people, never, scrum, years]
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6g4bh.md#c1"
+    char_span: [2179, 3533]
+    sentence_count: 23
+    key_terms: [got, role, better, best, get, appreciate, definitely, positions]
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6g4bh.md#c2"
+    char_span: [3548, 4982]
+    sentence_count: 16
+    key_terms: [experience, onlythephantomknows, sales, technical, work, presentations, engineering, explaining]
+    section: Comments
+    token_count: 336
 ---
-
 # Career option for SWE with 8 years of experience?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t6g4bh/career_option_for_swe_with_8_years_of_experience/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1nubs5o.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1nubs5o/i_prompted_gpt4o_and_gpt41_to_show_what_model_it/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,46 @@ flair: "Educational Purpose Only "
 extracted_at: "2026-05-11T16:54:08.801Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1nubs5o.md#c0"
+    char_span: [0, 912]
+    sentence_count: 8
+    key_terms: [chatgpt, result, gpt4o, comments, model, user, circumstances, instructions]
+    token_count: 254
+  - id: "social-intelligence/reddit-deep/chatgpt/1nubs5o.md#c1"
+    char_span: [918, 3476]
+    sentence_count: 16
+    key_terms: [assistant, conversation, roleplay, includes, instructions, self-harm, user, ideation]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1nubs5o.md#c2"
+    char_span: [3136, 4401]
+    sentence_count: 4
+    key_terms: [dangerous, dissatisfaction, ideals, teen, activities, assistant, consuming, reinforce]
+    token_count: 252
+  - id: "social-intelligence/reddit-deep/chatgpt/1nubs5o.md#c3"
+    char_span: [4407, 6547]
+    sentence_count: 11
+    key_terms: [code, use, canmore, information, components, react, textdoc, canvas]
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/chatgpt/1nubs5o.md#c4"
+    char_span: [6553, 8701]
+    sentence_count: 9
+    key_terms: [string, message, pattern, search, replacement, parts, idx, tool]
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/chatgpt/1nubs5o.md#c5"
+    char_span: [8707, 10375]
+    sentence_count: 6
+    key_terms: [queries, user, question, management, marketing, gdp, customer, france]
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/chatgpt/1nubs5o.md#c6"
+    char_span: [10390, 12019]
+    sentence_count: 13
+    key_terms: [chatgpt, prompt, melos555, openai, please, conversation, image, lumora4ever]
+    section: Comments
+    token_count: 454
 ---
-
 # I prompted GPT4o and GPT4.1 to show what model it is, and the result I got is that apparently according to the instructions, I am a 17 year old user. I've pasted the result in the post.
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1nubs5o/i_prompted_gpt4o_and_gpt41_to_show_what_model_it/)

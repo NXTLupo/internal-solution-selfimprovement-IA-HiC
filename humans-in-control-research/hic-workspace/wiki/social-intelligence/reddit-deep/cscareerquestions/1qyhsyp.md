@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1qyhsyp.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1qyhsyp/stuck_in_a_senior_loop/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,81 @@ flair: ""
 extracted_at: "2026-05-26T12:54:26.430Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qyhsyp.md#c0"
+    char_span: [0, 2173]
+    sentence_count: 18
+    key_terms: ["i'm", promotion, cycle, comments, company, people, senior, years]
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qyhsyp.md#c1"
+    char_span: [2175, 4312]
+    sentence_count: 17
+    key_terms: [senior, lead, level, tech, staff, "you're", different, opportunities]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qyhsyp.md#c2"
+    char_span: [4314, 6293]
+    sentence_count: 15
+    key_terms: [staff, senior, company, principal, lead, clarify, current, responsibility]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qyhsyp.md#c3"
+    char_span: [6295, 8547]
+    sentence_count: 7
+    key_terms: [team, teams, organization, work, outside, implementation, across, relationships]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qyhsyp.md#c4"
+    char_span: [8549, 9872]
+    sentence_count: 13
+    key_terms: [want, responsibilities, title, around, nobody, people, trying, shoddyworkmanshipted]
+    section: Comments
+    token_count: 283
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qyhsyp.md#c5"
+    char_span: [9874, 11555]
+    sentence_count: 13
+    key_terms: [making, titles, experience, decision, senior, raise, title, like]
+    section: Comments
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qyhsyp.md#c6"
+    char_span: [11557, 13784]
+    sentence_count: 14
+    key_terms: [company, experience, title, different, lead, senior, being, dense]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qyhsyp.md#c7"
+    char_span: [13786, 15452]
+    sentence_count: 14
+    key_terms: [overqualified, want, different, positions, something, because, pattern, answer]
+    section: Comments
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qyhsyp.md#c8"
+    char_span: [15454, 17521]
+    sentence_count: 15
+    key_terms: [manager, work, against, because, often, back, get, difficult]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qyhsyp.md#c9"
+    char_span: [17523, 19615]
+    sentence_count: 16
+    key_terms: [work, projects, staff, get, need, sometimes, project, quickly]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qyhsyp.md#c10"
+    char_span: [19617, 21814]
+    sentence_count: 23
+    key_terms: [getting, having, honestly, beyond, senior, worked, title, permissions]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qyhsyp.md#c11"
+    char_span: [21816, 23597]
+    sentence_count: 12
+    key_terms: [lead, team, management, title, issue, staff, expectation, get]
+    section: Comments
+    token_count: 400
 ---
-
 # Stuck in a "Senior Loop"
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1qyhsyp/stuck_in_a_senior_loop/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1mp3pm7.md
 url: "https://www.reddit.com/r/careerguidance/comments/1mp3pm7/finalyear_law_business_student_spain_ireland/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,33 @@ score: 1
 upvote_ratio: 1
 num_comments: 4
 flair: ""
-extracted_at: "2026-05-22T21:34:47.975Z"
+extracted_at: "2026-06-05T23:43:26.955Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1mp3pm7.md#c0"
+    char_span: [0, 2195]
+    sentence_count: 14
+    key_terms: [law, ireland, international, path, career, regulation, tech, business]
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/careerguidance/1mp3pm7.md#c1"
+    char_span: [2197, 4279]
+    sentence_count: 11
+    key_terms: [law, ireland, compliance, international, roles, legal, companies, tech]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/careerguidance/1mp3pm7.md#c2"
+    char_span: [4281, 6420]
+    sentence_count: 14
+    key_terms: [solicitor, law, "don't", etc, training, service, international, areas]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/careerguidance/1mp3pm7.md#c3"
+    char_span: [6422, 8108]
+    sentence_count: 14
+    key_terms: [law, experience, get, italianirish99, qualifications, degree, firms, world]
+    section: Comments
+    token_count: 386
 ---
-
 # Final-Year Law & Business Student (Spain + Ireland) – Advice on Career Path in International Law vs Tech/IP Law in Ireland?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1mp3pm7/finalyear_law_business_student_spain_ireland/)

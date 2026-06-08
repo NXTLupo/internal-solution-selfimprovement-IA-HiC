@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1qc0jin.md
 url: "https://www.reddit.com/r/NEU/comments/1qc0jin/feeling_like_times_running_out_to_really_meet/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -6,19 +7,30 @@ subreddit: "neu"
 title: "Feeling like time’s running out to really meet people at NEU?"
 author: "Primary_Demand_4354"
 date: "2026-01-13T19:21:51.000Z"
-score: 39
-upvote_ratio: 0.95
+score: 42
+upvote_ratio: 0.98
 num_comments: 9
 flair: "Campus Life"
-extracted_at: "2026-05-26T14:30:23.761Z"
+extracted_at: "2026-06-03T17:59:17.598Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1qc0jin.md#c0"
+    char_span: [0, 1770]
+    sentence_count: 11
+    key_terms: [people, neu, connections, spontaneous, meet, comments, students, totally]
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/neu/1qc0jin.md#c1"
+    char_span: [1785, 3257]
+    sentence_count: 13
+    key_terms: [like, computercat19, co-op, app, find, idea, wonderful, sounds]
+    section: Comments
+    token_count: 377
 ---
-
 # Feeling like time’s running out to really meet people at NEU?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1qc0jin/feeling_like_times_running_out_to_really_meet/)
-Posted by **Primary_Demand_4354** · **39↑** · **9 comments**
+Posted by **Primary_Demand_4354** · **42↑** · **9 comments**
 
 I’m a third year and pretty introverted, but I actually love meeting new people. Lately I’ve been reflecting on my college experience and realized I haven’t made nearly as many lasting connections as I hoped I would.
 
@@ -40,7 +52,7 @@ I don't want to keep building this if I'm totally overthinking it, so I'd love t
 
 ## Comments
 
-- **ComputerCat19** (4↑): That sounds like a wonderful idea , not everyone makes friends the same way and this might be very helpful for a lot . Don't give up in the idea keep going it's wonderful
+- **ComputerCat19** (5↑): That sounds like a wonderful idea , not everyone makes friends the same way and this might be very helpful for a lot . Don't give up in the idea keep going it's wonderful
   - **Primary_Demand_4354** (2↑): That means a lot. Seeing that this resonates with others makes me want to code through the night. I am done overthinking things. I'm going all in to get this built and out there for the NEU community.
     - **ComputerCat19** (2↑): Don't give up and let us know when it's done ✨️
 Good luck 👍

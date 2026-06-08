@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1ted6bp.md
 url: "https://www.reddit.com/r/personalfinance/comments/1ted6bp/financially_illiterate_80yearold_dad_needs_help/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,62 @@ flair: "Other"
 extracted_at: "2026-05-17T01:13:31.189Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, government]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c0"
+    char_span: [0, 1873]
+    sentence_count: 10
+    key_terms: [husband, savings, hysa, personalfinance, lending, marcus, years, financially]
+    token_count: 516
+  - id: "social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c1"
+    char_span: [1875, 2910]
+    sentence_count: 11
+    key_terms: [insurance, years, get, savings, trying, approximately, contributing, accelerate]
+    token_count: 254
+  - id: "social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c2"
+    char_span: [2925, 3964]
+    sentence_count: 18
+    key_terms: [kcpilot17, unedgeumacated, currently, savings, enjoy, leave, money, thank]
+    section: Comments
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c3"
+    char_span: [3966, 5622]
+    sentence_count: 15
+    key_terms: [support, parents, disability, family, security, because, college, "doesn't"]
+    section: Comments
+    token_count: 381
+  - id: "social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c4"
+    char_span: [5624, 7369]
+    sentence_count: 11
+    key_terms: [support, security, social, "don't", financial, "husband's", insurance, expenses]
+    section: Comments
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c5"
+    char_span: [7371, 9218]
+    sentence_count: 13
+    key_terms: [benefit, get, bank, checking, minimum, parents, spousal, unedgeumacated]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c6"
+    char_span: [9221, 10713]
+    sentence_count: 11
+    key_terms: [insurance, expenses, unedgeumacated, house, life, checking, property, account]
+    section: Comments
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c7"
+    char_span: [10715, 12445]
+    sentence_count: 16
+    key_terms: [account, bank, parents, like, expenses, davinh4, monthly, entertainersuper8933]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/personalfinance/1ted6bp.md#c8"
+    char_span: [12447, 14218]
+    sentence_count: 13
+    key_terms: [lawyer, financial, insurance, guy, parents, unedgeumacated, specializes, like]
+    section: Comments
+    token_count: 419
 ---
-
 # Financially Illiterate 80-Year-Old Dad Needs Help, Please
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1ted6bp/financially_illiterate_80yearold_dad_needs_help/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1sszhf7.md
 url: "https://www.reddit.com/r/internships/comments/1sszhf7/if_youre_losing_hope_in_your_internship_search/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,27 @@ score: 82
 upvote_ratio: 0.99
 num_comments: 18
 flair: "Applications"
-extracted_at: "2026-05-25T15:51:38.720Z"
+extracted_at: "2026-06-05T16:18:00.469Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1sszhf7.md#c0"
+    char_span: [0, 2289]
+    sentence_count: 19
+    key_terms: [applications, internships, internship, lot, getting, started, feels, roles]
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/internships/1sszhf7.md#c1"
+    char_span: [2291, 2456]
+    sentence_count: 3
+    key_terms: [discouraged, suddenly, feeling, process, almost, around, going, gave]
+    token_count: 36
+  - id: "social-intelligence/reddit-deep/internships/1sszhf7.md#c2"
+    char_span: [2471, 4313]
+    sentence_count: 13
+    key_terms: [interviews, experience, internship, maybe, applied, resume, applications, send]
+    section: Comments
+    token_count: 495
 ---
-
 # If you’re losing hope in your internship search, read this
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1sszhf7/if_youre_losing_hope_in_your_internship_search/)
@@ -47,11 +64,11 @@ You got this!!
 
 ## Comments
 
-- **Fula_reddit** (7↑): I’m at 500 with no interviews
-  - **Standard_Chemical_35** (8↑): I'm at 1500 XD
+- **Fula_reddit** (8↑): I’m at 500 with no interviews
+  - **Standard_Chemical_35** (7↑): I'm at 1500 XD
     - **Fula_reddit** (5↑): This is so sad
   - **Chance_Ad_8076** (1↑): Send your resume
-- **IAmANoob690** (4↑): 300+ applications and maybe 15 interviews.... no offers and i'm literally so cooked. The pressure from my parents aint helping 😭😭🙏🙏
+- **IAmANoob690** (3↑): 300+ applications and maybe 15 interviews.... no offers and i'm literally so cooked. The pressure from my parents aint helping 😭😭🙏🙏
   - **Chance_Ad_8076** (1↑): Send your resume
 - **ComprehensiveToe6235** (3↑): Thank you for this! Really good advice
 - **Infamous_Arachnid247** (2↑): I applied to maybe 200+ roles. 0 response. I have previous internship experience as well in my field, as well as real work experience. I am a senior and purposely extended my graduation till December to land another summer 2026 internship. I am losing hope, and fast.

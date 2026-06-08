@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/freelance/1r1a4yu.md
 url: "https://www.reddit.com/r/freelance/comments/1r1a4yu/rejected_by_proxify_despite_years_of_professional/"
 kind: "social-post"
 source: "reddit-deep: r/freelance"
@@ -13,8 +14,26 @@ flair: ""
 extracted_at: "2026-05-26T12:53:48.703Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/freelance/1r1a4yu.md#c0"
+    char_span: [0, 2294]
+    sentence_count: 18
+    key_terms: [proxify, assessment, experience, freelance, allowed, process, camera, documentation]
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/freelance/1r1a4yu.md#c1"
+    char_span: [2296, 3885]
+    sentence_count: 18
+    key_terms: [code, core, test, because, headers, request, "can't", environment]
+    token_count: 357
+  - id: "social-intelligence/reddit-deep/freelance/1r1a4yu.md#c2"
+    char_span: [3900, 5874]
+    sentence_count: 15
+    key_terms: [platforms, documentation, assessments, "i've", try, everything, no-documentation-allowed, instead]
+    section: Comments
+    token_count: 432
 ---
-
 # Rejected by Proxify despite years of professional experience - their assessment process is fundamentally broken
 
 Source: [reddit-deep: r/freelance](https://www.reddit.com/r/freelance/comments/1r1a4yu/rejected_by_proxify_despite_years_of_professional/)

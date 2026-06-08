@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1rf6j3o.md
 url: "https://www.reddit.com/r/jobs/comments/1rf6j3o/my_job_is_offering_me_150000_105000_after_tax_to/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,129 @@ flair: "Leaving a job"
 extracted_at: "2026-05-24T14:10:06.641Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c0"
+    char_span: [0, 1507]
+    sentence_count: 17
+    key_terms: [job, offer, like, year, seniority, comments, everyone, "don't"]
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c1"
+    char_span: [1522, 2325]
+    sentence_count: 5
+    key_terms: [front, pay, take, year, aj3turtlesquad, nocoguy1968, potentially, completely]
+    section: Comments
+    token_count: 209
+  - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c2"
+    char_span: [2327, 4278]
+    sentence_count: 16
+    key_terms: [money, take, people, rehire, want, work, company, exactly]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c3"
+    char_span: [4054, 4888]
+    sentence_count: 7
+    key_terms: [company, get, work, increase, money, offer, don, autoadviceseeker]
+    section: Comments
+    token_count: 211
+  - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c4"
+    char_span: [4890, 5942]
+    sentence_count: 6
+    key_terms: [take, employees, hopefully, severance, voluntary, layoffs, enough, life]
+    section: Comments
+    token_count: 263
+  - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c5"
+    char_span: [5944, 8118]
+    sentence_count: 29
+    key_terms: [family, health, years, "he's", work, insurance, seniority, anywhere]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c6"
+    char_span: [8120, 9925]
+    sentence_count: 21
+    key_terms: [something, right, good, job, side, management, employees, benefits]
+    section: Comments
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c7"
+    char_span: [9927, 10716]
+    sentence_count: 8
+    key_terms: [buyout, something, maybe, locutusofborgia909, "i'll", job, like, compensation]
+    section: Comments
+    token_count: 186
+  - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c8"
+    char_span: [10718, 12770]
+    sentence_count: 18
+    key_terms: [years, pension, money, find, job, run, take, work]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c9"
+    char_span: [12772, 14231]
+    sentence_count: 15
+    key_terms: [better, another, being, insurance, company, pension, solidly, future]
+    section: Comments
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c10"
+    char_span: [14233, 16403]
+    sentence_count: 21
+    key_terms: [people, ups, benefits, etc, here, job, contract, position]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c11"
+    char_span: [16133, 16726]
+    sentence_count: 3
+    key_terms: [company, ups, gainsmcnasty, physically, demanding, benefits, everyone, knowing]
+    section: Comments
+    token_count: 152
+  - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c12"
+    char_span: [16728, 18666]
+    sentence_count: 19
+    key_terms: [pension, retirement, insurance, everything, comment, union, life, look]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c13"
+    char_span: [18668, 19898]
+    sentence_count: 10
+    key_terms: [job, family, salary, get, work, year, benefits, finding]
+    section: Comments
+    token_count: 321
+  - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c14"
+    char_span: [19900, 21862]
+    sentence_count: 21
+    key_terms: [timeforitnowright, get, work, "they're", year, willing, living, people]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c15"
+    char_span: [21864, 24004]
+    sentence_count: 16
+    key_terms: [ups, people, going, get, like, drivers, amazon, events]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c16"
+    char_span: [24006, 25634]
+    sentence_count: 16
+    key_terms: [job, find, benefits, people, come, plan, take, comparable]
+    section: Comments
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c17"
+    char_span: [25637, 27638]
+    sentence_count: 15
+    key_terms: [insurance, seniority, take, buyout, location, alldun, nobody, farts]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c18"
+    char_span: [27357, 27727]
+    sentence_count: 2
+    key_terms: [longer, long, physically, activitiy, correctly, engaging, physical, probably]
+    section: Comments
+    token_count: 85
+  - id: "social-intelligence/reddit-deep/jobs/1rf6j3o.md#c19"
+    char_span: [27729, 29109]
+    sentence_count: 19
+    key_terms: [take, going, money, insurance, consider, another, back, "i'd"]
+    section: Comments
+    token_count: 361
 ---
-
 # My job is offering me $150,000 (105,000 after tax) to resign, should I?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1rf6j3o/my_job_is_offering_me_150000_105000_after_tax_to/)

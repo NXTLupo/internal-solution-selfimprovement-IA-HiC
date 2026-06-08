@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-college/6b6dcda74b.md
 url: "https://www.reddit.com/r/college/comments/1ms5vg1/more_women_are_being_hired_than_men_with_a_4_year/"
 url_hash: "6b6dcda74b"
 kind: "article"
@@ -8,10 +9,27 @@ author: ""
 date: "2025-08-16T19:56:03.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-19T18:04:26.380191+00:00"
+extracted_at: "2026-06-06T00:37:33.492000+00:00"
 chars: 4853
+relevance: 30
+engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "articles/reddit-deep-r-college/6b6dcda74b.md#c0"
+    char_span: [0, 2068]
+    sentence_count: 11
+    key_terms: [women, degree, get, men, news, hired, job, college]
+    token_count: 485
+  - id: "articles/reddit-deep-r-college/6b6dcda74b.md#c1"
+    char_span: [2070, 4250]
+    sentence_count: 15
+    key_terms: [college, women, like, either, healthcare, degree, men, want]
+    token_count: 492
+  - id: "articles/reddit-deep-r-college/6b6dcda74b.md#c2"
+    char_span: [4252, 5054]
+    sentence_count: 6
+    key_terms: [men, traditionally, engineering, business, correct, market, women, job]
+    token_count: 163
 ---
-
 # “More women are being hired than men with a 4- year degree”
 
 Source: [Reddit Deep: r/college](https://www.reddit.com/r/college/comments/1ms5vg1/more_women_are_being_hired_than_men_with_a_4_year/)
@@ -20,9 +38,9 @@ OK- so I’m seeing a lot of news reports on how women with a bachelors degree a
 I find it hilarious how badly this news is being put out there, but I will say, no matter what the real answer is, we do deserve a better job market to be in. The standard of competitiveness is getting out of hand; you should be able to get in, get a degree, and be hired for a good job. I don’t blame the guys and girls recently graduating getting completely caught off guard with the job market right now, hopefully it gets better soon.
 
 --- TOP COMMENTS ---
-[362↑ scrambledeggsandrice] I haven’t seen much positive news about the job market no matter the demographic (In the USA at any rate). Where are you seeing these reports? Also, something worth considering is that the hiring might be taking place in professions that have historically been dominated by women (nursing, childcare, teaching). Either way I’d welcome news of anyone being hired.
-[26↑ SecretTradition4493] There are more women getting a 4 year degree than men… so this makes sense
-[69↑ LesliesLanParty] I saw it in a tiktok, I haven't seen it on reddit or any of the nightly news programs. 
+[369↑ scrambledeggsandrice] I haven’t seen much positive news about the job market no matter the demographic (In the USA at any rate). Where are you seeing these reports? Also, something worth considering is that the hiring might be taking place in professions that have historically been dominated by women (nursing, childcare, teaching). Either way I’d welcome news of anyone being hired.
+[25↑ SecretTradition4493] There are more women getting a 4 year degree than men… so this makes sense
+[72↑ LesliesLanParty] I saw it in a tiktok, I haven't seen it on reddit or any of the nightly news programs. 
 
 I can't find the TikTok but there was mention of what you're talking about- basically women are going in to healthcare and men are going in to manual/skilled labor. Healthcare (that pays living wages) needs a degree while labor doesn't.
 
@@ -31,7 +49,7 @@ It stuck in my head bc I was like: oh, like my family. All the men I can think o
 ETA: literally this morning (the day after posting this) I was listening to NPR and there was a story about how college educated women are marrying men without college degrees at a higher rate than ever and talking about how these are the folks who can afford to get married.
 
 As a mom of 3 boys: if you're a dude reading this please don't feel defeated or like you should drop out and learn a trade if that's not what you want to do. Please! If you want to go to college and you want to earn a living, find a way to apply your interests to in demand stuff like healthcare and hospitality. Like, even if your whole life is really math and engineering look in to biomedical or something.
-[33↑ Platinumdogshit] Also AI is replacing software developer/engineer jobs which is male dominated. Working with people is female dominated and cant be replaced by AI.
+[34↑ Platinumdogshit] Also AI is replacing software developer/engineer jobs which is male dominated. Working with people is female dominated and cant be replaced by AI.
 [0↑ Enigmatic_Stag] "I saw it in a tiktok"
 
 Wow. What a time to be alive when this is how people are getting their information.

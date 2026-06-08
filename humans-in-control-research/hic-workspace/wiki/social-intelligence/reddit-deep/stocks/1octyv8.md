@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1octyv8.md
 url: "https://www.reddit.com/r/stocks/comments/1octyv8/take_back_tesla_campaign_urges_shareholders_to/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,127 @@ flair: ""
 extracted_at: "2026-05-17T01:14:17.615Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1octyv8.md#c0"
+    char_span: [0, 2418]
+    sentence_count: 9
+    key_terms: [tesla, musk, pay, plan, vote, shareholders, coalition, trillion]
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/stocks/1octyv8.md#c1"
+    char_span: [2420, 4587]
+    sentence_count: 8
+    key_terms: [tesla, musk, lander, time, company, shareholders, ceo, plan]
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/stocks/1octyv8.md#c2"
+    char_span: [4589, 5388]
+    sentence_count: 4
+    key_terms: [take-back-tesla-urges-shareholders-to-reject-musk-1-trillion-pay-plan, https, stock, cnbc, com, html, www, year]
+    token_count: 204
+  - id: "social-intelligence/reddit-deep/stocks/1octyv8.md#c3"
+    char_span: [5403, 7292]
+    sentence_count: 16
+    key_terms: [stock, secretacademic1654, ceo, pay, company, package, shareholders, tesla]
+    section: Comments
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/stocks/1octyv8.md#c4"
+    char_span: [7295, 9433]
+    sentence_count: 13
+    key_terms: [pay, because, package, though, everyone, dollars, metrics, targets]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1octyv8.md#c5"
+    char_span: [9168, 10157]
+    sentence_count: 3
+    key_terms: [dumbass, couple, hated, loved, right, tesla, years, secretacademic1654]
+    section: Comments
+    token_count: 250
+  - id: "social-intelligence/reddit-deep/stocks/1octyv8.md#c6"
+    char_span: [10159, 10417]
+    sentence_count: 2
+    key_terms: [needs, self-driving, sustainably, completely, humanoid, increase, millions, company]
+    section: Comments
+    token_count: 55
+  - id: "social-intelligence/reddit-deep/stocks/1octyv8.md#c7"
+    char_span: [10419, 12419]
+    sentence_count: 3
+    key_terms: [trillion, consecutive, tranche, market, cap, adjusted, quarters, billion]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1octyv8.md#c8"
+    char_span: [12176, 12441]
+    sentence_count: 2
+    key_terms: [here, everyone, trillion, bonkers, carried, cuteman, exactly, mention]
+    section: Comments
+    token_count: 70
+  - id: "social-intelligence/reddit-deep/stocks/1octyv8.md#c9"
+    char_span: [12443, 14069]
+    sentence_count: 8
+    key_terms: [elon, ebita, stock, tesla, shareholder, inflation, earnings, possible]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/stocks/1octyv8.md#c10"
+    char_span: [14071, 15450]
+    sentence_count: 5
+    key_terms: [women, peacocking, everyone, despair, pick-me, circle, lonely, people]
+    section: Comments
+    token_count: 353
+  - id: "social-intelligence/reddit-deep/stocks/1octyv8.md#c11"
+    char_span: [15452, 17356]
+    sentence_count: 12
+    key_terms: [market, cap, elon, drivers, consecutive, like, quarters, "there's"]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/stocks/1octyv8.md#c12"
+    char_span: [17358, 17989]
+    sentence_count: 5
+    key_terms: [idiots, reddit, goals, stock, adsuspicious8005, regurgitating, infuriating, responding]
+    section: Comments
+    token_count: 157
+  - id: "social-intelligence/reddit-deep/stocks/1octyv8.md#c13"
+    char_span: [17991, 19864]
+    sentence_count: 15
+    key_terms: [tesla, trillion, company, dollars, shareholders, elon, ridiculous, disliking]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/stocks/1octyv8.md#c14"
+    char_span: [19866, 22040]
+    sentence_count: 16
+    key_terms: [trillion, baxbaxpop, elon, robots, court, shareholder, autonomous, understand]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/stocks/1octyv8.md#c15"
+    char_span: [22042, 23173]
+    sentence_count: 12
+    key_terms: [musk, tesla, "it's", stocks, worth, interested, reaching, trillion]
+    section: Comments
+    token_count: 274
+  - id: "social-intelligence/reddit-deep/stocks/1octyv8.md#c16"
+    char_span: [23175, 24954]
+    sentence_count: 13
+    key_terms: [against, goals, stock, iss, pay, vote, remindme, follow]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/stocks/1octyv8.md#c17"
+    char_span: [24956, 26187]
+    sentence_count: 1
+    key_terms: [message, remindmebot, reddit, com, https, compose, subject, www]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/stocks/1octyv8.md#c18"
+    char_span: [26191, 27799]
+    sentence_count: 13
+    key_terms: [stock, gets, like, pay, trillion, despite, dollars, canada]
+    section: Comments
+    token_count: 406
+  - id: "social-intelligence/reddit-deep/stocks/1octyv8.md#c19"
+    char_span: [27801, 28533]
+    sentence_count: 7
+    key_terms: [reddit, stupid, ok-comfortable-3174, tesla, get, lol, paid, wtfredditacct]
+    section: Comments
+    token_count: 191
 ---
-
 # Take Back Tesla campaign urges shareholders to reject Musk $1 trillion pay plan
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1octyv8/take_back_tesla_campaign_urges_shareholders_to/)

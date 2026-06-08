@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1qwgvfg.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1qwgvfg/is_this_an_admit/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,27 @@ flair: "Engineering"
 extracted_at: "2026-05-23T14:54:16.722Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qwgvfg.md#c0"
+    char_span: [0, 546]
+    sentence_count: 6
+    key_terms: [gradadmissions, comments, reasonable-pen8762, gpa, application, interviewed, reddit-deep, department]
+    token_count: 143
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qwgvfg.md#c1"
+    char_span: [561, 2455]
+    sentence_count: 10
+    key_terms: [professor, offer, congratulations, because, school, department, graduate, chances]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qwgvfg.md#c2"
+    char_span: [2457, 3032]
+    sentence_count: 5
+    key_terms: [university, jazzlike-promise-153, congratulations, ursusmaritimus2, recommendation, darkerspirit, application, centralized]
+    section: Comments
+    token_count: 138
 ---
-
 # Is this an admit?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1qwgvfg/is_this_an_admit/)

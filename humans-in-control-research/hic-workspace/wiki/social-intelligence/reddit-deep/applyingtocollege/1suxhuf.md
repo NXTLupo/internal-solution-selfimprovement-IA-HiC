@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1suxhuf.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1suxhuf/cornell_or_columbia/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,33 @@ flair: "College Questions"
 extracted_at: "2026-05-23T12:15:36.213Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, education, healthcare]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1suxhuf.md#c0"
+    char_span: [0, 467]
+    sentence_count: 3
+    key_terms: [applyingtocollege, comments, cornell, cost, overshadows, reddit-deep, attendance, colleges]
+    token_count: 127
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1suxhuf.md#c1"
+    char_span: [482, 2191]
+    sentence_count: 13
+    key_terms: [cornell, columbia, campus, prestigious, med, real, experience, undergrad]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1suxhuf.md#c2"
+    char_span: [2193, 3990]
+    sentence_count: 22
+    key_terms: [cornell, major, shadowing, opportunities, grade, cals, cas, days]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1suxhuf.md#c3"
+    char_span: [3992, 5007]
+    sentence_count: 12
+    key_terms: [cornell, summer, opportunities, shadowing, columbia, medicine, schools, historical-many9869]
+    section: Comments
+    token_count: 260
 ---
-
 # Cornell Or Columbia
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1suxhuf/cornell_or_columbia/)

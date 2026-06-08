@@ -10,9 +10,9 @@ score: 2
 upvote_ratio: 1
 num_comments: 5
 flair: "Advice"
-extracted_at: "2026-05-25T18:32:57.386Z"
+extracted_at: "2026-06-06T23:21:13.885Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Any advice on choosing a stable career path with the current job market and AI changes?
@@ -28,7 +28,7 @@ Has anyone been in a similar position, and what career paths did you end up taki
 
 ## Comments
 
-- **cstatus94** (3↑): I'm in my early thirties my advice to someone your age is almost nothing is completely secure now. Only thing holding up really is healthcare and the energy sector (utilities, gas, oil etc).
+- **cstatus94** (5↑): I'm in my early thirties my advice to someone your age is almost nothing is completely secure now. Only thing holding up really is healthcare and the energy sector (utilities, gas, oil etc).
 - **Sure-Wrongdoer-8506** (2↑): Your psychology/marketing combo is actually solid for lot of corporate roles - people skills + understanding consumer behavior is pretty valuable stuff that AI can't really replace yet. Most companies still need humans who can read room and build relationships with clients
 
   

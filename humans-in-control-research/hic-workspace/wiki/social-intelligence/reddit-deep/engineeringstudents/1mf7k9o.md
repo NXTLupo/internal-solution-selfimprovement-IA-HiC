@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1mf7k9o.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1mf7k9o/is_electrical_engineering_for_me_will_it_help_me/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -6,19 +7,83 @@ subreddit: "engineeringstudents"
 title: "Is Electrical Engineering for me? Will it help me reach my goals? (22 year old, need career advice please)"
 author: "Civil-Syllabub8553"
 date: "2025-08-01T20:37:26.000Z"
-score: 11
-upvote_ratio: 0.66
+score: 8
+upvote_ratio: 0.62
 num_comments: 42
 flair: "Career Advice"
-extracted_at: "2026-05-23T20:15:19.038Z"
+extracted_at: "2026-06-01T18:48:36.761Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1mf7k9o.md#c0"
+    char_span: [0, 1938]
+    sentence_count: 10
+    key_terms: [especially, engineeringstudents, get, "i'm", like, school, social, class]
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1mf7k9o.md#c1"
+    char_span: [1940, 3314]
+    sentence_count: 12
+    key_terms: [degree, heard, "i've", guys, like, potential, opinions, classes]
+    token_count: 299
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1mf7k9o.md#c2"
+    char_span: [3329, 5465]
+    sentence_count: 17
+    key_terms: [engineering, degree, something, "i'm", job, like, lionheart5830, maybe]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1mf7k9o.md#c3"
+    char_span: [5467, 6725]
+    sentence_count: 11
+    key_terms: [classes, year, advice, people, school, social, taking, "you'll"]
+    section: Comments
+    token_count: 275
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1mf7k9o.md#c4"
+    char_span: [6727, 8841]
+    sentence_count: 18
+    key_terms: [like, "i'm", sure, years, engineering, jobs, year, anything]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1mf7k9o.md#c5"
+    char_span: [8843, 10948]
+    sentence_count: 13
+    key_terms: [engineering, civil-syllabub8553, year, already, because, million, supermuncher60, millionaires]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1mf7k9o.md#c6"
+    char_span: [10950, 13076]
+    sentence_count: 19
+    key_terms: [engineering, years, money, like, business, school, get, "it's"]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1mf7k9o.md#c7"
+    char_span: [13078, 13589]
+    sentence_count: 6
+    key_terms: [mentality, service, money, disciplines, engineering, absolutely, everything, incredibly]
+    section: Comments
+    token_count: 117
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1mf7k9o.md#c8"
+    char_span: [13591, 15494]
+    sentence_count: 13
+    key_terms: [years, civil-syllabub8553, get, like, salary, being, money, pilot]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1mf7k9o.md#c9"
+    char_span: [15496, 17472]
+    sentence_count: 20
+    key_terms: [money, job, like, experience, regulation, airplanes, already, company]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1mf7k9o.md#c10"
+    char_span: [17474, 19066]
+    sentence_count: 14
+    key_terms: [civil-syllabub8553, engineer, yourself, particularly, being, experience, prospects, romantic]
+    section: Comments
+    token_count: 401
 ---
-
 # Is Electrical Engineering for me? Will it help me reach my goals? (22 year old, need career advice please)
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1mf7k9o/is_electrical_engineering_for_me_will_it_help_me/)
-Posted by **Civil-Syllabub8553** · **11↑** · **42 comments**
+Posted by **Civil-Syllabub8553** · **8↑** · **42 comments**
 
 **Hi! Long story short, I'm 22 years old, since I graduated high school I've been working on some social media business, had a good run, made about $one million dollars (good foundation but not f u money), & now looking towards college (maybe EE) to get a more stable career.**
 
@@ -40,7 +105,7 @@ I've also heard mixed opinions on the income potential with a EE degree as I've 
 
 ## Comments
 
-- **Lionheart5830** (40↑): You wont be making $200k in a fast manner from EE.
+- **Lionheart5830** (37↑): You wont be making $200k in a fast manner from EE.
   - **Civil-Syllabub8553** (0↑): Could I leverage the credibility of a EE degree to maybe do a job that's not a 100% EE job? That maybe gets paid more? 
 
 Idk I'm just arguing the perspective of "you can't teach a business guy engineering, but you can teach a engineering guy business".
@@ -51,7 +116,7 @@ I know a family friend who majored in EE who’s making around $300,000 but he�
 You could make good money in the long run but obviously that’s not what you’re looking for. 
 
 So yes you could with more school and credibility and experience, but that doesn’t seem suit for you.
-- **wonderingmooseman** (14↑): **1. You can see how I'm choosing an EE degree by process of elimination, but do you guys have any other degree suggestions for me given my goal?**
+- **wonderingmooseman** (13↑): **1. You can see how I'm choosing an EE degree by process of elimination, but do you guys have any other degree suggestions for me given my goal?**
 
 It seems like your primary driver is money which is a good motivator but also will make it harder to push through 4 years of school if you aren't learning something that you're actually interested in. Passion regarding the subject matter is a great internal motivator. I'm not in Electrical, currently a CE student. I recommend focusing on something that has income potential that you are also passionate about and would want to do for the rest of your life. 
 
@@ -80,12 +145,12 @@ You are still super young so don't worry about 'starting late', the advice I wou
 3. I don't think it would be weird at all. My last lab group in Chemistry had a 40 year old, a 19 year old, and me and another person who were 25 and we all got along great. Regarding having the time / bandwidth, I agree engineering degrees are very taxing but it's important to make the time for extracurricular. Because those people can help you along the way, with homework, study advice, picking the right professors to take, it's really useful to find other people in your major / field for those reasons. 
 
 4. No problem, good excuse to take a break from homework lol gotta love summer classes.
-- **c126** (11↑): From my experience engineering is stable and a decent, slightly above average salary, but you’re not going to be quickly raking in huge dollars. 22 yo and already a millionaire? Engineering will likely feel extremely slow and low paid from your perspective.
+- **c126** (9↑): From my experience engineering is stable and a decent, slightly above average salary, but you’re not going to be quickly raking in huge dollars. 22 yo and already a millionaire? Engineering will likely feel extremely slow and low paid from your perspective.
   - **Civil-Syllabub8553** (2↑): I agree with your last statement, I do have a impatient/restless personality. But idk what else to do with my life. 
 
 I could try to think of another social media business endeavor, but I like the idea of a stable consistent paycheck especially if I want to have a family one day in my future.
-    - **c126** (5↑): I mean if I had a million already I’d be pretty close to retirement and live off investments.
-- **supermuncher60** (7↑): If you already have a million dollars, why not just put that in market funds and rake in 10% every year? 
+    - **c126** (3↑): I mean if I had a million already I’d be pretty close to retirement and live off investments.
+- **supermuncher60** (5↑): If you already have a million dollars, why not just put that in market funds and rake in 10% every year? 
 
 With that as a base, you don't really even need $200K to live a great lifem
   - **Civil-Syllabub8553** (1↑): Because inflation is real, so it's not actually +10% relatively. Also the theoretically 7-10% average only exists over a multi-decade time frame, you can't just withdraw 7-10% per year.
@@ -117,7 +182,7 @@ Can you get a degree? Yes, and you will probably start out making $80k a year. Y
 engineers are a dime a dozen.
 
 Head the words of everyone telling you that you will not excel in this profession without deep passion and care. Just get some generic college degree and find a path into management. Or do EE, but you need serious reality check on thinking you’ll be making $200k near starting with your attitude.
-- **Bmbsuits_2_Brdboards** (4↑): What do you consider “fast manner” to get to $200k?
+- **Bmbsuits_2_Brdboards** (5↑): What do you consider “fast manner” to get to $200k?
   - **Civil-Syllabub8553** (-1↑): Faster the better of course, but I guess at least 4 years post grad. I'm US citizen, would be willing to relocate etc.
     - **Bmbsuits_2_Brdboards** (8↑): Highly unlikely. The average mid-career EE salary is like $115k. Although, I’m not sure how accurate that is, I’m above $100k base and haven’t been in the field for 5 years yet. You could probably get that in VHCOL areas like San Fran, but then your expenses are way higher anyway, so it’s not always worth it.
     - **memerso160** (2↑): If you’re thinking at least 4 years, I would recommend getting off shitty salary websites. Simply reality
@@ -129,7 +194,7 @@ But after doing research the pipeline to reach the glamour of reaching a big com
 Another factor is AI as we already have Waymo cars and FSD. Airplanes are less complex to automate than a car that has to weave through traffic. However aviation/commercial travel has heavy regulation so it's not likely they are gonna be accepting of AI driven airplanes. But it's like do I wanna bet my future on that? Would I wanna bet that regulation is gonna protect my future job long term from technology we can already produce? 
 
 Also I actually don't know, what's like the social life of this path. The whole pipeline seems like a very individualist/lonely endeavor (I could be wrong).
-    - **[deleted]** (5↑): Airlines have been automated for decades. Ever hear of autopilot? Pilots are there for when things go wrong.
+    - **[deleted]** (4↑): Airlines have been automated for decades. Ever hear of autopilot? Pilots are there for when things go wrong.
     - **Musicboxm8** (3↑): I think you are asking for too much. No job will ever check every single box, nor any career. If I knew of a job that could make $200k quickly, at entry level or with limited experience, I would be working it. Maybe become an underwater welder. They make good money quickly. Then again you’re constantly risking your life, and you need experience before the company invests money to send you to the bottom of the ocean. 
 To be an electrical engineer making $200k will take time and money too, no one starts out making that much. You are competing against other EE’s who also want what you want, and those that have been at it for longer.
 ETA: AI will not replace pilots in our lifetime, can you imagine yourself getting on a passenger plane flown by AI? Now realize the vast majority people are 99% less comfortable with that idea than you are. It simply won’t sell. Also, will require years of foolproof testing and demonstration that it’s safe and tamper proof

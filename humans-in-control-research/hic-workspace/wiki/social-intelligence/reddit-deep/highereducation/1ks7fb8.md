@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1ks7fb8.md
 url: "https://www.reddit.com/r/highereducation/comments/1ks7fb8/we_are_jewish_students_from_universities_trump_is/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -13,8 +14,42 @@ flair: ""
 extracted_at: "2026-05-20T03:54:48.184Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1ks7fb8.md#c0"
+    char_span: [0, 1904]
+    sentence_count: 9
+    key_terms: [federal-ta***REDACTED-KEY***, university, jewish, trump, antisemitism, universities, berman-harvard-trump-cuts-damage-americas-economy, students]
+    token_count: 409
+  - id: "social-intelligence/reddit-deep/highereducation/1ks7fb8.md#c1"
+    char_span: [1906, 4226]
+    sentence_count: 17
+    key_terms: [jewish, education, students, democracy, ucla-condemns-ugly-antisemitic-pig-display, columbia-pro-palestinian-group-hamas, campus, uc-berkeley-antisemitism-00153463]
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/highereducation/1ks7fb8.md#c2"
+    char_span: [4228, 5827]
+    sentence_count: 8
+    key_terms: [antisemitism-is-on-the-rise-blaming-dei-diversity-equity-and-inclusion-only-perpetuates-it, ending-illegal-discrimination-and-restoring-merit-based-opportunity, department-of-education-civil-rights-office-investigations, jewish-university-presidents-trump-antisemitism-campus, universities, https, administration, department]
+    token_count: 338
+  - id: "social-intelligence/reddit-deep/highereducation/1ks7fb8.md#c3"
+    char_span: [5829, 7982]
+    sentence_count: 11
+    key_terms: [university, trump-says-jewish-voters-will-bear-lot-blame-loses-fighting-antisemiti-rcna171938, jewish, https, trump, camp-auschwitz-jan-6-rioter-trump-pardoned, com, www]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/highereducation/1ks7fb8.md#c4"
+    char_span: [7984, 10217]
+    sentence_count: 12
+    key_terms: [antisemitism, university, forward, jewish, people, organization, trump, themselves]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/highereducation/1ks7fb8.md#c5"
+    char_span: [10219, 10773]
+    sentence_count: 6
+    key_terms: [hamas, fallingbrick, palestinians, carlitospig, hardliners, admitting, coworker, everyone]
+    section: Comments
+    token_count: 132
 ---
-
 # We are Jewish students from universities Trump is targeting. He’s not protecting us
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1ks7fb8/we_are_jewish_students_from_universities_trump_is/)

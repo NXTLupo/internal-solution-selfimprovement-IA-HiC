@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1s5g5cv.md
 url: "https://www.reddit.com/r/humanresources/comments/1s5g5cv/anyone_else_seen_that_linkedin_post_ripping_apart/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,33 @@ flair: "Policies & Procedures"
 extracted_at: "2026-05-23T12:15:41.519Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1s5g5cv.md#c0"
+    char_span: [0, 1567]
+    sentence_count: 9
+    key_terms: [humanresources, comments, anyone, trying, going, using, leveldisastrous945, been]
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/humanresources/1s5g5cv.md#c1"
+    char_span: [1582, 2964]
+    sentence_count: 9
+    key_terms: [leveldisastrous945, deel, find, companies, countries, employer, called, former]
+    section: Comments
+    token_count: 372
+  - id: "social-intelligence/reddit-deep/humanresources/1s5g5cv.md#c2"
+    char_span: [2966, 4745]
+    sentence_count: 11
+    key_terms: ["don't", deel, year, experience, another, counsel, always, issues]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/humanresources/1s5g5cv.md#c3"
+    char_span: [4747, 5514]
+    sentence_count: 4
+    key_terms: [remote, contractors, workmotion, deel, own, pay, adactylousalien, responsibility]
+    section: Comments
+    token_count: 164
 ---
-
 # Anyone else seen that LinkedIn post ripping apart one of the big EOR names? [N/A]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1s5g5cv/anyone_else_seen_that_linkedin_post_ripping_apart/)

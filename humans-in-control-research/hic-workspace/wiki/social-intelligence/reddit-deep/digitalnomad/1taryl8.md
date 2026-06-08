@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1taryl8.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1taryl8/starting_over_after_unemployment_need_an/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,33 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:56.733Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1taryl8.md#c0"
+    char_span: [0, 963]
+    sentence_count: 10
+    key_terms: [digitalnomad, unemployment, base, need, affordable, apartment, somewhere, comments]
+    token_count: 229
+  - id: "social-intelligence/reddit-deep/digitalnomad/1taryl8.md#c1"
+    char_span: [978, 3013]
+    sentence_count: 12
+    key_terms: [budget, because, affordable, definitely, places, find, too, expensive]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/digitalnomad/1taryl8.md#c2"
+    char_span: [3018, 4395]
+    sentence_count: 15
+    key_terms: [europe, krakow, salary, usd, liveable, national, probably, enough]
+    section: Comments
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/digitalnomad/1taryl8.md#c3"
+    char_span: [4397, 5109]
+    sentence_count: 7
+    key_terms: [expensive, residence, bosnia, people, permit, wideneighborhood8167, recent-classic7398, interesting]
+    section: Comments
+    token_count: 188
 ---
-
 # Starting Over After Unemployment. Need an Affordable EU-Time-Zone Base
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1taryl8/starting_over_after_unemployment_need_an/)

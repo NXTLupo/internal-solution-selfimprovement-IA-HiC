@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1qfs8c5.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1qfs8c5/half_million_poet_yolo/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,39 @@ flair: "YOLO"
 extracted_at: "2026-05-16T20:54:42.973Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qfs8c5.md#c0"
+    char_span: [0, 1109]
+    sentence_count: 6
+    key_terms: [customers, poet, wallstreetbets, development, photonics, comments, company, patents]
+    token_count: 291
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qfs8c5.md#c1"
+    char_span: [1124, 2126]
+    sentence_count: 4
+    key_terms: [iamtexasranger, discord, shares, https, total, tech, wsb, g683cj6og6eg1]
+    section: Comments
+    token_count: 338
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qfs8c5.md#c2"
+    char_span: [2128, 4022]
+    sentence_count: 11
+    key_terms: [poet, averaged, player, down, tech, probably, average, market]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qfs8c5.md#c3"
+    char_span: [3737, 4814]
+    sentence_count: 7
+    key_terms: [good, patents, market, shares, charming-priority859, defiant-walk-8330, been, far]
+    section: Comments
+    token_count: 314
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qfs8c5.md#c4"
+    char_span: [4816, 5628]
+    sentence_count: 6
+    key_terms: [poet, andrelinoge55, challenging, electricity, everything, interposer, production, technology]
+    section: Comments
+    token_count: 196
 ---
-
 # Half million $POET yolo
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1qfs8c5/half_million_poet_yolo/)

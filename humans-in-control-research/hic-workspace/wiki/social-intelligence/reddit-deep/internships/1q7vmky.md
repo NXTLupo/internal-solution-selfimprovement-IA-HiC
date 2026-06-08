@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1q7vmky.md
 url: "https://www.reddit.com/r/internships/comments/1q7vmky/i_tracked_100_internship_applications_the_problem/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -8,17 +9,34 @@ author: "Pingpongmanny"
 date: "2026-01-09T02:12:28.000Z"
 score: 268
 upvote_ratio: 0.96
-num_comments: 24
+num_comments: 25
 flair: "Applications"
-extracted_at: "2026-05-19T17:57:20.777Z"
+extracted_at: "2026-06-03T18:52:51.189Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1q7vmky.md#c0"
+    char_span: [0, 2187]
+    sentence_count: 12
+    key_terms: [resume, applications, com, internships, internship, https, www, tracked]
+    token_count: 533
+  - id: "social-intelligence/reddit-deep/internships/1q7vmky.md#c1"
+    char_span: [2189, 4045]
+    sentence_count: 11
+    key_terms: [roles, job, like, applicants, internship, saturated, reposted, looking]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/internships/1q7vmky.md#c2"
+    char_span: [4047, 4861]
+    sentence_count: 3
+    key_terms: [applying, jobs, interviews, systematically, pingpongmanny, competitions, application, conclusions]
+    section: Comments
+    token_count: 197
 ---
-
 # I tracked 100 internship applications. The problem wasn’t my resume.
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1q7vmky/i_tracked_100_internship_applications_the_problem/)
-Posted by **Pingpongmanny** · **268↑** · **24 comments**
+Posted by **Pingpongmanny** · **268↑** · **25 comments**
 
 I’m a student and like most people here, I assumed internship hunting was a numbers game. Apply everywhere, tweak the resume endlessly, hope something sticks.
 
@@ -121,8 +139,8 @@ Hope this helps someone who’s spiraling the same way I was.
 - **aaaaaaayesmum420** (3↑): I am so glad I saw this because for the past couple of months I have been applying nonstop and tweaking my resume over and over again. I am at witts end and feel like I am screwed in the career I chose. I am in my junior year and looking for an internship either this summer or the next. Its so frustrating just seeing ghost job postings.
 - **Technical_Wall1726** (2↑): Im already in a very niche major (Geography + Urban Planning) but I'll try this!
 - **Kalesmany** (2↑): Thank you for this
-- **mahir_nagersheth** (4↑): Dude I like your post idea but damn is it long😭
-  - **KhepriAdministration** (9↑): That took me like 30s to read
+- **mahir_nagersheth** (1↑): Dude I like your post idea but damn is it long😭
+  - **KhepriAdministration** (8↑): That took me like 30s to read
   - **TheMuttOfMainStreet** (0↑): It’s ai generated
     - **Ryan113555** (1↑): Nah, this one’s definitely written by a real person. The insights are too specific and relatable to be AI. Plus, the tracking method is pretty clever!
 - **KeizokuDev** (1↑): What would you say is the max timeline after the job was posted to apply? 1 day?

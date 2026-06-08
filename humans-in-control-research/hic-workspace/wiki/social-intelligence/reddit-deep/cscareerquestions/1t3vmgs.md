@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1t3vmgs.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1t3vmgs/why_do_people_have_such_radically_different_views/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,68 @@ flair: ""
 extracted_at: "2026-05-19T17:57:56.741Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t3vmgs.md#c0"
+    char_span: [0, 2226]
+    sentence_count: 15
+    key_terms: [different, company, companies, work, cscareerquestions, people, views, mine]
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t3vmgs.md#c1"
+    char_span: [2228, 4146]
+    sentence_count: 9
+    key_terms: [companies, company, work, because, going, take, around, risks]
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t3vmgs.md#c2"
+    char_span: [4161, 5935]
+    sentence_count: 7
+    key_terms: [people, pretty, code, free, llms, lot, statement, example]
+    section: Comments
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t3vmgs.md#c3"
+    char_span: [5937, 8105]
+    sentence_count: 9
+    key_terms: [like, python, code, software, because, getting, people, devs]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t3vmgs.md#c4"
+    char_span: [8107, 10232]
+    sentence_count: 7
+    key_terms: [regulations, industries, companies, security, company, cyber, tech, use]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t3vmgs.md#c5"
+    char_span: [10234, 12425]
+    sentence_count: 15
+    key_terms: [because, models, "it's", work, difference, predictive, understand, companies]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t3vmgs.md#c6"
+    char_span: [12428, 14399]
+    sentence_count: 17
+    key_terms: [billions, openai, because, models, interesting, like, llms, lose]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t3vmgs.md#c7"
+    char_span: [14401, 16501]
+    sentence_count: 15
+    key_terms: [something, people, source, development, personality, open, developing, eventually]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t3vmgs.md#c8"
+    char_span: [16503, 18649]
+    sentence_count: 23
+    key_terms: [work, stickers, people, engineers, "it's", because, company, seems]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t3vmgs.md#c9"
+    char_span: [18651, 19514]
+    sentence_count: 8
+    key_terms: [risk, completely, governance, different, envelope, "enthusiasmtop8815's", model, regulator-readable]
+    section: Comments
+    token_count: 189
 ---
-
 # Why do people have such radically different views on how AI will affect the industry?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1t3vmgs/why_do_people_have_such_radically_different_views/)

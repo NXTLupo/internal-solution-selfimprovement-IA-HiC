@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-college/ffdef4fded.md
 url: "https://www.reddit.com/r/college/comments/1r18axj/im_planning_on_going_to_a_community_college_this/"
 url_hash: "ffdef4fded"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T13:01:49.736831+00:00"
 chars: 4480
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-college/ffdef4fded.md#c0"
+    char_span: [0, 2072]
+    sentence_count: 14
+    key_terms: [college, community, want, money, don, get, going, fall]
+    token_count: 465
+  - id: "articles/reddit-deep-r-college/ffdef4fded.md#c1"
+    char_span: [2074, 4046]
+    sentence_count: 9
+    key_terms: [transfer, college, community, classes, take, university, studies, office]
+    token_count: 428
+  - id: "articles/reddit-deep-r-college/ffdef4fded.md#c2"
+    char_span: [4048, 4755]
+    sentence_count: 4
+    key_terms: [opportunities, get, students, transfer, social, happylifecoffeehelps, good, want]
+    token_count: 143
 ---
-
 # I’m planning on going to a community college this fall and then go to an instate 4 year next fall. Should I just take general studies?
 
 Source: [Reddit Deep: r/college](https://www.reddit.com/r/college/comments/1r18axj/im_planning_on_going_to_a_community_college_this/)

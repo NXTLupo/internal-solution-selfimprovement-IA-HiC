@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1rvlej9.md
 url: "https://www.reddit.com/r/investing/comments/1rvlej9/do_any_of_you_use_ai_to_analyze_your_investment/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.191Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1rvlej9.md#c0"
+    char_span: [0, 718]
+    sentence_count: 6
+    key_terms: [analyze, investment, investing, portfolio, comments, anyone, people, tools]
+    token_count: 165
+  - id: "social-intelligence/reddit-deep/investing/1rvlej9.md#c1"
+    char_span: [733, 1802]
+    sentence_count: 4
+    key_terms: [financial-swim-5884, halilural, look, foliofox, analyze, returns, "don't", fair]
+    section: Comments
+    token_count: 312
+  - id: "social-intelligence/reddit-deep/investing/1rvlej9.md#c2"
+    char_span: [1804, 3793]
+    sentence_count: 13
+    key_terms: [halilural, ok-introduction-1940, use, like, nvda, chatgpt, started, making]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1rvlej9.md#c3"
+    char_span: [3543, 3951]
+    sentence_count: 3
+    key_terms: [engines, calculations, hallucinate, portfolios, volatility, danielraz, language, struggle]
+    section: Comments
+    token_count: 94
+  - id: "social-intelligence/reddit-deep/investing/1rvlej9.md#c4"
+    char_span: [3953, 5947]
+    sentence_count: 18
+    key_terms: [different, use, answers, chatgpt, complex, machine, claude, gemini]
+    section: Comments
+    token_count: 418
 ---
-
 # Do any of you use AI to analyze your investment portfolio?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1rvlej9/do_any_of_you_use_ai_to_analyze_your_investment/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1s9ofe4/staying_sane_when_you_literally_have_zero_dollars/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,57 @@ flair: "Wellness "
 extracted_at: "2026-05-16T20:55:12.689Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md#c0"
+    char_span: [0, 1871]
+    sentence_count: 13
+    key_terms: [because, povertyfinance, like, sometimes, comments, feeling, check, going]
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md#c1"
+    char_span: [1886, 3929]
+    sentence_count: 13
+    key_terms: [friends, "don't", want, been, good, hang, something, watching]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md#c2"
+    char_span: [3718, 4335]
+    sentence_count: 4
+    key_terms: [friends, littleredreadinghood, got, appreciated, embarrassed, inexpensive, margaritas, situations]
+    section: Comments
+    token_count: 157
+  - id: "social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md#c3"
+    char_span: [4337, 6300]
+    sentence_count: 14
+    key_terms: [library, friend, want, bottle, afternoon, company, friends, dinner]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md#c4"
+    char_span: [6302, 6749]
+    sentence_count: 5
+    key_terms: ["didn't", like, everything, understand, financial, situation, feelings, charity]
+    section: Comments
+    token_count: 100
+  - id: "social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md#c5"
+    char_span: [6751, 8955]
+    sentence_count: 13
+    key_terms: [free, events, local, neighborhood, trivia, "there's", social, "that's"]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md#c6"
+    char_span: [8656, 10286]
+    sentence_count: 10
+    key_terms: [free, through, check, local, love, feeling, library, someone]
+    section: Comments
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md#c7"
+    char_span: [10288, 12221]
+    sentence_count: 13
+    key_terms: [free, "it's", friends, around, broke, libraries, something, events]
+    section: Comments
+    token_count: 462
 ---
-
 # Staying sane when you literally have zero dollars for fun
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1s9ofe4/staying_sane_when_you_literally_have_zero_dollars/)

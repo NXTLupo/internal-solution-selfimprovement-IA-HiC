@@ -1,4 +1,5 @@
 ---
+id: benchmarks/competitive-intel.md
 title: "Competitive Intelligence Benchmarks"
 type: benchmark
 created: 2026-04-10
@@ -8,8 +9,43 @@ confidence: medium
 status: active
 tags: [benchmarks, competitive-intelligence, market-analysis, win-loss]
 evidence_count: 10
+chunks:
+  - id: "benchmarks/competitive-intel.md#c0"
+    char_span: [0, 436]
+    sentence_count: 3
+    key_terms: [intelligence, competitive, benchmarks, intelligence-to-action, cross-referenced, corresponding, effectiveness, quantitative]
+    token_count: 80
+  - id: "benchmarks/competitive-intel.md#c1"
+    char_span: [473, 1452]
+    sentence_count: 1
+    key_terms: [intelligence, competitive, data, organizations, benchmarks, confidence, cross-refs, frameworks]
+    section: "CI Program Adoption & Maturity"
+    token_count: 243
+  - id: "benchmarks/competitive-intel.md#c2"
+    char_span: [1476, 2818]
+    sentence_count: 1
+    key_terms: [win, loss, data, competitive, benchmarks, confidence, cross-refs, hypothesis]
+    section: Win/Loss Analysis
+    token_count: 344
+  - id: "benchmarks/competitive-intel.md#c3"
+    char_span: [2862, 3718]
+    sentence_count: 1
+    key_terms: [competitive, battlecards, data, sales, battlecard, benchmarks, confidence, cross-refs]
+    section: "Competitive Positioning & Battlecards"
+    token_count: 216
+  - id: "benchmarks/competitive-intel.md#c4"
+    char_span: [3758, 5165]
+    sentence_count: 1
+    key_terms: [intelligence, competitive, data, benchmarks, confidence, cross-refs, hypothesis, research]
+    section: "Intelligence Timeliness & Sharing"
+    token_count: 339
+  - id: "benchmarks/competitive-intel.md#c5"
+    char_span: [5188, 6277]
+    sentence_count: 9
+    key_terms: [research, figures, benchmarking, independent, data, crayon, market, verify]
+    section: Validation Notes
+    token_count: 225
 ---
-
 # Competitive Intelligence Benchmarks
 
 This page collects quantitative benchmarks for competitive intelligence (CI)

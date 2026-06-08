@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1t5mpce.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1t5mpce/23_year_old_turns_10k_into_100k_in_1_year/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,39 @@ flair: "Gain"
 extracted_at: "2026-05-16T20:54:42.966Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1t5mpce.md#c0"
+    char_span: [0, 1547]
+    sentence_count: 14
+    key_terms: [finally, wallstreetbets, calls, short-dated, been, like, comments, honestly]
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1t5mpce.md#c1"
+    char_span: [1562, 2444]
+    sentence_count: 6
+    key_terms: [buy, year, discord, million, slowly, total, years, dude]
+    section: Comments
+    token_count: 281
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1t5mpce.md#c2"
+    char_span: [2446, 4031]
+    sentence_count: 7
+    key_terms: [rollercoaster, year, investment, strength, selling, electronic-worry4077, being, right]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1t5mpce.md#c3"
+    char_span: [3851, 4293]
+    sentence_count: 3
+    key_terms: [priorityhungry2151, blendedbaconsyrup, png, equalno2867, ebonvvings, impressive, biography, happened]
+    section: Comments
+    token_count: 182
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1t5mpce.md#c4"
+    char_span: [4295, 5580]
+    sentence_count: 10
+    key_terms: [bubble, year, congrats, realized, account, compute, "there's", enough]
+    section: Comments
+    token_count: 413
 ---
-
 # 23 year old turns 10k into 100k in 1 year
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1t5mpce/23_year_old_turns_10k_into_100k_in_1_year/)

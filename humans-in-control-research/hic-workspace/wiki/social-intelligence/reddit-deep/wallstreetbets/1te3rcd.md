@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1te3rcd.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1te3rcd/first_day_trade_since_covid_why_notthanks_fig/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,39 @@ flair: "Gain"
 extracted_at: "2026-05-17T01:14:17.605Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1te3rcd.md#c0"
+    char_span: [0, 1389]
+    sentence_count: 2
+    key_terms: [wallstreetbets, comments, options, https, reddit, shares, thanks, didnt]
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1te3rcd.md#c1"
+    char_span: [1404, 1608]
+    sentence_count: 1
+    key_terms: [total, year, submissions, visualmod, comments, previous, account, report]
+    section: Comments
+    token_count: 76
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1te3rcd.md#c2"
+    char_span: [1610, 3239]
+    sentence_count: 7
+    key_terms: [degenerate, posts, years, day, wsb, discord, bought, people]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1te3rcd.md#c3"
+    char_span: [3241, 4607]
+    sentence_count: 6
+    key_terms: [grouchy-donkey-8609, options, shares, good, panicapprehensive16, figma, ligma, money]
+    section: Comments
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1te3rcd.md#c4"
+    char_span: [4609, 5164]
+    sentence_count: 4
+    key_terms: [panicapprehensive16, bot, fig, wallstreetbets, automatically, moderators, performed, questions]
+    section: Comments
+    token_count: 162
 ---
-
 # First "day trade" since Covid - why not....thanks FIG $170,256.48 in 24 hours on shares - not options
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1te3rcd/first_day_trade_since_covid_why_notthanks_fig/)

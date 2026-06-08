@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1suzqxe.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1suzqxe/opensource_9task_benchmark_for_codingagent/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -10,11 +11,26 @@ score: 2
 upvote_ratio: 0.63
 num_comments: 1
 flair: "Project"
-extracted_at: "2026-05-11T17:27:06.580Z"
+extracted_at: "2026-05-31T23:36:38.265Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+research_goal: "Map emerging AI design trends, essential skills, practical tools, platforms, and technical implementations that enable a company's creative team to integrate AI beyond concepting. Focus on applications supporting design production, system testing, asset generation, governance, and stakeholder confidence."
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1suzqxe.md#c0"
+    char_span: [0, 2081]
+    sentence_count: 14
+    key_terms: [task, selection, reproducible, extraction, agent, tasks, benchmark, retrieval]
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/machinelearning/1suzqxe.md#c1"
+    char_span: [2083, 3954]
+    sentence_count: 9
+    key_terms: [retrieval, techniques, agent, baseline, extraction, delta, per, technique]
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/machinelearning/1suzqxe.md#c2"
+    char_span: [3956, 4882]
+    sentence_count: 8
+    key_terms: [paper-lantern-challenges, coding-agent-benchmarks, https, paperlantern-ai, paperlantern, agent, retrieval, architecture-incompatible]
+    token_count: 204
 ---
-
 # Open-source 9-task benchmark for coding-agent retrieval augmentation. Per-task deltas +0.010 to +0.320, all evals reproducible [P]
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1suzqxe/opensource_9task_benchmark_for_codingagent/)

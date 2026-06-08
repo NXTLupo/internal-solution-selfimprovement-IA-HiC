@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1sf5nwh.md
 url: "https://www.reddit.com/r/careeradvice/comments/1sf5nwh/anyone_else_realize_theyre_getting_successful_at/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,38 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.230Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1sf5nwh.md#c0"
+    char_span: [0, 2053]
+    sentence_count: 13
+    key_terms: [don, want, career, remote, careeradvice, work, background, consulting]
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/careeradvice/1sf5nwh.md#c1"
+    char_span: [2055, 2335]
+    sentence_count: 2
+    key_terms: [want, strategy-type, increasingly, consulting, realistic, finance, ideally, advice]
+    token_count: 66
+  - id: "social-intelligence/reddit-deep/careeradvice/1sf5nwh.md#c2"
+    char_span: [2350, 4264]
+    sentence_count: 9
+    key_terms: [work, brown-seadog, like, outcomes, cross-functional, harder, get, kind]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/careeradvice/1sf5nwh.md#c3"
+    char_span: [4266, 5996]
+    sentence_count: 14
+    key_terms: [brown-seadog, remote, sydneypoopmanager, find, role, courage, trying, fully]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/careeradvice/1sf5nwh.md#c4"
+    char_span: [5998, 6663]
+    sentence_count: 5
+    key_terms: [brown-seadog, did, starting, lol, quit, yeah, invisiblegreene, honeyedquiet]
+    section: Comments
+    token_count: 172
 ---
-
 # Anyone else realize they’re getting “successful” at a career they don’t even want?
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1sf5nwh/anyone_else_realize_theyre_getting_successful_at/)

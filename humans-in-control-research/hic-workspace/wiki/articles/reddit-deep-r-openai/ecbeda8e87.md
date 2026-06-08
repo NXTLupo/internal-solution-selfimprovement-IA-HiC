@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-openai/ecbeda8e87.md
 url: "https://www.reddit.com/r/OpenAI/comments/1mlif1r/openai_has_halved_paying_users_context_windows/"
 url_hash: "ecbeda8e87"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T17:31:37.563465+00:00"
 chars: 2092
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-openai/ecbeda8e87.md#c0"
+    char_span: [0, 1050]
+    sentence_count: 11
+    key_terms: [context, openai, available, paying, window, plus, halved, reddit]
+    token_count: 245
+  - id: "articles/reddit-deep-r-openai/ecbeda8e87.md#c1"
+    char_span: [1052, 2305]
+    sentence_count: 10
+    key_terms: [context, gemini, tokens, conversation, sometimes, new, rude, airlineglass5010]
+    token_count: 317
 ---
-
 # OpenAI has HALVED paying user's context windows, overnight, without warning.
 
 Source: [Reddit Deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1mlif1r/openai_has_halved_paying_users_context_windows/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1p4tn6a.md
 url: "https://www.reddit.com/r/highereducation/comments/1p4tn6a/career_transition_recommendations/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-23T14:53:59.512Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1p4tn6a.md#c0"
+    char_span: [0, 920]
+    sentence_count: 8
+    key_terms: [highereducation, recommendations, role, comments, higher, mostly, cross-collaboration, interpretation]
+    token_count: 201
+  - id: "social-intelligence/reddit-deep/highereducation/1p4tn6a.md#c1"
+    char_span: [935, 2659]
+    sentence_count: 11
+    key_terms: [grant, student, facing, financial, director, roles, aid, want]
+    section: Comments
+    token_count: 389
+  - id: "social-intelligence/reddit-deep/highereducation/1p4tn6a.md#c2"
+    char_span: [2661, 4162]
+    sentence_count: 5
+    key_terms: [how-to-switch-careers-at-any-age-start-a-new-job-in-your-30s-40s-or-50s, student, data, skills, compliance, enrollment, financial, retention]
+    section: Comments
+    token_count: 347
 ---
-
 # Career transition recommendations?
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1p4tn6a/career_transition_recommendations/)

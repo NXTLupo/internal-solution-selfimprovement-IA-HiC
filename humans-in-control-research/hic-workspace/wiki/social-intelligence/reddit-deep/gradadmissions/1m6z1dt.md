@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1m6z1dt.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1m6z1dt/everything_ive_learned_after_being_accepted_to_10/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,70 @@ flair: "General Advice"
 extracted_at: "2026-05-23T14:54:16.712Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1m6z1dt.md#c0"
+    char_span: [0, 1889]
+    sentence_count: 12
+    key_terms: [admissions, programs, learned, gradadmissions, applications, participate, phd, experience]
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/gradadmissions/1m6z1dt.md#c1"
+    char_span: [1891, 3897]
+    sentence_count: 18
+    key_terms: [don, phd, want, programs, research, passion, school, doing]
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/gradadmissions/1m6z1dt.md#c2"
+    char_span: [3899, 5335]
+    sentence_count: 17
+    key_terms: [questions, phd, don, work, interviews, difficult, applying, research]
+    token_count: 298
+  - id: "social-intelligence/reddit-deep/gradadmissions/1m6z1dt.md#c3"
+    char_span: [5337, 6903]
+    sentence_count: 13
+    key_terms: [email, ask, admissions, rotational, committee, interest, programs, example]
+    token_count: 329
+  - id: "social-intelligence/reddit-deep/gradadmissions/1m6z1dt.md#c4"
+    char_span: [6905, 8903]
+    sentence_count: 14
+    key_terms: [application, professors, school, essay, going, down, help, guarantee]
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/gradadmissions/1m6z1dt.md#c5"
+    char_span: [8905, 10324]
+    sentence_count: 10
+    key_terms: [questions, yourself, explain, ask, don, good, need, work]
+    token_count: 289
+  - id: "social-intelligence/reddit-deep/gradadmissions/1m6z1dt.md#c6"
+    char_span: [10339, 12322]
+    sentence_count: 10
+    key_terms: ["don't", please, connection, student, application, "i'm", everything, statement]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/gradadmissions/1m6z1dt.md#c7"
+    char_span: [12324, 13964]
+    sentence_count: 12
+    key_terms: [interview, week, competency-based, please, email, "it's", understand, personal]
+    section: Comments
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/gradadmissions/1m6z1dt.md#c8"
+    char_span: [13966, 14829]
+    sentence_count: 3
+    key_terms: [expect, safety, thanks, both-obligation2069, doing, jordantellsstories, gpa, phd]
+    section: Comments
+    token_count: 262
+  - id: "social-intelligence/reddit-deep/gradadmissions/1m6z1dt.md#c9"
+    char_span: [14831, 16341]
+    sentence_count: 8
+    key_terms: [thank, low, too, collected, helpful, science, others, please]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/gradadmissions/1m6z1dt.md#c10"
+    char_span: [16343, 16938]
+    sentence_count: 4
+    key_terms: [great, different, advice, people, field, non-rotational, individually, recruitment]
+    section: Comments
+    token_count: 154
 ---
-
 # Everything I've learned after being accepted to 10 PhD programs, including my dream school, with a low GPA.
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1m6z1dt/everything_ive_learned_after_being_accepted_to_10/)

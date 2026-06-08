@@ -1,4 +1,5 @@
 ---
+id: frameworks/personas.md
 title: "Personas Framework Specification"
 type: framework
 created: 2026-04-10
@@ -8,8 +9,74 @@ confidence: high
 status: active
 tags: [personas, cooper, jtbd, nngroup, user-research]
 evidence_count: 0
+chunks:
+  - id: "frameworks/personas.md#c0"
+    char_span: [0, 359]
+    sentence_count: 3
+    key_terms: [persona, anti-patterns, authoritative, specification, deliverable, methodology, generating, canonical]
+    section: Purpose
+    token_count: 59
+  - id: "frameworks/personas.md#c1"
+    char_span: [385, 2672]
+    sentence_count: 12
+    key_terms: [persona, goals, demographics, design, behavioral, different, framework, personas]
+    section: Canonical Framework
+    token_count: 481
+  - id: "frameworks/personas.md#c2"
+    char_span: [2674, 3256]
+    sentence_count: 1
+    key_terms: [research, assumption-based, qualitative, interviews, data, characteristics, longitudinal, speculation]
+    section: Canonical Framework
+    token_count: 138
+  - id: "frameworks/personas.md#c3"
+    char_span: [3296, 5651]
+    sentence_count: 10
+    key_terms: [section, specific, tagline, goal, demographics, goals, jtbd, experience]
+    section: Required Sections (14 Components)
+    token_count: 492
+  - id: "frameworks/personas.md#c4"
+    char_span: [5653, 8092]
+    sentence_count: 11
+    key_terms: [section, context, constructed, quotes, patterns, include, journey, points]
+    section: Required Sections (14 Components)
+    token_count: 489
+  - id: "frameworks/personas.md#c5"
+    char_span: [8094, 9933]
+    sentence_count: 5
+    key_terms: [section, preferences, decision, include, persona, alternatives, brand, competitive]
+    section: Required Sections (14 Components)
+    token_count: 349
+  - id: "frameworks/personas.md#c6"
+    char_span: [9953, 11546]
+    sentence_count: 4
+    key_terms: [anti-persona, product, persona, primary, archetype, personas, failure, rewrite]
+    section: Quality Gates
+    token_count: 317
+  - id: "frameworks/personas.md#c7"
+    char_span: [11566, 12492]
+    sentence_count: 3
+    key_terms: [observation, comparison, recommendation, depth, implication, example, users, differentiating]
+    section: Depth Scoring
+    token_count: 188
+  - id: "frameworks/personas.md#c8"
+    char_span: [12512, 13978]
+    sentence_count: 15
+    key_terms: [personas, persona, research, overwhelmed, behavioral, segments, knowing, support]
+    section: Anti-Patterns
+    token_count: 309
+  - id: "frameworks/personas.md#c9"
+    char_span: [14008, 15599]
+    sentence_count: 6
+    key_terms: [research, personas, data, observation-implication-recommendation, section, anti-persona, insufficient, confidence]
+    section: Generation Instructions
+    token_count: 323
+  - id: "frameworks/personas.md#c10"
+    char_span: [15622, 16163]
+    sentence_count: 1
+    key_terms: [persona, frameworks, identity, personas, brand, industry-specific, conversational, persona-driven]
+    section: Cross-References
+    token_count: 109
 ---
-
 # Personas Framework Specification
 
 ## Purpose

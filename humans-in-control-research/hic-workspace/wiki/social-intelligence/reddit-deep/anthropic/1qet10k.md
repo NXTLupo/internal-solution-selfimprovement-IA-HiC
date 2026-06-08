@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/anthropic/1qet10k.md
 url: "https://www.reddit.com/r/Anthropic/comments/1qet10k/how_do_teams_manage_shared_context_on_claude_code/"
 kind: "social-post"
 source: "reddit-deep: r/anthropic"
@@ -13,8 +14,27 @@ flair: "Other"
 extracted_at: "2026-05-11T17:26:51.916Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, enterprise_it, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/anthropic/1qet10k.md#c0"
+    char_span: [0, 2154]
+    sentence_count: 16
+    key_terms: [across, context, claude, shared, https, code, sessions, memory]
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/anthropic/1qet10k.md#c1"
+    char_span: [2169, 3788]
+    sentence_count: 12
+    key_terms: [context, chunkhound, burning, deleted, through, claude, demand, notion]
+    section: Comments
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/anthropic/1qet10k.md#c2"
+    char_span: [3790, 4569]
+    sentence_count: 6
+    key_terms: [markdown, claude, folder, shared, file, mutationobserver, documentation, local-first]
+    section: Comments
+    token_count: 156
 ---
-
 # How do teams manage shared context on Claude Code
 
 Source: [reddit-deep: r/anthropic](https://www.reddit.com/r/Anthropic/comments/1qet10k/how_do_teams_manage_shared_context_on_claude_code/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1szrbii.md
 url: "https://www.reddit.com/r/internships/comments/1szrbii/help_me_choose_between_these_three/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,22 @@ score: 3
 upvote_ratio: 1
 num_comments: 9
 flair: "Offers"
-extracted_at: "2026-05-25T18:31:15.450Z"
+extracted_at: "2026-06-06T17:41:06.731Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1szrbii.md#c0"
+    char_span: [0, 1668]
+    sentence_count: 11
+    key_terms: [iit, kgp, rpr, mandi, confirmation, guide, internships, comments]
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/internships/1szrbii.md#c1"
+    char_span: [1683, 2207]
+    sentence_count: 2
+    key_terms: [reallypratik, selected, grishma, domain, get, year, internships, shortlisted]
+    section: Comments
+    token_count: 158
 ---
-
 # Help me choose between these three
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1szrbii/help_me_choose_between_these_three/)
@@ -42,7 +54,6 @@ Also will it be fine if I accept any offer (start registration process) and then
 
 ## Comments
 
-- **chocolate_asshole** (1↑): kgp if you care about name on the cv, mandi if you care about actual work and chill weather and some balance in life basically try to work closely with whoever teaches you the most big prof name helps later just like jobs where it’s hell finding any opening now
 - **The_Anonymous0001** (1↑): Did you get selected for the IITKGP GRISHMA research Internship?? In which year you are and for which domain you have been shortlisted?
   - **ReallyPratik** (1↑): Third year (ending), domain is machine learning and cloud computing.
     - **ReallyPratik** (1↑): Not grishma, it's under a prof...I got selected from cold email

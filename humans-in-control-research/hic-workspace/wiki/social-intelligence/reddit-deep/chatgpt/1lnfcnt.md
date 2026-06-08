@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1lnfcnt.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1lnfcnt/after_147_failed_chatgpt_prompts_i_had_a/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,97 @@ flair: "Educational Purpose Only "
 extracted_at: "2026-05-17T01:12:48.202Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c0"
+    char_span: [0, 2114]
+    sentence_count: 16
+    key_terms: [chatgpt, "what's", email, lyra, write, meal, prep, comments]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c1"
+    char_span: [2120, 4430]
+    sentence_count: 5
+    key_terms: [prompt, optimization, techniques, context, optimized, multi-perspective, requests, chain-of-thought]
+    token_count: 516
+  - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c2"
+    char_span: [4436, 6017]
+    sentence_count: 24
+    key_terms: [prompt, optimization, been, "i'm", lyra, mode, memory, "you're"]
+    token_count: 366
+  - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c3"
+    char_span: [6032, 7735]
+    sentence_count: 12
+    key_terms: [questions, ask, chatgpt, expert, please, prompt, automatically, conversation]
+    section: Comments
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c4"
+    char_span: [7738, 8724]
+    sentence_count: 6
+    key_terms: [question, follow, sounds, kinda, car, help, need, time]
+    section: Comments
+    token_count: 232
+  - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c5"
+    char_span: [8726, 10560]
+    sentence_count: 14
+    key_terms: [suggestions, questions, approach, "that's", smart, ask, structured, something]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c6"
+    char_span: [10562, 12221]
+    sentence_count: 10
+    key_terms: [engineer, language, prompts, software, writing, casual, common, failed]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c7"
+    char_span: [12223, 14093]
+    sentence_count: 16
+    key_terms: [questions, get, prompt, relevant, specific, foreman, somehow, asking]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c8"
+    char_span: [14096, 15762]
+    sentence_count: 8
+    key_terms: [questions, ask, like, created, people, bro, engineered, something]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c9"
+    char_span: [15764, 17517]
+    sentence_count: 13
+    key_terms: [something, email, like, chatgpt, people, interaction, get, themselves]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c10"
+    char_span: [17519, 19409]
+    sentence_count: 10
+    key_terms: [something, like, comments, "they're", person, basic, "can't", right]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c11"
+    char_span: [19411, 21281]
+    sentence_count: 16
+    key_terms: [chatgpt, master-level, telling, prompt, ask, like, knowledge, prompting]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c12"
+    char_span: [21283, 23299]
+    sentence_count: 6
+    key_terms: [oncologist, like, rash, accurate, cancer, product, prompts, answer]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c13"
+    char_span: [23022, 23440]
+    sentence_count: 1
+    key_terms: [overengineered, kevinparnell, legitimately, interaction, immerjones, demanding, something, account]
+    section: Comments
+    token_count: 100
+  - id: "social-intelligence/reddit-deep/chatgpt/1lnfcnt.md#c14"
+    char_span: [23442, 24206]
+    sentence_count: 4
+    key_terms: [thinking, chatgpt, people, jejudjdjnfntbensjsj, email, largethopiantestes, technical-cat-2017, get]
+    section: Comments
+    token_count: 213
 ---
-
 # After 147 failed ChatGPT prompts, I had a breakdown and accidentally discovered something
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1lnfcnt/after_147_failed_chatgpt_prompts_i_had_a/)

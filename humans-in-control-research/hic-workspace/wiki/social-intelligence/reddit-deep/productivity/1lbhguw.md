@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1lbhguw.md
 url: "https://www.reddit.com/r/productivity/comments/1lbhguw/stealth_mode_tools_in_remote_environments_to/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-26T12:53:45.650Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [enterprise_it, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1lbhguw.md#c0"
+    char_span: [0, 699]
+    sentence_count: 6
+    key_terms: [productivity, comments, quietly, stealth, testing, remote, help, inefficiencies]
+    token_count: 147
+  - id: "social-intelligence/reddit-deep/productivity/1lbhguw.md#c1"
+    char_span: [714, 3090]
+    sentence_count: 19
+    key_terms: [monitoring, secret, silent, productivity, teams, like, employees, workflow]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/productivity/1lbhguw.md#c2"
+    char_span: [3092, 3214]
+    sentence_count: 1
+    key_terms: [intelligence, productivity, surveillance, mechanism, approach, better, rather, tends]
+    section: Comments
+    token_count: 22
 ---
-
 # Stealth mode tools in remote environments to enhance productivity?
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1lbhguw/stealth_mode_tools_in_remote_environments_to/)

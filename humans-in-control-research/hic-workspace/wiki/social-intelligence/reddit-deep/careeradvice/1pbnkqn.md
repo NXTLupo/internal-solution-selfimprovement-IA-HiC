@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1pbnkqn.md
 url: "https://www.reddit.com/r/careeradvice/comments/1pbnkqn/how_to_protect_my_career_as_a_software_engineer/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.233Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [enterprise_it, ai_research, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1pbnkqn.md#c0"
+    char_span: [0, 2068]
+    sentence_count: 11
+    key_terms: [software, online, engineer, certifications, career, careeradvice, engineering, etc]
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/careeradvice/1pbnkqn.md#c1"
+    char_span: [2083, 3633]
+    sentence_count: 12
+    key_terms: [currently, job, timmyturnahp21, using, "i'm", want, companies, blocked]
+    section: Comments
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/careeradvice/1pbnkqn.md#c2"
+    char_span: [3638, 5629]
+    sentence_count: 11
+    key_terms: [software, generated, something, end, amount, going, development, data]
+    section: Comments
+    token_count: 467
 ---
-
 # How to protect my career as a software engineer in the age of AI?
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1pbnkqn/how_to_protect_my_career_as_a_software_engineer/)

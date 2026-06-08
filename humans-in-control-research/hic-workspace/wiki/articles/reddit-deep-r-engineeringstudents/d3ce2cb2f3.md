@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-engineeringstudents/d3ce2cb2f3.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1o50lnm/how_do_you_get_engineering_internships_as_a/"
 url_hash: "d3ce2cb2f3"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:40:17.224840+00:00"
 chars: 3445
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-engineeringstudents/d3ce2cb2f3.md#c0"
+    char_span: [0, 1478]
+    sentence_count: 10
+    key_terms: [freshman, engineering, internship, engineeringstudents, internships, get, like, electrical]
+    token_count: 342
+  - id: "articles/reddit-deep-r-engineeringstudents/d3ce2cb2f3.md#c1"
+    char_span: [1480, 3030]
+    sentence_count: 16
+    key_terms: [get, like, "don't", small, fair, "i'm", job, internship]
+    token_count: 394
+  - id: "articles/reddit-deep-r-engineeringstudents/d3ce2cb2f3.md#c2"
+    char_span: [3032, 3666]
+    sentence_count: 5
+    key_terms: ["i'm", year, student, "don't", oversaturated, discouraging, manufacturer, engineering]
+    token_count: 159
 ---
-
 # How do you get engineering internships as a college freshman?
 
 Source: [Reddit Deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1o50lnm/how_do_you_get_engineering_internships_as_a/)

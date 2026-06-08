@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/freelance/1osnpex.md
 url: "https://www.reddit.com/r/freelance/comments/1osnpex/how_do_you_keep_your_freelance_finances_in_order/"
 kind: "social-post"
 source: "reddit-deep: r/freelance"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-26T12:53:48.704Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/freelance/1osnpex.md#c0"
+    char_span: [0, 1770]
+    sentence_count: 18
+    key_terms: [freelance, finances, money, comments, invoices, started, habits, later]
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/freelance/1osnpex.md#c1"
+    char_span: [1785, 2575]
+    sentence_count: 7
+    key_terms: [day, business, invoices, transfer, account, salary, month, needs]
+    section: Comments
+    token_count: 185
+  - id: "social-intelligence/reddit-deep/freelance/1osnpex.md#c2"
+    char_span: [2577, 4130]
+    sentence_count: 12
+    key_terms: [account, freelance, invoices, income, end, pay, use, everything]
+    section: Comments
+    token_count: 372
 ---
-
 # How do you keep your freelance finances in order? Here's what's been working for me so far.
 
 Source: [reddit-deep: r/freelance](https://www.reddit.com/r/freelance/comments/1osnpex/how_do_you_keep_your_freelance_finances_in_order/)

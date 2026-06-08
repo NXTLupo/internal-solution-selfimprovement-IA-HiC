@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rbitlj/how_inflated_are_us_university_acceptance_rates/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,63 @@ flair: "Discussion"
 extracted_at: "2026-05-20T06:42:01.163Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c0"
+    char_span: [0, 925]
+    sentence_count: 7
+    key_terms: [universities, acceptance, applyingtocollege, rates, competitive, applicants, colleges, comments]
+    token_count: 192
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c1"
+    char_span: [940, 3116]
+    sentence_count: 16
+    key_terms: [applications, schools, applicants, kids, rate, numbers, universities, "don't"]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c2"
+    char_span: [3118, 4493]
+    sentence_count: 9
+    key_terms: [applications, schools, universities, top, acceptance, university, admission, holistic]
+    section: Comments
+    token_count: 320
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c3"
+    char_span: [4495, 5415]
+    sentence_count: 5
+    key_terms: [apply, students, universities, "wouldn't", results, zealousidealweird706, did, get]
+    section: Comments
+    token_count: 212
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c4"
+    char_span: [5417, 7437]
+    sentence_count: 12
+    key_terms: [schools, kids, candidates, number, colleges, freshman, chicago, take]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c5"
+    char_span: [7439, 9604]
+    sentence_count: 15
+    key_terms: [students, top, faculty, applications, universities, population, schools, tuition]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c6"
+    char_span: [9606, 10632]
+    sentence_count: 6
+    key_terms: [years, top, harvard, ivies, ago, qualifications, valedictorian, prototypical]
+    section: Comments
+    token_count: 219
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c7"
+    char_span: [10634, 12457]
+    sentence_count: 10
+    key_terms: [schools, college, minimum, requirements, admit, kids, admissions, applicants]
+    section: Comments
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c8"
+    char_span: [12459, 14633]
+    sentence_count: 20
+    key_terms: [admissions, aggravating-mind-657, students, despite, schools, scores, applications, apply]
+    section: Comments
+    token_count: 499
 ---
-
 # How inflated are US university acceptance rates, especially t20?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rbitlj/how_inflated_are_us_university_acceptance_rates/)

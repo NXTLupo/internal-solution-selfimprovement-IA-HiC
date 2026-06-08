@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1ssma5w.md
 url: "https://www.reddit.com/r/jobs/comments/1ssma5w/my_6_month_job_search_is_over/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -6,19 +7,60 @@ subreddit: "jobs"
 title: "My 6 month job search is over"
 author: "hybridaaroncarroll"
 date: "2026-04-22T13:56:40.000Z"
-score: 2003
+score: 2008
 upvote_ratio: 1
 num_comments: 118
 flair: "Job searching"
-extracted_at: "2026-05-24T14:10:06.653Z"
+extracted_at: "2026-06-03T02:23:12.391Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1ssma5w.md#c0"
+    char_span: [0, 1473]
+    sentence_count: 13
+    key_terms: [got, company, process, weeks, job, interview, comments, ghosted]
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/jobs/1ssma5w.md#c1"
+    char_span: [1488, 3679]
+    sentence_count: 14
+    key_terms: [jobs, hybridaaroncarroll, anything, arcfireemblem, job, applicants, "company's", directly]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1ssma5w.md#c2"
+    char_span: [3446, 3802]
+    sentence_count: 2
+    key_terms: [sly-3, hybridaaroncarroll, arcfireemblem, wkizezvxs5mqg, probability, immediate, response, choices]
+    section: Comments
+    token_count: 118
+  - id: "social-intelligence/reddit-deep/jobs/1ssma5w.md#c3"
+    char_span: [3804, 5837]
+    sentence_count: 18
+    key_terms: [remote, experience, interviews, roles, hybridaaroncarroll, applying, winning, resume]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/jobs/1ssma5w.md#c4"
+    char_span: [5839, 6813]
+    sentence_count: 6
+    key_terms: [roles, government, qualified, bunsnt, remote, hybridaaroncarroll, jobs, thepulloutmethod]
+    section: Comments
+    token_count: 260
+  - id: "social-intelligence/reddit-deep/jobs/1ssma5w.md#c5"
+    char_span: [6815, 8542]
+    sentence_count: 9
+    key_terms: [hybridaaroncarroll, job, applications, days, grashasey, rejection, response, another]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/jobs/1ssma5w.md#c6"
+    char_span: [8544, 10032]
+    sentence_count: 13
+    key_terms: [hybridaaroncarroll, like, company, immediately, personality, difference, experience, around]
+    section: Comments
+    token_count: 340
 ---
-
 # My 6 month job search is over
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1ssma5w/my_6_month_job_search_is_over/)
-Posted by **hybridaaroncarroll** · **2003↑** · **118 comments**
+Posted by **hybridaaroncarroll** · **2008↑** · **118 comments**
 
 I turned 50, then a week later I was unemployed in a shitty tech market. Fortunately I got a decent severance (3 month's salary) and had built up a bit of savings to last a few more months. I was about 2 weeks away from withdrawing from retirement, which would have been the second time a layoff triggered cashing out 401K funds.
 
@@ -31,25 +73,25 @@ Half a year and over 850 applications later, I landed an offer at a small tech c
 
 ## Comments
 
-- **AntelopeSure6184** (149↑): Thank you for this, I'm in your same age/experience bracket and people find it unbelievable the level you have to work in order to get a new position now. Where did you find most of your positions?
-  - **Immediate_Pear_3786** (57↑): That funnel chart is so depressing but also weirdly satisfying to see someone track all this data during the search
-    - **Cainga** (37↑): I like these. My mother thinks I’m just automatically going to pick any job that is posted anywhere because she still thinks it’s the early 1970s.  Then she is frustrated with me and tries to give me career advice.
-  - **hybridaaroncarroll** (34↑): I rotated between LI, Indeed, and Ziprecruiter. Anything outside of those gets into super scammy territory, where you have to pay for access to jobs that may or may not even exist. Searching late at night seemed to yield some of the best results, as I was able to catch some listings that were freshly posted without 947+ applicants already.
-    - **PearMyPie** (6↑): Do you think it makes a difference? A job posting may have 100+ applicants but many likely don't pass by the ATS.
-    - **Marcus_Aure1** (3↑): I actually disagree with this. If anything, LinkedIn and Indeed are notorious for having fake, auto-reposted, and outdated jobs that just flood your search. You end up wasting hundreds of applications thinking you the company is receiving your application when they actually aren't. Instead you should apply directly through the company's career page instead. That way you are more likely to see live/active jobs since they keep their websites the most up to date.  
+- **AntelopeSure6184** (148↑): Thank you for this, I'm in your same age/experience bracket and people find it unbelievable the level you have to work in order to get a new position now. Where did you find most of your positions?
+  - **Immediate_Pear_3786** (58↑): That funnel chart is so depressing but also weirdly satisfying to see someone track all this data during the search
+    - **Cainga** (33↑): I like these. My mother thinks I’m just automatically going to pick any job that is posted anywhere because she still thinks it’s the early 1970s.  Then she is frustrated with me and tries to give me career advice.
+  - **hybridaaroncarroll** (35↑): I rotated between LI, Indeed, and Ziprecruiter. Anything outside of those gets into super scammy territory, where you have to pay for access to jobs that may or may not even exist. Searching late at night seemed to yield some of the best results, as I was able to catch some listings that were freshly posted without 947+ applicants already.
+    - **PearMyPie** (5↑): Do you think it makes a difference? A job posting may have 100+ applicants but many likely don't pass by the ATS.
+    - **Marcus_Aure1** (4↑): I actually disagree with this. If anything, LinkedIn and Indeed are notorious for having fake, auto-reposted, and outdated jobs that just flood your search. You end up wasting hundreds of applications thinking you the company is receiving your application when they actually aren't. Instead you should apply directly through the company's career page instead. That way you are more likely to see live/active jobs since they keep their websites the most up to date.  
 I even created a scraper that gets jobs directly from company's websites and puts it in one place and detects if jobs have the same job ids since some companies purposefully post duplicate postings to farm data.
-- **ArcfireEmblem** (87↑): 1/852.  If someone told you to go out and bet anything important on something with these odds, the correct response would be to slap them across the face.  What a sad time we live in.
-  - **hybridaaroncarroll** (44↑): Agree, but what logical choice do we have other than keep playing the game?
+- **ArcfireEmblem** (83↑): 1/852.  If someone told you to go out and bet anything important on something with these odds, the correct response would be to slap them across the face.  What a sad time we live in.
+  - **hybridaaroncarroll** (40↑): Agree, but what logical choice do we have other than keep playing the game?
     - **ArcfireEmblem** (3↑): No immediate choices.
-    - **sly-3** (4↑): ![gif](giphy|wKiZeZVXS5MQg)
-  - **sly-3** (10↑): Implied Probability: 0.117%
+    - **sly-3** (5↑): ![gif](giphy|wKiZeZVXS5MQg)
+  - **sly-3** (11↑): Implied Probability: 0.117%
 
 American (Moneyline): +85100
 
 That's worse odds than the Jets winning the Super Bowl, the Colorado Rockies winning the World Series, or about equitable to South Africa winning the World Cup.
-    - **hybridaaroncarroll** (8↑): Maybe I need to go buy 852 Powerball tickets.
-  - **Jadentheman** (9↑): Not even that. It's the fact only 24/852 is where you actually get something out of the process to even apply. Which means 828 other times you wasted time and energy to go essentially nowhere.
-- **vaguespace_** (33↑): Congratulations to you. I commend your mental fortitude. Companies truly do not give a crap about people in this market.
+    - **hybridaaroncarroll** (7↑): Maybe I need to go buy 852 Powerball tickets.
+  - **Jadentheman** (10↑): Not even that. It's the fact only 24/852 is where you actually get something out of the process to even apply. Which means 828 other times you wasted time and energy to go essentially nowhere.
+- **vaguespace_** (34↑): Congratulations to you. I commend your mental fortitude. Companies truly do not give a crap about people in this market.
 - **bunsNT** (16↑): I’m in my early 40s and working as a contractor at a FAANG. 
 
 I’m making 20% less than what I was making 5 years ago and have been applying for a year and a half (95% remote roles - local job market is not conducive to my skill set. Can’t move due to aging parent). 
@@ -67,24 +109,24 @@ Besides the FAANG experience, I also have consulting, renewable energy and ops m
     - **bunsNT** (1↑): Yeah - I totally understand. It's either find a FT remote job or take about a 20% (additional) cut to work locally. Can also commute about 2 hours. No good options.
   - **TheArmaniOne35** (0↑): Apply on Usajobs , government jobs.com
     - **bunsNT** (3↑): I did look on the website earlier this year - as someone who is not working in the government, there seemed like very few roles that allowed for outside applicants.
-- **timtomorkevin** (13↑): 850 jobs in 6 months? What field are you in to be qualified for that many roles?
-  - **hybridaaroncarroll** (21↑): UX/Product Design. To be honest I applied for roles I was both over and under qualified for.
-    - **YoungCubSaysWoof** (8↑): Congratulations on the new position!
+- **timtomorkevin** (14↑): 850 jobs in 6 months? What field are you in to be qualified for that many roles?
+  - **hybridaaroncarroll** (24↑): UX/Product Design. To be honest I applied for roles I was both over and under qualified for.
+    - **YoungCubSaysWoof** (9↑): Congratulations on the new position!
 
 For jobs that you got interviews with, did you use LI’s “one click” application feature? Did you customize EACH  cover letter and resume?
 - **02meepmeep** (10↑): Is a 3% response rate normal now?
-  - **ColumbiaWahoo** (6↑): That’s quite high these days
+  - **ColumbiaWahoo** (7↑): That’s quite high these days
   - **hybridaaroncarroll** (8↑): Probably. I used to design direct mail flyers, and 1-2% response rate is considered pie-in-sky, so it doesn't really surprise me.
 - **GrashaSey** (13↑): I dream of days like these, almost lost all hopes when i got ghosted after the final interview for Deliveroo as customer service specialist... i hope to not give up.. some days i do not even have the strength to look for another job... my actual job is draining me..
-  - **hybridaaroncarroll** (11↑): Maintaining a job while trying to look for another one at the same time is incredibly difficult. I tried to do it a few years ago and struggled. I was able to churn out 20-30 applications a day purely because I didn't have I job that was sucking my time and soul. I truly empathize.
+  - **hybridaaroncarroll** (15↑): Maintaining a job while trying to look for another one at the same time is incredibly difficult. I tried to do it a few years ago and struggled. I was able to churn out 20-30 applications a day purely because I didn't have I job that was sucking my time and soul. I truly empathize.
     - **GrashaSey** (3↑): True, but i remember the feeling of having to call my parents for help on a hot summer morning ( i am lucky ) and i want to avoid that in the future..
-- **LowPossibility6393** (12↑): 850 applications at 50 in a tech downturn and you landed. That's not luck, that's just not quitting.
+- **LowPossibility6393** (9↑): 850 applications at 50 in a tech downturn and you landed. That's not luck, that's just not quitting.
 
 The part that stood out was the 'lead candidate, still extremely interested, process taking longer' sequence that ended in a phone rejection. that pattern is brutal and it happens constantly right now because hiring freezes hit mid-funnel and nobody wants to be the one to send the rejection email. Knowing it's structural doesn't make it less awful but it helps not take it as personal signal.
 
 Good luck at the new role. what finally made the difference with the company that actually hired you?
-  - **hybridaaroncarroll** (5↑): Thank you for the commendations and luck. I think what made the difference was that the company aligned really well with my personality and experience. They are a smaller tech company that deals with a lot of industry complexity, which is what I worked within my last two roles. The hiring manager and HR person liked me immediately but the CEO was a tough interview. Unique personality with a rambling communication style. I've learned to adjust around those types over the years. Having done user interviews I approached the CEO one like that and asked prompting questions. I guess it worked.
-- **FreshStar7** (9↑): 852 applications to land a job when you have experience is criminal.
-- **Agitated_Cow5963** (4↑): Congrats, being your age, did you work around not displaying it like having birthyear in your email or when you graduated etc?
-  - **hybridaaroncarroll** (12↑): No degree so that part wasn't a problem. I removed everything off my resume that was more than 12 years old, and dyed the greys away. I didn't want to dye my hair at first, but it seemed like every screening call I had that was on camera wound up being immediately rejected. It's probably not causation, but after making that change it seemed like things picked up. Maybe it was my own self confidence?
-    - **Agitated_Cow5963** (8↑): Ageism is real. You did the right thing.
+  - **hybridaaroncarroll** (6↑): Thank you for the commendations and luck. I think what made the difference was that the company aligned really well with my personality and experience. They are a smaller tech company that deals with a lot of industry complexity, which is what I worked within my last two roles. The hiring manager and HR person liked me immediately but the CEO was a tough interview. Unique personality with a rambling communication style. I've learned to adjust around those types over the years. Having done user interviews I approached the CEO one like that and asked prompting questions. I guess it worked.
+- **FreshStar7** (8↑): 852 applications to land a job when you have experience is criminal.
+- **Agitated_Cow5963** (5↑): Congrats, being your age, did you work around not displaying it like having birthyear in your email or when you graduated etc?
+  - **hybridaaroncarroll** (13↑): No degree so that part wasn't a problem. I removed everything off my resume that was more than 12 years old, and dyed the greys away. I didn't want to dye my hair at first, but it seemed like every screening call I had that was on camera wound up being immediately rejected. It's probably not causation, but after making that change it seemed like things picked up. Maybe it was my own self confidence?
+    - **Agitated_Cow5963** (9↑): Ageism is real. You did the right thing.

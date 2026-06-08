@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1s91gac.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1s91gac/ive_been_working_two_jobs_for_three_years_and/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,51 @@ flair: "Income/Employment/Aid"
 extracted_at: "2026-05-16T20:55:12.692Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [workforce, government]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1s91gac.md#c0"
+    char_span: [0, 2027]
+    sentence_count: 23
+    key_terms: ["i'm", "i've", time, benefits, because, qualify, povertyfinance, people]
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/povertyfinance/1s91gac.md#c1"
+    char_span: [2029, 3575]
+    sentence_count: 11
+    key_terms: [state, qualify, healthcare, benefits, medicaid, probably, mathing, income]
+    section: Comments
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/povertyfinance/1s91gac.md#c2"
+    char_span: [3577, 5363]
+    sentence_count: 10
+    key_terms: [income, medicaid, snap, work, fit-combination-6211, state, high, concretecrusher]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/povertyfinance/1s91gac.md#c3"
+    char_span: [5365, 6682]
+    sentence_count: 5
+    key_terms: [minimum, full, pay, time, commercial, insurance, medicaid, income]
+    section: Comments
+    token_count: 324
+  - id: "social-intelligence/reddit-deep/povertyfinance/1s91gac.md#c4"
+    char_span: [6684, 9015]
+    sentence_count: 19
+    key_terms: [medicaid, getting, assistance, coworkers, insurance, get, week, health]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1s91gac.md#c5"
+    char_span: [8731, 9017]
+    sentence_count: 6
+    key_terms: [right, whole, bill, assistance, definitely, question, offices, riddles]
+    section: Comments
+    token_count: 66
+  - id: "social-intelligence/reddit-deep/povertyfinance/1s91gac.md#c6"
+    char_span: [9020, 10804]
+    sentence_count: 14
+    key_terms: [qualify, "didn't", year, state, "it's", time, insurance, questions]
+    section: Comments
+    token_count: 414
 ---
-
 # I've been working two jobs for three years and just found out I qualified for benefits the whole time
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1s91gac/ive_been_working_two_jobs_for_three_years_and/)

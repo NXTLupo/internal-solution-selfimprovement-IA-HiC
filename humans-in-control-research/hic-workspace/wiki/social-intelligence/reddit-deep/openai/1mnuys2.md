@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1mnuys2.md
 url: "https://www.reddit.com/r/OpenAI/comments/1mnuys2/weird_experiences_with_the_gpt5_api/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,32 @@ flair: "Discussion"
 extracted_at: "2026-05-11T16:53:06.859Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1mnuys2.md#c0"
+    char_span: [0, 1955]
+    sentence_count: 15
+    key_terms: [tools, gpt-5, personality, mentioned, comments, either, openai, never]
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/openai/1mnuys2.md#c1"
+    char_span: [1957, 2669]
+    sentence_count: 6
+    key_terms: [thinking, higher, models, keeps, good, keep, curveballs, surprising]
+    token_count: 162
+  - id: "social-intelligence/reddit-deep/openai/1mnuys2.md#c2"
+    char_span: [2684, 4591]
+    sentence_count: 20
+    key_terms: [use, model, work, models, agent, tools, good, nstevnc77]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/openai/1mnuys2.md#c3"
+    char_span: [4593, 4934]
+    sentence_count: 4
+    key_terms: [system, prompt, lot, possible-ad-6765, documentation, suggestions, correctly, following]
+    section: Comments
+    token_count: 75
 ---
-
 # Weird experiences with the GPT-5 API
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1mnuys2/weird_experiences_with_the_gpt5_api/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1ruf3i4/gatekeeping_your_results_its_for_your_own_good/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,63 @@ subreddit: "applyingtocollege"
 title: "Gatekeeping your results (IT'S FOR YOUR OWN GOOD)"
 author: "Intelligent-Web-8017"
 date: "2026-03-15T14:13:31.000Z"
-score: 270
+score: 264
 upvote_ratio: 0.75
 num_comments: 219
 flair: "Advice"
-extracted_at: "2026-05-25T18:32:06.229Z"
+extracted_at: "2026-06-03T18:53:09.738Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c0"
+    char_span: [0, 1847]
+    sentence_count: 13
+    key_terms: ["it's", acceptances, people, "don't", applyingtocollege, get, gatekeeping, want]
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c1"
+    char_span: [1849, 3938]
+    sentence_count: 15
+    key_terms: [people, trust, acceptances, gatekeeping, end, get, "it's", time]
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c2"
+    char_span: [3940, 6333]
+    sentence_count: 15
+    key_terms: [people, "don't", sure, tell, want, parents, believe, college]
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c3"
+    char_span: [6335, 7759]
+    sentence_count: 15
+    key_terms: [people, "i'm", gatekeeping, got, life, decisions, anything, everyone]
+    token_count: 310
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c4"
+    char_span: [7774, 8942]
+    sentence_count: 3
+    key_terms: [gatekeep, school, thats, get, everyone, people, intelligent-web-8017, crazy]
+    section: Comments
+    token_count: 323
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c5"
+    char_span: [8944, 10758]
+    sentence_count: 10
+    key_terms: [people, soup, friends, bean, life, disagree, nothing, theory]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c6"
+    char_span: [10760, 11781]
+    sentence_count: 4
+    key_terms: [schools, school, admissions, everyone, college, culture, little, people]
+    section: Comments
+    token_count: 239
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c7"
+    char_span: [11783, 13288]
+    sentence_count: 9
+    key_terms: [like, people, state, don, honest, school, senior, intelligent-web-8017]
+    section: Comments
+    token_count: 369
 ---
-
 # Gatekeeping your results (IT'S FOR YOUR OWN GOOD)
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1ruf3i4/gatekeeping_your_results_its_for_your_own_good/)
-Posted by **Intelligent-Web-8017** · **270↑** · **219 comments**
+Posted by **Intelligent-Web-8017** · **264↑** · **219 comments**
 
 # With society progressing and the realm of college apps being more sporadic, I think it's necessary to bring out this topic. You get to see people's true colors during app season and I think one really important thing to minimize the amount of hostility, toxicity and damage is to gatekeep your acceptances. This is a must read post and probably a top banger on this subreddit in a very long time.....
 
@@ -58,9 +103,9 @@ I'm really doing this to protect everyone. I've seen countless stories, you alre
 
 ## Comments
 
-- **Im_ur_hope_7** (282↑): what kind of school are yall going to to have to gatekeep so badly 😭😭😭
+- **Im_ur_hope_7** (284↑): what kind of school are yall going to to have to gatekeep so badly 😭😭😭
   - **Previous_Move6790** (20↑): probably all the Top 20
-- **THEnesnes32** (67↑): This one girl in my school made a LIST of everyone who was apparently EDing to upenn and then started “chancing them” as if she thought she was going to get in and was guessing who else would. she got deffered and another girl got in. I stopped liking her after that bc who do u think are
+- **THEnesnes32** (69↑): This one girl in my school made a LIST of everyone who was apparently EDing to upenn and then started “chancing them” as if she thought she was going to get in and was guessing who else would. she got deffered and another girl got in. I stopped liking her after that bc who do u think are
   - **DataFair900** (13↑): Not even kidding someone at my school also did this but made a list of everyone in our GRADE and was predicting where they’d get in. She was also hating on people who applied to ivies saying “who do they think they are.” College apps bring out the worst in people
     - **Commercial_Ad8072** (2↑): I mean this is high orientation toward data and pattern recognition, but maybe using that to sublimate anxiety and give veneer or control
     - **Memesaurusmex** (1↑): where did she get in
@@ -68,33 +113,33 @@ I'm really doing this to protect everyone. I've seen countless stories, you alre
     - **Alivra** (2↑): >thats why i just gatekeep
 
 You're not even a senior
-- **IceTerp23** (26↑): Idiotic take. Don’t lie to your friends.
-- **FishermanAny3573** (74↑): So you’re saying how people lie and are advocating for lying to everyone including your best friends? Crazy take
+- **IceTerp23** (25↑): Idiotic take. Don’t lie to your friends.
+- **FishermanAny3573** (78↑): So you’re saying how people lie and are advocating for lying to everyone including your best friends? Crazy take
   - **Suitable-Animal4163** (3↑): bean soup theory
-    - **thatinterruptingcow** (6↑): All these theories 😭😭
+    - **thatinterruptingcow** (7↑): All these theories 😭😭
     - **Desperate_Pea8518** (3↑): This has nothing to do with the bean soup theory
     - **PiranhaPop** (1↑): tomato soup > bean soup > minestrone soup
   - **CabbageSass** (2↑): Are they really your best friends, though? You're going to be surprised at how many back stabbers you will encounter throughout your life.
-    - **wowollowow** (6↑): What a miserable way to proceed through your life
+    - **wowollowow** (5↑): What a miserable way to proceed through your life
 - **ShipTomorrow** (22↑): Omg .. Maybe you need a different pair of shades.
-- **InterrobangCT** (124↑): “most people are jealous and do not wish for your success”
+- **InterrobangCT** (122↑): “most people are jealous and do not wish for your success”
 
 I couldn’t disagree more and while there are always some bad apples in the world, I feel sorry for you that this is your outlook on life.
   - **EvidenceIll1890** (-14↑): I disagree with you. There is nothing more ordinary than people trying to make the ones who succeed fall at their level. If, however, you are surrounded by people who are proud for who you are and what you do, congratulations, you are very lucky.
-    - **moan_a_lisaa** (19↑): This mindset sucks. Those people have no power over you and they’re the minority regardless. Most will be happy for you
-    - **Intelligent-Web-8017** (5↑): yessir you cant tell someone's true intentions. better to be safe than sorry
+    - **moan_a_lisaa** (18↑): This mindset sucks. Those people have no power over you and they’re the minority regardless. Most will be happy for you
+    - **Intelligent-Web-8017** (7↑): yessir you cant tell someone's true intentions. better to be safe than sorry
 - **compoundedinterest12** (15↑): Your post probably doesn't apply to most high schools but there are plenty that it does apply to.  I went to an uber competitive high school and many of your points would have been good advice there. 
 
 College admissions matters far less in the real world than people here think it does but there's no convincing most 17 or 18 yrs olds in the month of March of that. Accordingly, even if no one is back stabbing anyone else, it's a little gauche to be gloating about your five T20 acceptances when most will have none. It's akin to a sugar high.  Feels great in the moment but little of substance has been contributed.
-- **CB7726** (30↑): im just curious about what kind of high schools yall are going to because NOBODY is talking about college admissions at my school 😭 most people are applying to our state school, 1 or 2 other nearby schools, and maybe a reach like an ivy that they know they won’t get into. there’s no sense of competition or jealousy everyone is just happy for everyone else
-  - **Intelligent-Web-8017** (11↑): what area do u live in? if u go to a school that doesnt have this culture thats prob why. very competitive hs, magnet schools and feeder schools have this type of culture where u have to gk.
+- **CB7726** (31↑): im just curious about what kind of high schools yall are going to because NOBODY is talking about college admissions at my school 😭 most people are applying to our state school, 1 or 2 other nearby schools, and maybe a reach like an ivy that they know they won’t get into. there’s no sense of competition or jealousy everyone is just happy for everyone else
+  - **Intelligent-Web-8017** (10↑): what area do u live in? if u go to a school that doesnt have this culture thats prob why. very competitive hs, magnet schools and feeder schools have this type of culture where u have to gk.
 
 gatekeeping is just good in general and life too.
-    - **CB7726** (6↑): my state is like bottom 5 in education so that’s prob why 😭 but i like it because ppl are chill and not insane like some other people’s schools on here i’ve seen
+    - **CB7726** (5↑): my state is like bottom 5 in education so that’s prob why 😭 but i like it because ppl are chill and not insane like some other people’s schools on here i’ve seen
     - **ActualFan480** (2↑): number 1 public / magnet in a large state here and no issues with this when I got a T3. Ik some privates especially are like this but this is a lot of fearmongering
-- **leafytimes** (86↑): So the author of this post will go far in some antisocial field. Everyone else: Relax. No one is coming for you with knives out. Don’t focus on college admissions in your conversations with peers. If you are a senior in high school and not talking to your friends about the world, about your community, about funny things you read or saw, you’re doing senior year wrong.
+- **leafytimes** (85↑): So the author of this post will go far in some antisocial field. Everyone else: Relax. No one is coming for you with knives out. Don’t focus on college admissions in your conversations with peers. If you are a senior in high school and not talking to your friends about the world, about your community, about funny things you read or saw, you’re doing senior year wrong.
 - **Plattycus** (12↑): What happened to being honest? If you’re not comfortable sharing your results just say that. You don’t need to come up with some elaborate cover story about how you’re going to your state school. Stop being non-confrontational and tell people straight up, “I’d rather not share, I’m only telling family for now.”
-  - **Intelligent-Web-8017** (5↑): i said to be honest at first. it’s the best option of not wanting to leak.
+  - **Intelligent-Web-8017** (3↑): i said to be honest at first. it’s the best option of not wanting to leak.
 
 but ppl don’t respect social norms and cues and will start shi on u behind ur back or asking u more often. that’s why i provided an alternative solution. 
 

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1n20tvx.md
 url: "https://www.reddit.com/r/GradSchool/comments/1n20tvx/you_guys_i_passed_my_defense/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-22T21:35:36.529Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1n20tvx.md#c0"
+    char_span: [0, 1004]
+    sentence_count: 12
+    key_terms: [gradschool, comments, feedback, defense, proud, time, work, bakedveldtland]
+    token_count: 270
+  - id: "social-intelligence/reddit-deep/gradschool/1n20tvx.md#c1"
+    char_span: [1019, 2534]
+    sentence_count: 16
+    key_terms: [congratulations, bakedveldtland, deleted, thank, working, intelligent-basil600, happy, "i'm"]
+    section: Comments
+    token_count: 452
 ---
-
 # You GUYS, I PASSED my defense!!!
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1n20tvx/you_guys_i_passed_my_defense/)

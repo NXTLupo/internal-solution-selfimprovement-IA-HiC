@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1reu7rq.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1reu7rq/does_this_email_from_colby_mean_anything/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -10,11 +11,28 @@ score: 3
 upvote_ratio: 1
 num_comments: 38
 flair: "College Questions"
-extracted_at: "2026-05-23T14:54:48.680Z"
+extracted_at: "2026-06-05T18:53:26.957Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1reu7rq.md#c0"
+    char_span: [0, 1425]
+    sentence_count: 9
+    key_terms: [bunche, colby, applyingtocollege, program, opportunities, application, admissions, engagement]
+    token_count: 299
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1reu7rq.md#c1"
+    char_span: [1440, 2431]
+    sentence_count: 7
+    key_terms: [presidential, scholars, foreign-shopping-139, curiousstatement700, email, got, personalized, bunche]
+    section: Comments
+    token_count: 252
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1reu7rq.md#c2"
+    char_span: [2433, 4079]
+    sentence_count: 2
+    key_terms: [got, scholarship, brilliant-dealer9965, curiousstatement700, email, ok-resource-5005, presidential, apply]
+    section: Comments
+    token_count: 461
 ---
-
 # Does this email from Colby mean anything?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1reu7rq/does_this_email_from_colby_mean_anything/)
@@ -34,10 +52,10 @@ We look forward to learning more about you.
 
 ## Comments
 
-- **Fickle_Emotion_7233** (7↑): It’s actually a good sign. Not everyone gets it. Do the interest form. My kid got this for the Presidential Scholars, didn’t act, then got a reminder email and got in (and into the presidential scholars).
+- **Fickle_Emotion_7233** (8↑): It’s actually a good sign. Not everyone gets it. Do the interest form. My kid got this for the Presidential Scholars, didn’t act, then got a reminder email and got in (and into the presidential scholars).
   - **CuriousStatement700** (1↑): Wow, that’s surprising! I tried clicking the link to do the form, but for some reason it didn’t work and I couldn’t get on. What should I do?
   - **njdfan_22** (1↑): The email I received back in early February had me select between five different scholars programs (Presidential, Bunche, Pulver, CAPS, Lyons). Is this just as personalized or more of a general email that doesn’t mean anything?
-- **Foreign-Shopping-139** (4↑): I got an email about the presidential scholars program, not the Bunche one, which makes me think they are personalized to some degree.
+- **Foreign-Shopping-139** (5↑): I got an email about the presidential scholars program, not the Bunche one, which makes me think they are personalized to some degree.
   - **CuriousStatement700** (1↑): That’s interesting, I hope we both get in!
     - **Foreign-Shopping-139** (1↑): I actually just withdrew my application lmao
 

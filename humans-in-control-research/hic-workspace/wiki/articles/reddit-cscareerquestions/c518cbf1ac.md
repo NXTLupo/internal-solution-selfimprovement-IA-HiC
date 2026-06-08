@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-cscareerquestions/c518cbf1ac.md
 url: "https://reddit.com/r/cscareerquestions/comments/1s0qax6/am_i_insane_for_thinking_this_sub_is_being/"
 url_hash: "c518cbf1ac"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-07T16:34:41.074420+00:00"
 chars: 743
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-cscareerquestions/c518cbf1ac.md#c0"
+    char_span: [0, 942]
+    sentence_count: 8
+    key_terms: [cscareerquestions, limited, claude, reddit, month, posts, code, like]
+    token_count: 250
 ---
-
 # Am I insane for thinking this sub is being astroturfed?
 
 Source: [reddit: cscareerquestions](https://reddit.com/r/cscareerquestions/comments/1s0qax6/am_i_insane_for_thinking_this_sub_is_being/)

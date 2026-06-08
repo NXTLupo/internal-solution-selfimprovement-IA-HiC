@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1s4gyka.md
 url: "https://www.reddit.com/r/careerguidance/comments/1s4gyka/is_anyone_else_just_getting_tired_of_sitting_in/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,63 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.356Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c0"
+    char_span: [0, 1585]
+    sentence_count: 9
+    key_terms: [software, careerguidance, development, job, comments, computer, problems, because]
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c1"
+    char_span: [1600, 3700]
+    sentence_count: 19
+    key_terms: [dad, job, jobs, everything, community, computer, whatever, yourself]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c2"
+    char_span: [3433, 4826]
+    sentence_count: 10
+    key_terms: [back, get, anymore, weather, around, degree, years, no-restaurant-7510]
+    section: Comments
+    token_count: 334
+  - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c3"
+    char_span: [4831, 6890]
+    sentence_count: 18
+    key_terms: [job, hours, day, role, sabbatical, computer, problems, screens]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c4"
+    char_span: [6892, 8895]
+    sentence_count: 17
+    key_terms: [something, jobs, software, doing, been, different, living, thread]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c5"
+    char_span: [8897, 10717]
+    sentence_count: 19
+    key_terms: [work, stacksmasher, something, money, job, nothing, significant-chest-28, wrong]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c6"
+    char_span: [10719, 12911]
+    sentence_count: 15
+    key_terms: [surrogate, activities, activity, because, other-directed, people, clear-sighted, goal]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c7"
+    char_span: [12913, 14968]
+    sentence_count: 24
+    key_terms: [job, life, people, money, something, software, reflect, "they're"]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c8"
+    char_span: [14971, 15989]
+    sentence_count: 10
+    key_terms: [software, doing, right, work, bluebaggins1, lycheenights, mpboomboom22, shareholders]
+    section: Comments
+    token_count: 247
 ---
-
 # Is anyone else just getting tired of sitting in front of a computer for a living?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1s4gyka/is_anyone_else_just_getting_tired_of_sitting_in/)

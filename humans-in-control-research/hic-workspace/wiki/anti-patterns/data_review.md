@@ -1,4 +1,5 @@
 ---
+id: anti-patterns/data_review.md
 title: "Data Review Anti-Patterns"
 type: anti-pattern
 created: 2026-05-19
@@ -8,8 +9,29 @@ confidence: high
 status: active
 tags: [anti-patterns, data-review, source-curation, quality-gates]
 evidence_count: 0
+chunks:
+  - id: "anti-patterns/data_review.md#c0"
+    char_span: [0, 2360]
+    sentence_count: 9
+    key_terms: [sources, source, brief, category, first-person, tier-demoted, alternative, description]
+    token_count: 497
+  - id: "anti-patterns/data_review.md#c1"
+    char_span: [2362, 4031]
+    sentence_count: 7
+    key_terms: [sources, downstream, retained, marked, source, alternative, description, tier]
+    token_count: 399
+  - id: "anti-patterns/data_review.md#c2"
+    char_span: [4033, 5966]
+    sentence_count: 9
+    key_terms: [source, summary, journal, resolve, author, higher, verification, alternative]
+    token_count: 432
+  - id: "anti-patterns/data_review.md#c3"
+    char_span: [6007, 6520]
+    sentence_count: 3
+    key_terms: [patterns, appendlearnedantipattern, added, user, user-correction, auto-appended, consistently, description]
+    section: Learned Anti-Patterns (auto-grown)
+    token_count: 122
 ---
-
 # Data Review Anti-Patterns
 
 Known failure modes in the source-review stage where the AI surfaces collected research sources and the user confirms which to include. These are the patterns to steer away from when curating, classifying, or summarizing source documents.

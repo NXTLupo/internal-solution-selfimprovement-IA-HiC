@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1ltnd2f.md
 url: "https://www.reddit.com/r/GradSchool/comments/1ltnd2f/useful_skills_to_learn_before_grad_school/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-23T19:45:05.856Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, life_sciences]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1ltnd2f.md#c0"
+    char_span: [0, 452]
+    sentence_count: 2
+    key_terms: [gradschool, comments, school, skills, learn, biopharmaceutical, grad, "i'm"]
+    token_count: 120
+  - id: "social-intelligence/reddit-deep/gradschool/1ltnd2f.md#c1"
+    char_span: [467, 2260]
+    sentence_count: 12
+    key_terms: [hazelstone37, suchageonerd, wish, everything, annotated, because, staples, writing]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/gradschool/1ltnd2f.md#c2"
+    char_span: [2262, 3649]
+    sentence_count: 13
+    key_terms: [school, reading, grad, time, superturtle48, fun, articles, practice]
+    section: Comments
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/gradschool/1ltnd2f.md#c3"
+    char_span: [3651, 5363]
+    sentence_count: 12
+    key_terms: [deleted, upbeat-main5469, solid, statistical, good, committing, statistics, exercise]
+    section: Comments
+    token_count: 405
 ---
-
 # Useful skills to learn before Grad School
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1ltnd2f/useful_skills_to_learn_before_grad_school/)

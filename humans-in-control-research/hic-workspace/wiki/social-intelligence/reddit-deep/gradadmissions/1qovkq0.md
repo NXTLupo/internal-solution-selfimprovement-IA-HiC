@@ -6,19 +6,19 @@ subreddit: "gradadmissions"
 title: "No Full-Time Experience, Big Grad School Questions. NYU SPS and others."
 author: "t0kiOH721"
 date: "2026-01-28T00:15:33.000Z"
-score: 4
-upvote_ratio: 0.83
+score: 5
+upvote_ratio: 0.86
 num_comments: 1
 flair: "General Advice"
-extracted_at: "2026-05-24T14:10:06.605Z"
+extracted_at: "2026-06-06T23:23:15.589Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # No Full-Time Experience, Big Grad School Questions. NYU SPS and others.
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1qovkq0/no_fulltime_experience_big_grad_school_questions/)
-Posted by **t0kiOH721** · **4↑** · **1 comments**
+Posted by **t0kiOH721** · **5↑** · **1 comments**
 
 Hello everyone! Basically, I’m dealing with two main issues.
 

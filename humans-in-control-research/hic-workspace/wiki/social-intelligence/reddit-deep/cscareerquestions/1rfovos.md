@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rfovos.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rfovos/my_experience_with_a_degree_from_a_good_cs_school/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-25T15:52:30.667Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rfovos.md#c0"
+    char_span: [0, 676]
+    sentence_count: 5
+    key_terms: [cscareerquestions, comments, getting, reddit-deep, experience, optimistic, recruiters, struggling]
+    token_count: 164
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rfovos.md#c1"
+    char_span: [691, 2062]
+    sentence_count: 4
+    key_terms: [big, tech, resume, worse, bro, experience, backend, posters]
+    section: Comments
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rfovos.md#c2"
+    char_span: [2064, 3908]
+    sentence_count: 12
+    key_terms: [big, tech, school, connections, top, family, get, like]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rfovos.md#c3"
+    char_span: [3910, 5047]
+    sentence_count: 5
+    key_terms: [assumptions, "i'm", "i've", experience, engineer, brand, here, land]
+    section: Comments
+    token_count: 285
 ---
-
 # My experience with a degree from a good CS school and a few years in big tech
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rfovos/my_experience_with_a_degree_from_a_good_cs_school/)

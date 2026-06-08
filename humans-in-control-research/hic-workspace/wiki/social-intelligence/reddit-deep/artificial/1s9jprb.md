@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1s9jprb.md
 url: "https://www.reddit.com/r/artificial/comments/1s9jprb/the_claude_code_leak_accidentally_published_the/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,62 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:04.771Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1s9jprb.md#c0"
+    char_span: [0, 2339]
+    sentence_count: 18
+    key_terms: [agent, claude, agents, memory, source, system, architecture, gets]
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/artificial/1s9jprb.md#c1"
+    char_span: [2343, 3610]
+    sentence_count: 15
+    key_terms: [claude-code-source-leak-what-to-learn-ai-agents-2026, patterns, architecture, thoughts, design, memory, agent, https]
+    token_count: 280
+  - id: "social-intelligence/reddit-deep/artificial/1s9jprb.md#c2"
+    char_span: [3625, 5356]
+    sentence_count: 13
+    key_terms: ["it's", slop, content, getting, production, accurate, variance, written]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/artificial/1s9jprb.md#c3"
+    char_span: [5358, 7364]
+    sentence_count: 17
+    key_terms: [hasfivevowels, wrong, like, comment, claude, winter-computer9809, learn, times]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/artificial/1s9jprb.md#c4"
+    char_span: [7366, 9719]
+    sentence_count: 10
+    key_terms: [code, does, feature, people, agent, truncation, validation, honestly]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/artificial/1s9jprb.md#c5"
+    char_span: [9721, 11733]
+    sentence_count: 17
+    key_terms: [semantic, drift, post, attack, legitimate, indistinguishable, agents, months]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/artificial/1s9jprb.md#c6"
+    char_span: [11735, 13684]
+    sentence_count: 10
+    key_terms: [context, interesting, "it's", prompt, system, structure, semantic, specific]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/artificial/1s9jprb.md#c7"
+    char_span: [13686, 15722]
+    sentence_count: 17
+    key_terms: [state, leak, agents, claude, worker, observations, agent, layer]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/artificial/1s9jprb.md#c8"
+    char_span: [15724, 16484]
+    sentence_count: 9
+    key_terms: [cli, desktop, diverging, feature, claude, set, side, tool]
+    section: Comments
+    token_count: 172
 ---
-
 # The Claude Code leak accidentally published the first complete blueprint for production AI agents. Here's what it tells us about where this is all going.
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1s9jprb/the_claude_code_leak_accidentally_published_the/)

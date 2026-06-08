@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1tf4lqz.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1tf4lqz/raskacademia/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,45 @@ flair: "STEM"
 extracted_at: "2026-05-26T14:32:49.118Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1tf4lqz.md#c0"
+    char_span: [0, 823]
+    sentence_count: 6
+    key_terms: [askacademia, physics, master, comments, research, program, degree, mathematical]
+    token_count: 200
+  - id: "social-intelligence/reddit-deep/askacademia/1tf4lqz.md#c1"
+    char_span: [838, 2181]
+    sentence_count: 6
+    key_terms: [undergraduate, degree, phd, experience, cosmicmerchant, programmes, programme, "master's"]
+    section: Comments
+    token_count: 318
+  - id: "social-intelligence/reddit-deep/askacademia/1tf4lqz.md#c2"
+    char_span: [2183, 4306]
+    sentence_count: 14
+    key_terms: [research, theoretical, phd, "master's", physics, want, because, masters]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/askacademia/1tf4lqz.md#c3"
+    char_span: [4308, 6250]
+    sentence_count: 14
+    key_terms: [phd, theoretical, doing, knowledge, abstract, carriera, research, courses]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/askacademia/1tf4lqz.md#c4"
+    char_span: [6252, 7809]
+    sentence_count: 13
+    key_terms: [research, generally, without, help, interested, understand, academia, average]
+    section: Comments
+    token_count: 356
+  - id: "social-intelligence/reddit-deep/askacademia/1tf4lqz.md#c5"
+    char_span: [7811, 8629]
+    sentence_count: 8
+    key_terms: [masters, phd, average, grades, useful, level, experimentalerror, requirements]
+    section: Comments
+    token_count: 184
 ---
-
 # r/AskAcademia
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1tf4lqz/raskacademia/)

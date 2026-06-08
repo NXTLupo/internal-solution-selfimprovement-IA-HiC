@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1o0lji3.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1o0lji3/tech_job_market/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-23T20:15:57.475Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o0lji3.md#c0"
+    char_span: [0, 255]
+    sentence_count: 1
+    key_terms: [cscareerquestions, comments, market, job, tech, reddit-deep, positions, posted]
+    token_count: 73
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o0lji3.md#c1"
+    char_span: [270, 1752]
+    sentence_count: 3
+    key_terms: [answer, future, market, creepyrooftop, newchameleon, get, first-half, terrible]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o0lji3.md#c2"
+    char_span: [1756, 2736]
+    sentence_count: 5
+    key_terms: [tonytheevil, lol, qualified, years, no-rush-hour-2422, like, chrisfathead1, bamartin1618]
+    section: Comments
+    token_count: 277
 ---
-
 # Tech job market
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1o0lji3/tech_job_market/)

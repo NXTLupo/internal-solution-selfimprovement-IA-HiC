@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1qoxjz2.md
 url: "https://www.reddit.com/r/Professors/comments/1qoxjz2/am_i_behind_the_times_on_pedagogy_by_pushing_for/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,51 @@ flair: "Teaching / Pedagogy"
 extracted_at: "2026-05-14T18:17:21.699Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1qoxjz2.md#c0"
+    char_span: [0, 1376]
+    sentence_count: 12
+    key_terms: [students, exams, colleagues, professors, comments, homework, learning, pedagogy]
+    token_count: 312
+  - id: "social-intelligence/reddit-deep/professors/1qoxjz2.md#c1"
+    char_span: [1391, 3313]
+    sentence_count: 14
+    key_terms: [work, students, times, class, colleague, submitted, homework, another]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/professors/1qoxjz2.md#c2"
+    char_span: [3315, 5127]
+    sentence_count: 10
+    key_terms: [programming, grade, back, semester, paper-and-pencil, class, minglho, student]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/professors/1qoxjz2.md#c3"
+    char_span: [5129, 6945]
+    sentence_count: 13
+    key_terms: [high-stakes, exams, assignments, low-stakes, tests, "i'm", literature, actively]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/professors/1qoxjz2.md#c4"
+    char_span: [6947, 8698]
+    sentence_count: 12
+    key_terms: [students, grade, give, professional, problems, johnhectormcfarlane, learn, been]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/professors/1qoxjz2.md#c5"
+    char_span: [8700, 9920]
+    sentence_count: 8
+    key_terms: [knowledge, why-critical-thinking-is-the-most-important-skill-in-your-life, body, critical, thinking, memorization, existing, having]
+    section: Comments
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/professors/1qoxjz2.md#c6"
+    char_span: [9922, 11573]
+    sentence_count: 10
+    key_terms: [students, styles, critical-thinking-comes-from-knowledge-building, exams, quick, learners, learning, courses]
+    section: Comments
+    token_count: 384
 ---
-
 # Am I behind the times on pedagogy by pushing for more exams?
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1qoxjz2/am_i_behind_the_times_on_pedagogy_by_pushing_for/)

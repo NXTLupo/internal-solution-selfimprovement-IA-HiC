@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sxtls9.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sxtls9/i_28m_am_a_computing_graduate_with_one_internship/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-23T20:15:29.972Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sxtls9.md#c0"
+    char_span: [0, 1364]
+    sentence_count: 11
+    key_terms: [careerguidance, easily, people, get, part, technical, comments, guidance]
+    token_count: 308
+  - id: "social-intelligence/reddit-deep/careerguidance/1sxtls9.md#c1"
+    char_span: [1379, 1773]
+    sentence_count: 3
+    key_terms: [technical, people, "you're", recentgene5230, background, consultant, describing, vocabulary]
+    section: Comments
+    token_count: 90
 ---
-
 # I (28M) am a computing graduate with one internship experience. I have really good communication/interpersonal skills but struggle with technical skills. I am not sure what career path to pursue and am also having trouble landing a job in the first place. Can anyone offer some guidance?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sxtls9/i_28m_am_a_computing_graduate_with_one_internship/)

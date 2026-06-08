@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-internships/c3aeec30b2.md
 url: "https://www.reddit.com/r/internships/comments/1rz7qky/asking_for_a_return_offer/"
 url_hash: "c3aeec30b2"
 kind: "article"
@@ -8,10 +9,17 @@ author: ""
 date: "2026-03-20T20:44:15.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-25T18:34:45.466708+00:00"
+extracted_at: "2026-06-06T23:24:45.593795+00:00"
 chars: 2058
+relevance: 82
+engagement_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "articles/reddit-deep-r-internships/c3aeec30b2.md#c0"
+    char_span: [0, 2210]
+    sentence_count: 18
+    key_terms: ["i'm", internship, intern, stay, company, manager, least, constraints]
+    token_count: 461
 ---
-
 # Asking for a return offer?
 
 Source: [Reddit Deep: r/internships](https://www.reddit.com/r/internships/comments/1rz7qky/asking_for_a_return_offer/)

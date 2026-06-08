@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1tifnr9.md
 url: "https://www.reddit.com/r/internships/comments/1tifnr9/need_help_for_internship/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "During the Internship"
 extracted_at: "2026-05-23T14:53:57.171Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1tifnr9.md#c0"
+    char_span: [0, 703]
+    sentence_count: 1
+    key_terms: [internship, internships, help, need, comments, please, month, solve]
+    token_count: 173
+  - id: "social-intelligence/reddit-deep/internships/1tifnr9.md#c1"
+    char_span: [718, 1280]
+    sentence_count: 8
+    key_terms: [linkedin, skills, "you're", react, like, professionals, internships, nian2326076]
+    section: Comments
+    token_count: 123
 ---
-
 # Need help for internship
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1tifnr9/need_help_for_internship/)

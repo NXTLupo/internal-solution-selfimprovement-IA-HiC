@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1qrd1q3.md
 url: "https://www.reddit.com/r/managers/comments/1qrd1q3/employee_decided_to_nocallnoshow_to_protest_ice/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,63 @@ flair: ""
 extracted_at: "2026-05-26T12:54:23.665Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c0"
+    char_span: [0, 1432]
+    sentence_count: 10
+    key_terms: [ice, sick, comments, employee, managers, called, "didn't", "wasn't"]
+    token_count: 343
+  - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c1"
+    char_span: [1447, 3156]
+    sentence_count: 8
+    key_terms: [issue, call, time, absence, someone, strike, panicswtchd, "it's"]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c2"
+    char_span: [3158, 4911]
+    sentence_count: 12
+    key_terms: [calling, strike, advice, doesn, documented, answer, issue, sound]
+    section: Comments
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c3"
+    char_span: [4914, 6366]
+    sentence_count: 14
+    key_terms: [important, "i'm", employee, calling, showing, people, reason, greedy-employment917]
+    section: Comments
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c4"
+    char_span: [6368, 7993]
+    sentence_count: 16
+    key_terms: [policy, benevelotceasar, discretion, exception, deleted, manager, special, handle]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c5"
+    char_span: [7995, 9960]
+    sentence_count: 13
+    key_terms: [day, call, need, specific, policy, like, guidance, contact]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c6"
+    char_span: [9963, 12034]
+    sentence_count: 21
+    key_terms: [employee, company, policy, unexpected, absences, coverage, fairness, whatever]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c7"
+    char_span: [12036, 13720]
+    sentence_count: 11
+    key_terms: [coming, policy, "it's", like, employee, sickness, because, accept]
+    section: Comments
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c8"
+    char_span: [13722, 15473]
+    sentence_count: 8
+    key_terms: [strike, conversation, union, unannounced, call, attendance, disarray, employer]
+    section: Comments
+    token_count: 395
 ---
-
 # Employee decided to No-Call/No-Show to protest ICE actions today, what should the penalty be if any?
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1qrd1q3/employee_decided_to_nocallnoshow_to_protest_ice/)

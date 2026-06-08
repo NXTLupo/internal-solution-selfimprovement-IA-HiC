@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/freelance/1rh8naj.md
 url: "https://www.reddit.com/r/freelance/comments/1rh8naj/psa_fiverr_workspace_andco_shuts_down_march_1/"
 kind: "social-post"
 source: "reddit-deep: r/freelance"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-26T12:53:48.703Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/freelance/1rh8naj.md#c0"
+    char_span: [0, 1525]
+    sentence_count: 9
+    key_terms: [export, contracts, invoicing, workspace, invoices, recommended, need, freelance]
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/freelance/1rh8naj.md#c1"
+    char_span: [1540, 3565]
+    sentence_count: 13
+    key_terms: [workspace, features, because, subscription, moxie, price, crm, considered]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/freelance/1rh8naj.md#c2"
+    char_span: [3567, 4988]
+    sentence_count: 13
+    key_terms: [invoicing, good, instead, records, export-to-two-places, using, been, "i've"]
+    section: Comments
+    token_count: 318
 ---
-
 # PSA: Fiverr Workspace (AND.CO) shuts down March 1, 2026 AND export your stuff now (quick guide)
 
 Source: [reddit-deep: r/freelance](https://www.reddit.com/r/freelance/comments/1rh8naj/psa_fiverr_workspace_andco_shuts_down_march_1/)

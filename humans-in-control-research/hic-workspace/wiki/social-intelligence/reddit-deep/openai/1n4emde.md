@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1n4emde.md
 url: "https://www.reddit.com/r/OpenAI/comments/1n4emde/if_all_these_alternative_ai_engines_are_said_to/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,15 @@ flair: "Question"
 extracted_at: "2026-05-11T16:53:06.862Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1n4emde.md#c0"
+    char_span: [0, 1090]
+    sentence_count: 8
+    key_terms: [questions, chatgpt, alternative, chat, comments, better, openai, review]
+    token_count: 267
 ---
-
 # If all these alternative AI engines are said to use the same code as Chat GPT, why does Chat GPT seem so much better? Are there any good alternatives that can make review questions from PDFs?
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1n4emde/if_all_these_alternative_ai_engines_are_said_to/)

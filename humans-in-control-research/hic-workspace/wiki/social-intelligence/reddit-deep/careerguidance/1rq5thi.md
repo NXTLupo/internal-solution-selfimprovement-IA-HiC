@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rq5thi.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rq5thi/early_career_confusion_job_first_or_leadership/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 3
 upvote_ratio: 1
 num_comments: 4
 flair: ""
-extracted_at: "2026-05-19T17:57:31.308Z"
+extracted_at: "2026-06-05T19:52:45.219Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rq5thi.md#c0"
+    char_span: [0, 1222]
+    sentence_count: 6
+    key_terms: [leadership, early, careerguidance, career, professionals, management, education, programme]
+    token_count: 255
+  - id: "social-intelligence/reddit-deep/careerguidance/1rq5thi.md#c1"
+    char_span: [1237, 2359]
+    sentence_count: 11
+    key_terms: [work, experience, leadership, early, learn, ok-juggernaut8061, did, don]
+    section: Comments
+    token_count: 265
 ---
-
 # Early career confusion: job first or leadership education first?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rq5thi/early_career_confusion_job_first_or_leadership/)

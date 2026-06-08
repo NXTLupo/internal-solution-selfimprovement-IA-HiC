@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1t4dcmn.md
 url: "https://www.reddit.com/r/personalfinance/comments/1t4dcmn/broke_and_late_to_the_game/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,57 @@ flair: "Other"
 extracted_at: "2026-05-17T01:13:31.184Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1t4dcmn.md#c0"
+    char_span: [0, 1637]
+    sentence_count: 17
+    key_terms: [personalfinance, independence, "i've", financial, something, comments, slowly, broke]
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/personalfinance/1t4dcmn.md#c1"
+    char_span: [1652, 3622]
+    sentence_count: 13
+    key_terms: [income, expenses, monthly, towards, boxingraptor, job, currently, interest]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/personalfinance/1t4dcmn.md#c2"
+    char_span: [3624, 5377]
+    sentence_count: 11
+    key_terms: ["you're", opportunities, money, month, debt, get, job, pay]
+    section: Comments
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/personalfinance/1t4dcmn.md#c3"
+    char_span: [5379, 7086]
+    sentence_count: 22
+    key_terms: [income, toward, like, flowchart, repayment, expenses, internet, automod]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/personalfinance/1t4dcmn.md#c4"
+    char_span: [7088, 8898]
+    sentence_count: 16
+    key_terms: [spending, "you're", time, starting, getting, around, future, income]
+    section: Comments
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/personalfinance/1t4dcmn.md#c5"
+    char_span: [8900, 10967]
+    sentence_count: 15
+    key_terms: [debt, get, savings, unexpected, start, expenses, getting, having]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/personalfinance/1t4dcmn.md#c6"
+    char_span: [10969, 12863]
+    sentence_count: 21
+    key_terms: [money, car, personalfinance, "you'll", commontopics, "don't", start, debt]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/personalfinance/1t4dcmn.md#c7"
+    char_span: [12865, 14893]
+    sentence_count: 19
+    key_terms: [phone, piecesofchaos, people, pay, great, time, trap, work]
+    section: Comments
+    token_count: 509
 ---
-
 # Broke and Late to the game
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1t4dcmn/broke_and_late_to_the_game/)

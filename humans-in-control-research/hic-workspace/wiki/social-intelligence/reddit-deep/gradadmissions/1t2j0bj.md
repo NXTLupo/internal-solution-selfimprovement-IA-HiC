@@ -10,9 +10,9 @@ score: 1
 upvote_ratio: 0.67
 num_comments: 4
 flair: "General Advice"
-extracted_at: "2026-05-24T14:10:06.599Z"
+extracted_at: "2026-06-06T23:23:15.584Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # How much old LOR can be used in Grad School Admissions?
@@ -28,7 +28,7 @@ The reason I am doing this is that it is really a pain in the ass to get LOR fro
 
 ## Comments
 
-- **assassinbywords** (10↑): Usually the school contacts the professor or teachers for it or they send it to the school directly. You are not supposed to "collect" or "submit" the LOR.
+- **assassinbywords** (9↑): Usually the school contacts the professor or teachers for it or they send it to the school directly. You are not supposed to "collect" or "submit" the LOR.
 
 Ask the school/professor directly on how it needs to be submitted.
   - **blackadder360** (1↑): I have some programs that ask me to upload the LOR for example KTH requires me to upload the LOR myself.

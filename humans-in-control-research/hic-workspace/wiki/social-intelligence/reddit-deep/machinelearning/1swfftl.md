@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1swfftl.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1swfftl/speculative_decoding_implementations_eagle3/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -13,8 +14,21 @@ flair: "Project"
 extracted_at: "2026-05-11T17:27:06.579Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1swfftl.md#c0"
+    char_span: [0, 2264]
+    sentence_count: 13
+    key_terms: [decoding, speculative, draft, methods, implementation, proposer, shreyansh26, speculative-decoding]
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/machinelearning/1swfftl.md#c1"
+    char_span: [2279, 3171]
+    sentence_count: 6
+    key_terms: [implementation, been, like, east-muffin-6472, architectures, thedailyspank, wise-dust8070, interesting]
+    section: Comments
+    token_count: 202
 ---
-
 # Speculative Decoding Implementations: EAGLE-3, Medusa-1, PARD, Draft Models, N-gram and Suffix Decoding from scratch [P]
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1swfftl/speculative_decoding_implementations_eagle3/)

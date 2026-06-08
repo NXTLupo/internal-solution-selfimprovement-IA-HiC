@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1p5lseh.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1p5lseh/when_are_masters_degrees_worth_it_if_ever/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,51 @@ flair: "STEM"
 extracted_at: "2026-05-26T14:32:49.117Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education, life_sciences]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1p5lseh.md#c0"
+    char_span: [0, 2412]
+    sentence_count: 18
+    key_terms: [masters, industry, program, phd, academia, programs, skills, specifically]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/askacademia/1p5lseh.md#c1"
+    char_span: [2414, 4086]
+    sentence_count: 8
+    key_terms: [phd, masters, profpathcambridge, "master's", significant, get, absolutely, experience]
+    section: Comments
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/askacademia/1p5lseh.md#c2"
+    char_span: [4088, 5973]
+    sentence_count: 13
+    key_terms: [phd, masters, research, msc, master, courses, honours, degree]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/askacademia/1p5lseh.md#c3"
+    char_span: [5975, 7971]
+    sentence_count: 15
+    key_terms: [universities, because, phd, "master's", programs, degree, publications, institution]
+    section: Comments
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/askacademia/1p5lseh.md#c4"
+    char_span: [7973, 9692]
+    sentence_count: 14
+    key_terms: [graduate, students, research, masters, department, money, student, paying]
+    section: Comments
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/askacademia/1p5lseh.md#c5"
+    char_span: [9694, 11280]
+    sentence_count: 13
+    key_terms: [phd, degree, master, publications, programs, research, biology, college]
+    section: Comments
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/askacademia/1p5lseh.md#c6"
+    char_span: [11282, 12071]
+    sentence_count: 8
+    key_terms: [management, business, industry, finance, masters, program, field, pivot]
+    section: Comments
+    token_count: 183
 ---
-
 # When are Masters degrees worth it (if ever)?
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1p5lseh/when_are_masters_degrees_worth_it_if_ever/)

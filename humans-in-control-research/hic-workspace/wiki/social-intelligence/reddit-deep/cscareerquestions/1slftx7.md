@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1slftx7.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1slftx7/advice_remote_work_in_cs_teams_sounds_perfect/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-22T23:33:42.322Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1slftx7.md#c0"
+    char_span: [0, 1445]
+    sentence_count: 14
+    key_terms: [cscareerquestions, remote, async, teams, work, comments, office, quick]
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1slftx7.md#c1"
+    char_span: [1460, 2331]
+    sentence_count: 4
+    key_terms: [doing, work, looking, "you're", "don't", crazypirranhha, quantumpencil, advantageous]
+    section: Comments
+    token_count: 229
 ---
-
 # [ADVICE] Remote work in CS teams sounds perfect until async Slack owns your evenings - how do you draw the line?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1slftx7/advice_remote_work_in_cs_teams_sounds_perfect/)

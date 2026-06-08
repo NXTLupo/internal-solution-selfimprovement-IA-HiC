@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1sfbk43.md
 url: "https://www.reddit.com/r/deeplearning/comments/1sfbk43/is_it_worth_learning_undergrad_maths_for/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.047Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [higher_ed, healthcare]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1sfbk43.md#c0"
+    char_span: [0, 1786]
+    sentence_count: 6
+    key_terms: [systems, deeplearning, maths, probability, interested, dynamical, gatsby-bridging-programme, comments]
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/deeplearning/1sfbk43.md#c1"
+    char_span: [1801, 2042]
+    sentence_count: 3
+    key_terms: [comprehend, underlying, understand, vocabulary, andy-3290, something, problems, ability]
+    section: Comments
+    token_count: 54
+  - id: "social-intelligence/reddit-deep/deeplearning/1sfbk43.md#c2"
+    char_span: [2044, 4244]
+    sentence_count: 7
+    key_terms: [background, brilliant-nectarine8, maths, "i'm", math, "you're", understanding, level]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/deeplearning/1sfbk43.md#c3"
+    char_span: [3958, 4496]
+    sentence_count: 3
+    key_terms: [brilliant-nectarine8, cost, accommodation, aistearalainn, background, investment, preference, regardless]
+    section: Comments
+    token_count: 131
+  - id: "social-intelligence/reddit-deep/deeplearning/1sfbk43.md#c4"
+    char_span: [4498, 6215]
+    sentence_count: 15
+    key_terms: [masters, course, understanding, research, intersection, neuroscience, background, beneficial]
+    section: Comments
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/deeplearning/1sfbk43.md#c5"
+    char_span: [6217, 7604]
+    sentence_count: 10
+    key_terms: [research, brilliant-nectarine8, fearless-elephant-81, gatsby, opportunity, estimated, course, online]
+    section: Comments
+    token_count: 354
 ---
-
 # Is it worth learning undergrad maths for healthcare AI/ML research?
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1sfbk43/is_it_worth_learning_undergrad_maths_for/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t5z4jk.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t5z4jk/early_career_dilemma_stay_on_the_pm_path_or_move/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,20 @@ flair: ""
 extracted_at: "2026-05-23T12:15:46.633Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t5z4jk.md#c0"
+    char_span: [0, 2212]
+    sentence_count: 15
+    key_terms: [robotics, non-technical, product, technology, marketing, because, careerguidance, engineering]
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/careerguidance/1t5z4jk.md#c1"
+    char_span: [2214, 3257]
+    sentence_count: 7
+    key_terms: [build, engineering, marketing, robotics, honest, people, skills, technology-driven]
+    token_count: 216
 ---
-
 # Early career dilemma: stay on the PM path or move to marketing in a robotics startup?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t5z4jk/early_career_dilemma_stay_on_the_pm_path_or_move/)

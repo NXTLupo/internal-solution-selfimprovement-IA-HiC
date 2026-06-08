@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sje6k5.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sje6k5/career/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,45 @@ flair: "Advice"
 extracted_at: "2026-05-26T14:32:49.162Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sje6k5.md#c0"
+    char_span: [0, 1385]
+    sentence_count: 11
+    key_terms: [career, like, apprenticeship, careerguidance, "i'm", business, comments, employee]
+    token_count: 323
+  - id: "social-intelligence/reddit-deep/careerguidance/1sje6k5.md#c1"
+    char_span: [1400, 1613]
+    sentence_count: 2
+    key_terms: [student, debt, voodoofat, college, degrees, follows, forever, mention]
+    section: Comments
+    token_count: 54
+  - id: "social-intelligence/reddit-deep/careerguidance/1sje6k5.md#c2"
+    char_span: [1615, 3738]
+    sentence_count: 13
+    key_terms: [software, degree, "you're", later, good, management, business, computer]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1sje6k5.md#c3"
+    char_span: [3492, 3783]
+    sentence_count: 3
+    key_terms: [spreadsheets, accounting, computer, continue, everyday, iisquats, learning, progress]
+    section: Comments
+    token_count: 75
+  - id: "social-intelligence/reddit-deep/careerguidance/1sje6k5.md#c4"
+    char_span: [3785, 5791]
+    sentence_count: 21
+    key_terms: [people, college, learning, job, enough, feel, "you're", happy]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/careerguidance/1sje6k5.md#c5"
+    char_span: [5793, 7672]
+    sentence_count: 13
+    key_terms: [college, business, own, want, degree, start, requirement, good]
+    section: Comments
+    token_count: 431
 ---
-
 # Career?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sje6k5/career/)

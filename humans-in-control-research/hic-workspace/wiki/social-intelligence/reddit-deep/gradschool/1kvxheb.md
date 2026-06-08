@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1kvxheb.md
 url: "https://www.reddit.com/r/GradSchool/comments/1kvxheb/feel_like_im_dreaming/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.344Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1kvxheb.md#c0"
+    char_span: [0, 778]
+    sentence_count: 5
+    key_terms: [gradschool, comments, job, like, slutforguacamole, reddit-deep, employment, especially]
+    token_count: 190
+  - id: "social-intelligence/reddit-deep/gradschool/1kvxheb.md#c1"
+    char_span: [793, 2229]
+    sentence_count: 12
+    key_terms: [congratulations, slutforguacamole, exciting, job, thank, interview, thepaintedfern, congrats]
+    section: Comments
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/gradschool/1kvxheb.md#c2"
+    char_span: [2231, 3352]
+    sentence_count: 8
+    key_terms: [slutforguacamole, congratulations, congrats, never, thank, been, did, done]
+    section: Comments
+    token_count: 298
 ---
-
 # Feel like I'm dreaming
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1kvxheb/feel_like_im_dreaming/)

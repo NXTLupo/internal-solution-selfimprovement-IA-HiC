@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1kqn14r.md
 url: "https://www.reddit.com/r/college/comments/1kqn14r/ticket_stubs_from_my_freshman_year_of_college/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-17T01:12:59.139Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1kqn14r.md#c0"
+    char_span: [0, 610]
+    sentence_count: 3
+    key_terms: [college, comments, freshman, posted, ticket, stubs, year, experiences]
+    token_count: 147
+  - id: "social-intelligence/reddit-deep/college/1kqn14r.md#c1"
+    char_span: [625, 1543]
+    sentence_count: 7
+    key_terms: [saves, day, good, sethrs21, deleted, iwishitwaschristmas, been, lol]
+    section: Comments
+    token_count: 257
 ---
-
 # Ticket Stubs from my Freshman year of college
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1kqn14r/ticket_stubs_from_my_freshman_year_of_college/)

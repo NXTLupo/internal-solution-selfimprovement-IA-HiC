@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1py5pe6.md
 url: "https://www.reddit.com/r/NEU/comments/1py5pe6/10_mistakes_i_made_at_northeastern_so_you_can/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,27 @@ flair: "Advice & Experiences"
 extracted_at: "2026-05-13T20:23:48.327Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1py5pe6.md#c0"
+    char_span: [0, 1630]
+    sentence_count: 18
+    key_terms: [instead, incomplete, because, classes, class, comments, graduate, chasing]
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/neu/1py5pe6.md#c1"
+    char_span: [1645, 3364]
+    sentence_count: 7
+    key_terms: [business, stocktelephone11, liberal, degree, arts, interested, nothing, better]
+    section: Comments
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/neu/1py5pe6.md#c2"
+    char_span: [3366, 4557]
+    sentence_count: 4
+    key_terms: [incomplete, curious, advice, degree, worked, ok-impression-3082, grad, job]
+    section: Comments
+    token_count: 330
 ---
-
 # 10 mistakes I made at Northeastern so you can avoid them
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1py5pe6/10_mistakes_i_made_at_northeastern_so_you_can/)

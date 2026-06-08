@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1sdagkt.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1sdagkt/internship_results_aerospace_engineering_sophomore/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,33 @@ flair: "Sankey Diagram"
 extracted_at: "2026-05-22T23:33:47.017Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sdagkt.md#c0"
+    char_span: [0, 456]
+    sentence_count: 2
+    key_terms: [engineeringstudents, sophomore, comments, https, png, dq7n3iltvetg1, engineering, reddit-deep]
+    token_count: 144
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sdagkt.md#c1"
+    char_span: [471, 1364]
+    sentence_count: 8
+    key_terms: [engineeringstudents, wiki, please, reddit, https, com, www, index]
+    section: Comments
+    token_count: 212
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sdagkt.md#c2"
+    char_span: [1366, 3275]
+    sentence_count: 8
+    key_terms: [numbers, connections, cold, autonomous, internship, different, startups, school]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sdagkt.md#c3"
+    char_span: [3063, 3287]
+    sentence_count: 3
+    key_terms: [school, engineering, technical, involved, non-aero, company, jdwjxia, no-name]
+    section: Comments
+    token_count: 67
 ---
-
 # Internship Results - Aerospace Engineering Sophomore
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1sdagkt/internship_results_aerospace_engineering_sophomore/)

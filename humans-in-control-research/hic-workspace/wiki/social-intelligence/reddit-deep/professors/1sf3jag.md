@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1sf3jag.md
 url: "https://www.reddit.com/r/Professors/comments/1sf3jag/absenteeism_in_college/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-20T03:55:39.287Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1sf3jag.md#c0"
+    char_span: [0, 1167]
+    sentence_count: 12
+    key_terms: [class, students, boring, experienced, professors, comments, semester, classes]
+    token_count: 273
+  - id: "social-intelligence/reddit-deep/professors/1sf3jag.md#c1"
+    char_span: [1182, 1975]
+    sentence_count: 4
+    key_terms: [attendance, reviews, doesnt, raises, yearly, pay, show, grades]
+    section: Comments
+    token_count: 217
+  - id: "social-intelligence/reddit-deep/professors/1sf3jag.md#c2"
+    char_span: [1977, 3609]
+    sentence_count: 11
+    key_terms: [school, students, classes, forward, escape, looked, unless, mystudentsaredumb100]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/professors/1sf3jag.md#c3"
+    char_span: [3611, 4305]
+    sentence_count: 6
+    key_terms: [students, history, class, human, activemachine4380, get, half, professionals]
+    section: Comments
+    token_count: 174
+  - id: "social-intelligence/reddit-deep/professors/1sf3jag.md#c4"
+    char_span: [4307, 6190]
+    sentence_count: 13
+    key_terms: [class, attendance, undergrad, optional, students, thinking, classes, masters]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/professors/1sf3jag.md#c5"
+    char_span: [6192, 7694]
+    sentence_count: 11
+    key_terms: [attendance, class, policy, students, endless, hassles, mystudentsaredumb100, since]
+    section: Comments
+    token_count: 357
 ---
-
 # Absenteeism in college
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1sf3jag/absenteeism_in_college/)

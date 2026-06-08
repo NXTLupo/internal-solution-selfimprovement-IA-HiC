@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1m8k3rz.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1m8k3rz/is_weilding_experience_a_good_alternative_for_an/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Career Help"
 extracted_at: "2026-05-23T19:44:57.163Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1m8k3rz.md#c0"
+    char_span: [0, 352]
+    sentence_count: 2
+    key_terms: [engineeringstudents, comments, nothingbutfacts7890, alternative, engineering, reddit-deep, experience, internship]
+    token_count: 88
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1m8k3rz.md#c1"
+    char_span: [367, 1007]
+    sentence_count: 4
+    key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
+    section: Comments
+    token_count: 150
 ---
-
 # Is weilding experience a good alternative for an internship when it comes to mechanical engineering?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1m8k3rz/is_weilding_experience_a_good_alternative_for_an/)

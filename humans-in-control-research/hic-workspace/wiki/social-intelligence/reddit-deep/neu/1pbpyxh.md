@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1pbpyxh.md
 url: "https://www.reddit.com/r/NEU/comments/1pbpyxh/do_not_take_global_learning_experience_course/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,31 @@ flair: "Academics"
 extracted_at: "2026-05-26T14:30:23.765Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1pbpyxh.md#c0"
+    char_span: [0, 1849]
+    sentence_count: 8
+    key_terms: [course, nuin, cultures, global, experience, semester, students, student]
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/neu/1pbpyxh.md#c1"
+    char_span: [1851, 4405]
+    sentence_count: 20
+    key_terms: [course, assignments, weeks, professor, relevant, students, include, writing]
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/neu/1pbpyxh.md#c2"
+    char_span: [4407, 6958]
+    sentence_count: 19
+    key_terms: [project, course, students, final, team, country, cohort, collaborative]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/neu/1pbpyxh.md#c3"
+    char_span: [6960, 7423]
+    sentence_count: 2
+    key_terms: [course, stocktelephone11, global-issue, requirement, discussion, everything, experience, one-credit]
+    section: Comments
+    token_count: 107
 ---
-
 # DO NOT TAKE GLOBAL LEARNING EXPERIENCE COURSE (GBST 1012) ~ 2025 Opinion
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1pbpyxh/do_not_take_global_learning_experience_course/)

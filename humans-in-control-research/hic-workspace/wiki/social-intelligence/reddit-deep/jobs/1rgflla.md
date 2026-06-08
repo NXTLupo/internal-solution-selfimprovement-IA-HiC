@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1rgflla.md
 url: "https://www.reddit.com/r/jobs/comments/1rgflla/do_you_think_internships_are_ruining_the_entry/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,27 @@ flair: "Internships"
 extracted_at: "2026-05-25T13:03:11.719Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1rgflla.md#c0"
+    char_span: [0, 2124]
+    sentence_count: 19
+    key_terms: [experience, internship, internships, level, years, advantage, year, graduate]
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/jobs/1rgflla.md#c1"
+    char_span: [2139, 4273]
+    sentence_count: 14
+    key_terms: [internship, interns, internships, experience, entry, problem, actual, grads]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/jobs/1rgflla.md#c2"
+    char_span: [4275, 5801]
+    sentence_count: 11
+    key_terms: [internship, experience, everyone, someone, level, done, companies, company]
+    section: Comments
+    token_count: 326
 ---
-
 # Do you Think Internships are ruining the Entry Level Job Market?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1rgflla/do_you_think_internships_are_ruining_the_entry/)

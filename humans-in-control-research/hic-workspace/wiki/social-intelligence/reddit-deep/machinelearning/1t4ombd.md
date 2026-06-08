@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1t4ombd.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1t4ombd/radar_engineer_to_autonomyai_d/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -13,8 +14,21 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:06.578Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1t4ombd.md#c0"
+    char_span: [0, 1009]
+    sentence_count: 7
+    key_terms: [autonomy, machinelearning, applied, comments, engineer, robotics, radar, years]
+    token_count: 244
+  - id: "social-intelligence/reddit-deep/machinelearning/1t4ombd.md#c1"
+    char_span: [1024, 2314]
+    sentence_count: 7
+    key_terms: [people, understanding, radar, model, paper, start, end, lot]
+    section: Comments
+    token_count: 304
 ---
-
 # Radar Engineer to Autonomy/AI [D]
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1t4ombd/radar_engineer_to_autonomyai_d/)

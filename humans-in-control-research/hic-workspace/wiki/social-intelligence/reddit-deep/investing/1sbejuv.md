@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1sbejuv.md
 url: "https://www.reddit.com/r/investing/comments/1sbejuv/blue_owl_stock_crashes_to_alltime_low_after_54/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,69 @@ flair: ""
 extracted_at: "2026-05-16T20:55:01.249Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c0"
+    char_span: [0, 1378]
+    sentence_count: 6
+    key_terms: [blue-owl-stock-record-low-fund-redemptions, billion, credit, requests, private, https, blue, com]
+    token_count: 339
+  - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c1"
+    char_span: [1393, 3888]
+    sentence_count: 24
+    key_terms: [illiquidity, investors, credit, retail, professional, doesn, hope, tech]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c2"
+    char_span: [3890, 5687]
+    sentence_count: 14
+    key_terms: [getting, private, quarter, money, month, blackstone, redemption, crowbars]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c3"
+    char_span: [5689, 7899]
+    sentence_count: 17
+    key_terms: [private, sell, credit, investors, illiquid, publicly, equity, traded]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c4"
+    char_span: [7901, 9201]
+    sentence_count: 8
+    key_terms: [investors, always, credit, people, indication, liquidity, private, starts]
+    section: Comments
+    token_count: 291
+  - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c5"
+    char_span: [9203, 11167]
+    sentence_count: 13
+    key_terms: [investors, private, standard, midmarket-pe, fund, investment, valuations, credit]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c6"
+    char_span: [11169, 13009]
+    sentence_count: 11
+    key_terms: [premium, illiquidity, redemptions, don, get, long, understand, volatility]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c7"
+    char_span: [13011, 15016]
+    sentence_count: 5
+    key_terms: [funds, loans, redemptions, often, investors, blue-owl-tells-investors-loan-204038988, retail, value]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c8"
+    char_span: [15018, 16940]
+    sentence_count: 15
+    key_terms: [fund, private, kinda, underlying, investors, headline, biggest, getting]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c9"
+    char_span: [16942, 17463]
+    sentence_count: 4
+    key_terms: [bubbles, question, owl, franks2000inchtv, opportunity, starting, another, beating]
+    section: Comments
+    token_count: 144
 ---
-
 # Blue Owl Stock Crashes to All-Time Low After $5.4 Billion Redemption Requests
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1sbejuv/blue_owl_stock_crashes_to_alltime_low_after_54/)

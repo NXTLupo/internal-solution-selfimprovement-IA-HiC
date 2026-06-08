@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-college/abcfe873cb.md
 url: "https://www.reddit.com/r/college/comments/1lcn1og/is_community_college_the_better_option/"
 url_hash: "abcfe873cb"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T15:19:49.008101+00:00"
 chars: 5556
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-college/abcfe873cb.md#c0"
+    char_span: [0, 2079]
+    sentence_count: 15
+    key_terms: [college, "i'm", community, "i'd", probably, tuition, able, help]
+    token_count: 470
+  - id: "articles/reddit-deep-r-college/abcfe873cb.md#c1"
+    char_span: [2081, 3853]
+    sentence_count: 11
+    key_terms: [college, community, get, having, loans, years, time, education]
+    token_count: 397
+  - id: "articles/reddit-deep-r-college/abcfe873cb.md#c2"
+    char_span: [3855, 5726]
+    sentence_count: 17
+    key_terms: [transfer, college, school, internships, experience, community, semester, students]
+    token_count: 428
 ---
-
 # Is community college the better option?
 
 Source: [Reddit Deep: r/college](https://www.reddit.com/r/college/comments/1lcn1og/is_community_college_the_better_option/)

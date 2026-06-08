@@ -6,19 +6,19 @@ subreddit: "findapath"
 title: "I don't want a 9-5 life for the rest of my life. I just want to live in nature and travel the world and connect with people and cultures and create, contribute to build things physically. I am not sure what it looks like exactly yet. Can somebody please share their journey on how they got there?"
 author: "likilekka"
 date: "2025-09-10T07:17:04.000Z"
-score: 231
+score: 230
 upvote_ratio: 0.96
 num_comments: 49
 flair: "Findapath-Job Choice/Clarity"
-extracted_at: "2026-05-22T15:13:18.831Z"
+extracted_at: "2026-06-06T23:22:15.476Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # I don't want a 9-5 life for the rest of my life. I just want to live in nature and travel the world and connect with people and cultures and create, contribute to build things physically. I am not sure what it looks like exactly yet. Can somebody please share their journey on how they got there?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1nd7jx3/i_dont_want_a_95_life_for_the_rest_of_my_life_i/)
-Posted by **likilekka** · **231↑** · **49 comments**
+Posted by **likilekka** · **230↑** · **49 comments**
 
 Has anyone experienced this? I’ve come to realise the corporate ladder is pointless. I have chronic health issues that need resolving, requiring time and money for allied health modalities or functional medicine/holistic wellness for IBS, chronic tension, and pain, as Western medicine hasn’t provided effective solutions. This includes long-term follow-up like physio , etc for relief, and even counselling. 
 
@@ -65,7 +65,7 @@ https://www.youtube.com/watch?v=25LUF8GmbFU
 
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/findapath) if you have any questions or concerns.*
-- **slowliving_babs** (66↑): I can relate to this. Currently selling off all of my possessions to begin a new life traveling and living out of a backpack. 
+- **slowliving_babs** (64↑): I can relate to this. Currently selling off all of my possessions to begin a new life traveling and living out of a backpack. 
 
 I’m in my late 40s, have an incurable chronic autoimmune disease and require a number of treatments/surgeries to address the symptoms of the condition, which until just recently, was mostly covered by insurance. But that’s changing in the US and I’m forced to look at healthcare costs abroad. 
 
@@ -76,17 +76,17 @@ I had a 20+ year career as a tattoo artist that I absolutely loved and was lucky
 But it’s not the end. Just an opportunity to reinvent  and allow myself to be open to the possibilities that lay waiting in the unknown ahead of me. 
 
 I hope you choose to see your situation the same way.
-  - **Cute_Bread_271** (6↑): I’m in a similar boat with health issues and looking abroad for other options. Any countries with better healthcare costs you’ve identified?
-    - **slowliving_babs** (7↑): Depends on what your medical needs are but SEA is affordable to stay in, if you are required to be there for awhile. The Philippines, S Korea, Taiwan are options. 
+  - **Cute_Bread_271** (7↑): I’m in a similar boat with health issues and looking abroad for other options. Any countries with better healthcare costs you’ve identified?
+    - **slowliving_babs** (6↑): Depends on what your medical needs are but SEA is affordable to stay in, if you are required to be there for awhile. The Philippines, S Korea, Taiwan are options. 
 In Europe there’s Turkey, Portugal and Croatia worth looking into. 
 S America as well.
   - **likilekka** (2↑): ok thank you ... Do you think you'll ever go back to office job/ corporate...
     - **FlairPointsBot** (2↑): Thank you for confirming that /u/slowliving_babs has provided helpful advice for you. 1 point awarded.
-- **Connect-Media8345** (8↑): Keep your head up! I am in the same position though haha but focusing on hobbies you are passionate about helps! I think first step to change is realizing you don’t like where you are and focusing on less things but with more focus is key.
+- **Connect-Media8345** (7↑): Keep your head up! I am in the same position though haha but focusing on hobbies you are passionate about helps! I think first step to change is realizing you don’t like where you are and focusing on less things but with more focus is key.
 - **yourbasicusername** (7↑): Is the peace corp still an option these days? I think this would’ve been a good fit in the past, a friend from college did that and seemed like a great experience.  You mentioned building things physically.
 
 https://www.sfchronicle.com/us-world/article/peace-corps-volunteers-recollection-relevance-20769571.php
-- **fgrhcxsgb** (7↑): Yeah we are reaching a point where there is so much bs there arent going to be enough people who actually do work
+- **fgrhcxsgb** (6↑): Yeah we are reaching a point where there is so much bs there arent going to be enough people who actually do work
   - **likilekka** (0↑): a lot of work is not needed or provides value, only value it gives its mostly to the owners that make money.  like its just literally cash grab for companies . and at this rate of AI isn't their goal to replace as much as possible. I just don't rlly know whats their goal or point tbh other than just money all for one person
 - **More-Dragonfly695** (10↑): You are not alone. You achieve that by painting a clear picture in your mind about the kind of life you wish to have.
 - **Salvatore_Vitale** (3↑): Lol, the title of your post replicates exactly what I want to do as well.

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1pn6w9k.md
 url: "https://www.reddit.com/r/investing/comments/1pn6w9k/the_sudden_push_to_democratize_private_equity/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,74 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.191Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c0"
+    char_span: [0, 2121]
+    sentence_count: 15
+    key_terms: [private, valuations, money, like, funds, need, endowments, investing]
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c1"
+    char_span: [2123, 3152]
+    sentence_count: 11
+    key_terms: [sell, democratization, assets, market, funds, investors, pockets, public]
+    token_count: 217
+  - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c2"
+    char_span: [3167, 5074]
+    sentence_count: 14
+    key_terms: [retail, pseudonominom, right, fund, new, aerotyne, mckinsey, company]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c3"
+    char_span: [5076, 7088]
+    sentence_count: 10
+    key_terms: [private, get, tax, boutique, planner, credit, enough, hurdle]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c4"
+    char_span: [6840, 8808]
+    sentence_count: 13
+    key_terms: [private, bag, starship, exactly, someone, always, assets, enough]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c5"
+    char_span: [8812, 9763]
+    sentence_count: 4
+    key_terms: [investors, "it's", democratization, institutional, market, never, lollipopsaurus, mark-to-market]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c6"
+    char_span: [9765, 11872]
+    sentence_count: 15
+    key_terms: [whiskey, barrels, "i'm", lollipopsaurus, barrel, going, years, ones]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c7"
+    char_span: [11612, 12185]
+    sentence_count: 4
+    key_terms: [going, anything, benefit, good, caughtyalookin69, opportunities, democratized, themselves]
+    section: Comments
+    token_count: 140
+  - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c8"
+    char_span: [12187, 12649]
+    sentence_count: 3
+    key_terms: [shadowliberal, artificially, completely, investment, mismanaged, companies, investing, portfolio]
+    section: Comments
+    token_count: 96
+  - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c9"
+    char_span: [12651, 14836]
+    sentence_count: 13
+    key_terms: [businesses, been, medium, ferociouskuma, professional, small, get, destroying]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c10"
+    char_span: [14597, 15011]
+    sentence_count: 5
+    key_terms: ["we're", been, investments, interested, community, included, official, murraco]
+    section: Comments
+    token_count: 105
 ---
-
 # The sudden push to "Democratize" Private Equity isn't about helping you, it’s about finding Exit Liquidity
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1pn6w9k/the_sudden_push_to_democratize_private_equity/)

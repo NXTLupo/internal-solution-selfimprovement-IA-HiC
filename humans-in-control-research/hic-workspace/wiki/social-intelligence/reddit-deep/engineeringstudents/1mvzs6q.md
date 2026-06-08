@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1mvzs6q.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1mvzs6q/any_good_internshipsopportunities_for_a_high/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Career Help"
 extracted_at: "2026-05-18T14:15:17.911Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1mvzs6q.md#c0"
+    char_span: [0, 654]
+    sentence_count: 5
+    key_terms: [engineering, engineeringstudents, opportunities, internships, interested, chemical, comments, nuclear]
+    token_count: 140
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1mvzs6q.md#c1"
+    char_span: [669, 2183]
+    sentence_count: 4
+    key_terms: [engineeringstudents, https, wiki, reddit, com, adult, "it's", read]
+    section: Comments
+    token_count: 355
 ---
-
 # Any good internships/opportunities for a high school junior interested in chemical & nuclear engineering?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1mvzs6q/any_good_internshipsopportunities_for_a_high/)

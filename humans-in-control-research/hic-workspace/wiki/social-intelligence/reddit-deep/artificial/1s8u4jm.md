@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1s8u4jm.md
 url: "https://www.reddit.com/r/artificial/comments/1s8u4jm/what_if_the_real_ai_problem_is_not_intelligence/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,51 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:04.775Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c0"
+    char_span: [0, 1288]
+    sentence_count: 13
+    key_terms: [responsibility, around, intelligence, artificial, comments, problem, systems, people]
+    token_count: 266
+  - id: "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c1"
+    char_span: [1303, 3548]
+    sentence_count: 18
+    key_terms: [responsibility, responsible, accountability, problem, systems, always, model, liability]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c2"
+    char_span: [3550, 5822]
+    sentence_count: 18
+    key_terms: [responsibility, civil-interaction-76, human, alignment, important, becomes, without, decision]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c3"
+    char_span: [5824, 8148]
+    sentence_count: 6
+    key_terms: [responsibility, execution, agent, systems, boundary, responsible, question, infrastructure]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c4"
+    char_span: [8150, 10492]
+    sentence_count: 14
+    key_terms: [responsibility, accountability, independent, architecture, ground, truth, something, own]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c5"
+    char_span: [10494, 12230]
+    sentence_count: 10
+    key_terms: [responsibility, accountability, civil-interaction-76, chain, responsible, data, visibility, decisions]
+    section: Comments
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/artificial/1s8u4jm.md#c6"
+    char_span: [12232, 14746]
+    sentence_count: 13
+    key_terms: [responsibility, accountability, governance, organisation, civil-interaction-76, something, founder-awesome, explain]
+    section: Comments
+    token_count: 510
 ---
-
 # What if the real AI problem is not intelligence, but responsibility?
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1s8u4jm/what_if_the_real_ai_problem_is_not_intelligence/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1sbe1w1.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1sbe1w1/advice_from_a_college_sophomore_waitlisted_at_all/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,40 @@ subreddit: "applyingtocollege"
 title: "Advice from a college sophomore waitlisted at all her top schools two years ago"
 author: "Important_Pie_20"
 date: "2026-04-03T13:45:48.000Z"
-score: 154
+score: 153
 upvote_ratio: 0.99
-num_comments: 8
+num_comments: 9
 flair: "Advice"
-extracted_at: "2026-05-20T02:31:57.186Z"
+extracted_at: "2026-06-01T18:49:57.458Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sbe1w1.md#c0"
+    char_span: [0, 2178]
+    sentence_count: 20
+    key_terms: [school, top, schools, waitlisted, applyingtocollege, want, class, get]
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sbe1w1.md#c1"
+    char_span: [2180, 4318]
+    sentence_count: 32
+    key_terms: [look, school, opportunities, schools, institution, get, life, transfer]
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sbe1w1.md#c2"
+    char_span: [4320, 5571]
+    sentence_count: 22
+    key_terms: [better, school, professors, research, funding, contracts, schools, honors]
+    token_count: 276
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sbe1w1.md#c3"
+    char_span: [5586, 7346]
+    sentence_count: 7
+    key_terms: [people, going, year, because, school, perspective, rejected, thinking]
+    section: Comments
+    token_count: 430
 ---
-
 # Advice from a college sophomore waitlisted at all her top schools two years ago
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1sbe1w1/advice_from_a_college_sophomore_waitlisted_at_all/)
-Posted by **Important_Pie_20** · **154↑** · **8 comments**
+Posted by **Important_Pie_20** · **153↑** · **9 comments**
 
 As someone who was top of her high school graduating class and waitlisted from all her top schools, I want to provide some insight for anyone going through it now. I want to be as honest as possible and feel free to reach out for support!
 
@@ -58,15 +80,16 @@ I hope this helps! Hang in there, it gets better! Reach out if you need more adv
 
 ## Comments
 
-- **CherryChocolatePizza** (52↑): TL;DR: Bloom where you're planted.
+- **CherryChocolatePizza** (57↑): TL;DR: Bloom where you're planted.
 
   
 I joke, because I do hope people read and really digest what you are saying because you are 100% on target, but for those that don't.
-  - **Commercial_Ad8072** (7↑): Bloom where you’re planted is great
-- **mintytaurus** (7↑): As a parent of a kid who was waitlisted from his top choice (a highly ranked state school) I appreciate this perspective. In the business world I see highly successful people from all different colleges, not just T20s. Success depends far more on how motivated you are throughout your career than what college you go to.
-- **CB7726** (4↑): as a senior who got rejected from my 2 dream schools the amount of people who are just going to a safety with the absolute intention of transferring out next year is so weird to me. like wdym you’re going to spend your first year of college thinking about leaving? and then what if you get rejected again, then you’re stuck at that school even more screwed than before because you spent freshman year trying to escape instead of making friends and connections. it’s just such shallow thinking to me idk, yeah i initially didn’t think i would be going to the school i’m going to next year but i trust myself enough to know that i’ll end up happy either way. and i hope all the other super smart and nice people here realize that too :)
-- **Upset_Eye1625** (6↑): YES!
+  - **Commercial_Ad8072** (8↑): Bloom where you’re planted is great
+- **mintytaurus** (8↑): As a parent of a kid who was waitlisted from his top choice (a highly ranked state school) I appreciate this perspective. In the business world I see highly successful people from all different colleges, not just T20s. Success depends far more on how motivated you are throughout your career than what college you go to.
+- **CB7726** (5↑): as a senior who got rejected from my 2 dream schools the amount of people who are just going to a safety with the absolute intention of transferring out next year is so weird to me. like wdym you’re going to spend your first year of college thinking about leaving? and then what if you get rejected again, then you’re stuck at that school even more screwed than before because you spent freshman year trying to escape instead of making friends and connections. it’s just such shallow thinking to me idk, yeah i initially didn’t think i would be going to the school i’m going to next year but i trust myself enough to know that i’ll end up happy either way. and i hope all the other super smart and nice people here realize that too :)
+- **Upset_Eye1625** (7↑): YES!
 - **SussOfAll06** (3↑): Great advice!
 - **Intelligent-Bag2775** (2↑): Wonderful advice and perspective. I completely agree about the language of safety, target and reach schools. I never use those words
 Thanks for sharing and very happy for you. Keep thriving.
 - **hgiangg_20** (1↑): i second this so much
+- **Used-Drive-6700** (1↑): [ Removed by Reddit ]

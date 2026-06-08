@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1oze4m2.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1oze4m2/ive_been_trying_to_understand_how_rich_people/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,75 @@ flair: "Misc Advice"
 extracted_at: "2026-05-16T20:55:12.686Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c0"
+    char_span: [0, 1688]
+    sentence_count: 13
+    key_terms: [people, trying, understand, credits, povertyfinance, system, money, taxes]
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c1"
+    char_span: [1703, 3309]
+    sentence_count: 11
+    key_terms: [pay, borrow, income, taxes, tax, million, offset, accidentally]
+    section: Comments
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c2"
+    char_span: [3314, 5343]
+    sentence_count: 14
+    key_terms: [stocks, interest, payments, loan, pay, assets, likely, taxes]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c3"
+    char_span: [5345, 7702]
+    sentence_count: 14
+    key_terms: [interest, "it's", investments, "there's", assets, margin, people, class]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c4"
+    char_span: [7704, 8582]
+    sentence_count: 8
+    key_terms: [equity, taxes, capital, assets, borrow, result, gains, home]
+    section: Comments
+    token_count: 192
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c5"
+    char_span: [8584, 10557]
+    sentence_count: 16
+    key_terms: [assets, "it's", wealthy, around, people, huge, own, illiquid]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c6"
+    char_span: [10559, 11990]
+    sentence_count: 7
+    key_terms: [interest, stock, worth, gain, tax, personal, people, system]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c7"
+    char_span: [11992, 14242]
+    sentence_count: 17
+    key_terms: [people, tax, available, designed, enough, taxes, progressive, get]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c8"
+    char_span: [14244, 15717]
+    sentence_count: 11
+    key_terms: [business, people, businesses, tax, deductions, easier, start, taxes]
+    section: Comments
+    token_count: 306
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c9"
+    char_span: [15719, 17518]
+    sentence_count: 11
+    key_terms: [credit, contributions, tax, earners, income, taxes, wage, retirement]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/povertyfinance/1oze4m2.md#c10"
+    char_span: [17520, 19133]
+    sentence_count: 10
+    key_terms: [taxes, tax, paying, credits, confusing, loopholes, because, wealthy]
+    section: Comments
+    token_count: 374
 ---
-
 # I’ve been trying to understand how rich people legally avoid taxes… and it honestly made me feel worse about how the system treats the poor
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1oze4m2/ive_been_trying_to_understand_how_rich_people/)

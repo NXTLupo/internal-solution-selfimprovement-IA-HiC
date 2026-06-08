@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1mlwunz.md
 url: "https://www.reddit.com/r/artificial/comments/1mlwunz/the_chatgpt_5_backlash_is_concerning/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,67 @@ flair: "Discussion"
 extracted_at: "2026-05-11T16:53:08.160Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c0"
+    char_span: [0, 1957]
+    sentence_count: 15
+    key_terms: [people, chatgpt, openai, use, artificial, attachment, concerning, comments]
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c1"
+    char_span: [1959, 4355]
+    sentence_count: 20
+    key_terms: [people, something, companionship, never, like, connection, situations, understand]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c2"
+    char_span: [4357, 5405]
+    sentence_count: 7
+    key_terms: [people, companionship, back, companion, chatgpt, power, open, personalization]
+    token_count: 221
+  - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c3"
+    char_span: [5420, 6426]
+    sentence_count: 5
+    key_terms: [completely, critique, "aren't", public-vegetable-182, available-signal209, get, "it's", contradicted]
+    section: Comments
+    token_count: 254
+  - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c4"
+    char_span: [6428, 7563]
+    sentence_count: 9
+    key_terms: [listen, information, gpt, work, people, "don't", gtp-5, been]
+    section: Comments
+    token_count: 290
+  - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c5"
+    char_span: [7565, 9750]
+    sentence_count: 15
+    key_terms: [people, thedadthatgrills, therapy, "aren't", being, countries, because, issues]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c6"
+    char_span: [9435, 11534]
+    sentence_count: 25
+    key_terms: [people, mental, phone, like, loneliness, global, issues, social]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c7"
+    char_span: [11299, 11770]
+    sentence_count: 3
+    key_terms: [loneliness, global, issue, alancarronline, individualism, increasingly, stereotypes, companies]
+    section: Comments
+    token_count: 125
+  - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c8"
+    char_span: [11772, 14068]
+    sentence_count: 20
+    key_terms: [problem, unfortunately, need, emotional, potential, sometimes, profound, digital]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c9"
+    char_span: [14070, 15020]
+    sentence_count: 7
+    key_terms: [model, like, people, quirks, hours, learn, disappointment, professionally]
+    section: Comments
+    token_count: 221
 ---
-
 # The ChatGPT 5 Backlash Is Concerning.
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1mlwunz/the_chatgpt_5_backlash_is_concerning/)

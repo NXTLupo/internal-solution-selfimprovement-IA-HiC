@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1o5uvaw.md
 url: "https://www.reddit.com/r/OpenAI/comments/1o5uvaw/overmoderation_is_ruining_the_gpt_experience_for/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,57 @@ flair: "Discussion"
 extracted_at: "2026-05-11T16:53:06.861Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1o5uvaw.md#c0"
+    char_span: [0, 1204]
+    sentence_count: 11
+    key_terms: [like, adult, comments, someone, adults, openai, paying, overmoderation]
+    token_count: 261
+  - id: "social-intelligence/reddit-deep/openai/1o5uvaw.md#c1"
+    char_span: [1219, 3106]
+    sentence_count: 17
+    key_terms: [structure, too, use, ads, grok, won, different, statement]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/openai/1o5uvaw.md#c2"
+    char_span: [3109, 4559]
+    sentence_count: 11
+    key_terms: [censorship, protection, platforms, analogy, chatgpt, content, netflix, aromatic-bandicoot65]
+    section: Comments
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/openai/1o5uvaw.md#c3"
+    char_span: [4564, 6233]
+    sentence_count: 15
+    key_terms: [medical, guardrails, unusable, chatgpt, become, talked, being, never]
+    section: Comments
+    token_count: 408
+  - id: "social-intelligence/reddit-deep/openai/1o5uvaw.md#c4"
+    char_span: [6235, 8665]
+    sentence_count: 6
+    key_terms: [tone, because, mirror, system, maybe, isn, context, words]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/openai/1o5uvaw.md#c5"
+    char_span: [8667, 10553]
+    sentence_count: 9
+    key_terms: [mars, napoleon, conquest, step, evidence, plan, impossible, synthesis]
+    section: Comments
+    token_count: 517
+  - id: "social-intelligence/reddit-deep/openai/1o5uvaw.md#c6"
+    char_span: [10555, 12325]
+    sentence_count: 7
+    key_terms: [missing, synthesis, contradiction, napoleon, receipts, without, export, check]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/openai/1o5uvaw.md#c7"
+    char_span: [12327, 13725]
+    sentence_count: 7
+    key_terms: [wrong, immune, auditable, synthesis, covenant, receipts, getting, error]
+    section: Comments
+    token_count: 342
 ---
-
 # Overmoderation is ruining the GPT experience for adults
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1o5uvaw/overmoderation_is_ruining_the_gpt_experience_for/)

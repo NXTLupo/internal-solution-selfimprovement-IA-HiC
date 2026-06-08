@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1rt5jgn.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1rt5jgn/career_prospects_for_mechanical_engineering/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,15 @@ flair: "Academic Advice"
 extracted_at: "2026-05-23T20:15:19.047Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rt5jgn.md#c0"
+    char_span: [0, 1723]
+    sentence_count: 9
+    key_terms: [engineering, year, getting, experience, engineeringstudents, been, get, company]
+    token_count: 362
 ---
-
 # Career Prospects for Mechanical Engineering Students
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1rt5jgn/career_prospects_for_mechanical_engineering/)

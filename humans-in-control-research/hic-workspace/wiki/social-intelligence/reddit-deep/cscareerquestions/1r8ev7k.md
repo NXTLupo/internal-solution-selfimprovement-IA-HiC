@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1r8ev7k.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1r8ev7k/have_a_bs_in_cs_from_back_in_2017_and_need_advice/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -10,11 +11,28 @@ score: 17
 upvote_ratio: 0.88
 num_comments: 14
 flair: ""
-extracted_at: "2026-05-23T19:45:00.913Z"
+extracted_at: "2026-06-03T12:16:59.514Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1r8ev7k.md#c0"
+    char_span: [0, 1529]
+    sentence_count: 12
+    key_terms: [internships, cscareerquestions, recommendation, advice, pivot, development, back, been]
+    token_count: 353
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1r8ev7k.md#c1"
+    char_span: [1544, 2832]
+    sentence_count: 13
+    key_terms: [ruinadventurous1931, transferable, definitely, building, backend, mobile, cloud, https]
+    section: Comments
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1r8ev7k.md#c2"
+    char_span: [2834, 4478]
+    sentence_count: 14
+    key_terms: [degree, general3dots, students, masters, advice, better, calm-tumbleweed-9820, objectbrilliant7592]
+    section: Comments
+    token_count: 425
 ---
-
 # Have a B.S in CS from back in 2017 and need advice on how to pivot my career.
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1r8ev7k/have_a_bs_in_cs_from_back_in_2017_and_need_advice/)
@@ -38,8 +56,8 @@ Any advice is much appreciated.
 
 ## Comments
 
-- **RuinAdventurous1931** (5↑): I guess that depends on what you’ve been doing in mobile development. Just UI? If not, I don’t see why you wouldn’t have transferable skills.
-  - **General3Dots** (4↑): Creating UI comps.   
+- **RuinAdventurous1931** (7↑): I guess that depends on what you’ve been doing in mobile development. Just UI? If not, I don’t see why you wouldn’t have transferable skills.
+  - **General3Dots** (6↑): Creating UI comps.   
 Reviewing API proposals.   
 Building the entire app (framework, design pattern MVVM, api calls, repository, caching)   
 basically everything mobile related 

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1tc2crn.md
 url: "https://www.reddit.com/r/GenZ/comments/1tc2crn/we_are_the_all_or_nothing_generation_and_i_think/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,33 @@ flair: "Discussion"
 extracted_at: "2026-05-16T20:55:01.228Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1tc2crn.md#c0"
+    char_span: [0, 1217]
+    sentence_count: 14
+    key_terms: [life, boring, years, want, comments, standard, living, though]
+    token_count: 308
+  - id: "social-intelligence/reddit-deep/genz/1tc2crn.md#c1"
+    char_span: [1232, 2911]
+    sentence_count: 10
+    key_terms: [reddit, broke, differently, good, "i'm", work, discord, nothing]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/genz/1tc2crn.md#c2"
+    char_span: [2913, 4425]
+    sentence_count: 8
+    key_terms: [provide, regular, get, jobs, ourselves, convince, yourself, because]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/genz/1tc2crn.md#c3"
+    char_span: [4427, 5149]
+    sentence_count: 5
+    key_terms: [figurefour717, slow, probably, book, other-town1179, intentional, agreeeddd, planning]
+    section: Comments
+    token_count: 195
 ---
-
 # We are the "All or Nothing Generation".. and I think that's a good thing.
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1tc2crn/we_are_the_all_or_nothing_generation_and_i_think/)

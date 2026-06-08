@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1px02vq.md
 url: "https://www.reddit.com/r/jobs/comments/1px02vq/why_is_it_so_hard_for_me_as_a_student_to_find_a/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,39 @@ flair: "Job searching"
 extracted_at: "2026-05-22T21:35:36.548Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1px02vq.md#c0"
+    char_span: [0, 1430]
+    sentence_count: 9
+    key_terms: [job, jobs, years, comments, bagging, because, college, looking]
+    token_count: 332
+  - id: "social-intelligence/reddit-deep/jobs/1px02vq.md#c1"
+    char_span: [1445, 2862]
+    sentence_count: 7
+    key_terms: [jobs, people, job, work, inexperienced, level, year, especially]
+    section: Comments
+    token_count: 328
+  - id: "social-intelligence/reddit-deep/jobs/1px02vq.md#c2"
+    char_span: [2864, 4961]
+    sentence_count: 10
+    key_terms: [adventurous-boss-882, business, spending, people, christmas, extremely, "i'm", economy]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1px02vq.md#c3"
+    char_span: [4761, 5417]
+    sentence_count: 11
+    key_terms: ["i'm", tired, "i've", put, applications, opportunity, hcd123321, interview]
+    section: Comments
+    token_count: 179
+  - id: "social-intelligence/reddit-deep/jobs/1px02vq.md#c4"
+    char_span: [5419, 7410]
+    sentence_count: 16
+    key_terms: [college, education, jobs, throwawayytessslaa, because, hiring, "you're", maryssmith]
+    section: Comments
+    token_count: 483
 ---
-
 # Why is it so hard for me as a student to find a job, specifically a dead end one
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1px02vq/why_is_it_so_hard_for_me_as_a_student_to_find_a/)

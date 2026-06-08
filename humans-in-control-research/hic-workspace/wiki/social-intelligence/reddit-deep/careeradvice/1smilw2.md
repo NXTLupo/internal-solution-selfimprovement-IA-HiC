@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1smilw2.md
 url: "https://www.reddit.com/r/careeradvice/comments/1smilw2/i_cant_stand_the_idea_of_being_an_ai_supervisor/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,20 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.236Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1smilw2.md#c0"
+    char_span: [0, 2141]
+    sentence_count: 11
+    key_terms: [entry-level, consulting, being, tech, research, problem-solving, careeradvice, human]
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/careeradvice/1smilw2.md#c1"
+    char_span: [2143, 2310]
+    sentence_count: 2
+    key_terms: [because, consulting, research, machine, career, double, useful, audit]
+    token_count: 38
 ---
-
 # I can’t stand the idea of being an "AI Supervisor" for my entry-level career. Is Research or Consulting a better path?
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1smilw2/i_cant_stand_the_idea_of_being_an_ai_supervisor/)

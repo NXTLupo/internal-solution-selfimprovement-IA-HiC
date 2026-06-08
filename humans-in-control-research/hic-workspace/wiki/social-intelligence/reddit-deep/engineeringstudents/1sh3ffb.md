@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1sh3ffb.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1sh3ffb/lehigh_northeastern_lafayette_union_or_villanova/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,33 @@ flair: "College Choice"
 extracted_at: "2026-05-22T15:11:44.439Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sh3ffb.md#c0"
+    char_span: [0, 843]
+    sentence_count: 7
+    key_terms: [engineeringstudents, comments, career, gave, get, want, opportunities, aeronautical]
+    token_count: 204
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sh3ffb.md#c1"
+    char_span: [858, 3024]
+    sentence_count: 17
+    key_terms: [engineeringstudents, wiki, engineering, lehigh, please, reddit, https, com]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sh3ffb.md#c2"
+    char_span: [3026, 4894]
+    sentence_count: 13
+    key_terms: [engineering, industry, defense, program, purdue, school, been, get]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sh3ffb.md#c3"
+    char_span: [4896, 5820]
+    sentence_count: 2
+    key_terms: [engineering, experience, school, connections, moving, great, away, club]
+    section: Comments
+    token_count: 208
 ---
-
 # Lehigh, Northeastern, Lafayette, Union or Villanova for MechE for career preparedness, ROI, excellence in education, opportunities to get involved on campus and abroad and co-ops?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1sh3ffb/lehigh_northeastern_lafayette_union_or_villanova/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1shbz7j.md
 url: "https://www.reddit.com/r/careerguidance/comments/1shbz7j/what_career_paths_can_i_pivot_to_as_a/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 3
 flair: "Advice"
-extracted_at: "2026-05-22T21:34:47.968Z"
+extracted_at: "2026-06-03T18:53:36.156Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1shbz7j.md#c0"
+    char_span: [0, 916]
+    sentence_count: 8
+    key_terms: [careerguidance, philosophy, berkeley, comments, majoring, student, totally, super-pomegranate339]
+    token_count: 221
+  - id: "social-intelligence/reddit-deep/careerguidance/1shbz7j.md#c1"
+    char_span: [931, 2658]
+    sentence_count: 12
+    key_terms: ["you're", experience, majors, philosophy, marketing, super-pomegranate339, lazy-protection3749, psych]
+    section: Comments
+    token_count: 354
 ---
-
 # What career paths can I pivot to as a philosophy/psych student at UC Berkeley (Junior)?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1shbz7j/what_career_paths_can_i_pivot_to_as_a/)

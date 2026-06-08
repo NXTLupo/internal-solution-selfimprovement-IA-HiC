@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-college/78dcbba78b.md
 url: "https://reddit.com/r/college/comments/1nbnn15/roomate_isnt_going_to_class/"
 url_hash: "78dcbba78b"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-12T17:13:25.989486+00:00"
 chars: 1512
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-college/78dcbba78b.md#c0"
+    char_span: [0, 1648]
+    sentence_count: 1
+    key_terms: [classes, college, attend, doesn, going, feel, get, room]
+    token_count: 390
 ---
-
 # Roomate isn’t going to class
 
 Source: [reddit: College](https://reddit.com/r/college/comments/1nbnn15/roomate_isnt_going_to_class/)

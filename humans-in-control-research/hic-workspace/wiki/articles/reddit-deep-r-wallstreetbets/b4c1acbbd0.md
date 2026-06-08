@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-wallstreetbets/b4c1acbbd0.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1pv691b/mstr_saylor_with_his_dilation_strategy/"
 url_hash: "b4c1acbbd0"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-16T20:59:20.365189+00:00"
 chars: 989
+industries: [enterprise_it, financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-wallstreetbets/b4c1acbbd0.md#c0"
+    char_span: [0, 1176]
+    sentence_count: 3
+    key_terms: [comments, wallstreetbets, coin, strategy, discord, reddit, youlikeblockingsodoi, https]
+    token_count: 348
 ---
-
 # MSTR ( Saylor with his dilation strategy )
 
 Source: [Reddit Deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1pv691b/mstr_saylor_with_his_dilation_strategy/)

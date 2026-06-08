@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-engineeringstudents/6cadd6dc9b.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1q8i7t2/burned_out_23_f_from_job_hunting_despite_strong/"
 url_hash: "6cadd6dc9b"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T19:51:24.270044+00:00"
 chars: 5953
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-engineeringstudents/6cadd6dc9b.md#c0"
+    char_span: [0, 2244]
+    sentence_count: 23
+    key_terms: [engineering, resume, mechanical, engineeringstudents, people, saying, been, don]
+    token_count: 498
+  - id: "articles/reddit-deep-r-engineeringstudents/6cadd6dc9b.md#c1"
+    char_span: [2246, 4098]
+    sentence_count: 20
+    key_terms: [experience, because, right, blue, call, don, linkedin, similar]
+    token_count: 406
+  - id: "articles/reddit-deep-r-engineeringstudents/6cadd6dc9b.md#c2"
+    char_span: [4100, 6204]
+    sentence_count: 12
+    key_terms: [everything, physical, industries, mechanical, struggling, different, expand, people]
+    token_count: 483
 ---
-
 # Burned out (23 F) from job hunting despite strong background. Not sure what else to do.
 
 Source: [Reddit Deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1q8i7t2/burned_out_23_f_from_job_hunting_despite_strong/)

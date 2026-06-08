@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1rv9cva/part_2_i_now_spent_13000year_on_substack/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,91 @@ flair: "YOLO"
 extracted_at: "2026-05-17T01:14:17.602Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [media]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c0"
+    char_span: [0, 1756]
+    sentence_count: 16
+    key_terms: [newsletters, substack, authors, pickers, classification, wallstreetbets, update, stock]
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c1"
+    char_span: [1758, 3510]
+    sentence_count: 14
+    key_terms: [authors, macro, commentary, excluded, high-conviction, author, stock-picking, stock]
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c2"
+    char_span: [3512, 4697]
+    sentence_count: 7
+    key_terms: [median, research, return, benchmarks, average, capital, alpha, calls]
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c3"
+    char_span: [4699, 5503]
+    sentence_count: 3
+    key_terms: [research, calls, interesting, capital, semianalysis, concentrate, fabricated, irrational]
+    token_count: 366
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c4"
+    char_span: [5505, 6726]
+    sentence_count: 5
+    key_terms: [research, capital, fabricated, alpha, knowledge, altay, citrini, fundaai]
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c5"
+    char_span: [6728, 7637]
+    sentence_count: 5
+    key_terms: [research, semianalysis, irrational, analysis, return, med, semiconductor, interesting]
+    token_count: 353
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c6"
+    char_span: [7639, 8647]
+    sentence_count: 8
+    key_terms: [calls, author, alpha, fabricated, knowledge, research, global, making]
+    token_count: 366
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c7"
+    char_span: [8649, 9441]
+    sentence_count: 8
+    key_terms: [calls, med, fundaai, short, long, win, consistency, high-volume]
+    token_count: 314
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c8"
+    char_span: [9443, 10343]
+    sentence_count: 6
+    key_terms: [research, authors, newsletters, quality, returns, market, volume, alpha]
+    token_count: 224
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c9"
+    char_span: [10358, 12230]
+    sentence_count: 13
+    key_terms: [research, authors, global, newsletters, tech, discord, fundaai, quality]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c10"
+    char_span: [12232, 13343]
+    sentence_count: 7
+    key_terms: [performance, calculated, newsletter, alpha, allegedly, nothing, period, pretty]
+    section: Comments
+    token_count: 224
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c11"
+    char_span: [13345, 15197]
+    sentence_count: 11
+    key_terms: [tldr, something, horizons, imagine, various, market, fine-razzmatazz1791, a-big-texas-howdy]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c12"
+    char_span: [15199, 16123]
+    sentence_count: 4
+    key_terms: [newsletters, analysis, without, useful, langdonalgerpuzzles, users, primaryconcern2608, automoderator]
+    section: Comments
+    token_count: 209
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c13"
+    char_span: [16125, 17392]
+    sentence_count: 6
+    key_terms: [substack, something, getting, message, random, atmospheremiddle1682, confident-grab-7688, throwaway9gk0k4k569]
+    section: Comments
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c14"
+    char_span: [17394, 18905]
+    sentence_count: 5
+    key_terms: [shittybidet123, dick, soxx, capital, deleted, looking, primaryconcern2608, been]
+    section: Comments
+    token_count: 451
 ---
-
 # Part 2: I now spent $13,000/year on Substack newsletters so you don't have to. Longer time horizons, more authors, better methodology.
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1rv9cva/part_2_i_now_spent_13000year_on_substack/)

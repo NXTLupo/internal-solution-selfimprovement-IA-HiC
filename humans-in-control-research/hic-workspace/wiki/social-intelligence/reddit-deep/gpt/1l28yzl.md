@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1l28yzl.md
 url: "https://www.reddit.com/r/GPT/comments/1l28yzl/marketers_creatives_built_4_visual_assets_for_a/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-11T17:26:37.730Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1l28yzl.md#c0"
+    char_span: [0, 1613]
+    sentence_count: 6
+    key_terms: [branding, assets, chatgpt, character, marketers, comments, creating, mockups]
+    token_count: 357
 ---
-
 # Marketers & Creatives: Built 4 Visual Assets for a Branding Project in One Day Using ChatGPT
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1l28yzl/marketers_creatives_built_4_visual_assets_for_a/)

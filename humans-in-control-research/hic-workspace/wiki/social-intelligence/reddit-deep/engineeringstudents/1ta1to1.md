@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1ta1to1.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1ta1to1/how_to_get_a_job_in_sap_abap_as_a_fresher_with_6/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,15 @@ flair: "Career Advice"
 extracted_at: "2026-05-25T13:01:49.568Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ta1to1.md#c0"
+    char_span: [0, 517]
+    sentence_count: 4
+    key_terms: [experience, internship, engineeringstudents, comments, fresher, months, abap, get]
+    token_count: 139
 ---
-
 # How to get a job in SAP ABAP as a fresher with 6 months internship experience.
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1ta1to1/how_to_get_a_job_in_sap_abap_as_a_fresher_with_6/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/bb1bbd9e08.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t5cx6l/do_people_actually_rebuild_their_careers_in_their/"
 url_hash: "bb1bbd9e08"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T19:52:27.672033+00:00"
 chars: 1693
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/bb1bbd9e08.md#c0"
+    char_span: [0, 1959]
+    sentence_count: 15
+    key_terms: [careers, careerguidance, career, did, something, comments, possible, already]
+    token_count: 442
 ---
-
 # Do people actually rebuild their careers in their 30s, or do most just learn to live with the path they chose?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t5cx6l/do_people_actually_rebuild_their_careers_in_their/)

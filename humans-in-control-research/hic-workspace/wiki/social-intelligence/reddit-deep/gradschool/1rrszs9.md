@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1rrszs9.md
 url: "https://www.reddit.com/r/GradSchool/comments/1rrszs9/conditional_grad_school_offer_requires_35_gpa_but/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,27 @@ flair: "Admissions & Applications"
 extracted_at: "2026-05-26T14:32:49.130Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1rrszs9.md#c0"
+    char_span: [0, 2037]
+    sentence_count: 14
+    key_terms: [offer, conditional, gpa, requirement, admissions, equivalent, semester, like]
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/gradschool/1rrszs9.md#c1"
+    char_span: [2052, 3672]
+    sentence_count: 9
+    key_terms: [program, requirement, department, offer, like, talk, checked, contact]
+    section: Comments
+    token_count: 406
+  - id: "social-intelligence/reddit-deep/gradschool/1rrszs9.md#c2"
+    char_span: [3674, 5346]
+    sentence_count: 11
+    key_terms: [class, upper, gpa, rescind, "they'll", "they're", usually, degree]
+    section: Comments
+    token_count: 446
 ---
-
 # Conditional grad school offer requires 3.5 GPA but I’ll likely finish with ~3.48 — how should I approach admissions?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1rrszs9/conditional_grad_school_offer_requires_35_gpa_but/)

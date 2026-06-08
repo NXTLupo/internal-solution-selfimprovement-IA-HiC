@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rdj1v8.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rdj1v8/how_to_learn_which_if_any_jobscareers_im/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "ON, Canada"
 extracted_at: "2026-05-24T14:09:04.407Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rdj1v8.md#c0"
+    char_span: [0, 1912]
+    sentence_count: 16
+    key_terms: [want, "i'm", careerguidance, role, experience, assistant, education, comments]
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/careerguidance/1rdj1v8.md#c1"
+    char_span: [1927, 2705]
+    sentence_count: 2
+    key_terms: [experience, few-maintenance-7320, illustrious-tower951, roles, gap, get, latter-risk-7215, communication]
+    section: Comments
+    token_count: 178
 ---
-
 # How to learn which (if any) jobs/careers I'm qualified for?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rdj1v8/how_to_learn_which_if_any_jobscareers_im/)

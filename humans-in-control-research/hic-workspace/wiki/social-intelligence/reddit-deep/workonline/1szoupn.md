@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/workonline/1szoupn.md
 url: "https://www.reddit.com/r/WorkOnline/comments/1szoupn/stop_giving_away_your_biometric_data/"
 kind: "social-post"
 source: "reddit-deep: r/workonline"
@@ -13,8 +14,26 @@ flair: ""
 extracted_at: "2026-05-26T12:53:45.643Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [fundraising, nonprofit]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/workonline/1szoupn.md#c0"
+    char_span: [0, 2092]
+    sentence_count: 25
+    key_terms: [data, biometric, persona, giving, away, stop, biometrics, workonline]
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/workonline/1szoupn.md#c1"
+    char_span: [2094, 3634]
+    sentence_count: 17
+    key_terms: [actors, change, surveillance, verification, bad, biometrics, companies, platform]
+    token_count: 337
+  - id: "social-intelligence/reddit-deep/workonline/1szoupn.md#c2"
+    char_span: [3649, 4383]
+    sentence_count: 7
+    key_terms: [deleted, picture, wanted, being, easelegitimate7404, like, information, collecting]
+    section: Comments
+    token_count: 164
 ---
-
 # Stop giving away your biometric data!
 
 Source: [reddit-deep: r/workonline](https://www.reddit.com/r/WorkOnline/comments/1szoupn/stop_giving_away_your_biometric_data/)

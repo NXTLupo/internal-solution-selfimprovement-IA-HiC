@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1qtjmyn.md
 url: "https://www.reddit.com/r/NEU/comments/1qtjmyn/help_advice_on_getting_a_coop/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "Co-op & Career"
 extracted_at: "2026-05-26T14:30:23.763Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1qtjmyn.md#c0"
+    char_span: [0, 528]
+    sentence_count: 4
+    key_terms: [co-op, comments, search, been, neu, internships, reddit-deep, applying]
+    token_count: 151
+  - id: "social-intelligence/reddit-deep/neu/1qtjmyn.md#c1"
+    char_span: [543, 796]
+    sentence_count: 1
+    key_terms: [applying, typical-builder-8032, internships, persistent, referrals, september, linkedin, because]
+    section: Comments
+    token_count: 76
 ---
-
 # HELP: ADVICE ON GETTING A CO-OP
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1qtjmyn/help_advice_on_getting_a_coop/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/anthropic/1mvxpqt.md
 url: "https://www.reddit.com/r/Anthropic/comments/1mvxpqt/claude_code_now_have_context_hook/"
 kind: "social-post"
 source: "reddit-deep: r/anthropic"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-11T17:26:51.909Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/anthropic/1mvxpqt.md#c0"
+    char_span: [0, 261]
+    sentence_count: 1
+    key_terms: [anthropic, comments, reddit-deep, context, claude, posted, reddit, source]
+    token_count: 79
+  - id: "social-intelligence/reddit-deep/anthropic/1mvxpqt.md#c1"
+    char_span: [276, 1919]
+    sentence_count: 7
+    key_terms: [stingraycharles, mcp, tokens, tools, anthropic, already, certain, context]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/anthropic/1mvxpqt.md#c2"
+    char_span: [1921, 3501]
+    sentence_count: 8
+    key_terms: [github, https, com, bitching, jomon003, moaning, playmcp, useful]
+    section: Comments
+    token_count: 504
 ---
-
 # claude code now have /context hook
 
 Source: [reddit-deep: r/anthropic](https://www.reddit.com/r/Anthropic/comments/1mvxpqt/claude_code_now_have_context_hook/)

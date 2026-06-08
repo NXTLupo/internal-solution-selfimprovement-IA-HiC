@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1ocmxwb.md
 url: "https://www.reddit.com/r/jobs/comments/1ocmxwb/does_anyone_else_feel_like_its_impossible_to_get/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -6,19 +7,60 @@ subreddit: "jobs"
 title: "Does anyone else feel like it's impossible to get a career job. 4.3k applications on LinkedIn alone."
 author: "CloggedBachus"
 date: "2025-10-21T19:46:24.000Z"
-score: 454
+score: 455
 upvote_ratio: 0.89
-num_comments: 183
+num_comments: 184
 flair: "Applications"
-extracted_at: "2026-05-25T13:03:11.724Z"
+extracted_at: "2026-06-03T15:26:35.259Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Provide a strategic analysis for Northeastern University detailing opportunities to enhance experiential learning and co-op success, specifically across First Year Student Preparedness, 360 student profiles, advisor capabilities, and corporate partner development. Heavily cite and reference external articles, social media posts, and other external data to support themes and recommendations."
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1ocmxwb.md#c0"
+    char_span: [0, 1668]
+    sentence_count: 15
+    key_terms: [https, b9aadff41884148484c700d12288de98cdc57be0, preview, anyone, format, applications, width, auto]
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/jobs/1ocmxwb.md#c1"
+    char_span: [1683, 3069]
+    sentence_count: 14
+    key_terms: [experience, formatting, applying, deleted, resume, beardedswashbuckler, keep, page]
+    section: Comments
+    token_count: 337
+  - id: "social-intelligence/reddit-deep/jobs/1ocmxwb.md#c2"
+    char_span: [3071, 4872]
+    sentence_count: 21
+    key_terms: [linkedin, initiatives, jobs, work, interviews, companies, different, graduated]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/jobs/1ocmxwb.md#c3"
+    char_span: [4874, 6536]
+    sentence_count: 21
+    key_terms: [resumes, impact, professional, "don't", get, good, want, recruiter]
+    section: Comments
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/jobs/1ocmxwb.md#c4"
+    char_span: [6538, 8484]
+    sentence_count: 18
+    key_terms: ["i'm", data, analyst, hiring, "you're", anything, resume, professional]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/jobs/1ocmxwb.md#c5"
+    char_span: [8486, 10100]
+    sentence_count: 11
+    key_terms: [job, resume, get, better, career, cloggedbachus, applications, jobs]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/jobs/1ocmxwb.md#c6"
+    char_span: [10102, 10709]
+    sentence_count: 3
+    key_terms: [passion, career, hiking, outside, klutzyinvestments, life, love, cloggedbachus]
+    section: Comments
+    token_count: 147
 ---
-
 # Does anyone else feel like it's impossible to get a career job. 4.3k applications on LinkedIn alone.
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1ocmxwb/does_anyone_else_feel_like_its_impossible_to_get/)
-Posted by **CloggedBachus** · **454↑** · **183 comments**
+Posted by **CloggedBachus** · **455↑** · **184 comments**
 
 https://preview.redd.it/8bm3247bpiwf1.png?width=867&format=png&auto=webp&s=08ada45b7418cc695ae6434d19c66a44b9c9db24
 
@@ -45,19 +87,19 @@ https://preview.redd.it/y8csmkv8vnwf1.jpg?width=850&format=pjpg&auto=webp&s=0d54
 
 ## Comments
 
-- **[deleted]** (54↑): You’re resume formatting is off, too cluttered. At the very least it has to be condensed to one page.
-  - **BeardedSwashbuckler** (17↑): Ain’t nobody got time for two-page résumés! Unless you’re an academic or top level executive with decades of experience.
+- **[deleted]** (58↑): You’re resume formatting is off, too cluttered. At the very least it has to be condensed to one page.
+  - **BeardedSwashbuckler** (16↑): Ain’t nobody got time for two-page résumés! Unless you’re an academic or top level executive with decades of experience.
   - **CloggedBachus** (1↑): Yes, I resolved the formatting issue. Do you have any critiques of my current resume? I posted it in the dit section of the post. I'd love to hear some feedback.
-    - **zachs1** (4↑): It MUST be a single page. Not front and back. Leave out any experience not relevant to the role you’re applying for to make space (most likely the tutoring and business role). Maybe condense your summary to a comma separated list of skills.
+    - **zachs1** (5↑): It MUST be a single page. Not front and back. Leave out any experience not relevant to the role you’re applying for to make space (most likely the tutoring and business role). Maybe condense your summary to a comma separated list of skills.
     - **[deleted]** (1↑): Briefly checked upon it, the only thing I might also suggest is removing what you did at the employer. Replace it with what you offered them, what you achieved. What value was instated into the company because of your relationship with them at that moment. Keep researching and keep applying, the market may be difficult but it hasn’t stopped recruitment! Cheers friend!
 - **Turkos245** (37↑): I saw an article earlier that said ~50-60% of college grads in the last year are still looking for work. I have almost 4 years of engineer experience, throw out 5-10 apps a week for the past few months, and have a 'call' coming up.
 
 The market is fuckin torched, esp for anything that big companies think AI can do all of, like data analytics.
-  - **saltedhashneggs** (11↑): That's how you know the unemployment numbers are bullshit. Grads from last 2 years probably closer to 80% from that group alone
-    - **Overall_Vast8833** (4↑): Graduated with a CS degree May 2024. Since then ive completed two COMPTIA certs. Zero job to show for it. Have had a few interviews since but haven't landed a full time position in the industry. Nobody I graduated with has found anything either. Markets fucking cooked.
-- **Fluffy-Vacation-8803** (13↑): Are you only applying on LinkedIn? If the first 4000 applications didn’t work well I’m curious why you’d continue with this strategy?
+  - **saltedhashneggs** (10↑): That's how you know the unemployment numbers are bullshit. Grads from last 2 years probably closer to 80% from that group alone
+    - **Overall_Vast8833** (3↑): Graduated with a CS degree May 2024. Since then ive completed two COMPTIA certs. Zero job to show for it. Have had a few interviews since but haven't landed a full time position in the industry. Nobody I graduated with has found anything either. Markets fucking cooked.
+- **Fluffy-Vacation-8803** (12↑): Are you only applying on LinkedIn? If the first 4000 applications didn’t work well I’m curious why you’d continue with this strategy?
   - **CloggedBachus** (2↑): LinkedIn is my 3rd highest application-to-interview rate, behind Olas and Google's 'jobs'. However, both OLAS and Google jobs have a sum of about 2 real jobs a day. I got my highest quantity amount of interviews via linkedin.
-- **[deleted]** (12↑): I have hired people for data science and analyst roles for around 10 years at fortune whatever companies. Here’s my take. 
+- **[deleted]** (11↑): I have hired people for data science and analyst roles for around 10 years at fortune whatever companies. Here’s my take. 
 
 Your resume needs a ton of work - and if you interview the way you write - I’d struggle with placing you in a role. 
 
@@ -85,21 +127,21 @@ You say you have experience solving business problems, but I don't see any of th
   - **redditgirlwz** (2↑): > I never had much luck on LinkedIn.
 
 Same here. Once in a while I get short term opportunities through LinkedIn, but Indeed seems to work better for me (but I'm in Canada, so things may be different here).
-- **joeyboii23** (6↑): Your resume posted from 41 days ago is formatted awful, that’s your main problem. I am a database administrator and have been in data related jobs for the last 6ish years. In that time I have successfully switched jobs 3 times for higher pay including in this job market. 
+- **joeyboii23** (7↑): Your resume posted from 41 days ago is formatted awful, that’s your main problem. I am a database administrator and have been in data related jobs for the last 6ish years. In that time I have successfully switched jobs 3 times for higher pay including in this job market. 
 
 Please DM me if you want some advice, you will never land a job with that resume or have much success in your job search in general with your approach.
   - **CloggedBachus** (1↑): I posted my resume in the edit section of this post. I'd love to hear some feedback.
     - **toodleoo77** (1↑): r/resumes is great for this
 - **Ok_Passage7713** (7↑): Gah dam. But ye I do agree with career jobs. I've tried and no luck lol. I've just been doing minimum wage so my bills are paid
-  - **CloggedBachus** (3↑): It's so frustrating knowing that I am qualified to do a job that is so much better for my career, more enjoyable, and so much better paid, but just not able to get an opportunity to do it.
-    - **natewOw** (2↑): Fix your resume. That's your problem.
+  - **CloggedBachus** (4↑): It's so frustrating knowing that I am qualified to do a job that is so much better for my career, more enjoyable, and so much better paid, but just not able to get an opportunity to do it.
+    - **natewOw** (3↑): Fix your resume. That's your problem.
     - **Educational_Fee_6852** (1↑): My guy you’ve put in 4000 applications. You’re clearly not qualified.
     - **Ok_Passage7713** (1↑): Ye I totally get it :/
 - **BusinessStrategist** (3↑): What’s a « career job? »
-- **Midnightfeelingright** (6↑): There's something profoundly wrong with your applications or application strategy if you can get to 10% of that number without making progress. 
+- **Midnightfeelingright** (5↑): There's something profoundly wrong with your applications or application strategy if you can get to 10% of that number without making progress. 
 
 Blindly spamming will get you nowhere. Numbers are irrelevant.
-- **loungegroover** (3↑): Whats your passion?
+- **loungegroover** (4↑): Whats your passion?
   - **CloggedBachus** (1↑): Like outside of my career or in my career?
     - **KlutzyInvestments** (0↑): Not the person asking, but if they say “outside of your career” I’d highly recommend not making your life dependent on squeezing money out of your life’s passion. 
 

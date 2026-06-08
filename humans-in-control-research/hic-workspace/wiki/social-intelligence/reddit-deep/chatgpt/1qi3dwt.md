@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1qi3dwt.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1qi3dwt/whats_the_most_money_ai_has_saved_you_in_one_real/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,45 @@ flair: "Prompt engineering "
 extracted_at: "2026-05-17T01:12:48.208Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1qi3dwt.md#c0"
+    char_span: [0, 740]
+    sentence_count: 14
+    key_terms: [thousands, comments, chatgpt, real, subscriptions, productivity, transmission, reddit-deep]
+    token_count: 172
+  - id: "social-intelligence/reddit-deep/chatgpt/1qi3dwt.md#c1"
+    char_span: [755, 2048]
+    sentence_count: 8
+    key_terms: [openai, please, conversation, image, obd2, post, r-chatgpt-1050422060352024636, passenger]
+    section: Comments
+    token_count: 332
+  - id: "social-intelligence/reddit-deep/chatgpt/1qi3dwt.md#c2"
+    char_span: [2050, 2909]
+    sentence_count: 2
+    key_terms: [car, port, specific, inside, cabin, like, told, cheeseburger]
+    section: Comments
+    token_count: 218
+  - id: "social-intelligence/reddit-deep/chatgpt/1qi3dwt.md#c3"
+    char_span: [2911, 4985]
+    sentence_count: 11
+    key_terms: [car, did, numerous-cup1863, tdeliev, letter, professional, told, processing]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1qi3dwt.md#c4"
+    char_span: [4731, 5128]
+    sentence_count: 6
+    key_terms: [told, willowemberly, disappointed, implications, professional, misleading, supporting, fireaus67]
+    section: Comments
+    token_count: 104
+  - id: "social-intelligence/reddit-deep/chatgpt/1qi3dwt.md#c5"
+    char_span: [5130, 5409]
+    sentence_count: 1
+    key_terms: [human-in-the-loop, consistently, valuations, augmented, questions, restraint, another, compute]
+    section: Comments
+    token_count: 74
 ---
-
 # What’s the most money AI has saved you in one real situation?
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1qi3dwt/whats_the_most_money_ai_has_saved_you_in_one_real/)

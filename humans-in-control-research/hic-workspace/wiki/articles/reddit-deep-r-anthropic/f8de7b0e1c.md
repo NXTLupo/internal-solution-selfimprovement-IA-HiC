@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-anthropic/f8de7b0e1c.md
 url: "https://www.reddit.com/r/Anthropic/comments/1skwgfl/i_used_claude_to_help_me_build_an_apple_watch_app/"
 url_hash: "f8de7b0e1c"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T17:32:57.971371+00:00"
 chars: 2521
+industries: [ai_research, enterprise_it, education]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-anthropic/f8de7b0e1c.md#c0"
+    char_span: [0, 1792]
+    sentence_count: 13
+    key_terms: [claude, app, apple, anthropic, caffeine, native, completely, management]
+    token_count: 383
+  - id: "articles/reddit-deep-r-anthropic/f8de7b0e1c.md#c1"
+    char_span: [1794, 2808]
+    sentence_count: 5
+    key_terms: [caffeine, pythononrailz, pseudorep, sensitive, awesome, drink, great, app]
+    token_count: 264
 ---
-
 # I used Claude to help me build an Apple Watch app to track caffeine half life and it’s gotten 2,500 downloads and made $700 in revenue so far
 
 Source: [Reddit Deep: r/anthropic](https://www.reddit.com/r/Anthropic/comments/1skwgfl/i_used_claude_to_help_me_build_an_apple_watch_app/)

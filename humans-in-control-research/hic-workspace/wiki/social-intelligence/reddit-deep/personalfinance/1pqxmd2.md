@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1pqxmd2.md
 url: "https://www.reddit.com/r/personalfinance/comments/1pqxmd2/i_will_not_have_my_parents_future/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,74 @@ flair: "Other"
 extracted_at: "2026-05-17T01:13:31.189Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, real_estate, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c0"
+    char_span: [0, 2212]
+    sentence_count: 16
+    key_terms: [student, around, house, loans, personalfinance, parents, credit, months]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c1"
+    char_span: [2214, 3705]
+    sentence_count: 13
+    key_terms: [credit, card, payment, around, never, new, rent, available]
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c2"
+    char_span: [3720, 5780]
+    sentence_count: 18
+    key_terms: [credit, interest, pay, balance, paying, cards, downvotes, full]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c3"
+    char_span: [5782, 7875]
+    sentence_count: 15
+    key_terms: [balance, statement, pay, date, credit, interest, card, want]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c4"
+    char_span: [7877, 9618]
+    sentence_count: 16
+    key_terms: [credit, balance, interest, pay, full, paying, score, card]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c5"
+    char_span: [9620, 11583]
+    sentence_count: 17
+    key_terms: [savings, accounts, like, pay, yourself, credit, future, financially]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c6"
+    char_span: [11585, 13097]
+    sentence_count: 10
+    key_terms: ["you're", brain, "i've", balance, cutting, better, credit, such-cartographer425]
+    section: Comments
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c7"
+    char_span: [13099, 14768]
+    sentence_count: 10
+    key_terms: [rent, thousands, bababoey219, away, home, move, year, students]
+    section: Comments
+    token_count: 401
+  - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c8"
+    char_span: [14770, 16535]
+    sentence_count: 14
+    key_terms: [landlord, goal, home, being, big, like, knowledge, friends]
+    section: Comments
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c9"
+    char_span: [16537, 18554]
+    sentence_count: 15
+    key_terms: [substantialbass9524, resource, personalfinance, house, month, bababoey219, save, wiki]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c10"
+    char_span: [18556, 19829]
+    sentence_count: 15
+    key_terms: ["you're", personalfinance, income, increasing, credit, emperoroftheuniverse, focus, need]
+    section: Comments
+    token_count: 295
 ---
-
 # I will not have my parents future
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1pqxmd2/i_will_not_have_my_parents_future/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1r2y0te.md
 url: "https://www.reddit.com/r/jobs/comments/1r2y0te/career_fair_2026_is_indias_largest_virtual_career/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -10,11 +11,16 @@ score: 0
 upvote_ratio: 0.33
 num_comments: 0
 flair: "Job searching"
-extracted_at: "2026-05-25T13:03:11.721Z"
+extracted_at: "2026-06-03T15:26:35.257Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Provide a strategic analysis for Northeastern University detailing opportunities to enhance experiential learning and co-op success, specifically across First Year Student Preparedness, 360 student profiles, advisor capabilities, and corporate partner development. Heavily cite and reference external articles, social media posts, and other external data to support themes and recommendations."
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1r2y0te.md#c0"
+    char_span: [0, 789]
+    sentence_count: 3
+    key_terms: [career, jobs, fair, mentorship, comments, referral, students, "india's"]
+    token_count: 238
 ---
-
 # Career Fair 2026 is India's largest virtual career fair for students, offering access to 25,000+ entry-level jobs, free AI career tools, and expert mentorship. It helps college students and freshers explore jobs, improve skills, and become career-ready.
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1r2y0te/career_fair_2026_is_indias_largest_virtual_career/)

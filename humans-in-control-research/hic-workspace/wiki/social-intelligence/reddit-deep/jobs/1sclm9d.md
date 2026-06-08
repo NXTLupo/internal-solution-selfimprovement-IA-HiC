@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1sclm9d.md
 url: "https://www.reddit.com/r/jobs/comments/1sclm9d/just_got_hired_at_my_first_actual_full_time_job/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -6,19 +7,42 @@ subreddit: "jobs"
 title: "Just got hired at my first actual full time job. It's just Wendy's, but to build that experience, I'll take it. Any tips while I wait til Tuesday to start?"
 author: "rileyluvsventi"
 date: "2026-04-04T21:42:01.000Z"
-score: 17
-upvote_ratio: 0.95
+score: 16
+upvote_ratio: 0.91
 num_comments: 40
 flair: "Career development"
-extracted_at: "2026-05-20T06:41:17.638Z"
+extracted_at: "2026-06-06T13:04:34.558Z"
 extraction_method: "praw-deep"
-research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1sclm9d.md#c0"
+    char_span: [0, 967]
+    sentence_count: 10
+    key_terms: [job, "wendy's", hired, comments, tuesday, build, "don't", drive]
+    token_count: 247
+  - id: "social-intelligence/reddit-deep/jobs/1sclm9d.md#c1"
+    char_span: [982, 2658]
+    sentence_count: 11
+    key_terms: [rileyluvsventi, time, work, best, keep, thank, like, customers]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/jobs/1sclm9d.md#c2"
+    char_span: [2660, 4484]
+    sentence_count: 25
+    key_terms: [time, get, promoted, rileyluvsventi, "don't", show, dependable, coworkers]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/jobs/1sclm9d.md#c3"
+    char_span: [4486, 5835]
+    sentence_count: 11
+    key_terms: [job, use, seriously, somebody, people, safety, drama, heart]
+    section: Comments
+    token_count: 304
 ---
-
 # Just got hired at my first actual full time job. It's just Wendy's, but to build that experience, I'll take it. Any tips while I wait til Tuesday to start?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1sclm9d/just_got_hired_at_my_first_actual_full_time_job/)
-Posted by **rileyluvsventi** · **17↑** · **40 comments**
+Posted by **rileyluvsventi** · **16↑** · **40 comments**
 
 So I just got hired at my Wendy's that is literally down the street from me (like a 5 minute walk and a way less drive. FL heat is miserable so I drive lol)
 
@@ -31,11 +55,11 @@ I'm just surprised because Wendy's hired me on the spot after a single interview
 
 ## Comments
 
-- **[deleted]** (25↑): All you have to do to keep that job is show up on time for your shifts and do the best you can. Those jobs are designed for first time workers, so don't take anything to heart. Just think of it as a learning experience and have fun.
+- **[deleted]** (24↑): All you have to do to keep that job is show up on time for your shifts and do the best you can. Those jobs are designed for first time workers, so don't take anything to heart. Just think of it as a learning experience and have fun.
   - **rileyluvsventi** (5↑): thank you! i will. i'll try my best too.
-- **Taupe88** (11↑): show up on time. in uniform. ready to go.
+- **Taupe88** (10↑): show up on time. in uniform. ready to go.
   - **rileyluvsventi** (3↑): yep!
-- **Mark_Michigan** (7↑): Success is often built on habits.   Get in the habit of showing up ten minutes early, and leaving 10 minutes late, it may seem like you are giving away your time for free but your life will be easier if you don't stress about the time clock.   
+- **Mark_Michigan** (8↑): Success is often built on habits.   Get in the habit of showing up ten minutes early, and leaving 10 minutes late, it may seem like you are giving away your time for free but your life will be easier if you don't stress about the time clock.   
 
 Work can be like high school, you will see jerks, your best bet is to just focus on the work.   
 
@@ -47,9 +71,9 @@ It isn't "just Wendy's", you are feeding people, which is hugely important work,
   - **rileyluvsventi** (2↑): yeah. people have already been like "oh you work at \_wendy's\_? that's lame find a better job" and i haven't even started lmao so.. a bit discouraging. 
 
 but thank you for the advice! i will do my best to keep customers and myself content.
-- **Witwer52** (4↑): Pace yourself. It’s a marathon, not a sprint. If you over perform, you will be rewarded with more work.
+- **Witwer52** (5↑): Pace yourself. It’s a marathon, not a sprint. If you over perform, you will be rewarded with more work.
   - **rileyluvsventi** (2↑): thank you! i will keep it in mind.
-- **Kooky_Day9105** (5↑): It’s fast food. If you don’t give off junkie vibes you’ll get hired on the spot.
+- **Kooky_Day9105** (4↑): It’s fast food. If you don’t give off junkie vibes you’ll get hired on the spot.
 
 Show up every day on time and do your best to learn all the jobs in the restaurant. If you’re responsible and try your best you could probably get promoted to shift leader/manager or something like that pretty quickly
   - **rileyluvsventi** (1↑): that's the plan yeah. i want to get promoted asap.
@@ -69,7 +93,7 @@ Have fun! I loved doing drive through. Be cheerful, friendly and upbeat with cus
 
 And finally: do not gossip about coworkers with other coworkers. It will cause drama and could get you fired.
   - **rileyluvsventi** (1↑): Great advice, thank you! I am always at least ten minutes early by nature so this works out great haha.
-- **rednail64** (5↑): Fast food usually hires after one interview. 
+- **rednail64** (7↑): Fast food usually hires after one interview. 
 
 Tips:
 - listen more than you talk 

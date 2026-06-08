@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1t4mzm3.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1t4mzm3/production_ai_very_different_from_the_demos_d/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -6,19 +7,42 @@ subreddit: "machinelearning"
 title: "Production AI very different from the demos [D]"
 author: "Far-Football3763"
 date: "2026-05-05T17:52:35.000Z"
-score: 15
-upvote_ratio: 0.71
-num_comments: 28
+score: 16
+upvote_ratio: 0.73
+num_comments: 29
 flair: "Discussion"
-extracted_at: "2026-05-11T17:27:06.572Z"
+extracted_at: "2026-05-31T21:49:57.036Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+research_goal: "Identify emerging AI design trends, skills, tools, platforms, and technical implementations that would  help a company's creative team to move beyond AI as a concepting aid and understand where AI-enabled tools, workflows and internal models can practically support design production, system testing, asset generation, governance and stakeholder confidence. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1t4mzm3.md#c0"
+    char_span: [0, 1391]
+    sentence_count: 6
+    key_terms: [feature, machinelearning, because, production, dashboard, comments, openai, trying]
+    token_count: 297
+  - id: "social-intelligence/reddit-deep/machinelearning/1t4mzm3.md#c1"
+    char_span: [1406, 3116]
+    sentence_count: 10
+    key_terms: [task, decide, architecture, orchestrator, agent, model, challenge, because]
+    section: Comments
+    token_count: 405
+  - id: "social-intelligence/reddit-deep/machinelearning/1t4mzm3.md#c2"
+    char_span: [3118, 4102]
+    sentence_count: 6
+    key_terms: [feature, data, workflow, costs, token, usage, api, like]
+    section: Comments
+    token_count: 214
+  - id: "social-intelligence/reddit-deep/machinelearning/1t4mzm3.md#c3"
+    char_span: [4104, 6084]
+    sentence_count: 12
+    key_terms: [attribution, requests, emergency, cost, outbound, though, going, term]
+    section: Comments
+    token_count: 418
 ---
-
 # Production AI very different from the demos [D]
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1t4mzm3/production_ai_very_different_from_the_demos_d/)
-Posted by **Far-Football3763** · **15↑** · **28 comments**
+Posted by **Far-Football3763** · **16↑** · **29 comments**
 
 Moved an AI feature into production a few months ago and the cost profile has been a constant surprise since so the demos and the early prototypes ran cheap because the volume was tiny + the prompts were short but when it hit traffic the token usage scaled a lot. I think it was partly because customers ask longer and unclear questions than our test set because we ended up adding context retrieval that doubled the input length on every call.  
   
@@ -27,12 +51,12 @@ I shipped the feature and now I am the de facto owner of the cost question. The 
 
 ## Comments
 
-- **Dapper_Letterhead_80** (18↑): The token cost problem doesn't show up in demos because you control the inputs. Real users write long and messy and the context window fills up fast.
+- **Dapper_Letterhead_80** (17↑): The token cost problem doesn't show up in demos because you control the inputs. Real users write long and messy and the context window fills up fast.
 - **MetalAdditional2040** (13↑): The attribution is the real issue here. OpenAI gives you spend but not spend-by-feature and that gap is yours to fill manually.
-  - **Character-File-6003** (5↑): Exactly. But this manual way of figuring out can't be kept up after a couple of features.
+  - **Character-File-6003** (4↑): Exactly. But this manual way of figuring out can't be kept up after a couple of features.
   - **No_Inspection4415** (1↑): And also the distribution is an issue if anything you do is related to user data and you have users with different needs. If you do not already have a lot of relevant data it is a challenge, and it is a challenge regardless because sampling is hard and evaluation of LLMs is costly.
 - **Foreign-Manner6555** (11↑): Here's how you should approach it if you need a plan. First are log tokens in and out per call at your application layer and tag by feature from day one. Secondly move cheaper tasks to a smaller model and keep GPT4o only where quality matters. And finally set a prompt length cap and test it
-  - **Outrageous-Tea-315** (3↑): On the model routing point, how did you decide which calls needed GPT-4o and which ones don't? It's still a maze for me
+  - **Outrageous-Tea-315** (5↑): On the model routing point, how did you decide which calls needed GPT-4o and which ones don't? It's still a maze for me
     - **Unnamed831** (3↑): I think we can  decide that for our task like in langraph we have control over the entire flow for each agent we can select a specific model that is required for that task and the architecture of the workflow decides which agent should be routed the task next. 
 
 For example there's the orchestrator architecture of agents  where the orchestrator decides which agent task should be routed so agents can decide themselves. 

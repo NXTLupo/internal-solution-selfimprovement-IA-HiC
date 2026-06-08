@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1r4dm3l.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1r4dm3l/i_have_a_theory_about_extracirriculars_and/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,44 @@ flair: "Discussion"
 extracted_at: "2026-05-24T14:08:39.598Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r4dm3l.md#c0"
+    char_span: [0, 1911]
+    sentence_count: 11
+    key_terms: [extracirriculars, applyingtocollege, kids, colleges, extracirricular, college, academically, prestigious]
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r4dm3l.md#c1"
+    char_span: [1916, 2911]
+    sentence_count: 7
+    key_terms: [student, year, however, accept, character-building, extracirriculars, institutional, significantly]
+    token_count: 209
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r4dm3l.md#c2"
+    char_span: [2926, 4895]
+    sentence_count: 14
+    key_terms: [students, extracurriculars, school, competitive, like, admissions, applicants, academic]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r4dm3l.md#c3"
+    char_span: [4897, 6789]
+    sentence_count: 12
+    key_terms: [care, school, lot, applicants, admission, impact, others, known]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r4dm3l.md#c4"
+    char_span: [6791, 8908]
+    sentence_count: 13
+    key_terms: [schools, school, did, ecs, high, mit, something, students]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r4dm3l.md#c5"
+    char_span: [8910, 11117]
+    sentence_count: 20
+    key_terms: [activities, community, people, something, campus, brain, show, admissions]
+    section: Comments
+    token_count: 453
 ---
-
 # I have a theory about Extracirriculars and college admissions and awards
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1r4dm3l/i_have_a_theory_about_extracirriculars_and/)

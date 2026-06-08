@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1snpsxj.md
 url: "https://www.reddit.com/r/internships/comments/1snpsxj/tips_on_securing_an_internship_in_an_area_that/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,27 @@ flair: "General"
 extracted_at: "2026-05-22T21:34:37.051Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1snpsxj.md#c0"
+    char_span: [0, 1072]
+    sentence_count: 9
+    key_terms: [internships, alberta, year, internship, comments, looking, summer, month]
+    token_count: 256
+  - id: "social-intelligence/reddit-deep/internships/1snpsxj.md#c1"
+    char_span: [1087, 3243]
+    sentence_count: 16
+    key_terms: [companies, applying, postings, remote, resume, summer, roles, start]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/internships/1snpsxj.md#c2"
+    char_span: [3245, 3351]
+    sentence_count: 1
+    key_terms: [bridoa15, thoughts, sprout, code, goes, hear, "i'd", lmk]
+    section: Comments
+    token_count: 31
 ---
-
 # Tips on securing an internship in an area that isn’t a tech hub
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1snpsxj/tips_on_securing_an_internship_in_an_area_that/)

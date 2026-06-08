@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1q7a6sp.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1q7a6sp/any_hope_at_all_for_an_biology_student_too_find_a/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,33 @@ flair: "Student"
 extracted_at: "2026-05-23T20:15:57.476Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q7a6sp.md#c0"
+    char_span: [0, 1449]
+    sentence_count: 10
+    key_terms: [biology, cscareerquestions, job, time, studying, programming, get, too]
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q7a6sp.md#c1"
+    char_span: [1464, 2784]
+    sentence_count: 7
+    key_terms: [work, degree, professional, biology, school, wanted, field, years]
+    section: Comments
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q7a6sp.md#c2"
+    char_span: [2786, 4822]
+    sentence_count: 13
+    key_terms: [tipadditional4625, get, work, programming, job, impossible, projects, studying]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q7a6sp.md#c3"
+    char_span: [4824, 5902]
+    sentence_count: 5
+    key_terms: [lab, recommend, projects, start, cscareerquestions, tipadditional4625, find, get]
+    section: Comments
+    token_count: 261
 ---
-
 # Any hope at all for an biology student too find a job right now with some programming experience ?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1q7a6sp/any_hope_at_all_for_an_biology_student_too_find_a/)

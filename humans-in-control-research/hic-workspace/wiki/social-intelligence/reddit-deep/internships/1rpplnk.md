@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rpplnk.md
 url: "https://www.reddit.com/r/internships/comments/1rpplnk/manager_not_responding_to_email_about_first_week/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,22 @@ score: 11
 upvote_ratio: 1
 num_comments: 2
 flair: "General"
-extracted_at: "2026-05-19T17:57:20.769Z"
+extracted_at: "2026-06-05T23:41:05.384Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rpplnk.md#c0"
+    char_span: [0, 2370]
+    sentence_count: 16
+    key_terms: [email, internship, company, manager, emailed, february, follow, commencement]
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/internships/1rpplnk.md#c1"
+    char_span: [2375, 3135]
+    sentence_count: 7
+    key_terms: [graduation, questions, allowed, whether, always, attend, appropriate-tutor587, alert-locksmith2231]
+    section: Comments
+    token_count: 193
 ---
-
 # Manager not responding to email about first week of internship overlapping with my commencement day (Incoming intern for a mid-sized company)
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rpplnk/manager_not_responding_to_email_about_first_week/)
@@ -36,6 +48,6 @@ Also if anyone has any questions on finding an internship or any questions on th
 
 ## Comments
 
-- **Appropriate-Tutor587** (4↑): Listen, it’s up to you to go to your graduation or miss it whether they allow you to attend it or not. Congrats 🎊🍾🎉🎈!!
+- **Appropriate-Tutor587** (5↑): Listen, it’s up to you to go to your graduation or miss it whether they allow you to attend it or not. Congrats 🎊🍾🎉🎈!!
 You don’t need to worry about them because they can always find another intern.
   - **Alert-Locksmith2231** (2↑): Oh ya, I wouldn't go to my graduation. I made it known in the email that I am merely asking whether or not I would be allowed to go and that if not allowed I would be more than happy to attend work. I'm moreso just worried as to the delay of response from the manager of the team.

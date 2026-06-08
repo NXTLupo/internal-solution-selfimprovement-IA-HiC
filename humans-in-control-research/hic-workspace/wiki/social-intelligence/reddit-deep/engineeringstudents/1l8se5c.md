@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1l8se5c.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1l8se5c/civil_engineering_student_looking_for_free_access/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,15 @@ flair: "Resource Request"
 extracted_at: "2026-05-22T21:34:47.624Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1l8se5c.md#c0"
+    char_span: [0, 1012]
+    sentence_count: 5
+    key_terms: [access, engineeringstudents, standards, student, engineering, comments, civil, no-television6249]
+    token_count: 211
 ---
-
 # Civil Engineering Student Looking for Free Access to ASTM or BS Standards
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1l8se5c/civil_engineering_student_looking_for_free_access/)

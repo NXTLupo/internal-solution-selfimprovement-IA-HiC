@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rff7qh.md
 url: "https://www.reddit.com/r/internships/comments/1rff7qh/its_not_too_late_for_summer_2026_internships/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,30 @@ subreddit: "internships"
 title: "It’s not too late for Summer 2026 internships"
 author: "ddddeeeeg"
 date: "2026-02-26T16:44:01.000Z"
-score: 291
+score: 288
 upvote_ratio: 0.99
 num_comments: 39
 flair: "General"
-extracted_at: "2026-05-19T15:08:33.799Z"
+extracted_at: "2026-06-05T16:18:00.468Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rff7qh.md#c0"
+    char_span: [0, 1103]
+    sentence_count: 5
+    key_terms: [internships, comments, summer, https, com, list, comment, posted]
+    token_count: 314
+  - id: "social-intelligence/reddit-deep/internships/1rff7qh.md#c1"
+    char_span: [1118, 2171]
+    sentence_count: 4
+    key_terms: [internship, late, thank, got, too, ddddeeeeg, summer, ecstatic-attention23]
+    section: Comments
+    token_count: 357
 ---
-
 # It’s not too late for Summer 2026 internships
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rff7qh/its_not_too_late_for_summer_2026_internships/)
-Posted by **ddddeeeeg** · **291↑** · **39 comments**
+Posted by **ddddeeeeg** · **288↑** · **39 comments**
 
 Seeing a lot of posts asking if it’s too late to apply for the summer, I want to emphasize that it's most certainly not.
 
@@ -30,14 +42,14 @@ Feedback is welcome, and best of luck in everyone's search!
 
 ## Comments
 
-- **Ecstatic-Attention23** (14↑): thank you so much for doing this🙌🏾🙌🏾🙌🏾🙌🏾
-- **No_Farm8210** (9↑): Just heard back for an interview for summer internship today. It is indeed not too late, but you gotta move fast!
+- **Ecstatic-Attention23** (13↑): thank you so much for doing this🙌🏾🙌🏾🙌🏾🙌🏾
+- **No_Farm8210** (10↑): Just heard back for an interview for summer internship today. It is indeed not too late, but you gotta move fast!
   - **Senior-Ad-1007** (1↑): Congrats!
     - **No_Farm8210** (1↑): ty!
 - **starstufft** (8↑): Thank you so much for taking the time to do this
   - **ddddeeeeg** (5↑): Of course! I'll try to continue updating the list whenever I have the time
-- **GrandmasterSuckMe** (5↑): I got my internship last year in May and got one this year in February. Definitely not too late yet.
-- **Dramatic-Letter2708** (3↑): 🔥🔥🔥
+- **GrandmasterSuckMe** (6↑): I got my internship last year in May and got one this year in February. Definitely not too late yet.
+- **Dramatic-Letter2708** (4↑): 🔥🔥🔥
 - **Dry_Task_5780** (2↑): Feels very late 😢
   - **ddddeeeeg** (7↑): Better late then never, you've got this
 - **Next-Lack-5237** (2↑): Thank you so much for putting this together!

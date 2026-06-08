@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-personalfinance/469d1caced.md
 url: "https://www.reddit.com/r/personalfinance/comments/1mxw81u/just_found_out_about_a_secret_account_with_76k_in/"
 url_hash: "469d1caced"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:18:49.515053+00:00"
 chars: 4871
+industries: [financial_services, government]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-personalfinance/469d1caced.md#c0"
+    char_span: [0, 1840]
+    sentence_count: 11
+    key_terms: [dont, personalfinance, account, been, last, withdraw, savings, advice]
+    token_count: 445
+  - id: "articles/reddit-deep-r-personalfinance/469d1caced.md#c1"
+    char_span: [1842, 3883]
+    sentence_count: 16
+    key_terms: [money, time, account, thought, dad, lot, seriously, research]
+    token_count: 459
+  - id: "articles/reddit-deep-r-personalfinance/469d1caced.md#c2"
+    char_span: [3885, 5118]
+    sentence_count: 13
+    key_terms: [ask, hysa, investment, crypto, randomcoffeethoughts, money, years, dad]
+    token_count: 307
 ---
-
 # Just found out about a secret account with $76k in it, and I dont know what to do with it
 
 Source: [Reddit Deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1mxw81u/just_found_out_about_a_secret_account_with_76k_in/)

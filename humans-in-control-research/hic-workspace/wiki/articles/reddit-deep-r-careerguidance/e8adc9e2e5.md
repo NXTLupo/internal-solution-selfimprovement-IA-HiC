@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/e8adc9e2e5.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sudplu/career_path_while_family_planning_as_a_chartered/"
 url_hash: "e8adc9e2e5"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T12:20:22.492381+00:00"
 chars: 1078
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/e8adc9e2e5.md#c0"
+    char_span: [0, 1342]
+    sentence_count: 16
+    key_terms: [career, want, careerguidance, like, accountant, chartered, family, reddit]
+    token_count: 314
 ---
-
 # Career path while family planning as a Chartered Accountant with ambitions to be successful but feeling lost?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sudplu/career_path_while_family_planning_as_a_chartered/)

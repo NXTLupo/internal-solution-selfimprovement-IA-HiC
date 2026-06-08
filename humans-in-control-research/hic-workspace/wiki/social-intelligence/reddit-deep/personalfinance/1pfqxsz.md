@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1pfqxsz.md
 url: "https://www.reddit.com/r/personalfinance/comments/1pfqxsz/pregnant_wife_got_terminated_and_we_are_freaking/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,67 @@ flair: "Employment"
 extracted_at: "2026-05-17T01:13:31.188Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c0"
+    char_span: [0, 1827]
+    sentence_count: 12
+    key_terms: [month, personalfinance, practitioner, time, wife, currently, comments, practice]
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c1"
+    char_span: [1829, 3435]
+    sentence_count: 14
+    key_terms: [income, carrying, account, hunting, debt, job, completely, hurricane]
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c2"
+    char_span: [3437, 4720]
+    sentence_count: 7
+    key_terms: [company, owner, wife, terminated, employees, including, income, state]
+    token_count: 273
+  - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c3"
+    char_span: [4735, 6656]
+    sentence_count: 14
+    key_terms: [job, comments, maternity, practice, leave, month, shift, new]
+    section: Comments
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c4"
+    char_span: [6659, 8646]
+    sentence_count: 16
+    key_terms: [work, get, benefits, interest, position, practice, transfer, patient]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c5"
+    char_span: [8648, 9005]
+    sentence_count: 6
+    key_terms: [everything, insurance, hospital, anyways, systems, working, around, months]
+    section: Comments
+    token_count: 91
+  - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c6"
+    char_span: [9007, 11184]
+    sentence_count: 20
+    key_terms: [whatever, income, potentially, home, everything, situation, goodwill, possible]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c7"
+    char_span: [10953, 11749]
+    sentence_count: 9
+    key_terms: [practice, hours, gardeniaroseviolet, days, time, availability, practitioner, commenting]
+    section: Comments
+    token_count: 197
+  - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c8"
+    char_span: [11751, 13918]
+    sentence_count: 24
+    key_terms: [insurance, get, wife, covering, going, right, until, years]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c9"
+    char_span: [13920, 14250]
+    sentence_count: 3
+    key_terms: [inpatient, primary, care, hippoofdoom, significant, outpatient, schedules, settings]
+    section: Comments
+    token_count: 78
 ---
-
 # Pregnant wife got terminated and we are freaking out... What can we do?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1pfqxsz/pregnant_wife_got_terminated_and_we_are_freaking/)

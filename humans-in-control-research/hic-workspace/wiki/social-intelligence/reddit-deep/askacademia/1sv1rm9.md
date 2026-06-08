@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1sv1rm9.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1sv1rm9/what_do_you_wish_you_knew_in_the_early_days_of/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,44 @@ flair: "Humanities"
 extracted_at: "2026-05-26T14:32:49.123Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1sv1rm9.md#c0"
+    char_span: [0, 1957]
+    sentence_count: 15
+    key_terms: [working, career, seems, topic, askacademia, did, get, bachelors]
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/askacademia/1sv1rm9.md#c1"
+    char_span: [1959, 2633]
+    sentence_count: 7
+    key_terms: [people, social, ignorance, through, doing, rules, unprofessional, throughout]
+    token_count: 139
+  - id: "social-intelligence/reddit-deep/askacademia/1sv1rm9.md#c2"
+    char_span: [2648, 4425]
+    sentence_count: 14
+    key_terms: [someone, advice, purpleconversation36, work, help, helpful, humble, biglybiglytremendous]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/askacademia/1sv1rm9.md#c3"
+    char_span: [4427, 6743]
+    sentence_count: 21
+    key_terms: [culturalyesterday641, different, been, faculty, people, compensation, going, academia]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/askacademia/1sv1rm9.md#c4"
+    char_span: [6456, 7399]
+    sentence_count: 9
+    key_terms: [faculty, answer, purpleconversation36, doesn, place, administration, disrespectful, appreciable]
+    section: Comments
+    token_count: 206
+  - id: "social-intelligence/reddit-deep/askacademia/1sv1rm9.md#c5"
+    char_span: [7401, 8221]
+    sentence_count: 7
+    key_terms: [because, clinical, focus, gauge, offer, sense, don, like]
+    section: Comments
+    token_count: 174
 ---
-
 # What do you wish you knew in the early days of your career?
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1sv1rm9/what_do_you_wish_you_knew_in_the_early_days_of/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1s10mkw.md
 url: "https://www.reddit.com/r/deeplearning/comments/1s10mkw/structured_6band_json_prompts_beat_chainofthought/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,26 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.055Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1s10mkw.md#c0"
+    char_span: [0, 1900]
+    sentence_count: 3
+    key_terms: [structured, prompt, specificity, chain-of-thought, analysis, format, tables, deeplearning]
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/deeplearning/1s10mkw.md#c1"
+    char_span: [1902, 2345]
+    sentence_count: 3
+    key_terms: [https, paper, doi, spec, reconstruction, peer-reviewed, reproducible, mdalexandre]
+    token_count: 111
+  - id: "social-intelligence/reddit-deep/deeplearning/1s10mkw.md#c2"
+    char_span: [2360, 4526]
+    sentence_count: 18
+    key_terms: [model, real, format, method, tasks, json, like, test]
+    section: Comments
+    token_count: 503
 ---
-
 # Structured 6-band JSON prompts beat Chain-of-Thought, Few-Shot, and 7 other techniques in head-to-head tests
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1s10mkw/structured_6band_json_prompts_beat_chainofthought/)

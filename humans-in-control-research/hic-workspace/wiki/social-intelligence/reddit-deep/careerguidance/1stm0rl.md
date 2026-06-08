@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1stm0rl.md
 url: "https://www.reddit.com/r/careerguidance/comments/1stm0rl/is_it_wrong_to_take_a_job_if_i_know_ill_leave_in/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-24T14:09:04.411Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1stm0rl.md#c0"
+    char_span: [0, 1679]
+    sentence_count: 15
+    key_terms: [job, comments, company, careerguidance, months, leave, role, full-time]
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/careerguidance/1stm0rl.md#c1"
+    char_span: [1694, 2922]
+    sentence_count: 3
+    key_terms: [munchytime, probably, months, paying, anonymousforalittle, since, fantastic-kale9603, fast]
+    section: Comments
+    token_count: 312
+  - id: "social-intelligence/reddit-deep/careerguidance/1stm0rl.md#c2"
+    char_span: [2925, 3995]
+    sentence_count: 7
+    key_terms: [job, months, take, onboarding, leaving, working, matter, being]
+    section: Comments
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/careerguidance/1stm0rl.md#c3"
+    char_span: [3997, 6010]
+    sentence_count: 15
+    key_terms: [money, get, job, need, people, toxic, like, take]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/careerguidance/1stm0rl.md#c4"
+    char_span: [6012, 7540]
+    sentence_count: 10
+    key_terms: [difficult-mango312, dog, struggle, company, people, candidate, companies, because]
+    section: Comments
+    token_count: 401
+  - id: "social-intelligence/reddit-deep/careerguidance/1stm0rl.md#c5"
+    char_span: [7542, 9229]
+    sentence_count: 16
+    key_terms: [company, time, companies, leaving, "wasn't", capable-savings-6776, ago, care]
+    section: Comments
+    token_count: 436
 ---
-
 # Is it wrong to take a job if I know I’ll leave in ~2 months?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1stm0rl/is_it_wrong_to_take_a_job_if_i_know_ill_leave_in/)

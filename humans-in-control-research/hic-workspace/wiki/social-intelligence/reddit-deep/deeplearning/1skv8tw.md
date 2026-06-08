@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1skv8tw.md
 url: "https://www.reddit.com/r/deeplearning/comments/1skv8tw/we_built_a_pregeneration_llm_guardrail_that/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.044Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1skv8tw.md#c0"
+    char_span: [0, 1804]
+    sentence_count: 16
+    key_terms: [model, detection, injection, prompt, source, deeplearning, https, never]
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/deeplearning/1skv8tw.md#c1"
+    char_span: [1819, 4046]
+    sentence_count: 16
+    key_terms: [injection, turbulent-tap6723, residual, against, stream, benchmarks, prompt, supply]
+    section: Comments
+    token_count: 508
 ---
-
 # We built a pre-generation LLM guardrail that blocks prompt injection at the residual stream level, before the model outputs anything [Mistral 7B, 0% FP, 100% detection]
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1skv8tw/we_built_a_pregeneration_llm_guardrail_that/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1mj78xy.md
 url: "https://www.reddit.com/r/OpenAI/comments/1mj78xy/just_a_reminder_that_the_context_window_in/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,63 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:05.350Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c0"
+    char_span: [0, 827]
+    sentence_count: 3
+    key_terms: [context, window, comments, problem, openai, gpt-5, disappointed, satisfactory]
+    token_count: 204
+  - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c1"
+    char_span: [842, 2899]
+    sentence_count: 12
+    key_terms: [context, performance, larger, uniformly, use, gemini, models, window]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c2"
+    char_span: [2901, 3478]
+    sentence_count: 3
+    key_terms: [context, thatnorthernhag, comprehension, experimental, experience, limitation, important, productif]
+    section: Comments
+    token_count: 151
+  - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c3"
+    char_span: [3480, 5043]
+    sentence_count: 13
+    key_terms: [context, conversation, perfectly, perfect, better, humans, recall, "don't"]
+    section: Comments
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c4"
+    char_span: [5045, 7144]
+    sentence_count: 9
+    key_terms: [context, scripts, large, code, max, documents, multiple, remember]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c5"
+    char_span: [7146, 8724]
+    sentence_count: 8
+    key_terms: [context, use, krishnajeya, api, perplexity, questions, chatbot, people]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c6"
+    char_span: [8726, 10170]
+    sentence_count: 5
+    key_terms: [context, pro, lines, users, chat, gpt, because, claude]
+    section: Comments
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c7"
+    char_span: [10172, 11873]
+    sentence_count: 6
+    key_terms: [context, users, free, studio, window, get, plus, pro]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c8"
+    char_span: [11875, 12481]
+    sentence_count: 3
+    key_terms: [models, definitely, glokzdnb, context, source, guess, open, complications]
+    section: Comments
+    token_count: 162
 ---
-
 # Just a reminder that the context window in ChatGPT Plus is still 32k…
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1mj78xy/just_a_reminder_that_the_context_window_in/)

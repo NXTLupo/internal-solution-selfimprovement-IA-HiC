@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1rr2mdp.md
 url: "https://www.reddit.com/r/NEU/comments/1rr2mdp/your_neu_claude_account_data_belongs_to_the/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -6,19 +7,41 @@ subreddit: "neu"
 title: "Your NEU Claude account data belongs to the university. Here's my two-account setup."
 author: "IterativeIntention"
 date: "2026-03-11T18:50:57.000Z"
-score: 24
-upvote_ratio: 0.7
+score: 27
+upvote_ratio: 0.72
 num_comments: 14
 flair: "Misc"
-extracted_at: "2026-05-19T17:57:09.042Z"
+extracted_at: "2026-06-03T18:34:36.365Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1rr2mdp.md#c0"
+    char_span: [0, 2452]
+    sentence_count: 26
+    key_terms: [account, context, claude, personal, university, neu, run, building]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/neu/1rr2mdp.md#c1"
+    char_span: [2454, 3178]
+    sentence_count: 7
+    key_terms: [anything, account, claude, graduation, personal, "you're", doing, want]
+    token_count: 147
+  - id: "social-intelligence/reddit-deep/neu/1rr2mdp.md#c2"
+    char_span: [3193, 4045]
+    sentence_count: 6
+    key_terms: [impressive-door-2616, iterativeintention, data, like, time, trustyhuskyneu, cheesypanther, orientation]
+    section: Comments
+    token_count: 227
+  - id: "social-intelligence/reddit-deep/neu/1rr2mdp.md#c3"
+    char_span: [4047, 6081]
+    sentence_count: 12
+    key_terms: [claude, access, northeastern, usage, chat, appreciate, bostonnu, comments]
+    section: Comments
+    token_count: 496
 ---
-
 # Your NEU Claude account data belongs to the university. Here's my two-account setup.
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1rr2mdp/your_neu_claude_account_data_belongs_to_the/)
-Posted by **IterativeIntention** · **24↑** · **14 comments**
+Posted by **IterativeIntention** · **27↑** · **14 comments**
 
 Something I didn't think about until recently. Northeastern gives us access to Claude through our university email, which is great. But that account is an enterprise account owned by the institution. That means the conversations, the projects, the data you build in there... that's technically Northeastern's. When you graduate or leave, that access goes away and so does everything in it.
 
@@ -37,18 +60,18 @@ TLDR: NEU's Claude account is enterprise-owned. Your data lives and dies with yo
 
 ## Comments
 
-- **CheesyPanther** (77↑): the most tech bro post I have ever read
-  - **Rhynocerous** (43↑): The way dudes like this talk cracks me up, like they're trying to puff it up for an interview. 
+- **CheesyPanther** (79↑): the most tech bro post I have ever read
+  - **Rhynocerous** (42↑): The way dudes like this talk cracks me up, like they're trying to puff it up for an interview. 
 
 What normal people call "copy paste to the new chat" we see called "building a structured transfer protocol to bridge the system states by forcing orientation"
     - **Impressive-Door-2616** (3↑): Exactly and then again on top , data export exist 😭
   - **TrustyHuskyNEU** (17↑): You don't get it, it's of absolute utmost importance that we pay money to \*make sure\* the corpos keep our data for us.
-  - **IterativeIntention** (12↑): Listen. To be fair. I may or may not be a 40 year old full time student. One who has spent far too much time using AI and getting lost in it at times. Sometimes we need another perspective to point out how disgusting we sound. 
+  - **IterativeIntention** (11↑): Listen. To be fair. I may or may not be a 40 year old full time student. One who has spent far too much time using AI and getting lost in it at times. Sometimes we need another perspective to point out how disgusting we sound. 
 
 I appreciate these comments and I will fight the urge to delete this post, the urge that your comments gave me. If for nothing else than to leave this artifact here that maybe I will remember how gross this made me feel.
-- **BostonNU** (6↑): FYI, We still have Claude access for 1 yr after graduation. And Husky email access indefinitely
+- **BostonNU** (5↑): FYI, We still have Claude access for 1 yr after graduation. And Husky email access indefinitely
   - **CorrectMedia4163** (1↑): confirmed?
-    - **BostonNU** (2↑): As to Husky email, absolutely. IT says so for Claude
+    - **BostonNU** (3↑): As to Husky email, absolutely. IT says so for Claude
 - **PureIntention2983** (2↑): I took subscription cause our enterprise account doesnt allow us to use claude code
 - **Material_Dance_4959** (2↑): Hi, this info is really helpful, however I legit have seen the Anthropic's Dashboard associated with Northeastern that is handled by Northeastern IT dont ask how? i cant tell that. They can only see users which displays chats usage, projects usage and artifacts (i.e. html files, tech files, codes and so on) it won’t display any chat conversations with the AI.
   - **IterativeIntention** (1↑): If this is true then I have some relief and appreciate you passing this on.

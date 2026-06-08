@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1suxf9z.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1suxf9z/poet_finally_ripping_turned_student_loanera/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,50 @@ flair: "Gain"
 extracted_at: "2026-05-17T01:14:17.601Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1suxf9z.md#c0"
+    char_span: [0, 1941]
+    sentence_count: 15
+    key_terms: [poet, investing, been, wallstreetbets, market, early, portfolio, comments]
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1suxf9z.md#c1"
+    char_span: [1943, 2633]
+    sentence_count: 9
+    key_terms: [poet, long-term, portfolio, bullish, trimmed, scholarship-funded, high, rollercoaster]
+    token_count: 159
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1suxf9z.md#c2"
+    char_span: [2648, 3585]
+    sentence_count: 1
+    key_terms: [existing-mammoth-315, discord, months, total, ago, best, poet, wsb]
+    section: Comments
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1suxf9z.md#c3"
+    char_span: [3587, 5018]
+    sentence_count: 4
+    key_terms: [chance, back, like, preview, format, existing-mammoth-315, rutherfordrevelation, https]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1suxf9z.md#c4"
+    char_span: [5020, 5616]
+    sentence_count: 3
+    key_terms: [veganturkishbaklava, riskismyapellido, administration, gym6daysaweek, meaningfully, surveillance, comfortable, shinobinc]
+    section: Comments
+    token_count: 193
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1suxf9z.md#c5"
+    char_span: [5620, 7116]
+    sentence_count: 5
+    key_terms: [existing-mammoth-315, d0379effc72adad9b5e2c68be3661ed6401162db, poet, preview, selling, cramer, format, honor]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1suxf9z.md#c6"
+    char_span: [7118, 8270]
+    sentence_count: 6
+    key_terms: [sonnythecoolboy, existing-mammoth-315, bigger, shares, right, today, sold, chaingoldstein]
+    section: Comments
+    token_count: 387
 ---
-
 # POET finally ripping — turned student loan-era investing into an almost 1 million dollar portfolio. Still bullish to $50 EOY
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1suxf9z/poet_finally_ripping_turned_student_loanera/)

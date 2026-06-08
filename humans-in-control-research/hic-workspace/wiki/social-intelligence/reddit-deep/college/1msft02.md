@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1msft02.md
 url: "https://www.reddit.com/r/college/comments/1msft02/anyone_who_commutes_feeling_depressed_like_me/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-20T12:56:27.189Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1msft02.md#c0"
+    char_span: [0, 948]
+    sentence_count: 8
+    key_terms: [like, college, university, comments, commute, school, guess, makes]
+    token_count: 231
+  - id: "social-intelligence/reddit-deep/college/1msft02.md#c1"
+    char_span: [963, 2540]
+    sentence_count: 11
+    key_terms: [involved, campus, friends, deleted, started, events, school, clubs]
+    section: Comments
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/college/1msft02.md#c2"
+    char_span: [2542, 4695]
+    sentence_count: 30
+    key_terms: [campus, home, try, commuter, classes, college, around, clubs]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/college/1msft02.md#c3"
+    char_span: [4697, 6433]
+    sentence_count: 19
+    key_terms: [college, campus, involved, friends, living, fun, get, like]
+    section: Comments
+    token_count: 391
 ---
-
 # Anyone who commutes feeling depressed like me?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1msft02/anyone_who_commutes_feeling_depressed_like_me/)

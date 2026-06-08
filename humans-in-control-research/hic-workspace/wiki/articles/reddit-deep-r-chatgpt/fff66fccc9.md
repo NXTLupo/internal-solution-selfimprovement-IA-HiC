@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-chatgpt/fff66fccc9.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1pi3gdl/heavy_voice_mode_users_do_you_actually_like/"
 url_hash: "fff66fccc9"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T16:59:34.384359+00:00"
 chars: 3157
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-chatgpt/fff66fccc9.md#c0"
+    char_span: [0, 1981]
+    sentence_count: 17
+    key_terms: [chatgpt, voice, please, reddit, conversation, https, image, pause]
+    token_count: 489
+  - id: "articles/reddit-deep-r-chatgpt/fff66fccc9.md#c1"
+    char_span: [1983, 3366]
+    sentence_count: 18
+    key_terms: [voice, use, chatgpt, artemgetman, mode, time, interrupt, without]
+    token_count: 345
 ---
-
 # Heavy voice mode users - do you actually like ChatGPT's voice experience?
 
 Source: [Reddit Deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1pi3gdl/heavy_voice_mode_users_do_you_actually_like/)

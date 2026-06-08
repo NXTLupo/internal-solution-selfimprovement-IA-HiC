@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1rssp6y.md
 url: "https://www.reddit.com/r/deeplearning/comments/1rssp6y/why_do_specialized_ai_portrait_systems_outperform/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.055Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, media]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1rssp6y.md#c0"
+    char_span: [0, 1175]
+    sentence_count: 8
+    key_terms: [novaheadshot, models, deeplearning, professional, https, specialized, com, www]
+    token_count: 238
+  - id: "social-intelligence/reddit-deep/deeplearning/1rssp6y.md#c1"
+    char_span: [1190, 2119]
+    sentence_count: 1
+    key_terms: [reddit, https, com, www, entrepreneurs, headshots, artificialntelligence, chatgptpromptgenius]
+    section: Comments
+    token_count: 288
 ---
-
 # Why do specialized AI portrait systems outperform general diffusion models for professional headshots?
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1rssp6y/why_do_specialized_ai_portrait_systems_outperform/)

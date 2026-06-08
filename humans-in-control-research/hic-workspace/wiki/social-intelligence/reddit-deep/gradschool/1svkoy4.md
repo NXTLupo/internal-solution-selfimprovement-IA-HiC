@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1svkoy4.md
 url: "https://www.reddit.com/r/GradSchool/comments/1svkoy4/so_can_i_get_into_grad_school_and_get_paid_can_i/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-19T15:08:48.773Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1svkoy4.md#c0"
+    char_span: [0, 328]
+    sentence_count: 3
+    key_terms: [gradschool, comments, school, get, reddit-deep, kenicandi, research, getting]
+    token_count: 92
+  - id: "social-intelligence/reddit-deep/gradschool/1svkoy4.md#c1"
+    char_span: [343, 2531]
+    sentence_count: 17
+    key_terms: [research, school, professor, bobbybobby507, grad, people, program, pay]
+    section: Comments
+    token_count: 512
 ---
-
 # So can I get into grad school and get paid? Can I do research at the school of choice before getting in?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1svkoy4/so_can_i_get_into_grad_school_and_get_paid_can_i/)

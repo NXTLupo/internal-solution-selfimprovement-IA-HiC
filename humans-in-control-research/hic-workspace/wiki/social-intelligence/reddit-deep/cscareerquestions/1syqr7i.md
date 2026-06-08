@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1syqr7i.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1syqr7i/how_to_pivot_out_of_the_tech_industry/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-23T12:16:24.396Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1syqr7i.md#c0"
+    char_span: [0, 455]
+    sentence_count: 4
+    key_terms: [cscareerquestions, comments, pivot, overqualified, reddit-deep, bachelors, horrible, industry]
+    token_count: 122
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1syqr7i.md#c1"
+    char_span: [470, 1998]
+    sentence_count: 8
+    key_terms: [jobs, fast, food, "i've", job, working, better, school]
+    section: Comments
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1syqr7i.md#c2"
+    char_span: [2000, 3948]
+    sentence_count: 14
+    key_terms: [job, food, too, contract, expectations, using, far, fast]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1syqr7i.md#c3"
+    char_span: [3953, 5990]
+    sentence_count: 15
+    key_terms: [fast, food, get, job, degree, "you're", experience, asking]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1syqr7i.md#c4"
+    char_span: [5992, 8004]
+    sentence_count: 19
+    key_terms: [job, experience, degree, normie, co-workers, fast, food, better]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1syqr7i.md#c5"
+    char_span: [8006, 10024]
+    sentence_count: 13
+    key_terms: [job, dev, like, degree, shock-broad, bad, get, swe]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1syqr7i.md#c6"
+    char_span: [10026, 11335]
+    sentence_count: 11
+    key_terms: [like, considered, experience, privileged, devil, get, nice, unemployment]
+    section: Comments
+    token_count: 312
 ---
-
 # How to pivot out of the tech industry?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1syqr7i/how_to_pivot_out_of_the_tech_industry/)

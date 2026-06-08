@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1sfzqls.md
 url: "https://www.reddit.com/r/findapath/comments/1sfzqls/got_a_silly_degree_because_i_didnt_expect_to_be/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,45 @@ flair: "Findapath-Career Change"
 extracted_at: "2026-05-22T15:13:18.828Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1sfzqls.md#c0"
+    char_span: [0, 1520]
+    sentence_count: 15
+    key_terms: [degree, findapath, something, anything, comments, because, college, getting]
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/findapath/1sfzqls.md#c1"
+    char_span: [1535, 3670]
+    sentence_count: 15
+    key_terms: [thank, everyone, helpful, advice, please, community, findapath, practical]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/findapath/1sfzqls.md#c2"
+    char_span: [3672, 5339]
+    sentence_count: 19
+    key_terms: [get, example, wanted, local, healthcare, leveraged, positions, clinics]
+    section: Comments
+    token_count: 352
+  - id: "social-intelligence/reddit-deep/findapath/1sfzqls.md#c3"
+    char_span: [5341, 6609]
+    sentence_count: 15
+    key_terms: [justrandom119, local, always, internetnavigator23, maybe, small, start, bar]
+    section: Comments
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/findapath/1sfzqls.md#c4"
+    char_span: [6611, 8623]
+    sentence_count: 17
+    key_terms: [because, nevada, justrandom119, bathroom, together, cheaper, getting, making]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/findapath/1sfzqls.md#c5"
+    char_span: [8625, 8815]
+    sentence_count: 2
+    key_terms: [short-term, substitute, cellphone, resources, expenses, teaching, reduced, agency]
+    section: Comments
+    token_count: 45
 ---
-
 # Got a silly degree because I didn’t expect to be alive after college. Now I need to actually think about life.
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1sfzqls/got_a_silly_degree_because_i_didnt_expect_to_be/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1mv33nq.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1mv33nq/uk_student_considering_moving_to_the_us_for/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,33 @@ flair: "College Questions"
 extracted_at: "2026-05-22T23:33:52.651Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mv33nq.md#c0"
+    char_span: [0, 1533]
+    sentence_count: 7
+    key_terms: [applications, universities, applyingtocollege, student, advice, international, scholarships, feel]
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mv33nq.md#c1"
+    char_span: [1548, 3217]
+    sentence_count: 15
+    key_terms: [major, school, throwawaygremlins, apply, application, per, year, realistic]
+    section: Comments
+    token_count: 401
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mv33nq.md#c2"
+    char_span: [3219, 5319]
+    sentence_count: 18
+    key_terms: [school, schools, financial, aid, scholarships, "you're", need-aware, selective]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mv33nq.md#c3"
+    char_span: [5321, 7417]
+    sentence_count: 18
+    key_terms: [international, admissions, look, students, schools, internationals, competitive, like]
+    section: Comments
+    token_count: 471
 ---
-
 # UK student considering moving to the US for College – need advice on applications, life, and scholarships
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1mv33nq/uk_student_considering_moving_to_the_us_for/)

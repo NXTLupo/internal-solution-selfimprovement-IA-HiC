@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1oct62p.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1oct62p/department_of_homeland_security_ordered_openai_to/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,51 @@ flair: "News 📰"
 extracted_at: "2026-05-11T16:54:08.805Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1oct62p.md#c0"
+    char_span: [0, 330]
+    sentence_count: 1
+    key_terms: [chatgpt, comments, reddit-deep, department, essoessex, homeland, security, ordered]
+    token_count: 89
+  - id: "social-intelligence/reddit-deep/chatgpt/1oct62p.md#c1"
+    char_span: [345, 2521]
+    sentence_count: 13
+    key_terms: [search, r-chatgpt-1050422060352024636, vpn, danthedeer, protecting, countries, providers, subpeonad]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1oct62p.md#c2"
+    char_span: [2523, 3608]
+    sentence_count: 3
+    key_terms: [activity, evidence, online, crime, charged, fiction, worried, google]
+    section: Comments
+    token_count: 271
+  - id: "social-intelligence/reddit-deep/chatgpt/1oct62p.md#c3"
+    char_span: [3610, 5785]
+    sentence_count: 11
+    key_terms: [government, different, internet, personal, wrong, information, type, something]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/chatgpt/1oct62p.md#c4"
+    char_span: [5787, 7842]
+    sentence_count: 9
+    key_terms: [meaning, guess, hanzi, breadcrumbs, information, get, chatgpt, history]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/chatgpt/1oct62p.md#c5"
+    char_span: [7844, 9322]
+    sentence_count: 8
+    key_terms: [the-worries-about-ai-in-trumps-social-media-surveillance-00279255, digital-future-daily, newsletters, anything, politico, himself, suspect, warrant]
+    section: Comments
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/chatgpt/1oct62p.md#c6"
+    char_span: [9324, 10268]
+    sentence_count: 5
+    key_terms: [patterns, engage, rocketlabbeatsspacex, bannedwith1milkarma, giphy, adeptnessround9618, quendfi6demlzq0ckt, gif]
+    section: Comments
+    token_count: 276
 ---
-
 # Department of Homeland Security Ordered OpenAI To Share User Data In First Known Warrant For ChatGPT Prompts
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1oct62p/department_of_homeland_security_ordered_openai_to/)

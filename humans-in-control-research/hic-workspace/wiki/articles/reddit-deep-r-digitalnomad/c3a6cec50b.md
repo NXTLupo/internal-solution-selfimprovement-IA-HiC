@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-digitalnomad/c3a6cec50b.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1o8xsh7/icydk_you_dont_need_travel_medical_insurance_for/"
 url_hash: "c3a6cec50b"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-26T12:56:31.206345+00:00"
 chars: 4175
+industries: [healthcare, financial_services]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-digitalnomad/c3a6cec50b.md#c0"
+    char_span: [0, 2132]
+    sentence_count: 16
+    key_terms: [free, public, insurance, brazil, need, "you're", digitalnomad, "don't"]
+    token_count: 472
+  - id: "articles/reddit-deep-r-digitalnomad/c3a6cec50b.md#c1"
+    char_span: [2134, 3310]
+    sentence_count: 8
+    key_terms: [healthcare, emergency, countries, services, care, haberdasher42, cardiologist, consultation]
+    token_count: 260
+  - id: "articles/reddit-deep-r-digitalnomad/c3a6cec50b.md#c2"
+    char_span: [3312, 4460]
+    sentence_count: 10
+    key_terms: [system, insurance, brazil, healthcare, abusing, travel, abuse, care]
+    token_count: 273
 ---
-
 # ICYDK: you don't need travel medical insurance for Brazil as they offer free healthcare for everyone, including non-residents/citizens
 
 Source: [Reddit Deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1o8xsh7/icydk_you_dont_need_travel_medical_insurance_for/)

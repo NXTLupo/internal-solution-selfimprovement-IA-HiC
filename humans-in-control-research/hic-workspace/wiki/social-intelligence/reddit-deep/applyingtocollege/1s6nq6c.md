@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1s6nq6c.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1s6nq6c/my_thoughts_on_my_college_application_cycle_this/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,44 @@ flair: "Discussion"
 extracted_at: "2026-05-20T12:57:06.072Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s6nq6c.md#c0"
+    char_span: [0, 1815]
+    sentence_count: 13
+    key_terms: [rejection, application, applyingtocollege, years, get, applying, colleges, comments]
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s6nq6c.md#c1"
+    char_span: [1817, 3666]
+    sentence_count: 18
+    key_terms: [college, school, "you're", matter, especially, amazing, friends, looking]
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s6nq6c.md#c2"
+    char_span: [3681, 5518]
+    sentence_count: 13
+    key_terms: [because, good, want, college, virilemongoose, universities, get, life]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s6nq6c.md#c3"
+    char_span: [5520, 7049]
+    sentence_count: 8
+    key_terms: [school, get, high, activities, rejected, research, crazy, tufts]
+    section: Comments
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s6nq6c.md#c4"
+    char_span: [7051, 8279]
+    sentence_count: 5
+    key_terms: [background, practical-guava5149, being, interesting, income, wide-palpitation945, right, longtermjuggernaut]
+    section: Comments
+    token_count: 288
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s6nq6c.md#c5"
+    char_span: [8281, 9422]
+    sentence_count: 8
+    key_terms: [waitlisted, college, letter, ucla, work, daughter, practical-guava5149, significancebig7903]
+    section: Comments
+    token_count: 268
 ---
-
 # My thoughts on my college application cycle this year
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1s6nq6c/my_thoughts_on_my_college_application_cycle_this/)

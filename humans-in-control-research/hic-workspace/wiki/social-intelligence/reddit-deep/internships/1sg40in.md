@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1sg40in.md
 url: "https://www.reddit.com/r/internships/comments/1sg40in/tough_internship_dillema_which_one/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,27 @@ flair: "Offers"
 extracted_at: "2026-05-25T18:31:15.451Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce, higher_ed, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1sg40in.md#c0"
+    char_span: [0, 2034]
+    sentence_count: 4
+    key_terms: [company, internship, intern, option, opportunities, data-related, internships, longer-term]
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/internships/1sg40in.md#c1"
+    char_span: [2049, 4394]
+    sentence_count: 15
+    key_terms: [option, company, resume, employees, pay, longer, return, skills]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1sg40in.md#c2"
+    char_span: [4396, 4595]
+    sentence_count: 3
+    key_terms: [everything, experience, understand, instantly, recruiter, advice, option, brand]
+    section: Comments
+    token_count: 43
 ---
-
 # Tough Internship Dillema- Which one?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1sg40in/tough_internship_dillema_which_one/)

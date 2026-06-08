@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-college/bc53f94ccd.md
 url: "https://www.reddit.com/r/college/comments/1q5jncc/title_sap_issue_discovered_too_late_daughter_now/"
 url_hash: "bc53f94ccd"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T15:19:54.340028+00:00"
 chars: 3458
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-college/bc53f94ccd.md#c0"
+    char_span: [0, 2099]
+    sentence_count: 14
+    key_terms: [college, semester, sap, school, enrolled, classes, transferring, issue]
+    token_count: 476
+  - id: "articles/reddit-deep-r-college/bc53f94ccd.md#c1"
+    char_span: [2101, 3686]
+    sentence_count: 10
+    key_terms: [fall, classes, college, spring, enrolled, semester, appeal, look]
+    token_count: 362
 ---
-
 # Title: SAP issue discovered too late — daughter now has nowhere to enroll this semester
 
 Source: [Reddit Deep: r/college](https://www.reddit.com/r/college/comments/1q5jncc/title_sap_issue_discovered_too_late_daughter_now/)

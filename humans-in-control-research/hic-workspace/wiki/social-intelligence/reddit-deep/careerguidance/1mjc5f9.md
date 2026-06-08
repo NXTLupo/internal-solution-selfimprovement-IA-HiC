@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1mjc5f9.md
 url: "https://www.reddit.com/r/careerguidance/comments/1mjc5f9/would_you_leave_a_job_thats_paying_140000_per/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,62 @@ flair: "Advice"
 extracted_at: "2026-05-25T13:04:07.358Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1mjc5f9.md#c0"
+    char_span: [0, 1823]
+    sentence_count: 30
+    key_terms: [job, "i'm", per, year, careerguidance, people, work, business]
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/careerguidance/1mjc5f9.md#c1"
+    char_span: [1825, 2968]
+    sentence_count: 15
+    key_terms: [appreciate, time, expand, resume, being, "don't", edit, game]
+    token_count: 272
+  - id: "social-intelligence/reddit-deep/careerguidance/1mjc5f9.md#c2"
+    char_span: [2983, 4332]
+    sentence_count: 11
+    key_terms: [job, growth, take, everyone, personal, hiring, future-accountant-70, early-judgment-2895]
+    section: Comments
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/careerguidance/1mjc5f9.md#c3"
+    char_span: [4334, 6054]
+    sentence_count: 14
+    key_terms: [work, job, growth, company, feeling, nothing, maleficent-syrup9881, scotchtapeconnosieur]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/careerguidance/1mjc5f9.md#c4"
+    char_span: [6056, 6985]
+    sentence_count: 6
+    key_terms: [job, growth, "you're", start, years, run, work, experiencing]
+    section: Comments
+    token_count: 223
+  - id: "social-intelligence/reddit-deep/careerguidance/1mjc5f9.md#c5"
+    char_span: [6987, 8986]
+    sentence_count: 11
+    key_terms: [similar, potentially, job, work, hours, challenging, been, time]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/careerguidance/1mjc5f9.md#c6"
+    char_span: [8988, 9912]
+    sentence_count: 8
+    key_terms: [job, leave, future-accountant-70, acceptablesuit9328, xxomegasupremexx, unrealistic, conditions, redundancy]
+    section: Comments
+    token_count: 243
+  - id: "social-intelligence/reddit-deep/careerguidance/1mjc5f9.md#c7"
+    char_span: [9914, 11788]
+    sentence_count: 17
+    key_terms: [roles, job, time, clients, making, "you're", doing, paced]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1mjc5f9.md#c8"
+    char_span: [11517, 12675]
+    sentence_count: 10
+    key_terms: [doing, day, job, work, because, feeling, vermicellifresh1620, years]
+    section: Comments
+    token_count: 287
 ---
-
 # Would you leave a job that's paying $140,000 per year that really only requires 2 hours of focus for a higher paying job?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1mjc5f9/would_you_leave_a_job_thats_paying_140000_per/)

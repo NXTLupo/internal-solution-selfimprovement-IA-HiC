@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1qehdjt.md
 url: "https://www.reddit.com/r/financialindependence/comments/1qehdjt/7_years_fired_and_my_first_romance_42m/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,93 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.700Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1qehdjt.md#c0"
+    char_span: [0, 470]
+    sentence_count: 2
+    key_terms: [financialindependence, comments, relationship, reddit-deep, adventures, travelled, romantic, hobbies]
+    token_count: 130
+  - id: "social-intelligence/reddit-deep/financialindependence/1qehdjt.md#c1"
+    char_span: [472, 1906]
+    sentence_count: 1
+    key_terms: [financialindependence, comments, reddit, https, com, www, update, year]
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/financialindependence/1qehdjt.md#c2"
+    char_span: [1908, 4089]
+    sentence_count: 12
+    key_terms: [relationship, romantic, days, someone, breakup, friends, partner, "didn't"]
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/financialindependence/1qehdjt.md#c3"
+    char_span: [4091, 5442]
+    sentence_count: 7
+    key_terms: [romantic, future, partner, relationship, mentioned, value, straight-appearing, been]
+    token_count: 287
+  - id: "social-intelligence/reddit-deep/financialindependence/1qehdjt.md#c4"
+    char_span: [5444, 7118]
+    sentence_count: 5
+    key_terms: [income, month, total, expenses, taxes, core, subsidies, detailed]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/financialindependence/1qehdjt.md#c5"
+    char_span: [7120, 9152]
+    sentence_count: 6
+    key_terms: [trip, place, rock, climbing, climbed, fitness, outdoor, routine]
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/financialindependence/1qehdjt.md#c6"
+    char_span: [9154, 10249]
+    sentence_count: 6
+    key_terms: [ab-1482-california-tenant-protection-act-2019, stay, increases, landlords, control, points, been, get]
+    token_count: 252
+  - id: "social-intelligence/reddit-deep/financialindependence/1qehdjt.md#c7"
+    char_span: [10264, 11339]
+    sentence_count: 7
+    key_terms: [friends, relationship, climbing, travel, certain-avocado-1012, goals, "i'm", "it's"]
+    section: Comments
+    token_count: 272
+  - id: "social-intelligence/reddit-deep/financialindependence/1qehdjt.md#c8"
+    char_span: [11341, 13148]
+    sentence_count: 14
+    key_terms: [spending, people, market, cola, keep, year, withdrawal, inflation]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/financialindependence/1qehdjt.md#c9"
+    char_span: [13150, 15145]
+    sentence_count: 13
+    key_terms: [years, amount, portfolio, withdrawing, ago, year, spending, withdraw]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/financialindependence/1qehdjt.md#c10"
+    char_span: [15147, 15556]
+    sentence_count: 3
+    key_terms: [percentage, model, year, flexibility, retirement, withdrawal, calculate, financial]
+    section: Comments
+    token_count: 89
+  - id: "social-intelligence/reddit-deep/financialindependence/1qehdjt.md#c11"
+    char_span: [15558, 17582]
+    sentence_count: 16
+    key_terms: [doing, useful, "it's", risk, retirement, sequence, million, change]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/financialindependence/1qehdjt.md#c12"
+    char_span: [17316, 18557]
+    sentence_count: 11
+    key_terms: [pitch, inreach, garmin, scares, life, representation, fundamentally, unfortunately]
+    section: Comments
+    token_count: 315
+  - id: "social-intelligence/reddit-deep/financialindependence/1qehdjt.md#c13"
+    char_span: [18559, 19524]
+    sentence_count: 8
+    key_terms: [lawyer, love, excellent, details, friends, alaska, hungn3, skurka]
+    section: Comments
+    token_count: 279
+  - id: "social-intelligence/reddit-deep/financialindependence/1qehdjt.md#c14"
+    char_span: [19526, 20756]
+    sentence_count: 9
+    key_terms: ["it's", show, probably, hungn3, people, great, songs, story]
+    section: Comments
+    token_count: 306
 ---
-
 # 7 Years FIRE'd and My First Romance (42M)
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1qehdjt/7_years_fired_and_my_first_romance_42m/)

@@ -1,4 +1,5 @@
 ---
+id: brand/anti-slop.md
 title: "Anti-Slop Visual Rules"
 type: brand
 created: 2026-04-10
@@ -8,8 +9,79 @@ confidence: high
 status: active
 tags: [brand, anti-slop, quality, banned-patterns, ai-detection]
 evidence_count: 0
+chunks:
+  - id: "brand/anti-slop.md#c0"
+    char_span: [0, 522]
+    sentence_count: 4
+    key_terms: [output, humans, deliverables, nxt, because, indistinguishable, rule, non-negotiable]
+    token_count: 104
+  - id: "brand/anti-slop.md#c1"
+    char_span: [577, 2426]
+    sentence_count: 17
+    key_terms: [backgrounds, text, chartreuse, white, element, body, rule, content]
+    section: 9 Non-Negotiable Visual Rules (White Background)
+    token_count: 477
+  - id: "brand/anti-slop.md#c2"
+    char_span: [2428, 4607]
+    sentence_count: 9
+    key_terms: [default, aesthetic, ai-generated, font, primary, signals, banned, chartreuse]
+    section: 9 Non-Negotiable Visual Rules (White Background)
+    token_count: 501
+  - id: "brand/anti-slop.md#c3"
+    char_span: [4609, 5975]
+    sentence_count: 11
+    key_terms: [illustrations, grid, layout, cards, pattern, rounded, card, use]
+    section: 9 Non-Negotiable Visual Rules (White Background)
+    token_count: 318
+  - id: "brand/anti-slop.md#c4"
+    char_span: [6018, 7881]
+    sentence_count: 22
+    key_terms: [charts, chart, rule, source, color, citations, bar, banned]
+    section: 6 Data Visualization Anti-Slop Rules
+    token_count: 413
+  - id: "brand/anti-slop.md#c5"
+    char_span: [7903, 10057]
+    sentence_count: 22
+    key_terms: [specific, banned, integration, filler, describe, insights, specify, change]
+    section: Banned Language
+    token_count: 513
+  - id: "brand/anti-slop.md#c6"
+    char_span: [10059, 10665]
+    sentence_count: 1
+    key_terms: [becomes, improvement, framework, minutes, significantly, game-changer, satisfaction, additional]
+    section: Banned Language
+    token_count: 147
+  - id: "brand/anti-slop.md#c7"
+    char_span: [10726, 10978]
+    sentence_count: 4
+    key_terms: [output, item, ai-generated, deliverable, checklist, corrected, delivery, section]
+    section: 15-Point Anti-Slop Detection Checklist (Authoritative)
+    token_count: 55
+  - id: "brand/anti-slop.md#c8"
+    char_span: [10980, 13138]
+    sentence_count: 12
+    key_terms: [remove, chart, title, gradient, circles, present, replace, color]
+    section: 15-Point Anti-Slop Detection Checklist (Authoritative)
+    token_count: 512
+  - id: "brand/anti-slop.md#c9"
+    char_span: [12858, 14381]
+    sentence_count: 10
+    key_terms: [text, body, size, source, chart, scale, information, conclusion]
+    section: 15-Point Anti-Slop Detection Checklist (Authoritative)
+    token_count: 362
+  - id: "brand/anti-slop.md#c10"
+    char_span: [14383, 14758]
+    sentence_count: 6
+    key_terms: [output, signal, sequentially, underneath, checklist, introduce, detected, generate]
+    section: 15-Point Anti-Slop Detection Checklist (Authoritative)
+    token_count: 83
+  - id: "brand/anti-slop.md#c11"
+    char_span: [14814, 16797]
+    sentence_count: 12
+    key_terms: [does, slop, contain, conclusion, detection, recommendations, section, recommendation]
+    section: "Additional Slop Detection: Language and Structure"
+    token_count: 427
 ---
-
 # Anti-Slop Visual Rules
 
 "Slop" is AI-generated output that is technically correct but generically styled, vaguely worded, and indistinguishable from the output of any other AI system. NXT Humans deliverables must be identifiable as NXT Humans deliverables on sight — not because of a logo, but because of a design language that is specific, constrained, and deliberately different from AI defaults.

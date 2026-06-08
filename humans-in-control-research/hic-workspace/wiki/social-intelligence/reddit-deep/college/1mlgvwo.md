@@ -6,19 +6,19 @@ subreddit: "college"
 title: "Advice for anyone entering college"
 author: "Exospike99"
 date: "2025-08-09T04:48:23.000Z"
-score: 124
+score: 128
 upvote_ratio: 0.93
 num_comments: 10
 flair: "Academic Life"
-extracted_at: "2026-05-26T14:31:29.699Z"
+extracted_at: "2026-06-06T23:23:15.571Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Advice for anyone entering college
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1mlgvwo/advice_for_anyone_entering_college/)
-Posted by **Exospike99** · **124↑** · **10 comments**
+Posted by **Exospike99** · **128↑** · **10 comments**
 
 1) go to office hours - pretty generic
 
@@ -53,11 +53,11 @@ Posted by **Exospike99** · **124↑** · **10 comments**
 
 ## Comments
 
-- **4eggy** (22↑): i second the traditional/roth ira!!! i opened mine at 22 and i wish i started earlier.
+- **4eggy** (23↑): i second the traditional/roth ira!!! i opened mine at 22 and i wish i started earlier.
   - **Exospike99** (8↑): I opened mine up at 16 and invested in traditional and Roth since then. I’m projected to hit my first million at the age of 34. Stocks and reading are probably the most important thing to getting rich
 - **Newberry14** (8↑): Join a frat, take the scholarship money and run with it. Not all frats have this, but I got my tuition fully paid for the next four years with an engineering scholarship specific to my frat. Never even hang with the guys lol. They’re nice it’s just not my scene
-- **FunnyLoud3067** (9↑): I love this advice. Thanks so much
-- **Short-Vermicelli-178** (5↑): Thanks for sharing this. Very nice information.
+- **FunnyLoud3067** (8↑): I love this advice. Thanks so much
+- **Short-Vermicelli-178** (7↑): Thanks for sharing this. Very nice information.
 - **FragrantDifficulty68** (3↑): I sooooooo wish someone had told me to invest even a little of my money back when I was younger. I worked all the time and occasionally got a $50 birthday check, but of course I spent it all.
   - **Exospike99** (2↑): Compound interest is key, the younger you start the richer you’ll be
     - **FragrantDifficulty68** (1↑): Right? Since I am 57 now and will have to work until I die, it's too late for compound to help me much!

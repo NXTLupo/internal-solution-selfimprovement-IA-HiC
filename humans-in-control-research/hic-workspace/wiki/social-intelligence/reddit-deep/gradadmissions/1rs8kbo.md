@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1rs8kbo.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rs8kbo/so_insanely_grateful_ugpa_26/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,21 @@ flair: "Biological Sciences"
 extracted_at: "2026-05-23T14:54:16.721Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rs8kbo.md#c0"
+    char_span: [0, 712]
+    sentence_count: 5
+    key_terms: [gradadmissions, comments, everyone, grateful, excellent-carob6982, years, best, post]
+    token_count: 200
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rs8kbo.md#c1"
+    char_span: [727, 1606]
+    sentence_count: 6
+    key_terms: [excellent-carob6982, congratulations, thank, stanford, amazing, school, any-construction-789, aggravatingad2992]
+    section: Comments
+    token_count: 280
 ---
-
 # So insanely grateful.... (UGPA <2.6)
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rs8kbo/so_insanely_grateful_ugpa_26/)

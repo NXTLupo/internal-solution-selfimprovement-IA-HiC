@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-applyingtocollege/abab4e3d26.md
 url: "https://reddit.com/r/ApplyingToCollege/comments/1pcxgt3/elise_pham_made_2m_off_college_consulting/"
 url_hash: "abab4e3d26"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-13T20:29:29.401062+00:00"
 chars: 1786
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-applyingtocollege/abab4e3d26.md#c0"
+    char_span: [0, 1971]
+    sentence_count: 13
+    key_terms: [students, applyingtocollege, b2zwywlybnz0y2rn, elise, https, dr0ztvdkqcu, com, pham]
+    token_count: 424
 ---
-
 # Elise Pham made $2M off college consulting
 
 Source: [reddit: ApplyingToCollege](https://reddit.com/r/ApplyingToCollege/comments/1pcxgt3/elise_pham_made_2m_off_college_consulting/)

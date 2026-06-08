@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1o66pip.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1o66pip/anyone_here_that_got_a_cs_degree_years_ago_but/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-23T12:16:24.332Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o66pip.md#c0"
+    char_span: [0, 779]
+    sentence_count: 9
+    key_terms: [cscareerquestions, got, comments, industry, anyone, degree, never, ago]
+    token_count: 201
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o66pip.md#c1"
+    char_span: [794, 2698]
+    sentence_count: 16
+    key_terms: [companies, gooning, people, too, work, bball4294, openings, looking]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o66pip.md#c2"
+    char_span: [2700, 4496]
+    sentence_count: 14
+    key_terms: [logical-sun001, lol, don, everything, cleaning, computer, printers, cautious-school-2839]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o66pip.md#c3"
+    char_span: [4498, 6104]
+    sentence_count: 10
+    key_terms: [doing, money, does, live, doordash, reliable, friend, people]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o66pip.md#c4"
+    char_span: [6106, 7264]
+    sentence_count: 12
+    key_terms: ["that's", engineers, everyone, company, months, senior, apps, get]
+    section: Comments
+    token_count: 269
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o66pip.md#c5"
+    char_span: [7266, 9333]
+    sentence_count: 17
+    key_terms: [army, intelligence, clearance, job, "don't", leave, did, "it's"]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o66pip.md#c6"
+    char_span: [9078, 9917]
+    sentence_count: 3
+    key_terms: [since, like, working, passed, trying, state, "i'm", danniboy1989]
+    section: Comments
+    token_count: 218
 ---
-
 # Anyone here that got a CS Degree years ago but never got in the industry? What are you doing now?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1o66pip/anyone_here_that_got_a_cs_degree_years_ago_but/)

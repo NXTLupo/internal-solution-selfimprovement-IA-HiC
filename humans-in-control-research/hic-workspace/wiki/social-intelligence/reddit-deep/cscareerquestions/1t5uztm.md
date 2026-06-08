@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1t5uztm.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1t5uztm/advice_for_cs_student/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,27 @@ flair: "Student"
 extracted_at: "2026-05-22T23:33:42.287Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t5uztm.md#c0"
+    char_span: [0, 884]
+    sentence_count: 9
+    key_terms: [cscareerquestions, companies, comments, advice, entry, level, get, undergraduates]
+    token_count: 212
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t5uztm.md#c1"
+    char_span: [899, 2946]
+    sentence_count: 11
+    key_terms: [need, market, people, job, degree, school, "don't", connections]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t5uztm.md#c2"
+    char_span: [2950, 4408]
+    sentence_count: 11
+    key_terms: [engineering, because, major, electrical, thinking, problem, science, systems]
+    section: Comments
+    token_count: 346
 ---
-
 # Advice for CS student?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1t5uztm/advice_for_cs_student/)

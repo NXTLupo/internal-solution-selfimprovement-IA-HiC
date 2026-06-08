@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1r8e3ay.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1r8e3ay/career_advice_for_coop_internship/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 5
 flair: "Student"
-extracted_at: "2026-05-26T14:31:41.257Z"
+extracted_at: "2026-06-06T16:39:04.111Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1r8e3ay.md#c0"
+    char_span: [0, 1319]
+    sentence_count: 10
+    key_terms: [offer, company, developer, cscareerquestions, career, devops, intern, months]
+    token_count: 310
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1r8e3ay.md#c1"
+    char_span: [1334, 2254]
+    sentence_count: 6
+    key_terms: [legitimate-brain-978, offer, chances, company, embedded, later, too, want]
+    section: Comments
+    token_count: 224
 ---
-
 # Career advice for co-op internship
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1r8e3ay/career_advice_for_coop_internship/)

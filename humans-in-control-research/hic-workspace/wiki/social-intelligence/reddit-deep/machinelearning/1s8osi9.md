@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1s8osi9.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1s8osi9/d_the_problem_with_comparing_ai_memory_system/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -13,8 +14,21 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:06.580Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1s8osi9.md#c0"
+    char_span: [0, 1147]
+    sentence_count: 7
+    key_terms: [memory, evaluation, machinelearning, systems, scores, system, performance, different]
+    token_count: 241
+  - id: "social-intelligence/reddit-deep/machinelearning/1s8osi9.md#c1"
+    char_span: [1162, 2939]
+    sentence_count: 2
+    key_terms: [eval, running, locomo, memory, comparisons, informative, own, benchmarks]
+    section: Comments
+    token_count: 387
 ---
-
 # [D] The problem with comparing AI memory system benchmarks — different evaluation methods make scores meaningless
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1s8osi9/d_the_problem_with_comparing_ai_memory_system/)

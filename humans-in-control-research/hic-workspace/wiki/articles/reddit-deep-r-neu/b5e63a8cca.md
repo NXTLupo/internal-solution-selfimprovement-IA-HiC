@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-neu/b5e63a8cca.md
 url: "https://www.reddit.com/r/NEU/comments/1rt2wfo/best_major_for_law_school_pleaseeee_helppp/"
 url_hash: "b5e63a8cca"
 kind: "article"
@@ -8,10 +9,17 @@ author: ""
 date: "2026-03-13T23:09:26.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-19T15:13:44.300418+00:00"
+extracted_at: "2026-06-03T18:04:54.025746+00:00"
 chars: 1780
+relevance: 60
+engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis.  "
+chunks:
+  - id: "articles/reddit-deep-r-neu/b5e63a8cca.md#c0"
+    char_span: [0, 1951]
+    sentence_count: 17
+    key_terms: [something, law, interested, major, neu, security, school, hard]
+    token_count: 466
 ---
-
 # Best major for law school (PLEASEEEE HELPPP)
 
 Source: [Reddit Deep: r/neu](https://www.reddit.com/r/NEU/comments/1rt2wfo/best_major_for_law_school_pleaseeee_helppp/)

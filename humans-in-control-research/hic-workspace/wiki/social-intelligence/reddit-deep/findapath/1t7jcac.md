@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1t7jcac.md
 url: "https://www.reddit.com/r/findapath/comments/1t7jcac/28m_unemployed_switched_multiple_career_paths/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,37 @@ flair: "Findapath-Career Change"
 extracted_at: "2026-05-25T13:04:07.379Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1t7jcac.md#c0"
+    char_span: [0, 1859]
+    sentence_count: 16
+    key_terms: [corporate, got, job, dance, did, completely, findapath, comments]
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/findapath/1t7jcac.md#c1"
+    char_span: [1861, 3701]
+    sentence_count: 18
+    key_terms: [because, been, "i'm", unemployed, corporate, contract, another, started]
+    token_count: 391
+  - id: "social-intelligence/reddit-deep/findapath/1t7jcac.md#c2"
+    char_span: [3703, 5426]
+    sentence_count: 19
+    key_terms: [years, feel, another, because, friends, "haven't", nothing, parents]
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/findapath/1t7jcac.md#c3"
+    char_span: [5441, 7451]
+    sentence_count: 17
+    key_terms: [helped, thank, like, helpful, please, findapath, comments, everyone]
+    section: Comments
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/findapath/1t7jcac.md#c4"
+    char_span: [7453, 7929]
+    sentence_count: 4
+    key_terms: [andreapucci72, "doesn't", "you're", thank, book, flairpointsbot, confirming, definitely]
+    section: Comments
+    token_count: 129
 ---
-
 # 28M, Unemployed, Switched multiple career paths - even tried pursuing my passion, nothing seems to work - feeling lost, directionless. Can't figure out anything at the moment. How do i even fix things?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1t7jcac/28m_unemployed_switched_multiple_career_paths/)

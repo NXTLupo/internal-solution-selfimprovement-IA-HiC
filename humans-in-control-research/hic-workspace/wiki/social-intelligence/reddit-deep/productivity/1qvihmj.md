@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1qvihmj.md
 url: "https://www.reddit.com/r/productivity/comments/1qvihmj/i_deleted_my_todo_list_apps_im_10x_more/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,51 @@ flair: "Technique"
 extracted_at: "2026-05-26T12:53:45.650Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1qvihmj.md#c0"
+    char_span: [0, 1300]
+    sentence_count: 20
+    key_terms: [productivity, write, list, something, comments, deleted, system, doing]
+    token_count: 317
+  - id: "social-intelligence/reddit-deep/productivity/1qvihmj.md#c1"
+    char_span: [1315, 2510]
+    sentence_count: 5
+    key_terms: [like, rather, doing, feels, spent, think-success7946, "i'm", list]
+    section: Comments
+    token_count: 310
+  - id: "social-intelligence/reddit-deep/productivity/1qvihmj.md#c2"
+    char_span: [2512, 4544]
+    sentence_count: 21
+    key_terms: [need, work, doing, tasks, "it's", important, sometimes, instead]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/productivity/1qvihmj.md#c3"
+    char_span: [4546, 5847]
+    sentence_count: 11
+    key_terms: [task, list, pick, mountain, todoist, having, look, gutenachtjohanna]
+    section: Comments
+    token_count: 311
+  - id: "social-intelligence/reddit-deep/productivity/1qvihmj.md#c4"
+    char_span: [5849, 7425]
+    sentence_count: 12
+    key_terms: [day, list, todoist, tasks, task, important, without, called]
+    section: Comments
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/productivity/1qvihmj.md#c5"
+    char_span: [7427, 9386]
+    sentence_count: 11
+    key_terms: [task, tasks, list, notion, big, get, rest, time]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/productivity/1qvihmj.md#c6"
+    char_span: [9388, 10272]
+    sentence_count: 6
+    key_terms: [simple, stimulants, through, todoist, cracks, brain, "don't", adhd]
+    section: Comments
+    token_count: 204
 ---
-
 # I deleted my to-do list apps. I’m 10x more productive now
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1qvihmj/i_deleted_my_todo_list_apps_im_10x_more/)

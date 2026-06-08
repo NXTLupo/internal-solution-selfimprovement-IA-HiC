@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1p7xysr.md
 url: "https://www.reddit.com/r/internships/comments/1p7xysr/doubts_about_extern_platform_and_externships/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,42 @@ subreddit: "internships"
 title: "doubts about extern platform and externships"
 author: "AtomAgar"
 date: "2025-11-27T09:25:00.000Z"
-score: 9
-upvote_ratio: 0.92
+score: 10
+upvote_ratio: 1
 num_comments: 14
 flair: "General"
-extracted_at: "2026-05-25T18:31:15.453Z"
+extracted_at: "2026-06-03T18:34:48.713Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1p7xysr.md#c0"
+    char_span: [0, 1290]
+    sentence_count: 15
+    key_terms: [internships, externship, getting, extern, good, questions, comments, platform]
+    token_count: 304
+  - id: "social-intelligence/reddit-deep/internships/1p7xysr.md#c1"
+    char_span: [1305, 3359]
+    sentence_count: 3
+    key_terms: [experience, students, programs, platform, resume, unpaid, professional, cpt]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/internships/1p7xysr.md#c2"
+    char_span: [3361, 5268]
+    sentence_count: 5
+    key_terms: [externships, meetings, students, professional, thanksgiving, hello, interesting, like]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/internships/1p7xysr.md#c3"
+    char_span: [5270, 7164]
+    sentence_count: 11
+    key_terms: [projects, proof, verified, externship, like, work, project, certificates]
+    section: Comments
+    token_count: 419
 ---
-
 # doubts about extern platform and externships
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1p7xysr/doubts_about_extern_platform_and_externships/)
-Posted by **AtomAgar** · **9↑** · **14 comments**
+Posted by **AtomAgar** · **10↑** · **14 comments**
 
 I am applying for Spring 2026 co-ops/internships and I am really getting desperate since I am getting rejected or ghosted. Not getting those first rounds whatsoever. I am thinking of trying Extern platform and probably get an externship. My questions are - Can I add it to my resume as a work experience? Can I trigger CPT from my university for an externship? How is an externship generally? Does it provide anything good to learn or is it just a watch and learn type (like a certification course type) of thing? Is it usually paid or unpaid? I need to know about these questions before I start paying. 
 
@@ -28,7 +52,7 @@ Thanks in advance!
 
 ## Comments
 
-- **bifei_at_extern** (6↑): hello hello, so let's get to the questions 
+- **bifei_at_extern** (7↑): hello hello, so let's get to the questions 
 
 Can I add it to my resume as a work experience?   
 Yes, it's a professional experience you can list on resume, and platform supports employment bakcground check process
@@ -68,7 +92,7 @@ Quick question for you: with all your projects, do you think having a verified '
 
 
 Curious because I've been thinking about this problem a lot - seems like the gap is between 'I claim I did X' and 'here's verified proof I actually did X'.
+  - **AtomAgar** (2↑): Well according to me, yes there needs to be some proof of work but most of my projects are academic projects and I can show my grades for each projects as proof on top of the code files and stuff. I don't think that's the core problem though. Those probably won't help more than externship certificates bottom line. Because interviewers might ask for you to showcase only one project to them or don't talk about projects at all.
   - **Away-Reception587** (2↑): Yeah, your github should be the verified proof, not a tutorial provider. The point of projects is to show initiative, and it is much more impressive if you have a project with real users. 
 
 This part is just my opinion but I feel like if anyone can signup and pay to do the course then the value of the work gets diluted. Like someone else mentioned in this thread, if the work really is 4-10 hrs a week for 8-12 weeks, just try to put half of that time commitment towards a project with a few of your friends and see where it takes you.
-  - **AtomAgar** (1↑): Well according to me, yes there needs to be some proof of work but most of my projects are academic projects and I can show my grades for each projects as proof on top of the code files and stuff. I don't think that's the core problem though. Those probably won't help more than externship certificates bottom line. Because interviewers might ask for you to showcase only one project to them or don't talk about projects at all.

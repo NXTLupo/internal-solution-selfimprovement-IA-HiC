@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/workonline/1svy0t0.md
 url: "https://www.reddit.com/r/WorkOnline/comments/1svy0t0/is_this_teleperformance_canada_remote_job_process/"
 kind: "social-post"
 source: "reddit-deep: r/workonline"
@@ -13,8 +14,32 @@ flair: ""
 extracted_at: "2026-05-26T12:53:45.645Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/workonline/1svy0t0.md#c0"
+    char_span: [0, 2098]
+    sentence_count: 7
+    key_terms: [com, psgglobal, teleperformance, mailto, onboardingtpcanada, canada, globalhalloa, felt]
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/workonline/1svy0t0.md#c1"
+    char_span: [2100, 3237]
+    sentence_count: 9
+    key_terms: [teleperformance, felt, interview, microsoft, process, cloud, https, video]
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/workonline/1svy0t0.md#c2"
+    char_span: [3252, 4758]
+    sentence_count: 7
+    key_terms: [teleperformance, experience, companies, people, ai-techguy001, outsourcing, like, glassdoor]
+    section: Comments
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/workonline/1svy0t0.md#c3"
+    char_span: [4760, 5770]
+    sentence_count: 6
+    key_terms: [address-before-interview, canada, needleworkersmart486, prestigious-drink459, designer-raisin9909, heard, legit, "teleperformance's"]
+    section: Comments
+    token_count: 257
 ---
-
 # Is this Teleperformance Canada remote job process legit or a scam?
 
 Source: [reddit-deep: r/workonline](https://www.reddit.com/r/WorkOnline/comments/1svy0t0/is_this_teleperformance_canada_remote_job_process/)

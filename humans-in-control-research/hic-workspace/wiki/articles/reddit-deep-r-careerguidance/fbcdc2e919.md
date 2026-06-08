@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/fbcdc2e919.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tfxx4w/i_am_confused_about_finding_my_career_path_in/"
 url_hash: "fbcdc2e919"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T19:52:18.953581+00:00"
 chars: 2236
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/fbcdc2e919.md#c0"
+    char_span: [0, 2410]
+    sentence_count: 24
+    key_terms: [field, career, work, experience, economics, finance, toronto, careerguidance]
+    token_count: 507
+  - id: "articles/reddit-deep-r-careerguidance/fbcdc2e919.md#c1"
+    char_span: [2412, 2465]
+    sentence_count: 2
+    key_terms: [research, "don't", take, want, word]
+    token_count: 14
 ---
-
 # I am confused about finding my career path in Canada. Do you have any advice?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tfxx4w/i_am_confused_about_finding_my_career_path_in/)

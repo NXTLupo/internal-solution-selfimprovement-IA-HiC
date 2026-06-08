@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1pk7nd6.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1pk7nd6/robinhood_drops_9_as_november_data_shows_sharp/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,38 @@ flair: "News"
 extracted_at: "2026-05-17T01:14:17.610Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pk7nd6.md#c0"
+    char_span: [0, 1847]
+    sentence_count: 5
+    key_terms: [why-robinhood-hood-shares-getting-164146915, robinhood, trading, news, company, volumes, wallstreetbets, market]
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pk7nd6.md#c1"
+    char_span: [1849, 2925]
+    sentence_count: 6
+    key_terms: [market, investors, robinhood, capital, million, trading, crypto, worth]
+    token_count: 269
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pk7nd6.md#c2"
+    char_span: [2940, 4541]
+    sentence_count: 11
+    key_terms: [market, pinpsychological82, robinhood, poly, invested, discord, months, month]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pk7nd6.md#c3"
+    char_span: [4543, 6406]
+    sentence_count: 10
+    key_terms: [priced, excitingpackage1301, "it's", probably, trading, market, polymarket, already]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pk7nd6.md#c4"
+    char_span: [6408, 8327]
+    sentence_count: 20
+    key_terms: [sports, thatstodd, like, gambling, states, day, tax, want]
+    section: Comments
+    token_count: 489
 ---
-
 # Robinhood drops 9% as November data shows sharp fall in trading volumes and a Connecticut cease and desist adds pressure
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1pk7nd6/robinhood_drops_9_as_november_data_shows_sharp/)

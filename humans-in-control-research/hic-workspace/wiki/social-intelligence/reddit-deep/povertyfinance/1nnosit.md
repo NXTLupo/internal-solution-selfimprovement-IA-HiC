@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1nnosit.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1nnosit/how_much_do_you_all_spend_on_childcare_each_month/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,33 @@ flair: "Budgeting/Saving/Investing/Spending"
 extracted_at: "2026-05-17T01:13:55.885Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, education, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1nnosit.md#c0"
+    char_span: [0, 504]
+    sentence_count: 4
+    key_terms: [povertyfinance, childcare, comments, thebudgetdeveloper, reddit-deep, applicable, households, different]
+    token_count: 121
+  - id: "social-intelligence/reddit-deep/povertyfinance/1nnosit.md#c1"
+    char_span: [519, 2409]
+    sentence_count: 10
+    key_terms: [month, assistance, daycare, paying, child, kid, because, mamaknowsbest2]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1nnosit.md#c2"
+    char_span: [2237, 2697]
+    sentence_count: 2
+    key_terms: [month, child, decent-flamingo289, universalchildcare, days, per, week, appointments]
+    section: Comments
+    token_count: 151
+  - id: "social-intelligence/reddit-deep/povertyfinance/1nnosit.md#c3"
+    char_span: [2699, 3527]
+    sentence_count: 6
+    key_terms: [hours, free, amount, nursery, month, pay, government, childcare]
+    section: Comments
+    token_count: 215
 ---
-
 # How much do you all spend on childcare each month?
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1nnosit/how_much_do_you_all_spend_on_childcare_each_month/)

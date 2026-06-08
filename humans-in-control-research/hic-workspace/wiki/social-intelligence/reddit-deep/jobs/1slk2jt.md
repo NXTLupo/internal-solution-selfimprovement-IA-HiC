@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1slk2jt.md
 url: "https://www.reddit.com/r/jobs/comments/1slk2jt/is_my_resume_bad/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,27 @@ flair: "Applications"
 extracted_at: "2026-05-22T21:35:36.550Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1slk2jt.md#c0"
+    char_span: [0, 527]
+    sentence_count: 5
+    key_terms: [comments, personal, resume, impressive-tea-2101, jobs, opportunities, applications, entry-level]
+    token_count: 133
+  - id: "social-intelligence/reddit-deep/jobs/1slk2jt.md#c1"
+    char_span: [542, 2659]
+    sentence_count: 13
+    key_terms: [resume, skills, experience, because, job, including, looking, remove]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/jobs/1slk2jt.md#c2"
+    char_span: [2661, 3980]
+    sentence_count: 11
+    key_terms: [resume, good, job, experience, education, market, remove, aggressive-sleep8259]
+    section: Comments
+    token_count: 305
 ---
-
 # is my resume bad?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1slk2jt/is_my_resume_bad/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1q9urg4.md
 url: "https://www.reddit.com/r/NEU/comments/1q9urg4/would_you_use_an_app_to_find_other_students_on/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "Co-op & Career"
 extracted_at: "2026-05-22T13:32:12.396Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1q9urg4.md#c0"
+    char_span: [0, 800]
+    sentence_count: 5
+    key_terms: [co-op, city, use, comments, students, people, trying, being]
+    token_count: 194
+  - id: "social-intelligence/reddit-deep/neu/1q9urg4.md#c1"
+    char_span: [815, 1504]
+    sentence_count: 6
+    key_terms: [like, good, having, meetup, office, people, coop, definitely]
+    section: Comments
+    token_count: 167
 ---
-
 # Would you use an app to find other students on co-op?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1q9urg4/would_you_use_an_app_to_find_other_students_on/)

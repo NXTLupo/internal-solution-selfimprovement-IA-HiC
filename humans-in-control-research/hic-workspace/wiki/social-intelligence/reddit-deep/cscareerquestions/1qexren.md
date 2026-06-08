@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1qexren.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1qexren/being_asked_to_tech_lead_csuite_vibe_coded_project/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,44 @@ flair: ""
 extracted_at: "2026-05-22T15:11:47.159Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qexren.md#c0"
+    char_span: [0, 2038]
+    sentence_count: 8
+    key_terms: [asked, cscareerquestions, code, kind, vibe, company, being, lead]
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qexren.md#c1"
+    char_span: [2040, 4168]
+    sentence_count: 15
+    key_terms: [like, going, don, making, code, keep, want, something]
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qexren.md#c2"
+    char_span: [4183, 5801]
+    sentence_count: 9
+    key_terms: [company, problem, development, executives, production, unfiltered, redact, resume]
+    section: Comments
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qexren.md#c3"
+    char_span: [5806, 7687]
+    sentence_count: 12
+    key_terms: ["it's", code, professional, going, performance, fantastic, continue, another]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qexren.md#c4"
+    char_span: [7689, 9923]
+    sentence_count: 16
+    key_terms: [get, build, explain, architecture, down, production, important, probably]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qexren.md#c5"
+    char_span: [9925, 11117]
+    sentence_count: 7
+    key_terms: [coding, claude, engineering, code, production, diagrams, security, rules]
+    section: Comments
+    token_count: 267
 ---
-
 # Being asked to tech lead c-suite vibe coded project
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1qexren/being_asked_to_tech_lead_csuite_vibe_coded_project/)

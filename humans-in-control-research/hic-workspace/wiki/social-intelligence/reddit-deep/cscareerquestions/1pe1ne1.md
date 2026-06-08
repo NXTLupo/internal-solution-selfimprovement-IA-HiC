@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1pe1ne1.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1pe1ne1/hows_the_job_market_for_people_with_23_yoe_at_big/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-23T20:15:57.465Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pe1ne1.md#c0"
+    char_span: [0, 575]
+    sentence_count: 4
+    key_terms: [cscareerquestions, big, tech, experience, comments, market, "how's", years]
+    token_count: 154
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pe1ne1.md#c1"
+    char_span: [590, 2220]
+    sentence_count: 12
+    key_terms: [better, reaching, ecethrowaway01, got, interviews, personally, recruiters, april-may]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pe1ne1.md#c2"
+    char_span: [2222, 4203]
+    sentence_count: 11
+    key_terms: [leetcode, get, planb2019, design, system, yoe, interview, applying]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pe1ne1.md#c3"
+    char_span: [3959, 5049]
+    sentence_count: 2
+    key_terms: [work, yoe, leetcode, question, the-original-spuggy, bad, last, nice]
+    section: Comments
+    token_count: 358
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pe1ne1.md#c4"
+    char_span: [5051, 6785]
+    sentence_count: 11
+    key_terms: [interviews, start, applying, cold, recruiters, companies, interview, because]
+    section: Comments
+    token_count: 385
 ---
-
 # How's the job market for people with 2-3 YOE at big tech
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1pe1ne1/hows_the_job_market_for_people_with_23_yoe_at_big/)

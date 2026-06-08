@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1scl9qp.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1scl9qp/cornell_vs_umich/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,33 @@ flair: "College Questions"
 extracted_at: "2026-05-23T19:45:32.282Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, healthcare]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1scl9qp.md#c0"
+    char_span: [0, 1743]
+    sentence_count: 2
+    key_terms: [cornell, umich, applyingtocollege, hard, campus, school, strong, opportunities]
+    token_count: 391
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1scl9qp.md#c1"
+    char_span: [1758, 1998]
+    sentence_count: 4
+    key_terms: [cornell, grade, deflation, inflation, necessary, amazing, college, helpful]
+    section: Comments
+    token_count: 58
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1scl9qp.md#c2"
+    char_span: [2000, 3832]
+    sentence_count: 14
+    key_terms: [cornell, great, michigan, school, umich, no-fish-180, big, med]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1scl9qp.md#c3"
+    char_span: [3561, 4292]
+    sentence_count: 6
+    key_terms: [cornell, communities, been, fractalkohlrabi, necessarily, attention, community, something]
+    section: Comments
+    token_count: 175
 ---
-
 # Cornell vs Umich
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1scl9qp/cornell_vs_umich/)

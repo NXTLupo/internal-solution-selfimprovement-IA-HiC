@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1rmgfks.md
 url: "https://www.reddit.com/r/NEU/comments/1rmgfks/two_saints_tavern_a_familiar_bar_for_northeastern/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "Campus Life"
 extracted_at: "2026-05-19T17:57:09.032Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1rmgfks.md#c0"
+    char_span: [0, 318]
+    sentence_count: 1
+    key_terms: [comments, academicweapon149, neu, northeastern, reddit-deep, familiar, students, closing]
+    token_count: 92
+  - id: "social-intelligence/reddit-deep/neu/1rmgfks.md#c1"
+    char_span: [333, 1680]
+    sentence_count: 6
+    key_terms: [ohe, rip, punters, closed, spiritual-march-5097, place, justoneotherschlub, back]
+    section: Comments
+    token_count: 412
 ---
-
 # Two Saints Tavern, a familiar bar for Northeastern students, is closing after 10 years in Fenway
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1rmgfks/two_saints_tavern_a_familiar_bar_for_northeastern/)

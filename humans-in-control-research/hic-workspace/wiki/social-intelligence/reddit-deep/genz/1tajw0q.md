@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1tajw0q.md
 url: "https://www.reddit.com/r/GenZ/comments/1tajw0q/why_dating_feels_impossible_now/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,38 @@ flair: "Rant"
 extracted_at: "2026-05-17T01:11:40.769Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1tajw0q.md#c0"
+    char_span: [0, 1974]
+    sentence_count: 14
+    key_terms: [date-flation-average-date-costs-gen-z-millenials-2026-4, businessinsider, https, average, millennials, dating, dating-apps-men-women-behave-differently-2018-6, according]
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/genz/1tajw0q.md#c1"
+    char_span: [1976, 2718]
+    sentence_count: 7
+    key_terms: [rising-cost-dating-millennials-gen-z-soaring-cost-love-apps-2024-8, options, dates, https, need, businessinsider, alternatives, lower-cost]
+    token_count: 175
+  - id: "social-intelligence/reddit-deep/genz/1tajw0q.md#c2"
+    char_span: [2733, 3969]
+    sentence_count: 9
+    key_terms: [immortalvanquish, expensive, discord, dating, people, downtowngrocery6945, dates, night]
+    section: Comments
+    token_count: 321
+  - id: "social-intelligence/reddit-deep/genz/1tajw0q.md#c3"
+    char_span: [3971, 5246]
+    sentence_count: 10
+    key_terms: [dates, night, date, spending, stranger, strictly, dollars, coffee]
+    section: Comments
+    token_count: 338
+  - id: "social-intelligence/reddit-deep/genz/1tajw0q.md#c4"
+    char_span: [5248, 6650]
+    sentence_count: 11
+    key_terms: [dates, over-transition9609, date, plus, korean-themed, v2h0v0noxl0h1, snowstorm556, convenience]
+    section: Comments
+    token_count: 394
 ---
-
 # Why dating feels impossible now
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1tajw0q/why_dating_feels_impossible_now/)

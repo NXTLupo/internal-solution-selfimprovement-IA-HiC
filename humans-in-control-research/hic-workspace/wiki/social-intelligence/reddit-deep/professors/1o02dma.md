@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1o02dma.md
 url: "https://www.reddit.com/r/Professors/comments/1o02dma/people_trolling_for_woke_content/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-20T03:55:39.274Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1o02dma.md#c0"
+    char_span: [0, 1368]
+    sentence_count: 11
+    key_terms: [people, professors, questions, american, comments, classes, wouldn, class]
+    token_count: 313
+  - id: "social-intelligence/reddit-deep/professors/1o02dma.md#c1"
+    char_span: [1383, 2718]
+    sentence_count: 9
+    key_terms: [reviewernumberthree, teach, texas, quietlikesnow, anthropology, services, worried, life-education-8030]
+    section: Comments
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/professors/1o02dma.md#c2"
+    char_span: [2720, 4257]
+    sentence_count: 11
+    key_terms: [quietlikesnow, teach, agitators, something, nonsense, cringe, helpful-passenger-12, kinds]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/professors/1o02dma.md#c3"
+    char_span: [4259, 6323]
+    sentence_count: 12
+    key_terms: [students, attendance, enrolled, people, quietlikesnow, class, list, take]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1o02dma.md#c4"
+    char_span: [6046, 6984]
+    sentence_count: 5
+    key_terms: [people, genetics, chromosomal, chromosomes, variation, accurate, fired, "isn't"]
+    section: Comments
+    token_count: 213
+  - id: "social-intelligence/reddit-deep/professors/1o02dma.md#c5"
+    char_span: [6986, 8741]
+    sentence_count: 8
+    key_terms: [contractual, institution, get, like, mean, agreement, "doesn't", setting]
+    section: Comments
+    token_count: 440
 ---
-
 # People trolling for “woke” content
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1o02dma/people_trolling_for_woke_content/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1nto1r9.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1nto1r9/how_much_undergraduate_research_should_a_person/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,27 @@ flair: "Humanities"
 extracted_at: "2026-05-20T03:56:10.766Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1nto1r9.md#c0"
+    char_span: [0, 859]
+    sentence_count: 8
+    key_terms: [undergraduate, research, gradadmissions, comments, planning, history, energy, thesis]
+    token_count: 198
+  - id: "social-intelligence/reddit-deep/gradadmissions/1nto1r9.md#c1"
+    char_span: [874, 2407]
+    sentence_count: 11
+    key_terms: [year, history, thesis, undergraduate, applications, american, research, getting]
+    section: Comments
+    token_count: 358
+  - id: "social-intelligence/reddit-deep/gradadmissions/1nto1r9.md#c2"
+    char_span: [2409, 4861]
+    sentence_count: 8
+    key_terms: [important, american, research, yourself, undergraduate, history, start, journal]
+    section: Comments
+    token_count: 502
 ---
-
 # How much undergraduate research should a person do before they apply for history grad school?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1nto1r9/how_much_undergraduate_research_should_a_person/)

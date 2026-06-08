@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1osehpn.md
 url: "https://www.reddit.com/r/careerguidance/comments/1osehpn/new_msc_international_business_management_student/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-22T21:34:47.973Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, manufacturing, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1osehpn.md#c0"
+    char_span: [0, 1615]
+    sentence_count: 8
+    key_terms: [roles, learning, analyst, skills, careerguidance, supply, international, chain]
+    token_count: 328
+  - id: "social-intelligence/reddit-deep/careerguidance/1osehpn.md#c1"
+    char_span: [1630, 2398]
+    sentence_count: 6
+    key_terms: [learning, excel, power, sql, formulas, through, focus, help]
+    section: Comments
+    token_count: 165
 ---
-
 # New Msc international Business Management student in germany from India feeling behind- seeking advice on analyst career skills , supply chain roles and learning roadmap?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1osehpn/new_msc_international_business_management_student/)

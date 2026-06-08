@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1qhzam6.md
 url: "https://www.reddit.com/r/careeradvice/comments/1qhzam6/how_ai_is_actually_changing_the_way_earlycareer/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.243Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [ai_research, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1qhzam6.md#c0"
+    char_span: [0, 1215]
+    sentence_count: 7
+    key_terms: [people, careeradvice, early-career, like, different, something, comments, starting]
+    token_count: 294
 ---
-
 # How AI is actually changing the way early-career people work
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1qhzam6/how_ai_is_actually_changing_the_way_earlycareer/)

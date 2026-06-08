@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1t0htzu.md
 url: "https://www.reddit.com/r/GradSchool/comments/1t0htzu/people_who_quit_a_job_with_a_decent_salary_to/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,39 @@ flair: "Professional"
 extracted_at: "2026-05-25T13:04:07.346Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1t0htzu.md#c0"
+    char_span: [0, 2145]
+    sentence_count: 18
+    key_terms: [masters, career, design, online, doing, done, get, gradschool]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/gradschool/1t0htzu.md#c1"
+    char_span: [2160, 4275]
+    sentence_count: 20
+    key_terms: [internship, projects, non-thesis, track, because, company, masters, program]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1t0htzu.md#c2"
+    char_span: [3999, 5332]
+    sentence_count: 8
+    key_terms: [salary, did, children, program, family, matter, myself, championshipnice9719]
+    section: Comments
+    token_count: 340
+  - id: "social-intelligence/reddit-deep/gradschool/1t0htzu.md#c3"
+    char_span: [5334, 7457]
+    sentence_count: 18
+    key_terms: [career, get, job, worth, engineering, masters, student, paying]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/gradschool/1t0htzu.md#c4"
+    char_span: [7459, 8108]
+    sentence_count: 6
+    key_terms: [job, degree, market, land, paid, intensetoucan, differently, graduating]
+    section: Comments
+    token_count: 159
 ---
-
 # People who quit a job with a decent salary to pursue a masters, was it worth it?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1t0htzu/people_who_quit_a_job_with_a_decent_salary_to/)

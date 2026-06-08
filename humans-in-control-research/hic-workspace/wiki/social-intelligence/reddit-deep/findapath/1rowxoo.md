@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1rowxoo.md
 url: "https://www.reddit.com/r/findapath/comments/1rowxoo/biology_student_from_india_confused_about_career/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,21 @@ flair: "Findapath-Career Change"
 extracted_at: "2026-05-22T15:13:18.823Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1rowxoo.md#c0"
+    char_span: [0, 1507]
+    sentence_count: 13
+    key_terms: [biology, career, science, bioinformatics, fields, computational, opportunities, data]
+    token_count: 338
+  - id: "social-intelligence/reddit-deep/findapath/1rowxoo.md#c1"
+    char_span: [1522, 2654]
+    sentence_count: 10
+    key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
+    section: Comments
+    token_count: 248
 ---
-
 # Biology student from India confused about career path
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1rowxoo/biology_student_from_india_confused_about_career/)

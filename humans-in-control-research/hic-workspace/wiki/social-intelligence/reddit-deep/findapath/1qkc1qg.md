@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1qkc1qg.md
 url: "https://www.reddit.com/r/findapath/comments/1qkc1qg/feels_like_my_life_is_ruined/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,57 @@ flair: "Findapath-AboutGroup"
 extracted_at: "2026-05-25T13:04:07.390Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce, healthcare, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1qkc1qg.md#c0"
+    char_span: [0, 1502]
+    sentence_count: 14
+    key_terms: [like, feel, don, especially, findapath, comments, feeling, nothing]
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/findapath/1qkc1qg.md#c1"
+    char_span: [1517, 3714]
+    sentence_count: 18
+    key_terms: [thank, helpful, redgreenrevolt, please, community, findapath, comments, everyone]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/findapath/1qkc1qg.md#c2"
+    char_span: [3716, 5509]
+    sentence_count: 20
+    key_terms: [people, time, starting, school, right, stage, life, graduate]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/findapath/1qkc1qg.md#c3"
+    char_span: [5511, 6596]
+    sentence_count: 10
+    key_terms: [pivot, parents, change, being, big, keep, life, want]
+    section: Comments
+    token_count: 248
+  - id: "social-intelligence/reddit-deep/findapath/1qkc1qg.md#c4"
+    char_span: [6598, 8433]
+    sentence_count: 13
+    key_terms: [nursing, realize, poopswordsrus, lpn, addiction, someone, health, mental]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/findapath/1qkc1qg.md#c5"
+    char_span: [8435, 9083]
+    sentence_count: 10
+    key_terms: [yourself, lot, connections, disposition, unavoidable, entangled, interests, sometimes]
+    section: Comments
+    token_count: 156
+  - id: "social-intelligence/reddit-deep/findapath/1qkc1qg.md#c6"
+    char_span: [9085, 11247]
+    sentence_count: 10
+    key_terms: [yourself, let, move, college, worked, live, volunteer, network]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/findapath/1qkc1qg.md#c7"
+    char_span: [11249, 11324]
+    sentence_count: 1
+    key_terms: [curious, parents, bright, house, stunt, get, seem]
+    section: Comments
+    token_count: 17
 ---
-
 # Feels like my life is ruined
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1qkc1qg/feels_like_my_life_is_ruined/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1rs8tkp.md
 url: "https://www.reddit.com/r/personalfinance/comments/1rs8tkp/inherited_wealth_how_do_i_manage_this_money/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,74 @@ flair: "Planning"
 extracted_at: "2026-05-17T01:13:31.185Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1rs8tkp.md#c0"
+    char_span: [0, 2253]
+    sentence_count: 13
+    key_terms: [money, account, "i'm", personalfinance, "don't", potentially, away, put]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/personalfinance/1rs8tkp.md#c1"
+    char_span: [2255, 2848]
+    sentence_count: 2
+    key_terms: [age, access, holes, money, reach, need, unexpectedly, appropriate]
+    token_count: 130
+  - id: "social-intelligence/reddit-deep/personalfinance/1rs8tkp.md#c2"
+    char_span: [2863, 4979]
+    sentence_count: 15
+    key_terms: [child, months, parents, photos, contribution, until, decisions, benefits]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/personalfinance/1rs8tkp.md#c3"
+    char_span: [4981, 7244]
+    sentence_count: 23
+    key_terms: [trust, insurance, expenses, beneficiary, money, attorney, invest, incapacitated]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/personalfinance/1rs8tkp.md#c4"
+    char_span: [7246, 8904]
+    sentence_count: 12
+    key_terms: [financial, insurance, kid, "don't", money, beneficiary, like, morally]
+    section: Comments
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/personalfinance/1rs8tkp.md#c5"
+    char_span: [8907, 10424]
+    sentence_count: 15
+    key_terms: [money, "wouldn't", savingforcollege, give, kid, need, provide, savings]
+    section: Comments
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/personalfinance/1rs8tkp.md#c6"
+    char_span: [10426, 11531]
+    sentence_count: 15
+    key_terms: [money, control, "don't", fafsa, trust, free, ira, lot]
+    section: Comments
+    token_count: 272
+  - id: "social-intelligence/reddit-deep/personalfinance/1rs8tkp.md#c7"
+    char_span: [11533, 13557]
+    sentence_count: 14
+    key_terms: [money, account, utma, kid, ugma, education, financial, accounts]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/personalfinance/1rs8tkp.md#c8"
+    char_span: [13270, 13862]
+    sentence_count: 5
+    key_terms: [money, using, inheritance, jamflowwman, suggestion, childcare, expensive, financial]
+    section: Comments
+    token_count: 130
+  - id: "social-intelligence/reddit-deep/personalfinance/1rs8tkp.md#c9"
+    char_span: [13864, 15831]
+    sentence_count: 12
+    key_terms: [money, like, child, later, plan, management, education, financial]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/personalfinance/1rs8tkp.md#c10"
+    char_span: [15833, 17416]
+    sentence_count: 15
+    key_terms: [attorney, set, want, insurance, account, consult, estate, lawyer]
+    section: Comments
+    token_count: 384
 ---
-
 # Inherited wealth - How do I manage this money safely for the benefit of a child?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1rs8tkp/inherited_wealth_how_do_i_manage_this_money/)

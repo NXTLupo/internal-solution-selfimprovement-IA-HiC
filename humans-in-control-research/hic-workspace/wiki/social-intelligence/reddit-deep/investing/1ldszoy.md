@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1ldszoy.md
 url: "https://www.reddit.com/r/investing/comments/1ldszoy/duolingos_20b_valuation_is_so_ridiculous/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,69 @@ flair: ""
 extracted_at: "2026-05-16T20:55:01.247Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [education, saas, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1ldszoy.md#c0"
+    char_span: [0, 1096]
+    sentence_count: 9
+    key_terms: [margins, investing, comments, coursera, duolingo, revenue, trading, strong]
+    token_count: 296
+  - id: "social-intelligence/reddit-deep/investing/1ldszoy.md#c1"
+    char_span: [1111, 2497]
+    sentence_count: 6
+    key_terms: [trading, normal, fair, "it's", companies, market, retail, "that's"]
+    section: Comments
+    token_count: 365
+  - id: "social-intelligence/reddit-deep/investing/1ldszoy.md#c2"
+    char_span: [2499, 3725]
+    sentence_count: 5
+    key_terms: [google, spotify, people, apple, looks, value-investing, legalprocessto, dudeatwork77]
+    section: Comments
+    token_count: 313
+  - id: "social-intelligence/reddit-deep/investing/1ldszoy.md#c3"
+    char_span: [3727, 5200]
+    sentence_count: 9
+    key_terms: [language, learn, duolingo, company, german, deleted, spotify, source]
+    section: Comments
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/investing/1ldszoy.md#c4"
+    char_span: [5202, 7176]
+    sentence_count: 14
+    key_terms: [duolingo, learning, language, duolingo-language-report, time, italian, german, people]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/investing/1ldszoy.md#c5"
+    char_span: [7178, 9289]
+    sentence_count: 11
+    key_terms: [language, german, education, langsam-gesprochene-nachrichten, like, connecting, something, duolingo]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/investing/1ldszoy.md#c6"
+    char_span: [9291, 10253]
+    sentence_count: 6
+    key_terms: [duolingo, successfully, using, like, used, learning, experts, moat]
+    section: Comments
+    token_count: 222
+  - id: "social-intelligence/reddit-deep/investing/1ldszoy.md#c7"
+    char_span: [10255, 11621]
+    sentence_count: 5
+    key_terms: [reservations, "it's", adoption, learning, network, effect, "don't", big]
+    section: Comments
+    token_count: 330
+  - id: "social-intelligence/reddit-deep/investing/1ldszoy.md#c8"
+    char_span: [11623, 13629]
+    sentence_count: 9
+    key_terms: [language, languages, because, enough, learn, assumptions, good, different]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/investing/1ldszoy.md#c9"
+    char_span: [13631, 15458]
+    sentence_count: 13
+    key_terms: [fluent, growth, share, cash, duol, flow, saas, duolingo]
+    section: Comments
+    token_count: 451
 ---
-
 # Duolingo’s 20B+ Valuation is so Ridiculous
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1ldszoy/duolingos_20b_valuation_is_so_ridiculous/)

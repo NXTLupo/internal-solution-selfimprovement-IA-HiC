@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1rho9zs.md
 url: "https://www.reddit.com/r/NEU/comments/1rho9zs/joined_late_to_my_masters_cybersecurity_drop/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "Admissions & Financial Aid"
 extracted_at: "2026-05-13T20:23:48.333Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [higher_ed, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1rho9zs.md#c0"
+    char_span: [0, 1265]
+    sentence_count: 9
+    key_terms: [international, financial, student, refund, cybersecurity, late, comments, deadline]
+    token_count: 274
+  - id: "social-intelligence/reddit-deep/neu/1rho9zs.md#c1"
+    char_span: [1280, 1917]
+    sentence_count: 3
+    key_terms: [tough-surprise4298, ordinary-bird5170, course, drop, semester, january, started, doing]
+    section: Comments
+    token_count: 174
 ---
-
 # Joined late to my Master’s (Cybersecurity) – Drop deadline passed, no refund option. Any advice?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1rho9zs/joined_late_to_my_masters_cybersecurity_drop/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1thl5qd.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1thl5qd/how_helpful_are_personal_projects_in_college/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,27 @@ flair: "Application Question"
 extracted_at: "2026-05-22T23:33:52.626Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1thl5qd.md#c0"
+    char_span: [0, 1687]
+    sentence_count: 10
+    key_terms: [projects, "i've", competitions, applyingtocollege, been, personal, because, applications]
+    token_count: 353
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1thl5qd.md#c1"
+    char_span: [1702, 3742]
+    sentence_count: 15
+    key_terms: [niceunparticularman, doing, projects, competitions, stand, application, engineering, love]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1thl5qd.md#c2"
+    char_span: [3744, 6098]
+    sentence_count: 14
+    key_terms: [competitions, projects, impressive, passion, compelling, texus86, making, "isn't"]
+    section: Comments
+    token_count: 505
 ---
-
 # How helpful are personal projects in college applications?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1thl5qd/how_helpful_are_personal_projects_in_college/)

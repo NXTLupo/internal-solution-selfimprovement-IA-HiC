@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-financialindependence/aba06f2ee7.md
 url: "https://www.reddit.com/r/financialindependence/comments/1o5kcfb/1m_nw_at_age_38_lifetime_earnings_of_1m_annual/"
 url_hash: "aba06f2ee7"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-16T21:02:37.068739+00:00"
 chars: 3835
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-financialindependence/aba06f2ee7.md#c0"
+    char_span: [0, 1474]
+    sentence_count: 4
+    key_terms: [financialindependence, insurance, reddit, roth, brokerage, comments, current, monthly]
+    token_count: 450
+  - id: "articles/reddit-deep-r-financialindependence/aba06f2ee7.md#c1"
+    char_span: [1476, 3379]
+    sentence_count: 16
+    key_terms: [current, future, never, years, investments, get, "i'd", less]
+    token_count: 448
+  - id: "articles/reddit-deep-r-financialindependence/aba06f2ee7.md#c2"
+    char_span: [3381, 4098]
+    sentence_count: 6
+    key_terms: [congratulations, idratherbeinegypt, work, vanillalifestyle, talicenseplate, encouragement, dedication, indicative]
+    token_count: 193
 ---
-
 # $1M NW at age 38 - (lifetime earnings of $1M) annual income never higher than $95k (single, USA)
 
 Source: [Reddit Deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1o5kcfb/1m_nw_at_age_38_lifetime_earnings_of_1m_annual/)

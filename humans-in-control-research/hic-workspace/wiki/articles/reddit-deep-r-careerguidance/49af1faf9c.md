@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/49af1faf9c.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t9wcxv/do_i_stick_with_my_job_and_learn_the_skills_or/"
 url_hash: "49af1faf9c"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T06:46:50.515768+00:00"
 chars: 1533
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/49af1faf9c.md#c0"
+    char_span: [0, 1762]
+    sentence_count: 10
+    key_terms: [money, australia, job, around, skills, fitting, january, kitchen]
+    token_count: 401
 ---
-
 # Do I stick with my job and learn the skills or prioritise making more money?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t9wcxv/do_i_stick_with_my_job_and_learn_the_skills_or/)

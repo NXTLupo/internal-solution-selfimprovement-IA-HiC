@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-applyingtocollege/7e7b6f5cfe.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rlh6iz/does_a_weighted_gpa_of_5255_add_value_to_college/"
 url_hash: "7e7b6f5cfe"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:40:56.799126+00:00"
 chars: 1465
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-applyingtocollege/7e7b6f5cfe.md#c0"
+    char_span: [0, 1708]
+    sentence_count: 9
+    key_terms: [gpa, college, courses, applyingtocollege, schools, medium-ad-7305, school, comments]
+    token_count: 459
 ---
-
 # Does a Weighted GPA of 5.2-5.5 Add Value to College Applications? (By Senior Year)
 
 Source: [Reddit Deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rlh6iz/does_a_weighted_gpa_of_5255_add_value_to_college/)

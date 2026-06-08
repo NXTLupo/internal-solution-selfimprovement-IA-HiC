@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1lpvp2p.md
 url: "https://www.reddit.com/r/careerguidance/comments/1lpvp2p/43_and_wanting_a_career_switch_is_it_too_late/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,45 @@ flair: "Near Salt Lake City, Utah"
 extracted_at: "2026-05-26T14:32:49.167Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1lpvp2p.md#c0"
+    char_span: [0, 1542]
+    sentence_count: 10
+    key_terms: [sales, careerguidance, career, experience, management, business, comments, security]
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/careerguidance/1lpvp2p.md#c1"
+    char_span: [1557, 1854]
+    sentence_count: 4
+    key_terms: [sales, different, change, justhereforpics1776, b2b, industries, though, makes]
+    section: Comments
+    token_count: 78
+  - id: "social-intelligence/reddit-deep/careerguidance/1lpvp2p.md#c2"
+    char_span: [1859, 3749]
+    sentence_count: 16
+    key_terms: [get, change, going, sales, late, something, training, somehow]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/careerguidance/1lpvp2p.md#c3"
+    char_span: [3751, 4683]
+    sentence_count: 14
+    key_terms: [years, certs, field, sales, experience, "you've", liquiddiscourage1, back]
+    section: Comments
+    token_count: 211
+  - id: "social-intelligence/reddit-deep/careerguidance/1lpvp2p.md#c4"
+    char_span: [4685, 6614]
+    sentence_count: 11
+    key_terms: [coding, actwide6615, career, years, been, take, looking, change]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1lpvp2p.md#c5"
+    char_span: [6356, 8222]
+    sentence_count: 10
+    key_terms: [coding, like, anything, because, adult, going, right, sales]
+    section: Comments
+    token_count: 475
 ---
-
 # 43 and wanting a career switch — is it too late?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1lpvp2p/43_and_wanting_a_career_switch_is_it_too_late/)

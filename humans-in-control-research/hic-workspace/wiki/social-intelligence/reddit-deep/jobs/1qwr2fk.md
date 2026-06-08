@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1qwr2fk.md
 url: "https://www.reddit.com/r/jobs/comments/1qwr2fk/i_never_seen_the_job_market_this_bad_is_there_a/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,99 @@ flair: "Unemployment"
 extracted_at: "2026-05-24T14:10:06.646Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1qwr2fk.md#c0"
+    char_span: [0, 702]
+    sentence_count: 8
+    key_terms: [jobs, unemployment, comments, being, been, mardylorean, observation, reddit-deep]
+    token_count: 175
+  - id: "social-intelligence/reddit-deep/jobs/1qwr2fk.md#c1"
+    char_span: [717, 2094]
+    sentence_count: 10
+    key_terms: [year, years, job, jobs, unemployed, walmart, working, datesandcornfused]
+    section: Comments
+    token_count: 389
+  - id: "social-intelligence/reddit-deep/jobs/1qwr2fk.md#c2"
+    char_span: [2096, 4079]
+    sentence_count: 20
+    key_terms: [job, "i'm", working, seems, years, been, blah, don]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/jobs/1qwr2fk.md#c3"
+    char_span: [4081, 6128]
+    sentence_count: 17
+    key_terms: [linkedin, hiring, fartdonkey420, new, healthcare, graduated, looking, nursing]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/jobs/1qwr2fk.md#c4"
+    char_span: [6131, 6709]
+    sentence_count: 5
+    key_terms: [looking, applying, got, jobs, unrealistically, macademicnut, entry-level, eventually]
+    section: Comments
+    token_count: 130
+  - id: "social-intelligence/reddit-deep/jobs/1qwr2fk.md#c5"
+    char_span: [6711, 8458]
+    sentence_count: 15
+    key_terms: [because, decade, going, experienced, need, companies, recovery, exactly]
+    section: Comments
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/jobs/1qwr2fk.md#c6"
+    char_span: [8460, 10256]
+    sentence_count: 10
+    key_terms: [thineownselph, millionaires, always, people, imaginary-method7175, rentapprehensive5105, specialist-season-88, pandacultural8311]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/jobs/1qwr2fk.md#c7"
+    char_span: [10258, 12041]
+    sentence_count: 23
+    key_terms: [move, designed, thailand, country, house, down, get, take]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/jobs/1qwr2fk.md#c8"
+    char_span: [12043, 13625]
+    sentence_count: 13
+    key_terms: [unluckypossible542, education, different, practical, devalued, valuable, degrees, several]
+    section: Comments
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/jobs/1qwr2fk.md#c9"
+    char_span: [13627, 15512]
+    sentence_count: 16
+    key_terms: [psychology, unemployment, "it's", job, like, businesses, degrees, generic]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/jobs/1qwr2fk.md#c10"
+    char_span: [15514, 17435]
+    sentence_count: 17
+    key_terms: [finally, people, trying, going, like, too, themselves, countries]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/jobs/1qwr2fk.md#c11"
+    char_span: [17437, 19649]
+    sentence_count: 19
+    key_terms: [bad, job, rate, unemployment, years, like, engineering, been]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1qwr2fk.md#c12"
+    char_span: [19368, 19992]
+    sentence_count: 4
+    key_terms: [unemployment, "aren't", accurate-release-861, rate, administration, manipulating, checkerspot, completely]
+    section: Comments
+    token_count: 154
+  - id: "social-intelligence/reddit-deep/jobs/1qwr2fk.md#c13"
+    char_span: [19994, 22126]
+    sentence_count: 16
+    key_terms: [unemployment, rate, people, satisfaction, point, state, governments, employed]
+    section: Comments
+    token_count: 515
+  - id: "social-intelligence/reddit-deep/jobs/1qwr2fk.md#c14"
+    char_span: [22129, 22722]
+    sentence_count: 4
+    key_terms: [unemployment, get, better, people, pomegranateplus6526, until, sidthasloth4, superrodster]
+    section: Comments
+    token_count: 155
 ---
-
 # I never seen the job market this bad. Is there a chance of recovery?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1qwr2fk/i_never_seen_the_job_market_this_bad_is_there_a/)

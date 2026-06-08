@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1szfsdg.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1szfsdg/stay_away_from_safetywing/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,33 @@ flair: "Lifestyle"
 extracted_at: "2026-05-26T12:53:56.727Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [insurance, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1szfsdg.md#c0"
+    char_span: [0, 1453]
+    sentence_count: 10
+    key_terms: [digitalnomad, safetywing, incorrect, insurance, seriously, comments, constant, rejected]
+    token_count: 309
+  - id: "social-intelligence/reddit-deep/digitalnomad/1szfsdg.md#c1"
+    char_span: [1468, 3529]
+    sentence_count: 12
+    key_terms: [insurance, companies, infrastructure, cigna, rates, like, pay, assman69x]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/digitalnomad/1szfsdg.md#c2"
+    char_span: [3531, 5541]
+    sentence_count: 10
+    key_terms: [people, insurance, buy, "it's", complete, easy, safetywing, required]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/digitalnomad/1szfsdg.md#c3"
+    char_span: [5543, 6808]
+    sentence_count: 9
+    key_terms: [better, within, genki, experiences, days, claims, claim, heard]
+    section: Comments
+    token_count: 311
 ---
-
 # STAY AWAY FROM SAFETYWING
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1szfsdg/stay_away_from_safetywing/)

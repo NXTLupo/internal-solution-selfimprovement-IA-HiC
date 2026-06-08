@@ -7,12 +7,12 @@ title: "Grad School Admission in Biomedical Sciences – Some Thoughts After Thi
 author: "Nervous-Animator-663"
 date: "2025-08-24T22:27:20.000Z"
 score: 34
-upvote_ratio: 0.97
+upvote_ratio: 0.96
 num_comments: 7
 flair: "Biological Sciences"
-extracted_at: "2026-05-22T13:33:02.839Z"
+extracted_at: "2026-06-06T23:23:15.592Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Grad School Admission in Biomedical Sciences – Some Thoughts After This Year

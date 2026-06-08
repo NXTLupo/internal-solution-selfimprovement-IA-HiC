@@ -10,9 +10,9 @@ score: 1
 upvote_ratio: 1
 num_comments: 0
 flair: "Humanities"
-extracted_at: "2026-05-22T13:33:02.839Z"
+extracted_at: "2026-06-06T23:23:15.593Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # grad school admissions

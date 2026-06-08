@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1kslf3b/after_4_years_at_google_heres_my_honest_take_on/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,89 @@ flair: ""
 extracted_at: "2026-05-22T13:32:46.159Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c0"
+    char_span: [0, 1997]
+    sentence_count: 25
+    key_terms: [processes, software, google, cscareerquestions, ship, work, "didn't", agile]
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c1"
+    char_span: [1999, 4219]
+    sentence_count: 31
+    key_terms: [software, docs, point, doc, information, "what's", wrong, ship]
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c2"
+    char_span: [4221, 6479]
+    sentence_count: 21
+    key_terms: [docs, "they're", google, high-level, "don't", like, retrospectives, documentation]
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c3"
+    char_span: [6481, 8816]
+    sentence_count: 20
+    key_terms: [bottom-up, engineering, people, because, feature, better, maybe, get]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c4"
+    char_span: [8818, 10320]
+    sentence_count: 16
+    key_terms: [work, everything, leadership, presented, believe, no-show, problem, "don't"]
+    token_count: 341
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c5"
+    char_span: [10335, 11998]
+    sentence_count: 11
+    key_terms: [manager, google, doc, pushed, get, good, especially, deadlines]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c6"
+    char_span: [12000, 13769]
+    sentence_count: 14
+    key_terms: [coding, deadline, planning, couple, high, roadmap, design, matter]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c7"
+    char_span: [13771, 15780]
+    sentence_count: 15
+    key_terms: [severance, like, change, choice, google, get, "i'm", extremely]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c8"
+    char_span: [15782, 17343]
+    sentence_count: 13
+    key_terms: [business, "you're", companies, big, parts, always, change, people]
+    section: Comments
+    token_count: 337
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c9"
+    char_span: [17345, 19732]
+    sentence_count: 18
+    key_terms: [companies, everything, bureaucracy, big, experience, something, everyone, opposite]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c10"
+    char_span: [19498, 20175]
+    sentence_count: 5
+    key_terms: ["i'm", experience, teams, ubccompscistudent, time, especially, companies, generally]
+    section: Comments
+    token_count: 178
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c11"
+    char_span: [20177, 22251]
+    sentence_count: 14
+    key_terms: [google, company, legal, fit, negative, because, better, people]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c12"
+    char_span: [22253, 23914]
+    sentence_count: 16
+    key_terms: [reviews, often, code, did, google, conceptually, learn, fix]
+    section: Comments
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c13"
+    char_span: [23916, 24900]
+    sentence_count: 7
+    key_terms: [been, team, test, teams, bug, investigations, incorrectly, regressions]
+    section: Comments
+    token_count: 224
 ---
-
 # After 4 years at Google, here's my honest take on why their work culture and processes didn't work for me.
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1kslf3b/after_4_years_at_google_heres_my_honest_take_on/)

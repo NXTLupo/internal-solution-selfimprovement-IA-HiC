@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1l88ehx.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1l88ehx/need_help_finding_a_career_path_for_my_future_cs/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -7,14 +8,31 @@ title: "Need help finding a career path for my future CS degree. I like coding, 
 author: "torrentialsnow"
 date: "2025-06-10T19:47:50.000Z"
 score: 0
-upvote_ratio: 0.43
+upvote_ratio: 0.47
 num_comments: 12
 flair: ""
-extracted_at: "2026-05-25T18:32:49.826Z"
+extracted_at: "2026-06-03T18:35:34.176Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l88ehx.md#c0"
+    char_span: [0, 1514]
+    sentence_count: 14
+    key_terms: [career, like, path, cscareerquestions, software, "don't", struggling, something]
+    token_count: 344
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l88ehx.md#c1"
+    char_span: [1529, 3327]
+    sentence_count: 14
+    key_terms: [job, different, work, gardening-gnome, enough, time, projects, manager]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l88ehx.md#c2"
+    char_span: [3332, 4287]
+    sentence_count: 5
+    key_terms: [like, embedded, software, engineering, something, controls, illustrious-pound266, among]
+    section: Comments
+    token_count: 233
 ---
-
 # Need help finding a career path for my future CS degree. I like coding, but I don't want a career where I sit and build business/web apps.
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1l88ehx/need_help_finding_a_career_path_for_my_future_cs/)
@@ -30,7 +48,7 @@ I am also 32 btw, I don't know if this plays a factor into my future prospects t
 
 ## Comments
 
-- **gardening-gnome** (12↑): This is my opinion, and it's led me to have a happy, fulfilling life so far with several different types of jobs at several different companies. Take from it what you will.
+- **gardening-gnome** (13↑): This is my opinion, and it's led me to have a happy, fulfilling life so far with several different types of jobs at several different companies. Take from it what you will.
 
   
 Work for money, focus on your work/life balance, and pursue passion projects as your hobby. Don't tie up your self worth and your job, or you're going to be in for a bad time.

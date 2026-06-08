@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1o2rk2j.md
 url: "https://www.reddit.com/r/jobs/comments/1o2rk2j/is_it_worth_it_to_only_apply_to_jobs_in_my_ideal/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -10,11 +11,34 @@ score: 2
 upvote_ratio: 1
 num_comments: 8
 flair: "Applications"
-extracted_at: "2026-05-25T13:03:11.722Z"
+extracted_at: "2026-06-03T15:26:35.258Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Provide a strategic analysis for Northeastern University detailing opportunities to enhance experiential learning and co-op success, specifically across First Year Student Preparedness, 360 student profiles, advisor capabilities, and corporate partner development. Heavily cite and reference external articles, social media posts, and other external data to support themes and recommendations."
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1o2rk2j.md#c0"
+    char_span: [0, 967]
+    sentence_count: 6
+    key_terms: [jobs, comments, recently, however, career, energy, sector, embarrassedeffect705]
+    token_count: 225
+  - id: "social-intelligence/reddit-deep/jobs/1o2rk2j.md#c1"
+    char_span: [982, 3135]
+    sentence_count: 20
+    key_terms: [degree, something, job, time, upstairs-screen-4200, apply, energy, sector]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1o2rk2j.md#c2"
+    char_span: [2887, 3473]
+    sentence_count: 4
+    key_terms: [experience, get, "it's", sustainability, engineering, internships, traditional, prioritize]
+    section: Comments
+    token_count: 130
+  - id: "social-intelligence/reddit-deep/jobs/1o2rk2j.md#c3"
+    char_span: [3475, 4099]
+    sentence_count: 1
+    key_terms: [experience, career, unconventional, engineering, perspective, attractive, unemployed, companies]
+    section: Comments
+    token_count: 124
 ---
-
 # Is it worth it to only apply to jobs in my ideal career area or should I just apply to all so I can at least start? (Entry level)
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1o2rk2j/is_it_worth_it_to_only_apply_to_jobs_in_my_ideal/)

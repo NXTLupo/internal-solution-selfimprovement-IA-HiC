@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1o5x8ds.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1o5x8ds/viewing_my_duke_admissions_file_as_a_waitlisted/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,70 @@ subreddit: "applyingtocollege"
 title: "Viewing my Duke Admissions File as a Waitlisted --> Admitted Applicant"
 author: "Ok_Confection6044"
 date: "2025-10-13T21:43:10.000Z"
-score: 203
+score: 206
 upvote_ratio: 0.97
 num_comments: 56
 flair: "Waitlists/Deferrals"
-extracted_at: "2026-05-23T19:45:32.282Z"
+extracted_at: "2026-06-05T19:53:34.567Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o5x8ds.md#c0"
+    char_span: [0, 2354]
+    sentence_count: 12
+    key_terms: [comments, waitlisted, applicant, duke, application, admissions, applyingtocollege, readers]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o5x8ds.md#c1"
+    char_span: [2356, 4359]
+    sentence_count: 9
+    key_terms: [readers, application, personality, students, extracurriculars, alumni, school, "interviewer's"]
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o5x8ds.md#c2"
+    char_span: [4361, 6352]
+    sentence_count: 13
+    key_terms: [application, readers, comments, probably, extracurricular, because, activities, applicant]
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o5x8ds.md#c3"
+    char_span: [6367, 7598]
+    sentence_count: 13
+    key_terms: [duke-university-undergraduate-admissions-changes-numerical-rating-standardized-testing-essays-covid-test-optional-ai-generated-college-consultants-20240220, essays, score, applicant, article, across, family, means]
+    section: Comments
+    token_count: 296
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o5x8ds.md#c4"
+    char_span: [7600, 9514]
+    sentence_count: 7
+    key_terms: [waitlist, schools, school, duke, like, decision, essays, people]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o5x8ds.md#c5"
+    char_span: [9288, 9821]
+    sentence_count: 3
+    key_terms: [academics, schools, measurementtop2885, incrementally, coursework, understand, attribute, difficult]
+    section: Comments
+    token_count: 135
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o5x8ds.md#c6"
+    char_span: [9823, 10300]
+    sentence_count: 5
+    key_terms: [academics, academic, checkbox, fact, meaningless, personality, presumptive, absolutely]
+    section: Comments
+    token_count: 108
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o5x8ds.md#c7"
+    char_span: [10302, 12502]
+    sentence_count: 16
+    key_terms: [admissions, counselors, private, people, scores, achievement, give, yale]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o5x8ds.md#c8"
+    char_span: [12504, 14010]
+    sentence_count: 10
+    key_terms: [essays, definitely, college, profiteering, application, admissions, extreme, change]
+    section: Comments
+    token_count: 333
 ---
-
 # Viewing my Duke Admissions File as a Waitlisted --> Admitted Applicant
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1o5x8ds/viewing_my_duke_admissions_file_as_a_waitlisted/)
-Posted by **Ok_Confection6044** · **203↑** · **56 comments**
+Posted by **Ok_Confection6044** · **206↑** · **56 comments**
 
 Hi everyone! I'm a current freshman at Duke who recently gained access to their admissions file. I was on this sub pretty frequently during my college application season this past year, but never ended up posting on it until now. I've seen a lot of similar posts from other Duke students in past years, but thought I could provide an interesting perspective since I was initially waitlisted and then accepted (from what I believe was the first batch of waitlisted applicants). Just for some context, I am a full pay applicant who applied RD from a competitive private school in a metropolitan area; I applied and was ultimately accepted as a Bio/Global Health/Spanish major.
 
@@ -60,7 +112,7 @@ Please ask me anything! I will try my best to answer.
 
 ## Comments
 
-- **CoquitlamFalcons** (38↑): Thank you. Two things pop up on my mind:
+- **CoquitlamFalcons** (33↑): Thank you. Two things pop up on my mind:
 
 1. I hear that Duke has stopped rating essays as means to tell an applicant’s writing prowess. Then how are essays being used for evaluation purpose? Like your family essay doesn’t fit any of the scoring categories you list…
 2. How come your score is 32/40, not 42/50?
@@ -71,7 +123,7 @@ Please ask me anything! I will try my best to answer.
 2. Sorry for the confusion! I believe test scores are not factored into the overall score either. Therefore, my 10/10 on testing did not add to the 8's I scored across the rest of the board.
 
 Hope this answered your questions.
-- **ScholarGrade** (18↑): This article explains the 0 score for essays.
+- **ScholarGrade** (16↑): This article explains the 0 score for essays.
 
 https://dukechronicle.com/article/duke-university-undergraduate-admissions-changes-numerical-rating-standardized-testing-essays-covid-test-optional-ai-generated-college-consultants-20240220
 
@@ -80,10 +132,10 @@ They still matter, especially for that narrative crafting idea you mentioned.
   - **YalieRower** (2↑): It’s fascinating that they’ve now decided to stop assuming essays are not an accurate assessment of a student’s writing abilities due to AI, but for generations they assumed students wrote essays with no other outside supports?
 - **ScholarGrade** (6↑): Did they say anything about the decision to waitlist you, or to admit you from the waitlist?  Or was it just focused on the individual component evaluations?
   - **Ok_Confection6044** (11↑): Not specifically in the comments, but I can see from my file that after the pre-read the section, there was a "Committee Notes" comment followed by an "Admit." However, after the banner for Reader 2 summary, there was a "WL1" next to "Recommended Decision." This makes me believe that I was a borderline candidate that they ultimately chose to waitlist.
-- **DwyaneWade305** (11↑): Full pay at Duke is crazy.
-  - **Ancient-Purpose99** (12↑): A surprising amount of people are high achieving but don't have an s tier public school like the ucs umich or ut austin, these people are a big draw for these kinds of schools
+- **DwyaneWade305** (9↑): Full pay at Duke is crazy.
+  - **Ancient-Purpose99** (13↑): A surprising amount of people are high achieving but don't have an s tier public school like the ucs umich or ut austin, these people are a big draw for these kinds of schools
     - **Ok_Confection6044** (3↑): Yeah the public school in my state are not that great, I applied to a few publics OOS but didn't get in.
-  - **Popular-General-4042** (5↑): I mean it's a T10
+  - **Popular-General-4042** (6↑): I mean it's a T10
 - **rocdive** (3↑): Looks like A- is not a 4 in grade calculation. The school here awards 4.0 for A-, A and A+. Did Duke use a scale (where A- is not 4)?
   - **Ok_Confection6044** (2↑): Yeah I'm pretty sure Duke uses a scale where an A- = 3.7, A = 4.0, and A+ = 4.3. That seems pretty standard across high schools but I understand how some other schools (like Stanford?) take all A's as 4.0s
 - **MeasurementTop2885** (3↑): Just thinking about the literal hundreds of A2C “experts” who say that after a lowish cutoff, grades are a checkbox and don’t incrementally matter.  You had top level academics taking all of the most difficult classes in your school but still got an 8/10 in academics AND rigor that you seem to attribute to lack of DE or other “outside the box”’coursework.  
@@ -102,5 +154,5 @@ And the reason?  Private counselors and AI.  So essays crafted by private counse
 
 And still, people here will claim that after 3.8 s 1350 that “it all comes down to the essay”.  Ludicrous virtue signaling and profiteering.
   - **Ok_Confection6044** (4↑): I definitely understand where you're coming from - seeing a school like Duke practically give no practical weight to the essays is an interesting change in the college admissions landscape that I'm sure many paid/private counselors hate to see. I do, think, however, that essays can still "make or break" an application in extreme cases. Although it didn't happen to me, you can definitely write your way into or out of the accept pile regardless of how the rest of your application looks (think overcoming extreme hardship/trauma or on the other end, coming off as extremely arrogant/out of touch despite otherwise being a strong applicant).
-    - **Slamburger9642** (5↑): Wow, this is a very mature response. Like the other guy said, a zero rating on essays sure does change things. It's probable that other schools are taking a similar route, only they aren't transparent about it. To that end, speaking from the point of view of someone that has assisted students with their essays, I don't think being careless with them is also the solution. While I agree that there's a lot of profiteering and fear mongering in that, I can truly attest to some bad writing, which definitely has a hand in the admissions process. Overall, nice post and good luck in College.
+    - **Slamburger9642** (4↑): Wow, this is a very mature response. Like the other guy said, a zero rating on essays sure does change things. It's probable that other schools are taking a similar route, only they aren't transparent about it. To that end, speaking from the point of view of someone that has assisted students with their essays, I don't think being careless with them is also the solution. While I agree that there's a lot of profiteering and fear mongering in that, I can truly attest to some bad writing, which definitely has a hand in the admissions process. Overall, nice post and good luck in College.
     - **MeasurementTop2885** (1↑): Very fair.  Good luck in college!

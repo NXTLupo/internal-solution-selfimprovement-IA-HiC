@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1mi1kn8.md
 url: "https://www.reddit.com/r/GradSchool/comments/1mi1kn8/grad_school_admission_chances/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,15 @@ flair: "Admissions & Applications"
 extracted_at: "2026-05-26T14:32:49.135Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1mi1kn8.md#c0"
+    char_span: [0, 1825]
+    sentence_count: 10
+    key_terms: [program, professional, years, applying, industry, sciences, semester, lors]
+    token_count: 432
 ---
-
 # Grad School Admission Chances
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1mi1kn8/grad_school_admission_chances/)

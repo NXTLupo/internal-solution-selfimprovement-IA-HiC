@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1rjggh8.md
 url: "https://www.reddit.com/r/deeplearning/comments/1rjggh8/learn_python_usually_means_very_different_things/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,26 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.051Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [education, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1rjggh8.md#c0"
+    char_span: [0, 1932]
+    sentence_count: 9
+    key_terms: [python, data, models, deeplearning, different, comments, language, learning]
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/deeplearning/1rjggh8.md#c1"
+    char_span: [1934, 2514]
+    sentence_count: 3
+    key_terms: [statistical, did, fwg3tlmrirmg1, probabilistic, statsmodels, approached, statistics, practical]
+    token_count: 170
+  - id: "social-intelligence/reddit-deep/deeplearning/1rjggh8.md#c2"
+    char_span: [2529, 4050]
+    sentence_count: 5
+    key_terms: [pl-f5kyfvrciuzh3w5kqm4equp9ijllhp4, suspiciousbrain6027, playlist, siogixv8lstee9q, python, learn, post, downvoting]
+    section: Comments
+    token_count: 447
 ---
-
 # “Learn Python” usually means very different things. This helped me understand it better.
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1rjggh8/learn_python_usually_means_very_different_things/)

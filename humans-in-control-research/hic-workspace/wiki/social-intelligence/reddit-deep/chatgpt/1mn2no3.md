@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1mn2no3.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1mn2no3/the_gpt4o_vs_gpt5_debate_is_not_about_having_a/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,116 @@ flair: "Serious replies only :closed-ai:"
 extracted_at: "2026-05-11T16:54:08.817Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1mn2no3.md#c0"
+    char_span: [0, 2172]
+    sentence_count: 18
+    key_terms: [like, work, thinking, because, real, emotional, something, strategic]
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/chatgpt/1mn2no3.md#c1"
+    char_span: [2174, 3493]
+    sentence_count: 14
+    key_terms: [people, actual, debate, got, isn, keep, lot, tool]
+    token_count: 276
+  - id: "social-intelligence/reddit-deep/chatgpt/1mn2no3.md#c2"
+    char_span: [3508, 5602]
+    sentence_count: 16
+    key_terms: [profitable, companies, search, money, want, comments, chatgpt, serious]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/chatgpt/1mn2no3.md#c3"
+    char_span: [5604, 7087]
+    sentence_count: 10
+    key_terms: [asked, asking, everything, multiple, complex, "don't", grade, using]
+    section: Comments
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/chatgpt/1mn2no3.md#c4"
+    char_span: [7089, 8915]
+    sentence_count: 12
+    key_terms: [feels, gpt-5, like, tone, personal, thoughts, exactly, written]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/chatgpt/1mn2no3.md#c5"
+    char_span: [8917, 10628]
+    sentence_count: 9
+    key_terms: [data, output, gpt-5, "let's", right, table, get, previously]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/chatgpt/1mn2no3.md#c6"
+    char_span: [10630, 12675]
+    sentence_count: 19
+    key_terms: [seems, something, because, friends, society, modern, output, people]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/chatgpt/1mn2no3.md#c7"
+    char_span: [12677, 14585]
+    sentence_count: 26
+    key_terms: [people, friends, "i've", better, helped, chat, gpt, met]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/chatgpt/1mn2no3.md#c8"
+    char_span: [14587, 16815]
+    sentence_count: 18
+    key_terms: [people, without, communities, listening, anything, friends, lonely, social]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1mn2no3.md#c9"
+    char_span: [16597, 17094]
+    sentence_count: 6
+    key_terms: [listening, problems, work, multi-layered, calculator, aethelete, challenge, emotional]
+    section: Comments
+    token_count: 132
+  - id: "social-intelligence/reddit-deep/chatgpt/1mn2no3.md#c10"
+    char_span: [17098, 18779]
+    sentence_count: 14
+    key_terms: [littlearthquakes, mental, people, like, corporate, thinking, forward, deeply]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/chatgpt/1mn2no3.md#c11"
+    char_span: [18781, 20705]
+    sentence_count: 14
+    key_terms: [like, good, infuriating, intelligent, data, "it's", lot, yeah]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/chatgpt/1mn2no3.md#c12"
+    char_span: [20707, 22079]
+    sentence_count: 11
+    key_terms: ["it's", through, personality, "i'm", legacy, models, human, never]
+    section: Comments
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/chatgpt/1mn2no3.md#c13"
+    char_span: [22081, 24163]
+    sentence_count: 17
+    key_terms: [like, user, model, fill, vagueness, settings, thinking, details]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/chatgpt/1mn2no3.md#c14"
+    char_span: [24165, 26415]
+    sentence_count: 15
+    key_terms: [character, engineer, certain, example, information, practical, sentences, something]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/chatgpt/1mn2no3.md#c15"
+    char_span: [26417, 28430]
+    sentence_count: 14
+    key_terms: [conversational, actual, improvement, thinking, because, threads, better, coding]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/chatgpt/1mn2no3.md#c16"
+    char_span: [28432, 30788]
+    sentence_count: 20
+    key_terms: [intelligent, people, intelligence, remembering, use, experience, cognitive, different]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/chatgpt/1mn2no3.md#c17"
+    char_span: [30790, 32266]
+    sentence_count: 11
+    key_terms: [model, "it's", people, seeing, maybe, get, like, use]
+    section: Comments
+    token_count: 374
 ---
-
 # The GPT-4o vs GPT-5 debate is not about having a “bot friend” — it’s about something much bigger
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1mn2no3/the_gpt4o_vs_gpt5_debate_is_not_about_having_a/)

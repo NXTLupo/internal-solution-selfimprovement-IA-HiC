@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1qajl2r.md
 url: "https://www.reddit.com/r/jobs/comments/1qajl2r/are_job_markets_around_the_world_suffering_like/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,105 @@ flair: "Job searching"
 extracted_at: "2026-05-25T13:03:11.719Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c0"
+    char_span: [0, 538]
+    sentence_count: 4
+    key_terms: [jobs, comments, around, world, unfair-acadia6851, like, reddit-deep, businesses]
+    token_count: 136
+  - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c1"
+    char_span: [553, 1276]
+    sentence_count: 2
+    key_terms: [vbryndis, ekvecpkgwz7tq, billionaires, transactions, dukeofgonzo, upthetruth1, immigrants, neepster44]
+    section: Comments
+    token_count: 209
+  - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c2"
+    char_span: [1278, 3015]
+    sentence_count: 16
+    key_terms: [california, job, london, doubleu2020, bad, happened, brexit, people]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c3"
+    char_span: [3017, 5136]
+    sentence_count: 9
+    key_terms: [informational, interview, masters, better, single, perpetualmediocress, thenewwwguyreturns, back]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c4"
+    char_span: [5138, 7121]
+    sentence_count: 11
+    key_terms: [employment, job, majority-jobseekers-unable-to-get-long-term-work-despite-private-agencies, privatised, weeks, getting, service, people]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c5"
+    char_span: [7123, 8019]
+    sentence_count: 15
+    key_terms: [bad, time, europe, bannedwith1milkarma, work, clarification, additional, employment]
+    section: Comments
+    token_count: 212
+  - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c6"
+    char_span: [8021, 9566]
+    sentence_count: 14
+    key_terms: [america, unemployment, latin, job, better, market, deleted, europe]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c7"
+    char_span: [9568, 10989]
+    sentence_count: 9
+    key_terms: [people, india, work, market, outsourcing, indian, holdencaulfieldsiud, being]
+    section: Comments
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c8"
+    char_span: [10991, 12246]
+    sentence_count: 9
+    key_terms: [jobs, country, countries, freshers, majority, booming, central, massive]
+    section: Comments
+    token_count: 286
+  - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c9"
+    char_span: [12248, 14355]
+    sentence_count: 14
+    key_terms: [job, market, professionals, years, been, because, booming, ukraine]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c10"
+    char_span: [14093, 14700]
+    sentence_count: 4
+    key_terms: [english, undergrad, passport, glystopherscorpse003, apply, seasonedadmanager, allllright, reputable]
+    section: Comments
+    token_count: 150
+  - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c11"
+    char_span: [14702, 16884]
+    sentence_count: 15
+    key_terms: [get, city, "it's", essentially, housing, people, japan, jet]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c12"
+    char_span: [16886, 19109]
+    sentence_count: 16
+    key_terms: [experience, going, countries, "it's", honestly, english, asia, definitely]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c13"
+    char_span: [19111, 20711]
+    sentence_count: 12
+    key_terms: [school, experience, susanoo0, hagwon, korea, south, "i'm", like]
+    section: Comments
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c14"
+    char_span: [20713, 21583]
+    sentence_count: 4
+    key_terms: [unemployment, spain, high, canada, people, glittering-mirror602, "don't", hence]
+    section: Comments
+    token_count: 250
+  - id: "social-intelligence/reddit-deep/jobs/1qajl2r.md#c15"
+    char_span: [21585, 23507]
+    sentence_count: 15
+    key_terms: [people, canada, market, corporations, job, work, employment, workers]
+    section: Comments
+    token_count: 465
 ---
-
 # Are job markets around the world suffering like the U.S.?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1qajl2r/are_job_markets_around_the_world_suffering_like/)

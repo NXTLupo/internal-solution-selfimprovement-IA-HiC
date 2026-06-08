@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1s2plnv.md
 url: "https://www.reddit.com/r/careeradvice/comments/1s2plnv/off_boarded_after_4_weeks_for_a_job_i_moved/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.243Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1s2plnv.md#c0"
+    char_span: [0, 2254]
+    sentence_count: 35
+    key_terms: [interesting, review, careeradvice, genuinely, comments, staffing, agency, people]
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/careeradvice/1s2plnv.md#c1"
+    char_span: [2269, 4130]
+    sentence_count: 13
+    key_terms: [agency, unappreciated-genius, start, like, shift, day, did, time]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/careeradvice/1s2plnv.md#c2"
+    char_span: [4132, 5871]
+    sentence_count: 9
+    key_terms: [information, "i'm", need, contractor, annoyance, anything, manager, someone]
+    section: Comments
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/careeradvice/1s2plnv.md#c3"
+    char_span: [5873, 7300]
+    sentence_count: 9
+    key_terms: [unappreciated-genius, always, delivery, training, hiring, people, environmentalside576, false-contribution13]
+    section: Comments
+    token_count: 362
 ---
-
 # “ Off boarded” after 4 weeks for a job I moved across the country for.
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1s2plnv/off_boarded_after_4_weeks_for_a_job_i_moved/)

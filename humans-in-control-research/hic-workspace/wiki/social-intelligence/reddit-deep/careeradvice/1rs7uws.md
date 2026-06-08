@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1rs7uws.md
 url: "https://www.reddit.com/r/careeradvice/comments/1rs7uws/maintenance_technician_looking_to_transition_into/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.237Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1rs7uws.md#c0"
+    char_span: [0, 2283]
+    sentence_count: 16
+    key_terms: ["i'm", work, design, learning, troubleshooting, careeradvice, engineering, maintenance]
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/careeradvice/1rs7uws.md#c1"
+    char_span: [2298, 2785]
+    sentence_count: 4
+    key_terms: [competitors, equipment, zizzianyouthminister, administration, capitalist, collected, customers, marketing]
+    section: Comments
+    token_count: 101
 ---
-
 # Maintenance Technician Looking to Transition into IT/Design — Confused About What Skills Are Still Worth Learning in the Age of AI
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1rs7uws/maintenance_technician_looking_to_transition_into/)

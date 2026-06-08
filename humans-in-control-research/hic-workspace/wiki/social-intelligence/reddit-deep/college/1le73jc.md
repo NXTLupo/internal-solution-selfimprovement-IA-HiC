@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1le73jc.md
 url: "https://www.reddit.com/r/college/comments/1le73jc/im_honestly_quite_scared_for_paying_for_life_once/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,42 @@ subreddit: "college"
 title: "I'm honestly quite scared for paying for life once school starts"
 author: "Dode124"
 date: "2025-06-18T03:31:01.000Z"
-score: 20
-upvote_ratio: 0.87
+score: 18
+upvote_ratio: 0.86
 num_comments: 7
 flair: "Finances/financial aid"
-extracted_at: "2026-05-23T14:53:53.126Z"
+extracted_at: "2026-06-03T15:25:32.096Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Provide a strategic analysis for Northeastern University detailing opportunities to enhance experiential learning and co-op success, specifically across First Year Student Preparedness, 360 student profiles, advisor capabilities, and corporate partner development. Heavily cite and reference external articles, social media posts, and other external data to support themes and recommendations."
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1le73jc.md#c0"
+    char_span: [0, 2075]
+    sentence_count: 18
+    key_terms: [college, school, time, anyone, engineering, comments, continue, honestly]
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/college/1le73jc.md#c1"
+    char_span: [2090, 3949]
+    sentence_count: 19
+    key_terms: [school, money, years, "i'm", semester, going, back, went]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/college/1le73jc.md#c2"
+    char_span: [3951, 5925]
+    sentence_count: 14
+    key_terms: [full-time, work, classes, internships, semester, dode124, clearwaterrev, opportunity]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/college/1le73jc.md#c3"
+    char_span: [5927, 6159]
+    sentence_count: 2
+    key_terms: [interviews, time, applications, internship, full-time, seriously, complete, program]
+    section: Comments
+    token_count: 50
 ---
-
 # I'm honestly quite scared for paying for life once school starts
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1le73jc/im_honestly_quite_scared_for_paying_for_life_once/)
-Posted by **Dode124** · **20↑** · **7 comments**
+Posted by **Dode124** · **18↑** · **7 comments**
 
 A little background I was in college prep in high school and was able to graduate with my associate's degree in 2020. Ever since then it's been rough having tried 2 different colleges one in person and one fully online. Neither of them worked out due to discipline issues at the time and other things. A couple of years later I want to continue my education. I love school so much and always have and it felt odd to have it end the way it did. 
 
@@ -30,7 +54,7 @@ Please anyone that has been or is in a situation like this or just has general a
 
 ## Comments
 
-- **_babyfaced_assassin** (3↑): I'll let you in on a secret. Imposter syndrome is always going to be there, but there's no sense in being scared of the things that are going to happen anyway. 
+- **_babyfaced_assassin** (5↑): I'll let you in on a secret. Imposter syndrome is always going to be there, but there's no sense in being scared of the things that are going to happen anyway. 
 
 You want to go back and you're passionate about school? Devote your time to it. You lacked discipline the first time around? Me too. I appealed a one semester academic probation and didn't hold up my end of the bargain so they put me on final probation and kicked me out for two years. Went back, basically lived in the library, finished. 14 years into a tech career and I'm less than 6 months away from graduating from a top tier tech college with a Masters in Cybersecurity. 
 

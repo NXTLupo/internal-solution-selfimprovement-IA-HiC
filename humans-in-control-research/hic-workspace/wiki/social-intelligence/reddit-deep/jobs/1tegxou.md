@@ -6,19 +6,19 @@ subreddit: "jobs"
 title: "How do you guys manage to get decent paying jobs? Could use some advice."
 author: "Spirited_Stay_6211"
 date: "2026-05-16T02:37:02.000Z"
-score: 7
-upvote_ratio: 0.82
+score: 6
+upvote_ratio: 0.75
 num_comments: 24
 flair: "Job searching"
-extracted_at: "2026-05-22T21:35:36.551Z"
+extracted_at: "2026-06-06T23:23:15.617Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # How do you guys manage to get decent paying jobs? Could use some advice.
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1tegxou/how_do_you_guys_manage_to_get_decent_paying_jobs/)
-Posted by **Spirited_Stay_6211** · **7↑** · **24 comments**
+Posted by **Spirited_Stay_6211** · **6↑** · **24 comments**
 
 For some context, I'm about to complete my bachelor's degree in Computer Science. After looking at the jobs on websites like indeed, and on the career sections of the websites of multiple corporations in my area, I'm starting to wonder how you guys are able to get jobs. I see a multitude of positions in areas such as IT, analyst, technician, and service roles and they don't even offer a wage remotely near high enough to survive in this day and age. I'll be honest the job market in my local area is pretty bad (I live in Rhode Island) but I thought I'd at least have an opportunity to prove myself at a decent job.
 
@@ -38,7 +38,7 @@ I know this sounds like a bit of a rant but I'm just trying to see if there is a
 
 ## Comments
 
-- **CommercialQueasy538** (6↑): The job market sucks right now, an entry level job not making much is better than nothing and can add value to your resume, you can work your way to higher salary quickly by adding real work experience even at shitty pay.
+- **CommercialQueasy538** (7↑): The job market sucks right now, an entry level job not making much is better than nothing and can add value to your resume, you can work your way to higher salary quickly by adding real work experience even at shitty pay.
   - **Spirited_Stay_6211** (3↑): That's understandable. I think I did a poor job in getting to the point when I mentioned the lower level underpaid jobs. I'm definitely still applying at these levels such as help desk roles, beginner technician, and even in some circumstances lower then that. Despite this though I still seem to be having a hard time. I'm honestly willing to take whatever I can to at least get my foot in the door.
     - **CommercialQueasy538** (0↑): I also cannot recommend getting your resume professionally done enough. I had a great resume but all hiring sites use AI as a screening tool so I paid to have mine redone specifically to get past AI bots, it’s crazy the difference I’ve seen in responses now that I got it reworked
 - **jstnblke41** (2↑): You need experience to get the big bucks. Sorry the job market sucks. The end.
@@ -93,8 +93,3 @@ My suggestion would be to start at low-level, safe role in something like local 
 I sent 69 applications in a span of 4 months, got around 6 interviews and got 2 offers both with decent money for my country, top 5% for my position (senior full stack engineer).
 
 I didn’t apply everywhere, just in companies that gave the salary I wanted.
-- **FruitKooky4022** (0↑): Sometimes the best career move is simply getting out of the wrong environment.
-
-A lower-paying offer that gives you peace of mind, better leadership, and room to grow can be worth far more than a higher salary in a toxic workplace.
-
-Money matters, but so does waking up without dreading Monday.

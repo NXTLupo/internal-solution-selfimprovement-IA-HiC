@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-digitalnomad/ab5edb8cfb.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1nskcl5/trip_report_tunis_regrettably_one_tomiss/"
 url_hash: "ab5edb8cfb"
 kind: "article"
@@ -10,8 +11,40 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-26T12:57:38.792449+00:00"
 chars: 11999
+industries: [media, workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-digitalnomad/ab5edb8cfb.md#c0"
+    char_span: [0, 2323]
+    sentence_count: 21
+    key_terms: [tunis, "i'd", like, digitalnomad, waste, destination, residential, trip]
+    token_count: 513
+  - id: "articles/reddit-deep-r-digitalnomad/ab5edb8cfb.md#c1"
+    char_span: [2325, 4590]
+    sentence_count: 20
+    key_terms: [downtown, around, like, beachside, different, guidance, upmarket, coastal]
+    token_count: 474
+  - id: "articles/reddit-deep-r-digitalnomad/ab5edb8cfb.md#c2"
+    char_span: [4592, 6990]
+    sentence_count: 20
+    key_terms: ["it's", internet, particularly, been, connection, coworking, elsewhere, downtown]
+    token_count: 502
+  - id: "articles/reddit-deep-r-digitalnomad/ab5edb8cfb.md#c3"
+    char_span: [6992, 8962]
+    sentence_count: 15
+    key_terms: [food, restaurants, local, often, style, day, everywhere, entering]
+    token_count: 416
+  - id: "articles/reddit-deep-r-digitalnomad/ab5edb8cfb.md#c4"
+    char_span: [8964, 11045]
+    sentence_count: 13
+    key_terms: [people, often, destination, directions, generally, language, driver, "you're"]
+    token_count: 468
+  - id: "articles/reddit-deep-r-digitalnomad/ab5edb8cfb.md#c5"
+    char_span: [11047, 12187]
+    sentence_count: 9
+    key_terms: [slightly, written, "that's", useful, whitecollarbohemian, baku, infrastructure, jonwillington]
+    token_count: 278
 ---
-
 # Trip Report: Tunis - Regrettably, one to-miss
 
 Source: [Reddit Deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1nskcl5/trip_report_tunis_regrettably_one_tomiss/)

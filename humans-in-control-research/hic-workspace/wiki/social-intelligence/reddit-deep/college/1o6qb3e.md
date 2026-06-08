@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1o6qb3e.md
 url: "https://www.reddit.com/r/college/comments/1o6qb3e/how_to_return_to_college_when_owe_the_university/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,26 @@ flair: "Finances/financial aid"
 extracted_at: "2026-05-26T14:31:29.701Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1o6qb3e.md#c0"
+    char_span: [0, 2093]
+    sentence_count: 17
+    key_terms: [course, time, university, health, mental, because, "wasn't", owed]
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/college/1o6qb3e.md#c1"
+    char_span: [2095, 3828]
+    sentence_count: 21
+    key_terms: [school, suggestions, help, owe, "haven't", return, low, university]
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/college/1o6qb3e.md#c2"
+    char_span: [3843, 4227]
+    sentence_count: 5
+    key_terms: [job, best, want, educational, experience, witherino, honestly, burying]
+    section: Comments
+    token_count: 91
 ---
-
 # How To Return To College When Owe The University Money?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1o6qb3e/how_to_return_to_college_when_owe_the_university/)

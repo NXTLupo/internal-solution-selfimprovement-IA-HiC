@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1o86eed.md
 url: "https://www.reddit.com/r/GradSchool/comments/1o86eed/does_completing_a_grad_degree_from_a_prestigious/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.133Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1o86eed.md#c0"
+    char_span: [0, 985]
+    sentence_count: 5
+    key_terms: [opportunities, undergrad, school, connections, gradschool, comments, masters, responsiblework3846]
+    token_count: 212
+  - id: "social-intelligence/reddit-deep/gradschool/1o86eed.md#c1"
+    char_span: [1000, 2340]
+    sentence_count: 9
+    key_terms: [job, program, prestigious, ivy, prospects, columbia, programs, degrees]
+    section: Comments
+    token_count: 319
+  - id: "social-intelligence/reddit-deep/gradschool/1o86eed.md#c2"
+    char_span: [2342, 4177]
+    sentence_count: 6
+    key_terms: [programs, grad, publications, quality, school, ivy, phd, tier]
+    section: Comments
+    token_count: 422
 ---
-
 # does completing a grad degree from a prestigious ivy school give you the same opportunities?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1o86eed/does_completing_a_grad_degree_from_a_prestigious/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1qrer61.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1qrer61/d_what_framework_do_you_use_for_rl_posttraining/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -13,8 +14,61 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:06.578Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1qrer61.md#c0"
+    char_span: [0, 1933]
+    sentence_count: 11
+    key_terms: ["i'm", function, machinelearning, custom, post-training, framework, comments, support]
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/machinelearning/1qrer61.md#c1"
+    char_span: [1935, 3948]
+    sentence_count: 12
+    key_terms: [issues, github, https, com, like, "i'd", "i'm", verl]
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/machinelearning/1qrer61.md#c2"
+    char_span: [3950, 4409]
+    sentence_count: 3
+    key_terms: [possible, slime, github, sglang, https, thudm, using, com]
+    token_count: 123
+  - id: "social-intelligence/reddit-deep/machinelearning/1qrer61.md#c3"
+    char_span: [4424, 6536]
+    sentence_count: 14
+    key_terms: [framework, verl, training, around, end, trade-off, openrlhf, sharding]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/machinelearning/1qrer61.md#c4"
+    char_span: [6538, 8002]
+    sentence_count: 13
+    key_terms: [model, please, help, "i'm", used, question, training, improve]
+    section: Comments
+    token_count: 324
+  - id: "social-intelligence/reddit-deep/machinelearning/1qrer61.md#c5"
+    char_span: [8004, 9992]
+    sentence_count: 16
+    key_terms: [reinforcement-learning-full-pipeline, unsloth, reinforcedknowledge, use, always, calisweetleaf, "don't", simpo]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/machinelearning/1qrer61.md#c6"
+    char_span: [9723, 11046]
+    sentence_count: 10
+    key_terms: [environments, reinforcedknowledge, appreciate, interacts, function, custom, based, fully]
+    section: Comments
+    token_count: 288
+  - id: "social-intelligence/reddit-deep/machinelearning/1qrer61.md#c7"
+    char_span: [11048, 12733]
+    sentence_count: 14
+    key_terms: [like, "it's", verl, slime, using, frameworks, framework, function]
+    section: Comments
+    token_count: 389
+  - id: "social-intelligence/reddit-deep/machinelearning/1qrer61.md#c8"
+    char_span: [12735, 13578]
+    sentence_count: 8
+    key_terms: [though, thanks, reinforcedknowledge, check, mind, rlyx, try, straightforward]
+    section: Comments
+    token_count: 195
 ---
-
 # [D] What framework do you use for RL post-training at scale?
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1qrer61/d_what_framework_do_you_use_for_rl_posttraining/)

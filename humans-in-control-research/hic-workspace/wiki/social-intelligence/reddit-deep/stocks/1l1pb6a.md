@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1l1pb6a.md
 url: "https://www.reddit.com/r/stocks/comments/1l1pb6a/alphabet_stock_could_drop_up_to_25_if_judge/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,56 @@ flair: "Company News"
 extracted_at: "2026-05-17T01:14:17.627Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, saas, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c0"
+    char_span: [0, 2025]
+    sentence_count: 6
+    key_terms: [alphabet-stock-could-fall-as-much-as-25-in-black-swan-event-if-judge-orders-google-chrome-divestiture-174438942, google, search, chrome, finance, department, yahoo, barclays]
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c1"
+    char_span: [2027, 3192]
+    sentence_count: 6
+    key_terms: [alphabet, stock, shares, case, sandler, decide, google, monday]
+    token_count: 262
+  - id: "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c2"
+    char_span: [3207, 4429]
+    sentence_count: 9
+    key_terms: [google, better, claude, experience, another, chatgpt, forward, gemini]
+    section: Comments
+    token_count: 335
+  - id: "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c3"
+    char_span: [4431, 6474]
+    sentence_count: 13
+    key_terms: [google, search, default, buying, engine, people, dip, products]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c4"
+    char_span: [6476, 8225]
+    sentence_count: 9
+    key_terms: [google, chrome, something, sell, browser, happens, search, makes]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c5"
+    char_span: [8227, 10137]
+    sentence_count: 14
+    key_terms: [google, chatgpt, don, company, happens, chrome, search, few-lingonberry2315]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c6"
+    char_span: [10139, 11981]
+    sentence_count: 7
+    key_terms: [google, deleted, search, makes, sense, like, realize, people]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c7"
+    char_span: [11720, 12289]
+    sentence_count: 2
+    key_terms: [search, browsers, results, makes, sense, "it's", basilthebatlord, groceriesn1trip]
+    section: Comments
+    token_count: 129
 ---
-
 # Alphabet stock could drop up to 25% if judge forces Google to sell Chrome, Barclays says
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1l1pb6a/alphabet_stock_could_drop_up_to_25_if_judge/)

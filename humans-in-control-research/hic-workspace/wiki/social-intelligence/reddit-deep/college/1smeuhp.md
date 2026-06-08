@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1smeuhp.md
 url: "https://www.reddit.com/r/college/comments/1smeuhp/how_to_build_rapport_with_professors_when/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,45 @@ flair: "Academic Life"
 extracted_at: "2026-05-25T15:51:48.249Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1smeuhp.md#c0"
+    char_span: [0, 809]
+    sentence_count: 6
+    key_terms: [professors, comments, college, lifeguardsoggy2928, relationships, applications, interesting, reddit-deep]
+    token_count: 193
+  - id: "social-intelligence/reddit-deep/college/1smeuhp.md#c1"
+    char_span: [824, 3068]
+    sentence_count: 16
+    key_terms: [online, classes, in-person, person, learning, professors, great, essentially]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/college/1smeuhp.md#c2"
+    char_span: [3070, 5229]
+    sentence_count: 9
+    key_terms: [questions, being, lifeguardsoggy2928, like, semester, people, professors, in-person]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/college/1smeuhp.md#c3"
+    char_span: [5231, 6956]
+    sentence_count: 13
+    key_terms: [instructors, relationships, online, faculty, connections, time, building, adjunct]
+    section: Comments
+    token_count: 323
+  - id: "social-intelligence/reddit-deep/college/1smeuhp.md#c4"
+    char_span: [6958, 9235]
+    sentence_count: 13
+    key_terms: [program, online, professors, reach, connections, questions, semester, faculty]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/college/1smeuhp.md#c5"
+    char_span: [9237, 10232]
+    sentence_count: 6
+    key_terms: [professors, lifeguardsoggy2928, zoom, email, questions, sometimes, curious, sensitive-hope-4980]
+    section: Comments
+    token_count: 252
 ---
-
 # How to build rapport with professors when everything is remote?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1smeuhp/how_to_build_rapport_with_professors_when/)

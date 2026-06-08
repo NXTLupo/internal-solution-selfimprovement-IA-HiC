@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1sj4jvo.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1sj4jvo/how_can_i_escape_feeling_stuck_in_tech_with_no/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-25T18:32:49.820Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sj4jvo.md#c0"
+    char_span: [0, 1033]
+    sentence_count: 10
+    key_terms: [company, cscareerquestions, path, career, growth, tech, comments, stuck]
+    token_count: 259
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sj4jvo.md#c1"
+    char_span: [1048, 3053]
+    sentence_count: 16
+    key_terms: [applications, skills, experience, companies, like, move, targeting, applying]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sj4jvo.md#c2"
+    char_span: [3055, 4847]
+    sentence_count: 23
+    key_terms: [year, promotion, company, normal, like, swes, because, current]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sj4jvo.md#c3"
+    char_span: [4852, 6107]
+    sentence_count: 12
+    key_terms: [experience, years, companies, residency, because, market, school, target]
+    section: Comments
+    token_count: 272
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sj4jvo.md#c4"
+    char_span: [6112, 8174]
+    sentence_count: 23
+    key_terms: [code, viewed, review, discussion, years, unviewed, place, dyledion]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sj4jvo.md#c5"
+    char_span: [8176, 9724]
+    sentence_count: 22
+    key_terms: [companies, people, job, like, new, time, interviews, taking]
+    section: Comments
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sj4jvo.md#c6"
+    char_span: [9726, 10441]
+    sentence_count: 7
+    key_terms: [career, doctor, librarianoutside2376, remote-ground-8847, day, job, applications, everything]
+    section: Comments
+    token_count: 177
 ---
-
 # How can I escape Feeling stuck in tech with no path for career growth?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sj4jvo/how_can_i_escape_feeling_stuck_in_tech_with_no/)

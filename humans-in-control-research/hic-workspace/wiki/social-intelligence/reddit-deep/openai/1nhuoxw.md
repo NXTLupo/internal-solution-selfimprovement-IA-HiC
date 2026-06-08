@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1nhuoxw.md
 url: "https://www.reddit.com/r/OpenAI/comments/1nhuoxw/sam_altman_just_announced_gpt5_codex_better_at/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,75 @@ flair: "News"
 extracted_at: "2026-05-11T17:27:05.359Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1nhuoxw.md#c0"
+    char_span: [0, 1069]
+    sentence_count: 1
+    key_terms: [openai, coding, codex, gpt-5, tasks, com, introducing-upgrades-to-codex, announced]
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/openai/1nhuoxw.md#c1"
+    char_span: [1084, 2111]
+    sentence_count: 3
+    key_terms: [codex, model, gpt-5-codex, openai, high, reasoning, stream, auto]
+    section: Comments
+    token_count: 337
+  - id: "social-intelligence/reddit-deep/openai/1nhuoxw.md#c2"
+    char_span: [2113, 4050]
+    sentence_count: 11
+    key_terms: [code, extension, cli, claude, using, "i'm", available, reasoning]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/openai/1nhuoxw.md#c3"
+    char_span: [3795, 5034]
+    sentence_count: 7
+    key_terms: [claude, code, codex, anthropic, validated, admitted, checking, quality]
+    section: Comments
+    token_count: 309
+  - id: "social-intelligence/reddit-deep/openai/1nhuoxw.md#c4"
+    char_span: [5038, 7017]
+    sentence_count: 19
+    key_terms: [junior, devs, telling, claude, requirements, changes, collect, mostly]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/openai/1nhuoxw.md#c5"
+    char_span: [7019, 8883]
+    sentence_count: 10
+    key_terms: [architects, devs, junior, going, shift, skill, developers, another]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/openai/1nhuoxw.md#c6"
+    char_span: [8885, 9592]
+    sentence_count: 3
+    key_terms: [deleted, etc, take, term, try, educational, novakaldwin, regrettably]
+    section: Comments
+    token_count: 182
+  - id: "social-intelligence/reddit-deep/openai/1nhuoxw.md#c7"
+    char_span: [9594, 11632]
+    sentence_count: 12
+    key_terms: [junior, level, coding, senior, skills, requirements, money, code]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/openai/1nhuoxw.md#c8"
+    char_span: [11634, 12109]
+    sentence_count: 3
+    key_terms: [ability, code, simultaneously, maintainable, productivity, architect, decisions, different]
+    section: Comments
+    token_count: 84
+  - id: "social-intelligence/reddit-deep/openai/1nhuoxw.md#c9"
+    char_span: [12111, 13859]
+    sentence_count: 5
+    key_terms: [screenshot, askgpts, quality, like, web, cooking, junior, reddit]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/openai/1nhuoxw.md#c10"
+    char_span: [13637, 14794]
+    sentence_count: 5
+    key_terms: [dangerously-bypass-approvals-and-sandbox, quality, screen, codex, issue, etc, get, gets]
+    section: Comments
+    token_count: 328
 ---
-
 # Sam Altman Just Announced GPT-5 Codex better at Agentic Coding
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1nhuoxw/sam_altman_just_announced_gpt5_codex_better_at/)

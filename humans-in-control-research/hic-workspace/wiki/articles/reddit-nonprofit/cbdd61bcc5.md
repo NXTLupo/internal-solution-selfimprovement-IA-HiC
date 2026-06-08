@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-nonprofit/cbdd61bcc5.md
 url: "https://reddit.com/r/nonprofit/comments/1q57cph/i_just_cant_do_it_anymore/"
 url_hash: "cbdd61bcc5"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-04T16:38:12.468406+00:00"
 chars: 607
+industries: [nonprofit]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-nonprofit/cbdd61bcc5.md#c0"
+    char_span: [0, 744]
+    sentence_count: 11
+    key_terms: [nonprofit, job, pivoted, reddit, money, comparison, previously, education]
+    token_count: 199
 ---
-
 # I just can’t do it anymore…
 
 Source: [reddit: Nonprofit](https://reddit.com/r/nonprofit/comments/1q57cph/i_just_cant_do_it_anymore/)

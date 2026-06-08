@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1so1h8i.md
 url: "https://www.reddit.com/r/NEU/comments/1so1h8i/didnt_apply_but_got_into_2_programs_this_year_is/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 4
 flair: "Admissions & Financial Aid"
-extracted_at: "2026-05-19T15:08:27.149Z"
+extracted_at: "2026-06-06T00:27:19.935Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1so1h8i.md#c0"
+    char_span: [0, 1202]
+    sentence_count: 6
+    key_terms: [professional, studies, didnt, job, cps, got, mps, neu]
+    token_count: 323
+  - id: "social-intelligence/reddit-deep/neu/1so1h8i.md#c1"
+    char_span: [1217, 1793]
+    sentence_count: 5
+    key_terms: [wateryphoenix750, professional, studies, striking-escape-1812, advertisement, functionally, northeastern, rhynocerous]
+    section: Comments
+    token_count: 149
 ---
-
 # Didnt apply but got into 2 programs this year. Is this legit?(both CPS MPS)
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1so1h8i/didnt_apply_but_got_into_2_programs_this_year_is/)

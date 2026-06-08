@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rqtyor.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rqtyor/im_looking_for_genuine_career_guidance_and_would/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-20T12:56:27.152Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rqtyor.md#c0"
+    char_span: [0, 2190]
+    sentence_count: 14
+    key_terms: [career, long-term, another, careerguidance, growth, travel, opportunities, been]
+    token_count: 452
 ---
-
 # I’m looking for genuine career guidance and would really appreciate advice from experienced professionals here?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rqtyor/im_looking_for_genuine_career_guidance_and_would/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-internships/198abefc8c.md
 url: "https://www.reddit.com/r/internships/comments/1srfyv3/any_tips_for_getting_winter_2026_internships/"
 url_hash: "198abefc8c"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T02:38:32.764372+00:00"
 chars: 1974
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-internships/198abefc8c.md#c0"
+    char_span: [0, 1108]
+    sentence_count: 10
+    key_terms: [internship, internships, winter, like, myself, reddit, summer, place]
+    token_count: 264
+  - id: "articles/reddit-deep-r-internships/198abefc8c.md#c1"
+    char_span: [1110, 2191]
+    sentence_count: 3
+    key_terms: [s0urpatch1tv, winter, looking, mostly, remote, cottonshirtwithstain, brand, roles]
+    token_count: 276
 ---
-
 # Any tips for getting Winter 2026 internships After My Summer Internship?
 
 Source: [Reddit Deep: r/internships](https://www.reddit.com/r/internships/comments/1srfyv3/any_tips_for_getting_winter_2026_internships/)

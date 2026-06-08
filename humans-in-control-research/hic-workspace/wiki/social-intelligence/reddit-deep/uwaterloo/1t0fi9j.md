@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1t0fi9j.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1t0fi9j/my_final_wusa_message_update_on_bomber/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,55 @@ flair: "Thank you President RobotGuy0207 🫡♥️"
 extracted_at: "2026-05-25T18:33:12.668Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1t0fi9j.md#c0"
+    char_span: [0, 1720]
+    sentence_count: 11
+    key_terms: [wusa, president, advocacy, happening, outspoken, uwaterloo, comments, meetings]
+    token_count: 381
+  - id: "social-intelligence/reddit-deep/uwaterloo/1t0fi9j.md#c1"
+    char_span: [1722, 3968]
+    sentence_count: 16
+    key_terms: [university, student, government, advocacy, administration, osap, governance, installed]
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/uwaterloo/1t0fi9j.md#c2"
+    char_span: [3970, 4947]
+    sentence_count: 8
+    key_terms: [year, change, work, students, because, issues, reason, within]
+    token_count: 202
+  - id: "social-intelligence/reddit-deep/uwaterloo/1t0fi9j.md#c3"
+    char_span: [4962, 6938]
+    sentence_count: 12
+    key_terms: [bar, services, food, wusa, bomber, equipment, reopening, run]
+    section: Comments
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/uwaterloo/1t0fi9j.md#c4"
+    char_span: [6940, 9094]
+    sentence_count: 15
+    key_terms: [university, agreement, services, negotiations, food, slow, began, bar]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/uwaterloo/1t0fi9j.md#c5"
+    char_span: [9096, 9604]
+    sentence_count: 2
+    key_terms: [year, deliberately, robotguy0207, leadership, sandbagged, attitudes, president, emptease]
+    section: Comments
+    token_count: 133
+  - id: "social-intelligence/reddit-deep/uwaterloo/1t0fi9j.md#c6"
+    char_span: [9606, 11513]
+    sentence_count: 11
+    key_terms: [robotguy0207, got, theduckaboveall, thank, wusa, year, appreciate, everything]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/uwaterloo/1t0fi9j.md#c7"
+    char_span: [11281, 12565]
+    sentence_count: 9
+    key_terms: [https, uwaterloo, campus-wellness, please, dynh-i-need-talk-someone-right-now, urgent-help-and-emergency-contacts, text, moderators]
+    section: Comments
+    token_count: 338
 ---
-
 # My Final WUSA Message + Update on Bomber
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1t0fi9j/my_final_wusa_message_update_on_bomber/)

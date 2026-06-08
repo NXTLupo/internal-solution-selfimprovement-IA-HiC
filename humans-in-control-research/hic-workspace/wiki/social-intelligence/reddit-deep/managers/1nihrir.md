@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1nihrir.md
 url: "https://www.reddit.com/r/managers/comments/1nihrir/new_hire_is_a_lying_backstabber_and_i_cant_do/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,129 @@ flair: "Seasoned Manager"
 extracted_at: "2026-05-26T12:54:23.659Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c0"
+    char_span: [0, 1870]
+    sentence_count: 18
+    key_terms: [anything, "can't", backstabber, boss, emma, help, team, everything]
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c1"
+    char_span: [1885, 3543]
+    sentence_count: 13
+    key_terms: [conversation, everything, email, document, meetings, manager, meeting, imaginary-ambition55]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c2"
+    char_span: [3545, 5713]
+    sentence_count: 19
+    key_terms: [something, meetings, everything, document, yourself, direct, record, equivalent-roll-3321]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c3"
+    char_span: [5715, 7464]
+    sentence_count: 18
+    key_terms: [boss, topic, send, everything, something, employee, feedback, question]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c4"
+    char_span: [7466, 8601]
+    sentence_count: 11
+    key_terms: [take, because, cancer, palpitationmuted9816, like, yep, originalsimulant, vacheradioactif]
+    section: Comments
+    token_count: 276
+  - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c5"
+    char_span: [8603, 10669]
+    sentence_count: 18
+    key_terms: [everyone, doing, did, "it's", like, understand, continue, meeting]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c6"
+    char_span: [10419, 11408]
+    sentence_count: 9
+    key_terms: [mentorship, directly, objective-ganache114, need, new, "op's", expectations, replacement]
+    section: Comments
+    token_count: 234
+  - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c7"
+    char_span: [11410, 11658]
+    sentence_count: 4
+    key_terms: [wandering-monster, differently, performance, management, pronounce, document, course, silent]
+    section: Comments
+    token_count: 62
+  - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c8"
+    char_span: [11660, 13824]
+    sentence_count: 15
+    key_terms: [training, boss, issues, "i'm", direct, person, "you're", issue]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c9"
+    char_span: [13554, 14005]
+    sentence_count: 4
+    key_terms: [location, person, teams, lutschiputschi, subordinate, connection, colleague, situation]
+    section: Comments
+    token_count: 103
+  - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c10"
+    char_span: [14008, 16059]
+    sentence_count: 20
+    key_terms: [anything, told, company, luckily, always, behind, eggplantcomplex3731, "don't"]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c11"
+    char_span: [16061, 17698]
+    sentence_count: 15
+    key_terms: [get, tell, behavior, document, bingle-cowabungle, boss, deal, fire]
+    section: Comments
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c12"
+    char_span: [17700, 19878]
+    sentence_count: 21
+    key_terms: [boss, listen, back, fire, team, want, papertrail, probation]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c13"
+    char_span: [19880, 21099]
+    sentence_count: 6
+    key_terms: [discussion, chief, categories, manager, present, snake, face, says]
+    section: Comments
+    token_count: 274
+  - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c14"
+    char_span: [21101, 22332]
+    sentence_count: 10
+    key_terms: [unprofessional, people, behavior, at-will, company, better, mission-library-7499, fire]
+    section: Comments
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c15"
+    char_span: [22334, 23954]
+    sentence_count: 8
+    key_terms: [manager, lachrymarumlibertas, middle, project, reports, direct, manage, "that's"]
+    section: Comments
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c16"
+    char_span: [23957, 25676]
+    sentence_count: 6
+    key_terms: [manager, boss, middle, people, lachrymarumlibertas, direct, reports, person]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c17"
+    char_span: [25678, 27678]
+    sentence_count: 17
+    key_terms: [direct, reports, backroundagain, lunch, boss, behaviours, employees, declined]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c18"
+    char_span: [27680, 29810]
+    sentence_count: 20
+    key_terms: [honest, boss, feel, get, direct, "don't", help, "it's"]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/managers/1nihrir.md#c19"
+    char_span: [29812, 31378]
+    sentence_count: 16
+    key_terms: ["you're", "she's", leadership, healthier, responses, because, dynamic, learned]
+    section: Comments
+    token_count: 348
 ---
-
 # New hire is a lying backstabber and I can't do anything about it
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1nihrir/new_hire_is_a_lying_backstabber_and_i_cant_do/)

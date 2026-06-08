@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1pb9zbq.md
 url: "https://www.reddit.com/r/internships/comments/1pb9zbq/advice_for_internship_options_or_figuring_out/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,29 @@ subreddit: "internships"
 title: "Advice for internship options or figuring out what to do for college and future career options"
 author: "Murky_Foundation1475"
 date: "2025-12-01T11:04:19.000Z"
-score: 1
+score: 2
 upvote_ratio: 1
 num_comments: 0
 flair: "General"
-extracted_at: "2026-05-26T14:30:47.899Z"
+extracted_at: "2026-06-05T19:19:58.912Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1pb9zbq.md#c0"
+    char_span: [0, 2057]
+    sentence_count: 18
+    key_terms: [engineering, internships, doing, "don't", anymore, getting, student, "i'm"]
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/internships/1pb9zbq.md#c1"
+    char_span: [2059, 3564]
+    sentence_count: 12
+    key_terms: ["i'm", getting, people, engineering, programing, anymore, because, trying]
+    token_count: 329
 ---
-
 # Advice for internship options or figuring out what to do for college and future career options
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1pb9zbq/advice_for_internship_options_or_figuring_out/)
-Posted by **Murky_Foundation1475** · **1↑** · **0 comments**
+Posted by **Murky_Foundation1475** · **2↑** · **0 comments**
 
 TLDR: I’m a student feeling lost about my future. My family can’t afford IB, opportunities in the UAE are limited, and people I reach out to don’t respond. I’m unsure whether I genuinely want to pursue aerospace, bio/genetic engineering, or something else. I feel like my dream of a top 100 university is slipping away, so I’m focusing on getting all 9s in my IGCSEs, finding internships, doing relevant Coursera courses, and maybe getting a first aid certificate.
 

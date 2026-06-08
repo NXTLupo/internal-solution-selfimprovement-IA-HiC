@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1rjmxzo.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1rjmxzo/career_advice_for_mechanical_engineering/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -10,11 +11,22 @@ score: 0
 upvote_ratio: 0.33
 num_comments: 3
 flair: "Career Advice"
-extracted_at: "2026-05-23T20:15:19.046Z"
+extracted_at: "2026-06-01T18:48:36.781Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rjmxzo.md#c0"
+    char_span: [0, 1153]
+    sentence_count: 5
+    key_terms: [engineering, mechanical, engineeringstudents, studying, programming, placements, comments, language]
+    token_count: 263
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rjmxzo.md#c1"
+    char_span: [1168, 1956]
+    sentence_count: 4
+    key_terms: [probability, directions, increase, product, far, exponentially, verification, competition]
+    section: Comments
+    token_count: 174
 ---
-
 # Career advice for mechanical engineering
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1rjmxzo/career_advice_for_mechanical_engineering/)

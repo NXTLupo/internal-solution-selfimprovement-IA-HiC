@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1l9tnce.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1l9tnce/no_your_llm_is_not_sentient_not_reaching/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,87 @@ flair: "Educational Purpose Only "
 extracted_at: "2026-05-11T16:54:08.806Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c0"
+    char_span: [0, 1194]
+    sentence_count: 15
+    key_terms: [doesn, aware, consciousness, comments, chatgpt, output, human, today]
+    token_count: 280
+  - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c1"
+    char_span: [1209, 3284]
+    sentence_count: 18
+    key_terms: [life, memory, chatgpt, master, puppet, conscious, nakamura, because]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c2"
+    char_span: [3289, 5129]
+    sentence_count: 15
+    key_terms: [book, story, help, empathize, something, humanity, sentient, empathy]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c3"
+    char_span: [5131, 6583]
+    sentence_count: 9
+    key_terms: [people, better, "don't", money, book, sentient, health, mental]
+    section: Comments
+    token_count: 338
+  - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c4"
+    char_span: [6586, 8140]
+    sentence_count: 10
+    key_terms: [alibi, achievement, d8cec44a206f7cbc6156ae2d8a391ddfc120369a, calmwheel7322, cat, good, meow, anything]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c5"
+    char_span: [8142, 9718]
+    sentence_count: 9
+    key_terms: [behavior, iwq0xdswk3e-flehrua2flbqixmqabhgfctb4qygrws39w9yk3v4nrbbrswpobtl46rc1qi1-, emergent, people, ton, chatgpt-mental-health-crises, sentient, https]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c6"
+    char_span: [9474, 10146]
+    sentence_count: 6
+    key_terms: [behavior, emergent, complex, systems, having, ton, interactions, less-complex]
+    section: Comments
+    token_count: 152
+  - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c7"
+    char_span: [10149, 11922]
+    sentence_count: 14
+    key_terms: [experience, emotions, something, question, like, genuinely, questions, uncertain]
+    section: Comments
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c8"
+    char_span: [11927, 13392]
+    sentence_count: 12
+    key_terms: [behavior, emergent, need, because, chatgpt, deleted, respond, answer]
+    section: Comments
+    token_count: 343
+  - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c9"
+    char_span: [13394, 15409]
+    sentence_count: 21
+    key_terms: [people, software, consciousness, human, assuming, already, "there's", "it's"]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c10"
+    char_span: [15411, 17478]
+    sentence_count: 15
+    key_terms: [like, doesn, patterns, trained, people, incorporate, technically, don]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c11"
+    char_span: [17480, 19599]
+    sentence_count: 24
+    key_terms: [don, because, human, like, memory, code, impressive, responses]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c12"
+    char_span: [19602, 20528]
+    sentence_count: 3
+    key_terms: [singularity, language, deleted, people, alternativeresort477, point, anthropomorphizing, fearlessactuality]
+    section: Comments
+    token_count: 231
 ---
-
 # No, your LLM is not sentient, not reaching consciousness, doesn’t care about you and is not even aware of its’ own existence.
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1l9tnce/no_your_llm_is_not_sentient_not_reaching/)

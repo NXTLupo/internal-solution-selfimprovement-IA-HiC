@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/ceca813ffd.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t0wmz9/agri_student_dilemma_stay_in_farming_or_shift_to/"
 url_hash: "ceca813ffd"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:40:33.721489+00:00"
 chars: 1355
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/ceca813ffd.md#c0"
+    char_span: [0, 1564]
+    sentence_count: 14
+    key_terms: [agriculture, agri, bpo, like, careerguidance, demand, philippines, graduates]
+    token_count: 331
 ---
-
 # Agri student dilemma: stay in farming or shift to BPO?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t0wmz9/agri_student_dilemma_stay_in_farming_or_shift_to/)

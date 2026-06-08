@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1qsbxm4.md
 url: "https://www.reddit.com/r/GradSchool/comments/1qsbxm4/do_masters_degrees_typically_get_funded_is_it/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,33 @@ flair: "Admissions & Applications"
 extracted_at: "2026-05-25T13:04:07.346Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1qsbxm4.md#c0"
+    char_span: [0, 1971]
+    sentence_count: 21
+    key_terms: [school, opportunities, grad, job, funded, loans, scholarship, year]
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/gradschool/1qsbxm4.md#c1"
+    char_span: [1986, 3411]
+    sentence_count: 11
+    key_terms: [masters, funded, fully, major, "it's", stipend, tuition, school]
+    section: Comments
+    token_count: 343
+  - id: "social-intelligence/reddit-deep/gradschool/1qsbxm4.md#c2"
+    char_span: [3413, 4686]
+    sentence_count: 6
+    key_terms: [students, "master's", programs, funded, phd, guarantee, usually, thousandshardships]
+    section: Comments
+    token_count: 294
+  - id: "social-intelligence/reddit-deep/gradschool/1qsbxm4.md#c3"
+    char_span: [4688, 6044]
+    sentence_count: 12
+    key_terms: [funded, tuition, assistantships, fully, graduate, semester, masters, program]
+    section: Comments
+    token_count: 317
 ---
-
 # Do master’s degrees typically get funded? Is it worth it to pay tuition for job security?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1qsbxm4/do_masters_degrees_typically_get_funded_is_it/)

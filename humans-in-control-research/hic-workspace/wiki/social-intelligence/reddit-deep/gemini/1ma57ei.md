@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gemini/1ma57ei.md
 url: "https://www.reddit.com/r/Gemini/comments/1ma57ei/unable_to_access_unsure_which_emails_are_scam/"
 kind: "social-post"
 source: "reddit-deep: r/gemini"
@@ -13,8 +14,21 @@ flair: "Support:Support:"
 extracted_at: "2026-05-11T17:27:04.759Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gemini/1ma57ei.md#c0"
+    char_span: [0, 1065]
+    sentence_count: 9
+    key_terms: [gemini, unable, comments, security, passkey, access, edited, emails]
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/gemini/1ma57ei.md#c1"
+    char_span: [1080, 2385]
+    sentence_count: 14
+    key_terms: [shouldbeestudying, gemini, having, ticket, wallet, substantial-rice6344, haven, login]
+    section: Comments
+    token_count: 356
 ---
-
 # Unable to access - unsure which emails are scam - "Insert your security key into the USB port"
 
 Source: [reddit-deep: r/gemini](https://www.reddit.com/r/Gemini/comments/1ma57ei/unable_to_access_unsure_which_emails_are_scam/)

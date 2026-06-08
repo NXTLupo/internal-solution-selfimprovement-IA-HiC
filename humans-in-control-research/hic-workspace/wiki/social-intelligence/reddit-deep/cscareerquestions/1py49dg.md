@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1py49dg.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1py49dg/lets_assume_the_ai_bubble_pops_what_can_i_do_to/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,57 @@ flair: "Student"
 extracted_at: "2026-05-26T12:54:26.420Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1py49dg.md#c0"
+    char_span: [0, 967]
+    sentence_count: 9
+    key_terms: [cscareerquestions, "i'm", comments, software, bubble, appropriate-try-7626, blah, "i'll"]
+    token_count: 248
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1py49dg.md#c1"
+    char_span: [982, 3004]
+    sentence_count: 10
+    key_terms: [yourfriendlyreminder, emergency, fund, like, internship, something, prepared, already]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1py49dg.md#c2"
+    char_span: [3006, 4961]
+    sentence_count: 10
+    key_terms: [years, jobs, tech, everything, companies, different, framework, paycheck]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1py49dg.md#c3"
+    char_span: [4963, 7079]
+    sentence_count: 14
+    key_terms: [working, bubble, field, knows, "won't", certainly, engineers, probably]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1py49dg.md#c4"
+    char_span: [7081, 9366]
+    sentence_count: 12
+    key_terms: [economy, emergency, debt, fund, risk, bubble, building, consider]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1py49dg.md#c5"
+    char_span: [9368, 11178]
+    sentence_count: 12
+    key_terms: [capital, massive, economy, "isn't", data, american, billions, directly]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1py49dg.md#c6"
+    char_span: [11180, 12423]
+    sentence_count: 8
+    key_terms: [going, market, interest, cutting, always, money, rates, fed]
+    section: Comments
+    token_count: 286
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1py49dg.md#c7"
+    char_span: [12425, 14413]
+    sentence_count: 10
+    key_terms: [bubble, market, stock, significant, bankruptcy, microsoft, everyone, popping]
+    section: Comments
+    token_count: 484
 ---
-
 # Let's assume the AI "Bubble" pops, what can I do to prepare for this?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1py49dg/lets_assume_the_ai_bubble_pops_what_can_i_do_to/)

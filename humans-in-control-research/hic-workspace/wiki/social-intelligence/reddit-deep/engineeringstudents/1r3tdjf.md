@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1r3tdjf.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1r3tdjf/how_many_internships_do_engineering_students/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,39 @@ flair: "Discussion"
 extracted_at: "2026-05-25T13:01:49.562Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r3tdjf.md#c0"
+    char_span: [0, 493]
+    sentence_count: 4
+    key_terms: [engineeringstudents, comments, students, mikemanthousand, engineering, internships, reddit-deep, engineers]
+    token_count: 116
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r3tdjf.md#c1"
+    char_span: [508, 1667]
+    sentence_count: 5
+    key_terms: [engineers, sophomore, ghostmcspiritwolf, engineering, internships, mechanical, because, school]
+    section: Comments
+    token_count: 269
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r3tdjf.md#c2"
+    char_span: [1669, 3804]
+    sentence_count: 12
+    key_terms: [internships, work, universities, job, like, australia, different, graduate]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r3tdjf.md#c3"
+    char_span: [3806, 5448]
+    sentence_count: 10
+    key_terms: [internships, because, people, got, applicants, experience, internship, robotics]
+    section: Comments
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r3tdjf.md#c4"
+    char_span: [5450, 7350]
+    sentence_count: 12
+    key_terms: [internships, get, opportunity, need, want, candidates, confident, engineers]
+    section: Comments
+    token_count: 409
 ---
-
 # How many internships do engineering students usually do?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1r3tdjf/how_many_internships_do_engineering_students/)

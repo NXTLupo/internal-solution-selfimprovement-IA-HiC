@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1ncpte2.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1ncpte2/benefits_of_going_to_a_college_with_a_higher/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,45 @@ flair: "Discussion"
 extracted_at: "2026-05-23T19:45:32.283Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ncpte2.md#c0"
+    char_span: [0, 1923]
+    sentence_count: 14
+    key_terms: [college, applyingtocollege, significantly, get, benefits, comments, classes, credits]
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ncpte2.md#c1"
+    char_span: [1938, 3364]
+    sentence_count: 14
+    key_terms: [school, experience, especially, selective, ben-ma, "you're", point, years]
+    section: Comments
+    token_count: 339
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ncpte2.md#c2"
+    char_span: [3366, 5234]
+    sentence_count: 14
+    key_terms: [undergraduate, students, school, graduate, universities, grade, top, colleges]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ncpte2.md#c3"
+    char_span: [5236, 7442]
+    sentence_count: 15
+    key_terms: [ivy, honors, state, grad, university, colleges, flagship, programs]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ncpte2.md#c4"
+    char_span: [7444, 8256]
+    sentence_count: 7
+    key_terms: [carnegie, because, getting, rutgers, either, mellon, opportunities, undergraduate]
+    section: Comments
+    token_count: 180
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ncpte2.md#c5"
+    char_span: [8258, 9876]
+    sentence_count: 4
+    key_terms: [school, kooky-task-7582, college, credits, rutgers, chose, state, scholarship]
+    section: Comments
+    token_count: 452
 ---
-
 # benefits of going to a college with a higher acceptance rate
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1ncpte2/benefits_of_going_to_a_college_with_a_higher/)

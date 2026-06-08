@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1ni81ns.md
 url: "https://www.reddit.com/r/careerguidance/comments/1ni81ns/any_jobs_like_the_army_but_not_the_army/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.168Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1ni81ns.md#c0"
+    char_span: [0, 1439]
+    sentence_count: 6
+    key_terms: [army, careerguidance, being, good, meaningful, physically, sacrifices, comments]
+    token_count: 318
+  - id: "social-intelligence/reddit-deep/careerguidance/1ni81ns.md#c1"
+    char_span: [1454, 3189]
+    sentence_count: 7
+    key_terms: [work, interesting, physical, army, "don't", guard, job, impactful]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/careerguidance/1ni81ns.md#c2"
+    char_span: [3191, 4420]
+    sentence_count: 3
+    key_terms: [military, quitaquites, call, fire, lifestyle, sacrifice, benefits, merchant]
+    section: Comments
+    token_count: 297
 ---
-
 # Any jobs like the army but not the army?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1ni81ns/any_jobs_like_the_army_but_not_the_army/)

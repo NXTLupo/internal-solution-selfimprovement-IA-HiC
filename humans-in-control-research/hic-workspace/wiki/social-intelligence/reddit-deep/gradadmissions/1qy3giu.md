@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1qy3giu.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1qy3giu/accepted_to_mit/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,27 @@ flair: "Computer Sciences"
 extracted_at: "2026-05-22T23:33:50.665Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qy3giu.md#c0"
+    char_span: [0, 293]
+    sentence_count: 3
+    key_terms: [gradadmissions, accepted, comments, mit, reddit-deep, acceptance, rejection, yesterday]
+    token_count: 80
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qy3giu.md#c1"
+    char_span: [308, 2207]
+    sentence_count: 15
+    key_terms: [congrats, acceptance, curious, no-test6484, unambiguous, applicants, celebrate, top-tier]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qy3giu.md#c2"
+    char_span: [2209, 3443]
+    sentence_count: 12
+    key_terms: [england, perspective, boston, new, congrats, godrishuniverse, real, awesome]
+    section: Comments
+    token_count: 352
 ---
-
 # Accepted to MIT!!!!
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1qy3giu/accepted_to_mit/)

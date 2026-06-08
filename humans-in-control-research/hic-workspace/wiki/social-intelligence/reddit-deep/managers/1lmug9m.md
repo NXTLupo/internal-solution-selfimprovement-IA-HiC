@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1lmug9m.md
 url: "https://www.reddit.com/r/managers/comments/1lmug9m/need_advice_im_a_manager_stuck_in_a_toxic/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-26T12:54:23.677Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1lmug9m.md#c0"
+    char_span: [0, 1637]
+    sentence_count: 20
+    key_terms: [team, manager, been, new, pip, comments, convince, escalate]
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/managers/1lmug9m.md#c1"
+    char_span: [1652, 3199]
+    sentence_count: 14
+    key_terms: [management, restaurant, everything, "manager's", problems, training, "didn't", offers]
+    section: Comments
+    token_count: 351
+  - id: "social-intelligence/reddit-deep/managers/1lmug9m.md#c2"
+    char_span: [3201, 4785]
+    sentence_count: 15
+    key_terms: [pip, team, no-mongoose1541, nothing, job, like, another, fallacy]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/managers/1lmug9m.md#c3"
+    char_span: [4787, 6640]
+    sentence_count: 10
+    key_terms: [manager, leave, pip, reason, chemical-bathroom-24, feels, teams, toxic]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/managers/1lmug9m.md#c4"
+    char_span: [6642, 8364]
+    sentence_count: 8
+    key_terms: [heightflat9761, team, harassment, deleted, investigation, got, another, because]
+    section: Comments
+    token_count: 418
 ---
-
 # Need advice: I'm a manager stuck in a toxic loop—should I escalate, convince my team to stay, or walk away with them?
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1lmug9m/need_advice_im_a_manager_stuck_in_a_toxic/)

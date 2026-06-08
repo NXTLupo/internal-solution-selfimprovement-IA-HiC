@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1tbng07.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1tbng07/location_is_generally_more_important_than_prestige/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,69 @@ flair: "Advice"
 extracted_at: "2026-05-23T19:45:32.277Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c0"
+    char_span: [0, 2289]
+    sentence_count: 17
+    key_terms: [location, comments, college, applyingtocollege, consider, because, making, people]
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c1"
+    char_span: [2304, 4136]
+    sentence_count: 12
+    key_terms: [location, opportunities, school, people, institutions, prestigious, internship, companies]
+    section: Comments
+    token_count: 372
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c2"
+    char_span: [4138, 5499]
+    sentence_count: 8
+    key_terms: [graduate, programs, research, unfortunately, application, internships, recommender, important]
+    section: Comments
+    token_count: 292
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c3"
+    char_span: [5501, 7599]
+    sentence_count: 12
+    key_terms: [research, opportunities, fit, college, location, people, person, being]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c4"
+    char_span: [7601, 10041]
+    sentence_count: 13
+    key_terms: [zestyclose-smell4158, colleges, professors, research, teaching, independently, good, universities]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c5"
+    char_span: [10043, 11383]
+    sentence_count: 7
+    key_terms: [professors, teaching, research, students, course, availability, grad, attention]
+    section: Comments
+    token_count: 253
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c6"
+    char_span: [11385, 13569]
+    sentence_count: 9
+    key_terms: [location, school, rural, different, tkdcondor, prestige, college, happy]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c7"
+    char_span: [13312, 13741]
+    sentence_count: 2
+    key_terms: [location, chose, application, prestigious, ironically, reputation, primarily, tkdcondor]
+    section: Comments
+    token_count: 98
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c8"
+    char_span: [13743, 15498]
+    sentence_count: 12
+    key_terms: [opportunities, grinnell, school, city, however, opinion, willing, campus]
+    section: Comments
+    token_count: 408
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c9"
+    char_span: [15500, 16997]
+    sentence_count: 6
+    key_terms: [connections, experience, careers, school, internships, located, zestyclose-smell4158, urban]
+    section: Comments
+    token_count: 363
 ---
-
 # Location is generally more important than prestige
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1tbng07/location_is_generally_more_important_than_prestige/)

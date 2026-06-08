@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1nkow7c.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1nkow7c/gapping_up/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,58 @@ flair: "DD"
 extracted_at: "2026-05-16T20:54:42.974Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1nkow7c.md#c0"
+    char_span: [0, 2002]
+    sentence_count: 11
+    key_terms: [gap, earnings, wallstreetbets, better, social, expectations, denim, controversy]
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1nkow7c.md#c1"
+    char_span: [2004, 4219]
+    sentence_count: 11
+    key_terms: [earnings, contributed, optimistic, relatively, guidance, outlook, growth, sydney]
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1nkow7c.md#c2"
+    char_span: [4221, 5907]
+    sentence_count: 11
+    key_terms: [gap, png, ed35e9943398b9a00043e51d4c540240c54c5cd4, aeo, multiple, positive, katseye, looking]
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1nkow7c.md#c3"
+    char_span: [5909, 7692]
+    sentence_count: 7
+    key_terms: [views, video, png, dc89f30dfe141cd7109bac05ab4ba2d82f7acb5c, f46a57f7eeba387001adcddd5cff85132c3e6503, preview, format, tiktok]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1nkow7c.md#c4"
+    char_span: [7694, 9845]
+    sentence_count: 12
+    key_terms: [earnings, gap, sales, sell, decline, expectations, denim, customers]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1nkow7c.md#c5"
+    char_span: [9847, 10188]
+    sentence_count: 3
+    key_terms: [views, youtube, controversy, screenshots, amazingly, different, leveraged, strategic]
+    token_count: 77
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1nkow7c.md#c6"
+    char_span: [10203, 11384]
+    sentence_count: 6
+    key_terms: [redditusername71, effort, earnings, probably, thesis, nothingbettertodoyes, calls, going]
+    section: Comments
+    token_count: 339
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1nkow7c.md#c7"
+    char_span: [11386, 12385]
+    sentence_count: 2
+    key_terms: [hikori99, fineeee, people, thishitisgettingold, full, port, azimuthaztronaut, redditusername71]
+    section: Comments
+    token_count: 288
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1nkow7c.md#c8"
+    char_span: [12388, 14093]
+    sentence_count: 9
+    key_terms: [redditusername71, gap, low, sentiment, earnings, outlook, calls, point]
+    section: Comments
+    token_count: 457
 ---
-
 # [GAP]PING UP
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1nkow7c/gapping_up/)

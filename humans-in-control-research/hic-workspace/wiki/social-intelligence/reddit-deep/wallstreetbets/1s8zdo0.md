@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1s8zdo0.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1s8zdo0/20k_loss_on_spy_0dte_puts/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,51 @@ flair: "Loss"
 extracted_at: "2026-05-17T01:14:17.606Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1s8zdo0.md#c0"
+    char_span: [0, 1090]
+    sentence_count: 2
+    key_terms: [position, loss, wallstreetbets, comments, started, being, got, kept]
+    token_count: 323
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1s8zdo0.md#c1"
+    char_span: [1105, 1614]
+    sentence_count: 2
+    key_terms: [discord, total, years, wsb, bamboonicorn, submissions, richard587, successful]
+    section: Comments
+    token_count: 157
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1s8zdo0.md#c2"
+    char_span: [1617, 2856]
+    sentence_count: 2
+    key_terms: [preview, format, https, width, auto, jpeg, pjpg, redd]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1s8zdo0.md#c3"
+    char_span: [2660, 3193]
+    sentence_count: 3
+    key_terms: [de916ddfe9e280f290b1e211646c03dbe4bedab3, dishes, illustriousslice2655, doing, hacking99percent, thehandsoap, brock2063, tomorrow]
+    section: Comments
+    token_count: 185
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1s8zdo0.md#c4"
+    char_span: [3195, 3437]
+    sentence_count: 1
+    key_terms: [d53a496f310de8ee64ca595ad4db1258750b7ed4, illustriousslice2655, lol, r1pllcfb0gsg1, thehandsoap, sweating, preview, through]
+    section: Comments
+    token_count: 95
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1s8zdo0.md#c5"
+    char_span: [3439, 4968]
+    sentence_count: 5
+    key_terms: [exit, lost, profits, always, market, unless, bayouboybussybusters, ok-seaworthiness4488]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1s8zdo0.md#c6"
+    char_span: [4970, 5437]
+    sentence_count: 1
+    key_terms: [dae4017b9db921eddc129910555f542680c42162, thehandsoap, realistic-tank809, png, nlkitsd92gsg1, continues, congrats, against]
+    section: Comments
+    token_count: 164
 ---
-
 # 20K loss on SPY 0DTE puts
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1s8zdo0/20k_loss_on_spy_0dte_puts/)

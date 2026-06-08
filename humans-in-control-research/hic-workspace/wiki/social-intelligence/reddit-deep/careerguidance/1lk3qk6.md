@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1lk3qk6.md
 url: "https://www.reddit.com/r/careerguidance/comments/1lk3qk6/im_a_mechanical_engineering_undergraduate_and/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,15 @@ flair: "Advice"
 extracted_at: "2026-05-22T23:34:01.150Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1lk3qk6.md#c0"
+    char_span: [0, 1541]
+    sentence_count: 12
+    key_terms: [cfd, careerguidance, undergraduate, engineering, like, mechanical, aerospace, companies]
+    token_count: 351
 ---
-
 # I’m a Mechanical Engineering undergraduate and would like to get a job in the field of CFD. Can anyone advise me on how to proceed?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1lk3qk6/im_a_mechanical_engineering_undergraduate_and/)

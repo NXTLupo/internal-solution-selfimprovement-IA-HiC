@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1qpr5qf.md
 url: "https://www.reddit.com/r/GradSchool/comments/1qpr5qf/recently_won_a_scholarship_from_a_major/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,21 @@ flair: "Professional"
 extracted_at: "2026-05-25T13:04:07.333Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, fundraising]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1qpr5qf.md#c0"
+    char_span: [0, 430]
+    sentence_count: 4
+    key_terms: [gradschool, comments, post, cautiousherb, organization, reddit-deep, scholarship, employer]
+    token_count: 118
+  - id: "social-intelligence/reddit-deep/gradschool/1qpr5qf.md#c1"
+    char_span: [445, 1860]
+    sentence_count: 8
+    key_terms: [replacement, projects, manager, future, notice, worked, isaac-get-the-golem, being]
+    section: Comments
+    token_count: 315
 ---
-
 # Recently won a scholarship from a major organization to go to grad school in the fall. They'd like to meet me during lunch and post me on their socials. When do I tell my current employer that I'm going to leave?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1qpr5qf/recently_won_a_scholarship_from_a_major/)

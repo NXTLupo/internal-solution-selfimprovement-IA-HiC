@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1lru5il.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1lru5il/circuitous_career_path_through_academia_to_cs/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,30 @@ subreddit: "cscareerquestions"
 title: "Circuitous career path through academia to CS"
 author: "simplysalamander"
 date: "2025-07-04T21:41:51.000Z"
-score: 6
-upvote_ratio: 1
+score: 5
+upvote_ratio: 0.86
 num_comments: 2
 flair: "New Grad"
-extracted_at: "2026-05-23T19:45:00.921Z"
+extracted_at: "2026-06-03T18:35:34.177Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lru5il.md#c0"
+    char_span: [0, 2139]
+    sentence_count: 11
+    key_terms: [experience, cscareerquestions, software, over-qualified, career, applications, professional, environment]
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lru5il.md#c1"
+    char_span: [2154, 4529]
+    sentence_count: 16
+    key_terms: [companies, "you're", skills, background, experience, right, interviews, understand]
+    section: Comments
+    token_count: 487
 ---
-
 # Circuitous career path through academia to CS
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1lru5il/circuitous_career_path_through_academia_to_cs/)
-Posted by **simplysalamander** · **6↑** · **2 comments**
+Posted by **simplysalamander** · **5↑** · **2 comments**
 
 Career started in academia doing data science/data analysis projects, that evolved into developing full-stack albeit locally-deployed mono-language applications (Python) during a PhD. These applications had users beyond just me, but all in the same academic environment and not like they were users paying for a SaaS app. After finishing the PhD, I've started working on "real" full-stack apps (i.e., JS front end, Python back end, database calls, etc.) for paying customers in a scientific niche, but doing so without much mentorship on developing "professional" software beyond what can be self-taught from the internet. Software is extensible and scalable, but I have no reference of whether this is how it's developed at a major tech company.
 

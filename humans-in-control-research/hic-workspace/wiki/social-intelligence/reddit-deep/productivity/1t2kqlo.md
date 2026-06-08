@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1t2kqlo.md
 url: "https://www.reddit.com/r/productivity/comments/1t2kqlo/ngl_i_realized_productivity_systems_fail_when/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,33 @@ flair: "Technique"
 extracted_at: "2026-05-26T12:53:45.652Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1t2kqlo.md#c0"
+    char_span: [0, 1326]
+    sentence_count: 1
+    key_terms: [productivity, time, systems, day, like, ngl, decisions, something]
+    token_count: 294
+  - id: "social-intelligence/reddit-deep/productivity/1t2kqlo.md#c1"
+    char_span: [1341, 3303]
+    sentence_count: 11
+    key_terms: [reminders, calflow, time, action, system, track, list, work]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/productivity/1t2kqlo.md#c2"
+    char_span: [3305, 5127]
+    sentence_count: 5
+    key_terms: [week, prioritisation, system, "don't", done, get, individual, productive]
+    section: Comments
+    token_count: 401
+  - id: "social-intelligence/reddit-deep/productivity/1t2kqlo.md#c3"
+    char_span: [5129, 6311]
+    sentence_count: 10
+    key_terms: [day, don, re-evaluating, simplifying, definitely, especially, everything, optimizing]
+    section: Comments
+    token_count: 276
 ---
-
 # ngl I realized productivity systems fail when they give you too many decisions
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1t2kqlo/ngl_i_realized_productivity_systems_fail_when/)

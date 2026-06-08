@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1pcng1f.md
 url: "https://www.reddit.com/r/humanresources/comments/1pcng1f/managers_not_following_performance_management/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-23T12:15:41.565Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1pcng1f.md#c0"
+    char_span: [0, 1411]
+    sentence_count: 11
+    key_terms: [performance, pips, despite, process, humanresources, expectations, part, management]
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/humanresources/1pcng1f.md#c1"
+    char_span: [1426, 3471]
+    sentence_count: 22
+    key_terms: [leadership, process, follow, credibility, like, themselves, different, mission]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/humanresources/1pcng1f.md#c2"
+    char_span: [3473, 4046]
+    sentence_count: 6
+    key_terms: [yourself, manager, transcription, consequences, conversation, escalations, defendable, escalating]
+    section: Comments
+    token_count: 127
+  - id: "social-intelligence/reddit-deep/humanresources/1pcng1f.md#c3"
+    char_span: [4048, 6260]
+    sentence_count: 19
+    key_terms: [managers, pip, performance, been, culture, answer, asking, leadership]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/humanresources/1pcng1f.md#c4"
+    char_span: [5989, 6568]
+    sentence_count: 4
+    key_terms: [managers, problem, process, maybe, cruelhumor, difference, identified, addresses]
+    section: Comments
+    token_count: 129
+  - id: "social-intelligence/reddit-deep/humanresources/1pcng1f.md#c5"
+    char_span: [6570, 8703]
+    sentence_count: 25
+    key_terms: [pain, accountable, performance, feel, stop, understand, processes, deadline]
+    section: Comments
+    token_count: 490
 ---
-
 # Managers not following performance management process despite coaching! [N/A]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1pcng1f/managers_not_following_performance_management/)

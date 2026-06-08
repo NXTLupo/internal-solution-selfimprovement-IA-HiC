@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1sva0b9.md
 url: "https://www.reddit.com/r/deeplearning/comments/1sva0b9/qwen_36_27b_vs_qwen_36_35b_a3b_vs_gemma_4_models/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,26 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.050Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1sva0b9.md#c0"
+    char_span: [0, 1403]
+    sentence_count: 5
+    key_terms: [gemma, qwen, throughput, deeplearning, dense, a3b, moe, per]
+    token_count: 521
+  - id: "social-intelligence/reddit-deep/deeplearning/1sva0b9.md#c1"
+    char_span: [1405, 2192]
+    sentence_count: 5
+    key_terms: [fp8, bf16, moe, does, end, qwen, bandwidth-bound, experimentation]
+    token_count: 187
+  - id: "social-intelligence/reddit-deep/deeplearning/1sva0b9.md#c2"
+    char_span: [2207, 3070]
+    sentence_count: 8
+    key_terms: [token, numbers, prompt, concurrent, throughput, prefilled, cache, means]
+    section: Comments
+    token_count: 224
 ---
-
 # Qwen 3.6 27B vs Qwen 3.6 35B A3B vs Gemma 4 models Throughput on H100
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1sva0b9/qwen_36_27b_vs_qwen_36_35b_a3b_vs_gemma_4_models/)

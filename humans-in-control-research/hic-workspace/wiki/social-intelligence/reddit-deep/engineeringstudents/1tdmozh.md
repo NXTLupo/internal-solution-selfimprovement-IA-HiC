@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1tdmozh.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1tdmozh/which_internship_should_i_pick_as_an_aerospace/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,27 @@ flair: "Career Advice"
 extracted_at: "2026-05-25T13:01:49.565Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tdmozh.md#c0"
+    char_span: [0, 1209]
+    sentence_count: 12
+    key_terms: [spacex, engineering, engineeringstudents, comments, space, tesla, interesting, like]
+    token_count: 277
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tdmozh.md#c1"
+    char_span: [1224, 3184]
+    sentence_count: 18
+    key_terms: [working, starlink, quality, experience, space, tesla, spacex, constraints]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tdmozh.md#c2"
+    char_span: [3186, 3891]
+    sentence_count: 5
+    key_terms: [path, hardware, flight, spacex, space, illustrious-limit160, put, work]
+    section: Comments
+    token_count: 178
 ---
-
 # Which internship should I pick as an Aerospace Engineering student? Manufacturing engineering for Starlink at SpaceX or Quality engineering for vehicles at Tesla?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1tdmozh/which_internship_should_i_pick_as_an_aerospace/)

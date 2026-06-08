@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1lm8l8t.md
 url: "https://www.reddit.com/r/investing/comments/1lm8l8t/what_can_i_invest_in_the_doesnt_involve_me_paying/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.194Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1lm8l8t.md#c0"
+    char_span: [0, 787]
+    sentence_count: 10
+    key_terms: [taxes, invest, everything, high-yield, investing, comments, account, "doesn't"]
+    token_count: 205
+  - id: "social-intelligence/reddit-deep/investing/1lm8l8t.md#c1"
+    char_span: [802, 1481]
+    sentence_count: 3
+    key_terms: [lab-gone-wrong, income, understood, brackets, consistentregion6184, never, gain, "i've"]
+    section: Comments
+    token_count: 215
+  - id: "social-intelligence/reddit-deep/investing/1lm8l8t.md#c2"
+    char_span: [1483, 3011]
+    sentence_count: 11
+    key_terms: [taxes, pay, people, tax, investment, taxable, income, wealth]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/investing/1lm8l8t.md#c3"
+    char_span: [3013, 4539]
+    sentence_count: 11
+    key_terms: [tax, longjumping-ice1171, income, advantage, municipal, albeit, around, yields]
+    section: Comments
+    token_count: 401
 ---
-
 # What can I invest in the doesn't involve me paying taxes on gains? I wanted to invest in a high-yield savings account, but then I'll have to pay taxes on it. Crypto, taxes, stocks, taxes, everything taxes. The only other thing is a Roth IRA, but that takes years to build up. Any other options?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1lm8l8t/what_can_i_invest_in_the_doesnt_involve_me_paying/)

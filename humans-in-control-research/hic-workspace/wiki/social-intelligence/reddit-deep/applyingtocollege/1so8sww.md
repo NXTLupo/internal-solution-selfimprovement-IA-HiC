@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1so8sww.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1so8sww/this_decision_feels_impossible/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,50 @@ flair: "Application Question"
 extracted_at: "2026-05-23T19:45:32.282Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1so8sww.md#c0"
+    char_span: [0, 1260]
+    sentence_count: 13
+    key_terms: [applyingtocollege, physics, here, comments, school, though, "isn't", quant]
+    token_count: 315
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1so8sww.md#c1"
+    char_span: [1262, 2391]
+    sentence_count: 10
+    key_terms: [year, ucla, astronomy, comments, transfer, honors, reddit, https]
+    token_count: 314
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1so8sww.md#c2"
+    char_span: [2406, 4759]
+    sentence_count: 20
+    key_terms: [physics, professor, research, path, phd, getting, career, quant]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1so8sww.md#c3"
+    char_span: [4761, 6689]
+    sentence_count: 17
+    key_terms: [quant, alabama, get, rejected, correct, getting, austin, career]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1so8sww.md#c4"
+    char_span: [6691, 7576]
+    sentence_count: 1
+    key_terms: [admissions, students, paying, people, best, extracurriculars, intelligence, standardized]
+    section: Comments
+    token_count: 210
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1so8sww.md#c5"
+    char_span: [7578, 8718]
+    sentence_count: 5
+    key_terms: [dancingwithoutmusic, school, utadmissions, comments, austin, reddit, important-drop-3338, clear]
+    section: Comments
+    token_count: 309
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1so8sww.md#c6"
+    char_span: [8720, 9743]
+    sentence_count: 6
+    key_terms: [com, tr-7qwqp0jk, askmssun, youtube, important-drop-3338, https, seems, watch]
+    section: Comments
+    token_count: 287
 ---
-
 # This decision feels impossible.
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1so8sww/this_decision_feels_impossible/)

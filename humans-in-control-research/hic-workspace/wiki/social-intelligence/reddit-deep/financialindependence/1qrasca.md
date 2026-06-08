@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1qrasca.md
 url: "https://www.reddit.com/r/financialindependence/comments/1qrasca/moving_goalposts_and_future_anxiety/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,56 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.709Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1qrasca.md#c0"
+    char_span: [0, 2038]
+    sentence_count: 22
+    key_terms: [fire, financialindependence, worth, been, healthcare, retirement, currently, goalposts]
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/financialindependence/1qrasca.md#c1"
+    char_span: [2040, 2560]
+    sentence_count: 6
+    key_terms: [without, back, successfully, personality, boundaries, eventually, quiet-quit, tendencies]
+    token_count: 111
+  - id: "social-intelligence/reddit-deep/financialindependence/1qrasca.md#c2"
+    char_span: [2575, 4426]
+    sentence_count: 10
+    key_terms: [husband, number, fire, people, "that's", don, wealthy, without]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/financialindependence/1qrasca.md#c3"
+    char_span: [4428, 6156]
+    sentence_count: 11
+    key_terms: [life, lentils, perfect, figure, losing, costs, maybe, changed]
+    section: Comments
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/financialindependence/1qrasca.md#c4"
+    char_span: [6158, 8162]
+    sentence_count: 16
+    key_terms: [like, "don't", get, "it's", inflation, because, numbers, working]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/financialindependence/1qrasca.md#c5"
+    char_span: [8164, 10426]
+    sentence_count: 16
+    key_terms: [healthcare, spend, one-mastodon-1063, spending, years, swr, subsidies, therapist]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/financialindependence/1qrasca.md#c6"
+    char_span: [10428, 12421]
+    sentence_count: 14
+    key_terms: [get, economy, flight, flat, lay, business, premium, international]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/financialindependence/1qrasca.md#c7"
+    char_span: [12423, 14120]
+    sentence_count: 17
+    key_terms: [inflation, salary, "i'm", job, invested, started, worried, around]
+    section: Comments
+    token_count: 441
 ---
-
 # Moving Goalposts and Future Anxiety
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1qrasca/moving_goalposts_and_future_anxiety/)

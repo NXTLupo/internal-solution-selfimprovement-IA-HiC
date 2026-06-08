@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1rlu99v.md
 url: "https://www.reddit.com/r/findapath/comments/1rlu99v/jobs_for_a_notsosmart_woman_that_does_not_involve/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,33 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-22T15:13:18.836Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1rlu99v.md#c0"
+    char_span: [0, 1367]
+    sentence_count: 9
+    key_terms: [love, findapath, comments, thinking, advice, though, "don't", great]
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/findapath/1rlu99v.md#c1"
+    char_span: [1382, 2329]
+    sentence_count: 9
+    key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/findapath/1rlu99v.md#c2"
+    char_span: [2332, 4429]
+    sentence_count: 17
+    key_terms: [assistant, job, work, hospital, good, experience, management, questions]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/findapath/1rlu99v.md#c3"
+    char_span: [4432, 5789]
+    sentence_count: 10
+    key_terms: [nursing, people, sales, get, work, rewarded, degree, number]
+    section: Comments
+    token_count: 333
 ---
-
 # Jobs for a not-so-smart woman that does not involve an office setting
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1rlu99v/jobs_for_a_notsosmart_woman_that_does_not_involve/)

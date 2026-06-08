@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1s6poct.md
 url: "https://www.reddit.com/r/productivity/comments/1s6poct/productivity_system_that_works/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,27 @@ flair: "Advice Needed"
 extracted_at: "2026-05-26T12:53:45.658Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1s6poct.md#c0"
+    char_span: [0, 775]
+    sentence_count: 7
+    key_terms: [productivity, comments, northernvillan, reddit-deep, suggestions, management, productive, situations]
+    token_count: 169
+  - id: "social-intelligence/reddit-deep/productivity/1s6poct.md#c1"
+    char_span: [790, 3007]
+    sentence_count: 17
+    key_terms: [productivity, system, time, systems, working, northernvillan, "you're", performance]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/productivity/1s6poct.md#c2"
+    char_span: [3009, 5278]
+    sentence_count: 10
+    key_terms: [meetings, time, people, etc, outlook, needed, system, productivity]
+    section: Comments
+    token_count: 502
 ---
-
 # Productivity System that works??
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1s6poct/productivity_system_that_works/)

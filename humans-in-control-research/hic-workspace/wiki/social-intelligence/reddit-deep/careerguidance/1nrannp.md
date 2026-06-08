@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1nrannp.md
 url: "https://www.reddit.com/r/careerguidance/comments/1nrannp/i_recently_turned_29_what_advice_do_you_wish_you/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -6,19 +7,53 @@ subreddit: "careerguidance"
 title: "I recently turned 29 what advice do you wish you had before starting your 30s?"
 author: "Justmakingmywayhome"
 date: "2025-09-26T19:32:30.000Z"
-score: 277
+score: 280
 upvote_ratio: 0.92
 num_comments: 74
 flair: ""
-extracted_at: "2026-05-26T14:32:49.159Z"
+extracted_at: "2026-06-03T12:16:56.374Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1nrannp.md#c0"
+    char_span: [0, 800]
+    sentence_count: 4
+    key_terms: [careerguidance, building, comments, startups, justmakingmywayhome, wish, unconventional, cross-border]
+    token_count: 206
+  - id: "social-intelligence/reddit-deep/careerguidance/1nrannp.md#c1"
+    char_span: [802, 2671]
+    sentence_count: 37
+    key_terms: [real, always, "you're", don, work, especially, yourself, economy]
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/careerguidance/1nrannp.md#c2"
+    char_span: [2686, 2804]
+    sentence_count: 1
+    key_terms: [appearance, maintain, workouts, through, diets, best, body, care]
+    section: Comments
+    token_count: 29
+  - id: "social-intelligence/reddit-deep/careerguidance/1nrannp.md#c3"
+    char_span: [2806, 4562]
+    sentence_count: 8
+    key_terms: [justmakingmywayhome, kevin, iyam3ut, "don't", learning, yourself, account, invest]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1nrannp.md#c4"
+    char_span: [4372, 5105]
+    sentence_count: 5
+    key_terms: [justmakingmywayhome, funds, zrustyshackleford, cabbage-soup, accordingly, vulnerable, lifestyle, klemosda]
+    section: Comments
+    token_count: 222
+  - id: "social-intelligence/reddit-deep/careerguidance/1nrannp.md#c5"
+    char_span: [5107, 6946]
+    sentence_count: 15
+    key_terms: [justmakingmywayhome, companies, fun-imagination-2488, indexes, start, give, life, old]
+    section: Comments
+    token_count: 462
 ---
-
 # I recently turned 29 what advice do you wish you had before starting your 30s?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1nrannp/i_recently_turned_29_what_advice_do_you_wish_you/)
-Posted by **Justmakingmywayhome** · **277↑** · **74 comments**
+Posted by **Justmakingmywayhome** · **280↑** · **74 comments**
 
 I’ve spent my 20s building a pretty unconventional career - consulting, startups, crypto, to my own ventures. Along the way I’ve: managed cross-border deals worth $3, Bbuilt a 100K+ following on social media talking about business + finance, am actively building a real estate portfolio now valued at $5M, worked with some of the top YC-backed startups
 
@@ -60,26 +95,26 @@ Even with those highlights, I’ve made plenty of mistakes, and I’m still figu
 
 Never feel you dont belong or good enough to be in any cohorts or groups. No matter how glamorous or high in social status as they may seem, not all of them are exceptional or special
   - **Justmakingmywayhome** (2↑): Debated adding on their no one actually knows what they're doing. Don't be scared you don't either
-- **Sea-Masterpiece-8496** (12↑): Don't date Michael. Or Kevin.
+- **Sea-Masterpiece-8496** (11↑): Don't date Michael. Or Kevin.
   - **Deus_Shady** (2↑): Lmao what did Kevin do
     - **totowewentcarracing** (5↑): What didn’t Kevin do
   - **iyam3ut** (1↑): Or the J names - upvote if a j name traumatized you
 - **Jay-G** (8↑): I feel like their is something to be said about slowing down in some areas and focusing on really learning after projects and deals. Learning from mistakes, and knowing when to pause and pace yourself is a huge balance to mix in with hard work and consistency.
   - **Justmakingmywayhome** (1↑): When I'm working on my own goals I can easily work the whole day
-- **iyam3ut** (36↑): Honestly stop all contact with alcohol (even just socially) before it starts wreaking havoc on your skin/ body
+- **iyam3ut** (33↑): Honestly stop all contact with alcohol (even just socially) before it starts wreaking havoc on your skin/ body
   - **Happy_Childhood8245** (1↑): Kevin couldn’t get it up
     - **iyam3ut** (1↑): Poor Kev I hope he’s well
   - **Justmakingmywayhome** (1↑): GenZ has this right
 - **Aggressive_Sea_857** (12↑): What do you recommend I invest in? Got around 17k in my savings at 22 sitting.
-  - **ToocTooc** (13↑): Invest in yourself. Skills, certs, education.
+  - **ToocTooc** (14↑): Invest in yourself. Skills, certs, education.
   - **TendyCrusader** (4↑): If you won’t need the money over the next 5 years, try to place it in a tax advantaged account or cash account and buy index funds.
   - **zRustyShackleford** (2↑): S&P low cost ETFs.
   - **Justmakingmywayhome** (2↑): If you dont need the money put 80% in Bitcoin. By the time you're retired you'd be scaryyy
   - **cabbage-soup** (1↑): At the very least keep it in a high yield savings account. Wish I knew about them when I started work at 16
   - **cruisin_urchin87** (1↑): NBIS, ASTS or slow growth SOFI
-- **always_confused0911** (3↑): Can you explain a bit more on the 15th one?
-  - **Justmakingmywayhome** (10↑): we're too scared to be vulnerable but its how humans connect. Leaning into that has only helped me in my career
-- **Klemosda** (4↑): Best advice (really): Invest ASAP 15% minimum of your wage in Index Funds. Adjust your lifestyle accordingly.
+- **always_confused0911** (5↑): Can you explain a bit more on the 15th one?
+  - **Justmakingmywayhome** (8↑): we're too scared to be vulnerable but its how humans connect. Leaning into that has only helped me in my career
+- **Klemosda** (5↑): Best advice (really): Invest ASAP 15% minimum of your wage in Index Funds. Adjust your lifestyle accordingly.
 
 Your 50 years old you will LOVE this 30 years old
   - **Justmakingmywayhome** (1↑): add some crypto and we agree :)
@@ -91,9 +126,9 @@ I wouldn’t give this advice to most people, but I would give it to 29 year old
     - **Fun-Imagination-2488** (1↑): Honestly… I wish someone had told me “Properly allocating capital in publicly traded companies will be easier for  you than you expect, and it will be life changing.  Start now, stop dollar cost averaging into indexes now, and go all-in on selecting individual companies to buy.”
 
 For myself? Maybe when my mental faculties start to degrade, or when I am no longer willing to put in the time necessary to outperform the indexes.
-- **zRustyShackleford** (3↑): Work sucks. Travel and focus on the things that bring you joy. Even if they are things you stopped doing because you got older.
+- **zRustyShackleford** (5↑): Work sucks. Travel and focus on the things that bring you joy. Even if they are things you stopped doing because you got older.
   - **Justmakingmywayhome** (1↑): For me, If I'm working for myself, its totally energizing
-- **thePADiaries** (4↑): 1. There are no mistakes. Only lessons you learn and take with you.
+- **thePADiaries** (3↑): 1. There are no mistakes. Only lessons you learn and take with you.
 
 2. Exercise, consistent exercise in something you enjoy is the best gift you can give yourself everyday. 
 

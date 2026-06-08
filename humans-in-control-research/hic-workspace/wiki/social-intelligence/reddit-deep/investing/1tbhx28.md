@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1tbhx28.md
 url: "https://www.reddit.com/r/investing/comments/1tbhx28/wisdom_being_in_the_market_over_time/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,75 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.196Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1tbhx28.md#c0"
+    char_span: [0, 581]
+    sentence_count: 3
+    key_terms: [investing, comments, happened, market, longjumping-mango831, professional, reddit-deep, understand]
+    token_count: 140
+  - id: "social-intelligence/reddit-deep/investing/1tbhx28.md#c1"
+    char_span: [596, 1855]
+    sentence_count: 16
+    key_terms: [divorce, retirement, payment, market, longjumping-mango831, funds, never, since]
+    section: Comments
+    token_count: 308
+  - id: "social-intelligence/reddit-deep/investing/1tbhx28.md#c2"
+    char_span: [1857, 3616]
+    sentence_count: 12
+    key_terms: [lost, market, investment, mortgage, divorce, recover, selling, "didn't"]
+    section: Comments
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/investing/1tbhx28.md#c3"
+    char_span: [3618, 5167]
+    sentence_count: 10
+    key_terms: [longjumping-mango831, people, don, good, business, fearful, stearns, buying]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/investing/1tbhx28.md#c4"
+    char_span: [5169, 7061]
+    sentence_count: 15
+    key_terms: [luciusq2020, available, margin, people, stocks, information, management, averaging]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/investing/1tbhx28.md#c5"
+    char_span: [7063, 8803]
+    sentence_count: 13
+    key_terms: [acrobatic-song-3151, usually, down, got, put, leverage, numbers, almost]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/investing/1tbhx28.md#c6"
+    char_span: [8805, 10632]
+    sentence_count: 13
+    key_terms: [longjumping-mango831, advice, thanks, single, stock, everything, valuations, portfolio]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/investing/1tbhx28.md#c7"
+    char_span: [10634, 10817]
+    sentence_count: 2
+    key_terms: [higher, "don't", benchmark, attempt, course, market, moment, stocks]
+    section: Comments
+    token_count: 43
+  - id: "social-intelligence/reddit-deep/investing/1tbhx28.md#c8"
+    char_span: [10819, 12727]
+    sentence_count: 11
+    key_terms: [money, stocks, longjumping-mango831, everything, lost, education, downturn, leverage]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/investing/1tbhx28.md#c9"
+    char_span: [12729, 14581]
+    sentence_count: 21
+    key_terms: [been, started, longjumping-mango831, fine, "didn't", unemployment, luciusq2020, late]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/investing/1tbhx28.md#c10"
+    char_span: [14583, 14748]
+    sentence_count: 2
+    key_terms: [revolutions, revolution, exciting, catch, study, train, aren]
+    section: Comments
+    token_count: 38
 ---
-
 # Wisdom being in the market over time
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1tbhx28/wisdom_being_in_the_market_over_time/)

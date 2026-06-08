@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1lsb1sp.md
 url: "https://www.reddit.com/r/college/comments/1lsb1sp/how_exactly_do_i_network_as_a_college_student/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-23T12:15:24.670Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1lsb1sp.md#c0"
+    char_span: [0, 1398]
+    sentence_count: 19
+    key_terms: [college, networking, people, comments, linkedin, network, effort, often]
+    token_count: 313
+  - id: "social-intelligence/reddit-deep/college/1lsb1sp.md#c1"
+    char_span: [1413, 3458]
+    sentence_count: 11
+    key_terms: [people, networking, conversation, having, linkedin, like, talk, describe]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/college/1lsb1sp.md#c2"
+    char_span: [3460, 5327]
+    sentence_count: 12
+    key_terms: [people, help, job, linkedin, college, add, new, classmates]
+    section: Comments
+    token_count: 379
+  - id: "social-intelligence/reddit-deep/college/1lsb1sp.md#c3"
+    char_span: [5329, 7017]
+    sentence_count: 13
+    key_terms: [people, networking, clubs, field, major, club, get, help]
+    section: Comments
+    token_count: 374
 ---
-
 # How exactly do I network as a college student?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1lsb1sp/how_exactly_do_i_network_as_a_college_student/)

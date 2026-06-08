@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1sh1amw.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1sh1amw/global_500_recruitermanager_here_with_over_20/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,69 @@ flair: ""
 extracted_at: "2026-05-26T14:31:41.271Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sh1amw.md#c0"
+    char_span: [0, 1717]
+    sentence_count: 14
+    key_terms: [customer, bulletpoint, resume, cscareerquestions, duties, does, philosophy, recruiting]
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sh1amw.md#c1"
+    char_span: [1732, 2470]
+    sentence_count: 7
+    key_terms: [skkkrrrrrrrrrrrrrrrr, work, impact, companies, people, disconnected, structural, principle]
+    section: Comments
+    token_count: 199
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sh1amw.md#c2"
+    char_span: [2472, 4517]
+    sentence_count: 18
+    key_terms: [company, resume, companies, metrics, asked, tech, questions, acquired]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sh1amw.md#c3"
+    char_span: [4519, 6380]
+    sentence_count: 12
+    key_terms: [recruiter, certain, quantifiable, get, experience, lluciferl, rejection, coverage]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sh1amw.md#c4"
+    char_span: [6382, 8597]
+    sentence_count: 13
+    key_terms: [recruiter, resume, definitive, companies, different, answer, "isn't", role]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sh1amw.md#c5"
+    char_span: [8599, 10250]
+    sentence_count: 11
+    key_terms: [candidates, questions, inauthentic, like, rejected, answers, cookie, cutter]
+    section: Comments
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sh1amw.md#c6"
+    char_span: [10252, 12592]
+    sentence_count: 13
+    key_terms: [people, candidates, recruiters, work, bullshit, looking, coming, intelligence]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sh1amw.md#c7"
+    char_span: [12594, 14277]
+    sentence_count: 11
+    key_terms: ["i'm", sure, because, claims, find, candidates, recruiters, azuredota]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sh1amw.md#c8"
+    char_span: [14279, 16526]
+    sentence_count: 20
+    key_terms: [people, resume, "you're", reconstruct, applicants, experience, recruiters, understand]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sh1amw.md#c9"
+    char_span: [16528, 18089]
+    sentence_count: 17
+    key_terms: [did, responsibilities, people, role, want, candidate, qualified, business]
+    section: Comments
+    token_count: 350
 ---
-
 # Global 500 Recruiter/Manager here with over 20 years of experience. I can provide a little inside knowledge on ATS, recruiter mindset, the shifting hiring landscape, and just the overall health of the recruiting game. Feel free to ask and I'll get to you accordingly
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sh1amw/global_500_recruitermanager_here_with_over_20/)

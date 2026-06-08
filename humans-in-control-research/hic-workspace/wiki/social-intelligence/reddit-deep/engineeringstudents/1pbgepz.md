@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1pbgepz.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1pbgepz/gpa_truly_doesnt_matter_in_the_long_run/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,51 @@ flair: "Career Advice"
 extracted_at: "2026-05-23T19:44:57.169Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pbgepz.md#c0"
+    char_span: [0, 1483]
+    sentence_count: 19
+    key_terms: [job, experience, don, engineeringstudents, gpa, projects, nothing, jobs]
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pbgepz.md#c1"
+    char_span: [1498, 3517]
+    sentence_count: 14
+    key_terms: [experience, job, because, graduation, years, gpa, "don't", internships]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pbgepz.md#c2"
+    char_span: [3519, 4537]
+    sentence_count: 7
+    key_terms: [experience, academic, project, success, "don't", extracurriculars, self-motivation, inexperienced]
+    section: Comments
+    token_count: 219
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pbgepz.md#c3"
+    char_span: [4539, 6193]
+    sentence_count: 12
+    key_terms: [internships, get, gpa, clubs, companies, job, oracle5of7, better]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pbgepz.md#c4"
+    char_span: [6195, 8266]
+    sentence_count: 18
+    key_terms: [gpa, people, possible, grades, correlation, job, try, important]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pbgepz.md#c5"
+    char_span: [8268, 10031]
+    sentence_count: 21
+    key_terms: [gpa, school, students, matters, saying, internships, get, job]
+    section: Comments
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pbgepz.md#c6"
+    char_span: [10033, 11109]
+    sentence_count: 9
+    key_terms: [masters, internships, grades, hiring, people, casuallyexploding88, clubs, gpas]
+    section: Comments
+    token_count: 256
 ---
-
 # Gpa truly doesn’t matter in the long run
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1pbgepz/gpa_truly_doesnt_matter_in_the_long_run/)

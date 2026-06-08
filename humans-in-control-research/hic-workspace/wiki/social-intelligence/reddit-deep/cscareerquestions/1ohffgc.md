@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1ohffgc.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1ohffgc/shipping_a_product_with_thousands_of_users_as_a/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,72 @@ subreddit: "cscareerquestions"
 title: "Shipping a product with thousands of users as a CS student - does this actually help you stand out?"
 author: "Trooped"
 date: "2025-10-27T14:10:07.000Z"
-score: 156
+score: 161
 upvote_ratio: 0.94
 num_comments: 94
 flair: "Student"
-extracted_at: "2026-05-26T14:31:41.270Z"
+extracted_at: "2026-06-06T13:04:13.561Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ohffgc.md#c0"
+    char_span: [0, 1406]
+    sentence_count: 13
+    key_terms: [product, cscareerquestions, student, early-career, comments, shipping, signal, strong]
+    token_count: 338
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ohffgc.md#c1"
+    char_span: [1421, 3128]
+    sentence_count: 12
+    key_terms: [screening, getting, resume, calls, roles, entry-level, "i'm", past]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ohffgc.md#c2"
+    char_span: [3130, 5141]
+    sentence_count: 15
+    key_terms: [experience, trooped, resume, "it's", job, put, internship, profession]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ohffgc.md#c3"
+    char_span: [5143, 7475]
+    sentence_count: 19
+    key_terms: [users, interview, good, project, app, "it's", successful, something]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ohffgc.md#c4"
+    char_span: [7477, 9783]
+    sentence_count: 19
+    key_terms: [project, something, "i'm", like, got, experience, successful, hackathon]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ohffgc.md#c5"
+    char_span: [9785, 12015]
+    sentence_count: 8
+    key_terms: [resume, experience, problem, interviewers, "i've", interested, interviews, getting]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ohffgc.md#c6"
+    char_span: [12017, 14201]
+    sentence_count: 15
+    key_terms: [question, interview, poke, being, going, app, negatively, customers]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ohffgc.md#c7"
+    char_span: [14203, 16392]
+    sentence_count: 8
+    key_terms: [system, projects, android, secure, communication, application, implemented, user]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ohffgc.md#c8"
+    char_span: [16394, 18357]
+    sentence_count: 18
+    key_terms: [resume, education, "it's", summary, years, good, top, leadership]
+    section: Comments
+    token_count: 480
 ---
-
 # Shipping a product with thousands of users as a CS student - does this actually help you stand out?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1ohffgc/shipping_a_product_with_thousands_of_users_as_a/)
-Posted by **Trooped** · **156↑** · **94 comments**
+Posted by **Trooped** · **161↑** · **94 comments**
 
 Hey everyone!  
 I’m a final-year CS student. A few months ago I built and released an Android TV app on the Play Store. I made it to solve a real problem for my dad. It’s written in Kotlin and uses Accessibility Service, overlays, and WebSockets to control Home Assistant from the TV.
@@ -48,7 +102,7 @@ If you're getting screening calls, but not moving past them, then what you need 
 If they saw your resume and wanted to talk to you, that means you are on paper what they're looking for. If you're not moving past it, it's because they don't think the person they talked to matched the resume they saw.
     - **Trooped** (19↑): Nope, not even getting screening calls.  
 Automatic rejections, some without even an email about it (had to log into their platform and see I'm rejected).
-- **dfphd** (114↑): >I assumed shipping a product with real users and revenue would be a strong early-career signal. 
+- **dfphd** (117↑): >I assumed shipping a product with real users and revenue would be a strong early-career signal. 
 
 It definitely does.
 
@@ -57,14 +111,14 @@ It definitely does.
 I'm not sure what else you expected it to do? Did you expect it to propel you into a more senior role? That is unlikely to happen, at least at large companies. Companies still need to see you work in a team, at a company, solving problems you might not necessarily want to solve. 
 
 Now, that type of experience might actually carry more weight with startups and smaller companies.
-  - **Trooped** (38↑): Hey, I've added more context [here](https://www.reddit.com/r/cscareerquestions/comments/1ohffgc/comment/nlnhrce/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button).  
+  - **Trooped** (33↑): Hey, I've added more context [here](https://www.reddit.com/r/cscareerquestions/comments/1ohffgc/comment/nlnhrce/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button).  
 There's no expectation for it to propel me into a senior role - I'm actually just looking for my first role in the industry :)
-    - **Choperello** (32↑): It will help. It's not a magic bullet. It's just another data point in your favor. Getting your first internship or job is always the hardest step. Just hang in there. But to be clear, are you looking for an internship or a job? Cause those are very different things with different search paths.
+    - **Choperello** (30↑): It will help. It's not a magic bullet. It's just another data point in your favor. Getting your first internship or job is always the hardest step. Just hang in there. But to be clear, are you looking for an internship or a job? Cause those are very different things with different search paths.
   - **[deleted]** (3↑): > solving problems you might not necessarily want to solve.
 
 This is such an underrated skill that we gain in this profession (well really like every other profession)
-- **Calm-Tumbleweed-9820** (33↑): 99% of professional devs probs never shipped out their own product. I would even just put it under experience instead of projects section but anyways it should if you make a point about it.
-  - **Trooped** (5↑): Thank you for your suggestion!  
+- **Calm-Tumbleweed-9820** (32↑): 99% of professional devs probs never shipped out their own product. I would even just put it under experience instead of projects section but anyways it should if you make a point about it.
+  - **Trooped** (7↑): Thank you for your suggestion!  
 It is definitely under "experience" in my LinkedIn, and inside my resume I put it under "projects", but even the about me section talks about it (emphasizing the numbers - 5k users and 400 customers...)
     - **Linksta35** (3↑): Register an LLC for it and put yourself as CEO/CTO/Product Manager/Staff Engineer and you have your first job.
 - **Mast3rCylinder** (13↑): It's a good thing to show if you can talk about it and the challenges you faced for 10-15 mins.
@@ -89,7 +143,7 @@ Project purpose is to do something other than tutorial that you can deep dive in
 
 I had project in C++ that showed deep knowledge in computer networking. The interviewer didn't know this subject better than me, we just had good talk on how it all works as I explained it to him. 
 That gave me a lot of points over others.
-- **NeitherOfEither** (11↑): I have some weird semi-related experiences to this actually.
+- **NeitherOfEither** (10↑): I have some weird semi-related experiences to this actually.
 
 At one of my jobs, we hired a new grad who had launched a very successful app in their home country. It probably didn't help him get the initial interview, since I think that was more about the fact that we were recruiting at his school, but it definitely helped him stand out during the interview process. When we were in discussions about the new grad class, that project was mentioned often and certainly kept him above the fold. It should be noted that he had to pass the interview solely on technical merits.
 

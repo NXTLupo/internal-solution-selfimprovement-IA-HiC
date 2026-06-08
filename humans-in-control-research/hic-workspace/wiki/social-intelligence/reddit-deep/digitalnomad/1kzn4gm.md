@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1kzn4gm.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1kzn4gm/need_advice_digital_nomad_life_in_se_asia_vs/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,21 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:56.720Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, education, government]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1kzn4gm.md#c0"
+    char_span: [0, 1265]
+    sentence_count: 13
+    key_terms: [digital, digitalnomad, nomad, spain, asia, been, freelance, residency]
+    token_count: 306
+  - id: "social-intelligence/reddit-deep/digitalnomad/1kzn4gm.md#c1"
+    char_span: [1280, 2898]
+    sentence_count: 13
+    key_terms: [spain, study, years, "it's", studying, enough, count, sofialo4]
+    section: Comments
+    token_count: 443
 ---
-
 # Need Advice: Digital Nomad Life in SE Asia vs. Studying in Spain for EU Residency
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1kzn4gm/need_advice_digital_nomad_life_in_se_asia_vs/)

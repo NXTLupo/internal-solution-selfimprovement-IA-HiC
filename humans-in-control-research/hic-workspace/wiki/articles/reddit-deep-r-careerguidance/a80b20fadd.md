@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/a80b20fadd.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t8tt86/i_got_offered_a_director_role_at_another/"
 url_hash: "a80b20fadd"
 kind: "article"
@@ -10,8 +11,30 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T19:52:24.806993+00:00"
 chars: 6200
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/a80b20fadd.md#c0"
+    char_span: [0, 2282]
+    sentence_count: 19
+    key_terms: [role, leadership, boss, job, like, work, another, careerguidance]
+    token_count: 500
+  - id: "articles/reddit-deep-r-careerguidance/a80b20fadd.md#c1"
+    char_span: [2284, 4021]
+    sentence_count: 15
+    key_terms: [job, new, meeting, get, time, director, tomorrow, months]
+    token_count: 397
+  - id: "articles/reddit-deep-r-careerguidance/a80b20fadd.md#c2"
+    char_span: [4023, 6023]
+    sentence_count: 13
+    key_terms: [want, raise, severance, company, years, comfortable, keep, new]
+    token_count: 490
+  - id: "articles/reddit-deep-r-careerguidance/a80b20fadd.md#c3"
+    char_span: [6025, 6543]
+    sentence_count: 5
+    key_terms: [changed, doubled, butteredpizza69420, love, successfully, comfortable, industries, increases]
+    token_count: 123
 ---
-
 # I got offered a director role at another institution and I told my boss. She said she’ll do anything she can to keep me. How do I approach this with the idea of making the most money/job security?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t8tt86/i_got_offered_a_director_role_at_another/)

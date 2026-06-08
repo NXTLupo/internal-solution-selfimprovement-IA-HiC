@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1qi7xnk.md
 url: "https://www.reddit.com/r/waterloo/comments/1qi7xnk/looking_for_job_recommendations_in/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.124Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1qi7xnk.md#c0"
+    char_span: [0, 681]
+    sentence_count: 5
+    key_terms: [waterloo-kitchener, recommendations, comments, waterloo, looking, student, job, reddit-deep]
+    token_count: 172
+  - id: "social-intelligence/reddit-deep/waterloo/1qi7xnk.md#c1"
+    char_span: [696, 1721]
+    sentence_count: 7
+    key_terms: [jobs, student, usually, consistent-opening01, good, job, year, theartofconcrete]
+    section: Comments
+    token_count: 255
 ---
-
 # Looking for job recommendations in Waterloo-Kitchener (Student)
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1qi7xnk/looking_for_job_recommendations_in/)

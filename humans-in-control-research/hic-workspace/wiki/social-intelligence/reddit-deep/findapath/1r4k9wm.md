@@ -6,19 +6,19 @@ subreddit: "findapath"
 title: "What’s a good career path for young people that pays well and has strong demand?"
 author: "Area_rea"
 date: "2026-02-14T13:11:27.000Z"
-score: 114
+score: 112
 upvote_ratio: 0.94
-num_comments: 125
+num_comments: 126
 flair: "Findapath-Job Choice/Clarity"
-extracted_at: "2026-05-25T13:04:07.390Z"
+extracted_at: "2026-06-06T23:22:15.462Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # What’s a good career path for young people that pays well and has strong demand?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1r4k9wm/whats_a_good_career_path_for_young_people_that/)
-Posted by **Area_rea** · **114↑** · **125 comments**
+Posted by **Area_rea** · **112↑** · **126 comments**
 
 Hey everyone.
 
@@ -40,7 +40,7 @@ If you could start again in your early 20s, what would you choose — and why?
 
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/findapath) if you have any questions or concerns.*
-- **nubzero** (64↑): I went into tech at 23 because it seemed like the obvious choice: good pay, everyone was doing it. And it worked out, but honestly if I could rewind I'd spend way more time thinking about what kind of life I actually wanted, not just what paid well.  
+- **nubzero** (68↑): I went into tech at 23 because it seemed like the obvious choice: good pay, everyone was doing it. And it worked out, but honestly if I could rewind I'd spend way more time thinking about what kind of life I actually wanted, not just what paid well.  
   
 "pays well and in demand" describes like 40 different careers with wildly different realities. An ER nurse and a software engineer both check those boxes but live completely different lives.  
   
@@ -49,16 +49,16 @@ Before you pick a path, figure out your actual desires. Are you trying to hit a 
 I've watched friends become electricians, nurses, consultants, pilots. all "good careers" on paper. The ones who are happiest picked based on how they wanted to spend their actual days, not just what seemed smart on a spreadsheet.  
   
 What matters more to you right now: getting to decent money fast, maximizing your long term income, or protecting your nights and weekends?
-  - **Area_rea** (16↑): That’s exactly what I mean. A lot of careers sound great on paper — like becoming a lawyer. But there are already so many lawyers, and there’s no guarantee you’ll end up like the ones in the movies instead of drowning in paperwork.
+  - **Area_rea** (15↑): That’s exactly what I mean. A lot of careers sound great on paper — like becoming a lawyer. But there are already so many lawyers, and there’s no guarantee you’ll end up like the ones in the movies instead of drowning in paperwork.
 
 That’s why I’m looking for a path where logic and critical thinking are important, and where I don’t have to wait until I’m 40 to finally feel established. I want something that has real opportunities now, while I’m still young and full of energy.
     - **thelegendaryseth** (5↑): You could always consider an electrical apprenticeship. There is definitely logic and critical thinking if you go industrial, you'll feel established and make good money, everyday is a new day, you can leave work at work, and you get paid while you learn. And when you're older, you can get off the tools and start your own business.
-  - **bracketl4d** (8↑): Do you feel tech pays off well still?   
+  - **bracketl4d** (6↑): Do you feel tech pays off well still?   
 Half of us are unemployed and being squeezed dry for companies to make more money, not to mention AI. The Tech bubble burst, and it became too competitive. Why should a company hire you when they can hire a remote guy in asia for 10% of the cost
     - **RandomAcounttt345** (2↑): Yeah I’ve literally never heard teaching described as pays well. They’re probably not in America or ciné from a poor background.
   - **Fickle_Inflation_306** (1↑): This. I started out as a geologist in consulting. It’s a respectable office job on paper. However, absolutely hated the work plus all the prolonged sitting caused my spine to revolt (herniated disc). Now I’m a math teacher and I love it. I’ll never be rich but I’m in an area that pays teachers fairly relatively to the COL so I’m solidly middle class. I might have to work some nights or weekends, but I am overall much healthier.
   - **Herman_Ket** (1↑): I always try to make an attempt at reasoning from sensible frameworks. Using the very sensible supply - demand perspective, I opted for technical education (bsc and msc). Then, I took the opportunity to become a data scientist in the energy sector. This seems pretty safe to me, and it turned out well. Good pay, part-time, welcome niceties, great impact (mlns households), and a topic that I'm interested in. Get to do both: enjoy my young years whilst making a career. Money is not the real thing. Time is. I optimize for a balance between time for me now and time for future me, as ageing is not a certain process.
-- **Hmm408** (17↑): I would definitely suggest utilities/water. I am now in water treatment and there isn’t really a downside to it. There are so many different opportunities in water in general. Whether you want to do maintenance, lab work, be an operator, collection system worker, distribution system worker, etc. Roles such as meter maintenance technician and back-flow technician also exist. And whether you have a degree or not it’s a great choice.
+- **Hmm408** (18↑): I would definitely suggest utilities/water. I am now in water treatment and there isn’t really a downside to it. There are so many different opportunities in water in general. Whether you want to do maintenance, lab work, be an operator, collection system worker, distribution system worker, etc. Roles such as meter maintenance technician and back-flow technician also exist. And whether you have a degree or not it’s a great choice.
 
 I am in industrial treatment specifically and my job consists of HVAC, electrical, plumbing, chemistry, etc. Never a dull day with problem solving, my schedule is great, pay is great, company vehicle, great benefits, and it’s not laborious work.
   - **Area_rea** (3↑): How long did it take you to get to where you are now, and are you actually happy with what you do? If you could start over in a different career, would you do it?
@@ -72,10 +72,10 @@ I’d honestly suggest some exploration. Volunteer at a hospital and talk to the
 - **Primary-Bug-7353** (7↑): Nursing. You can start with an LPN. It’s 12 months. Pays $30-45/hr & if you want to advance the hospital, the hospital you work at will most likely pay for you to go back to school.
   - **lindseyilwalker** (1↑): Did you do this?
     - **Primary-Bug-7353** (2↑): I’m doing cna first bc I need to save up first, but I asked TikTok and got like 300 comments with most people saying that’s the best path. Saves money and time
-- **Alternative_Tank_139** (5↑): I'm hoping to get into financial compliance. Demand is very strong right now, you can get in more easily then other professions, and it can pay decent with experience. You just need to be analytical and know how to say no to people. I don't think AI will be useful as laws have to be interpreted in the context of a business, which is difficult right now for AI to handle. Also, people won't trust AI yet with keeping them out of jail.
+- **Alternative_Tank_139** (6↑): I'm hoping to get into financial compliance. Demand is very strong right now, you can get in more easily then other professions, and it can pay decent with experience. You just need to be analytical and know how to say no to people. I don't think AI will be useful as laws have to be interpreted in the context of a business, which is difficult right now for AI to handle. Also, people won't trust AI yet with keeping them out of jail.
   - **Individual-Nerve-379** (1↑): What is financial compliance? Like what jobs titles?
   - **Area_rea** (0↑): I believe AI offers great earning potential as a cutting-edge and practical tool. The challenge lies in finding the right way to monetize it.
-- **StrategyWorldly1939** (7↑): firefighter
+- **StrategyWorldly1939** (4↑): firefighter
 - **peaceloveandapostacy** (6↑): Tree work… if you have a pulse they’ll hire you.. if you can show up on time and have a good attitude you’ll be better than most… and if you learn how tie knots and climb you can start making good money. If you can control your fear and trust the equipment you can climb the ladder pretty quick… but it takes a while to become really efficient.  It’s a rough road.. it’s extremely physically demanding.. difficult to balance work and recovery time.  But it’s awesome to be outside all year round and working with a small crew.
   - **Area_rea** (3↑): Sounds great, but the reality is likely different.
 - **Prior-Actuator-8110** (13↑): I'm planning to going into medical school in my 30s!
@@ -95,4 +95,4 @@ I still think it is an interesting career, but you work a lot more than other pe
     - **PlanetExcellent** (2↑): How long is acceptable?
   - **Less_Damage_1369** (2↑): Oh my gosh !!!!! I am also in my 30's and really wanna get into a medical school. It's been my passion but I keep thinking I'm crazy as it will take me at least 7 years and I'm 35. Feeling discouraged, but your comment gave me tiny bit of hope.
     - **Prior-Actuator-8110** (0↑): never late but its a big sacrifice so its up to you!
-- **controlledfatigue** (4↑): I’m currently a 21 year old air traffic controller making $105k, and rising. They have yearly bids to apply. Training is difficult but I thoroughly enjoy it.
+- **controlledfatigue** (5↑): I’m currently a 21 year old air traffic controller making $105k, and rising. They have yearly bids to apply. Training is difficult but I thoroughly enjoy it.

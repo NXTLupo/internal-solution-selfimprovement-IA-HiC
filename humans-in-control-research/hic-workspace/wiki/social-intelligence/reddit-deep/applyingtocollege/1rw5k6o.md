@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1rw5k6o.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rw5k6o/which_eca_is_better_for_college_application/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-22T23:33:52.637Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rw5k6o.md#c0"
+    char_span: [0, 500]
+    sentence_count: 2
+    key_terms: [applyingtocollege, comments, better, application, chairperson, reddit-deep, committee, executive]
+    token_count: 123
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rw5k6o.md#c1"
+    char_span: [515, 2029]
+    sentence_count: 13
+    key_terms: [mayafromprepory, better, applications, experience, ashilify, business, yourself, offers]
+    section: Comments
+    token_count: 328
 ---
-
 # Which ECA is better for college application
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rw5k6o/which_eca_is_better_for_college_application/)

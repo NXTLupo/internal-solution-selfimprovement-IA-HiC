@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1p7a1fe.md
 url: "https://www.reddit.com/r/careerguidance/comments/1p7a1fe/how_can_i_move_forward_and_break_into/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,20 @@ flair: ""
 extracted_at: "2026-05-22T23:34:01.133Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1p7a1fe.md#c0"
+    char_span: [0, 2326]
+    sentence_count: 18
+    key_terms: [international, legal, law, slovak, work, working, careerguidance, french]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/careerguidance/1p7a1fe.md#c1"
+    char_span: [2328, 3073]
+    sentence_count: 6
+    key_terms: [situation, slovakia, opportunities, possibilities, appreciated, challenging, environment, perspective]
+    token_count: 146
 ---
-
 # How can I move forward and break into international NGOs/organisations? Or make a career shift?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1p7a1fe/how_can_i_move_forward_and_break_into/)

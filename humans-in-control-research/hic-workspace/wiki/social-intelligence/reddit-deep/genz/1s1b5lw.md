@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1s1b5lw.md
 url: "https://www.reddit.com/r/GenZ/comments/1s1b5lw/do_a_lot_of_us_take_financial_risks_because_we/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,33 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.772Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1s1b5lw.md#c0"
+    char_span: [0, 1224]
+    sentence_count: 10
+    key_terms: [people, feel, like, already, because, feels, lot, financial]
+    token_count: 280
+  - id: "social-intelligence/reddit-deep/genz/1s1b5lw.md#c1"
+    char_span: [1239, 3064]
+    sentence_count: 12
+    key_terms: [mundaneenthusiasm977, experience, different, because, friends, truckinducks, investments, "i've"]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/genz/1s1b5lw.md#c2"
+    char_span: [3066, 5081]
+    sentence_count: 15
+    key_terms: [people, mundaneenthusiasm977, financial, influence, because, bad, less, lot]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/genz/1s1b5lw.md#c3"
+    char_span: [5083, 5918]
+    sentence_count: 4
+    key_terms: [credit, gambling, card, "i'll", absolutely, demolished, difficulty, eventually]
+    section: Comments
+    token_count: 191
 ---
-
 # Do a lot of us take financial risks because we already feel behind?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1s1b5lw/do_a_lot_of_us_take_financial_risks_because_we/)

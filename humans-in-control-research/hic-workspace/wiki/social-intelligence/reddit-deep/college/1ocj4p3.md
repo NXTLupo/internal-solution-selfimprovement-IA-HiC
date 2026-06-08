@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1ocj4p3.md
 url: "https://www.reddit.com/r/college/comments/1ocj4p3/im_developing_a_skipping_addiction/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-25T15:51:48.247Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1ocj4p3.md#c0"
+    char_span: [0, 1814]
+    sentence_count: 12
+    key_terms: [classes, semester, skipping, "i'm", class, addiction, "i've", college]
+    token_count: 409
+  - id: "social-intelligence/reddit-deep/college/1ocj4p3.md#c1"
+    char_span: [1829, 3610]
+    sentence_count: 15
+    key_terms: [questions, skipping, courses, opportunity, get, skip, doctorate, professor]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/college/1ocj4p3.md#c2"
+    char_span: [3612, 5582]
+    sentence_count: 16
+    key_terms: [classes, class, thought, better, feel, like, read, undergrad]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/college/1ocj4p3.md#c3"
+    char_span: [5584, 7282]
+    sentence_count: 9
+    key_terms: [learning, semester, dootymccool2000, class, "i'm", powerpoint, education, approach]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/college/1ocj4p3.md#c4"
+    char_span: [7284, 9470]
+    sentence_count: 17
+    key_terms: [lecture, "i'm", instructor, class, history, upper-division, attend, engineering]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1ocj4p3.md#c5"
+    char_span: [9472, 11174]
+    sentence_count: 19
+    key_terms: [class, did, get, time, professors, semester, skipping, degrees]
+    section: Comments
+    token_count: 409
+  - id: "social-intelligence/reddit-deep/college/1ocj4p3.md#c6"
+    char_span: [11176, 12149]
+    sentence_count: 5
+    key_terms: [undergrad, research, better, video, get, objectmedium6335, backgrounds, discipline]
+    section: Comments
+    token_count: 219
 ---
-
 # I'm Developing a Skipping Addiction
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ocj4p3/im_developing_a_skipping_addiction/)

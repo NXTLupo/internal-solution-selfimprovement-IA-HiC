@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1q0ebxk.md
 url: "https://www.reddit.com/r/jobs/comments/1q0ebxk/requesting_advice_on_what_topics_to_learn_for_job/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,15 @@ flair: "Career development"
 extracted_at: "2026-05-25T13:03:11.722Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1q0ebxk.md#c0"
+    char_span: [0, 1602]
+    sentence_count: 11
+    key_terms: [courses, mathematics, extremely, masters, learn, study, back, phd]
+    token_count: 354
 ---
-
 # Requesting advice on what topics to learn for job opportunities...
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1q0ebxk/requesting_advice_on_what_topics_to_learn_for_job/)

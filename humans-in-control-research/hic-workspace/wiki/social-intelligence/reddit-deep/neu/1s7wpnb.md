@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1s7wpnb.md
 url: "https://www.reddit.com/r/NEU/comments/1s7wpnb/admitted_as_a_2ndyear_intl_transfer_for_bs_in_cs/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 5
 flair: "Admissions & Financial Aid"
-extracted_at: "2026-05-13T20:23:48.333Z"
+extracted_at: "2026-06-06T00:27:19.936Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1s7wpnb.md#c0"
+    char_span: [0, 1159]
+    sentence_count: 12
+    key_terms: [neu, comments, hardware, robotics, transfer, reality, advice, online]
+    token_count: 280
+  - id: "social-intelligence/reddit-deep/neu/1s7wpnb.md#c1"
+    char_span: [1174, 2850]
+    sentence_count: 10
+    key_terms: [northeastern, school, neu, great, especially, decisions, rankings, transfer]
+    section: Comments
+    token_count: 380
 ---
-
 # Admitted as a 2nd-Year Intl Transfer for BS in CS — Confused about the "bad" reputation online & wondering if my fee waivers are actually good? Seeking honest advice!
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1s7wpnb/admitted_as_a_2ndyear_intl_transfer_for_bs_in_cs/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1tdsf2j/do_you_guys_honestly_think_its_still_worth/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,87 @@ flair: "Student"
 extracted_at: "2026-05-26T12:54:26.394Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c0"
+    char_span: [0, 1135]
+    sentence_count: 8
+    key_terms: [cscareerquestions, already, people, programming, like, completely, comments, years]
+    token_count: 256
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c1"
+    char_span: [1150, 3065]
+    sentence_count: 10
+    key_terms: [safe, career, going, doomers, overhyped, "it's", job, automate]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c2"
+    char_span: [3067, 4383]
+    sentence_count: 10
+    key_terms: [coding, all-in, figure, reddit, retort, "that's", trying, "don't"]
+    section: Comments
+    token_count: 335
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c3"
+    char_span: [4385, 6458]
+    sentence_count: 11
+    key_terms: [already, trash, grinding, doctors, being, like, "doctor's", replaced]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c4"
+    char_span: [6225, 7288]
+    sentence_count: 5
+    key_terms: [replaced, jobs, collar, manual, people, pivot, white, effective-bee-7004]
+    section: Comments
+    token_count: 262
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c5"
+    char_span: [7290, 8611]
+    sentence_count: 10
+    key_terms: [engineering, people, safe, workforce, computer, scenario, outside, collar]
+    section: Comments
+    token_count: 310
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c6"
+    char_span: [8613, 9760]
+    sentence_count: 12
+    key_terms: [job, anymore, alternativeechidna39, loved, years, chef, code, part]
+    section: Comments
+    token_count: 289
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c7"
+    char_span: [9762, 11617]
+    sentence_count: 14
+    key_terms: [career, work, years, like, experience, coding, people, state]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c8"
+    char_span: [11619, 13869]
+    sentence_count: 16
+    key_terms: [robotics, because, right, like, engineer, honestly, physical, software]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c9"
+    char_span: [13871, 16147]
+    sentence_count: 18
+    key_terms: [data, problem, systems, apart, video, code, don, llm]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c10"
+    char_span: [16149, 17060]
+    sentence_count: 6
+    key_terms: [going, get, working, hard, lot, past, tech, opportunities]
+    section: Comments
+    token_count: 215
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c11"
+    char_span: [17062, 18459]
+    sentence_count: 6
+    key_terms: [dev, web, programmer, software, indian, moldat, pressureavailable615, sudden-scientist7330]
+    section: Comments
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tdsf2j.md#c12"
+    char_span: [18461, 19413]
+    sentence_count: 7
+    key_terms: [software, companies, engineer, layoffs, vasileios13, developers, programmer, products]
+    section: Comments
+    token_count: 214
 ---
-
 # Do you guys honestly think it’s still worth becoming a programmer in 2026?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1tdsf2j/do_you_guys_honestly_think_its_still_worth/)

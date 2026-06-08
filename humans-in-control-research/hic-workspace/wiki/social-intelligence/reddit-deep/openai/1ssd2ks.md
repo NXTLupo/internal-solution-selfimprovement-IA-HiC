@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1ssd2ks.md
 url: "https://www.reddit.com/r/OpenAI/comments/1ssd2ks/imagen_v2/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,27 @@ flair: "Discussion"
 extracted_at: "2026-05-11T16:53:06.862Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1ssd2ks.md#c0"
+    char_span: [0, 200]
+    sentence_count: 1
+    key_terms: [comments, openai, reddit-deep, imagen, posted, reddit, source, https]
+    token_count: 67
+  - id: "social-intelligence/reddit-deep/openai/1ssd2ks.md#c1"
+    char_span: [215, 1411]
+    sentence_count: 9
+    key_terms: [claude, month, like, openai, longbreaddinosaur, fair, "it's", max]
+    section: Comments
+    token_count: 303
+  - id: "social-intelligence/reddit-deep/openai/1ssd2ks.md#c2"
+    char_span: [1413, 2176]
+    sentence_count: 5
+    key_terms: [healthy-nebula-3603, prompt, love, laonionlaunion, claudie-cli, enterprise, eventually, gemini-cli]
+    section: Comments
+    token_count: 224
 ---
-
 # Imagen v2
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1ssd2ks/imagen_v2/)

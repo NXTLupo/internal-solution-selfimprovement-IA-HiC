@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1tgzapc.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1tgzapc/how_do_you_actually_meet_people_who_can_send_you/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,27 @@ flair: "Business"
 extracted_at: "2026-05-26T12:53:56.734Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1tgzapc.md#c0"
+    char_span: [0, 1155]
+    sentence_count: 10
+    key_terms: [digitalnomad, business, comments, clients, always, mostly, people, "you're"]
+    token_count: 261
+  - id: "social-intelligence/reddit-deep/digitalnomad/1tgzapc.md#c1"
+    char_span: [1170, 2954]
+    sentence_count: 8
+    key_terms: [online, "you're", dumpsterslunt, niche, seller-rich, linkedin, referral, remember]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/digitalnomad/1tgzapc.md#c2"
+    char_span: [2956, 3361]
+    sentence_count: 3
+    key_terms: [clients, geographical, restriction, competing, different, scaleable, agencies, industry]
+    section: Comments
+    token_count: 87
 ---
-
 # How do you actually meet people who can send you work when you're always moving?
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1tgzapc/how_do_you_actually_meet_people_who_can_send_you/)

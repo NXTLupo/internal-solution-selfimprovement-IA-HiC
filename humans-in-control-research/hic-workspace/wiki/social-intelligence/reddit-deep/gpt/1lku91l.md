@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1lku91l.md
 url: "https://www.reddit.com/r/GPT/comments/1lku91l/i_built_a_languagenative_control_layer_for_gpt_no/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T17:26:37.730Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1lku91l.md#c0"
+    char_span: [0, 978]
+    sentence_count: 6
+    key_terms: [gpt, language-native, tone, comments, feedback, semantic, github, states]
+    token_count: 260
+  - id: "social-intelligence/reddit-deep/gpt/1lku91l.md#c1"
+    char_span: [993, 1566]
+    sentence_count: 13
+    key_terms: [echo, tone, discovered, engineered, remembered, listening, recognize, resonated]
+    section: Comments
+    token_count: 162
 ---
-
 # I built a language-native control layer for GPT — no plugin, no API, just tone states
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1lku91l/i_built_a_languagenative_control_layer_for_gpt_no/)

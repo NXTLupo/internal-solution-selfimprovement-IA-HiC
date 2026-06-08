@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1skmvz0.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1skmvz0/new_cs_grads_are_walking_into_the_worst_entry/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -7,14 +8,42 @@ title: "new cs grads are walking into the worst entry level market since 2021, h
 author: "remoteDev1"
 date: "2026-04-13T20:25:26.000Z"
 score: 0
-upvote_ratio: 0.41
+upvote_ratio: 0.39
 num_comments: 17
 flair: ""
-extracted_at: "2026-05-20T03:56:10.750Z"
+extracted_at: "2026-06-03T18:53:18.793Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1skmvz0.md#c0"
+    char_span: [0, 2042]
+    sentence_count: 4
+    key_terms: [resume, cscareerquestions, unemployment, reads, job, new, tech, comments]
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1skmvz0.md#c1"
+    char_span: [2044, 4408]
+    sentence_count: 6
+    key_terms: [ones, projects, include, sending, format, applications, built, behavioral]
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1skmvz0.md#c2"
+    char_span: [4423, 5909]
+    sentence_count: 7
+    key_terms: [projects, advice, skills, job, include, project, hiring, market]
+    section: Comments
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1skmvz0.md#c3"
+    char_span: [5911, 8023]
+    sentence_count: 10
+    key_terms: ["you're", "it's", because, someone, hiring, applications, ones, applying]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1skmvz0.md#c4"
+    char_span: [8025, 10053]
+    sentence_count: 17
+    key_terms: [network, because, someone, people, "don't", lot, specifically, job]
+    section: Comments
+    token_count: 453
 ---
-
 # new cs grads are walking into the worst entry level market since 2021, here's what actually works
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1skmvz0/new_cs_grads_are_walking_into_the_worst_entry/)
@@ -44,7 +73,7 @@ what are you guys seeing out there? anyone graduating this spring want to compar
 
 ## Comments
 
-- **cocol11** (13↑): Just saw this same post and same user on another sub.... 3m account age... trying to shill an AI resume editor app in other posts... I know what u are 🤖 lol
+- **cocol11** (12↑): Just saw this same post and same user on another sub.... 3m account age... trying to shill an AI resume editor app in other posts... I know what u are 🤖 lol
 - **Slggyqo** (12↑): Since 2021? 2021 was an insane boom of foolish hiring and we’re still recovering from that, combined with a bit of a recession and AI hype. 
 
 Nothing about 201 was normal—comparing now to 2021 is pointless.

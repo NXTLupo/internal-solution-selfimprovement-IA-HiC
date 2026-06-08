@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1mhj4b8.md
 url: "https://www.reddit.com/r/college/comments/1mhj4b8/building_an_do_dumb_shit_safely_bag_for_my_niece/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,69 @@ flair: ""
 extracted_at: "2026-05-25T13:02:03.701Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c0"
+    char_span: [0, 991]
+    sentence_count: 7
+    key_terms: [college, bag, dorm, dumb, shit, comments, students, safely]
+    token_count: 251
+  - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c1"
+    char_span: [1006, 2169]
+    sentence_count: 4
+    key_terms: [free, info, aceyaceyacey, painted, crisis, paint, antiquegarliclover, done]
+    section: Comments
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c2"
+    char_span: [2171, 3251]
+    sentence_count: 3
+    key_terms: [emergency, paint, small, tests, years, excellent-ear9433, add, get]
+    section: Comments
+    token_count: 283
+  - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c3"
+    char_span: [3253, 4947]
+    sentence_count: 9
+    key_terms: [aceyaceyacey, already, wood, include, someone, narcan, pepper, repair]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c4"
+    char_span: [4949, 5259]
+    sentence_count: 1
+    key_terms: [age, require, card, aceyaceyacey, restricted, firearms, "doesn't", license]
+    section: Comments
+    token_count: 84
+  - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c5"
+    char_span: [5261, 7246]
+    sentence_count: 19
+    key_terms: [people, fentanyl, signalmotor6609, narcan, state, lot, safe, everyone]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c6"
+    char_span: [6992, 7788]
+    sentence_count: 14
+    key_terms: [narcan, please, child, don, need, signalmotor6609, generations, curricular]
+    section: Comments
+    token_count: 193
+  - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c7"
+    char_span: [7790, 9774]
+    sentence_count: 15
+    key_terms: [thank, free, get, use, delivered, cocaine, parties, friend]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c8"
+    char_span: [9534, 11062]
+    sentence_count: 5
+    key_terms: [drink, something, test, roseccmuzak, muscles666, knowingly, parties, common]
+    section: Comments
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c9"
+    char_span: [11064, 11684]
+    sentence_count: 6
+    key_terms: [drugged, people, phone, bar, need, underestimating, predictable, shenanigans]
+    section: Comments
+    token_count: 160
 ---
-
 # Building an "Do dumb shit, safely" bag for my niece to keep in her dorm, what goes in it
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1mhj4b8/building_an_do_dumb_shit_safely_bag_for_my_niece/)

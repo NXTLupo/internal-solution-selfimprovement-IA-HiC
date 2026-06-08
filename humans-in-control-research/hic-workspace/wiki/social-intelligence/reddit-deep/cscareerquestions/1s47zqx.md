@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1s47zqx.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1s47zqx/to_people_who_have_graduated_and_gotten/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,42 @@ subreddit: "cscareerquestions"
 title: "To people who have graduated and gotten internships and jobs, would you still major in CS, or is the risk of AI and offshoring too great, even with your current success?"
 author: "BaseballHead6898"
 date: "2026-03-26T13:49:16.000Z"
-score: 1
-upvote_ratio: 0.54
+score: 0
+upvote_ratio: 0.46
 num_comments: 23
 flair: "Student"
-extracted_at: "2026-05-23T14:54:48.629Z"
+extracted_at: "2026-06-03T17:24:41.196Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s47zqx.md#c0"
+    char_span: [0, 788]
+    sentence_count: 3
+    key_terms: [cscareerquestions, internships, comments, people, field, ask, jobs, baseballhead6898]
+    token_count: 186
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s47zqx.md#c1"
+    char_span: [803, 2319]
+    sentence_count: 12
+    key_terms: [get, jobs, personal, probably, because, comment, people, worked]
+    section: Comments
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s47zqx.md#c2"
+    char_span: [2321, 4362]
+    sentence_count: 12
+    key_terms: [passion, understanding, hard, engineers, building, leetcode, because, making]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s47zqx.md#c3"
+    char_span: [4364, 6268]
+    sentence_count: 20
+    key_terms: [real, people, years, "it's", instead, degree, taught, over-entertainer4074]
+    section: Comments
+    token_count: 443
 ---
-
 # To people who have graduated and gotten internships and jobs, would you still major in CS, or is the risk of AI and offshoring too great, even with your current success?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1s47zqx/to_people_who_have_graduated_and_gotten/)
-Posted by **BaseballHead6898** · **1↑** · **23 comments**
+Posted by **BaseballHead6898** · **0↑** · **23 comments**
 
 Honestly, I see a lot of people ask questions like this, but I specifically wanted to ask new graduates who were able to get internships and jobs after college whether they still believe the field is worth it. I understand that it is very difficult to land a job and internship, but for those of you who have, has that stopped the feeling that the field is dying, or would you go back and choose something else?
 
@@ -28,7 +52,7 @@ Honestly, I see a lot of people ask questions like this, but I specifically want
   - **TracePoland** (3↑): But you probably would have had a much harder time landing those without the CS degree
     - **Direct-Influence1305** (1↑): Eh, not necessarily
   - **Able_Salary248** (1↑): people seriously underestimate the effort needed to do electrical engineering
-- **ThemeBig6731** (6↑): New graduates with CS major, that have found jobs & internships, should wait at least 5 years before they comment positively or negatively. You need minimum 5 years to gauge the impact of AI on CS career longevity.
+- **ThemeBig6731** (5↑): New graduates with CS major, that have found jobs & internships, should wait at least 5 years before they comment positively or negatively. You need minimum 5 years to gauge the impact of AI on CS career longevity.
 - **21_12user** (3↑): Recent grad from may 2025. I’m very proud of myself for getting an internship and job. But I had to make a LOT of sacrifices in personal life. I really can’t answer your question, because I have no clue what it would look like any other way. But I think I would have a lot more friends.
 - **Brilliant_Grade7388** (6↑): I would still do it 10x. The rare comment you see is that this sub has been in the same state for a decade. Most people think just because they get the diploma that they are entitled to a job. I worked hard, did many personal projects, went to hackathons/conferences, and kept up with my algorithms. I had 4-5 offers when I graduated.
   - **More-Nail-7315** (3↑): Could you quantify how hard you worked? How many hours a day and for how long. 
@@ -46,12 +70,12 @@ You can still take CS for the degree but it's becoming increasingly hard to just
 
 For reference:
 Undergrad -> all in on hackathons -> understood what and how people in the real world want software to be built -> graduated, joined a bootstrapped startup -> learnt how people "talk" because the product owners and devs can sometimes be on different planes of understanding -> scaled my team over 7 years, got my master's degree part time instead of quitting job for it -> consultant work then poached by bigtech
-- **jonoherrington** (3↑): Not a recent graduate ... but for what it's worth ... I’d still do CS. Or at least the path. I was self taught myself. But I wouldnt treat the degree itself like the whole bet.
+- **jonoherrington** (4↑): Not a recent graduate ... but for what it's worth ... I’d still do CS. Or at least the path. I was self taught myself. But I wouldnt treat the degree itself like the whole bet.
 
 The ppl getting squeezed first arent "CS majors." It's the generic candidates whose whole profile is classes, leetcode, and a couple copy paste projects. AI and offshoring hit commodity work first. So the real risk isnt CS. It's being interchangeable. If you major in CS and also get good at shipping, debugging ugly real systems, talking to humans, and learning an actual domain ... you're still in a good spot. Harder market? yep. Dead field? no.
 
 So yeah ... I'd still pick it. I'd just stack more real world signal around it than students used to need.
-  - **More-Nail-7315** (5↑): That’s the problem. A bunch of self taught guys from decades ago still have the jobs when people who studied for it exclusively for 4 years cannot get into the field. 
+  - **More-Nail-7315** (4↑): That’s the problem. A bunch of self taught guys from decades ago still have the jobs when people who studied for it exclusively for 4 years cannot get into the field. 
 
 You could center divs 6 years ago and afford a house. Now the best chance after studying and building compilers for a year is flipping burgers at McDonald’s.
 - **Krigrim** (1↑): I would do something in electrical engineering instead

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1syh8f6.md
 url: "https://www.reddit.com/r/investing/comments/1syh8f6/fidelity_came_up_with_this_plan_for_me_and_i_am/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,68 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.198Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1syh8f6.md#c0"
+    char_span: [0, 1667]
+    sentence_count: 6
+    key_terms: [stock, bond, cap, developed, domestic, fidelity, intl, saying]
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/investing/1syh8f6.md#c1"
+    char_span: [1669, 2595]
+    sentence_count: 2
+    key_terms: [strategic, advisers, fidelity, fund, emerging, markets, international, etf]
+    token_count: 315
+  - id: "social-intelligence/reddit-deep/investing/1syh8f6.md#c2"
+    char_span: [2610, 4335]
+    sentence_count: 14
+    key_terms: [weightedslanket, fees, readsalotman, complicated, yeah, year, portfolio, fidelity]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1syh8f6.md#c3"
+    char_span: [4105, 5137]
+    sentence_count: 6
+    key_terms: [portfolio, yeah, like, frustrated, arthurmanercatsirman, based, maybe, cfp]
+    section: Comments
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/investing/1syh8f6.md#c4"
+    char_span: [5139, 7119]
+    sentence_count: 13
+    key_terms: [fidelity, investing, risky, fund, market, index, selling, global]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/investing/1syh8f6.md#c5"
+    char_span: [7121, 7434]
+    sentence_count: 5
+    key_terms: [ridiculous, seriously, something, fidelity, planning, another, similar, stupid]
+    section: Comments
+    token_count: 87
+  - id: "social-intelligence/reddit-deep/investing/1syh8f6.md#c6"
+    char_span: [7436, 9289]
+    sentence_count: 9
+    key_terms: [stocks, money, years, bonds, bond, allocation, volatility, averse]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1syh8f6.md#c7"
+    char_span: [9050, 10774]
+    sentence_count: 12
+    key_terms: [fee, thesleepytruth, natureboyj1, voo, brokerage, portfolio, blended, market]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1syh8f6.md#c8"
+    char_span: [10529, 10959]
+    sentence_count: 4
+    key_terms: [brokerage, disadvantage, applemasher, retirement, portfolio, standard, account, another]
+    section: Comments
+    token_count: 122
+  - id: "social-intelligence/reddit-deep/investing/1syh8f6.md#c9"
+    char_span: [10961, 12186]
+    sentence_count: 12
+    key_terms: [market, reasonable, retirement, financial, advisor, return, never, works]
+    section: Comments
+    token_count: 277
 ---
-
 # Fidelity came up with this plan for me and I am not sure what to make of it.
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1syh8f6/fidelity_came_up_with_this_plan_for_me_and_i_am/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1r8yjdx.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1r8yjdx/i_am_a_tokyo_local_and_got_tired_of_seeing_my/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,45 @@ flair: "Lifestyle"
 extracted_at: "2026-05-26T12:53:56.731Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, government]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1r8yjdx.md#c0"
+    char_span: [0, 2245]
+    sentence_count: 24
+    key_terms: [number, friends, get, like, japanese, housing, digitalnomad, nomad]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/digitalnomad/1r8yjdx.md#c1"
+    char_span: [2247, 3030]
+    sentence_count: 8
+    key_terms: [book, kotoriii, exactly, mobile, sakura, mobal, did, esim]
+    section: Comments
+    token_count: 196
+  - id: "social-intelligence/reddit-deep/digitalnomad/1r8yjdx.md#c2"
+    char_span: [3032, 5008]
+    sentence_count: 11
+    key_terms: [atms, altruistic-mine-1848, visa, account, getting, common, eleven, broadexample]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/digitalnomad/1r8yjdx.md#c3"
+    char_span: [5010, 6919]
+    sentence_count: 18
+    key_terms: [sim, completely, basic, countries, like, use, assuming, specific]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/digitalnomad/1r8yjdx.md#c4"
+    char_span: [6921, 8238]
+    sentence_count: 14
+    key_terms: [noastronaut8503, getting, noticed, tourist, bother, nomads, hotel, japan]
+    section: Comments
+    token_count: 307
+  - id: "social-intelligence/reddit-deep/digitalnomad/1r8yjdx.md#c5"
+    char_span: [8240, 10380]
+    sentence_count: 22
+    key_terms: [language, noastronaut8503, barrier, trying, admin, guide, wise, navigating]
+    section: Comments
+    token_count: 479
 ---
-
 # I am a Tokyo local and got tired of seeing my nomad friends hit the "Paperwork Wall". Here is our survival guide.
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1r8yjdx/i_am_a_tokyo_local_and_got_tired_of_seeing_my/)

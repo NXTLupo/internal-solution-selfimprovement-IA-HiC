@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1o4t1bz.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1o4t1bz/18_year_old_student_looking_for_honest_advice_on/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: "Student"
 extracted_at: "2026-05-24T14:08:50.771Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o4t1bz.md#c0"
+    char_span: [0, 2253]
+    sentence_count: 20
+    key_terms: [learning, data, machine, science, through, university, cscareerquestions, trying]
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o4t1bz.md#c1"
+    char_span: [2268, 3482]
+    sentence_count: 6
+    key_terms: [learning, machine, science, data, loficoochie, alot, get, good]
+    section: Comments
+    token_count: 283
 ---
-
 # 18 Year old Student Looking for Honest Advice on Career Path
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1o4t1bz/18_year_old_student_looking_for_honest_advice_on/)

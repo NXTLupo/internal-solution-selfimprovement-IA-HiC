@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1no5y1y.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1no5y1y/advice_needed_my_pi_passed_away_and_im_losing_my/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,63 @@ flair: "Administrative"
 extracted_at: "2026-05-26T14:32:49.126Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c0"
+    char_span: [0, 2301]
+    sentence_count: 17
+    key_terms: [program, another, university, advice, phd, given, askacademia, told]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c1"
+    char_span: [2316, 4187]
+    sentence_count: 15
+    key_terms: [student, someone, spiritualamoeba84, lab, another, program, like, co-mentor]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c2"
+    char_span: [4189, 5606]
+    sentence_count: 13
+    key_terms: [degree, exceptions, different, someone, future, able, get, grad]
+    section: Comments
+    token_count: 284
+  - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c3"
+    char_span: [5608, 6970]
+    sentence_count: 11
+    key_terms: [sometimes, program, several, student, supervisor, university, something, students]
+    section: Comments
+    token_count: 278
+  - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c4"
+    char_span: [6972, 9127]
+    sentence_count: 14
+    key_terms: [university, take, another, funding, student, mentor, work, graduate]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c5"
+    char_span: [9129, 10294]
+    sentence_count: 6
+    key_terms: [funding, dean, reasonable, graduate, funded, passed, find, hell]
+    section: Comments
+    token_count: 237
+  - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c6"
+    char_span: [10296, 12695]
+    sentence_count: 19
+    key_terms: [grant, another, funding, institution, faculty, through, indefinitely, universities]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c7"
+    char_span: [12403, 13078]
+    sentence_count: 6
+    key_terms: [another, faculty, maybe, work, co-supervisors, collaborators, accommodate, angrypuggle]
+    section: Comments
+    token_count: 146
+  - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c8"
+    char_span: [13080, 15025]
+    sentence_count: 18
+    key_terms: [dean, students, graduate, research, funding, program, someone, office]
+    section: Comments
+    token_count: 411
 ---
-
 # Advice needed, my PI passed away and I'm losing my spot in my program because of it
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1no5y1y/advice_needed_my_pi_passed_away_and_im_losing_my/)

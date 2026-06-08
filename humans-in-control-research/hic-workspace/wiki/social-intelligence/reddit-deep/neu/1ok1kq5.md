@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1ok1kq5.md
 url: "https://www.reddit.com/r/NEU/comments/1ok1kq5/applied_through_nu_works_no_reply_yet/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "Co-op & Career"
 extracted_at: "2026-05-13T18:45:41.306Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [higher_ed, workforce, life_sciences]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1ok1kq5.md#c0"
+    char_span: [0, 513]
+    sentence_count: 5
+    key_terms: [applications, comments, applied, rich-independence184, works, neu, reddit-deep, anymore]
+    token_count: 133
+  - id: "social-intelligence/reddit-deep/neu/1ok1kq5.md#c1"
+    char_span: [528, 1300]
+    sentence_count: 7
+    key_terms: [job, experience, market, rich-independence184, academicweapon149, unprecedentedly, unpredictable, journalistnu]
+    section: Comments
+    token_count: 194
 ---
-
 # Applied through nu works no reply yet
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1ok1kq5/applied_through_nu_works_no_reply_yet/)

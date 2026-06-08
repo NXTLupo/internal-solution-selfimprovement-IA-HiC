@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/dac145ac3c.md
 url: "https://www.reddit.com/r/careerguidance/comments/1qx8e7h/when_did_you_realize_your_first_job_wasnt_going/"
 url_hash: "dac145ac3c"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-19T18:03:54.379990+00:00"
 chars: 1265
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/dac145ac3c.md#c0"
+    char_span: [0, 1490]
+    sentence_count: 7
+    key_terms: [job, realized, careerguidance, comments, deleted, thought, career, define]
+    token_count: 377
 ---
-
 # When did you realize your first job wasn’t going to define your career?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1qx8e7h/when_did_you_realize_your_first_job_wasnt_going/)

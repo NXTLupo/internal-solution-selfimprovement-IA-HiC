@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1nbpws7.md
 url: "https://www.reddit.com/r/highereducation/comments/1nbpws7/sharing_a_real_student_call_handled_by_an_ai/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-23T14:53:59.514Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1nbpws7.md#c0"
+    char_span: [0, 1444]
+    sentence_count: 9
+    key_terms: [highereducation, been, admissions, comments, curious, student, working, around]
+    token_count: 324
+  - id: "social-intelligence/reddit-deep/highereducation/1nbpws7.md#c1"
+    char_span: [1459, 3189]
+    sentence_count: 13
+    key_terms: [conversation, agent, call, time, admissions, interested, college, someone]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/highereducation/1nbpws7.md#c2"
+    char_span: [3191, 4956]
+    sentence_count: 12
+    key_terms: [human, admissions, people, sound, save, use, anything, students]
+    section: Comments
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/highereducation/1nbpws7.md#c3"
+    char_span: [4958, 7175]
+    sentence_count: 12
+    key_terms: [product, clear, service, institutions, commercial, market, nicholas-dm, soliciting]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/highereducation/1nbpws7.md#c4"
+    char_span: [7177, 8191]
+    sentence_count: 6
+    key_terms: [approach, puzzleheaded-fan2721, want, whistleblower, akshatsh1234, carlitospig, credibility, immediately]
+    section: Comments
+    token_count: 228
 ---
-
 # Sharing a real student call handled by an AI voice agent. Curious what you think.
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1nbpws7/sharing_a_real_student_call_handled_by_an_ai/)

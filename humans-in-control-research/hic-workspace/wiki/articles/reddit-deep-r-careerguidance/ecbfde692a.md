@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/ecbfde692a.md
 url: "https://www.reddit.com/r/careerguidance/comments/1smrkq8/title_how_do_you_bridge_the_knowledge_gap_for/"
 url_hash: "ecbfde692a"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T12:20:19.935140+00:00"
 chars: 1694
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/ecbfde692a.md#c0"
+    char_span: [0, 1941]
+    sentence_count: 14
+    key_terms: [like, careerguidance, feel, background, government, academic, comments, everyone]
+    token_count: 432
 ---
-
 # Title: How do you bridge the "knowledge gap" for career and academic paths? Looking for advice.
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1smrkq8/title_how_do_you_bridge_the_knowledge_gap_for/)

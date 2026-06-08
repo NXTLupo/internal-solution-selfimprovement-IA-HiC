@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1m2mplr.md
 url: "https://www.reddit.com/r/GenZ/comments/1m2mplr/the_american_dream/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,27 @@ flair: "Discussion"
 extracted_at: "2026-05-16T20:55:01.230Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1m2mplr.md#c0"
+    char_span: [0, 1046]
+    sentence_count: 8
+    key_terms: [living, going, american, comments, anymore, because, objective-outside-62, dream]
+    token_count: 277
+  - id: "social-intelligence/reddit-deep/genz/1m2mplr.md#c1"
+    char_span: [1061, 2032]
+    sentence_count: 10
+    key_terms: [deleted, struggle, discord, being, work, themysteriousemu, automatically, automoderator]
+    section: Comments
+    token_count: 289
+  - id: "social-intelligence/reddit-deep/genz/1m2mplr.md#c2"
+    char_span: [2034, 3933]
+    sentence_count: 15
+    key_terms: [food, time, generation, deleted, better, negative-river-2865, brand, deals]
+    section: Comments
+    token_count: 504
 ---
-
 # The aMeRIcAN dReAm
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1m2mplr/the_american_dream/)

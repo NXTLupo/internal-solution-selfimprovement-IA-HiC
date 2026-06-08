@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rflclm.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rflclm/my_friends_said_if_you_are_a_cs_student_go_join/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-24T14:08:50.758Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rflclm.md#c0"
+    char_span: [0, 441]
+    sentence_count: 3
+    key_terms: [cscareerquestions, comments, reddit-deep, espeically, hackathon, lune-soft, possible, friends]
+    token_count: 118
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rflclm.md#c1"
+    char_span: [456, 1891]
+    sentence_count: 10
+    key_terms: [life, enjoy, college, hackathons, something, friends, coding, couple]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rflclm.md#c2"
+    char_span: [1893, 3326]
+    sentence_count: 14
+    key_terms: [opportunities, did, like, hackathons, network, school, "you're", value]
+    section: Comments
+    token_count: 328
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rflclm.md#c3"
+    char_span: [3328, 4999]
+    sentence_count: 10
+    key_terms: [internships, highest, value, experience, networking, hackathon, something, building]
+    section: Comments
+    token_count: 405
 ---
-
 # My friends said if you are a CS student go join every possible Hackathon espeically hosted by Big techs like OpenAI, Google.   Is this a good advice or waste of  effort?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rflclm/my_friends_said_if_you_are_a_cs_student_go_join/)

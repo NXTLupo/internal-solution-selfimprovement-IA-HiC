@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1s3d5oj.md
 url: "https://www.reddit.com/r/internships/comments/1s3d5oj/is_this_legit/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,36 @@ subreddit: "internships"
 title: "Is this legit?"
 author: "Alternative_Team_379"
 date: "2026-03-25T14:59:18.000Z"
-score: 6
-upvote_ratio: 1
+score: 5
+upvote_ratio: 0.86
 num_comments: 18
 flair: "Offers"
-extracted_at: "2026-05-23T12:15:55.789Z"
+extracted_at: "2026-06-06T17:41:06.730Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1s3d5oj.md#c0"
+    char_span: [0, 1062]
+    sentence_count: 11
+    key_terms: [internship, enrolment, solutions, internships, apexsquare, developer, comments, details]
+    token_count: 239
+  - id: "social-intelligence/reddit-deep/internships/1s3d5oj.md#c1"
+    char_span: [1077, 2761]
+    sentence_count: 9
+    key_terms: [scam, got, mail, "it's", received, no-remote-3116, "don't", email]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/internships/1s3d5oj.md#c2"
+    char_span: [2763, 2902]
+    sentence_count: 2
+    key_terms: [account, letter, marked, aware, gmail, rest, scam, spam]
+    section: Comments
+    token_count: 40
 ---
-
 # Is this legit?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1s3d5oj/is_this_legit/)
-Posted by **Alternative_Team_379** · **6↑** · **18 comments**
+Posted by **Alternative_Team_379** · **5↑** · **18 comments**
 
 We’re excited to welcome you to Apexsquare Solutions as a Node.js Developer Intern under our 1–3 Months Internship Program.
 

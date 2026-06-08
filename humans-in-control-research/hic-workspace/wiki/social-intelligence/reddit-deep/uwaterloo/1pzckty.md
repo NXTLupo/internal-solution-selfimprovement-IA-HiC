@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1pzckty.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1pzckty/whats_something_you_wished_to_experience_more_as/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,27 @@ flair: "Question"
 extracted_at: "2026-05-25T18:33:12.664Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1pzckty.md#c0"
+    char_span: [0, 632]
+    sentence_count: 4
+    key_terms: [waterloo, student, experience, something, uwaterloo, comments, "what's", reddit-deep]
+    token_count: 153
+  - id: "social-intelligence/reddit-deep/uwaterloo/1pzckty.md#c1"
+    char_span: [647, 2393]
+    sentence_count: 15
+    key_terms: [equipment, club, outside, people, grandparents, back, thetermguy, athletics]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/uwaterloo/1pzckty.md#c2"
+    char_span: [2395, 3094]
+    sentence_count: 5
+    key_terms: [policy, club, gun, university, shooting, special, around, clubs]
+    section: Comments
+    token_count: 168
 ---
-
 # What's something you wished to experience more as a Waterloo student?
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1pzckty/whats_something_you_wished_to_experience_more_as/)

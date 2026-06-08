@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1lw76cf.md
 url: "https://www.reddit.com/r/GradSchool/comments/1lw76cf/mldata_scientist_internships_for_grad_students/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,15 @@ flair: "Professional"
 extracted_at: "2026-05-23T20:15:44.984Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, ai_research, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1lw76cf.md#c0"
+    char_span: [0, 1222]
+    sentence_count: 9
+    key_terms: [data, internships, gradschool, scientist, comments, projects, learned, summer]
+    token_count: 283
 ---
-
 # ML/Data Scientist internships for Grad students?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1lw76cf/mldata_scientist_internships_for_grad_students/)

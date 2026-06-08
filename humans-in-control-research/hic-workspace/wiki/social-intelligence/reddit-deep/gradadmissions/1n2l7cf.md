@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1n2l7cf.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1n2l7cf/followup_on_grad_school_admission_post_biomedical/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,15 @@ flair: "Biological Sciences"
 extracted_at: "2026-05-23T14:54:16.712Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1n2l7cf.md#c0"
+    char_span: [0, 1203]
+    sentence_count: 6
+    key_terms: [gradadmissions, comments, control, funding, strong, nervous-animator-663, post, show]
+    token_count: 273
 ---
-
 # Follow-up on Grad School Admission Post (Biomedical Sciences)
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1n2l7cf/followup_on_grad_school_admission_post_biomedical/)

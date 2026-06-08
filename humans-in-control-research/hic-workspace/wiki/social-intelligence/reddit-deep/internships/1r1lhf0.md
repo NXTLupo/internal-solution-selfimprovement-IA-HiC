@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1r1lhf0.md
 url: "https://www.reddit.com/r/internships/comments/1r1lhf0/desperately_want_a_summer_internship_abroad/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "General"
 extracted_at: "2026-05-22T21:34:37.051Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1r1lhf0.md#c0"
+    char_span: [0, 788]
+    sentence_count: 7
+    key_terms: [internships, internship, countries, comments, morocco, summer, want, requirements]
+    token_count: 187
+  - id: "social-intelligence/reddit-deep/internships/1r1lhf0.md#c1"
+    char_span: [803, 2873]
+    sentence_count: 10
+    key_terms: [internship, technical-machine-76, com, internshipdaily, seoul, experience, including, programme]
+    section: Comments
+    token_count: 490
 ---
-
 # Desperately want a summer internship abroad
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1r1lhf0/desperately_want_a_summer_internship_abroad/)

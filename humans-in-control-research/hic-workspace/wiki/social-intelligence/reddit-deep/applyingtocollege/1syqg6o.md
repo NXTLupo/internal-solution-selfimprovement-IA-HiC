@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1syqg6o/nyu_stern_or_cornell_dyson/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,59 @@ flair: "College Questions"
 extracted_at: "2026-05-20T02:31:57.186Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c0"
+    char_span: [0, 2060]
+    sentence_count: 6
+    key_terms: [like, nyu, cornell, applyingtocollege, nyc, entrepreneurship, already, because]
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c1"
+    char_span: [2062, 3941]
+    sentence_count: 13
+    key_terms: [friends, like, nyu, cornell, since, everyone, already, people]
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c2"
+    char_span: [3943, 5410]
+    sentence_count: 11
+    key_terms: [like, people, get, ill, live, genuinely, manhattan, biggest]
+    token_count: 335
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c3"
+    char_span: [5412, 7390]
+    sentence_count: 11
+    key_terms: [like, cornell, city, brown, genuinely, want, experience, hispanic]
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c4"
+    char_span: [7392, 8813]
+    sentence_count: 3
+    key_terms: [reasons, nyu, cornell, friends, city, like, convince, because]
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c5"
+    char_span: [8828, 10588]
+    sentence_count: 12
+    key_terms: [cornell, nyu, school, nyc, brands, people, community, someone]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c6"
+    char_span: [10590, 12431]
+    sentence_count: 20
+    key_terms: [nyc, cornell, experience, stern, nyu, right, influencers, like]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c7"
+    char_span: [12433, 14432]
+    sentence_count: 31
+    key_terms: [cornell, friends, nyu, "you're", like, went, entrepreneurship, school]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c8"
+    char_span: [14437, 14787]
+    sentence_count: 3
+    key_terms: [masterpiecefull2379, pearthefruit168, tarpundermybed, disregard, questions, seriously, business, because]
+    section: Comments
+    token_count: 108
 ---
-
 # NYU Stern or Cornell Dyson
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1syqg6o/nyu_stern_or_cornell_dyson/)

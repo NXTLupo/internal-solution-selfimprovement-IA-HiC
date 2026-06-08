@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-genz/ae8d6ec6ab.md
 url: "https://www.reddit.com/r/GenZ/comments/1owbqr9/genz_when_theyve_saved_up_money_for_the/"
 url_hash: "ae8d6ec6ab"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:18:16.554274+00:00"
 chars: 4462
+industries: [real_estate, financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-genz/ae8d6ec6ab.md#c0"
+    char_span: [0, 1791]
+    sentence_count: 13
+    key_terms: [year, genz, mortgage, comments, discord, anyone, equity, likely]
+    token_count: 459
+  - id: "articles/reddit-deep-r-genz/ae8d6ec6ab.md#c1"
+    char_span: [1793, 3554]
+    sentence_count: 12
+    key_terms: [mortgage, house, pay, people, early, year, "it's", time]
+    token_count: 427
+  - id: "articles/reddit-deep-r-genz/ae8d6ec6ab.md#c2"
+    char_span: [3556, 4643]
+    sentence_count: 8
+    key_terms: [mortgage, year, interest, payment, principal, cheaper, value, buy]
+    token_count: 242
 ---
-
 # GenZ when they've saved up money for the downpayment...
 
 Source: [Reddit Deep: r/genz](https://www.reddit.com/r/GenZ/comments/1owbqr9/genz_when_theyve_saved_up_money_for_the/)

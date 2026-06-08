@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1piagel.md
 url: "https://www.reddit.com/r/humanresources/comments/1piagel/20_years_in_hr_and_i_just_had_a_first_looking_for/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-23T12:15:41.516Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1piagel.md#c0"
+    char_span: [0, 1189]
+    sentence_count: 10
+    key_terms: [romantic, humanresources, policy, relationships, relationship, information, disclosed, employees]
+    token_count: 278
+  - id: "social-intelligence/reddit-deep/humanresources/1piagel.md#c1"
+    char_span: [1204, 2680]
+    sentence_count: 8
+    key_terms: [relationship, disclosed, employee, language, professional, regardless, something, handbook]
+    section: Comments
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/humanresources/1piagel.md#c2"
+    char_span: [2682, 4226]
+    sentence_count: 9
+    key_terms: [disclosure, policy, relationship, harassment, employer, promoted, confirm, "they're"]
+    section: Comments
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/humanresources/1piagel.md#c3"
+    char_span: [4228, 6590]
+    sentence_count: 19
+    key_terms: [agreement, "i'd", company, future, policy, relationship, move, addressing]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/humanresources/1piagel.md#c4"
+    char_span: [6592, 7385]
+    sentence_count: 7
+    key_terms: [biases, person, letsgetridiculus, relationships, relationship, opportunity, unnecessary, committees]
+    section: Comments
+    token_count: 165
 ---
-
 # 20+ years in HR and I just had a first - looking for best practices, here! [N/A]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1piagel/20_years_in_hr_and_i_just_had_a_first_looking_for/)

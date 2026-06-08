@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1shww10.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1shww10/chancellor_doesnt_give_a_shit_about_your/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,33 @@ flair: "Discussion"
 extracted_at: "2026-05-25T18:33:12.668Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1shww10.md#c0"
+    char_span: [0, 999]
+    sentence_count: 4
+    key_terms: [uwaterloo, comments, reddit, chancellor, email, https, secretariat, com]
+    token_count: 266
+  - id: "social-intelligence/reddit-deep/uwaterloo/1shww10.md#c1"
+    char_span: [1014, 2901]
+    sentence_count: 11
+    key_terms: [convocation, speech, chancellor, phone, dominic, feridun, respect, sacred-goose]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/uwaterloo/1shww10.md#c2"
+    char_span: [2903, 3712]
+    sentence_count: 8
+    key_terms: [students, chancellor, ceremony, done, job, take, responsibilities, youcanreachmenow]
+    section: Comments
+    token_count: 176
+  - id: "social-intelligence/reddit-deep/uwaterloo/1shww10.md#c3"
+    char_span: [3714, 5029]
+    sentence_count: 8
+    key_terms: [convocation, phone, hours, lol, position, regular, boring, ecstatic-trick8276]
+    section: Comments
+    token_count: 361
 ---
-
 # Chancellor doesn't give a shit about your convocation | Give Feedback to Get Him Out
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1shww10/chancellor_doesnt_give_a_shit_about_your/)

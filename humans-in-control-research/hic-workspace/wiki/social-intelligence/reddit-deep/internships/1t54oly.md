@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1t54oly.md
 url: "https://www.reddit.com/r/internships/comments/1t54oly/am_i_overthinking_this/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "General"
 extracted_at: "2026-05-22T21:34:37.050Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1t54oly.md#c0"
+    char_span: [0, 864]
+    sentence_count: 5
+    key_terms: [marketing, overthinking, since, internships, strategist, expressed, comments, email]
+    token_count: 192
+  - id: "social-intelligence/reddit-deep/internships/1t54oly.md#c1"
+    char_span: [879, 1264]
+    sentence_count: 1
+    key_terms: [give, slow, definitely, everything, interested, honestly, afianne, another]
+    section: Comments
+    token_count: 94
 ---
-
 # Am I overthinking this?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1t54oly/am_i_overthinking_this/)

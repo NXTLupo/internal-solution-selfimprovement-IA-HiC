@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1t5e6xo.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1t5e6xo/us_government_assistance_programs/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,51 @@ flair: "Income/Employment/Aid"
 extracted_at: "2026-05-17T01:13:55.884Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [government, policy]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1t5e6xo.md#c0"
+    char_span: [0, 1388]
+    sentence_count: 12
+    key_terms: [assistance, povertyfinance, income, government, household, comments, programs, because]
+    token_count: 309
+  - id: "social-intelligence/reddit-deep/povertyfinance/1t5e6xo.md#c1"
+    char_span: [1403, 2725]
+    sentence_count: 7
+    key_terms: [disability, household, programs, income, cash, don, get, home]
+    section: Comments
+    token_count: 295
+  - id: "social-intelligence/reddit-deep/povertyfinance/1t5e6xo.md#c2"
+    char_span: [2727, 3927]
+    sentence_count: 6
+    key_terms: [banks, services, food, household, resources, benefits, without, sure]
+    section: Comments
+    token_count: 247
+  - id: "social-intelligence/reddit-deep/povertyfinance/1t5e6xo.md#c3"
+    char_span: [3930, 6008]
+    sentence_count: 18
+    key_terms: [food, benefits, prepares, security, social, look, own, disability]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1t5e6xo.md#c4"
+    char_span: [5777, 6029]
+    sentence_count: 2
+    key_terms: [disability, retirement, available, remarried, benefits, uddin370, veterans, "wouldn't"]
+    section: Comments
+    token_count: 70
+  - id: "social-intelligence/reddit-deep/povertyfinance/1t5e6xo.md#c5"
+    char_span: [6031, 8129]
+    sentence_count: 16
+    key_terms: [food, work, retirement, own, beautiful, age, big, get]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/povertyfinance/1t5e6xo.md#c6"
+    char_span: [8131, 9236]
+    sentence_count: 8
+    key_terms: [virginia, abbreviationsnew5220, help, medicaid, though, worker, lumpy-entertainer-75, going]
+    section: Comments
+    token_count: 302
 ---
-
 # US Government assistance programs
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1t5e6xo/us_government_assistance_programs/)

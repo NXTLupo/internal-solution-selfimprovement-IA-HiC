@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1sfk5iq/i_37m_may_be_losing_my_job_soon_im_trying_to/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,77 @@ flair: "Income/Employment/Aid"
 extracted_at: "2026-05-17T01:13:55.882Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [workforce, financial_services, real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c0"
+    char_span: [0, 1915]
+    sentence_count: 12
+    key_terms: [insurance, wife, comments, povertyfinance, truck, job, lost, definitely]
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c1"
+    char_span: [1917, 4078]
+    sentence_count: 25
+    key_terms: [alternatives, bare-minimum, young, appreciate, currently, emergency, comments, daughter]
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c2"
+    char_span: [4080, 6271]
+    sentence_count: 26
+    key_terms: [bare-minimum, right, california, currently, insurance, daughter, planning, starting]
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c3"
+    char_span: [6273, 8400]
+    sentence_count: 24
+    key_terms: [internet, update, haven, phone, been, month, job, insurance]
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c4"
+    char_span: [8402, 10260]
+    sentence_count: 22
+    key_terms: [truck, suggestions, groceries, insurance, mortgage, cheaper, looking, vehicle]
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c5"
+    char_span: [10275, 11707]
+    sentence_count: 8
+    key_terms: [wife, bill, groceries, daughter, decent, people, zealousideal-world71, empty-disaster-6738]
+    section: Comments
+    token_count: 352
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c6"
+    char_span: [11709, 12430]
+    sentence_count: 5
+    key_terms: [store, coupons, buying, fragrant-employer-60, direct-from-farmer, plan, circussloth3, arcoperator]
+    section: Comments
+    token_count: 181
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c7"
+    char_span: [12432, 14034]
+    sentence_count: 16
+    key_terms: [back, grocery, adults, brands, "you're", empty-disaster-6738, brand, going]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c8"
+    char_span: [14036, 15991]
+    sentence_count: 14
+    key_terms: [car, job, cheaper, propertylogic, truck, loan, sell, unemployed]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c9"
+    char_span: [15779, 16736]
+    sentence_count: 9
+    key_terms: [case, job, happens, better, "you're", costs, going, "isn't"]
+    section: Comments
+    token_count: 223
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c10"
+    char_span: [16741, 18713]
+    sentence_count: 19
+    key_terms: [lower, food, insurance, something, look, snap, apply, month]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c11"
+    char_span: [18715, 19320]
+    sentence_count: 8
+    key_terms: [looking, levelsofcocainebrain, bank, food, lifestyle, meanwhile, stoplight, borrowed]
+    section: Comments
+    token_count: 154
 ---
-
 # I (37m) may be losing my job soon. I’m trying to rebudget
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1sfk5iq/i_37m_may_be_losing_my_job_soon_im_trying_to/)

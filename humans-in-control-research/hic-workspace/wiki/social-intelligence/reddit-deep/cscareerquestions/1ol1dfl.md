@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1ol1dfl/amazon_layoffs_in_california_swes_were_the/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,87 @@ flair: ""
 extracted_at: "2026-05-23T20:15:57.472Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c0"
+    char_span: [0, 1294]
+    sentence_count: 7
+    key_terms: [amazon, amazon-exec-explains-layoff-california-21129467, california, cscareerquestions, cuts, layoffs, game, category]
+    token_count: 311
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c1"
+    char_span: [1309, 2369]
+    sentence_count: 5
+    key_terms: [layoffs, voluntary, followed, market, teeing, means, been, thenewladhere]
+    section: Comments
+    token_count: 273
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c2"
+    char_span: [2371, 4080]
+    sentence_count: 7
+    key_terms: [org, another, because, year, people, years, day, else]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c3"
+    char_span: [4082, 6138]
+    sentence_count: 10
+    key_terms: [themselves, internal, pulling, whitchorence, evaluations, bootstraps, struggling, ladder]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c4"
+    char_span: [6140, 7937]
+    sentence_count: 9
+    key_terms: [headcount, like, devices, alexa, "don't", smart, need, maintain]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c5"
+    char_span: [7939, 9932]
+    sentence_count: 11
+    key_terms: [aws, amazon, alexa, everyone, whitchorence, org, profitable, engineers]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c6"
+    char_span: [9934, 11383]
+    sentence_count: 16
+    key_terms: [amazon, efficiency, projects, weekends, working, anyone, making, months]
+    section: Comments
+    token_count: 363
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c7"
+    char_span: [11385, 12258]
+    sentence_count: 9
+    key_terms: [engineers, company, ended, unfortunately, interested, alignment, codebases, optimized]
+    section: Comments
+    token_count: 191
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c8"
+    char_span: [12260, 13979]
+    sentence_count: 14
+    key_terms: [deleted, deadlinesglow, doing, last, probably, company, january, number]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c9"
+    char_span: [13981, 15203]
+    sentence_count: 8
+    key_terms: [business, background, brainpower, obvious, hiring, people, saying, illustrious-pound266]
+    section: Comments
+    token_count: 299
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c10"
+    char_span: [15205, 16867]
+    sentence_count: 8
+    key_terms: [cscareerquestions, "it's", swes, interest, students, deleted, layoffs, passion]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c11"
+    char_span: [16869, 18684]
+    sentence_count: 5
+    key_terms: ["can't", market, job, definitely, engineers, software, because, illustrious-pound266]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c12"
+    char_span: [18686, 19890]
+    sentence_count: 7
+    key_terms: [lower, layoffs, amazon, people, thinks, tight-requirement-15, percentagesouth4173, round]
+    section: Comments
+    token_count: 314
 ---
-
 # Amazon layoffs - In California, SWEs were the largest category cut
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1ol1dfl/amazon_layoffs_in_california_swes_were_the/)

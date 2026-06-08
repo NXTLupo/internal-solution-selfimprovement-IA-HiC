@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1qoywee.md
 url: "https://www.reddit.com/r/jobs/comments/1qoywee/id_appreciate_some_feedback_on_my_resume_plz_18yo/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -6,19 +7,42 @@ subreddit: "jobs"
 title: "I’d appreciate some feedback on my resume plz. 18y/o"
 author: "longdongdottcom"
 date: "2026-01-28T02:36:34.000Z"
-score: 44
+score: 45
 upvote_ratio: 0.91
 num_comments: 55
 flair: "Resumes/CVs"
-extracted_at: "2026-05-22T21:35:36.549Z"
+extracted_at: "2026-06-06T17:41:48.829Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1qoywee.md#c0"
+    char_span: [0, 273]
+    sentence_count: 1
+    key_terms: [comments, jobs, longdongdottcom, reddit-deep, appreciate, feedback, posted, reddit]
+    token_count: 85
+  - id: "social-intelligence/reddit-deep/jobs/1qoywee.md#c1"
+    char_span: [288, 2402]
+    sentence_count: 24
+    key_terms: [resume, specifically, roles, education, use, unless, realistically, microsoft]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/jobs/1qoywee.md#c2"
+    char_span: [2404, 3357]
+    sentence_count: 12
+    key_terms: [education, college, mention, school, appropriate-tutor587, doing, date, help]
+    section: Comments
+    token_count: 234
+  - id: "social-intelligence/reddit-deep/jobs/1qoywee.md#c3"
+    char_span: [3359, 4750]
+    sentence_count: 9
+    key_terms: [longdongdottcom, gpa, put, college, outlook, remove, school, appropriate-tutor587]
+    section: Comments
+    token_count: 396
 ---
-
 # I’d appreciate some feedback on my resume plz. 18y/o
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1qoywee/id_appreciate_some_feedback_on_my_resume_plz_18yo/)
-Posted by **longdongdottcom** · **44↑** · **55 comments**
+Posted by **longdongdottcom** · **45↑** · **55 comments**
 
 _(no body — link/image post)_
 
@@ -87,4 +111,4 @@ Associate of Science in Business Admin
 
 3) Do not put Outlook as a skill
   - **longdongdottcom** (1↑): Ur so right about outlook lol. I put my college gpa bc most internships I apply for ask for a gpa.
-- **Efficient-Rain-7942** (-3↑): It’s too long , just word salad
+- **Efficient-Rain-7942** (-1↑): It’s too long , just word salad

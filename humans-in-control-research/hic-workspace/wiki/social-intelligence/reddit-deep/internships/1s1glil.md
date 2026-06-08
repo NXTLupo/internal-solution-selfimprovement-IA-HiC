@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1s1glil.md
 url: "https://www.reddit.com/r/internships/comments/1s1glil/software_developer_internship_opportunity/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,22 @@ score: 2
 upvote_ratio: 1
 num_comments: 1
 flair: "During the Internship"
-extracted_at: "2026-05-26T14:30:47.898Z"
+extracted_at: "2026-06-01T18:48:35.713Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1s1glil.md#c0"
+    char_span: [0, 1368]
+    sentence_count: 5
+    key_terms: [internships, internship, developer, software, students, remote, skills, engineering]
+    token_count: 290
+  - id: "social-intelligence/reddit-deep/internships/1s1glil.md#c1"
+    char_span: [1383, 2338]
+    sentence_count: 9
+    key_terms: [usually, intern-to-hire, independently, jemeshunt1003, understanding, specifically, description, environment]
+    section: Comments
+    token_count: 204
 ---
-
 # Software Developer Internship Opportunity (Remote)—Advice for 2026 Engineering Students?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1s1glil/software_developer_internship_opportunity/)

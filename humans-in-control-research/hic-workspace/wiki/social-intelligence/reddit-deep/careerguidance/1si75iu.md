@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1si75iu.md
 url: "https://www.reddit.com/r/careerguidance/comments/1si75iu/any_advice_on_choosing_a_medical_career_for_that/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,20 @@ flair: "Advice"
 extracted_at: "2026-05-23T20:15:29.973Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1si75iu.md#c0"
+    char_span: [0, 1964]
+    sentence_count: 10
+    key_terms: [physics, medical, careerguidance, environment, work, experience, internship, logistics]
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/careerguidance/1si75iu.md#c1"
+    char_span: [1966, 2599]
+    sentence_count: 6
+    key_terms: [medical, professions, physics, "i've", description, environment, respiratory, laboratory]
+    token_count: 137
 ---
-
 # Any advice on choosing a medical career for that could utilize a bachelors in physics, experience in tech or logistics and works well for ADD?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1si75iu/any_advice_on_choosing_a_medical_career_for_that/)

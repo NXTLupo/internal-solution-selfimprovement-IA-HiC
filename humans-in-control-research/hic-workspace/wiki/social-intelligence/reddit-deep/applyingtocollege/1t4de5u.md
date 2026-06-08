@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1t4de5u.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1t4de5u/19_rejections_1_waitlist_low_efc_international/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,81 @@ flair: "Waitlists/Deferrals"
 extracted_at: "2026-05-20T12:57:06.071Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t4de5u.md#c0"
+    char_span: [0, 1536]
+    sentence_count: 16
+    key_terms: [waitlist, applyingtocollege, "i'm", low, trinity, international, efc, take]
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t4de5u.md#c1"
+    char_span: [1551, 3658]
+    sentence_count: 19
+    key_terms: [internationals, colleges, brown, own, foreigners, qualified, college, educate]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t4de5u.md#c2"
+    char_span: [3660, 5601]
+    sentence_count: 21
+    key_terms: [education, college, germans, citizenship, free, something, delusion, fairness]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t4de5u.md#c3"
+    char_span: [5603, 7477]
+    sentence_count: 12
+    key_terms: [students, disappointment, international, feel, line, own, standards, thousands]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t4de5u.md#c4"
+    char_span: [7479, 9798]
+    sentence_count: 34
+    key_terms: [domestic, applicants, colleges, "that's", does, private, international, encouraging]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t4de5u.md#c5"
+    char_span: [9800, 11595]
+    sentence_count: 17
+    key_terms: [internationals, global, entitlement, free, isn, applicants, foreigners, millions]
+    section: Comments
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t4de5u.md#c6"
+    char_span: [11598, 13692]
+    sentence_count: 10
+    key_terms: [students, fresh-baked-bread, high, colleges, parents, schools, though, international]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t4de5u.md#c7"
+    char_span: [13393, 13868]
+    sentence_count: 1
+    key_terms: [active-judgment-250, full, admissions, automatic, dimension, financial, rejection, selection]
+    section: Comments
+    token_count: 117
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t4de5u.md#c8"
+    char_span: [13870, 14906]
+    sentence_count: 9
+    key_terms: [got, aid, cornell, duke, financial, accepted, active-judgment-250, india]
+    section: Comments
+    token_count: 242
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t4de5u.md#c9"
+    char_span: [14908, 16937]
+    sentence_count: 10
+    key_terms: [schools, india, accepted, got, finaid, rejected, republicbig9608, internationals]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t4de5u.md#c10"
+    char_span: [16716, 17860]
+    sentence_count: 6
+    key_terms: [schools, historical-key5613, republicbig9608, good, cosmonae, canada, india, got]
+    section: Comments
+    token_count: 321
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t4de5u.md#c11"
+    char_span: [17863, 18409]
+    sentence_count: 2
+    key_terms: [colleges, drive, applyingtocollege, need, automatically, international, historically, universities]
+    section: Comments
+    token_count: 130
 ---
-
 # 19 rejections, 1 waitlist, low efc international (indian)
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1t4de5u/19_rejections_1_waitlist_low_efc_international/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1p9ozzt.md
 url: "https://www.reddit.com/r/careerguidance/comments/1p9ozzt/3045_and_feeling_stuck_compliance_might_actually/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,69 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.158Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c0"
+    char_span: [0, 1513]
+    sentence_count: 14
+    key_terms: [compliance, legal, careerguidance, certification, field, experience, operations, regulators]
+    token_count: 341
+  - id: "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c1"
+    char_span: [1528, 3766]
+    sentence_count: 16
+    key_terms: [compliance, experience, financial, healthcare, legal, different, general, information]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c2"
+    char_span: [3768, 5652]
+    sentence_count: 15
+    key_terms: [compliance, mitigation, risk, work, management, regulatory, strategies, transition]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c3"
+    char_span: [5654, 7976]
+    sentence_count: 23
+    key_terms: [work, experience, remote, compliance, fully, career, "you're", professional]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c4"
+    char_span: [7978, 10293]
+    sentence_count: 24
+    key_terms: [compliance, work, customer, yourself, requirements, "it's", experience, management]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c5"
+    char_span: [10296, 12271]
+    sentence_count: 13
+    key_terms: [critical-brain2841, experience, points, worth, years, cams, compliance, different]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c6"
+    char_span: [12273, 14368]
+    sentence_count: 15
+    key_terms: [compliance, management, experience, critical-brain2841, dookudonuts, risk, interests, adjacent]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c7"
+    char_span: [14370, 16304]
+    sentence_count: 20
+    key_terms: [compliance, regulatory, get, industry, policy, regulations, fintech, willing]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c8"
+    char_span: [16306, 18082]
+    sentence_count: 19
+    key_terms: [banks, aml, pay, requirements, crypto, fintechs, analyst, company]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/careerguidance/1p9ozzt.md#c9"
+    char_span: [18084, 18582]
+    sentence_count: 3
+    key_terms: [compliance, senior, level, competitive, considering, department, originally, positions]
+    section: Comments
+    token_count: 114
 ---
-
 # 30-45 and feeling stuck? Compliance might actually want your experience
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1p9ozzt/3045_and_feeling_stuck_compliance_might_actually/)

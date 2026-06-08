@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1ocwjqb.md
 url: "https://www.reddit.com/r/investing/comments/1ocwjqb/is_this_market_too_detached_from_the_reality/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,111 @@ flair: ""
 extracted_at: "2026-05-16T20:55:01.240Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c0"
+    char_span: [0, 972]
+    sentence_count: 11
+    key_terms: [like, keeps, investing, comments, market, don, fundamentals, reddit-deep]
+    token_count: 229
+  - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c1"
+    char_span: [987, 1454]
+    sentence_count: 3
+    key_terms: [been, malcontentii, bobofriendz, absolutely, irrational, valuations, investing, jimbo8903]
+    section: Comments
+    token_count: 137
+  - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c2"
+    char_span: [1456, 3218]
+    sentence_count: 12
+    key_terms: [companies, extremely, market, powder, maybe, done, dry, "i'm"]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c3"
+    char_span: [3220, 4370]
+    sentence_count: 4
+    key_terms: [music, stops, standing, always, couple, remain, appropriatespring194, startprofessional386]
+    section: Comments
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c4"
+    char_span: [4372, 6356]
+    sentence_count: 9
+    key_terms: [market, everyone, deleted, going, time, believe, bubble, dollar]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c5"
+    char_span: [6120, 6456]
+    sentence_count: 2
+    key_terms: [stocks, chuckoftheirish, turnarounds, crashing, downturn, precious, ceiling, perform]
+    section: Comments
+    token_count: 88
+  - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c6"
+    char_span: [6458, 8056]
+    sentence_count: 6
+    key_terms: [valuations, revenue, bubble, crash, believe, around, little, market]
+    section: Comments
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c7"
+    char_span: [8058, 9982]
+    sentence_count: 8
+    key_terms: [bubble, market, "it's", people, years, looking, popular, stocks]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c8"
+    char_span: [9984, 10400]
+    sentence_count: 4
+    key_terms: [market, fine, case--someone, capitalism, eliminate, probably, ultimate, achieve]
+    section: Comments
+    token_count: 107
+  - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c9"
+    char_span: [10402, 12287]
+    sentence_count: 11
+    key_terms: [because, "there's", higher, people, money, everything, eliminate, investing]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c10"
+    char_span: [12083, 13106]
+    sentence_count: 10
+    key_terms: [etf, time, anonymoustimewaster, artistic-comb-5932, gold, breedingisnotok, chamoismysoul, multimillions]
+    section: Comments
+    token_count: 308
+  - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c11"
+    char_span: [13108, 14345]
+    sentence_count: 8
+    key_terms: [buy, yesterday, probably, because, buffett, looking, market, house]
+    section: Comments
+    token_count: 329
+  - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c12"
+    char_span: [14347, 16351]
+    sentence_count: 10
+    key_terms: [aws, bubble, everything, take, definitely, because, happens, showed]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c13"
+    char_span: [16354, 18405]
+    sentence_count: 14
+    key_terms: [great, like, take, time, statements, adoption, project, forced]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c14"
+    char_span: [18407, 20084]
+    sentence_count: 13
+    key_terms: [company, people, productivity, llms, something, been, day, here]
+    section: Comments
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c15"
+    char_span: [20086, 21972]
+    sentence_count: 12
+    key_terms: [replaced, being, jobs, legitimately, llms, stay, companies, getting]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c16"
+    char_span: [21976, 22626]
+    sentence_count: 5
+    key_terms: [moomoo, using, been, institutional, distorting, indicators, intriguing, panduninja]
+    section: Comments
+    token_count: 154
 ---
-
 # Is this market too detached from the reality?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1ocwjqb/is_this_market_too_detached_from_the_reality/)

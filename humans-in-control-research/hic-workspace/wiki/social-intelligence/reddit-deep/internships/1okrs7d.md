@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1okrs7d.md
 url: "https://www.reddit.com/r/internships/comments/1okrs7d/student_seeking_entrylevel_data_job_or_internship/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,15 @@ flair: "Applications"
 extracted_at: "2026-05-25T15:51:38.718Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1okrs7d.md#c0"
+    char_span: [0, 1451]
+    sentence_count: 11
+    key_terms: [data, experience, internships, comments, looking, anyone, gain, help]
+    token_count: 310
 ---
-
 # Student Seeking Entry-Level Data Job or Internship for Hands-On Experience
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1okrs7d/student_seeking_entrylevel_data_job_or_internship/)

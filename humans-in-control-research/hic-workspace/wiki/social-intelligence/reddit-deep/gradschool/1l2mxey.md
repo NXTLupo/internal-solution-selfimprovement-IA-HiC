@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1l2mxey.md
 url: "https://www.reddit.com/r/GradSchool/comments/1l2mxey/did_you_go_to_grad_school_immediately_after/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.137Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c0"
+    char_span: [0, 1167]
+    sentence_count: 7
+    key_terms: [immediately, school, undergrad, back, did, get, pay, gradschool]
+    token_count: 278
+  - id: "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c1"
+    char_span: [1182, 3161]
+    sentence_count: 16
+    key_terms: [didn, masters, phd, went, deleted, wanted, right, bit]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c2"
+    char_span: [3163, 4544]
+    sentence_count: 10
+    key_terms: [school, work, masters, experience, undergrad, straight, burned, paying]
+    section: Comments
+    token_count: 319
+  - id: "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c3"
+    char_span: [4546, 6515]
+    sentence_count: 14
+    key_terms: [undergrad, back, school, years, immediately, did, teagana999, deferring]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c4"
+    char_span: [6274, 7064]
+    sentence_count: 6
+    key_terms: [undergrad, college, working, dysthymicmanufacture, years, feel, xpadawanryan, university]
+    section: Comments
+    token_count: 195
+  - id: "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c5"
+    char_span: [7066, 8439]
+    sentence_count: 9
+    key_terms: [undergrad, "master's", school, grad, directly, people, life, phd]
+    section: Comments
+    token_count: 316
 ---
-
 # Did you go to grad school immediately after undergrad or later on, and why?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1l2mxey/did_you_go_to_grad_school_immediately_after/)

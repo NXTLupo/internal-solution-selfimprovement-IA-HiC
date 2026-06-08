@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1re8ur9.md
 url: "https://www.reddit.com/r/findapath/comments/1re8ur9/28f_regrets_quitting_my_tech_career_and_dont_know/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,57 @@ flair: "Findapath-Career Change"
 extracted_at: "2026-05-22T15:13:18.832Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [enterprise_it, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1re8ur9.md#c0"
+    char_span: [0, 2007]
+    sentence_count: 10
+    key_terms: [tech, back, job, quitting, career, couple, since, been]
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/findapath/1re8ur9.md#c1"
+    char_span: [2022, 2969]
+    sentence_count: 9
+    key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/findapath/1re8ur9.md#c2"
+    char_span: [2972, 4170]
+    sentence_count: 13
+    key_terms: ["don't", "it's", need, potential, happened, health, mental, opening-cantaloupe56]
+    section: Comments
+    token_count: 308
+  - id: "social-intelligence/reddit-deep/findapath/1re8ur9.md#c3"
+    char_span: [4172, 5903]
+    sentence_count: 11
+    key_terms: ["you're", something, "it's", job, "that's", field, find, like]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/findapath/1re8ur9.md#c4"
+    char_span: [5905, 8000]
+    sentence_count: 16
+    key_terms: [important-amount-627, appreciate, tech, nursing, career, worked, going, money]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/findapath/1re8ur9.md#c5"
+    char_span: [7714, 9110]
+    sentence_count: 8
+    key_terms: [job, tech, like, experience, current, sharing, bundle, thanks]
+    section: Comments
+    token_count: 339
+  - id: "social-intelligence/reddit-deep/findapath/1re8ur9.md#c6"
+    char_span: [9112, 11161]
+    sentence_count: 21
+    key_terms: [time, wish, right, best, did, rexosv, sense, information]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/findapath/1re8ur9.md#c7"
+    char_span: [10918, 11583]
+    sentence_count: 2
+    key_terms: [right, best, take, advantage, rexosv, feels, hard, look]
+    section: Comments
+    token_count: 168
 ---
-
 # 28f, regrets quitting my tech career and don't know what to do with my life
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1re8ur9/28f_regrets_quitting_my_tech_career_and_dont_know/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1sleijx.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1sleijx/car_stolen_on_day_3_in_a_new_city_1000_miles_away/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,74 @@ flair: "Misc Advice"
 extracted_at: "2026-05-17T01:13:55.880Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [workforce, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c0"
+    char_span: [0, 2132]
+    sentence_count: 16
+    key_terms: [like, car, feel, povertyfinance, "don't", money, financially, home]
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c1"
+    char_span: [2134, 2450]
+    sentence_count: 1
+    key_terms: [yesterday, edit, comprehensive, advertised, liability, somewhere, anything, coverage]
+    token_count: 67
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c2"
+    char_span: [2465, 4118]
+    sentence_count: 15
+    key_terms: [car, found, crack, stolen, dogshaveears, time, underneath, cocaine]
+    section: Comments
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c3"
+    char_span: [4120, 4769]
+    sentence_count: 7
+    key_terms: [stolen, back, car, long, seat, ur-a-cunt-harry, helpitgrow, stolenpens]
+    section: Comments
+    token_count: 175
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c4"
+    char_span: [4772, 6809]
+    sentence_count: 11
+    key_terms: [car, stolen, coverage, found, insurance, back, police, useless]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c5"
+    char_span: [6530, 7195]
+    sentence_count: 9
+    key_terms: [coverage, insurance, city, don, need, comprehensive, completely, especially]
+    section: Comments
+    token_count: 158
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c6"
+    char_span: [7197, 9395]
+    sentence_count: 20
+    key_terms: [car, anything, control, "i'm", community, situation, yourself, stlouis]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c7"
+    char_span: [9399, 11562]
+    sentence_count: 14
+    key_terms: [car, back, consider, right, youre, best, dont, job]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c8"
+    char_span: [11564, 12843]
+    sentence_count: 7
+    key_terms: [money, get, budget, option, aware, back, car, job]
+    section: Comments
+    token_count: 285
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c9"
+    char_span: [12845, 14767]
+    sentence_count: 21
+    key_terms: [car, here, get, job, sorry, don, gigglesann, kirkwood]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sleijx.md#c10"
+    char_span: [14769, 15454]
+    sentence_count: 6
+    key_terms: [louis, job, street, city, "it's", makinggrace, opportunity, paulcdejean]
+    section: Comments
+    token_count: 185
 ---
-
 # Car stolen on day 3 in a new city 1000 miles away from home. Move back or tough it out? What are even my options...
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1sleijx/car_stolen_on_day_3_in_a_new_city_1000_miles_away/)

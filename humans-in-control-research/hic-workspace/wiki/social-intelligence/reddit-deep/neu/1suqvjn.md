@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1suqvjn.md
 url: "https://www.reddit.com/r/NEU/comments/1suqvjn/gsk_vs_moderna_coop_to_fulltime_conversion/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,22 @@ score: 4
 upvote_ratio: 0.7
 num_comments: 2
 flair: "Co-op & Career"
-extracted_at: "2026-05-19T15:08:27.149Z"
+extracted_at: "2026-06-03T17:59:17.596Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1suqvjn.md#c0"
+    char_span: [0, 1249]
+    sentence_count: 6
+    key_terms: [conversion, co-op, moderna, trying, early-career, gsk, experience, full-time]
+    token_count: 278
+  - id: "social-intelligence/reddit-deep/neu/1suqvjn.md#c1"
+    char_span: [1264, 1813]
+    sentence_count: 2
+    key_terms: [co-op, time, moment, full, notcallipygian, consideration, international, hereboyfetch]
+    section: Comments
+    token_count: 132
 ---
-
 # GSK vs Moderna – Co-op to Full-Time Conversion Experience?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1suqvjn/gsk_vs_moderna_coop_to_fulltime_conversion/)

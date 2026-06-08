@@ -6,19 +6,19 @@ subreddit: "cscareerquestions"
 title: "Is the job market in the us really as bad as people online make it out to be?"
 author: "newwonderland"
 date: "2025-08-23T14:07:34.000Z"
-score: 9
-upvote_ratio: 0.57
+score: 7
+upvote_ratio: 0.55
 num_comments: 94
 flair: ""
-extracted_at: "2026-05-22T21:34:54.424Z"
+extracted_at: "2026-06-06T23:23:15.643Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Is the job market in the us really as bad as people online make it out to be?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1my2eq3/is_the_job_market_in_the_us_really_as_bad_as/)
-Posted by **newwonderland** · **9↑** · **94 comments**
+Posted by **newwonderland** · **7↑** · **94 comments**
 
 I’m graduating with my cs degree may 2026 and currently have a 3.59 gpa at Florida international university. It’s a decent school. Although, I don’t have any internship experience. I’m seriously considering going for a degree in nursing because of how bad everyone on Reddit talks about the market for cs. Yet, unemployment is still just a little above 6%. That means a large majority of people get jobs. On the other hand, every job I’ve looked at has over 1k applicants. So really what I’m wondering is it worth putting in the extra work my last year to try and get a swe job or should I put my extra time into taking prerequisites for nursing?
 
@@ -26,15 +26,15 @@ I’m graduating with my cs degree may 2026 and currently have a 3.59 gpa at Flo
 
 - **Bitter_Entry3144** (146↑): I’ve seen this question get asked so many times recently. Yes, it’s bad
 - **[deleted]** (24↑): It’s bad if you don’t have any experience or an impressive project/github. Start applying to jobs now. You’ve basically got a year to find something before you graduate. Hell, I’ve been applying to co-ops for this fall the past few weeks.
-- **goro-n** (45↑): FIU is not a top university for CS. Outside of Florida, you’re not going to get any special consideration because you went there. If you go to a T20 or T25 though, then your profile will stand out to a recruiter. But even that effect is a bit more limited in today’s market.
+- **goro-n** (48↑): FIU is not a top university for CS. Outside of Florida, you’re not going to get any special consideration because you went there. If you go to a T20 or T25 though, then your profile will stand out to a recruiter. But even that effect is a bit more limited in today’s market.
   - **Kati1998** (8↑): FIU is not a top university but some big name companies do recruit from there since it’s HSI. OP needs to go to career fairs and the hackathons hosted there. Many people get roles by attending these events. By just applying to online job applications, they’re not going to get anywhere.
     - **freekayZekey** (4↑): yup, that’s how i got my internship before the covid years. went to a hackathon, the big company offered me a position. got hired after graduating in 2018. 2020-2022 was a mirage
-  - **ProgramWars** (27↑): I went to a public university nobody has heard of.
+  - **ProgramWars** (26↑): I went to a public university nobody has heard of.
 
 Nobody cares.
 
 They care about what you have done or what you know
-    - **goro-n** (38↑): >They care about what you have done or what you know
+    - **goro-n** (37↑): >They care about what you have done or what you know
 
 OP is a new grad without any internship experience. 
 
@@ -45,22 +45,22 @@ When did you graduate and start working?
 >Nobody cares.
 
 It matters for your first job to get in the door and once you have experience it matters less. But getting a CS job as a new grad from a state school when T25 grads are in the market for the same jobs is going to be difficult.
-    - **Illustrious-Pound266** (7↑): Top brand-name schools absolutely do make a difference in the first few years out of uni. Eventually it doesn't matter once you gain work experience but for the first 2-3 years or so, it definitely makes your job search easier.
+    - **Illustrious-Pound266** (8↑): Top brand-name schools absolutely do make a difference in the first few years out of uni. Eventually it doesn't matter once you gain work experience but for the first 2-3 years or so, it definitely makes your job search easier.
     - **henryofskalitzz** (5↑): Pre-2022 companies were mass hiring people from boot camps so ofc “nobody cared” back then. Don’t think that’s the case anymore. Students from top CS schools / Ivy leagues have always generally garnered much more attention than students from average state schools, and it isn’t wrong to admit it.
 
 All things equal if a recruiter is looking at a CS resume from Cal Berkeley and one from Iowa State.. the recruiter is pushing the Cal Berkeley resume to the tech screen round
-    - **ArkGuardian** (3↑): This is textbook survivorship bias.
+    - **ArkGuardian** (2↑): This is textbook survivorship bias.
     - **Unlucky_Topic7963** (1↑): It matters for internships and grad pipelines to big tech, but there's nothing wrong with building experience the old fashioned way. The market is just a bit tighter.
     - **Dense_Gate_5193** (1↑): this. industry veteran; 20 years.
 
 Unless candidates graduated from Berkeley, MIT, Carnegie, or Stanford, they don’t really get any special consideration at all.
   - **grapegeek** (1↑): My son is a senior at a top 5 public university for computer engineering. Tried to get internships and nada. Dozens of applications and not a single call back. It’s tough out there.
-- **kingp1ng** (18↑): That’s why you NEED to prioritize internships over GPA, clubs, minor degree, etc. It’s so much easier competing against fellow students; half of whom are chronically hung over or addicted to video games. (that was me during undergrad)
+- **kingp1ng** (19↑): That’s why you NEED to prioritize internships over GPA, clubs, minor degree, etc. It’s so much easier competing against fellow students; half of whom are chronically hung over or addicted to video games. (that was me during undergrad)
 
 You don’t want to compete in the open market without any internships. Delaying graduation is also a legit strategy.
   - **wafflepiezz** (6↑): I agree, but the problem is that internships are also extremely hard to find in today’s market right now.
     - **Particular_Maize6849** (-7↑): Get high GPAs and people will be handing you internships.
-  - **glossyducky** (4↑): I know a lot of people from my school who get near 4.0s and end up jobless/no internships vs people with GPAs a bit lower and end up getting some experience. The latter didn’t only care about getting every single thing right on homework and think that was a free pass to a tech job.
+  - **glossyducky** (5↑): I know a lot of people from my school who get near 4.0s and end up jobless/no internships vs people with GPAs a bit lower and end up getting some experience. The latter didn’t only care about getting every single thing right on homework and think that was a free pass to a tech job.
 
 Edit: by a bit lower I still mean above a 3.0, as a good amount of companies will filter out based on that if they ask for transcripts up front
     - **kingp1ng** (2↑): Yeah, don’t sacrifice your grades down to a 2.8 GPA. Keep like a 3.3 GPA floor (roughly B+). Reserve a large amount of time and energy into getting internships (ie. career fairs, leetcode, interviews, crying after failing). 

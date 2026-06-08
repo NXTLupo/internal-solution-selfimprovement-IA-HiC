@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1q92zcr.md
 url: "https://www.reddit.com/r/internships/comments/1q92zcr/oracle_internship_interview_experience_from_a/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,15 @@ flair: "Interviews"
 extracted_at: "2026-05-25T15:51:38.717Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1q92zcr.md#c0"
+    char_span: [0, 306]
+    sentence_count: 1
+    key_terms: [internships, comments, accuratepatience3691, reddit-deep, experience, internship, interview, regular]
+    token_count: 82
 ---
-
 # Oracle internship interview experience from a regular BTech CS student
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1q92zcr/oracle_internship_interview_experience_from_a/)

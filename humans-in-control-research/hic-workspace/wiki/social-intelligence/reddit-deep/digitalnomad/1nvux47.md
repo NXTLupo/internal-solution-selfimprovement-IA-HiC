@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1nvux47.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1nvux47/i_became_a_software_engineer_just_to_be_a_nomad/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,45 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:56.725Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1nvux47.md#c0"
+    char_span: [0, 995]
+    sentence_count: 7
+    key_terms: [software, digitalnomad, nomad, comments, engineer, digital, income, frenchbulldognipple]
+    token_count: 238
+  - id: "social-intelligence/reddit-deep/digitalnomad/1nvux47.md#c1"
+    char_span: [1010, 3163]
+    sentence_count: 16
+    key_terms: [own, remote, understand, something, business, folks, high, impossible]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/digitalnomad/1nvux47.md#c2"
+    char_span: [3165, 4312]
+    sentence_count: 10
+    key_terms: [work, companies, "doesn't", possible, company, doing, small, care]
+    section: Comments
+    token_count: 259
+  - id: "social-intelligence/reddit-deep/digitalnomad/1nvux47.md#c3"
+    char_span: [4314, 6185]
+    sentence_count: 14
+    key_terms: [frenchbulldognipple, looking, philippines, own, work, projects, product, online]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/digitalnomad/1nvux47.md#c4"
+    char_span: [6187, 7763]
+    sentence_count: 17
+    key_terms: [good, job, riverleebythesea, did, time, year, cruise, travel]
+    section: Comments
+    token_count: 409
+  - id: "social-intelligence/reddit-deep/digitalnomad/1nvux47.md#c5"
+    char_span: [7765, 8620]
+    sentence_count: 9
+    key_terms: [believe, willowparticular3678, frenchbulldognipple, dying, don, good, hard, job]
+    section: Comments
+    token_count: 229
 ---
-
 # I became a software engineer just to be a nomad…
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1nvux47/i_became_a_software_engineer_just_to_be_a_nomad/)

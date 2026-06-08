@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t7qc2c.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t7qc2c/at_what_point_do_you_leave_a_job_you_love_for/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-25T15:52:13.110Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t7qc2c.md#c0"
+    char_span: [0, 1038]
+    sentence_count: 6
+    key_terms: [careerguidance, compensated, comments, been, feel, grow, job, love]
+    token_count: 246
+  - id: "social-intelligence/reddit-deep/careerguidance/1t7qc2c.md#c1"
+    char_span: [1053, 3132]
+    sentence_count: 22
+    key_terms: [management, "i'm", job, work, longer, senior, new, team]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/careerguidance/1t7qc2c.md#c2"
+    char_span: [3134, 4676]
+    sentence_count: 21
+    key_terms: [work, incredibly, biscuitinflight, sales, base, paid, "wouldn't", amazing]
+    section: Comments
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/careerguidance/1t7qc2c.md#c3"
+    char_span: [4678, 6834]
+    sentence_count: 24
+    key_terms: [pay, work, job, life, like, "you're", dirtycoldtaco, raise]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1t7qc2c.md#c4"
+    char_span: [6544, 7436]
+    sentence_count: 9
+    key_terms: [job, staying, regret, years, good, pay, plus, chefboyarde90]
+    section: Comments
+    token_count: 221
+  - id: "social-intelligence/reddit-deep/careerguidance/1t7qc2c.md#c5"
+    char_span: [7438, 7772]
+    sentence_count: 3
+    key_terms: [anuggetsuncle, substantially, available, promotion, scheduled, testing, advice, having]
+    section: Comments
+    token_count: 89
 ---
-
 # At what point do you leave a job you love for higher pay?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t7qc2c/at_what_point_do_you_leave_a_job_you_love_for/)

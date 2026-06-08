@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1pf6mpo.md
 url: "https://www.reddit.com/r/personalfinance/comments/1pf6mpo/40_and_still_struggling_to_buy_a_house_how_much/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,103 @@ flair: "Retirement"
 extracted_at: "2026-05-17T01:13:31.187Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c0"
+    char_span: [0, 1964]
+    sentence_count: 16
+    key_terms: [years, accounts, personalfinance, "i'm", everything, retirement, comments, property]
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c1"
+    char_span: [1966, 4017]
+    sentence_count: 20
+    key_terms: [house, month, never, home, "i'm", utilities, continue, expenses]
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c2"
+    char_span: [4019, 6074]
+    sentence_count: 20
+    key_terms: [months, time, spend, years, hell, "it's", last, year]
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c3"
+    char_span: [6089, 7753]
+    sentence_count: 10
+    key_terms: [house, people, rent, person, bobcharlesss, room, somethings, remove]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c4"
+    char_span: [7755, 8975]
+    sentence_count: 9
+    key_terms: [roommate, got, room, roommates, income, rooms, tried, years]
+    section: Comments
+    token_count: 296
+  - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c5"
+    char_span: [8977, 10507]
+    sentence_count: 16
+    key_terms: [get, don, "i'd", like, finding, renting, better, system]
+    section: Comments
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c6"
+    char_span: [10509, 12284]
+    sentence_count: 12
+    key_terms: [retirement, house, savings, bobcharlesss, contribution, month, reach, years]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c7"
+    char_span: [12286, 13238]
+    sentence_count: 5
+    key_terms: [retirement, home, budget, equity, gentrifiertechscum, plan, rent, sell]
+    section: Comments
+    token_count: 222
+  - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c8"
+    char_span: [13240, 15336]
+    sentence_count: 14
+    key_terms: [retirement, house, american, renting, americans, subreddit, terrible, jcpopm]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c9"
+    char_span: [15338, 16934]
+    sentence_count: 14
+    key_terms: [house, renting, houses, calculator, investment, interest, market, owning]
+    section: Comments
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c10"
+    char_span: [16936, 18457]
+    sentence_count: 13
+    key_terms: [house, money, need, renting, buying, years, investments, buy]
+    section: Comments
+    token_count: 377
+  - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c11"
+    char_span: [18459, 20573]
+    sentence_count: 19
+    key_terms: [time, years, mortgage, maintenance, home, retirement, financial, something]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c12"
+    char_span: [20575, 22723]
+    sentence_count: 10
+    key_terms: [renting, owning, mortgage, payment, money, rent, rich, retirement]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c13"
+    char_span: [22725, 24151]
+    sentence_count: 11
+    key_terms: ["that's", month, expense, payment, budget, house, down, home]
+    section: Comments
+    token_count: 353
+  - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c14"
+    char_span: [24153, 24789]
+    sentence_count: 6
+    key_terms: [mortgage, least, retirement, housing, "you'll", month, spend, "i'd"]
+    section: Comments
+    token_count: 178
+  - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c15"
+    char_span: [24791, 26509]
+    sentence_count: 19
+    key_terms: [house, roommates, always, able, gotsnails, daughter, bought, people]
+    section: Comments
+    token_count: 406
 ---
-
 # 40 and still struggling to buy a house, how much can I really afford when my retirement accounts are tiny?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1pf6mpo/40_and_still_struggling_to_buy_a_house_how_much/)

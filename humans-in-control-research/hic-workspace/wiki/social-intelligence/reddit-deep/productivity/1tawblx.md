@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1tawblx.md
 url: "https://www.reddit.com/r/productivity/comments/1tawblx/how_to_use_my_ipad_to_be_more_productive/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,27 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:45.659Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1tawblx.md#c0"
+    char_span: [0, 1018]
+    sentence_count: 9
+    key_terms: [ipad, use, productivity, work, something, comments, because, todoist]
+    token_count: 248
+  - id: "social-intelligence/reddit-deep/productivity/1tawblx.md#c1"
+    char_span: [1033, 3197]
+    sentence_count: 16
+    key_terms: [everything, notes, grouchy-storm-8155, ipad, digital, onenote, tasks, mini]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/productivity/1tawblx.md#c2"
+    char_span: [3199, 3622]
+    sentence_count: 5
+    key_terms: [calendar, onenote, preplanned, streamline, looking, meeting, outlook, quickly]
+    section: Comments
+    token_count: 104
 ---
-
 # how to use my iPad to be more productive?
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1tawblx/how_to_use_my_ipad_to_be_more_productive/)

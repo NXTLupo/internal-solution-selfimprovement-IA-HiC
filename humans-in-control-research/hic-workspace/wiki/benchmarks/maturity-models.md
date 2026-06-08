@@ -1,3 +1,48 @@
+---
+id: benchmarks/maturity-models.md
+chunks:
+  - id: "benchmarks/maturity-models.md#c0"
+    char_span: [0, 719]
+    sentence_count: 6
+    key_terms: [maturity, stage, model, data, benchmarks, forrester, framework, gartner]
+    token_count: 144
+  - id: "benchmarks/maturity-models.md#c1"
+    char_span: [758, 2165]
+    sentence_count: 5
+    key_terms: [level, gartner, data, cx-maturity, confidence, cross-refs, hypothesis, evidence]
+    section: Gartner 5-Stage CX Maturity Model
+    token_count: 389
+  - id: "benchmarks/maturity-models.md#c2"
+    char_span: [2207, 3859]
+    sentence_count: 5
+    key_terms: [forrester, data, stages, maturity, differentiate, gartner, confidence, cross-refs]
+    section: Forrester 4-Stage CX Maturity Model
+    token_count: 403
+  - id: "benchmarks/maturity-models.md#c3"
+    char_span: [3898, 5268]
+    sentence_count: 1
+    key_terms: [level, data, organizations, confidence, cross-refs, hypothesis, evidence, verified]
+    section: Time-to-Advance and Stall Points
+    token_count: 357
+  - id: "benchmarks/maturity-models.md#c4"
+    char_span: [5316, 6526]
+    sentence_count: 1
+    key_terms: [correlation, maturity, benchmarks, financial-impact, level, verified, data, confidence]
+    section: Maturity-to-Business-Outcome Correlations
+    token_count: 328
+  - id: "benchmarks/maturity-models.md#c5"
+    char_span: [6562, 7796]
+    sentence_count: 1
+    key_terms: [cross-functional, evidence, verified, organizations, data, program, cx-maturity, confidence]
+    section: Maturity Assessment Practices
+    token_count: 330
+  - id: "benchmarks/maturity-models.md#c6"
+    char_span: [7819, 8445]
+    sentence_count: 4
+    key_terms: [forrester, gartner, verified, models, model, reconciliation, client-facing, strategically]
+    section: Validation Notes
+    token_count: 137
+---
 # CX Maturity Model Benchmarks
 
 This page collects quantitative benchmarks for CX maturity models, primarily

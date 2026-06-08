@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-artificial/eecb4ce667.md
 url: "https://www.reddit.com/r/artificial/comments/1sderg4/i_have_been_coding_for_11_years_and_i_caught/"
 url_hash: "eecb4ce667"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T16:56:27.350361+00:00"
 chars: 3322
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-artificial/eecb4ce667.md#c0"
+    char_span: [0, 2250]
+    sentence_count: 31
+    key_terms: [years, myself, something, without, maybe, been, bug, use]
+    token_count: 481
+  - id: "articles/reddit-deep-r-artificial/eecb4ce667.md#c1"
+    char_span: [2252, 3651]
+    sentence_count: 8
+    key_terms: [myself, people, years, problem, enough, figure, though, good]
+    token_count: 353
 ---
-
 # I have been coding for 11 years and I caught myself completely unable to debug a problem without AI assistance last month. That scared me more than anything I have seen in this industry.
 
 Source: [Reddit Deep: r/artificial](https://www.reddit.com/r/artificial/comments/1sderg4/i_have_been_coding_for_11_years_and_i_caught/)

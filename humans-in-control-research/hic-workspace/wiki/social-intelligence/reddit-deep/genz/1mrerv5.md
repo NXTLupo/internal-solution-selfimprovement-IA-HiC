@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1mrerv5.md
 url: "https://www.reddit.com/r/GenZ/comments/1mrerv5/my_life_experience_vs_my_coworkers_life/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,51 @@ flair: "Meme"
 extracted_at: "2026-05-17T01:11:40.765Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1mrerv5.md#c0"
+    char_span: [0, 264]
+    sentence_count: 1
+    key_terms: [comments, genz, life, experiences, reddit-deep, experience, coworkers, posted]
+    token_count: 74
+  - id: "social-intelligence/reddit-deep/genz/1mrerv5.md#c1"
+    char_span: [279, 2101]
+    sentence_count: 12
+    key_terms: [boomers, buy, gen, shit, discord, friends, around, worked]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/genz/1mrerv5.md#c2"
+    char_span: [2103, 3624]
+    sentence_count: 8
+    key_terms: [went, enough, living, doing, house, month, young, bad]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/genz/1mrerv5.md#c3"
+    char_span: [3626, 5501]
+    sentence_count: 11
+    key_terms: [year, living, pay, wage, education, otherwise, standards, paycheck]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/genz/1mrerv5.md#c4"
+    char_span: [5503, 7266]
+    sentence_count: 11
+    key_terms: [approach, "can't", women, around, dating, "didn't", online, being]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/genz/1mrerv5.md#c5"
+    char_span: [7268, 9012]
+    sentence_count: 10
+    key_terms: [college, jobs, something, seawardfriend, debt, pay, work, otherwise]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/genz/1mrerv5.md#c6"
+    char_span: [9014, 9541]
+    sentence_count: 3
+    key_terms: [d95084660bee5689172da26bed5885a3ba777cf7, house, buy, gen, trauwdxrkcjf1, "couldn't", approve, boomers]
+    section: Comments
+    token_count: 169
 ---
-
 # My life experience vs my coworkers life experiences:
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1mrerv5/my_life_experience_vs_my_coworkers_life/)

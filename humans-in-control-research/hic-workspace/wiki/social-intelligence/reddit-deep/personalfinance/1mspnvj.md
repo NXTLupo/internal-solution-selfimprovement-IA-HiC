@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1mspnvj.md
 url: "https://www.reddit.com/r/personalfinance/comments/1mspnvj/testing_a_concept_debt_recovery_financial/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,20 @@ flair: "Debt"
 extracted_at: "2026-05-16T20:55:02.101Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, nonprofit]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1mspnvj.md#c0"
+    char_span: [0, 1294]
+    sentence_count: 8
+    key_terms: [adults, young, financial, debt, personalfinance, programme, wellbeing, comments]
+    token_count: 271
+  - id: "social-intelligence/reddit-deep/personalfinance/1mspnvj.md#c1"
+    char_span: [1296, 3524]
+    sentence_count: 10
+    key_terms: [financial, support, structured, debt, participants, participant, challenges, peer]
+    token_count: 414
 ---
-
 # Testing a Concept: Debt Recovery & Financial Wellbeing Charity for Young Adults
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1mspnvj/testing_a_concept_debt_recovery_financial/)

@@ -6,19 +6,19 @@ subreddit: "cscareerquestions"
 title: "My experience interviewing in 2025 with 5 YOE"
 author: "queenoyster"
 date: "2025-11-07T19:16:38.000Z"
-score: 349
+score: 347
 upvote_ratio: 0.92
-num_comments: 91
+num_comments: 92
 flair: ""
-extracted_at: "2026-05-18T14:15:34.437Z"
+extracted_at: "2026-06-06T23:23:15.633Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # My experience interviewing in 2025 with 5 YOE
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1or3gyj/my_experience_interviewing_in_2025_with_5_yoe/)
-Posted by **queenoyster** · **349↑** · **91 comments**
+Posted by **queenoyster** · **347↑** · **92 comments**
 
 https://imgur.com/a/iRI5FRT
 
@@ -47,21 +47,21 @@ I ended this interview cycle with 5 offers: 2 senior and 3 mid-level. Two of the
 
 ## Comments
 
-- **jcl274** (229↑): 5 offers from 9 onsites is very solid, congrats
-  - **wesborland1234** (27↑): 5 offers from 73 applications no less. Insane average here
-  - **queenoyster** (31↑): Thanks! So glad it's finally over.
-- **phillythompson** (97↑): I don’t believe you lol 2AM interviews  , right 
+- **jcl274** (230↑): 5 offers from 9 onsites is very solid, congrats
+  - **wesborland1234** (26↑): 5 offers from 73 applications no less. Insane average here
+  - **queenoyster** (28↑): Thanks! So glad it's finally over.
+- **phillythompson** (99↑): I don’t believe you lol 2AM interviews  , right 
 
 This is an ad for the server or simplify
-  - **Winter-Statement7322** (26↑): Also, a recruiter screen for 1 in 3 applications seems a little unrealistic given OP is mid-level and he was applying outside of the state he lives in. Especially if he was mainly looking in NYC and SF, 2 cities that already have a lot of tech talent
-    - **phillythompson** (5↑): Insanely unrealistic in this market.
-  - **gpacsu** (14↑): Right? 2AM PST would be 5AM EST. Why the hell would there be anyone in the USA doing interviews at this time.
+  - **Winter-Statement7322** (25↑): Also, a recruiter screen for 1 in 3 applications seems a little unrealistic given OP is mid-level and he was applying outside of the state he lives in. Especially if he was mainly looking in NYC and SF, 2 cities that already have a lot of tech talent
+    - **phillythompson** (6↑): Insanely unrealistic in this market.
+  - **gpacsu** (13↑): Right? 2AM PST would be 5AM EST. Why the hell would there be anyone in the USA doing interviews at this time.
 
 Unless its offshore people conducting the interviews if thats a thing? Still sounds like a dumb AF idea
-  - **queenoyster** (13↑): Those specific companies were very small and only had interviewers available in the EU. I was okay with staying up to interview them since they either worked on interesting problems or they paid obscenely well.
+  - **queenoyster** (15↑): Those specific companies were very small and only had interviewers available in the EU. I was okay with staying up to interview them since they either worked on interesting problems or they paid obscenely well.
 
 I'm deliberately not mentioning the Slack server publicly since I don't want them to be brigaded, I don't run it. I also don't think Simplify needs a random reddit post to get any more traction, they're well known in job-hunting forums. I don't have anything to gain from mentioning either of these things.
-    - **phillythompson** (17↑): And so you’re an engineer with 5 years experience, but left Amazon to apply for junior level jobs or mid level ?
+    - **phillythompson** (16↑): And so you’re an engineer with 5 years experience, but left Amazon to apply for junior level jobs or mid level ?
 
 And you bought lifetime subscriptions and annual subscriptions of interview prep, but somehow went through the entire interview process and landed an offer in 2 months? 
 
@@ -74,27 +74,27 @@ And also as a mid level engineer , you not only prepped for but also applied for
 
 You obviously are pushing HelloInterview or something else because this makes absolutely zero sense
   - **Hot-Helicopter640** (2↑): I am in Bay Area and I had my full loop interview starting from 8am Pacific Time because the interviewers were from Europe. If the OPs interviewers are from Asia (India, etc.) then the OP can be saying the truth.
-- **Potential_Owl7825** (29↑): How long did you study LC and System Design before applying? Do you find the Hello Interview subscription to be worth it?
-  - **bzsearch** (10↑): > Do you find the Hello Interview subscription to be worth it?
+- **Potential_Owl7825** (28↑): How long did you study LC and System Design before applying? Do you find the Hello Interview subscription to be worth it?
+  - **bzsearch** (9↑): > Do you find the Hello Interview subscription to be worth it?
 
 
 Yeah. The content is good, but what was really helpful for me was that you could speak your explanation and have AI grade it. 
 
 The feedback from the AI was helpful, but the practice of explaining my design helped a ton.
-  - **travishummel** (4↑): I think both are worth a single month’s subscription. Their free content is enough to get you prepared, but once you have interviews coming up it’s more efficient to use the subscriptions.
+  - **travishummel** (3↑): I think both are worth a single month’s subscription. Their free content is enough to get you prepared, but once you have interviews coming up it’s more efficient to use the subscriptions.
   - **queenoyster** (2↑): I practiced leetcode for 2 weeks before my first technical screen and did poorly. I would opt for 1 month of studying if I had to redo that. I continued leetcoding regularly until I accepted an offer.
 
 I didn't start system design prep until I had an onsite scheduled and I read basically all the free HelloInterview content before my first system design interview. I felt that was more than sufficient.
 
 I would only look into HelloInterview premium if you get through all of the free stuff. I also think premium content addresses more niche systems and might only benefit you if you're applying for higher levels or specific roles.
-    - **phillythompson** (5↑): You did 160 leet code questions in two weeks? So you completed 11 per day, while working full time?
-- **MaximumSupermarket80** (23↑): Applied 73 with 5 offers and you were bed rotting? Those numbers are ridiculously good. Respectfully, gfy.
+    - **phillythompson** (6↑): You did 160 leet code questions in two weeks? So you completed 11 per day, while working full time?
+- **MaximumSupermarket80** (21↑): Applied 73 with 5 offers and you were bed rotting? Those numbers are ridiculously good. Respectfully, gfy.
   - **buchholzmd** (1↑): It still sucks when the goals you had for yourself are not met. We are all human, from someone getting 0 interviews to some cracked Anthropic SWE... stop being jealous and judgemental and let people process feeling let down how they need to.
 - **nflxengthrowaway** (6↑): If you are concerned about the compensation structure of Amazon, I would recommend Netflix. You get paid in base salary and the compensation should be better than what you are getting at Amazon.
-  - **queenoyster** (13↑): They rejected me after the onsite, that was no.1 on my list.
+  - **queenoyster** (12↑): They rejected me after the onsite, that was no.1 on my list.
     - **nflxengthrowaway** (2↑): Sorry to hear that. FWIW, I don’t think there’s a cooldown. If you did well on some rounds you can ask your recruiter to connect you with another team.
-- **CaviarWagyu** (6↑): At amazon rn, also despise my leadership, and also trying to move out of Seattle to SF -- this post is super encouraging. Congrats!!!! You deserve it !
-- **DesperateSouthPark** (7↑): Yeah, I feel like job hunting while you are employed is kinda fine even in the current market, but if you have an employment gap, it’s really hard to land a job even with experience.
+- **CaviarWagyu** (5↑): At amazon rn, also despise my leadership, and also trying to move out of Seattle to SF -- this post is super encouraging. Congrats!!!! You deserve it !
+- **DesperateSouthPark** (8↑): Yeah, I feel like job hunting while you are employed is kinda fine even in the current market, but if you have an employment gap, it’s really hard to land a job even with experience.
 - **asteroidtube** (2↑): Thanks for sharing, I have a few follow up questions -
 
 How long did this process take you? Meaning, how long did you spend studying to prepare before applying, and how long from beginning to apply until accepting an offer? What was your tech stack/domain at amazon? Do you think this played a role in your success? Did you seek roles that matched your prior tech stack, or did you look beyond that?

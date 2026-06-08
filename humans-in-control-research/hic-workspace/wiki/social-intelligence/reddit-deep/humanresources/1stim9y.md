@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1stim9y.md
 url: "https://www.reddit.com/r/humanresources/comments/1stim9y/being_honest_have_any_of_you_felt_like_you_werent/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,62 @@ flair: "Off-Topic / Other"
 extracted_at: "2026-05-23T12:15:41.522Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c0"
+    char_span: [0, 1955]
+    sentence_count: 11
+    key_terms: [people, don, humanresources, stereotypes, get, like, try, recruiting]
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c1"
+    char_span: [1957, 3157]
+    sentence_count: 9
+    key_terms: [people, experience, like, because, maybe, feel, height, though]
+    token_count: 276
+  - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c2"
+    char_span: [3172, 4827]
+    sentence_count: 14
+    key_terms: [men, working, shorter, people, worked, "i've", role, labourers]
+    section: Comments
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c3"
+    char_span: [4830, 6510]
+    sentence_count: 16
+    key_terms: [people, because, don, like, anything, advice, height, being]
+    section: Comments
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c4"
+    char_span: [6512, 8575]
+    sentence_count: 18
+    key_terms: [work, person, seriously, worked, taken, teams, get, meet]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c5"
+    char_span: [8343, 9603]
+    sentence_count: 9
+    key_terms: [height, because, always, people, strategyancient6770, being, advertisingkey1675, hard]
+    section: Comments
+    token_count: 287
+  - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c6"
+    char_span: [9605, 11875]
+    sentence_count: 28
+    key_terms: [company, understanding, experience, believe, reasons, ideas, tried, get]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c7"
+    char_span: [11877, 14036]
+    sentence_count: 17
+    key_terms: [people, height, "i'm", like, maybe, did, "it's", internship]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c8"
+    char_span: [14038, 14193]
+    sentence_count: 4
+    key_terms: [lifetime, talented, maybe, taken, been, fail, good, list]
+    section: Comments
+    token_count: 40
 ---
-
 # Being honest, have any of you felt like you weren’t taken seriously in the workplace because…. Of your height? [N/A]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1stim9y/being_honest_have_any_of_you_felt_like_you_werent/)

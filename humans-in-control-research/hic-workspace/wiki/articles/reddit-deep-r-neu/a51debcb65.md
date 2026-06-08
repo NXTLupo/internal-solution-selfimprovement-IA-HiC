@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-neu/a51debcb65.md
 url: "https://www.reddit.com/r/NEU/comments/1s6pjbz/scholarships/"
 url_hash: "a51debcb65"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-19T15:19:41.928785+00:00"
 chars: 1771
+industries: [higher_ed, fundraising]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-neu/a51debcb65.md#c0"
+    char_span: [0, 1880]
+    sentence_count: 15
+    key_terms: [scholarship, indian, students, scholarships, got, international, student, cash]
+    token_count: 450
 ---
-
 # Scholarships
 
 Source: [Reddit Deep: r/neu](https://www.reddit.com/r/NEU/comments/1s6pjbz/scholarships/)

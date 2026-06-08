@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1sbe0dk.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1sbe0dk/p_i_trained_a_mamba3_log_anomaly_detector_that/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -13,8 +14,31 @@ flair: "Project"
 extracted_at: "2026-05-11T17:27:06.579Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1sbe0dk.md#c0"
+    char_span: [0, 1846]
+    sentence_count: 8
+    key_terms: [sessions, log, benchmark, hdfs, machinelearning, anomaly, around, model]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/machinelearning/1sbe0dk.md#c1"
+    char_span: [1848, 3793]
+    sentence_count: 12
+    key_terms: [model, template, like, normal, sessions, training, classification, something]
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/machinelearning/1sbe0dk.md#c2"
+    char_span: [3795, 5451]
+    sentence_count: 11
+    key_terms: [d50ff21226e9aa97c2c0bbefed77be5dd8389cb8, thunderbird, experiment, automated, reading, papers, spirit, tuning]
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/machinelearning/1sbe0dk.md#c3"
+    char_span: [5466, 7207]
+    sentence_count: 5
+    key_terms: [dataset, scores, static, retrospective, keogh, credibility, hdfs, algorithm]
+    section: Comments
+    token_count: 379
 ---
-
 # [P] I trained a Mamba-3 log anomaly detector that hit 0.9975 F1 on HDFS — and I’m curious how far this can go
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1sbe0dk/p_i_trained_a_mamba3_log_anomaly_detector_that/)

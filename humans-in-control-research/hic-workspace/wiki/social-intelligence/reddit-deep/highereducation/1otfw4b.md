@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1otfw4b.md
 url: "https://www.reddit.com/r/highereducation/comments/1otfw4b/for_communicatorsmarketing_folks_any_tips_on/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-20T02:31:35.471Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1otfw4b.md#c0"
+    char_span: [0, 733]
+    sentence_count: 5
+    key_terms: [student, engagement, highereducation, communicators, comments, tips, communications, forsakenspace7]
+    token_count: 170
+  - id: "social-intelligence/reddit-deep/highereducation/1otfw4b.md#c1"
+    char_span: [748, 2772]
+    sentence_count: 18
+    key_terms: [open, students, engagement, "it's", parents, "don't", email, rates]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/highereducation/1otfw4b.md#c2"
+    char_span: [2774, 4103]
+    sentence_count: 14
+    key_terms: [because, department, engagement, numbers, emails, staff, professorpumpkins, good]
+    section: Comments
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/highereducation/1otfw4b.md#c3"
+    char_span: [4105, 5409]
+    sentence_count: 9
+    key_terms: [emails, semester, create, engage, representativedot626, sapphirevelociraptor, maybe, wants]
+    section: Comments
+    token_count: 293
 ---
-
 # For Communicators/Marketing folks: Any tips on Student Affairs email engagement?
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1otfw4b/for_communicatorsmarketing_folks_any_tips_on/)

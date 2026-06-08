@@ -6,18 +6,18 @@ subreddit: "gradadmissions"
 title: "I’m a dean at a top engineering school on a mission to clarify the STEM grad admissions process. Ask me anything!"
 author: "PrincetonEngineers"
 date: "2026-05-20T15:38:32.000Z"
-score: 4
-upvote_ratio: 0.84
+score: 5
+upvote_ratio: 0.86
 num_comments: 0
 flair: "Engineering"
-extracted_at: "2026-05-24T14:10:06.599Z"
+extracted_at: "2026-06-06T23:23:15.585Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # I’m a dean at a top engineering school on a mission to clarify the STEM grad admissions process. Ask me anything!
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1tipek8/im_a_dean_at_a_top_engineering_school_on_a/)
-Posted by **PrincetonEngineers** · **4↑** · **0 comments**
+Posted by **PrincetonEngineers** · **5↑** · **0 comments**
 
 _(no body — link/image post)_

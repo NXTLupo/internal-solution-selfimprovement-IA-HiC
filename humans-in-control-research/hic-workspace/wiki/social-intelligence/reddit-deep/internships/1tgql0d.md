@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1tgql0d.md
 url: "https://www.reddit.com/r/internships/comments/1tgql0d/lernx_hr_internship_available/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,15 @@ flair: "Offers"
 extracted_at: "2026-05-22T21:34:37.052Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1tgql0d.md#c0"
+    char_span: [0, 1162]
+    sentence_count: 1
+    key_terms: [lernx, internship, internships, comments, freshers, apply, performance-based, responsibilities]
+    token_count: 310
 ---
-
 # Lernx - HR Internship available
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1tgql0d/lernx_hr_internship_available/)

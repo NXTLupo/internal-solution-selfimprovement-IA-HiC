@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-engineeringstudents/3a9fab81fe.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1t4els0/when_should_engineering_students_seriously_start/"
 url_hash: "3a9fab81fe"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-25T13:05:54.825227+00:00"
 chars: 1272
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-engineeringstudents/3a9fab81fe.md#c0"
+    char_span: [0, 1512]
+    sentence_count: 12
+    key_terms: [year, experience, internships, engineeringstudents, projects, engineering, internship, seriously]
+    token_count: 313
 ---
-
 # When should engineering students seriously start preparing for internships?
 
 Source: [Reddit Deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1t4els0/when_should_engineering_students_seriously_start/)

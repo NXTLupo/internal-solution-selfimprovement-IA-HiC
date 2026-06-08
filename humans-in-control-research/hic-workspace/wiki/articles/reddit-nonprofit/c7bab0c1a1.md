@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-nonprofit/c7bab0c1a1.md
 url: "https://reddit.com/r/nonprofit/comments/1ooi9io/do_you_need_to_be_rich_to_be_an_effective/"
 url_hash: "c7bab0c1a1"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-04T16:38:26.844236+00:00"
 chars: 1560
+industries: [nonprofit]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-nonprofit/c7bab0c1a1.md#c0"
+    char_span: [0, 1750]
+    sentence_count: 17
+    key_terms: [development, "i'm", nonprofit, director, seems, like, relatively, effective]
+    token_count: 385
 ---
-
 # Do you need to be rich to be an effective Development Director?
 
 Source: [reddit: Nonprofit](https://reddit.com/r/nonprofit/comments/1ooi9io/do_you_need_to_be_rich_to_be_an_effective/)

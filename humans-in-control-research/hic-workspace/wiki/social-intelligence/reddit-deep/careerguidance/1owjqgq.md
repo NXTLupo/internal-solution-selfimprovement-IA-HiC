@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1owjqgq.md
 url: "https://www.reddit.com/r/careerguidance/comments/1owjqgq/what_career_paths_do_you_think_colleges_should_be/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 0
 upvote_ratio: 0.25
 num_comments: 7
 flair: "Advice"
-extracted_at: "2026-05-22T21:34:47.972Z"
+extracted_at: "2026-06-02T17:48:25.408Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1owjqgq.md#c0"
+    char_span: [0, 555]
+    sentence_count: 3
+    key_terms: [careerguidance, new, comments, engineer, career, paths, careerfocusmind, ai-assisted]
+    token_count: 131
+  - id: "social-intelligence/reddit-deep/careerguidance/1owjqgq.md#c1"
+    char_span: [570, 1768]
+    sentence_count: 12
+    key_terms: [careerfocusmind, college, outrageous-guava1881, replace, post, account, trade, won]
+    section: Comments
+    token_count: 289
 ---
-
 # What career paths do you think colleges should be preparing students for more proactively?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1owjqgq/what_career_paths_do_you_think_colleges_should_be/)

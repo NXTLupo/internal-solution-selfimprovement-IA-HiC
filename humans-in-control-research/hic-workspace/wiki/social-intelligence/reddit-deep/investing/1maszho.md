@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1maszho.md
 url: "https://www.reddit.com/r/investing/comments/1maszho/any_good_ai_enabled_tools_for_portfolio_and_stock/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.192Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, ai_research, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1maszho.md#c0"
+    char_span: [0, 831]
+    sentence_count: 6
+    key_terms: [free, investing, portfolio, comments, general, being, tools, data]
+    token_count: 186
+  - id: "social-intelligence/reddit-deep/investing/1maszho.md#c1"
+    char_span: [846, 2185]
+    sentence_count: 10
+    key_terms: [g-68bb1f3f309481919ef708236b4a4078-stock-market-intelligence-stocks-etf-crypto, competitive-play-660, worked, martin-life-learner, tools, using, gpt, like]
+    section: Comments
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/investing/1maszho.md#c2"
+    char_span: [2187, 3714]
+    sentence_count: 8
+    key_terms: [analysis, portfolio, inquisitor--nox, brokerbotics, chartlense, research, downtown-island1478, tools]
+    section: Comments
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/investing/1maszho.md#c3"
+    char_span: [3718, 5085]
+    sentence_count: 8
+    key_terms: [downtown-island1478, research, been, like, something, insights, amsflow, company]
+    section: Comments
+    token_count: 341
 ---
-
 # Any good AI enabled tools for portfolio and stock analysis for free?
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1maszho/any_good_ai_enabled_tools_for_portfolio_and_stock/)

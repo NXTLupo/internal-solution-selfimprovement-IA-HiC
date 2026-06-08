@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/efc7f79b5d.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sivize/freshman_trying_to_figure_out_a_stable_career/"
 url_hash: "efc7f79b5d"
 kind: "article"
@@ -8,10 +9,22 @@ author: ""
 date: "2026-04-11T21:30:02.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-23T12:22:49.658456+00:00"
+extracted_at: "2026-06-03T02:24:34.240727+00:00"
 chars: 3142
+relevance: 42
+engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis.  "
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/efc7f79b5d.md#c0"
+    char_span: [0, 2352]
+    sentence_count: 15
+    key_terms: [like, healthcare, law, administration, don, supply, chain, feel]
+    token_count: 509
+  - id: "articles/reddit-deep-r-careerguidance/efc7f79b5d.md#c1"
+    char_span: [2354, 3402]
+    sentence_count: 9
+    key_terms: [people, try, specific, helpful, asking, maybe, b0uldersh0ulders, thepandapear]
+    token_count: 220
 ---
-
 # Freshman trying to figure out a stable career path (healthcare admin, supply chain, law?) – need real advice
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sivize/freshman_trying_to_figure_out_a_stable_career/)

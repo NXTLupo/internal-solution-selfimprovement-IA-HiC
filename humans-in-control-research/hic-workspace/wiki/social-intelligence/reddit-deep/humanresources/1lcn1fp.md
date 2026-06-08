@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1lcn1fp.md
 url: "https://www.reddit.com/r/humanresources/comments/1lcn1fp/has_anyone_else_been_seeing_an_influx_of/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,44 @@ flair: "Recruitment & Talent Acquisition"
 extracted_at: "2026-05-23T12:15:41.569Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1lcn1fp.md#c0"
+    char_span: [0, 1738]
+    sentence_count: 7
+    key_terms: [chatgpt, humanresources, applications, cover, applicants, structure, comments, because]
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/humanresources/1lcn1fp.md#c1"
+    char_span: [1740, 2342]
+    sentence_count: 4
+    key_terms: [letters, cover, cookie-cutter, uncomfortable, unfortunately, absolutely, frustrated, community]
+    token_count: 131
+  - id: "social-intelligence/reddit-deep/humanresources/1lcn1fp.md#c2"
+    char_span: [2357, 2775]
+    sentence_count: 5
+    key_terms: [katinkavonhamhof, performative, application, half-truths, experience, indication, industries, paragraph]
+    section: Comments
+    token_count: 101
+  - id: "social-intelligence/reddit-deep/humanresources/1lcn1fp.md#c3"
+    char_span: [2777, 5024]
+    sentence_count: 8
+    key_terms: [people, resumes, someone, experience, letters, cover, likely, application]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/humanresources/1lcn1fp.md#c4"
+    char_span: [4800, 6578]
+    sentence_count: 9
+    key_terms: [cover, people, job, letters, hiring, application, technology, rejecting]
+    section: Comments
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/humanresources/1lcn1fp.md#c5"
+    char_span: [6580, 8456]
+    sentence_count: 11
+    key_terms: [cover, letter, interview, applying, letters, single, write, get]
+    section: Comments
+    token_count: 450
 ---
-
 # Has anyone else been seeing an influx of copy-paste ChatGPT job applications? [N/A]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1lcn1fp/has_anyone_else_been_seeing_an_influx_of/)

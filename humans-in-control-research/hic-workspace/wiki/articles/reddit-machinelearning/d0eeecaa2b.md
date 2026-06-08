@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-machinelearning/d0eeecaa2b.md
 url: "https://reddit.com/r/MachineLearning/comments/1p82cto/d_got_burned_by_an_apple_iclr_paper_it_was/"
 url_hash: "d0eeecaa2b"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T13:52:13.861421+00:00"
 chars: 3719
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-machinelearning/d0eeecaa2b.md#c0"
+    char_span: [0, 2305]
+    sentence_count: 24
+    key_terms: [paper, issue, bug, got, machinelearning, quality, hallucinations, model]
+    token_count: 501
+  - id: "articles/reddit-machinelearning/d0eeecaa2b.md#c1"
+    char_span: [2307, 3940]
+    sentence_count: 12
+    key_terms: [paper, community, quality, irresponsible, been, reviewers, because, comment]
+    token_count: 318
 ---
-
 # [D] Got burned by an Apple ICLR paper — it was withdrawn after my Public Comment.
 
 Source: [reddit: MachineLearning](https://reddit.com/r/MachineLearning/comments/1p82cto/d_got_burned_by_an_apple_iclr_paper_it_was/)

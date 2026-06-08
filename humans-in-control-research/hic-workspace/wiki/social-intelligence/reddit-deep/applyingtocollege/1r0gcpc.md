@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1r0gcpc.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1r0gcpc/what_qualities_do_you_think_make_a_strong_college/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,21 @@ flair: "Application Question"
 extracted_at: "2026-05-22T23:33:52.649Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r0gcpc.md#c0"
+    char_span: [0, 972]
+    sentence_count: 7
+    key_terms: [application, applyingtocollege, college, qualities, comments, personal, internal-remove7223, stand]
+    token_count: 205
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1r0gcpc.md#c1"
+    char_span: [987, 3374]
+    sentence_count: 25
+    key_terms: [college, activities, teacher, important, realistic, readers, essays, "you'd"]
+    section: Comments
+    token_count: 505
 ---
-
 # What qualities do you think make a strong college application stand out?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1r0gcpc/what_qualities_do_you_think_make_a_strong_college/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1qb1pi2.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1qb1pi2/either_i_get_rich_or_we_all_die_my_current/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,49 @@ flair: "DD"
 extracted_at: "2026-05-16T20:54:42.974Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qb1pi2.md#c0"
+    char_span: [0, 1980]
+    sentence_count: 25
+    key_terms: [wallstreetbets, powell, "that's", rates, president, anything, comments, criminal]
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qb1pi2.md#c1"
+    char_span: [1982, 3698]
+    sentence_count: 27
+    key_terms: [infrastructure, trump, path, rips, term, everything, critical, spending]
+    token_count: 375
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qb1pi2.md#c2"
+    char_span: [3700, 5232]
+    sentence_count: 12
+    key_terms: [defense, independence, fed, infrastructure, trump, case, breaks, market]
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qb1pi2.md#c3"
+    char_span: [5247, 5661]
+    sentence_count: 1
+    key_terms: [comments, wallstreetbets, reddit, https, total, com, www, submissions]
+    section: Comments
+    token_count: 144
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qb1pi2.md#c4"
+    char_span: [5663, 7225]
+    sentence_count: 3
+    key_terms: [yeah, generated, discord, damage, stocks, natural-currency7600, carlosdangerwashere, carsonthecarsinogen]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qb1pi2.md#c5"
+    char_span: [6999, 8196]
+    sentence_count: 8
+    key_terms: [inverse, damage, fiscal, policy, turbulent-narwhal803, brain, professional-age, distinctasdf]
+    section: Comments
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qb1pi2.md#c6"
+    char_span: [8199, 9691]
+    sentence_count: 9
+    key_terms: [money, through, capital, overnight, currency, monopoly, reserve, global]
+    section: Comments
+    token_count: 400
 ---
-
 # Either I get rich, or we all die. My current trading thesis - REDUX
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1qb1pi2/either_i_get_rich_or_we_all_die_my_current/)

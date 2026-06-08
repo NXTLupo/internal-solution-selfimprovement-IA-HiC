@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1pvzq16.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1pvzq16/rant_about_sticking_to_a_narrative/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,53 @@ subreddit: "applyingtocollege"
 title: "Rant about sticking to a \"narrative\""
 author: "Ready_Return_5998"
 date: "2025-12-26T08:47:41.000Z"
-score: 105
+score: 104
 upvote_ratio: 0.99
 num_comments: 39
 flair: "Rant"
-extracted_at: "2026-05-23T14:54:48.679Z"
+extracted_at: "2026-06-05T19:53:34.571Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pvzq16.md#c0"
+    char_span: [0, 1970]
+    sentence_count: 17
+    key_terms: [narrative, try, activities, high, want, stick, schoolers, applyingtocollege]
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pvzq16.md#c1"
+    char_span: [1972, 2779]
+    sentence_count: 7
+    key_terms: [major, want, stanford, college, admit, furthermore, activities, admission]
+    token_count: 190
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pvzq16.md#c2"
+    char_span: [2794, 4636]
+    sentence_count: 14
+    key_terms: [narrative, disciplines, arc, unrelated, coherent, almost, henare, right]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pvzq16.md#c3"
+    char_span: [4638, 6708]
+    sentence_count: 16
+    key_terms: [activities, narrative, form, completely, everything, curiosity, colleges, college]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pvzq16.md#c4"
+    char_span: [6710, 8609]
+    sentence_count: 15
+    key_terms: [college, like, people, doing, narrative, want, "i'm", everything]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pvzq16.md#c5"
+    char_span: [8611, 10370]
+    sentence_count: 11
+    key_terms: [narrative, school, want, activities, whatever, enthusiasmcomplete37, being, doing]
+    section: Comments
+    token_count: 393
 ---
-
 # Rant about sticking to a "narrative"
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1pvzq16/rant_about_sticking_to_a_narrative/)
-Posted by **Ready_Return_5998** · **105↑** · **39 comments**
+Posted by **Ready_Return_5998** · **104↑** · **39 comments**
 
 i just really want to rant so please guys don't cancel me here.  
 this may or may not be a result of junior year stress and burn out.
@@ -50,16 +85,16 @@ Edit: maybe i am just too in my head, it's 1am here LOL.
 
 ## Comments
 
-- **henare** (32↑): you are asking all the right questions.
+- **henare** (34↑): you are asking all the right questions.
 
 develop a narrative (lol!) with this in mind. a place that's awesome, but that can accommodate your growth in some specific discipline.
 
 It's wild that, at 16, you have to think about where to spend the next four years (and more than a quarter million dollars).
   - **Ready_Return_5998** (12↑): I know right! The most crazy thing is that NO OTHER COUNTRY on this planet literally has this same issue. In europe, asia, latin america -- most college/unis are extremely cheap, if not almost free.
-    - **Secret-Bake-161** (12↑): And a lot of them don't give a crap about this narrative/EC stuff and will admit you solely for strong grades and LORs lol
-  - **Ready_Return_5998** (8↑): What if I want to grow across different disciplines? Try out new disciplines?
-    - **henare** (3↑): tie this into your essay. be explicit about it. make sure your examples are tenable for the institution you are writing about
-- **techie410** (14↑): Stanford student here. My AOs said a similar thing about me, but it was more that *some* of my ECs lined up with my majors. Whoever you’re referencing is obviously an outlier. Almost everyone here (me included) has unrelated interests too! Don’t feel ashamed of them, and remember that you can still infuse them into your “narrative”.
+    - **Secret-Bake-161** (11↑): And a lot of them don't give a crap about this narrative/EC stuff and will admit you solely for strong grades and LORs lol
+  - **Ready_Return_5998** (7↑): What if I want to grow across different disciplines? Try out new disciplines?
+    - **henare** (4↑): tie this into your essay. be explicit about it. make sure your examples are tenable for the institution you are writing about
+- **techie410** (13↑): Stanford student here. My AOs said a similar thing about me, but it was more that *some* of my ECs lined up with my majors. Whoever you’re referencing is obviously an outlier. Almost everyone here (me included) has unrelated interests too! Don’t feel ashamed of them, and remember that you can still infuse them into your “narrative”.
 
 As someone else said, a narrative isn’t a narrative in a very traditional sense. It isn’t one dimensional and it can have unrelated arcs, but they form a coherent world. It’s up to you to be a good worldbuilder. I had an arc about robotics, and I had an arc about coastal geography, and I had another arc about tabletop roleplay. People online are basically just saying “be interesting and coherent” in a strange way that may or may not be an attempt to sound more qualified than they are by using fancy language.
 
@@ -74,12 +109,12 @@ The narrative formed in my essays where I talked about how I learned to value co
 Honestly, just try the things you want to do. Maybe they won’t become anything of substance but if you do activities just for the sake of college, you’re going to be miserable if you’re ever rejected. 
 
 Let your activities list form out of things you enjoyed and things you tried out of just curiosity and you’ll have life lessons way more valuable and fulfilling than a college acceptance.
-- **Supercam235** (8↑): The "narrative" does not mean being one-dimensional. A narrative is a story about who you are and how you think. That's it. You can start new things, as long as you don't drop the old things that prove your commitment. Simply explain why you're doing what you're doing and if it's coherent (which it seems like it is), then it won't be an issue; rather, it may actually be a strength.
-- **WesternConference461** (6↑): I completely agree with everything you have said. The way colleges kinda make us boxed in this little categories is messed up. The entire schooling system is a bit messed up, gives people no freedom. But unfortunately, you do need a narative.
+- **Supercam235** (7↑): The "narrative" does not mean being one-dimensional. A narrative is a story about who you are and how you think. That's it. You can start new things, as long as you don't drop the old things that prove your commitment. Simply explain why you're doing what you're doing and if it's coherent (which it seems like it is), then it won't be an issue; rather, it may actually be a strength.
+- **WesternConference461** (8↑): I completely agree with everything you have said. The way colleges kinda make us boxed in this little categories is messed up. The entire schooling system is a bit messed up, gives people no freedom. But unfortunately, you do need a narative.
 
 Perhaps your narrative can be everything you just said. Your narrative could be that you are a person who wants to explore the world, someone who wants to try everything. Who is a curious learner. Someone who does not like the idea of people being boxed into one hobby or passion.
   - **Ready_Return_5998** (3↑): Perhaps. Or I'll just look scattered lol.
-    - **Ready_Return_5998** (10↑): And Just to add on, I HATE that I'm CONSTANTLY thinking about what "they" college thing about me. People say, just do what you want, don't do it for college. But it's just so hard for me to not "do things for college" cuz lets be fr, if I wasn't doing it for college, I'd be on the JV xc team and just having fun. Like CLEARLY, I'm doing things for college! I want to go to a T10 because I want social mobility, connections, and to meet cool smart people (which I understand are at all colleges, but I feel like there's especially motivated and interesting people at T10s). But I just hate how they expect SO MUCH OF US. I get the whole "embrace the grind thing", but I really feel like at some point we have to zoom out and realize that we are literally in the only part of our lives where we can be carefree and not have to worry about being an adult yet. I JUST WANT TO BE A TEENAGER AND TRY NEW THINGS. Not worry all the time about if i'm "doing enough" or "doing the right thing" or sticking to "the story". Glad you agree with me:)
+    - **Ready_Return_5998** (12↑): And Just to add on, I HATE that I'm CONSTANTLY thinking about what "they" college thing about me. People say, just do what you want, don't do it for college. But it's just so hard for me to not "do things for college" cuz lets be fr, if I wasn't doing it for college, I'd be on the JV xc team and just having fun. Like CLEARLY, I'm doing things for college! I want to go to a T10 because I want social mobility, connections, and to meet cool smart people (which I understand are at all colleges, but I feel like there's especially motivated and interesting people at T10s). But I just hate how they expect SO MUCH OF US. I get the whole "embrace the grind thing", but I really feel like at some point we have to zoom out and realize that we are literally in the only part of our lives where we can be carefree and not have to worry about being an adult yet. I JUST WANT TO BE A TEENAGER AND TRY NEW THINGS. Not worry all the time about if i'm "doing enough" or "doing the right thing" or sticking to "the story". Glad you agree with me:)
 - **ConiferousTurtle** (3↑): Sounds like you should go to a liberal arts school where you don’t decide your major until junior year and maybe stop focusing on T10.
 - **PhilosophyBeLyin** (3↑): hey, I never had a “narrative.” I was a lot like you, was really frustrated by my peers having beautifully crafted interdisciplinary narratives with ECs of every type (research, nonprofits, clubs) all tying together to one hyperspecifc niche. I always found that super fake too.
 
@@ -89,7 +124,7 @@ point being, I know with what other people do it seems like you need to have it 
 - **ShuraPlayz** (4↑): I mean in all honesty that can be your narrative. It’s less about a singular story but more about what your reasoning for doing what you do is. For me, my narrative was being inquisitive and questioning everything around me, and then trying to be the best in whatever I do, whether that be in music, engineering or international relations. 
 
 If your innate want is to explore a variety of activities then that can be your narrative, how you like adventuring and pushing yourself out of your comfort zone. Good luck :)
-- **EnthusiasmComplete37** (5↑): nobody is forcing you to stick to a narrative. your narrative should be a reflection of your entire activities. Go join the robotics or track teams that you want. It's going to make you an even more interesting candidate and if stanford doesn't want that then maybe it's not the school for you?
+- **EnthusiasmComplete37** (6↑): nobody is forcing you to stick to a narrative. your narrative should be a reflection of your entire activities. Go join the robotics or track teams that you want. It's going to make you an even more interesting candidate and if stanford doesn't want that then maybe it's not the school for you?
 - **Ok_Experience_5151** (2↑): Choir, art and MUN don’t seem specifically “humanities based”.
 
 Ignore your counselor and try new stuff. It probably won’t negatively affect your applications. But, if it does, it will have been worth it regardless.

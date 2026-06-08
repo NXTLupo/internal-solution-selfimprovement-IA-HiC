@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1nfrxzx.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1nfrxzx/chatgpt_doubled_all_my_savings_on_stock_market_in/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,63 @@ flair: "Use cases "
 extracted_at: "2026-05-17T01:12:48.206Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1nfrxzx.md#c0"
+    char_span: [0, 911]
+    sentence_count: 7
+    key_terms: [chatgpt, financial, analysis, comments, doubled, savings, amount, invest]
+    token_count: 228
+  - id: "social-intelligence/reddit-deep/chatgpt/1nfrxzx.md#c1"
+    char_span: [926, 1508]
+    sentence_count: 5
+    key_terms: [conversation, image, post, r-chatgpt-1050422060352024636, chatgpt-shared-links-faq, discord, openai, please]
+    section: Comments
+    token_count: 156
+  - id: "social-intelligence/reddit-deep/chatgpt/1nfrxzx.md#c2"
+    char_span: [1511, 3172]
+    sentence_count: 9
+    key_terms: [money, lose, market, bull, hard, time, everyone, months]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/chatgpt/1nfrxzx.md#c3"
+    char_span: [3174, 4759]
+    sentence_count: 7
+    key_terms: [markets, outperformed, bull, greatly, putting, savings, months, jealous-researcher77]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/chatgpt/1nfrxzx.md#c4"
+    char_span: [4625, 5127]
+    sentence_count: 2
+    key_terms: [study, png, rhetoricalorator, outperformed, blindfolded, newspapers, financial, cglyszka]
+    section: Comments
+    token_count: 178
+  - id: "social-intelligence/reddit-deep/chatgpt/1nfrxzx.md#c5"
+    char_span: [5129, 5911]
+    sentence_count: 3
+    key_terms: [stocks, beat, patientpadawan, wallstreetbets, givingtree310, productivity, absolutely, fullertons]
+    section: Comments
+    token_count: 232
+  - id: "social-intelligence/reddit-deep/chatgpt/1nfrxzx.md#c6"
+    char_span: [5913, 7829]
+    sentence_count: 10
+    key_terms: [chatgpt, data, "it's", trading, speculation, ask, terrible, course]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/chatgpt/1nfrxzx.md#c7"
+    char_span: [7832, 8928]
+    sentence_count: 9
+    key_terms: [give, sometimes, better, redact, "it's", lot, post, too]
+    section: Comments
+    token_count: 285
+  - id: "social-intelligence/reddit-deep/chatgpt/1nfrxzx.md#c8"
+    char_span: [8930, 10392]
+    sentence_count: 9
+    key_terms: [market, bull, bitterad6419, something, chatgpt, risky, stock, years]
+    section: Comments
+    token_count: 412
 ---
-
 # ChatGPT doubled all my savings on Stock Market in 3 months
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1nfrxzx/chatgpt_doubled_all_my_savings_on_stock_market_in/)

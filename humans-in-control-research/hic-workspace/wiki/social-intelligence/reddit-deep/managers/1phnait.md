@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1phnait.md
 url: "https://www.reddit.com/r/managers/comments/1phnait/have_you_noticed_younger_employees_who_seem_brain/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,74 @@ flair: "Seasoned Manager"
 extracted_at: "2026-05-26T12:54:23.678Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1phnait.md#c0"
+    char_span: [0, 2225]
+    sentence_count: 19
+    key_terms: [months, asked, work, definitely, comments, internet, managers, planning]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/managers/1phnait.md#c1"
+    char_span: [2227, 2885]
+    sentence_count: 5
+    key_terms: [generation, employees, internet, seen, time, describing, leadership, behaviors]
+    token_count: 140
+  - id: "social-intelligence/reddit-deep/managers/1phnait.md#c2"
+    char_span: [2900, 4849]
+    sentence_count: 14
+    key_terms: [leadership, hired, developed, getting, someone, intent, people, wanted]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/managers/1phnait.md#c3"
+    char_span: [4851, 6260]
+    sentence_count: 12
+    key_terms: ["wasn't", employees, definitely, however, younger, answer, demand, simply]
+    section: Comments
+    token_count: 334
+  - id: "social-intelligence/reddit-deep/managers/1phnait.md#c4"
+    char_span: [6262, 7355]
+    sentence_count: 6
+    key_terms: [later, raise, alveolarfricatives, days, hour, job, need, take]
+    section: Comments
+    token_count: 261
+  - id: "social-intelligence/reddit-deep/managers/1phnait.md#c5"
+    char_span: [7357, 8971]
+    sentence_count: 5
+    key_terms: [bad, been, like, employees, around, happen, people, sounds]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/managers/1phnait.md#c6"
+    char_span: [8973, 9580]
+    sentence_count: 3
+    key_terms: [employees, younger, old, conscientious, responsible, supervisors, productive, techniques]
+    section: Comments
+    token_count: 139
+  - id: "social-intelligence/reddit-deep/managers/1phnait.md#c7"
+    char_span: [9582, 11615]
+    sentence_count: 13
+    key_terms: [hired, attitude, replace, minute, "don't", generations, bad, get]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/managers/1phnait.md#c8"
+    char_span: [11617, 12580]
+    sentence_count: 1
+    key_terms: [dont, people, care, job, business, someone, died, like]
+    section: Comments
+    token_count: 217
+  - id: "social-intelligence/reddit-deep/managers/1phnait.md#c9"
+    char_span: [12582, 14419]
+    sentence_count: 6
+    key_terms: [good, empathy, loyalty, people, team, everyone, pensions, around]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/managers/1phnait.md#c10"
+    char_span: [14421, 16178]
+    sentence_count: 7
+    key_terms: [like, traderiggystikibar, competent, oldlinepnwshine, overly, people, being, based]
+    section: Comments
+    token_count: 462
 ---
-
 # Have you noticed younger employees who seem brain rotted from the internet?
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1phnait/have_you_noticed_younger_employees_who_seem_brain/)

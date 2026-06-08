@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1lyoddn.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1lyoddn/why_the_mass_bali_hype/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,45 @@ flair: "Lifestyle"
 extracted_at: "2026-05-26T12:53:56.723Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1lyoddn.md#c0"
+    char_span: [0, 1548]
+    sentence_count: 9
+    key_terms: [canggu, digitalnomad, everywhere, comments, around, locals, nature, travel]
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/digitalnomad/1lyoddn.md#c1"
+    char_span: [1563, 2726]
+    sentence_count: 7
+    key_terms: [canggu, dontsaybasically, iamananonymouscoward, along, place, years, ill-surprise-2644, kuta]
+    section: Comments
+    token_count: 338
+  - id: "social-intelligence/reddit-deep/digitalnomad/1lyoddn.md#c2"
+    char_span: [2728, 3892]
+    sentence_count: 5
+    key_terms: [place, pjmg2020, culture, traditional-milk-465, idontknowjuspickone, villa, current-clock-8229, bros]
+    section: Comments
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/digitalnomad/1lyoddn.md#c3"
+    char_span: [3894, 5808]
+    sentence_count: 10
+    key_terms: [bali, traffic, canggu, dubai, tho, ubud, kristen-gray-bali-deported, afox1984]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/digitalnomad/1lyoddn.md#c4"
+    char_span: [5810, 7498]
+    sentence_count: 14
+    key_terms: [bali, found, years, nusa, seriously, peaceful, swimming, amazing]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/digitalnomad/1lyoddn.md#c5"
+    char_span: [7500, 8670]
+    sentence_count: 8
+    key_terms: [bali, been, canggu, island, places, gentrified, "haven't", people]
+    section: Comments
+    token_count: 312
 ---
-
 # Why the mass Bali hype?
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1lyoddn/why_the_mass_bali_hype/)

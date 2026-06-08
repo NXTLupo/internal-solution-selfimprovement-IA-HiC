@@ -6,19 +6,19 @@ subreddit: "internships"
 title: "how to get an internship in 2026: everything i am using/doing"
 author: "Suitable-Jelly-3693"
 date: "2026-02-10T01:48:00.000Z"
-score: 306
+score: 309
 upvote_ratio: 0.98
 num_comments: 77
 flair: "General"
-extracted_at: "2026-05-26T14:30:47.901Z"
+extracted_at: "2026-06-06T23:20:46.205Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # how to get an internship in 2026: everything i am using/doing
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1r0nk5p/how_to_get_an_internship_in_2026_everything_i_am/)
-Posted by **Suitable-Jelly-3693** · **306↑** · **77 comments**
+Posted by **Suitable-Jelly-3693** · **309↑** · **77 comments**
 
 before anything: **alignment.** if you’re a freshman/sophomore, don’t expect big-name internships yet. optimize for **smaller companies near home**, **no-relocation roles**, and anything that gives you **real reps** (projects, shipping work, mentorship). internships now aren’t “apply and pray”—it’s **speed + signal + follow-up**.
 
@@ -86,7 +86,7 @@ if i really want it: find the recruiter on linkedin, connect with a short note, 
 
 ## Comments
 
-- **Emotional_Spread528** (23↑): Emphasis on the alignment part. I wasted sooooo much time last year applying for internships that I wasn’t qualified for.
+- **Emotional_Spread528** (25↑): Emphasis on the alignment part. I wasted sooooo much time last year applying for internships that I wasn’t qualified for.
   - **ArmadilloTop2003** (2↑): id say still apply even if you dont feel qualified, you never really know
   - **[deleted]** (1↑): I’ve had multiple internships where my experience didn’t match the role exactly. It doesn’t matter as much for intern
 - **Suitable-Jelly-3693** (14↑): also, never underestimate the power of networking. i know i didn't mention it in the post, but my friend has had tons of success with networking events this year.
@@ -97,8 +97,8 @@ if i really want it: find the recruiter on linkedin, connect with a short note, 
 - **frznpanda** (7↑): Agreed on all the points here 
 
 But I would also say stay away from handshake that site is not good I don’t think any of the listings on there are correct
-  - **Suitable-Jelly-3693** (3↑): Sometimes it hits, but for the most part I agree with you. The opportunities are pretty saturated as well.
-- **Starman_248** (6↑): Underrated post. Thanks for this
+  - **Suitable-Jelly-3693** (4↑): Sometimes it hits, but for the most part I agree with you. The opportunities are pretty saturated as well.
+- **Starman_248** (7↑): Underrated post. Thanks for this
   - **Suitable-Jelly-3693** (2↑): as an indie r/ internship influencer, thank you.
 - **ChunkyGobbler911** (5↑): Even as a freshman or sophomore u can get big name internships although everything else is good advice
   - **Suitable-Jelly-3693** (3↑): i would say if you are a freshman or sophomore at a target school. sophomores def have a better chance. i really said that for the freshman beating themselves up about it not landing faang internships.
@@ -109,7 +109,7 @@ But I would also say stay away from handshake that site is not good I don’t th
 - **inahologramwithyou** (3↑): do you have any interview advice?
   - **Suitable-Jelly-3693** (4↑): I can write a post on this later, intern dock also has an interview prep feature that I use.
     - **ExpertDue9675** (1↑): 🙌
-  - **stormiiclouds77** (5↑): look up the STAR method and practice that  : )
+  - **stormiiclouds77** (3↑): look up the STAR method and practice that  : )
 - **Alert_Sprinkles9443** (3↑): How are freshman and sophomores getting internships? Every application I see are for min junior standing and seniors. I myself am 32m and have been applying everyday and only getting automated rejection emails.
   - **Suitable-Jelly-3693** (2↑): That means you probs need some work on ATS optimization and resume work. [Intern Dock](https://interndock.com) has some pretty solid features to help you improve if you aren’t landing offers.
 

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1se28qn.md
 url: "https://www.reddit.com/r/careerguidance/comments/1se28qn/what_career_path_should_i_take_single_mom_that/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-25T18:32:57.390Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1se28qn.md#c0"
+    char_span: [0, 2138]
+    sentence_count: 13
+    key_terms: [career, get, job, cons, jobs, pros, careerguidance, paths]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/careerguidance/1se28qn.md#c1"
+    char_span: [2140, 2415]
+    sentence_count: 1
+    key_terms: [manager, work, illreputation991, odd-athlete279, deleted, project, realtor, become]
+    section: Comments
+    token_count: 74
 ---
-
 # What career path should I take? Single mom that needs a higher paying job ASAP
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1se28qn/what_career_path_should_i_take_single_mom_that/)

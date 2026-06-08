@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sxnrj2.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sxnrj2/job_search_hacks_from_a_career_coach_that/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -6,19 +7,30 @@ subreddit: "careerguidance"
 title: "Job search hacks from a career coach (that actually work) ?"
 author: "sunflowerwellnesshtx"
 date: "2026-04-28T01:56:29.000Z"
-score: 2
-upvote_ratio: 0.58
+score: 3
+upvote_ratio: 0.6
 num_comments: 4
 flair: "Education & Qualifications"
-extracted_at: "2026-05-19T15:09:00.776Z"
+extracted_at: "2026-06-05T19:52:45.215Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, leveraging insights from current SOW, prior projects, and industry analysis of experiential learning tactics. The strategy must maximize meaningful experiential learning opportunities for NU learners from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sxnrj2.md#c0"
+    char_span: [0, 1682]
+    sentence_count: 15
+    key_terms: [job, careerguidance, career, jobs, applying, comments, seekers, "here's"]
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/careerguidance/1sxnrj2.md#c1"
+    char_span: [1697, 2622]
+    sentence_count: 1
+    key_terms: [sunflowerwellnesshtx, posting, substantial-car5791, job, plus, top, applications, responsible]
+    section: Comments
+    token_count: 227
 ---
-
 # Job search hacks from a career coach (that actually work) ?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sxnrj2/job_search_hacks_from_a_career_coach_that/)
-Posted by **sunflowerwellnesshtx** · **2↑** · **4 comments**
+Posted by **sunflowerwellnesshtx** · **3↑** · **4 comments**
 
 I'm a career coach, and here's what I've seen countless times—job seekers applying to over 100 jobs and hearing nothing. That's not always about experience; it's about strategy.
 

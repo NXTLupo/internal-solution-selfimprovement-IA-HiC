@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1qnk9mv.md
 url: "https://www.reddit.com/r/careerguidance/comments/1qnk9mv/from_top_student_to_feeling_lost_abroad/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -6,19 +7,41 @@ subreddit: "careerguidance"
 title: "From top student to feeling lost abroad — struggling with identity, expectations, and what I really want, any advice on career path?"
 author: "Numerous_Fish_8075"
 date: "2026-01-26T16:09:43.000Z"
-score: 4
-upvote_ratio: 0.84
+score: 6
+upvote_ratio: 1
 num_comments: 8
 flair: ""
-extracted_at: "2026-05-22T21:34:47.969Z"
+extracted_at: "2026-06-03T18:53:36.160Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1qnk9mv.md#c0"
+    char_span: [0, 2402]
+    sentence_count: 27
+    key_terms: [culinary, because, considered, careerguidance, became, school, international, expectations]
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/careerguidance/1qnk9mv.md#c1"
+    char_span: [2404, 4046]
+    sentence_count: 17
+    key_terms: [feel, being, like, expectations, engineering, don, want, everything]
+    token_count: 366
+  - id: "social-intelligence/reddit-deep/careerguidance/1qnk9mv.md#c2"
+    char_span: [4061, 5188]
+    sentence_count: 14
+    key_terms: [trying, years, horror-cheek-7091, feel, get, time, work, opportunity]
+    section: Comments
+    token_count: 291
+  - id: "social-intelligence/reddit-deep/careerguidance/1qnk9mv.md#c3"
+    char_span: [5190, 6105]
+    sentence_count: 7
+    key_terms: [yourself, always, districtevening3681, bright-future-girl, horror-cheek-7091, give, step, encouraging]
+    section: Comments
+    token_count: 226
 ---
-
 # From top student to feeling lost abroad — struggling with identity, expectations, and what I really want, any advice on career path?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1qnk9mv/from_top_student_to_feeling_lost_abroad/)
-Posted by **Numerous_Fish_8075** · **4↑** · **8 comments**
+Posted by **Numerous_Fish_8075** · **6↑** · **8 comments**
 
 Hi. I’m 25F, living in Japan, currently doing my master’s with a MEXT scholarship. It’s considered one of the most prestigious scholarships here, and on paper my life probably looks very successful. But honestly, inside I feel very confused and stuck.
 

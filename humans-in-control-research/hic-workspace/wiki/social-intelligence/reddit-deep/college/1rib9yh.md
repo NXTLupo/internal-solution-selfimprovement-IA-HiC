@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1rib9yh.md
 url: "https://www.reddit.com/r/college/comments/1rib9yh/i_think_the_best_thing_ive_ever_done_for_myself/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -10,11 +11,34 @@ score: 502
 upvote_ratio: 0.98
 num_comments: 60
 flair: "Celebration "
-extracted_at: "2026-05-25T15:51:48.246Z"
+extracted_at: "2026-06-06T00:27:48.354Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1rib9yh.md#c0"
+    char_span: [0, 1260]
+    sentence_count: 11
+    key_terms: [college, exactly, school, understanding, comments, benefit, coming, myself]
+    token_count: 294
+  - id: "social-intelligence/reddit-deep/college/1rib9yh.md#c1"
+    char_span: [1275, 2570]
+    sentence_count: 12
+    key_terms: [kitchen-stick-6131, bachelor, everyone, honestly, student, school, age, high]
+    section: Comments
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/college/1rib9yh.md#c2"
+    char_span: [2572, 4029]
+    sentence_count: 9
+    key_terms: [back, old, year, experience, military, starting, because, younger]
+    section: Comments
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/college/1rib9yh.md#c3"
+    char_span: [4031, 5619]
+    sentence_count: 10
+    key_terms: [school, high, college, trying, right, encouraged, experience, different]
+    section: Comments
+    token_count: 357
 ---
-
 # I think the best thing I've ever done for myself was coming to college as an older student.
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1rib9yh/i_think_the_best_thing_ive_ever_done_for_myself/)
@@ -30,22 +54,22 @@ You can do this. It's worth it. It's scary at first, but once you settle in, you
 
 ## Comments
 
-- **Ivinsc** (112↑): This is me as well, I did horrible in high school and I didn’t start community college until I was 22. I got straight A’s and now I’m at a big 10 university doing pretty well. It’s just hard making friends because everyone is like 5-7 years younger than me.
-- **Pain_Tough** (118↑): I enjoyed it more and had higher grades as an adult
+- **Ivinsc** (111↑): This is me as well, I did horrible in high school and I didn’t start community college until I was 22. I got straight A’s and now I’m at a big 10 university doing pretty well. It’s just hard making friends because everyone is like 5-7 years younger than me.
+- **Pain_Tough** (114↑): I enjoyed it more and had higher grades as an adult
 - **Kitchen-Stick-6131** (55↑): I went back for my bachelor of science at age 31 when I was more stable and "grown up" lol. Granted, I already had my associate from when I was 25. It was honestly the best decision I ever made being a fossil student. I was better at prioritizing and time management; graduated 8 months early with highest honors. It's never too late. I am now working on my second bachelor degree.
-  - **Material_Phone_690** (5↑): Why a second?
+  - **Material_Phone_690** (4↑): Why a second?
     - **Kitchen-Stick-6131** (4↑): Career pivoting
-- **FriendsMade_MeDoIt** (30↑): I love this honestly. I’m a “traditional” age student and I’ve noticed the older students in my classes are usually way more focused and less stressed about the random social stuff that eats up everyone’s time.
+- **FriendsMade_MeDoIt** (31↑): I love this honestly. I’m a “traditional” age student and I’ve noticed the older students in my classes are usually way more focused and less stressed about the random social stuff that eats up everyone’s time.
 
 There’s something different about choosing to be here versus just following the default path after high school. You can feel it in group projects too. The priorities are just clearer.
 
 Props to you for going back and crushing it. I feel like more people need to hear that it’s not too late and it’s not weird.
-- **DoubleAd9986** (28↑): This is also my first year in college as a 24 year old. I'm starting at a CC after my military service. Feels weird to be surrounded by younger people but there's also a decent amount of non traditional students. It kinda baffles me how the you get crowd doesn't even know what they wanna do.
+- **DoubleAd9986** (27↑): This is also my first year in college as a 24 year old. I'm starting at a CC after my military service. Feels weird to be surrounded by younger people but there's also a decent amount of non traditional students. It kinda baffles me how the you get crowd doesn't even know what they wanna do.
   - **Emotional_Sugar_3648** (2↑): 22 years old and also starting CC after 4 yrs in the military!
 - **teenyleaf** (16↑): Genuinely felt more prepared coming back to school also at 24 than when I was 18. The life experience and the emotional management that comes with it did so much wonders for my mental health that younger me would never have such clarity at the time.
 - **Ok-Clothes-3378** (13↑): I get what you’re saying. I went back at 49 and with all my life and professional experience, I knocked it out.
 - **Plane-Marionberry380** (11↑): the thing nobody tells you is that showing up because you chose to vs. because your parents are watching changes literally everything. completely different brain mode.
-- **StretchJazzlike6122** (12↑): 💯 
+- **StretchJazzlike6122** (10↑): 💯 
 
 How would a 17 or 18 year old that’s lived no where but their mom and dad’s house know what they want to do for the rest of their lives?! Why spend crazy money studying something you might like when you don’t know what else the world has to offer?! You can’t!   
 

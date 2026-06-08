@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1tgiqh0.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1tgiqh0/i_think_many_international_undergrads_are_looking/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -10,11 +11,43 @@ score: 3
 upvote_ratio: 0.64
 num_comments: 20
 flair: "Advice"
-extracted_at: "2026-05-25T18:32:06.259Z"
+extracted_at: "2026-06-02T17:48:31.039Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tgiqh0.md#c0"
+    char_span: [0, 2359]
+    sentence_count: 9
+    key_terms: [chipping-away-assessing-and-addressing-the-labor-market-gap-facing-the-u-s-semiconductor-industry, archived-building-us-semiconductor-workforce-january-2025-update, engineering, https, semiconductors, global-semiconductor-talent-shortage, www, semiconductor]
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tgiqh0.md#c1"
+    char_span: [2361, 4429]
+    sentence_count: 9
+    key_terms: [research, engineering, professors, undergraduates, industry, students, faculty, universities]
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tgiqh0.md#c2"
+    char_span: [4431, 6707]
+    sentence_count: 6
+    key_terms: [the-impact-of-cooperative-education-internships-on-full-time-employment-salaries-of-students-in-computing-sciences, research, universities, engineering, https, faculty, participation, semiconductor]
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tgiqh0.md#c3"
+    char_span: [6709, 7034]
+    sentence_count: 2
+    key_terms: [practical, industry-connected, undergraduate, engineering, internships, absolutely, experience, mentorship]
+    token_count: 75
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tgiqh0.md#c4"
+    char_span: [7049, 9033]
+    sentence_count: 10
+    key_terms: [admissions, creative-rhubarb-777, applyingtocollege, list, automoderator, undergraduate, scholargrade, engineering]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tgiqh0.md#c5"
+    char_span: [9036, 9885]
+    sentence_count: 3
+    key_terms: [need, colleges, drive, applyingtocollege, part, murky-peanut1390, no-republic-7876, bot-sleuth-bot]
+    section: Comments
+    token_count: 226
 ---
-
 # I Think Many International Undergrads Are Looking at Engineering Admissions the Wrong Way.
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1tgiqh0/i_think_many_international_undergrads_are_looking/)
@@ -201,12 +234,12 @@ A strong undergraduate profile from a practical, industry-connected university c
 
 ## Comments
 
-- **Easy_Honey_6535** (4↑): From your list I have never heard about Engineering pipelines from UT Dallas, University of Cincinnati, MSOE (???) and Drexel. Some others schools are questionable too, but some of them at least are relatively cheap.
+- **Easy_Honey_6535** (3↑): From your list I have never heard about Engineering pipelines from UT Dallas, University of Cincinnati, MSOE (???) and Drexel. Some others schools are questionable too, but some of them at least are relatively cheap.
   - **Creative-Rhubarb-777** (1↑): mb 😭 removed UT Dallas and Drexel from the list.
 
 And yeah, MSOE is Milwaukee School of Engineering. Smaller engineering-focused school, so I was mainly referring more to its hands-on/industry-focused undergrad environment than broad national prestige.
-- **Ok_Experience_5151** (6↑): Feel like this post could have used maybe one more bulleted list.
-  - **ScholarGrade** (7↑): * I
+- **Ok_Experience_5151** (5↑): Feel like this post could have used maybe one more bulleted list.
+  - **ScholarGrade** (6↑): * I
 * agree
   - **Murky-Peanut1390** (4↑): I think op used chatgpt
 

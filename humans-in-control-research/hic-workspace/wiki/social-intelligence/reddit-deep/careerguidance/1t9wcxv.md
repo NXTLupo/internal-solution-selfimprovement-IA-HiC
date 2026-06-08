@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t9wcxv.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t9wcxv/do_i_stick_with_my_job_and_learn_the_skills_or/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-25T13:04:07.364Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t9wcxv.md#c0"
+    char_span: [0, 968]
+    sentence_count: 4
+    key_terms: [job, around, money, careerguidance, making, australia, comments, january]
+    token_count: 235
+  - id: "social-intelligence/reddit-deep/careerguidance/1t9wcxv.md#c1"
+    char_span: [983, 1821]
+    sentence_count: 7
+    key_terms: [australia, fitting, kitchen, skills, electronic-bus-5350, frame, money, goal]
+    section: Comments
+    token_count: 187
 ---
-
 # Do I stick with my job and learn the skills or prioritise making more money?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t9wcxv/do_i_stick_with_my_job_and_learn_the_skills_or/)

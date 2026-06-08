@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1nl1x2v.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1nl1x2v/i_found_out_one_of_my_colleagues_is_teaching_an/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,92 @@ flair: "Social Science"
 extracted_at: "2026-05-26T14:32:49.108Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c0"
+    char_span: [0, 1492]
+    sentence_count: 9
+    key_terms: [shinycrap, theory, askacademia, colleagues, comments, appears, effect, found]
+    token_count: 380
+  - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c1"
+    char_span: [1494, 2558]
+    sentence_count: 10
+    key_terms: [shinycrap, students, incompatible, colleague, nothing, program, class, grad]
+    token_count: 232
+  - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c2"
+    char_span: [2573, 4556]
+    sentence_count: 15
+    key_terms: [class, revamp, theellimist, colleagues, seriously, something, helping, theory]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c3"
+    char_span: [4558, 6408]
+    sentence_count: 7
+    key_terms: [course, catalog, through, chair, want, complaints, continue, students]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c4"
+    char_span: [6410, 8157]
+    sentence_count: 6
+    key_terms: [junior, department, faculty, absolutely, situation, something, opinions, someone]
+    section: Comments
+    token_count: 389
+  - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c5"
+    char_span: [8159, 10356]
+    sentence_count: 13
+    key_terms: ["it's", outrageous, colleague, political, politics-diplomatically, faculty, course, get]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c6"
+    char_span: [10358, 12047]
+    sentence_count: 13
+    key_terms: [question, shinycrap, link, critiques, thoughts, lecture, student, answer]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c7"
+    char_span: [12049, 13803]
+    sentence_count: 7
+    key_terms: [solresol, token, ring, industry, printer, floppy, matrix, string]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c8"
+    char_span: [13805, 15228]
+    sentence_count: 6
+    key_terms: [archknits, history, blah, colleagues, something, argument, learning, teaches]
+    section: Comments
+    token_count: 320
+  - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c9"
+    char_span: [15230, 16872]
+    sentence_count: 7
+    key_terms: [psychology, neurolinguistic, programming, probably, teaching, thinking, degrees, comfortable-goat-734]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c10"
+    char_span: [16874, 18819]
+    sentence_count: 13
+    key_terms: [thought, interest, certainsandwich4472, theory, nudge, department, wikipedia, business]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c11"
+    char_span: [18556, 20669]
+    sentence_count: 14
+    key_terms: [shinycrap, department, teach, idustriousraccoon, problem, recent, discussion, literature]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c12"
+    char_span: [20388, 20763]
+    sentence_count: 1
+    key_terms: [department, shinycrap, desconectado, discussion, critiques, seniority, wondering, friendly]
+    section: Comments
+    token_count: 92
+  - id: "social-intelligence/reddit-deep/askacademia/1nl1x2v.md#c13"
+    char_span: [20765, 21882]
+    sentence_count: 6
+    key_terms: [students, faculty, affect, get, "i'm", "it's", need, contradictory]
+    section: Comments
+    token_count: 261
 ---
-
 # I found out one of my colleagues is teaching an entire class on a debunked theory. Is there anything I can do?
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1nl1x2v/i_found_out_one_of_my_colleagues_is_teaching_an/)

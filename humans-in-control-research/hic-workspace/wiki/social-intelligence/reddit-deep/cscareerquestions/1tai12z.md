@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1tai12z.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1tai12z/feels_like_anyone_can_do_what_i_do_now/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,60 @@ flair: "Experienced"
 extracted_at: "2026-05-26T14:31:41.271Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tai12z.md#c0"
+    char_span: [0, 2097]
+    sentence_count: 14
+    key_terms: [years, like, got, since, cscareerquestions, "i'm", anyone, became]
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tai12z.md#c1"
+    char_span: [2099, 3982]
+    sentence_count: 20
+    key_terms: ["i've", got, since, started, became, better, people, skills]
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tai12z.md#c2"
+    char_span: [3984, 5983]
+    sentence_count: 16
+    key_terms: [like, "i'm", job, though, doing, since, feel, year]
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tai12z.md#c3"
+    char_span: [5985, 6738]
+    sentence_count: 11
+    key_terms: [sorry, lot, career, typing, alone, hope, "i'm", like]
+    token_count: 173
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tai12z.md#c4"
+    char_span: [6753, 8527]
+    sentence_count: 8
+    key_terms: [like, software, games, platformer, something, everyone, complex, imagine]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tai12z.md#c5"
+    char_span: [8529, 10053]
+    sentence_count: 8
+    key_terms: ["i'm", coding, people, like, need, confident, guidance, complex]
+    section: Comments
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tai12z.md#c6"
+    char_span: [10056, 11935]
+    sentence_count: 14
+    key_terms: [llm, dev, complexity, generating, understand, mastering, curious, shaders]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tai12z.md#c7"
+    char_span: [11937, 14229]
+    sentence_count: 9
+    key_terms: [judgment, somewhat, probably, because, career, got, "it's", job]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tai12z.md#c8"
+    char_span: [14231, 15613]
+    sentence_count: 8
+    key_terms: ["it's", information, learning, longjumping-rate1948, never, get, like, side]
+    section: Comments
+    token_count: 337
 ---
-
 # Feels like anyone can do what i do now
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1tai12z/feels_like_anyone_can_do_what_i_do_now/)

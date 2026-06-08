@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1sjjyk6.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1sjjyk6/how_does_a_new_grad_learn_the_needed_tech_when/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -10,11 +11,22 @@ score: 3
 upvote_ratio: 1
 num_comments: 6
 flair: "New Grad"
-extracted_at: "2026-05-23T14:54:48.631Z"
+extracted_at: "2026-06-05T18:53:25.722Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sjjyk6.md#c0"
+    char_span: [0, 1894]
+    sentence_count: 14
+    key_terms: [field, learn, "i'm", cscareerquestions, narrow, feel, get, good]
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sjjyk6.md#c1"
+    char_span: [1909, 3359]
+    sentence_count: 11
+    key_terms: [projects, learn, days, good, job, like, pick, work]
+    section: Comments
+    token_count: 345
 ---
-
 # How does a new grad learn the needed tech, when searching jobs?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sjjyk6/how_does_a_new_grad_learn_the_needed_tech_when/)
@@ -53,4 +65,3 @@ Once you've got your expertise locked in, a good project is the one you're proud
 - **Chili-Lime-Chihuahua** (1↑): Do you have a personal computer? If so, there are so many learning tools these days compared to "the old days." In the old days, you had to buy a book to help learn new topics. Now there are platforms like Udemy, Coursera, and other more specialized ones. There are almost too many to choose from, that it becomes a new challenge. 
 
 You'll have to just pick and choose what you want to focus on, as there's so much to learn these days.
-- **GlitteringLaw3215** (1↑): pick one role like fullstack, grab the top 3 tools from 10 similar postings, and smash out a simple project with them on github.

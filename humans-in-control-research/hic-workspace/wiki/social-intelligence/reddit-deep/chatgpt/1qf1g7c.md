@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1qf1g7c.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1qf1g7c/then_theyll_test_it_for_all_paid_users_or_try_to/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,63 @@ flair: "Other "
 extracted_at: "2026-05-11T16:54:08.805Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c0"
+    char_span: [0, 427]
+    sentence_count: 2
+    key_terms: [comments, chatgpt, ads, instructions, reddit-deep, unsubscribe, xaljiemxhaj, correctly]
+    token_count: 121
+  - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c1"
+    char_span: [442, 1290]
+    sentence_count: 6
+    key_terms: [please, conversation, image, post, r-chatgpt-1050422060352024636, concerns, chatgpt-shared-links-faq, chatgpt]
+    section: Comments
+    token_count: 222
+  - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c2"
+    char_span: [1292, 3001]
+    sentence_count: 11
+    key_terms: [users, information, ads, user, advertisers, targeted, micro-targeting, openai]
+    section: Comments
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c3"
+    char_span: [3003, 4912]
+    sentence_count: 15
+    key_terms: [ads, advertisers, targeted, being, money, surveillance, doing, data]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c4"
+    char_span: [4915, 6277]
+    sentence_count: 10
+    key_terms: [advertisers, information, "don't", superintelligence, people, going, ads, sell]
+    section: Comments
+    token_count: 318
+  - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c5"
+    char_span: [6279, 8577]
+    sentence_count: 23
+    key_terms: [data, advertisers, sell, ads, algorithms, individual, "don't", level]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c6"
+    char_span: [8579, 8770]
+    sentence_count: 3
+    key_terms: [money, conversations, personally, influence, highest, accept, answer, bidder]
+    section: Comments
+    token_count: 42
+  - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c7"
+    char_span: [8772, 10559]
+    sentence_count: 11
+    key_terms: [ads, like, pay, xaljiemxhaj, free, less, mean, want]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c8"
+    char_span: [10561, 10760]
+    sentence_count: 1
+    key_terms: [technology, impressed, capital, chatgpt, comment, deleted, instead, cancel]
+    section: Comments
+    token_count: 50
 ---
-
 # Then they'll test it for all paid users, or try to make me pay $200 for no ads, then I'll unsubscribe. Not paying to see ads when the product doesnt even use my custom instructions and memories correctly
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1qf1g7c/then_theyll_test_it_for_all_paid_users_or_try_to/)

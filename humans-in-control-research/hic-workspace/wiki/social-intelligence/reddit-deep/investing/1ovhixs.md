@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1ovhixs.md
 url: "https://www.reddit.com/r/investing/comments/1ovhixs/michael_burry_is_a_clown_who_got_lucky_once/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,63 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.193Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c0"
+    char_span: [0, 2290]
+    sentence_count: 16
+    key_terms: [market, burry, don, happen, real, economic, bubble, people]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c1"
+    char_span: [2305, 4016]
+    sentence_count: 8
+    key_terms: [guy, "it's", english, michael, people, gettingdumberwithage, clown, write]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c2"
+    char_span: [4018, 5799]
+    sentence_count: 11
+    key_terms: [years, "he's", performance, portfolio, past, market, michael-burry, stockcircle]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c3"
+    char_span: [5801, 7187]
+    sentence_count: 12
+    key_terms: [performance, michael-burry, hedge, wrong, stockcircle, been, understand, portfolio]
+    section: Comments
+    token_count: 343
+  - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c4"
+    char_span: [7189, 8988]
+    sentence_count: 5
+    key_terms: [utm, because, contracts, investors, money, share, lost, comments]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c5"
+    char_span: [8990, 10334]
+    sentence_count: 6
+    key_terms: ["he's", burry, money, portfolio, people, like, against, premium]
+    section: Comments
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c6"
+    char_span: [10336, 12284]
+    sentence_count: 8
+    key_terms: [top, tell, dollars, started, better, people, wildly, money]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c7"
+    char_span: [12065, 12855]
+    sentence_count: 3
+    key_terms: [professionalyellow55, right, time, lazy-gene-7284, koolaidman391, danknadoflex, oddchocolate, historical]
+    section: Comments
+    token_count: 254
+  - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c8"
+    char_span: [12857, 14442]
+    sentence_count: 8
+    key_terms: [year, market, portfolio, years, performance, did, "he's", lol]
+    section: Comments
+    token_count: 438
 ---
-
 # Michael burry is a clown who got lucky once
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1ovhixs/michael_burry_is_a_clown_who_got_lucky_once/)

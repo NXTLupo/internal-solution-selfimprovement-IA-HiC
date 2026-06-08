@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1s17qki.md
 url: "https://www.reddit.com/r/managers/comments/1s17qki/how_do_you_get_any_remote_team_visibility_as_a/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-26T12:54:23.659Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1s17qki.md#c0"
+    char_span: [0, 987]
+    sentence_count: 7
+    key_terms: [remote, managers, micromanaging, "who's", visibility, comments, everyone, without]
+    token_count: 210
+  - id: "social-intelligence/reddit-deep/managers/1s17qki.md#c1"
+    char_span: [1002, 1665]
+    sentence_count: 4
+    key_terms: [managing, fairentertainment194, done, mins, team, time, suckerpunchdrunk, distractions]
+    section: Comments
+    token_count: 182
+  - id: "social-intelligence/reddit-deep/managers/1s17qki.md#c2"
+    char_span: [1667, 3529]
+    sentence_count: 16
+    key_terms: [performance, meetings, meeting, weekly, teams, tell, time, work]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/managers/1s17qki.md#c3"
+    char_span: [3531, 4843]
+    sentence_count: 8
+    key_terms: [time, want, concerned, workload, weekly, "you're", asana, don]
+    section: Comments
+    token_count: 322
 ---
-
 # How do you get any remote team visibility as a manager without micromanaging and everyone feels like you're watching them?
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1s17qki/how_do_you_get_any_remote_team_visibility_as_a/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-engineeringstudents/87a1adb0bc.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1o9916q/dont_know_what_to_do_for_next_internship_and/"
 url_hash: "87a1adb0bc"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T19:51:12.754344+00:00"
 chars: 1941
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-engineeringstudents/87a1adb0bc.md#c0"
+    char_span: [0, 2179]
+    sentence_count: 11
+    key_terms: [career, projects, development, engineeringstudents, country, apply, learn, sense]
+    token_count: 491
 ---
-
 # Don't know what to do for next internship and career development, ECE student
 
 Source: [Reddit Deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1o9916q/dont_know_what_to_do_for_next_internship_and/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1spf7qb.md
 url: "https://www.reddit.com/r/internships/comments/1spf7qb/feeling_insecure_about_my_internship/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -7,14 +8,25 @@ title: "Feeling insecure about my internship"
 author: "Scary_Competition_11"
 date: "2026-04-19T01:22:33.000Z"
 score: 6
-upvote_ratio: 0.8
+upvote_ratio: 0.88
 num_comments: 7
 flair: "During the Internship"
-extracted_at: "2026-05-23T12:15:55.799Z"
+extracted_at: "2026-06-06T13:03:30.729Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1spf7qb.md#c0"
+    char_span: [0, 2214]
+    sentence_count: 20
+    key_terms: [like, robots, wear-leveling, internships, developing, internship, comments, honestly]
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/internships/1spf7qb.md#c1"
+    char_span: [2229, 2721]
+    sentence_count: 3
+    key_terms: [yourself, spiritual-manner-548, experienced, undoubtably, sophomore, undersell, impostor, syndrome]
+    section: Comments
+    token_count: 145
 ---
-
 # Feeling insecure about my internship
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1spf7qb/feeling_insecure_about_my_internship/)

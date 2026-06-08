@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1rakqjx.md
 url: "https://www.reddit.com/r/OpenAI/comments/1rakqjx/chatgpt_context_window/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,27 @@ flair: "News"
 extracted_at: "2026-05-11T17:27:05.351Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1rakqjx.md#c0"
+    char_span: [0, 452]
+    sentence_count: 1
+    key_terms: [context, openai, window, comments, thinking, chatgpt, reddit, soft-relief-9952]
+    token_count: 114
+  - id: "social-intelligence/reddit-deep/openai/1rakqjx.md#c1"
+    char_span: [467, 1496]
+    sentence_count: 2
+    key_terms: [context, window, free, crinkez, claude, gemini, higher, literaturemaximum125]
+    section: Comments
+    token_count: 298
+  - id: "social-intelligence/reddit-deep/openai/1rakqjx.md#c2"
+    char_span: [1498, 2685]
+    sentence_count: 3
+    key_terms: [literaturemaximum125, https, a0986bf83b2a64e7608f60bbc6ef94a5c2ccdd6e, com, chatgptpro, comments, thinking, comment]
+    section: Comments
+    token_count: 393
 ---
-
 # ChatGPT Context Window
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1rakqjx/chatgpt_context_window/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1od7tfi.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1od7tfi/big_tech_career_growth/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,33 @@ flair: "Experienced"
 extracted_at: "2026-05-23T12:16:24.316Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1od7tfi.md#c0"
+    char_span: [0, 901]
+    sentence_count: 11
+    key_terms: [cscareerquestions, growth, big, comments, director, company, career, rather]
+    token_count: 214
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1od7tfi.md#c1"
+    char_span: [916, 2897]
+    sentence_count: 21
+    key_terms: [senior, like, bluegrassclimber, staff, big, life, anything, startup]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1od7tfi.md#c2"
+    char_span: [2899, 4948]
+    sentence_count: 11
+    key_terms: [work, company, senior, big, job, life, everyone, similarintern923]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1od7tfi.md#c3"
+    char_span: [4950, 5773]
+    sentence_count: 5
+    key_terms: [startups, timmyturnahp21, experience, famous-composer5628, chase, title, touch, completely]
+    section: Comments
+    token_count: 216
 ---
-
 # Big tech career growth
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1od7tfi/big_tech_career_growth/)

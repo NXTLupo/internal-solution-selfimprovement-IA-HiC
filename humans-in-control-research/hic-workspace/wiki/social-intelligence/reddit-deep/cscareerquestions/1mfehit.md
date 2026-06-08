@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1mfehit.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1mfehit/people_with_7_years_of_experience_in_tech/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-25T13:02:11.350Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mfehit.md#c0"
+    char_span: [0, 1025]
+    sentence_count: 7
+    key_terms: [early, something, cscareerquestions, did, eventually, experience, comments, careers]
+    token_count: 244
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mfehit.md#c1"
+    char_span: [1040, 2865]
+    sentence_count: 18
+    key_terms: [career, degree, life, never, day, started, through, myself]
+    section: Comments
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mfehit.md#c2"
+    char_span: [2867, 5008]
+    sentence_count: 18
+    key_terms: ["there's", job, work, working, hours, "i'm", like, current]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mfehit.md#c3"
+    char_span: [5010, 6545]
+    sentence_count: 16
+    key_terms: [lot, take, work, problem, better, longer, communicating, unreasonable]
+    section: Comments
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mfehit.md#c4"
+    char_span: [6548, 8310]
+    sentence_count: 11
+    key_terms: [something, working, pivot, years, job, work, motivation, building]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mfehit.md#c5"
+    char_span: [8312, 10203]
+    sentence_count: 10
+    key_terms: [money, work, motivation, something, doing, arkguardian, get, productive]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mfehit.md#c6"
+    char_span: [9911, 10452]
+    sentence_count: 4
+    key_terms: [work, gotten, get, periodically, conditions, daydreamed, frustrated, carpenter]
+    section: Comments
+    token_count: 127
 ---
-
 # People with 7+ years of experience in tech industry – When did you start getting real with your career?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1mfehit/people_with_7_years_of_experience_in_tech/)

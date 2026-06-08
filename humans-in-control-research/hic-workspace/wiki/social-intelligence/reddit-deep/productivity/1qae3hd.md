@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1qae3hd.md
 url: "https://www.reddit.com/r/productivity/comments/1qae3hd/ive_realized_i_dont_thrive_with_a_weekly_to_do/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,39 @@ flair: "Advice Needed"
 extracted_at: "2026-05-26T12:53:45.656Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1qae3hd.md#c0"
+    char_span: [0, 1707]
+    sentence_count: 14
+    key_terms: [list, productivity, long, thought, overwhelming, felt, here, deadlines]
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/productivity/1qae3hd.md#c1"
+    char_span: [1722, 3352]
+    sentence_count: 18
+    key_terms: [day, task, tasks, today, list, minutes, overwhelming, overwhelmed]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/productivity/1qae3hd.md#c2"
+    char_span: [3354, 5137]
+    sentence_count: 21
+    key_terms: [list, everything, master, tasks, day, "it's", want, important]
+    section: Comments
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/productivity/1qae3hd.md#c3"
+    char_span: [5139, 6545]
+    sentence_count: 11
+    key_terms: [day, get, like, list, something, future, weekly, tasks]
+    section: Comments
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/productivity/1qae3hd.md#c4"
+    char_span: [6547, 7431]
+    sentence_count: 6
+    key_terms: [list, tasks, days, important, having, makes, big, feel]
+    section: Comments
+    token_count: 215
 ---
-
 # I've realized I don't thrive with a weekly to do list but working off of a long to do list is too overwhelming, where do I go from here?
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1qae3hd/ive_realized_i_dont_thrive_with_a_weekly_to_do/)

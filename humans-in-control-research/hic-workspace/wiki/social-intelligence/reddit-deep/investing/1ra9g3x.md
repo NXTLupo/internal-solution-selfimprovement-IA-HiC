@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1ra9g3x.md
 url: "https://www.reddit.com/r/investing/comments/1ra9g3x/from_buy_america_to_bye_america_wall_street/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,81 @@ flair: ""
 extracted_at: "2026-05-16T20:55:01.238Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1ra9g3x.md#c0"
+    char_span: [0, 1245]
+    sentence_count: 5
+    key_terms: [buy-america-bye-america-wall-street-exodus-gathers-pace-2026-02-20, investors, https, com, www, investing, business, comments]
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/investing/1ra9g3x.md#c1"
+    char_span: [1260, 2932]
+    sentence_count: 9
+    key_terms: [toddler, economy, speedflychris, unhinged, better, trying, asset, kgb]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1ra9g3x.md#c2"
+    char_span: [2685, 3987]
+    sentence_count: 10
+    key_terms: [international, been, valuations, rotation, unpredictability, non-emotional, profitability, speedflychris]
+    section: Comments
+    token_count: 310
+  - id: "social-intelligence/reddit-deep/investing/1ra9g3x.md#c3"
+    char_span: [3989, 6159]
+    sentence_count: 16
+    key_terms: [currency, capital, europe, going, "isn't", trump, union, already]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1ra9g3x.md#c4"
+    char_span: [5919, 6839]
+    sentence_count: 7
+    key_terms: [last, people, sentientshadeofgreen, trade, years, sophonparticle, understanding, consumption]
+    section: Comments
+    token_count: 240
+  - id: "social-intelligence/reddit-deep/investing/1ra9g3x.md#c5"
+    char_span: [6841, 9246]
+    sentence_count: 30
+    key_terms: [energy, china, workers, europe, indian, un-affordable, india, tech]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1ra9g3x.md#c6"
+    char_span: [9248, 11555]
+    sentence_count: 25
+    key_terms: [world, producers, american, deficit, accelerating, trade, eventually, education]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/investing/1ra9g3x.md#c7"
+    char_span: [11557, 13343]
+    sentence_count: 15
+    key_terms: [imports-tariffs-trade-deficit, world, economy, happen, generations, term, benefited, business]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/investing/1ra9g3x.md#c8"
+    char_span: [13345, 14595]
+    sentence_count: 8
+    key_terms: [vulnerabilities, world, case, structural, benefit, markets, dollar, likely]
+    section: Comments
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/investing/1ra9g3x.md#c9"
+    char_span: [14597, 16730]
+    sentence_count: 16
+    key_terms: [u-s-hegemony-continuing-decline-enduring-danger, revenue, monthlyreview, world, articles, hegemony, abroad, rather]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/investing/1ra9g3x.md#c10"
+    char_span: [16733, 17214]
+    sentence_count: 7
+    key_terms: [competitors, regional, going, take, legislation, providers, continue, everyone]
+    section: Comments
+    token_count: 111
+  - id: "social-intelligence/reddit-deep/investing/1ra9g3x.md#c11"
+    char_span: [17216, 18871]
+    sentence_count: 11
+    key_terms: [like, income, hospitals, tax-free, bridges, federal, mistake, stable]
+    section: Comments
+    token_count: 435
 ---
-
 # From 'buy America' to 'bye America', Wall Street exodus gathers pace
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1ra9g3x/from_buy_america_to_bye_america_wall_street/)

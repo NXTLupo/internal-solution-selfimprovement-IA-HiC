@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1l8w4id.md
 url: "https://www.reddit.com/r/college/comments/1l8w4id/what_job_to_get_as_a_full_time_student/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-25T15:51:48.248Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1l8w4id.md#c0"
+    char_span: [0, 572]
+    sentence_count: 3
+    key_terms: [college, comments, money, full, good, job, time, iluvj3ffbuckley]
+    token_count: 153
+  - id: "social-intelligence/reddit-deep/college/1l8w4id.md#c1"
+    char_span: [587, 1793]
+    sentence_count: 10
+    key_terms: [job, work, money, food, on-campus, online, server, pizza]
+    section: Comments
+    token_count: 298
+  - id: "social-intelligence/reddit-deep/college/1l8w4id.md#c2"
+    char_span: [1795, 3788]
+    sentence_count: 16
+    key_terms: [job, campus, lavendertearose32, try, server, good, restaurant, draining]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1l8w4id.md#c3"
+    char_span: [3574, 5490]
+    sentence_count: 10
+    key_terms: [work, job, did, homework, iluvj3ffbuckley, school, get, law]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1l8w4id.md#c4"
+    char_span: [5200, 5631]
+    sentence_count: 5
+    key_terms: [get, pay, restaurant, bills, gotta, job, whatsoever, stressful]
+    section: Comments
+    token_count: 94
 ---
-
 # What job to get as a full time student
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1l8w4id/what_job_to_get_as_a_full_time_student/)

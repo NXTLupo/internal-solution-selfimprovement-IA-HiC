@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1rdppfn.md
 url: "https://www.reddit.com/r/OpenAI/comments/1rdppfn/engineering_the_autonomous_local_enterprise_a/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,40 @@ flair: "Article"
 extracted_at: "2026-05-11T17:27:05.349Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1rdppfn.md#c0"
+    char_span: [0, 2902]
+    sentence_count: 10
+    key_terms: [sovereign, local, agentic, enterprise, infrastructure, architecture, autonomous, reasoning]
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/openai/1rdppfn.md#c1"
+    char_span: [2904, 4245]
+    sentence_count: 1
+    key_terms: [python, rag, document, agentic, visual, data, top, industry-leading]
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/openai/1rdppfn.md#c2"
+    char_span: [4247, 5623]
+    sentence_count: 4
+    key_terms: [vram, bandwidth, inference, memory, approximately, model, deepseek-r1-distill-llama-70b, qwen]
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/openai/1rdppfn.md#c3"
+    char_span: [5625, 6867]
+    sentence_count: 3
+    key_terms: [nvidia, quantized, models, mathematical, quantization, bit, rtx, precision]
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/openai/1rdppfn.md#c4"
+    char_span: [6869, 8711]
+    sentence_count: 5
+    key_terms: [seconds, bit, accuracy, tables, quantization, maintaining, correctly, documents]
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/openai/1rdppfn.md#c5"
+    char_span: [8713, 10399]
+    sentence_count: 6
+    key_terms: [system, architecture, orchestrator, characters, blueprint, inference, langgraph, chunking]
+    token_count: 445
 ---
-
 # Engineering the Autonomous Local Enterprise: A Technical Blueprint for Agentic RAG and Sovereign AI Infrastructure
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1rdppfn/engineering_the_autonomous_local_enterprise_a/)

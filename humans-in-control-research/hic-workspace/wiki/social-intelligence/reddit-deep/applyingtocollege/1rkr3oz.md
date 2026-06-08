@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1rkr3oz.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rkr3oz/senior_who_hasnt_submitted_any_college/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,26 @@ flair: "Application Question"
 extracted_at: "2026-05-22T23:33:52.641Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rkr3oz.md#c0"
+    char_span: [0, 2418]
+    sentence_count: 17
+    key_terms: [schools, honestly, application, submitted, applyingtocollege, late, year, college]
+    token_count: 518
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rkr3oz.md#c1"
+    char_span: [2420, 2957]
+    sentence_count: 4
+    key_terms: [application, schools, here, late, successfully, experiences, admissions, appreciate]
+    token_count: 113
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rkr3oz.md#c2"
+    char_span: [2972, 3786]
+    sentence_count: 4
+    key_terms: [supplement, couple, tho, yucky-yummy-6767, ok-ganache6369, nonetheless, scholarship, applicants]
+    section: Comments
+    token_count: 193
 ---
-
 # Senior who hasn’t submitted any college applications yet (March). Is it too late for anything besides rolling schools?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rkr3oz/senior_who_hasnt_submitted_any_college/)

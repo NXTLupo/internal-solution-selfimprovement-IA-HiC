@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1p2ea6m.md
 url: "https://www.reddit.com/r/findapath/comments/1p2ea6m/starting_a_new_amazon_warehouse_job_after_2_years/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,62 @@ flair: "Findapath-College/Certs"
 extracted_at: "2026-05-22T15:13:18.831Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce, retail]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1p2ea6m.md#c0"
+    char_span: [0, 2206]
+    sentence_count: 19
+    key_terms: [never, sonic, years, like, findapath, comments, continue, honestly]
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/findapath/1p2ea6m.md#c1"
+    char_span: [2208, 3454]
+    sentence_count: 9
+    key_terms: [being, youtube, build, back, job, life, old, volunteering]
+    token_count: 273
+  - id: "social-intelligence/reddit-deep/findapath/1p2ea6m.md#c2"
+    char_span: [3469, 5762]
+    sentence_count: 21
+    key_terms: [help, thank, helpful, people, please, find, depression, findapath]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/findapath/1p2ea6m.md#c3"
+    char_span: [5764, 7352]
+    sentence_count: 13
+    key_terms: [advice, small, questions, something, better, making, people, point]
+    section: Comments
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/findapath/1p2ea6m.md#c4"
+    char_span: [7354, 7957]
+    sentence_count: 9
+    key_terms: [going, best, too, correct-gur-7842, phantomdiclonius, plsfartinmyface, guidancecards, nanocurrency]
+    section: Comments
+    token_count: 176
+  - id: "social-intelligence/reddit-deep/findapath/1p2ea6m.md#c5"
+    char_span: [7959, 10129]
+    sentence_count: 9
+    key_terms: [program, appropriate-tutor587, thank, don, mba, business, phantomdiclonius, administration]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/findapath/1p2ea6m.md#c6"
+    char_span: [9857, 11838]
+    sentence_count: 11
+    key_terms: [phantomdiclonius, flairpointsbot, thank, appropriate-tutor587, trickaccomplished200, confirming, good, provided]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/findapath/1p2ea6m.md#c7"
+    char_span: [11580, 12143]
+    sentence_count: 5
+    key_terms: [content-bicycle-7894, time, provided, awarded, helpful, advice, point, thank]
+    section: Comments
+    token_count: 160
+  - id: "social-intelligence/reddit-deep/findapath/1p2ea6m.md#c8"
+    char_span: [12145, 13165]
+    sentence_count: 4
+    key_terms: [meditate, journal, never, thank, able, been, like, phantomdiclonius]
+    section: Comments
+    token_count: 239
 ---
-
 # Starting a new Amazon warehouse job after 2 years of unemployment… really struggling and could use some emotional support
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1p2ea6m/starting_a_new_amazon_warehouse_job_after_2_years/)

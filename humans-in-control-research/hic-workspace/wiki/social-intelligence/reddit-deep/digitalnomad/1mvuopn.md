@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1mvuopn.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1mvuopn/i_thought_being_a_digital_nomad_in_bali_would_be/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,45 @@ flair: "Lifestyle"
 extracted_at: "2026-05-26T12:53:56.719Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mvuopn.md#c0"
+    char_span: [0, 1905]
+    sentence_count: 15
+    key_terms: [digital, nomad, bali, anywhere, living, digitalnomad, being, "isn't"]
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mvuopn.md#c1"
+    char_span: [1920, 3109]
+    sentence_count: 7
+    key_terms: [previous, "didn't", leave, here, need, co-founders, instability, philippines]
+    section: Comments
+    token_count: 289
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mvuopn.md#c2"
+    char_span: [3111, 4806]
+    sentence_count: 11
+    key_terms: [apprehensiveyou8920, income, freelancing, get, "it's", job, instagram, though]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mvuopn.md#c3"
+    char_span: [4808, 6766]
+    sentence_count: 15
+    key_terms: [like, work, business, always, "that's", lamboforwork, great, bali]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mvuopn.md#c4"
+    char_span: [6768, 8454]
+    sentence_count: 14
+    key_terms: [everything, years, bali, been, last, successful, "you're", focus]
+    section: Comments
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/digitalnomad/1mvuopn.md#c5"
+    char_span: [8457, 10640]
+    sentence_count: 18
+    key_terms: [business, freelancing, startups, never, want, sometimes, digital, getting]
+    section: Comments
+    token_count: 508
 ---
-
 # I thought being a digital nomad in Bali would be paradise, now I’m stuck watching everything fall apart
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1mvuopn/i_thought_being_a_digital_nomad_in_bali_would_be/)

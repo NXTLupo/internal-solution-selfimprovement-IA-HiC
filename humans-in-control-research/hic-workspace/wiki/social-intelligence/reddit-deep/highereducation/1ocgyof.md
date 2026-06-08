@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1ocgyof.md
 url: "https://www.reddit.com/r/highereducation/comments/1ocgyof/ups_and_downs_of_using_reddit_higher_ed_admins/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T14:53:59.515Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1ocgyof.md#c0"
+    char_span: [0, 1005]
+    sentence_count: 7
+    key_terms: ["what's", highereducation, reddit, accounts, comments, account, working, admins]
+    token_count: 240
+  - id: "social-intelligence/reddit-deep/highereducation/1ocgyof.md#c1"
+    char_span: [1020, 3190]
+    sentence_count: 11
+    key_terms: [lost-content-visibility-got-you-spooked, university, reddit, users, universityofmiami, get, here, www]
+    section: Comments
+    token_count: 496
 ---
-
 # Ups and Downs of using Reddit - Higher Ed Admins
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1ocgyof/ups_and_downs_of_using_reddit_higher_ed_admins/)

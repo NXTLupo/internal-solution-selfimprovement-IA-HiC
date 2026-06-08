@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1r3bcax.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1r3bcax/my_partner_is_bad_at_finances_and_is_refusing_to/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,56 @@ flair: "Misc Advice"
 extracted_at: "2026-05-17T01:13:55.883Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1r3bcax.md#c0"
+    char_span: [0, 2064]
+    sentence_count: 20
+    key_terms: [debt, credit, "don't", want, interest, povertyfinance, suggestions, card]
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/povertyfinance/1r3bcax.md#c1"
+    char_span: [2066, 2851]
+    sentence_count: 10
+    key_terms: ["don't", "i'm", because, "they're", care, debt, feel, like]
+    token_count: 178
+  - id: "social-intelligence/reddit-deep/povertyfinance/1r3bcax.md#c2"
+    char_span: [2866, 4452]
+    sentence_count: 9
+    key_terms: ["don't", people, someone, change, circumstances, responsible, get, anything]
+    section: Comments
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/povertyfinance/1r3bcax.md#c3"
+    char_span: [4454, 5357]
+    sentence_count: 4
+    key_terms: [together, "you're", manufacturerone6663, money, demitriousdonqual, communication, reconsidering, relationships]
+    section: Comments
+    token_count: 224
+  - id: "social-intelligence/reddit-deep/povertyfinance/1r3bcax.md#c4"
+    char_span: [5359, 7584]
+    sentence_count: 20
+    key_terms: [issue, like, "it's", together, communication, compatability, "don't", money]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1r3bcax.md#c5"
+    char_span: [7275, 8366]
+    sentence_count: 11
+    key_terms: ["it's", like, current, partner, "didn't", figure, trying, never]
+    section: Comments
+    token_count: 239
+  - id: "social-intelligence/reddit-deep/povertyfinance/1r3bcax.md#c6"
+    char_span: [8368, 10358]
+    sentence_count: 19
+    key_terms: [financial, read, change, money, take, psychology, themselves, maintain]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/povertyfinance/1r3bcax.md#c7"
+    char_span: [10360, 11326]
+    sentence_count: 9
+    key_terms: [hardship, interest, agree, being, "don't", debt, everything, insecurity]
+    section: Comments
+    token_count: 220
 ---
-
 # My partner is bad at finances and is refusing to acknowledge any suggestions I make to better things What do I do?
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1r3bcax/my_partner_is_bad_at_finances_and_is_refusing_to/)

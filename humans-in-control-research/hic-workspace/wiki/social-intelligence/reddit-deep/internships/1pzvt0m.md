@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1pzvt0m.md
 url: "https://www.reddit.com/r/internships/comments/1pzvt0m/on_a_scale_of_1_to_10_how_cooked_am_i_if_i_havent/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,42 @@ subreddit: "internships"
 title: "On a scale of 1 to 10, how cooked am I if I haven't landed an internship at this point."
 author: "dew-spider"
 date: "2025-12-30T22:29:57.000Z"
-score: 28
-upvote_ratio: 1
+score: 26
+upvote_ratio: 0.97
 num_comments: 49
 flair: "General"
-extracted_at: "2026-05-26T14:30:47.904Z"
+extracted_at: "2026-06-05T23:41:05.417Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1pzvt0m.md#c0"
+    char_span: [0, 1705]
+    sentence_count: 12
+    key_terms: [internship, internships, interview, "i've", comments, because, cybersecurity, positions]
+    token_count: 386
+  - id: "social-intelligence/reddit-deep/internships/1pzvt0m.md#c1"
+    char_span: [1720, 3770]
+    sentence_count: 8
+    key_terms: [dew-spider, internship, companies, student, school, encouragement, get, got]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1pzvt0m.md#c2"
+    char_span: [3547, 4577]
+    sentence_count: 6
+    key_terms: [dew-spider, fuckedddupfr, fantastic-suit-6634, apply, offer, did, good, got]
+    section: Comments
+    token_count: 287
+  - id: "social-intelligence/reddit-deep/internships/1pzvt0m.md#c3"
+    char_span: [4579, 5525]
+    sentence_count: 6
+    key_terms: [dew-spider, analytics, specific, january, fiscal, "that's", apply, round-ocelot4129]
+    section: Comments
+    token_count: 255
 ---
-
 # On a scale of 1 to 10, how cooked am I if I haven't landed an internship at this point.
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1pzvt0m/on_a_scale_of_1_to_10_how_cooked_am_i_if_i_havent/)
-Posted by **dew-spider** · **28↑** · **49 comments**
+Posted by **dew-spider** · **26↑** · **49 comments**
 
 Hey guys! I am a junior Computer Information Systems major with a minor in Cybersecurity, and I've been applying for Summer 2026 internships since late September. I've applied to well over 100 positions in networking, IT support, cybersecurity, and other IT positions. I've managed to land one online interview which will happen later this week but everything else is just crickets chirping.
 
@@ -34,7 +58,7 @@ EDIT: As of March 3rd, I now have an internship! Thank you to everyone who wrote
   - **dew-spider** (2↑): thank you so much for the encouragement, this makes me feel a little bit better about my current situation. crossing my fingers that these companies will start getting back to me when things start picking back up.
     - **dinidusam** (2↑): You got this sista'. I heard best time to apply is January to February so just put most of your focus on that and hopefully you get something!!
   - **kirstynloftus** (2↑): Yeah I didn’t sign the offer letter for my most recent summer internship til April
-- **FriendlyAppearance60** (8↑): u can be cooked even with an internship😭
+- **FriendlyAppearance60** (9↑): u can be cooked even with an internship😭
   - **dew-spider** (1↑): ok but like, I wanna be as least cooked as possible if you know what i'm saying haha. an internship gives me at least a fighting chance
 - **tmest67** (6↑): Companies hire right up until the summer, don’t give up hope. Also I would recommend trying to get an IT position at the school you attend, they often times have student support specialist positions.
   - **dew-spider** (2↑): thank you for the encouragement, it means a lot!! as for applying to the IT department, my school does actually have student roles that I have looked into previously, but they open up at random times so for me its just a waiting game lol.

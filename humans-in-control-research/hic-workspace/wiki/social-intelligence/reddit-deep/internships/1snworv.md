@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1snworv.md
 url: "https://www.reddit.com/r/internships/comments/1snworv/year_1_mechatronics_engineering_student_seeking/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,27 @@ score: 2
 upvote_ratio: 1
 num_comments: 2
 flair: "General"
-extracted_at: "2026-05-25T18:31:15.452Z"
+extracted_at: "2026-06-06T13:03:30.731Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1snworv.md#c0"
+    char_span: [0, 2119]
+    sentence_count: 10
+    key_terms: [mechatronics, marketing, fall, projects, project, student, canada, co-op]
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/internships/1snworv.md#c1"
+    char_span: [2121, 2956]
+    sentence_count: 3
+    key_terms: [mechatronics, project, variety, doing, worth, deep, certifications, shallow-to-mid]
+    token_count: 186
+  - id: "social-intelligence/reddit-deep/internships/1snworv.md#c2"
+    char_span: [2971, 3529]
+    sentence_count: 2
+    key_terms: [projects, early, get, everything, interviews, freelance, hopefully, anything]
+    section: Comments
+    token_count: 148
 ---
-
 # Year 1 Mechatronics Engineering Student – Seeking advice for 2026 Fall Co-op in Canada
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1snworv/year_1_mechatronics_engineering_student_seeking/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1r7oyks.md
 url: "https://www.reddit.com/r/GenZ/comments/1r7oyks/are_you_saving_money_for_the_future_or_are_you/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,33 @@ flair: "Discussion"
 extracted_at: "2026-05-16T20:55:01.231Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1r7oyks.md#c0"
+    char_span: [0, 517]
+    sentence_count: 5
+    key_terms: [money, comments, "don't", ordinary-fish-9791, genz, "i'm", like, investments]
+    token_count: 137
+  - id: "social-intelligence/reddit-deep/genz/1r7oyks.md#c1"
+    char_span: [532, 661]
+    sentence_count: 1
+    key_terms: [discord, automoderator, nwe6js5rh9, clicking, server, https, did, here]
+    section: Comments
+    token_count: 41
+  - id: "social-intelligence/reddit-deep/genz/1r7oyks.md#c2"
+    char_span: [664, 2700]
+    sentence_count: 18
+    key_terms: [save, money, enjoy, pay, "don't", "i'm", rent, invest]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/genz/1r7oyks.md#c3"
+    char_span: [2459, 3641]
+    sentence_count: 5
+    key_terms: [save, mostly, saving, chemical-village-211, money, life, chickennugs4hugs, youchasechickens]
+    section: Comments
+    token_count: 312
 ---
-
 # Are you saving money for the future or are you enjoying your money now?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1r7oyks/are_you_saving_money_for_the_future_or_are_you/)

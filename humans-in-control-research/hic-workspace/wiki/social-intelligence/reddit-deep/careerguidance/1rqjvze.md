@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rqjvze.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rqjvze/need_career_advice_ai_startup_work_vs_informal/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,21 @@ score: 1
 upvote_ratio: 1
 num_comments: 0
 flair: ""
-extracted_at: "2026-05-20T12:56:27.152Z"
+extracted_at: "2026-06-03T00:56:03.938Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rqjvze.md#c0"
+    char_span: [0, 2319]
+    sentence_count: 17
+    key_terms: [internship, company, opportunity, bangalore, work, careerguidance, like, especially]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/careerguidance/1rqjvze.md#c1"
+    char_span: [2321, 3424]
+    sentence_count: 7
+    key_terms: [full-time, already, trainee, doing, perspective, path, work, bangalore]
+    token_count: 236
 ---
-
 # Need career advice: AI startup work vs informal internship opportunity at a big tech company in Bangalore?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rqjvze/need_career_advice_ai_startup_work_vs_informal/)

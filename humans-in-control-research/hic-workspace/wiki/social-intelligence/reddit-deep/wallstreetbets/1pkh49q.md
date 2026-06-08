@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1pkh49q.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1pkh49q/krmn_the_pickandshovel_space_play/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,53 @@ flair: "DD"
 extracted_at: "2026-05-17T01:14:17.613Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, manufacturing]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pkh49q.md#c0"
+    char_span: [0, 2186]
+    sentence_count: 11
+    key_terms: [karman, launch, company, missile, wallstreetbets, little-known, hypersonics, krmn]
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pkh49q.md#c1"
+    char_span: [2188, 3982]
+    sentence_count: 13
+    key_terms: [company, numbers, yoy, revenue, growth, karman, double-digit, don]
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pkh49q.md#c2"
+    char_span: [3984, 5780]
+    sentence_count: 5
+    key_terms: [karman-space-defense-reports-full-fiscal-year-2024-financial-results, krmn-the-pick-and-shovel-double-digit-growth-space-play-you-v0-dy38j9wc816g1, karman, https, png, defense, systems, businesswire]
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pkh49q.md#c3"
+    char_span: [5782, 8244]
+    sentence_count: 22
+    key_terms: [missile, karman, defense, systems, strategic, revenue, launch, new]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pkh49q.md#c4"
+    char_span: [8246, 10229]
+    sentence_count: 14
+    key_terms: [karman, launch, national-security, vulcan, payloads, rocket, commercial, components]
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pkh49q.md#c5"
+    char_span: [10244, 11790]
+    sentence_count: 15
+    key_terms: [mln, consensus, guidance, factset, alfrescodog, comments, revenues, deleted]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pkh49q.md#c6"
+    char_span: [11792, 13409]
+    sentence_count: 12
+    key_terms: [alfrescodog, krmn, deleted, ipo, supplier, bought, july, part]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pkh49q.md#c7"
+    char_span: [13411, 14997]
+    sentence_count: 9
+    key_terms: [krmn, alfrescodog, space, already, defense, related, spacex, sugarmagsjr]
+    section: Comments
+    token_count: 412
 ---
-
 # KRMN: The Pick-and-Shovel Space Play
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1pkh49q/krmn_the_pickandshovel_space_play/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1p0wz9w.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1p0wz9w/backend_software_engineer_in_oil_and_gas_long/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-20T12:57:40.623Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1p0wz9w.md#c0"
+    char_span: [0, 2116]
+    sentence_count: 19
+    key_terms: [company, work, backend, years, currently, cscareerquestions, database, engineer]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1p0wz9w.md#c1"
+    char_span: [2131, 4117]
+    sentence_count: 11
+    key_terms: [potentially, live, unless, asteroidtube, comfortably, city, mcol, pay]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1p0wz9w.md#c2"
+    char_span: [4119, 4769]
+    sentence_count: 8
+    key_terms: [retire, comfortably, meantime, enough, early, until, don, home]
+    section: Comments
+    token_count: 160
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1p0wz9w.md#c3"
+    char_span: [4771, 6541]
+    sentence_count: 12
+    key_terms: [company, traveling-techie, themselves, engineers, handcuffs, compared, beyond, making]
+    section: Comments
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1p0wz9w.md#c4"
+    char_span: [6543, 6877]
+    sentence_count: 2
+    key_terms: [razmussendaman, cluelessly, position, himself, mistake, wanting, around, career]
+    section: Comments
+    token_count: 93
 ---
-
 # Backend software engineer in oil and gas, long term career advice needed
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1p0wz9w/backend_software_engineer_in_oil_and_gas_long/)

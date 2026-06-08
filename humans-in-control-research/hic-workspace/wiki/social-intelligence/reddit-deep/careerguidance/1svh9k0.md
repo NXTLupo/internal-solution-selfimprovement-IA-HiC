@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1svh9k0.md
 url: "https://www.reddit.com/r/careerguidance/comments/1svh9k0/i_have_a_diagnosed_low_iq_what_career_path_can_i/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,93 @@ flair: "Advice"
 extracted_at: "2026-05-25T18:32:57.382Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c0"
+    char_span: [0, 1231]
+    sentence_count: 12
+    key_terms: [assessment, average, careerguidance, functioning, comments, autism, career, tested]
+    token_count: 304
+  - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c1"
+    char_span: [1246, 3118]
+    sentence_count: 7
+    key_terms: [intelligence, sometimes, "couldn't", career, cousin, people, tested, imaginary-badger-119]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c2"
+    char_span: [3120, 4697]
+    sentence_count: 13
+    key_terms: [different, low, enough, find, processing, reasoning, something, spatial]
+    section: Comments
+    token_count: 366
+  - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c3"
+    char_span: [4699, 6842]
+    sentence_count: 16
+    key_terms: [test, people, intelligence, end, find, try, successful, ability]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c4"
+    char_span: [6844, 8500]
+    sentence_count: 10
+    key_terms: [test, tested, understand, bullshit, because, written, around, "didn't"]
+    section: Comments
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c5"
+    char_span: [8502, 10586]
+    sentence_count: 16
+    key_terms: [tests, intelligence, people, test, missing-the-sun, measure, word, language]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c6"
+    char_span: [10588, 11741]
+    sentence_count: 9
+    key_terms: [skill, find, help, test, student, skills, areas, focus]
+    section: Comments
+    token_count: 246
+  - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c7"
+    char_span: [11743, 13996]
+    sentence_count: 17
+    key_terms: [intelligence, people, employability, doing, tests, different, strengths, practice]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c8"
+    char_span: [13743, 14026]
+    sentence_count: 3
+    key_terms: [fragrant-airport1309, underprepared, intelligence, something, bullshit, patterns, careers, certain]
+    section: Comments
+    token_count: 70
+  - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c9"
+    char_span: [14028, 16090]
+    sentence_count: 17
+    key_terms: [ability, skills, "you're", psychiatrist, learn, communicate, like, want]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c10"
+    char_span: [16093, 17335]
+    sentence_count: 13
+    key_terms: [people, repulsive-resist-456, "don't", write, don, like, need, own]
+    section: Comments
+    token_count: 298
+  - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c11"
+    char_span: [17337, 19347]
+    sentence_count: 23
+    key_terms: [psychiatrist, great, work, diagnoses, yourself, autism, target, lying]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c12"
+    char_span: [19349, 21470]
+    sentence_count: 23
+    key_terms: [good, important, family, people, find, love, friends, intelligence]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c13"
+    char_span: [21472, 22073]
+    sentence_count: 3
+    key_terms: [avg, melloyello-1577, intelligence, standardised, standardized, considered, assertion, potential]
+    section: Comments
+    token_count: 144
 ---
-
 # I have a diagnosed low IQ. What career path can I take?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1svh9k0/i_have_a_diagnosed_low_iq_what_career_path_can_i/)

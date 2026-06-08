@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1t4ielq.md
 url: "https://www.reddit.com/r/GradSchool/comments/1t4ielq/anyone_else_use_a_gaming_console_to_unplug_after/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,57 @@ flair: "Health & Work/Life Balance"
 extracted_at: "2026-05-23T20:15:44.986Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1t4ielq.md#c0"
+    char_span: [0, 1006]
+    sentence_count: 7
+    key_terms: [research, series, gradschool, comments, console, energy, gaming, unplug]
+    token_count: 247
+  - id: "social-intelligence/reddit-deep/gradschool/1t4ielq.md#c1"
+    char_span: [1021, 2844]
+    sentence_count: 13
+    key_terms: [games, console, minecraft, lot, honest, laptop, people, school]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/gradschool/1t4ielq.md#c2"
+    char_span: [2846, 4872]
+    sentence_count: 16
+    key_terms: [games, like, video, game, want, interested, something, gamepass]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/gradschool/1t4ielq.md#c3"
+    char_span: [4874, 7009]
+    sentence_count: 20
+    key_terms: [little, game, like, build-and-run-your-own-theme-park, mechanically, house, nightmares, overcooked]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/gradschool/1t4ielq.md#c4"
+    char_span: [7011, 8948]
+    sentence_count: 13
+    key_terms: [absolutely, simulator, like, game, goat, "it's", friends, nothing]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/gradschool/1t4ielq.md#c5"
+    char_span: [8950, 10082]
+    sentence_count: 6
+    key_terms: [games, like, competitive, overcooked, shooters, run, multiplayers, battlefield]
+    section: Comments
+    token_count: 252
+  - id: "social-intelligence/reddit-deep/gradschool/1t4ielq.md#c6"
+    char_span: [10085, 12108]
+    sentence_count: 10
+    key_terms: [games, switch, like, xbox, recommendations, indie, been, good]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/gradschool/1t4ielq.md#c7"
+    char_span: [12110, 12866]
+    sentence_count: 4
+    key_terms: [whether, myself, doing, "it's", xbox, distraction, responsible, considered]
+    section: Comments
+    token_count: 163
 ---
-
 # Anyone else use a gaming console to "unplug" after research? Is a Series S enough?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1t4ielq/anyone_else_use_a_gaming_console_to_unplug_after/)

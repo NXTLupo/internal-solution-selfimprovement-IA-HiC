@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1l5dp4b.md
 url: "https://www.reddit.com/r/managers/comments/1l5dp4b/the_modern_office_day/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,64 @@ flair: ""
 extracted_at: "2026-05-26T12:54:23.685Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1l5dp4b.md#c0"
+    char_span: [0, 1692]
+    sentence_count: 27
+    key_terms: [someone, back, comments, managers, remember, because, missing, around]
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/managers/1l5dp4b.md#c1"
+    char_span: [1694, 3646]
+    sentence_count: 33
+    key_terms: [everyone, dashboard, meeting, expectations, aren, says, everything, leadership]
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/managers/1l5dp4b.md#c2"
+    char_span: [3648, 5511]
+    sentence_count: 32
+    key_terms: [meeting, try, slide, call, granola, minutes, through, emails]
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/managers/1l5dp4b.md#c3"
+    char_span: [5513, 7330]
+    sentence_count: 37
+    key_terms: [meeting, doc, don, something, everyone, nothing, someone, version]
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/managers/1l5dp4b.md#c4"
+    char_span: [7332, 9124]
+    sentence_count: 36
+    key_terms: [tomorrow, someone, don, like, already, dinner, laptop, close]
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/managers/1l5dp4b.md#c5"
+    char_span: [9126, 9983]
+    sentence_count: 13
+    key_terms: [satire, greg, like, return-to-office, announcements, suspiciously, dashboards, mid-shower]
+    token_count: 198
+  - id: "social-intelligence/reddit-deep/managers/1l5dp4b.md#c6"
+    char_span: [9998, 11733]
+    sentence_count: 11
+    key_terms: [politicus-8080, meetings, like, accurate, journal, itself, people, beneficial-walrus680]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/managers/1l5dp4b.md#c7"
+    char_span: [11735, 12358]
+    sentence_count: 5
+    key_terms: [scheduling, gutters, people, stop, "rorschach's", assistant, recurring, attendee]
+    section: Comments
+    token_count: 152
+  - id: "social-intelligence/reddit-deep/managers/1l5dp4b.md#c8"
+    char_span: [12360, 13718]
+    sentence_count: 13
+    key_terms: [royal-finding-3886, loss, ticket, sorry, thank, through, closed, hour]
+    section: Comments
+    token_count: 380
+  - id: "social-intelligence/reddit-deep/managers/1l5dp4b.md#c9"
+    char_span: [13720, 15669]
+    sentence_count: 11
+    key_terms: [politicus-8080, beekeeper, corporate, everyone, progress, because, nothing, guess]
+    section: Comments
+    token_count: 470
 ---
-
 # The Modern Office Day
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1l5dp4b/the_modern_office_day/)

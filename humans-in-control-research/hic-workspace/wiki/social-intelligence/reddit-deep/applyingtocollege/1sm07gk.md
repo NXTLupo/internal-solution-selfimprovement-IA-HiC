@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1sm07gk.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1sm07gk/torn_between_ucla_and_umich_for_econ_data_science/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -10,11 +11,34 @@ score: 1
 upvote_ratio: 0.6
 num_comments: 31
 flair: "College Questions"
-extracted_at: "2026-05-23T12:15:36.232Z"
+extracted_at: "2026-06-03T02:22:51.262Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sm07gk.md#c0"
+    char_span: [0, 2150]
+    sentence_count: 12
+    key_terms: [ucla, umich, applyingtocollege, data, opportunities, heard, conditional, perspective]
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sm07gk.md#c1"
+    char_span: [2165, 3031]
+    sentence_count: 8
+    key_terms: [bballfan1183, college, thatswhaturmomsaid69, like, ucla, competitive, attendance, personally]
+    section: Comments
+    token_count: 238
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sm07gk.md#c2"
+    char_span: [3033, 5049]
+    sentence_count: 8
+    key_terms: [conditional, umich, ucla, college, detroit, logan, never, offer]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sm07gk.md#c3"
+    char_span: [4808, 6257]
+    sentence_count: 2
+    key_terms: [ucla, consulting, anything, honestly, michigan, already, overall, private]
+    section: Comments
+    token_count: 345
 ---
-
 # Torn between UCLA and UMich for Econ + Data Science… need advice 😭
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1sm07gk/torn_between_ucla_and_umich_for_econ_data_science/)
@@ -70,7 +94,7 @@ Would really appreciate any honest takes, especially from people at either schoo
 
 ## Comments
 
-- **WhiteLotus_1776** (5↑): Sounds like you might be left with NOTHING if you pick UCLA and don’t meet the condition …. Is it worth that risk to you?
+- **WhiteLotus_1776** (4↑): Sounds like you might be left with NOTHING if you pick UCLA and don’t meet the condition …. Is it worth that risk to you?
 
 Personally, I’d go with UMich
   - **Admirable_Worker_503** (1↑): That’s why I wanted to know if the UCLA admission contract is really that serious

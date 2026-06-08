@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tf50uz.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tf50uz/career_suggestions_if_only_pay_and_job_market_are/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-23T14:54:05.573Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tf50uz.md#c0"
+    char_span: [0, 1230]
+    sentence_count: 8
+    key_terms: [possible, careerguidance, "i'm", job, comments, nursing, aware, money]
+    token_count: 273
+  - id: "social-intelligence/reddit-deep/careerguidance/1tf50uz.md#c1"
+    char_span: [1245, 3272]
+    sentence_count: 18
+    key_terms: [nursing, pay, twinb-theniceone, rushing, people, nurse, right, years]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/careerguidance/1tf50uz.md#c2"
+    char_span: [3274, 5631]
+    sentence_count: 15
+    key_terms: [nursing, software, people, because, market, years, overnight, shortage]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/careerguidance/1tf50uz.md#c3"
+    char_span: [5633, 7110]
+    sentence_count: 4
+    key_terms: [nursing, overtime, classes, regular, without, doctor, insane, nurses]
+    section: Comments
+    token_count: 348
 ---
-
 # Career suggestions if only pay and job market are taken into account?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tf50uz/career_suggestions_if_only_pay_and_job_market_are/)

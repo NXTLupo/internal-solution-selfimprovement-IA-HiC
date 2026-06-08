@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1mq7b8o.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1mq7b8o/how_to_maximize_a_guest_facilitation_opportunity/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-23T12:16:24.342Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mq7b8o.md#c0"
+    char_span: [0, 811]
+    sentence_count: 4
+    key_terms: [cscareerquestions, career, facilitation, opportunity, audience, comments, speaking, session]
+    token_count: 181
 ---
-
 # How to Maximize a Guest Facilitation Opportunity for Career Growth in Tech?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1mq7b8o/how_to_maximize_a_guest_facilitation_opportunity/)

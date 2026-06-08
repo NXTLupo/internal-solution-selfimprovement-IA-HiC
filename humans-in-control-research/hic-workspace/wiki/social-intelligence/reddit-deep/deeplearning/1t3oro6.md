@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1t3oro6.md
 url: "https://www.reddit.com/r/deeplearning/comments/1t3oro6/can_synthetic_pretraining_improve_reasoning_in/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.051Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1t3oro6.md#c0"
+    char_span: [0, 1611]
+    sentence_count: 12
+    key_terms: [enhancing-reasoning-small-language-models, https, model, matteosaponati, deeplearning, com, data, generator]
+    token_count: 418
 ---
-
 # Can synthetic pretraining improve reasoning in very small (<1B) models? Yes.
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1t3oro6/can_synthetic_pretraining_improve_reasoning_in/)

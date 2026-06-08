@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1pqbdg6.md
 url: "https://www.reddit.com/r/NEU/comments/1pqbdg6/navigating_the_fulltime_sde_search_as_a_dec_2025/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,32 @@ flair: "Co-op & Career"
 extracted_at: "2026-05-18T13:18:36.384Z"
 extraction_method: "praw-deep"
 research_goal: "Generate a slide-ready consulting report for NXT Humans, structured as an Executive Summary, Meeting Guardrails and Validation Criteria, Ideas to Retire or Reframe, Five CLR-Dependent Recommendations, Five Non-CLR Recommendations, Recommended Prioritization, and Suggested Next Steps for NXT Humans. This report must present 10 practical, AI-enabled recommendations for Northeastern University's first-year students to improve co-op and experiential learning readiness. Five recommendations must leverage CLR data and infrastructure, and five must be valuable independently of CLR. Each recommendation requires a title, description, rationale for first-year students and co-op readiness, explanation of CLR dependency/independence, execution within Northeastern's existing experiential learning stack, integration with Microsoft Copilot/365/Teams/SharePoint/Power Automate/Power BI for cost reduction, key stakeholders, implementation steps, risks, and explicit validation against Liz and Jen’s guardrails (cost containment, Microsoft ecosystem, no new platforms, advisor/student burden, AI-enabled, practical). The report should also summarize Liz and Jen’s priorities and non-starters, core design principles, and previous NXT Humans ideas to retire or reframe. Output the #recommendations #NU in this format, including tables comparing implementation complexity, student impact, Microsoft/Copilot fit, dependency, stakeholder burden, and strategic alignment."
+industries: [higher_ed, workforce, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1pqbdg6.md#c0"
+    char_span: [0, 2403]
+    sentence_count: 21
+    key_terms: [companies, job, problems, worked, applications, graph, sponsorship, like]
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/neu/1pqbdg6.md#c1"
+    char_span: [2405, 2833]
+    sentence_count: 4
+    key_terms: [let, png, international, kihrn1w4438g1, sponsorship, discourage, important, naturally]
+    token_count: 117
+  - id: "social-intelligence/reddit-deep/neu/1pqbdg6.md#c2"
+    char_span: [2848, 4859]
+    sentence_count: 22
+    key_terms: [applications, companies, applying, startups, company, navneetjoshi7, interviews, callbacks]
+    section: Comments
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/neu/1pqbdg6.md#c3"
+    char_span: [4861, 5825]
+    sentence_count: 11
+    key_terms: [internship, genuinely, projects, people, particular-quote3369, darthvalarmorghulis, coop, send]
+    section: Comments
+    token_count: 240
 ---
-
 # Navigating the full-time SDE search as a Dec 2025 MS grad - my story and what worked
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1pqbdg6/navigating_the_fulltime_sde_search_as_a_dec_2025/)

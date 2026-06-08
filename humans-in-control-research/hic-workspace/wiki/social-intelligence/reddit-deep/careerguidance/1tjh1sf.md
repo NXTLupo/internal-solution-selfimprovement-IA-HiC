@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tjh1sf.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tjh1sf/which_career_path_should_i_actively_working/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,25 @@ flair: "Advice"
 extracted_at: "2026-05-23T19:45:11.368Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tjh1sf.md#c0"
+    char_span: [0, 1709]
+    sentence_count: 14
+    key_terms: [science, "it's", "i'm", like, tech, careerguidance, path, impossible]
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/careerguidance/1tjh1sf.md#c1"
+    char_span: [1711, 3519]
+    sentence_count: 22
+    key_terms: ["it's", like, exam, "i'll", "there's", here, consulting, genetics]
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/careerguidance/1tjh1sf.md#c2"
+    char_span: [3521, 4765]
+    sentence_count: 17
+    key_terms: [good, "i'd", mbbs, want, residency, lawyer, physician-researcher, match]
+    token_count: 317
 ---
-
 # Which career path should I actively working towards?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tjh1sf/which_career_path_should_i_actively_working/)

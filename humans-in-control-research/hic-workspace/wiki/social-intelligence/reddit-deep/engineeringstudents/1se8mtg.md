@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1se8mtg.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1se8mtg/advice_for_engineering_student/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Career Help"
 extracted_at: "2026-05-23T20:15:19.044Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1se8mtg.md#c0"
+    char_span: [0, 1290]
+    sentence_count: 10
+    key_terms: [embedded, engineering, engineeringstudents, robotics, student, mechatronics, comments, learning]
+    token_count: 302
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1se8mtg.md#c1"
+    char_span: [1305, 1936]
+    sentence_count: 4
+    key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
+    section: Comments
+    token_count: 149
 ---
-
 # Advice for Engineering Student
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1se8mtg/advice_for_engineering_student/)

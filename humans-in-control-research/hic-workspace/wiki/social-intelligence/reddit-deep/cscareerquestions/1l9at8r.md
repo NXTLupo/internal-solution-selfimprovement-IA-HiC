@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1l9at8r/is_it_just_me_or_is_coding_amateur_projects/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,69 @@ flair: "Student"
 extracted_at: "2026-05-23T12:16:24.384Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c0"
+    char_span: [0, 1298]
+    sentence_count: 10
+    key_terms: [cscareerquestions, project, "i've", comments, projects, working, coding, trying]
+    token_count: 283
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c1"
+    char_span: [1313, 2896]
+    sentence_count: 8
+    key_terms: [projects, hobby, big, business, software, tech, learn, work]
+    section: Comments
+    token_count: 421
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c2"
+    char_span: [2898, 5043]
+    sentence_count: 16
+    key_terms: [projects, hobby, learn, big, tech, part, language, people]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c3"
+    char_span: [5045, 6828]
+    sentence_count: 10
+    key_terms: [big, tech, like, working, part, another, people, being]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c4"
+    char_span: [6830, 8957]
+    sentence_count: 14
+    key_terms: [experience, ship, cargo, big, get, "it's", need, microsoft]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c5"
+    char_span: [8959, 10772]
+    sentence_count: 6
+    key_terms: [project, like, projects, big, "i'm", real, decision, internal]
+    section: Comments
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c6"
+    char_span: [10774, 12877]
+    sentence_count: 8
+    key_terms: [project, personal, real, requirements, scale, business, testing, people]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c7"
+    char_span: [12879, 14054]
+    sentence_count: 4
+    key_terms: [cscareerquestions, comments, web3xcss, comment, reddit, https, share, web3x]
+    section: Comments
+    token_count: 306
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c8"
+    char_span: [14056, 16106]
+    sentence_count: 13
+    key_terms: [experience, like, enterprise, projects, working, hobby, different, building]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l9at8r.md#c9"
+    char_span: [16108, 16377]
+    sentence_count: 3
+    key_terms: [tooling, used, experience, internship, engineers, advanced, octocode, overkill]
+    section: Comments
+    token_count: 69
 ---
-
 # Is it just me or is coding amateur projects entirely different from working in big tech?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1l9at8r/is_it_just_me_or_is_coding_amateur_projects/)

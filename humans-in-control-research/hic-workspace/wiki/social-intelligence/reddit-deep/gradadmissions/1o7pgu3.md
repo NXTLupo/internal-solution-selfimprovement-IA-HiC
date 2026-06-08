@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1o7pgu3.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1o7pgu3/is_it_worth_reapplying_to_grad_school_with/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,21 @@ flair: "Social Sciences"
 extracted_at: "2026-05-20T03:56:10.769Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1o7pgu3.md#c0"
+    char_span: [0, 1239]
+    sentence_count: 10
+    key_terms: [psychology, clinical, research, experience, gradadmissions, though, comments, dementia]
+    token_count: 256
+  - id: "social-intelligence/reddit-deep/gradadmissions/1o7pgu3.md#c1"
+    char_span: [1254, 1991]
+    sentence_count: 3
+    key_terms: [research, perspectives, worked, multidisciplinary, sop, frostluna11037, understanding, experiences]
+    section: Comments
+    token_count: 158
 ---
-
 # Is it worth reapplying to grad school with research experience in a different area?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1o7pgu3/is_it_worth_reapplying_to_grad_school_with/)

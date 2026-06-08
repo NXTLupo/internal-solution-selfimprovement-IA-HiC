@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1t9syr8.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1t9syr8/recently_learned_that_the_head_of_my_program_was/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,21 @@ flair: "Interpersonal Issues"
 extracted_at: "2026-05-26T14:32:49.123Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1t9syr8.md#c0"
+    char_span: [0, 2266]
+    sentence_count: 18
+    key_terms: [program, college, askacademia, conferences, been, sure, prospects, comments]
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/askacademia/1t9syr8.md#c1"
+    char_span: [2281, 3733]
+    sentence_count: 18
+    key_terms: [yourself, recommendation, "don't", conferences, networking, already, travel, academiathrow5371]
+    section: Comments
+    token_count: 333
 ---
-
 # Recently learned that the head of my program was indicted on SA charges while at his previous institution, not sure how to proceed
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1t9syr8/recently_learned_that_the_head_of_my_program_was/)

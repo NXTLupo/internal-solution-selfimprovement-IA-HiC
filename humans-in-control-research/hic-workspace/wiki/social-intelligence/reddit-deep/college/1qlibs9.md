@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1qlibs9.md
 url: "https://www.reddit.com/r/college/comments/1qlibs9/be_honest_with_me_do_you_regret_your_student_loans/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,39 @@ flair: "Finances/financial aid"
 extracted_at: "2026-05-26T14:31:29.696Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1qlibs9.md#c0"
+    char_span: [0, 1510]
+    sentence_count: 14
+    key_terms: [college, student, loans, comments, little, regret, taking, illustrious-mango536]
+    token_count: 357
+  - id: "social-intelligence/reddit-deep/college/1qlibs9.md#c1"
+    char_span: [1525, 3412]
+    sentence_count: 13
+    key_terms: [education, loans, howlingfantods5564, college, "don't", get, loan, pay]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/college/1qlibs9.md#c2"
+    char_span: [3414, 4456]
+    sentence_count: 6
+    key_terms: [debt, loans, part-time, possible, college, student, campus, people]
+    section: Comments
+    token_count: 260
+  - id: "social-intelligence/reddit-deep/college/1qlibs9.md#c3"
+    char_span: [4458, 6563]
+    sentence_count: 14
+    key_terms: [loans, student, year, total, high, loan, take, wasn]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1qlibs9.md#c4"
+    char_span: [6329, 7823]
+    sentence_count: 14
+    key_terms: [college, years, degree, regret, school, loans, debt, student]
+    section: Comments
+    token_count: 364
 ---
-
 # Be honest with me, Do you regret your student loans?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1qlibs9/be_honest_with_me_do_you_regret_your_student_loans/)

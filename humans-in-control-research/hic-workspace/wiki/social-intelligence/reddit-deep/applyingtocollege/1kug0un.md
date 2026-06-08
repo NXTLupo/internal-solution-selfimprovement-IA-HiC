@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1kug0un.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1kug0un/just_got_off_johns_hopkins_waitlist_yesterday/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,38 @@ flair: "College Questions"
 extracted_at: "2026-05-23T12:15:36.231Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1kug0un.md#c0"
+    char_span: [0, 1617]
+    sentence_count: 12
+    key_terms: [hopkins, med, school, applyingtocollege, amazing, education, comments, waitlist]
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1kug0un.md#c1"
+    char_span: [1619, 3091]
+    sentence_count: 1
+    key_terms: [med, school, undergrad, prestige, college, campus, mostly, tennis]
+    token_count: 338
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1kug0un.md#c2"
+    char_span: [3106, 4780]
+    sentence_count: 12
+    key_terms: [applyingtocollege, school, jhu, med, probably, notyourtype9645, great, get]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1kug0un.md#c3"
+    char_span: [4782, 6702]
+    sentence_count: 14
+    key_terms: [med, school, guaranteed, worldwidemonopoly, "doesn't", program, people, hard]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1kug0un.md#c4"
+    char_span: [6704, 7576]
+    sentence_count: 7
+    key_terms: [guaranteed, med, school, interviews, down, jhu, actionjackzon, prestigious]
+    section: Comments
+    token_count: 211
 ---
-
 # Just got off Johns Hopkins waitlist yesterday. What should I do?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1kug0un/just_got_off_johns_hopkins_waitlist_yesterday/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/b7caba83df.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1p0wz9w/backend_software_engineer_in_oil_and_gas_long/"
 url_hash: "b7caba83df"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T13:02:31.102162+00:00"
 chars: 3608
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/b7caba83df.md#c0"
+    char_span: [0, 2062]
+    sentence_count: 19
+    key_terms: [company, work, backend, years, currently, cscareerquestions, database, engineer]
+    token_count: 487
+  - id: "articles/reddit-deep-r-cscareerquestions/b7caba83df.md#c1"
+    char_span: [2064, 3838]
+    sentence_count: 11
+    key_terms: [live, unless, comfortably, potentially, city, mcol, pay, retirement]
+    token_count: 435
 ---
-
 # Backend software engineer in oil and gas, long term career advice needed
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1p0wz9w/backend_software_engineer_in_oil_and_gas_long/)

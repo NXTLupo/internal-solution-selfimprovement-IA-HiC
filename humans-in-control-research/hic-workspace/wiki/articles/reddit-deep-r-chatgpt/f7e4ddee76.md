@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-chatgpt/f7e4ddee76.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1mn7kkl/chatgpt_5_is_dumb_af/"
 url_hash: "f7e4ddee76"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:23:56.023742+00:00"
 chars: 4545
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-chatgpt/f7e4ddee76.md#c0"
+    char_span: [0, 1917]
+    sentence_count: 11
+    key_terms: [chatgpt, claude, conversation, image, fail, "it's", like, post]
+    token_count: 483
+  - id: "articles/reddit-deep-r-chatgpt/f7e4ddee76.md#c1"
+    char_span: [1919, 3044]
+    sentence_count: 8
+    key_terms: [summaries, r-chatgpt-1050422060352024636, concerns, discord, meeting, output, random, trying]
+    token_count: 269
+  - id: "articles/reddit-deep-r-chatgpt/f7e4ddee76.md#c2"
+    char_span: [3046, 4678]
+    sentence_count: 10
+    key_terms: [asking, give, "it's", like, instead, altruistic-slide-512, times, civilizedpsycho224]
+    token_count: 380
 ---
-
 # Chatgpt 5 is Dumb AF
 
 Source: [Reddit Deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1mn7kkl/chatgpt_5_is_dumb_af/)

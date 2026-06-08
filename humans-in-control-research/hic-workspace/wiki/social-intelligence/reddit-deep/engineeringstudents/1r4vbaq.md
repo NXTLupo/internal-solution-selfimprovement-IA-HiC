@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1r4vbaq.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1r4vbaq/posting_here_because_our_reddit_is_like_almost/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Career Help"
 extracted_at: "2026-05-23T19:44:57.159Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r4vbaq.md#c0"
+    char_span: [0, 370]
+    sentence_count: 3
+    key_terms: [engineeringstudents, comments, reddit, solidride5853, engineering, reddit-deep, experience, internship]
+    token_count: 93
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r4vbaq.md#c1"
+    char_span: [385, 1019]
+    sentence_count: 4
+    key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
+    section: Comments
+    token_count: 149
 ---
-
 # Posting here because our reddit is like almost dead. Internship without any experience in Mechanical Engineering but good WAM.
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1r4vbaq/posting_here_because_our_reddit_is_like_almost/)

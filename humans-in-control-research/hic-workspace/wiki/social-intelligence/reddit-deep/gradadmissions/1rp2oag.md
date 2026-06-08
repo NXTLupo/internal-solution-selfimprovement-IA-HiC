@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1rp2oag.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rp2oag/mit_or_berkeley_for_eecs/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,33 @@ flair: "Engineering"
 extracted_at: "2026-05-23T12:15:55.843Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rp2oag.md#c0"
+    char_span: [0, 2168]
+    sentence_count: 10
+    key_terms: [lab, current, new, berkeley, advisor, gradadmissions, perspectives, established]
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rp2oag.md#c1"
+    char_span: [2183, 3523]
+    sentence_count: 7
+    key_terms: [berkeley, advisor, funding, bay, here, students, school, though]
+    section: Comments
+    token_count: 289
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rp2oag.md#c2"
+    char_span: [3525, 5543]
+    sentence_count: 11
+    key_terms: [mit, beyond, berkeley, happy, stats, did, here, "i'm"]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rp2oag.md#c3"
+    char_span: [5291, 5708]
+    sentence_count: 3
+    key_terms: ["i'm", mit, seems, americanidiot3342, notification, anecdotally, application, barkpatrol]
+    section: Comments
+    token_count: 108
 ---
-
 # MIT or Berkeley for EECS
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rp2oag/mit_or_berkeley_for_eecs/)

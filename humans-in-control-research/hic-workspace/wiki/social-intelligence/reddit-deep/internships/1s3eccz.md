@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1s3eccz.md
 url: "https://www.reddit.com/r/internships/comments/1s3eccz/looking_for_ml_data_science_internship/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "General"
 extracted_at: "2026-05-25T15:51:38.716Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1s3eccz.md#c0"
+    char_span: [0, 897]
+    sentence_count: 4
+    key_terms: [opportunities, internships, science, data, internship, comments, looking, student]
+    token_count: 206
+  - id: "social-intelligence/reddit-deep/internships/1s3eccz.md#c1"
+    char_span: [912, 1113]
+    sentence_count: 1
+    key_terms: [okcranberry7013, interveiws, anything, getting, gunuine, looking, bubble, people]
+    section: Comments
+    token_count: 68
 ---
-
 # Looking for ML / Data Science Internship Opportunities (4th year BCA Hons Student)
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1s3eccz/looking_for_ml_data_science_internship/)

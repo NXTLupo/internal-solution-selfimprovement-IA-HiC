@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1q5wqba.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1q5wqba/sandisk_27_western_digital_16_seagate_14_micron/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,74 @@ flair: "News"
 extracted_at: "2026-05-17T01:14:17.602Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, enterprise_it, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1q5wqba.md#c0"
+    char_span: [0, 1886]
+    sentence_count: 5
+    key_terms: [storage, sandi***REDACTED-KEY***, memory, comments, market, digital, wallstreetbets, nvidia]
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1q5wqba.md#c1"
+    char_span: [1888, 3092]
+    sentence_count: 2
+    key_terms: [png, preview, format, https, width, auto, redd, webp]
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1q5wqba.md#c2"
+    char_span: [3107, 3546]
+    sentence_count: 1
+    key_terms: [discord, months, total, wsb, opportunities, submissions, employment, briballdo]
+    section: Comments
+    token_count: 135
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1q5wqba.md#c3"
+    char_span: [3550, 5317]
+    sentence_count: 9
+    key_terms: [bottleneck, business, profits, better, energy, humans, memory, almostsunnyinseattle]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1q5wqba.md#c4"
+    char_span: [5086, 5549]
+    sentence_count: 3
+    key_terms: [profits, energy, econmajorhere, brambletail, bottleneck, investment, personally, companies]
+    section: Comments
+    token_count: 111
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1q5wqba.md#c5"
+    char_span: [5551, 6995]
+    sentence_count: 11
+    key_terms: [data, probably, energy, making, silver, temporaryinformal889, right, steel]
+    section: Comments
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1q5wqba.md#c6"
+    char_span: [6997, 8956]
+    sentence_count: 9
+    key_terms: [storage, data, center, speed, bottleneck, generation, centers, profits]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1q5wqba.md#c7"
+    char_span: [8724, 9618]
+    sentence_count: 4
+    key_terms: [callsonreddit, storage, costs, gpus, move, foxpandawombat, charmander787, connectivity]
+    section: Comments
+    token_count: 269
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1q5wqba.md#c8"
+    char_span: [9620, 10221]
+    sentence_count: 2
+    key_terms: [bro, callsonreddit, effectivelong, francisbitter, kklonewolfkin, proclamation, components, gradually]
+    section: Comments
+    token_count: 174
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1q5wqba.md#c9"
+    char_span: [10223, 11536]
+    sentence_count: 8
+    key_terms: [sndk, enterprise, jamesrggg, hardware, shortage, bought, micron, individual-motor-167]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1q5wqba.md#c10"
+    char_span: [11538, 12740]
+    sentence_count: 7
+    key_terms: [homework, reach, stock, years, stretchantique9147, been, get, last]
+    section: Comments
+    token_count: 332
 ---
-
 # Sandisk +27%, Western Digital +16%, Seagate +14%, Micron +10% after Nvidia CEO touts AI storage demand
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1q5wqba/sandisk_27_western_digital_16_seagate_14_micron/)

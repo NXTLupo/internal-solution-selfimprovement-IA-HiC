@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1sfv60j.md
 url: "https://www.reddit.com/r/GradSchool/comments/1sfv60j/is_34_too_old_for_graduate_school_if_you_started/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.338Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1sfv60j.md#c0"
+    char_span: [0, 1509]
+    sentence_count: 12
+    key_terms: [school, years, time, graduate, career, going, full, experience]
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/gradschool/1sfv60j.md#c1"
+    char_span: [1524, 3404]
+    sentence_count: 15
+    key_terms: [time, entertainerfree9654, "i'm", school, going, old, pass, graduate]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/gradschool/1sfv60j.md#c2"
+    char_span: [3406, 4782]
+    sentence_count: 10
+    key_terms: [school, congrats, "direct-from-my-master's", program, working, cohort, years, realistic-age9085]
+    section: Comments
+    token_count: 348
+  - id: "social-intelligence/reddit-deep/gradschool/1sfv60j.md#c3"
+    char_span: [4784, 6665]
+    sentence_count: 11
+    key_terms: [phd, started, finished, programs, backoutside1, done, "i've", work]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/gradschool/1sfv60j.md#c4"
+    char_span: [6667, 8430]
+    sentence_count: 14
+    key_terms: [phd, work, school, often, time, research, started, being]
+    section: Comments
+    token_count: 426
 ---
-
 # Is 34 too old for graduate school? If you started in your early-mid 30s, what’s been your experience?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1sfv60j/is_34_too_old_for_graduate_school_if_you_started/)

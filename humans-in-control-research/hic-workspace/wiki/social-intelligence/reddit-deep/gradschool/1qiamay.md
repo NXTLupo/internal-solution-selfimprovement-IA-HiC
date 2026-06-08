@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1qiamay.md
 url: "https://www.reddit.com/r/GradSchool/comments/1qiamay/how_important_has_school_spirit_been_to_your/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.131Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1qiamay.md#c0"
+    char_span: [0, 766]
+    sentence_count: 7
+    key_terms: [school, important, grad, experience, gradschool, comments, spirit, reddit-deep]
+    token_count: 182
+  - id: "social-intelligence/reddit-deep/gradschool/1qiamay.md#c1"
+    char_span: [781, 2401]
+    sentence_count: 12
+    key_terms: [school, institution, campus, events, spirit, graduate, going, felt]
+    section: Comments
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/gradschool/1qiamay.md#c2"
+    char_span: [2403, 3396]
+    sentence_count: 5
+    key_terms: [school, grad, important, undergrad, football, mostzealousideal7718, time, somuchsunrayzzz]
+    section: Comments
+    token_count: 238
+  - id: "social-intelligence/reddit-deep/gradschool/1qiamay.md#c3"
+    char_span: [3398, 5084]
+    sentence_count: 10
+    key_terms: [school, grad, undergrad, events, students, spirit, institution, crayshack]
+    section: Comments
+    token_count: 390
 ---
-
 # How important has "school spirit" been to your experience in grad school?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1qiamay/how_important_has_school_spirit_been_to_your/)

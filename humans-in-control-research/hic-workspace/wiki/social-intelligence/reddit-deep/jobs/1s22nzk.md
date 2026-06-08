@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1s22nzk.md
 url: "https://www.reddit.com/r/jobs/comments/1s22nzk/guys_i_finally_got_a_good_job_or_i_guess_career/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,21 @@ flair: "Post-interview"
 extracted_at: "2026-05-25T13:03:11.724Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1s22nzk.md#c0"
+    char_span: [0, 581]
+    sentence_count: 5
+    key_terms: [finally, guys, job, comments, trying, did, give, good]
+    token_count: 158
+  - id: "social-intelligence/reddit-deep/jobs/1s22nzk.md#c1"
+    char_span: [596, 1635]
+    sentence_count: 9
+    key_terms: [congrats, congratulations, happy, good, practical-lawyer4328, separate-relative-83, great, thank]
+    section: Comments
+    token_count: 341
 ---
-
 # Guys I finally got a good job or I guess career ??
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1s22nzk/guys_i_finally_got_a_good_job_or_i_guess_career/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1o7s6ht/my_parents_have_5000_saved/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,93 @@ flair: "Serious"
 extracted_at: "2026-05-23T19:45:32.277Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c0"
+    char_span: [0, 1625]
+    sentence_count: 14
+    key_terms: [college, saved, applyingtocollege, don, finance, parents, year, genuinely]
+    token_count: 391
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c1"
+    char_span: [1640, 3002]
+    sentence_count: 10
+    key_terms: [scholarships, shakesensitive5873, parents, apply, competitive, scholarship, probably, getting]
+    section: Comments
+    token_count: 340
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c2"
+    char_span: [3004, 4984]
+    sentence_count: 15
+    key_terms: [parents, college, aid, high, savings, student, don, help]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c3"
+    char_span: [4987, 6902]
+    sentence_count: 18
+    key_terms: [parents, getting, "you'll", costs, loans, merit-based, scholarship, help]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c4"
+    char_span: [6904, 7361]
+    sentence_count: 6
+    key_terms: [worked, loans, years, government, full-time, another, co-sign, college]
+    section: Comments
+    token_count: 124
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c5"
+    char_span: [7363, 9303]
+    sentence_count: 18
+    key_terms: [transferred, community, ahomosapiensapien, went, college, experience, georgetown, berkeley]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c6"
+    char_span: [9069, 9443]
+    sentence_count: 5
+    key_terms: [jaded-passenger-2174, mean, "university's", transferred, regardless, graduate, control, diploma]
+    section: Comments
+    token_count: 99
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c7"
+    char_span: [9445, 11615]
+    sentence_count: 13
+    key_terms: [scholarships, college, get, schools, school, merit, community, aid]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c8"
+    char_span: [11378, 12874]
+    sentence_count: 14
+    key_terms: [parents, scholarships, own, pay, another, college, country, elderberrycareful879]
+    section: Comments
+    token_count: 358
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c9"
+    char_span: [12876, 14821]
+    sentence_count: 18
+    key_terms: [college, school, get, parents, option, going, high, colleges]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c10"
+    char_span: [14823, 16887]
+    sentence_count: 20
+    key_terms: [parents, money, college, "don't", new, work, financial, children]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c11"
+    char_span: [16889, 18812]
+    sentence_count: 20
+    key_terms: [money, college, parents, retirement, want, probably, trying, taxed]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c12"
+    char_span: [18814, 21160]
+    sentence_count: 20
+    key_terms: [parents, financial, someone, aid, college, applications, costs, "don't"]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1o7s6ht.md#c13"
+    char_span: [21162, 21333]
+    sentence_count: 1
+    key_terms: [colleges-with-full-ride-scholarships, collegevine, schools, https, least, offer, rides, blog]
+    section: Comments
+    token_count: 45
 ---
-
 # My parents have $5000 saved
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1o7s6ht/my_parents_have_5000_saved/)

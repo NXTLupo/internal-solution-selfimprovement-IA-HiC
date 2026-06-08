@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1n3vpyo.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1n3vpyo/is_gre_required_for_pretty_much_every_cs_grad/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,27 @@ flair: "Student"
 extracted_at: "2026-05-25T15:52:30.669Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n3vpyo.md#c0"
+    char_span: [0, 798]
+    sentence_count: 1
+    key_terms: [cscareerquestions, comments, because, school, dumb, grad, gre, too]
+    token_count: 202
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n3vpyo.md#c1"
+    char_span: [813, 2902]
+    sentence_count: 16
+    key_terms: [school, grad, job, market, required, fucked, papers, trying]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n3vpyo.md#c2"
+    char_span: [2904, 4378]
+    sentence_count: 13
+    key_terms: [school, internships, grad, because, bentoboxtofu, get, gre, "master's"]
+    section: Comments
+    token_count: 367
 ---
-
 # Is gre required for pretty much every cs grad school
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1n3vpyo/is_gre_required_for_pretty_much_every_cs_grad/)

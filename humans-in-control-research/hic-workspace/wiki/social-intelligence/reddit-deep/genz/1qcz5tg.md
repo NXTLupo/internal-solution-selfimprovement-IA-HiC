@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1qcz5tg.md
 url: "https://www.reddit.com/r/GenZ/comments/1qcz5tg/life_is_so_miserable/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,39 @@ flair: "Rant"
 extracted_at: "2026-05-16T20:55:01.230Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [workforce, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1qcz5tg.md#c0"
+    char_span: [0, 1467]
+    sentence_count: 2
+    key_terms: [enough, day, job, life, depressed, comments, paycheck, family]
+    token_count: 358
+  - id: "social-intelligence/reddit-deep/genz/1qcz5tg.md#c1"
+    char_span: [1482, 1611]
+    sentence_count: 1
+    key_terms: [discord, automoderator, nwe6js5rh9, clicking, server, https, did, here]
+    section: Comments
+    token_count: 41
+  - id: "social-intelligence/reddit-deep/genz/1qcz5tg.md#c2"
+    char_span: [1614, 3722]
+    sentence_count: 21
+    key_terms: [job, better, going, country, please, month, place, sorry]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/genz/1qcz5tg.md#c3"
+    char_span: [3471, 3756]
+    sentence_count: 5
+    key_terms: [want, summerechoes, counselors, empathize, feeling, preface, better, career]
+    section: Comments
+    token_count: 73
+  - id: "social-intelligence/reddit-deep/genz/1qcz5tg.md#c4"
+    char_span: [3758, 5743]
+    sentence_count: 16
+    key_terms: [change, habits, experiencing, need, unhealthy, majority, history, chemical-village-211]
+    section: Comments
+    token_count: 463
 ---
-
 # life is so miserable.
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1qcz5tg/life_is_so_miserable/)

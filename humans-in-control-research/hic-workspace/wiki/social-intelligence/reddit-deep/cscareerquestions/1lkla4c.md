@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1lkla4c.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1lkla4c/north_koreans_are_competing_for_tech_jobs_in_the/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-25T18:32:49.820Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lkla4c.md#c0"
+    char_span: [0, 770]
+    sentence_count: 6
+    key_terms: [cscareerquestions, comments, careers, affect, future, field, https, north]
+    token_count: 190
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lkla4c.md#c1"
+    char_span: [785, 2899]
+    sentence_count: 8
+    key_terms: [companies, "don't", administrativehost15, exitingthedonut, being, work, fucking, western]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lkla4c.md#c2"
+    char_span: [2644, 3955]
+    sentence_count: 13
+    key_terms: [people, government, companies, american, interest, administrativehost15, rates, watch]
+    section: Comments
+    token_count: 314
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1lkla4c.md#c3"
+    char_span: [3957, 4707]
+    sentence_count: 1
+    key_terms: [korea, north, leetcode, razza357, anxious-possibility, documentary, developers, government]
+    section: Comments
+    token_count: 206
 ---
-
 # North Koreans are competing for tech jobs in the US and Europe. How do you think this will affect the future of CS careers? Do you think this has any impact on the current state of the field?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1lkla4c/north_koreans_are_competing_for_tech_jobs_in_the/)

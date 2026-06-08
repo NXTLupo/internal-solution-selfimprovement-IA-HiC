@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1p2y5aa.md
 url: "https://www.reddit.com/r/NEU/comments/1p2y5aa/considering_transfering_from_neu_any_advcie_helps/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -10,11 +11,40 @@ score: 0
 upvote_ratio: 0.5
 num_comments: 11
 flair: "Advice & Experiences"
-extracted_at: "2026-05-26T14:30:23.764Z"
+extracted_at: "2026-06-06T00:27:19.938Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1p2y5aa.md#c0"
+    char_span: [0, 1661]
+    sentence_count: 14
+    key_terms: ["i'm", neu, considering, want, academically, here, http, experience]
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/neu/1p2y5aa.md#c1"
+    char_span: [1676, 2330]
+    sentence_count: 3
+    key_terms: [somewhere, freshman, minor, vegetabletitle6726, understandable, academically, everywhere, understand]
+    section: Comments
+    token_count: 155
+  - id: "social-intelligence/reddit-deep/neu/1p2y5aa.md#c2"
+    char_span: [2333, 4399]
+    sentence_count: 13
+    key_terms: [library, transferred, study, here, transfer, people, sussybananas, don]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/neu/1p2y5aa.md#c3"
+    char_span: [4132, 4706]
+    sentence_count: 5
+    key_terms: [leaving, advice, stocktelephone11, recommendations, northeastern, transferring, considering, acceptance]
+    section: Comments
+    token_count: 127
+  - id: "social-intelligence/reddit-deep/neu/1p2y5aa.md#c4"
+    char_span: [4708, 5147]
+    sentence_count: 2
+    key_terms: [boston, mentioned, schools, no-expression7574, best, headquarter, csrankings, percentage]
+    section: Comments
+    token_count: 111
 ---
-
 # Considering transfering from NEU, any advcie helps
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1p2y5aa/considering_transfering_from_neu_any_advcie_helps/)
@@ -69,11 +99,11 @@ Any advice, reality checks, or experiences appreciated. Thanks.
 
 Long story short? I’d transfer. You definitely don’t seem like the kind of person to utilize NEU vs. somewhere else on your list
   - **lillobby6** (1↑): You also can choose to just not do co-op and be a regular student (as I don’t believe CE requires it). I think NUIn fufils the global experience requirement (not sure on the 100% though).
-- **SussyBananas** (23↑): I know a lot of people who have transferred TO here. Boston campus is academically rigorous compared to NUin I swear. I was a straight A student in high school and now I’m not + you can never find a seat in the library so u feel it’s pretty telling that people care hwre
-  - **ChilllFam** (4↑): Can second this. I just transferred here from community college while I was top of my class with a 4.0 and president of everything related to my major. I’m just another guy here. Def will not have a 4.0 after my first semester here.
+- **SussyBananas** (21↑): I know a lot of people who have transferred TO here. Boston campus is academically rigorous compared to NUin I swear. I was a straight A student in high school and now I’m not + you can never find a seat in the library so u feel it’s pretty telling that people care hwre
+  - **ChilllFam** (5↑): Can second this. I just transferred here from community college while I was top of my class with a 4.0 and president of everything related to my major. I’m just another guy here. Def will not have a 4.0 after my first semester here.
   - **Ok-Customer6683** (3↑): I agree the library is busy all the time, but I doubt if it is busy with people wanting to study. It is just like a huge dining hall sometimes. I feel like it’s just toooo noisy to be regarded as a good place to study. And also the snell library is probably the library with the fewest books I’ve ever seen… There are not computers available at snell either.
-    - **SussyBananas** (7↑): Yeah I don’t study there I study in my room lowk OP I’m insanely locked in 24/7 so ngl there r ppl locked in at this school
-- **Maleficent-Dream8031** (9↑): i just transferred this year into northeastern on a full ride. my main advice in transferring is this: many schools go need aware for transfers and will reject you just for the reason you applied for financial aid. if you apply to transfer you must apply everywhere, i also recommend to applying to at minimum ten schools because transfer admissions are way more selective than first year ones despite what the acceptance rates state
+    - **SussyBananas** (5↑): Yeah I don’t study there I study in my room lowk OP I’m insanely locked in 24/7 so ngl there r ppl locked in at this school
+- **Maleficent-Dream8031** (8↑): i just transferred this year into northeastern on a full ride. my main advice in transferring is this: many schools go need aware for transfers and will reject you just for the reason you applied for financial aid. if you apply to transfer you must apply everywhere, i also recommend to applying to at minimum ten schools because transfer admissions are way more selective than first year ones despite what the acceptance rates state
 - **StockTelephone11** (2↑): How are you liking Ireland? What classes are you taking currently?
 - **Far_Papaya_5376** (2↑): This is such a dumb post - why are you posting on NEU about leaving? Go to the Reddit pages of the schools you are considering transferring into and ask for recommendations there. There is no advice to be given on leaving (perhaps on staying) - it’s simply paperwork from Northeastern’s side. All the advice is on the places you are applying to.
 

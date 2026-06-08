@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1tgvxwb.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1tgvxwb/where_do_i_find_internships_this_late/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,57 @@ flair: "Career Help"
 extracted_at: "2026-05-23T19:44:57.168Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tgvxwb.md#c0"
+    char_span: [0, 766]
+    sentence_count: 10
+    key_terms: [engineeringstudents, nowhere, tried, comments, through, "don't", got, "i'm"]
+    token_count: 185
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tgvxwb.md#c1"
+    char_span: [781, 1215]
+    sentence_count: 3
+    key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
+    section: Comments
+    token_count: 106
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tgvxwb.md#c2"
+    char_span: [1217, 2890]
+    sentence_count: 11
+    key_terms: [internship, fall, time, summer, competitive, internships, late, too]
+    section: Comments
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tgvxwb.md#c3"
+    char_span: [2892, 3973]
+    sentence_count: 8
+    key_terms: [programming, mechanical, something, honestly, learn, sherbertquirky3789, like, transportation]
+    section: Comments
+    token_count: 254
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tgvxwb.md#c4"
+    char_span: [3975, 6190]
+    sentence_count: 15
+    key_terms: [internships, positions, fall, martianmeng, internship, find, semester, "don't"]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tgvxwb.md#c5"
+    char_span: [5895, 8104]
+    sentence_count: 19
+    key_terms: [research, internship, positions, summer, experience, breadno4883, club, late]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tgvxwb.md#c6"
+    char_span: [7845, 10062]
+    sentence_count: 22
+    key_terms: [research, looking, summer, department, experience, internship, controlledchaos74, try]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tgvxwb.md#c7"
+    char_span: [9773, 10732]
+    sentence_count: 11
+    key_terms: [job, year, learn, university, class, money, time, engineering]
+    section: Comments
+    token_count: 207
 ---
-
 # Where do I find internships this late?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1tgvxwb/where_do_i_find_internships_this_late/)

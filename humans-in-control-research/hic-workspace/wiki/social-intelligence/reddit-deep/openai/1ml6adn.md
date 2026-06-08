@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1ml6adn.md
 url: "https://www.reddit.com/r/OpenAI/comments/1ml6adn/32k_context_window_for_gpt5/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,21 @@ flair: "News"
 extracted_at: "2026-05-11T17:27:05.360Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1ml6adn.md#c0"
+    char_span: [0, 433]
+    sentence_count: 2
+    key_terms: [aba5-0997f8fa1c60, context, window, https, com, comments, chatgpt, openai]
+    token_count: 160
+  - id: "social-intelligence/reddit-deep/openai/1ml6adn.md#c1"
+    char_span: [448, 1653]
+    sentence_count: 11
+    key_terms: [gemini, thehunter920, com, plan, use, aistudio, frontend, context]
+    section: Comments
+    token_count: 346
 ---
-
 # 32k context window for GPT-5...
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1ml6adn/32k_context_window_for_gpt5/)

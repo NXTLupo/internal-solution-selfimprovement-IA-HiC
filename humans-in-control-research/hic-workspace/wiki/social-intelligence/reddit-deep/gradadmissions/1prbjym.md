@@ -6,19 +6,19 @@ subreddit: "gradadmissions"
 title: "Obsessing over Grad school admission responses"
 author: "Sensitive-Contest-88"
 date: "2025-12-20T10:43:04.000Z"
-score: 10
-upvote_ratio: 1
+score: 9
+upvote_ratio: 0.92
 num_comments: 14
 flair: "Education"
-extracted_at: "2026-05-24T14:10:06.602Z"
+extracted_at: "2026-06-06T23:23:15.586Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Obsessing over Grad school admission responses
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1prbjym/obsessing_over_grad_school_admission_responses/)
-Posted by **Sensitive-Contest-88** · **10↑** · **14 comments**
+Posted by **Sensitive-Contest-88** · **9↑** · **14 comments**
 
 M,35,California
 

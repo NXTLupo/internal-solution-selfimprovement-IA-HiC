@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1pwd8su.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1pwd8su/p_s2id_scale_invariant_image_diffuser_trained_on/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -13,8 +14,82 @@ flair: "Project"
 extracted_at: "2026-05-11T17:27:06.578Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c0"
+    char_span: [0, 2128]
+    sentence_count: 11
+    key_terms: [machinelearning, image, comments, kernels, models, architecture, found, https]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c1"
+    char_span: [2130, 3929]
+    sentence_count: 14
+    key_terms: [resolution, information, image, s2id, although, training, trained, photo]
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c2"
+    char_span: [3931, 5586]
+    sentence_count: 7
+    key_terms: [time, png, b03a59cc5ee0b05803de88b5d1efe9e6d0a88c87, digits, images, augmentation, model, training]
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c3"
+    char_span: [5588, 6652]
+    sentence_count: 1
+    key_terms: [png, preview, format, https, width, auto, redd, webp]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c4"
+    char_span: [6654, 8406]
+    sentence_count: 8
+    key_terms: [png, time, resolution, last, fd2d587da70cae59b6dd2163e4d977553921f92f, preview, results, better]
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c5"
+    char_span: [8408, 10432]
+    sentence_count: 16
+    key_terms: [model, coordinates, image, composition, coordinate, relative, data, pixels]
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c6"
+    char_span: [10447, 12650]
+    sentence_count: 18
+    key_terms: [information, resolution, different, mnist, invariance, textures, compare, resolutions]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c7"
+    char_span: [12652, 14761]
+    sentence_count: 18
+    key_terms: [attention, using, latent, convolutions, axial, complexity, resolution, underlying]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c8"
+    char_span: [14763, 16502]
+    sentence_count: 12
+    key_terms: [points, resolution, "don't", model, value, gaussian, pixels, values]
+    section: Comments
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c9"
+    char_span: [16504, 18852]
+    sentence_count: 19
+    key_terms: [vae, technique, process, latent, diffusion, datasets, misunderstanding, scale-invariant]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c10"
+    char_span: [18854, 19487]
+    sentence_count: 5
+    key_terms: [sacrifices, invariant, exactly, suppose, "aren't", images, scale, size]
+    section: Comments
+    token_count: 159
+  - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c11"
+    char_span: [19489, 21239]
+    sentence_count: 12
+    key_terms: [diffusion, vae, architecture, latent, process, use, coordinate-aware, model]
+    section: Comments
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c12"
+    char_span: [21241, 21738]
+    sentence_count: 4
+    key_terms: [model, architecture, resolutions, transformer, appreciate, coordinate, different, diffusion]
+    section: Comments
+    token_count: 127
 ---
-
 # [P] S2ID: Scale Invariant Image Diffuser - trained on standard MNIST, generates 1024x1024 digits and at arbitrary aspect ratios with almost no artifacts at 6.1M parameters (Drastic code change and architectural improvement)
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1pwd8su/p_s2id_scale_invariant_image_diffuser_trained_on/)

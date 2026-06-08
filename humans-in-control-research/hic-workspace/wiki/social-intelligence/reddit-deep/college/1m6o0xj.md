@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1m6o0xj.md
 url: "https://www.reddit.com/r/college/comments/1m6o0xj/worried_about_workload_advice_neededwanted/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,33 @@ flair: "Academic Life"
 extracted_at: "2026-05-23T14:53:53.127Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1m6o0xj.md#c0"
+    char_span: [0, 1863]
+    sentence_count: 13
+    key_terms: [credits, bio-110, school, labs, want, semester, classes, psy-237]
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/college/1m6o0xj.md#c1"
+    char_span: [1878, 4010]
+    sentence_count: 21
+    key_terms: [classes, science, class, hard, social, bio, lab, take]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/college/1m6o0xj.md#c2"
+    char_span: [4012, 6277]
+    sentence_count: 22
+    key_terms: [works, because, stress, hours, courses, like, take, time]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1m6o0xj.md#c3"
+    char_span: [6279, 8337]
+    sentence_count: 16
+    key_terms: [school, college, don, yourself, like, something, because, credits]
+    section: Comments
+    token_count: 441
 ---
-
 # Worried about workload! Advice needed/wanted!
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1m6o0xj/worried_about_workload_advice_neededwanted/)

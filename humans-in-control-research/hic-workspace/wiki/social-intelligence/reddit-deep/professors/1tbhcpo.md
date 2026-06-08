@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1tbhcpo.md
 url: "https://www.reddit.com/r/Professors/comments/1tbhcpo/video_why_gen_z_is_getting_fired_after_being/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,93 @@ flair: "Teaching / Pedagogy"
 extracted_at: "2026-05-20T03:55:39.275Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c0"
+    char_span: [0, 1867]
+    sentence_count: 9
+    key_terms: [gen, they-love-self-care-hate-hustle-and-need-job-ceos-advice-unemployable-gen-zer, they-hate-hustle-but-need-a-joba-ceos-advice-for-an-unemployable-gen-z, values, https, self-care, getting, people]
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c1"
+    char_span: [1882, 3926]
+    sentence_count: 14
+    key_terms: [like, teaching, student, fargrape1953, doing, overwhelmed, "i'm", jobs]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c2"
+    char_span: [3928, 4792]
+    sentence_count: 7
+    key_terms: [like, class, asking, blametheorangejuice, don, disheartening, disrespectful, conversation]
+    section: Comments
+    token_count: 199
+  - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c3"
+    char_span: [4794, 6636]
+    sentence_count: 12
+    key_terms: [donttouchmybalzac, like, job, work, millennial, because, college, people]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c4"
+    char_span: [6441, 7600]
+    sentence_count: 11
+    key_terms: [students, authentic, "don't", learn, donttouchmybalzac, papayatwentythree, care, job]
+    section: Comments
+    token_count: 288
+  - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c5"
+    char_span: [7603, 9622]
+    sentence_count: 9
+    key_terms: [self-expression, assignment, "don't", like, valuing, work, sufficient, authentic]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c6"
+    char_span: [9624, 11031]
+    sentence_count: 6
+    key_terms: [self, work, authentic, practice, required, because, perhaps, reframe]
+    section: Comments
+    token_count: 305
+  - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c7"
+    char_span: [11033, 12718]
+    sentence_count: 8
+    key_terms: [savings-bee-4993, obvious, re-not-15-minutes-early-then-you, assessments, don, everything, immediate, something]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c8"
+    char_span: [12720, 14319]
+    sentence_count: 19
+    key_terms: [values, prepare, disrespectful, assignment, practice, change, "didn't", "that's"]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c9"
+    char_span: [14321, 16214]
+    sentence_count: 13
+    key_terms: [values, different, "they're", going, point, "it's", asking, given]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c10"
+    char_span: [16216, 18288]
+    sentence_count: 15
+    key_terms: [work, increasingly, people, values, interpreted, hard, job, want]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c11"
+    char_span: [18290, 20441]
+    sentence_count: 14
+    key_terms: [college, professionalism, students, job, part, supposed, time, undergrad]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c12"
+    char_span: [20443, 22378]
+    sentence_count: 11
+    key_terms: [deadlines, students, hard, late, work, because, amount, business-oriented]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/professors/1tbhcpo.md#c13"
+    char_span: [22380, 24329]
+    sentence_count: 16
+    key_terms: [students, "don't", generations, want, figuring, avocado, "they'll", "didn't"]
+    section: Comments
+    token_count: 440
 ---
-
 # Video: Why Gen Z is getting fired after being hired | The Excerpt
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1tbhcpo/video_why_gen_z_is_getting_fired_after_being/)

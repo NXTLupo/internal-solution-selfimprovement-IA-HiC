@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1rw6pkp.md
 url: "https://www.reddit.com/r/deeplearning/comments/1rw6pkp/local_mlx_model_for_text_only_chats_for_qa/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.058Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1rw6pkp.md#c0"
+    char_span: [0, 974]
+    sentence_count: 5
+    key_terms: [deeplearning, cloud, local, model, using, downloaded, processing, comments]
+    token_count: 265
+  - id: "social-intelligence/reddit-deep/deeplearning/1rw6pkp.md#c1"
+    char_span: [989, 2595]
+    sentence_count: 2
+    key_terms: [gemma, summaries, context, gpt, oss, pdf, reasoning, research]
+    section: Comments
+    token_count: 415
 ---
-
 # Local MLX Model for text only chats for Q&A, research and analysis using an M1 Max 64GB RAM with LM Studio
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1rw6pkp/local_mlx_model_for_text_only_chats_for_qa/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1naiqmo.md
 url: "https://www.reddit.com/r/GradSchool/comments/1naiqmo/applying_to_internships_for_the_summer_before/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,15 @@ flair: "Professional"
 extracted_at: "2026-05-25T13:04:07.334Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1naiqmo.md#c0"
+    char_span: [0, 1162]
+    sentence_count: 7
+    key_terms: [applications, internships, internship, gradschool, graduation, applying, comments, school]
+    token_count: 244
 ---
-
 # Applying to Internships for the Summer before Grad School
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1naiqmo/applying_to_internships_for_the_summer_before/)

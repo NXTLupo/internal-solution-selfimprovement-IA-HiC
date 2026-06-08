@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1tbn2y5/how_can_i_make_myself_more_hirable_this_summer/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,63 @@ flair: "Career Advice"
 extracted_at: "2026-05-25T18:32:19.218Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md#c0"
+    char_span: [0, 836]
+    sentence_count: 5
+    key_terms: [engineering, engineeringstudents, summer, comments, reddit, wellhotdiggitydong, semiconductor, development]
+    token_count: 194
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md#c1"
+    char_span: [851, 3117]
+    sentence_count: 16
+    key_terms: [internship, equivalent-house8556, like, work, company, manager, hiring, engineering]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md#c2"
+    char_span: [3119, 5135]
+    sentence_count: 10
+    key_terms: [lockheed, nvidia, average, school, internships, get, got, internship]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md#c3"
+    char_span: [5137, 7113]
+    sentence_count: 26
+    key_terms: [utilities, interviews, industry, voltage, get, high, work, practice]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md#c4"
+    char_span: [7115, 8943]
+    sentence_count: 25
+    key_terms: [manufacturing, job, summer, get, project, resume, good, work]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md#c5"
+    char_span: [8945, 10229]
+    sentence_count: 10
+    key_terms: [research, interview, willing, family, member, resume, "they'd", "can't"]
+    section: Comments
+    token_count: 303
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md#c6"
+    char_span: [10231, 12617]
+    sentence_count: 15
+    key_terms: [experience, internships, like, research, project, interviewers, engineering, get]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md#c7"
+    char_span: [12383, 12677]
+    sentence_count: 2
+    key_terms: [year, internships, penultimate, recruiters, australia, sophomore, l3harris, deeks98]
+    section: Comments
+    token_count: 77
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md#c8"
+    char_span: [12679, 13055]
+    sentence_count: 2
+    key_terms: [year, freshman-sophomore-junior, large-cat-6468, opportunities, engineering, experience, providing, sophomore]
+    section: Comments
+    token_count: 102
 ---
-
 # How can I make myself more hirable this summer?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1tbn2y5/how_can_i_make_myself_more_hirable_this_summer/)

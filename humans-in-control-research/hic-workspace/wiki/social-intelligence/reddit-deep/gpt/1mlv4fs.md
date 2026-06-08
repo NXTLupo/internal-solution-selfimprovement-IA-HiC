@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1mlv4fs.md
 url: "https://www.reddit.com/r/GPT/comments/1mlv4fs/what_do_you_think_about_the_benchmarks_gpt5_vs/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T17:26:37.728Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1mlv4fs.md#c0"
+    char_span: [0, 1252]
+    sentence_count: 12
+    key_terms: [gpt-5, gpt-4o, benchmarks, emotional, comments, mostly, using, been]
+    token_count: 307
+  - id: "social-intelligence/reddit-deep/gpt/1mlv4fs.md#c1"
+    char_span: [1267, 3023]
+    sentence_count: 20
+    key_terms: [better, grok, information, gpt5, implementation, instructions, using, complicated]
+    section: Comments
+    token_count: 439
 ---
-
 # What do you think about the benchmarks? GPT-5 vs GPT-4o - My experience
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1mlv4fs/what_do_you_think_about_the_benchmarks_gpt5_vs/)

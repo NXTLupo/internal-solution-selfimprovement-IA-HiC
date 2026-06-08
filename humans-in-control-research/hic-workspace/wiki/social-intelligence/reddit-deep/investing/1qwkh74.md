@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1qwkh74.md
 url: "https://www.reddit.com/r/investing/comments/1qwkh74/spacex_seeks_early_index_entry_as_it_prepares/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,50 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.200Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1qwkh74.md#c0"
+    char_span: [0, 2113]
+    sentence_count: 5
+    key_terms: [spacex, index, spacex-seeks-early-index-entry-as-it-prepares-massive-ipo-8445ed59, companies, ipo, company, indexes, major]
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/investing/1qwkh74.md#c1"
+    char_span: [2122, 2931]
+    sentence_count: 4
+    key_terms: [companies, successfully, executives, potential, indexes, major, "i'm", ipo]
+    token_count: 151
+  - id: "social-intelligence/reddit-deep/investing/1qwkh74.md#c2"
+    char_span: [2946, 3734]
+    sentence_count: 5
+    key_terms: [revenue, little, market, gonna, index, "i'm", darthpineapple5, norcalathlete]
+    section: Comments
+    token_count: 208
+  - id: "social-intelligence/reddit-deep/investing/1qwkh74.md#c3"
+    char_span: [3736, 5595]
+    sentence_count: 9
+    key_terms: [spacex, early, needs, get, investors, liquidity, trillion, windhero]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/investing/1qwkh74.md#c4"
+    char_span: [5597, 7478]
+    sentence_count: 15
+    key_terms: [dealerships, company, direct, tesla, car, get, sell, without]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/investing/1qwkh74.md#c5"
+    char_span: [7480, 9429]
+    sentence_count: 13
+    key_terms: [texas, manufacturers, dealers, tesla, laws, sell, because, direct]
+    section: Comments
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/investing/1qwkh74.md#c6"
+    char_span: [9431, 11444]
+    sentence_count: 11
+    key_terms: [dealership, manufacturers, laws, dealer, international, tesla, traditional, networks]
+    section: Comments
+    token_count: 435
 ---
-
 # SpaceX Seeks Early Index Entry as It Prepares Massive IPO
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1qwkh74/spacex_seeks_early_index_entry_as_it_prepares/)

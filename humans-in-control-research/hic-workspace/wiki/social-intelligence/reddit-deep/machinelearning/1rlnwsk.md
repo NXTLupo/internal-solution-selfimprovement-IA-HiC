@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1rlnwsk.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1rlnwsk/d_ama_secure_version_of_openclaw/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -6,19 +7,64 @@ subreddit: "machinelearning"
 title: "[D] AMA Secure version of OpenClaw"
 author: "ilblackdragon"
 date: "2026-03-05T17:36:21.000Z"
-score: 177
+score: 180
 upvote_ratio: 0.92
 num_comments: 114
 flair: "Discussion"
-extracted_at: "2026-05-11T17:27:06.570Z"
+extracted_at: "2026-05-31T23:36:38.259Z"
 extraction_method: "praw-deep"
-research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+research_goal: "Map emerging AI design trends, essential skills, practical tools, platforms, and technical implementations that enable a company's creative team to integrate AI beyond concepting. Focus on applications supporting design production, system testing, asset generation, governance, and stakeholder confidence."
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1rlnwsk.md#c0"
+    char_span: [0, 1667]
+    sentence_count: 18
+    key_terms: [openclaw, machinelearning, incredibly, comments, ironclaw, security, machine, version]
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/machinelearning/1rlnwsk.md#c1"
+    char_span: [1669, 3753]
+    sentence_count: 13
+    key_terms: [policy, access, information, credential, prevention, database, actions, ensure]
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/machinelearning/1rlnwsk.md#c2"
+    char_span: [3755, 4074]
+    sentence_count: 3
+    key_terms: [ironclaw, com, github, agent, http, nearai, near, confidential]
+    token_count: 87
+  - id: "social-intelligence/reddit-deep/machinelearning/1rlnwsk.md#c3"
+    char_span: [4089, 4555]
+    sentence_count: 3
+    key_terms: [skills, "won't", able, run, ilblackdragon, rahulgoel1995, implementing, credentials]
+    section: Comments
+    token_count: 115
+  - id: "social-intelligence/reddit-deep/machinelearning/1rlnwsk.md#c4"
+    char_span: [4557, 6411]
+    sentence_count: 12
+    key_terms: [ilblackdragon, llms, github, here, ironclaw, project, contributors, https]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/machinelearning/1rlnwsk.md#c5"
+    char_span: [6413, 8233]
+    sentence_count: 9
+    key_terms: [ironclaw, ilblackdragon, confidential, lookatmywormhole, people, everyone, identity, releases]
+    section: Comments
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/machinelearning/1rlnwsk.md#c6"
+    char_span: [8235, 10551]
+    sentence_count: 8
+    key_terms: [security, confidential, data, run, prevent, access, ilblackdragon, architecture]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/machinelearning/1rlnwsk.md#c7"
+    char_span: [10553, 12746]
+    sentence_count: 24
+    key_terms: [near, something, ironclaw, action, confidential, ecosystem, priority, excited]
+    section: Comments
+    token_count: 501
 ---
-
 # [D] AMA Secure version of OpenClaw
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1rlnwsk/d_ama_secure_version_of_openclaw/)
-Posted by **ilblackdragon** · **177↑** · **114 comments**
+Posted by **ilblackdragon** · **180↑** · **114 comments**
 
 There’s a major risk that OpenClaw will exploit your data and funds. So I built a security focused version in Rust. AMA.
 
@@ -54,30 +100,30 @@ The GitHub is here: [github.com/nearai/ironclaw](http://github.com/nearai/ironcl
 
 ## Comments
 
-- **rahulgoel1995** (32↑): OpenClaw got exposed with 21,000+ public instances and malicious skills, how can we trust IronClaw won't suffer the same fate once it goes viral?
+- **rahulgoel1995** (30↑): OpenClaw got exposed with 21,000+ public instances and malicious skills, how can we trust IronClaw won't suffer the same fate once it goes viral?
   - **ilblackdragon** (26↑): There are a number of protections that we already have and implementing. 
 
 Credentials are always encrypted and never touch LLM so skills won't be able to exfiltrate them. Skills are not able to run scripts on the main host - they can only run inside a container. 
 
 We are planning to do red teaming and proper security review as well as we stabilize the core.
-- **highdimensionaldata** (92↑): Damn, named author on Attention Is All You Need. That’s celebrity status round here.
-  - **xantrel** (27↑): Yeah, I was honestly reading fully expecting a vibe coded project from someone with no idea of how LLMs really work. That thought got shutdown as soon as I got to that line.
+- **highdimensionaldata** (91↑): Damn, named author on Attention Is All You Need. That’s celebrity status round here.
+  - **xantrel** (28↑): Yeah, I was honestly reading fully expecting a vibe coded project from someone with no idea of how LLMs really work. That thought got shutdown as soon as I got to that line.
     - **AnosenSan** (3↑): I mean, not to lower their credit, but the breakthrough is not as much on ML than security here. So their experience with LLMs is virtually irrelevant. Although I tend to be more trusting than a vibe coded project indeed.
-  - **ilblackdragon** (37↑): Great to be here!
+  - **ilblackdragon** (38↑): Great to be here!
     - **banatage** (1↑): Big fan Illia! Glad that you’re here!
   - **sooham** (3↑): Sorry but is this Polosukhins project?
     - **ashwin_wang** (1↑): YES，you can see [ilblackdragon](https://github.com/ilblackdragon) in [https://github.com/nearai/ironclaw/graphs/contributors](https://github.com/nearai/ironclaw/graphs/contributors)
-- **copajack** (21↑): As a pioneer in Transformers, what's your take on the  LLMs vs World Models debate aka are LLMs enough to get us to AGI? In other words: Is attention really all you need?
+- **copajack** (22↑): As a pioneer in Transformers, what's your take on the  LLMs vs World Models debate aka are LLMs enough to get us to AGI? In other words: Is attention really all you need?
   - **ilblackdragon** (16↑): Haha, I do think LLMs construct their own version of world model. There is def more work needed on how to make this effective. I think there is still research needed to better adapt to new data, long term context and more things. Likely will be combination of techniques.
 - **certain_entropy** (16↑): Does IronClaw require being used in conjunction with Near and as consequence require a paid plan? The website makes it seem as if there's no free local install setup though the github is more ambiguous.
-  - **ilblackdragon** (19↑): There is local install indeed. We need to update the website.
+  - **ilblackdragon** (18↑): There is local install indeed. We need to update the website.
 
 Binaries are here: [https://github.com/nearai/ironclaw/releases/tag/v0.15.0](https://github.com/nearai/ironclaw/releases/tag/v0.15.0)
 - **ilblackdragon** (11↑): Thanks everyone for your questions! Going to wrap up for now.  
   
 Looking forward to doing this again in the future.
-- **lookatmywormhole** (17↑): When you originally were a part of "Attention is All you Need", did you envision the autonomous agents to materialize just as OpenClaw (and now IronClaw) did? What's your biggest "I told you so", and what's your biggest "never expected that!"
-  - **ilblackdragon** (26↑): I don't think I envisioned in exactly this format, but we def were discussing having an AI that is able to take actions, that can see what you see and act on your behalf.
+- **lookatmywormhole** (18↑): When you originally were a part of "Attention is All you Need", did you envision the autonomous agents to materialize just as OpenClaw (and now IronClaw) did? What's your biggest "I told you so", and what's your biggest "never expected that!"
+  - **ilblackdragon** (27↑): I don't think I envisioned in exactly this format, but we def were discussing having an AI that is able to take actions, that can see what you see and act on your behalf.
 
 Def big part for me was coding ability - we started NEAR AI effectively to build that in 2017. So I was telling everyone that you will just talk to computer and won't need to write code anymore, and people were thinking we are delusional :) Now it's pretty clear we are there.
 
@@ -93,12 +139,12 @@ Unexpected - I think I'm always surprised how reckless people are :) feeding all
 
 If you are a developer - you can run one locally too, but it def require a bit more setup and maintenance from you.
 - **Ancient-Carpet309** (6↑): With your experience co-creating the Transformer architecture and founding NEAR, what’s your endgame for agent privacy? Will we eventually run these agents entirely on local devices to completely rule out cloud data leaks, or is confidential hosting like agent.near.ai the permanent sweet spot?
-  - **ilblackdragon** (8↑): Local devices have a large set of limitations - it's only on when you are on it, if it's mobile - the energy consumption is prohibitive, it's really hard to run complex research/long running tasks. 
+  - **ilblackdragon** (9↑): Local devices have a large set of limitations - it's only on when you are on it, if it's mobile - the energy consumption is prohibitive, it's really hard to run complex research/long running tasks. 
 
 I am obviously biased, but I do think confidential cloud is the right middle ground - it gives close to local device guarantees while solving for "always on" and energy problems. 
 
 You can also have more sophisticated data retention / access control policy. For really privacy conscious you can setup an agent that auto deletes data or requires 2FA to access some information in confidential cloud based on some events. E.g. while you are traveling across borders it adds extra shields, to prevent unauthorized access.
-- **atomatoma** (4↑): first, i totally appreciate the security focused architecture, but presumably, the human (or worse, the non-expert human guided by an LLM) could always blow security holes leaking credentials or PIP.  how would you address concerns that people might say they are using iron claw (so your data is safe), but then do so in a way that still violates a security policy?    
+- **atomatoma** (6↑): first, i totally appreciate the security focused architecture, but presumably, the human (or worse, the non-expert human guided by an LLM) could always blow security holes leaking credentials or PIP.  how would you address concerns that people might say they are using iron claw (so your data is safe), but then do so in a way that still violates a security policy?    
   
 i guess i'm asking for something akin to the type of safety analysis that was done on software back in the day when some software systems needed to be certified, which took ages.  so, what tools do we have to help in that regard, to make sure that security is being enforced, to the point where the system will prevent misguided configuration.
   - **ilblackdragon** (7↑): There are few answers here:
@@ -108,7 +154,7 @@ i guess i'm asking for something akin to the type of safety analysis that was do
  \- Data and action policy is something we are designing - including previewing potential outcome of a given action. Letting a separate LLM call interpret an action before taking it. There are some trade offs in convenience and speed with this that are trying to find a sweet spot.
 
  \- Red teaming and various analysis is def something we are targeting as we stabilize the versoin.
-- **Turbulent-Sky5396** (3↑): Big fan of your work and NEAR -- some questions:
+- **Turbulent-Sky5396** (4↑): Big fan of your work and NEAR -- some questions:
 
 1. Will it be possible to programatically spin up IronClaw clusters for users downstream if I want to offer agents in my product? some sort of API?
 

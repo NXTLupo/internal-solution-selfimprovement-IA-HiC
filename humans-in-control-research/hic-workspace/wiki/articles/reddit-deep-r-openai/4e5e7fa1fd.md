@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-openai/4e5e7fa1fd.md
 url: "https://www.reddit.com/r/OpenAI/comments/1l236t2/has_anyone_confirmed_that_gpt41_has_a_1_million/"
 url_hash: "4e5e7fa1fd"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T17:31:47.390541+00:00"
 chars: 1271
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-openai/4e5e7fa1fd.md#c0"
+    char_span: [0, 1480]
+    sentence_count: 14
+    key_terms: [context, mxforest, openai, window, subscription, gpt-4, comments, chatgpt]
+    token_count: 387
 ---
-
 # Has anyone confirmed that GPT-4.1 has a 1 million token context window?
 
 Source: [Reddit Deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1l236t2/has_anyone_confirmed_that_gpt41_has_a_1_million/)

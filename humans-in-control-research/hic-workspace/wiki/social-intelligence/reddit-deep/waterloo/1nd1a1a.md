@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1nd1a1a.md
 url: "https://www.reddit.com/r/waterloo/comments/1nd1a1a/living_in_waterloo_and_working_in_downtown_toronto/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.127Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce, real_estate]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1nd1a1a.md#c0"
+    char_span: [0, 1093]
+    sentence_count: 10
+    key_terms: [waterloo, toronto, comments, downtown, closer, moving, been, days]
+    token_count: 272
+  - id: "social-intelligence/reddit-deep/waterloo/1nd1a1a.md#c1"
+    char_span: [1108, 2653]
+    sentence_count: 15
+    key_terms: [train, move, time, week, commute, closer, days, did]
+    section: Comments
+    token_count: 408
+  - id: "social-intelligence/reddit-deep/waterloo/1nd1a1a.md#c2"
+    char_span: [2655, 4108]
+    sentence_count: 9
+    key_terms: [family, took, work, decision, vehicle, bigger, closer, paycut]
+    section: Comments
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/waterloo/1nd1a1a.md#c3"
+    char_span: [4110, 5850]
+    sentence_count: 16
+    key_terms: [toronto, living, work, waterloo, snooradishes9685, "it's", week, expensive]
+    section: Comments
+    token_count: 456
 ---
-
 # Living in Waterloo and Working in Downtown Toronto
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1nd1a1a/living_in_waterloo_and_working_in_downtown_toronto/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-personalfinance/aecf869acc.md
 url: "https://www.reddit.com/r/personalfinance/comments/1p83emh/mom_asking_to_use_a_heloc_to_buy_a_pool/"
 url_hash: "aecf869acc"
 kind: "article"
@@ -10,8 +11,30 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:19:18.854273+00:00"
 chars: 5602
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-personalfinance/aecf869acc.md#c0"
+    char_span: [0, 2126]
+    sentence_count: 15
+    key_terms: [pool, wife, house, financial, get, loan, personalfinance, share]
+    token_count: 503
+  - id: "articles/reddit-deep-r-personalfinance/aecf869acc.md#c1"
+    char_span: [2130, 2798]
+    sentence_count: 7
+    key_terms: [pay, concern, house, "i've", real, relationship, considering, immediately]
+    token_count: 144
+  - id: "articles/reddit-deep-r-personalfinance/aecf869acc.md#c2"
+    char_span: [2800, 4971]
+    sentence_count: 21
+    key_terms: [pool, "don't", "it's", live, risk, excavation, including, september]
+    token_count: 512
+  - id: "articles/reddit-deep-r-personalfinance/aecf869acc.md#c3"
+    char_span: [4684, 5789]
+    sentence_count: 8
+    key_terms: [like, live, lawn, mom, retired, someone, garage, nickburnscompanyguy]
+    token_count: 256
 ---
-
 # Mom Asking to Use a HELOC to Buy a Pool
 
 Source: [Reddit Deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1p83emh/mom_asking_to_use_a_heloc_to_buy_a_pool/)

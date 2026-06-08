@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1osbo2p.md
 url: "https://www.reddit.com/r/careeradvice/comments/1osbo2p/student_here_doing_a_project_on_how_people_in/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.243Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1osbo2p.md#c0"
+    char_span: [0, 1586]
+    sentence_count: 17
+    key_terms: [people, learn, want, working, careeradvice, like, use, comments]
+    token_count: 389
+  - id: "social-intelligence/reddit-deep/careeradvice/1osbo2p.md#c1"
+    char_span: [1601, 3400]
+    sentence_count: 19
+    key_terms: ["don't", use, benefits, formulas, learning, without, easier, infamousperformer100]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/careeradvice/1osbo2p.md#c2"
+    char_span: [3402, 4630]
+    sentence_count: 11
+    key_terms: [professionals, experience, possible, infamousperformer100, askiacareercoaching, learn, don, keen]
+    section: Comments
+    token_count: 271
 ---
-
 # Student here doing a project on how people in their careers feel about AI — need some help!
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1osbo2p/student_here_doing_a_project_on_how_people_in/)

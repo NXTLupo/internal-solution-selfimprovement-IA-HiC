@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/workonline/1pkscmb.md
 url: "https://www.reddit.com/r/WorkOnline/comments/1pkscmb/help_is_residence_supply_a_scam/"
 kind: "social-post"
 source: "reddit-deep: r/workonline"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-26T12:53:45.649Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [retail]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/workonline/1pkscmb.md#c0"
+    char_span: [0, 713]
+    sentence_count: 8
+    key_terms: [company, help, workonline, comments, because, payment, find, scam]
+    token_count: 164
+  - id: "social-intelligence/reddit-deep/workonline/1pkscmb.md#c1"
+    char_span: [728, 1584]
+    sentence_count: 1
+    key_terms: [dooroom-brass-door-stops-hole-free-bathroom-door-stopper-heavy-duty-floor-wall-mount-bumper-non-magnetic-door-holder-catch, products, https, dooroom, com, www, residencesupply, pesu-door-stop]
+    section: Comments
+    token_count: 217
 ---
-
 # Help! Is Residence Supply a scam?
 
 Source: [reddit-deep: r/workonline](https://www.reddit.com/r/WorkOnline/comments/1pkscmb/help_is_residence_supply_a_scam/)

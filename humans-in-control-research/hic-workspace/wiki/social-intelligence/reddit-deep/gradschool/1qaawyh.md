@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1qaawyh.md
 url: "https://www.reddit.com/r/GradSchool/comments/1qaawyh/why_did_you_go_to_grad_school/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.142Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1qaawyh.md#c0"
+    char_span: [0, 599]
+    sentence_count: 2
+    key_terms: [school, grad, gradschool, comments, program, year, afreckledfairy, architecture]
+    token_count: 151
+  - id: "social-intelligence/reddit-deep/gradschool/1qaawyh.md#c1"
+    char_span: [614, 2601]
+    sentence_count: 18
+    key_terms: [because, stressful, like, research, masters, deformedexile, field, been]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1qaawyh.md#c2"
+    char_span: [2369, 3099]
+    sentence_count: 4
+    key_terms: [school, gurprofessional9534, field, loved, that-entrance-8242, else, grad, organically]
+    section: Comments
+    token_count: 183
+  - id: "social-intelligence/reddit-deep/gradschool/1qaawyh.md#c3"
+    char_span: [3101, 4365]
+    sentence_count: 10
+    key_terms: [better, school, corporate, undergrad, diploma, masters, passion, enough]
+    section: Comments
+    token_count: 292
 ---
-
 # why did you go to grad school?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1qaawyh/why_did_you_go_to_grad_school/)

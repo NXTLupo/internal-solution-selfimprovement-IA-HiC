@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1qk4d4v.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1qk4d4v/which_majorscareer_paths_would_you_recommend_a/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,21 @@ flair: "Business"
 extracted_at: "2026-05-20T06:42:01.111Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qk4d4v.md#c0"
+    char_span: [0, 313]
+    sentence_count: 2
+    key_terms: [gradadmissions, comments, randomlebaneseperson, reddit-deep, recommend, business, career, majors]
+    token_count: 89
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qk4d4v.md#c1"
+    char_span: [328, 1397]
+    sentence_count: 9
+    key_terms: ["i'm", business, doing, years, job, recommend, looking, masters]
+    section: Comments
+    token_count: 241
 ---
-
 # Which Majors/Career paths would you recommend a business grad to pursue?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1qk4d4v/which_majorscareer_paths_would_you_recommend_a/)

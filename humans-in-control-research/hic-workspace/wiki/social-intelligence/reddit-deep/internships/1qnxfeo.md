@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1qnxfeo.md
 url: "https://www.reddit.com/r/internships/comments/1qnxfeo/bmw_interview_tipsinternship_experience/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "Interviews"
 extracted_at: "2026-05-22T13:32:14.551Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [manufacturing, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1qnxfeo.md#c0"
+    char_span: [0, 464]
+    sentence_count: 5
+    key_terms: [internships, experience, interview, wondering, comments, anyone, fewcombination5329, bmw]
+    token_count: 113
+  - id: "social-intelligence/reddit-deep/internships/1qnxfeo.md#c1"
+    char_span: [479, 1137]
+    sentence_count: 4
+    key_terms: [favorite, otherpressure3111, ask, job, role, internapp-sigma, behaviorals, interviewer]
+    section: Comments
+    token_count: 154
 ---
-
 # BMW Interview Tips/Internship Experience?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1qnxfeo/bmw_interview_tipsinternship_experience/)

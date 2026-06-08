@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1rmvr6p.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rmvr6p/holy_ragebait_a2c_mods_please_confirm_if_this_is/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,45 @@ flair: "Discussion"
 extracted_at: "2026-05-20T06:42:01.170Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rmvr6p.md#c0"
+    char_span: [0, 1883]
+    sentence_count: 19
+    key_terms: [got, people, decisions, cooked, applyingtocollege, year, everyone, college]
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rmvr6p.md#c1"
+    char_span: [1898, 3988]
+    sentence_count: 17
+    key_terms: [low-watercress5964, lottery, parent, applications, "it's", especially, including, process]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rmvr6p.md#c2"
+    char_span: [3990, 5341]
+    sentence_count: 8
+    key_terms: [person, accepted, folks, qualified, southern-werewolf386, based, being, least]
+    section: Comments
+    token_count: 339
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rmvr6p.md#c3"
+    char_span: [5343, 7228]
+    sentence_count: 19
+    key_terms: [qualified, students, applicants, too, unqualified, t10, year, colleges]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rmvr6p.md#c4"
+    char_span: [7230, 9460]
+    sentence_count: 17
+    key_terms: [schools, rejected, admissions, applicants, endowment, auditing, criteria, getting]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rmvr6p.md#c5"
+    char_span: [9462, 9950]
+    sentence_count: 2
+    key_terms: [elite-colleges-sued-for-early-decision-price-fixing-scheme, universities, back--this, financial, incentive, maddening, privatize, radically]
+    section: Comments
+    token_count: 125
 ---
-
 # HOLY RAGEBAIT. A2C mods please confirm if this is true!!!
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rmvr6p/holy_ragebait_a2c_mods_please_confirm_if_this_is/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1smeu5j.md
 url: "https://www.reddit.com/r/internships/comments/1smeu5j/just_tired_at_this_point/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,33 @@ flair: "General"
 extracted_at: "2026-05-20T03:54:30.577Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1smeu5j.md#c0"
+    char_span: [0, 1593]
+    sentence_count: 7
+    key_terms: [internships, internship, "don't", get, comments, done, "i'm", callback]
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/internships/1smeu5j.md#c1"
+    char_span: [1608, 3336]
+    sentence_count: 10
+    key_terms: [resume, companies, interview, company, getting, through, offers, skills]
+    section: Comments
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/internships/1smeu5j.md#c2"
+    char_span: [3338, 5401]
+    sentence_count: 15
+    key_terms: [applications, send, everything, "college's", situation, something, similar, front-research-1288]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/internships/1smeu5j.md#c3"
+    char_span: [5403, 6284]
+    sentence_count: 9
+    key_terms: [people, something, nothing, months, adventurousadvisor80, understanding, applications, nepternship]
+    section: Comments
+    token_count: 214
 ---
-
 # Just tired at this point
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1smeu5j/just_tired_at_this_point/)

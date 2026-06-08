@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1p6qekr.md
 url: "https://www.reddit.com/r/college/comments/1p6qekr/those_paying_for_your_own_college_do_you_regret/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,33 @@ flair: "Finances/financial aid"
 extracted_at: "2026-05-26T14:31:29.697Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1p6qekr.md#c0"
+    char_span: [0, 1484]
+    sentence_count: 13
+    key_terms: [job, school, doing, college, hours, high, year, brother]
+    token_count: 344
+  - id: "social-intelligence/reddit-deep/college/1p6qekr.md#c1"
+    char_span: [1499, 3193]
+    sentence_count: 14
+    key_terms: [school, high, did, job, worked, years, able, college]
+    section: Comments
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/college/1p6qekr.md#c2"
+    char_span: [3195, 5186]
+    sentence_count: 12
+    key_terms: [college, school, working, high, job, dumbindian21, scholarships, helped]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1p6qekr.md#c3"
+    char_span: [4957, 5847]
+    sentence_count: 6
+    key_terms: [school, college, working, saved, summer, money, never, octopuswithabanjo]
+    section: Comments
+    token_count: 220
 ---
-
 # Those paying for your own college, do you regret NOT getting a job in high school?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1p6qekr/those_paying_for_your_own_college_do_you_regret/)

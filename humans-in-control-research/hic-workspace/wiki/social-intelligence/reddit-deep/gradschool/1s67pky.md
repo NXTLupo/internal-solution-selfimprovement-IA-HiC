@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1s67pky.md
 url: "https://www.reddit.com/r/GradSchool/comments/1s67pky/withdraw_or_escalate_this_situation_after_losing/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-22T21:35:36.529Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1s67pky.md#c0"
+    char_span: [0, 2322]
+    sentence_count: 20
+    key_terms: [situation, professor, withdraw, through, documentation, perspective, been, attendance]
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/gradschool/1s67pky.md#c1"
+    char_span: [2337, 3790]
+    sentence_count: 11
+    key_terms: [take, program, course, incomplete, graduate, semester, discuss, grades]
+    section: Comments
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/gradschool/1s67pky.md#c2"
+    char_span: [3792, 5917]
+    sentence_count: 17
+    key_terms: [accommodations, semester, school, ombudsman, graduate, accommodation, grandmother, take]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/gradschool/1s67pky.md#c3"
+    char_span: [5919, 7594]
+    sentence_count: 11
+    key_terms: [professors, change, unfortunately, sorry, attendance, education, "shouldn't", academic]
+    section: Comments
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/gradschool/1s67pky.md#c4"
+    char_span: [7596, 9779]
+    sentence_count: 14
+    key_terms: [take, life, part, probably, withdraw, courses, don, lot]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1s67pky.md#c5"
+    char_span: [9490, 9870]
+    sentence_count: 4
+    key_terms: [life, people, part, time, capricious, compassion, bullshit, champion]
+    section: Comments
+    token_count: 82
 ---
-
 # Withdraw or escalate this situation after losing a parent?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1s67pky/withdraw_or_escalate_this_situation_after_losing/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1scqa93.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1scqa93/saaspocalypse_story_is_a_boomer_fantasy/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,56 @@ flair: "DD"
 extracted_at: "2026-05-17T01:14:17.608Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [saas, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1scqa93.md#c0"
+    char_span: [0, 1966]
+    sentence_count: 13
+    key_terms: [blackstone-drives-medallia-negotiations, https, blah, com, company, why-did-nvidia-stock-crash-after-blowout-earnings, right, down]
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1scqa93.md#c1"
+    char_span: [1968, 2551]
+    sentence_count: 10
+    key_terms: ["capital's", positions, "shouldn't", bullshit, duration, software, stargate, supposed]
+    token_count: 148
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1scqa93.md#c2"
+    char_span: [2566, 4076]
+    sentence_count: 6
+    key_terms: [ai-moderator, saas, together, discord, garbage, massive, boomer, entire]
+    section: Comments
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1scqa93.md#c3"
+    char_span: [4078, 5002]
+    sentence_count: 5
+    key_terms: [humans, humble-section-5638, years, need, paid, s1n0d3utscht3k, seafinding9818, nomynametoday]
+    section: Comments
+    token_count: 287
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1scqa93.md#c4"
+    char_span: [5004, 6297]
+    sentence_count: 11
+    key_terms: [work, "doesn't", boss, need, months, sentientshadeofgreen, doesn, speed]
+    section: Comments
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1scqa93.md#c5"
+    char_span: [6299, 8424]
+    sentence_count: 18
+    key_terms: [email, work, worked, based, build, did, dos, get]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1scqa93.md#c6"
+    char_span: [8143, 8433]
+    sentence_count: 3
+    key_terms: [based, email, working, dos, computers, remember, transfer, mailmen]
+    section: Comments
+    token_count: 67
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1scqa93.md#c7"
+    char_span: [8435, 9347]
+    sentence_count: 6
+    key_terms: [going, don, customers, software, finally, systems, hidden, above]
+    section: Comments
+    token_count: 231
 ---
-
 # SaaSpocalypse story is a boomer fantasy
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1scqa93/saaspocalypse_story_is_a_boomer_fantasy/)

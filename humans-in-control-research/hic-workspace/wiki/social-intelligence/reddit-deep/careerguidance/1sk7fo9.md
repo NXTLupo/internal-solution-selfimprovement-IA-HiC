@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sk7fo9.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sk7fo9/career_guidance_for_bsc_stats_ecobba_student/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 1
 flair: "Advice"
-extracted_at: "2026-05-22T15:13:18.802Z"
+extracted_at: "2026-06-03T18:35:34.122Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sk7fo9.md#c0"
+    char_span: [0, 276]
+    sentence_count: 2
+    key_terms: [careerguidance, comments, reddit-deep, guidance, student, career, posted, reddit]
+    token_count: 84
+  - id: "social-intelligence/reddit-deep/careerguidance/1sk7fo9.md#c1"
+    char_span: [291, 1021]
+    sentence_count: 4
+    key_terms: [business, aimed, roles, data, show, transactions, description, internships]
+    section: Comments
+    token_count: 152
 ---
-
 # career guidance for bsc stats eco+bba student?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sk7fo9/career_guidance_for_bsc_stats_ecobba_student/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1r7ij0s.md
 url: "https://www.reddit.com/r/managers/comments/1r7ij0s/any_tips_for_remotely_managing_an_inperson_team/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,33 @@ flair: "New Manager"
 extracted_at: "2026-05-26T12:54:23.680Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1r7ij0s.md#c0"
+    char_span: [0, 766]
+    sentence_count: 5
+    key_terms: [team, in-person, comments, managers, managing, company, office, remote]
+    token_count: 180
+  - id: "social-intelligence/reddit-deep/managers/1r7ij0s.md#c1"
+    char_span: [781, 1352]
+    sentence_count: 5
+    key_terms: [accept, higher, level, team, comfortable, established, experienced, temptation]
+    section: Comments
+    token_count: 126
+  - id: "social-intelligence/reddit-deep/managers/1r7ij0s.md#c2"
+    char_span: [1354, 3324]
+    sentence_count: 14
+    key_terms: [team, day, office, opportunities, expectations, good, lot, time]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/managers/1r7ij0s.md#c3"
+    char_span: [3326, 3843]
+    sentence_count: 6
+    key_terms: [want, illustrious-pass-546, get, team, established, downstream, impression, dedicated]
+    section: Comments
+    token_count: 121
 ---
-
 # Any tips for remotely managing an in-person team?
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1r7ij0s/any_tips_for_remotely_managing_an_inperson_team/)

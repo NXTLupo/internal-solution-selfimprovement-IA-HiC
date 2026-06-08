@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1qo7mnm.md
 url: "https://www.reddit.com/r/jobs/comments/1qo7mnm/just_got_fired/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,50 @@ flair: "Unemployment"
 extracted_at: "2026-05-22T21:35:36.546Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1qo7mnm.md#c0"
+    char_span: [0, 2267]
+    sentence_count: 25
+    key_terms: [full-time, like, clarity, time, automation, agreement, benefits, comments]
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/jobs/1qo7mnm.md#c1"
+    char_span: [2269, 4545]
+    sentence_count: 14
+    key_terms: [engagement, asked, wasn, work, last, time, automation, reporting]
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/jobs/1qo7mnm.md#c2"
+    char_span: [4560, 6585]
+    sentence_count: 16
+    key_terms: [consulting, client, agency, doing, done, etc, rate, department]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/jobs/1qo7mnm.md#c3"
+    char_span: [6588, 8715]
+    sentence_count: 16
+    key_terms: [problems, obviously, need, "don't", since, back, done, get]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/jobs/1qo7mnm.md#c4"
+    char_span: [8717, 10686]
+    sentence_count: 20
+    key_terms: [number, "he'd", like, rate, "they're", yadda, put, desperate]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/jobs/1qo7mnm.md#c5"
+    char_span: [10688, 12627]
+    sentence_count: 22
+    key_terms: [companies, frank, elsewhere, recently, walking, better, higher, longer]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/jobs/1qo7mnm.md#c6"
+    char_span: [12629, 14524]
+    sentence_count: 19
+    key_terms: [work, did, octeyon, contact, agency, longer, intelligent-note9517, bayouwaterandmusic]
+    section: Comments
+    token_count: 499
 ---
-
 # Just got fired.
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1qo7mnm/just_got_fired/)

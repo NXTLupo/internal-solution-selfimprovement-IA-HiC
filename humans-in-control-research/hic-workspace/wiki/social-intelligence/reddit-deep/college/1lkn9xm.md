@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1lkn9xm.md
 url: "https://www.reddit.com/r/college/comments/1lkn9xm/what_school_supplies_do_college_students_use/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,45 @@ flair: "Academic Life"
 extracted_at: "2026-05-25T15:51:48.245Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1lkn9xm.md#c0"
+    char_span: [0, 439]
+    sentence_count: 6
+    key_terms: [college, comments, supplies, school, need, thinktrip2662, reddit-deep, everything]
+    token_count: 111
+  - id: "social-intelligence/reddit-deep/college/1lkn9xm.md#c1"
+    char_span: [454, 2147]
+    sentence_count: 12
+    key_terms: [class, through, laptop, last, electronically, taking, assignments, note]
+    section: Comments
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/college/1lkn9xm.md#c2"
+    char_span: [2149, 3383]
+    sentence_count: 9
+    key_terms: [major, notes, paper, stem, whatever, "i'm", math, magentamango51]
+    section: Comments
+    token_count: 290
+  - id: "social-intelligence/reddit-deep/college/1lkn9xm.md#c3"
+    char_span: [3385, 5526]
+    sentence_count: 13
+    key_terms: [need, pencils, stapler, notebooks, recommend, pens, digital, laptop]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1lkn9xm.md#c4"
+    char_span: [5249, 6686]
+    sentence_count: 8
+    key_terms: [notebooks, paper, notebook, separate, classes, class, used, recommend]
+    section: Comments
+    token_count: 339
+  - id: "social-intelligence/reddit-deep/college/1lkn9xm.md#c5"
+    char_span: [6688, 8063]
+    sentence_count: 7
+    key_terms: [subject, notebooks, laptop, charger, pencils, answer, better, mostly]
+    section: Comments
+    token_count: 356
 ---
-
 # What school supplies do college students use?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1lkn9xm/what_school_supplies_do_college_students_use/)

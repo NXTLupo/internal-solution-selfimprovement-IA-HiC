@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-gradschool/efcb6ca036.md
 url: "https://www.reddit.com/r/GradSchool/comments/1qjgfev/denied_from_grad_school_any_hope_ever/"
 url_hash: "efcb6ca036"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T19:52:54.812100+00:00"
 chars: 4828
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-gradschool/efcb6ca036.md#c0"
+    char_span: [0, 1802]
+    sentence_count: 18
+    key_terms: [because, denied, school, graduate, application, been, department, gradschool]
+    token_count: 397
+  - id: "articles/reddit-deep-r-gradschool/efcb6ca036.md#c1"
+    char_span: [1804, 3830]
+    sentence_count: 19
+    key_terms: [years, experience, plan, certification, publications, like, work, community]
+    token_count: 470
+  - id: "articles/reddit-deep-r-gradschool/efcb6ca036.md#c2"
+    char_span: [3832, 5004]
+    sentence_count: 15
+    key_terms: [accepted, program, applied, challenges, community, completed, doctorate, selective]
+    token_count: 262
 ---
-
 # Denied From Grad School. Any Hope? Ever?
 
 Source: [Reddit Deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1qjgfev/denied_from_grad_school_any_hope_ever/)

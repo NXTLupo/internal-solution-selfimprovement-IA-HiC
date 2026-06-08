@@ -6,19 +6,19 @@ subreddit: "cscareerquestions"
 title: "How to stay \"in it\"?"
 author: "Striking-Speaker8686"
 date: "2026-03-25T00:49:29.000Z"
-score: 55
-upvote_ratio: 0.96
+score: 53
+upvote_ratio: 0.95
 num_comments: 34
 flair: "New Grad"
-extracted_at: "2026-05-22T15:11:47.163Z"
+extracted_at: "2026-06-06T23:23:15.643Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # How to stay "in it"?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1s2w5lr/how_to_stay_in_it/)
-Posted by **Striking-Speaker8686** · **55↑** · **34 comments**
+Posted by **Striking-Speaker8686** · **53↑** · **34 comments**
 
 Since I graduated a couple years ago, I have been working retail and fast food jobs to get by. For the first few months of that, I was convinced that I'd break into tech, but that it'd just take some time. Okay. So day by day, I'm working the 8-10 hours or whatever per day, sometimes more, I'd take weird shifts, I'd have multiple jobs at a time, etc, and if/when I have time, I'd try to do a Leetcode problem or something. When I wasnt working, I was studying or I was applying. I was absolutely miserable, and I guess I was just waiting for that magic lucrative job offer that I'd just wasted 4 years of my life working toward to descend from the heavens and whisk me away from the shitty life I was suffering through. I'd get interviews every now and then, but the sheer number of rejection emails, that followed such extraordinarily homogeneous patterns to where I could probably have written up a script to filter all of them out by message content in 5 minutes.
 
@@ -34,7 +34,7 @@ Part of me wants to start from the bottom of that mountain and work myself back 
 
 ## Comments
 
-- **MHIREOFFICIAL** (42↑): As a senior for 10+ years, I do not know what to tell you other than the economy sucks, AI sucks, the field is oversaturated, and the future is highly uncertain.
+- **MHIREOFFICIAL** (40↑): As a senior for 10+ years, I do not know what to tell you other than the economy sucks, AI sucks, the field is oversaturated, and the future is highly uncertain.
 
 Honestly - I would look into finding some sort of \~40-60k$ a year tech-adjacent office job that requires a degree and show up with a friendly can-do-attitude to your interviews and keep programming as a hobby if/when the field ever recovers. If you half-ass technical programming interview in this market the competition is going to destroy you.
 
@@ -42,7 +42,7 @@ It's bad out there, it's likely going to get worse.
   - **TracePoland** (1↑): AI doesn’t suck, the stupidity of the hype train built around it sucks but the product itself is obviously good if you can tailor to use it how it suits you, instead of just going with the hype created by mostly people on Twitter who don’t know anything about serious SWE.
     - **MHIREOFFICIAL** (2↑): You're misinterpreting me. My point is that AI is good enough to impact our lives in a negative way.
 - **mediocre-yan-26** (28↑): Man, I feel this so hard. I'm in a similar boat - been grinding Leetcode on and off for months but keep bombing interviews. The rejection fatigue is real. What helped me lately is just accepting that I can't control the outcome of applications, so I just focus on what I can control: doing at least 2 problems a day and fixing one thing in my behavioral answers each week. Also started journaling why I bomb to spot patterns. Anyway, you're not alone in this grind. Keep going.
-- **sunflower_love** (21↑): CodingJesus is awful and asks stupid trivia questions to try and embarrass new grads. I guarantee there are plenty of people making tons of money as software engineers right now that couldn’t answer some of his questions. 
+- **sunflower_love** (19↑): CodingJesus is awful and asks stupid trivia questions to try and embarrass new grads. I guarantee there are plenty of people making tons of money as software engineers right now that couldn’t answer some of his questions. 
 
 Definitely don’t mistake his shtick as anything that you should measure yourself by.
   - **TracePoland** (1↑): How is stack vs heap, which most of them fail to answer a „stupid trivia question”, when he gets call ins from people who want to write hyperoptimised code at quant companies (more like want the money and the experience that goes with it)? How can they begin to even do that without knowing those concepts?
@@ -51,12 +51,12 @@ Definitely don’t mistake his shtick as anything that you should measure yourse
 I just find his whole persona toxic and… bad. Like how he tried to farm fame off of that PirateSoftware guy. That guy may be bad at programming, but CodingJesus was talking out of his ass about GameMaker when he clearly knows nothing about GameMaker. 
 
 The fact he even calls himself CodingJesus should give anyone a clue about his ego.
-- **lhorie** (9↑): Unclear to me why you’d spend time on DP questions if you’re not aiming for the Googles or Jane Streets of the world.
+- **lhorie** (8↑): Unclear to me why you’d spend time on DP questions if you’re not aiming for the Googles or Jane Streets of the world.
 
 Reading between the lines, I’m suspecting you lack direction and focus. It sounds like you’re applying to anything in the hope something sticks, but from the perspective of a company evaluating multiple candidates, nobody wants a candidate that is just mediocre at everything. Ideally you want to focus on one specialization and get strong at that one thing. For a lot of companies that means specific stack expertise more so than LC. The one thing you got going in your favor in this regard is that schools don’t teach e.g. .NET or Salesforce so getting into that type of role is entirely up to how much focused prep you do
-- **nian2326076** (3↑): Good luck, don't lose hope
-- **cute_boy_summer** (4↑): Maybe you can focus on easy and medium leetcode questions more. Forget about DP, graph, DSA, they are just too hard, even if you grind so hard, you still can't get it right.Think about basic concepts like string, array, integer.
-- **CapImpossible1483** (4↑): honestly man, i feel this. the grind is real and burnout is inevitable when you're working that much and still trying to keep your skills sharp. couple things that helped me: first, be way more selective about what you study. if you're getting interviews, the issue might not be leetcode volume but interview execution. record yourself doing mock problems and watch them back - it's painful but you'll catch so much. second, if you do land interviews, don't leave it to chance. some people use tools like techscreen.app or ultracode to help during the actual call, especially when you're rusty from working retail all day. third, apply to smaller companies and startups - they're more forgiving and you can actually talk to humans. the mega corp rejection emails will drain your soul. take a week off from applying if you need to. sometimes the best thing is to reset before you completely check out.
+- **nian2326076** (5↑): Good luck, don't lose hope
+- **cute_boy_summer** (5↑): Maybe you can focus on easy and medium leetcode questions more. Forget about DP, graph, DSA, they are just too hard, even if you grind so hard, you still can't get it right.Think about basic concepts like string, array, integer.
+- **CapImpossible1483** (5↑): honestly man, i feel this. the grind is real and burnout is inevitable when you're working that much and still trying to keep your skills sharp. couple things that helped me: first, be way more selective about what you study. if you're getting interviews, the issue might not be leetcode volume but interview execution. record yourself doing mock problems and watch them back - it's painful but you'll catch so much. second, if you do land interviews, don't leave it to chance. some people use tools like techscreen.app or ultracode to help during the actual call, especially when you're rusty from working retail all day. third, apply to smaller companies and startups - they're more forgiving and you can actually talk to humans. the mega corp rejection emails will drain your soul. take a week off from applying if you need to. sometimes the best thing is to reset before you completely check out.
 - **OkPoet2105** (3↑): The trick with getting back into interview shape is breaking it down into small, achievable pieces instead of trying to tackle everything at once. From your post, it sounds like you're trying to rebuild your entire CS foundation from scratch - that's overwhelming for anyone.
 
   
@@ -67,13 +67,6 @@ For your specific situation, I'd focus first on nailing the fundamentals that co
 
   
 The fact that you got an interview is actually a good sign - it means your resume is getting some traction. Now it's just about rebuilding those technical skills systematically. Don't worry about your age or feeling rusty - that stuff comes back faster than you'd expect once you start practicing regularly.
-- **Significant_Soup2558** (3↑): You are not a husk and your brain is not rotten at 25. What you are describing is what sustained deprivation does to motivation, not evidence of a permanent ceiling. The passion you had for reading papers and getting excited about projects did not disappear because you became less capable. It disappeared because you have been exhausted, financially stressed, and repeatedly rejected for years while working physically demanding jobs with no recovery time. That kills intrinsic motivation in almost everyone regardless of talent.
-
-The interview bombing is actually useful information even though it felt catastrophic. You now know the gap is real and specific rather than vague, which means it is addressable. DSA knowledge that was built once rebuilds faster the second time, that is genuinely how memory and pattern recognition work, and Neetcode’s approach of drilling fundamentals to muscle memory is correct and does not require the same hours it took to learn them initially.
-
-The application volume problem is worth solving separately from the preparation problem. A service like Applyre can handle submissions so you are not burning the little remaining energy you have on Workday account creation just to keep a trickle of lottery tickets going.
-
-The realistic path forward is narrow hours, not heroic ones. Thirty minutes of Neetcode daily on easy problems only, no mediums yet, no pressure, just reactivating pattern recognition without making it another source of failure. One interview per hundred applications means you have some time between now and the next one. Use it to close a specific gap rather than trying to rebuild everything at once. You got yourself to the interview stage drunk on fumes. That is not nothing.​​​​​​​​​​​​​​​​
 - **NORCAL_SPARK** (3↑): Hear my story out…
 
 Graduated June 2022.
@@ -95,3 +88,6 @@ In conclusion, take a contract role at FAANG company. There are ton of technicia
 
 Also… spend time with your loved ones and find a hobby you truly love. I spent countless hours absorbed in my hobbies/communities and it really allowed me to stay happy and grounded when my career was going nowhere.
   - **income-percent-bot** (1↑): At $54,080.00, you're in the 53rd percentile, earning more than 53% of Americans. With SF Bay Area's lower cost of living, your purchasing power is equivalent to ~$30,044.00 in a high-cost city. Source: [income percentile calculator](https://wealthvieu.com/income-percentile-calculator/) ^(I'm a bot. Reply with !optout to stop receiving responses.)
+- **Ok_Director9559** (4↑): I just got an area manager offer it pays 80k 70k base and 11 k bonus and 23 k worth of stocks to fund my masters and do an internship and pursue my passion in. Cs again I messed up dec 2024 grad here don’t lose hope but the degree will get you an alright job nonetheless, maybe an internal transfer as a data center manager
+  - **Striking-Speaker8686** (1↑): Area manager seems a decent job what kind of work did you do before that qualified you for it? Do you need prior experience?
+    - **Ok_Director9559** (1↑): Amazon bro no experience needed, just a degree

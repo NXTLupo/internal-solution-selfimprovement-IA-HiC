@@ -6,25 +6,25 @@ subreddit: "college"
 title: "People who started college late in life how was or is the experience? Was it good for your career or change of career?"
 author: "Mysterious_Rest3633"
 date: "2026-01-06T15:37:27.000Z"
-score: 21
+score: 22
 upvote_ratio: 0.92
 num_comments: 25
 flair: "Career/work"
-extracted_at: "2026-05-25T13:02:03.699Z"
+extracted_at: "2026-06-06T23:23:15.570Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # People who started college late in life how was or is the experience? Was it good for your career or change of career?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1q5lveg/people_who_started_college_late_in_life_how_was/)
-Posted by **Mysterious_Rest3633** · **21↑** · **25 comments**
+Posted by **Mysterious_Rest3633** · **22↑** · **25 comments**
 
 So I am about to turn 30 this year, I am going to college for a certification in robotics and automation and im planning that this year I can transition into a 4 year bachelor's; I have some classes that I can transfer. I have an associate in automotive tech and I have been in the automotive industry since 2017. I am nervous about going to actual college and talking classes with kids out of highschool, and I have some good ideas of what to major in, probably mechanical engineering or AI computer science, but im also afraid that a college degree would not get me that boost I want in my career, and that would be jumping in a crowded market full of younger people who have been preparing themselves for a specific career since early highschool. Idk how other people experience has been going to college at a leter stage in life other than right after highschool. Any feedback would be appreciated tia.
 
 ## Comments
 
-- **acenoodle** (5↑): Hi! I started community college at 32 because I wanted to switch careers from hospitality (but wasn't sure what) and it was frankly the best decision of my life. The maturity you gain before starting a journey towards higher education actually gives you a leg up. As an older student, I found myself having a deeper appreciation for education than my younger peers that were arriving just after high school. It was also so much easier to connect with the professors and create wonderful relationships with each of them. 
+- **acenoodle** (3↑): Hi! I started community college at 32 because I wanted to switch careers from hospitality (but wasn't sure what) and it was frankly the best decision of my life. The maturity you gain before starting a journey towards higher education actually gives you a leg up. As an older student, I found myself having a deeper appreciation for education than my younger peers that were arriving just after high school. It was also so much easier to connect with the professors and create wonderful relationships with each of them. 
 
 Advocating for myself or other students also came naturally, whether it was participating in class or for administrative stuff. I found a lot of students would look to me for guidance and thus gave another opportunity to learn the important skills of mentorship and teamwork. Lastly, I can't believe the sheer amount of opportunities I've had the honor to pursue just because I had the confidence to ask. In the last 18 months, I've been able to attend 2 different study abroads and also was tapped to speak at a couple different conferences, either regarding education or something relating to my field (humanities). I just transferred to a 4-year and can already see that it's just going to keep going up from here. All of this is to say, just go for it! It's incredibly rewarding.
   - **PM_ME_YOUR_REPO** (3↑): Thank you for this. I'm 35 and trying to navigate all of this as an adult with no degree who hates his career (software engineering) and wants to change paths. I'm planning to attend my big state school this fall, but honestly it's all very strange and a bit overwhelming.

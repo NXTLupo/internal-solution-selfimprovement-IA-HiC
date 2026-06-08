@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1nnpc51.md
 url: "https://www.reddit.com/r/personalfinance/comments/1nnpc51/should_i_prioritize_paying_off_debt_or_saving/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,39 @@ flair: "Planning"
 extracted_at: "2026-05-16T20:55:02.102Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1nnpc51.md#c0"
+    char_span: [0, 1034]
+    sentence_count: 7
+    key_terms: [debt, personalfinance, like, comments, savings, saving, feels, money]
+    token_count: 235
+  - id: "social-intelligence/reddit-deep/personalfinance/1nnpc51.md#c1"
+    char_span: [1049, 2590]
+    sentence_count: 7
+    key_terms: [health, tax, flow, hsa, wiki, bogleheads, retirement, insurance]
+    section: Comments
+    token_count: 356
+  - id: "social-intelligence/reddit-deep/personalfinance/1nnpc51.md#c2"
+    char_span: [2592, 4226]
+    sentence_count: 11
+    key_terms: [retirement, pay, interest, externalself1337, debt, put, save, emergency]
+    section: Comments
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/personalfinance/1nnpc51.md#c3"
+    char_span: [4228, 6125]
+    sentence_count: 14
+    key_terms: [debt, savings, interest, muffinmatrix, pay, rate, charged, return]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/personalfinance/1nnpc51.md#c4"
+    char_span: [6127, 7731]
+    sentence_count: 10
+    key_terms: [emergency, debt, fund, savings, paying, pay, depending, financial]
+    section: Comments
+    token_count: 404
 ---
-
 # Should I prioritize paying off debt or saving money first?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1nnpc51/should_i_prioritize_paying_off_debt_or_saving/)

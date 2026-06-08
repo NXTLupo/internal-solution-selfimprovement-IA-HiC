@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rwt2ea.md
 url: "https://www.reddit.com/r/internships/comments/1rwt2ea/summer_internship_vs_fall_coop/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 4
 flair: "Offers"
-extracted_at: "2026-05-25T18:31:15.452Z"
+extracted_at: "2026-06-03T18:34:48.713Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rwt2ea.md#c0"
+    char_span: [0, 2126]
+    sentence_count: 1
+    key_terms: [co-op, fall, "i'm", like, company, internships, internship, "it's"]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/internships/1rwt2ea.md#c1"
+    char_span: [2141, 3125]
+    sentence_count: 8
+    key_terms: [experience, co-op, yamfickle3694, good, longer, months, summer, sushilover56]
+    section: Comments
+    token_count: 260
 ---
-
 # summer internship vs fall co-op
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rwt2ea/summer_internship_vs_fall_coop/)

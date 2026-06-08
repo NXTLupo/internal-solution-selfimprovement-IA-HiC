@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1srk1hq.md
 url: "https://www.reddit.com/r/stocks/comments/1srk1hq/feels_like_everyone_is_allin_on_aitech_is_anyone/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,87 @@ flair: "Industry Question"
 extracted_at: "2026-05-17T01:14:17.624Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c0"
+    char_span: [0, 818]
+    sentence_count: 6
+    key_terms: [feels, like, comments, exposure, reducing, anyone, stocks, bit]
+    token_count: 198
+  - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c1"
+    char_span: [833, 1785]
+    sentence_count: 7
+    key_terms: [earnings, erodes, higher, "can't", big, tech, simplification, discounted]
+    section: Comments
+    token_count: 245
+  - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c2"
+    char_span: [1787, 3594]
+    sentence_count: 11
+    key_terms: [years, dopamine, people, like, tech, potential, earnings, fearful]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c3"
+    char_span: [3596, 5457]
+    sentence_count: 11
+    key_terms: [market, people, ago, bear, indicator, capital, fearful, forever]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c4"
+    char_span: [5223, 5876]
+    sentence_count: 4
+    key_terms: [companies, market, hurt, collapsing, contrarian, individual, servicenow, everybody]
+    section: Comments
+    token_count: 174
+  - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c5"
+    char_span: [5878, 6852]
+    sentence_count: 5
+    key_terms: [transformational, robotics, levels, truly, years, dont, overheadpress69, livinglegend69]
+    section: Comments
+    token_count: 234
+  - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c6"
+    char_span: [6854, 9008]
+    sentence_count: 12
+    key_terms: [llms, justify, altman, couple, decade, models, stocks, basic]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c7"
+    char_span: [9010, 11038]
+    sentence_count: 16
+    key_terms: [broadcom, inference, chip, new, robotics, google, bartturner, different]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c8"
+    char_span: [11040, 12925]
+    sentence_count: 21
+    key_terms: [google, turboquant-redefining-ai-efficiency-with-extreme-compression, starting, years, competition, turboquant, deepmind, research]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c9"
+    char_span: [12927, 14227]
+    sentence_count: 5
+    key_terms: [exposure, stocks, llm, reduced, better, energy, invest, plzbuffrakithennerf]
+    section: Comments
+    token_count: 315
+  - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c10"
+    char_span: [14229, 16441]
+    sentence_count: 14
+    key_terms: [ok-introduction-1940, infrastructure, bubble, names, networking, companies, positions, silicon]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c11"
+    char_span: [16199, 16608]
+    sentence_count: 4
+    key_terms: [leverage, ok-introduction-1940, theconstellationguy, good, long, infrastructure, hopefully, addition]
+    section: Comments
+    token_count: 106
+  - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c12"
+    char_span: [16610, 17295]
+    sentence_count: 6
+    key_terms: [buying, ok-introduction-1940, funds, hedge, macro, short, indiscriminately, infrastructure]
+    section: Comments
+    token_count: 148
 ---
-
 # Feels like everyone is all-in on AI/tech. is anyone actually reducing exposure?
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1srk1hq/feels_like_everyone_is_allin_on_aitech_is_anyone/)

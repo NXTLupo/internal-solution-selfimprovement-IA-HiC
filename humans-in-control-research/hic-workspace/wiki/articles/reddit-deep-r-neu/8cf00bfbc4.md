@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-neu/8cf00bfbc4.md
 url: "https://www.reddit.com/r/NEU/comments/1pip8lq/confused_about_cpt_rules_can_f1_students_work_on/"
 url_hash: "8cf00bfbc4"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-26T14:35:17.058436+00:00"
 chars: 2634
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-neu/8cf00bfbc4.md#c0"
+    char_span: [0, 2124]
+    sentence_count: 15
+    key_terms: [on-campus, employment, f-1-curricular-practical-training, co-op, cpt, full-time, ogs, time]
+    token_count: 491
+  - id: "articles/reddit-deep-r-neu/8cf00bfbc4.md#c1"
+    char_span: [2126, 2849]
+    sentence_count: 7
+    key_terms: [co-op, on-campus, part-time, question, advisor, always, formal-operation4241, check]
+    token_count: 193
 ---
-
 # Confused about CPT rules: Can F1 students work on campus during a full-time co-op?
 
 Source: [Reddit Deep: r/neu](https://www.reddit.com/r/NEU/comments/1pip8lq/confused_about_cpt_rules_can_f1_students_work_on/)

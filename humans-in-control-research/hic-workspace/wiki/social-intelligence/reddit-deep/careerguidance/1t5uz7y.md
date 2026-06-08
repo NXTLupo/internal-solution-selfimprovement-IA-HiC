@@ -7,12 +7,12 @@ title: "23F — Lost after family loss, university/visa issues, and trying to re
 author: "cinnabunnibb"
 date: "2026-05-07T00:30:19.000Z"
 score: 7
-upvote_ratio: 0.83
+upvote_ratio: 0.9
 num_comments: 3
 flair: "Advice"
-extracted_at: "2026-05-23T20:15:29.969Z"
+extracted_at: "2026-06-06T23:21:13.891Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # 23F — Lost after family loss, university/visa issues, and trying to rebuild my career path. Can anyone provide guidance or advice?

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-waterloo/7adf6aa7f7.md
 url: "https://www.reddit.com/r/waterloo/comments/1ky9nxm/housing_advice/"
 url_hash: "7adf6aa7f7"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T20:18:10.411112+00:00"
 chars: 2996
+industries: [workforce, real_estate]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-waterloo/7adf6aa7f7.md#c0"
+    char_span: [0, 1461]
+    sentence_count: 16
+    key_terms: [available, good, waterloo, realtor, immediately, comments, housing, schools]
+    token_count: 342
+  - id: "articles/reddit-deep-r-waterloo/7adf6aa7f7.md#c1"
+    char_span: [1463, 3119]
+    sentence_count: 18
+    key_terms: [laurelwood, realtor, schools, great, sageme-2020, immediate, shopping, suggest]
+    token_count: 402
 ---
-
 # Housing advice
 
 Source: [Reddit Deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1ky9nxm/housing_advice/)

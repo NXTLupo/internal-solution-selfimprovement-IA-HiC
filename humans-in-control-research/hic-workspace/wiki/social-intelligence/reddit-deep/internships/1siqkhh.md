@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1siqkhh.md
 url: "https://www.reddit.com/r/internships/comments/1siqkhh/should_i_take_a_lowquality_internship_just_for/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,22 @@ score: 10
 upvote_ratio: 1
 num_comments: 12
 flair: "Offers"
-extracted_at: "2026-05-23T19:44:46.349Z"
+extracted_at: "2026-06-03T02:21:19.166Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1siqkhh.md#c0"
+    char_span: [0, 1154]
+    sentence_count: 7
+    key_terms: [internships, experience, asked, environment, internship, currently, interview, technical]
+    token_count: 261
+  - id: "social-intelligence/reddit-deep/internships/1siqkhh.md#c1"
+    char_span: [1169, 2605]
+    sentence_count: 5
+    key_terms: ["don't", ropeemotional0910, resume, interesting, traddev26, guidance, honestly, n8jjq1dj]
+    section: Comments
+    token_count: 380
 ---
-
 # Should I take a low-quality internship just for experience + stipend?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1siqkhh/should_i_take_a_lowquality_internship_just_for/)

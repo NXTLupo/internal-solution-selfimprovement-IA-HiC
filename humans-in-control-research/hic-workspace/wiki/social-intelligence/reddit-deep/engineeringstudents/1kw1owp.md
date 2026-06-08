@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1kw1owp.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1kw1owp/what_all_skills_does_an_electronics_engineer_need/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Career Help"
 extracted_at: "2026-05-25T18:32:19.210Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kw1owp.md#c0"
+    char_span: [0, 992]
+    sentence_count: 5
+    key_terms: [engineeringstudents, please, ece, free, comments, industry, seniors, online]
+    token_count: 237
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1kw1owp.md#c1"
+    char_span: [1007, 1964]
+    sentence_count: 4
+    key_terms: [engineeringstudents, infinitecoderunner, wiki, reddit, https, com, new-tie-6529, read]
+    section: Comments
+    token_count: 248
 ---
-
 # What all skills does an Electronics Engineer need to learn if he wanna to to IT industry from ECE, SENIORS PLEASE HELP ME!!!
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1kw1owp/what_all_skills_does_an_electronics_engineer_need/)

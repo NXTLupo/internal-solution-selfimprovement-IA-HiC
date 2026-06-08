@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1r41yhc.md
 url: "https://www.reddit.com/r/humanresources/comments/1r41yhc/just_saw_a_harper_ai_hr_generalist_ad_am_i_being/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,57 @@ flair: "Technology"
 extracted_at: "2026-05-23T12:15:41.517Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1r41yhc.md#c0"
+    char_span: [0, 628]
+    sentence_count: 4
+    key_terms: [humanresources, comments, people, saw, perspectives, reddit-deep, threatening, appreciate]
+    token_count: 160
+  - id: "social-intelligence/reddit-deep/humanresources/1r41yhc.md#c1"
+    char_span: [643, 2185]
+    sentence_count: 11
+    key_terms: [ats, chatgpt, because, probate, job, increased, security, screwed]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/humanresources/1r41yhc.md#c2"
+    char_span: [2189, 3878]
+    sentence_count: 8
+    key_terms: [benefits, lawsuits, terrible, company, service, worried, fantastic-hamster333, execs]
+    section: Comments
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/humanresources/1r41yhc.md#c3"
+    char_span: [3880, 5097]
+    sentence_count: 5
+    key_terms: [manufacturing, work, tangylittleblueberry, unusual--equipment, book, used, septemberlondon, lizwaits410]
+    section: Comments
+    token_count: 323
+  - id: "social-intelligence/reddit-deep/humanresources/1r41yhc.md#c4"
+    char_span: [5099, 6954]
+    sentence_count: 8
+    key_terms: [harper, get, lol, rep, work, brawllikeabigfight20, going, mundane-jump-7546]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/humanresources/1r41yhc.md#c5"
+    char_span: [6729, 7237]
+    sentence_count: 4
+    key_terms: [insurance, namesarenteverything, compassionate, relationships, lonerchick, photoapple, programmed, chatbots]
+    section: Comments
+    token_count: 127
+  - id: "social-intelligence/reddit-deep/humanresources/1r41yhc.md#c6"
+    char_span: [7239, 9348]
+    sentence_count: 12
+    key_terms: [replace, human, get, leadership, because, answer, humans, people]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/humanresources/1r41yhc.md#c7"
+    char_span: [9350, 10380]
+    sentence_count: 6
+    key_terms: [situation, passing, easier, back, let, erinmichaelyooo, richardrosenow, environment]
+    section: Comments
+    token_count: 268
 ---
-
 # Just saw a Harper AI HR Generalist ad. Am I being paranoid about automation threatening HR jobs? [N/A]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1r41yhc/just_saw_a_harper_ai_hr_generalist_ad_am_i_being/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1sah46y.md
 url: "https://www.reddit.com/r/productivity/comments/1sah46y/my_current_setup_for_inperson_meeting_notes/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,27 @@ flair: "General Advice"
 extracted_at: "2026-05-26T12:53:45.656Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1sah46y.md#c0"
+    char_span: [0, 1964]
+    sentence_count: 18
+    key_terms: [productivity, in-person, like, meetings, glasses, meeting, always, laptop]
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/productivity/1sah46y.md#c1"
+    char_span: [1979, 3261]
+    sentence_count: 10
+    key_terms: [meeting, people, don, someone, paper, searequirement7749, zombienedflanders, bot]
+    section: Comments
+    token_count: 294
+  - id: "social-intelligence/reddit-deep/productivity/1sah46y.md#c2"
+    char_span: [3263, 5134]
+    sentence_count: 14
+    key_terms: [paper, use, something, lectures, meeting, similar, summary, "there's"]
+    section: Comments
+    token_count: 466
 ---
-
 # My current setup for in-person meeting notes without laptop so I can be more attentive
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1sah46y/my_current_setup_for_inperson_meeting_notes/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1lr1ls6.md
 url: "https://www.reddit.com/r/careerguidance/comments/1lr1ls6/is_28_too_old_to_go_back_to_school/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-24T14:09:04.415Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1lr1ls6.md#c0"
+    char_span: [0, 962]
+    sentence_count: 9
+    key_terms: [old, careerguidance, feel, comments, already, school, feels, since]
+    token_count: 238
+  - id: "social-intelligence/reddit-deep/careerguidance/1lr1ls6.md#c1"
+    char_span: [977, 2662]
+    sentence_count: 15
+    key_terms: [back, going, never, late, too, roborosiegogo, fall, good]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/careerguidance/1lr1ls6.md#c2"
+    char_span: [2664, 4384]
+    sentence_count: 21
+    key_terms: [current, school, going, age, back, find, new, old]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/careerguidance/1lr1ls6.md#c3"
+    char_span: [4387, 5946]
+    sentence_count: 14
+    key_terms: [linkedin, job, workatastartup, using, com, got, department, company]
+    section: Comments
+    token_count: 372
+  - id: "social-intelligence/reddit-deep/careerguidance/1lr1ls6.md#c4"
+    char_span: [5948, 7917]
+    sentence_count: 15
+    key_terms: [school, old, back, life, someone, age, best, professors]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1lr1ls6.md#c5"
+    char_span: [7707, 8033]
+    sentence_count: 1
+    key_terms: [answer, late, backdatsazzup, animousie, allowed, degrees, create, ius001]
+    section: Comments
+    token_count: 100
+  - id: "social-intelligence/reddit-deep/careerguidance/1lr1ls6.md#c6"
+    char_span: [8035, 8279]
+    sentence_count: 4
+    key_terms: [jonathansj, bachelor, graduate, answer, hellll, school, ahead, whole]
+    section: Comments
+    token_count: 71
 ---
-
 # Is 28 too old to go back to school?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1lr1ls6/is_28_too_old_to_go_back_to_school/)

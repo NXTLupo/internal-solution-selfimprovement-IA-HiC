@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1sr2epr/sibling_rivalryjealousycompetition/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,66 @@ subreddit: "applyingtocollege"
 title: "Sibling Rivalry/Jealousy/Competition"
 author: "Realistic_Tomato1816"
 date: "2026-04-20T20:44:22.000Z"
-score: 113
+score: 111
 upvote_ratio: 0.93
 num_comments: 58
 flair: "Discussion"
-extracted_at: "2026-05-23T12:15:36.208Z"
+extracted_at: "2026-06-05T19:53:34.566Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c0"
+    char_span: [0, 1543]
+    sentence_count: 16
+    key_terms: [applyingtocollege, stanford, get, rah, comments, sibling, oldest, summer]
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c1"
+    char_span: [1558, 2663]
+    sentence_count: 8
+    key_terms: [college, prepared, sounds, content-calendar5535, billie087ffranklin, get, like, accomplishment]
+    section: Comments
+    token_count: 274
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c2"
+    char_span: [2667, 4750]
+    sentence_count: 12
+    key_terms: [get, disappointment, "it's", like, own, anything, pressure, making]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c3"
+    char_span: [4752, 6206]
+    sentence_count: 12
+    key_terms: [prepared, want, expectations, get, careful, college, outcome, always]
+    section: Comments
+    token_count: 334
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c4"
+    char_span: [6208, 8368]
+    sentence_count: 11
+    key_terms: [especially, younger, parent, truly, entitlement, age, get, intentions]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c5"
+    char_span: [8370, 10400]
+    sentence_count: 13
+    key_terms: [ucla, want, college, student, "they're", "you're", "don't", right]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c6"
+    char_span: [10402, 11890]
+    sentence_count: 13
+    key_terms: [college, expectations, being, short, kids, paranoid, sibling, essay]
+    section: Comments
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c7"
+    char_span: [11895, 12634]
+    sentence_count: 3
+    key_terms: [college, going, realize, little, school, older, whole, dangerous-cup-1114]
+    section: Comments
+    token_count: 173
 ---
-
 # Sibling Rivalry/Jealousy/Competition
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1sr2epr/sibling_rivalryjealousycompetition/)
-Posted by **Realistic_Tomato1816** · **113↑** · **58 comments**
+Posted by **Realistic_Tomato1816** · **111↑** · **58 comments**
 
 My oldest is going to UCLA. At Bruin's day, everyone was hyping up the Fall 2026 new students -- "You deserve to be here, it wasn't luck, congrats, you are the top of your HS and you have choices to pick, rah , rah, rah"
 
@@ -32,20 +80,20 @@ To the kids. Do you have older siblings, and how did that impact your path to co
 
 ## Comments
 
-- **Content-Calendar5535** (63↑): It sounds like you and the whole household have been swept up in the college application process.  Time to focus on the middle schooler for a while.
-- **Ok_Experience_5151** (142↑): Emphasize that there are much, much more important things in life than being smart, or accomplished, or attending any particular college.
+- **Content-Calendar5535** (64↑): It sounds like you and the whole household have been swept up in the college application process.  Time to focus on the middle schooler for a while.
+- **Ok_Experience_5151** (139↑): Emphasize that there are much, much more important things in life than being smart, or accomplished, or attending any particular college.
 
 Also, your kid might not even get Cal Poly or UCSB.  Are *you* prepared for that?
   - **Realistic_Tomato1816** (49↑): I am prepared for anything. Even Community College/CSUs.   
 I had to tell my spouse to dial it down when it came to school selectivity.
   - **billie087ffranklin** (1↑): Worth keeping in perspective.
-- **Pumpk1nPi3** (38↑): Sounds like there might be some underlying resentment or complex towards her sister-- although ofc idk your children, please consider this!
-  - **Realistic_Tomato1816** (36↑): They get along. The youngest was so proud and bragged to their friends about the oldest's accomplishment. They looked forward to visiting the campus, watched videos before hand, and was ready for the "best dining hall" experience.   
+- **Pumpk1nPi3** (36↑): Sounds like there might be some underlying resentment or complex towards her sister-- although ofc idk your children, please consider this!
+  - **Realistic_Tomato1816** (34↑): They get along. The youngest was so proud and bragged to their friends about the oldest's accomplishment. They looked forward to visiting the campus, watched videos before hand, and was ready for the "best dining hall" experience.   
   
 Everything was cool until the Chancellor gave a speech about those kids who got accepted and attending were "special and high achieving" and ruled out luck. The campus was really glazing and flattering all the new admits.
     - **Pumpk1nPi3** (15↑): hmm that's good then, I'm glad it's not anything resentment related. looks like it might just be the pressure setting in for her-- make sure she knows that there's no pressure on her to match or exceed her sister and hopefully with time this sudden change of behavior will end
-- **TechnicianInfamous93** (26↑): in the most respectful way possible part of the issue might be you. my mom would say the exact same thing as you say "They might just get Cal Poly or UCSB." especially since my older brother got into berkeley cs which is 1% acceptance rate. having your own PARENT speak to you like this is one of the most humiliating and demeaning experiences I've ever faced. how is a kid supposed to be confident when their own parents doesn't believe in them just some food for thought because it seems to me that it's not the older sibling that is making them feel like this but it's you that's causing this rift in not believing in your own child
-  - **Realistic_Tomato1816** (2↑): I never  said to my kid they will only get into x y z school. I am writing on an internet forum about how I have to get them ready for any disappointment and whatever school they get, I will congratulate and support them. I don't know where people are making these assumptions. Re-Read my line.
+- **TechnicianInfamous93** (27↑): in the most respectful way possible part of the issue might be you. my mom would say the exact same thing as you say "They might just get Cal Poly or UCSB." especially since my older brother got into berkeley cs which is 1% acceptance rate. having your own PARENT speak to you like this is one of the most humiliating and demeaning experiences I've ever faced. how is a kid supposed to be confident when their own parents doesn't believe in them just some food for thought because it seems to me that it's not the older sibling that is making them feel like this but it's you that's causing this rift in not believing in your own child
+  - **Realistic_Tomato1816** (3↑): I never  said to my kid they will only get into x y z school. I am writing on an internet forum about how I have to get them ready for any disappointment and whatever school they get, I will congratulate and support them. I don't know where people are making these assumptions. Re-Read my line.
 
 > I also think they may get disappointed come senior year in 2031 when they apply. They might just get Cal Poly or UCSB. So I am tempering expectations and saying any of those schools is just as good. But I, as a parent, am bracing for that disappointment if things don't go their way.
 
@@ -61,14 +109,14 @@ I want them to be humble. Strive for the very bestr but always be prepared for a
 
 Entitlement and cockiness can be far more damaging. I rather be pleasantly surprised than drown in a pool of regret and second guessing.
     - **TechnicianInfamous93** (7↑): i get that and i do agree with what your saying in terms of entitlement and cockiness but as a kid especially a 11-12 yr old having your parent say the words "oh they well they will only get into xx colleges" is truly such a demeaning experience especially at the age where we strive to make our parents proud. at the end of the day no matter the intentions with kids at that growing age, delivery matters heavily. i can see you have good intentions behind you but again how you say things really does matter especially when your son is already so stressted about it its js not good to really amplify that insecurity :) im just saying this because i truly truly see your son as younger me like when my brother got into berkeley cs i told every single person and i cried when he got in because i had seen how hard he worked and all the struggles he put in towards it. its just also at that age seeing how everyone around him praises the accomplished as a younger sibling you cant help but what that validation asw and its important as a parent to ofc dial down expectations but really support them through it all
-- **Salty-Artist-1643** (95↑): “Just Calpoly or UCSB”… I know you mean well, but if you yourself categorize schools by echelons, your child(ren) will, too. Maybe think in terms of ideal fit. Not looking to debate… just food for thought.
-  - **Floatingupstream77** (20↑): I 100% agree. As a parent and a teacher, I can tell you that so much of the messaging around college comes from home. You still have a lot of power to influence how your younger child thinks of herself and of her future. Embrace that responsibility and make sure that she is not doing things just to outdo her sibling. That seems like a lifelong recipe for toxic rivalry.
-    - **poemskidsinspired** (10↑): UCSB and Cal Poly are not easy to get into. I worked with a student with a 4.5 GPA and impeccable application who was denied to both. Landed very happily elsewhere. I can cite many similar stories.
+- **Salty-Artist-1643** (93↑): “Just Calpoly or UCSB”… I know you mean well, but if you yourself categorize schools by echelons, your child(ren) will, too. Maybe think in terms of ideal fit. Not looking to debate… just food for thought.
+  - **Floatingupstream77** (18↑): I 100% agree. As a parent and a teacher, I can tell you that so much of the messaging around college comes from home. You still have a lot of power to influence how your younger child thinks of herself and of her future. Embrace that responsibility and make sure that she is not doing things just to outdo her sibling. That seems like a lifelong recipe for toxic rivalry.
+    - **poemskidsinspired** (9↑): UCSB and Cal Poly are not easy to get into. I worked with a student with a 4.5 GPA and impeccable application who was denied to both. Landed very happily elsewhere. I can cite many similar stories.
 
 And lovely as it is and deserving as it is that the UCLA folks were hyping your student up, there is an element of… I won’t call it luck, but more like “right student, right place, right time” when it comes to getting admitted to UCLA.
 
 I think it’s wonderful that your youngest is showing so much drive to succeed! You can definitely support their dreams, while reassuring them that their best chance of success is pursuing their real passions. Consider having your younger student read “Applying Sideways”.
-- **Dry-Surprise-4746** (27↑): I feel like you're feeding into this a little bit.
+- **Dry-Surprise-4746** (26↑): I feel like you're feeding into this a little bit.
 
 "Just get Cal Poly or USCB." These are quite good universities, I have no idea why you're downplaying them like they're any lesser then UCLA. I don't see UCLA alumni setting the record for the farthest distance flown in human history. They all have very similar starting salaries as well.
 
@@ -90,8 +138,8 @@ In short, tell your 7th grader to relax, actually develop themselves as a person
 Ew.  This is a super disrespectful thing to say.
   - **MCB1317** (11↑): OP's post is a howlingly-funny example of how hysterical this sub can be.
     - **MissGwendolyn** (2↑): I kept thinking it had to be satire lol
-  - **jeonggukispretty** (12↑): Exactly my thoughts. What a toxic environment to be putting your children in.
-- **Fwellimort** (8↑): I wouldn't overthink much. Most kids forget and lose interest fairly quick.
+  - **jeonggukispretty** (11↑): Exactly my thoughts. What a toxic environment to be putting your children in.
+- **Fwellimort** (7↑): I wouldn't overthink much. Most kids forget and lose interest fairly quick.
 
 That said, I had an older sibling. It did not impact me at all in my path to college. If anything, I had insane expectations of college being some nonsensical grind or something. I recall the first short essay assignment (done over a weekend) in my University Writing class I by mistake (mostly due to not understanding the expectations) wrote a 19 page essay while being paranoid it might have been too short (after all, don't you write like 35 page research papers at universities so clearly..... -\_- ). It didn't help there were no mentions of how many pages to write so that just made me even more paranoid (was I just not prepared for college?).
 
@@ -100,4 +148,4 @@ Anyways, kids will be kids. Just let them be. But do keep the younger sibling aw
   
 For me, seeing my older sibling go through the whole college thing made me realize how stressful and tough the whole process is.
 - **fineline3061** (6↑): Help your middle schooler realize there is more to college than prestige and more to life than which college u go to.  I think it’s unhealthy for them to stress about it this early.
-- **Dangerous-Cup-1114** (4↑): I wasn’t that dramatic, but as someone with older siblings I can relate a little. I was dragged to events like this and my attitude was basically “well, I’m not going here.”  It wasn’t about going to a “better” school, simply carving out my own identity and path after going thru high school with the same teachers and being asked “oh, are you so and so’s little brother?”
+- **Dangerous-Cup-1114** (6↑): I wasn’t that dramatic, but as someone with older siblings I can relate a little. I was dragged to events like this and my attitude was basically “well, I’m not going here.”  It wasn’t about going to a “better” school, simply carving out my own identity and path after going thru high school with the same teachers and being asked “oh, are you so and so’s little brother?”

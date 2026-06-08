@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1ntnp3k.md
 url: "https://www.reddit.com/r/GenZ/comments/1ntnp3k/why_does_being_broke_in_your_20s_feel_like_a/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,39 @@ flair: "Discussion"
 extracted_at: "2026-05-16T20:55:01.229Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, media]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1ntnp3k.md#c0"
+    char_span: [0, 1821]
+    sentence_count: 17
+    key_terms: [like, people, trying, being, cards, building, comments, honestly]
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/genz/1ntnp3k.md#c1"
+    char_span: [1836, 1965]
+    sentence_count: 1
+    key_terms: [discord, automoderator, nwe6js5rh9, clicking, server, https, did, here]
+    section: Comments
+    token_count: 41
+  - id: "social-intelligence/reddit-deep/genz/1ntnp3k.md#c2"
+    char_span: [1968, 3762]
+    sentence_count: 12
+    key_terms: [positiveswimming4755, everyone, broke, money, hit, rich, people, adamantheusenigma]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/genz/1ntnp3k.md#c3"
+    char_span: [3764, 5832]
+    sentence_count: 22
+    key_terms: [life, later, living, people, broke, cash, don, live]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/genz/1ntnp3k.md#c4"
+    char_span: [5834, 6532]
+    sentence_count: 4
+    key_terms: [spending, because, "isn't", gen, environment, difference, everything, prioritize]
+    section: Comments
+    token_count: 164
 ---
-
 # Why does being broke in your 20s feel like a moral failure?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1ntnp3k/why_does_being_broke_in_your_20s_feel_like_a/)

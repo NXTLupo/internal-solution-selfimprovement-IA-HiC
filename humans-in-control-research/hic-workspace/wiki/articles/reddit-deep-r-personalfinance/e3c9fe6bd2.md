@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-personalfinance/e3c9fe6bd2.md
 url: "https://www.reddit.com/r/personalfinance/comments/1rig38n/im_24_years_old_in_50k_debt_making_42000year/"
 url_hash: "e3c9fe6bd2"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-16T20:59:58.785068+00:00"
 chars: 5435
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-personalfinance/e3c9fe6bd2.md#c0"
+    char_span: [0, 2049]
+    sentence_count: 6
+    key_terms: [personal, personalfinance, unfortunately, cards, debt, rest, anything, looking]
+    token_count: 479
+  - id: "articles/reddit-deep-r-personalfinance/e3c9fe6bd2.md#c1"
+    char_span: [2051, 4144]
+    sentence_count: 14
+    key_terms: [car, cheaper, "don't", going, money, find, get, rent]
+    token_count: 486
+  - id: "articles/reddit-deep-r-personalfinance/e3c9fe6bd2.md#c2"
+    char_span: [4146, 5666]
+    sentence_count: 10
+    key_terms: [learning, learn, learned, excuse, money, back, been, hard]
+    token_count: 367
 ---
-
 # I’m 24 years old in 50k debt making 42,000/year. where do i start fixing this?
 
 Source: [Reddit Deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1rig38n/im_24_years_old_in_50k_debt_making_42000year/)

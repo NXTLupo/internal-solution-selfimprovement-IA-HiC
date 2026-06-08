@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1rehk0y.md
 url: "https://www.reddit.com/r/GradSchool/comments/1rehk0y/how_do_you_afford_this/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,63 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.136Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, financial_services, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1rehk0y.md#c0"
+    char_span: [0, 985]
+    sentence_count: 8
+    key_terms: [school, time, full, expenses, afford, living, gradschool, comments]
+    token_count: 226
+  - id: "social-intelligence/reddit-deep/gradschool/1rehk0y.md#c1"
+    char_span: [1000, 3155]
+    sentence_count: 24
+    key_terms: [phd, funding, time, research, full, school, money, grad]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/gradschool/1rehk0y.md#c2"
+    char_span: [3157, 4354]
+    sentence_count: 12
+    key_terms: [funded, program, scholarship, get, assistant, "master's", stipend, degree]
+    section: Comments
+    token_count: 280
+  - id: "social-intelligence/reddit-deep/gradschool/1rehk0y.md#c3"
+    char_span: [4356, 6081]
+    sentence_count: 11
+    key_terms: [humanities, month, halfeatenpie, observation, probably, because, general, looking]
+    section: Comments
+    token_count: 405
+  - id: "social-intelligence/reddit-deep/gradschool/1rehk0y.md#c4"
+    char_span: [6083, 6819]
+    sentence_count: 7
+    key_terms: [scholarships, additional, brought, relief, gave, grad, like, vegetables]
+    section: Comments
+    token_count: 162
+  - id: "social-intelligence/reddit-deep/gradschool/1rehk0y.md#c5"
+    char_span: [6821, 8802]
+    sentence_count: 7
+    key_terms: [time, school, job, paid, alarmedcicada256, pay, phd, full-time]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/gradschool/1rehk0y.md#c6"
+    char_span: [8804, 10580]
+    sentence_count: 10
+    key_terms: [tuition, people, university, everyone, getting, methods, program, either]
+    section: Comments
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/gradschool/1rehk0y.md#c7"
+    char_span: [10582, 12398]
+    sentence_count: 12
+    key_terms: [work, funded, worked, loans, years, life, lot, time]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/gradschool/1rehk0y.md#c8"
+    char_span: [12400, 13002]
+    sentence_count: 5
+    key_terms: [loans, usually, amount, school, get, comfortably, engineering, completely]
+    section: Comments
+    token_count: 126
 ---
-
 # how do you afford this
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1rehk0y/how_do_you_afford_this/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t2qbwk.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t2qbwk/how_do_you_shake_the_under_confidence_out_of_your/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,15 @@ flair: "Advice"
 extracted_at: "2026-05-23T14:54:05.577Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t2qbwk.md#c0"
+    char_span: [0, 731]
+    sentence_count: 6
+    key_terms: [careerguidance, job, comments, shake, steps, caregiverextra1170, new, nervousness]
+    token_count: 189
 ---
-
 # How do you shake the under confidence out of your system and start new or shift completely to a new career in a terrible job market?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t2qbwk/how_do_you_shake_the_under_confidence_out_of_your/)

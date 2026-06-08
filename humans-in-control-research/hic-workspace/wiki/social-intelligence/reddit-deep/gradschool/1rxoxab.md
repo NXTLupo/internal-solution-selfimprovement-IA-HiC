@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1rxoxab.md
 url: "https://www.reddit.com/r/GradSchool/comments/1rxoxab/i_give_up/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,51 @@ flair: "Admissions & Applications"
 extracted_at: "2026-05-26T14:32:49.137Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1rxoxab.md#c0"
+    char_span: [0, 1765]
+    sentence_count: 16
+    key_terms: ["i'm", school, year, applying, graduate, applications, "i've", gradschool]
+    token_count: 401
+  - id: "social-intelligence/reddit-deep/gradschool/1rxoxab.md#c1"
+    char_span: [1780, 2771]
+    sentence_count: 9
+    key_terms: [masters, programs, phd, doctoral-level, applied, joint, best, particularly]
+    section: Comments
+    token_count: 247
+  - id: "social-intelligence/reddit-deep/gradschool/1rxoxab.md#c2"
+    char_span: [2773, 5053]
+    sentence_count: 20
+    key_terms: [want, application, school, get, work, faculty, passion, through]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/gradschool/1rxoxab.md#c3"
+    char_span: [5055, 6312]
+    sentence_count: 11
+    key_terms: [experience, job, take, gradschool, difficult, something, people, school]
+    section: Comments
+    token_count: 294
+  - id: "social-intelligence/reddit-deep/gradschool/1rxoxab.md#c4"
+    char_span: [6314, 8427]
+    sentence_count: 7
+    key_terms: [because, mother, people, guy, feedback, research, yourself, through]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1rxoxab.md#c5"
+    char_span: [8170, 8929]
+    sentence_count: 8
+    key_terms: [feedback, programs, spring, money, start, don, give, time]
+    section: Comments
+    token_count: 188
+  - id: "social-intelligence/reddit-deep/gradschool/1rxoxab.md#c6"
+    char_span: [8931, 9918]
+    sentence_count: 14
+    key_terms: [don, school, zess41, back, been, feel, life, phd]
+    section: Comments
+    token_count: 230
 ---
-
 # I Give Up
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1rxoxab/i_give_up/)

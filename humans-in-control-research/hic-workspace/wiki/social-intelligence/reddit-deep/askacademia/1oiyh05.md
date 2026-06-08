@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1oiyh05.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1oiyh05/how_does_the_length_of_a_phd_duration_in_us_vs/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,39 @@ flair: "STEM"
 extracted_at: "2026-05-26T14:32:49.128Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1oiyh05.md#c0"
+    char_span: [0, 1858]
+    sentence_count: 11
+    key_terms: [phd, research, postdoc, programs, shorter, others, employability, productivity]
+    token_count: 401
+  - id: "social-intelligence/reddit-deep/askacademia/1oiyh05.md#c1"
+    char_span: [1873, 3784]
+    sentence_count: 10
+    key_terms: [phd, teaching, experience, teach, years, requirements, candidates, knowledge]
+    section: Comments
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/askacademia/1oiyh05.md#c2"
+    char_span: [3786, 5325]
+    sentence_count: 10
+    key_terms: [phd, research, "master's", masters, funded, publications, heavy, years]
+    section: Comments
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/askacademia/1oiyh05.md#c3"
+    char_span: [5327, 7299]
+    sentence_count: 11
+    key_terms: [research, phd, american, position, disadvantage, expectations, productivity, time]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/askacademia/1oiyh05.md#c4"
+    char_span: [7301, 8716]
+    sentence_count: 10
+    key_terms: [whether, publications, work, difference, potential, "master's", research, depends]
+    section: Comments
+    token_count: 320
 ---
-
 # How does the length of a PhD duration in US vs UK/Australia affect employability and postdoc opportunities?
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1oiyh05/how_does_the_length_of_a_phd_duration_in_us_vs/)

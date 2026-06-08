@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1rmnudk.md
 url: "https://www.reddit.com/r/GenZ/comments/1rmnudk/why_does_nobody_teach_you_the_actual_legal_side/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,51 @@ flair: "Discussion"
 extracted_at: "2026-05-16T20:55:01.226Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [education, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1rmnudk.md#c0"
+    char_span: [0, 1219]
+    sentence_count: 11
+    key_terms: [nobody, comments, marriage, property, legally, school, longjumping-elk-2934, legal]
+    token_count: 273
+  - id: "social-intelligence/reddit-deep/genz/1rmnudk.md#c1"
+    char_span: [1234, 1993]
+    sentence_count: 4
+    key_terms: [discord, unique-assumption619, algebra-level, automatically, automoderator, explicitly, foundation, moderators]
+    section: Comments
+    token_count: 187
+  - id: "social-intelligence/reddit-deep/genz/1rmnudk.md#c2"
+    char_span: [1995, 4007]
+    sentence_count: 11
+    key_terms: [school, people, learn, because, assume, elbigcheddar, lot, too]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/genz/1rmnudk.md#c3"
+    char_span: [3774, 4162]
+    sentence_count: 2
+    key_terms: ["it's", yourself, because, schools, learn, teach, job, other-other-user]
+    section: Comments
+    token_count: 102
+  - id: "social-intelligence/reddit-deep/genz/1rmnudk.md#c4"
+    char_span: [4164, 4411]
+    sentence_count: 1
+    key_terms: ["doesn't", school, taught, teach, huh, yeah, critical, problems]
+    section: Comments
+    token_count: 53
+  - id: "social-intelligence/reddit-deep/genz/1rmnudk.md#c5"
+    char_span: [4413, 6721]
+    sentence_count: 15
+    key_terms: [people, divorce, everything, community, marriage, property, through, "didn't"]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/genz/1rmnudk.md#c6"
+    char_span: [6455, 6904]
+    sentence_count: 3
+    key_terms: [finances, people, additional-tax-5562, heard, non-wealthy, everything, understand, ambitions]
+    section: Comments
+    token_count: 109
 ---
-
 # Why does nobody teach you the actual legal side of marriage in school?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1rmnudk/why_does_nobody_teach_you_the_actual_legal_side/)

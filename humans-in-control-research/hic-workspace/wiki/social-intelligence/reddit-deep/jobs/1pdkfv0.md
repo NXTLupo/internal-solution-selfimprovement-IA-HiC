@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1pdkfv0.md
 url: "https://www.reddit.com/r/jobs/comments/1pdkfv0/seriously_though_how_do_you_guys_find_an_entry/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,39 @@ flair: "Job searching"
 extracted_at: "2026-05-20T02:33:39.340Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1pdkfv0.md#c0"
+    char_span: [0, 619]
+    sentence_count: 4
+    key_terms: [experience, jobs, comments, without, though, completepurification, entry, back]
+    token_count: 159
+  - id: "social-intelligence/reddit-deep/jobs/1pdkfv0.md#c1"
+    char_span: [634, 2303]
+    sentence_count: 15
+    key_terms: [job, years, experience, get, applying, implementno2626, working, entry]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/jobs/1pdkfv0.md#c2"
+    char_span: [2305, 3678]
+    sentence_count: 11
+    key_terms: [lot, "don't", did, job, experience, projects, certain, started]
+    section: Comments
+    token_count: 335
+  - id: "social-intelligence/reddit-deep/jobs/1pdkfv0.md#c3"
+    char_span: [3680, 4652]
+    sentence_count: 8
+    key_terms: [job, department, "college's", career, people, jobs, personality, replacement]
+    section: Comments
+    token_count: 220
+  - id: "social-intelligence/reddit-deep/jobs/1pdkfv0.md#c4"
+    char_span: [4654, 5946]
+    sentence_count: 8
+    key_terms: [certain-working1864, years, someone, people, opportunity, experience, internship, offers]
+    section: Comments
+    token_count: 331
 ---
-
 # Seriously though, how do you guys find an entry job without experience?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1pdkfv0/seriously_though_how_do_you_guys_find_an_entry/)

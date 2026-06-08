@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1lj6lbs.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1lj6lbs/in_the_sea_of_college_coaches_and_counselors_are/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,69 @@ flair: "College Questions"
 extracted_at: "2026-05-22T23:33:52.632Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lj6lbs.md#c0"
+    char_span: [0, 901]
+    sentence_count: 5
+    key_terms: [application, applyingtocollege, college, incredible, comments, parent, commercial-plenty-45, merit]
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lj6lbs.md#c1"
+    char_span: [916, 2918]
+    sentence_count: 18
+    key_terms: [college, commercial-plenty-45, applyingtocollege, merit, aid, helpful, group, thank]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lj6lbs.md#c2"
+    char_span: [2920, 4572]
+    sentence_count: 8
+    key_terms: [here, college, passion, book, affordable, anything, baking, common]
+    section: Comments
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lj6lbs.md#c3"
+    char_span: [4574, 6835]
+    sentence_count: 20
+    key_terms: [top, universities, commercial-plenty-45, going, rankings, looking, schools, focus]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lj6lbs.md#c4"
+    char_span: [6570, 7322]
+    sentence_count: 9
+    key_terms: [fit, early, top, opportunity, best, advantage, decision, looking]
+    section: Comments
+    token_count: 170
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lj6lbs.md#c5"
+    char_span: [7324, 8716]
+    sentence_count: 8
+    key_terms: [best, accepted, school, aid, get, college, student, resources]
+    section: Comments
+    token_count: 319
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lj6lbs.md#c6"
+    char_span: [8718, 10468]
+    sentence_count: 10
+    key_terms: [get, money, freshman, schools, follow, johnny, little, school]
+    section: Comments
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lj6lbs.md#c7"
+    char_span: [10471, 11947]
+    sentence_count: 7
+    key_terms: [offering, because, college, schools, advice, johnny, search, "you're"]
+    section: Comments
+    token_count: 320
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lj6lbs.md#c8"
+    char_span: [11949, 14060]
+    sentence_count: 13
+    key_terms: [admissions, school, merit, college, podcasts, higher, get, good]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lj6lbs.md#c9"
+    char_span: [14062, 15396]
+    sentence_count: 14
+    key_terms: [merit, aid, offered, schools, commercial-plenty-45, students, discojellyfisho, applicant]
+    section: Comments
+    token_count: 317
 ---
-
 # In the sea of college “coaches and counselors”, are there truly incredible and proven resources (people or books) to help a parent with college matching, application prep, merit awards, etc?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1lj6lbs/in_the_sea_of_college_coaches_and_counselors_are/)

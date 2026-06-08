@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rviwx2.md
 url: "https://www.reddit.com/r/internships/comments/1rviwx2/choosing_between_two_summer_internships_publix_vs/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,34 @@ score: 9
 upvote_ratio: 0.92
 num_comments: 16
 flair: "Offers"
-extracted_at: "2026-05-14T18:16:43.268Z"
+extracted_at: "2026-06-01T18:48:35.742Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rviwx2.md#c0"
+    char_span: [0, 1431]
+    sentence_count: 7
+    key_terms: [internships, summer, security, housing, publix, cybersecurity, mercedes-benz, financial]
+    token_count: 310
+  - id: "social-intelligence/reddit-deep/internships/1rviwx2.md#c1"
+    char_span: [1446, 3331]
+    sentence_count: 14
+    key_terms: [interns, publix, internship, oktown8217, mercedes, intern, offers, free]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/internships/1rviwx2.md#c2"
+    char_span: [3333, 5467]
+    sentence_count: 14
+    key_terms: [benz, mercedes, better, publix, oktown8217, prestige, atlanta, because]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1rviwx2.md#c3"
+    char_span: [5190, 6162]
+    sentence_count: 7
+    key_terms: [interview, because, mercedes, better, publix, puzzleheadedweb9492, liked, legalwisegentleman]
+    section: Comments
+    token_count: 225
 ---
-
 # Choosing between two summer internships: Publix vs Mercedes-Benz. Need advice!
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rviwx2/choosing_between_two_summer_internships_publix_vs/)
@@ -45,12 +69,12 @@ Would love to hear from anyone who has interned at either or has advice on weigh
 
 ## Comments
 
-- **GoFlight16** (9↑): Mercedes is only offer $20/hr?😭
+- **GoFlight16** (8↑): Mercedes is only offer $20/hr?😭
   - **OkTown8217** (1↑): Yup and also said its non negotiable.
     - **GoFlight16** (1↑): Yeah most intern offers if not all are non-negotiable, but damn $20/hr for Mercedes is low.
 - **Busy_Advantage_5621** (5↑): I had the opportunity to intern at Publix last summer and it was honestly the highlight of my college career. I was literally going through photos from the internship with my friend today to show her why I missed it so much. The internship was structured nicely with professional development sessions planned, community service, opportunities to meet with associates in other departments and even the CEO/President. The housing was free and allowed all the interns to live together. The housing was located in such a pretty area so I would go on walks quite literally ever night, go to gym, and hang out with the other interns. Lunch is also free and was very good! The TA team also did an amazing job of keeping us interns on track and making sure we were getting the most of the experience, which I appreciated as it was my first internship. I have also saw a ton of people from my intern class get full-time return offers or join for a second summer. Publix is very big on keeping people within the company, so I wouldn’t worry too much about extensions or full-time offers. I hope this helps! Feel free to PM if you have any specific questions
   - **OkTown8217** (1↑): This helps! I will PM thank you so much!!!!
-- **Fun_Bar_9642** (5↑): Benz
+- **Fun_Bar_9642** (4↑): Benz
   - **OkTown8217** (1↑): Why?
     - **Fun_Bar_9642** (1↑): It depends on what you want, but Mercedes Benz is a global brand that is great to have on your CV early on. All those Publix amenities for interns aren't worth a potential bump in salary for your entry level job and later because of the credibility MB may give you. I just don't see Publix giving you the same.
 

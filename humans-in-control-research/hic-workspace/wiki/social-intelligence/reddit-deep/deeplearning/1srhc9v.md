@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1srhc9v.md
 url: "https://www.reddit.com/r/deeplearning/comments/1srhc9v/opensource_multimodal_studio_on_qwen3635ba3b/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.058Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1srhc9v.md#c0"
+    char_span: [0, 1982]
+    sentence_count: 11
+    key_terms: [qwen3, openrouter, qwen, comments, adapter, ollama, capabilities, deeplearning]
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/deeplearning/1srhc9v.md#c1"
+    char_span: [1984, 2318]
+    sentence_count: 2
+    key_terms: [qwen-lens-studio, dakshjain-1616, github, https, com, real-world, genuinely, document]
+    section: Comments
+    token_count: 92
 ---
-
 # Open-source multimodal studio on Qwen3.6-35B-A3B. Vision reasoning, doc extraction, UI-to-code, with a backend adapter so you can swap OpenRouter / Ollama / llama.cpp
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1srhc9v/opensource_multimodal_studio_on_qwen3635ba3b/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1pypit3.md
 url: "https://www.reddit.com/r/OpenAI/comments/1pypit3/holy_shit_its_real/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,39 @@ flair: "Image"
 extracted_at: "2026-05-11T17:27:05.356Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1pypit3.md#c0"
+    char_span: [0, 212]
+    sentence_count: 1
+    key_terms: [comments, openai, metaknowing, reddit-deep, posted, reddit, source, https]
+    token_count: 66
+  - id: "social-intelligence/reddit-deep/openai/1pypit3.md#c1"
+    char_span: [227, 2045]
+    sentence_count: 10
+    key_terms: [like, people, preparedness, bot, companies, openai, close, farms]
+    section: Comments
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/openai/1pypit3.md#c2"
+    char_span: [2047, 2868]
+    sentence_count: 3
+    key_terms: [experience, unplugging, rollingmeteors, putting, lemonmeringuepirate, plugs, plug, clean-yam-739]
+    section: Comments
+    token_count: 243
+  - id: "social-intelligence/reddit-deep/openai/1pypit3.md#c3"
+    char_span: [2870, 4648]
+    sentence_count: 10
+    key_terms: [bro, unplug, head-of-preparedness-san-francisco, end3rwi99in, job, rly, unplugging, authority]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/openai/1pypit3.md#c4"
+    char_span: [4650, 5585]
+    sentence_count: 2
+    key_terms: [killswitch, https, engineer, preview, format, watchingyounyounyou, width, mountain-pain1294]
+    section: Comments
+    token_count: 336
 ---
-
 # Holy shit it's real
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1pypit3/holy_shit_its_real/)

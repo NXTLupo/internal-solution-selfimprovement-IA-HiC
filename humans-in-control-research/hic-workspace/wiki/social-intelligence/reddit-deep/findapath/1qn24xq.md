@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1qn24xq.md
 url: "https://www.reddit.com/r/findapath/comments/1qn24xq/best_career_path_for_a_foreign_graduate_to/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,21 @@ flair: "Findapath-Career Change"
 extracted_at: "2026-05-25T13:04:07.382Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1qn24xq.md#c0"
+    char_span: [0, 516]
+    sentence_count: 3
+    key_terms: [work, findapath, immigrate, comments, career, authorization, international, experiences]
+    token_count: 120
+  - id: "social-intelligence/reddit-deep/findapath/1qn24xq.md#c1"
+    char_span: [531, 2610]
+    sentence_count: 12
+    key_terms: [thank, helpful, please, engineering, here, want, findapath, comments]
+    section: Comments
+    token_count: 476
 ---
-
 # Best career path for a foreign graduate to actually work and immigrate to the US?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1qn24xq/best_career_path_for_a_foreign_graduate_to/)

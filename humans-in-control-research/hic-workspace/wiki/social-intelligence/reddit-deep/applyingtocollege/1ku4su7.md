@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1ku4su7.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1ku4su7/my_awful_application_experience_with_tsinghua/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,32 @@ flair: "Discussion"
 extracted_at: "2026-05-22T23:33:52.654Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ku4su7.md#c0"
+    char_span: [0, 1501]
+    sentence_count: 8
+    key_terms: [university, tsinghua, ntu, application, applyingtocollege, process, taiwan, international]
+    token_count: 334
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ku4su7.md#c1"
+    char_span: [1503, 2932]
+    sentence_count: 10
+    key_terms: [deadline, anything, suddenly, changed, ntu, disorganization, accountability, disrespectful]
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ku4su7.md#c2"
+    char_span: [2947, 4757]
+    sentence_count: 5
+    key_terms: [applyingtocollege, essays, reddit, https, com, www, wiki, automoderator]
+    section: Comments
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ku4su7.md#c3"
+    char_span: [4759, 5549]
+    sentence_count: 8
+    key_terms: [applyingtocollege, loquatseparate, automatically, hiramedson18, frustrating, indicators, moderators, reputation]
+    section: Comments
+    token_count: 201
 ---
-
 # My awful application experience with Tsinghua University vs. amazing support from National Taiwan university
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1ku4su7/my_awful_application_experience_with_tsinghua/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1q6ax8x.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1q6ax8x/2nd_year_civil_engineering_student_who_got_their/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -10,11 +11,22 @@ score: 40
 upvote_ratio: 0.98
 num_comments: 3
 flair: "Sankey Diagram"
-extracted_at: "2026-05-20T12:57:40.608Z"
+extracted_at: "2026-06-05T23:43:26.906Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1q6ax8x.md#c0"
+    char_span: [0, 325]
+    sentence_count: 1
+    key_terms: [engineeringstudents, comments, greyeyeannabeth, engineering, opportunity, reddit-deep, internship, excited]
+    token_count: 85
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1q6ax8x.md#c1"
+    char_span: [340, 1526]
+    sentence_count: 10
+    key_terms: [engineeringstudents, wiki, greyeyeannabeth, please, reddit, https, com, www]
+    section: Comments
+    token_count: 266
 ---
-
 # 2nd year civil engineering student who got their first internship
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1q6ax8x/2nd_year_civil_engineering_student_who_got_their/)

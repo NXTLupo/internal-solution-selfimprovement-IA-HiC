@@ -6,19 +6,19 @@ subreddit: "findapath"
 title: "Just turned 40 with the skills and career experience of a 22 year old. Please share any advice."
 author: "Glass-Emotions963"
 date: "2026-04-07T10:03:42.000Z"
-score: 158
+score: 159
 upvote_ratio: 0.96
 num_comments: 31
 flair: "Findapath-Health Factor"
-extracted_at: "2026-05-22T15:13:18.829Z"
+extracted_at: "2026-06-06T23:22:15.472Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Just turned 40 with the skills and career experience of a 22 year old. Please share any advice.
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1sero8c/just_turned_40_with_the_skills_and_career/)
-Posted by **Glass-Emotions963** · **158↑** · **31 comments**
+Posted by **Glass-Emotions963** · **159↑** · **31 comments**
 
 I've spent the vast majority of the last 15 years struggling with mental health to the extent that it was the main focus of my life.  
 The last traditional employment I had ended when I was in my mid twenties, and it was an entry level position.
@@ -61,7 +61,7 @@ Surely there is a path for me, I just cannot see it - at all.
 
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/findapath) if you have any questions or concerns.*
-- **edgecumbe** (23↑): I felt like you do most of my life and I encounter a lot of educated people who work shorter hours and feel burnt out by traditional working patterns and expectations. I think the best thing to do is, if you can, look around at the organisations near you that are doing something you admire. 
+- **edgecumbe** (24↑): I felt like you do most of my life and I encounter a lot of educated people who work shorter hours and feel burnt out by traditional working patterns and expectations. I think the best thing to do is, if you can, look around at the organisations near you that are doing something you admire. 
 
 
 I started from the bottom for the fourth time in my life 2 years ago and now work in the NHS. 9-5 exhausts me but its stable. I am hoping that I can cut down my hours when I move up a level. 
@@ -71,7 +71,7 @@ WFH is possible but difficult to start with if few skills. 
 
 
 If youre entrepreneurial, i see a huge gap in the market for hot home cooked meal deliveries for the Elderly, at least in my area.
-- **Prestigious-Towel427** (11↑): I completely get where you’re coming from! Mental health issues are no joke, especially those leading to a form of action paralysis where you think you’re no good, and are too afraid to try anything out. (That was the case for me)
+- **Prestigious-Towel427** (12↑): I completely get where you’re coming from! Mental health issues are no joke, especially those leading to a form of action paralysis where you think you’re no good, and are too afraid to try anything out. (That was the case for me)
 
 You need to take it one step at a time. I would look into skilling up a bit, even if it means taking online courses to learn. You could try AI, that’s hugely in demand or copywriting since you said you can write. Again, don’t jump into a job yet if possible but try and give yourself a month to learn one skill that makes the most sense to you, and then you work backwards to figure out what jobs / roles are looking for those skills.
 
@@ -79,44 +79,6 @@ I’d also highly recommend working with a career coach or at least using career
 
 A career coach could do wonders too but if that’s not accessible there are quite a few resources online to help you out with it. You’re already using quizzes and tests so that’s great, now you need to start putting stuff into action.
   - **ArgentinaJury** (1↑): Wooooaaaa....
-- **Lower_Rule2043** (21↑): first off - the fact that you're writing this post means you're not lazy. lazy people dont feel shame about not working. what you're describing is someone who's been fighting a battle most people cant even imagine for 15 years. thats not weakness.
-
-
-
-for your actual question: you mentioned working from home, no financial risk, working for yourself. heres something that ticks all those boxes and requires zero interaction with people:
-
-
-
-faceless AI video channels. you never show your face, never talk to anyone, never leave your house. you type a topic into an AI tool and it makes a short video. you upload it to youtube shorts, tiktok, and facebook. thats it. no clients, no interviews, no bus rides, no new people.
-
-
-
-you said you can write - thats actually a huge advantage because the script quality matters more than anything else in these videos. most people cant write a compelling 60 second story. you can.
-
-
-
-i do this myself. 15 min a day from my couch. $1k/mo after 6 months. the first few months you make nothing which sucks but theres zero financial risk since you can start for under $20/mo.
-
-
-
-the best part for your situation: its private. nobody knows youre doing it. theres no boss, no coworkers, no performance reviews. just you and your laptop. on bad mental health days you can batch videos on good days and schedule them ahead.
-
-
-
-you're not behind. you're just starting a different path. plenty of people start over at 40 and build something real.
-  - **Glass-Emotions963** (9↑): Thank you so much for taking the time to reply, and for your encouragement. I really appreciate you offering a concrete suggestion, too. I will definitely look into this. Thank you again.
-    - **FlairPointsBot** (1↑): Thank you for confirming that /u/Lower_Rule2043 has provided helpful advice for you. 1 point awarded.
-  - **Mountain_Skill8037** (7↑): Your can-do attitude is so appreciated to read and I'm not even OP. You're so right! I have a similar story but add in multiple systemic illnesses that came in my late 20s and have been struggling to find some work that doesn't require being around many people for immune system sake. I have a lot of computer and wiring skills but nothing degree or above entry level. Would you have a recommendation for the ai tool that would be useful/worked for you?
-    - **Lower_Rule2043** (1↑): thank you thats really kind. i'm sorry about your health struggles, that sounds incredibly tough on top of everything else.
-
-
-
-for the AI tool i use keyvello. you type a topic and it makes the full video - script, images, voiceover, captions. no editing skills needed. its perfect for working from home with zero people interaction. with your computer skills you'd pick it up fast. and since all the work is on your own schedule you can work around how you're feeling on any given day.
-  - **Araskog** (4↑): chat gpt ass response
-  - **Chocolatefix** (1↑): Can I ask how/where you learned to do this?
-    - **Lower_Rule2043** (1↑): no courses or tutorials. just started making videos on keyvello and learned from my own analytics what worked and what didnt. trial and error beats any course honestly.
-  - **DeliciousObscurity** (1↑): Did you take any courses to learn how to make the videos or create the prompts? Which AI did you use? Do you write out the script for the video or did ai create it?
-    - **Lower_Rule2043** (2↑): no courses at all. i just started making videos and learned as i went. the AI does most of the work - i use keyvello, type a topic and it writes the script, generates images, adds voiceover and captions. you can edit the script if you want or use your own from chatgpt but honestly the AI generated ones are solid most of the time.
 - **CollegeHelp2275** (3↑): Hi! I'm glad you are trying out those job questionnaires; that's a good first step!  If you are in the United States, please look into your state's Department of Vocational Rehabilitation.  Their reason for existing is to help people with disabilities get jobs.  If you already have diagnostic paperwork, it's a fairly straightforward process; if you don't, they can tell you how to get it.  
 
 In terms of starting a business, realize that you can have the best idea or product in the world, but if you don't have the marketing/outreach to find customers, it doesn't matter.  Even online videos take luck with the algorithms.  (I'm saying this as someone who has a struggling business and someone who tried youtube.)  Having said all that, VR can also help you set up a small business and possibly help with an initial budget.  
@@ -141,3 +103,21 @@ You mention that you are intelligent but don't have any knowledge. That is not b
 
 Are there non-profilt or government run career centres in the UK? If so, that may be a great place to start.
 - **Hungry_Tower_6009** (1↑): Try different things. Try phone work, interacting with people directly. Or check out online jobs. There are thousands of possibilities. Try and fail. Try and fail. Something will work out for you. Learning is defined as the correction of error, so the only way we can properly learn something is by failure. Success follows failure! All the best!
+- **Roast-thicken** (1↑): Hi friend,
+
+You sound like me - and what works best for me is more balance. One month on, one month off. 3 days on 3 days off… 5 hour shifts instead of 8…
+
+First things first though, you are not lazy. Demoralized and uncertain perhaps, but not lazy.
+
+The national careers service could be of benefit to you and can be found [here.](https://nationalcareers.service.gov.uk/careers-advice)
+
+I know it may be tempting to listen to the advice of using AI but please please please don’t do it!!! They’ve already done studies that it kills your cognition and can really harm your mental health (on top of environmental and social impacts).
+
+You sound very intelligent and I worry this would kill your confidence further if you were to become reliant on it when you clearly don’t need it!
+
+I believe in you!
+  - **Glass-Emotions963** (2↑): I suppose it's tempting because it's pretty unstoppable at this point. But I don't want to, it already took my husband's job. 
+
+Balance sounds like something that would definitely help, I do tend to need recovery time.
+
+Thank for you the advice and the kind encouragement. :)

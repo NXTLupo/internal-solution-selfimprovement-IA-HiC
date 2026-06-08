@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1lrcdty.md
 url: "https://www.reddit.com/r/college/comments/1lrcdty/how_to_find_advisors_for_an_undergrad_student_club/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,21 @@ flair: "Academic Life"
 extracted_at: "2026-05-23T14:53:53.127Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1lrcdty.md#c0"
+    char_span: [0, 1001]
+    sentence_count: 8
+    key_terms: [undergrad, student, help, college, faculty, design, connections, engineering]
+    token_count: 213
+  - id: "social-intelligence/reddit-deep/college/1lrcdty.md#c1"
+    char_span: [1016, 2187]
+    sentence_count: 9
+    key_terms: [advisor, office, hours, club, building, schools, active, defianttumbleweed850]
+    section: Comments
+    token_count: 259
 ---
-
 # How to find advisors for an Undergrad Student Club
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1lrcdty/how_to_find_advisors_for_an_undergrad_student_club/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1n5li6w.md
 url: "https://www.reddit.com/r/internships/comments/1n5li6w/cracked_microsofts_swe_intern_role_heres_how_the/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,36 @@ subreddit: "internships"
 title: "Cracked Microsoft’s SWE Intern Role – Here’s How the Interview Went"
 author: "moaning_allday"
 date: "2025-09-01T10:50:32.000Z"
-score: 238
+score: 240
 upvote_ratio: 0.97
 num_comments: 34
 flair: "Interviews"
-extracted_at: "2026-05-25T15:51:38.720Z"
+extracted_at: "2026-06-06T16:39:04.095Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1n5li6w.md#c0"
+    char_span: [0, 2027]
+    sentence_count: 10
+    key_terms: [interviewer, interview, dsa, mins, through, solved, internships, test]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/internships/1n5li6w.md#c1"
+    char_span: [2029, 3578]
+    sentence_count: 4
+    key_terms: [northeastern-university-co-op-internship-opportunities, northeastern, microsoft, https, explore-microsoft, pipeline-programs, software-engineer, colleges]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/internships/1n5li6w.md#c2"
+    char_span: [3580, 4712]
+    sentence_count: 4
+    key_terms: [microsoft, like, coldincident8236, sorryescape7, internships, opportunity, internship, university]
+    section: Comments
+    token_count: 372
 ---
-
 # Cracked Microsoft’s SWE Intern Role – Here’s How the Interview Went
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1n5li6w/cracked_microsofts_swe_intern_role_heres_how_the/)
-Posted by **moaning_allday** · **238↑** · **34 comments**
+Posted by **moaning_allday** · **240↑** · **34 comments**
 
 I’m a 3rd-year CSE student from a tier-2 college, and this was my **first ever job interview**. I applied for the Microsoft Software Engineering Intern role through campus placements.
 
@@ -63,8 +81,8 @@ If you’re prepping for SWE internships: focus on DSA, know your projects insid
 
 ## Comments
 
-- **UrBoiKrisp** (7↑): I’m curious what you mean by campus placements. Is this similar to the Northeastern Microsoft co-op thing? Or do you reach out to a campus recruiter?
-  - **No-Recognition-8129** (17↑): He’s Indian i’m pretty sure
+- **UrBoiKrisp** (8↑): I’m curious what you mean by campus placements. Is this similar to the Northeastern Microsoft co-op thing? Or do you reach out to a campus recruiter?
+  - **No-Recognition-8129** (16↑): He’s Indian i’m pretty sure
     - **Few-Acanthaceae2311** (1↑): Ya op is indian
   - **Old_Ad1479** (1↑): Colleges in india have this process called placement where the Colleges invites( if good college) or begs( Note so good college) Companies to come and hire students exclusively from their college. 
 
@@ -75,7 +93,7 @@ The top Colleges like IIT and NIT gets top Companies like meta, google etc.
 [https://jobs.careers.microsoft.com/global/en/job/1864533/Software-Engineer:-Northeastern-University-Co-Op-Internship-Opportunities?fbclid=PAZXh0bgNhZW0CMTEAAadWVuawmHDurXK8\_SYQVVs76LkvNWBzGYeSNCX2U1l8VCXvLgI10MWR9U-i4A\_aem\_k6KyKC-T5qs1Jeoa\_VE6AQ](https://jobs.careers.microsoft.com/global/en/job/1864533/Software-Engineer:-Northeastern-University-Co-Op-Internship-Opportunities?fbclid=PAZXh0bgNhZW0CMTEAAadWVuawmHDurXK8_SYQVVs76LkvNWBzGYeSNCX2U1l8VCXvLgI10MWR9U-i4A_aem_k6KyKC-T5qs1Jeoa_VE6AQ)
 
 I thought it was like some company x university opportunity like this or something
-- **Headfruit_699** (4↑): From t-2  as well n currently waiting for the google step n Microsoft explore to open in india n as I've a skill set similar to urs only, if u could give some advice regarding this or any other internships that u got  it would be really helpful:))
+- **Headfruit_699** (3↑): From t-2  as well n currently waiting for the google step n Microsoft explore to open in india n as I've a skill set similar to urs only, if u could give some advice regarding this or any other internships that u got  it would be really helpful:))
   - **moaning_allday** (2↑): i didn't do any other internship. My resume was strong bas
     - **_charizardd_** (1↑): Which tier 2 uni btw?
 - **rg295958** (2↑): Need to know about the project stuff. what to build as a major? Have a less knowledge about it and want ed to be guided.My tech stack:MERN

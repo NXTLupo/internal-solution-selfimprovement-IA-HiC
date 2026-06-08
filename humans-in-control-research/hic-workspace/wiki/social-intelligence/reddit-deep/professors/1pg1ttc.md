@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1pg1ttc.md
 url: "https://www.reddit.com/r/Professors/comments/1pg1ttc/and_the_land_we_belong_to_is_grand_s/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,27 @@ flair: "Rants / Vents"
 extracted_at: "2026-05-14T18:17:21.711Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1pg1ttc.md#c0"
+    char_span: [0, 1441]
+    sentence_count: 6
+    key_terms: [degree, oklahoma, programs, announcement, regents, professors, comments, meeting]
+    token_count: 328
+  - id: "social-intelligence/reddit-deep/professors/1pg1ttc.md#c1"
+    char_span: [1456, 3207]
+    sentence_count: 9
+    key_terms: [education, state-regents-meetings, life-education-8030, geography, state-system, okhighered, esvadude, programs]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/professors/1pg1ttc.md#c2"
+    char_span: [3209, 4938]
+    sentence_count: 9
+    key_terms: [people, essentially, geographers, gis, themselves, christmas, geography, oklahoma]
+    section: Comments
+    token_count: 430
 ---
-
 # "... and the land we belong to is grand" /s
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1pg1ttc/and_the_land_we_belong_to_is_grand_s/)

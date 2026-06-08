@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/financialindependence/1omlw2p.md
 url: "https://www.reddit.com/r/financialindependence/comments/1omlw2p/did_you_have_a_fi_oh_wow_moment/"
 kind: "social-post"
 source: "reddit-deep: r/financialindependence"
@@ -13,8 +14,56 @@ flair: ""
 extracted_at: "2026-05-16T20:55:12.708Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [cross_industry]
+industry_method: unclassified
+chunks:
+  - id: "social-intelligence/reddit-deep/financialindependence/1omlw2p.md#c0"
+    char_span: [0, 1832]
+    sentence_count: 14
+    key_terms: [financialindependence, going, get, "i've", expensive, comments, planning, keeping]
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/financialindependence/1omlw2p.md#c1"
+    char_span: [1834, 2619]
+    sentence_count: 6
+    key_terms: [life, "wasn't", money, worth, "i've", net, rebalancing, unnaturally]
+    token_count: 177
+  - id: "social-intelligence/reddit-deep/financialindependence/1omlw2p.md#c2"
+    char_span: [2634, 4793]
+    sentence_count: 13
+    key_terms: [help, life, without, friend, never, investments, "i've", yojimbo261]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/financialindependence/1omlw2p.md#c3"
+    char_span: [4795, 6933]
+    sentence_count: 12
+    key_terms: [certainly, because, year, forever, quickly, annual, having, lawyer]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/financialindependence/1omlw2p.md#c4"
+    char_span: [6935, 8593]
+    sentence_count: 9
+    key_terms: [people, contributions, solomongrumpy, deathsythe, investment, returns, assets, likely]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/financialindependence/1omlw2p.md#c5"
+    char_span: [8595, 8927]
+    sentence_count: 3
+    key_terms: [couple, unexpected, continued, expecting, portfolio, surprised, monetary, happily]
+    section: Comments
+    token_count: 71
+  - id: "social-intelligence/reddit-deep/financialindependence/1omlw2p.md#c6"
+    char_span: [8929, 10679]
+    sentence_count: 13
+    key_terms: [years, hit, work, because, finally, million, support, stocks]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/financialindependence/1omlw2p.md#c7"
+    char_span: [10681, 11104]
+    sentence_count: 3
+    key_terms: [different, choices, trying, "i'm", "i've", life, direction, supported]
+    section: Comments
+    token_count: 97
 ---
-
 # Did you have a FI "oh wow" moment?
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1omlw2p/did_you_have_a_fi_oh_wow_moment/)

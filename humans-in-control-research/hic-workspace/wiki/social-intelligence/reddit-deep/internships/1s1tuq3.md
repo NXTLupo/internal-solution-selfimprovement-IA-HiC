@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1s1tuq3.md
 url: "https://www.reddit.com/r/internships/comments/1s1tuq3/ive_reached_my_breaking_point/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,39 @@ flair: "General"
 extracted_at: "2026-05-19T17:57:20.779Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1s1tuq3.md#c0"
+    char_span: [0, 813]
+    sentence_count: 8
+    key_terms: [internships, comments, single, point, possibility, reddit-deep, everywhere, experience]
+    token_count: 200
+  - id: "social-intelligence/reddit-deep/internships/1s1tuq3.md#c1"
+    char_span: [828, 2174]
+    sentence_count: 18
+    key_terms: [companies, specific, get, experience, something, approach, research, hiring]
+    section: Comments
+    token_count: 304
+  - id: "social-intelligence/reddit-deep/internships/1s1tuq3.md#c2"
+    char_span: [2176, 4223]
+    sentence_count: 17
+    key_terms: [experience, nextimplement8888, probably, resume, intuitive9999, prior, pass, detectors]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1s1tuq3.md#c3"
+    char_span: [3925, 5079]
+    sentence_count: 10
+    key_terms: [learn, take, experience, feel, got, like, role, auto-updating]
+    section: Comments
+    token_count: 269
+  - id: "social-intelligence/reddit-deep/internships/1s1tuq3.md#c4"
+    char_span: [5081, 5696]
+    sentence_count: 4
+    key_terms: [big-cry9898, egotech1987, probably, ranking, school, appropriate-tutor587, "it's", "true"]
+    section: Comments
+    token_count: 196
 ---
-
 # I’ve reached my breaking point
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1s1tuq3/ive_reached_my_breaking_point/)

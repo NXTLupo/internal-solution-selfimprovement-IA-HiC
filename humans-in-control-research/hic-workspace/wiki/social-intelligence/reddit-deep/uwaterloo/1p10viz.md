@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1p10viz.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1p10viz/ive_failed_every_1a_science_course_three_times_in/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,45 @@ flair: "Serious"
 extracted_at: "2026-05-25T18:33:12.671Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1p10viz.md#c0"
+    char_span: [0, 1933]
+    sentence_count: 21
+    key_terms: [failed, biol, term, uwaterloo, comments, whatever, because, courses]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/uwaterloo/1p10viz.md#c1"
+    char_span: [1948, 3450]
+    sentence_count: 9
+    key_terms: [going, school, university, everyone, nothing, parents, either, truth]
+    section: Comments
+    token_count: 372
+  - id: "social-intelligence/reddit-deep/uwaterloo/1p10viz.md#c2"
+    char_span: [3452, 4137]
+    sentence_count: 4
+    key_terms: [like, programs, imagine, options, science, maybe, labs, too]
+    section: Comments
+    token_count: 152
+  - id: "social-intelligence/reddit-deep/uwaterloo/1p10viz.md#c3"
+    char_span: [4139, 6197]
+    sentence_count: 18
+    key_terms: [help, courses, options, disability, advisors, semester, yourself, science]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/uwaterloo/1p10viz.md#c4"
+    char_span: [6199, 7969]
+    sentence_count: 22
+    key_terms: ["it's", university, support, failed, life, row, failures, classes]
+    section: Comments
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/uwaterloo/1p10viz.md#c5"
+    char_span: [7971, 9320]
+    sentence_count: 15
+    key_terms: [disability, everything, because, through, couldn, mental, people, times]
+    section: Comments
+    token_count: 301
 ---
-
 # I’ve Failed every 1A Science course three times in a row, still in first year after 4 semesters. (Vent)
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1p10viz/ive_failed_every_1a_science_course_three_times_in/)

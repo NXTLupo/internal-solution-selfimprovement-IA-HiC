@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1tbki5v.md
 url: "https://www.reddit.com/r/personalfinance/comments/1tbki5v/how_to_cut_losses_with_1000mo_car_loan/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,69 @@ flair: "Debt"
 extracted_at: "2026-05-17T01:13:31.183Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1tbki5v.md#c0"
+    char_span: [0, 1141]
+    sentence_count: 2
+    key_terms: [car, personalfinance, been, down, sell, emergency, comments, interest]
+    token_count: 286
+  - id: "social-intelligence/reddit-deep/personalfinance/1tbki5v.md#c1"
+    char_span: [1156, 2543]
+    sentence_count: 11
+    key_terms: [car, sell, likely, value, owe, pay, difference, vehicle]
+    section: Comments
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/personalfinance/1tbki5v.md#c2"
+    char_span: [2545, 3452]
+    sentence_count: 7
+    key_terms: [car, lot, balance, home, loan, save, hatemakingnames1, maintenance]
+    section: Comments
+    token_count: 225
+  - id: "social-intelligence/reddit-deep/personalfinance/1tbki5v.md#c3"
+    char_span: [3454, 5016]
+    sentence_count: 9
+    key_terms: [car, loan, difference, credit, get, paid, pay, depending]
+    section: Comments
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/personalfinance/1tbki5v.md#c4"
+    char_span: [5018, 6874]
+    sentence_count: 10
+    key_terms: [insurance, car, month, pay, pretty, sale, terrible, driver]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/personalfinance/1tbki5v.md#c5"
+    char_span: [6614, 7768]
+    sentence_count: 7
+    key_terms: [insurance, "he's", coverage, year-old, driving, policy, state, years]
+    section: Comments
+    token_count: 315
+  - id: "social-intelligence/reddit-deep/personalfinance/1tbki5v.md#c6"
+    char_span: [7770, 9728]
+    sentence_count: 19
+    key_terms: [car, insurance, pay, another, likely, paying, years, move]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/personalfinance/1tbki5v.md#c7"
+    char_span: [9731, 11141]
+    sentence_count: 9
+    key_terms: [car, balance, deal, got, coworker, interest, market, camry]
+    section: Comments
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/personalfinance/1tbki5v.md#c8"
+    char_span: [11143, 12925]
+    sentence_count: 19
+    key_terms: [pay, car, interest, cars, "i'm", principal, something, hyundai]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/personalfinance/1tbki5v.md#c9"
+    char_span: [12927, 13745]
+    sentence_count: 6
+    key_terms: [car, interest, credit, don, get, job, rate, sell]
+    section: Comments
+    token_count: 222
 ---
-
 # how to cut losses with 1000/mo car loan?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1tbki5v/how_to_cut_losses_with_1000mo_car_loan/)

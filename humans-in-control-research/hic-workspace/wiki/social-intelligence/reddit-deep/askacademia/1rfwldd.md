@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1rfwldd.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1rfwldd/is_getting_an_edd_worth_it_right_now/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,39 @@ flair: "Professional Fields - Law, Business, etc."
 extracted_at: "2026-05-26T14:32:49.124Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1rfwldd.md#c0"
+    char_span: [0, 2133]
+    sentence_count: 21
+    key_terms: [education, higher, "i'm", change, work, students, working, askacademia]
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/askacademia/1rfwldd.md#c1"
+    char_span: [2148, 4338]
+    sentence_count: 16
+    key_terms: [edd, experience, college, professional, education, faculty, level, application]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/askacademia/1rfwldd.md#c2"
+    char_span: [4076, 5020]
+    sentence_count: 7
+    key_terms: [education, edd, higher, professional, teaching, college, program, zookeepergamesad3519]
+    section: Comments
+    token_count: 199
+  - id: "social-intelligence/reddit-deep/askacademia/1rfwldd.md#c3"
+    char_span: [5022, 7041]
+    sentence_count: 17
+    key_terms: [higher, people, education, edd, want, current, working, change]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/askacademia/1rfwldd.md#c4"
+    char_span: [7043, 8086]
+    sentence_count: 7
+    key_terms: [higher, landscape, change, degree, sounds, worked, value, fact]
+    section: Comments
+    token_count: 204
 ---
-
 # Is Getting an EdD Worth It Right Now?
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1rfwldd/is_getting_an_edd_worth_it_right_now/)

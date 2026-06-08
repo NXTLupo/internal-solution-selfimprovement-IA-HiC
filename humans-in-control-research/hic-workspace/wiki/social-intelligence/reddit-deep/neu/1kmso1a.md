@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1kmso1a.md
 url: "https://www.reddit.com/r/NEU/comments/1kmso1a/looking_for_coop_advice_private_vs_public/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-13T20:23:48.325Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1kmso1a.md#c0"
+    char_span: [0, 614]
+    sentence_count: 7
+    key_terms: [private, neu, comments, looking, public, electrical-truck646, co-op, considerations]
+    token_count: 145
+  - id: "social-intelligence/reddit-deep/neu/1kmso1a.md#c1"
+    char_span: [629, 1004]
+    sentence_count: 3
+    key_terms: [electrical-truck646, consideration, rhynocerous, employment, furthest, probably, "wouldn't", instead]
+    section: Comments
+    token_count: 99
 ---
-
 # Looking for co-op advice. Private vs public organizations experience?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1kmso1a/looking_for_coop_advice_private_vs_public/)

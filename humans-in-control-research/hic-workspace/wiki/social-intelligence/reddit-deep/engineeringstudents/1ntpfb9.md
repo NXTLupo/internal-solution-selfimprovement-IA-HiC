@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1ntpfb9.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1ntpfb9/is_it_worth_talking_to_major_corporations_such_as/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,33 @@ flair: "Career Advice"
 extracted_at: "2026-05-22T21:34:47.630Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ntpfb9.md#c0"
+    char_span: [0, 1466]
+    sentence_count: 8
+    key_terms: [time, employers, engineering, engineeringstudents, lockheed, waiting, major, speak]
+    token_count: 321
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ntpfb9.md#c1"
+    char_span: [1481, 2808]
+    sentence_count: 13
+    key_terms: [companies, worth, want, getting, talking, advice, better, people]
+    section: Comments
+    token_count: 312
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ntpfb9.md#c2"
+    char_span: [2810, 4625]
+    sentence_count: 11
+    key_terms: [companies, recruiters, resumes, "they'll", through, end, pile, probably]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ntpfb9.md#c3"
+    char_span: [4627, 6598]
+    sentence_count: 11
+    key_terms: [online, apply, skysr70, career, "you're", application, networking, companies]
+    section: Comments
+    token_count: 470
 ---
-
 # Is it worth talking to major corporations such as Lockheed and L3 at career fair?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1ntpfb9/is_it_worth_talking_to_major_corporations_such_as/)

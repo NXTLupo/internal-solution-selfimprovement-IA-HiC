@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1sr1vhi.md
 url: "https://www.reddit.com/r/artificial/comments/1sr1vhi/honest_opinion_about_ai/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,39 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:04.778Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1sr1vhi.md#c0"
+    char_span: [0, 920]
+    sentence_count: 5
+    key_terms: [making, end, artificial, something, comments, generate, valuable, people]
+    token_count: 210
+  - id: "social-intelligence/reddit-deep/artificial/1sr1vhi.md#c1"
+    char_span: [935, 3079]
+    sentence_count: 17
+    key_terms: [research, better, ask, using, prompt, documentation, understand, resources]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/artificial/1sr1vhi.md#c2"
+    char_span: [3083, 5050]
+    sentence_count: 14
+    key_terms: [something, program, theory, ask, quality, entire, prompt, wanted]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/artificial/1sr1vhi.md#c3"
+    char_span: [5052, 7326]
+    sentence_count: 20
+    key_terms: [slop, trillion, doesn, going, model, get, work, parameters]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/artificial/1sr1vhi.md#c4"
+    char_span: [7328, 8747]
+    sentence_count: 14
+    key_terms: [use, questions, found, stats, ask, help, work, specifications]
+    section: Comments
+    token_count: 315
 ---
-
 # Honest opinion about AI
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1sr1vhi/honest_opinion_about_ai/)

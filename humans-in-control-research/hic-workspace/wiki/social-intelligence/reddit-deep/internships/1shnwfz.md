@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1shnwfz.md
 url: "https://www.reddit.com/r/internships/comments/1shnwfz/finance_intern_opportunity_at_an_earlystage/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,22 @@ score: 3
 upvote_ratio: 1
 num_comments: 7
 flair: "Interviews"
-extracted_at: "2026-05-23T12:15:55.809Z"
+extracted_at: "2026-06-06T17:41:06.734Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1shnwfz.md#c0"
+    char_span: [0, 1723]
+    sentence_count: 15
+    key_terms: [early-stage, internships, chemicals, financial, comments, everyone, brandywinechemicalworks, finance]
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/internships/1shnwfz.md#c1"
+    char_span: [1738, 2218]
+    sentence_count: 3
+    key_terms: [brandywinechemworks, economics, studying, brandywinechemicalworks, junior, remote, yeah, interview]
+    section: Comments
+    token_count: 145
 ---
-
 # Finance Intern opportunity at an early-stage chemicals startup
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1shnwfz/finance_intern_opportunity_at_an_earlystage/)

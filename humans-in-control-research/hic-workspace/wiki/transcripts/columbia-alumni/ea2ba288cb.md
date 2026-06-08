@@ -12,6 +12,8 @@ extracted_at: "2026-05-07T15:19:17.846356+00:00"
 chars: 49834
 channel: "Columbia Alumni"
 duration_sec: 3550
+industries: [higher_ed]
+industry_method: deterministic
 ---
 
 # Ask the Expert | Sasha Cohen ’16GS: My Journey to the Olympic Games and Life After Figure Skating

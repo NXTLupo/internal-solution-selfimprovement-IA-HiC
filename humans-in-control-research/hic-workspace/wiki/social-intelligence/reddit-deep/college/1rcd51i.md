@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1rcd51i.md
 url: "https://www.reddit.com/r/college/comments/1rcd51i/how_do_i_stop_feeling_guilty_for_letting_my/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-17T01:12:59.136Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1rcd51i.md#c0"
+    char_span: [0, 955]
+    sentence_count: 6
+    key_terms: [college, parents, school, comments, decision, guilty, state, dad]
+    token_count: 232
+  - id: "social-intelligence/reddit-deep/college/1rcd51i.md#c1"
+    char_span: [970, 2855]
+    sentence_count: 21
+    key_terms: [adventurousexpert217, because, college, parents, scholarships, dad, feel, help]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/college/1rcd51i.md#c2"
+    char_span: [2857, 4779]
+    sentence_count: 15
+    key_terms: [parents, help, college, pay, time, decision, afford, guilty]
+    section: Comments
+    token_count: 483
 ---
-
 # How do I stop feeling guilty for letting my parents pay for my oos tution
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1rcd51i/how_do_i_stop_feeling_guilty_for_letting_my/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1qnhv64.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1qnhv64/increasingly_your_quality_of_life_in_the_us_seems/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,80 @@ flair: "Vent/Rant (No Advice/Criticism!)"
 extracted_at: "2026-05-16T20:55:12.685Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qnhv64.md#c0"
+    char_span: [0, 2175]
+    sentence_count: 16
+    key_terms: [parents, through, years, life, quality, povertyfinance, organizations, connections]
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qnhv64.md#c1"
+    char_span: [2177, 3351]
+    sentence_count: 12
+    key_terms: [life, like, amount, hard, work, hateful, poverty, towards]
+    token_count: 251
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qnhv64.md#c2"
+    char_span: [3366, 4990]
+    sentence_count: 16
+    key_terms: [submitter, appropriate, need, advice, vents, vent, emotional, situation]
+    section: Comments
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qnhv64.md#c3"
+    char_span: [4992, 7154]
+    sentence_count: 15
+    key_terms: [people, hard, disadvantaged, neighborhoods, born, don, jobs, work]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qnhv64.md#c4"
+    char_span: [6810, 7611]
+    sentence_count: 4
+    key_terms: [disadvantaged, being, "it's", like, investigations, neighborhoods, socioeconomic, professional]
+    section: Comments
+    token_count: 158
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qnhv64.md#c5"
+    char_span: [7613, 9086]
+    sentence_count: 8
+    key_terms: [people, don, hard, luck, need, work, situation, someone]
+    section: Comments
+    token_count: 338
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qnhv64.md#c6"
+    char_span: [9088, 11048]
+    sentence_count: 14
+    key_terms: [good, time, computer, progress, college, grandma, student, through]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qnhv64.md#c7"
+    char_span: [11050, 11789]
+    sentence_count: 8
+    key_terms: [better, student, house, moved, debt, gig, role, depression]
+    section: Comments
+    token_count: 181
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qnhv64.md#c8"
+    char_span: [11791, 13989]
+    sentence_count: 16
+    key_terms: [time, standard, living, kaiservonrisk, hard, life, like, collective]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qnhv64.md#c9"
+    char_span: [13677, 14427]
+    sentence_count: 9
+    key_terms: [eventually, people, pennsylvania-based, rich, timely-way-1769, garyseconomics, determination, sampoqiser]
+    section: Comments
+    token_count: 186
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qnhv64.md#c10"
+    char_span: [14430, 16219]
+    sentence_count: 10
+    key_terms: [research, house, europe, feudal, people, connections, genetics, "parent's"]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qnhv64.md#c11"
+    char_span: [16222, 17796]
+    sentence_count: 6
+    key_terms: [people, genetics, looks, "it's", life, luck, time, regarding]
+    section: Comments
+    token_count: 343
 ---
-
 # Increasingly, your quality of life in the U.S seems to be fixed at birth
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1qnhv64/increasingly_your_quality_of_life_in_the_us_seems/)

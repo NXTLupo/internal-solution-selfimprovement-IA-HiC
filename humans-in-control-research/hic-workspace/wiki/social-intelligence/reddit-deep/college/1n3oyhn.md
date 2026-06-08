@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1n3oyhn.md
 url: "https://www.reddit.com/r/college/comments/1n3oyhn/college_student_career_advice/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,30 @@ subreddit: "college"
 title: "College Student Career Advice?"
 author: "nottonightyou"
 date: "2025-08-30T01:21:10.000Z"
-score: 4
-upvote_ratio: 0.76
+score: 3
+upvote_ratio: 0.72
 num_comments: 6
 flair: ""
-extracted_at: "2026-05-26T14:31:29.701Z"
+extracted_at: "2026-06-05T16:17:48.498Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1n3oyhn.md#c0"
+    char_span: [0, 1898]
+    sentence_count: 12
+    key_terms: [business, college, don, like, management, want, interested, psychology]
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/college/1n3oyhn.md#c1"
+    char_span: [1913, 3664]
+    sentence_count: 14
+    key_terms: [management, working, introverted, job, like, influence, work-life, business]
+    section: Comments
+    token_count: 385
 ---
-
 # College Student Career Advice?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1n3oyhn/college_student_career_advice/)
-Posted by **nottonightyou** · **4↑** · **6 comments**
+Posted by **nottonightyou** · **3↑** · **6 comments**
 
 I’m a college student starting my Junior year, I got my Associates in Business Administration and then transferred to a 4 year, now majoring in Management. 
 

@@ -6,19 +6,19 @@ subreddit: "internships"
 title: "Offer Decision Help (huge last minute dilemma)"
 author: "Any_Cantaloupe4518"
 date: "2026-04-25T00:33:07.000Z"
-score: 7
-upvote_ratio: 0.9
+score: 8
+upvote_ratio: 0.91
 num_comments: 9
 flair: "Offers"
-extracted_at: "2026-05-23T19:44:46.350Z"
+extracted_at: "2026-06-06T23:20:46.214Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Offer Decision Help (huge last minute dilemma)
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1sux66v/offer_decision_help_huge_last_minute_dilemma/)
-Posted by **Any_Cantaloupe4518** · **7↑** · **9 comments**
+Posted by **Any_Cantaloupe4518** · **8↑** · **9 comments**
 
 I got an offer from MathWorks pretty early in the summer intern recruiting cycle and accepted it. Later on, I interviewed with KLA towards the end of March and just got an offer from them today. Trying to decide what to do.
 

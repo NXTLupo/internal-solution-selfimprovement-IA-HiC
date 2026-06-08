@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1m2rc7j.md
 url: "https://www.reddit.com/r/careerguidance/comments/1m2rc7j/title_is_it_too_late_to_start_a_career_in/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-22T23:34:01.160Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1m2rc7j.md#c0"
+    char_span: [0, 1508]
+    sentence_count: 15
+    key_terms: [careerguidance, career, development, late, comments, software, feels, field]
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/careerguidance/1m2rc7j.md#c1"
+    char_span: [1523, 3349]
+    sentence_count: 14
+    key_terms: [software, already, someone, "that's", drive, learning, schedulesame258, never]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/careerguidance/1m2rc7j.md#c2"
+    char_span: [3351, 5714]
+    sentence_count: 10
+    key_terms: [software, because, experience, people, companies, entry, level, tools]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/careerguidance/1m2rc7j.md#c3"
+    char_span: [5716, 7704]
+    sentence_count: 11
+    key_terms: [software, too, working, experience, pilgrim103, engineers, knowledge, something]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/careerguidance/1m2rc7j.md#c4"
+    char_span: [7706, 9673]
+    sentence_count: 15
+    key_terms: [start, get, extremely, recommend, mentally, extreme, without, career]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/careerguidance/1m2rc7j.md#c5"
+    char_span: [9675, 11765]
+    sentence_count: 30
+    key_terms: [software, development, escape, folder, job, web, embedded, engineer]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/careerguidance/1m2rc7j.md#c6"
+    char_span: [11767, 13822]
+    sentence_count: 21
+    key_terms: [software, engineering, degree, development, get, need, calculus, computer]
+    section: Comments
+    token_count: 502
 ---
-
 # Title: Is it too late to start a career in software/web development at 33?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1m2rc7j/title_is_it_too_late_to_start_a_career_in/)

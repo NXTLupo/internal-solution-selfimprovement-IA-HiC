@@ -10,9 +10,9 @@ score: 5
 upvote_ratio: 1
 num_comments: 7
 flair: "Advice"
-extracted_at: "2026-05-23T12:15:46.633Z"
+extracted_at: "2026-06-06T23:21:13.899Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Completely lost in my career path any free advice?
@@ -46,7 +46,6 @@ Honestly, industry is important but I think it’s even better to learn about th
 
 Sticking with something for a few years helps you learn about yourself and enables you to tell a story about yourself to other future employers.
 - **Round_Bandicoot8967** (2↑): you're 21 with skills in an industry that hires freelancers constantly. build that reel, take that small gigs and see where it goes. I think it just comes down to acquiring more skills by having more exposure to different kind of projects until you see what clicks. I'd recommend testing out Path AI (App Store) or Google Career Dreamer to see the niche you could start with, but honestly just commit to the creative stuff you're already doing.
-- **RyPlayZz** (2↑): I bounced around a lot in my early 20s too and it felt like I was falling behind everyone. Looking back it was actually useful because I slowly figured out what kind of work I hated versus what I could tolerate day to day.
 - **Key_Union8998** (2↑): I went through something very similar in my early 20s.
 
 The pattern you described — trying something for a couple months, getting burnt out, then switching to something completely different — is actually extremely common. It feels like you’re “searching”, but it also keeps you stuck in reset mode.

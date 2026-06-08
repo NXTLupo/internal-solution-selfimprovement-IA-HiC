@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1sflk9i.md
 url: "https://www.reddit.com/r/stocks/comments/1sflk9i/rstocks_daily_discussion_wednesday_apr_08_2026/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,32 @@ flair: ""
 extracted_at: "2026-05-17T01:14:17.626Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1sflk9i.md#c0"
+    char_span: [0, 1225]
+    sentence_count: 3
+    key_terms: [https, com, streetinsider, www, stocks, market, news, investopedia]
+    token_count: 321
+  - id: "social-intelligence/reddit-deep/stocks/1sflk9i.md#c1"
+    char_span: [1227, 1887]
+    sentence_count: 2
+    key_terms: [author, reddit, search, stocks, https, com, new, sort]
+    token_count: 203
+  - id: "social-intelligence/reddit-deep/stocks/1sflk9i.md#c2"
+    char_span: [1902, 3574]
+    sentence_count: 9
+    key_terms: [ivorytowerresident, iran, civilization, gets, point, trump, continue, farrisat]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/stocks/1sflk9i.md#c3"
+    char_span: [3576, 4766]
+    sentence_count: 10
+    key_terms: [offer, theory, back, days, did, dip, like, next]
+    section: Comments
+    token_count: 306
 ---
-
 # r/Stocks Daily Discussion Wednesday - Apr 08, 2026
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1sflk9i/rstocks_daily_discussion_wednesday_apr_08_2026/)

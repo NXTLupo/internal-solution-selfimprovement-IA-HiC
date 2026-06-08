@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/anthropic/1rooob1.md
 url: "https://www.reddit.com/r/Anthropic/comments/1rooob1/for_my_windows_peeps_how_are_you_running_claude/"
 kind: "social-post"
 source: "reddit-deep: r/anthropic"
@@ -13,8 +14,15 @@ flair: "Other"
 extracted_at: "2026-05-11T17:26:51.917Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/anthropic/1rooob1.md#c0"
+    char_span: [0, 449]
+    sentence_count: 2
+    key_terms: [anthropic, comments, windows, claude, code, brentyoungphoto, reddit-deep, computer]
+    token_count: 122
 ---
-
 # for my windows peeps how are you running claude code?
 
 Source: [reddit-deep: r/anthropic](https://www.reddit.com/r/Anthropic/comments/1rooob1/for_my_windows_peeps_how_are_you_running_claude/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1tiyhbq/pt_2_i_called_35_schools_abt_their_waitlists/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,50 @@ subreddit: "applyingtocollege"
 title: "pt 2: I called 35 schools abt their waitlists"
 author: "OkEgg8038"
 date: "2026-05-20T20:47:17.000Z"
-score: 268
+score: 281
 upvote_ratio: 1
-num_comments: 76
+num_comments: 98
 flair: "Serious"
-extracted_at: "2026-05-24T14:08:39.597Z"
+extracted_at: "2026-06-05T18:53:26.930Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md#c0"
+    char_span: [0, 2093]
+    sentence_count: 10
+    key_terms: [waitlist, schools, part, info, amherst, called, people, commenting]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md#c1"
+    char_span: [2095, 4097]
+    sentence_count: 17
+    key_terms: [students, waitlist, called, take, people, rolling, taken, duke]
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md#c2"
+    char_span: [4099, 6364]
+    sentence_count: 24
+    key_terms: [waitlist, called, decisions, people, rolling, basis, specific, admissions]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md#c3"
+    char_span: [6366, 8309]
+    sentence_count: 17
+    key_terms: [waitlist, called, admissions, continued, columbia, specific, william, last]
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md#c4"
+    char_span: [8311, 10252]
+    sentence_count: 20
+    key_terms: [waitlist, students, admissions, called, acceptances, decisions, engineering, swarthmore]
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md#c5"
+    char_span: [10267, 11930]
+    sentence_count: 12
+    key_terms: [thank, waitlist, did, got, hoping, turned, consistent-alarm3496, zealousideal-dig-594]
+    section: Comments
+    token_count: 471
 ---
-
 # pt 2: I called 35 schools abt their waitlists
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1tiyhbq/pt_2_i_called_35_schools_abt_their_waitlists/)
-Posted by **OkEgg8038** · **268↑** · **76 comments**
+Posted by **OkEgg8038** · **281↑** · **98 comments**
 
 Hi everyone! Part 2 of my waitlist series is here. I called 35 schools this time. To everyone DMing me and commenting other schools, I promise I will get to them! 
 
@@ -84,15 +116,16 @@ Fun Fact: I made some of these calls while at the gym and walking to and from th
 
 ## Comments
 
-- **SoftResident7052** (12↑): May God bless you
-- **AsianIntrovert3638** (11↑): Berkeley? And thank you 🙏
-- **Inthect** (5↑): Harvard was too busy handing out A’s to pick up the phone.
-- **Mysterious_March_830** (5↑): THANK YOU
-- **PreparationCalm3482** (4↑): Omg, you are the BEST. And, can you call Brown???
-- **Consistent-Alarm3496** (6↑): Thank you you are awesome!!! For Cornell you said you had results for CALS and that CALS did not pick up the phone. Did you mean for one of them to be CAS?
+- **SoftResident7052** (15↑): May God bless you
+- **AsianIntrovert3638** (12↑): Berkeley? And thank you 🙏
+- **Inthect** (6↑): Harvard was too busy handing out A’s to pick up the phone.
+- **princess20202020** (4↑): Thank you. Interested in Notre Dame and Boston College if you make another round of calls! Have fun in the Bay Area
+- **PreparationCalm3482** (6↑): Omg, you are the BEST. And, can you call Brown???
+- **Consistent-Alarm3496** (5↑): Thank you you are awesome!!! For Cornell you said you had results for CALS and that CALS did not pick up the phone. Did you mean for one of them to be CAS?
+  - **OkEgg8038** (2↑): I didn’t do CAS but I can do them as well
 - **Aadidas12** (3↑): Can you call Northeastern, NYU Tandon, and University of Washington?
   - **Jealous_Page5743** (1↑): I got accepted from Northeastern's waitlist on the 12th for physics so they are definitely going through it.
-- **princess20202020** (4↑): Thank you. Interested in Notre Dame and Boston College if you make another round of calls! Have fun in the Bay Area
-- **Main-Doughnut-8366** (3↑): I got off the Umich waitlist but will likely not take it as it costs way too much out of state, and recently de-committed from UT Austin LBj due to a recent financial change that makes it unattainable out of state. As turned down UMiami and NYU because of the price tags. Hope those spots go to someone who loves the schools as much as I did!
-  - **Zealousideal-Dig-594** (5↑): Same just turned down UMich, hoping my friend who also got waitlisted gets off or anyone else who really wants it :)
+- **Main-Doughnut-8366** (5↑): I got off the Umich waitlist but will likely not take it as it costs way too much out of state, and recently de-committed from UT Austin LBj due to a recent financial change that makes it unattainable out of state. As turned down UMiami and NYU because of the price tags. Hope those spots go to someone who loves the schools as much as I did!
+  - **Zealousideal-Dig-594** (6↑): Same just turned down UMich, hoping my friend who also got waitlisted gets off or anyone else who really wants it :)
 - **Artistic_Park7456** (3↑): Thank you! Can’t imagine how long this all took you. Hoping this information helps everyone who’s stressing out about the waitlist.
+- **sAvAgE261** (3↑): Can u please do CMU. I know their chances are not great

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1qtpyzs.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1qtpyzs/how_do_i_tailor_my_skillsresume_to_a_job/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,15 @@ flair: "Career Advice"
 extracted_at: "2026-05-25T18:32:19.208Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qtpyzs.md#c0"
+    char_span: [0, 1244]
+    sentence_count: 12
+    key_terms: [projects, engineering, engineeringstudents, non-engineering, typical-user-87, "don't", unrelated, comments]
+    token_count: 285
 ---
-
 # How do I tailor my skills/resume to a job unrelated to engineering with no previous work experience?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1qtpyzs/how_do_i_tailor_my_skillsresume_to_a_job/)

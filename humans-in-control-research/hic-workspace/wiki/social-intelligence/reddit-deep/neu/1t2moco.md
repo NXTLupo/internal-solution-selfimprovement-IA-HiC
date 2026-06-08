@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1t2moco.md
 url: "https://www.reddit.com/r/NEU/comments/1t2moco/is_neu_msai_worth_it_for_an_international_student/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -7,14 +8,37 @@ title: "Is NEU MSAI worth it for an international student taking a loan in the c
 author: "Seshuuu"
 date: "2026-05-03T14:17:24.000Z"
 score: 0
-upvote_ratio: 0.33
+upvote_ratio: 0.38
 num_comments: 21
 flair: "Co-op & Career"
-extracted_at: "2026-05-26T14:30:23.757Z"
+extracted_at: "2026-06-06T00:27:19.931Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1t2moco.md#c0"
+    char_span: [0, 1501]
+    sentence_count: 7
+    key_terms: [neu, international, students, current, market, opportunities, internships, job]
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/neu/1t2moco.md#c1"
+    char_span: [1516, 2164]
+    sentence_count: 6
+    key_terms: [greenocto, high, international, beetroot747, significant, additional, everything, interviews]
+    section: Comments
+    token_count: 165
+  - id: "social-intelligence/reddit-deep/neu/1t2moco.md#c2"
+    char_span: [2166, 3867]
+    sentence_count: 9
+    key_terms: [mobile-finding-3779, seshuuu, beetroot747, challenging, job, optimistic, situation, something]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/neu/1t2moco.md#c3"
+    char_span: [3869, 4240]
+    sentence_count: 3
+    key_terms: [umass, oddactive2516, understand, somewhere, confused, gustamos, amherst, getting]
+    section: Comments
+    token_count: 113
 ---
-
 # Is NEU MSAI worth it for an international student taking a loan in the current job market?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1t2moco/is_neu_msai_worth_it_for_an_international_student/)
@@ -49,7 +73,7 @@ Would really appreciate honest experiences from current students, recent grads, 
 
 And while the job market has been bad for a while, you’ll also need to consider the current atmosphere where there are discussions around pausing H1-B visas and removing OPT altogether. Things have changed in the past year and a half and it’s a lot more challenging for international students now.
   - **Serenity-Quest** (1↑): What about COOP/OPT without a full time job for intl?
-  - **Seshuuu** (-4↑): Challenging but possible, I know I'm being optimistic. Is it strict 'No' from your side?
+  - **Seshuuu** (-3↑): Challenging but possible, I know I'm being optimistic. Is it strict 'No' from your side?
     - **beetroot747** (1↑): You’re being too optimistic. I’m not saying no, just that it’s a 10x bigger gamble now than it was for me when I started at NEU in 2019.
 - **Mobile-Finding-3779** (2↑): Shit
   - **Seshuuu** (-2↑): Why?

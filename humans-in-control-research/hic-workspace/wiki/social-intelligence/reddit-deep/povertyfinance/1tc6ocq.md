@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1tc6ocq/i_terminated_my_lease_yesterday_and_now_me_and_my/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,62 @@ flair: "Housing/Shelter/Standard of Living"
 extracted_at: "2026-05-16T20:55:12.683Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [real_estate, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md#c0"
+    char_span: [0, 1028]
+    sentence_count: 10
+    key_terms: ["i'm", povertyfinance, comments, waiting, social, going, got, same-past-2783]
+    token_count: 252
+  - id: "social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md#c1"
+    char_span: [1030, 2400]
+    sentence_count: 24
+    key_terms: ["i'm", car, "can't", get, pay, apartment, anything, anymore]
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md#c2"
+    char_span: [2415, 3821]
+    sentence_count: 15
+    key_terms: [without, same-past-2783, needs, world, through, better, "you'll", check]
+    section: Comments
+    token_count: 391
+  - id: "social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md#c3"
+    char_span: [3823, 4736]
+    sentence_count: 9
+    key_terms: [emergency-rent-and-utility-assistance, objective-kangaroo-7, going, https, place, economic-mobility, rental-assistance, good]
+    section: Comments
+    token_count: 242
+  - id: "social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md#c4"
+    char_span: [4741, 6254]
+    sentence_count: 11
+    key_terms: [homeless, brother, tenant-based-rental-assistance, through, utility, rental, "you're", "you've"]
+    section: Comments
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md#c5"
+    char_span: [6256, 8199]
+    sentence_count: 18
+    key_terms: [hope, same-past-2783, been, like, everything, something, camping, thanks]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md#c6"
+    char_span: [8201, 9077]
+    sentence_count: 7
+    key_terms: [struggled, alterative-coping-skills, someone, website, please, mentalhealthrecovery, https, rental-assistance]
+    section: Comments
+    token_count: 215
+  - id: "social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md#c7"
+    char_span: [9080, 11034]
+    sentence_count: 28
+    key_terms: [phoenix, same-past-2783, area, sikh, assistance, churches, maricopa, brother]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md#c8"
+    char_span: [11036, 11703]
+    sentence_count: 6
+    key_terms: [stevedapirate91, dcs, instacart, paperwork, covering, directly, doordash, earnings]
+    section: Comments
+    token_count: 179
 ---
-
 # I terminated my lease yesterday and now me and my little brother have to live in my SUV for a while.
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1tc6ocq/i_terminated_my_lease_yesterday_and_now_me_and_my/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1t4rj1r.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1t4rj1r/finally_got_a_god_damn_internship/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,45 @@ flair: "Sankey Diagram"
 extracted_at: "2026-05-25T18:32:19.207Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1t4rj1r.md#c0"
+    char_span: [0, 873]
+    sentence_count: 6
+    key_terms: [engineeringstudents, supply, chain, get, internship, aerospace, comments, honestly]
+    token_count: 208
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1t4rj1r.md#c1"
+    char_span: [888, 1513]
+    sentence_count: 6
+    key_terms: [engineeringstudents, wiki, reddit, https, com, www, please, index]
+    section: Comments
+    token_count: 143
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1t4rj1r.md#c2"
+    char_span: [1515, 3545]
+    sentence_count: 10
+    key_terms: [internship, interviews, applications, good, getting, market, like, post]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1t4rj1r.md#c3"
+    char_span: [3265, 5206]
+    sentence_count: 9
+    key_terms: [interviews, industry, job, sweepdaddy, research, strategy, because, example]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1t4rj1r.md#c4"
+    char_span: [4972, 5732]
+    sentence_count: 4
+    key_terms: [sophomore, offer, concerning, interviews, aerospace, companies, genuinely, mentioned]
+    section: Comments
+    token_count: 193
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1t4rj1r.md#c5"
+    char_span: [5734, 5960]
+    sentence_count: 1
+    key_terms: [interviews, important, necessary, happened, probably, context, ghosted, offers]
+    section: Comments
+    token_count: 65
 ---
-
 # Finally got a god damn internship
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1t4rj1r/finally_got_a_god_damn_internship/)

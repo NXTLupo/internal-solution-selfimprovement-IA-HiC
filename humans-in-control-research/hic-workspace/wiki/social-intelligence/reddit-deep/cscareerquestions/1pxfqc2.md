@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1pxfqc2.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1pxfqc2/cs_career_can_be_thought_of_as_going_to_the_gym/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-22T23:33:42.305Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pxfqc2.md#c0"
+    char_span: [0, 1720]
+    sentence_count: 2
+    key_terms: [years, gym, bench, cscareerquestions, get, similar, press, correlation]
+    token_count: 380
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pxfqc2.md#c1"
+    char_span: [1735, 3826]
+    sentence_count: 9
+    key_terms: [mediocre-ebb9862, people, engineers, like, disposepriority, figures, making, flair]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pxfqc2.md#c2"
+    char_span: [3828, 5955]
+    sentence_count: 13
+    key_terms: [years, experience, figures, experienced, reference, "i've", luck, seen]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pxfqc2.md#c3"
+    char_span: [5957, 7027]
+    sentence_count: 4
+    key_terms: [several, people, guess, heavy, right, good, none, team]
+    section: Comments
+    token_count: 268
 ---
-
 # CS career can be thought of as going to the gym
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1pxfqc2/cs_career_can_be_thought_of_as_going_to_the_gym/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1ocg0bl.md
 url: "https://www.reddit.com/r/jobs/comments/1ocg0bl/are_we_just_locked_into_the_line_of_work_we_chose/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,81 @@ flair: "Job searching"
 extracted_at: "2026-05-25T13:03:11.720Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1ocg0bl.md#c0"
+    char_span: [0, 1304]
+    sentence_count: 9
+    key_terms: [experience, developer, work, got, job, comments, oriented, previous]
+    token_count: 284
+  - id: "social-intelligence/reddit-deep/jobs/1ocg0bl.md#c1"
+    char_span: [1319, 3334]
+    sentence_count: 16
+    key_terms: [experience, job, jobs, years, marketing, being, find, "i'm"]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/jobs/1ocg0bl.md#c2"
+    char_span: [3337, 4834]
+    sentence_count: 10
+    key_terms: [deleted, working, people, remote, been, job, understand, better]
+    section: Comments
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/jobs/1ocg0bl.md#c3"
+    char_span: [4836, 6912]
+    sentence_count: 22
+    key_terms: [want, field, change, people, manufacturing, going, don, work]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1ocg0bl.md#c4"
+    char_span: [6622, 7754]
+    sentence_count: 11
+    key_terms: [managers, people, did, industry, talking, degree, hiring, gotta]
+    section: Comments
+    token_count: 260
+  - id: "social-intelligence/reddit-deep/jobs/1ocg0bl.md#c5"
+    char_span: [7757, 10043]
+    sentence_count: 14
+    key_terms: [paycheck, people, careers, reviews, course, change, switch, field]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/jobs/1ocg0bl.md#c6"
+    char_span: [10046, 11850]
+    sentence_count: 19
+    key_terms: [capitalism, careers, job, work, paying, trying, times, because]
+    section: Comments
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/jobs/1ocg0bl.md#c7"
+    char_span: [11853, 13889]
+    sentence_count: 17
+    key_terms: [capitalism, people, want, government, level, because, entry, restriction]
+    section: Comments
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/jobs/1ocg0bl.md#c8"
+    char_span: [13891, 15983]
+    sentence_count: 22
+    key_terms: [capitalism, unfairly, government, protecting, benefits, customer, country, insider]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/jobs/1ocg0bl.md#c9"
+    char_span: [15985, 17676]
+    sentence_count: 14
+    key_terms: [administrative, lot, experience, marketing, young, didn, got, "i'm"]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/jobs/1ocg0bl.md#c10"
+    char_span: [17678, 19622]
+    sentence_count: 11
+    key_terms: ["you're", opportunity, cost, get, college, deleted, example, factory]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1ocg0bl.md#c11"
+    char_span: [19418, 19719]
+    sentence_count: 2
+    key_terms: ["you're", white, dramatics, offensive, enslaved, correct, slavery, without]
+    section: Comments
+    token_count: 94
 ---
-
 # Are we just locked into the line of work we chose in our early 20s forever?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1ocg0bl/are_we_just_locked_into_the_line_of_work_we_chose/)

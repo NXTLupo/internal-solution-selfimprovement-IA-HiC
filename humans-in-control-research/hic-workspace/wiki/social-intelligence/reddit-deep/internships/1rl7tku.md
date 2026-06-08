@@ -6,19 +6,19 @@ subreddit: "internships"
 title: "Laid off during first week for being \"distracting\" and too social"
 author: "Secure-Ad1363"
 date: "2026-03-05T04:22:04.000Z"
-score: 90
+score: 89
 upvote_ratio: 0.97
 num_comments: 23
 flair: "General"
-extracted_at: "2026-05-25T18:31:15.449Z"
+extracted_at: "2026-06-06T23:20:46.208Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Laid off during first week for being "distracting" and too social
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rl7tku/laid_off_during_first_week_for_being_distracting/)
-Posted by **Secure-Ad1363** · **90↑** · **23 comments**
+Posted by **Secure-Ad1363** · **89↑** · **23 comments**
 
 The title says it all. I spent almost a year and a half looking for an internship and finally everything seemed to be coming together just last month. My application got a response within a week or so, a zoom meeting was setup, and just within a week I was invited for an in-person interview at their office.  
   
@@ -42,14 +42,14 @@ TLDR: I got fired from my internship in the first week for being friendly in an 
 
 ## Comments
 
-- **Appropriate-Tutor587** (69↑): They did you wrong. You dodged a bullet. Keep your heads up and apply for other summer positions.
-- **s0urpatch1tv** (38↑): Dangg im so sorry to hear that :(
+- **Appropriate-Tutor587** (66↑): They did you wrong. You dodged a bullet. Keep your heads up and apply for other summer positions.
+- **s0urpatch1tv** (37↑): Dangg im so sorry to hear that :(
 
   
 What internship was it if you don't mind me asking?
-  - **Secure-Ad1363** (20↑): Not sure what the rules are in terms of mentioning specific companies and whatnot, but it was a department assistant intern position at a start up in Los Angeles for a streaming monetization firm
-    - **Sk8ordy3** (17↑): Feel free to call them out by name. Companies like this should be name & shamed. Sorry this happened bro
-- **Norandran** (22↑): While this sucks and you probably dodged a bullet for future internships and jobs in general it’s best to try and avoid those common office gotchas. For established employees this behavior is tolerated if they have shown a pattern of getting their work done while still chatting all day or they have proven themselves in other ways.
+  - **Secure-Ad1363** (21↑): Not sure what the rules are in terms of mentioning specific companies and whatnot, but it was a department assistant intern position at a start up in Los Angeles for a streaming monetization firm
+    - **Sk8ordy3** (15↑): Feel free to call them out by name. Companies like this should be name & shamed. Sorry this happened bro
+- **Norandran** (21↑): While this sucks and you probably dodged a bullet for future internships and jobs in general it’s best to try and avoid those common office gotchas. For established employees this behavior is tolerated if they have shown a pattern of getting their work done while still chatting all day or they have proven themselves in other ways.
 
 I wouldn’t get too upset about it just look for another opportunity and carry on. Best of luck to you.
 - **yogamathappiness** (17↑): You’ll see this in workplaces too. You dodged a bullet.
@@ -58,7 +58,7 @@ like a story time “that time my internship fucked me over” because wtf they 
   - **Secure-Ad1363** (4↑): I’m seriously considering doing this because it’s not like I would be lying or even exaggerating my experience. What I wrote is straight up what happened and I would feel better knowing other people can learn something from my experience and use it to be careful in their own ventures.
 - **Commercial_Ad8072** (2↑): Be glad you got outta there
 - **Interesting_Two2977** (2↑): Sounds like a toxic work environment. Honestly, it's for the better bro.
-- **Quality_Expert5000** (1↑): This is why I ignore idle conversations around me. I'm quiet so they don't engage with me but I don't engage even if they're talking about something I'm interested in. 
+- **Quality_Expert5000** (3↑): This is why I ignore idle conversations around me. I'm quiet so they don't engage with me but I don't engage even if they're talking about something I'm interested in. 
 
 You're there to do a job and they are not your friends. Period.
   - **Secure-Ad1363** (1↑): Yup, spot on. Sucks I had to learn the hard way but better than losing a better opportunity down the line for the same reason.

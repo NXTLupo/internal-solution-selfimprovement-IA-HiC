@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1nlej7t.md
 url: "https://www.reddit.com/r/OpenAI/comments/1nlej7t/why_is_my_experience_with_chatgpt_coding_so_bad/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,33 @@ flair: "Question"
 extracted_at: "2026-05-11T16:53:06.852Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1nlej7t.md#c0"
+    char_span: [0, 788]
+    sentence_count: 7
+    key_terms: [use, openai, comments, chatgpt, scrape, error, been, "it's"]
+    token_count: 197
+  - id: "social-intelligence/reddit-deep/openai/1nlej7t.md#c1"
+    char_span: [803, 2920]
+    sentence_count: 19
+    key_terms: [craigslist, script, sometimes, simpleaccurate631, minutes, prompts, google, prompt]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/openai/1nlej7t.md#c2"
+    char_span: [2922, 5171]
+    sentence_count: 11
+    key_terms: [ask, manually, run, tell, column, script, sheet, timestamp]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/openai/1nlej7t.md#c3"
+    char_span: [5173, 7241]
+    sentence_count: 20
+    key_terms: [instructions, understand, google, models, "can't", steps, "it's", need]
+    section: Comments
+    token_count: 489
 ---
-
 # Why is my experience with ChatGPT coding so bad?
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1nlej7t/why_is_my_experience_with_chatgpt_coding_so_bad/)

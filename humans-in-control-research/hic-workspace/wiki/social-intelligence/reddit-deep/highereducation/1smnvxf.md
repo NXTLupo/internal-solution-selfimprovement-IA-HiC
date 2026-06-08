@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1smnvxf.md
 url: "https://www.reddit.com/r/highereducation/comments/1smnvxf/i_deeply_regret_my_degree/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-22T15:13:18.736Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1smnvxf.md#c0"
+    char_span: [0, 1744]
+    sentence_count: 16
+    key_terms: [education, because, higher, highereducation, been, get, interview, comments]
+    token_count: 389
+  - id: "social-intelligence/reddit-deep/highereducation/1smnvxf.md#c1"
+    char_span: [1759, 3299]
+    sentence_count: 11
+    key_terms: [often, start, years, admissions, disability, experience, advising, services]
+    section: Comments
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/highereducation/1smnvxf.md#c2"
+    char_span: [3301, 4396]
+    sentence_count: 11
+    key_terms: [student, university, applying, support, degree, facing, right, job]
+    section: Comments
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/highereducation/1smnvxf.md#c3"
+    char_span: [4398, 6293]
+    sentence_count: 15
+    key_terms: [students, ods, work, working, office, disabilities, job, lot]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/highereducation/1smnvxf.md#c4"
+    char_span: [6295, 8637]
+    sentence_count: 20
+    key_terms: [disability, "you're", look, services, yourself, opportunities, doing, application]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/highereducation/1smnvxf.md#c5"
+    char_span: [8639, 9439]
+    sentence_count: 10
+    key_terms: [positions, applicants, disability, services, yourself, people, good, like]
+    section: Comments
+    token_count: 174
 ---
-
 # I deeply regret my degree
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1smnvxf/i_deeply_regret_my_degree/)

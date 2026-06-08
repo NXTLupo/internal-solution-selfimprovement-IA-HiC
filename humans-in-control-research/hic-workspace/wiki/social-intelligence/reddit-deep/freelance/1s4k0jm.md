@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/freelance/1s4k0jm.md
 url: "https://www.reddit.com/r/freelance/comments/1s4k0jm/how_to_write_freelance_proposals_that_actually_win/"
 kind: "social-post"
 source: "reddit-deep: r/freelance"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-26T12:53:48.702Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/freelance/1s4k0jm.md#c0"
+    char_span: [0, 1116]
+    sentence_count: 11
+    key_terms: [freelance, april, here, comments, specific, years, good, win]
+    token_count: 284
+  - id: "social-intelligence/reddit-deep/freelance/1s4k0jm.md#c1"
+    char_span: [1131, 2082]
+    sentence_count: 4
+    key_terms: [adilshaikh5786, client, understand, local-dependent-2421, lot, freelancers, gigmistress, everything]
+    section: Comments
+    token_count: 233
 ---
-
 # How to write freelance proposals that actually win
 
 Source: [reddit-deep: r/freelance](https://www.reddit.com/r/freelance/comments/1s4k0jm/how_to_write_freelance_proposals_that_actually_win/)

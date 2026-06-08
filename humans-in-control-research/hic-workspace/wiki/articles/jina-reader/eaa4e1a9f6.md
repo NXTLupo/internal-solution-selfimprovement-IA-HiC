@@ -1,4 +1,5 @@
 ---
+id: articles/jina-reader/eaa4e1a9f6.md
 url: "https://www.purdue.edu/president/"
 url_hash: "eaa4e1a9f6"
 kind: "article"
@@ -10,8 +11,67 @@ tier: 3
 method: "jina"
 extracted_at: "2026-04-29T23:57:41.278327+00:00"
 chars: 9689
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "articles/jina-reader/eaa4e1a9f6.md#c0"
+    char_span: [0, 1398]
+    sentence_count: 1
+    key_terms: [purdue, https, edu, www, president, admissions, apply, visit]
+    token_count: 419
+  - id: "articles/jina-reader/eaa4e1a9f6.md#c1"
+    char_span: [1400, 3011]
+    sentence_count: 1
+    key_terms: [purdue, https, edu, www, php, index, research, academics]
+    token_count: 483
+  - id: "articles/jina-reader/eaa4e1a9f6.md#c2"
+    char_span: [3013, 4621]
+    sentence_count: 2
+    key_terms: [president, purdue, https, edu, www, chiang, mung, lorem]
+    token_count: 437
+  - id: "articles/jina-reader/eaa4e1a9f6.md#c3"
+    char_span: [4649, 4920]
+    sentence_count: 1
+    key_terms: [president, messages, purdue, strategic-initiatives-storyline, https, edu, www, presidential]
+    section: Presidential Messages
+    token_count: 65
+  - id: "articles/jina-reader/eaa4e1a9f6.md#c4"
+    char_span: [4948, 5339]
+    sentence_count: 1
+    key_terms: [purdue, president, initiatives, presidential-lecture-series, strategic-initiatives, https, edu, key]
+    section: Strategic Initiatives
+    token_count: 90
+  - id: "articles/jina-reader/eaa4e1a9f6.md#c5"
+    char_span: [5373, 7124]
+    sentence_count: 1
+    key_terms: [purdue, https, edu, www, purdue-and-google-public-sector-partner-to-scale-ai-integration-and-accelerate-education-and-research-across-the-institution, purdue-celebrates-its-contributions-to-the-american-dream-as-nation-turns-250, purdue-president-3-alumni-elected-to-national-academy-of-engineering, president]
+    section: Presidential Lecture Series / Top News / CAMPUS
+    token_count: 455
+  - id: "articles/jina-reader/eaa4e1a9f6.md#c6"
+    char_span: [7144, 7442]
+    sentence_count: 1
+    key_terms: [https, purdue, office, boilerconnect, brightspace, com, edu, mypurdue]
+    section: COMMUNICATION
+    token_count: 99
+  - id: "articles/jina-reader/eaa4e1a9f6.md#c7"
+    char_span: [7460, 7859]
+    sentence_count: 1
+    key_terms: [purdue, https, edu, www, construction, tuition, events, physicalfacilities]
+    section: Information
+    token_count: 120
+  - id: "articles/jina-reader/eaa4e1a9f6.md#c8"
+    char_span: [7872, 8223]
+    sentence_count: 1
+    key_terms: [purdue, https, edu, www, hotline, ethics, police, statistics-policies]
+    section: PEOPLE
+    token_count: 108
+  - id: "articles/jina-reader/eaa4e1a9f6.md#c9"
+    char_span: [8237, 9783]
+    sentence_count: 2
+    key_terms: [purdue, https, www, edu, com, university, php, lifeatpurdue]
+    section: Address
+    token_count: 457
 ---
-
 # https://www.purdue.edu/president/
 
 Source: [Jina Reader](https://www.purdue.edu/president/)

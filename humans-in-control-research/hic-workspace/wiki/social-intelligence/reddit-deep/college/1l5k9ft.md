@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1l5k9ft.md
 url: "https://www.reddit.com/r/college/comments/1l5k9ft/check_up_with_your_professors/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T14:53:53.125Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1l5k9ft.md#c0"
+    char_span: [0, 784]
+    sentence_count: 7
+    key_terms: [got, professors, professor, comments, college, around, conversation, relationship]
+    token_count: 187
+  - id: "social-intelligence/reddit-deep/college/1l5k9ft.md#c1"
+    char_span: [799, 1820]
+    sentence_count: 7
+    key_terms: [professors, recommending, "don't", industry, involved, students, world, friendshippast3386]
+    section: Comments
+    token_count: 223
 ---
-
 # Check up with your professors!
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1l5k9ft/check_up_with_your_professors/)

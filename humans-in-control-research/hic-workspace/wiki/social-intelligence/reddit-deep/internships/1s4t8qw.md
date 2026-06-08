@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1s4t8qw.md
 url: "https://www.reddit.com/r/internships/comments/1s4t8qw/job_title_business_development_manager_bfsi/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,20 @@ flair: "Interviews"
 extracted_at: "2026-05-25T18:31:15.453Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [financial_services, insurance, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1s4t8qw.md#c0"
+    char_span: [0, 2259]
+    sentence_count: 3
+    key_terms: [development, understanding, business, banking, client, financial, bfsi, support]
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/internships/1s4t8qw.md#c1"
+    char_span: [2261, 3910]
+    sentence_count: 1
+    key_terms: [ability, client, coordination, interactions, financial, solutions, learning, skills]
+    token_count: 443
 ---
-
 # Job Title: Business Development Manager – BFSI & Technology Solutions (Fresher)
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1s4t8qw/job_title_business_development_manager_bfsi/)

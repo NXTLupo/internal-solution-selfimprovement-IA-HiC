@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1kw5xnr.md
 url: "https://www.reddit.com/r/jobs/comments/1kw5xnr/just_started_my_professional_job_and_realized_my/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,57 @@ flair: "Compensation"
 extracted_at: "2026-05-24T14:10:06.648Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1kw5xnr.md#c0"
+    char_span: [0, 1193]
+    sentence_count: 14
+    key_terms: [something, comments, reality, barely, commercial-basil7859, alone, "don't", hard]
+    token_count: 274
+  - id: "social-intelligence/reddit-deep/jobs/1kw5xnr.md#c1"
+    char_span: [1208, 2939]
+    sentence_count: 19
+    key_terms: [live, roommates, people, embarrassing, until, big, city, get]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/jobs/1kw5xnr.md#c2"
+    char_span: [2941, 4780]
+    sentence_count: 15
+    key_terms: [college, deleted, afford, living, "couldn't", roommate, parents, society]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/jobs/1kw5xnr.md#c3"
+    char_span: [4782, 5890]
+    sentence_count: 6
+    key_terms: [been, job, roommates, college, afford, additional-coffee-86, early, able-distribution]
+    section: Comments
+    token_count: 283
+  - id: "social-intelligence/reddit-deep/jobs/1kw5xnr.md#c4"
+    char_span: [5893, 7535]
+    sentence_count: 14
+    key_terms: [roommates, roommate, commute, working, living, people, yippiekayyaymrfalcon, "can't"]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/jobs/1kw5xnr.md#c5"
+    char_span: [7537, 9478]
+    sentence_count: 16
+    key_terms: [rent, living, people, roommates, get, job, like, paying]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/jobs/1kw5xnr.md#c6"
+    char_span: [9480, 10175]
+    sentence_count: 5
+    key_terms: [brainwavecc, housing, work, self-awareness, disappointed, appreciate, reasonable, expensive]
+    section: Comments
+    token_count: 194
+  - id: "social-intelligence/reddit-deep/jobs/1kw5xnr.md#c7"
+    char_span: [10177, 11782]
+    sentence_count: 7
+    key_terms: [job, expensive, did, accepting, roommates, friends, startup, income]
+    section: Comments
+    token_count: 417
 ---
-
 # Just started my 'professional' job and realized my rent is literally 80% of my take-home pay. How is this sustainable?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1kw5xnr/just_started_my_professional_job_and_realized_my/)

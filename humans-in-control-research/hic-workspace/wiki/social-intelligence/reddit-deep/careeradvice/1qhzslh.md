@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1qhzslh.md
 url: "https://www.reddit.com/r/careeradvice/comments/1qhzslh/i_didnt_plan_a_career_shift_into_ai_it_kind_of/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.241Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1qhzslh.md#c0"
+    char_span: [0, 1781]
+    sentence_count: 11
+    key_terms: [something, career, careeradvice, work, technical, comments, already, because]
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/careeradvice/1qhzslh.md#c1"
+    char_span: [1796, 2198]
+    sentence_count: 3
+    key_terms: [linkedin, people, reddit, perspectives, workshopping, absolutely, community, different]
+    section: Comments
+    token_count: 92
 ---
-
 # I didn’t plan a career shift into AI... It kind of happened while solving a hiring problem
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1qhzslh/i_didnt_plan_a_career_shift_into_ai_it_kind_of/)

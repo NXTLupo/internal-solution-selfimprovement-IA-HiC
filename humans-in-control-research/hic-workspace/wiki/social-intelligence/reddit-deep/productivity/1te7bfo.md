@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1te7bfo.md
 url: "https://www.reddit.com/r/productivity/comments/1te7bfo/productivity_during_tough_times/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,21 @@ flair: "Advice Needed"
 extracted_at: "2026-05-26T12:53:45.660Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1te7bfo.md#c0"
+    char_span: [0, 1176]
+    sentence_count: 8
+    key_terms: [productivity, years, dad, "i'm", comments, getting, parents, aware]
+    token_count: 271
+  - id: "social-intelligence/reddit-deep/productivity/1te7bfo.md#c1"
+    char_span: [1191, 2038]
+    sentence_count: 8
+    key_terms: [productive, caregiving, nursing, rhythm, doing, cna, job, work]
+    section: Comments
+    token_count: 205
 ---
-
 # Productivity during tough times
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1te7bfo/productivity_during_tough_times/)

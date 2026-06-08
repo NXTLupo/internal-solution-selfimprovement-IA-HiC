@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1msk4zj.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1msk4zj/well_fuck_me_deferred_from_donating_plasma_for_a/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,92 @@ flair: "Vent/Rant (No Advice/Criticism!)"
 extracted_at: "2026-05-17T01:13:55.879Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [healthcare, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c0"
+    char_span: [0, 1687]
+    sentence_count: 12
+    key_terms: ["i'm", povertyfinance, comments, donating, finally, through, towards, credit]
+    token_count: 408
+  - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c1"
+    char_span: [1689, 3749]
+    sentence_count: 18
+    key_terms: ["don't", "i'm", want, because, going, never, get, got]
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c2"
+    char_span: [3764, 5388]
+    sentence_count: 16
+    key_terms: [submitter, appropriate, need, advice, vents, vent, emotional, situation]
+    section: Comments
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c3"
+    char_span: [5390, 7332]
+    sentence_count: 14
+    key_terms: [already, rabies, "you're", years, though, early, least, wholeemployee6666]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c4"
+    char_span: [7131, 7662]
+    sentence_count: 8
+    key_terms: [shots, like, shot, awhaleinawell, snoogoats4320, desensitized, additional, completely]
+    section: Comments
+    token_count: 148
+  - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c5"
+    char_span: [7664, 9566]
+    sentence_count: 22
+    key_terms: [because, like, rabies, immunoglobulin, shots, hand, bit, cat]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c6"
+    char_span: [9568, 11069]
+    sentence_count: 8
+    key_terms: [dog, animal, salivary, nervous, records, glands, locate, rabies]
+    section: Comments
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c7"
+    char_span: [11071, 13344]
+    sentence_count: 17
+    key_terms: [experience, job, state, government, treatment, vaccine, years, got]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c8"
+    char_span: [13076, 14335]
+    sentence_count: 6
+    key_terms: [experience, water, want, supposed, through, county, makes, waste]
+    section: Comments
+    token_count: 300
+  - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c9"
+    char_span: [14337, 16028]
+    sentence_count: 14
+    key_terms: [jobs, state, check, anything, military, probably, county, having]
+    section: Comments
+    token_count: 395
+  - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c10"
+    char_span: [16030, 17887]
+    sentence_count: 8
+    key_terms: [yourself, county, environmental, point, look, government, something, people]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c11"
+    char_span: [17889, 19105]
+    sentence_count: 10
+    key_terms: ["i'm", already, someone, making, people, "you've", "can't", doing]
+    section: Comments
+    token_count: 295
+  - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c12"
+    char_span: [19107, 20988]
+    sentence_count: 17
+    key_terms: [midnightmarmot, money, citrushyena, pay, counties, figures, trailer, decent]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1msk4zj.md#c13"
+    char_span: [20770, 21767]
+    sentence_count: 8
+    key_terms: [interesting-land-980, doing, miles, money, get, pay, sustainability, environmental]
+    section: Comments
+    token_count: 257
 ---
-
 # Well fuck me. Deferred from donating plasma for a year
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1msk4zj/well_fuck_me_deferred_from_donating_plasma_for_a/)

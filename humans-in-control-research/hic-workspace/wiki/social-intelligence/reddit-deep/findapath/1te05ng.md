@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1te05ng.md
 url: "https://www.reddit.com/r/findapath/comments/1te05ng/i_feel_like_ive_wasted_my_life_at_24/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,39 @@ flair: "Findapath-Mindset Adjustment"
 extracted_at: "2026-05-22T15:13:18.828Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1te05ng.md#c0"
+    char_span: [0, 1733]
+    sentence_count: 1
+    key_terms: [years, "i'm", like, another, studies, behind, myself, employement]
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/findapath/1te05ng.md#c1"
+    char_span: [1748, 3885]
+    sentence_count: 21
+    key_terms: [therapist, life, thank, help, helpful, please, klistellacca, "he's"]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/findapath/1te05ng.md#c2"
+    char_span: [3887, 4607]
+    sentence_count: 9
+    key_terms: [life, working, lukasgoestoamygdala, buddy, right, half, late, work]
+    section: Comments
+    token_count: 196
+  - id: "social-intelligence/reddit-deep/findapath/1te05ng.md#c3"
+    char_span: [4609, 6712]
+    sentence_count: 18
+    key_terms: [life, day, good, klistellacca, experienced, work, university, something]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/findapath/1te05ng.md#c4"
+    char_span: [6714, 8510]
+    sentence_count: 19
+    key_terms: [people, life, didn, foundation, probably, success, entire, accordingweight6019]
+    section: Comments
+    token_count: 421
 ---
-
 # i feel like i've wasted my life at 24
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1te05ng/i_feel_like_ive_wasted_my_life_at_24/)

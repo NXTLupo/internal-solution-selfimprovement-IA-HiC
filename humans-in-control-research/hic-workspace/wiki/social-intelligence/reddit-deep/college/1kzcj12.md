@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1kzcj12.md
 url: "https://www.reddit.com/r/college/comments/1kzcj12/having_a_baby_in_college/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-19T17:57:40.136Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1kzcj12.md#c0"
+    char_span: [0, 937]
+    sentence_count: 8
+    key_terms: [college, baby, live, comments, having, living, home, too]
+    token_count: 225
+  - id: "social-intelligence/reddit-deep/college/1kzcj12.md#c1"
+    char_span: [952, 2188]
+    sentence_count: 6
+    key_terms: [resources, college, housing, pregnant, students, schools, campus, school]
+    section: Comments
+    token_count: 296
+  - id: "social-intelligence/reddit-deep/college/1kzcj12.md#c2"
+    char_span: [2190, 3861]
+    sentence_count: 14
+    key_terms: [pregnant, housing, title, students, halflingmelody, college, parents, qualify]
+    section: Comments
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/college/1kzcj12.md#c3"
+    char_span: [3863, 6014]
+    sentence_count: 22
+    key_terms: [involved, college, going, family, living, school, no-turnip9121, baby]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1kzcj12.md#c4"
+    char_span: [5723, 6525]
+    sentence_count: 5
+    key_terms: [school, available, pretty, "it's", year, leslieslanparty, assistance, classmates]
+    section: Comments
+    token_count: 191
+  - id: "social-intelligence/reddit-deep/college/1kzcj12.md#c5"
+    char_span: [6527, 8680]
+    sentence_count: 13
+    key_terms: [time, college, childcare, education, got, "i'm", working, around]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/college/1kzcj12.md#c6"
+    char_span: [8682, 9652]
+    sentence_count: 8
+    key_terms: [college, working, ozempic-allegations, doing, gonna, until, participation, attendance]
+    section: Comments
+    token_count: 217
 ---
-
 # Having a baby in college
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1kzcj12/having_a_baby_in_college/)

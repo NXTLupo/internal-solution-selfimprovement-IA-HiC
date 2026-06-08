@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1n01biy.md
 url: "https://www.reddit.com/r/findapath/comments/1n01biy/easy_career_path_for_someone_that_isnt_good_at/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,39 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-22T15:13:18.835Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1n01biy.md#c0"
+    char_span: [0, 901]
+    sentence_count: 8
+    key_terms: [good, findapath, anything, comments, because, school, "don't", easy]
+    token_count: 212
+  - id: "social-intelligence/reddit-deep/findapath/1n01biy.md#c1"
+    char_span: [916, 1863]
+    sentence_count: 9
+    key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/findapath/1n01biy.md#c2"
+    char_span: [1866, 3797]
+    sentence_count: 12
+    key_terms: [kid, international-bet-66, life, kids, like, shit, something, whatever]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/findapath/1n01biy.md#c3"
+    char_span: [3799, 5923]
+    sentence_count: 11
+    key_terms: [anything, people, get, interacting, interaction, like, practice, enjoy]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/findapath/1n01biy.md#c4"
+    char_span: [5925, 6179]
+    sentence_count: 2
+    key_terms: [management, upper, budget-studio4516, description, straight, besides, nursing, shooter]
+    section: Comments
+    token_count: 62
 ---
-
 # Easy career path for someone that isn't good at anything?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1n01biy/easy_career_path_for_someone_that_isnt_good_at/)

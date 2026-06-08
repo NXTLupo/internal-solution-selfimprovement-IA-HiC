@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1sf7azs.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1sf7azs/just_feeing_so_discouraged_beaten_down_lately/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,55 @@ flair: "Vent/Rant (No Advice/Criticism!)"
 extracted_at: "2026-05-17T01:13:55.889Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sf7azs.md#c0"
+    char_span: [0, 2003]
+    sentence_count: 6
+    key_terms: [because, something, povertyfinance, don, constantly, comments, already, budget]
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sf7azs.md#c1"
+    char_span: [2005, 4313]
+    sentence_count: 7
+    key_terms: [day, like, always, people, though, don, hard, keep]
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sf7azs.md#c2"
+    char_span: [4315, 4708]
+    sentence_count: 2
+    key_terms: [encouragement, unfathomable, chronically, solidarity, hellscape, squeezed, getting, letting]
+    token_count: 88
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sf7azs.md#c3"
+    char_span: [4723, 6347]
+    sentence_count: 16
+    key_terms: [submitter, appropriate, need, advice, vents, vent, emotional, situation]
+    section: Comments
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sf7azs.md#c4"
+    char_span: [6349, 8476]
+    sentence_count: 10
+    key_terms: [realize, obviousanon1, alone, thank, don, definitely, pattystr, myself]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sf7azs.md#c5"
+    char_span: [8171, 8769]
+    sentence_count: 4
+    key_terms: [endometriosis, sending, health, sorry, life, completely, definitely, excellent]
+    section: Comments
+    token_count: 137
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sf7azs.md#c6"
+    char_span: [8773, 10917]
+    sentence_count: 18
+    key_terms: [month, help, living, food, "i'm", time, year, community]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1sf7azs.md#c7"
+    char_span: [10656, 12000]
+    sentence_count: 11
+    key_terms: [get, depression, struggling, grandpa, stories, through, wages, days]
+    section: Comments
+    token_count: 314
 ---
-
 # just feeing so discouraged & beaten down lately
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1sf7azs/just_feeing_so_discouraged_beaten_down_lately/)

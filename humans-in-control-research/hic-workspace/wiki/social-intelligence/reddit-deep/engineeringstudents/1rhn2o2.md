@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1rhn2o2.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1rhn2o2/industrial_engineering_college_student_who_got_an/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Career Help"
 extracted_at: "2026-05-25T13:01:49.570Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, manufacturing, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rhn2o2.md#c0"
+    char_span: [0, 1326]
+    sentence_count: 8
+    key_terms: [engineeringstudents, job, company, manufacturing, engineering, got, time, assembly]
+    token_count: 293
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rhn2o2.md#c1"
+    char_span: [1341, 2562]
+    sentence_count: 7
+    key_terms: [engineeringstudents, exciting-yogurt-9635, wiki, reddit, https, com, read, www]
+    section: Comments
+    token_count: 297
 ---
-
 # Industrial Engineering College Student who got an Assembly Job Offer
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1rhn2o2/industrial_engineering_college_student_who_got_an/)

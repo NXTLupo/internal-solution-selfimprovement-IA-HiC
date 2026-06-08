@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-internships/dc689fd3fb.md
 url: "https://www.reddit.com/r/internships/comments/1mxuyzm/summer_internships_for_indian_girls/"
 url_hash: "dc689fd3fb"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T15:20:39.650953+00:00"
 chars: 1176
+industries: [higher_ed, education, workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-internships/dc689fd3fb.md#c0"
+    char_span: [0, 1347]
+    sentence_count: 2
+    key_terms: [internship, internships, lernx, opportunity, marketing, resources, comments, freshers]
+    token_count: 366
 ---
-
 # Summer internships for Indian girls
 
 Source: [Reddit Deep: r/internships](https://www.reddit.com/r/internships/comments/1mxuyzm/summer_internships_for_indian_girls/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1tegh08.md
 url: "https://www.reddit.com/r/GradSchool/comments/1tegh08/grad_school_is_it_worth_it/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T20:15:44.993Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1tegh08.md#c0"
+    char_span: [0, 779]
+    sentence_count: 12
+    key_terms: [get, gradschool, comments, research, months, school, seems, grad]
+    token_count: 203
+  - id: "social-intelligence/reddit-deep/gradschool/1tegh08.md#c1"
+    char_span: [794, 2230]
+    sentence_count: 13
+    key_terms: [right, keep, applying, projects, correct, finding, letters, science]
+    section: Comments
+    token_count: 333
 ---
-
 # Grad school, is it worth it?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1tegh08/grad_school_is_it_worth_it/)

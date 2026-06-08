@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1ri1xpm.md
 url: "https://www.reddit.com/r/GradSchool/comments/1ri1xpm/need_accommodations_and_feeling_lost/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,39 @@ flair: "Academics"
 extracted_at: "2026-05-20T12:57:40.639Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1ri1xpm.md#c0"
+    char_span: [0, 1046]
+    sentence_count: 8
+    key_terms: [accommodations, issues, "i'm", gradschool, comments, being, does, hide]
+    token_count: 235
+  - id: "social-intelligence/reddit-deep/gradschool/1ri1xpm.md#c1"
+    char_span: [1061, 3272]
+    sentence_count: 22
+    key_terms: [accommodations, disability, specialist, different, meeting, office, knowingcynic, easy]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/gradschool/1ri1xpm.md#c2"
+    char_span: [3274, 5561]
+    sentence_count: 14
+    key_terms: [accommodations, disability, experience, hope, talk, reasonable, available, paperwork]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/gradschool/1ri1xpm.md#c3"
+    char_span: [5564, 7453]
+    sentence_count: 16
+    key_terms: [accommodations, being, getting, please, able, need, benefits, employer]
+    section: Comments
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/gradschool/1ri1xpm.md#c4"
+    char_span: [7455, 8615]
+    sentence_count: 7
+    key_terms: [redact, deleted, expectations, encouraging, workplace, possibly, privacy, follow]
+    section: Comments
+    token_count: 255
 ---
-
 # Need accommodations and feeling lost
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1ri1xpm/need_accommodations_and_feeling_lost/)

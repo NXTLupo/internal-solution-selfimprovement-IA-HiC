@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1sym1f7.md
 url: "https://www.reddit.com/r/GenZ/comments/1sym1f7/why_gen_z_are_buying_luxury_brands_so_much/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,33 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.771Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [retail, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1sym1f7.md#c0"
+    char_span: [0, 939]
+    sentence_count: 11
+    key_terms: [why-gen-z-buys-luxury-its-not-about-money-anymore-475f564580fc, comments, brands, luxury, market, https, com, gen]
+    token_count: 246
+  - id: "social-intelligence/reddit-deep/genz/1sym1f7.md#c1"
+    char_span: [954, 2463]
+    sentence_count: 11
+    key_terms: [cars, cavalier, clapped, discord, toyotas, afford, money, buy]
+    section: Comments
+    token_count: 403
+  - id: "social-intelligence/reddit-deep/genz/1sym1f7.md#c2"
+    char_span: [2465, 4332]
+    sentence_count: 13
+    key_terms: [people, luxury, thrifting, influencers, anything, brands, bayouboybussybusters, brand]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/genz/1sym1f7.md#c3"
+    char_span: [4334, 4647]
+    sentence_count: 2
+    key_terms: [sea-prize8950, helicopter, narcissism, inherited, recommend, planning, reckless, finance]
+    section: Comments
+    token_count: 82
 ---
-
 # Why Gen Z are buying Luxury Brands so much?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1sym1f7/why_gen_z_are_buying_luxury_brands_so_much/)

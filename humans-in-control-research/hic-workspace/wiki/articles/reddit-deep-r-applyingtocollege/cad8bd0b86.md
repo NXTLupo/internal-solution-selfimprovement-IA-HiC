@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-applyingtocollege/cad8bd0b86.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1sz79z5/why_do_more_people_not_apply_to_rice/"
 url_hash: "cad8bd0b86"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T19:53:17.950751+00:00"
 chars: 2497
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-applyingtocollege/cad8bd0b86.md#c0"
+    char_span: [0, 2216]
+    sentence_count: 10
+    key_terms: [school, people, texas, medical, like, schools, great, applyingtocollege]
+    token_count: 484
+  - id: "articles/reddit-deep-r-applyingtocollege/cad8bd0b86.md#c1"
+    char_span: [2218, 2683]
+    sentence_count: 4
+    key_terms: [columbia, much-strawberry-7750, particularly, zoinkability, elaborate, jamjam125, reputable, avoiding]
+    token_count: 120
 ---
-
 # Why do more people not apply to Rice?
 
 Source: [Reddit Deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1sz79z5/why_do_more_people_not_apply_to_rice/)

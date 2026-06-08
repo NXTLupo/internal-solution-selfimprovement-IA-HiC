@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1kxa9c7.md
 url: "https://www.reddit.com/r/internships/comments/1kxa9c7/hi_i_have_6_months_of_freelancing_experience_in/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "General"
 extracted_at: "2026-05-20T02:30:49.746Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [workforce, enterprise_it, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1kxa9c7.md#c0"
+    char_span: [0, 515]
+    sentence_count: 1
+    key_terms: [internships, internship, comments, entry, level, data, job, certification]
+    token_count: 135
+  - id: "social-intelligence/reddit-deep/internships/1kxa9c7.md#c1"
+    char_span: [530, 2393]
+    sentence_count: 14
+    key_terms: [data, everything, better, engineering, mukultechai, luck, mix, tech]
+    section: Comments
+    token_count: 420
 ---
-
 # Hi I have 6 months of freelancing experience in Data engineering - Azure ,ADF, Databricks,pyspark, SQL - I am feeling stuck right now in my life - anybody have leads or help me find internship or entry level job - i also have 2x Dp203 certification from Microsoft
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1kxa9c7/hi_i_have_6_months_of_freelancing_experience_in/)

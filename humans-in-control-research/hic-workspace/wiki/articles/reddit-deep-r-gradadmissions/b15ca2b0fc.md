@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-gradadmissions/b15ca2b0fc.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1r65k2m/was_about_to_go_to_sleep_haha/"
 url_hash: "b15ca2b0fc"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T04:05:56.907401+00:00"
 chars: 915
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-gradadmissions/b15ca2b0fc.md#c0"
+    char_span: [0, 1080]
+    sentence_count: 6
+    key_terms: [apostacix, masters, gradadmissions, applying, comments, intern, marine, reddit]
+    token_count: 303
 ---
-
 # Was about to go to sleep haha
 
 Source: [Reddit Deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1r65k2m/was_about_to_go_to_sleep_haha/)

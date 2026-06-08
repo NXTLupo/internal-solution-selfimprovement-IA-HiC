@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1pv5sq1.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1pv5sq1/merry_christmas_and_happy_new_year/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,39 @@ flair: "Loss"
 extracted_at: "2026-05-16T20:54:42.972Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pv5sq1.md#c0"
+    char_span: [0, 876]
+    sentence_count: 14
+    key_terms: [wallstreetbets, please, like, comments, market, smart, trade, don]
+    token_count: 214
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pv5sq1.md#c1"
+    char_span: [891, 1351]
+    sentence_count: 3
+    key_terms: [right, christmas, discord, merry, total, years, wsb, submissions]
+    section: Comments
+    token_count: 165
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pv5sq1.md#c2"
+    char_span: [1353, 2604]
+    sentence_count: 6
+    key_terms: [d78e3a05b4eb9114b4f9e746899a80ea36b18fad, preview, format, https, width, auto, jpeg, pjpg]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pv5sq1.md#c3"
+    char_span: [2606, 4076]
+    sentence_count: 6
+    key_terms: [irresponsible, post, eventually, christmas, gambling, federal-restaurant51, dependent-goose8240, years]
+    section: Comments
+    token_count: 401
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1pv5sq1.md#c4"
+    char_span: [4078, 4757]
+    sentence_count: 5
+    key_terms: [pointy, gambler, aft3rcuri0sity, tkqlox8wja9g1, replaceable, cricket150, glibpuppet, cbrown146]
+    section: Comments
+    token_count: 244
 ---
-
 # Merry Christmas and Happy New Year
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1pv5sq1/merry_christmas_and_happy_new_year/)

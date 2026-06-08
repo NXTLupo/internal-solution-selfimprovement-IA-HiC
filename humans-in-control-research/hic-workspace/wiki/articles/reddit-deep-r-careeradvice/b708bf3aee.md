@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careeradvice/b708bf3aee.md
 url: "https://www.reddit.com/r/careeradvice/comments/1p5rsm0/25f_currently_in_ai_data_annotation_innodata_but/"
 url_hash: "b708bf3aee"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T18:59:38.480731+00:00"
 chars: 4814
+industries: [workforce, ai_research]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-careeradvice/b708bf3aee.md#c0"
+    char_span: [0, 2136]
+    sentence_count: 12
+    key_terms: [annotation, innodata, working, careeradvice, data, here, want, experience]
+    token_count: 499
+  - id: "articles/reddit-deep-r-careeradvice/b708bf3aee.md#c1"
+    char_span: [2138, 3943]
+    sentence_count: 12
+    key_terms: [want, understanding, build, start, math, need, tech, companies]
+    token_count: 391
+  - id: "articles/reddit-deep-r-careeradvice/b708bf3aee.md#c2"
+    char_span: [3945, 5157]
+    sentence_count: 8
+    key_terms: [conversation, specialty, give, tech, ramirocruze962, lemonlong7817, consistently, futureproof]
+    token_count: 288
 ---
-
 # 25F, currently in AI data annotation (Innodata), but I want a real AI career, and I’m scared of the impact of the AI bubble bursting soon. How do I build stability and move beyond these roles?
 
 Source: [Reddit Deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1p5rsm0/25f_currently_in_ai_data_annotation_innodata_but/)

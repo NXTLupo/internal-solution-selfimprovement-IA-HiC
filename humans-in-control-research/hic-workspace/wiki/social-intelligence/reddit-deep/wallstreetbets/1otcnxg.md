@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1otcnxg/tsmcs_october_sales_rose_169_the_slowest_since/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,68 @@ flair: "News"
 extracted_at: "2026-05-17T01:14:17.606Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, manufacturing, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c0"
+    char_span: [0, 2122]
+    sentence_count: 5
+    key_terms: [tsmc-slowing-monthly-sales-fuel-072623633, com, wallstreetbets, nvidia, semiconductor, https, month, sales]
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c1"
+    char_span: [2124, 3042]
+    sentence_count: 4
+    key_terms: [tsmc, supplies, inc, executive, qualcomm, company, officer, chief]
+    token_count: 185
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c2"
+    char_span: [3057, 4091]
+    sentence_count: 2
+    key_terms: [revenue, record, jayarlington, https, because, discord, matter, months]
+    section: Comments
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c3"
+    char_span: [4093, 5271]
+    sentence_count: 4
+    key_terms: [bubble, growing, horizon, inside, weird, simultaneously, trigganomatroy, consequences]
+    section: Comments
+    token_count: 309
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c4"
+    char_span: [5273, 7402]
+    sentence_count: 11
+    key_terms: [growth, rate, acceleration, going, analysts, quarters, because, company]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c5"
+    char_span: [7148, 8191]
+    sentence_count: 5
+    key_terms: [growth, acceleration, company, dollar, priced, banned3rdtimesacharm, dramaticdirection292, grows]
+    section: Comments
+    token_count: 269
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c6"
+    char_span: [8193, 10230]
+    sentence_count: 12
+    key_terms: [growth, economic, nothing, bubble, unsustainable, productivity, hype, sentiment]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c7"
+    char_span: [10232, 11971]
+    sentence_count: 5
+    key_terms: [new-daikon-5648, tsmc, companies, earnings, revenues, market, valued, homeless-coward-2143]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c8"
+    char_span: [11786, 12115]
+    sentence_count: 2
+    key_terms: [mom, homeless-coward-2143, archicadmaster, proclaiming, bankrupt, gamecock, company, growing]
+    section: Comments
+    token_count: 103
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c9"
+    char_span: [12120, 13615]
+    sentence_count: 13
+    key_terms: [tesla, javimoran, something, someone, growth, optimal-interview902, thiskarmalimitsucks, burry]
+    section: Comments
+    token_count: 410
 ---
-
 # TSMC’s October sales rose 16.9%, the slowest since Feb 2024, fueling debate over whether the AI chip boom is losing momentum
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1otcnxg/tsmcs_october_sales_rose_169_the_slowest_since/)

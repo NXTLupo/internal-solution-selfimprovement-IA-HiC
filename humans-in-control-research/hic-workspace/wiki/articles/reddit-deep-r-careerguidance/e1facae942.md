@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/e1facae942.md
 url: "https://www.reddit.com/r/careerguidance/comments/1msqkg4/what_are_the_best_ways_to_develop_skills_that/"
 url_hash: "e1facae942"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:40:24.932195+00:00"
 chars: 5587
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/e1facae942.md#c0"
+    char_span: [0, 1835]
+    sentence_count: 12
+    key_terms: [careerguidance, years, portfolio, personal, liberal, through, trading, career]
+    token_count: 416
+  - id: "articles/reddit-deep-r-careerguidance/e1facae942.md#c1"
+    char_span: [1837, 3873]
+    sentence_count: 8
+    key_terms: [additional, business, income, revenue, career, skills, professional, don]
+    token_count: 469
+  - id: "articles/reddit-deep-r-careerguidance/e1facae942.md#c2"
+    char_span: [3875, 5887]
+    sentence_count: 11
+    key_terms: [skills, employable, salesforce, tableau, federal-court-reporting-program, role, side, experience]
+    token_count: 468
 ---
-
 # What are the best ways to develop skills that make me more employable and create additional income streams while feeling stuck in a dead-end career?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1msqkg4/what_are_the_best_ways_to_develop_skills_that/)

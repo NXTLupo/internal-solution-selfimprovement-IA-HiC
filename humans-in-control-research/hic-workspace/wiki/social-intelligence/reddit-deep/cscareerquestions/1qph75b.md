@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1qph75b.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1qph75b/any_20242026_wgu_cs_grads_who_are_struggling_to/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,45 @@ flair: ""
 extracted_at: "2026-05-20T03:56:10.744Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qph75b.md#c0"
+    char_span: [0, 1049]
+    sentence_count: 11
+    key_terms: [wgu, cscareerquestions, because, jobs, year, struggling, comments, applied]
+    token_count: 282
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qph75b.md#c1"
+    char_span: [1064, 2294]
+    sentence_count: 12
+    key_terms: [resume, "don't", applications, interviews, different, market, matter, school]
+    section: Comments
+    token_count: 310
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qph75b.md#c2"
+    char_span: [2296, 4155]
+    sentence_count: 12
+    key_terms: [swe, coinbase-discrd-rddt, didn, "it's", job, time, internship, companies]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qph75b.md#c3"
+    char_span: [4157, 5659]
+    sentence_count: 15
+    key_terms: [market, going, credentials, like, headhunted, companies, interview, struggle]
+    section: Comments
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qph75b.md#c4"
+    char_span: [5661, 7722]
+    sentence_count: 22
+    key_terms: [market, people, instruction, schools, bunnytiger23, prestigious, "it's", job]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1qph75b.md#c5"
+    char_span: [7724, 8336]
+    sentence_count: 5
+    key_terms: [professors, abraineatingamoeboid, teach, specifically, experienced, instruction, internships, curriculum]
+    section: Comments
+    token_count: 124
 ---
-
 # Any 2024-2026 WGU CS grads who are struggling to find a job?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1qph75b/any_20242026_wgu_cs_grads_who_are_struggling_to/)

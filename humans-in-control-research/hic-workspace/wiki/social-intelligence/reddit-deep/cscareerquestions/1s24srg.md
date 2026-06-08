@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1s24srg.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1s24srg/what_was_the_tech_job_market_like_especially_for/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-23T20:15:57.464Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s24srg.md#c0"
+    char_span: [0, 503]
+    sentence_count: 4
+    key_terms: [cscareerquestions, job, comments, get, hard, eggshellwalker4, reddit-deep, comparison]
+    token_count: 138
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s24srg.md#c1"
+    char_span: [518, 2294]
+    sentence_count: 11
+    key_terms: [job, people, market, years, time, subreddit, factors, getting]
+    section: Comments
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s24srg.md#c2"
+    char_span: [2296, 3873]
+    sentence_count: 16
+    key_terms: [offshore, company, people, let, ones, competing, extremely, entirely]
+    section: Comments
+    token_count: 352
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s24srg.md#c3"
+    char_span: [3875, 5336]
+    sentence_count: 10
+    key_terms: [onsite, people, because, dooming, reality, describes, "shouldn't", coherent]
+    section: Comments
+    token_count: 323
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s24srg.md#c4"
+    char_span: [5338, 7001]
+    sentence_count: 13
+    key_terms: [job, years, get, tech, tough, outstanding, year, anyone]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s24srg.md#c5"
+    char_span: [7003, 8807]
+    sentence_count: 8
+    key_terms: [back, got, company, internship, terrany, hopper, people, summer]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s24srg.md#c6"
+    char_span: [8809, 10103]
+    sentence_count: 13
+    key_terms: [job, sent, offer, assignment, recruiter, straight, getting, months]
+    section: Comments
+    token_count: 348
 ---
-
 # What was the tech job market like (especially for recent CS graduates) in 2016?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1s24srg/what_was_the_tech_job_market_like_especially_for/)

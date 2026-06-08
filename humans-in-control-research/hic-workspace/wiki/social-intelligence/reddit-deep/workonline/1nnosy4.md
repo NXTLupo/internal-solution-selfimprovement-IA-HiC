@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/workonline/1nnosy4.md
 url: "https://www.reddit.com/r/WorkOnline/comments/1nnosy4/struggling_college_student_in_the_philippines/"
 kind: "social-post"
 source: "reddit-deep: r/workonline"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-26T12:53:45.648Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/workonline/1nnosy4.md#c0"
+    char_span: [0, 2132]
+    sentence_count: 16
+    key_terms: [like, student, people, skills, philippines, feel, here, workonline]
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/workonline/1nnosy4.md#c1"
+    char_span: [2147, 3477]
+    sentence_count: 12
+    key_terms: [potential, emotion, humans, skills, human, learn, accordingloss2675, don]
+    section: Comments
+    token_count: 347
 ---
-
 # Struggling college student in the Philippines. Most of my skills feel replaceable by AI, how do I survive?
 
 Source: [reddit-deep: r/workonline](https://www.reddit.com/r/WorkOnline/comments/1nnosy4/struggling_college_student_in_the_philippines/)

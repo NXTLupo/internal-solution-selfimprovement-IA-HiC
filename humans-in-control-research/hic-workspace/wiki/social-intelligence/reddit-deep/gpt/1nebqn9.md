@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gpt/1nebqn9.md
 url: "https://www.reddit.com/r/GPT/comments/1nebqn9/fixing_gpt_bugs_before_they_happen_a/"
 kind: "social-post"
 source: "reddit-deep: r/gpt"
@@ -13,8 +14,25 @@ flair: "ChatGPT"
 extracted_at: "2026-05-11T17:26:37.729Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gpt/1nebqn9.md#c0"
+    char_span: [0, 1956]
+    sentence_count: 1
+    key_terms: [gpt, firewall, semantic, answer, small, state, map, comments]
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/gpt/1nebqn9.md#c1"
+    char_span: [1958, 3967]
+    sentence_count: 1
+    key_terms: [fix, add, metric, normalization, map, page, checkpoint, onestardao]
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/gpt/1nebqn9.md#c2"
+    char_span: [3969, 4933]
+    sentence_count: 1
+    key_terms: [map, question, because, answer, number, people, trace, before-generation]
+    token_count: 238
 ---
-
 # fixing gpt bugs before they happen, a beginner-friendly “semantic firewall” + the problem map
 
 Source: [reddit-deep: r/gpt](https://www.reddit.com/r/GPT/comments/1nebqn9/fixing_gpt_bugs_before_they_happen_a/)

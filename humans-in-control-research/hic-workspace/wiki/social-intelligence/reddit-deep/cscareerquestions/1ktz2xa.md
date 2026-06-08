@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1ktz2xa.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1ktz2xa/is_the_chance_of_getting_a_job_for_mediocre_new/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,51 @@ flair: "New Grad"
 extracted_at: "2026-05-20T06:40:32.325Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ktz2xa.md#c0"
+    char_span: [0, 1531]
+    sentence_count: 12
+    key_terms: ["don't", cscareerquestions, "i'm", anything, degree, "i've", "it's", considered]
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ktz2xa.md#c1"
+    char_span: [1546, 3693]
+    sentence_count: 15
+    key_terms: [getting, get, job, applications, roles, jobs, post, interviews]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ktz2xa.md#c2"
+    char_span: [3695, 4706]
+    sentence_count: 11
+    key_terms: [internships, graduated, projects, someone, hiring, exact, get, got]
+    section: Comments
+    token_count: 239
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ktz2xa.md#c3"
+    char_span: [4708, 6514]
+    sentence_count: 12
+    key_terms: [internships, throwaway10015982, grad, time, projects, new, companies, mediocre]
+    section: Comments
+    token_count: 456
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ktz2xa.md#c4"
+    char_span: [6516, 7600]
+    sentence_count: 8
+    key_terms: [anotheryadayada, did, graduating, economics, doesn, offer, code, econ]
+    section: Comments
+    token_count: 284
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ktz2xa.md#c5"
+    char_span: [7602, 9254]
+    sentence_count: 18
+    key_terms: [question, summer, get, interview, leetcode, projects, because, working]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ktz2xa.md#c6"
+    char_span: [9256, 10356]
+    sentence_count: 8
+    key_terms: [person, behavioral, questions, getting, someone, likely, throwaway10015982, job]
+    section: Comments
+    token_count: 262
 ---
-
 # Is the chance of getting a job for mediocre new grads effectively zero
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1ktz2xa/is_the_chance_of_getting_a_job_for_mediocre_new/)

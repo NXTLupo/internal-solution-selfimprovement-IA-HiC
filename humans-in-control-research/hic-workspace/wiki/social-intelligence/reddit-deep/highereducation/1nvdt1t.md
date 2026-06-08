@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1nvdt1t.md
 url: "https://www.reddit.com/r/highereducation/comments/1nvdt1t/judge_rules_campaign_against_noncitizen/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -13,8 +14,31 @@ flair: ""
 extracted_at: "2026-05-23T14:53:59.516Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1nvdt1t.md#c0"
+    char_span: [0, 2413]
+    sentence_count: 7
+    key_terms: [pro-palestinian, amendment, department, decision, highereducation, federal, deport, speech]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/highereducation/1nvdt1t.md#c1"
+    char_span: [2415, 4895]
+    sentence_count: 6
+    key_terms: [government, plaintiffs, university, president, because, administration, speech, trump]
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/highereducation/1nvdt1t.md#c2"
+    char_span: [4897, 5158]
+    sentence_count: 1
+    key_terms: [judge-rules-campaign-against-noncitizen-protesters-unlawful, insidehighered, free-speech, students, https, com, news, www]
+    token_count: 81
+  - id: "social-intelligence/reddit-deep/highereducation/1nvdt1t.md#c3"
+    char_span: [5173, 5475]
+    sentence_count: 3
+    key_terms: [let, patricksaurus, application, carlitospig, unambiguous, precedent, american, fighting]
+    section: Comments
+    token_count: 79
 ---
-
 # Judge Rules Campaign Against Noncitizen Pro-Palestinian Protesters Unlawful
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1nvdt1t/judge_rules_campaign_against_noncitizen/)

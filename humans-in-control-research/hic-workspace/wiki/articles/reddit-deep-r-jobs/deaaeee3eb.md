@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-jobs/deaaeee3eb.md
 url: "https://www.reddit.com/r/jobs/comments/1pxaprb/didnt_get_the_job_because_i_dont_have_a_car/"
 url_hash: "deaaeee3eb"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T06:47:46.452203+00:00"
 chars: 1898
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-jobs/deaaeee3eb.md#c0"
+    char_span: [0, 1794]
+    sentence_count: 11
+    key_terms: [car, transportation, interview, job, reliable, whatever32657, asked, ask]
+    token_count: 475
+  - id: "articles/reddit-deep-r-jobs/deaaeee3eb.md#c1"
+    char_span: [1796, 2073]
+    sentence_count: 2
+    key_terms: [walk, remarkable-soil-2997, terrible, getting, problem, transit, enough, minute]
+    token_count: 75
 ---
-
 # Didn’t get the job because I don’t have a car
 
 Source: [Reddit Deep: r/jobs](https://www.reddit.com/r/jobs/comments/1pxaprb/didnt_get_the_job_because_i_dont_have_a_car/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/d0dc4fc90f.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tlpe7l/no_internships_no_connections_no_corporate/"
 url_hash: "d0dc4fc90f"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T20:21:49.171857+00:00"
 chars: 1238
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/d0dc4fc90f.md#c0"
+    char_span: [0, 1523]
+    sentence_count: 21
+    key_terms: [business, operations, nothing, careerguidance, internships, procurement, real, experience]
+    token_count: 344
 ---
-
 # No internships, no connections, no corporate experience. Built a real business anyway. Now trying to break in. Anyone else on this path?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tlpe7l/no_internships_no_connections_no_corporate/)

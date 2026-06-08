@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rohzzh.md
 url: "https://www.reddit.com/r/internships/comments/1rohzzh/trying_to_land_an_internship_as_a_cs_major_need/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,15 @@ flair: "Applications"
 extracted_at: "2026-05-22T13:32:14.550Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce, higher_ed, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rohzzh.md#c0"
+    char_span: [0, 902]
+    sentence_count: 8
+    key_terms: [internship, internships, experience, leadership, applying, comments, done, land]
+    token_count: 207
 ---
-
 # Trying to land an Internship as a CS Major - Need tips (Has leadership skills and experience)
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rohzzh/trying_to_land_an_internship_as_a_cs_major_need/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1s8yino.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1s8yino/princeton_v_columbia_v_brown/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,33 @@ flair: "College Questions"
 extracted_at: "2026-05-23T19:45:32.284Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s8yino.md#c0"
+    char_span: [0, 1402]
+    sentence_count: 11
+    key_terms: [princeton, brown, applyingtocollege, columbia, love, comments, campus, school]
+    token_count: 323
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s8yino.md#c1"
+    char_span: [1417, 2853]
+    sentence_count: 8
+    key_terms: [lgbtq-student-self-identification-has-doubled-since-2010-according-to-herald-polling-data, princeton, schools, school, browndailyherald, article, change, "you're"]
+    section: Comments
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s8yino.md#c2"
+    char_span: [2855, 4924]
+    sentence_count: 12
+    key_terms: [schools, princeton, opportunities, prestige, best, med, scared-traffic-4060, deflation]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1s8yino.md#c3"
+    char_span: [4926, 5533]
+    sentence_count: 2
+    key_terms: [princeton, yucky-yummy-6767, insanely, rigorous, single-type9144, manageable, supportive, preparing]
+    section: Comments
+    token_count: 149
 ---
-
 # Princeton v Columbia v Brown
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1s8yino/princeton_v_columbia_v_brown/)

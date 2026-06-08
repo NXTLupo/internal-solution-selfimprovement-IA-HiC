@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1ss2d2k.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1ss2d2k/advice_on_which_school_to_pick/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,44 @@ flair: "College Questions"
 extracted_at: "2026-05-23T12:15:36.200Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ss2d2k.md#c0"
+    char_span: [0, 1055]
+    sentence_count: 9
+    key_terms: [applyingtocollege, northeastern, comments, finance, fully, money, pre-business, necessarily]
+    token_count: 262
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ss2d2k.md#c1"
+    char_span: [1057, 2356]
+    sentence_count: 9
+    key_terms: [kelley, undergrad, admitted, business, program, campus, school, aside]
+    token_count: 303
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ss2d2k.md#c2"
+    char_span: [2371, 4299]
+    sentence_count: 14
+    key_terms: [want, finance, program, schools, china, nyush, companies, competing]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ss2d2k.md#c3"
+    char_span: [4301, 6314]
+    sentence_count: 17
+    key_terms: [need, networking, companies, get, shanghai, network, people, nyush]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ss2d2k.md#c4"
+    char_span: [6316, 8607]
+    sentence_count: 26
+    key_terms: [information, get, semester, start, want, parents, alumni, relationships]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1ss2d2k.md#c5"
+    char_span: [8609, 10012]
+    sentence_count: 15
+    key_terms: [fatima-zahra-foutouh-26-commencement-2026, people, want, shanghai, different, business, failure, student]
+    section: Comments
+    token_count: 326
 ---
-
 # Advice on which school to pick
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1ss2d2k/advice_on_which_school_to_pick/)

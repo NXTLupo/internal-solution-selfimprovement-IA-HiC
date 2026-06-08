@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1lwb5mm.md
 url: "https://www.reddit.com/r/managers/comments/1lwb5mm/need_help_with_management_tools_my_companys/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,37 @@ flair: ""
 extracted_at: "2026-05-26T12:54:23.690Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, saas, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1lwb5mm.md#c0"
+    char_span: [0, 2060]
+    sentence_count: 10
+    key_terms: [discord, website, chat, customer, management, message, requests-for-league-of-legends, "it's"]
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/managers/1lwb5mm.md#c1"
+    char_span: [2062, 4120]
+    sentence_count: 18
+    key_terms: [discord, management, "it's", project, notifications, conversation, check, group]
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/managers/1lwb5mm.md#c2"
+    char_span: [4122, 5884]
+    sentence_count: 10
+    key_terms: [productivity, tasks, chat, like, operators, something, "don't", sales]
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/managers/1lwb5mm.md#c3"
+    char_span: [5899, 8178]
+    sentence_count: 12
+    key_terms: [company, slack, channels, discord, pricing, virtual, communications, plan]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/managers/1lwb5mm.md#c4"
+    char_span: [8180, 9840]
+    sentence_count: 10
+    key_terms: [discord, like, solution, automatically, chat, lot, experience, features]
+    section: Comments
+    token_count: 377
 ---
-
 # Need help with management tools - my company's situation is tragic
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1lwb5mm/need_help_with_management_tools_my_companys/)

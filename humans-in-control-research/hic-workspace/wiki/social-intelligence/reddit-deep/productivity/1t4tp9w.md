@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1t4tp9w.md
 url: "https://www.reddit.com/r/productivity/comments/1t4tp9w/i_simplified_my_workflow_into_5_systems_actually/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,39 @@ flair: "Technique"
 extracted_at: "2026-05-26T12:53:45.653Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1t4tp9w.md#c0"
+    char_span: [0, 1028]
+    sentence_count: 8
+    key_terms: [productivity, systems, simplified, structure, comments, planning, workflow, did]
+    token_count: 234
+  - id: "social-intelligence/reddit-deep/productivity/1t4tp9w.md#c1"
+    char_span: [1043, 2920]
+    sentence_count: 14
+    key_terms: [everything, because, review, weekly, simplifying, big, week, especially]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/productivity/1t4tp9w.md#c2"
+    char_span: [2922, 5025]
+    sentence_count: 16
+    key_terms: [systems, day, morning, night, plan, planning, productivity, helps]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/productivity/1t4tp9w.md#c3"
+    char_span: [5027, 7396]
+    sentence_count: 14
+    key_terms: [instead, something, week, systems, enough, review, system, trying]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/productivity/1t4tp9w.md#c4"
+    char_span: [7398, 7511]
+    sentence_count: 1
+    key_terms: [template, exposes, pattern, shorter, usually, version, easier, faster]
+    section: Comments
+    token_count: 22
 ---
-
 # I simplified my workflow into 5 systems, actually helped more than I expected
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1t4tp9w/i_simplified_my_workflow_into_5_systems_actually/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1nz8a9d/should_i_hire_a_private_college_counselor_looking/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,63 @@ flair: "Application Question"
 extracted_at: "2026-05-23T14:54:48.683Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c0"
+    char_span: [0, 1448]
+    sentence_count: 10
+    key_terms: [counselor, college, private, affordable, applyingtocollege, selective, comments, guidance]
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c1"
+    char_span: [1463, 1862]
+    sentence_count: 4
+    key_terms: [consultant, college, private, "didn't", discussion, seriously, anything, consider]
+    section: Comments
+    token_count: 84
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c2"
+    char_span: [1864, 4123]
+    sentence_count: 18
+    key_terms: [college, consultants, students, get, guidance, student, information, help]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c3"
+    char_span: [3850, 5310]
+    sentence_count: 7
+    key_terms: [consultants, college, trainers, athletes, athletic, students, student, gold]
+    section: Comments
+    token_count: 318
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c4"
+    char_span: [5312, 7034]
+    sentence_count: 21
+    key_terms: [counselor, help, themselves, avoid, value, hire, athletes, results]
+    section: Comments
+    token_count: 377
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c5"
+    char_span: [7036, 8878]
+    sentence_count: 24
+    key_terms: [school, major, year, counselor, something, opinion, profile, working]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c6"
+    char_span: [8880, 11223]
+    sentence_count: 17
+    key_terms: [counselor, schools, different, help, take, international, year, admissions]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c7"
+    char_span: [10916, 11507]
+    sentence_count: 6
+    key_terms: [college, katharinekatekate, work, opportunities, contractors, independent, admissions, counseling]
+    section: Comments
+    token_count: 135
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c8"
+    char_span: [11509, 13201]
+    sentence_count: 22
+    key_terms: [students, counselor, don, someone, admitted, familiar, guidance, probably]
+    section: Comments
+    token_count: 400
 ---
-
 # Should I hire a private college counselor? Looking for affordable options under $6k
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1nz8a9d/should_i_hire_a_private_college_counselor_looking/)

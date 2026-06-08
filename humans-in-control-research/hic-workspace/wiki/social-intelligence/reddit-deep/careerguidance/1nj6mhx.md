@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1nj6mhx.md
 url: "https://www.reddit.com/r/careerguidance/comments/1nj6mhx/what_the_smartest_careerpivot_in_todays_economy/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -6,19 +7,118 @@ subreddit: "careerguidance"
 title: "What the smartest Career-Pivot in today's economy?"
 author: "Over-Candle-1878"
 date: "2025-09-17T07:29:55.000Z"
-score: 673
+score: 667
 upvote_ratio: 0.94
 num_comments: 135
 flair: ""
-extracted_at: "2026-05-25T15:52:13.106Z"
+extracted_at: "2026-06-06T16:39:04.133Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c0"
+    char_span: [0, 1909]
+    sentence_count: 20
+    key_terms: [management, years, like, being, didnt, careerguidance, restaurant, comments]
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c1"
+    char_span: [1911, 4150]
+    sentence_count: 32
+    key_terms: [maybe, management, always, business, ive, thought, like, own]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c2"
+    char_span: [4153, 5128]
+    sentence_count: 9
+    key_terms: [did, business, college, getting, years, back, job, real]
+    token_count: 239
+  - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c3"
+    char_span: [5143, 7344]
+    sentence_count: 13
+    key_terms: [operations, because, management, like, business, manager, systems, people]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c4"
+    char_span: [7346, 8598]
+    sentence_count: 8
+    key_terms: [business, industry, school, industries, operations, perhaps, running, start]
+    section: Comments
+    token_count: 262
+  - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c5"
+    char_span: [8600, 10764]
+    sentence_count: 12
+    key_terms: [operations, statement, industries, management, different, financial, business, elements]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c6"
+    char_span: [10766, 12753]
+    sentence_count: 17
+    key_terms: [operations, financial, items, kpis, company, without, performance, like]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c7"
+    char_span: [12755, 15980]
+    sentence_count: 1
+    key_terms: [services, manufacturers, suppliers, software, companies, equipment, providers, maintenance]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c8"
+    char_span: [15501, 17969]
+    sentence_count: 11
+    key_terms: [industries, manufacturers, suppliers, food, equipment, services, software, supply]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c9"
+    char_span: [17972, 19587]
+    sentence_count: 14
+    key_terms: [because, like, everything, management, employees, company, success, always]
+    section: Comments
+    token_count: 359
+  - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c10"
+    char_span: [19589, 21674]
+    sentence_count: 26
+    key_terms: [something, always, understanding, kinda, years, like, everything, financials]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c11"
+    char_span: [21676, 23885]
+    sentence_count: 15
+    key_terms: [company, business, manager, manufacturing, been, operations, positions, promotion]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c12"
+    char_span: [23887, 25741]
+    sentence_count: 14
+    key_terms: [electrical, work, degree, especially, nobleone19, looking, nursing, utility]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c13"
+    char_span: [25743, 27323]
+    sentence_count: 11
+    key_terms: [retirement, want, definitely, crashing, economy, decade, reddit, seems]
+    section: Comments
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c14"
+    char_span: [27325, 29079]
+    sentence_count: 18
+    key_terms: [something, over-candle-1878, like, enough, fairly, people, wanted, didnt]
+    section: Comments
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c15"
+    char_span: [29081, 29787]
+    sentence_count: 5
+    key_terms: [oversaturation, degree, trades, years, apprenticeships, universities, outrageous, following]
+    section: Comments
+    token_count: 162
+  - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c16"
+    char_span: [29789, 31739]
+    sentence_count: 10
+    key_terms: [trexgiraffehybrid, back, get, program, years, take, forever, million]
+    section: Comments
+    token_count: 475
 ---
-
 # What the smartest Career-Pivot in today's economy?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1nj6mhx/what_the_smartest_careerpivot_in_todays_economy/)
-Posted by **Over-Candle-1878** · **673↑** · **135 comments**
+Posted by **Over-Candle-1878** · **667↑** · **135 comments**
 
 28M
 
@@ -51,7 +151,7 @@ TLDR:  im 28 and changing my career after a 120k/yr job because it was unfulfill
 
 ## Comments
 
-- **PollyWannaCrackerOr2** (729↑): This might sound weird, but I just checked your post history in case you were in my area, because I’m hiring a couple local/territory operations managers for about $115k in a recessession-proof industry.  I’ve also been a company owner in the past, so I can provide some perspective from that point of view also if you want to own a business.  
+- **PollyWannaCrackerOr2** (731↑): This might sound weird, but I just checked your post history in case you were in my area, because I’m hiring a couple local/territory operations managers for about $115k in a recessession-proof industry.  I’ve also been a company owner in the past, so I can provide some perspective from that point of view also if you want to own a business.  
 
 First, why I think you could be a great operations manager:  
 
@@ -74,10 +174,10 @@ If you went back to school, you could earn a knowledge-set, but it could also un
 If I were you, I wouldn’t seek to go start and own a business **… yet**.   You need to first get experience in a different field that you might be interested in, get a position within it in which you’re running the operations of it, do that for a while to learn all of that industry’s working in’s and out’s, and then see if you can’t start your own business in that industry  down the road.  That’s what I did, and it worked.  And I also just have my high school diploma.   
 
 Now, I sold my business a while ago and I now work at a high level running a big chunk of a company with a major operations elements under me and im earning in the $200s (just to say where this can lead you).  But I wouldn’t have gotten here had I not first learned a certain industry from an ops perspective, jumped ship to start my own company in that field, then sold it, leading me to be scooped up (twice) in completely different industries by others who saw the transferable operations value I bring to the table (and who saw the other tacked-on stuff I picked up along th
-  - **throwawey5180** (247↑): How sweet of you to give such a detailed answer. Hope OP finds a lot of use out of this!
-    - **Objective_Tradition4** (46↑): If OP doesn't, I definitely do. Thanks!
-  - **Revolutionary-Wave23** (69↑): This has got to be the best response I’ve ever read on any social media platform ever! Do you have any recommendations on how to pivot into operations management? I’ve been a CPA for 5+ years in a few different industries (currently manufacturing) and am not a fan of being chained to a desk constantly. I have a small handy man business that allows me to use my hands a few hours a week but am looking to pivot without (hopefully) losing a most of the salary I’ve worked tirelessly to get to.
-    - **PollyWannaCrackerOr2** (41↑): That’s kind of you to say, thank you. You’re educated in a domain that’s both broad and specialized, which makes you highly sought after in the operations management field.
+  - **throwawey5180** (249↑): How sweet of you to give such a detailed answer. Hope OP finds a lot of use out of this!
+    - **Objective_Tradition4** (50↑): If OP doesn't, I definitely do. Thanks!
+  - **Revolutionary-Wave23** (67↑): This has got to be the best response I’ve ever read on any social media platform ever! Do you have any recommendations on how to pivot into operations management? I’ve been a CPA for 5+ years in a few different industries (currently manufacturing) and am not a fan of being chained to a desk constantly. I have a small handy man business that allows me to use my hands a few hours a week but am looking to pivot without (hopefully) losing a most of the salary I’ve worked tirelessly to get to.
+    - **PollyWannaCrackerOr2** (37↑): That’s kind of you to say, thank you. You’re educated in a domain that’s both broad and specialized, which makes you highly sought after in the operations management field.
 
 I have to head into work, but let me share a quick thought before I go…
 
@@ -105,7 +205,7 @@ This is where you can stand out.  You already have the financial knowledge. Pitc
 
 That’s how I differentiate myself if I were you.  I have to run to work now, but have a great day, and best of luck!
   - **piecesofadream** (10↑): What is the recession-proof industry?
-    - **downtime37** (31↑): > ChatGPT, generate me a list of 50 exemples of recession proof industries based on the above text, and secondary industries thst supply, service, or manufacturing for that list of 50
+    - **downtime37** (32↑): > ChatGPT, generate me a list of 50 exemples of recession proof industries based on the above text, and secondary industries thst supply, service, or manufacturing for that list of 50
 
 
 Here you go. 
@@ -139,7 +239,7 @@ Here you go.
 | 25 | Childcare Services                            | Toy and supply manufacturers, food delivery, facility maintenance               |
 | 26 | Pest Control                                  | Chemical suppliers, vehicle outfitting, sched
     - **PollyWannaCrackerOr2** (20↑): I’d like to keep this light on details, but many industries are essentially recession-proof.  If clients, governments, corporations stopped paying for them, essential services and goods we rely on every day would break down or become unavailable. In other words, no matter what happens in the broader economy, spending in certain industries simply doesn’t decrease.  Often they’re industries behind the scenes, tucked out of sight, thst people don’t even think of.  If you copy paste this into ChatGPT, it could probably easily generate a whole list of examples. (ie, ChatGPT, generate me a list of 50 exemples of recession proof industries based on the above text, and secondary industries thst supply, service, or manufacturing for that list of 50).
-  - **Soup-Mother5709** (6↑): This was such a stellar read. Thank you for sharing.
+  - **Soup-Mother5709** (5↑): This was such a stellar read. Thank you for sharing.
   - **BoilingDaybreak** (3↑): I like how they listed out specific sectors and trends instead of just saying tech or AI, makes it way more practical for someone trying to pivot
   - **Aworthyopponent** (3↑): What a phenomenal response! It’s very strengths based and you even motivated me in my own way. Thank you!
   - **Over-Candle-1878** (3↑): Wow. Leave it to someone on reddit to give me (genuinely) better advice than anyone else in my life. Whats your consultation fee? 🤣 kidding. Sorry for the late reply, I got sick as a dog this week. 
@@ -172,22 +272,22 @@ I am known at my company as someone to go to when a process/system needs to be o
 
 I’ve been looking for my next step and this post is extremely helpful for direction.
 - **Tel3visi0n** (72↑): "become a plumber or electrician" - Guy in an office who has never worked either job. every time this question is asked without fail. Touch grass people.
-- **-kay543** (36↑): Utilities? Get an electrical apprenticeship and start working in industrial substations etc. Work with renewable energy or with an electrical company. People skills plus electrical knowledge can be quite rare, so having management background and then technical skills for a few years could work out nicely.
+- **-kay543** (39↑): Utilities? Get an electrical apprenticeship and start working in industrial substations etc. Work with renewable energy or with an electrical company. People skills plus electrical knowledge can be quite rare, so having management background and then technical skills for a few years could work out nicely.
   - **-kay543** (5↑): (Have an EE degree and work for a utility but not in the US).
     - **Beer-Thirty** (3↑): Did you originally get your degree in the US and then move abroad? Wondering what the opportunities are for an American looking to break into a utility in a different country
-- **NobleOne19** (48↑): You don't need a degree or to spend money in school, especially right now with the world being so uncertain. If you had a deep passion for something, like nursing, then fine... but you don't. My suggestion -- if you already excel at fixing things why not do this kind of work full time? The trades are always needed. You could own your own business and focus on hiring/training and mentoring others.
+- **NobleOne19** (46↑): You don't need a degree or to spend money in school, especially right now with the world being so uncertain. If you had a deep passion for something, like nursing, then fine... but you don't. My suggestion -- if you already excel at fixing things why not do this kind of work full time? The trades are always needed. You could own your own business and focus on hiring/training and mentoring others.
   - **First_Driver_5134** (3↑): i have thpught abput going back to school for nursing, for the stability lmao
-    - **NobleOne19** (4↑): It takes a really special type of person to be a nurse, especially in today's world. Though it probably depends on your location/city also. You could volunteer at a hospital to ensure you can handle all the blood/fluids/personalities and temperments etc before going that route. It is definitely stable & well paying though. Particularly in certain states.
+    - **NobleOne19** (3↑): It takes a really special type of person to be a nurse, especially in today's world. Though it probably depends on your location/city also. You could volunteer at a hospital to ensure you can handle all the blood/fluids/personalities and temperments etc before going that route. It is definitely stable & well paying though. Particularly in certain states.
   - **Over-Candle-1878** (1↑): I agree, thats how i feel. 
 
 I am definitely considering it. I just want to be able to make a decent living as I learn the trade, it seems a lot of companies dont pay trades as great anymore, you have to find the right company it seems.
-- **BlumpkinPromoter** (181↑): The smartest pivot in a crashing economy is having and keeping your job.
+- **BlumpkinPromoter** (182↑): The smartest pivot in a crashing economy is having and keeping your job.
   - **SnowmanRandom** (62↑): The economy has been crashing for the past 20 years if you listen to people on reddit. But I somewhat agree. $120K is good and he should strive for FIRE instead. Just live as cheaply as possible for a decade and invest everything. Then wait for the snowball to really start rolling.
-    - **think_long** (9↑): I mean FIRE is another discussion topic that’s big on Reddit but I think that one also really depends on your personality type. My array of skills and experiences isn’t as impressive as OPs, but I also have ADHD with a job that’s constantly busy but also stimulating where I will earn about $160K USD  this year. I definitely want to start saving better than I am now, don’t get me wrong, but the idea of just laying low for the next decade so that I can retire a bit sooner is really unappealing to me, I’d rather work for longer. I want my future to be secure, but I’m not counting down to retirement and sacrificing good years in the meantime. Work keeps me engaged. My dad is the same, just getting ready for retirement now that he is 70. Meanwhile, my uncle who is a pretty sedentary guy by nature retired at 52 and has lived what for me would be an incredibly boring life and aged very noticeably quickly after retirement. 
+    - **think_long** (8↑): I mean FIRE is another discussion topic that’s big on Reddit but I think that one also really depends on your personality type. My array of skills and experiences isn’t as impressive as OPs, but I also have ADHD with a job that’s constantly busy but also stimulating where I will earn about $160K USD  this year. I definitely want to start saving better than I am now, don’t get me wrong, but the idea of just laying low for the next decade so that I can retire a bit sooner is really unappealing to me, I’d rather work for longer. I want my future to be secure, but I’m not counting down to retirement and sacrificing good years in the meantime. Work keeps me engaged. My dad is the same, just getting ready for retirement now that he is 70. Meanwhile, my uncle who is a pretty sedentary guy by nature retired at 52 and has lived what for me would be an incredibly boring life and aged very noticeably quickly after retirement. 
 
 It’s like when I was backpacking Southeast Asia in my early 20s and the people I was with wanted to stretch it out by scrounging every single dollar near the end so they could extend it a few more weeks. No thank you.  Left early. I’d rather a shorter vacation than do that.
     - **Over-Candle-1878** (1↑): I definitely have a FIRE mindset. But i mean after taxes, I was only taking home 1600 a week which is a lot dont get me wrong but 120k on paper isnt 120k in the pockets. I invested as much as I could and was fairly frugal. 4 paid off cars.  But I also have a 2k mortgage. Id love to make enough money that I can just live off my investments, frugally of course. But again, i didnt wanna do something for 30 plus years just because it paid the bills. Too many people do that I feel like, and then realize they just aren't happy. I just wanted to do something that stimulated me more, and with more advancement opportunity maybe.
-  - **ToocTooc** (11↑): For real 😂
+  - **ToocTooc** (8↑): For real 😂
     - **therealdawgA** (3↑): True, but sometimes staying in a job that makes you miserable isn’t worth it. Finding something that excites you can be the real win, even if it feels risky.
   - **Over-Candle-1878** (2↑): Eh, I agree with you, but I've been holding on to that logic since 2020. Im in a financially stable place. I dont want to keep watching my life go by without trying something else. And regrettably, I didnt explore enough when I did have a career. I did make a fairly emotional decision, I suppose. But I've always been ambitious, and felt like it would pan out for me. Even if we do hit a recession, the world won't stop moving, it'll just slow down.
 - **Trenavix** (18↑): Going to school depends on how much the tuition is going to cost and what country you are in.
@@ -203,4 +303,4 @@ Electricians for example will always be needed and their 3-4 year apprenticeship
 - **[deleted]** (22↑): I'm a Pharmacist, and I believe anything in healthcare is a great suggestion
 - **Prudent-Proposal1943** (11↑): "What would you do if you had a million dollars?" - Peter Gibbons, Initech, circa 1998
   - **ddnut80** (5↑): I would do nothing.
-- **bless_and_be_blessed** (5↑): You sound like you’re an entrepreneur. Youll only be satisfied if you build a business and run it successfully, then start another one.
+- **bless_and_be_blessed** (6↑): You sound like you’re an entrepreneur. Youll only be satisfied if you build a business and run it successfully, then start another one.

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/6f8b2a2cbb.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sxnrj2/job_search_hacks_from_a_career_coach_that/"
 url_hash: "6f8b2a2cbb"
 kind: "article"
@@ -8,10 +9,22 @@ author: ""
 date: "2026-04-28T01:56:29.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-19T15:16:22.666505+00:00"
+extracted_at: "2026-06-05T19:58:17.572261+00:00"
 chars: 2328
+relevance: 30
+engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis.  "
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/6f8b2a2cbb.md#c0"
+    char_span: [0, 1622]
+    sentence_count: 15
+    key_terms: [job, careerguidance, career, jobs, applying, seekers, "here's", reddit]
+    token_count: 365
+  - id: "articles/reddit-deep-r-careerguidance/6f8b2a2cbb.md#c1"
+    char_span: [1624, 2535]
+    sentence_count: 1
+    key_terms: [sunflowerwellnesshtx, top, posting, substantial-car5791, job, plus, applications, responsible]
+    token_count: 216
 ---
-
 # Job search hacks from a career coach (that actually work) ?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sxnrj2/job_search_hacks_from_a_career_coach_that/)

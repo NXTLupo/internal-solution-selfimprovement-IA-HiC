@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1rt7qna.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rt7qna/denied_from_most_of_my_top_schools_so_i_feel_like/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,45 @@ flair: "Rant"
 extracted_at: "2026-05-23T12:15:36.228Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rt7qna.md#c0"
+    char_span: [0, 2019]
+    sentence_count: 14
+    key_terms: ["i'm", school, year, because, going, applyingtocollege, got, finance]
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rt7qna.md#c1"
+    char_span: [2021, 3986]
+    sentence_count: 14
+    key_terms: [schools, fettuccinealfredo30, get, got, lot, school, going, ivy]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rt7qna.md#c2"
+    char_span: [3988, 4407]
+    sentence_count: 5
+    key_terms: [difference, years, back, skyrocketing, instability, absolutely, replacing, economic]
+    section: Comments
+    token_count: 103
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rt7qna.md#c3"
+    char_span: [4409, 6641]
+    sentence_count: 14
+    key_terms: [school, state, finance, fullride, yourself, college, target, competitive]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rt7qna.md#c4"
+    char_span: [6328, 8413]
+    sentence_count: 20
+    key_terms: [school, state, debt, get, business, involved, going, take]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rt7qna.md#c5"
+    char_span: [8132, 9769]
+    sentence_count: 8
+    key_terms: [rejected, school, umich, get, good, ross, top, year]
+    section: Comments
+    token_count: 425
 ---
-
 # Denied from most of my top schools so I feel like I'm going to hate where I'm going to College
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rt7qna/denied_from_most_of_my_top_schools_so_i_feel_like/)

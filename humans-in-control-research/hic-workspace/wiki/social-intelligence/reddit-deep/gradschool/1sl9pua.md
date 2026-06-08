@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1sl9pua.md
 url: "https://www.reddit.com/r/GradSchool/comments/1sl9pua/gap_year_after_my_bachelors_degree/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-23T19:45:05.861Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1sl9pua.md#c0"
+    char_span: [0, 1905]
+    sentence_count: 14
+    key_terms: [year, degree, gap, photography, bachelor, people, trying, "i'm"]
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/gradschool/1sl9pua.md#c1"
+    char_span: [1920, 3978]
+    sentence_count: 18
+    key_terms: [want, gap, year, professional, unforgivenzy, years, undergrad, because]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1sl9pua.md#c2"
+    char_span: [3755, 5865]
+    sentence_count: 11
+    key_terms: [experience, want, work, unforgivenzy, year, people, school, going]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1sl9pua.md#c3"
+    char_span: [5551, 6815]
+    sentence_count: 9
+    key_terms: [working, people, field, world, because, degree, little, versus]
+    section: Comments
+    token_count: 260
+  - id: "social-intelligence/reddit-deep/gradschool/1sl9pua.md#c4"
+    char_span: [6817, 8670]
+    sentence_count: 22
+    key_terms: [time, year, gap, too, because, young, did, like]
+    section: Comments
+    token_count: 468
 ---
-
 # Gap year after my bachelor’s degree?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1sl9pua/gap_year_after_my_bachelors_degree/)

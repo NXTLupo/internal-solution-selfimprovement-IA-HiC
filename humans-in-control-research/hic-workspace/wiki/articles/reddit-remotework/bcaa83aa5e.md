@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-remotework/bcaa83aa5e.md
 url: "https://reddit.com/r/remotework/comments/1nwlgji/my_job_went_rto_i_am_now_flying_to_the_office/"
 url_hash: "bcaa83aa5e"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-06T03:09:49.070971+00:00"
 chars: 650
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-remotework/bcaa83aa5e.md#c0"
+    char_span: [0, 841]
+    sentence_count: 10
+    key_terms: [office, rto, remotework, reddit, job, week, investment, management]
+    token_count: 213
 ---
-
 # My Job Went RTO.. I am now flying to the office every week
 
 Source: [reddit: remotework](https://reddit.com/r/remotework/comments/1nwlgji/my_job_went_rto_i_am_now_flying_to_the_office/)

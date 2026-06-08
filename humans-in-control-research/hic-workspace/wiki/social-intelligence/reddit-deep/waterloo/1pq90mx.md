@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1pq90mx.md
 url: "https://www.reddit.com/r/waterloo/comments/1pq90mx/coop_in_ayr_on_commuting_without_a_car/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.133Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1pq90mx.md#c0"
+    char_span: [0, 742]
+    sentence_count: 5
+    key_terms: [waterloo, ayr, commuting, comments, adhesivenessmain1012, co-op, car, realistically]
+    token_count: 186
+  - id: "social-intelligence/reddit-deep/waterloo/1pq90mx.md#c1"
+    char_span: [757, 2494]
+    sentence_count: 18
+    key_terms: [car, uber, cheaper, greatkangaroo, ayr, commuting, negotiate, co-op]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/waterloo/1pq90mx.md#c2"
+    char_span: [2496, 3640]
+    sentence_count: 11
+    key_terms: [membership, "it's", communauto, commuting, included, access, months, "don't"]
+    section: Comments
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/waterloo/1pq90mx.md#c3"
+    char_span: [3642, 4457]
+    sentence_count: 3
+    key_terms: [poparide, commuting, environmentalway327, bus, car, cost, "i've", lyft]
+    section: Comments
+    token_count: 214
 ---
-
 # Co-op in Ayr, ON — commuting without a car?
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1pq90mx/coop_in_ayr_on_commuting_without_a_car/)

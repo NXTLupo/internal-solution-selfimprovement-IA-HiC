@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1r18axj.md
 url: "https://www.reddit.com/r/college/comments/1r18axj/im_planning_on_going_to_a_community_college_this/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,36 @@ subreddit: "college"
 title: "I’m planning on going to a community college this fall and then go to an instate 4 year next fall. Should I just take general studies?"
 author: "its_snowing_tonight"
 date: "2026-02-10T18:11:28.000Z"
-score: 21
-upvote_ratio: 0.92
+score: 18
+upvote_ratio: 0.86
 num_comments: 11
 flair: "USA"
-extracted_at: "2026-05-26T14:31:29.698Z"
+extracted_at: "2026-06-05T23:41:08.232Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1r18axj.md#c0"
+    char_span: [0, 2133]
+    sentence_count: 14
+    key_terms: [college, community, want, money, don, get, going, fall]
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/college/1r18axj.md#c1"
+    char_span: [2148, 4147]
+    sentence_count: 9
+    key_terms: [transfer, college, community, classes, take, university, studies, office]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/college/1r18axj.md#c2"
+    char_span: [4149, 5327]
+    sentence_count: 4
+    key_terms: [transfer, get, generals, opportunities, students, social, happylifecoffeehelps, letterheadclassic306]
+    section: Comments
+    token_count: 245
 ---
-
 # I’m planning on going to a community college this fall and then go to an instate 4 year next fall. Should I just take general studies?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1r18axj/im_planning_on_going_to_a_community_college_this/)
-Posted by **its_snowing_tonight** · **21↑** · **11 comments**
+Posted by **its_snowing_tonight** · **18↑** · **11 comments**
 
 For reference, I’m 20F.
 
@@ -36,7 +54,7 @@ So, with all that being said, should I just take generals in community college a
 
 ## Comments
 
-- **FallingEnder** (10↑): General studies is a great choice to start off with if you have no idea what to do. Many students start off as general studies then find an area they want to go into and switch their major in community college. Which is much less of a commitment and won’t put you back much if at all.
+- **FallingEnder** (9↑): General studies is a great choice to start off with if you have no idea what to do. Many students start off as general studies then find an area they want to go into and switch their major in community college. Which is much less of a commitment and won’t put you back much if at all.
 - **ITeechYoKidsArt** (9↑): Check with the college you’re going to next fall and find out which credits will transfer if you’re only planning to take basic core classes. I think most if not all community college credits will transfer to state schools, but private schools pick and choose. Either way I’d call to speak with the registrar’s office of the CC and your future school to get that lined up.
 - **daddydillo892** (2↑): Call the transfer or admissions office at the University and ask them about their articulation agreement(s) with the community college you plan to attend.  They should have a transfer guide that will explain what courses will transfer and if they have any degree transfer options.  Take those guides with you to the community college when you meet with their advising office to pick classes.  Make sure you don't take any classes that are not listed on the university transfer guide.  Depending on your state, this may not matter as much, some state have stronger universal transfer options than others.
 - **Jolly_Singer_2943** (2↑): General studies at the CC + transferring later is a solid move if you’re undecided—just talk to the 4‑year’s transfer/advising office first so every class you take actually counts.

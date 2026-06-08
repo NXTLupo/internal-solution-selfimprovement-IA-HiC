@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1rjq9zp.md
 url: "https://www.reddit.com/r/productivity/comments/1rjq9zp/how_do_you_deal_with_a_todo_list_that_just_never/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,45 @@ flair: "Technique"
 extracted_at: "2026-05-26T12:53:45.651Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1rjq9zp.md#c0"
+    char_span: [0, 1099]
+    sentence_count: 6
+    key_terms: [productivity, list, everything, comments, systems, people, keeps, start]
+    token_count: 250
+  - id: "social-intelligence/reddit-deep/productivity/1rjq9zp.md#c1"
+    char_span: [1114, 1944]
+    sentence_count: 3
+    key_terms: [balls, ones, deanrocket, everything, legitimate-owl-8643, glass, extrovert-actuary, hard]
+    section: Comments
+    token_count: 213
+  - id: "social-intelligence/reddit-deep/productivity/1rjq9zp.md#c2"
+    char_span: [1946, 3912]
+    sentence_count: 9
+    key_terms: [cameheretosaythis213, like, deanrocket, productivity, get, new, growing, reading]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/productivity/1rjq9zp.md#c3"
+    char_span: [3914, 4310]
+    sentence_count: 9
+    key_terms: [finish, never, start, pie, todo, work, productivity, accomplish]
+    section: Comments
+    token_count: 89
+  - id: "social-intelligence/reddit-deep/productivity/1rjq9zp.md#c4"
+    char_span: [4312, 6296]
+    sentence_count: 11
+    key_terms: [deanrocket, list, todo, interestingnose6486, doing, tasks, like, part]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/productivity/1rjq9zp.md#c5"
+    char_span: [6298, 8262]
+    sentence_count: 3
+    key_terms: [list, separate, requires, figure, deanrocket, thinking, founder-awesome, "it's"]
+    section: Comments
+    token_count: 461
 ---
-
 # How do you deal with a todo list that just never gets shorter?
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1rjq9zp/how_do_you_deal_with_a_todo_list_that_just_never/)

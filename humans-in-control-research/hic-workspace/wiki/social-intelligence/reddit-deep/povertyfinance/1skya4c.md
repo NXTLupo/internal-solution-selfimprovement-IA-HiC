@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1skya4c.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1skya4c/i_got_a_job_and_its_making_me_broke/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,63 @@ flair: "Income/Employment/Aid"
 extracted_at: "2026-05-16T20:55:12.698Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [workforce, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1skya4c.md#c0"
+    char_span: [0, 1870]
+    sentence_count: 16
+    key_terms: [povertyfinance, home, rent, struggling, comments, country, month, right]
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/povertyfinance/1skya4c.md#c1"
+    char_span: [1885, 3893]
+    sentence_count: 14
+    key_terms: [like, norcalnostalgic, airline, get, home, rent, room, work]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/povertyfinance/1skya4c.md#c2"
+    char_span: [3898, 4278]
+    sentence_count: 3
+    key_terms: [airport, significantly, arrangements, attendants, rideshare, roommates, situation, bleeding]
+    section: Comments
+    token_count: 79
+  - id: "social-intelligence/reddit-deep/povertyfinance/1skya4c.md#c3"
+    char_span: [4283, 6438]
+    sentence_count: 20
+    key_terms: [home, month, shelf-stable, get, like, absolutely, schedule, sitting]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1skya4c.md#c4"
+    char_span: [6197, 8217]
+    sentence_count: 18
+    key_terms: [something, sitting, online, weeks, days, money, month, home]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1skya4c.md#c5"
+    char_span: [7999, 10107]
+    sentence_count: 18
+    key_terms: [flight, check, month, look, expense, helpful, nearby, people]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1skya4c.md#c6"
+    char_span: [9825, 10131]
+    sentence_count: 4
+    key_terms: [cantcountnoaccount, opportunities, considered, attendant, typically, usually, coming, flight]
+    section: Comments
+    token_count: 70
+  - id: "social-intelligence/reddit-deep/povertyfinance/1skya4c.md#c7"
+    char_span: [10133, 11849]
+    sentence_count: 14
+    key_terms: [live, airport, notthatplatypus, food, near, airlines, chicago, around]
+    section: Comments
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/povertyfinance/1skya4c.md#c8"
+    char_span: [11852, 12586]
+    sentence_count: 6
+    key_terms: [airline, below, get, wing, squirrelno3046, international, unfortunately, competition]
+    section: Comments
+    token_count: 181
 ---
-
 # I got a job and it’s making me broke.
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1skya4c/i_got_a_job_and_its_making_me_broke/)

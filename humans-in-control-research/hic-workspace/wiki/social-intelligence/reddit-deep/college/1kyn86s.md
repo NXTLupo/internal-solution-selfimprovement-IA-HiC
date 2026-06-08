@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1kyn86s.md
 url: "https://www.reddit.com/r/college/comments/1kyn86s/need_ideas_for_a_floor_theme_for_a_first_gen/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,15 @@ flair: "Living Arrangements/roommates"
 extracted_at: "2026-05-22T23:33:39.776Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1kyn86s.md#c0"
+    char_span: [0, 1222]
+    sentence_count: 9
+    key_terms: [gen, college, community, ideas, theme, something, affinity, comments]
+    token_count: 259
 ---
-
 # Need ideas for a floor theme for a First Gen College Student LLC affinity dorm! Any suggestions?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1kyn86s/need_ideas_for_a_floor_theme_for_a_first_gen/)

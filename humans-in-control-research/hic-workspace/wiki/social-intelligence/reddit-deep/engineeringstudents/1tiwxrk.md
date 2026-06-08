@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1tiwxrk.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1tiwxrk/what_kind_of_experience_will_fulltime_jobs_be/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Career Help"
 extracted_at: "2026-05-25T13:01:49.565Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tiwxrk.md#c0"
+    char_span: [0, 1451]
+    sentence_count: 11
+    key_terms: [experience, research, engineeringstudents, equipment, internships, been, "i'm", developing]
+    token_count: 293
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tiwxrk.md#c1"
+    char_span: [1466, 2543]
+    sentence_count: 7
+    key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
+    section: Comments
+    token_count: 255
 ---
-
 # What kind of experience will full-time jobs be looking for? Is my research experience good in place of internships?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1tiwxrk/what_kind_of_experience_will_fulltime_jobs_be/)

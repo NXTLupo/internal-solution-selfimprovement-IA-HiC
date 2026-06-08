@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1si5fce.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1si5fce/what_do_you_think_was_the_biggest_lesson_you/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,27 @@ flair: "Discussion"
 extracted_at: "2026-05-23T14:54:48.664Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1si5fce.md#c0"
+    char_span: [0, 336]
+    sentence_count: 2
+    key_terms: [applyingtocollege, comments, tangerinekitchen2260, reddit-deep, admissions, "could've", biggest, college]
+    token_count: 89
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1si5fce.md#c1"
+    char_span: [351, 1591]
+    sentence_count: 9
+    key_terms: [school, tangerinekitchen2260, relevant-umpire6939, dream, spent, best, yourself, getting]
+    section: Comments
+    token_count: 315
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1si5fce.md#c2"
+    char_span: [1593, 3041]
+    sentence_count: 5
+    key_terms: [tangerinekitchen2260, plausiblesplendor15, applied, school, intelligent-web-8017, like, lot, low]
+    section: Comments
+    token_count: 433
 ---
-
 # What do you think was the biggest lesson you learn from college admissions?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1si5fce/what_do_you_think_was_the_biggest_lesson_you/)

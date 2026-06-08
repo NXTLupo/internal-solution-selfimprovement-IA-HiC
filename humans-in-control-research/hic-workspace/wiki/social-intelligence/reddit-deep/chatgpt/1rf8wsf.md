@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1rf8wsf.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1rf8wsf/has_anyone_noticed_chatgpt_behaving_differently/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,54 @@ flair: "Other "
 extracted_at: "2026-05-11T16:54:08.802Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1rf8wsf.md#c0"
+    char_span: [0, 2092]
+    sentence_count: 12
+    key_terms: [chatgpt, "it's", explain, something, bc0b-2685c7637c71, like, trying, instructions]
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/chatgpt/1rf8wsf.md#c1"
+    char_span: [2094, 4695]
+    sentence_count: 10
+    key_terms: [manifestation, nature, failure, effect, modes, interaction, describe, discrete]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/chatgpt/1rf8wsf.md#c2"
+    char_span: [4701, 7651]
+    sentence_count: 16
+    key_terms: [manifestation, effect, nature, structural, internal, correct, offset, feels]
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/chatgpt/1rf8wsf.md#c3"
+    char_span: [7657, 10254]
+    sentence_count: 14
+    key_terms: [manifestation, effect, nature, semantic, displacement, structural, mirroring, fidelity]
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/chatgpt/1rf8wsf.md#c4"
+    char_span: [10269, 11573]
+    sentence_count: 9
+    key_terms: [openai, please, conversation, image, post, r-chatgpt-1050422060352024636, subreddit, annoying]
+    section: Comments
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/chatgpt/1rf8wsf.md#c5"
+    char_span: [11575, 12678]
+    sentence_count: 4
+    key_terms: [sometimes, better, gemini, trying, feels, worse, they-walk-among-us, ways]
+    section: Comments
+    token_count: 277
+  - id: "social-intelligence/reddit-deep/chatgpt/1rf8wsf.md#c6"
+    char_span: [12680, 14186]
+    sentence_count: 16
+    key_terms: [windows, expletives, sunderezz, loud-impression5114, novatartheviolator, recoveringsquirell, jerviscottonbelly, don]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/chatgpt/1rf8wsf.md#c7"
+    char_span: [14189, 15332]
+    sentence_count: 6
+    key_terms: [asked, remember, claude, abuse, novatartheviolator, bottubtimemachine, did, tell]
+    section: Comments
+    token_count: 296
 ---
-
 # Has anyone noticed ChatGPT behaving differently lately?
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1rf8wsf/has_anyone_noticed_chatgpt_behaving_differently/)

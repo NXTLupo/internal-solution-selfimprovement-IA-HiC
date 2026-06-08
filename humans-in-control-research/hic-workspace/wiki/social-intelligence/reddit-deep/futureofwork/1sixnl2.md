@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/futureofwork/1sixnl2.md
 url: "https://www.reddit.com/r/FutureOfWork/comments/1sixnl2/new_here_looking_to_connect_with_similar_thinkers/"
 kind: "social-post"
 source: "reddit-deep: r/futureofwork"
@@ -13,8 +14,25 @@ flair: ""
 extracted_at: "2026-05-26T12:54:26.437Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/futureofwork/1sixnl2.md#c0"
+    char_span: [0, 1984]
+    sentence_count: 19
+    key_terms: [new, time, automation, looking, futureofwork, here, business, comments]
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/futureofwork/1sixnl2.md#c1"
+    char_span: [1986, 4086]
+    sentence_count: 14
+    key_terms: [business, ongoing, yrs, started, learning, built, development, app]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/futureofwork/1sixnl2.md#c2"
+    char_span: [4088, 4619]
+    sentence_count: 4
+    key_terms: [findingbalancedaily, time, productivity, maintenance, automation, refreshing, attention, healthier]
+    token_count: 111
 ---
-
 # New here looking to connect with similar thinkers
 
 Source: [reddit-deep: r/futureofwork](https://www.reddit.com/r/FutureOfWork/comments/1sixnl2/new_here_looking_to_connect_with_similar_thinkers/)

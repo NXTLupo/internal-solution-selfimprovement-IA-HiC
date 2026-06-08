@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1l8wdgi.md
 url: "https://www.reddit.com/r/findapath/comments/1l8wdgi/turning_30_this_year_feel_like_i_stagnated_for_an/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,60 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-22T15:13:18.830Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1l8wdgi.md#c0"
+    char_span: [0, 1881]
+    sentence_count: 15
+    key_terms: [relationship, uni, work, started, vehicle, "didn't", going, money]
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/findapath/1l8wdgi.md#c1"
+    char_span: [1883, 3728]
+    sentence_count: 12
+    key_terms: [information, work, job, water, started, data, line, electrical]
+    token_count: 402
+  - id: "social-intelligence/reddit-deep/findapath/1l8wdgi.md#c2"
+    char_span: [3730, 5138]
+    sentence_count: 14
+    key_terms: [construction, engineering, essentially, age, bartender, anywhere, benefits, drawings]
+    token_count: 307
+  - id: "social-intelligence/reddit-deep/findapath/1l8wdgi.md#c3"
+    char_span: [5140, 6199]
+    sentence_count: 10
+    key_terms: [feel, "i've", like, build, never, bill, egg, home]
+    token_count: 261
+  - id: "social-intelligence/reddit-deep/findapath/1l8wdgi.md#c4"
+    char_span: [6214, 7161]
+    sentence_count: 9
+    key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/findapath/1l8wdgi.md#c5"
+    char_span: [7164, 8940]
+    sentence_count: 14
+    key_terms: ["i'm", ddrf1re, money, good, deleted, finding, making, intelligent-bite-717]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/findapath/1l8wdgi.md#c6"
+    char_span: [8688, 10113]
+    sentence_count: 15
+    key_terms: [job, new, year, anywhere, specific, talking, resume, "i'm"]
+    section: Comments
+    token_count: 358
+  - id: "social-intelligence/reddit-deep/findapath/1l8wdgi.md#c7"
+    char_span: [10115, 11900]
+    sentence_count: 23
+    key_terms: [feel, job, keep, new, understand, tejones01, drinking, "you're"]
+    section: Comments
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/findapath/1l8wdgi.md#c8"
+    char_span: [11902, 13038]
+    sentence_count: 5
+    key_terms: [got, situation, better, makes, age, cant, day, feel]
+    section: Comments
+    token_count: 287
 ---
-
 # Turning 30 this year. Feel like I stagnated for an entire decade.
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1l8wdgi/turning_30_this_year_feel_like_i_stagnated_for_an/)

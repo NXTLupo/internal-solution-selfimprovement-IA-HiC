@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1mpjckf.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1mpjckf/any_resource_book_recommendations_for/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -10,11 +11,28 @@ score: 4
 upvote_ratio: 1
 num_comments: 8
 flair: "New Grad"
-extracted_at: "2026-05-25T18:32:49.826Z"
+extracted_at: "2026-06-06T17:43:22.940Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mpjckf.md#c0"
+    char_span: [0, 768]
+    sentence_count: 4
+    key_terms: [cscareerquestions, useful, resources, comments, career, skills, books, non-programming]
+    token_count: 172
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mpjckf.md#c1"
+    char_span: [783, 2488]
+    sentence_count: 11
+    key_terms: [software, requirements, stakeholders, objectives, part, difficult, notpepus, wiegers]
+    section: Comments
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mpjckf.md#c2"
+    char_span: [2490, 3187]
+    sentence_count: 5
+    key_terms: [good, engineer, software, brooks, skills, being, fred, soft]
+    section: Comments
+    token_count: 168
 ---
-
 # Any resource / book recommendations for non-programming skills useful for a CS career?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1mpjckf/any_resource_book_recommendations_for/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1qgnk7f.md
 url: "https://www.reddit.com/r/college/comments/1qgnk7f/im_concerned_about_the_curriculum_quality_in_my/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -7,14 +8,54 @@ title: "I’m concerned about the curriculum quality in my psych class, but can�
 author: "UnfallenAdventure"
 date: "2026-01-18T23:18:44.000Z"
 score: 63
-upvote_ratio: 0.96
+upvote_ratio: 0.95
 num_comments: 22
 flair: "Academic Life"
-extracted_at: "2026-05-26T14:31:29.696Z"
+extracted_at: "2026-06-03T17:24:19.133Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1qgnk7f.md#c0"
+    char_span: [0, 2031]
+    sentence_count: 19
+    key_terms: [psychology, book, written, psychologist, credentials, curriculum, professor, anything]
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/college/1qgnk7f.md#c1"
+    char_span: [2033, 2377]
+    sentence_count: 5
+    key_terms: [somebody, get, like, ridiculous, something, undergrad, anything, checking]
+    token_count: 73
+  - id: "social-intelligence/reddit-deep/college/1qgnk7f.md#c2"
+    char_span: [2392, 4245]
+    sentence_count: 18
+    key_terms: [class, syllabus, slowishsheepherder, ccs, real, classes, college, faculty]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/college/1qgnk7f.md#c3"
+    char_span: [4247, 6300]
+    sentence_count: 20
+    key_terms: [professors, syllabus, reviews, school, best, department, everybody, sometimes]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/college/1qgnk7f.md#c4"
+    char_span: [6302, 7070]
+    sentence_count: 5
+    key_terms: [course, focused, always, professional-117, materials--you, interpersonal, evolutionary, evaluations]
+    section: Comments
+    token_count: 164
+  - id: "social-intelligence/reddit-deep/college/1qgnk7f.md#c5"
+    char_span: [7072, 8704]
+    sentence_count: 15
+    key_terms: [department, major, get, psychology, different, disagree, "you're", chair]
+    section: Comments
+    token_count: 381
+  - id: "social-intelligence/reddit-deep/college/1qgnk7f.md#c6"
+    char_span: [8706, 10901]
+    sentence_count: 15
+    key_terms: [people, course, cream, correlation, eat, get, ice, like]
+    section: Comments
+    token_count: 506
 ---
-
 # I’m concerned about the curriculum quality in my psych class, but can’t tell if it’s worth doing anything about.
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1qgnk7f/im_concerned_about_the_curriculum_quality_in_my/)
@@ -39,12 +80,12 @@ So what do I do? Should I bring this up to somebody or just get through my under
 ## Comments
 
 - **hornybutired** (55↑): The ugly truth is that the quality of instruction at CCs is wildly variable, especially since so many classes are taught by adjuncts who, in some cases, are barely qualified. I say this as a full time faculty member who believes in the mission of CCs. My advice is to keep your head down and get through the class, then transfer on. Even at four year institutions, some classes will be duds now and then. I'm sorry that's happened, but it is what it is.
-- **SlowishSheepherder** (33↑): This seems wildly inappropriate. Are you at a real college, or a degree mill? What are the professor's qualifications? I would drop the class. It's not worth your time or money to continue.
-  - **UnfallenAdventure** (15↑): Yes, it’s an accredited, real community college in my town. This is just an incredibly strange class
-    - **SlowishSheepherder** (22↑): Ugh, that sucks. As one of the other commenter mentioned, the quality of CCs can be all over the place. If there is another instructor, I would drop the class and take it later. If not, and you absolutely need the class, I would finish it out but also look for a syllabus for the same class from a university (you can often google these, or find out who teaches the class and look at their faculty webpage), and then study that real syllabus. 
+- **SlowishSheepherder** (32↑): This seems wildly inappropriate. Are you at a real college, or a degree mill? What are the professor's qualifications? I would drop the class. It's not worth your time or money to continue.
+  - **UnfallenAdventure** (14↑): Yes, it’s an accredited, real community college in my town. This is just an incredibly strange class
+    - **SlowishSheepherder** (21↑): Ugh, that sucks. As one of the other commenter mentioned, the quality of CCs can be all over the place. If there is another instructor, I would drop the class and take it later. If not, and you absolutely need the class, I would finish it out but also look for a syllabus for the same class from a university (you can often google these, or find out who teaches the class and look at their faculty webpage), and then study that real syllabus. 
 
 Most importantly: if you stay in the class, keep a copy of the syllabus and give this feedback on the end-of-term evaluations. You can ALSO write a note to the department chair, share the syllabus, and say you found the readings odd, confusing, and not appropriate for the class.
-- **Humble-Bar-7869** (8↑): I would put your head down and get the credits. Learn to put yourself first. There's no point in angering the prof and destroying your GPA for this.
+- **Humble-Bar-7869** (10↑): I would put your head down and get the credits. Learn to put yourself first. There's no point in angering the prof and destroying your GPA for this.
 
 After you've passed and grades are out, write an honest review of the course.
 

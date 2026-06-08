@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1smkvom.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1smkvom/i_need_some_advice_for_an_important_decision/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,62 @@ flair: ""
 extracted_at: "2026-05-25T18:33:12.672Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1smkvom.md#c0"
+    char_span: [0, 1764]
+    sentence_count: 14
+    key_terms: [uwaterloo, math, difficult, "it's", program, major, internships, get]
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/uwaterloo/1smkvom.md#c1"
+    char_span: [1766, 2967]
+    sentence_count: 10
+    key_terms: [uwaterloo, "i'm", canada, engineering, planning, either, co-op, since]
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/uwaterloo/1smkvom.md#c2"
+    char_span: [2982, 4881]
+    sentence_count: 8
+    key_terms: [maximize, tight-sandwich-4847, advanced, sequence, transfer, chances, choose, chances-of-admission-for-fall-2023]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/uwaterloo/1smkvom.md#c3"
+    char_span: [4883, 5912]
+    sentence_count: 7
+    key_terms: [cs136, structures, recursion, dynamic, binary, linked, python, search]
+    section: Comments
+    token_count: 251
+  - id: "social-intelligence/reddit-deep/uwaterloo/1smkvom.md#c4"
+    char_span: [5914, 7175]
+    sentence_count: 6
+    key_terms: [math, courses, requires, transfer, program, python, "that's", unless]
+    section: Comments
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/uwaterloo/1smkvom.md#c5"
+    char_span: [7179, 8403]
+    sentence_count: 9
+    key_terms: [year, average, student, international, competitive, math, ubc, answering]
+    section: Comments
+    token_count: 271
+  - id: "social-intelligence/reddit-deep/uwaterloo/1smkvom.md#c6"
+    char_span: [8405, 10512]
+    sentence_count: 11
+    key_terms: [uwaterloo, admissions, get, process, related, automoderator, tough, swe]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/uwaterloo/1smkvom.md#c7"
+    char_span: [10514, 12606]
+    sentence_count: 15
+    key_terms: [courses, experience, students, getting, program, majors, useful, co-op]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/uwaterloo/1smkvom.md#c8"
+    char_span: [12608, 14129]
+    sentence_count: 10
+    key_terms: [environment, difficult, grinding, internships, good, course, manage, "you're"]
+    section: Comments
+    token_count: 356
 ---
-
 # I Need some Advice for an Important Decision
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1smkvom/i_need_some_advice_for_an_important_decision/)

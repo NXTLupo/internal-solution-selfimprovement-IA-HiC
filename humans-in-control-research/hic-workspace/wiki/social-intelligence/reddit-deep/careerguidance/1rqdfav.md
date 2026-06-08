@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rqdfav.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rqdfav/what_are_realistic_short_and_long_term_career/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,26 @@ flair: "Education & Qualifications"
 extracted_at: "2026-05-25T18:32:57.396Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rqdfav.md#c0"
+    char_span: [0, 2233]
+    sentence_count: 11
+    key_terms: [interesting, field, get, like, work, careerguidance, certs, great]
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/careerguidance/1rqdfav.md#c1"
+    char_span: [2235, 2590]
+    sentence_count: 3
+    key_terms: [hypotheticals, competitive, potentially, actionable, relatively, adjacent, thankful, address]
+    token_count: 73
+  - id: "social-intelligence/reddit-deep/careerguidance/1rqdfav.md#c2"
+    char_span: [2605, 3377]
+    sentence_count: 7
+    key_terms: [technical, solutions, analyst, people, help, like, implementation, communication]
+    section: Comments
+    token_count: 147
 ---
-
 # What are realistic short and long term career paths for someone with a CompSci degree, but no certs or technical job experience?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rqdfav/what_are_realistic_short_and_long_term_career/)

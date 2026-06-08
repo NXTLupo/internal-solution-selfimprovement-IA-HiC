@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1qj47dd.md
 url: "https://www.reddit.com/r/jobs/comments/1qj47dd/struggling_to_find_jobs_and_this_happens/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,33 @@ flair: "Rejections"
 extracted_at: "2026-05-22T21:35:36.546Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1qj47dd.md#c0"
+    char_span: [0, 587]
+    sentence_count: 3
+    key_terms: [jobs, struggling, comments, job, part, time, safe-table-6226, reddit-deep]
+    token_count: 150
+  - id: "social-intelligence/reddit-deep/jobs/1qj47dd.md#c1"
+    char_span: [602, 1699]
+    sentence_count: 6
+    key_terms: [interviews, scheduled, chipotle, manager, course, playful-airport2928, "it's", need]
+    section: Comments
+    token_count: 282
+  - id: "social-intelligence/reddit-deep/jobs/1qj47dd.md#c2"
+    char_span: [1701, 2906]
+    sentence_count: 6
+    key_terms: [happened, manager, downtownlasd, job, another, hiring, careless-disaster67, hours]
+    section: Comments
+    token_count: 315
+  - id: "social-intelligence/reddit-deep/jobs/1qj47dd.md#c3"
+    char_span: [2908, 4554]
+    sentence_count: 15
+    key_terms: [climateloud7679, safe-table-6226, people, availability, here, chipotle, retirees, around]
+    section: Comments
+    token_count: 431
 ---
-
 # Struggling to find jobs and this happens
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1qj47dd/struggling_to_find_jobs_and_this_happens/)

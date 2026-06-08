@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/machinelearning/1p1cfvx.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1p1cfvx/r_segment_anything_model_3_sam_3_is_released/"
 kind: "social-post"
 source: "reddit-deep: r/machinelearning"
@@ -13,8 +14,33 @@ flair: "Research"
 extracted_at: "2026-05-11T17:27:06.576Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/machinelearning/1p1cfvx.md#c0"
+    char_span: [0, 1745]
+    sentence_count: 7
+    key_terms: [https, com, sam-3-segment-anything-with-concepts, segmentation, meta, sam, concept, model]
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/machinelearning/1p1cfvx.md#c1"
+    char_span: [1760, 3544]
+    sentence_count: 7
+    key_terms: [encoder, perception-encoder-the-best-visual-embeddings-are-not-at-the-output-of-the-network, hierarchical, perception, understanding, model, outperforms, sam2]
+    section: Comments
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/machinelearning/1p1cfvx.md#c2"
+    char_span: [3546, 5628]
+    sentence_count: 10
+    key_terms: [model, sam, text, roboflow, like, sam3, attention, prompting]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/machinelearning/1p1cfvx.md#c3"
+    char_span: [5632, 5782]
+    sentence_count: 1
+    key_terms: [chrismanson963, sunshinecheung, particularly, advancement, significant, appears, overall, great]
+    section: Comments
+    token_count: 42
 ---
-
 # [R] Segment Anything Model 3 (SAM 3) is released
 
 Source: [reddit-deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1p1cfvx/r_segment_anything_model_3_sam_3_is_released/)

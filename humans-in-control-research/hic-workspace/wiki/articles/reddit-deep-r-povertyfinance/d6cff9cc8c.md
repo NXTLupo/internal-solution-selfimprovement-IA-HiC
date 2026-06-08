@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-povertyfinance/d6cff9cc8c.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1rs26i2/im_25_poor_and_dont_want_to_keep_going/"
 url_hash: "d6cff9cc8c"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-16T21:00:56.675706+00:00"
 chars: 5694
+industries: [financial_services, higher_ed]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-povertyfinance/d6cff9cc8c.md#c0"
+    char_span: [0, 1797]
+    sentence_count: 17
+    key_terms: ["i'm", degree, povertyfinance, never, average, poverty, realize, success]
+    token_count: 427
+  - id: "articles/reddit-deep-r-povertyfinance/d6cff9cc8c.md#c1"
+    char_span: [1799, 3891]
+    sentence_count: 22
+    key_terms: [need, people, money, appropriate, give, "i'm", vent, submitter]
+    token_count: 484
+  - id: "articles/reddit-deep-r-povertyfinance/d6cff9cc8c.md#c2"
+    char_span: [3893, 5882]
+    sentence_count: 16
+    key_terms: [gotten, please, work, emotional, submitter, offering, message, started]
+    token_count: 455
 ---
-
 # I'm 25, poor, and don't want to keep going.
 
 Source: [Reddit Deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1rs26i2/im_25_poor_and_dont_want_to_keep_going/)

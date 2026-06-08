@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1r6ljt4.md
 url: "https://www.reddit.com/r/GradSchool/comments/1r6ljt4/seeking_advice_on_gaining_research_experience/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-23T20:15:44.992Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1r6ljt4.md#c0"
+    char_span: [0, 2398]
+    sentence_count: 20
+    key_terms: ["i'm", experience, research, background, currently, neuropsychology, skills, opportunity]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/gradschool/1r6ljt4.md#c1"
+    char_span: [2413, 4356]
+    sentence_count: 19
+    key_terms: [research, opportunity, programs, catspoopinboxes, project, similar, found, lab]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/gradschool/1r6ljt4.md#c2"
+    char_span: [4358, 6527]
+    sentence_count: 25
+    key_terms: [read, get, being, start, like, approaches, different, questions]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/gradschool/1r6ljt4.md#c3"
+    char_span: [6529, 8426]
+    sentence_count: 19
+    key_terms: [get, research, experience, program, interesting, professors, psychology, difficult]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/gradschool/1r6ljt4.md#c4"
+    char_span: [8428, 10806]
+    sentence_count: 18
+    key_terms: [research, psychology, community, university, satelliteabstract, get, bachelor, college]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1r6ljt4.md#c5"
+    char_span: [10506, 12778]
+    sentence_count: 18
+    key_terms: [programs, research, neuroscience, dangerous-energy-331, experience, psychology, ok-vermicelli-6222, satelliteabstract]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1r6ljt4.md#c6"
+    char_span: [12557, 13390]
+    sentence_count: 6
+    key_terms: [ok-vermicelli-6222, requirements, non-degree, university, degree, public, sense, did]
+    section: Comments
+    token_count: 189
 ---
-
 # Seeking advice on gaining research experience starting from a non-traditional background
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1r6ljt4/seeking_advice_on_gaining_research_experience/)

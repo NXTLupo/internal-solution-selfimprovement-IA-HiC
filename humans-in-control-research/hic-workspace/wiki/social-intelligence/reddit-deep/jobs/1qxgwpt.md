@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1qxgwpt.md
 url: "https://www.reddit.com/r/jobs/comments/1qxgwpt/offer_rescinded_because_i_asked_too_much/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,123 @@ flair: "Applications"
 extracted_at: "2026-05-22T21:35:36.534Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c0"
+    char_span: [0, 1157]
+    sentence_count: 13
+    key_terms: [offer, because, asked, comments, hiring, jobcat, market, back]
+    token_count: 277
+  - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c1"
+    char_span: [1172, 2578]
+    sentence_count: 8
+    key_terms: [software, people, years, ago, california, criminal, someone, "they're"]
+    section: Comments
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c2"
+    char_span: [2580, 4536]
+    sentence_count: 12
+    key_terms: [people, going, job, collapse, because, country, economy, market]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c3"
+    char_span: [4538, 5263]
+    sentence_count: 6
+    key_terms: [months, ago, get, job, delusional, vindicated, austinvvs, different]
+    section: Comments
+    token_count: 189
+  - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c4"
+    char_span: [5265, 7201]
+    sentence_count: 13
+    key_terms: [devs, jobs, pay, resources, everyone, college, driving, redact]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c5"
+    char_span: [7203, 9315]
+    sentence_count: 19
+    key_terms: [salary, recruiter, range, interview, didn, time, email, going]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c6"
+    char_span: [9317, 11118]
+    sentence_count: 15
+    key_terms: [job, company, salary, range, like, telling, asking, months]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c7"
+    char_span: [11120, 13054]
+    sentence_count: 13
+    key_terms: [candidates, job, accepted, level, free, time, work, experience]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c8"
+    char_span: [13056, 13578]
+    sentence_count: 6
+    key_terms: [early, least, been, "i'm", too, compensation, consistently, experiencing]
+    section: Comments
+    token_count: 113
+  - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c9"
+    char_span: [13580, 15648]
+    sentence_count: 10
+    key_terms: [experience, because, entry, level, get, job, jobs, like]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c10"
+    char_span: [15375, 15775]
+    sentence_count: 4
+    key_terms: [experience, job, companies, employers, "shouldn't", employee, position, college]
+    section: Comments
+    token_count: 98
+  - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c11"
+    char_span: [15777, 17689]
+    sentence_count: 15
+    key_terms: [job, market, people, work, counter, experienced, risk, countered]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c12"
+    char_span: [17691, 19538]
+    sentence_count: 18
+    key_terms: [offer, take, candidate, anything, employer, position, company, "there's"]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c13"
+    char_span: [19540, 21298]
+    sentence_count: 21
+    key_terms: [offer, "don't", let, company, counter, decline, nothing, gotten]
+    section: Comments
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c14"
+    char_span: [21301, 23164]
+    sentence_count: 13
+    key_terms: [negotiate, offer, job, salary, trying, years, days, experience]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c15"
+    char_span: [23166, 25260]
+    sentence_count: 11
+    key_terms: [job, time, looking, been, need, especially, companies, negotiate]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c16"
+    char_span: [25262, 27015]
+    sentence_count: 10
+    key_terms: [because, exists, worth, job, time, position, always, middle]
+    section: Comments
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c17"
+    char_span: [27018, 28676]
+    sentence_count: 11
+    key_terms: [market, counteroffer, california, re-contact, regretting, expected, ability, another]
+    section: Comments
+    token_count: 372
+  - id: "social-intelligence/reddit-deep/jobs/1qxgwpt.md#c18"
+    char_span: [28678, 30403]
+    sentence_count: 16
+    key_terms: [job, people, company, keep, looking, enough, salary, world]
+    section: Comments
+    token_count: 443
 ---
-
 # Offer rescinded because I asked too much
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1qxgwpt/offer_rescinded_because_i_asked_too_much/)

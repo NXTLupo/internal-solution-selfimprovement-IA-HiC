@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rvsgwv.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rvsgwv/graphic_design_career_pivot_due_to_bad_job_market/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T14:54:05.580Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rvsgwv.md#c0"
+    char_span: [0, 1185]
+    sentence_count: 14
+    key_terms: [experience, graphic, design, careerguidance, market, comments, social, media]
+    token_count: 269
+  - id: "social-intelligence/reddit-deep/careerguidance/1rvsgwv.md#c1"
+    char_span: [1200, 2077]
+    sentence_count: 8
+    key_terms: [applying, better, build, since, seriousgourmetshit, like, work, coordination]
+    section: Comments
+    token_count: 179
 ---
-
 # Graphic Design Career Pivot Due to Bad job market. What to Pivot to?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rvsgwv/graphic_design_career_pivot_due_to_bad_job_market/)

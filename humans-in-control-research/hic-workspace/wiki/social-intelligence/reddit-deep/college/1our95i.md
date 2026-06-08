@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1our95i.md
 url: "https://www.reddit.com/r/college/comments/1our95i/should_i_go_to_grad_school_right_after_graduation/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,60 @@ subreddit: "college"
 title: "Should I go to grad school right after graduation or start working first?"
 author: "dancingmonkey1295"
 date: "2025-11-12T00:59:56.000Z"
-score: 6
-upvote_ratio: 0.81
+score: 8
+upvote_ratio: 0.9
 num_comments: 33
 flair: ""
-extracted_at: "2026-05-25T13:02:03.711Z"
+extracted_at: "2026-06-03T17:24:19.136Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1our95i.md#c0"
+    char_span: [0, 1160]
+    sentence_count: 11
+    key_terms: [college, hockey, school, like, play, management, comments, working]
+    token_count: 275
+  - id: "social-intelligence/reddit-deep/college/1our95i.md#c1"
+    char_span: [1175, 3254]
+    sentence_count: 24
+    key_terms: [school, job, hockey, dancingmonkey1295, grad, want, animallover4321, dad]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1our95i.md#c2"
+    char_span: [3006, 5146]
+    sentence_count: 19
+    key_terms: [school, get, grad, lot, choose, dancingmonkey1295, work, pressure]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1our95i.md#c3"
+    char_span: [4938, 5511]
+    sentence_count: 5
+    key_terms: [dancingmonkey1295, get, experience, wrong, job, daddydillo892, heartonfiyah, zoerocks73]
+    section: Comments
+    token_count: 174
+  - id: "social-intelligence/reddit-deep/college/1our95i.md#c4"
+    char_span: [5513, 7570]
+    sentence_count: 22
+    key_terms: [job, too, school, going, right, dancingmonkey1295, get, grad]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1our95i.md#c5"
+    char_span: [7288, 7836]
+    sentence_count: 6
+    key_terms: [school, grad, lot, opportunities, considering, definitely, endlessly, important]
+    section: Comments
+    token_count: 119
+  - id: "social-intelligence/reddit-deep/college/1our95i.md#c6"
+    char_span: [7838, 9234]
+    sentence_count: 16
+    key_terms: [time, acceptablereward9210, dancingmonkey1295, hockey, college, started, working, adrian]
+    section: Comments
+    token_count: 355
 ---
-
 # Should I go to grad school right after graduation or start working first?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1our95i/should_i_go_to_grad_school_right_after_graduation/)
-Posted by **dancingmonkey1295** · **6↑** · **33 comments**
+Posted by **dancingmonkey1295** · **8↑** · **33 comments**
 
 I’m finishing my bachelor’s in Media Communications this spring and I play college hockey. I got an offer to play for another school while getting my master’s in Sport Management. My dad said he’d cover the cost, which I know is a huge opportunity, but I’m really torn.
 
@@ -30,7 +72,7 @@ If I go now, I get to play hockey one more year, but if I start working instead,
 
 - **Animallover4321** (11↑): I mean the job market is fucking brutal if your  dad is willing to pay take him up on it you can always TA or get an internship while in school.
   - **dancingmonkey1295** (1↑): Ugh so I've heard. Am I screwed either way then? and I guess but idk playing hockey, doing school, then adding on a job might be too much but I fear I don't have a choice. Im honestly torn. DO you think its even worth the time?
-    - **Ok-Log-9052** (3↑): Go to school! For free! And play hockey until you don’t want to! It is never a waste even if you change fields later; the skills in sports management are super transferable and this will set you up for whatever you find you want to pursue. A job right now probably will not
+    - **Ok-Log-9052** (4↑): Go to school! For free! And play hockey until you don’t want to! It is never a waste even if you change fields later; the skills in sports management are super transferable and this will set you up for whatever you find you want to pursue. A job right now probably will not
     - **Animallover4321** (1↑): I am not really familiar with that field but I can say as someone that has spent a year looking for a job I do wish I had stayed for my grad degree. If hockey isn’t a requirement to attend you may want to consider putting it on the back burner an internship will serve you a lot better than playing hockey another season.
 - **hemanstarfox** (2↑): Talk to your dad about specifics. The planning to pay for the whole thing? Will it mean more loans? If you are going to have the whole thing covered and it's not going to put you in any more debt. Then, think about what job you want to do. Do you need a master's degree for that? Last, I am in grad school. I did really well in my undergrad in grad school is very hard. Do you have it in you to do the work necessary to make yourself successful? If all those answers are yes then go for it.
   - **dancingmonkey1295** (1↑): Very good response and you're totally right. I've been doing really well in my undergrad but am worried that grad school would be too hard? It's also sport management though. For the specifics, my dad would cover it all no loans. I mean I have a lot of ideas of what I wanna do but it's hard and feels like so much pressure. I do feel that this program could really help me but idk idk. I could just be doubting myself too.

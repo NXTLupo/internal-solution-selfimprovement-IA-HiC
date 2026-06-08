@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-neu/abe019ff6d.md
 url: "https://www.reddit.com/r/NEU/comments/1l9svwb/cs_seniors_and_recent_grads_share_your_job_search/"
 url_hash: "abe019ff6d"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-12T20:37:11.316359+00:00"
 chars: 1862
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-neu/abe019ff6d.md#c0"
+    char_span: [0, 2090]
+    sentence_count: 16
+    key_terms: [university, survey, study, looking, recent, pennsylvania, share, "we'll"]
+    token_count: 495
 ---
-
 # CS Seniors and Recent Grads: Share Your Job Search Experience (10-25 min survey; Mod-Approved)
 
 Source: [Reddit Deep: r/neu](https://www.reddit.com/r/NEU/comments/1l9svwb/cs_seniors_and_recent_grads_share_your_job_search/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1qds3rp.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1qds3rp/options_changed_my_life_pt_3/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,39 @@ flair: "Gain"
 extracted_at: "2026-05-17T01:14:17.605Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qds3rp.md#c0"
+    char_span: [0, 956]
+    sentence_count: 10
+    key_terms: [wallstreetbets, hopefully, comments, worth, net, winter-shoulders, understanding, reddit-deep]
+    token_count: 243
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qds3rp.md#c1"
+    char_span: [971, 2065]
+    sentence_count: 4
+    key_terms: [wsb, strategy, discord, extreme-island-5041, total, charliedayismyhero, thebestinthewest11, far]
+    section: Comments
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qds3rp.md#c2"
+    char_span: [2068, 3621]
+    sentence_count: 6
+    key_terms: [ironsam811, strategy, hacking99percent, months, time, supposed, chart, cantgetthistowork]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qds3rp.md#c3"
+    char_span: [3624, 5184]
+    sentence_count: 5
+    key_terms: [like, a1ef64f2947ebbd9a74568ba6070a82f3d932df2, derisking, portfolio, double, people, looks, back]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qds3rp.md#c4"
+    char_span: [5186, 6554]
+    sentence_count: 8
+    key_terms: [money, google, retire, right, spxt, want, winter-shoulders, baconreader9000]
+    section: Comments
+    token_count: 398
 ---
-
 # Options changed my life pt. 3 💸⚡️
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1qds3rp/options_changed_my_life_pt_3/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1thu3w1.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1thu3w1/colby_college_thoughts_and_plan/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,48 @@ subreddit: "applyingtocollege"
 title: "Colby College thoughts, and plan"
 author: "Long_Fan9411"
 date: "2026-05-19T17:35:06.000Z"
-score: 0
-upvote_ratio: 0.5
-num_comments: 40
+score: 2
+upvote_ratio: 0.6
+num_comments: 42
 flair: "Transfer"
-extracted_at: "2026-05-23T14:54:48.677Z"
+extracted_at: "2026-06-03T12:16:39.480Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1thu3w1.md#c0"
+    char_span: [0, 1502]
+    sentence_count: 11
+    key_terms: [applyingtocollege, year, college, colby, plan, definitely, comments, thoughts]
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1thu3w1.md#c1"
+    char_span: [1517, 3686]
+    sentence_count: 15
+    key_terms: [transfer, college, niceunparticularman, colby, year, admitted, circles, people]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1thu3w1.md#c2"
+    char_span: [3688, 5718]
+    sentence_count: 9
+    key_terms: [transfer, school, year, grocerycharacter, apply, money, state, sponsorship]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1thu3w1.md#c3"
+    char_span: [5720, 7368]
+    sentence_count: 11
+    key_terms: [schools, apply, northwestern, colby, been, "it's", less, admitted]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1thu3w1.md#c4"
+    char_span: [7370, 8754]
+    sentence_count: 10
+    key_terms: [colby, transfer, strong, applicant, excellent, financial, college, country]
+    section: Comments
+    token_count: 312
 ---
-
 # Colby College thoughts, and plan
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1thu3w1/colby_college_thoughts_and_plan/)
-Posted by **Long_Fan9411** · **0↑** · **40 comments**
+Posted by **Long_Fan9411** · **2↑** · **42 comments**
 
 I am committed to Colby College, but I definitely have a few gripes with it, and I plan on transferring after my first year.
 
@@ -40,7 +70,7 @@ Thoughts? Opinions?
 
 ## Comments
 
-- **NiceUnparticularMan** (8↑): There is a very large chance you wouldn't get admitted as a transfer to any of those colleges.
+- **NiceUnparticularMan** (9↑): There is a very large chance you wouldn't get admitted as a transfer to any of those colleges.
 
 What would you do then?
 

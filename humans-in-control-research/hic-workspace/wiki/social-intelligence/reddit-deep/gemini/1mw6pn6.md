@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gemini/1mw6pn6.md
 url: "https://www.reddit.com/r/Gemini/comments/1mw6pn6/some_assistance_pls/"
 kind: "social-post"
 source: "reddit-deep: r/gemini"
@@ -13,8 +14,21 @@ flair: "Support:Support:"
 extracted_at: "2026-05-11T16:52:32.578Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gemini/1mw6pn6.md#c0"
+    char_span: [0, 782]
+    sentence_count: 6
+    key_terms: [account, gemini, experience, unsettling, comments, someone, seems, administrator]
+    token_count: 181
+  - id: "social-intelligence/reddit-deep/gemini/1mw6pn6.md#c1"
+    char_span: [797, 1606]
+    sentence_count: 9
+    key_terms: [humblead6496, ticket, thank, been, escalated, account, gianna, please]
+    section: Comments
+    token_count: 215
 ---
-
 # Some assistance pls
 
 Source: [reddit-deep: r/gemini](https://www.reddit.com/r/Gemini/comments/1mw6pn6/some_assistance_pls/)

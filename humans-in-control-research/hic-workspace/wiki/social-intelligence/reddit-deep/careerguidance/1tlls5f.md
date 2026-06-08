@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tlls5f.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tlls5f/has_anyone_ever_been_paid_to_leave_a_job_how_did/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -6,19 +7,65 @@ subreddit: "careerguidance"
 title: "Has anyone ever been “paid to leave” a job? How did you recover professionally afterward?"
 author: "Perfect_Beat_2860"
 date: "2026-05-23T16:55:38.000Z"
-score: 16
-upvote_ratio: 1
-num_comments: 15
+score: 17
+upvote_ratio: 0.96
+num_comments: 16
 flair: "Advice"
-extracted_at: "2026-05-25T15:52:13.112Z"
+extracted_at: "2026-06-06T17:42:15.261Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tlls5f.md#c0"
+    char_span: [0, 2650]
+    sentence_count: 21
+    key_terms: [feedback, positive, responsibilities, outside, careerguidance, growth, strong, advancement]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/careerguidance/1tlls5f.md#c1"
+    char_span: [2652, 3620]
+    sentence_count: 4
+    key_terms: [environments, work, corporate, whether, simply, solution-oriented, fit, constructively]
+    token_count: 174
+  - id: "social-intelligence/reddit-deep/careerguidance/1tlls5f.md#c2"
+    char_span: [3635, 5873]
+    sentence_count: 21
+    key_terms: [companies, want, someone, "you're", too, describing, diagnosed, meetings]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/careerguidance/1tlls5f.md#c3"
+    char_span: [5875, 7695]
+    sentence_count: 11
+    key_terms: [someone, performance, "i've", talk, want, promotion, getting, improve]
+    section: Comments
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/careerguidance/1tlls5f.md#c4"
+    char_span: [7697, 9833]
+    sentence_count: 12
+    key_terms: [get, projects, manager, project, performance, take, team, fantastic]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/careerguidance/1tlls5f.md#c5"
+    char_span: [9835, 11129]
+    sentence_count: 11
+    key_terms: [corporate, environments, reality, never, want, severance, probably, company]
+    section: Comments
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/careerguidance/1tlls5f.md#c6"
+    char_span: [11131, 13143]
+    sentence_count: 14
+    key_terms: [company, myself, women, job, severance, people, thread, don]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/careerguidance/1tlls5f.md#c7"
+    char_span: [13145, 14350]
+    sentence_count: 14
+    key_terms: [job, work, factory, people, found, done, due, got]
+    section: Comments
+    token_count: 270
 ---
-
 # Has anyone ever been “paid to leave” a job? How did you recover professionally afterward?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tlls5f/has_anyone_ever_been_paid_to_leave_a_job_how_did/)
-Posted by **Perfect_Beat_2860** · **16↑** · **15 comments**
+Posted by **Perfect_Beat_2860** · **17↑** · **16 comments**
 
 I’m intentionally keeping details vague because the circumstances are unusual and I don’t want this tied back to me.
 
@@ -111,6 +158,7 @@ All corporate environments are disfunctional in some way or another and this is 
 I recently got pushed out of the job I had for nearly 10 years with 4 months severance. Always got good to excellent reviews, never made any major mistakes, but the company is firing people left and right and pretends it's performance related. It usually isn't, so they pay severance according to a formula in exchange for the employee releasing any claims they may have against the company.
 
 In my case, I can basically pinpoint the day that was the beginning of the end for me. I had a very frank conversation with my then boss (who became the VP of the department) about advancement. He finally admitted it wasn't in the cards (after lying to my face for years) so I said that's fine, I will continue to do *my* job and I'll do it well, but I'm not going to keep taking on all the extra work that was historically presented as an opportunity to show off my skills because I wanted to advance. Within a year I was reassigned, then given a bad review this February, then fired this March.
+  - **Perfect_Beat_2860** (1↑): I think you’re correct. The thing that terrifies me is that this could very well keep happening. With how expensive everything is, even if I get myself a job with a close to 6-figure salary, I will likely still be pretty much month-to-month on bills for rent (a mortgage/house seems like a pipe dream at this point), utilities, food, etc. I don’t go on vacations, I don’t buy myself extravagant things. I feel guilty buying small items for hobbies to help myself decompress. Saving money _in case_ I lose my job for any reason (even if the future company itself went belly-up), would be extremely difficult.
 - **123nightmode** (3↑): Very curious if most of the people that have spoken up in this thread are women like me. This has happened to me in almost every role I've ever been in, minus any particular severance.
   - **Perfect_Beat_2860** (3↑): I’m sorry you didn’t get the severance. That is just salt in the wound. And yes, from what I have heard, it is typically women in this scenario. High performing women.
 - **OkImReloaded** (2↑): Very interesting thread

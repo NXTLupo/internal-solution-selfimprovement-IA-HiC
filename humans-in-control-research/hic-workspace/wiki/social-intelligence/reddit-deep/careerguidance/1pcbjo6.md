@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1pcbjo6.md
 url: "https://www.reddit.com/r/careerguidance/comments/1pcbjo6/how_do_i_choose_a_career_path_as_a_final_year_cs/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-22T21:34:47.973Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1pcbjo6.md#c0"
+    char_span: [0, 1481]
+    sentence_count: 14
+    key_terms: [feel, college, careerguidance, career, don, get, comments, student]
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/careerguidance/1pcbjo6.md#c1"
+    char_span: [1496, 2727]
+    sentence_count: 9
+    key_terms: [looking, like, career, since, no-assumption4145, find, fit, tech]
+    section: Comments
+    token_count: 272
 ---
-
 # How do I choose a career path as a final year CS student?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1pcbjo6/how_do_i_choose_a_career_path_as_a_final_year_cs/)

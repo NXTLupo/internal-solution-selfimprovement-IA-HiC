@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1sweoby.md
 url: "https://www.reddit.com/r/NEU/comments/1sweoby/feel_like_just_failed_my_final_what_can_i_do/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "Academics"
 extracted_at: "2026-05-19T17:57:09.041Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1sweoby.md#c0"
+    char_span: [0, 1447]
+    sentence_count: 20
+    key_terms: ["i'm", final, "i've", grade, been, got, professor, academic]
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/neu/1sweoby.md#c1"
+    char_span: [1462, 2960]
+    sentence_count: 5
+    key_terms: [sovereignphobia, grade, disfiguredcoconut, email, transcript, professor, replaces, problem]
+    section: Comments
+    token_count: 383
 ---
-
 # Feel like just failed my final, what can I do before the grade got released
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1sweoby/feel_like_just_failed_my_final_what_can_i_do/)

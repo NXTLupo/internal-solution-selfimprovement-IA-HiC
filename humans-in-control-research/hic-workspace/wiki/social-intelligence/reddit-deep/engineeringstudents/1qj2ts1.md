@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1qj2ts1.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1qj2ts1/ojt_companiesopportunities_in_the_usa_as_a/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Resource Request"
 extracted_at: "2026-05-22T15:11:44.442Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qj2ts1.md#c0"
+    char_span: [0, 1424]
+    sentence_count: 10
+    key_terms: [companies, ojt, engineeringstudents, looking, opportunities, "don't", engineering, mechanical]
+    token_count: 326
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1qj2ts1.md#c1"
+    char_span: [1439, 1861]
+    sentence_count: 6
+    key_terms: [companies, internship, applications, individual, otherwise, recommend, anything, linkedin]
+    section: Comments
+    token_count: 94
 ---
-
 # OJT companies/opportunities in the USA as a Filipino Mechanical Engineering Student
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1qj2ts1/ojt_companiesopportunities_in_the_usa_as_a/)

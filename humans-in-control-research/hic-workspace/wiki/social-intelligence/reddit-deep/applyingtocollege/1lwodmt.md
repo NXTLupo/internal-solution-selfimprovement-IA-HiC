@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1lwodmt/michigan_just_announced_ed_engineeringbusiness/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,62 @@ flair: ""
 extracted_at: "2026-05-23T12:15:36.215Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c0"
+    char_span: [0, 2324]
+    sentence_count: 17
+    key_terms: [engineering, michigan, business, because, program, applyingtocollege, half, probably]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c1"
+    char_span: [2326, 2847]
+    sentence_count: 4
+    key_terms: [specifically, admissions, interdisciplinary, mega-strategic, conversation, bellweather, interesting, business]
+    token_count: 105
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c2"
+    char_span: [2862, 4944]
+    sentence_count: 13
+    key_terms: [schools, applying, agricultural, people, sentenceicy8629, competitive, majors, state]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c3"
+    char_span: [4946, 6854]
+    sentence_count: 12
+    key_terms: [ibe, program, different-regret1439, umich, purdue, major, engineering, coe]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c4"
+    char_span: [6579, 7401]
+    sentence_count: 8
+    key_terms: [honors, program, apply, major, engineering, ibe, business, different-regret1439]
+    section: Comments
+    token_count: 211
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c5"
+    char_span: [7403, 8895]
+    sentence_count: 11
+    key_terms: [option, complaints, virginians, deadline, uvadeanj, virginia, schools, sharing]
+    section: Comments
+    token_count: 378
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c6"
+    char_span: [8897, 10409]
+    sentence_count: 11
+    key_terms: [michigan, guess, mega-strategic, doing, stem, ucs, decision, probably]
+    section: Comments
+    token_count: 345
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c7"
+    char_span: [10411, 12408]
+    sentence_count: 3
+    key_terms: [schools, umich, get, different-regret1439, applicants, michigan, going, want]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c8"
+    char_span: [12115, 12609]
+    sentence_count: 3
+    key_terms: [schools, applicants, michigan, above, mcneiladmissions, non-michigan, otherwise, selective]
+    section: Comments
+    token_count: 115
 ---
-
 # Michigan just announced ED + engineering/business joint program. I think this actually signals a bigger shift in admissions.
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1lwodmt/michigan_just_announced_ed_engineeringbusiness/)

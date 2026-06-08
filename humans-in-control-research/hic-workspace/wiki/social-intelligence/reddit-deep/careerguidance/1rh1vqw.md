@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rh1vqw.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rh1vqw/am_i_cooked_35m_unemployed/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.161Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rh1vqw.md#c0"
+    char_span: [0, 1416]
+    sentence_count: 10
+    key_terms: [job, careerguidance, depression, comments, quitting, physics, cooked, reason]
+    token_count: 335
+  - id: "social-intelligence/reddit-deep/careerguidance/1rh1vqw.md#c1"
+    char_span: [1431, 3473]
+    sentence_count: 15
+    key_terms: [mental, health, exercise, someone, "you're", intelligence, feel, good]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/careerguidance/1rh1vqw.md#c2"
+    char_span: [3475, 5520]
+    sentence_count: 20
+    key_terms: [experience, jobs, company, people, "don't", smart, been, work]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/careerguidance/1rh1vqw.md#c3"
+    char_span: [5522, 7367]
+    sentence_count: 22
+    key_terms: [like, cooked, maybe, "master's", standard, startups, profile, berlin]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/careerguidance/1rh1vqw.md#c4"
+    char_span: [7369, 8243]
+    sentence_count: 7
+    key_terms: [cosmiccompass, psychological, strategic, career, health, help, life, intellectual]
+    section: Comments
+    token_count: 184
 ---
-
 # Am I cooked? 35M unemployed
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rh1vqw/am_i_cooked_35m_unemployed/)

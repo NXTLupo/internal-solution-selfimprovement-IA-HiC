@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1plnhkr.md
 url: "https://www.reddit.com/r/stocks/comments/1plnhkr/oracle_runs_into_more_trouble_as_bonds_looks_like/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,63 @@ flair: "Company News"
 extracted_at: "2026-05-17T01:14:17.620Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [enterprise_it, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1plnhkr.md#c0"
+    char_span: [0, 1895]
+    sentence_count: 11
+    key_terms: [oracle-runs-into-more-bond-trouble-evening-briefing-americas, oracle, billion, bonds, https, com, junk, www]
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/stocks/1plnhkr.md#c1"
+    char_span: [1910, 3729]
+    sentence_count: 12
+    key_terms: [billion, bonds, debt, oracle, issue, financial, issuances, already]
+    section: Comments
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/stocks/1plnhkr.md#c2"
+    char_span: [3734, 5564]
+    sentence_count: 17
+    key_terms: [meta-musks-xai-tap-off-175253347, lease, debt, like, investors, billion, centers, ellison]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/stocks/1plnhkr.md#c3"
+    char_span: [5566, 6955]
+    sentence_count: 9
+    key_terms: [oracle, myironlung6, fellow, "isn't", issue, here, keep, kids]
+    section: Comments
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/stocks/1plnhkr.md#c4"
+    char_span: [6957, 8884]
+    sentence_count: 5
+    key_terms: [company, exactly, oracle, going, get, meta, products, because]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/stocks/1plnhkr.md#c5"
+    char_span: [8886, 9669]
+    sentence_count: 5
+    key_terms: [oracle, charges, company, foreign, "i'd", corporations, subsidiaries, corporation]
+    section: Comments
+    token_count: 161
+  - id: "social-intelligence/reddit-deep/stocks/1plnhkr.md#c6"
+    char_span: [9671, 11363]
+    sentence_count: 7
+    key_terms: [oracle-says-there-have-been-no-delays-in-openai-arrangement, cnbc, get, new, probably, android, because, drivers]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/stocks/1plnhkr.md#c7"
+    char_span: [11365, 13560]
+    sentence_count: 12
+    key_terms: [banks-prep-series-of-multibillion-dollar-debt-offerings-for-oracle, oracle, offerings, been, billion, centers, sources, banks]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/stocks/1plnhkr.md#c8"
+    char_span: [13562, 14136]
+    sentence_count: 3
+    key_terms: [according, financing, sources, friday, awkward-painter-2024, oracle-affiliated, development, anyhat8807]
+    section: Comments
+    token_count: 140
 ---
-
 # Oracle Runs Into More Trouble as Bonds Looks Like Junk
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1plnhkr/oracle_runs_into_more_trouble_as_bonds_looks_like/)

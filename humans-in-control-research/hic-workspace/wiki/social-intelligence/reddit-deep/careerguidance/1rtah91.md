@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rtah91.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rtah91/my_girlfriend_finished_7_years_of_college_in/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -6,19 +7,53 @@ subreddit: "careerguidance"
 title: "My Girlfriend finished 7 years of college in Video Game Development Programming and Design and hasn’t been able to land a job. Should she pivot careers?"
 author: "jennajellybean18"
 date: "2026-03-14T04:57:27.000Z"
-score: 160
+score: 161
 upvote_ratio: 0.92
-num_comments: 55
+num_comments: 56
 flair: ""
-extracted_at: "2026-05-25T13:04:07.355Z"
+extracted_at: "2026-06-03T03:09:46.174Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Generate a strategic analysis identifying actionable opportunities for Northeastern University to enhance experiential learning and co-op success. Focus the analysis on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development."
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rtah91.md#c0"
+    char_span: [0, 2134]
+    sentence_count: 11
+    key_terms: [been, game, programming, years, getting, through, careerguidance, design]
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/careerguidance/1rtah91.md#c1"
+    char_span: [2136, 2556]
+    sentence_count: 3
+    key_terms: [positions, get, appreciated, programmer, available, developer, resources, showcase]
+    token_count: 90
+  - id: "social-intelligence/reddit-deep/careerguidance/1rtah91.md#c2"
+    char_span: [2571, 4233]
+    sentence_count: 14
+    key_terms: [job, work, applying, programming, back, here, thoughts, company]
+    section: Comments
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/careerguidance/1rtah91.md#c3"
+    char_span: [4236, 5664]
+    sentence_count: 12
+    key_terms: [game, awesome, been, industry, advice, people, needs, thank]
+    section: Comments
+    token_count: 338
+  - id: "social-intelligence/reddit-deep/careerguidance/1rtah91.md#c4"
+    char_span: [5666, 7569]
+    sentence_count: 14
+    key_terms: [game, job, ontario, discussions, luci, name, design, recent]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/careerguidance/1rtah91.md#c5"
+    char_span: [7571, 9691]
+    sentence_count: 23
+    key_terms: [needs, industry, friends, year, keywords, day, get, take]
+    section: Comments
+    token_count: 480
 ---
-
 # My Girlfriend finished 7 years of college in Video Game Development Programming and Design and hasn’t been able to land a job. Should she pivot careers?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rtah91/my_girlfriend_finished_7_years_of_college_in/)
-Posted by **jennajellybean18** · **160↑** · **55 comments**
+Posted by **jennajellybean18** · **161↑** · **56 comments**
 
 Hi Reddit, My Girlfriend Luci graduated from a Bachelor of arts in Game Design program almost one year ago and it has been struggling to land a job in her field since.
 
@@ -39,21 +74,22 @@ Don’t give up.
 She needs a job doing any sort of programming, and once she’s hired, never stop applying to those companies she wants to work for while maintaining that job. The important part is building a portfolio of her work. Keep grinding, it’s a fierce competition but the only way she guarantees she will never work there is if she gives up. 
 
 For context, it took me 5 years of applying to the same jobs over and over and over again until the doors open.
-  - **Scared_Astronaut9377** (18↑): Here are thoughts of someone who works and hires in a big tech company. Your assumption that she can realistically find a job in any "programming" in this market is false. Out of 50+ software openings we have, 0 are juniors. I haven't seen an intern for two years. And it's not just big tech. With a bachelor of art, I would say Luci has like 1% chance to get any job per year of full time applying.
-- **marksman-with-a-pen** (93↑): She needs to make a small indie game, doesn’t need to be crazy. I know several people in video games, and they all got jobs in the industry by having a practical piece of work they could submit.
-- **Doobieboy420** (107↑): Find a job to pay the bills, make a indie games on the side.
+  - **Scared_Astronaut9377** (17↑): Here are thoughts of someone who works and hires in a big tech company. Your assumption that she can realistically find a job in any "programming" in this market is false. Out of 50+ software openings we have, 0 are juniors. I haven't seen an intern for two years. And it's not just big tech. With a bachelor of art, I would say Luci has like 1% chance to get any job per year of full time applying.
+  - **Professional-Cry6299** (1↑): Bro but once you move from your main carrier how you navigate again back to it? Since most of time we spent is working so moving back to main is like we will take ourself back
+- **marksman-with-a-pen** (95↑): She needs to make a small indie game, doesn’t need to be crazy. I know several people in video games, and they all got jobs in the industry by having a practical piece of work they could submit.
+- **Doobieboy420** (101↑): Find a job to pay the bills, make a indie games on the side.
   - **Dog_Baseball** (8↑): This right here. Get her other unemployed friends from college to help. 
 
 
 start up, make something awesome,  sell out $$$$$ and then go to work for the competition with some awesome experience on her resume.
     - **Scared_Astronaut9377** (0↑): Why would she ever need to work again? Obviously, when a group of people, who haven't been able to land a single job in an industry, starts a business within that industry, and works on it after their main jobs, it's going to be a multi-billion enterprise... Man, being born American must be awesome.
-- **BackDatSazzUp** (38↑): She needs to look outside of game development. She has a bunnnnncchhh of transferrable skills. Right now she needs any job. The cool thing about living in the future is that she can take a stab at making and launching her own games without a massive barrier to entry. I have a friend in Ontario that works in game dev and has worked on some big ones. Send me a DM and I’ll send you a link to his LinkedIn.
-- **LucyLuck_** (8↑): Hello this is Luci, thank you all for the very helpful advice and conversation. I have been working on an indie game with a couple other people, and in the process of designing my own solo project. If anyone wants to ask any questions or chat game design I am here. Thank you to my partner for posting this while I was half asleep lol. Thanks again Reddit for the advice it’s been nice reading the comments!
+- **BackDatSazzUp** (39↑): She needs to look outside of game development. She has a bunnnnncchhh of transferrable skills. Right now she needs any job. The cool thing about living in the future is that she can take a stab at making and launching her own games without a massive barrier to entry. I have a friend in Ontario that works in game dev and has worked on some big ones. Send me a DM and I’ll send you a link to his LinkedIn.
+- **LucyLuck_** (9↑): Hello this is Luci, thank you all for the very helpful advice and conversation. I have been working on an indie game with a couple other people, and in the process of designing my own solo project. If anyone wants to ask any questions or chat game design I am here. Thank you to my partner for posting this while I was half asleep lol. Thanks again Reddit for the advice it’s been nice reading the comments!
   - **eschatonx** (0↑): I promise you will get there one day with patience and perseverance. 
 
 Anything worth it in life comes with struggles, and you're going through that. It's normal, millions before you have went through and millions after you will as well.
-- **NewShadowR** (30↑): Why say her name? Now everyone knows Luci 25F from Ontario is struggling to find a job lol.
-  - **cake_is_ay_lie** (4↑): Could be a made up name
+- **NewShadowR** (29↑): Why say her name? Now everyone knows Luci 25F from Ontario is struggling to find a job lol.
+  - **cake_is_ay_lie** (5↑): Could be a made up name
   - **Don_T_Blink** (1↑): Which one of the 300?
     - **NewShadowR** (0↑): idk Luci with the I is quite the uncommon name. Now when you google luci 25 F ontario,  google's Ai summary gives you this lmao. I'm sure a better sleuth can actually dox her right away if that's truly her name.
 
@@ -70,8 +106,8 @@ Based on recent discussions, Luci (25F) is a resident of Ontario, Canada, who gr
 **Contextual Factors**
 
 * Recent discussions highlight the competitive nature of the industry and the challenges recent design graduates face in finding entry-level roles.  Reddit
-- **DiegoTheGoat** (5↑): There is no game development pipeline from a school to a studio. Game development schools sell folks a lie. She should get a programming job, and make games on the side. She should not wait around for a position to open at a studio.
-- **takeyouraxeandhack** (8↑): One year trying is not a lot compared to how much effort she put so far. I wouldn't give up so quickly. 
+- **DiegoTheGoat** (6↑): There is no game development pipeline from a school to a studio. Game development schools sell folks a lie. She should get a programming job, and make games on the side. She should not wait around for a position to open at a studio.
+- **takeyouraxeandhack** (9↑): One year trying is not a lot compared to how much effort she put so far. I wouldn't give up so quickly. 
 
 If I were in her shoes, I'd try to get any job in IT to get into the market and in the meantime **make a demo** game. More than one if possible.   
 

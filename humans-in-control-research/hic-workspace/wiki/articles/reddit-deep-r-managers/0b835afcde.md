@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-managers/0b835afcde.md
 url: "https://www.reddit.com/r/managers/comments/1sfxnau/wfh_employee_lying_re_working_hours/"
 url_hash: "0b835afcde"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-26T12:55:55.848564+00:00"
 chars: 4735
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-managers/0b835afcde.md#c0"
+    char_span: [0, 2074]
+    sentence_count: 17
+    key_terms: [working, asked, been, work, managers, hours, application, logs]
+    token_count: 475
+  - id: "articles/reddit-deep-r-managers/0b835afcde.md#c1"
+    char_span: [2077, 4183]
+    sentence_count: 15
+    key_terms: [because, everything, worked, being, team, work, productive, available]
+    token_count: 478
+  - id: "articles/reddit-deep-r-managers/0b835afcde.md#c2"
+    char_span: [4185, 4900]
+    sentence_count: 2
+    key_terms: [exactly, audit, order, thats, done, get, time, work]
+    token_count: 165
 ---
-
 # WFH employee lying re working hours
 
 Source: [Reddit Deep: r/managers](https://www.reddit.com/r/managers/comments/1sfxnau/wfh_employee_lying_re_working_hours/)

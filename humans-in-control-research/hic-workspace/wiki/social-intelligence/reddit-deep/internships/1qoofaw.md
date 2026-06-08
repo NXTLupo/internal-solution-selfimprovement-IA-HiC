@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1qoofaw.md
 url: "https://www.reddit.com/r/internships/comments/1qoofaw/need_help_picking_an_internship/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,27 @@ flair: "Offers"
 extracted_at: "2026-05-25T18:31:15.452Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce, education, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1qoofaw.md#c0"
+    char_span: [0, 1196]
+    sentence_count: 8
+    key_terms: [technical, systems, internships, reliability, less, bloomberg, comments, employee]
+    token_count: 287
+  - id: "social-intelligence/reddit-deep/internships/1qoofaw.md#c1"
+    char_span: [1211, 2451]
+    sentence_count: 9
+    key_terms: [less, nutanix, technical, ok-building-4079, higher, internships, role, decision]
+    section: Comments
+    token_count: 313
+  - id: "social-intelligence/reddit-deep/internships/1qoofaw.md#c2"
+    char_span: [2453, 3315]
+    sentence_count: 9
+    key_terms: [nutanix, technical, compared, support, appropriate-tutor587, more-requirement1214, later, got]
+    section: Comments
+    token_count: 208
 ---
-
 # need help picking an internship
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1qoofaw/need_help_picking_an_internship/)

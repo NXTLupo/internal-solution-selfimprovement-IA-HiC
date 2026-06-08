@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1skmu57.md
 url: "https://www.reddit.com/r/personalfinance/comments/1skmu57/how_much_of_an_emergency_fund_is_too_much/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,75 @@ flair: "Saving"
 extracted_at: "2026-05-17T01:13:31.182Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c0"
+    char_span: [0, 1739]
+    sentence_count: 9
+    key_terms: [emergency, job, husband, money, fund, expenses, personalfinance, year]
+    token_count: 391
+  - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c1"
+    char_span: [1754, 3716]
+    sentence_count: 12
+    key_terms: [emergency, fund, years, job, find, jobs, work, deersindal]
+    section: Comments
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c2"
+    char_span: [3718, 5178]
+    sentence_count: 9
+    key_terms: [income, emergency, job, investments, fund, loss, plan, household]
+    section: Comments
+    token_count: 353
+  - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c3"
+    char_span: [5180, 6245]
+    sentence_count: 4
+    key_terms: [job, year, easily, being, case, get, "it's", like]
+    section: Comments
+    token_count: 259
+  - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c4"
+    char_span: [6247, 8334]
+    sentence_count: 15
+    key_terms: [contribute, years, aggressively, money, iras, year, investing, expenses]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c5"
+    char_span: [8064, 8339]
+    sentence_count: 5
+    key_terms: [job, available, certainly, liability, consider, loading, penalty, access]
+    section: Comments
+    token_count: 66
+  - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c6"
+    char_span: [8341, 10378]
+    sentence_count: 17
+    key_terms: [job, year, years, emergency, jobs, husband, without, people]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c7"
+    char_span: [10380, 12244]
+    sentence_count: 13
+    key_terms: [emergency, fund, happiness, expenses, factor, year, considered, finances]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c8"
+    char_span: [12246, 13653]
+    sentence_count: 15
+    key_terms: [emergency, employment, expenses, probably, monthly, "that's", forgo, money]
+    section: Comments
+    token_count: 332
+  - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c9"
+    char_span: [13655, 15421]
+    sentence_count: 14
+    key_terms: [roth, ira, contribute, contributions, money, take, difference, volatility]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c10"
+    char_span: [15424, 15986]
+    sentence_count: 4
+    key_terms: [backdoor, roth, sportsballburner, digmonsdrill, investments, nickelmedia, compromise, something]
+    section: Comments
+    token_count: 146
 ---
-
 # How much of an emergency fund is “too much”
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1skmu57/how_much_of_an_emergency_fund_is_too_much/)

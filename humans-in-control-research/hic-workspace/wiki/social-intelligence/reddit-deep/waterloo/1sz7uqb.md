@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1sz7uqb.md
 url: "https://www.reddit.com/r/waterloo/comments/1sz7uqb/struggling_uni_student_looking_for_remote_work/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.131Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1sz7uqb.md#c0"
+    char_span: [0, 784]
+    sentence_count: 6
+    key_terms: [waterloo, comments, student, point, "i'm", time, work, okchampion9592]
+    token_count: 192
+  - id: "social-intelligence/reddit-deep/waterloo/1sz7uqb.md#c1"
+    char_span: [799, 1142]
+    sentence_count: 2
+    key_terms: [wusa-student-life-centre-5-student-advocacy-support-2, job, finding-part-time-job-campus, https, future-students, missing-manual, applications, ilikestyx]
+    section: Comments
+    token_count: 100
 ---
-
 # Struggling uni student looking for remote work
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1sz7uqb/struggling_uni_student_looking_for_remote_work/)

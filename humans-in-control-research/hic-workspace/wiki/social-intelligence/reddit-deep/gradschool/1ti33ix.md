@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1ti33ix.md
 url: "https://www.reddit.com/r/GradSchool/comments/1ti33ix/recent_college_undergrad_seeking_advice_for_grad/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,27 @@ flair: "Admissions & Applications"
 extracted_at: "2026-05-25T13:04:07.349Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1ti33ix.md#c0"
+    char_span: [0, 1756]
+    sentence_count: 15
+    key_terms: [school, graduate, job, major, get, recommendation, letter, field]
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/gradschool/1ti33ix.md#c1"
+    char_span: [1771, 2965]
+    sentence_count: 11
+    key_terms: [nomoremermaids, custodial, mercuryo1, masters, program, overall-register9758, zestyclose-smell4158, bag]
+    section: Comments
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/gradschool/1ti33ix.md#c2"
+    char_span: [2967, 3712]
+    sentence_count: 6
+    key_terms: [school, grad, pay, recommendation, higher-paying, connections, flexibility, speedydooo]
+    section: Comments
+    token_count: 191
 ---
-
 # Recent College Undergrad Seeking Advice for Grad School and Future
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1ti33ix/recent_college_undergrad_seeking_advice_for_grad/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1onylf5.md
 url: "https://www.reddit.com/r/GradSchool/comments/1onylf5/grad_school_while_grieving/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,45 @@ flair: "Health & Work/Life Balance"
 extracted_at: "2026-05-23T19:45:05.862Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1onylf5.md#c0"
+    char_span: [0, 1210]
+    sentence_count: 14
+    key_terms: [grad, gradschool, impossible, comments, grieving, because, nothing, program]
+    token_count: 270
+  - id: "social-intelligence/reddit-deep/gradschool/1onylf5.md#c1"
+    char_span: [1225, 3367]
+    sentence_count: 24
+    key_terms: [year, program, resources, grad, back, free, especially, available]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/gradschool/1onylf5.md#c2"
+    char_span: [3369, 5295]
+    sentence_count: 20
+    key_terms: [miamiislandgyal305, through, relationship, sorry, mine, everything, doctorate, divorce]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1onylf5.md#c3"
+    char_span: [5018, 6218]
+    sentence_count: 9
+    key_terms: [health, situation, advisor, family, losing, miamiislandgyal305, been, life]
+    section: Comments
+    token_count: 266
+  - id: "social-intelligence/reddit-deep/gradschool/1onylf5.md#c4"
+    char_span: [6220, 8474]
+    sentence_count: 19
+    key_terms: [life, difficult, time, going, good, masters, back, get]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/gradschool/1onylf5.md#c5"
+    char_span: [8476, 9985]
+    sentence_count: 19
+    key_terms: [school, lot, support, months, later, away, been, help]
+    section: Comments
+    token_count: 335
 ---
-
 # Grad school while grieving
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1onylf5/grad_school_while_grieving/)

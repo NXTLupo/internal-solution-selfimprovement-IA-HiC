@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1rjys35.md
 url: "https://www.reddit.com/r/jobs/comments/1rjys35/internships_only_available_for_students_need/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,21 @@ flair: "Internships"
 extracted_at: "2026-05-25T13:03:11.721Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1rjys35.md#c0"
+    char_span: [0, 1702]
+    sentence_count: 12
+    key_terms: [internships, available, jobs, experience, because, looking, able, job]
+    token_count: 378
+  - id: "social-intelligence/reddit-deep/jobs/1rjys35.md#c1"
+    char_span: [1717, 2027]
+    sentence_count: 4
+    key_terms: [glassblockhead, certification, photography, catalogue, community, something, bullshit, creative]
+    section: Comments
+    token_count: 65
 ---
-
 # Internships only available for students. Need experience for entry level jobs.
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1rjys35/internships_only_available_for_students_need/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1s7tkiy.md
 url: "https://www.reddit.com/r/GenZ/comments/1s7tkiy/is_it_just_me_or_is_this_notion_that_young_men/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,44 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.769Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [fundraising, nonprofit]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1s7tkiy.md#c0"
+    char_span: [0, 1945]
+    sentence_count: 15
+    key_terms: [men, college, going, young, job, school, home, like]
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/genz/1s7tkiy.md#c1"
+    char_span: [1947, 2462]
+    sentence_count: 6
+    key_terms: [men, definitely, want, contributing, experience, supporting, education, lifestyle]
+    token_count: 120
+  - id: "social-intelligence/reddit-deep/genz/1s7tkiy.md#c2"
+    char_span: [2477, 4648]
+    sentence_count: 10
+    key_terms: [men, doing, middle, accountability, rigged, women, past, take]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/genz/1s7tkiy.md#c3"
+    char_span: [4650, 6535]
+    sentence_count: 16
+    key_terms: [men, being, women, "don't", game, "it's", like, rich]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/genz/1s7tkiy.md#c4"
+    char_span: [6537, 8824]
+    sentence_count: 15
+    key_terms: [get, job, years, dont, jobs, time, because, degree]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/genz/1s7tkiy.md#c5"
+    char_span: [8826, 10122]
+    sentence_count: 5
+    key_terms: [men, impacted, lot, industries, dominated, overblown, economy, life]
+    section: Comments
+    token_count: 274
 ---
-
 # Is it just me, or is this notion that young men aren’t working, aren’t going to school, and are just staying at home and giving up on life, kind of overblown?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1s7tkiy/is_it_just_me_or_is_this_notion_that_young_men/)

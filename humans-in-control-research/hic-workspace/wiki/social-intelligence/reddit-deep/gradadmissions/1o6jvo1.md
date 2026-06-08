@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1o6jvo1.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1o6jvo1/regret_choosing_hult_how_can_i_rebuild/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,15 @@ flair: "General Advice"
 extracted_at: "2026-05-23T14:54:16.710Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1o6jvo1.md#c0"
+    char_span: [0, 1619]
+    sentence_count: 12
+    key_terms: [school, gradadmissions, credibility, hult, want, experience, academic, comments]
+    token_count: 340
 ---
-
 # Regret choosing Hult — how can I rebuild credibility for my career or grad school?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1o6jvo1/regret_choosing_hult_how_can_i_rebuild/)

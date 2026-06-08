@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1qgwzyd.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1qgwzyd/accepted_to_top_choice/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,21 @@ flair: "Engineering"
 extracted_at: "2026-05-23T12:15:55.834Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qgwzyd.md#c0"
+    char_span: [0, 411]
+    sentence_count: 3
+    key_terms: [gradadmissions, comments, https, png, oozoxiv659eg1, reddit-deep, accepted, connect]
+    token_count: 137
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qgwzyd.md#c1"
+    char_span: [426, 1549]
+    sentence_count: 4
+    key_terms: [congratulations, congrats, applied, argumentmysterious31, good, mind, too, normal-path-3451]
+    section: Comments
+    token_count: 378
 ---
-
 # Accepted to top choice!
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1qgwzyd/accepted_to_top_choice/)

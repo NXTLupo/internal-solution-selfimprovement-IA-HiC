@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-machinelearning/dfdecdb746.md
 url: "https://www.reddit.com/r/MachineLearning/comments/1sh76ji/started_a_video_series_on_building_an/"
 url_hash: "dfdecdb746"
 kind: "article"
@@ -10,8 +11,40 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T17:35:50.608474+00:00"
 chars: 9368
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-machinelearning/dfdecdb746.md#c0"
+    char_span: [0, 1852]
+    sentence_count: 9
+    key_terms: [machinelearning, files, tests, reddit, remove, post-training, dependencies, https]
+    token_count: 416
+  - id: "articles/reddit-deep-r-machinelearning/dfdecdb746.md#c1"
+    char_span: [1854, 3441]
+    sentence_count: 9
+    key_terms: [orchestration, framework, care, noticed, layer, let, whether, better]
+    token_count: 359
+  - id: "articles/reddit-deep-r-machinelearning/dfdecdb746.md#c2"
+    char_span: [3443, 5493]
+    sentence_count: 12
+    key_terms: [through, blog, post, codebase, dhruvnigam93, https, especially, different]
+    token_count: 494
+  - id: "articles/reddit-deep-r-machinelearning/dfdecdb746.md#c3"
+    char_span: [5495, 7150]
+    sentence_count: 7
+    key_terms: [github, https, com, codebase, openrlhf, meta-pytorch, token-aware, torchforge]
+    token_count: 377
+  - id: "articles/reddit-deep-r-machinelearning/dfdecdb746.md#c4"
+    char_span: [7152, 8620]
+    sentence_count: 8
+    key_terms: ["it's", "i'll", "i'm", implementation, better, final, codebase, engineer]
+    token_count: 360
+  - id: "articles/reddit-deep-r-machinelearning/dfdecdb746.md#c5"
+    char_span: [8622, 9597]
+    sentence_count: 4
+    key_terms: [orchestration, post-training, pattern, youtube, reinforcedknowledge, https, layer, video]
+    token_count: 220
 ---
-
 # Started a video series on building an orchestration layer for LLM post-training [P]
 
 Source: [Reddit Deep: r/machinelearning](https://www.reddit.com/r/MachineLearning/comments/1sh76ji/started_a_video_series_on_building_an/)

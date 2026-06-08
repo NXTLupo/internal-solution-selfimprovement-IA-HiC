@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1rfjm9m.md
 url: "https://www.reddit.com/r/managers/comments/1rfjm9m/new_manager_and_i_need_to_layoff_team_members/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,45 @@ flair: "New Manager"
 extracted_at: "2026-05-26T12:54:23.670Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1rfjm9m.md#c0"
+    char_span: [0, 1443]
+    sentence_count: 9
+    key_terms: [team, plan, been, soon, want, management, comments, included]
+    token_count: 319
+  - id: "social-intelligence/reddit-deep/managers/1rfjm9m.md#c1"
+    char_span: [1458, 2520]
+    sentence_count: 10
+    key_terms: [genek1953, stealth, warning, people, team, work, consideration, discussions]
+    section: Comments
+    token_count: 246
+  - id: "social-intelligence/reddit-deep/managers/1rfjm9m.md#c2"
+    char_span: [2522, 4376]
+    sentence_count: 12
+    key_terms: [tell, months, pretty, leave, place, like, team, work]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/managers/1rfjm9m.md#c3"
+    char_span: [4378, 6471]
+    sentence_count: 15
+    key_terms: [early, until, don, get, std, team, tell, want]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/managers/1rfjm9m.md#c4"
+    char_span: [6473, 8429]
+    sentence_count: 8
+    key_terms: [good, time, months, eligibility, employment, quarters, "state's", worked]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/managers/1rfjm9m.md#c5"
+    char_span: [8431, 9872]
+    sentence_count: 6
+    key_terms: [discrimination, people, weeks, encourage, pregnant, layoff, township-road-nnn, "it's"]
+    section: Comments
+    token_count: 332
 ---
-
 # New manager and I need to layoff team members soon. Plus fear I will be included.
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1rfjm9m/new_manager_and_i_need_to_layoff_team_members/)

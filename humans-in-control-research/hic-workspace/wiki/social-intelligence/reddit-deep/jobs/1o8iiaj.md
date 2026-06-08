@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1o8iiaj.md
 url: "https://www.reddit.com/r/jobs/comments/1o8iiaj/is_this_a_normal_hiring_practice/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,27 @@ flair: "Applications"
 extracted_at: "2026-05-22T21:35:36.550Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1o8iiaj.md#c0"
+    char_span: [0, 695]
+    sentence_count: 7
+    key_terms: [comments, normal, chronicallylurkiing, check, jobs, like, administrator, reddit-deep]
+    token_count: 164
+  - id: "social-intelligence/reddit-deep/jobs/1o8iiaj.md#c1"
+    char_span: [710, 2282]
+    sentence_count: 10
+    key_terms: [ban-the-box-fair-chance-hiring-state-and-local-guide, background, scam, "doesn't", credit, states, no-understanding4968, chronicallylurkiing]
+    section: Comments
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/jobs/1o8iiaj.md#c2"
+    char_span: [2284, 4001]
+    sentence_count: 12
+    key_terms: [credit, scam, pull, website, offer, applicant, instead, reports]
+    section: Comments
+    token_count: 456
 ---
-
 # Is this a normal hiring practice?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1o8iiaj/is_this_a_normal_hiring_practice/)

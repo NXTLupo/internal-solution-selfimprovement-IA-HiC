@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t5cx6l.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t5cx6l/do_people_actually_rebuild_their_careers_in_their/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-26T14:32:49.147Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t5cx6l.md#c0"
+    char_span: [0, 1480]
+    sentence_count: 11
+    key_terms: [careers, careerguidance, something, comments, already, rebuild, people, going]
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/careerguidance/1t5cx6l.md#c1"
+    char_span: [1495, 2013]
+    sentence_count: 5
+    key_terms: [program, career, affordability, chicken121260, flexibility, definitely, rebuilding, balancing]
+    section: Comments
+    token_count: 127
 ---
-
 # Do people actually rebuild their careers in their 30s, or do most just learn to live with the path they chose?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t5cx6l/do_people_actually_rebuild_their_careers_in_their/)

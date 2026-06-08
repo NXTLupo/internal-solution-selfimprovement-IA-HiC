@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1mon5re.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1mon5re/princeton_again_tabbed_1_school_in_the_us_in_new/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,39 @@ flair: "Discussion"
 extracted_at: "2026-05-25T18:32:06.243Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mon5re.md#c0"
+    char_span: [0, 524]
+    sentence_count: 12
+    key_terms: [princeton, applyingtocollege, comments, college, ranking, responsible-bake-935, reddit-deep, "linkedin's"]
+    token_count: 149
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mon5re.md#c1"
+    char_span: [539, 1811]
+    sentence_count: 7
+    key_terms: [ucla, berkeley, schools, babson, engineering, linkedin, rankings, yodelingveterinarian]
+    section: Comments
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mon5re.md#c2"
+    char_span: [1813, 3848]
+    sentence_count: 11
+    key_terms: [college, exceptional, employment, business, research, california-colleges-return-on-investment, ranking, jacejones52]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mon5re.md#c3"
+    char_span: [3850, 5904]
+    sentence_count: 10
+    key_terms: [alumni, methodology, cohorts, recent, tracks, placement, job, percentage]
+    section: Comments
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mon5re.md#c4"
+    char_span: [5906, 7483]
+    sentence_count: 7
+    key_terms: [mediocre-sector-8246, yale, columbia, school, internships, jobs, princeton, drawing]
+    section: Comments
+    token_count: 382
 ---
-
 # Princeton Again Tabbed #1 School in the US in New Ranking
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1mon5re/princeton_again_tabbed_1_school_in_the_us_in_new/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/professors/1omlv4r.md
 url: "https://www.reddit.com/r/Professors/comments/1omlv4r/worse_before_it_gets_better/"
 kind: "social-post"
 source: "reddit-deep: r/professors"
@@ -13,8 +14,105 @@ flair: ""
 extracted_at: "2026-05-20T03:55:39.266Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/professors/1omlv4r.md#c0"
+    char_span: [0, 1704]
+    sentence_count: 26
+    key_terms: [anything, professors, kids, nothing, please, k-12, meaningful, comments]
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/professors/1omlv4r.md#c1"
+    char_span: [1719, 3489]
+    sentence_count: 18
+    key_terms: [students, accountable, too, grade, fail, "it's", need, son]
+    section: Comments
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/professors/1omlv4r.md#c2"
+    char_span: [3491, 4541]
+    sentence_count: 8
+    key_terms: [drpepperusa, fail, k-12, secondary, students, college, teacher, back]
+    section: Comments
+    token_count: 288
+  - id: "social-intelligence/reddit-deep/professors/1omlv4r.md#c3"
+    char_span: [4543, 6309]
+    sentence_count: 12
+    key_terms: [k-12, college, school, performance, preparation, poor, because, schools]
+    section: Comments
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/professors/1omlv4r.md#c4"
+    char_span: [6311, 8474]
+    sentence_count: 18
+    key_terms: [students, education, classes, putting, special, phones, disabilities, like]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/professors/1omlv4r.md#c5"
+    char_span: [8476, 10639]
+    sentence_count: 10
+    key_terms: [students, disruptive, educators, teachers, thinking, problem, school, grade]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/professors/1omlv4r.md#c6"
+    char_span: [10641, 11883]
+    sentence_count: 11
+    key_terms: [education, quality, time, oneself, maybe, since, don, down]
+    section: Comments
+    token_count: 262
+  - id: "social-intelligence/reddit-deep/professors/1omlv4r.md#c7"
+    char_span: [11885, 13758]
+    sentence_count: 14
+    key_terms: [national, requirements, don, curricula, education, practices, standards, teacher]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/professors/1omlv4r.md#c8"
+    char_span: [13760, 15578]
+    sentence_count: 10
+    key_terms: [bad-therapy-by-abigail-shrier, worse, penguinrandomhouse, "it's", anything, children, parents, student]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/professors/1omlv4r.md#c9"
+    char_span: [15580, 17491]
+    sentence_count: 13
+    key_terms: [get, assignments, "it's", kids, need, attention, anything, complete]
+    section: Comments
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/professors/1omlv4r.md#c10"
+    char_span: [17493, 19796]
+    sentence_count: 20
+    key_terms: [teachers, kids, motivation, math, son, college, private, accomplishment]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/professors/1omlv4r.md#c11"
+    char_span: [19800, 21933]
+    sentence_count: 19
+    key_terms: [school, kids, "it's", work, different, families, college, working]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/professors/1omlv4r.md#c12"
+    char_span: [21935, 24317]
+    sentence_count: 9
+    key_terms: [students, being, experiment, allergies, classroom, education, obviously, parental]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/professors/1omlv4r.md#c13"
+    char_span: [24319, 25999]
+    sentence_count: 14
+    key_terms: [academic, screen-free, students, failure, almost, better, dirtierthanshelooks, along]
+    section: Comments
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/professors/1omlv4r.md#c14"
+    char_span: [26001, 27204]
+    sentence_count: 8
+    key_terms: [students, rationalizing-student-behaviors-away, "don't", vwiklrlr6ngttbznf, competitively, apparently, colleagues, compassion]
+    section: Comments
+    token_count: 295
+  - id: "social-intelligence/reddit-deep/professors/1omlv4r.md#c15"
+    char_span: [27208, 28846]
+    sentence_count: 11
+    key_terms: [students, deleted, get, "i've", problems, whatever, changed, place]
+    section: Comments
+    token_count: 397
 ---
-
 # Worse before it gets better
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1omlv4r/worse_before_it_gets_better/)

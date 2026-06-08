@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-applyingtocollege/71dcdddd23.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1r0gcpc/what_qualities_do_you_think_make_a_strong_college/"
 url_hash: "71dcdddd23"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:41:14.791399+00:00"
 chars: 3083
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-applyingtocollege/71dcdddd23.md#c0"
+    char_span: [0, 2339]
+    sentence_count: 22
+    key_terms: [application, college, applicants, applyingtocollege, specific, essays, essay, stand]
+    token_count: 482
+  - id: "articles/reddit-deep-r-applyingtocollege/71dcdddd23.md#c1"
+    char_span: [2341, 3317]
+    sentence_count: 9
+    key_terms: [teacher, activities, important, realistic, safeties, "there's", strong, write]
+    token_count: 211
 ---
-
 # What qualities do you think make a strong college application stand out?
 
 Source: [Reddit Deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1r0gcpc/what_qualities_do_you_think_make_a_strong_college/)

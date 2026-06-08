@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1l36irl.md
 url: "https://www.reddit.com/r/college/comments/1l36irl/firstgen_college_student_starting_criminal/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,21 @@ flair: "Career/work"
 extracted_at: "2026-05-23T14:53:53.127Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1l36irl.md#c0"
+    char_span: [0, 1217]
+    sentence_count: 9
+    key_terms: [criminal, college, law, school, justice, first-gen, student, attorney]
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/college/1l36irl.md#c1"
+    char_span: [1232, 2261]
+    sentence_count: 11
+    key_terms: [law, school, major, lsat, criminal, justice, top, philosophy]
+    section: Comments
+    token_count: 251
 ---
-
 # First-Gen College Student Starting Criminal Justice — Hoping to Become a Criminal Defense Attorney
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1l36irl/firstgen_college_student_starting_criminal/)

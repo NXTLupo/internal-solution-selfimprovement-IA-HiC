@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1t80mgr.md
 url: "https://www.reddit.com/r/jobs/comments/1t80mgr/why_do_companies_force_entrylevel_jobs_to_require/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,27 @@ flair: "Job searching"
 extracted_at: "2026-05-20T06:41:17.644Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1t80mgr.md#c0"
+    char_span: [0, 282]
+    sentence_count: 2
+    key_terms: [jobs, comments, pristine-row-7432, entry-level, reddit-deep, experience, companies, insights]
+    token_count: 82
+  - id: "social-intelligence/reddit-deep/jobs/1t80mgr.md#c1"
+    char_span: [297, 1788]
+    sentence_count: 10
+    key_terms: [training, years, basic, internships, take, experience, companies, practices]
+    section: Comments
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/jobs/1t80mgr.md#c2"
+    char_span: [1790, 2725]
+    sentence_count: 8
+    key_terms: [experience, people, requires, training, company, pristine-row-7432, requirements, functioning]
+    section: Comments
+    token_count: 205
 ---
-
 # Why do companies force “entry-level” jobs to require 3–5 years of experience?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1t80mgr/why_do_companies_force_entrylevel_jobs_to_require/)

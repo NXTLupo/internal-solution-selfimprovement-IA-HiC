@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1racw9h.md
 url: "https://www.reddit.com/r/findapath/comments/1racw9h/you_already_know_the_answer_to_your_question/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,56 @@ flair: "Offering Guidance Post"
 extracted_at: "2026-05-22T15:13:18.833Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1racw9h.md#c0"
+    char_span: [0, 2032]
+    sentence_count: 2
+    key_terms: [because, someone, brain, like, too, paragraphs, findapath, paragraph]
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/findapath/1racw9h.md#c1"
+    char_span: [2034, 4262]
+    sentence_count: 1
+    key_terms: [paragraph, because, misalignment, "don't", start, been, need, everything]
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/findapath/1racw9h.md#c2"
+    char_span: [4277, 6371]
+    sentence_count: 14
+    key_terms: [thank, helpful, please, time, interested, findapath, therapist, comments]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/findapath/1racw9h.md#c3"
+    char_span: [6373, 8788]
+    sentence_count: 15
+    key_terms: [psychology, everything, because, like, neuroscience, scientific, subjective, chemistry]
+    section: Comments
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/findapath/1racw9h.md#c4"
+    char_span: [8790, 10581]
+    sentence_count: 11
+    key_terms: [career, right, doing, long, regarded, because, science, started]
+    section: Comments
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/findapath/1racw9h.md#c5"
+    char_span: [10583, 12922]
+    sentence_count: 13
+    key_terms: [because, like, music, love, doing, money, parts, able]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/findapath/1racw9h.md#c6"
+    char_span: [12924, 14881]
+    sentence_count: 11
+    key_terms: [ceramics, take, workshop, movingarchivist, spreadsheets, thats, spreadsheet, attention]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/findapath/1racw9h.md#c7"
+    char_span: [14883, 16042]
+    sentence_count: 6
+    key_terms: [moment, themselves, thoughts, writing, frostyblackberry5191, helps, leads, post]
+    section: Comments
+    token_count: 252
 ---
-
 # you already know the answer to your question
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1racw9h/you_already_know_the_answer_to_your_question/)

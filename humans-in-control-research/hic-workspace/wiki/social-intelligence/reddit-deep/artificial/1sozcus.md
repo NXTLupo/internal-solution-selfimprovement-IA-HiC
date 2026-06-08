@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1sozcus.md
 url: "https://www.reddit.com/r/artificial/comments/1sozcus/ai_helped_me_build_a_custom_pc_and_4_apps_in_6/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,33 @@ flair: "Project"
 extracted_at: "2026-05-11T16:53:08.148Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1sozcus.md#c0"
+    char_span: [0, 1398]
+    sentence_count: 24
+    key_terms: [build, app, artificial, comments, computer, behind, custom, months]
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/artificial/1sozcus.md#c1"
+    char_span: [1413, 3456]
+    sentence_count: 23
+    key_terms: ["it's", work, making, "can't", security, another, mistake, crunchygremlin]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/artificial/1sozcus.md#c2"
+    char_span: [3460, 5698]
+    sentence_count: 7
+    key_terms: [build, like, start, help, automating, everything, building, changing]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/artificial/1sozcus.md#c3"
+    char_span: [5703, 6273]
+    sentence_count: 6
+    key_terms: [inventory, nothing, tracker, fancy, app, part, experience, breakdown]
+    section: Comments
+    token_count: 131
 ---
-
 # AI helped me build a custom PC and 4 apps in 6 months with zero coding experience
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1sozcus/ai_helped_me_build_a_custom_pc_and_4_apps_in_6/)

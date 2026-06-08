@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1pmssxv.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1pmssxv/parents_who_helped_with_applications_what_did_you/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -10,11 +11,76 @@ score: 4
 upvote_ratio: 0.83
 num_comments: 81
 flair: "College Questions"
-extracted_at: "2026-05-23T19:45:32.283Z"
+extracted_at: "2026-06-05T19:53:34.568Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pmssxv.md#c0"
+    char_span: [0, 537]
+    sentence_count: 6
+    key_terms: [applyingtocollege, comments, earlier, started, wish, applications, application, reddit-deep]
+    token_count: 128
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pmssxv.md#c1"
+    char_span: [552, 2055]
+    sentence_count: 4
+    key_terms: [school, student, interests, parents, essays, get, starting, college]
+    section: Comments
+    token_count: 329
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pmssxv.md#c2"
+    char_span: [2057, 4163]
+    sentence_count: 16
+    key_terms: [visit, necessarymeeting4873, schools, pretty, shared, essay, application, scholarship]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pmssxv.md#c3"
+    char_span: [4165, 5968]
+    sentence_count: 15
+    key_terms: [kid, school, teacher, junior, "university's", did, done, year]
+    section: Comments
+    token_count: 401
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pmssxv.md#c4"
+    char_span: [5970, 8074]
+    sentence_count: 21
+    key_terms: [year, school, early, list, worked, application, kid, wish]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pmssxv.md#c5"
+    char_span: [8076, 10222]
+    sentence_count: 16
+    key_terms: [different, college, through, school, circumstances, comparison, deadlines, because]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pmssxv.md#c6"
+    char_span: [10224, 12035]
+    sentence_count: 21
+    key_terms: [application, september, started, course, summer, end, good, like]
+    section: Comments
+    token_count: 409
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pmssxv.md#c7"
+    char_span: [12037, 14139]
+    sentence_count: 36
+    key_terms: [financial, school, application, aid, "don't", done, need, parents]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pmssxv.md#c8"
+    char_span: [14141, 16315]
+    sentence_count: 18
+    key_terms: [parents, kids, process, schools, fit, "it's", tarasshevckeno, independent]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pmssxv.md#c9"
+    char_span: [16317, 18200]
+    sentence_count: 19
+    key_terms: [college, school, colleges, guide, best, good, admissions, detailed]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1pmssxv.md#c10"
+    char_span: [18202, 19871]
+    sentence_count: 16
+    key_terms: [college, counselors, schools, right, "i'm", kids, admissions, counselor]
+    section: Comments
+    token_count: 340
 ---
-
 # Parents who helped with applications - what did you wish you started earlier?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1pmssxv/parents_who_helped_with_applications_what_did_you/)
@@ -28,7 +94,7 @@ Trying to learn from others so we don't scramble at the last minute.
 
 ## Comments
 
-- **MrsAstrakhan62** (12↑): Here's what parents can and should do:
+- **MrsAstrakhan62** (13↑): Here's what parents can and should do:
 
 * Facilitate college visits starting the summer before junior year. 
 * be realistic about their kid's stengths AND weaknesses and help their kid research and find the best school for THEM and THEIR interests  (which may or may not align with parents' interests, and may or not be a prestige school) 
@@ -47,7 +113,7 @@ One thing I'd add from my experience (both my kids got into Canadian med school 
 
 By the time applications came, they weren't scrambling to explain who they were — they already knew.
   - **tarasshevckeno** (1↑): Frankly, parents shouldn't even look at essays until after an application has been submitted. The college essay is a strange beast, and I've found over the years that parents make the worst suggestions, even worse than a student's peers. As a reader, it's often pretty easy to spot an essay that has had excessive parental involvement, largely due to stereotypical signs of how much the essay misses the mark.
-- **Ok_Experience_5151** (6↑): I made a Google sheet with dates and shared it with my student.  Then asked him about some scholarship a few days before the deadline. "What?"  Turns out he saw the "Soandso has shared a document with you" email but never opened it and hadn't looked at the spreadsheet at all.
+- **Ok_Experience_5151** (5↑): I made a Google sheet with dates and shared it with my student.  Then asked him about some scholarship a few days before the deadline. "What?"  Turns out he saw the "Soandso has shared a document with you" email but never opened it and hadn't looked at the spreadsheet at all.
 
 So...make sure you're on the same page.
   - **Wild_Platypus_6324** (2↑): Ha — this is SO common. The shared doc means nothing if they never open it.

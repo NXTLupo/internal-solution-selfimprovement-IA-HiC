@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1qb8ow8.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1qb8ow8/highly_regarded_play_in_progress/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,33 @@ flair: "YOLO"
 extracted_at: "2026-05-17T01:14:17.612Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qb8ow8.md#c0"
+    char_span: [0, 620]
+    sentence_count: 6
+    key_terms: [wallstreetbets, comments, regarded, calls, play, frontqueasy3156, reddit-deep, prediction]
+    token_count: 164
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qb8ow8.md#c1"
+    char_span: [635, 1658]
+    sentence_count: 4
+    key_terms: [frontqueasy3156, account, powerfarta, discord, total, years, happy-champion1661, lmao]
+    section: Comments
+    token_count: 318
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qb8ow8.md#c2"
+    char_span: [1660, 3302]
+    sentence_count: 11
+    key_terms: [frontqueasy3156, degree, post, something, starting, ntheijs, pretty, calls]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1qb8ow8.md#c3"
+    char_span: [3304, 3500]
+    sentence_count: 1
+    key_terms: [mannheimcrescendo, replaceable, learned, society, guitar, class, never, bet]
+    section: Comments
+    token_count: 51
 ---
-
 # Highly Regarded play in progress....
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1qb8ow8/highly_regarded_play_in_progress/)

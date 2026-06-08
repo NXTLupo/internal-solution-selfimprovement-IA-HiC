@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1nn6k6l.md
 url: "https://www.reddit.com/r/college/comments/1nn6k6l/in_college_without_much_financial_support_what/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -10,11 +11,45 @@ score: 47
 upvote_ratio: 0.97
 num_comments: 26
 flair: ""
-extracted_at: "2026-05-23T12:15:24.650Z"
+extracted_at: "2026-06-03T17:59:08.476Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1nn6k6l.md#c0"
+    char_span: [0, 1490]
+    sentence_count: 16
+    key_terms: [college, loans, support, "don't", financial, semester, "that's", got]
+    token_count: 363
+  - id: "social-intelligence/reddit-deep/college/1nn6k6l.md#c1"
+    char_span: [1492, 2183]
+    sentence_count: 9
+    key_terms: [getting, "don't", get, "i'd", like, side, certificate, comfortable]
+    token_count: 154
+  - id: "social-intelligence/reddit-deep/college/1nn6k6l.md#c2"
+    char_span: [2198, 4312]
+    sentence_count: 19
+    key_terms: [career, like, want, recommend, job, scholarships, goals, down]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/college/1nn6k6l.md#c3"
+    char_span: [4316, 6448]
+    sentence_count: 14
+    key_terms: [fresh-awareness9819, degrees, army, college, getting, redditpersonn1, scholarships, "don't"]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1nn6k6l.md#c4"
+    char_span: [6155, 7048]
+    sentence_count: 5
+    key_terms: [investment, college, redditpersonn1, unfortunately, referring, degrees, facts, too]
+    section: Comments
+    token_count: 202
+  - id: "social-intelligence/reddit-deep/college/1nn6k6l.md#c5"
+    char_span: [7050, 9253]
+    sentence_count: 17
+    key_terms: [degree, psychology, occupational-projections-and-characteristics, college, degrees, scholarships, loans, start]
+    section: Comments
+    token_count: 480
 ---
-
 # In college without much financial support. What should I do?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1nn6k6l/in_college_without_much_financial_support_what/)
@@ -26,8 +61,8 @@ It also sucks that a lot of people are getting degrees and having trouble findin
 
 ## Comments
 
-- **winterlikesmusic** (32↑): Do whatever you can to get straight A’s and apply to EVERY single scholarship. Community colleges are usually way better funded than 4 yrs. Mine gave out merit scholarships like candy. If that means taking less classes and stretching it out over a longer time then do that. Also be involved in clubs or for me it was band. Extra curricular always gave scholarships. I also just got a job at chipotle and they reimburse tuition $5,200 a year if you’re interested in a part time gig.
-- **False_Risk296** (15↑): You need to narrow down on your career goals.  Once you do that, your college goal becomes clearer.  I’d recommend counting on school for social work if that is what you were interested in. 
+- **winterlikesmusic** (30↑): Do whatever you can to get straight A’s and apply to EVERY single scholarship. Community colleges are usually way better funded than 4 yrs. Mine gave out merit scholarships like candy. If that means taking less classes and stretching it out over a longer time then do that. Also be involved in clubs or for me it was band. Extra curricular always gave scholarships. I also just got a job at chipotle and they reimburse tuition $5,200 a year if you’re interested in a part time gig.
+- **False_Risk296** (14↑): You need to narrow down on your career goals.  Once you do that, your college goal becomes clearer.  I’d recommend counting on school for social work if that is what you were interested in. 
 
 You can see how much social work jobs pay by looking researching county websites.  I’d recommend taking loans if you need them.  I’d also recommend internships with community based organizations or county offices to help you get experience.
   - **Fresh-Awareness9819** (5↑): For clarification, what do you mean by narrowing down on career goals? I know that can mean different things. Do you mean like "What would I like to do with my job?", "How much do you want to make?", etcetera?
@@ -38,14 +73,14 @@ Then, a Career Center at your school can help you explore possibilities that mes
     - **Humble-Bar-7869** (1↑): Pick a path and stick to it. What do you want to be doing in 5-10 years?   
   
 Psychologist, social worker, EMT or blue-collar worker? These are all different things. And if you're low on funds, you don't have the luxury of spending aimless years in school finding out.
-- **VirtualAlgorhythm** (7↑): You got an internship with Disney lined up? You're chilling. Just keep working here and there, do your best to take your skillset and earn a few extra bucks.
-  - **Fresh-Awareness9819** (6↑): It's the DCP (Disney College Program) and I'm very lucky to have been accepted. I'll do my best.
+- **VirtualAlgorhythm** (6↑): You got an internship with Disney lined up? You're chilling. Just keep working here and there, do your best to take your skillset and earn a few extra bucks.
+  - **Fresh-Awareness9819** (5↑): It's the DCP (Disney College Program) and I'm very lucky to have been accepted. I'll do my best.
 - **Colbounds4Reel** (3↑): Honestly, taking certificate classes first with every bit that financial aid can give you then getting better work with those certs and slowly working your way into classes. Apply to scholarships and grants with every bit you have, theres jobs through the college that help with credits, and talking with councilers to narrow down what you want to get before really getting into it will save you a lot in the long run.
 - **Appropriate-Ad-396** (2↑): I enlisted in the Army to earn my GI Bill for my education, after discharge, I used it to attend the University of Washington (Seattle). When I enlisted, I did not know what I wanted to do in life, but my time in military service I was able to make a choice by the end of my enlistment. Military enlistment may not be for you, but the Army will allow you enlist as an E-3 (more money) if you complete your community college degree. Ask your Army Recruiter for their offers.
   - **Fresh-Awareness9819** (2↑): I don't qualify for the Army for medical reasons
 - **Thick-Strength4787** (2↑): apply to scholarships so u can start getting huge refund checks
-- **Redditpersonn1** (3↑): Somebody correct me if i'm wrong but aren't those degrees just starbucks degrees? Taking into account the ROI
-  - **Fresh-Awareness9819** (8↑): I'm sorry I don't follow. Are you referring to the degrees people get and then can't find employment, or are you referring to the Psych and Social Work degrees?
+- **Redditpersonn1** (2↑): Somebody correct me if i'm wrong but aren't those degrees just starbucks degrees? Taking into account the ROI
+  - **Fresh-Awareness9819** (7↑): I'm sorry I don't follow. Are you referring to the degrees people get and then can't find employment, or are you referring to the Psych and Social Work degrees?
     - **Redditpersonn1** (2↑): Meaning the ROI. Return on investment. The entire reason we go to school in the first place and consider it an investment which is solely dependent on degree you're going for
   - **Alaharon123** (3↑): No, they're used for transferring to a bachelor's program
     - **Redditpersonn1** (1↑): What do you mean

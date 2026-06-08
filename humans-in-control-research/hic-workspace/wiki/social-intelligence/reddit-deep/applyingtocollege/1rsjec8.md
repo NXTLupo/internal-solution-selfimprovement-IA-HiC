@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1rsjec8.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rsjec8/do_leadership_societies_like_the_scla_actually/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,21 @@ flair: "College Questions"
 extracted_at: "2026-05-22T23:33:52.639Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rsjec8.md#c0"
+    char_span: [0, 798]
+    sentence_count: 6
+    key_terms: [leadership, applyingtocollege, applications, like, scla, admissions, societies, comments]
+    token_count: 171
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rsjec8.md#c1"
+    char_span: [813, 1350]
+    sentence_count: 2
+    key_terms: [impact, organizations, experiences, activities, everything, initiative, p3stop4st4, detailing]
+    section: Comments
+    token_count: 126
 ---
-
 # Do leadership societies like the SCLA actually help with college applications?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rsjec8/do_leadership_societies_like_the_scla_actually/)

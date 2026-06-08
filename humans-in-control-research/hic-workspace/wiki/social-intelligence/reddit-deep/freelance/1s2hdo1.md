@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/freelance/1s2hdo1.md
 url: "https://www.reddit.com/r/freelance/comments/1s2hdo1/spent_200_on_instagram_ads_got_8_dms_zero_clients/"
 kind: "social-post"
 source: "reddit-deep: r/freelance"
@@ -13,8 +14,50 @@ flair: ""
 extracted_at: "2026-05-26T12:53:48.701Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c0"
+    char_span: [0, 2281]
+    sentence_count: 30
+    key_terms: [ads, instagram, account, clients, through, people, freelance, spent]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c1"
+    char_span: [2283, 2830]
+    sentence_count: 7
+    key_terms: [designers, instead, dms, "i'm", like, completely, motivation, different]
+    token_count: 111
+  - id: "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c2"
+    char_span: [2845, 4978]
+    sentence_count: 16
+    key_terms: [instagram, people, work, selling, design, ads, need, thirtysixx]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c3"
+    char_span: [4980, 6967]
+    sentence_count: 17
+    key_terms: [people, get, right, acquisition, freelancers, positioning, dms, less]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c4"
+    char_span: [6969, 8182]
+    sentence_count: 9
+    key_terms: [ads, through, business, clients, trying, email, leads, place]
+    section: Comments
+    token_count: 302
+  - id: "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c5"
+    char_span: [8184, 10360]
+    sentence_count: 12
+    key_terms: [designs, ads, restaurant, people, instagram, target, budget, google]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c6"
+    char_span: [10363, 12637]
+    sentence_count: 15
+    key_terms: [ads, people, instagram, platforms, money, gigs, like, work]
+    section: Comments
+    token_count: 501
 ---
-
 # Spent $200+ on Instagram ads, got 8 DMs, zero clients. What am I doing wrong?
 
 Source: [reddit-deep: r/freelance](https://www.reddit.com/r/freelance/comments/1s2hdo1/spent_200_on_instagram_ads_got_8_dms_zero_clients/)

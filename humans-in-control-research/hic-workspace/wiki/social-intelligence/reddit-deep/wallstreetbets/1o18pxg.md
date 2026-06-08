@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1o18pxg/30k_yolo_on_uipath_the_path_to_generational_wealth/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,60 @@ flair: "DD"
 extracted_at: "2026-05-17T01:14:17.603Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, saas, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c0"
+    char_span: [0, 1991]
+    sentence_count: 17
+    key_terms: [path, market, wallstreetbets, comments, pathetic, robotics, getting, cathie]
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c1"
+    char_span: [1993, 3905]
+    sentence_count: 10
+    key_terms: [partnerships, path, png, earnings, f59af1605fcf421a3264968abe2ef0eef65d4ecd, options, market, poised]
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c2"
+    char_span: [3907, 5532]
+    sentence_count: 5
+    key_terms: [png, preview, format, https, width, auto, redd, webp]
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c3"
+    char_span: [5534, 6182]
+    sentence_count: 4
+    key_terms: [png, preview, format, calls, https, width, auto, redd]
+    token_count: 218
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c4"
+    char_span: [6197, 6739]
+    sentence_count: 1
+    key_terms: [wallstreetbets, comments, reddit, https, com, www, total, years]
+    section: Comments
+    token_count: 182
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c5"
+    char_span: [6741, 8483]
+    sentence_count: 10
+    key_terms: [kuliyayoi, nonetimeaccount, wsb, company, discord, support, shares, https]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c6"
+    char_span: [8290, 8611]
+    sentence_count: 3
+    key_terms: [americanpatriot92, agentorange001, subsequent, kuliyayoi, anything, "doesn't", enough, except]
+    section: Comments
+    token_count: 102
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c7"
+    char_span: [8611, 9439]
+    sentence_count: 1
+    key_terms: [apu823, path, sunnyt21, suspicious-pick3722, watch, agentorange001, chefboyrd-92, iannoyyou101]
+    section: Comments
+    token_count: 295
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c8"
+    char_span: [9441, 10731]
+    sentence_count: 10
+    key_terms: [calls, let, company, shares, poopbucketchallenge, been, did, huge]
+    section: Comments
+    token_count: 356
 ---
-
 # 30K YOLO on uiPATH - The $PATH to generational wealth
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1o18pxg/30k_yolo_on_uipath_the_path_to_generational_wealth/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rrn42o.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rrn42o/for_best_cs_career_outcomes_is_it_better_to_start/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -10,11 +11,22 @@ score: 2
 upvote_ratio: 0.75
 num_comments: 6
 flair: ""
-extracted_at: "2026-05-26T14:31:41.257Z"
+extracted_at: "2026-06-06T16:39:04.111Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rrn42o.md#c0"
+    char_span: [0, 1065]
+    sentence_count: 5
+    key_terms: [cscareerquestions, earlier, better, spring, international, later, start, recruiting]
+    token_count: 262
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rrn42o.md#c1"
+    char_span: [1080, 2530]
+    sentence_count: 10
+    key_terms: [masters, research, earlier, perspective, getting, career, "you're", doing]
+    section: Comments
+    token_count: 317
 ---
-
 # For best CS career outcomes, is it better to start an MSCS earlier or start later but much better prepared?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rrn42o/for_best_cs_career_outcomes_is_it_better_to_start/)
@@ -41,4 +53,3 @@ Especially interested in views relevant to internships/full-time and internation
 Im doing ML, and I wanted to also review gaps in math (in addition to finishing the research project + algorithms + misc).
 
 The advantage I see is in more research papers + codebases published that will be in my CV, more terms spent in the US knowing professors/networking. But I could overestimate.
-- **pouldycheed** (-1↑): i’d start when you’re actually ready to recruit, not just earlier for the sake of it. being stronger for interviews + having a solid project usually matters more than entering the cycle a few months sooner.

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1sh5eb6.md
 url: "https://www.reddit.com/r/internships/comments/1sh5eb6/internships_available_no_previous_experience/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,22 @@ score: 15
 upvote_ratio: 0.82
 num_comments: 29
 flair: "Interviews"
-extracted_at: "2026-05-26T14:30:47.905Z"
+extracted_at: "2026-06-06T17:41:06.729Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1sh5eb6.md#c0"
+    char_span: [0, 1706]
+    sentence_count: 15
+    key_terms: [internships, comments, everyone, brandywinechemicalworks, company, career, reddit, brandywinechemworks]
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/internships/1sh5eb6.md#c1"
+    char_span: [1721, 2336]
+    sentence_count: 1
+    key_terms: [interested, brandywinechemworks, objective-forever-65, accomplished-2021, teddyboiroosevelt, misteriosshadow, anonymousboch, weirdspecies9]
+    section: Comments
+    token_count: 221
 ---
-
 # Internships Available (No previous experience required!!!) Freshman invited to apply as well
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1sh5eb6/internships_available_no_previous_experience/)

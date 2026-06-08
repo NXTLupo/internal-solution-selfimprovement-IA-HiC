@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1qzt4ap.md
 url: "https://www.reddit.com/r/findapath/comments/1qzt4ap/almost_30_still_have_not_figured_out_what_to_do/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,39 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-05-22T15:13:18.831Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1qzt4ap.md#c0"
+    char_span: [0, 748]
+    sentence_count: 5
+    key_terms: [want, findapath, comments, college, working, "don't", jobs, life]
+    token_count: 182
+  - id: "social-intelligence/reddit-deep/findapath/1qzt4ap.md#c1"
+    char_span: [763, 1710]
+    sentence_count: 9
+    key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/findapath/1qzt4ap.md#c2"
+    char_span: [1713, 3107]
+    sentence_count: 9
+    key_terms: [downtown-doubt4353, people, top, financial, degrees, realize, degree, having]
+    section: Comments
+    token_count: 321
+  - id: "social-intelligence/reddit-deep/findapath/1qzt4ap.md#c3"
+    char_span: [3109, 5280]
+    sentence_count: 12
+    key_terms: [college, years, something, davidbosley353, almost, makes, start, engineering]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/findapath/1qzt4ap.md#c4"
+    char_span: [5034, 6142]
+    sentence_count: 8
+    key_terms: [something, college, degree, appropriate-tutor587, don, get, jobs, need]
+    section: Comments
+    token_count: 280
 ---
-
 # Almost 30, still have not figured out what to do with life
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1qzt4ap/almost_30_still_have_not_figured_out_what_to_do/)

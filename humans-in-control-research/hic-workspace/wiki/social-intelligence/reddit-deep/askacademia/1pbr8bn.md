@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1pbr8bn.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1pbr8bn/has_anybody_else_noticed_a_religious_divide/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,69 @@ flair: "STEM"
 extracted_at: "2026-05-26T14:32:49.113Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [healthcare]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c0"
+    char_span: [0, 2311]
+    sentence_count: 17
+    key_terms: [students, clinical, religious, graduate, research, noticed, professional, believe]
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c1"
+    char_span: [2326, 3207]
+    sentence_count: 6
+    key_terms: [applicants, clinical, programs, religion, "it's", krabbypattyparty, geographically, work-education]
+    section: Comments
+    token_count: 181
+  - id: "social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c2"
+    char_span: [3209, 5616]
+    sentence_count: 13
+    key_terms: [religious, catholic, research, university, attention, graduate, students, teaching]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c3"
+    char_span: [5351, 5708]
+    sentence_count: 1
+    key_terms: [sciences, faculty, matthewsmugmanager, theological, regarding, religious, catholic, question]
+    section: Comments
+    token_count: 81
+  - id: "social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c4"
+    char_span: [5710, 7727]
+    sentence_count: 9
+    key_terms: [https, doi, people, onlinelibrary, anatomypubs, scientists, believing, christian]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c5"
+    char_span: [7729, 10252]
+    sentence_count: 22
+    key_terms: [students, professional, christian, academic, graduate, degrees, school, countries]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c6"
+    char_span: [10254, 10742]
+    sentence_count: 4
+    key_terms: [largely, professional, school, white, concentrated, backgrounds, performance, correlated]
+    section: Comments
+    token_count: 86
+  - id: "social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c7"
+    char_span: [10744, 12891]
+    sentence_count: 12
+    key_terms: [students, religious, phd, pteradactylitis, like, experience, christian, comparing]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c8"
+    char_span: [12614, 13623]
+    sentence_count: 6
+    key_terms: [believing, religious, programs, question, religion, imagine, being, idustriousraccoon]
+    section: Comments
+    token_count: 224
+  - id: "social-intelligence/reddit-deep/askacademia/1pbr8bn.md#c9"
+    char_span: [13625, 14170]
+    sentence_count: 5
+    key_terms: [something, data, science-based, interesting, questioning, constantly, definitely, needrain47]
+    section: Comments
+    token_count: 123
 ---
-
 # Has anybody else noticed a religious divide between graduate students and clinical professional school students?
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1pbr8bn/has_anybody_else_noticed_a_religious_divide/)

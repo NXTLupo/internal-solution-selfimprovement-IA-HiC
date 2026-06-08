@@ -7,12 +7,12 @@ title: "25 year old trying to figure out my career path — open to tech, health
 author: "LatinoChulo14"
 date: "2026-03-04T23:51:03.000Z"
 score: 43
-upvote_ratio: 0.93
+upvote_ratio: 0.94
 num_comments: 18
 flair: ""
-extracted_at: "2026-05-23T20:15:29.965Z"
+extracted_at: "2026-06-06T23:21:13.883Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # 25 year old trying to figure out my career path — open to tech, healthcare, or sales. Any advice?
@@ -46,7 +46,7 @@ I’d really appreciate any advice or experiences.
 
 ## Comments
 
-- **Vdra** (14↑): Before you pick one of those paths it's worth figuring out what kind of work actually fits you and not just what looks stable. The options you listed are pretty different day to day. Tech sales is fast paced and persuasion heavy. Healthcare tech is structured and technical. Hospitality is high energy and people facing. Outreach is relationship and mission driven. Some people do great in one of those and feel completely drained in another.
+- **Vdra** (13↑): Before you pick one of those paths it's worth figuring out what kind of work actually fits you and not just what looks stable. The options you listed are pretty different day to day. Tech sales is fast paced and persuasion heavy. Healthcare tech is structured and technical. Hospitality is high energy and people facing. Outreach is relationship and mission driven. Some people do great in one of those and feel completely drained in another.
 
 Thing is, most people skip this step and just pick whatever sounds good or pays well and then end up switching again in two years. If you take some time to look at how you work best like structured vs chaotic, people heavy or independent, what tasks actually give you energy….it narrows things down fast. Career and workstyle assessments are pretty useful for this. There are a bunch of them and they're not all the same so worth searching reddit for which ones people actually found helpful. But the point is to stop guessing between industries and start with what actually fits how you operate. Once you know that part the decision gets way simpler.
   - **Anxious-Cod3675** (1↑): Dude this is spot on - I switched from customer service to design without really thinking about work style and it was night and day 🔥 The structured creative process actually energized me vs the constant chaos, but took me way too long to figure out there preferences mattered more than just "good pay" 💀
@@ -74,6 +74,6 @@ If I were 25, I’d probably try tech sales first since it’s faster to enter a
   - **OG213tothe323** (1↑): Probably nailed it…OP like people and  building relationships…tech sales is the way to go. Just grind hard for 5 years
 - **thriverebel** (1↑): Healthcare, that's what I wish I did.
 - **IcyAccount3190** (1↑): Military. Air Force/navy then army.
-- **Pleasant_Delay_1432** (1↑): If you are already considering healthcare I seriously look more into that. MRI tech or radiology tech can be pretty solid careers good stability decent pay and you don’t necessarily need to spend 8+ years in school like some other medical paths. Plus if you like helping people and interacting with them it can be pretty rewarding.
+- **thepandapear** (1↑): I’d probs look into tech sales first since you already have experience with people and operations. It is a faster way to start making money without going back to school for years. You could always try a junior role to see if you actually enjoy the fast pace. If that feels too stressful then you can still pivot into healthcare later on. Just try to pick the one that fits your daily energy levels the best.
 
-You could start by researching training programs and seeing what the day to day work is actually like. I came across Clinical Skills Institute before when looking into medical training stuff has some useful info about clinical skills and healthcare training if you want to explore that side a bit more.
+Since you’re looking for job and career ideas, I think the GradSimple newsletter could be a good place to start. You can see interviews where grads share their experiences after college, which could give you some helpful insights into different roles.

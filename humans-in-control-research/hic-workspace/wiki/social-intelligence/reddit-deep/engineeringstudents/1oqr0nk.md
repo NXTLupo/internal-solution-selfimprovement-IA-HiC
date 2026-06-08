@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1oqr0nk.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1oqr0nk/is_it_just_me_or_was_engineering_way_more_about/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,45 @@ flair: "Rant/Vent"
 extracted_at: "2026-05-25T18:32:19.214Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1oqr0nk.md#c0"
+    char_span: [0, 1042]
+    sentence_count: 4
+    key_terms: [engineeringstudents, learning, engineering, comments, college, coding, "you're", like]
+    token_count: 224
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1oqr0nk.md#c1"
+    char_span: [1057, 1911]
+    sentence_count: 5
+    key_terms: [coding, engineering, code, representativebit736, documentation, happybaby00, takeonefish, absolutely]
+    section: Comments
+    token_count: 212
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1oqr0nk.md#c2"
+    char_span: [1913, 3994]
+    sentence_count: 8
+    key_terms: [because, course, points, knowledge, quickly, subject, years, get]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1oqr0nk.md#c3"
+    char_span: [3697, 4347]
+    sentence_count: 5
+    key_terms: [people, world, automatically, conclusions, engineering, chemistry, companies, competent]
+    section: Comments
+    token_count: 134
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1oqr0nk.md#c4"
+    char_span: [4349, 6254]
+    sentence_count: 12
+    key_terms: [time, engineering, years, systematic, schooling, trainable, indicate, learning]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1oqr0nk.md#c5"
+    char_span: [6256, 7431]
+    sentence_count: 14
+    key_terms: [learn, better, ok-examination6200, gpa, "i'm", job, pass, want]
+    section: Comments
+    token_count: 280
 ---
-
 # is it just me or was engineering way more about surviving deadlines than actually learning stuff?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1oqr0nk/is_it_just_me_or_was_engineering_way_more_about/)

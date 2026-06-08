@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1sw7uxd/is_going_into_engineering_even_worth_it_anymore/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,62 @@ flair: "Career Help"
 extracted_at: "2026-05-25T18:32:19.218Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c0"
+    char_span: [0, 2147]
+    sentence_count: 14
+    key_terms: [engineering, internships, engineeringstudents, something, uncertainty, been, don, like]
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c1"
+    char_span: [2149, 3186]
+    sentence_count: 8
+    key_terms: [engineering, flexible, working, job, own, turn, environment, flexibility]
+    token_count: 219
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c2"
+    char_span: [3201, 3643]
+    sentence_count: 3
+    key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
+    section: Comments
+    token_count: 108
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c3"
+    char_span: [3645, 5751]
+    sentence_count: 18
+    key_terms: [engineering, successful, because, engineer, dentist, "doesn't", teaches, demand]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c4"
+    char_span: [5471, 6390]
+    sentence_count: 12
+    key_terms: [engineering, pay, dentist, harder, "you'll", "you're", certain-falcon-9802, like]
+    section: Comments
+    token_count: 243
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c5"
+    char_span: [6392, 7930]
+    sentence_count: 18
+    key_terms: [years, company, couple, people, skills, certain-falcon-9802, civil, going]
+    section: Comments
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c6"
+    char_span: [7932, 9504]
+    sentence_count: 13
+    key_terms: [engineering, job, software, did, get, year, secondary, montreal]
+    section: Comments
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c7"
+    char_span: [9506, 11828]
+    sentence_count: 16
+    key_terms: [engineering, job, good, french, people, connections, get, otherwise]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c8"
+    char_span: [11830, 12008]
+    sentence_count: 1
+    key_terms: [electricity, magically, otherwise, tomorrow, needing, thrive, going, gonna]
+    section: Comments
+    token_count: 44
 ---
-
 # Is going into engineering even worth it anymore?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1sw7uxd/is_going_into_engineering_even_worth_it_anymore/)

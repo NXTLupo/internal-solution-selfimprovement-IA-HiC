@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1pjw5le.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1pjw5le/overwhelmed_2nd_year_engineering_student_is_this/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,33 @@ flair: "Rant/Vent"
 extracted_at: "2026-05-23T20:15:19.042Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pjw5le.md#c0"
+    char_span: [0, 2066]
+    sentence_count: 20
+    key_terms: [don, classes, engineering, engineeringstudents, feels, feeling, overwhelmed, did]
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pjw5le.md#c1"
+    char_span: [2081, 2915]
+    sentence_count: 12
+    key_terms: ["it's", because, school, get, hard, like, take, time]
+    section: Comments
+    token_count: 202
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pjw5le.md#c2"
+    char_span: [2917, 5109]
+    sentence_count: 21
+    key_terms: [get, engineering, being, crusherdestroyer90, time, everyone, stubborn, classes]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1pjw5le.md#c3"
+    char_span: [4835, 7040]
+    sentence_count: 18
+    key_terms: [too, year, student, class, engineering, practice, friends, similar]
+    section: Comments
+    token_count: 507
 ---
-
 # Overwhelmed 2nd year engineering student… is this normal? Need advice
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1pjw5le/overwhelmed_2nd_year_engineering_student_is_this/)

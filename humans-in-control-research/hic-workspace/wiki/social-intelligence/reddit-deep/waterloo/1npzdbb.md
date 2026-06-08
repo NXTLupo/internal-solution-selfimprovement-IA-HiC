@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1npzdbb.md
 url: "https://www.reddit.com/r/waterloo/comments/1npzdbb/beware_222_392_albert_st_landlords_charging/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.131Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [real_estate, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1npzdbb.md#c0"
+    char_span: [0, 1528]
+    sentence_count: 13
+    key_terms: [waterloo, albert, deposits, learned, don, ltb, comments, landlord]
+    token_count: 378
+  - id: "social-intelligence/reddit-deep/waterloo/1npzdbb.md#c1"
+    char_span: [1543, 3455]
+    sentence_count: 10
+    key_terms: [are-key-deposits-legal-for-tenants-in-ontario, key, ontario, experience, deposits, waterloo, because, deposit]
+    section: Comments
+    token_count: 508
 ---
-
 # Beware: 222 & 392 Albert St landlords charging illegal $500 deposits (Waterloo, ON)
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1npzdbb/beware_222_392_albert_st_landlords_charging/)

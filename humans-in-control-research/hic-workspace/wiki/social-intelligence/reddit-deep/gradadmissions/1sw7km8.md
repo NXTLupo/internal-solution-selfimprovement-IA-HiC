@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1sw7km8.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1sw7km8/07_from_cmu_stanford_mit_harvard_epfl_eth_brown/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,62 @@ flair: "General Advice"
 extracted_at: "2026-05-23T14:54:16.717Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c0"
+    char_span: [0, 1534]
+    sentence_count: 7
+    key_terms: [research, quant, gradadmissions, exp, undergrad, comments, rejected, stanford]
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c1"
+    char_span: [1536, 2846]
+    sentence_count: 11
+    key_terms: [academic, programs, research, industry-only, affiliation, internships, did, lor]
+    token_count: 295
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c2"
+    char_span: [2861, 3840]
+    sentence_count: 4
+    key_terms: [candidates, because, funding, enough, simply, apply, spots, idustriousraccoon]
+    section: Comments
+    token_count: 229
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c3"
+    char_span: [3842, 6142]
+    sentence_count: 18
+    key_terms: [students, schools, best, research, program, administration, institution, fit]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c4"
+    char_span: [5886, 6605]
+    sentence_count: 5
+    key_terms: [administration, cut, students, foreign, canada, "visa's", doing, mysterious-art8838]
+    section: Comments
+    token_count: 195
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c5"
+    char_span: [6607, 7434]
+    sentence_count: 4
+    key_terms: [research, something, academic, programs, whether, given, like, lor]
+    section: Comments
+    token_count: 174
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c6"
+    char_span: [7436, 9598]
+    sentence_count: 14
+    key_terms: [profile, competitive, "master's", schools, papers, universities, competition, get]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c7"
+    char_span: [9346, 11283]
+    sentence_count: 12
+    key_terms: [low-contribution-266, research, applied, no-quality5546, international, accepted, profile, schools]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c8"
+    char_span: [10979, 11417]
+    sentence_count: 3
+    key_terms: [getting, international, self-funded, applicants, government, iletienne, published, receiving]
+    section: Comments
+    token_count: 97
 ---
-
 # 0/7 from CMU / Stanford / MIT / Harvard / EPFL / ETH / Brown : industry-only background, accepted TMLR paper, all rejected. Where did the path break?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1sw7km8/07_from_cmu_stanford_mit_harvard_epfl_eth_brown/)

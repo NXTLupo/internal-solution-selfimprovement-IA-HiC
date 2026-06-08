@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1pe5xf2.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1pe5xf2/should_i_know_exactly_what_i_want_to_research_if/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,21 @@ flair: "General Advice"
 extracted_at: "2026-05-20T03:56:10.766Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pe5xf2.md#c0"
+    char_span: [0, 1469]
+    sentence_count: 10
+    key_terms: [school, want, grad, research, gradadmissions, environment, comments, ecology]
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pe5xf2.md#c1"
+    char_span: [1484, 2014]
+    sentence_count: 4
+    key_terms: [question, specific, broad, imo, urbanization, professors, curiosity, important]
+    section: Comments
+    token_count: 118
 ---
-
 # Should I know exactly what I want to research if I want to pursue grad school?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1pe5xf2/should_i_know_exactly_what_i_want_to_research_if/)

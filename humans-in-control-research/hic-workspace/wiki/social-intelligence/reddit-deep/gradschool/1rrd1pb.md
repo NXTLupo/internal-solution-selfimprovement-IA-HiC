@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1rrd1pb.md
 url: "https://www.reddit.com/r/GradSchool/comments/1rrd1pb/99_sure_i_am_dropping_out_have_i_forgotten_to/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,68 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.345Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1rrd1pb.md#c0"
+    char_span: [0, 1565]
+    sentence_count: 15
+    key_terms: [school, research, encouraging, time, gradschool, supervisor, comments, classes]
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/gradschool/1rrd1pb.md#c1"
+    char_span: [1567, 2651]
+    sentence_count: 9
+    key_terms: [anymore, don, something, decision, change, degree, feel, like]
+    token_count: 243
+  - id: "social-intelligence/reddit-deep/gradschool/1rrd1pb.md#c2"
+    char_span: [2666, 4918]
+    sentence_count: 18
+    key_terms: [finish, degree, don, anymore, funding, going, sense, feel]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/gradschool/1rrd1pb.md#c3"
+    char_span: [4920, 7030]
+    sentence_count: 22
+    key_terms: [because, time, degree, yourself, options, want, work, department]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/gradschool/1rrd1pb.md#c4"
+    char_span: [7032, 9166]
+    sentence_count: 22
+    key_terms: [school, research, program, don, grad, additional, honestly, identity]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/gradschool/1rrd1pb.md#c5"
+    char_span: [9168, 10590]
+    sentence_count: 6
+    key_terms: [mitchellcumstijn, masters, emotional-royal-9333, thank, good, life, need, work]
+    section: Comments
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/gradschool/1rrd1pb.md#c6"
+    char_span: [10592, 12721]
+    sentence_count: 19
+    key_terms: [degree, decision, vchickennuggets, thesis, opportunities, jobs, want, qualified]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/gradschool/1rrd1pb.md#c7"
+    char_span: [12723, 14404]
+    sentence_count: 13
+    key_terms: [degree, research, through, get, because, mental, doing, youre]
+    section: Comments
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/gradschool/1rrd1pb.md#c8"
+    char_span: [14406, 16456]
+    sentence_count: 20
+    key_terms: [because, don, masters, did, time, years, want, work]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/gradschool/1rrd1pb.md#c9"
+    char_span: [16458, 17323]
+    sentence_count: 9
+    key_terms: [program, courses, degree, doesn, don, get, need, phd]
+    section: Comments
+    token_count: 200
 ---
-
 # 99% sure I am dropping out - have I forgotten to consider anything?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1rrd1pb/99_sure_i_am_dropping_out_have_i_forgotten_to/)

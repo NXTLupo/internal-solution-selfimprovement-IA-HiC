@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/managers/1o88xpd.md
 url: "https://www.reddit.com/r/managers/comments/1o88xpd/no_more_remote_interviews/"
 kind: "social-post"
 source: "reddit-deep: r/managers"
@@ -13,8 +14,63 @@ flair: ""
 extracted_at: "2026-05-26T12:54:23.678Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/managers/1o88xpd.md#c0"
+    char_span: [0, 838]
+    sentence_count: 8
+    key_terms: [interviews, interview, comments, managers, through, remote, space, plan]
+    token_count: 184
+  - id: "social-intelligence/reddit-deep/managers/1o88xpd.md#c1"
+    char_span: [853, 2073]
+    sentence_count: 9
+    key_terms: [interviews, interview, seen, brainwavecc, common, flying, people, screen]
+    section: Comments
+    token_count: 314
+  - id: "social-intelligence/reddit-deep/managers/1o88xpd.md#c2"
+    char_span: [2075, 4065]
+    sentence_count: 14
+    key_terms: [interview, people, guy, interviews, "we'll-reimburse-you-later", question, deleted, someone]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/managers/1o88xpd.md#c3"
+    char_span: [4067, 6160]
+    sentence_count: 15
+    key_terms: [interview, candidate, questions, question, praefectus27, use, disability, deleted]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/managers/1o88xpd.md#c4"
+    char_span: [5876, 7919]
+    sentence_count: 16
+    key_terms: [questions, interview, don, someone, hire, time, committee, protected]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/managers/1o88xpd.md#c5"
+    char_span: [7714, 7983]
+    sentence_count: 2
+    key_terms: [time, aggrivatingad, interviewing, obfuscation, necessary, approach, wasting, people]
+    section: Comments
+    token_count: 80
+  - id: "social-intelligence/reddit-deep/managers/1o88xpd.md#c6"
+    char_span: [7985, 8525]
+    sentence_count: 6
+    key_terms: [demonstrates, candidates, answer, get, use, secksualinnuendo, demonstrating, discussing]
+    section: Comments
+    token_count: 127
+  - id: "social-intelligence/reddit-deep/managers/1o88xpd.md#c7"
+    char_span: [8527, 10558]
+    sentence_count: 11
+    key_terms: [don, "it's", people, dry-philosopher-2714, questions, kissingdaylight, interviewers, interviewee]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/managers/1o88xpd.md#c8"
+    char_span: [10560, 12598]
+    sentence_count: 14
+    key_terms: [person, interviews, kubernetes, interview, pipelines, devops, images, people]
+    section: Comments
+    token_count: 468
 ---
-
 # No more remote interviews
 
 Source: [reddit-deep: r/managers](https://www.reddit.com/r/managers/comments/1o88xpd/no_more_remote_interviews/)

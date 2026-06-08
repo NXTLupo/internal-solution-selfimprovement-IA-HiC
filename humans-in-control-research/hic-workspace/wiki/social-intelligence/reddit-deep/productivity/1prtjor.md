@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1prtjor.md
 url: "https://www.reddit.com/r/productivity/comments/1prtjor/anyone_else_tired_of_rebuilding_productivity/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,27 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:45.659Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, saas, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1prtjor.md#c0"
+    char_span: [0, 1034]
+    sentence_count: 10
+    key_terms: [productivity, dashboards, comments, instead, systems, setup, tools, using]
+    token_count: 236
+  - id: "social-intelligence/reddit-deep/productivity/1prtjor.md#c1"
+    char_span: [1049, 2901]
+    sentence_count: 21
+    key_terms: [google, simple, notion, setups, though, found, tasks, tools]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/productivity/1prtjor.md#c2"
+    char_span: [2903, 4230]
+    sentence_count: 3
+    key_terms: [tools, f2d2f542f3ed1e11c7b6d1de5c5706ace223b303, notes, preview, actual, format, notion, pretty]
+    section: Comments
+    token_count: 383
 ---
-
 # Anyone else tired of rebuilding productivity systems instead of using them?
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1prtjor/anyone_else_tired_of_rebuilding_productivity/)

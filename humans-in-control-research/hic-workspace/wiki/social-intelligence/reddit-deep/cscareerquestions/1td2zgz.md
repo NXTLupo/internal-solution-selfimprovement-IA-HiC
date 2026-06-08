@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1td2zgz.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1td2zgz/working_in_tech_and_my_cortisol_is_through_the/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-26T12:54:26.411Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1td2zgz.md#c0"
+    char_span: [0, 1223]
+    sentence_count: 5
+    key_terms: [cscareerquestions, running, comments, cortisol, industry, easier, enough, normal]
+    token_count: 270
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1td2zgz.md#c1"
+    char_span: [1238, 2876]
+    sentence_count: 8
+    key_terms: [forsookcomparison, find, neurologist, job, insecurity, processing, difficult, insurance]
+    section: Comments
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1td2zgz.md#c2"
+    char_span: [2878, 4742]
+    sentence_count: 12
+    key_terms: [forsookcomparison, job, been, security, company, freeway, giving, health]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1td2zgz.md#c3"
+    char_span: [4745, 6369]
+    sentence_count: 9
+    key_terms: [until, life, stop, wasn, balance, working, making, media]
+    section: Comments
+    token_count: 386
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1td2zgz.md#c4"
+    char_span: [6371, 8207]
+    sentence_count: 15
+    key_terms: [work, important, "you're", "isn't", something, inflated, reality, making]
+    section: Comments
+    token_count: 445
 ---
-
 # Working in tech and my cortisol is through the roof
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1td2zgz/working_in_tech_and_my_cortisol_is_through_the/)

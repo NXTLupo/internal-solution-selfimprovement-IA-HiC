@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1omhxyy.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1omhxyy/any_engineeringrelated_orgs_or_opportunities_open/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Resume Help"
 extracted_at: "2026-05-22T15:11:44.444Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1omhxyy.md#c0"
+    char_span: [0, 915]
+    sentence_count: 7
+    key_terms: [engineering-related, engineeringstudents, opportunities, communities, orgs, volunteer, comments, students]
+    token_count: 204
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1omhxyy.md#c1"
+    char_span: [930, 1989]
+    sentence_count: 9
+    key_terms: [asme, join, because, greek, maybe, fitatmosphere1256, multidisciplinary, aiaa]
+    section: Comments
+    token_count: 274
 ---
-
 # Any engineering-related orgs or opportunities open to students (even outside school)?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1omhxyy/any_engineeringrelated_orgs_or_opportunities_open/)

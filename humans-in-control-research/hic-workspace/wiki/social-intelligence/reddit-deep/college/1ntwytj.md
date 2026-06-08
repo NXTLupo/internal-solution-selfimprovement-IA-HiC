@@ -6,19 +6,19 @@ subreddit: "college"
 title: "Career/Master Advice"
 author: "zachzaz7"
 date: "2025-09-29T23:04:28.000Z"
-score: 2
-upvote_ratio: 0.67
+score: 4
+upvote_ratio: 0.76
 num_comments: 6
 flair: "Grad school"
-extracted_at: "2026-05-24T14:08:12.149Z"
+extracted_at: "2026-06-06T23:23:15.571Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Career/Master Advice
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ntwytj/careermaster_advice/)
-Posted by **zachzaz7** · **2↑** · **6 comments**
+Posted by **zachzaz7** · **4↑** · **6 comments**
 
 TLDR; My unique situation is making it hard to decide if I want to get a masters in math, finance, engineering, or business.
 

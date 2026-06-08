@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1r2tgok.md
 url: "https://www.reddit.com/r/careerguidance/comments/1r2tgok/how_do_i_figure_out_my_career_path_as_an/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 2
 flair: ""
-extracted_at: "2026-05-22T21:34:47.970Z"
+extracted_at: "2026-06-03T18:53:36.166Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1r2tgok.md#c0"
+    char_span: [0, 855]
+    sentence_count: 7
+    key_terms: [careerguidance, career, path, economics, comments, finance, figure, doing]
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/careerguidance/1r2tgok.md#c1"
+    char_span: [870, 1881]
+    sentence_count: 6
+    key_terms: [like, something, finance, project, people, lanes, find, job]
+    section: Comments
+    token_count: 217
 ---
-
 # How do I figure out my career path as an Economics & Finance student when I feel completely lost?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1r2tgok/how_do_i_figure_out_my_career_path_as_an/)

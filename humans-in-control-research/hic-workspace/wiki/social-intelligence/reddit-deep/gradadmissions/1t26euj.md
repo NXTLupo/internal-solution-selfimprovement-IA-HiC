@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1t26euj.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1t26euj/uncc_child_and_family_development_birth_through/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,15 @@ flair: "Humanities"
 extracted_at: "2026-05-22T23:33:50.673Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1t26euj.md#c0"
+    char_span: [0, 463]
+    sentence_count: 2
+    key_terms: [gradadmissions, comments, program, angelsuperstar101, like, kindergarten, certificate, development]
+    token_count: 110
 ---
-
 # UNCC: Child and Family Development: Birth through Kindergarten, Graduate Certificate – Online experiences
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1t26euj/uncc_child_and_family_development_birth_through/)

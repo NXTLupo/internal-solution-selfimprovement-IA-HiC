@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1t4tupb.md
 url: "https://www.reddit.com/r/GradSchool/comments/1t4tupb/getting_into_grad_school_with_292_gpa/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,33 @@ flair: "Admissions & Applications"
 extracted_at: "2026-05-26T14:32:49.139Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1t4tupb.md#c0"
+    char_span: [0, 1910]
+    sentence_count: 18
+    key_terms: [cancer, take, years, gpa, pain, year, gradschool, diagnosis]
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/gradschool/1t4tupb.md#c1"
+    char_span: [1925, 3419]
+    sentence_count: 10
+    key_terms: [explaining, statement, personal, reyislokidoki, therainabaina, academics, affected, balance]
+    section: Comments
+    token_count: 352
+  - id: "social-intelligence/reddit-deep/gradschool/1t4tupb.md#c2"
+    char_span: [3421, 5584]
+    sentence_count: 15
+    key_terms: [program, undergrad, personal, masters, school, applications, got, want]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1t4tupb.md#c3"
+    char_span: [5321, 6233]
+    sentence_count: 9
+    key_terms: [got, gpa, masters, last, lot, year, jaizentheghost, undergraduate]
+    section: Comments
+    token_count: 234
 ---
-
 # Getting into grad school with 2.92 GPA?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1t4tupb/getting_into_grad_school_with_292_gpa/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1nnltoh.md
 url: "https://www.reddit.com/r/highereducation/comments/1nnltoh/in_trumps_america_admissions_counselors_persevere/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -6,19 +7,39 @@ subreddit: "highereducation"
 title: "In Trump’s America, Admissions Counselors Persevere"
 author: "rellotscire"
 date: "2025-09-22T13:00:41.000Z"
-score: 31
-upvote_ratio: 0.84
+score: 35
+upvote_ratio: 0.87
 num_comments: 1
 flair: ""
-extracted_at: "2026-05-22T15:13:18.746Z"
+extracted_at: "2026-06-05T23:42:16.778Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1nnltoh.md#c0"
+    char_span: [0, 2423]
+    sentence_count: 10
+    key_terms: [admissions, ogundele, highereducation, administration, professionals, association, been, dean]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/highereducation/1nnltoh.md#c1"
+    char_span: [2425, 5123]
+    sentence_count: 11
+    key_terms: [admissions, students, colleges, decision, holistic, college, going, recruitment]
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/highereducation/1nnltoh.md#c2"
+    char_span: [5125, 7801]
+    sentence_count: 11
+    key_terms: [admissions, administration, institution, federal, funding, though, institutions, beautiful]
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/highereducation/1nnltoh.md#c3"
+    char_span: [7803, 8687]
+    sentence_count: 3
+    key_terms: [institutions, data, something, admitted, students, raise, underrepresented, administration]
+    token_count: 173
 ---
-
 # In Trump’s America, Admissions Counselors Persevere
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1nnltoh/in_trumps_america_admissions_counselors_persevere/)
-Posted by **rellotscire** · **31↑** · **1 comments**
+Posted by **rellotscire** · **35↑** · **1 comments**
 
 **COLUMBUS, Ohio—Long have college admissions professionals bemoaned the public’s lack of understanding of how admissions decisions get made.**
 

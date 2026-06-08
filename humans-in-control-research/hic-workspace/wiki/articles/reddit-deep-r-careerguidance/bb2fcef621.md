@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/bb2fcef621.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t3p1ly/20m_feeling_lost_on_career_path_looking_for/"
 url_hash: "bb2fcef621"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T20:21:33.310328+00:00"
 chars: 2647
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/bb2fcef621.md#c0"
+    char_span: [0, 2116]
+    sentence_count: 19
+    key_terms: [career, looking, people, trying, experience, started, working, careerguidance]
+    token_count: 508
+  - id: "articles/reddit-deep-r-careerguidance/bb2fcef621.md#c1"
+    char_span: [2121, 2878]
+    sentence_count: 3
+    key_terms: [trades, looking, newrepresentative912, hot-criticism8353, like, long, paid, term]
+    token_count: 175
 ---
-
 # 20M feeling lost on career path — looking for advice from people with experience?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t3p1ly/20m_feeling_lost_on_career_path_looking_for/)

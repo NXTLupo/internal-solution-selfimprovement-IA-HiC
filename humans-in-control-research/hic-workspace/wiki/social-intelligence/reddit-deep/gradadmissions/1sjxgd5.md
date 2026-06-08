@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1sjxgd5.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1sjxgd5/got_into_nsf_grfp_but_virtually_no_programs/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,50 @@ flair: "Computer Sciences"
 extracted_at: "2026-05-23T14:54:16.722Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sjxgd5.md#c0"
+    char_span: [0, 1673]
+    sentence_count: 9
+    key_terms: [programs, funding, gradadmissions, grfp, comments, flat-out, rejected, crazy-potential-861]
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sjxgd5.md#c1"
+    char_span: [1675, 3459]
+    sentence_count: 10
+    key_terms: [professors, admissions, experience, deadline, programs, faculty, "don't", offer]
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sjxgd5.md#c2"
+    char_span: [3474, 4089]
+    sentence_count: 6
+    key_terms: [facilitate, yaphetsez, general, project, crazy-potential-861, like, admissions, overturned]
+    section: Comments
+    token_count: 157
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sjxgd5.md#c3"
+    char_span: [4091, 6090]
+    sentence_count: 14
+    key_terms: [email, got, potential, programs, options, sending, get, good]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sjxgd5.md#c4"
+    char_span: [6092, 7933]
+    sentence_count: 16
+    key_terms: [phd, mcs, uiuc, students, applied, funding, program, interviewed]
+    section: Comments
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sjxgd5.md#c5"
+    char_span: [7935, 9026]
+    sentence_count: 8
+    key_terms: [phd, admission, significantly, applicants, publications, interest, research, faculty]
+    section: Comments
+    token_count: 251
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sjxgd5.md#c6"
+    char_span: [9028, 10472]
+    sentence_count: 16
+    key_terms: [programs, crazy-potential-861, get, grfp, definitely, interested, research, neuroai]
+    section: Comments
+    token_count: 375
 ---
-
 # Got into NSF GRFP but virtually no programs
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1sjxgd5/got_into_nsf_grfp_but_virtually_no_programs/)

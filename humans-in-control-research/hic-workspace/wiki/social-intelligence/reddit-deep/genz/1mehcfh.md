@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1mehcfh.md
 url: "https://www.reddit.com/r/GenZ/comments/1mehcfh/harvard_students_and_the_highest_iq_young_people/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,56 @@ flair: "Advice"
 extracted_at: "2026-05-17T01:11:40.768Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [workforce, higher_ed, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1mehcfh.md#c0"
+    char_span: [0, 2375]
+    sentence_count: 32
+    key_terms: [tech, people, like, treated, coding, programming, "it's", job]
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/genz/1mehcfh.md#c1"
+    char_span: [2377, 3459]
+    sentence_count: 13
+    key_terms: [tech, let, brain, like, because, future, smart, years]
+    token_count: 219
+  - id: "social-intelligence/reddit-deep/genz/1mehcfh.md#c2"
+    char_span: [3474, 5092]
+    sentence_count: 9
+    key_terms: [people, deleted, discord, "aren't", change, harder, embarrassed-lab4446, going]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/genz/1mehcfh.md#c3"
+    char_span: [5094, 6680]
+    sentence_count: 7
+    key_terms: [ai-s-takeover-of-entry-level-tasks-is-making-college-grads-job-hunt-harder, tech, workers, construction, bloomberg, brightest, analysis, articles]
+    section: Comments
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/genz/1mehcfh.md#c4"
+    char_span: [6682, 7617]
+    sentence_count: 8
+    key_terms: [tech, because, find, get, distillatemedia, oversaturated, millennials, developing]
+    section: Comments
+    token_count: 235
+  - id: "social-intelligence/reddit-deep/genz/1mehcfh.md#c5"
+    char_span: [7619, 9436]
+    sentence_count: 8
+    key_terms: [people, tech, family, school, young, engineering, lankamonkee, work]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/genz/1mehcfh.md#c6"
+    char_span: [9438, 11433]
+    sentence_count: 16
+    key_terms: [time, work, people, engineering, good, tech, doctors, seniors]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/genz/1mehcfh.md#c7"
+    char_span: [11435, 12920]
+    sentence_count: 10
+    key_terms: [tech, people, obviously, involved, abirdjustshatonmyeye, aren, job, jobs]
+    section: Comments
+    token_count: 347
 ---
-
 # Harvard students and the highest IQ young people are staying away from tech. Tech is now left for the desperate and not so bright
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1mehcfh/harvard_students_and_the_highest_iq_young_people/)

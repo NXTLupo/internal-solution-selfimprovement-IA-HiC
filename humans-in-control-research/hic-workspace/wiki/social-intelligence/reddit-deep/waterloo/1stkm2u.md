@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/waterloo/1stkm2u.md
 url: "https://www.reddit.com/r/waterloo/comments/1stkm2u/high_school_recommendations_in_waterloo_public_vs/"
 kind: "social-post"
 source: "reddit-deep: r/waterloo"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-23T20:15:08.128Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/waterloo/1stkm2u.md#c0"
+    char_span: [0, 1368]
+    sentence_count: 8
+    key_terms: [waterloo, schools, catholic, student, public, school, environment, high]
+    token_count: 290
+  - id: "social-intelligence/reddit-deep/waterloo/1stkm2u.md#c1"
+    char_span: [1383, 3279]
+    sentence_count: 14
+    key_terms: [school, program, daughter, xrainbowtreats, academically, environment, don, academics]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/waterloo/1stkm2u.md#c2"
+    char_span: [3281, 4518]
+    sentence_count: 9
+    key_terms: [school, university, coming, doing, going, local, activitynovel8682, did]
+    section: Comments
+    token_count: 285
+  - id: "social-intelligence/reddit-deep/waterloo/1stkm2u.md#c3"
+    char_span: [4522, 6726]
+    sentence_count: 17
+    key_terms: [school, catholic, schools, french, daughter, high, public, system]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/waterloo/1stkm2u.md#c4"
+    char_span: [6729, 7841]
+    sentence_count: 6
+    key_terms: [catholic, school, chronicwheels, education, compareschoolrankings, french, public, faith]
+    section: Comments
+    token_count: 252
 ---
-
 # High school recommendations in Waterloo (public vs Catholic)
 
 Source: [reddit-deep: r/waterloo](https://www.reddit.com/r/waterloo/comments/1stkm2u/high_school_recommendations_in_waterloo_public_vs/)

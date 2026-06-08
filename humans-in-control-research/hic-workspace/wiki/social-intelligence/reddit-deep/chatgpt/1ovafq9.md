@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/chatgpt/1ovafq9.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1ovafq9/i_won_full_custody_with_no_lawyer_thanks_to/"
 kind: "social-post"
 source: "reddit-deep: r/chatgpt"
@@ -13,8 +14,104 @@ flair: "Educational Purpose Only "
 extracted_at: "2026-05-17T01:12:48.211Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c0"
+    char_span: [0, 2000]
+    sentence_count: 13
+    key_terms: [chatgpt, custody, full, years, back, lawyer, time, testament]
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c1"
+    char_span: [2002, 4222]
+    sentence_count: 18
+    key_terms: [believe, chatgpt, mother, circumstances, court, been, case, experience]
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c2"
+    char_span: [4237, 5670]
+    sentence_count: 11
+    key_terms: [lawyer, please, conversation, image, post, r-chatgpt-1050422060352024636, attorneys, concerns]
+    section: Comments
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c3"
+    char_span: [5672, 7550]
+    sentence_count: 17
+    key_terms: [research, clients, gemini, deep, chatgpt, hallucinations, better, bad]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c4"
+    char_span: [7552, 7892]
+    sentence_count: 2
+    key_terms: [propriety, titan1846, internal, because, chatgpt, concise, exposed, reports]
+    section: Comments
+    token_count: 92
+  - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c5"
+    char_span: [7894, 9901]
+    sentence_count: 12
+    key_terms: [use, lawyers, enough, information, work, experience, question, chatgpt]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c6"
+    char_span: [9903, 11920]
+    sentence_count: 18
+    key_terms: [hallucinations, source, principles, info, following, response, because, chatgpt]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c7"
+    char_span: [11922, 13737]
+    sentence_count: 13
+    key_terms: [infamous-future6906, charges, considerations, dry-peanut6627, needs, like, competent, courtroom]
+    section: Comments
+    token_count: 424
+  - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c8"
+    char_span: [13739, 15324]
+    sentence_count: 11
+    key_terms: [infamous-future6906, custody, court, case, obviously, surprised, divorced, chatbot]
+    section: Comments
+    token_count: 393
+  - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c9"
+    char_span: [15326, 16339]
+    sentence_count: 4
+    key_terms: [infamous-future6906, statistics, domestic, violence, against, correct, custody, fathers]
+    section: Comments
+    token_count: 252
+  - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c10"
+    char_span: [16341, 18226]
+    sentence_count: 15
+    key_terms: [metstows, feedback, people, territories, against, chatgpt, sharing, helped]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c11"
+    char_span: [18228, 20286]
+    sentence_count: 34
+    key_terms: [people, everything, freedemandletter, matters, family, law, real, themselves]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c12"
+    char_span: [20288, 22314]
+    sentence_count: 11
+    key_terms: [law, screw, represent, get, representation, wrong, years, case]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c13"
+    char_span: [22316, 23651]
+    sentence_count: 18
+    key_terms: [experience, didn, attorney, private, "didn't", people, trying, willing-ship-6235]
+    section: Comments
+    token_count: 320
+  - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c14"
+    char_span: [23653, 25734]
+    sentence_count: 14
+    key_terms: [lawyer, people, pro, yourself, doing, years, ago, case]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c15"
+    char_span: [25736, 27182]
+    sentence_count: 7
+    key_terms: [characterbird2283, testament, congrats, worked, trial, nandodecolonoscopy, ask, disneylegalteam]
+    section: Comments
+    token_count: 405
 ---
-
 # I Won Full Custody With No Lawyer Thanks to ChatGPT.
 
 Source: [reddit-deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1ovafq9/i_won_full_custody_with_no_lawyer_thanks_to/)

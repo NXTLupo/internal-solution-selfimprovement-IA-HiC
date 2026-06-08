@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1t3ar0k.md
 url: "https://www.reddit.com/r/internships/comments/1t3ar0k/i_am_getting_an_internship_3_months_training_and/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "General"
 extracted_at: "2026-05-22T21:34:37.051Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1t3ar0k.md#c0"
+    char_span: [0, 833]
+    sentence_count: 7
+    key_terms: [months, internship, internships, side, comments, recently, training, complex-story-6796]
+    token_count: 211
+  - id: "social-intelligence/reddit-deep/internships/1t3ar0k.md#c1"
+    char_span: [848, 1139]
+    sentence_count: 1
+    key_terms: [appropriate-tutor587, complex-story-6796, experience, carefully, training, related, skills, focus]
+    section: Comments
+    token_count: 87
 ---
-
 # I am getting an internship 3 months training and 6 months paid.
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1t3ar0k/i_am_getting_an_internship_3_months_training_and/)

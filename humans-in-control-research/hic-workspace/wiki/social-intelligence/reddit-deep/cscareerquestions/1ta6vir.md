@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1ta6vir.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1ta6vir/im_at_loss_i_dont_want_to_be_a_programmer_anymore/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,56 @@ flair: ""
 extracted_at: "2026-05-19T17:57:56.740Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ta6vir.md#c0"
+    char_span: [0, 2138]
+    sentence_count: 24
+    key_terms: [programmer, "i'm", everything, being, gotta, something, cscareerquestions, whole]
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ta6vir.md#c1"
+    char_span: [2140, 3686]
+    sentence_count: 25
+    key_terms: [gotta, azure, pipelines, programming, aws, etc, "it's", knowledge]
+    token_count: 356
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ta6vir.md#c2"
+    char_span: [3701, 5613]
+    sentence_count: 21
+    key_terms: [get, keep, industry, enough, need, problems, because, manager]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ta6vir.md#c3"
+    char_span: [5615, 7685]
+    sentence_count: 11
+    key_terms: [employers, engineers, software, get, articlehaunting3983, people, job, especially]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ta6vir.md#c4"
+    char_span: [7397, 7952]
+    sentence_count: 6
+    key_terms: [employers, employer, degree, remote, articlehaunting3983, "it's", ones, requirement]
+    section: Comments
+    token_count: 134
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ta6vir.md#c5"
+    char_span: [7954, 9483]
+    sentence_count: 16
+    key_terms: [job, employer, "isn't", "it's", project, articlehaunting3983, doing, find]
+    section: Comments
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ta6vir.md#c6"
+    char_span: [9486, 11581]
+    sentence_count: 12
+    key_terms: [expert, everything, "can't", simply, "don't", tracagnotto, dev, too]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ta6vir.md#c7"
+    char_span: [11583, 12600]
+    sentence_count: 8
+    key_terms: [feel, work, intepid-discovery, like, top, contractually, overwhelming, completable]
+    section: Comments
+    token_count: 224
 ---
-
 # I'm at loss, I don't want to be a "programmer" anymore
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1ta6vir/im_at_loss_i_dont_want_to_be_a_programmer_anymore/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1rey62d.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1rey62d/please_help_me_with_my_college_application_im_a/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,21 @@ flair: "ECs and Activities"
 extracted_at: "2026-05-22T23:33:52.645Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rey62d.md#c0"
+    char_span: [0, 2451]
+    sentence_count: 3
+    key_terms: [business, senior, applyingtocollege, extracurriculars, classes, library, policy, opportunities]
+    token_count: 531
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1rey62d.md#c1"
+    char_span: [2453, 2591]
+    sentence_count: 1
+    key_terms: [circumstances, extenuating, sashaisnice, enrollment, humanities, straight, mostly, dual]
+    section: Comments
+    token_count: 34
 ---
-
 # please help me with my college application im a junior
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1rey62d/please_help_me_with_my_college_application_im_a/)

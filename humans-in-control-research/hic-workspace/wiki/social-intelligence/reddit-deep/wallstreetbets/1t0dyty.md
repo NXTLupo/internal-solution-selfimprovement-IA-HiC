@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1t0dyty.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1t0dyty/sandisk_6_afterhours_on_q3_fy26_595b_revenue_vs/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,38 @@ flair: "News"
 extracted_at: "2026-05-17T01:14:17.612Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1t0dyty.md#c0"
+    char_span: [0, 1790]
+    sentence_count: 8
+    key_terms: [sandi***REDACTED-KEY***, sandisk, quarter, revenue, earnings, analyst, wallstreetbets, https]
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1t0dyty.md#c1"
+    char_span: [1792, 2534]
+    sentence_count: 4
+    key_terms: [sandisk, enterprise, expected, billion, range, share, png, infrastructure]
+    token_count: 190
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1t0dyty.md#c2"
+    char_span: [2549, 4218]
+    sentence_count: 8
+    key_terms: [bloodmosshunter, slowing, growth, usb, previous, billion, discord, numbers]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1t0dyty.md#c3"
+    char_span: [4220, 5947]
+    sentence_count: 7
+    key_terms: [profit, agitatorsupreme, buy, take, market, prices, taking, prestigiousaccess765]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1t0dyty.md#c4"
+    char_span: [5733, 6382]
+    sentence_count: 2
+    key_terms: [market, prestigiousaccess765, negativesemicolon, nothingtoofancy26, horseok9732, absolutely, temporary, earnings]
+    section: Comments
+    token_count: 175
 ---
-
 # SanDisk -6% after-hours on Q3 FY26: $5.95B revenue vs $4.73B est, $23.41 EPS vs $14.66 est, revenue +251% YoY
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1t0dyty/sandisk_6_afterhours_on_q3_fy26_595b_revenue_vs/)

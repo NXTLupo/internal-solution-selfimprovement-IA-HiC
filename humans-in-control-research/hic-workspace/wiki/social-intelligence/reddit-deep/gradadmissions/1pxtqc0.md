@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1pxtqc0.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1pxtqc0/25m_cs_graduate_from_india_confused_about_career/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,50 @@ flair: "General Advice"
 extracted_at: "2026-05-22T23:33:50.667Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pxtqc0.md#c0"
+    char_span: [0, 1888]
+    sentence_count: 5
+    key_terms: [master, software, gradadmissions, career, realistically, uncertainty, feel, graduation]
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pxtqc0.md#c1"
+    char_span: [1890, 2282]
+    sentence_count: 7
+    key_terms: [whether, realistically, alternative, india-based, appreciate, experience, countries, pursuing]
+    token_count: 95
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pxtqc0.md#c2"
+    char_span: [2297, 3962]
+    sentence_count: 7
+    key_terms: [india, curiousvoyagerrr, master, internships, everyone, deleted, focused, masters]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pxtqc0.md#c3"
+    char_span: [3964, 6059]
+    sentence_count: 14
+    key_terms: [get, usa, faang, like, talented, deleted, enough, people]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pxtqc0.md#c4"
+    char_span: [5784, 7411]
+    sentence_count: 11
+    key_terms: ["master's", experience, masters, eduvouchersofficial, doing, india, years, job]
+    section: Comments
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pxtqc0.md#c5"
+    char_span: [7413, 8800]
+    sentence_count: 10
+    key_terms: [chances, master, get, job, current, dear-enthusiasm-9766, level, years]
+    section: Comments
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pxtqc0.md#c6"
+    char_span: [8802, 9892]
+    sentence_count: 7
+    key_terms: [dear-enthusiasm-9766, getting, university, please, paper, gpa, top, work]
+    section: Comments
+    token_count: 256
 ---
-
 # 25M CS graduate from India — confused about career, US Master’s at 28, long-term prospects
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1pxtqc0/25m_cs_graduate_from_india_confused_about_career/)

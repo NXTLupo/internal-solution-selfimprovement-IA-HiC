@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1mqd1b0.md
 url: "https://www.reddit.com/r/highereducation/comments/1mqd1b0/columbia_university_will_screen_prospective/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-20T02:31:35.470Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1mqd1b0.md#c0"
+    char_span: [0, 1303]
+    sentence_count: 6
+    key_terms: [university, civility, columbia, highereducation, prospective, schoolhouse, admissions, political]
+    token_count: 255
+  - id: "social-intelligence/reddit-deep/highereducation/1mqd1b0.md#c1"
+    char_span: [1318, 2652]
+    sentence_count: 11
+    key_terms: [already, chaosrainbow23, school, patricksaurus, donating, effort, lol, paid]
+    section: Comments
+    token_count: 336
+  - id: "social-intelligence/reddit-deep/highereducation/1mqd1b0.md#c2"
+    char_span: [2654, 3595]
+    sentence_count: 5
+    key_terms: [someone, spewing, reallyredrubyrabbit, scarletteclipse1982, like, sin, capricancerous, fundamentalist]
+    section: Comments
+    token_count: 246
 ---
-
 # Columbia University will screen prospective students for ‘civility’
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1mqd1b0/columbia_university_will_screen_prospective/)

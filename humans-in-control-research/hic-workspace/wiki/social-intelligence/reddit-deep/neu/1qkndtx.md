@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1qkndtx.md
 url: "https://www.reddit.com/r/NEU/comments/1qkndtx/admitted_to_northeastern_msba_fall_2026_looking/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,15 @@ flair: "Advice & Experiences"
 extracted_at: "2026-05-18T14:15:05.120Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1qkndtx.md#c0"
+    char_span: [0, 1150]
+    sentence_count: 5
+    key_terms: [program, northeastern, experiences, experience, academic, admitted, comments, everyone]
+    token_count: 262
 ---
-
 # Admitted to Northeastern MSBA (Fall 2026) – Looking for student experiences & program insights
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1qkndtx/admitted_to_northeastern_msba_fall_2026_looking/)

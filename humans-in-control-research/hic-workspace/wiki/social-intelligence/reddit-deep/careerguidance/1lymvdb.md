@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1lymvdb.md
 url: "https://www.reddit.com/r/careerguidance/comments/1lymvdb/do_i_quit_my_job_after_my_first_day_today/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-25T15:52:13.113Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1lymvdb.md#c0"
+    char_span: [0, 1840]
+    sentence_count: 14
+    key_terms: [wanna, day, "don't", been, "i'm", job, careerguidance, money]
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/careerguidance/1lymvdb.md#c1"
+    char_span: [1855, 3548]
+    sentence_count: 14
+    key_terms: [gonna, months, opportunity, day, give, home, "i'm", brahnbrahl]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/careerguidance/1lymvdb.md#c2"
+    char_span: [3550, 4126]
+    sentence_count: 2
+    key_terms: ["it's", mental, since, consciousness, unfortunately, psychologist, surroundings, convulsions]
+    section: Comments
+    token_count: 133
+  - id: "social-intelligence/reddit-deep/careerguidance/1lymvdb.md#c3"
+    char_span: [4128, 6117]
+    sentence_count: 22
+    key_terms: ["i'm", because, depression, sucks, support, goodgoodgoody, home, quit]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1lymvdb.md#c4"
+    char_span: [5870, 7765]
+    sentence_count: 10
+    key_terms: [psychiatrist, "it's", like, need, problem, serious, therapy, health]
+    section: Comments
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/careerguidance/1lymvdb.md#c5"
+    char_span: [7769, 10021]
+    sentence_count: 20
+    key_terms: [like, week, work, standard, therapy, finance, started, working]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1lymvdb.md#c6"
+    char_span: [9772, 10022]
+    sentence_count: 4
+    key_terms: [finance, week, work, important, projects, someone, stories, working]
+    section: Comments
+    token_count: 65
+  - id: "social-intelligence/reddit-deep/careerguidance/1lymvdb.md#c7"
+    char_span: [10024, 11291]
+    sentence_count: 12
+    key_terms: [years, work, everything, today, stanthemilkman8888, ago, big, else]
+    section: Comments
+    token_count: 307
 ---
-
 # Do I quit my job after my first day today?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1lymvdb/do_i_quit_my_job_after_my_first_day_today/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1n7y1zm.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1n7y1zm/how_is_experiential_learning_viewed_in_higher/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,21 @@ flair: "Social Science"
 extracted_at: "2026-05-26T14:32:49.109Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1n7y1zm.md#c0"
+    char_span: [0, 1148]
+    sentence_count: 6
+    key_terms: [experiential, learning, organization, internship, "master's", research, askacademia, political]
+    token_count: 250
+  - id: "social-intelligence/reddit-deep/askacademia/1n7y1zm.md#c1"
+    char_span: [1163, 2304]
+    sentence_count: 7
+    key_terms: [experience, relevant, applied, applicants, program, experiential, considered, academia]
+    section: Comments
+    token_count: 249
 ---
-
 # How is experiential learning viewed in higher levels of academia?
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1n7y1zm/how_is_experiential_learning_viewed_in_higher/)

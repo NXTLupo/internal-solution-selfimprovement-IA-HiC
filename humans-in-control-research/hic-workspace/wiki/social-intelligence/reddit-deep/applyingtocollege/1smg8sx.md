@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1smg8sx.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1smg8sx/advice_on_admissions_and_college_programs/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,20 @@ flair: "College Questions"
 extracted_at: "2026-05-20T06:42:01.157Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1smg8sx.md#c0"
+    char_span: [0, 1932]
+    sentence_count: 20
+    key_terms: [programs, school, applyingtocollege, academic, science, competitions, been, math]
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1smg8sx.md#c1"
+    char_span: [1936, 2770]
+    sentence_count: 7
+    key_terms: [anything, because, school, state, late, too, accountability, information]
+    token_count: 184
 ---
-
 # Advice on admissions and college programs
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1smg8sx/advice_on_admissions_and_college_programs/)

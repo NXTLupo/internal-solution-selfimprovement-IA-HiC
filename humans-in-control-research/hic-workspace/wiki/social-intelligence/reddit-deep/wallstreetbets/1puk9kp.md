@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1puk9kp.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1puk9kp/500_90k_135k_in_6_weeks_got_fucked_by_theta/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,51 @@ flair: "Loss"
 extracted_at: "2026-05-16T20:54:42.971Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1puk9kp.md#c0"
+    char_span: [0, 1537]
+    sentence_count: 9
+    key_terms: [got, wallstreetbets, get, comments, thinking, started, fucked, within]
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1puk9kp.md#c1"
+    char_span: [1552, 1759]
+    sentence_count: 1
+    key_terms: [total, years, submissions, visualmod, comments, previous, account, report]
+    section: Comments
+    token_count: 77
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1puk9kp.md#c2"
+    char_span: [1761, 3432]
+    sentence_count: 10
+    key_terms: [options, greedy, gains, kingyusei, because, discord, exactly, stupid]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1puk9kp.md#c3"
+    char_span: [3434, 5329]
+    sentence_count: 12
+    key_terms: [options, capital, single, portfolio, buying, likely, ruined, "you're"]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1puk9kp.md#c4"
+    char_span: [5127, 5480]
+    sentence_count: 2
+    key_terms: [figure, greek, job, ocularoracle, gorgenapper, proportions, harrowing, himself]
+    section: Comments
+    token_count: 103
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1puk9kp.md#c5"
+    char_span: [5482, 6969]
+    sentence_count: 11
+    key_terms: [never, f1bde5e6f2a873fa16121ef84edf749c5a6c5d61, unrealized, gambling, mentally, realized, preview, format]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1puk9kp.md#c6"
+    char_span: [6971, 7872]
+    sentence_count: 6
+    key_terms: [far-guava6006, desperate-top9528, various-ad-8572, wendys-member, institutions, complaining, hilariously, perspective]
+    section: Comments
+    token_count: 278
 ---
-
 # 500 -> 90k -> 13.5k in 6 weeks - Got Fucked by Theta
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1puk9kp/500_90k_135k_in_6_weeks_got_fucked_by_theta/)

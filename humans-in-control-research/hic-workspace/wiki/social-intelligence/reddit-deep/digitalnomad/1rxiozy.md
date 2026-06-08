@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1rxiozy.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1rxiozy/how_can_they_be_serious_in_this_articles_listing/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,69 @@ flair: "Lifestyle"
 extracted_at: "2026-05-26T12:53:56.726Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c0"
+    char_span: [0, 1558]
+    sentence_count: 13
+    key_terms: [month, countries, live, digitalnomad, life, affordable, lifestyle, comments]
+    token_count: 368
+  - id: "social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c1"
+    char_span: [1573, 3212]
+    sentence_count: 10
+    key_terms: [dargus77, hostels, hostel, been, better, others, shared, house]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c2"
+    char_span: [3214, 5033]
+    sentence_count: 17
+    key_terms: [people, living, share, roomshares, difficult, roommates, country, working]
+    section: Comments
+    token_count: 441
+  - id: "social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c3"
+    char_span: [5035, 6472]
+    sentence_count: 16
+    key_terms: [fishing, transportation, entertainment, "don't", restaurants, need, week, almost]
+    section: Comments
+    token_count: 335
+  - id: "social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c4"
+    char_span: [6474, 8304]
+    sentence_count: 22
+    key_terms: [like, month, expensive, groceries, survival, cheaper, fishing, pitiful-recover-3747]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c5"
+    char_span: [8306, 10405]
+    sentence_count: 10
+    key_terms: [month, living, thailand, quality, people, life, kinkachou, expenses]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c6"
+    char_span: [10407, 12387]
+    sentence_count: 14
+    key_terms: [living, thailand, like, going, month, around, meals, cost]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c7"
+    char_span: [12389, 14230]
+    sentence_count: 13
+    key_terms: [australia, week, budget, "it's", groceries, dargus77, minimum, someone]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c8"
+    char_span: [14232, 16220]
+    sentence_count: 21
+    key_terms: [comfort, "don't", week, hostels, thread-lightly, cairns, doable, accomodation]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/digitalnomad/1rxiozy.md#c9"
+    char_span: [16222, 18287]
+    sentence_count: 24
+    key_terms: [lifestyle, digital, here, living, people, money, like, need]
+    section: Comments
+    token_count: 504
 ---
-
 # How can they be serious in this articles listing the "most affordable countries" and saying that you need around $2000/month?
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1rxiozy/how_can_they_be_serious_in_this_articles_listing/)

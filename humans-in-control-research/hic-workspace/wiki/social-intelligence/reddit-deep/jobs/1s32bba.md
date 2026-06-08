@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1s32bba.md
 url: "https://www.reddit.com/r/jobs/comments/1s32bba/is_it_bad_to_quit_my_entry_level_job_only_after_8/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -6,25 +7,42 @@ subreddit: "jobs"
 title: "Is it bad to quit my entry level job only after 8 months ?"
 author: "Direct-Mixture-2855"
 date: "2026-03-25T05:45:01.000Z"
-score: 6
-upvote_ratio: 0.75
+score: 5
+upvote_ratio: 0.73
 num_comments: 26
 flair: "Leaving a job"
-extracted_at: "2026-05-20T02:33:39.333Z"
+extracted_at: "2026-06-03T02:23:12.392Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1s32bba.md#c0"
+    char_span: [0, 809]
+    sentence_count: 3
+    key_terms: [job, comments, another, direct-mixture-2855, jobs, stay, reddit-deep, argument]
+    token_count: 201
+  - id: "social-intelligence/reddit-deep/jobs/1s32bba.md#c1"
+    char_span: [824, 2755]
+    sentence_count: 14
+    key_terms: [report, resume, eurocanadian2, taxes, don, job, want, situation]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/jobs/1s32bba.md#c2"
+    char_span: [2757, 3987]
+    sentence_count: 13
+    key_terms: [report, like, labor, job, r3giment75, companies, breaking, calling]
+    section: Comments
+    token_count: 292
 ---
-
 # Is it bad to quit my entry level job only after 8 months ?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1s32bba/is_it_bad_to_quit_my_entry_level_job_only_after_8/)
-Posted by **Direct-Mixture-2855** · **6↑** · **26 comments**
+Posted by **Direct-Mixture-2855** · **5↑** · **26 comments**
 
 I’m still studying a uni degree so this job is semi related to but not what I want to do in the long run. Problem is this job is paying me illegal wages and no super and does not pay or file taxes and my boss lowkey dared me to report them when I pointed it out and we had a mild argument so it would be awkward if I still stay at this job but then I see people talk about how you should stay at your job for at least a year or to keep your current job before you find another so I’m not sure if it would affect my chances of finding another part time job.
 
 ## Comments
 
-- **trainrweckz** (3↑): Just leave if u aren’t happy or their is a weird vibe. It wont affect ur future.
+- **trainrweckz** (5↑): Just leave if u aren’t happy or their is a weird vibe. It wont affect ur future.
 - **addictedtomeme** (3↑): No, 8 months is nothing compared to getting underpaid and messed around on taxes. If a job is shady and your boss is basically daring you to do something about it, I’d be out.
   - **Direct-Mixture-2855** (0↑): My manager said I don’t need to file taxes which makes me want to leave before the next financial year tbh cause I don’t want to get in trouble I’m just worried it would look bad on my resume
     - **EuroCanadian2** (1↑): It won't look like anything if you don't put it on your resume.

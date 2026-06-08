@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/artificial/1t5ewzi.md
 url: "https://www.reddit.com/r/artificial/comments/1t5ewzi/spent_two_days_at_the_ai_agents_conference_in_nyc/"
 kind: "social-post"
 source: "reddit-deep: r/artificial"
@@ -13,8 +14,79 @@ flair: "Research"
 extracted_at: "2026-05-11T17:27:04.775Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c0"
+    char_span: [0, 2141]
+    sentence_count: 17
+    key_terms: [engineering, agents, companies, outcomes, software, old, artificial, conference]
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c1"
+    char_span: [2143, 4461]
+    sentence_count: 18
+    key_terms: [prompt, architecture, architectures, observability, magic, engineering, open-source, data]
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c2"
+    char_span: [4463, 5776]
+    sentence_count: 8
+    key_terms: [layer, prompt-architecture-as-product, risk, industries, regulated, wrapper, middle, "isn't"]
+    token_count: 276
+  - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c3"
+    char_span: [5791, 7402]
+    sentence_count: 11
+    key_terms: [replacementready394, likely, critical, agentic, because, systems, whether, agents]
+    section: Comments
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c4"
+    char_span: [7404, 8637]
+    sentence_count: 7
+    key_terms: [replacementready394, agentic, bright-secretary-710, does, full, gets, jobs, png]
+    section: Comments
+    token_count: 332
+  - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c5"
+    char_span: [8639, 10789]
+    sentence_count: 13
+    key_terms: [mcp, systems, integrations, legacy, problem, implemented, integration, data]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c6"
+    char_span: [10791, 12966]
+    sentence_count: 17
+    key_terms: ["it's", coding, different, use, good, hard, want, understand]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c7"
+    char_span: [12968, 15027]
+    sentence_count: 15
+    key_terms: [programming, because, people, going, "doesn't", having, "don't", programmers]
+    section: Comments
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c8"
+    char_span: [15029, 16324]
+    sentence_count: 7
+    key_terms: [something, common, system, integration, understand, different, substrate, enough]
+    section: Comments
+    token_count: 289
+  - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c9"
+    char_span: [16326, 18000]
+    sentence_count: 8
+    key_terms: [software, own, connectors, companies, database, players, early, means]
+    section: Comments
+    token_count: 358
+  - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c10"
+    char_span: [18002, 19396]
+    sentence_count: 9
+    key_terms: [knowledge, converts, software, startup, domain, people, demonstrate, effectively]
+    section: Comments
+    token_count: 321
+  - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c11"
+    char_span: [19398, 21615]
+    sentence_count: 18
+    key_terms: [saas, cloud, companies, costs, company, "you're", doubling, industry]
+    section: Comments
+    token_count: 475
 ---
-
 # Spent two days at the AI Agents Conference in NYC. Most of the companies there were betting on the wrong moat.
 
 Source: [reddit-deep: r/artificial](https://www.reddit.com/r/artificial/comments/1t5ewzi/spent_two_days_at_the_ai_agents_conference_in_nyc/)

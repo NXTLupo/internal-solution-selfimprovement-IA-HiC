@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1rohwqb.md
 url: "https://www.reddit.com/r/GradSchool/comments/1rohwqb/ive_just_been_rejected_from_every_grad_school_i/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-26T14:32:49.137Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1rohwqb.md#c0"
+    char_span: [0, 832]
+    sentence_count: 3
+    key_terms: [experience, gradschool, comments, rejected, applied, pretty, been, don]
+    token_count: 206
+  - id: "social-intelligence/reddit-deep/gradschool/1rohwqb.md#c1"
+    char_span: [847, 2224]
+    sentence_count: 1
+    key_terms: [cal, lachicafresita, reapplying, feedback, programs, applied, odinnw, did]
+    section: Comments
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/gradschool/1rohwqb.md#c2"
+    char_span: [2226, 4063]
+    sentence_count: 9
+    key_terms: [program, jewishtigerpup, applied, year, accepted, rejected, sinnayre, degree]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1rohwqb.md#c3"
+    char_span: [3834, 4820]
+    sentence_count: 10
+    key_terms: [don, year, programs, program, someone, school, best, did]
+    section: Comments
+    token_count: 245
+  - id: "social-intelligence/reddit-deep/gradschool/1rohwqb.md#c4"
+    char_span: [4822, 4919]
+    sentence_count: 1
+    key_terms: [perseverance, dictate, letting, lesson, stupid, paper, piece, worth]
+    section: Comments
+    token_count: 20
+  - id: "social-intelligence/reddit-deep/gradschool/1rohwqb.md#c5"
+    char_span: [4921, 7126]
+    sentence_count: 15
+    key_terms: [experience, applications, get, research, prestigious, try, work, year]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1rohwqb.md#c6"
+    char_span: [6805, 8751]
+    sentence_count: 17
+    key_terms: [recommendations, letters, records, recommendation, school, recommenders, since, did]
+    section: Comments
+    token_count: 413
 ---
-
 # I’ve just been rejected from every grad school i applied too
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1rohwqb/ive_just_been_rejected_from_every_grad_school_i/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-college/d0aae9d84b.md
 url: "https://www.reddit.com/r/college/comments/1so8sgm/should_i_tell_my_profs_my_dad_passed/"
 url_hash: "d0aae9d84b"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-19T18:04:35.162999+00:00"
 chars: 3270
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-college/d0aae9d84b.md#c0"
+    char_span: [0, 2022]
+    sentence_count: 23
+    key_terms: [college, breakup, "i'm", through, dad, work, extensions, accident]
+    token_count: 495
+  - id: "articles/reddit-deep-r-college/d0aae9d84b.md#c1"
+    char_span: [2024, 3436]
+    sentence_count: 13
+    key_terms: [etc, work, missed, profs, weeks, hospital, college, stepmom]
+    token_count: 333
 ---
-
 # Should I tell my profs my dad passed?
 
 Source: [Reddit Deep: r/college](https://www.reddit.com/r/college/comments/1so8sgm/should_i_tell_my_profs_my_dad_passed/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careeradvice/1sb7y4e.md
 url: "https://www.reddit.com/r/careeradvice/comments/1sb7y4e/leveraging_ai_to_accelerate_your_career/"
 kind: "social-post"
 source: "reddit-deep: r/careeradvice"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T18:53:09.235Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy and research-influenced AI tools, for co-op, based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [workforce, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/careeradvice/1sb7y4e.md#c0"
+    char_span: [0, 1040]
+    sentence_count: 7
+    key_terms: [work, skills, careeradvice, accelerate, leveraging, comments, learning, career]
+    token_count: 246
+  - id: "social-intelligence/reddit-deep/careeradvice/1sb7y4e.md#c1"
+    char_span: [1055, 2445]
+    sentence_count: 4
+    key_terms: [workflows, replace, agents, agent, quick, doc, real, seen]
+    section: Comments
+    token_count: 305
 ---
-
 # Leveraging AI to accelerate your career
 
 Source: [reddit-deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1sb7y4e/leveraging_ai_to_accelerate_your_career/)

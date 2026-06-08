@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1tjvni0.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1tjvni0/i_joined_google_and_im_really_disappointed/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,93 @@ subreddit: "cscareerquestions"
 title: "I joined Google and I’m really disappointed"
 author: "D_nana_X"
 date: "2026-05-21T19:45:01.000Z"
-score: 1386
+score: 1405
 upvote_ratio: 0.93
-num_comments: 277
+num_comments: 279
 flair: "Experienced"
-extracted_at: "2026-05-26T12:54:26.364Z"
+extracted_at: "2026-06-06T17:43:22.931Z"
 extraction_method: "praw-deep"
-research_goal: "Identify emerging needs in the remote work sector."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tjvni0.md#c0"
+    char_span: [0, 1147]
+    sentence_count: 10
+    key_terms: [cscareerquestions, industry, google, people, been, tech, comments, always]
+    token_count: 279
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tjvni0.md#c1"
+    char_span: [1149, 3421]
+    sentence_count: 24
+    key_terms: [onboarding, broken, links, don, got, guy, team, documents]
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tjvni0.md#c2"
+    char_span: [3423, 5436]
+    sentence_count: 18
+    key_terms: [people, different, like, someone, been, experience, documents, important]
+    token_count: 422
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tjvni0.md#c3"
+    char_span: [5438, 6329]
+    sentence_count: 11
+    key_terms: [maybe, like, because, disappointing, experiencing, ineffective, experience, expressing]
+    token_count: 197
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tjvni0.md#c4"
+    char_span: [6344, 7553]
+    sentence_count: 10
+    key_terms: [different, worked, google, teams, experience, company, working, "you're"]
+    section: Comments
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tjvni0.md#c5"
+    char_span: [7555, 9524]
+    sentence_count: 12
+    key_terms: [companies, team, people, teams, experience, onboarding, everyone, actual]
+    section: Comments
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tjvni0.md#c6"
+    char_span: [9526, 10883]
+    sentence_count: 12
+    key_terms: [people, work, opportunities, "don't", networking, friends, around, months]
+    section: Comments
+    token_count: 313
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tjvni0.md#c7"
+    char_span: [10885, 12832]
+    sentence_count: 15
+    key_terms: [google, company, people, expectations, large, experience, network, paleontologistok9053]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tjvni0.md#c8"
+    char_span: [12597, 13046]
+    sentence_count: 7
+    key_terms: [google, expectations, rorschach200, corporate, frodolas, startups, "faang's", neolabs]
+    section: Comments
+    token_count: 122
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tjvni0.md#c9"
+    char_span: [13048, 15276]
+    sentence_count: 17
+    key_terms: [work, google, time, company, important, standards, typically, building]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tjvni0.md#c10"
+    char_span: [15278, 17397]
+    sentence_count: 14
+    key_terms: [project, people, great, something, like, team, sounds, everyone]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tjvni0.md#c11"
+    char_span: [17399, 19431]
+    sentence_count: 12
+    key_terms: [leetcode, company, maybe, teams, get, like, handshake, better]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tjvni0.md#c12"
+    char_span: [19436, 19617]
+    sentence_count: 3
+    key_terms: [branches, everyone, terrible, another, evasion, ireland, justify, friend]
+    section: Comments
+    token_count: 41
 ---
-
 # I joined Google and I’m really disappointed
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1tjvni0/i_joined_google_and_im_really_disappointed/)
-Posted by **D_nana_X** · **1386↑** · **277 comments**
+Posted by **D_nana_X** · **1405↑** · **279 comments**
 
 Before I start, I just want to make it clear that yes I am grateful for my job. I do know that the tech industry has so many layoffs right now and many people would do a lot to be in my position. This is not a lack of gratitude, it’s me sharing sincere feelings with the hope that I can get over them. 
 
@@ -40,21 +115,21 @@ Of course I won’t leave. To do that would be like leaving earth because I thin
 
 ## Comments
 
-- **PaperHandsTheDip** (1192↑): You'd be naiive to assume that every team at a company is the same. I worked there a long time ago (a bit on their mountain view campus and a bit on the seattle one). The experience you get between two different teams is night and day. I noticed the same thing among my peers - everyone had a different experience. It's largely linked to what you're working on, who you're working with, etc.
+- **PaperHandsTheDip** (1202↑): You'd be naiive to assume that every team at a company is the same. I worked there a long time ago (a bit on their mountain view campus and a bit on the seattle one). The experience you get between two different teams is night and day. I noticed the same thing among my peers - everyone had a different experience. It's largely linked to what you're working on, who you're working with, etc.
 
 You see the same things you described at every company in some significance
-  - **ohThisUsername** (324↑): Yep, I'm at Google and I've worked on 3 different teams. All very drastically different in terms of structure, talent, procedures, work life balance, etc.
+  - **ohThisUsername** (326↑): Yep, I'm at Google and I've worked on 3 different teams. All very drastically different in terms of structure, talent, procedures, work life balance, etc.
 
 I've met a few people who transferred teams a few times and finally settled on their 3rd team so that seems like the sweet spot.
-    - **Terrariant** (29↑): Well you know what they say…
+    - **Terrariant** (28↑): Well you know what they say…
     - **average_pornstar** (8↑): When I worked at Google,  my first task was incredibly boring.  A couple weeks later,   I was  assigned more interesting things.
     - **agumonkey** (2↑): Thanks a lot. Would you still say that on average the skill level is higher at Google ?
-  - **newpua_bie** (106↑): > I worked there a long time ago
+  - **newpua_bie** (104↑): > I worked there a long time ago
 
 The time aspect is also one to consider. Most old-school Googlers (similar thing with Facebook/Meta and I assume other companies of the same generation) have left a long time ago as the companies have attracted more fortune-seekers who are good at interviewing but not very good at anything else.
-    - **PaperHandsTheDip** (26↑): I left over a decade ago and moved into a small niche of quant finance. I basically only do that now and everyone knows everyone in my small area. I found it more fun / challenging and there was no political BS. My experience would be largely different from peoples today.
-    - **Lower_Improvement763** (1↑): I think we’re all fortune seekers at this point.
-  - **Fit-Package-3317** (110↑): The team lottery is real - some orgs at big companies are basically holding patterns for people coasting until retirement while others are where the actual innovation happens. My team in previous company had same mix of brilliant people and complete dead weight, except management there was better at moving problems around instead of just accepting them
+    - **PaperHandsTheDip** (30↑): I left over a decade ago and moved into a small niche of quant finance. I basically only do that now and everyone knows everyone in my small area. I found it more fun / challenging and there was no political BS. My experience would be largely different from peoples today.
+    - **Lower_Improvement763** (2↑): I think we’re all fortune seekers at this point.
+  - **Fit-Package-3317** (106↑): The team lottery is real - some orgs at big companies are basically holding patterns for people coasting until retirement while others are where the actual innovation happens. My team in previous company had same mix of brilliant people and complete dead weight, except management there was better at moving problems around instead of just accepting them
 
   
 Your experience sounds pretty typical for older tech companies where certain teams became dumping grounds. Maybe start networking internally to see where the actual work gets done?
@@ -64,40 +139,41 @@ Your experience sounds pretty typical for older tech companies where certain tea
 I think that the smart teams also attract a lot of smart people and can maintain a higher quality bar as a result. I personally switched teams once because the domain was great and the people were even better. The TL of that team remains the best TL I've ever had to date.
 
 PS: in my experience, SREs are the most brilliant people you'll ever get to work with. The quality bar usually seems really high and the nature of the work means that people who can't handle it wash out fast. IMO you really want to work on a product with SREs, as they're consistently a joy to work with and they also make your operational life a hell of a lot easier.
-  - **D_nana_X** (9↑): This gives me hope. I’m in EMEA and there really are some opportunities I could hop on to in a few months once I’ve cleared a year. Someone recommended I start networking internally which might be one of the important pieces of advice I take from here.
-    - **PaperHandsTheDip** (14↑): Networking trumps everything else. As much as people don't like to admit it / think about it - your opportunities are dictated by who you know, not what you know. If you make friends with your peers and they move teams (or companies / sectors), you can always send them a ping and ask about their experiences, WLB, etc. It takes time, don't rush it. Nobody wants to recommend people that they don't know / haven't worked with.
+  - **D_nana_X** (10↑): This gives me hope. I’m in EMEA and there really are some opportunities I could hop on to in a few months once I’ve cleared a year. Someone recommended I start networking internally which might be one of the important pieces of advice I take from here.
+    - **PaperHandsTheDip** (15↑): Networking trumps everything else. As much as people don't like to admit it / think about it - your opportunities are dictated by who you know, not what you know. If you make friends with your peers and they move teams (or companies / sectors), you can always send them a ping and ask about their experiences, WLB, etc. It takes time, don't rush it. Nobody wants to recommend people that they don't know / haven't worked with.
 
 You've already done the hardest part - getting your foot in the door. Everyone around you did the same and is likely quite intelligent as well. Make friends with them, it'll open up doors in 6-12+ months as people move around / you meet more people.
 
 I'm at the point in my career / path that the basically I only work with people that I know directly or their friends. My network is large enough I have that luxury, but it took over a decade to build
-    - **smeyn** (5↑): Consider taking on the odd 20% project. You’ll build up a network and gain insight how other teams work. I did this over 8 years and when my own group started to deteriorate I found another opportunity at a place where I did a 20% earlier.
+    - **smeyn** (4↑): Consider taking on the odd 20% project. You’ll build up a network and gain insight how other teams work. I did this over 8 years and when my own group started to deteriorate I found another opportunity at a place where I did a 20% earlier.
   - **isospeedrix** (2↑): Isn’t orientation company wide tho
   - **sank_1911** (1↑): This.
-- **Fresh_Part22** (243↑): Honestly a lot of this just sounds like a stuff you experience a large corporation. FAANG isn’t immune to those pitfalls.
-  - **PaleontologistOk9053** (16↑): Yes, the first point was exactly my experience at a big corp too
-- **posiedon77** (143↑): Google in 2026 is not Google in 2016, or even more crazy Google in 2006. I think you are having expectations of pre Google 2016. There are very few teams in Google that hire absolutely top notch engineers, some of them are best in the world. The rest of the team's are mostly in the above  average category.
-  - **Conpen** (36↑): There are some incredibly talented and passionate people at G. Just genuine whizzes who know their shit. I can't think of any that were hired post-covid. All of them are either old-timers with a family chilling at L6+ or they left for greener pastures. Or transferred to GDM lol.
+- **Fresh_Part22** (253↑): Honestly a lot of this just sounds like a stuff you experience a large corporation. FAANG isn’t immune to those pitfalls.
+  - **PaleontologistOk9053** (18↑): Yes, the first point was exactly my experience at a big corp too
+  - **-Danksouls-** (2↑): Meanwhile at a startup or company with small it department you speed learn shit cause you and ur team of 6 are the developer, dev ops, system designs and everything in between of the company
+- **posiedon77** (147↑): Google in 2026 is not Google in 2016, or even more crazy Google in 2006. I think you are having expectations of pre Google 2016. There are very few teams in Google that hire absolutely top notch engineers, some of them are best in the world. The rest of the team's are mostly in the above  average category.
+  - **Conpen** (38↑): There are some incredibly talented and passionate people at G. Just genuine whizzes who know their shit. I can't think of any that were hired post-covid. All of them are either old-timers with a family chilling at L6+ or they left for greener pastures. Or transferred to GDM lol.
     - **ParadiceSC2** (3↑): What's GDM?
   - **D_nana_X** (20↑): I think so too, to be honest. Just my own expectations coming to bite me in the arse. The Google I heard about back in 2016 is now a large corporate. Can’t expect the same things.
-    - **Frodolas** (6↑): Yeah those people have moved on to the AI neolabs and other top startups. Google is mostly rest and vest now. Covid ruined FAANG's talent bar.
-    - **rorschach200** (1↑): Meta of today is also an ass. It all got much worse than it was.
+    - **Frodolas** (2↑): Yeah those people have moved on to the AI neolabs and other top startups. Google is mostly rest and vest now. Covid ruined FAANG's talent bar.
+    - **rorschach200** (2↑): Meta of today is also an ass. It all got much worse than it was.
 
 Try Apple though, Apple is pretty good.
   - **scottyLogJobs** (8↑): What's frustrating is they have the money, and there are tons of really fucking smart people who want to work for them, remote or even on-site, and they won't give them the time of day! Like I'm 90% sure the resumes don't make it out of the AI pit they send them into. I got a low-ball offer from them years ago and accepted one at AWS making 50% more. Then they all cut all remote workers, and even though there's a local google campus here, I have applied to numerous roles since, and have never heard back from a human. I am an excellent engineer, and there are better engineers than me working for worse companies that would love the chance to work for Google. Are they even trying to innovate anymore? Anything other than trying to force Gemini into everything? They have been stagnating for years - creating products, getting bored of them, giving up. There was a time where they'd confidently stride into any tech market and dominate (or just buy the leading company), gmail, chrome, calendar, docs / drive, ads.
 
 And now their golden goose is riddled with ads to the point of un-usability, and people simply open claude instead and get the answer they were looking for instantly. What a tremendous failure of creativity.
-    - **Prior-Task1498** (2↑): That's because google is now a finance company, not a software or tech company.
-- **Squidwild** (125↑): Had the exact same problem. I think there are many reasons why this might be worse at Google, but the fact is, there’s nowhere on earth where every single employee is smart and hardworking and caring all at the same time.
+    - **Prior-Task1498** (1↑): That's because google is now a finance company, not a software or tech company.
+- **Squidwild** (123↑): Had the exact same problem. I think there are many reasons why this might be worse at Google, but the fact is, there’s nowhere on earth where every single employee is smart and hardworking and caring all at the same time.
 
 From my time I could tell that there were other orgs that were better. I think typically the more important the work is, the higher the standards. If you are just a piece in some managers empire building project, there is no pressure to deliver or improve things. Try to work on something more critical to the business as a whole, where the results actually matter.
-  - **ohThisUsername** (46↑): >I think typically the more important the work is, the higher the standards
+  - **ohThisUsername** (50↑): >I think typically the more important the work is, the higher the standards
 
 100%. I worked on a team building an internal tool where code reviews were basically auto-approved. 
 
 Now I work on a project that basically backs all Google products and code reviews take days or weeks and I have to be careful about how many CPU cycles I'm adding to hot code paths.
 
 It takes time to land on an "important" team or project. Most people transfer teams a few times before landing on something that meets their standards
-- **happyscrat** (72↑): As a big tech engineer I can tell you this is pretty much the standard. Most people are not too interested in CS or tech, they just want to do what they are asked and clock out. What you are saying sounds to me like someone with or looking for a mission, not just a job doing the minimum to stay there. You won't find that on big techs, you'll find that in other people with a mission, generally startups.
+- **happyscrat** (75↑): As a big tech engineer I can tell you this is pretty much the standard. Most people are not too interested in CS or tech, they just want to do what they are asked and clock out. What you are saying sounds to me like someone with or looking for a mission, not just a job doing the minimum to stay there. You won't find that on big techs, you'll find that in other people with a mission, generally startups.
   - **nicocappa** (25↑): There's also the aspect of working on something inherently boring. You can love CS as much as you want but sometimes the project itself isn't that fascinating
   - **DeOh** (2↑): When I first started there was a certain personality type that got into this but nowadays I don't really relate to my coworkers because it's become a gold rush for everyone.
   - **DardanGameDev** (1↑): Yeah to me it sounds like they’re looking for something more like a startup company…
@@ -108,7 +184,7 @@ I had a glorious 6 month stretch working on Project Fuchsia feature set that nev
 The team was re-org'd to ads, android, google play, and a lucky few jumped to YouTube. After 2 years, nearly everyone that had been in our MTV N Shoreline office had posted farewell letters in go/epitaphs (if that's still around). 
 
 A decade later, I still have yet to experience the magic I felt on that team. Miss you all if you're reading this!
-- **Blastie2** (178↑): Orientation sounds like it's gone a bit downhill lately. It wasn't that bad for me.
+- **Blastie2** (176↑): Orientation sounds like it's gone a bit downhill lately. It wasn't that bad for me.
 
 There are occasionally bad hires, but they usually get filtered out within a year or two. On average, I've found people to be pretty smart. Maybe you need to look into switching teams?
 
@@ -116,20 +192,20 @@ Also just so you know, Jeff Dean held a door open for me once, so not to brag bu
   - **0x-2a** (47↑): I once went in for a handshake while standing next to Jeff while we were stall-buddies. 
 
 Yup.
-    - **slipnslider** (13↑): Bold move to go for a handshake at the unirnal.
-  - **D_nana_X** (9↑): The onboarding really been far inferior to anything I’ve experienced before. And to have that be the entry to the company was really unfortunate. 
+    - **slipnslider** (12↑): Bold move to go for a handshake at the unirnal.
+  - **D_nana_X** (8↑): The onboarding really been far inferior to anything I’ve experienced before. And to have that be the entry to the company was really unfortunate. 
 
 I will almost definitely look into internal mobility once I qualify for it.
   - **pheonixblade9** (1↑): sanjay once reviewed my PR when I had to change proto.proto
-  - **Vemyx** (-58↑): Or maybe its cause you’re a woman
+  - **Vemyx** (-57↑): Or maybe its cause you’re a woman
     - **Blastie2** (37↑): No, it's because I'm really important. I think we can all remember where we were the day in January of 2022 when they woke up and the search results page was loading 1ms faster.
-- **QuitTypical3210** (23↑): What do you expect joining a company full of people who just grind leetcode to get in?
+- **QuitTypical3210** (24↑): What do you expect joining a company full of people who just grind leetcode to get in?
 
 It’s like passing an exam and getting lucky that the question you get is one you solved.
   - **Adventurous-Cycle363** (1↑): True but there are teams, especially other than traditional SWE roles that have much better interview processes aligned with actual daily job.. Or atleast the conceptual nature of it instead of the stupid leetcode questions in each round.
-- **ckow** (21↑): Never meet your heroes :)
-  - **D_nana_X** (10↑): Nail on the head!
-- **MakotoBIST** (17↑): You ended up in a bunch of dummies that can leetcode and maybe did good at university/interviewing.
+- **ckow** (22↑): Never meet your heroes :)
+  - **D_nana_X** (11↑): Nail on the head!
+- **MakotoBIST** (18↑): You ended up in a bunch of dummies that can leetcode and maybe did good at university/interviewing.
 
 
 Like every company, if you create some reputation and with some luck, you will either slowly move to more critical teams or become the bottle neck of yours and therefore paid very well.

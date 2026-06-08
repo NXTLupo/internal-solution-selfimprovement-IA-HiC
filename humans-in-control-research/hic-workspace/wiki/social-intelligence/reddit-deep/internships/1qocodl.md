@@ -10,9 +10,9 @@ score: 2
 upvote_ratio: 0.67
 num_comments: 17
 flair: "Offers"
-extracted_at: "2026-05-23T12:15:55.809Z"
+extracted_at: "2026-06-06T23:20:46.221Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # PAID Internships | WeLaunch | India (US Timings) | Marketing, Sales, AI, PM

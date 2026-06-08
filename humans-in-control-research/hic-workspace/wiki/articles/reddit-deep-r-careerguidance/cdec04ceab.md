@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careerguidance/cdec04ceab.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rtah91/my_girlfriend_finished_7_years_of_college_in/"
 url_hash: "cdec04ceab"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-19T18:03:25.228780+00:00"
 chars: 4942
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-careerguidance/cdec04ceab.md#c0"
+    char_span: [0, 2075]
+    sentence_count: 11
+    key_terms: [been, game, programming, years, getting, through, careerguidance, design]
+    token_count: 427
+  - id: "articles/reddit-deep-r-careerguidance/cdec04ceab.md#c1"
+    char_span: [2077, 3932]
+    sentence_count: 15
+    key_terms: [job, get, work, applying, company, programming, game, here]
+    token_count: 436
+  - id: "articles/reddit-deep-r-careerguidance/cdec04ceab.md#c2"
+    char_span: [3935, 5245]
+    sentence_count: 12
+    key_terms: [game, awesome, been, industry, advice, people, needs, thank]
+    token_count: 300
 ---
-
 # My Girlfriend finished 7 years of college in Video Game Development Programming and Design and hasn’t been able to land a job. Should she pivot careers?
 
 Source: [Reddit Deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rtah91/my_girlfriend_finished_7_years_of_college_in/)

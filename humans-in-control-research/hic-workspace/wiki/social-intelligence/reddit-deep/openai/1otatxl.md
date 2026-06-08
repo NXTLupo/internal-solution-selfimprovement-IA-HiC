@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1otatxl.md
 url: "https://www.reddit.com/r/OpenAI/comments/1otatxl/chatgpt_pro_context_window_bug_forgets_after_6k/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,27 @@ flair: "Discussion"
 extracted_at: "2026-05-11T17:27:05.358Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1otatxl.md#c0"
+    char_span: [0, 1305]
+    sentence_count: 7
+    key_terms: [chatgpt, context, openai, pro, comments, messages, earlier, window]
+    token_count: 318
+  - id: "social-intelligence/reddit-deep/openai/1otatxl.md#c1"
+    char_span: [1320, 3273]
+    sentence_count: 13
+    key_terms: [context, like, chatgpt, pro, tokens, app, text, getting]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/openai/1otatxl.md#c2"
+    char_span: [3275, 3715]
+    sentence_count: 3
+    key_terms: [probably, issues, memory, words, full, technically, beginning, something]
+    section: Comments
+    token_count: 102
 ---
-
 # ChatGPT Pro: Context Window Bug? -Forgets after ~6k words
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1otatxl/chatgpt_pro_context_window_bug_forgets_after_6k/)

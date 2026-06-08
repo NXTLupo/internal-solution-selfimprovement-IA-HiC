@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1n2sugn.md
 url: "https://www.reddit.com/r/OpenAI/comments/1n2sugn/the_history_of_mainstream_ai_part_1_2023/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,60 @@ flair: "Project"
 extracted_at: "2026-05-11T17:27:05.350Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1n2sugn.md#c0"
+    char_span: [0, 288]
+    sentence_count: 2
+    key_terms: [mainstream, comments, openai, reddit-deep, supermike6, timeline, history, present]
+    token_count: 97
+  - id: "social-intelligence/reddit-deep/openai/1n2sugn.md#c1"
+    char_span: [290, 2008]
+    sentence_count: 6
+    key_terms: [googles-bard-chatbot-gets-the-gemini-pro-update-globally, com, microsoft, techcrunch, pope-francis-puffer-jacket-fake-photos-deepfake-power-peril-of-ai, google, bard, https]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/openai/1n2sugn.md#c2"
+    char_span: [1728, 3305]
+    sentence_count: 4
+    key_terms: [theverge, google-ai-features-docs-gmail-slides-sheets-workspace, com, microsoft, microsoft-365-ai-copilot-word-outlook-teams, text, https, www]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/openai/1n2sugn.md#c3"
+    char_span: [3120, 4945]
+    sentence_count: 7
+    key_terms: [datasciencedojo, the-complete-history-of-openai-models, com, elon-mu***REDACTED-KEY***, text, openai, gpt-4, https]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/openai/1n2sugn.md#c4"
+    char_span: [4654, 6284]
+    sentence_count: 5
+    key_terms: [elon-mu***REDACTED-KEY***, theguardian, com, technology, https, mar, text, www]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/openai/1n2sugn.md#c5"
+    char_span: [6119, 6396]
+    sentence_count: 2
+    key_terms: [ai-digital-minds, mainstream, responded, signaled, training, altman, openai, rising]
+    token_count: 92
+  - id: "social-intelligence/reddit-deep/openai/1n2sugn.md#c6"
+    char_span: [6398, 6419]
+    sentence_count: 1
+    key_terms: [apr, jun]
+    token_count: 11
+  - id: "social-intelligence/reddit-deep/openai/1n2sugn.md#c7"
+    char_span: [6421, 8180]
+    sentence_count: 6
+    key_terms: [elon-mu***REDACTED-KEY***, theguardian, com, why-is-meta-releasing-llama-2-open-source-ai-model-mark-zuckerberg, technology, https, text, privacy]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/openai/1n2sugn.md#c8"
+    char_span: [8018, 9570]
+    sentence_count: 4
+    key_terms: [why-is-meta-releasing-llama-2-open-source-ai-model-mark-zuckerberg, theguardian, com, wikipedia, https, llama, text, technology]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/openai/1n2sugn.md#c9"
+    char_span: [9382, 10224]
+    sentence_count: 4
+    key_terms: [search, googles-search-generative-experience-isnt-a-replacement-its-an-evolution, why-is-meta-releasing-llama-2-open-source-ai-model-mark-zuckerberg, collectivemeasures, com, theguardian, google, https]
+    token_count: 237
 ---
-
 # The history of mainstream AI. PART 1: 2023
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1n2sugn/the_history_of_mainstream_ai_part_1_2023/)

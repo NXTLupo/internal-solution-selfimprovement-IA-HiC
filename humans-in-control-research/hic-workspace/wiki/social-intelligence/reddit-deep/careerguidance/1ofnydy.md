@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1ofnydy.md
 url: "https://www.reddit.com/r/careerguidance/comments/1ofnydy/from_law_student_to_career_in_ir_need_guidance/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,34 @@ score: 3
 upvote_ratio: 1
 num_comments: 7
 flair: ""
-extracted_at: "2026-05-22T15:13:18.804Z"
+extracted_at: "2026-06-03T18:35:34.137Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1ofnydy.md#c0"
+    char_span: [0, 622]
+    sentence_count: 8
+    key_terms: [careerguidance, start, comments, guidance, student, career, gullible-winter-8787, law]
+    token_count: 157
+  - id: "social-intelligence/reddit-deep/careerguidance/1ofnydy.md#c1"
+    char_span: [637, 1577]
+    sentence_count: 7
+    key_terms: [domain, international, get, research, pursue, region, law, professionals]
+    section: Comments
+    token_count: 190
+  - id: "social-intelligence/reddit-deep/careerguidance/1ofnydy.md#c2"
+    char_span: [1579, 3947]
+    sentence_count: 18
+    key_terms: [like, domain, knowledge, international, internships, research, counterterrorism, opportunities]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/careerguidance/1ofnydy.md#c3"
+    char_span: [3949, 5933]
+    sentence_count: 20
+    key_terms: [organisations, international, opportunities, india, law, skills, consultant, government]
+    section: Comments
+    token_count: 399
 ---
-
 # From law student to career in IR, need guidance ?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1ofnydy/from_law_student_to_career_in_ir_need_guidance/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1t0twxi.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1t0twxi/update_accepted/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,27 @@ flair: "Physical Sciences"
 extracted_at: "2026-05-18T14:15:27.005Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1t0twxi.md#c0"
+    char_span: [0, 1411]
+    sentence_count: 12
+    key_terms: [comments, astrophysicist, gradadmissions, accepted, finally, masters, program, through]
+    token_count: 317
+  - id: "social-intelligence/reddit-deep/gradadmissions/1t0twxi.md#c1"
+    char_span: [1426, 3134]
+    sentence_count: 17
+    key_terms: [congratulations, gay, winner, thank, hope, congrats, deserved, erasmus]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1t0twxi.md#c2"
+    char_span: [2874, 3935]
+    sentence_count: 9
+    key_terms: [congratulations, funded, programs, masters, program, stats, get, good]
+    section: Comments
+    token_count: 259
 ---
-
 # Update: Accepted!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1t0twxi/update_accepted/)

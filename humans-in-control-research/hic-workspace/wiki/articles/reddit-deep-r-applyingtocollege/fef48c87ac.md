@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-applyingtocollege/fef48c87ac.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1s4osob/colleges_dont_value_isef_anymore_i_guess_please_i/"
 url_hash: "fef48c87ac"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-22T23:42:06.516318+00:00"
 chars: 2350
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-applyingtocollege/fef48c87ac.md#c0"
+    char_span: [0, 1566]
+    sentence_count: 12
+    key_terms: [applyingtocollege, college, colleges, comments, research, service, deeper, reddit]
+    token_count: 351
+  - id: "articles/reddit-deep-r-applyingtocollege/fef48c87ac.md#c1"
+    char_span: [1568, 2582]
+    sentence_count: 10
+    key_terms: [puzzleheaded-tear283, encouragement, get, continue, stanford, forward, working, matter]
+    token_count: 233
 ---
-
 # Colleges don't value ISEF anymore I guess (please I just need to cope)
 
 Source: [Reddit Deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1s4osob/colleges_dont_value_isef_anymore_i_guess_please_i/)

@@ -1,4 +1,5 @@
 ---
+id: frameworks/prd.md
 title: "Product Requirements Document Framework Specification"
 type: framework
 created: 2026-04-10
@@ -8,8 +9,68 @@ confidence: high
 status: active
 tags: [prd, cagan, svpg, amazon-prfaq, shape-up, product-management]
 evidence_count: 0
+chunks:
+  - id: "frameworks/prd.md#c0"
+    char_span: [0, 960]
+    sentence_count: 7
+    key_terms: [specification, requirements, empowered, framework, problem, product, amazon, cagan]
+    section: Canonical Framework
+    token_count: 184
+  - id: "frameworks/prd.md#c1"
+    char_span: [989, 3245]
+    sentence_count: 16
+    key_terms: [problem, user, section, story, criteria, stories, acceptance, statement]
+    section: Required Sections (16)
+    token_count: 471
+  - id: "frameworks/prd.md#c2"
+    char_span: [3247, 5755]
+    sentence_count: 13
+    key_terms: [metrics, requirements, guardrail, personas, requirement, data, research, primary]
+    section: Required Sections (16)
+    token_count: 506
+  - id: "frameworks/prd.md#c3"
+    char_span: [5757, 8387]
+    sentence_count: 15
+    key_terms: [data, requirements, section, delivery, risk, constraints, technical, feature]
+    section: Required Sections (16)
+    token_count: 514
+  - id: "frameworks/prd.md#c4"
+    char_span: [8389, 10174]
+    sentence_count: 15
+    key_terms: [scope, section, confidence, prd, questions, progressively, assumptions, development]
+    section: Required Sections (16)
+    token_count: 378
+  - id: "frameworks/prd.md#c5"
+    char_span: [10205, 11419]
+    sentence_count: 6
+    key_terms: [rice, impact, reach, time, confidence, defined, product, require]
+    section: Prioritization Framework
+    token_count: 294
+  - id: "frameworks/prd.md#c6"
+    char_span: [11463, 13060]
+    sentence_count: 13
+    key_terms: [detection, requirements, fix, user, feature, problem, prd, statement]
+    section: Anti-Patterns (Generation Must Avoid)
+    token_count: 322
+  - id: "frameworks/prd.md#c7"
+    char_span: [13080, 14219]
+    sentence_count: 1
+    key_terms: [metrics, section, completeness, requirements, priority, timeline, defined, review]
+    section: Quality Gates
+    token_count: 267
+  - id: "frameworks/prd.md#c8"
+    char_span: [14249, 16242]
+    sentence_count: 12
+    key_terms: [prd, write, data, release, define, anti-patterns, build, team]
+    section: Generation Instructions
+    token_count: 406
+  - id: "frameworks/prd.md#c9"
+    char_span: [16265, 16764]
+    sentence_count: 1
+    key_terms: [frameworks, anti-patterns, architecture, prds, framework, strategic, strategy, defines]
+    section: Cross-References
+    token_count: 101
 ---
-
 # Product Requirements Document Framework Specification
 
 ## Canonical Framework

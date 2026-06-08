@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1tf1i5b.md
 url: "https://www.reddit.com/r/jobs/comments/1tf1i5b/stop_oversharing/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,81 @@ flair: "Onboarding"
 extracted_at: "2026-05-20T06:41:17.636Z"
 extraction_method: "praw-deep"
 research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1tf1i5b.md#c0"
+    char_span: [0, 1137]
+    sentence_count: 15
+    key_terms: [oversharing, performance, comments, posted, get, jobs, stop, work]
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/jobs/1tf1i5b.md#c1"
+    char_span: [1152, 3066]
+    sentence_count: 11
+    key_terms: [people, live, illustrious-shape383, work, professionalism, because, "it's", shorter]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/jobs/1tf1i5b.md#c2"
+    char_span: [3069, 3983]
+    sentence_count: 6
+    key_terms: [commute, hour, because, minutes, delays, people, though, get]
+    section: Comments
+    token_count: 230
+  - id: "social-intelligence/reddit-deep/jobs/1tf1i5b.md#c3"
+    char_span: [3985, 6115]
+    sentence_count: 17
+    key_terms: [because, interview, distance, location, already, commute, around, disappointed]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/jobs/1tf1i5b.md#c4"
+    char_span: [6117, 7576]
+    sentence_count: 13
+    key_terms: [always, area, "i've", job, live, interview, address, commute]
+    section: Comments
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/jobs/1tf1i5b.md#c5"
+    char_span: [7579, 9738]
+    sentence_count: 19
+    key_terms: [personal, manager, process, information, want, screening, everyone, because]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/jobs/1tf1i5b.md#c6"
+    char_span: [9740, 10342]
+    sentence_count: 3
+    key_terms: [sharing, manager, need, work, responsibilities, brainwavecc, additional, exhaustion]
+    section: Comments
+    token_count: 128
+  - id: "social-intelligence/reddit-deep/jobs/1tf1i5b.md#c7"
+    char_span: [10344, 12560]
+    sentence_count: 14
+    key_terms: [work, because, nobody, performative, personality, like, yourself, fucking]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1tf1i5b.md#c8"
+    char_span: [12318, 14268]
+    sentence_count: 11
+    key_terms: [work, meeting, because, context, listen, too, prevalent, depends]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1tf1i5b.md#c9"
+    char_span: [14029, 15290]
+    sentence_count: 7
+    key_terms: [entitled, information, coworker, personal, learned, family, listen, people]
+    section: Comments
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/jobs/1tf1i5b.md#c10"
+    char_span: [15292, 16980]
+    sentence_count: 14
+    key_terms: [friends, work, cultural, thedevil-youknow, manager, hiring, fit, weaponized]
+    section: Comments
+    token_count: 417
+  - id: "social-intelligence/reddit-deep/jobs/1tf1i5b.md#c11"
+    char_span: [16982, 18973]
+    sentence_count: 16
+    key_terms: [coworkers, need, too, serious, allegations-sometimes, anyone, person, illustrious-shape383]
+    section: Comments
+    token_count: 465
 ---
-
 # Stop oversharing!!!
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1tf1i5b/stop_oversharing/)

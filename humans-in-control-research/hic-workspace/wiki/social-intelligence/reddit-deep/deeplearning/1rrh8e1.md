@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1rrh8e1.md
 url: "https://www.reddit.com/r/deeplearning/comments/1rrh8e1/architecture_discussion_observability_guardrail/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.056Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1rrh8e1.md#c0"
+    char_span: [0, 2236]
+    sentence_count: 6
+    key_terms: [agent, observability, complex, handling, across, architecture, deeplearning, interaction]
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/deeplearning/1rrh8e1.md#c1"
+    char_span: [2251, 4435]
+    sentence_count: 14
+    key_terms: [agent, non-deterministic, nested, layer, model, neo4j, concurrency, multi-agent]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/deeplearning/1rrh8e1.md#c2"
+    char_span: [4437, 5454]
+    sentence_count: 7
+    key_terms: [latency, real-time, scanning, inline, strict, level, makes, proxy]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/deeplearning/1rrh8e1.md#c3"
+    char_span: [5456, 7836]
+    sentence_count: 10
+    key_terms: [layer, api, embedding, latency, observability, horizontally, async, graph]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/deeplearning/1rrh8e1.md#c4"
+    char_span: [7536, 8222]
+    sentence_count: 5
+    key_terms: [especially, embedding, guard, api, pii, non-negotiable, architectural, retroactively]
+    section: Comments
+    token_count: 145
 ---
-
 # Architecture Discussion: Observability & guardrail layers for complex AI agents (Go, Neo4j, Qdrant)
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1rrh8e1/architecture_discussion_observability_guardrail/)

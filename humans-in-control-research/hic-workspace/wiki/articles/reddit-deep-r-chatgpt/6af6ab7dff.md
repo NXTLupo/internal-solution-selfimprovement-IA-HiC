@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-chatgpt/6af6ab7dff.md
 url: "https://www.reddit.com/r/ChatGPT/comments/1mjbpyc/to_help_me_save_money_i_had_chatgpt_start/"
 url_hash: "6af6ab7dff"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:18:26.777278+00:00"
 chars: 1915
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-chatgpt/6af6ab7dff.md#c0"
+    char_span: [0, 1761]
+    sentence_count: 10
+    key_terms: [chatgpt, https, save, a67df99152969d796f9f11b204d9826f971f9f51, callmejimmilton, please, conversation, image]
+    token_count: 513
+  - id: "articles/reddit-deep-r-chatgpt/6af6ab7dff.md#c1"
+    char_span: [1763, 2144]
+    sentence_count: 2
+    key_terms: [street-inevitable358, worth-reputation3450, like, u4b1wjrfhipww, interrogated, aeugaedirlu, tortured, dungeon]
+    token_count: 132
 ---
-
 # To help me save money, I had ChatGPT start visualizing my wealth. Now all I want to do is save!
 
 Source: [Reddit Deep: r/chatgpt](https://www.reddit.com/r/ChatGPT/comments/1mjbpyc/to_help_me_save_money_i_had_chatgpt_start/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1lxqmri.md
 url: "https://www.reddit.com/r/jobs/comments/1lxqmri/masters_student_wondering_why_entry_level_jobs/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,45 @@ flair: "Applications"
 extracted_at: "2026-05-22T21:35:36.540Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1lxqmri.md#c0"
+    char_span: [0, 1988]
+    sentence_count: 25
+    key_terms: [entry, level, masters, degree, epidimiology, job, jobs, internship]
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/jobs/1lxqmri.md#c1"
+    char_span: [2003, 4130]
+    sentence_count: 6
+    key_terms: [experience, entry-level, internships, work, full-time, years, position, part-time]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/jobs/1lxqmri.md#c2"
+    char_span: [4132, 6101]
+    sentence_count: 5
+    key_terms: [why-does-an-entry-level-job-now-require-three-years-of-experience-heres-how-that-hurts-workers-and-companies-alike-a4ff864f, experience, more-new-graduates-applying-to-internships-in-tough-job-market-glassdoor-2025-4, internships, internship, https, years, part-time]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/jobs/1lxqmri.md#c3"
+    char_span: [6103, 8218]
+    sentence_count: 21
+    key_terms: [working, get, graduate, health, hoping, assistantship, experience, internship]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/jobs/1lxqmri.md#c4"
+    char_span: [8220, 10326]
+    sentence_count: 19
+    key_terms: [experience, career, degree, level, jobs, sas, getting, entry]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/jobs/1lxqmri.md#c5"
+    char_span: [10328, 11311]
+    sentence_count: 1
+    key_terms: [healthcare, admin, infection, control, degrees, someone, degree, health]
+    section: Comments
+    token_count: 197
 ---
-
 # Masters student wondering why entry level jobs arent really entry level -- how to compete with PhD candidates?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1lxqmri/masters_student_wondering_why_entry_level_jobs/)

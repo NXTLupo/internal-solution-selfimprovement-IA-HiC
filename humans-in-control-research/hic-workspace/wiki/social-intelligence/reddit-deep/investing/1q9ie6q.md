@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1q9ie6q.md
 url: "https://www.reddit.com/r/investing/comments/1q9ie6q/24_give_me_stocks_for_an_ai_play_long_into_the/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.194Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1q9ie6q.md#c0"
+    char_span: [0, 580]
+    sentence_count: 4
+    key_terms: [play, investing, comments, energy, stocks, infrastructure, reddit-deep, automation]
+    token_count: 155
+  - id: "social-intelligence/reddit-deep/investing/1q9ie6q.md#c1"
+    char_span: [595, 2491]
+    sentence_count: 20
+    key_terms: [power, nuclear, electrical, data, grid, centers, deleted, infrastructure]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/investing/1q9ie6q.md#c2"
+    char_span: [2493, 3321]
+    sentence_count: 5
+    key_terms: [plays, already, data, new, infrastructure, tradingtennish, installations, concentrated]
+    section: Comments
+    token_count: 210
 ---
-
 # 24 - Give me stocks for an AI play long into the future. Rate my portfolio
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1q9ie6q/24_give_me_stocks_for_an_ai_play_long_into_the/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rw4pq9.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rw4pq9/what_skill_changed_your_career_the_most/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,57 @@ flair: ""
 extracted_at: "2026-05-25T15:52:13.107Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rw4pq9.md#c0"
+    char_span: [0, 642]
+    sentence_count: 5
+    key_terms: [careerguidance, career, skill, comments, skills, hear, new, real]
+    token_count: 148
+  - id: "social-intelligence/reddit-deep/careerguidance/1rw4pq9.md#c1"
+    char_span: [657, 1084]
+    sentence_count: 4
+    key_terms: [buffalojealous2958, got, opportunities, expectations, imoverhereee, communicate, everything, explaining]
+    section: Comments
+    token_count: 97
+  - id: "social-intelligence/reddit-deep/careerguidance/1rw4pq9.md#c2"
+    char_span: [1086, 3176]
+    sentence_count: 20
+    key_terms: [practice, like, slides, organization, toastmasters, learn, maybe, did]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1rw4pq9.md#c3"
+    char_span: [2926, 3486]
+    sentence_count: 5
+    key_terms: [pull, asleep-wish5232, communicating, organization, presentation, stakeholders, entaroadun, difficult]
+    section: Comments
+    token_count: 144
+  - id: "social-intelligence/reddit-deep/careerguidance/1rw4pq9.md#c4"
+    char_span: [3488, 5407]
+    sentence_count: 20
+    key_terms: [calm, lavendar-bumblebee, down, angry, stay, work, amircruz, respond]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1rw4pq9.md#c5"
+    char_span: [5115, 6650]
+    sentence_count: 11
+    key_terms: [working, clonehunterz, conversation, anyone, people, money, point, times]
+    section: Comments
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/careerguidance/1rw4pq9.md#c6"
+    char_span: [6652, 8309]
+    sentence_count: 14
+    key_terms: [information, skills, task, honestly, learning, whatever, someone, figure]
+    section: Comments
+    token_count: 377
+  - id: "social-intelligence/reddit-deep/careerguidance/1rw4pq9.md#c7"
+    char_span: [8311, 9989]
+    sentence_count: 14
+    key_terms: [did, please, share, opportunities, interviewing, interested, achieve, looking]
+    section: Comments
+    token_count: 426
 ---
-
 # What skill changed your career the most?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rw4pq9/what_skill_changed_your_career_the_most/)

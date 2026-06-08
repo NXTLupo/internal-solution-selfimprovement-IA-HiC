@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1t5uzak.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1t5uzak/advice_for_cs_student/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,33 @@ flair: "Student"
 extracted_at: "2026-05-22T23:33:42.292Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t5uzak.md#c0"
+    char_span: [0, 885]
+    sentence_count: 9
+    key_terms: [cscareerquestions, companies, comments, advice, entry, level, get, undergraduates]
+    token_count: 212
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t5uzak.md#c1"
+    char_span: [900, 3392]
+    sentence_count: 16
+    key_terms: [industry, understanding, code, coding, different, good, concepts, sound]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t5uzak.md#c2"
+    char_span: [3394, 5043]
+    sentence_count: 12
+    key_terms: [need, doing, something, software, getting, going, code, else]
+    section: Comments
+    token_count: 375
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t5uzak.md#c3"
+    char_span: [5046, 5813]
+    sentence_count: 5
+    key_terms: [job, healthcare, librarianoutside2376, bad, been, get, exponentially, unfortunately]
+    section: Comments
+    token_count: 178
 ---
-
 # Advice for CS student?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1t5uzak/advice_for_cs_student/)

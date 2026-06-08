@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1sbmjhp.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1sbmjhp/26_yo_afraid_of_calculus/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,39 @@ flair: "Academic Advice"
 extracted_at: "2026-05-25T18:32:19.218Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sbmjhp.md#c0"
+    char_span: [0, 1674]
+    sentence_count: 5
+    key_terms: [calculus, engineeringstudents, math, school, high, interested, comments, academy]
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sbmjhp.md#c1"
+    char_span: [1689, 2759]
+    sentence_count: 6
+    key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
+    section: Comments
+    token_count: 245
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sbmjhp.md#c2"
+    char_span: [2761, 4347]
+    sentence_count: 13
+    key_terms: [calculus, algebra, lildillweed, trig, calc, community, college, through]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sbmjhp.md#c3"
+    char_span: [4349, 6089]
+    sentence_count: 14
+    key_terms: [leonard, lildillweed, professors, calc, developed, professor, recommend, calculus]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1sbmjhp.md#c4"
+    char_span: [6091, 7321]
+    sentence_count: 11
+    key_terms: [algebra, audio, watch, lildillweed, work, definitely, recommend, academy]
+    section: Comments
+    token_count: 297
 ---
-
 # 26 y/o afraid of calculus
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1sbmjhp/26_yo_afraid_of_calculus/)

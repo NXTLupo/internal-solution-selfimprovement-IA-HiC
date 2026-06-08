@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1rrrot4.md
 url: "https://www.reddit.com/r/NEU/comments/1rrrot4/help_with_some_info_plz/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,21 @@ flair: "Misc"
 extracted_at: "2026-05-26T14:30:23.762Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1rrrot4.md#c0"
+    char_span: [0, 1910]
+    sentence_count: 13
+    key_terms: [theatre, psychology, productions, like, overall, student, school, northeastern]
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/neu/1rrrot4.md#c1"
+    char_span: [1925, 3953]
+    sentence_count: 8
+    key_terms: [theatre, opportunities, people, smaller, clubs, super, coop, good]
+    section: Comments
+    token_count: 479
 ---
-
 # Help with some info plz
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1rrrot4/help_with_some_info_plz/)

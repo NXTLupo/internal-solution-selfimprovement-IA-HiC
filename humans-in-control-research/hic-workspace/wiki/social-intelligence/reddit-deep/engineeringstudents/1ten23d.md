@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1ten23d.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1ten23d/final_year_civil_engineering_student_worried/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "Academic Advice"
 extracted_at: "2026-05-25T13:01:49.567Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ten23d.md#c0"
+    char_span: [0, 1338]
+    sentence_count: 13
+    key_terms: [engineering, civil, engineeringstudents, automation, engineers, comments, student, worried]
+    token_count: 284
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ten23d.md#c1"
+    char_span: [1353, 2027]
+    sentence_count: 3
+    key_terms: [studying, something, been, "i've", "it's", use, automatedbyali, efficiently]
+    section: Comments
+    token_count: 154
 ---
-
 # Final year civil engineering student worried about AI replacing jobs — what should be my approach?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1ten23d/final_year_civil_engineering_student_worried/)

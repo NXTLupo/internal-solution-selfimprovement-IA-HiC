@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1supken.md
 url: "https://www.reddit.com/r/careerguidance/comments/1supken/what_are_the_career_prospects_after_pursuing_ma/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-25T13:04:07.365Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1supken.md#c0"
+    char_span: [0, 709]
+    sentence_count: 2
+    key_terms: [careerguidance, prospects, comments, negative, positive, career, course, domain]
+    token_count: 163
+  - id: "social-intelligence/reddit-deep/careerguidance/1supken.md#c1"
+    char_span: [724, 1621]
+    sentence_count: 7
+    key_terms: [working, people, interdisciplinary, day, "it's", look, thepandapear, internships]
+    section: Comments
+    token_count: 192
 ---
-
 # What are the career prospects after pursuing M.A. in development and labor studies from JNU? and to what extent is it true that there are no jobs in this domain?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1supken/what_are_the_career_prospects_after_pursuing_ma/)

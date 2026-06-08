@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1sjby6z.md
 url: "https://www.reddit.com/r/internships/comments/1sjby6z/internships/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,42 @@ subreddit: "internships"
 title: "Internships"
 author: "anjalii18"
 date: "2026-04-12T11:25:24.000Z"
-score: 22
+score: 23
 upvote_ratio: 0.97
 num_comments: 32
 flair: "General"
-extracted_at: "2026-05-23T12:15:55.775Z"
+extracted_at: "2026-06-05T23:41:05.416Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1sjby6z.md#c0"
+    char_span: [0, 1638]
+    sentence_count: 4
+    key_terms: [internships, nothing, anything, experience, companies, doing, atp, got]
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/internships/1sjby6z.md#c1"
+    char_span: [1653, 3021]
+    sentence_count: 5
+    key_terms: [anjalii18, best, hope, trying, field, mails, phase, hotreflection9251]
+    section: Comments
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/internships/1sjby6z.md#c2"
+    char_span: [3023, 4241]
+    sentence_count: 8
+    key_terms: [because, increase, opportunity, get, like, take, experience, failing]
+    section: Comments
+    token_count: 278
+  - id: "social-intelligence/reddit-deep/internships/1sjby6z.md#c3"
+    char_span: [4243, 6198]
+    sentence_count: 8
+    key_terms: [anjalii18, working, work, internship, honestly, thankyou, timely-transition785, right]
+    section: Comments
+    token_count: 510
 ---
-
 # Internships
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1sjby6z/internships/)
-Posted by **anjalii18** · **22↑** · **32 comments**
+Posted by **anjalii18** · **23↑** · **32 comments**
 
 I have applied for more than 200+ companies atp, and still i haven't got any internship this summer, the foolest people, they are also doing internship, but me nothing, I feel like loser, i couldn't do anything, the scams of all these companies who just want that u promote their products or course and in the end they will ghost u, anyways all other companies ghost only, first nobody is telling u what is one or few things on which u got rejected, a single unfortunately you have not been selected, no reason nothing that too bot is doing that job for them, they are not even doing anything. Going on LinkedIn n looking at people doing internships for xyz big company n you're at home just bed rotting cause u don't have anything to do in life atp, i have done enough course, i have experience through my college but these fuckers want industry experience, how am I supposed to gain experience if I'm not getting anything n i will automatically gain experience or what, big companies rejecting u is fine but small startups they have nothing in them, for them I'm willing to work n grow they also don't  have anything to provide, wtf is why are u giving work n want interns to do but u won't pay them, what are we? Stupids? 
 
@@ -26,7 +50,7 @@ I'm so frustrated n depressed sitting at home doing nothing, having no sleep sch
 
 ## Comments
 
-- **Tight_Living1023** (4↑): +1,I'm so done with this man, daily wake up and apply to idk how many jobs, send mails, cold dm, make connections, fill forms application pages with idk how many questions, still no job. 100s of applications sent, still no responses, i don't even know, of these postings are real or not, or they're only hiring their friends, that too even after getting refferals they send no updates, random conditions for job, hope this will pass soon
+- **Tight_Living1023** (6↑): +1,I'm so done with this man, daily wake up and apply to idk how many jobs, send mails, cold dm, make connections, fill forms application pages with idk how many questions, still no job. 100s of applications sent, still no responses, i don't even know, of these postings are real or not, or they're only hiring their friends, that too even after getting refferals they send no updates, random conditions for job, hope this will pass soon
   - **anjalii18** (2↑): ikrrrr, i understand man, it's okay will get over this, hope for the best
     - **Tight_Living1023** (1↑): Yep hopefully
 - **New-Baseball-2646** (3↑): Hey it'll become better 

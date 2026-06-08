@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1t6t4fm/does_it_bother_anyone_else_how_performative_adn/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,50 @@ flair: "Rant"
 extracted_at: "2026-05-25T18:32:06.246Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c0"
+    char_span: [0, 2045]
+    sentence_count: 16
+    key_terms: [volunteering, college, put, people, performative, applyingtocollege, putting, applications]
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c1"
+    char_span: [2047, 3358]
+    sentence_count: 9
+    key_terms: [college, general, performative, university, education, genuinely, colleges, degree]
+    token_count: 277
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c2"
+    char_span: [3373, 5169]
+    sentence_count: 10
+    key_terms: [college, people, get, further, opportunities, performative, dont, kids]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c3"
+    char_span: [5171, 6342]
+    sentence_count: 7
+    key_terms: [life, people, activities, understand, lucrative, monetary, beleive, greater]
+    section: Comments
+    token_count: 250
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c4"
+    char_span: [6344, 8406]
+    sentence_count: 8
+    key_terms: [lucrative, money, getting, career, people, success, making, paying]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c5"
+    char_span: [8408, 9993]
+    sentence_count: 11
+    key_terms: [purplurpuzzlehead111, get, like, because, school, performative, people, class]
+    section: Comments
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c6"
+    char_span: [9995, 11197]
+    sentence_count: 6
+    key_terms: [college, education, parents, "they're", adults, though, good, "it's"]
+    section: Comments
+    token_count: 271
 ---
-
 # Does it bother anyone else how performative adn fake people are for college applications?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1t6t4fm/does_it_bother_anyone_else_how_performative_adn/)

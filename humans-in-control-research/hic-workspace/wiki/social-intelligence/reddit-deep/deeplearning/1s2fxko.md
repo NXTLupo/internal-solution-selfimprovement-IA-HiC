@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/deeplearning/1s2fxko.md
 url: "https://www.reddit.com/r/deeplearning/comments/1s2fxko/promptfoo_autoresearch_autoprompter_autonomous/"
 kind: "social-post"
 source: "reddit-deep: r/deeplearning"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-11T17:26:50.056Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/deeplearning/1s2fxko.md#c0"
+    char_span: [0, 1572]
+    sentence_count: 13
+    key_terms: [prompt, autoprompter, optimization, github, autoresearch, deeplearning, https, com]
+    token_count: 320
+  - id: "social-intelligence/reddit-deep/deeplearning/1s2fxko.md#c1"
+    char_span: [1587, 1990]
+    sentence_count: 1
+    key_terms: [synthetic, seeingwhatworks, distributions, autoresearch, optimization, bonniew1554, closed-loop, overfitting]
+    section: Comments
+    token_count: 88
 ---
-
 # PromptFoo + AutoResearch = AutoPrompter. Autonomous closed-loop prompt optimization.
 
 Source: [reddit-deep: r/deeplearning](https://www.reddit.com/r/deeplearning/comments/1s2fxko/promptfoo_autoresearch_autoprompter_autonomous/)

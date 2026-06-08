@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/openai/1mmncoi.md
 url: "https://www.reddit.com/r/OpenAI/comments/1mmncoi/chatgpt_is_ignoring_my_current_conversation_and/"
 kind: "social-post"
 source: "reddit-deep: r/openai"
@@ -13,8 +14,21 @@ flair: "Discussion"
 extracted_at: "2026-05-11T16:53:06.861Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [fundraising, nonprofit, ai_research]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/openai/1mmncoi.md#c0"
+    char_span: [0, 1694]
+    sentence_count: 11
+    key_terms: [conversation, like, specific, current, history, replies, out-of-context, conversations]
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/openai/1mmncoi.md#c1"
+    char_span: [1709, 2195]
+    sentence_count: 4
+    key_terms: [gpt, roblox, asi, game, okay, arkdevscantwipe, send-moobs-pls, shirochan404]
+    section: Comments
+    token_count: 150
 ---
-
 # ChatGPT is ignoring my current conversation and giving me very specific, out-of-context replies about game development and Lua scripting, seemingly based on my chat history from over a year ago.
 
 Source: [reddit-deep: r/openai](https://www.reddit.com/r/OpenAI/comments/1mmncoi/chatgpt_is_ignoring_my_current_conversation_and/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1t5vql6.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1t5vql6/seeking_advice_on_a_semester_long_leave_of/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,32 @@ flair: "Social Science"
 extracted_at: "2026-05-26T14:32:49.126Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1t5vql6.md#c0"
+    char_span: [0, 1737]
+    sentence_count: 11
+    key_terms: [year, analysis, askacademia, grandparent, data, "i'm", phd, comments]
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/askacademia/1t5vql6.md#c1"
+    char_span: [1739, 3553]
+    sentence_count: 11
+    key_terms: [disseration, whether, people, occasionally, needs, years, "i'm", research]
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/askacademia/1t5vql6.md#c2"
+    char_span: [3568, 5177]
+    sentence_count: 15
+    key_terms: [through, leave, important, tonos468, absence, advisor, "can't", "don't"]
+    section: Comments
+    token_count: 387
+  - id: "social-intelligence/reddit-deep/askacademia/1t5vql6.md#c3"
+    char_span: [5179, 6304]
+    sentence_count: 9
+    key_terms: [conditions, academia, semester, burnout, working, afford, breaks, sounds]
+    section: Comments
+    token_count: 249
 ---
-
 # Seeking advice on a semester long leave of absence after 4th year of PhD
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1t5vql6/seeking_advice_on_a_semester_long_leave_of/)

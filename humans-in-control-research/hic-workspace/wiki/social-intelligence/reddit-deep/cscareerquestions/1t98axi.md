@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1t98axi.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1t98axi/i_need_some_career_advice/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,39 @@ flair: "New Grad"
 extracted_at: "2026-05-22T23:33:42.285Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t98axi.md#c0"
+    char_span: [0, 1114]
+    sentence_count: 12
+    key_terms: [cscareerquestions, career, comments, honestly, planning, masters, advice, pursue]
+    token_count: 253
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t98axi.md#c1"
+    char_span: [1129, 3217]
+    sentence_count: 20
+    key_terms: [learn, product, implementation, people, "you'll", great, engineering, interesting]
+    section: Comments
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t98axi.md#c2"
+    char_span: [3219, 5486]
+    sentence_count: 14
+    key_terms: [expert, people, https, lot, ffrdcs, organizations, india, isro]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t98axi.md#c3"
+    char_span: [5488, 7766]
+    sentence_count: 15
+    key_terms: [without, going, plan, because, enough, code, get, hard]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1t98axi.md#c4"
+    char_span: [7768, 8063]
+    sentence_count: 3
+    key_terms: [willingpirate3009, environments, perspective, assessment, understand, direction, naturally, something]
+    section: Comments
+    token_count: 60
 ---
-
 # I need some career advice.
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1t98axi/i_need_some_career_advice/)

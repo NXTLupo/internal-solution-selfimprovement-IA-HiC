@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1qfrdbk.md
 url: "https://www.reddit.com/r/careerguidance/comments/1qfrdbk/seeking_career_guidance_and_direction_will_a_get/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-22T15:13:18.804Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1qfrdbk.md#c0"
+    char_span: [0, 1964]
+    sentence_count: 14
+    key_terms: [work, careerguidance, advice, career, skills, time, employment, management]
+    token_count: 417
 ---
-
 # Seeking Career Guidance and Direction. Will a get learn from your experiences?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1qfrdbk/seeking_career_guidance_and_direction_will_a_get/)

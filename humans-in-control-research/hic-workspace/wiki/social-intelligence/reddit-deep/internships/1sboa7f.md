@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1sboa7f.md
 url: "https://www.reddit.com/r/internships/comments/1sboa7f/how_do_i_get_internships/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,27 @@ flair: "General"
 extracted_at: "2026-05-22T13:32:14.557Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce, higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1sboa7f.md#c0"
+    char_span: [0, 516]
+    sentence_count: 2
+    key_terms: [internships, comments, reddit, get, seacomfort5279, reddit-deep, experience, freelanced]
+    token_count: 133
+  - id: "social-intelligence/reddit-deep/internships/1sboa7f.md#c1"
+    char_span: [531, 2299]
+    sentence_count: 11
+    key_terms: [seacomfort5279, apply, portfolio, linkedin, design, thank, internships, get]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/internships/1sboa7f.md#c2"
+    char_span: [2301, 3144]
+    sentence_count: 3
+    key_terms: [seacomfort5279, thank, consideration, "i'll", companies, freshman, bro, take]
+    section: Comments
+    token_count: 237
 ---
-
 # How do I get internships?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1sboa7f/how_do_i_get_internships/)

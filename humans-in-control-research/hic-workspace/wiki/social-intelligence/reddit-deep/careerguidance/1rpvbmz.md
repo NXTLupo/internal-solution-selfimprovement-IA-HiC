@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rpvbmz.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rpvbmz/are_skilled_trades_a_good_career_path_without_a/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -6,19 +7,48 @@ subreddit: "careerguidance"
 title: "Are skilled trades a good career path without a degree?"
 author: "Many-Economics-4326"
 date: "2026-03-10T12:16:34.000Z"
-score: 14
+score: 15
 upvote_ratio: 0.9
 num_comments: 14
 flair: ""
-extracted_at: "2026-05-25T13:04:07.360Z"
+extracted_at: "2026-06-03T17:59:52.588Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rpvbmz.md#c0"
+    char_span: [0, 593]
+    sentence_count: 4
+    key_terms: [careerguidance, trades, comments, without, career, degree, income, many-economics-4326]
+    token_count: 140
+  - id: "social-intelligence/reddit-deep/careerguidance/1rpvbmz.md#c1"
+    char_span: [608, 2249]
+    sentence_count: 18
+    key_terms: [apprenticeship, trade, elevator, trades, work, mechanic, college, school]
+    section: Comments
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/careerguidance/1rpvbmz.md#c2"
+    char_span: [2251, 3027]
+    sentence_count: 6
+    key_terms: [trades, mindful, "there's", people, big, good, apprenticeship, opportunities]
+    section: Comments
+    token_count: 183
+  - id: "social-intelligence/reddit-deep/careerguidance/1rpvbmz.md#c3"
+    char_span: [3029, 5449]
+    sentence_count: 22
+    key_terms: [work, degree, "you're", experience, line, physical, college, trades]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1rpvbmz.md#c4"
+    char_span: [5129, 5690]
+    sentence_count: 4
+    key_terms: [income, apprenticeships, certifications, electricians, specialized, estimating, controls, mornings]
+    section: Comments
+    token_count: 115
 ---
-
 # Are skilled trades a good career path without a degree?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rpvbmz/are_skilled_trades_a_good_career_path_without_a/)
-Posted by **Many-Economics-4326** · **14↑** · **14 comments**
+Posted by **Many-Economics-4326** · **15↑** · **14 comments**
 
 I’m researching practical career paths for people who want stable income without a four-year degree.
 
@@ -28,7 +58,7 @@ For those in the trades, how realistic is it to reach strong income levels over 
 
 ## Comments
 
-- **yo-yes-yo** (5↑): Elevator mechanic is hands down the best skilled trade. I work with some who clear 150-175k a year with overtime.
+- **yo-yes-yo** (4↑): Elevator mechanic is hands down the best skilled trade. I work with some who clear 150-175k a year with overtime.
   - **Moistened_Bink** (2↑): If only it wasn't so hard to get an apprenticeship.
     - **yo-yes-yo** (2↑): So full disclosure, I work as a project manager in the Elevator industry, not as an elevator mechanic. But in my city, they are hurting for helpers that's how you're getting an apprenticeship
   - **haze_from_deadlock** (2↑): Longshoreman, elevator mechanic, and lineman are all amazing.   If you want to be a lineman, start out with a CDL and then become a groundman (who drives the lineman's truck, directs traffic, and prepares materials for him)

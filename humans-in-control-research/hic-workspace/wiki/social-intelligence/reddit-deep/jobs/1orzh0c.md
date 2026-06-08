@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1orzh0c.md
 url: "https://www.reddit.com/r/jobs/comments/1orzh0c/too_little_jobs_opportunities_for_too_many_people/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,45 @@ flair: "Job searching"
 extracted_at: "2026-05-22T21:35:36.551Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1orzh0c.md#c0"
+    char_span: [0, 1832]
+    sentence_count: 18
+    key_terms: [job, jobs, people, opportunities, "i'm", did, get, generation]
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/jobs/1orzh0c.md#c1"
+    char_span: [1847, 3857]
+    sentence_count: 23
+    key_terms: [jobs, everything, industries, companies, replaced, entire, specialized, eco]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/jobs/1orzh0c.md#c2"
+    char_span: [3859, 5994]
+    sentence_count: 20
+    key_terms: [people, country, applications, game, jobs, work, population, control]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/jobs/1orzh0c.md#c3"
+    char_span: [5997, 7298]
+    sentence_count: 14
+    key_terms: [people, somehow, "there's", everywhere, starting, being, waterwaterwaterrr, app]
+    section: Comments
+    token_count: 287
+  - id: "social-intelligence/reddit-deep/jobs/1orzh0c.md#c4"
+    char_span: [7300, 9009]
+    sentence_count: 12
+    key_terms: [someone, years, childof1970, job, companies, invest, people, still-sheepherder322]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/jobs/1orzh0c.md#c5"
+    char_span: [9011, 10888]
+    sentence_count: 15
+    key_terms: [companies, because, company, raise, job, recruiter, hopping, loyalty]
+    section: Comments
+    token_count: 454
 ---
-
 # Too little jobs opportunities for too many people - How did we get there?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1orzh0c/too_little_jobs_opportunities_for_too_many_people/)

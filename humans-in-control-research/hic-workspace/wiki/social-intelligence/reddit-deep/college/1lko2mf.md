@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1lko2mf.md
 url: "https://www.reddit.com/r/college/comments/1lko2mf/too_young_for_the_college_experience/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,35 @@ subreddit: "college"
 title: "Too young for the college experience"
 author: "tbmee"
 date: "2025-06-26T01:57:32.000Z"
-score: 13
-upvote_ratio: 0.94
+score: 11
+upvote_ratio: 0.88
 num_comments: 3
 flair: "Social Life"
-extracted_at: "2026-05-22T23:33:39.771Z"
+extracted_at: "2026-06-06T17:42:15.234Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1lko2mf.md#c0"
+    char_span: [0, 2145]
+    sentence_count: 31
+    key_terms: [college, friends, year, people, school, social, don, feel]
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/college/1lko2mf.md#c1"
+    char_span: [2147, 2557]
+    sentence_count: 7
+    key_terms: [people, don, feel, conversations, connection, apartment, bothering, interests]
+    token_count: 93
+  - id: "social-intelligence/reddit-deep/college/1lko2mf.md#c2"
+    char_span: [2572, 3758]
+    sentence_count: 11
+    key_terms: [people, don, like, small, college, someone, friend, senior]
+    section: Comments
+    token_count: 263
 ---
-
 # Too young for the college experience
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1lko2mf/too_young_for_the_college_experience/)
-Posted by **tbmee** · **13↑** · **3 comments**
+Posted by **tbmee** · **11↑** · **3 comments**
 
 I’m 19f. I started college at 16. I was born in the U.S. but raised abroad and returned here alone for school. My first year was rough adjusting to a new country, but sophomore year got better. I made some friends and started enjoying myself more.
 
@@ -42,7 +59,7 @@ How do I navigate this? I want connection. I just don’t know where to find it.
 
 ## Comments
 
-- **RamZie2026** (4↑): Have you ever tried joining clubs are your local college? Join clubs with similar interests. Also you aren’t missing out on the nightlife. Trust me as a senior in college who is 21.
+- **RamZie2026** (3↑): Have you ever tried joining clubs are your local college? Join clubs with similar interests. Also you aren’t missing out on the nightlife. Trust me as a senior in college who is 21.
 
 You don’t need social media. It is a waste and you can be putting your energy into other things like your academic career or something else.
 

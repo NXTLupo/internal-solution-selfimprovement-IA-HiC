@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1thvdbp.md
 url: "https://www.reddit.com/r/careerguidance/comments/1thvdbp/skilled_trades_vs_college_what_is_your_opinion/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -6,19 +7,113 @@ subreddit: "careerguidance"
 title: "Skilled trades vs college. What is your opinion?"
 author: "Responsible-Net8594"
 date: "2026-05-19T18:16:13.000Z"
-score: 78
-upvote_ratio: 0.89
-num_comments: 311
+score: 81
+upvote_ratio: 0.9
+num_comments: 310
 flair: ""
-extracted_at: "2026-05-26T14:32:49.148Z"
+extracted_at: "2026-06-06T13:03:37.339Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c0"
+    char_span: [0, 2455]
+    sentence_count: 16
+    key_terms: [college, people, trade, tradesmen, skilled, careerguidance, degree, trades]
+    token_count: 522
+  - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c1"
+    char_span: [2457, 2888]
+    sentence_count: 6
+    key_terms: [people, trades, guaranteed, anti-college, conversation, romanticized, absolutely, direction]
+    token_count: 79
+  - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c2"
+    char_span: [2903, 4384]
+    sentence_count: 7
+    key_terms: [jmclondon97, company, human, point, need, responsible-net8594, end, loop]
+    section: Comments
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c3"
+    char_span: [4386, 5784]
+    sentence_count: 9
+    key_terms: [enough, management, college, great, lucky, charming-ebb-1981, get, long]
+    section: Comments
+    token_count: 357
+  - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c4"
+    char_span: [5786, 7492]
+    sentence_count: 9
+    key_terms: [collar, union, white, people, bigtiddyhimbo, completely, finding, nursing]
+    section: Comments
+    token_count: 406
+  - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c5"
+    char_span: [7494, 8439]
+    sentence_count: 7
+    key_terms: [healthcare, people, question, largely, collar, get, hard, real]
+    section: Comments
+    token_count: 215
+  - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c6"
+    char_span: [8441, 10431]
+    sentence_count: 11
+    key_terms: [people, trades, get, pushing, collar, hour, overtime, workers]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c7"
+    char_span: [10433, 11915]
+    sentence_count: 14
+    key_terms: [trades, making, people, hour, own, told, work, something]
+    section: Comments
+    token_count: 366
+  - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c8"
+    char_span: [11917, 13876]
+    sentence_count: 12
+    key_terms: [trades, work, people, bigtiddyhimbo, electricians, going, job, jobs]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c9"
+    char_span: [13878, 15914]
+    sentence_count: 15
+    key_terms: [people, trades, work, college, working, having, nurse, don]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c10"
+    char_span: [15916, 17407]
+    sentence_count: 13
+    key_terms: [good, people, power, engineer, deliver, without, build, saltedporcupine217]
+    section: Comments
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c11"
+    char_span: [17409, 18454]
+    sentence_count: 9
+    key_terms: [installed, response, people, great, done, lot, own, shit]
+    section: Comments
+    token_count: 265
+  - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c12"
+    char_span: [18456, 20473]
+    sentence_count: 15
+    key_terms: [engineering, manufacturing, apprentices, "it's", like, trandabear, industry, recently]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c13"
+    char_span: [20475, 21256]
+    sentence_count: 3
+    key_terms: [high, salary, years, theliiusion0fseif, able, line, past, work]
+    section: Comments
+    token_count: 201
+  - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c14"
+    char_span: [21258, 23488]
+    sentence_count: 13
+    key_terms: [people, years, good, like, habits, never, trade, been]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c15"
+    char_span: [23216, 23939]
+    sentence_count: 8
+    key_terms: [been, job, trades, responsible-net8594, "don't", telecommunications, done, long]
+    section: Comments
+    token_count: 178
 ---
-
 # Skilled trades vs college. What is your opinion?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1thvdbp/skilled_trades_vs_college_what_is_your_opinion/)
-Posted by **Responsible-Net8594** · **78↑** · **311 comments**
+Posted by **Responsible-Net8594** · **81↑** · **310 comments**
 
 I’ve noticed something weird online: a huge percentage of the people aggressively telling young people to “skip college and learn a trade” don’t actually work in the skilled trades themselves.
 
@@ -76,14 +171,14 @@ But the online conversation around trades feels heavily romanticized by people o
 
 ## Comments
 
-- **jmclondon97** (45↑): I just had a large company meeting this morning for a multi billion dollar tech company everyone knows (it isn’t FAANG, but maybe a couple tiers below).
+- **jmclondon97** (43↑): I just had a large company meeting this morning for a multi billion dollar tech company everyone knows (it isn’t FAANG, but maybe a couple tiers below).
 
 One of the higher ups said “we have the exciting goal of no longer needing the human in the loop by end of year”. We have over 10k employees.
-  - **guyincognito121** (32↑): If you don't need a human in the loop by the end of this year, it's because that idiot and his friends have put the company out of business. AI is nowhere near that point right now.
+  - **guyincognito121** (31↑): If you don't need a human in the loop by the end of this year, it's because that idiot and his friends have put the company out of business. AI is nowhere near that point right now.
     - **misogichan** (2↑): AI isn't even good enough yet to decently fake it.  But consultants and software vendors selling him a disaster sure are.
-  - **CAT_MARINE-POWER** (9↑): Unless AI can defend itself in court you will always need an actual human at some point to be held accountable for a decision to be made
-    - **jmclondon97** (7↑): Sure, but you don’t need 10k
-  - **Responsible-Net8594** (6↑): AI is mostly pushed by the VC's funding it
+  - **CAT_MARINE-POWER** (8↑): Unless AI can defend itself in court you will always need an actual human at some point to be held accountable for a decision to be made
+    - **jmclondon97** (6↑): Sure, but you don’t need 10k
+  - **Responsible-Net8594** (4↑): AI is mostly pushed by the VC's funding it
   - **Sonic_Roach** (2↑): Id be updating my resume...
   - **cheap_dates** (1↑): There are still many jobs that require a physical presence: nurse, cop, bus driver, construction worker, plumber, airline pilot, lifeguard, transplant surgeon, etc.
 
@@ -101,19 +196,19 @@ There aren’t enough vacancies in the careers you listed to take on even half o
 A big part of the trades is also odd hours. Overnights, on call, 12-16 hour long shifts, mandatory overtime, sometimes you might be told to come in at 3am if you’re in a field like HVAC. There’s also extreme wear and tear on your body, and you’re *lucky* if you get a climate controlled work space. 
 
 It honestly feels like the push for “just learn a trade!” Is primarily from wealthy people in white collar jobs who just want more plumbers to be out there so there’s more “competition” (aka… lower prices) and so they themselves don’t have to compete with as many white collar educated people for their own jobs.
-  - **THE_BANANA_KING_14** (34↑): I hope you aren't trying to get away from any of those downsides by going into nursing lol
+  - **THE_BANANA_KING_14** (32↑): I hope you aren't trying to get away from any of those downsides by going into nursing lol
     - **bigtiddyhimbo** (10↑): Nah, people can have their own opinions. I know for myself that nursing is a better option for me personally, but I still recognize the turnover rate and the issues it has that cause it.
-  - **KrakenSkullz34** (4↑): And this is why you go Union over non union kids. 
+  - **KrakenSkullz34** (5↑): And this is why you go Union over non union kids. 
 
 I see more knee, hip and back replacements from desk jockeys than those that were blue collar. Take care of your body no matter what job you do. That whole argument is so dumb.
-    - **bigtiddyhimbo** (6↑): Easier said than done, I fear. I live in NC. Finding a union is like finding a unicorn 
+    - **bigtiddyhimbo** (4↑): Easier said than done, I fear. I live in NC. Finding a union is like finding a unicorn 
 
 But I do absolutely recommend unions over not joining one. My personal circumstance just makes it very difficult
     - **Responsible-Net8594** (1↑): Your chances of getting into the union without your daddy, granddaddy, and uncle's being in the union are slim to none.
-  - **MilkChugg** (9↑): As a white collar worker in tech, the push for “get into the trades” is coming from those of us that are watching white collar work completely dissipate, go through massive unemployment, and have ourselves or watch our peers remain unemployed for months or even years despite having a plethora of experience in the field. The market is completely fucked and it is not coming back.
+  - **MilkChugg** (8↑): As a white collar worker in tech, the push for “get into the trades” is coming from those of us that are watching white collar work completely dissipate, go through massive unemployment, and have ourselves or watch our peers remain unemployed for months or even years despite having a plethora of experience in the field. The market is completely fucked and it is not coming back.
 
 We’re watching, in real time, a huge deliberate push to get rid of white collar work and/or outsource it all. This is completely by design. And the way that I see it, blue collar work will be the last to go, if it ever does. It’s just simply not as easily replaceable. So the question about what career to go for starts becoming less of a question of “what is the better cushy job”, and more “do I want to eat”.
-    - **bigtiddyhimbo** (5↑): Why not recommend people into the healthcare field instead, then? Like not to be rude or disrespectful, but the trades are largely so widely available to younger people because they’re the hard, physical, largely underpaid labor that no one wanted to do. At least in healthcare, you can get a decent check 
+    - **bigtiddyhimbo** (6↑): Why not recommend people into the healthcare field instead, then? Like not to be rude or disrespectful, but the trades are largely so widely available to younger people because they’re the hard, physical, largely underpaid labor that no one wanted to do. At least in healthcare, you can get a decent check 
 
 Healthcare is also very hard to offshore and automate, provides real care to the most in need people in the country, and would help greatly with the large swaths of underemployment in hospitals. 
 
@@ -122,7 +217,7 @@ Trades are going to be hard to replace, don’t get me wrong, and I get the sent
     - **Valuable-Sundae-9105** (1↑): it's not viable job for most women. something conveniently left out...
     - **jules083** (1↑): Interesting, I'm in the trades and a lot of us push our kids to go to college. Lol
     - **PackDiscombobulated4** (1↑): At least people in white collar in tech can make like $200-$300k a year.
-  - **One-Lingonberry9944** (7↑): The only people glamorizing the trades and pushing them are those who have never worked them and people not interested in having an honest conversation about how bad the market is right now. 
+  - **One-Lingonberry9944** (5↑): The only people glamorizing the trades and pushing them are those who have never worked them and people not interested in having an honest conversation about how bad the market is right now. 
 
 They don't pay well. You only make good money if you're willing to work 55+ hour weeks and stack up overtime. Average tradesman wages are $60ish thousand a year on a standard 40 hour work week.
     - **bigtiddyhimbo** (3↑): That’s about where I am. 60k is still on the better side with most trades as well- I get the best rates for my specific trade in the area (like my company literally compares all of the other factories around so they can remain the most competitive), and you only crack 60k by doing more than just the mandatory overtime you get from your rotating schedule on 12-13 hour shifts. (Often 2-2-3s, but I’m on a 3-4-3-4) 
@@ -166,7 +261,7 @@ Edit: As to the Nurse, I’d start planning out a path to eventually become a nu
 Online classes while working and then South Dakota and then  Puerto Rico (those are the least expensive schools). 400k a year now.
     - **bigtiddyhimbo** (1↑): I’d like to go the nurse anesthetist route for sure, but I’d also be happy just being an RN in the OR or peds units :) I don’t need a lot of money, I just need to be comfortable and give my dog a good life
   - **cookingwithluca** (2↑): It’s wild how many think it’s all about good pay without realizing those crazy hours and wear and tear. Good luck on your nursing path!
-- **SaltedPorcupine217** (22↑): Master electrician here.
+- **SaltedPorcupine217** (23↑): Master electrician here.
 
 Do what you can afford and what you enjoy. Also take note of what you are good at.
 
@@ -177,10 +272,10 @@ Many tradesman dont choose our profession. We are forced by lack of finances or 
 I cant do my job without an engineer to build me a motor, the salesman to convince me to buy theirs, the process engineer to build it, the truck driver to deliver it, and then the customer who wanted it in the 1st place. Then i turn to the utility power guy and ask him to deliver power across the state to the building im servicing... and who knows how many people that person dealt with to get me power. There are lots of jobs and people in between the installer and the original creator. 
 
 And never decide you are stuck in 1 role or 1 job. People can always pivot. Sometimes its harder but it can be done.
-  - **scurbyturby** (6↑): I think this is my favorite reply out of this whole thread.
+  - **scurbyturby** (7↑): I think this is my favorite reply out of this whole thread.
     - **Wide_Zebra5550** (2↑): Yeah its a great response.
   - **tenderheart35** (2↑): Best response, thank you!
-- **TrandaBear** (16↑): I've done both. I apprenticed with electrician for a summer, installed outlets, installed/wired ceiling fans/lights, diagnosed issues, etc. and that shit was not for me. It was hot and long and those 150K are master electricians that own their own business and shit. It's cope survivorship bias.
+- **TrandaBear** (15↑): I've done both. I apprenticed with electrician for a summer, installed outlets, installed/wired ceiling fans/lights, diagnosed issues, etc. and that shit was not for me. It was hot and long and those 150K are master electricians that own their own business and shit. It's cope survivorship bias.
 
 I ultimately went corporate and have significantly more down time and freedom. I don't even work in my degree (Engineering) but just having it was a massive boon. And I call BS on AI replacing knowledge workers because theres so much nuance to a lot of this stuff.
   - **Red-dragon186** (2↑): Depends, lot of IBEW people are making close to $50 an hour, that's not including the great pension and healthcare. 
@@ -192,18 +287,18 @@ If you go Trade, you must go into Union. Its a waste of time going Non-Union unl
     - **AdmirableParfait3960** (1↑): I have an industrial engineering degree and had worked as a manufacturing engineer for most of my career. I recently moved over to the project management side and the hours are wayyyy better now that I have the hang of it. Pay and upwards mobility is better as well.
   - **prague_everlina** (2↑): It's wild you experienced that firsthand; working in the heat as an apprentice really shows the harsh reality, huh?
     - **TrandaBear** (1↑): It's not that wild that I got to do it but it should be more accessible. I'm not knocking it because some people can hang, but when I was in that ceiling, hot AF, drilling and wiring so I could install a ceiling fan, I was like F this lol. No wonder they take apprentices, so young guys like me can do the physical stuff.
-- **Waste_Wind_8760** (10↑): Yeah man why do you think most apprentices quit after a few months/years
+- **Waste_Wind_8760** (11↑): Yeah man why do you think most apprentices quit after a few months/years
 
 Construction is not for everybody
   - **jules083** (1↑): I'm a Union Pipefitter, I bet less than 50% make it past 10 years in the trade despite the high salary
-    - **Vowel_Movements_4U** (4↑): High salary or high hourly pay with overtime?
+    - **Vowel_Movements_4U** (5↑): High salary or high hourly pay with overtime?
     - **SmoothJazz98** (1↑): Yeah but don’t roughly 50% of people who start in ANY industry or line of work stay in that same line of work past 10 years?
-- **ThelIIusion0fSeIf** (5↑): Honestly, this is more a problem with society than any particular career path in general. Every single person working full time should be able to support a middle class lifestyle without exception. Yes, that means a neurosurgeon will still make a lot more than a plumber but both of them should be able to comfortably afford shelter, food, education, etc. 
+- **ThelIIusion0fSeIf** (4↑): Honestly, this is more a problem with society than any particular career path in general. Every single person working full time should be able to support a middle class lifestyle without exception. Yes, that means a neurosurgeon will still make a lot more than a plumber but both of them should be able to comfortably afford shelter, food, education, etc. 
 
 I don't want to hear all of the excuses on why it can't be done especially when a handful of people out there have a combined net worth greater than half the population. If you're worried about AI taking your job just know that those companies still need consumers to buy their products or we're eventually backsliding into a neo-feudal state. Hopefully at that point there's a revolution but given these past few general elections I'm not as optimistic as I once was.
 - **Immediate-Rub3807** (3↑): I totally agree with everything you said and as a JM Tool and diemaker of 30 years I’ve been saying this same thing for the past 3 years or so. I was in college 2 1/2 years into a Mechanical Engineering degree and just hated it and dropped out only to get into an apprenticeship and loved it. Seen a lot of people wash out thru my career because it isn’t easy and that’s what a lot of people never seem to think about and you still have to go to school. 8k hours of shop time and overtime doesn’t count so it’s 4 years and you’re gonna be taking classes on your own time. Like you said most people talking about it have never been anywhere near a trade and that’s why it’s been viewed as some life hack or something till they realize they’re gonna be working 60 hours a week.
 - **Wide_Zebra5550** (3↑): The best thing you can do, whatever the profession, and something i fucking wish I did, was to learn good financial habits, or just good habits in general.  More than go to school, which was a waste, or not going into the trades...I wish I had learned good habits earlier or someone actually taught me to life.  I would have done a trade, learned good body mechanics to protect my body as much as possible.  Then start investing like crazy, and save like a million by the time I hit 30.  Then lived off the dividends and chased my passion or interests, and never given a shit about what job I had after that.  One other thing is to be very wary of women.
-- **IronMike5311** (4↑): Just like how automated assembly lines displaced many factory workers, AI automation will displace many IT and 'knowledge worker' roles.
+- **IronMike5311** (5↑): Just like how automated assembly lines displaced many factory workers, AI automation will displace many IT and 'knowledge worker' roles.
 So would advise kids to go to where the job s ARE, not where the jobs WERE.
 Don't be afraid of a skilled trade: working up in the bucket truck or something. If your don't want that job; fine. There are plenty that will take it.
   - **Responsible-Net8594** (2↑): If it could be done, it would be done already.

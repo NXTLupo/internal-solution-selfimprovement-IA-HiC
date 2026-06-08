@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1q3desv.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1q3desv/should_i_email_the_college_admissions_committee/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,15 @@ flair: "Advice"
 extracted_at: "2026-05-20T12:57:06.065Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1q3desv.md#c0"
+    char_span: [0, 1378]
+    sentence_count: 9
+    key_terms: [admissions, applyingtocollege, northwestern, need, explaining, committee, comments, opinions]
+    token_count: 313
 ---
-
 # Should I email the college admissions committee if I applied almost a day late?!
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1q3desv/should_i_email_the_college_admissions_committee/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1rszwc4.md
 url: "https://www.reddit.com/r/GenZ/comments/1rszwc4/how_are_yall_surviving_right_now/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,45 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.768Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [workforce, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1rszwc4.md#c0"
+    char_span: [0, 1896]
+    sentence_count: 20
+    key_terms: [financially, lot, comments, people, understand, however, wealthy, working]
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/genz/1rszwc4.md#c1"
+    char_span: [1911, 2424]
+    sentence_count: 3
+    key_terms: [discord, enough, simply, money, area, automatically, automoderator, systemfrown]
+    section: Comments
+    token_count: 141
+  - id: "social-intelligence/reddit-deep/genz/1rszwc4.md#c2"
+    char_span: [2426, 3914]
+    sentence_count: 7
+    key_terms: [living, jobs, ineptfortitude, like, live, genuinely, paycheck, america]
+    section: Comments
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/genz/1rszwc4.md#c3"
+    char_span: [3916, 5998]
+    sentence_count: 12
+    key_terms: [people, politicians, like, student, loans, here, thegalator, majority]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/genz/1rszwc4.md#c4"
+    char_span: [6000, 7237]
+    sentence_count: 7
+    key_terms: [americas-wealth-distriution-by-generation, housing, people, wealth, visualcapitalist, richer, years, pleasure]
+    section: Comments
+    token_count: 288
+  - id: "social-intelligence/reddit-deep/genz/1rszwc4.md#c5"
+    char_span: [7240, 9159]
+    sentence_count: 14
+    key_terms: ["don't", systemfrown, get, military, wxskater, fucking, society, people]
+    section: Comments
+    token_count: 504
 ---
-
 # How are y’all surviving right now?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1rszwc4/how_are_yall_surviving_right_now/)

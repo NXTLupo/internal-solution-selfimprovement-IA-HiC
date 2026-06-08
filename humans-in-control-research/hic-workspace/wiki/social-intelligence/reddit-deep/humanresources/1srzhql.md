@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1srzhql.md
 url: "https://www.reddit.com/r/humanresources/comments/1srzhql/best_book_for_new_hr_professional_na/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T12:15:41.570Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1srzhql.md#c0"
+    char_span: [0, 560]
+    sentence_count: 4
+    key_terms: [humanresources, management, psychology, comments, book, communications, professional, internships]
+    token_count: 133
+  - id: "social-intelligence/reddit-deep/humanresources/1srzhql.md#c1"
+    char_span: [575, 2108]
+    sentence_count: 13
+    key_terms: [book, post, subreddit, program, going, good, sure, work]
+    section: Comments
+    token_count: 379
 ---
-
 # Best Book for New HR Professional [N/A]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1srzhql/best_book_for_new_hr_professional_na/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1qwtp6d.md
 url: "https://www.reddit.com/r/college/comments/1qwtp6d/budgeting_college_debt/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -7,14 +8,37 @@ title: "Budgeting college debt"
 author: "External-Actuator"
 date: "2026-02-05T18:43:56.000Z"
 score: 9
-upvote_ratio: 1
+upvote_ratio: 0.92
 num_comments: 9
 flair: "Finances/financial aid"
-extracted_at: "2026-05-20T12:56:27.189Z"
+extracted_at: "2026-06-02T17:23:15.269Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "For a higher education institution, develop a strategic framework to increase donorship, giving, advancement, and alumni engagement, leveraging AI and digital marketing tactics. This framework must include a strategic narrative, industry analysis, competitive analysis, and opportunity analysis. Additionally, create a diverse set of 25 donor, student, alumni, and stakeholder personas, supported by evidence and quotes."
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1qwtp6d.md#c0"
+    char_span: [0, 1159]
+    sentence_count: 11
+    key_terms: [college, big, experience, university, school, community, comments, illinois]
+    token_count: 261
+  - id: "social-intelligence/reddit-deep/college/1qwtp6d.md#c1"
+    char_span: [1174, 2684]
+    sentence_count: 10
+    key_terms: [sports, illinois, school, state, big, definitely, fantastic, culture]
+    section: Comments
+    token_count: 357
+  - id: "social-intelligence/reddit-deep/college/1qwtp6d.md#c2"
+    char_span: [2686, 4951]
+    sentence_count: 14
+    key_terms: [school, experience, big, program, debt, get, possible, attend]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/college/1qwtp6d.md#c3"
+    char_span: [4953, 5284]
+    sentence_count: 3
+    key_terms: [life, affordable, commuting, colleges, distance, needless, "parent's", transfer]
+    section: Comments
+    token_count: 64
 ---
-
 # Budgeting college debt
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1qwtp6d/budgeting_college_debt/)
@@ -31,7 +55,7 @@ Thanks
 - **viky_wiky** (5↑): I go to Illinois state and chose it because of the price. I was also worried about the big school/sports feeling but Illinois state sports can definitely be big! Our football team just went to the national championships and our other sports are very dedicated people. If it comes down to money, Illinois state is a great choice of school.
   - **External-Actuator** (1↑): Thanks for the response, yeah I have a buddy that goes there but he’s not a big sports guy cause I was worried about this sort of the atmosphere and if the student section was a fun place to be during games  and I’ll be 21 when I am transferring, I know university of Iowa bar scene is pretty fantastic, but I don’t know what it’s like down there in Bloomington – normal
     - **viky_wiky** (1↑): As someone in the marching band as well it can be fantastic and a lot of fun! Our bar scene here is good especially with Pub 2. Personally I’m not 21 so I’m not an expert in that field that’s just what I heard from others.
-- **SweetCosmicPope** (4↑): My take is that you don't want to overindex on sports culture.  The whole reason you are going to school is to get an education and credentials that will hopefully help you to cultivate a successful career.
+- **SweetCosmicPope** (3↑): My take is that you don't want to overindex on sports culture.  The whole reason you are going to school is to get an education and credentials that will hopefully help you to cultivate a successful career.
 
 That being said, universities, no matter which one you go to, are expensive.  You should definitely go someplace that you feel has a culture and amenities that will make you happy for the 2 or 3 years you'll be there.  Sports may be one of those things for you.
 

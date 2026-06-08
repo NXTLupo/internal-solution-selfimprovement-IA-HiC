@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1mdfnru/how_are_other_areas_of_the_cs_job_market_going/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,57 @@ flair: "Student"
 extracted_at: "2026-05-20T02:33:39.303Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md#c0"
+    char_span: [0, 504]
+    sentence_count: 3
+    key_terms: [cscareerquestions, programming, comments, computer, areas, architecture, cryptography, chembrodude]
+    token_count: 114
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md#c1"
+    char_span: [519, 1272]
+    sentence_count: 6
+    key_terms: [embedded, market, "it's", systems, usually, pretty, juggernautguilty566, month]
+    section: Comments
+    token_count: 170
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md#c2"
+    char_span: [1274, 3250]
+    sentence_count: 9
+    key_terms: [company, chembrodude, rapidroastingham, cybersecurity, competitive, applicants, outsourced, insurance]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md#c3"
+    char_span: [2988, 3592]
+    sentence_count: 2
+    key_terms: [people, occurrenceoverlap, dev, like, web, rapidroastingham, disposepriority, clearancejobs]
+    section: Comments
+    token_count: 156
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md#c4"
+    char_span: [3595, 5782]
+    sentence_count: 11
+    key_terms: [web, dev, frontend, backend, like, lot, work, companies]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md#c5"
+    char_span: [5784, 7680]
+    sentence_count: 18
+    key_terms: [graphics, experience, work, challenging, chembrodude, "it's", definitely, interviews]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md#c6"
+    char_span: [7683, 9308]
+    sentence_count: 10
+    key_terms: [people, experience, graphics, mostly, skills, implementing, portfolio, applying]
+    section: Comments
+    token_count: 352
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md#c7"
+    char_span: [9311, 10189]
+    sentence_count: 8
+    key_terms: [robotics, cybersecurity, companies, engineer, hardcore, research, like, chembrodude]
+    section: Comments
+    token_count: 218
 ---
-
 # How are other areas of the CS job market going right now compared to Web Dev?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1mdfnru/how_are_other_areas_of_the_cs_job_market_going/)

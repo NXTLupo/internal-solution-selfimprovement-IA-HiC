@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1s3np5t.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1s3np5t/costa_rica_digital_nomad_visa_1_year_in_heres_the/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,33 @@ flair: "Lifestyle"
 extracted_at: "2026-05-26T12:53:56.729Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce, government, policy]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1s3np5t.md#c0"
+    char_span: [0, 2072]
+    sentence_count: 11
+    key_terms: [visa, digital, income, digitalnomad, costa, nomad, year, permanent]
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/digitalnomad/1s3np5t.md#c1"
+    char_span: [2087, 4029]
+    sentence_count: 11
+    key_terms: [panama, month, income, expensive, been, like, monthly, people]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/digitalnomad/1s3np5t.md#c2"
+    char_span: [3791, 4645]
+    sentence_count: 5
+    key_terms: [people, residency, realize, panama, sounds, round-possible-5632, until, been]
+    section: Comments
+    token_count: 211
+  - id: "social-intelligence/reddit-deep/digitalnomad/1s3np5t.md#c3"
+    char_span: [4650, 6280]
+    sentence_count: 11
+    key_terms: [breakdown, residency, locked, bank, "it's", visa, insightful, account]
+    section: Comments
+    token_count: 412
 ---
-
 # Costa Rica Digital Nomad Visa, 1 year in, here's the honest review
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1s3np5t/costa_rica_digital_nomad_visa_1_year_in_heres_the/)

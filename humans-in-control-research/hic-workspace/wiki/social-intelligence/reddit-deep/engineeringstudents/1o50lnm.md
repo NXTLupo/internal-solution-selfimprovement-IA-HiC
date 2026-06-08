@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1o50lnm.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1o50lnm/how_do_you_get_engineering_internships_as_a/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,39 @@ flair: "Career Advice"
 extracted_at: "2026-05-22T23:33:47.038Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1o50lnm.md#c0"
+    char_span: [0, 1321]
+    sentence_count: 8
+    key_terms: [engineering, internship, freshman, engineeringstudents, internships, get, like, electrical]
+    token_count: 306
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1o50lnm.md#c1"
+    char_span: [1336, 3133]
+    sentence_count: 19
+    key_terms: [get, like, "don't", small, fair, "i'm", job, internship]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1o50lnm.md#c2"
+    char_span: [3135, 4612]
+    sentence_count: 14
+    key_terms: ["i'm", year, "don't", engineering, currently, freshman, student, enough]
+    section: Comments
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1o50lnm.md#c3"
+    char_span: [4614, 6648]
+    sentence_count: 18
+    key_terms: [engineering, freshman, range-shoddy, being, internships, get, job, year]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1o50lnm.md#c4"
+    char_span: [6650, 7333]
+    sentence_count: 7
+    key_terms: [company, local, any-composer-6790, concentrate, engineering, entry-level, internship, university]
+    section: Comments
+    token_count: 153
 ---
-
 # How do you get engineering internships as a college freshman?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1o50lnm/how_do_you_get_engineering_internships_as_a/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1tc8qm0.md
 url: "https://www.reddit.com/r/humanresources/comments/1tc8qm0/need_career_advice_na/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-23T12:15:41.529Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1tc8qm0.md#c0"
+    char_span: [0, 1438]
+    sentence_count: 12
+    key_terms: [humanresources, hrbp, management, currently, comments, career, global, person]
+    token_count: 358
+  - id: "social-intelligence/reddit-deep/humanresources/1tc8qm0.md#c1"
+    char_span: [1453, 3451]
+    sentence_count: 9
+    key_terms: [experience, companies, bigger, get, company, smaller, people, emarialartayu]
+    section: Comments
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/humanresources/1tc8qm0.md#c2"
+    char_span: [3456, 4626]
+    sentence_count: 10
+    key_terms: [ornery-mycologist-53, puddingadorable9260, good, take, experience, different, feeling, looked]
+    section: Comments
+    token_count: 305
+  - id: "social-intelligence/reddit-deep/humanresources/1tc8qm0.md#c3"
+    char_span: [4628, 5671]
+    sentence_count: 10
+    key_terms: [puddingadorable9260, hrbp, role, promotion, change, title, bank, head]
+    section: Comments
+    token_count: 252
 ---
-
 # Need Career Advice [N/A]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1tc8qm0/need_career_advice_na/)

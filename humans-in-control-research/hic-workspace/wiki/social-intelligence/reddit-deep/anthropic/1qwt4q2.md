@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/anthropic/1qwt4q2.md
 url: "https://www.reddit.com/r/Anthropic/comments/1qwt4q2/claude_code_opus_46_1m_context_is_a_go/"
 kind: "social-post"
 source: "reddit-deep: r/anthropic"
@@ -13,8 +14,21 @@ flair: "Announcement"
 extracted_at: "2026-05-11T17:26:51.914Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/anthropic/1qwt4q2.md#c0"
+    char_span: [0, 345]
+    sentence_count: 2
+    key_terms: [ca17b8d8e5098c4a652b5903f74cca59ec16ef7c, anthropic, comments, https, png, runzt61xxphg1, reddit-deep, sudo1385]
+    token_count: 136
+  - id: "social-intelligence/reddit-deep/anthropic/1qwt4q2.md#c1"
+    char_span: [360, 1326]
+    sentence_count: 5
+    key_terms: [narrow-belt-5030, claude-code, anthropics, sudo1385, github, issues, myself, paying]
+    section: Comments
+    token_count: 298
 ---
-
 # Claude Code - Opus 4.6 ( 1M Context ) is a go.
 
 Source: [reddit-deep: r/anthropic](https://www.reddit.com/r/Anthropic/comments/1qwt4q2/claude_code_opus_46_1m_context_is_a_go/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1qpyrui.md
 url: "https://www.reddit.com/r/internships/comments/1qpyrui/applied_to_50_plus_summer_internships_almost_no/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,22 @@ score: 6
 upvote_ratio: 0.8
 num_comments: 11
 flair: "General"
-extracted_at: "2026-05-26T14:30:47.897Z"
+extracted_at: "2026-06-01T18:48:35.713Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1qpyrui.md#c0"
+    char_span: [0, 1175]
+    sentence_count: 5
+    key_terms: [internships, research, whether, year, comments, learning, applied, backend]
+    token_count: 267
+  - id: "social-intelligence/reddit-deep/internships/1qpyrui.md#c1"
+    char_span: [1190, 1972]
+    sentence_count: 5
+    key_terms: [appropriate-tutor587, applications, absurd, summer, apply, willing-shoe-5088, armadillotop2003, trashyzedmain]
+    section: Comments
+    token_count: 239
 ---
-
 # Applied to 50 plus summer internships, almost no responses. Looking for advice or opportunities
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1qpyrui/applied_to_50_plus_summer_internships_almost_no/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1knkfuf.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1knkfuf/2021_grad_wasted_potential_how_do_i_become/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,81 @@ flair: ""
 extracted_at: "2026-05-14T18:17:35.978Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1knkfuf.md#c0"
+    char_span: [0, 2212]
+    sentence_count: 23
+    key_terms: [source, like, resume, undeniable, potential, something, cscareerquestions, open]
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1knkfuf.md#c1"
+    char_span: [2214, 3928]
+    sentence_count: 15
+    key_terms: [roadmap, send, undeniable, something, latency, someone, advice, thread]
+    section: Comments
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1knkfuf.md#c2"
+    char_span: [3930, 6045]
+    sentence_count: 17
+    key_terms: [cyberneticvoodoo, places, maybe, developers, experience, impossible, companies, something]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1knkfuf.md#c3"
+    char_span: [6047, 7538]
+    sentence_count: 10
+    key_terms: [experience, companies, internships, languages, something, looking, primary-walrus-5623, prior]
+    section: Comments
+    token_count: 336
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1knkfuf.md#c4"
+    char_span: [7543, 9469]
+    sentence_count: 18
+    key_terms: [experience, years, primary-walrus-5623, "i'm", "don't", going, year, graduation]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1knkfuf.md#c5"
+    char_span: [9471, 11482]
+    sentence_count: 19
+    key_terms: [build, year, contributions, sufficiently, get, job, experience, impressive]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1knkfuf.md#c6"
+    char_span: [11484, 13284]
+    sentence_count: 13
+    key_terms: [logger, contribution, nebulalogger, yada, contribute, frontend, failing, jongpie]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1knkfuf.md#c7"
+    char_span: [13286, 15410]
+    sentence_count: 14
+    key_terms: [https, salesforce-moxygen, problem, project, github, build, "it's", like]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1knkfuf.md#c8"
+    char_span: [15412, 17357]
+    sentence_count: 14
+    key_terms: [goodfirstissue, making, salesforce, leetcode, "wouldn't", getting, project, enough]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1knkfuf.md#c9"
+    char_span: [17359, 19286]
+    sentence_count: 17
+    key_terms: [training, applied, revature, through, unpaid, assessment, background, interview]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1knkfuf.md#c10"
+    char_span: [19288, 21541]
+    sentence_count: 9
+    key_terms: [work, people, "don't", years, nothing, time, parents, obligations]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1knkfuf.md#c11"
+    char_span: [21543, 23247]
+    sentence_count: 8
+    key_terms: [i-am-not-that-duck, probably, advice, back, like, another, deleted, masters]
+    section: Comments
+    token_count: 466
 ---
-
 # 2021 grad. Wasted potential, how do i become undeniable?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1knkfuf/2021_grad_wasted_potential_how_do_i_become/)

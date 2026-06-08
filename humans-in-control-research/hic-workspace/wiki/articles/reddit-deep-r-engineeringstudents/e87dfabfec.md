@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-engineeringstudents/e87dfabfec.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1qi55xz/my_engineering_internship_and_entrylevel_job/"
 url_hash: "e87dfabfec"
 kind: "article"
@@ -8,10 +9,42 @@ author: ""
 date: "2026-01-20T16:07:30.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-25T13:06:27.113450+00:00"
+extracted_at: "2026-06-06T17:46:40.066423+00:00"
 chars: 12000
+relevance: 55
+engagement_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "articles/reddit-deep-r-engineeringstudents/e87dfabfec.md#c0"
+    char_span: [0, 2404]
+    sentence_count: 26
+    key_terms: [resume, applying, job, getting, interviews, engineeringstudents, engineeringresumes, materials]
+    token_count: 514
+  - id: "articles/reddit-deep-r-engineeringstudents/e87dfabfec.md#c1"
+    char_span: [2406, 4393]
+    sentence_count: 23
+    key_terms: [job, linkedin, indeed, resume, application, everything, applying, "you're"]
+    token_count: 423
+  - id: "articles/reddit-deep-r-engineeringstudents/e87dfabfec.md#c2"
+    char_span: [4395, 6684]
+    sentence_count: 18
+    key_terms: [job, company, fair, companies, work, interest, applications, ask]
+    token_count: 485
+  - id: "articles/reddit-deep-r-engineeringstudents/e87dfabfec.md#c3"
+    char_span: [6686, 7839]
+    sentence_count: 12
+    key_terms: [presenting, business, practice, specific, casual, google, clean, "don't"]
+    token_count: 265
+  - id: "articles/reddit-deep-r-engineeringstudents/e87dfabfec.md#c4"
+    char_span: [7841, 10175]
+    sentence_count: 32
+    key_terms: [resume, people, employees, want, already, applied, conversation, cover]
+    token_count: 514
+  - id: "articles/reddit-deep-r-engineeringstudents/e87dfabfec.md#c5"
+    char_span: [10177, 12259]
+    sentence_count: 13
+    key_terms: [people, interviews, offer, different, start-ups, got, led, lot]
+    token_count: 477
 ---
-
 # My engineering internship and entry-level job application guide. Stop mass applying into the void.
 
 Source: [Reddit Deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1qi55xz/my_engineering_internship_and_entrylevel_job/)
@@ -81,17 +114,21 @@ Okay, so you passed the pre-screens and are doing an in-person or virtual interv
 **Business casual again.** Unless you're getting a completely different vibe that
 
 --- TOP COMMENTS ---
-[28↑ zacce] Well written. 
+[27↑ zacce] Well written. 
 
 > They'll give your resume a 10 sec glance  
 
 10 seconds is pretty generous, imo. An experienced recruiter can skim through a well formatted resume in less than 5 seconds and still retain a lot of information.
-[41↑ its_moodle] This is really great advice, even for people who are gearing up for more mid-level roles such as myself. Thanks for putting this together!
-[10↑ lazydictionary] No problem. I have a bad habit of binge-watching YouTube on topics for hours and I've been on a job market/job application kick, so it's a distillation of recruiter/HR YouTube advice and what worked for me recently.
-[19↑ Olikhovski] Coming from a BS Mech E, soon to be graduating MS Mech E, for other hard-tech people:
+[18↑ Olikhovski] Coming from a BS Mech E, soon to be graduating MS Mech E, for other hard-tech people:
 
 I always encourage people looking for internships to consider start-ups. For whatever reason, a lot of people I knew didn't really consider them at all. They can be hard to find sometimes, but just dig around with keywords that interest you followed by "start up", basically. 9 times out of 10, soon-to-be-graduating interns are rolled into these new grad positions, so for new grads, it is tougher, but for people with 1 summer/free session before graduation, getting a full-time offer before my final year was the biggest stress reducer I have ever had. There are some sweet perks, so little red tape, and so much opportunity to go beyond your regular job role. 
 
 I am mildly guesstimating here for my career fair/online applications, because I legitimately never got much. I'd say in 4 years, I applied to hundreds of roles, maybe 10 led to interviews, 1 led to an offer. From 3 career fairs at probably 10 companies talked to per fair, I had maybe 4 first-round interviews, which led to 1 offer. 
 
-For start-ups, I have sent a total of 14 messages on LinkedIn, either to company pages, or engineers, and even a few CEOs of these places. 13 of them got me interviews, 9 got to the offer. Not only did it give me some awesome job opportunit
+For start-ups, I have sent a total of 14 messages on LinkedIn, either to company pages, or engineers, and even a few CEOs of these places. 13 of them got me interviews, 9 got to the offer. Not only did it give me some awesome job opportunities, but I made friends with several of these individuals that has had its own set of perks. 
+
+
+
+Separately, I want to counter your views on cover letters with a few anecdotes below. I think they add a lot of value. 
+
+It's probably different for massive companies, but as someone who targeted and interned for 5 different start-ups, a cover letter is a bigger deal than you've given it credit.

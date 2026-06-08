@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1sk0tom.md
 url: "https://www.reddit.com/r/internships/comments/1sk0tom/how_can_i_get_my_first_internship_as_a_first_year/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 0.67
 num_comments: 8
 flair: "General"
-extracted_at: "2026-05-19T17:57:20.767Z"
+extracted_at: "2026-06-05T19:19:58.910Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1sk0tom.md#c0"
+    char_span: [0, 597]
+    sentence_count: 1
+    key_terms: [internship, year, internships, currently, comments, environmentalbag2703, clg, get]
+    token_count: 154
+  - id: "social-intelligence/reddit-deep/internships/1sk0tom.md#c1"
+    char_span: [612, 2405]
+    sentence_count: 11
+    key_terms: [internships, appropriate-tutor587, environmentalbag2703, nepternship, get, year, internship, companies]
+    section: Comments
+    token_count: 416
 ---
-
 # How can i get my first internship as a first year student and catch i am from a tier 3 clg
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1sk0tom/how_can_i_get_my_first_internship_as_a_first_year/)

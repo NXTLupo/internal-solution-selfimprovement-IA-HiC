@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/anthropic/1t4foj9.md
 url: "https://www.reddit.com/r/Anthropic/comments/1t4foj9/how_claude_code_helped_me_uncover_that_my_ai/"
 kind: "social-post"
 source: "reddit-deep: r/anthropic"
@@ -13,8 +14,21 @@ flair: "Compliment:snoo_hearteyes:"
 extracted_at: "2026-05-11T17:26:51.915Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, saas, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/anthropic/1t4foj9.md#c0"
+    char_span: [0, 331]
+    sentence_count: 1
+    key_terms: [anthropic, comments, gaslighting, reddit-deep, assistant, deleting, uncover, claude]
+    token_count: 93
+  - id: "social-intelligence/reddit-deep/anthropic/1t4foj9.md#c1"
+    char_span: [346, 1244]
+    sentence_count: 10
+    key_terms: [blacklist, git, operations, approach, happened, confirmation, destructivly, implementing]
+    section: Comments
+    token_count: 216
 ---
-
 # How Claude Code helped me uncover that my AI assistant was deleting my files then gaslighting me about it for months
 
 Source: [reddit-deep: r/anthropic](https://www.reddit.com/r/Anthropic/comments/1t4foj9/how_claude_code_helped_me_uncover_that_my_ai/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1rk5qh4.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1rk5qh4/am_i_not_doing_enough/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,33 @@ flair: "Rant/Vent"
 extracted_at: "2026-05-22T21:34:47.628Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rk5qh4.md#c0"
+    char_span: [0, 1274]
+    sentence_count: 5
+    key_terms: [experience, engineering, engineeringstudents, work, school, been, job, currently]
+    token_count: 292
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rk5qh4.md#c1"
+    char_span: [1289, 1755]
+    sentence_count: 3
+    key_terms: [companies, engineers, anymore, interns, "aren't", hiring, new, next]
+    section: Comments
+    token_count: 119
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rk5qh4.md#c2"
+    char_span: [1757, 3782]
+    sentence_count: 12
+    key_terms: [resume, average, skywalker170997, job, need, interviews, recruiters, mentioned]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rk5qh4.md#c3"
+    char_span: [3496, 4151]
+    sentence_count: 4
+    key_terms: [average, recruiters, resume, worst, move, competition, everything, experience]
+    section: Comments
+    token_count: 161
 ---
-
 # Am I not doing enough?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1rk5qh4/am_i_not_doing_enough/)

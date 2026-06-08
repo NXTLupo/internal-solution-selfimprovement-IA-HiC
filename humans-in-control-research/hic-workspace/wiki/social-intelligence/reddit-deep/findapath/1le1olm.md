@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1le1olm.md
 url: "https://www.reddit.com/r/findapath/comments/1le1olm/im_leaving_tech_its_too_risky_and_unstable_better/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,56 @@ flair: "Findapath-Career Change"
 extracted_at: "2026-05-22T15:13:18.826Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1le1olm.md#c0"
+    char_span: [0, 2242]
+    sentence_count: 26
+    key_terms: [because, constantly, don, job, like, tech, problems, solving]
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/findapath/1le1olm.md#c1"
+    char_span: [2244, 3237]
+    sentence_count: 13
+    key_terms: [average, being, job, tech, everything, projects, day, get]
+    token_count: 217
+  - id: "social-intelligence/reddit-deep/findapath/1le1olm.md#c2"
+    char_span: [3252, 4897]
+    sentence_count: 15
+    key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, buddies]
+    section: Comments
+    token_count: 381
+  - id: "social-intelligence/reddit-deep/findapath/1le1olm.md#c3"
+    char_span: [4899, 6880]
+    sentence_count: 16
+    key_terms: [people, years, find, get, job, openings, shortage, anymore]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/findapath/1le1olm.md#c4"
+    char_span: [6646, 7094]
+    sentence_count: 4
+    key_terms: [sad-east6075, everything, rejections, custodian, employees, nearshore, positions, fraction]
+    section: Comments
+    token_count: 116
+  - id: "social-intelligence/reddit-deep/findapath/1le1olm.md#c5"
+    char_span: [7096, 8462]
+    sentence_count: 11
+    key_terms: [something, new, learning, doing, "don't", never, world, find]
+    section: Comments
+    token_count: 324
+  - id: "social-intelligence/reddit-deep/findapath/1le1olm.md#c6"
+    char_span: [8464, 10061]
+    sentence_count: 13
+    key_terms: [programs, because, did, cybersecurity, productivity, restrictions, want, associates]
+    section: Comments
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/findapath/1le1olm.md#c7"
+    char_span: [10063, 11848]
+    sentence_count: 17
+    key_terms: ["i'm", left, marcmoreno, deleted, always, career, early, years]
+    section: Comments
+    token_count: 416
 ---
-
 # I'm leaving tech. It's too risky and unstable, better to get out before it's too late.
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1le1olm/im_leaving_tech_its_too_risky_and_unstable_better/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1pt2q9v.md
 url: "https://www.reddit.com/r/careerguidance/comments/1pt2q9v/parents_want_me_to_turn_down_a_fulltime_job_to/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,51 @@ flair: ""
 extracted_at: "2026-05-25T15:52:13.106Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c0"
+    char_span: [0, 2119]
+    sentence_count: 14
+    key_terms: [job, master, experience, degree, years, because, parents, careerguidance]
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c1"
+    char_span: [2134, 3881]
+    sentence_count: 12
+    key_terms: [masters, pay, semester, doing, job, time, experience, company]
+    section: Comments
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c2"
+    char_span: [3883, 4772]
+    sentence_count: 7
+    key_terms: [experience, masters, degree, expirence, almost, prestigious-cake3557, get, job]
+    section: Comments
+    token_count: 236
+  - id: "social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c3"
+    char_span: [4774, 6827]
+    sentence_count: 15
+    key_terms: [experience, positions, networking, work, degrees, job, strictlyonerous, masters]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c4"
+    char_span: [6830, 8900]
+    sentence_count: 17
+    key_terms: [parents, management, going, blazingnailsmcgee, career, want, absolutely, american]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c5"
+    char_span: [8902, 10444]
+    sentence_count: 21
+    key_terms: [decisions, better, absolutely, experience, parents, advice, answer, master]
+    section: Comments
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c6"
+    char_span: [10446, 11084]
+    sentence_count: 6
+    key_terms: [masters, class, job, take, company, taking, back, get]
+    section: Comments
+    token_count: 164
 ---
-
 # Parents want me to turn down a full-time job to pursue a master’s degree?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1pt2q9v/parents_want_me_to_turn_down_a_fulltime_job_to/)

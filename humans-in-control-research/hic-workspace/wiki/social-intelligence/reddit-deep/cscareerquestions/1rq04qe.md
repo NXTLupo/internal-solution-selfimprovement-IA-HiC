@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rq04qe.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rq04qe/new_grad_no_internships_am_i_being_too_greedy/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -7,14 +8,37 @@ title: "New Grad, no internships, am I being too greedy?"
 author: "poklja1"
 date: "2026-03-10T15:32:59.000Z"
 score: 9
-upvote_ratio: 0.81
+upvote_ratio: 0.85
 num_comments: 23
 flair: "New Grad"
-extracted_at: "2026-05-20T03:56:10.749Z"
+extracted_at: "2026-06-03T18:53:18.793Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rq04qe.md#c0"
+    char_span: [0, 1006]
+    sentence_count: 8
+    key_terms: [cscareerquestions, months, internships, bit, interview, comments, take, tech]
+    token_count: 255
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rq04qe.md#c1"
+    char_span: [1021, 2693]
+    sentence_count: 14
+    key_terms: ["it's", interview, working, take, especially, experience, unemployed, career]
+    section: Comments
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rq04qe.md#c2"
+    char_span: [2695, 4264]
+    sentence_count: 7
+    key_terms: [interviews, job, take, office, offer, get, interview, applying]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rq04qe.md#c3"
+    char_span: [4266, 6068]
+    sentence_count: 12
+    key_terms: [interviews, take, resume, "you're", howholdpencil, job, interview, momentum]
+    section: Comments
+    token_count: 441
 ---
-
 # New Grad, no internships, am I being too greedy?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rq04qe/new_grad_no_internships_am_i_being_too_greedy/)
@@ -32,14 +56,14 @@ Should I take the experience even if it’s not the right tech, or try my luck a
 
 ## Comments
 
-- **lhorie** (26↑): Normal advice here is to take the job and keep applying. Your work hours are bog standard, people find new jobs while holding jobs all the time.
+- **lhorie** (25↑): Normal advice here is to take the job and keep applying. Your work hours are bog standard, people find new jobs while holding jobs all the time.
   - **Neither_Unit1579** (1↑): realest take
-- **drugsbowed** (4↑): Your first job doesn't necessarily need to align with your career goals *as long as it's in the same field*. It's to get your foot in the door and have working experience on your resume. If the market is very poor, I'd take the opportunity and jump after you do a solid 2 years.
+- **drugsbowed** (5↑): Your first job doesn't necessarily need to align with your career goals *as long as it's in the same field*. It's to get your foot in the door and have working experience on your resume. If the market is very poor, I'd take the opportunity and jump after you do a solid 2 years.
 
 Working in a legacy tech stack isn't bad if you're getting engineering experience. You can make time to interview prep if it's *that* bad, especially on the weekends.
 
 Many of my peers did some years at a bank or in some finance just to jump to a startup they fell in love with or into a FAANG. It's more of the exception, not the rule, to go straight to a FAANG (a common career goal) and stay there for life.
-- **BTTLC** (5↑): Why do u think the work hours will likely kill your ability to prep and interview? Do they come across as poor wlb (e.g. 996)?
+- **BTTLC** (4↑): Why do u think the work hours will likely kill your ability to prep and interview? Do they come across as poor wlb (e.g. 996)?
 
 Plenty of people interview while concurrently working. You won’t be able to maintain the same velocity and commitment as when you’re unemployed, but you can still do it. 
 
@@ -60,7 +84,7 @@ On a side note, if you dont mind, what was the strategy you did for applying? 2 
 - **HowHoldPencil** (1↑): take the job, spend an hour at the start or end of your day doing interview prep. greed in your early career is no reason to harm you entire financial, physical well being for, just be grateful and keep your goals in mind
   - **HowHoldPencil** (1↑): when it comes to scheduling your interviews and such, well you do get breaks. and it's not fun but shit, sacrifices for bigger gains. earning an income keeps you fed man
 - **Temp76893** (1↑): No harm in taking it, for interviews u can do it on ur lunch break or simply take a day off
-- **revarta** (-13↑): You're at an inflection point, not a greedy one. Two interviews per week is real momentum — that's the thing most new grads can't sustain. If you take this offer, you're betting that the ability to interview while working a high-friction job is worth the resume line. It almost never is, especially if the tech doesn't align with what you actually want to learn. You'd be trading three months of continued momentum for six months of burnout and stalled prep, then another job hunt from a worse position.
+- **revarta** (-14↑): You're at an inflection point, not a greedy one. Two interviews per week is real momentum — that's the thing most new grads can't sustain. If you take this offer, you're betting that the ability to interview while working a high-friction job is worth the resume line. It almost never is, especially if the tech doesn't align with what you actually want to learn. You'd be trading three months of continued momentum for six months of burnout and stalled prep, then another job hunt from a worse position.
 
 Your runway is the real asset here. Use it. Keep interviewing at this rate. You'll hit something that fits better within that window — might be 2 more weeks, might be 6, but you're shooting from a position of strength, not scarcity. A legacy stack early in your career becomes a resume liability, not an asset, if it's not paired with growth on the side. Don't take friction just to stop the clock.
   - **drugsbowed** (9↑): can we ban AI responses

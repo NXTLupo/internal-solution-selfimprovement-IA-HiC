@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1r6tbik.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1r6tbik/graduating_in_a_few_months_with_dual_degrees_in/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,26 @@ flair: "Career Help"
 extracted_at: "2026-05-24T14:08:39.211Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r6tbik.md#c0"
+    char_span: [0, 1941]
+    sentence_count: 13
+    key_terms: [engineering, mechanical, engineeringstudents, research, software, project, time, experience]
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r6tbik.md#c1"
+    char_span: [1943, 2921]
+    sentence_count: 8
+    key_terms: [master, roles, time, whether, funded, offer, right, back]
+    token_count: 196
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1r6tbik.md#c2"
+    char_span: [2936, 3609]
+    sentence_count: 6
+    key_terms: [probably, going, best, get, catsdrinkingbeer, application, engineering, experience]
+    section: Comments
+    token_count: 168
 ---
-
 # Graduating in a Few Months with Dual Degrees in Mech Eng & Math What Do I Do Now?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1r6tbik/graduating_in_a_few_months_with_dual_degrees_in/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1qcisxc.md
 url: "https://www.reddit.com/r/stocks/comments/1qcisxc/believing_that_ai_bubble_has_peaked_is_going_to/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,133 @@ flair: "Industry Discussion"
 extracted_at: "2026-05-17T01:14:17.620Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [ai_research, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c0"
+    char_span: [0, 2062]
+    sentence_count: 23
+    key_terms: [nvidia, gpus, google-must-double-ai-serving-capacity-every-6-months-to-meet-demand, demand, china-ai-leaders-warn-of-widening-gap-with-us-after-1b-ipo-week, new, compute, source]
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c1"
+    char_span: [2064, 3992]
+    sentence_count: 23
+    key_terms: [demand, revenue, sam-altman-says-openai-will-top-20-billion-annual-revenue-this-year, "it's", compute, https, measuring-ai-ability-to-complete-long-tasks, "they're"]
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c2"
+    char_span: [3994, 5938]
+    sentence_count: 24
+    key_terms: [us-productivity-picked-up-in-third-quarter-labor-costs-declined, productivity, bubble, going, improvement, math, previously, anti-tech]
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c3"
+    char_span: [5953, 7766]
+    sentence_count: 15
+    key_terms: [bubble, everyone, money, market, people, like, popping, success]
+    section: Comments
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c4"
+    char_span: [7768, 9488]
+    sentence_count: 10
+    key_terms: [bubble, "it's", inflation, control, exactly, whether, coyote, market]
+    section: Comments
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c5"
+    char_span: [9490, 11334]
+    sentence_count: 12
+    key_terms: [revenue, demand, like, stlouisfed, broadband, bottom, bubble, series]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c6"
+    char_span: [11336, 13053]
+    sentence_count: 16
+    key_terms: [problems, revenue, large, because, demand, growth, market, solved]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c7"
+    char_span: [13055, 15220]
+    sentence_count: 16
+    key_terms: [companies, revenue, demand, services, "it's", thousands, hundreds, software]
+    section: Comments
+    token_count: 514
+  - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c8"
+    char_span: [15222, 17452]
+    sentence_count: 18
+    key_terms: [revenue, making, companies, something, billions, trillion, company, dollar]
+    section: Comments
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c9"
+    char_span: [17454, 19043]
+    sentence_count: 11
+    key_terms: [pinterest, posts, accounts, already, overrun, revenue, selling, dollar]
+    section: Comments
+    token_count: 397
+  - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c10"
+    char_span: [19045, 20292]
+    sentence_count: 13
+    key_terms: [music, people, example, reddit, die, pop, successful, industry]
+    section: Comments
+    token_count: 317
+  - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c11"
+    char_span: [20294, 22316]
+    sentence_count: 15
+    key_terms: [people, generation, inference, reddit, burry, model, gpus, available]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c12"
+    char_span: [22318, 24536]
+    sentence_count: 18
+    key_terms: [nvidia, chips, new, because, companies, inference, towards, burry]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c13"
+    char_span: [24538, 26268]
+    sentence_count: 7
+    key_terms: [oracle, years, servers, accounting, burry, chips, data, centers]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c14"
+    char_span: [26270, 28353]
+    sentence_count: 21
+    key_terms: [capital, argument, returns, hyperscalers, demand, burry, always, businesses]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c15"
+    char_span: [28355, 29998]
+    sentence_count: 13
+    key_terms: [gpu, nvidia, "nvidia's", gpus, companies, buying, because, "won't"]
+    section: Comments
+    token_count: 418
+  - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c16"
+    char_span: [30001, 32122]
+    sentence_count: 16
+    key_terms: [hardware, demand, get, probably, intelligence, going, years, like]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c17"
+    char_span: [32124, 34221]
+    sentence_count: 17
+    key_terms: [demand, investment, big, subscription, years, auradragon1, substantial, "it's"]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c18"
+    char_span: [34224, 36279]
+    sentence_count: 15
+    key_terms: [compute, progress, "it's", bubble, year, improved, because, useful]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c19"
+    char_span: [36281, 38406]
+    sentence_count: 18
+    key_terms: [companies, useful, exponentially, technologies, considering, revolutions, especially, innovation]
+    section: Comments
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c20"
+    char_span: [38408, 40078]
+    sentence_count: 9
+    key_terms: [revenue, savings, efficiencies, generation, potential, valuation, benefit, current]
+    section: Comments
+    token_count: 379
 ---
-
 # Believing that AI bubble has peaked is going to lose people a lot of money
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1qcisxc/believing_that_ai_bubble_has_peaked_is_going_to/)

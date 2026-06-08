@@ -6,19 +6,19 @@ subreddit: "cscareerquestions"
 title: "I graduated CS in 2022 and applied to 1800 jobs. Here is everything I learned the hard way"
 author: "dreamyrosebreeze"
 date: "2026-03-17T06:59:11.000Z"
-score: 544
+score: 540
 upvote_ratio: 0.93
 num_comments: 65
 flair: "Experienced"
-extracted_at: "2026-05-23T14:54:48.624Z"
+extracted_at: "2026-06-06T23:23:15.632Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # I graduated CS in 2022 and applied to 1800 jobs. Here is everything I learned the hard way
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rvzf6t/i_graduated_cs_in_2022_and_applied_to_1800_jobs/)
-Posted by **dreamyrosebreeze** · **544↑** · **65 comments**
+Posted by **dreamyrosebreeze** · **540↑** · **65 comments**
 
 I graduated from NYU with a CS degree in 2022. I thought getting a job would be the easy part. It was not.  
   
@@ -42,20 +42,20 @@ The job market is brutal right now but it is not random. The people getting offe
 
 ## Comments
 
-- **JesusHitchens** (75↑): Usually wouldn't believe 1800 applications, but I know it's the reality now. I have a low-paying job with low hours right now but I definitely need more. I’d be too scared to negotiate at this point, but I’ll keep it in mind for later. I’m hitting up recruitment firms [like that dev suggested](https://www.reddit.com/r/RemoteJobseekers/comments/1fdpeg2/how_i_landed_multiple_remote_job_offers_my_remote/) since people say it works. I’m not sending unsolicited CVs, but I’m stalking HR on LinkedIn and checking career pages of companies I’d actually work for so I can jump on listings the second they go live. This cooked market forces me into hunter mode where I'm just waiting for the right opening to pop up. I absolutely need a more secure job or side gigs.
+- **JesusHitchens** (77↑): Usually wouldn't believe 1800 applications, but I know it's the reality now. I have a low-paying job with low hours right now but I definitely need more. I’d be too scared to negotiate at this point, but I’ll keep it in mind for later. I’m hitting up recruitment firms [like that dev suggested](https://www.reddit.com/r/RemoteJobseekers/comments/1fdpeg2/how_i_landed_multiple_remote_job_offers_my_remote/) since people say it works. I’m not sending unsolicited CVs, but I’m stalking HR on LinkedIn and checking career pages of companies I’d actually work for so I can jump on listings the second they go live. This cooked market forces me into hunter mode where I'm just waiting for the right opening to pop up. I absolutely need a more secure job or side gigs.
   - **ultimatepro-grammer** (9↑): This has got to be an ad
-- **SwitchOrganic** (54↑): > Sixth, if you are blanking in interviews despite knowing the material, the problem is often nerves, not knowledge.
+- **SwitchOrganic** (56↑): > Sixth, if you are blanking in interviews despite knowing the material, the problem is often nerves, not knowledge.
 
 I have terrible nerves during interviews, I don't know what it is. I'm great at public speaking and have played in concerts in front of thousands of people before. But something about interviews just hits different and not in the good way.
 
 After trying a bunch of different things I ended up just asking my doctor to write me a prescription for propranolol and it has been a game changer for me.
-- **wazogear** (13↑): Just curious, did you do any internships while you were in school?
-- **OkRub3026** (28↑): slop
-- **rustybutterindia** (5↑): I'm not completely clear on the premise of your post. Can you elaborate on the timeline?
+- **wazogear** (14↑): Just curious, did you do any internships while you were in school?
+- **OkRub3026** (30↑): slop
+- **rustybutterindia** (3↑): I'm not completely clear on the premise of your post. Can you elaborate on the timeline?
 
 
 Did you get these two offers recently after applying for four years through different economic conditions? Or are you an experienced dev reflecting about your experience in 2022?
-- **Triumphxd** (41↑): Not bad advice. I wouldn’t suggest negotiating EVERY offer, if you get something at or above market and are struggling for work it might be better to take it and learn and improve (for example, at market in NYC is really good, at market I mean big tech equivalent middle of the band.) best way to negotiate is multiple offers of similar caliber. 
+- **Triumphxd** (42↑): Not bad advice. I wouldn’t suggest negotiating EVERY offer, if you get something at or above market and are struggling for work it might be better to take it and learn and improve (for example, at market in NYC is really good, at market I mean big tech equivalent middle of the band.) best way to negotiate is multiple offers of similar caliber. 
 
 Not having nerves isn’t the most important thing, if you got a cs degree and didn’t cheat you are capable of learning algorithms. There are two paths, complain or be humble and learn. Neetcode is sick especially if you haven’t passed tough interviews before its a decent roadmap 
 
@@ -66,8 +66,8 @@ This article changed the way I think about negotiations, a little bit dated sinc
 
 [https://haseebq.com/my-ten-rules-for-negotiating-a-job-offer/](https://haseebq.com/my-ten-rules-for-negotiating-a-job-offer/)
 - **Mr_Zuckerberg123** (32↑): The ATS point is so underrated. People think they're getting rejected by hiring managers when their resume never even gets seen. Fixing formatting alone can completely change your response rate.
-  - **GuzDex** (13↑): How would I format my resume in that way?
-    - **Mr_Zuckerberg123** (27↑): honestly nothing crazy, just keep it super clean and boring
+  - **GuzDex** (14↑): How would I format my resume in that way?
+    - **Mr_Zuckerberg123** (26↑): honestly nothing crazy, just keep it super clean and boring
 
 single column, no graphics or weird templates  
 standard headings like education, experience, projects
@@ -77,8 +77,8 @@ then copy keywords straight from the job description into your bullet points whe
 also avoid tables or anything fancy because a lot of ATS just can’t read them properly
 
 once i did that my response rate literally went up without changing anything else
-    - **pinguinblue** (13↑): There are ATS scanners you can find online for free. Put your resume in it and see what it says.
-    - **TheRealLazloFalconi** (8↑): Just make your resume a simple page, don't use a sidebar or two column layout. It should look something like this:
+    - **pinguinblue** (14↑): There are ATS scanners you can find online for free. Put your resume in it and see what it says.
+    - **TheRealLazloFalconi** (7↑): Just make your resume a simple page, don't use a sidebar or two column layout. It should look something like this:
 
 # Your Name
 
@@ -104,7 +104,7 @@ Short statement about what you're looking for career-wise.
     - **MaleficentExample223** (2↑): check out [https://github.com/rendercv/rendercv](https://github.com/rendercv/rendercv)
   - **TheReal_Slim-Shady** (1↑): I disagree. it's a combination of both. Your resume needs to pass through ATS then it's the HR reviewing your resume. I am skeptical of HR people having tech knowledge. A good resume needs to consider both.
 - **_kernel_picnic_** (3↑): Taking advice from someone with 1800 applications is like taking dating advice from someone who got married 6 times.  Sure they got a lot of experience, but it's not the experience you're looking for
-- **[deleted]** (5↑): Where do you work now and what’s your TC? What level of leet code problems would you recommend getting comfortable with? Any good resources for behavioral interviews?
+- **[deleted]** (4↑): Where do you work now and what’s your TC? What level of leet code problems would you recommend getting comfortable with? Any good resources for behavioral interviews?
   - **Top_Substance9093** (5↑): my rec as an interviewer at F(M)AANG: 
 
 \- should be able to solve most (80%+) leetcode mediums in < 20min first try

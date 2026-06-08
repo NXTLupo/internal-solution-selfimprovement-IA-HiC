@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1syutlg.md
 url: "https://www.reddit.com/r/careerguidance/comments/1syutlg/urgent_career_advice_for_better_guidance_can/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,26 @@ flair: ""
 extracted_at: "2026-05-20T12:56:27.148Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1syutlg.md#c0"
+    char_span: [0, 1883]
+    sentence_count: 9
+    key_terms: [experience, roles, engineer, hardware, design, systems, careerguidance, system]
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/careerguidance/1syutlg.md#c1"
+    char_span: [1885, 3382]
+    sentence_count: 3
+    key_terms: [systems, design, experience, high-speed, power, signal, pcb, validation]
+    token_count: 328
+  - id: "social-intelligence/reddit-deep/careerguidance/1syutlg.md#c2"
+    char_span: [3397, 4133]
+    sentence_count: 5
+    key_terms: [companies, experience, integrity, majorly, focus, power, miserablegold7921, side]
+    section: Comments
+    token_count: 164
 ---
-
 # Urgent Career Advice for better guidance, can someone help me in this?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1syutlg/urgent_career_advice_for_better_guidance_can/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1tjj3om.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1tjj3om/negotiate_16hr_me_internship_with_no_prior/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -6,19 +7,42 @@ subreddit: "engineeringstudents"
 title: "Negotiate $16/hr ME internship with no prior experience?"
 author: "Vast-Lion7890"
 date: "2026-05-21T12:32:35.000Z"
-score: 1
-upvote_ratio: 0.53
+score: 0
+upvote_ratio: 0.5
 num_comments: 36
 flair: "Career Advice"
-extracted_at: "2026-05-25T18:32:19.220Z"
+extracted_at: "2026-06-06T17:43:22.927Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tjj3om.md#c0"
+    char_span: [0, 1513]
+    sentence_count: 10
+    key_terms: [engineeringstudents, comments, engineering, connection, experience, graduating, internship, declining]
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tjj3om.md#c1"
+    char_span: [1528, 3375]
+    sentence_count: 15
+    key_terms: [leverage, position, intern, experience, take, adviderisj, internship, directors]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tjj3om.md#c2"
+    char_span: [3377, 5401]
+    sentence_count: 12
+    key_terms: [experience, engineering, pay, take, internship, something, leverage, another]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tjj3om.md#c3"
+    char_span: [5403, 6143]
+    sentence_count: 10
+    key_terms: [experience, work, school, engineering, problem, section, testing, whether]
+    section: Comments
+    token_count: 159
 ---
-
 # Negotiate $16/hr ME internship with no prior experience?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1tjj3om/negotiate_16hr_me_internship_with_no_prior/)
-Posted by **Vast-Lion7890** · **1↑** · **36 comments**
+Posted by **Vast-Lion7890** · **0↑** · **36 comments**
 
 Edit:  Relaxxx guys, I haven’t even asked the company anything. Nowhere did I say I'm declining or thinking about declining, it was just a hypothetical Reddit question about negotiating. Thanks to those with helpful comments, and sorry to those I somehow offended 😜
 
@@ -39,16 +63,16 @@ Thanks!
 
 ## Comments
 
-- **dretanz** (52↑): IMHO, you have very little leverage. Take this job, but keep looking to line up opportunities for after graduating.
-- **RetardedChimpanzee** (44↑): Unless you are a returning intern, doing PHd research directly related, or your dad is on the board of directors, NOBODY has leverage to negotiate intern salaries
-  - **Adviderisj** (6↑): Your mom could be on the Board of Directors as well, I suppose
+- **dretanz** (54↑): IMHO, you have very little leverage. Take this job, but keep looking to line up opportunities for after graduating.
+- **RetardedChimpanzee** (39↑): Unless you are a returning intern, doing PHd research directly related, or your dad is on the board of directors, NOBODY has leverage to negotiate intern salaries
+  - **Adviderisj** (5↑): Your mom could be on the Board of Directors as well, I suppose
   - **Brownie_Bytes** (2↑): Meh, depends a little on life circumstances. If an intern lives with their parents, has no experience, and barely meets the standard for the position, they have no leverage. If an intern has a family, has worked in an adjacent field, and shows experience with essential tools, they have a decent amount of leverage. Most people land somewhere in the middle. If I'm trying to hire someone and they say that for $3 more per hour they don't have to take out a loan to work for me, I'll probably give them the extra $120 per week.
     - **Adviderisj** (1↑): I was told at a major company, that the rates are fixed, absolutely no negotiation, based on years in school
 - **According_Doctor_821** (24↑): You have no leverage. By offering you a position they are doing you a favor. You have no room to negotiate. If you had another offer it would be another story.
-- **ROWENATOR9** (14↑): Remember that the experience is worth far more than the pay, potentially opening up more doors next year. It would be difficult to leverage the offer since you don’t have any others. This is also an internship. It is less open to debate compared to a full time position.  
+- **ROWENATOR9** (15↑): Remember that the experience is worth far more than the pay, potentially opening up more doors next year. It would be difficult to leverage the offer since you don’t have any others. This is also an internship. It is less open to debate compared to a full time position.  
 I would take the position regardless.  
 However if you NEED the money, ask about potential overtime. In my first internship I worked 80 hour weeks and made a good chunk of change.
-  - **MadLadChad_** (6↑): What did they let you do for 80 hours? 
+  - **MadLadChad_** (4↑): What did they let you do for 80 hours? 
 
 I’m doing 65 these days in R&D and I’m pretty certain another 15 would have negative returns.
     - **ROWENATOR9** (3↑): I worked on the floor of a turbo machinery company along with my engineering duties. They gave me the option to work with the guys there as basically a mechanic. 

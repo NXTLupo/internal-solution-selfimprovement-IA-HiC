@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1sf3vr7.md
 url: "https://www.reddit.com/r/NEU/comments/1sf3vr7/is_tuition_for_undergraduate_study_only_six/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -7,14 +8,31 @@ title: "Is tuition for Undergraduate Study only Six semesters (three years)?"
 author: "AdSubstantial3900"
 date: "2026-04-07T18:09:40.000Z"
 score: 3
-upvote_ratio: 0.71
+upvote_ratio: 0.67
 num_comments: 24
 flair: "Admissions & Financial Aid"
-extracted_at: "2026-05-19T17:57:09.038Z"
+extracted_at: "2026-06-06T00:27:19.931Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1sf3vr7.md#c0"
+    char_span: [0, 651]
+    sentence_count: 3
+    key_terms: [semesters, tuition, years, comments, total, adsubstantial3900, neu, international]
+    token_count: 166
+  - id: "social-intelligence/reddit-deep/neu/1sf3vr7.md#c1"
+    char_span: [666, 2282]
+    sentence_count: 7
+    key_terms: [undergraduate-co-op-process, credits, northeastern, summer, semesters, scholarships, https, years]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/neu/1sf3vr7.md#c2"
+    char_span: [2284, 3806]
+    sentence_count: 6
+    key_terms: [requirements, classes, credits, summer, adsubstantial3900, semester, crashanicoot, semesters]
+    section: Comments
+    token_count: 407
 ---
-
 # Is tuition for Undergraduate Study only Six semesters (three years)?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1sf3vr7/is_tuition_for_undergraduate_study_only_six/)
@@ -32,7 +50,7 @@ I'm finding this a little unbelievable because I assumed it would be four years 
 ## Comments
 
 - **CheesyPanther** (25↑): This is not necessarily correct
-  - **Joshi1381** (8↑): Even if you come in with the max amount of AP credits, you may have to take 1-2 summers or overload. If you don't have any or have minimal transfer credits you will be doing summers or have to do 5 years if you want 2 coops.
+  - **Joshi1381** (7↑): Even if you come in with the max amount of AP credits, you may have to take 1-2 summers or overload. If you don't have any or have minimal transfer credits you will be doing summers or have to do 5 years if you want 2 coops.
     - **AdSubstantial3900** (1↑): I'm a little confused? The website says otherwise:
 
 https://preview.redd.it/iovxtibw8ttg1.png?width=2004&format=png&auto=webp&s=13e0ada66a115e9e87201089af040540d19c4128
@@ -41,7 +59,7 @@ Source: [https://www.khoury.northeastern.edu/undergraduate-co-op-process/](https
 
   
 Can you explain it a little further please?
-- **PromptResponsible123** (6↑): The typical US degree takes 8 semesters, including here at NEU.  See the Northeastern Promise, where they guarantee their institutional aid (which is the only aid that they can control, ie, the grants and scholarships awarded by NEU) for undergrads for 8 semesters, as long as you meet the the conditions of staying enrolled and making adequate progress, etc.;  scholarships have a minimum GPA requirement.
+- **PromptResponsible123** (4↑): The typical US degree takes 8 semesters, including here at NEU.  See the Northeastern Promise, where they guarantee their institutional aid (which is the only aid that they can control, ie, the grants and scholarships awarded by NEU) for undergrads for 8 semesters, as long as you meet the the conditions of staying enrolled and making adequate progress, etc.;  scholarships have a minimum GPA requirement.
 
 If you come in with credits which NEU accepts, it will save you on the time required to obtain your degree, but that is an individual circumstance.
 

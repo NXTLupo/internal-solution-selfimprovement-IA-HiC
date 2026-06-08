@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/stocks/1nvjfmm.md
 url: "https://www.reddit.com/r/stocks/comments/1nvjfmm/reddit_stock_sinks_12_as_chatgpt_references_to/"
 kind: "social-post"
 source: "reddit-deep: r/stocks"
@@ -13,8 +14,57 @@ flair: "Company News"
 extracted_at: "2026-05-17T01:14:17.621Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, media, ai_research]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/stocks/1nvjfmm.md#c0"
+    char_span: [0, 1087]
+    sentence_count: 3
+    key_terms: [reddit-stock-falls-for-second-day-as-references-to-its-content-in-chatgpt-responses-plummet-135203534, reddit, chatgpt, content, cited, https, com, responses]
+    token_count: 280
+  - id: "social-intelligence/reddit-deep/stocks/1nvjfmm.md#c1"
+    char_span: [1102, 2597]
+    sentence_count: 6
+    key_terms: [reddit, probably, x-has-highest-rate-of-misinformation-as-a-news-sou, misinformation, openai, random, conclusions, company]
+    section: Comments
+    token_count: 409
+  - id: "social-intelligence/reddit-deep/stocks/1nvjfmm.md#c2"
+    char_span: [2599, 4184]
+    sentence_count: 8
+    key_terms: [reddit, misinformation, thesefuckingaccounts, deadinternettheory, anotherthroneaway, laughinggaster666, bot, etc]
+    section: Comments
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/stocks/1nvjfmm.md#c3"
+    char_span: [4186, 6026]
+    sentence_count: 9
+    key_terms: [chatgpt, generated, comments, iiiiiiiiiateeyes, content, posts, like, articles]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/stocks/1nvjfmm.md#c4"
+    char_span: [6028, 7873]
+    sentence_count: 9
+    key_terms: [reddit, citations, bought, dropping, because, dropped, support, likely]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/stocks/1nvjfmm.md#c5"
+    char_span: [7875, 10024]
+    sentence_count: 11
+    key_terms: [reddit, chat, gpt, want, kind, town, username, chatgpt]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/stocks/1nvjfmm.md#c6"
+    char_span: [10026, 12085]
+    sentence_count: 16
+    key_terms: [reddit, get, information, unbiased, because, "there's", gwillhunting, guess]
+    section: Comments
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/stocks/1nvjfmm.md#c7"
+    char_span: [12087, 12516]
+    sentence_count: 2
+    key_terms: [reddit, answers, few-chemist-3463, conversation, considering, keywording, statement, anything]
+    section: Comments
+    token_count: 94
 ---
-
 # Reddit stock sinks 12% as ChatGPT references to its content plunge from 10% to 2% in September
 
 Source: [reddit-deep: r/stocks](https://www.reddit.com/r/stocks/comments/1nvjfmm/reddit_stock_sinks_12_as_chatgpt_references_to/)

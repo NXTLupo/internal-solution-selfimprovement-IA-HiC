@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1qg2xzq.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1qg2xzq/smartest_way_to_budget_my_low_monthly_income/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,21 @@ flair: "Budgeting/Saving/Investing/Spending"
 extracted_at: "2026-05-16T20:55:12.690Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qg2xzq.md#c0"
+    char_span: [0, 283]
+    sentence_count: 1
+    key_terms: [povertyfinance, comments, independent-arm-8839, reddit-deep, smartest, monthly, budget, income]
+    token_count: 82
+  - id: "social-intelligence/reddit-deep/povertyfinance/1qg2xzq.md#c1"
+    char_span: [298, 1571]
+    sentence_count: 12
+    key_terms: [budget, "let's", month, car, flat, rate, averaged, billing]
+    section: Comments
+    token_count: 316
 ---
-
 # Smartest way to budget my low monthly income
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1qg2xzq/smartest_way_to_budget_my_low_monthly_income/)

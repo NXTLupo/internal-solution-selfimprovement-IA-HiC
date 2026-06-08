@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1knoqjt.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1knoqjt/im_completely_desperate_theres_got_to_be/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,129 @@ flair: "Income/Employment/Aid"
 extracted_at: "2026-05-16T20:55:12.689Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c0"
+    char_span: [0, 1289]
+    sentence_count: 14
+    key_terms: [povertyfinance, credit, money, card, "i'm", time, desperate, something]
+    token_count: 335
+  - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c1"
+    char_span: [1304, 3166]
+    sentence_count: 13
+    key_terms: [month, budget, "don't", comments, because, dollar, health, making]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c2"
+    char_span: [3168, 3711]
+    sentence_count: 6
+    key_terms: [because, insurance, "haven't", health, spent, need, absolutely, difference]
+    section: Comments
+    token_count: 122
+  - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c3"
+    char_span: [3713, 5519]
+    sentence_count: 18
+    key_terms: [take, "i'm", probably, cb7f2c70d970e37c37682fd39a5f0f3e9fa1599f, home, insurance, comments, because]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c4"
+    char_span: [5316, 5912]
+    sentence_count: 4
+    key_terms: [month, year, insurance, bigchampionship7962, taxes, home, less, akaikitsune07]
+    section: Comments
+    token_count: 173
+  - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c5"
+    char_span: [5914, 7624]
+    sentence_count: 15
+    key_terms: [taxes, insurance, family, health, income, take, superannuation, home]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c6"
+    char_span: [7626, 9444]
+    sentence_count: 28
+    key_terms: [everything, home, agree, car, year, struggling, insurance, budget]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c7"
+    char_span: [9447, 11244]
+    sentence_count: 21
+    key_terms: [kids, home, shop, money, find, like, expensive, probably]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c8"
+    char_span: [11246, 11978]
+    sentence_count: 5
+    key_terms: [time, lavendercocktails, day, kids, part, work, spectacular, dependent]
+    section: Comments
+    token_count: 169
+  - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c9"
+    char_span: [11980, 13970]
+    sentence_count: 14
+    key_terms: [food, ge-5-000-btu-115-volt-window-air-conditioner-for-150-sq-ft-rooms-in-white-awcs05bwt, get, pantry, ge-5-000-btu-115-volt-window-air-conditioner, https, homedepot, household]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c10"
+    char_span: [13811, 14022]
+    sentence_count: 1
+    key_terms: [ge-5-000-btu-115-volt-window-air-conditioner-for-150-sq-ft-rooms-in-white-awcs05bwt, btu-115-volt-window-air-conditioner-for-150-sq-ft-rooms-in-white-awcs05bwt, homedepot, https, com, www]
+    section: Comments
+    token_count: 88
+  - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c11"
+    char_span: [14024, 15344]
+    sentence_count: 11
+    key_terms: [window, room, income, card, debt, get, good, ones]
+    section: Comments
+    token_count: 306
+  - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c12"
+    char_span: [15346, 17495]
+    sentence_count: 18
+    key_terms: [hours, get, help, job, time, doordash, opposite, cheaper]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c13"
+    char_span: [17235, 17780]
+    sentence_count: 5
+    key_terms: [drop, childcare, necessity, "shouldn't", something, vacations, cheapest, multiple]
+    section: Comments
+    token_count: 127
+  - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c14"
+    char_span: [17782, 19597]
+    sentence_count: 10
+    key_terms: [phone, groceries, insurance, money, month, car, georgepana, accounts]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c15"
+    char_span: [19599, 21074]
+    sentence_count: 11
+    key_terms: [mortgage, probably, around, home, like, take, insurance, numbers]
+    section: Comments
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c16"
+    char_span: [21076, 23166]
+    sentence_count: 24
+    key_terms: [credit, household, budget, going, money, home, less, pay]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c17"
+    char_span: [23168, 24989]
+    sentence_count: 25
+    key_terms: [please, worth, looking, health, unless, doing, field, older]
+    section: Comments
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c18"
+    char_span: [24991, 26872]
+    sentence_count: 17
+    key_terms: [food, help, job, delivery, already, getting, grocery, network]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/povertyfinance/1knoqjt.md#c19"
+    char_span: [26874, 27937]
+    sentence_count: 13
+    key_terms: [look, month, take, subsequent, account, plasma, traditional-dog-4938, hours]
+    section: Comments
+    token_count: 268
 ---
-
 # I'm completely desperate. There's got to be something I can do.
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1knoqjt/im_completely_desperate_theres_got_to_be/)

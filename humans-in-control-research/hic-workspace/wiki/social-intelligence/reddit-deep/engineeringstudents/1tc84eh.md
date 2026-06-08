@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1tc84eh.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1tc84eh/engineer_student_in_need_of_some_advice/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,15 @@ flair: "Career Advice"
 extracted_at: "2026-05-23T20:15:19.041Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1tc84eh.md#c0"
+    char_span: [0, 1215]
+    sentence_count: 7
+    key_terms: ["i'm", engineeringstudents, courses, side, comments, student, reddit, doing]
+    token_count: 291
 ---
-
 # Engineer student in need of some advice 🧍‍♂️🙏
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1tc84eh/engineer_student_in_need_of_some_advice/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-neu/ea3da2fcff.md
 url: "https://www.reddit.com/r/NEU/comments/1q5832k/finding_your_pack_a_huskys_guide_to_building/"
 url_hash: "ea3da2fcff"
 kind: "article"
@@ -8,10 +9,37 @@ author: ""
 date: "2026-01-06T03:54:17.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-26T14:35:47.574820+00:00"
+extracted_at: "2026-06-06T00:36:21.454394+00:00"
 chars: 8775
+relevance: 50
+engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "articles/reddit-deep-r-neu/ea3da2fcff.md#c0"
+    char_span: [0, 1793]
+    sentence_count: 11
+    key_terms: [northeastern, student, friendships, feeling, finding, organizations, guide, neu]
+    token_count: 382
+  - id: "articles/reddit-deep-r-neu/ea3da2fcff.md#c1"
+    char_span: [1795, 4119]
+    sentence_count: 13
+    key_terms: [student, club, association, find, professional, facilities, community, american]
+    token_count: 494
+  - id: "articles/reddit-deep-r-neu/ea3da2fcff.md#c2"
+    char_span: [4121, 6484]
+    sentence_count: 19
+    key_terms: [sports, club, team, center, basketball, intramural, fitness, people]
+    token_count: 511
+  - id: "articles/reddit-deep-r-neu/ea3da2fcff.md#c3"
+    char_span: [6486, 8769]
+    sentence_count: 17
+    key_terms: [hockey, husky, basketball, games, game, matthews, student, ticket]
+    token_count: 492
+  - id: "articles/reddit-deep-r-neu/ea3da2fcff.md#c4"
+    char_span: [8771, 8978]
+    sentence_count: 2
+    key_terms: [neu-modteam, especially, irritating, regarding, reinforce, comments, matthews, outdated]
+    token_count: 45
 ---
-
 # Finding Your Pack: A Husky’s Guide to Building Friendships at Northeastern
 
 Source: [Reddit Deep: r/neu](https://www.reddit.com/r/NEU/comments/1q5832k/finding_your_pack_a_huskys_guide_to_building/)

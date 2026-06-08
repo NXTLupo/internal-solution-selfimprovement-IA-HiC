@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-professors/d5daeb73ed.md
 url: "https://www.reddit.com/r/Professors/comments/1snatls/venting_party/"
 url_hash: "d5daeb73ed"
 kind: "article"
@@ -10,8 +11,30 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T04:05:47.086131+00:00"
 chars: 7252
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-professors/d5daeb73ed.md#c0"
+    char_span: [0, 1194]
+    sentence_count: 10
+    key_terms: [students, problem, either, vent, professors, "didn't", reddit, yours]
+    token_count: 296
+  - id: "articles/reddit-deep-r-professors/d5daeb73ed.md#c1"
+    char_span: [1196, 3027]
+    sentence_count: 21
+    key_terms: [inability, get, time, problem, behavior, conditioning, because, manage]
+    token_count: 414
+  - id: "articles/reddit-deep-r-professors/d5daeb73ed.md#c2"
+    char_span: [3029, 5316]
+    sentence_count: 22
+    key_terms: [problem, people, get, want, students, years, stop, professors]
+    token_count: 509
+  - id: "articles/reddit-deep-r-professors/d5daeb73ed.md#c3"
+    char_span: [5318, 7377]
+    sentence_count: 16
+    key_terms: [elitist, students, being, "i'm", expectations, intellectual, face, "it's"]
+    token_count: 498
 ---
-
 # Venting Party
 
 Source: [Reddit Deep: r/professors](https://www.reddit.com/r/Professors/comments/1snatls/venting_party/)

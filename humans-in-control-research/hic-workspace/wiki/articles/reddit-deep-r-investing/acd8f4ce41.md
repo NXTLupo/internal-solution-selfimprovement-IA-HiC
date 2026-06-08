@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-investing/acd8f4ce41.md
 url: "https://www.reddit.com/r/investing/comments/1n2mk6m/are_we_still_a_free_market_when_the_executive/"
 url_hash: "acd8f4ce41"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-16T21:00:27.451144+00:00"
 chars: 3015
+industries: [financial_services, government]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-investing/acd8f4ce41.md#c0"
+    char_span: [0, 2089]
+    sentence_count: 14
+    key_terms: [market, trump-media-cryptocom-launch-new-crypto-treasury-firm-via-spac-deal-2025-08-26, trump, com, https, www, administration, dow-jones-today-03102025-11693786]
+    token_count: 494
+  - id: "articles/reddit-deep-r-investing/acd8f4ce41.md#c1"
+    char_span: [2091, 3271]
+    sentence_count: 6
+    key_terms: [yaboijack055, capitalism, corporations, socialism, market, usual-importance-893, free, goal]
+    token_count: 294
 ---
-
 # Are we still a free market when the executive office manipulates the stock market and buys a crypto treasury firm?
 
 Source: [Reddit Deep: r/investing](https://www.reddit.com/r/investing/comments/1n2mk6m/are_we_still_a_free_market_when_the_executive/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1sq2i8h.md
 url: "https://www.reddit.com/r/GradSchool/comments/1sq2i8h/prospective_undergrad_misunderstanding_grad/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,45 @@ flair: "Admissions & Applications"
 extracted_at: "2026-05-26T14:32:49.129Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1sq2i8h.md#c0"
+    char_span: [0, 1775]
+    sentence_count: 10
+    key_terms: [school, grad, astrophysics, princeton, undergrad, misunderstanding, prospective, admissions]
+    token_count: 375
+  - id: "social-intelligence/reddit-deep/gradschool/1sq2i8h.md#c1"
+    char_span: [1790, 2084]
+    sentence_count: 3
+    key_terms: [top, schools, list, name, errorlessquaak, differences, significant, astronomy]
+    section: Comments
+    token_count: 64
+  - id: "social-intelligence/reddit-deep/gradschool/1sq2i8h.md#c2"
+    char_span: [2086, 4461]
+    sentence_count: 16
+    key_terms: [undergrad, research, school, schools, students, grad, competitive, excellent]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/gradschool/1sq2i8h.md#c3"
+    char_span: [4463, 6001]
+    sentence_count: 11
+    key_terms: [school, research, institution, best, grad, work, undergrad, programs]
+    section: Comments
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/gradschool/1sq2i8h.md#c4"
+    char_span: [6003, 8158]
+    sentence_count: 14
+    key_terms: [programs, program, grad, caliber, astrophysics, astronomy, specific, getting]
+    section: Comments
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/gradschool/1sq2i8h.md#c5"
+    char_span: [8160, 9103]
+    sentence_count: 8
+    key_terms: [students, schools, undergrad, "you're", best, "there's", gap, grad]
+    section: Comments
+    token_count: 187
 ---
-
 # prospective undergrad misunderstanding grad school admissions?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1sq2i8h/prospective_undergrad_misunderstanding_grad/)

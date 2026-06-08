@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/productivity/1oesczb.md
 url: "https://www.reddit.com/r/productivity/comments/1oesczb/my_routine_that_finally_worked/"
 kind: "social-post"
 source: "reddit-deep: r/productivity"
@@ -13,8 +14,43 @@ flair: "General Advice"
 extracted_at: "2026-05-26T12:53:45.651Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/productivity/1oesczb.md#c0"
+    char_span: [0, 2159]
+    sentence_count: 28
+    key_terms: [worked, finally, routine, productivity, week, year, journaling, meditation]
+    token_count: 514
+  - id: "social-intelligence/reddit-deep/productivity/1oesczb.md#c1"
+    char_span: [2161, 4104]
+    sentence_count: 31
+    key_terms: [don, like, week, improved, started, calmer, person, slower]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/productivity/1oesczb.md#c2"
+    char_span: [4106, 4499]
+    sentence_count: 6
+    key_terms: [come, encouragement, discipline, naturally, personal, positive, struggle, closing]
+    token_count: 90
+  - id: "social-intelligence/reddit-deep/productivity/1oesczb.md#c3"
+    char_span: [4514, 6625]
+    sentence_count: 11
+    key_terms: [routine, something, like, time, breakfast, important, indydiddy, consider]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/productivity/1oesczb.md#c4"
+    char_span: [6366, 6651]
+    sentence_count: 4
+    key_terms: [did, absolutely, incredible, indydiddy, overnight, something, mentally, better]
+    section: Comments
+    token_count: 71
+  - id: "social-intelligence/reddit-deep/productivity/1oesczb.md#c5"
+    char_span: [6653, 7547]
+    sentence_count: 9
+    key_terms: [inspiring, morning, respect, routine, entertainerstatus910, calm-lavishness5918, notifications, unfortunately]
+    section: Comments
+    token_count: 243
 ---
-
 # My routine that finally worked
 
 Source: [reddit-deep: r/productivity](https://www.reddit.com/r/productivity/comments/1oesczb/my_routine_that_finally_worked/)

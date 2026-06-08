@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1q3ux6d.md
 url: "https://www.reddit.com/r/internships/comments/1q3ux6d/3_things_that_got_me_from_0_procs_in_200_apps_to/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,27 @@ flair: "Applications"
 extracted_at: "2026-05-22T13:32:14.560Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1q3ux6d.md#c0"
+    char_span: [0, 2045]
+    sentence_count: 21
+    key_terms: [internships, comments, experience, referrals, projects, content, instead, anyone]
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/internships/1q3ux6d.md#c1"
+    char_span: [2047, 3482]
+    sentence_count: 8
+    key_terms: [job, applying, frontend, backend, boards, thanks, apply, app]
+    section: Comments
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/internships/1q3ux6d.md#c2"
+    char_span: [3484, 5132]
+    sentence_count: 12
+    key_terms: [did, job, use, early, like, something, template, backend]
+    section: Comments
+    token_count: 435
 ---
-
 # 3 things that got me from 0 procs in 200 apps to 6 procs & 3 offers in the next 50 apps
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1q3ux6d/3_things_that_got_me_from_0_procs_in_200_apps_to/)

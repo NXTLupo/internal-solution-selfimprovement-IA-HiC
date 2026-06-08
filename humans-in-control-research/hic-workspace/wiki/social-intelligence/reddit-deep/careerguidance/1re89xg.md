@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1re89xg.md
 url: "https://www.reddit.com/r/careerguidance/comments/1re89xg/currently_in_a_support_role_want_to_switch/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 1
 flair: ""
-extracted_at: "2026-05-24T14:09:04.407Z"
+extracted_at: "2026-06-06T17:42:15.250Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1re89xg.md#c0"
+    char_span: [0, 1670]
+    sentence_count: 16
+    key_terms: ["i'm", switch, support, careerguidance, certifications, background, currently, comments]
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/careerguidance/1re89xg.md#c1"
+    char_span: [1685, 2604]
+    sentence_count: 9
+    key_terms: [foundation, projects, already, cloud, aws, data, want, long-collar4087]
+    section: Comments
+    token_count: 174
 ---
-
 # Currently in a Support Role – Want to Switch Careers. What Should I Start Learning in 2026 for a Future-Proof Job? Need Guidance!
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1re89xg/currently_in_a_support_role_want_to_switch/)

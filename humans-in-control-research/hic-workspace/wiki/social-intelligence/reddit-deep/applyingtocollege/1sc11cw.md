@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1sc11cw.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1sc11cw/help_me_pick_a_college/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -10,11 +11,57 @@ score: 3
 upvote_ratio: 1
 num_comments: 29
 flair: "College Questions"
-extracted_at: "2026-05-23T12:15:36.237Z"
+extracted_at: "2026-06-01T18:49:57.453Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sc11cw.md#c0"
+    char_span: [0, 1921]
+    sentence_count: 13
+    key_terms: [college, school, smith, washu, applyingtocollege, bio, schools, enough]
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sc11cw.md#c1"
+    char_span: [1923, 2409]
+    sentence_count: 3
+    key_terms: [love, devastating, guaranteed, genuinely, otherwise, proximity, structure, catholic]
+    token_count: 104
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sc11cw.md#c2"
+    char_span: [2424, 4401]
+    sentence_count: 12
+    key_terms: [smith, environment, going, purplecowswiftie, schools, night, lot, med]
+    section: Comments
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sc11cw.md#c3"
+    char_span: [4403, 6483]
+    sentence_count: 12
+    key_terms: [great, opportunities, school, boston, smith, resources, students, medical]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sc11cw.md#c4"
+    char_span: [6485, 8589]
+    sentence_count: 17
+    key_terms: [implementnatural204, smith, student, representative, school, mainbeachgoon, aspirations, interesting]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sc11cw.md#c5"
+    char_span: [8354, 8909]
+    sentence_count: 6
+    key_terms: [activities, school, buy, city, good, incredibly, drinking, football]
+    section: Comments
+    token_count: 135
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sc11cw.md#c6"
+    char_span: [8911, 9935]
+    sentence_count: 14
+    key_terms: [study, smith, time, want, work, starting, because, friends]
+    section: Comments
+    token_count: 273
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sc11cw.md#c7"
+    char_span: [9937, 11500]
+    sentence_count: 6
+    key_terms: [smith, opportunities, research, boston, implementnatural204, scene, get, paid]
+    section: Comments
+    token_count: 351
 ---
-
 # Help me pick a college
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1sc11cw/help_me_pick_a_college/)
@@ -34,7 +81,7 @@ Back to BC, I genuinely fell in love with the school my junior year and am still
 
 ## Comments
 
-- **Purplecowswiftie** (6↑): I could not think of two schools more different in vibes than Smith and BC as someone with connections to both schools. Is your ideal Thursday night going to dorm parties and bars and drinking after hockey games (BC) or is it going to an on campus Bingo event then having a movie night in your house with friends (Smith)? BC’s social scene is much more “active” in the traditional sense but also tends to be very elitist/expensive and heavily centered on drinking, whereas Smith’s is a bit smaller but also somewhere where everyone can find their group and there will be people going out, staying in, playing board games, watching a movie, doing homework, etc on any given night. As a student on heavy financial aid I also think Smith might be a far more welcoming and supportive environment for you, as again there is a LOT of money at BC and a culture of kids showing off that wealth. Feel free to dm me if you have specific questions between the two- unfortunately I have no clue about WashU
+- **Purplecowswiftie** (5↑): I could not think of two schools more different in vibes than Smith and BC as someone with connections to both schools. Is your ideal Thursday night going to dorm parties and bars and drinking after hockey games (BC) or is it going to an on campus Bingo event then having a movie night in your house with friends (Smith)? BC’s social scene is much more “active” in the traditional sense but also tends to be very elitist/expensive and heavily centered on drinking, whereas Smith’s is a bit smaller but also somewhere where everyone can find their group and there will be people going out, staying in, playing board games, watching a movie, doing homework, etc on any given night. As a student on heavy financial aid I also think Smith might be a far more welcoming and supportive environment for you, as again there is a LOT of money at BC and a culture of kids showing off that wealth. Feel free to dm me if you have specific questions between the two- unfortunately I have no clue about WashU
   - **ImplementNatural204** (2↑): This is also something I considered, given Smith is sub-rural and BC is suburban. I really don’t mind either social environment because they both appeal to me a lot. With BC, their sports culture is something I like a lot, and I sort of like the area but more than I do Smith. With Smith, their welcoming environment calls to me since I don’t want to be hating every rich kid I see.
     - **Purplecowswiftie** (1↑): You have lots of good things to consider for sure! I have a sibling who went to BC and a sibling who went to Smith, and seeing and hearing about both of their experiences I would absolutely recommend you pick Smith, but you also can’t go wrong!
 - **WeinerKittens** (3↑): You can't go wrong. I will say that I have a niece who went to Smith who will be going to the med school of her dreams. All of her premed friends got accepted into med schools. LACs in general have pretty good med school placement. 

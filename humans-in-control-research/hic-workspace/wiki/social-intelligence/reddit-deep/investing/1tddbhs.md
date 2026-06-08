@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1tddbhs.md
 url: "https://www.reddit.com/r/investing/comments/1tddbhs/the_current_unemployment_rate_is_misleading_temp/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,83 @@ flair: ""
 extracted_at: "2026-05-16T20:55:01.242Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [workforce, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1tddbhs.md#c0"
+    char_span: [0, 2109]
+    sentence_count: 20
+    key_terms: [u-3, workers, part-time, gap, u-6, current, unemployment, discouraged]
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/investing/1tddbhs.md#c1"
+    char_span: [2111, 3863]
+    sentence_count: 15
+    key_terms: [temp, labor, help, decline, people, unemployment, force, u-3]
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/investing/1tddbhs.md#c2"
+    char_span: [3865, 6316]
+    sentence_count: 21
+    key_terms: [rate, unemployment, labor, percent, participation, force, cannot, independently]
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/investing/1tddbhs.md#c3"
+    char_span: [6318, 8395]
+    sentence_count: 23
+    key_terms: [percent, labor, fred, rate, real, workers, credit, market]
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/investing/1tddbhs.md#c4"
+    char_span: [8397, 10369]
+    sentence_count: 19
+    key_terms: [workers, labor, unemployment, employment, u-3, because, economy, percent]
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/investing/1tddbhs.md#c5"
+    char_span: [10384, 12169]
+    sentence_count: 6
+    key_terms: [tiredofstupidity2, people, like, long, read, comments, complain, research]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1tddbhs.md#c6"
+    char_span: [11993, 12699]
+    sentence_count: 2
+    key_terms: [alemorg, matteooooooooooooo, tiredofstupidity2, moystpickles, capitalize, generated, positions, thewimsey]
+    section: Comments
+    token_count: 218
+  - id: "social-intelligence/reddit-deep/investing/1tddbhs.md#c7"
+    char_span: [12701, 14521]
+    sentence_count: 13
+    key_terms: [percent, labor, openings, market, job, uber, strength, alemorg]
+    section: Comments
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/investing/1tddbhs.md#c8"
+    char_span: [14523, 15730]
+    sentence_count: 10
+    key_terms: [emergency, fund, debt, always, career, market, get, keep]
+    section: Comments
+    token_count: 289
+  - id: "social-intelligence/reddit-deep/investing/1tddbhs.md#c9"
+    char_span: [15732, 16922]
+    sentence_count: 9
+    key_terms: [alemorg, workers, office, wealth, prestigious-craft251, successful-grab6091, dollar-doge-coins, tiredofstupidity2]
+    section: Comments
+    token_count: 335
+  - id: "social-intelligence/reddit-deep/investing/1tddbhs.md#c10"
+    char_span: [16924, 18898]
+    sentence_count: 11
+    key_terms: [against, percent, labor, alemorg, market, rate, compared, average]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/investing/1tddbhs.md#c11"
+    char_span: [18901, 21339]
+    sentence_count: 25
+    key_terms: [government, spending, economy, people, labor, data, concerning, conditions]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/investing/1tddbhs.md#c12"
+    char_span: [21341, 22633]
+    sentence_count: 12
+    key_terms: [people, top, spending, working, concentration, point, real, government]
+    section: Comments
+    token_count: 291
 ---
-
 # The current unemployment rate is misleading. Temp help employment is down 21.4%. This signal has preceded every US recession since 1990. Here is what the data actually shows.
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1tddbhs/the_current_unemployment_rate_is_misleading_temp/)

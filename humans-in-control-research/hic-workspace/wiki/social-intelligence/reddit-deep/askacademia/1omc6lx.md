@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/askacademia/1omc6lx.md
 url: "https://www.reddit.com/r/AskAcademia/comments/1omc6lx/has_anyone_formally_reported_their_phd_advisor/"
 kind: "social-post"
 source: "reddit-deep: r/askacademia"
@@ -13,8 +14,62 @@ flair: "Interpersonal Issues"
 extracted_at: "2026-05-26T14:32:49.119Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/askacademia/1omc6lx.md#c0"
+    char_span: [0, 2421]
+    sentence_count: 22
+    key_terms: [advisor, been, seriously, records, askacademia, environment, case, take]
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/askacademia/1omc6lx.md#c1"
+    char_span: [2423, 3037]
+    sentence_count: 8
+    key_terms: [through, feel, like, documenting, emotionally, environment, exhausting, protecting]
+    token_count: 131
+  - id: "social-intelligence/reddit-deep/askacademia/1omc6lx.md#c2"
+    char_span: [3052, 5261]
+    sentence_count: 13
+    key_terms: [environment, because, being, often, against, hostile, discriminating, unprofessional]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/askacademia/1omc6lx.md#c3"
+    char_span: [5263, 7598]
+    sentence_count: 8
+    key_terms: [power, assault, jurisdictions, threatening, misconduct, therefore, academia, behavior]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/askacademia/1omc6lx.md#c4"
+    char_span: [7600, 9751]
+    sentence_count: 14
+    key_terms: [lot, bullying, because, schools, causes, doing, group, whole]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/askacademia/1omc6lx.md#c5"
+    char_span: [9753, 11644]
+    sentence_count: 13
+    key_terms: [record, behavior, dean, because, little, department, university, complaint]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/askacademia/1omc6lx.md#c6"
+    char_span: [11646, 14000]
+    sentence_count: 18
+    key_terms: [students, university, student, complaints, graduate, years, "i've", took]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/askacademia/1omc6lx.md#c7"
+    char_span: [14002, 15995]
+    sentence_count: 20
+    key_terms: [student, communication, understanding, like, phd, try, university, sometimes]
+    section: Comments
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/askacademia/1omc6lx.md#c8"
+    char_span: [15997, 18222]
+    sentence_count: 15
+    key_terms: [because, student, institution, chair, prioritized, complaints, department, professors]
+    section: Comments
+    token_count: 463
 ---
-
 # Has anyone formally reported their PhD advisor for creating a toxic or hostile environment? What actually happened afterward?
 
 Source: [reddit-deep: r/askacademia](https://www.reddit.com/r/AskAcademia/comments/1omc6lx/has_anyone_formally_reported_their_phd_advisor/)

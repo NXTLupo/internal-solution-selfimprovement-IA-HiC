@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1mhlv1f.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1mhlv1f/separate_email_for_college_application/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,21 @@ flair: "Discussion"
 extracted_at: "2026-05-23T19:45:32.275Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mhlv1f.md#c0"
+    char_span: [0, 897]
+    sentence_count: 7
+    key_terms: [email, scholarships, applyingtocollege, college, opportunities, application, applying, colleges]
+    token_count: 187
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1mhlv1f.md#c1"
+    char_span: [912, 2566]
+    sentence_count: 15
+    key_terms: [college, email, account, professional, board, personal, low-agency2539, "you'll"]
+    section: Comments
+    token_count: 377
 ---
-
 # Separate email for college application, scholarships, and opportunities?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1mhlv1f/separate_email_for_college_application/)

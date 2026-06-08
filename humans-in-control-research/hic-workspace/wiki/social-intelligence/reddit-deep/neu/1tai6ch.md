@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1tai6ch.md
 url: "https://www.reddit.com/r/NEU/comments/1tai6ch/umass_amherst_or_northeastern_for_cs/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -13,8 +14,15 @@ flair: "Advice & Experiences"
 extracted_at: "2026-05-11T22:49:39.935Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school"
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1tai6ch.md#c0"
+    char_span: [0, 1377]
+    sentence_count: 10
+    key_terms: [northeastern, umass, year, campus, admitted, anything, comments, amherst]
+    token_count: 339
 ---
-
 # UMass Amherst or Northeastern for CS?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1tai6ch/umass_amherst_or_northeastern_for_cs/)

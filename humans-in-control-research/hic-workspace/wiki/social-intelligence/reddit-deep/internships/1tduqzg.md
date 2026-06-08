@@ -7,12 +7,12 @@ title: "The Untold Reality of International Students in the UK"
 author: "Luffyyyy-001"
 date: "2026-05-15T12:22:46.000Z"
 score: 3
-upvote_ratio: 0.8
+upvote_ratio: 0.72
 num_comments: 1
 flair: "General"
-extracted_at: "2026-05-22T21:34:37.052Z"
+extracted_at: "2026-06-06T23:20:46.224Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # The Untold Reality of International Students in the UK

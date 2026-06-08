@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1t1czx5.md
 url: "https://www.reddit.com/r/GradSchool/comments/1t1czx5/take_the_advice_in_here_with_a_grain_of_salt/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-25T13:04:07.342Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1t1czx5.md#c0"
+    char_span: [0, 1372]
+    sentence_count: 16
+    key_terms: [meeting, comments, advice, here, gradschool, probably, program, trouble]
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/gradschool/1t1czx5.md#c1"
+    char_span: [1387, 3567]
+    sentence_count: 20
+    key_terms: [field, "don't", dress, work, whatever, wearing, "that's", professional]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/gradschool/1t1czx5.md#c2"
+    char_span: [3569, 5796]
+    sentence_count: 17
+    key_terms: [people, "i'm", program, school, don, like, time, "true"]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1t1czx5.md#c3"
+    char_span: [5516, 5971]
+    sentence_count: 5
+    key_terms: [people, life, intentionally, communicate, deferential, gatekeepers, mods-begone, discourage]
+    section: Comments
+    token_count: 102
+  - id: "social-intelligence/reddit-deep/gradschool/1t1czx5.md#c4"
+    char_span: [5973, 7013]
+    sentence_count: 6
+    key_terms: [maybe, here, decides, done, grad, yeah, consequences, expectations]
+    section: Comments
+    token_count: 236
 ---
-
 # Take the advice in here with a grain of salt
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1t1czx5/take_the_advice_in_here_with_a_grain_of_salt/)

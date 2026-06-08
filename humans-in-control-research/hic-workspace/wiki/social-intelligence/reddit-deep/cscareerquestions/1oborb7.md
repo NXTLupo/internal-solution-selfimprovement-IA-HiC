@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1oborb7.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1oborb7/am_i_crazy_for_considering_leaving_my_current_job/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,54 @@ subreddit: "cscareerquestions"
 title: "Am I crazy for considering leaving my current job to join the Navy?"
 author: "ElDumbminican"
 date: "2025-10-20T17:50:52.000Z"
-score: 25
-upvote_ratio: 0.62
+score: 27
+upvote_ratio: 0.63
 num_comments: 133
 flair: ""
-extracted_at: "2026-05-20T06:40:32.326Z"
+extracted_at: "2026-06-06T13:04:13.562Z"
 extraction_method: "praw-deep"
-research_goal: "Formulate a comprehensive new strategy for Northeastern University's co-op program, optimizing learner engagement and access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must synthesize insights from NU's current SOW, prior projects, and a fresh industry analysis of leading experiential learning and co-op engagement tactics."
+research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oborb7.md#c0"
+    char_span: [0, 2032]
+    sentence_count: 17
+    key_terms: [engineer, considering, obviously, cscareerquestions, company, experiences, feel, job]
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oborb7.md#c1"
+    char_span: [2047, 3122]
+    sentence_count: 5
+    key_terms: [world, navy, military, against, deleted, drauren, joining, people]
+    section: Comments
+    token_count: 282
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oborb7.md#c2"
+    char_span: [3124, 4226]
+    sentence_count: 11
+    key_terms: [year, old, corporate, recommend, something, already, making, drone]
+    section: Comments
+    token_count: 279
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oborb7.md#c3"
+    char_span: [4228, 6157]
+    sentence_count: 14
+    key_terms: [travel, get, like, navy, adventurous-card-707, appropriate-wing6607, crazy, death]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oborb7.md#c4"
+    char_span: [6159, 8226]
+    sentence_count: 22
+    key_terms: [military, get, job, project, purpose, life, want, education]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oborb7.md#c5"
+    char_span: [8228, 10380]
+    sentence_count: 16
+    key_terms: [experiences, military, relationships, keep, like, direction, because, purpose]
+    section: Comments
+    token_count: 487
 ---
-
 # Am I crazy for considering leaving my current job to join the Navy?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1oborb7/am_i_crazy_for_considering_leaving_my_current_job/)
-Posted by **ElDumbminican** · **25↑** · **133 comments**
+Posted by **ElDumbminican** · **27↑** · **133 comments**
 
 For context, I’m a 22M recent grad (graduated May 2025) and am working at a F500 insurance company making ~80,000 as a software engineer. I interned at this company during my senior year, and pretty much joined full time right after graduation (I had maybe a week off).
 
@@ -32,39 +68,36 @@ So I guess the TL:DR is, am I crazy for considering leaving my current job to jo
 
 ## Comments
 
-- **PogiJG** (104↑): Navy vet here as well, not worth… can see the world via many other ways
+- **PogiJG** (103↑): Navy vet here as well, not worth… can see the world via many other ways
   - **fisherman213** (42↑): Marine vet with two MEUs…turns out a lot of the world is water. A lot of water.
     - **elves_haters_223** (12↑): earth is an ocean world.
   - **[deleted]** (3↑): I’m just like… you know that’s where people die right?
   - **Ok_Particular143** (2↑): Would it be worth it if op gets to defend Taiwan against China in the next five years?
-- **Drauren** (238↑): I think you are crazy when you already have the tech background. I couldn't imagine having the freedom of being a software engineer and joining the military to make way less and follow way more rules.
-  - **[deleted]** (21↑): This is propaganda disguised as a post. In my comment in the primary thread I described how I’ve seen “Join the Navy” ads everywhere along with heavy physical advertising near schools. This is 100% an ad posted by the Navy or a contractor.
+- **Drauren** (239↑): I think you are crazy when you already have the tech background. I couldn't imagine having the freedom of being a software engineer and joining the military to make way less and follow way more rules.
+  - **[deleted]** (22↑): This is propaganda disguised as a post. In my comment in the primary thread I described how I’ve seen “Join the Navy” ads everywhere along with heavy physical advertising near schools. This is 100% an ad posted by the Navy or a contractor.
     - **Drauren** (7↑): I have nothing against people joining the military, and for some, it's a great path to level up your life.
 
 But it's not something you recommend to a software engineer already situated in a junior level position making good money. You recommend it to a 18 or 19 year old who doesn't know what they want to do with their life whose parents are kicking them out.
     - **ChoiceDry8127** (1↑): An ad wouldn’t be asking whether they should do it, it would be an announcement that they already made up their mind
-  - **Independent-Fun815** (-10↑): It's a rude awakening.  At 80k a year, the guy isn't making moves when he's 22. It sounds like he knows he's meant for more or something. Some ppl are just better humans than ppl who just sit around and play it safe. No one admires the corporate drone.
-    - **Ok-Individual9159** (9↑): What? Lmao 
-
-$80k per year at 22 is great pay and he’s making more moves then the majority of people his age
+  - **Independent-Fun815** (-9↑): It's a rude awakening.  At 80k a year, the guy isn't making moves when he's 22. It sounds like he knows he's meant for more or something. Some ppl are just better humans than ppl who just sit around and play it safe. No one admires the corporate drone.
     - **[deleted]** (5↑): Good govbot!
     - **Drauren** (2↑): 80K is a great salary for a 22 year old. More than the Navy is going to pay you. I made that kind of money as a 22 year old living at home and felt rich as fuck. Can absolutely level up your career from there. I make 3x what I made when I graduated from college, at just barely 30.
 
 The military can be just as soul crushing at being a corporate drone.
 
 OP's problem is he needs to get out there more, and he can absolutely do that on 80k/yr as a normal SWE.
-- **dlp211** (83↑): Army vet, now Software Engineer here. Yes, you would be crazy to go active duty Navy.
-  - **Adventurous-Card-707** (4↑): Can you elaborate? I’d love to know the reasons why
-    - **StefnotAdevyet** (31↑): You make well enough to not have to deal with military rules. Instead of the navy, OP can take a cruise or something.
-    - **Elismom1313** (13↑): Do you like being belittled and treated like a child for shit pay? Do you like potentially not seeing anything “interesting” for years, working yourself to death and having to sign out with a liberty buddy who you are responsible for if they get drunk and get in trouble in a foreign country?
+- **dlp211** (81↑): Army vet, now Software Engineer here. Yes, you would be crazy to go active duty Navy.
+  - **Adventurous-Card-707** (5↑): Can you elaborate? I’d love to know the reasons why
+    - **StefnotAdevyet** (30↑): You make well enough to not have to deal with military rules. Instead of the navy, OP can take a cruise or something.
+    - **Elismom1313** (12↑): Do you like being belittled and treated like a child for shit pay? Do you like potentially not seeing anything “interesting” for years, working yourself to death and having to sign out with a liberty buddy who you are responsible for if they get drunk and get in trouble in a foreign country?
     - **Appropriate-Wing6607** (2↑): Not only with the current administration but also the death by suicide and no support once you’re out. PTSD, health issues from exposure to dangerous things, you don’t have a choice where they put you, and you’re going where they tell you when they tell you. That’s just off the top of my head I’m sure there are some more.
 
 Hell I was homeless before I joined and would not do it again.
 - **t3klead** (100↑): You’re asking if you’re crazy for thinking this- Yes. Yes you are.
 
 Jokes apart, I’d you feel you’re missing out/lacking real life experiences just save a portion of every paycheck and travel internationally once a year.
-  - **Noeyiax** (8↑): I agree with this guy. Save, and travel bi yearly, you can travel at odd times for cheap and experience different cultures and how bad other places can be lol
-- **enginerd10101** (69↑): I dont necessarily think joining navy is the only way to solve your problems. You finally have your big boy job, go do big boy things- spend the money, travel. 
+  - **Noeyiax** (9↑): I agree with this guy. Save, and travel bi yearly, you can travel at odd times for cheap and experience different cultures and how bad other places can be lol
+- **enginerd10101** (68↑): I dont necessarily think joining navy is the only way to solve your problems. You finally have your big boy job, go do big boy things- spend the money, travel. 
 
 You’re in a great spot living at home your expenses are probably super low. Use that extra money to splurge and live life
 
@@ -72,7 +105,7 @@ Plus pivot yourself and push for big tech to maximize job growth and income. The
 - **CarinXO** (29↑): Google: What is a quarter life crisis?
 
 Will probably help
-- **myevillaugh** (18↑): Wait a year or two and then apply to jobs elsewhere. There are ways to see other parts and travel without joining the navy.
+- **myevillaugh** (17↑): Wait a year or two and then apply to jobs elsewhere. There are ways to see other parts and travel without joining the navy.
 - **Won-Ton-Wonton** (17↑): Yes, you are crazy. LOL
 
 You are in the position half the military signs up with the military to get into after the military pays for their education and job training.

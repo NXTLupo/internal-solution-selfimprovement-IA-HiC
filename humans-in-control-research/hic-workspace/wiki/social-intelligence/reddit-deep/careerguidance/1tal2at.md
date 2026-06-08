@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tal2at.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tal2at/cscybersecurity_grad_looking_for_dev_roles_remote/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 1
 flair: "Education & Qualifications"
-extracted_at: "2026-05-23T20:15:29.972Z"
+extracted_at: "2026-06-03T02:22:11.170Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tal2at.md#c0"
+    char_span: [0, 346]
+    sentence_count: 1
+    key_terms: [careerguidance, comments, wise-economics6932, cybersecurity, internships, reddit-deep, looking, seeking]
+    token_count: 96
+  - id: "social-intelligence/reddit-deep/careerguidance/1tal2at.md#c1"
+    char_span: [361, 1019]
+    sentence_count: 1
+    key_terms: [internships, bullets, focused, dev, coursework, dippatel21, paragraphs, highlight]
+    section: Comments
+    token_count: 149
 ---
-
 # **CS/Cybersecurity grad looking for dev roles & remote cyber internships — also seeking career advice?**
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tal2at/cscybersecurity_grad_looking_for_dev_roles_remote/)

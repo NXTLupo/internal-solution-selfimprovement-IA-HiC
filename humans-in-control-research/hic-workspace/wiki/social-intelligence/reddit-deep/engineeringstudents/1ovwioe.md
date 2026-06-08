@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1ovwioe/can_you_ever_become_an_engineer_without_and/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,51 @@ flair: "Discussion"
 extracted_at: "2026-05-23T19:44:57.167Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c0"
+    char_span: [0, 779]
+    sentence_count: 7
+    key_terms: [engineering, engineeringstudents, experience, comments, engineer, become, job, internships]
+    token_count: 178
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c1"
+    char_span: [794, 2480]
+    sentence_count: 9
+    key_terms: [engineering, engineer, degree, chemistry, physics, semiconductor, industry, "that's"]
+    section: Comments
+    token_count: 381
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c2"
+    char_span: [2482, 4497]
+    sentence_count: 24
+    key_terms: [degree, engineer, engineering, manufacturing, experience, being, role, engineers]
+    section: Comments
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c3"
+    char_span: [4499, 6507]
+    sentence_count: 12
+    key_terms: [engineer, engineering, degree, accounting, engineers, without, ncees, wp-content]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c4"
+    char_span: [6509, 8366]
+    sentence_count: 11
+    key_terms: [degree, ncees, states, prizeinterest4314, need, without, dontchuworri, https]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c5"
+    char_span: [8368, 9793]
+    sentence_count: 9
+    key_terms: [engineer, professional, engineering, examinations-in-pow-camps, education-and-social, dictionary, https, prisoners-of-war]
+    section: Comments
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1ovwioe.md#c6"
+    char_span: [9795, 11470]
+    sentence_count: 12
+    key_terms: [engineering, without, worked, professional, path, starbolin, technical, engineer]
+    section: Comments
+    token_count: 386
 ---
-
 # Can you ever become an engineer without and engineering degree?
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1ovwioe/can_you_ever_become_an_engineer_without_and/)

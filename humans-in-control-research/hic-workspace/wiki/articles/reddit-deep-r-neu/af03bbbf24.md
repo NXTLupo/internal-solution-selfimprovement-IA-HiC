@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-neu/af03bbbf24.md
 url: "https://www.reddit.com/r/NEU/comments/1sweoby/feel_like_just_failed_my_final_what_can_i_do/"
 url_hash: "af03bbbf24"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-19T18:01:57.058935+00:00"
 chars: 2461
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-neu/af03bbbf24.md#c0"
+    char_span: [0, 1390]
+    sentence_count: 20
+    key_terms: ["i'm", final, "i've", grade, been, got, professor, academic]
+    token_count: 336
+  - id: "articles/reddit-deep-r-neu/af03bbbf24.md#c1"
+    char_span: [1392, 2665]
+    sentence_count: 5
+    key_terms: [grade, disfiguredcoconut, sovereignphobia, transcript, replaces, affect, grades, people]
+    token_count: 307
 ---
-
 # Feel like just failed my final, what can I do before the grade got released
 
 Source: [Reddit Deep: r/neu](https://www.reddit.com/r/NEU/comments/1sweoby/feel_like_just_failed_my_final_what_can_i_do/)

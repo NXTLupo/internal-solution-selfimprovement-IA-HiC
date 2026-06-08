@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1ssfeza.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1ssfeza/my_story/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,55 @@ flair: "Free talk"
 extracted_at: "2026-05-17T01:13:55.881Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, healthcare]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1ssfeza.md#c0"
+    char_span: [0, 1637]
+    sentence_count: 20
+    key_terms: [credit, povertyfinance, comments, because, medical, savings, surgery, income]
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/povertyfinance/1ssfeza.md#c1"
+    char_span: [1639, 3516]
+    sentence_count: 23
+    key_terms: [car, food, transmission, hours, trade, get, promotion, several]
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/povertyfinance/1ssfeza.md#c2"
+    char_span: [3518, 4169]
+    sentence_count: 8
+    key_terms: [lot, need, work, reliability, responsible, doublewide, financial, something]
+    token_count: 154
+  - id: "social-intelligence/reddit-deep/povertyfinance/1ssfeza.md#c3"
+    char_span: [4184, 6012]
+    sentence_count: 18
+    key_terms: [descriptionno7446, through, needy, everything, something, people, "you're", motherofmercyandjoy]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/povertyfinance/1ssfeza.md#c4"
+    char_span: [6014, 6649]
+    sentence_count: 7
+    key_terms: [anything, hospital, case, get, like, pays, sure, appointments]
+    section: Comments
+    token_count: 145
+  - id: "social-intelligence/reddit-deep/povertyfinance/1ssfeza.md#c5"
+    char_span: [6651, 8602]
+    sentence_count: 16
+    key_terms: [food, people, furniture, stranger, nothing, reddit, found, means]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1ssfeza.md#c6"
+    char_span: [8379, 10057]
+    sentence_count: 18
+    key_terms: [want, reading, through, people, right, snowpaws473, feel, list]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/povertyfinance/1ssfeza.md#c7"
+    char_span: [10059, 10687]
+    sentence_count: 11
+    key_terms: [offer, get, help, absolutely, especially, mentioned, necessary, promotion]
+    section: Comments
+    token_count: 151
 ---
-
 # My story
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1ssfeza/my_story/)

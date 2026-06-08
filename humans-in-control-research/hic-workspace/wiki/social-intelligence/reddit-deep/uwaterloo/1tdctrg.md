@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1tdctrg.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1tdctrg/should_i_be_happy_or_not/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,27 @@ flair: ""
 extracted_at: "2026-05-25T18:33:12.673Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, education]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1tdctrg.md#c0"
+    char_span: [0, 229]
+    sentence_count: 1
+    key_terms: [uwaterloo, comments, reddit-deep, posted, reddit, source, happy, https]
+    token_count: 72
+  - id: "social-intelligence/reddit-deep/uwaterloo/1tdctrg.md#c1"
+    char_span: [244, 1905]
+    sentence_count: 8
+    key_terms: [choice, business, rejected, "you're", engineering, management, admission, alternate]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/uwaterloo/1tdctrg.md#c2"
+    char_span: [1651, 2221]
+    sentence_count: 5
+    key_terms: [choice, got, math, alternate, rejected, haunting-mulberry-12, main, environmental]
+    section: Comments
+    token_count: 168
 ---
-
 # Should I be happy or not
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1tdctrg/should_i_be_happy_or_not/)

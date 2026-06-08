@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-highereducation/1baf4ba7c7.md
 url: "https://www.reddit.com/r/highereducation/comments/1r8782c/new_rule_rule_12_no_ai_slop_no_bots/"
 url_hash: "1baf4ba7c7"
 kind: "article"
@@ -10,8 +11,15 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T04:04:35.281681+00:00"
 chars: 1782
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-highereducation/1baf4ba7c7.md#c0"
+    char_span: [0, 1963]
+    sentence_count: 15
+    key_terms: [rule, content, engagement, community, bots, highereducation, please, slop]
+    token_count: 485
 ---
-
 # New Rule: Rule #12 No AI Slop No Bots
 
 Source: [Reddit Deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1r8782c/new_rule_rule_12_no_ai_slop_no_bots/)

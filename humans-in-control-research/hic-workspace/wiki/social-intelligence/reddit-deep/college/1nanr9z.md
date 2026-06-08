@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1nanr9z.md
 url: "https://www.reddit.com/r/college/comments/1nanr9z/im_scared_to_go_to_college_parties/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,39 @@ flair: "Social Life"
 extracted_at: "2026-05-23T20:15:18.454Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1nanr9z.md#c0"
+    char_span: [0, 1155]
+    sentence_count: 8
+    key_terms: [college, because, parties, want, scared, apart, party, experience]
+    token_count: 281
+  - id: "social-intelligence/reddit-deep/college/1nanr9z.md#c1"
+    char_span: [1170, 2750]
+    sentence_count: 9
+    key_terms: ["don't", group, want, friends, parties, leave, party, college]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/college/1nanr9z.md#c2"
+    char_span: [2752, 4179]
+    sentence_count: 8
+    key_terms: [parties, "i've", experience, friends, friend, hosted, "don't", maybe]
+    section: Comments
+    token_count: 343
+  - id: "social-intelligence/reddit-deep/college/1nanr9z.md#c3"
+    char_span: [4181, 5940]
+    sentence_count: 12
+    key_terms: [party, "don't", drink, college, "you're", comfortable, interest, friends]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/college/1nanr9z.md#c4"
+    char_span: [5942, 7231]
+    sentence_count: 12
+    key_terms: [don, want, college, went, pressure, together, parties, people]
+    section: Comments
+    token_count: 323
 ---
-
 # I’m scared to go to college parties
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1nanr9z/im_scared_to_go_to_college_parties/)

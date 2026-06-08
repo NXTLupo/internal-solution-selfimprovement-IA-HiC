@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1lb9drn.md
 url: "https://www.reddit.com/r/careerguidance/comments/1lb9drn/im_a_25_years_old_student_currently_pursuing_ma/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,15 @@ flair: ""
 extracted_at: "2026-05-22T15:13:18.809Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1lb9drn.md#c0"
+    char_span: [0, 477]
+    sentence_count: 5
+    key_terms: [careerguidance, "i'm", comments, guidance, want, reddit-deep, psychology, completed]
+    token_count: 132
 ---
-
 # I'm a 25 years old student currently pursuing MA in psychology have completed BSc in ZBC and BEd . I'm seeking career guidance I'm in grave need to secure a job . I want to prepare for UP tgt biology and want help . Can anyone provide guidance?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1lb9drn/im_a_25_years_old_student_currently_pursuing_ma/)

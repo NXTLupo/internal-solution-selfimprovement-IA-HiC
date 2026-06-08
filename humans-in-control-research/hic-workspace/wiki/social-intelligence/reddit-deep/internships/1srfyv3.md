@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1srfyv3.md
 url: "https://www.reddit.com/r/internships/comments/1srfyv3/any_tips_for_getting_winter_2026_internships/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,27 @@ flair: "Post-Internship"
 extracted_at: "2026-05-20T02:30:49.750Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) to enhance learner access to meaningful experiential learning opportunities from pre-enrollment through graduate school. This strategy must integrate insights from NU's current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1srfyv3.md#c0"
+    char_span: [0, 1162]
+    sentence_count: 10
+    key_terms: [internship, internships, winter, like, comments, myself, summer, place]
+    token_count: 283
+  - id: "social-intelligence/reddit-deep/internships/1srfyv3.md#c1"
+    char_span: [1177, 3045]
+    sentence_count: 6
+    key_terms: [s0urpatch1tv, internship, microsoft, campus, winter, did, looking, mostly]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1srfyv3.md#c2"
+    char_span: [2800, 3311]
+    sentence_count: 5
+    key_terms: [internship, clear-comparison6114, like, tips, uni, extracurricular, s0urpatch1tv, activities]
+    section: Comments
+    token_count: 128
 ---
-
 # Any tips for getting Winter 2026 internships After My Summer Internship?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1srfyv3/any_tips_for_getting_winter_2026_internships/)

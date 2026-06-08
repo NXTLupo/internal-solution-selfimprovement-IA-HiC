@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/povertyfinance/1rnowfr.md
 url: "https://www.reddit.com/r/povertyfinance/comments/1rnowfr/budget_tip_get_extra_food_not_directly_from/"
 kind: "social-post"
 source: "reddit-deep: r/povertyfinance"
@@ -13,8 +14,50 @@ flair: "Free talk"
 extracted_at: "2026-05-16T20:55:12.697Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services, nonprofit]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rnowfr.md#c0"
+    char_span: [0, 1571]
+    sentence_count: 7
+    key_terms: [food, pantries, povertyfinance, "i'm", "it's", recipients, comments, happily]
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rnowfr.md#c1"
+    char_span: [1573, 2291]
+    sentence_count: 3
+    key_terms: [food, want, pantries, pantry, "you're", "can't", "don't", away]
+    token_count: 169
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rnowfr.md#c2"
+    char_span: [2306, 4096]
+    sentence_count: 14
+    key_terms: [food, take, because, freezer, bags, eat, like, friendly]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rnowfr.md#c3"
+    char_span: [4098, 4674]
+    sentence_count: 4
+    key_terms: [pasta, "there's", food, gets, good, duchessofcelery, rolekey6193, disability]
+    section: Comments
+    token_count: 151
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rnowfr.md#c4"
+    char_span: [4676, 6616]
+    sentence_count: 17
+    key_terms: [lentils, food, lot, knuds1b, always, people, folks, "it's"]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rnowfr.md#c5"
+    char_span: [6311, 6918]
+    sentence_count: 6
+    key_terms: [restrictions, folks, get, "don't", often, food, "i'm", lot]
+    section: Comments
+    token_count: 135
+  - id: "social-intelligence/reddit-deep/povertyfinance/1rnowfr.md#c6"
+    char_span: [6920, 8850]
+    sentence_count: 10
+    key_terms: [food, pantry, away, sufficientopening218, "don't", give, lot, want]
+    section: Comments
+    token_count: 493
 ---
-
 # Budget tip: Get extra food not directly from pantries, but from their own recipients, when they give it away soon afterwards
 
 Source: [reddit-deep: r/povertyfinance](https://www.reddit.com/r/povertyfinance/comments/1rnowfr/budget_tip_get_extra_food_not_directly_from/)

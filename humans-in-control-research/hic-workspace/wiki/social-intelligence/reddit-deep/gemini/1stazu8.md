@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gemini/1stazu8.md
 url: "https://www.reddit.com/r/Gemini/comments/1stazu8/building_a_web_app/"
 kind: "social-post"
 source: "reddit-deep: r/gemini"
@@ -13,8 +14,15 @@ flair: "Support:Support:"
 extracted_at: "2026-05-11T16:52:32.576Z"
 extraction_method: "praw-deep"
 research_goal: "Identify the most modern approaches to AI-assisted code development as of May 11, 2026, and no earlier than April 2026, such that the highly technical approaches to AI model context, determinism, instructing, and prompting can be extracted and applied to research and AI development tools"
+industries: [ai_research, saas]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gemini/1stazu8.md#c0"
+    char_span: [0, 1158]
+    sentence_count: 9
+    key_terms: [gemini, app, data, different, comments, nothing, project, canvas]
+    token_count: 263
 ---
-
 # Building a web app
 
 Source: [reddit-deep: r/gemini](https://www.reddit.com/r/Gemini/comments/1stazu8/building_a_web_app/)

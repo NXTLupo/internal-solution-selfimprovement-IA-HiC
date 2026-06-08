@@ -6,19 +6,19 @@ subreddit: "internships"
 title: "Please keep trying, I'm with you."
 author: "lauptimus"
 date: "2026-05-01T22:01:42.000Z"
-score: 42
+score: 43
 upvote_ratio: 1
 num_comments: 2
 flair: "Applications"
-extracted_at: "2026-05-25T18:31:15.450Z"
+extracted_at: "2026-06-06T23:20:46.218Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Please keep trying, I'm with you.
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1t17dgg/please_keep_trying_im_with_you/)
-Posted by **lauptimus** · **42↑** · **2 comments**
+Posted by **lauptimus** · **43↑** · **2 comments**
 
 I'm happy for everyone who has landed offers so far, and I wish you all the best. For those of you that are going to have their first ever professional experience this summer, please make the best of it. Learn a lot, ask a lot of questions, *care* about what you do, and have fun. Be proud of yourself.
 

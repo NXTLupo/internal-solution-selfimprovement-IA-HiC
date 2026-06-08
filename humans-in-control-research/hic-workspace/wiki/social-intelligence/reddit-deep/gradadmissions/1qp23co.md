@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1qp23co.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1qp23co/looking_to_get_into_a_masters_program_for_sports/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,35 @@ flair: "Venting"
 extracted_at: "2026-05-22T23:33:50.654Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qp23co.md#c0"
+    char_span: [0, 265]
+    sentence_count: 1
+    key_terms: [gradadmissions, comments, blackberry36, reddit-deep, management, "master's", looking, program]
+    token_count: 73
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qp23co.md#c1"
+    char_span: [267, 2419]
+    sentence_count: 19
+    key_terms: [major, health, public, sports, gpa, classes, fsu, management]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qp23co.md#c2"
+    char_span: [2159, 4349]
+    sentence_count: 16
+    key_terms: [experience, myself, sports, gpa, "i'm", helping, journey, program]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qp23co.md#c3"
+    char_span: [4061, 4603]
+    sentence_count: 6
+    key_terms: [along, use, want, fundamentals, connections, recognition, affordable, facility]
+    token_count: 131
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qp23co.md#c4"
+    char_span: [4605, 4999]
+    sentence_count: 7
+    key_terms: [thank, read, time, appreciate, commitment, absorbing, knowledge, shanagaes]
+    token_count: 88
 ---
-
 # Looking to get into a Master's Program for Sports Management
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1qp23co/looking_to_get_into_a_masters_program_for_sports/)

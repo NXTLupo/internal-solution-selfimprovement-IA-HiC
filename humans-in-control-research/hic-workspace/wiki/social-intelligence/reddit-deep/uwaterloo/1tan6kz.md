@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/uwaterloo/1tan6kz.md
 url: "https://www.reddit.com/r/uwaterloo/comments/1tan6kz/incoming_waterloo_cs_student_trying_to_use_the/"
 kind: "social-post"
 source: "reddit-deep: r/uwaterloo"
@@ -13,8 +14,27 @@ flair: "Advice"
 extracted_at: "2026-05-25T18:33:12.663Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/uwaterloo/1tan6kz.md#c0"
+    char_span: [0, 1316]
+    sentence_count: 5
+    key_terms: [summer, trying, start, programming, seriously, uwaterloo, comments, incoming]
+    token_count: 290
+  - id: "social-intelligence/reddit-deep/uwaterloo/1tan6kz.md#c1"
+    char_span: [1331, 3428]
+    sentence_count: 9
+    key_terms: [learn, project, python, summer, try, computer, learning, projects]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/uwaterloo/1tan6kz.md#c2"
+    char_span: [3430, 3893]
+    sentence_count: 3
+    key_terms: [projects, learning, learn, take, technologies, spectacular, frameworks, unfamiliar]
+    section: Comments
+    token_count: 95
 ---
-
 # Incoming Waterloo CS student trying to use the summer to seriously level up my programming skills
 
 Source: [reddit-deep: r/uwaterloo](https://www.reddit.com/r/uwaterloo/comments/1tan6kz/incoming_waterloo_cs_student_trying_to_use_the/)

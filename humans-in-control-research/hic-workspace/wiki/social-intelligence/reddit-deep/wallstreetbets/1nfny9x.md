@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1nfny9x.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1nfny9x/orcl_infinite_money_glitch/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,69 @@ flair: "Meme"
 extracted_at: "2026-05-17T01:14:17.601Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, saas, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1nfny9x.md#c0"
+    char_span: [0, 234]
+    sentence_count: 2
+    key_terms: [wallstreetbets, comments, maranathahamen, reddit-deep, infinite, glitch, posted, reddit]
+    token_count: 74
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1nfny9x.md#c1"
+    char_span: [249, 1853]
+    sentence_count: 6
+    key_terms: [bought, peak, discord, someone, months, depressionmakesjerks, apple, https]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1nfny9x.md#c2"
+    char_span: [1855, 3557]
+    sentence_count: 8
+    key_terms: [like, bubble, buying, itself, apple-long-throwaway, apple, dying, money]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1nfny9x.md#c3"
+    char_span: [3559, 4833]
+    sentence_count: 5
+    key_terms: [intel, e960d91d5ce374fc91a6a97b4e3443c48b7b8b6e, preview, format, https, money, width, radicallyobjective]
+    section: Comments
+    token_count: 419
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1nfny9x.md#c4"
+    char_span: [4835, 6911]
+    sentence_count: 12
+    key_terms: [money, making, years, companies, bubble, growth, obsolecence, need]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1nfny9x.md#c5"
+    char_span: [6915, 8787]
+    sentence_count: 11
+    key_terms: [fca8f428fd25de9aa29aa4981a40496fc2f8a1ee, quarter, "don't", money, need, next, sell, companies]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1nfny9x.md#c6"
+    char_span: [8789, 10464]
+    sentence_count: 7
+    key_terms: [nvidia, d55cc583947fe9cb319f4a9db8a3acf8334b9638, credit, oracle, https, because, housing, banned]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1nfny9x.md#c7"
+    char_span: [10466, 11539]
+    sentence_count: 6
+    key_terms: [money, pump, mother-chipmunk2778, right, trade, orcl, s1n0d3utscht3k, forecasting]
+    section: Comments
+    token_count: 305
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1nfny9x.md#c8"
+    char_span: [11541, 12786]
+    sentence_count: 9
+    key_terms: [people, different, use, multiple, market, openai, competitive, don]
+    section: Comments
+    token_count: 310
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1nfny9x.md#c9"
+    char_span: [12789, 14582]
+    sentence_count: 9
+    key_terms: [oracle-and-amd-collaborate-to-help-customers-deliver-breakthrough-performance-for-large-scale-ai-and-agentic-workloads-2025-06-12, mother-chipmunk2778, oracle, use, nvidia, spacetoaster, cloud, amd]
+    section: Comments
+    token_count: 490
 ---
-
 # $ORCL - Infinite money glitch.
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1nfny9x/orcl_infinite_money_glitch/)

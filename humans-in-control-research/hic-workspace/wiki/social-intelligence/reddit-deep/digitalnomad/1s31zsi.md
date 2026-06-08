@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/digitalnomad/1s31zsi.md
 url: "https://www.reddit.com/r/digitalnomad/comments/1s31zsi/was_all_set_to_move_to_bangkok_but_now/"
 kind: "social-post"
 source: "reddit-deep: r/digitalnomad"
@@ -13,8 +14,51 @@ flair: "Question"
 extracted_at: "2026-05-26T12:53:56.730Z"
 extraction_method: "praw-deep"
 research_goal: "Identify emerging needs in the remote work sector."
+industries: [workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/digitalnomad/1s31zsi.md#c0"
+    char_span: [0, 2094]
+    sentence_count: 15
+    key_terms: [thailand, cheaper, months, chi, day, minh, because, digitalnomad]
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/digitalnomad/1s31zsi.md#c1"
+    char_span: [2096, 2772]
+    sentence_count: 2
+    key_terms: [cheaper, masterpiecemundane80, somethingaboutupdawg, terms, hcm, aspirations, adventure, affirming]
+    section: Comments
+    token_count: 162
+  - id: "social-intelligence/reddit-deep/digitalnomad/1s31zsi.md#c2"
+    char_span: [2774, 4651]
+    sentence_count: 12
+    key_terms: [gameover281997, bangkok, vietnam, somethingaboutupdawg, convenient, foreigner, pattaya, quality]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/digitalnomad/1s31zsi.md#c3"
+    char_span: [4653, 5679]
+    sentence_count: 8
+    key_terms: [thailand, high-rise, bangkok, around, somethingaboutupdawg, great, seems, here]
+    section: Comments
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/digitalnomad/1s31zsi.md#c4"
+    char_span: [5681, 7625]
+    sentence_count: 16
+    key_terms: [pattaya, been, don, motorbike, thailand, "haven't", comfortablemoney1888, somethingaboutupdawg]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/digitalnomad/1s31zsi.md#c5"
+    char_span: [7372, 7730]
+    sentence_count: 3
+    key_terms: [being, onedweezy, directly, humidity, northern, stunning, superior, terraces]
+    section: Comments
+    token_count: 96
+  - id: "social-intelligence/reddit-deep/digitalnomad/1s31zsi.md#c6"
+    char_span: [7732, 9063]
+    sentence_count: 7
+    key_terms: [somethingaboutupdawg, bkk, bangkok, hcm, budget, months, though, range]
+    section: Comments
+    token_count: 364
 ---
-
 # Was all set to move to Bangkok, but now considering Ho Chi Minh.
 
 Source: [reddit-deep: r/digitalnomad](https://www.reddit.com/r/digitalnomad/comments/1s31zsi/was_all_set_to_move_to_bangkok_but_now/)

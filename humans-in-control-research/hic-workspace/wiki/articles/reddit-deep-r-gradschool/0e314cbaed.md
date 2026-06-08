@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-gradschool/0e314cbaed.md
 url: "https://www.reddit.com/r/GradSchool/comments/1q2l8i4/how_do_i_get_my_masters_without_going_into/"
 url_hash: "0e314cbaed"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T19:49:10.776463+00:00"
 chars: 4660
+industries: [higher_ed, financial_services, healthcare]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-gradschool/0e314cbaed.md#c0"
+    char_span: [0, 1402]
+    sentence_count: 12
+    key_terms: [without, afford, gradschool, honestly, hospital, masters, people, reddit]
+    token_count: 335
+  - id: "articles/reddit-deep-r-gradschool/0e314cbaed.md#c1"
+    char_span: [1404, 3306]
+    sentence_count: 10
+    key_terms: [program, time, online, school, university, decent, enough, full]
+    token_count: 419
+  - id: "articles/reddit-deep-r-gradschool/0e314cbaed.md#c2"
+    char_span: [3308, 4858]
+    sentence_count: 9
+    key_terms: [comms, people, university, director, "master's", private, program, tuition]
+    token_count: 379
 ---
-
 # How do I get my Masters without going into crippling debt
 
 Source: [Reddit Deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1q2l8i4/how_do_i_get_my_masters_without_going_into/)

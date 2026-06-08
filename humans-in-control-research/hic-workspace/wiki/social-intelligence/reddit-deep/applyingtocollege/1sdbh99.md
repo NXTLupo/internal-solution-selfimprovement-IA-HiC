@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1sdbh99.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1sdbh99/brown_full_pay_or_jhu_22kyear_for_econ_major/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,27 @@ flair: "College Questions"
 extracted_at: "2026-05-23T12:15:36.236Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sdbh99.md#c0"
+    char_span: [0, 1202]
+    sentence_count: 6
+    key_terms: [brown, jhu, considering, applyingtocollege, pay, full, comments, general]
+    token_count: 294
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sdbh99.md#c1"
+    char_span: [1217, 2369]
+    sentence_count: 7
+    key_terms: [jhu, brown, isn, interested, clearly, finance, parents, conscious-secret-775]
+    section: Comments
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1sdbh99.md#c2"
+    char_span: [2371, 3862]
+    sentence_count: 9
+    key_terms: [school, brown, business, entry-level, lutzlover, positions, analyst, finance]
+    section: Comments
+    token_count: 378
 ---
-
 # Brown (full pay) or JHU (22k/year) for econ major
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1sdbh99/brown_full_pay_or_jhu_22kyear_for_econ_major/)

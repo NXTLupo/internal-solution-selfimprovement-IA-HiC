@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1lhs9kh.md
 url: "https://www.reddit.com/r/college/comments/1lhs9kh/no_idea_what_career_to_pursue_what_should_i_do/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,41 @@ subreddit: "college"
 title: "No idea what career to pursue, what should I do?"
 author: "No-Hold5159"
 date: "2025-06-22T16:39:00.000Z"
-score: 2
-upvote_ratio: 0.63
+score: 4
+upvote_ratio: 0.83
 num_comments: 5
 flair: "Career/work"
-extracted_at: "2026-05-25T18:31:10.108Z"
+extracted_at: "2026-06-06T17:42:15.233Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1lhs9kh.md#c0"
+    char_span: [0, 2268]
+    sentence_count: 20
+    key_terms: [college, film, classes, career, design, school, sophomore, art]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1lhs9kh.md#c1"
+    char_span: [2270, 4111]
+    sentence_count: 13
+    key_terms: [don, graphic, career, major, debt, anything, decided, design]
+    token_count: 416
+  - id: "social-intelligence/reddit-deep/college/1lhs9kh.md#c2"
+    char_span: [4126, 5936]
+    sentence_count: 10
+    key_terms: [yourself, maybe, creative, answers, quite, seems, experiences, practical]
+    section: Comments
+    token_count: 406
+  - id: "social-intelligence/reddit-deep/college/1lhs9kh.md#c3"
+    char_span: [5938, 8032]
+    sentence_count: 18
+    key_terms: [art, design, school, job, graphic, favor, don, find]
+    section: Comments
+    token_count: 476
 ---
-
 # No idea what career to pursue, what should I do?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1lhs9kh/no_idea_what_career_to_pursue_what_should_i_do/)
-Posted by **No-Hold5159** · **2↑** · **5 comments**
+Posted by **No-Hold5159** · **4↑** · **5 comments**
 
 I’m a 21 year old college student (sophomore/junior? Complicated situation with credits) who has no idea what to pursue career wise. Growing up I was very creative. I loved to draw, craft, and I always had multiple artistic hobbies at once. My dream college was the Savanah College of Art and Design. As I got older, I got teased for drawing/ liking art, and my parents weren’t supportive of my artistic dreams.. so by the time I was graduating high school, I had almost completely given up on my art out of embarrassment/ feeling like art wasn’t a sustainable career that could make me a livable wage.
 

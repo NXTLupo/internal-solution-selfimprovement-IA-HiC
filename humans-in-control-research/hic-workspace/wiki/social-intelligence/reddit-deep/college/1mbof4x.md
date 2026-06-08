@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1mbof4x.md
 url: "https://www.reddit.com/r/college/comments/1mbof4x/is_doing_an_internship_at_the_same_time_as_my/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -10,11 +11,28 @@ score: 5
 upvote_ratio: 0.79
 num_comments: 10
 flair: "Career/work"
-extracted_at: "2026-05-23T12:15:24.669Z"
+extracted_at: "2026-06-06T17:42:15.232Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1mbof4x.md#c0"
+    char_span: [0, 1346]
+    sentence_count: 11
+    key_terms: [internship, college, time, get, "i'm", "i've", comments, starting]
+    token_count: 321
+  - id: "social-intelligence/reddit-deep/college/1mbof4x.md#c1"
+    char_span: [1361, 1586]
+    sentence_count: 2
+    key_terms: [hours, cabbage-soup, flexibility, schedule, sometime, double, check, worry]
+    section: Comments
+    token_count: 60
+  - id: "social-intelligence/reddit-deep/college/1mbof4x.md#c2"
+    char_span: [1588, 3466]
+    sentence_count: 14
+    key_terms: [internship, slightlyobtrusivemom, "it's", hours, fine, week, definitely, experience]
+    section: Comments
+    token_count: 472
 ---
-
 # Is doing an internship at the same time as my first semester a stupid thing to do?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1mbof4x/is_doing_an_internship_at_the_same_time_as_my/)
@@ -27,12 +45,12 @@ So, I'm starting college as a freshman this fall. Thinking about starting colleg
 - **cabbage-soup** (13↑): Main thing to worry about is the hours (you may have to do your 10 hours sometime during 9-5 M-F, may or may not work with your schedule). Just double check about flexibility there if you do get it. 
 
 Personally I worked 20hrs+ a week in fast food during my first year 🤪 so it’s definitely doable. An internship will be just like any other job, usually there isn’t homework or expectations of you outside of your working hours. And some may even be more flexible when it comes to requests to adjust hours around school work.
-- **reliable_funseek** (7↑): Watch out for scams. Sometimes organizations will call low wage or unpaid busywork an internship just to lure someone into the position. Will you obtain college credit for the internship?
-- **slightlyobtrusivemom** (5↑): It's 10 hours a week. Easily doable
+- **reliable_funseek** (8↑): Watch out for scams. Sometimes organizations will call low wage or unpaid busywork an internship just to lure someone into the position. Will you obtain college credit for the internship?
+- **slightlyobtrusivemom** (4↑): It's 10 hours a week. Easily doable
 - **cverbenas** (2↑): If it's the exact kind of thing you want to do, It's not stupid. It's good to get experience, it looks great on resumes. And since you're not worried about the time commitment, I think you'll be fine. You know yourself best so if adjusting to college is something you're really worried about, maybe don't go for it. But it seems like a great opportunity.
 - **Appropriate-Ad-396** (2↑): My grandson hustled in his freshman year for a biochemistry lab internship with or without pay. He just wanted marketable experience for his resume to get his foot in the door after he graduates.
-- **taybay462** (2↑): Yes, I think its a bad idea
-- **wipeovtt** (3↑): no that’s not stupid; you’ll be fine. ^^ freshman fall semester is one of the easiest you’ll ever have, i’m assuming your schedule is mostly gen ed’s. the hardest part won’t be your classes it’ll be adjusting to a new environment.
+- **taybay462** (3↑): Yes, I think its a bad idea
+- **wipeovtt** (2↑): no that’s not stupid; you’ll be fine. ^^ freshman fall semester is one of the easiest you’ll ever have, i’m assuming your schedule is mostly gen ed’s. the hardest part won’t be your classes it’ll be adjusting to a new environment.
 - **thegingeraccountant** (1↑): Are you good at managing your time? I have a full course load and work 20-30 hrs a week and do just fine. Know yourself
 - **slightlyobtrusivemom** (0↑): Getting an internship is more important than your grades.  Yes, definitely do that.
-  - **taybay462** (3↑): What if it causes them to fail because they took on too much at once?
+  - **taybay462** (4↑): What if it causes them to fail because they took on too much at once?

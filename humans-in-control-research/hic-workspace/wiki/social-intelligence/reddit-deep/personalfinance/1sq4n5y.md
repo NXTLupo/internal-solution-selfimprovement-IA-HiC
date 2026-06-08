@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/personalfinance/1sq4n5y.md
 url: "https://www.reddit.com/r/personalfinance/comments/1sq4n5y/my_brother_passed_away_and_left_my_mom_money_via/"
 kind: "social-post"
 source: "reddit-deep: r/personalfinance"
@@ -13,8 +14,80 @@ flair: "Debt"
 extracted_at: "2026-05-16T20:55:02.104Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c0"
+    char_span: [0, 2005]
+    sentence_count: 9
+    key_terms: [credit, card, balance, brother, away, debt, mom, personalfinance]
+    token_count: 514
+  - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c1"
+    char_span: [2007, 3928]
+    sentence_count: 13
+    key_terms: [credit, pay, insurance, card, "i'm", life, interest, payments]
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c2"
+    char_span: [3943, 6142]
+    sentence_count: 20
+    key_terms: [getting, judgment, payout, creditors, insurance, annuity, credit, income]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c3"
+    char_span: [6145, 6998]
+    sentence_count: 5
+    key_terms: [ilovemychildren5, non-revocable, jurisdiction, balls2hairy, feasibility, possibility, potentially, applicable]
+    section: Comments
+    token_count: 203
+  - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c4"
+    char_span: [7000, 9026]
+    sentence_count: 18
+    key_terms: [home, mortgage, getting, credit, bankruptcy, co-signed, creditors, deceased]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c5"
+    char_span: [9028, 9979]
+    sentence_count: 11
+    key_terms: [thanks, circumstances, suspicious, interest, happens, months, "don't", extra]
+    section: Comments
+    token_count: 224
+  - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c6"
+    char_span: [9981, 11953]
+    sentence_count: 12
+    key_terms: [credit, debt, "don't", card, interest, cards, house, apr]
+    section: Comments
+    token_count: 488
+  - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c7"
+    char_span: [11955, 13805]
+    sentence_count: 16
+    key_terms: [pay, insurance, get, certificate, death, money, debt, credit]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c8"
+    char_span: [13807, 15578]
+    sentence_count: 15
+    key_terms: [death, certificate, months, cause, days, "i'm", instead, unusual]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c9"
+    char_span: [15580, 17800]
+    sentence_count: 18
+    key_terms: [cards, debt, insurance, attorney, freezing, planning, because, elderly]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c10"
+    char_span: [17802, 19555]
+    sentence_count: 12
+    key_terms: [option, house, sure, need, community, something, brother, losing]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c11"
+    char_span: [19557, 19828]
+    sentence_count: 4
+    key_terms: [bank, home, combination, elsewhere, mortgage, "doesn't", someone, afford]
+    section: Comments
+    token_count: 69
 ---
-
 # My brother passed away and left my mom money via life insurance. My mom has no income, no capability to work but a ton of credit card debt. What are my options?
 
 Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1sq4n5y/my_brother_passed_away_and_left_my_mom_money_via/)

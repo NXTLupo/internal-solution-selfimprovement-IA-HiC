@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sjer1f.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sjer1f/offer_from_a_rocketship_ai_startup_but_it_means/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,49 @@ flair: "Advice"
 extracted_at: "2026-05-25T15:52:13.113Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sjer1f.md#c0"
+    char_span: [0, 1957]
+    sentence_count: 23
+    key_terms: [home, company, careerguidance, work, comments, roughly, canada, enough]
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/careerguidance/1sjer1f.md#c1"
+    char_span: [1959, 4150]
+    sentence_count: 27
+    key_terms: [like, company, husband, new, saying, years, time, different]
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/careerguidance/1sjer1f.md#c2"
+    char_span: [4152, 4548]
+    sentence_count: 8
+    key_terms: [days, life, neighborhood, apartments, fulfilling, rocketship, sacrifice, something]
+    token_count: 82
+  - id: "social-intelligence/reddit-deep/careerguidance/1sjer1f.md#c3"
+    char_span: [4563, 6725]
+    sentence_count: 17
+    key_terms: [years, family, like, canadian, startups, excited, similar, decide]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/careerguidance/1sjer1f.md#c4"
+    char_span: [6727, 8385]
+    sentence_count: 17
+    key_terms: [opportunity, back, kid, like, new, want, imagine, outcome]
+    section: Comments
+    token_count: 391
+  - id: "social-intelligence/reddit-deep/careerguidance/1sjer1f.md#c5"
+    char_span: [8387, 10550]
+    sentence_count: 22
+    key_terms: [take, career, job, life, time, experience, generally, groundbreaking-history]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/careerguidance/1sjer1f.md#c6"
+    char_span: [10552, 10844]
+    sentence_count: 2
+    key_terms: [comforts, home, important, anything, thinking, perfect, become, boring]
+    section: Comments
+    token_count: 71
 ---
-
 # Offer from a rocketship AI startup but it means moving to the US from Canada. Would you choose your dream company and career accelerator, or stick with what’s comfortable at home?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sjer1f/offer_from_a_rocketship_ai_startup_but_it_means/)

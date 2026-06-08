@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-stocks/1fac2ab3b6.md
 url: "https://www.reddit.com/r/stocks/comments/1td9xxe/where_is_all_the_money_in_the_us_stock_market/"
 url_hash: "1fac2ab3b6"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-17T01:20:43.667489+00:00"
 chars: 3271
+industries: [financial_services, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-stocks/1fac2ab3b6.md#c0"
+    char_span: [0, 1687]
+    sentence_count: 17
+    key_terms: [market, stock, money, cash, stocks, tech, companies, comments]
+    token_count: 389
+  - id: "articles/reddit-deep-r-stocks/1fac2ab3b6.md#c1"
+    char_span: [1689, 3465]
+    sentence_count: 14
+    key_terms: [market, money, million, street, house, yield, cap, investment]
+    token_count: 441
 ---
-
 # Where is all the money in the US stock market coming from?
 
 Source: [Reddit Deep: r/stocks](https://www.reddit.com/r/stocks/comments/1td9xxe/where_is_all_the_money_in_the_us_stock_market/)

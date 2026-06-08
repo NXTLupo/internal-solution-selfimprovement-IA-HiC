@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1r4r1dj.md
 url: "https://www.reddit.com/r/GenZ/comments/1r4r1dj/what_are_your_worst_financial_habits/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,27 @@ flair: "Discussion"
 extracted_at: "2026-05-16T20:55:01.228Z"
 extraction_method: "praw-deep"
 research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1r4r1dj.md#c0"
+    char_span: [0, 516]
+    sentence_count: 5
+    key_terms: [financial, comments, habits, money, worst, ordinary-fish-9791, genz, too]
+    token_count: 134
+  - id: "social-intelligence/reddit-deep/genz/1r4r1dj.md#c1"
+    char_span: [531, 2133]
+    sentence_count: 7
+    key_terms: [over-transition9609, lettuce, seriously, something, discord, eating, piedmontmountaineer, money]
+    section: Comments
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/genz/1r4r1dj.md#c2"
+    char_span: [2135, 3836]
+    sentence_count: 15
+    key_terms: [buying, financier92, man, collection, paycheque, flexing, family, invest]
+    section: Comments
+    token_count: 486
 ---
-
 # What are your worst financial habits?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1r4r1dj/what_are_your_worst_financial_habits/)

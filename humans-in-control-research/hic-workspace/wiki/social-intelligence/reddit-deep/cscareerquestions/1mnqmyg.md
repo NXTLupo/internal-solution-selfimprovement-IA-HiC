@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1mnqmyg.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1mnqmyg/need_advice_with_degree_path_in_cs/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-23T19:45:00.917Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mnqmyg.md#c0"
+    char_span: [0, 1834]
+    sentence_count: 10
+    key_terms: [cybersecurity, concentration, cscareerquestions, help, computer, learning, science, certifications]
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mnqmyg.md#c1"
+    char_span: [1849, 4057]
+    sentence_count: 19
+    key_terms: [internship, "you're", "don't", graduate, without, people, fundamentals, learn]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mnqmyg.md#c2"
+    char_span: [4059, 6279]
+    sentence_count: 19
+    key_terms: [cybersecurity, help, job, mentorship, placement, concentration, internships, graduation]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1mnqmyg.md#c3"
+    char_span: [6281, 6778]
+    sentence_count: 3
+    key_terms: [developer, cybersecurity, tuition, degree, certs, offer, optimization, transferring]
+    section: Comments
+    token_count: 101
 ---
-
 # Need advice with degree path in CS
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1mnqmyg/need_advice_with_degree_path_in_cs/)

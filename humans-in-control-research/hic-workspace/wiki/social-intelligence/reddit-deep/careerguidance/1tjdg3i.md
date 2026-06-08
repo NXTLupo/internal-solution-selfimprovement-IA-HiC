@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tjdg3i.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tjdg3i/feels_like_im_inbetween_a_ton_of_opportunities/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,21 @@ flair: "Advice"
 extracted_at: "2026-05-22T23:34:01.163Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tjdg3i.md#c0"
+    char_span: [0, 1436]
+    sentence_count: 8
+    key_terms: [content, careerguidance, "i'm", like, look, poli, sci, want]
+    token_count: 353
+  - id: "social-intelligence/reddit-deep/careerguidance/1tjdg3i.md#c1"
+    char_span: [1451, 3017]
+    sentence_count: 1
+    key_terms: [skills, writing, through, betaartistic9, like, redditters, analytics, multiple]
+    section: Comments
+    token_count: 359
 ---
-
 # Feels like I'm inbetween a ton of opportunities but also nothing at all...poli sci career help?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tjdg3i/feels_like_im_inbetween_a_ton_of_opportunities/)

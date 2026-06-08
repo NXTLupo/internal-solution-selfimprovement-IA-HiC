@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1rey9xg.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rey9xg/what_is_it_like_to_be_a_phd_student_at_the_cuny/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,32 @@ flair: "Humanities"
 extracted_at: "2026-05-22T23:33:50.668Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rey9xg.md#c0"
+    char_span: [0, 2188]
+    sentence_count: 16
+    key_terms: [graduate, time, institution, center, get, phd, student, gradadmissions]
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rey9xg.md#c1"
+    char_span: [2190, 3371]
+    sentence_count: 1
+    key_terms: [stipend, institutions, research, another, faculty, private, field, money]
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rey9xg.md#c2"
+    char_span: [3386, 4745]
+    sentence_count: 15
+    key_terms: [program, history, generalsprinkles4306, grouchy-ostrich-5838, get, current, interview, students]
+    section: Comments
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rey9xg.md#c3"
+    char_span: [4747, 6533]
+    sentence_count: 15
+    key_terms: [grouchy-ostrich-5838, program, cycle, happy, got, situation, received, better]
+    section: Comments
+    token_count: 455
 ---
-
 # What is it like to be a PhD student at the CUNY Graduate Center?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rey9xg/what_is_it_like_to_be_a_phd_student_at_the_cuny/)

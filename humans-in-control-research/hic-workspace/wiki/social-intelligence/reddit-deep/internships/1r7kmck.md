@@ -6,19 +6,19 @@ subreddit: "internships"
 title: "The playbook for landing an internship in 2026, how I would start from scratch"
 author: "ArmadilloTop2003"
 date: "2026-02-17T22:15:33.000Z"
-score: 134
+score: 132
 upvote_ratio: 0.97
 num_comments: 13
 flair: "General"
-extracted_at: "2026-05-26T14:30:47.907Z"
+extracted_at: "2026-06-06T23:20:46.211Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # The playbook for landing an internship in 2026, how I would start from scratch
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1r7kmck/the_playbook_for_landing_an_internship_in_2026/)
-Posted by **ArmadilloTop2003** · **134↑** · **13 comments**
+Posted by **ArmadilloTop2003** · **132↑** · **13 comments**
 
 I see a lot of doom on here and tbh I get it because statistically the job market is cooked.
 

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1qevr4j.md
 url: "https://www.reddit.com/r/college/comments/1qevr4j/is_it_worth_switching_to_business_accountingeven/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,21 @@ flair: "Career/work"
 extracted_at: "2026-05-23T12:15:24.660Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1qevr4j.md#c0"
+    char_span: [0, 989]
+    sentence_count: 6
+    key_terms: [college, accounting, internship, networking, comments, decided, conclusiontrick3667, major]
+    token_count: 230
+  - id: "social-intelligence/reddit-deep/college/1qevr4j.md#c1"
+    char_span: [1004, 2440]
+    sentence_count: 12
+    key_terms: [accounting, degree, "you'll", internships, experience, internship, university, graduate]
+    section: Comments
+    token_count: 308
 ---
-
 # Is it worth switching to business (accounting)even though I'm already a sophmore
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1qevr4j/is_it_worth_switching_to_business_accountingeven/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/engineeringstudents/1rm13fc.md
 url: "https://www.reddit.com/r/EngineeringStudents/comments/1rm13fc/cheme_penn_state_vs_virginia_tech_vs_rit/"
 kind: "social-post"
 source: "reddit-deep: r/engineeringstudents"
@@ -13,8 +14,21 @@ flair: "College Choice"
 extracted_at: "2026-05-22T23:33:46.995Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rm13fc.md#c0"
+    char_span: [0, 1395]
+    sentence_count: 5
+    key_terms: [internships, engineeringstudents, state, rit, virginia, engineering, penn, tech]
+    token_count: 310
+  - id: "social-intelligence/reddit-deep/engineeringstudents/1rm13fc.md#c1"
+    char_span: [1410, 2307]
+    sentence_count: 15
+    key_terms: [campus, living, schools, going, years, tall-cat-8890, upperclassman, comfortable]
+    section: Comments
+    token_count: 215
 ---
-
 # ChemE Penn State vs Virginia Tech vs RIT
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1rm13fc/cheme_penn_state_vs_virginia_tech_vs_rit/)

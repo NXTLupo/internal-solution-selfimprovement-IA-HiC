@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1nowx4o.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1nowx4o/career_path_in_software/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,33 @@ flair: "New Grad"
 extracted_at: "2026-05-25T13:02:11.359Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nowx4o.md#c0"
+    char_span: [0, 676]
+    sentence_count: 6
+    key_terms: [cscareerquestions, software, skills, development, comments, getting, python, freedomsauce]
+    token_count: 161
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nowx4o.md#c1"
+    char_span: [691, 1377]
+    sentence_count: 5
+    key_terms: [development, software, making, mathematicians, marcablefluke, understanding, architecting, clairvoyance]
+    section: Comments
+    token_count: 138
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nowx4o.md#c2"
+    char_span: [1379, 3133]
+    sentence_count: 13
+    key_terms: [skills, business, learning, problems, freedomsauce, like, developers, understand]
+    section: Comments
+    token_count: 377
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1nowx4o.md#c3"
+    char_span: [3135, 4200]
+    sentence_count: 10
+    key_terms: [building, tools, projects, ucxhsfe40gx9gqdkfvvurnja, future, skills, code, need]
+    section: Comments
+    token_count: 240
 ---
-
 # Career Path in Software
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1nowx4o/career_path_in_software/)

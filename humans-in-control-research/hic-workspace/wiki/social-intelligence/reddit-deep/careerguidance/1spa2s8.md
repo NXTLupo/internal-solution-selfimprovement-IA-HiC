@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1spa2s8.md
 url: "https://www.reddit.com/r/careerguidance/comments/1spa2s8/final_year_engineering_student_torn_between_ml/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 1
 upvote_ratio: 1
 num_comments: 3
 flair: ""
-extracted_at: "2026-05-23T20:15:29.973Z"
+extracted_at: "2026-06-06T00:28:11.721Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1spa2s8.md#c0"
+    char_span: [0, 2164]
+    sentence_count: 3
+    key_terms: [month, trading, friends, strategy, careerguidance, months, job, june]
+    token_count: 523
+  - id: "social-intelligence/reddit-deep/careerguidance/1spa2s8.md#c1"
+    char_span: [2166, 4004]
+    sentence_count: 18
+    key_terms: [real, trading, market, months, build, money, accuracy, strategy]
+    section: Comments
+    token_count: 399
 ---
-
 # Final year engineering student torn between ML career and forex trading — need honest advice?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1spa2s8/final_year_engineering_student_torn_between_ml/)

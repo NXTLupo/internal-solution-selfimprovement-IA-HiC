@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1oax52x.md
 url: "https://www.reddit.com/r/careerguidance/comments/1oax52x/what_healthcare_career_would_you_recommend/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,39 @@ flair: ""
 extracted_at: "2026-05-25T15:52:13.112Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [healthcare, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1oax52x.md#c0"
+    char_span: [0, 1917]
+    sentence_count: 17
+    key_terms: [career, something, healthcare, want, careerguidance, people, least, down]
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/careerguidance/1oax52x.md#c1"
+    char_span: [1932, 3874]
+    sentence_count: 11
+    key_terms: [nursing, radiology, thecrystalball2018, get, work, degree, good, live]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1oax52x.md#c2"
+    char_span: [3578, 5811]
+    sentence_count: 20
+    key_terms: [nursing, insurance, become, degree, did, get, good, like]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1oax52x.md#c3"
+    char_span: [5532, 6301]
+    sentence_count: 8
+    key_terms: [nursing, degree, like, experience, bachelor, being, maybe, did]
+    section: Comments
+    token_count: 202
+  - id: "social-intelligence/reddit-deep/careerguidance/1oax52x.md#c4"
+    char_span: [6303, 6861]
+    sentence_count: 4
+    key_terms: [nurse, techs, years, good, life, shezeundone, crissbliss, hygienists]
+    section: Comments
+    token_count: 141
 ---
-
 # What healthcare career would you recommend?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1oax52x/what_healthcare_career_would_you_recommend/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1saezoe.md
 url: "https://www.reddit.com/r/careerguidance/comments/1saezoe/as_a_highschool_student_who_wants_get_into_the/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 2
 upvote_ratio: 1
 num_comments: 2
 flair: ""
-extracted_at: "2026-05-22T21:34:47.968Z"
+extracted_at: "2026-06-03T18:53:36.159Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1saezoe.md#c0"
+    char_span: [0, 324]
+    sentence_count: 2
+    key_terms: [careerguidance, comments, reddit-deep, highschool, commerce, ankoku1, student, career]
+    token_count: 91
+  - id: "social-intelligence/reddit-deep/careerguidance/1saezoe.md#c1"
+    char_span: [339, 1187]
+    sentence_count: 9
+    key_terms: [skills, job, accounting, economics, help, look, reccomending, thepandapear]
+    section: Comments
+    token_count: 188
 ---
-
 # As a highschool student who wants get into the commerce sector which career path should I take ?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1saezoe/as_a_highschool_student_who_wants_get_into_the/)

@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/1d1c58eadf.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1npw1h9/is_tech_job_market_really_cooked/"
 url_hash: "1d1c58eadf"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-20T02:42:23.141326+00:00"
 chars: 5264
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/1d1c58eadf.md#c0"
+    char_span: [0, 2186]
+    sentence_count: 23
+    key_terms: [cscareerquestions, got, offers, reddit, tech, interviews, engineers, referrals]
+    token_count: 507
+  - id: "articles/reddit-deep-r-cscareerquestions/1d1c58eadf.md#c1"
+    char_span: [2188, 3851]
+    sentence_count: 14
+    key_terms: [linkedin, experience, competitive-one441, premium, market, got, job, work]
+    token_count: 381
+  - id: "articles/reddit-deep-r-cscareerquestions/1d1c58eadf.md#c2"
+    char_span: [3853, 5443]
+    sentence_count: 14
+    key_terms: [remote, outside, offer, lot, work, interviews, sympathise, industry]
+    token_count: 376
 ---
-
 # Is tech job market really cooked ?
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1npw1h9/is_tech_job_market_really_cooked/)

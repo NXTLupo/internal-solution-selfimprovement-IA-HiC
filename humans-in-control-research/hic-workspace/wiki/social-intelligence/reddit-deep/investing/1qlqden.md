@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/investing/1qlqden.md
 url: "https://www.reddit.com/r/investing/comments/1qlqden/the_british_ftse100_will_outperform_the_sp500/"
 kind: "social-post"
 source: "reddit-deep: r/investing"
@@ -13,8 +14,69 @@ flair: ""
 extracted_at: "2026-05-17T01:13:31.196Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1qlqden.md#c0"
+    char_span: [0, 2324]
+    sentence_count: 15
+    key_terms: ["trump's", british, stocks, trump, performance, year, investing, potential]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1qlqden.md#c1"
+    char_span: [2326, 3441]
+    sentence_count: 7
+    key_terms: [years, performance, last, europeans, european, europe, did, etf]
+    section: Comments
+    token_count: 286
+  - id: "social-intelligence/reddit-deep/investing/1qlqden.md#c2"
+    char_span: [3443, 5399]
+    sentence_count: 11
+    key_terms: [currencies, investors, usd, market, pleasant-shallot-707, measured, future, right]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/investing/1qlqden.md#c3"
+    char_span: [5401, 7520]
+    sentence_count: 13
+    key_terms: [population, satisfied, stable, like, exchange, strategy, "there's", trump]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/investing/1qlqden.md#c4"
+    char_span: [7523, 9318]
+    sentence_count: 11
+    key_terms: [business, europe, continent, friendly, outperformance, significantly, least, government]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/investing/1qlqden.md#c5"
+    char_span: [9320, 11310]
+    sentence_count: 12
+    key_terms: [market, international-equity-cumulative-outperformance-cycles, investment, outperformance, years, "it's", continue, believe]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/investing/1qlqden.md#c6"
+    char_span: [10999, 11402]
+    sentence_count: 5
+    key_terms: [funds, "american's", boycotting, discussion, strangling, investors, continue, european]
+    section: Comments
+    token_count: 83
+  - id: "social-intelligence/reddit-deep/investing/1qlqden.md#c7"
+    char_span: [11404, 13484]
+    sentence_count: 20
+    key_terms: [world, bad, idea, sentiment, boycott, markets, allies, people]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/investing/1qlqden.md#c8"
+    char_span: [13486, 14942]
+    sentence_count: 11
+    key_terms: [currently, getting, money, remymartinsextra, simple-link-3249, comeatmebro9, policymakers, credibility]
+    section: Comments
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/investing/1qlqden.md#c9"
+    char_span: [14944, 15981]
+    sentence_count: 9
+    key_terms: [stocks, banks, correlation, did, point, years, bank, ftse]
+    section: Comments
+    token_count: 306
 ---
-
 # The British FTSE100 will outperform the S&P500 untill the end of Trump
 
 Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1qlqden/the_british_ftse100_will_outperform_the_sp500/)

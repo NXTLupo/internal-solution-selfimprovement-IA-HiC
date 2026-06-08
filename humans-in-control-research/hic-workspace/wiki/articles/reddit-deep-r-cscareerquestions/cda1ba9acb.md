@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-cscareerquestions/cda1ba9acb.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1stbo7s/i_had_a_research_internship_that_flew_me_abroad/"
 url_hash: "cda1ba9acb"
 kind: "article"
@@ -10,8 +11,35 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-23T20:20:43.350844+00:00"
 chars: 7991
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-cscareerquestions/cda1ba9acb.md#c0"
+    char_span: [0, 1803]
+    sentence_count: 21
+    key_terms: [cgpa, cscareerquestions, projects, wrong, internships, full-stack, internship, understand]
+    token_count: 453
+  - id: "articles/reddit-deep-r-cscareerquestions/cda1ba9acb.md#c1"
+    char_span: [1805, 4080]
+    sentence_count: 33
+    key_terms: [ceo, loudly, months, office, "he'd", like, employee, startup]
+    token_count: 505
+  - id: "articles/reddit-deep-r-cscareerquestions/cda1ba9acb.md#c2"
+    char_span: [4082, 6251]
+    sentence_count: 40
+    key_terms: [lpa, company, witch, recognition, allocation, interview, building, engineer]
+    token_count: 483
+  - id: "articles/reddit-deep-r-cscareerquestions/cda1ba9acb.md#c3"
+    char_span: [6253, 7768]
+    sentence_count: 17
+    key_terms: [get, "i'm", non-negotiable, load-bearing, assessments, opportunity, absolutely, allocation]
+    token_count: 374
+  - id: "articles/reddit-deep-r-cscareerquestions/cda1ba9acb.md#c4"
+    char_span: [7770, 8405]
+    sentence_count: 6
+    key_terms: [sureassociation9708, part, encouraging, indomitable, internship, employers, published, regionals]
+    token_count: 157
 ---
-
 # I had a research internship that flew me abroad, went to ICPC Regionals, and built full-stack projects from scratch. It still took me 10 months to get a job. The 2025 market is cooked and here's the full unhinged story. Long post. Worth it. Grab a snack.
 
 Source: [Reddit Deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1stbo7s/i_had_a_research_internship_that_flew_me_abroad/)

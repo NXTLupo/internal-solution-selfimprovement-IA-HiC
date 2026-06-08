@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t9pz9s.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t9pz9s/20_year_old_college_student_faced_with_a_career/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,22 @@ score: 2
 upvote_ratio: 1
 num_comments: 4
 flair: ""
-extracted_at: "2026-05-23T20:15:29.967Z"
+extracted_at: "2026-06-03T18:53:36.151Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t9pz9s.md#c0"
+    char_span: [0, 686]
+    sentence_count: 4
+    key_terms: [careerguidance, school, engineering, comments, college, company, student, faced]
+    token_count: 167
+  - id: "social-intelligence/reddit-deep/careerguidance/1t9pz9s.md#c1"
+    char_span: [701, 2127]
+    sentence_count: 10
+    key_terms: [engineering, school, "you're", trade, find, path, mechanical, company]
+    section: Comments
+    token_count: 316
 ---
-
 # 20 year old college student, faced with a career path contemplating future, what should i do?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t9pz9s/20_year_old_college_student_faced_with_a_career/)

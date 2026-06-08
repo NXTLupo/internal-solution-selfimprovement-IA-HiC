@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1sdgfy0.md
 url: "https://www.reddit.com/r/internships/comments/1sdgfy0/ee_student_skills_to_develop_for_robotics/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,15 @@ flair: "General"
 extracted_at: "2026-05-25T13:01:40.286Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, informed by its current statement of work, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1sdgfy0.md#c0"
+    char_span: [0, 1192]
+    sentence_count: 4
+    key_terms: [internships, robotics, extra-alps-3127, comments, current, student, impedance-controlled, mid-tier-engineering]
+    token_count: 286
 ---
-
 # EE Student: Skills to develop for robotics internship
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1sdgfy0/ee_student_skills_to_develop_for_robotics/)

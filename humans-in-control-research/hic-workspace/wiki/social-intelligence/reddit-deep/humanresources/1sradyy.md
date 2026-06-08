@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1sradyy.md
 url: "https://www.reddit.com/r/humanresources/comments/1sradyy/the_great_certification_debate_na/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,33 @@ flair: ""
 extracted_at: "2026-05-23T12:15:41.523Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1sradyy.md#c0"
+    char_span: [0, 1311]
+    sentence_count: 9
+    key_terms: [fortune500, humanresources, comments, company, master, feels, great, known]
+    token_count: 318
+  - id: "social-intelligence/reddit-deep/humanresources/1sradyy.md#c1"
+    char_span: [1326, 2137]
+    sentence_count: 8
+    key_terms: [hrci, shrm, certified, tons, membership-based, certifications, gingerfringe88, professionals]
+    section: Comments
+    token_count: 172
+  - id: "social-intelligence/reddit-deep/humanresources/1sradyy.md#c2"
+    char_span: [2139, 4184]
+    sentence_count: 15
+    key_terms: [shrm, certification, phr, get, money, sphr, because, getting]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/humanresources/1sradyy.md#c3"
+    char_span: [3939, 5427]
+    sentence_count: 10
+    key_terms: [shrm, certification, phr, sphr, broader, adventurous-cat8847, money, cert]
+    section: Comments
+    token_count: 364
 ---
-
 # The Great Certification Debate [N/A]
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1sradyy/the_great_certification_debate_na/)

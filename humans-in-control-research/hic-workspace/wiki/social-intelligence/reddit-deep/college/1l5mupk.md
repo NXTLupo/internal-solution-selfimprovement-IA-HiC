@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1l5mupk.md
 url: "https://www.reddit.com/r/college/comments/1l5mupk/what_should_i_do_to_build_up_my_resume_for_poli/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-24T14:08:12.152Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1l5mupk.md#c0"
+    char_span: [0, 451]
+    sentence_count: 2
+    key_terms: [comments, college, resume, opportunities, undergraduate, internships, reddit-deep, experience]
+    token_count: 120
+  - id: "social-intelligence/reddit-deep/college/1l5mupk.md#c1"
+    char_span: [466, 2713]
+    sentence_count: 15
+    key_terms: [federal, election, local, state, college, resume, congressional, legislation]
+    section: Comments
+    token_count: 475
 ---
-
 # What should I do to build up my resume for Poli Sci internships/volunteer opportunities?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1l5mupk/what_should_i_do_to_build_up_my_resume_for_poli/)

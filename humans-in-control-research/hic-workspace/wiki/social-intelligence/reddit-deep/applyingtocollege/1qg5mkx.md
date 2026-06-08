@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1qg5mkx.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1qg5mkx/t20s_ivies_does_anyone_even_know_why_people_are/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -13,8 +14,51 @@ flair: "Discussion"
 extracted_at: "2026-05-20T12:57:06.072Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qg5mkx.md#c0"
+    char_span: [0, 1611]
+    sentence_count: 12
+    key_terms: [applying, schools, applyingtocollege, like, fulfilled, comments, research, nothing]
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qg5mkx.md#c1"
+    char_span: [1626, 3729]
+    sentence_count: 10
+    key_terms: [specific, major, student, readingbudget4091, want, software, grade, top]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qg5mkx.md#c2"
+    char_span: [3731, 5110]
+    sentence_count: 10
+    key_terms: [engineering, preparation, students, finance, people, undergraduate, mathematics, outstanding]
+    section: Comments
+    token_count: 284
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qg5mkx.md#c3"
+    char_span: [5112, 7030]
+    sentence_count: 14
+    key_terms: [like, top, people, secrerofficeninja, students, college, brand, get]
+    section: Comments
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qg5mkx.md#c4"
+    char_span: [7032, 8554]
+    sentence_count: 16
+    key_terms: ["it's", top, college, people, penn, candidates, recruiting, "you're"]
+    section: Comments
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qg5mkx.md#c5"
+    char_span: [8556, 10661]
+    sentence_count: 15
+    key_terms: [school, people, inevitable-cow-8489, dartmouth, applying, executivewatch, like, different]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1qg5mkx.md#c6"
+    char_span: [10663, 12694]
+    sentence_count: 14
+    key_terms: [prestige, like, because, oneextent3940, universities, being, often, irrational]
+    section: Comments
+    token_count: 435
 ---
-
 # T20’s & Ivies - Does anyone even know WHY people are applying to these schools?
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1qg5mkx/t20s_ivies_does_anyone_even_know_why_people_are/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/applyingtocollege/1roh0qs.md
 url: "https://www.reddit.com/r/ApplyingToCollege/comments/1roh0qs/are_there_miracles_in_real_life_this_is_absurd/"
 kind: "social-post"
 source: "reddit-deep: r/applyingtocollege"
@@ -6,19 +7,94 @@ subreddit: "applyingtocollege"
 title: "Are there Miracles in real life? This is absurd."
 author: "TryTwiceAsHard"
 date: "2026-03-08T21:27:35.000Z"
-score: 57
-upvote_ratio: 0.87
+score: 58
+upvote_ratio: 0.88
 num_comments: 172
 flair: "Emotional Support"
-extracted_at: "2026-05-24T14:08:39.598Z"
+extracted_at: "2026-06-03T18:34:57.879Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's co-op program, integrating insights from current SOW, prior projects, and fresh industry analysis of experiential learning and co-op engagement tactics. The strategy must enhance learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1roh0qs.md#c0"
+    char_span: [0, 1893]
+    sentence_count: 25
+    key_terms: [applyingtocollege, offer, wants, congressman, "i'm", experience, university, anything]
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1roh0qs.md#c1"
+    char_span: [1895, 3944]
+    sentence_count: 24
+    key_terms: [schools, business, year, state, "he's", "it's", colleges, school]
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1roh0qs.md#c2"
+    char_span: [3946, 4399]
+    sentence_count: 5
+    key_terms: [magically, "can't", going, mad, situation, everyone, because, private]
+    token_count: 115
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1roh0qs.md#c3"
+    char_span: [4414, 5059]
+    sentence_count: 5
+    key_terms: [year, business, gap, challenging, congressman, internships, everything, experience]
+    section: Comments
+    token_count: 151
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1roh0qs.md#c4"
+    char_span: [5061, 7249]
+    sentence_count: 17
+    key_terms: [school, schools, years, colleges, underrepresented, "that's", "congressman's", congressman]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1roh0qs.md#c5"
+    char_span: [7251, 9207]
+    sentence_count: 12
+    key_terms: [ucs, guarantee, recommendation, letter, congressional, like, referral, thinking]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1roh0qs.md#c6"
+    char_span: [9209, 11206]
+    sentence_count: 14
+    key_terms: [college, trytwiceashard, experience, years, community, get, transfer, money]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1roh0qs.md#c7"
+    char_span: [10906, 12080]
+    sentence_count: 9
+    key_terms: [recommendation, experience, college, unless, acanthaceaestunning7, value, get, good]
+    section: Comments
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1roh0qs.md#c8"
+    char_span: [12082, 12508]
+    sentence_count: 3
+    key_terms: [cherrychocolatepizza, recommendation, connections, admissions, advantages, especially, business, identify]
+    section: Comments
+    token_count: 95
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1roh0qs.md#c9"
+    char_span: [12510, 14458]
+    sentence_count: 17
+    key_terms: [money, student-loan-calculator, "he's", calculator, get, good, job, investment]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1roh0qs.md#c10"
+    char_span: [14460, 15991]
+    sentence_count: 14
+    key_terms: [congressman, school, internship, business, schools, great, years, get]
+    section: Comments
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1roh0qs.md#c11"
+    char_span: [15993, 18161]
+    sentence_count: 21
+    key_terms: [schools, year, state, counselor, get, trytwiceashard, others, school]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/applyingtocollege/1roh0qs.md#c12"
+    char_span: [17872, 18322]
+    sentence_count: 6
+    key_terms: [schools, ones, experience, population, fantastic, wingbatso, commuter, humboldt]
+    section: Comments
+    token_count: 109
 ---
-
 # Are there Miracles in real life? This is absurd.
 
 Source: [reddit-deep: r/applyingtocollege](https://www.reddit.com/r/ApplyingToCollege/comments/1roh0qs/are_there_miracles_in_real_life_this_is_absurd/)
-Posted by **TryTwiceAsHard** · **57↑** · **172 comments**
+Posted by **TryTwiceAsHard** · **58↑** · **172 comments**
 
 Thank you so much to everyone who chimed in. Y'all made me feel much better, offered up some great options and really helped. To those who just chose to come in and troll, kick rocks. This stuff is hard enough without people actively working to be awful. 
 
@@ -41,7 +117,7 @@ The answer I want to hear is "Plead your situation to the private school and pra
 
 ## Comments
 
-- **Additional_Ad1270** (47↑): Gap year with the congressman and work/life experience. This is a no-brainer for me (now I'm not sure how that person can guarantee admission, but if they can - then yes). Kid gets a year to mature, which it seems like would be useful. He will be much better positioned to get internships, which is EVERYTHING for a business major (one of my kids is currently in the business school at Santa Clara so I have some firsthand knowledge). 
+- **Additional_Ad1270** (44↑): Gap year with the congressman and work/life experience. This is a no-brainer for me (now I'm not sure how that person can guarantee admission, but if they can - then yes). Kid gets a year to mature, which it seems like would be useful. He will be much better positioned to get internships, which is EVERYTHING for a business major (one of my kids is currently in the business school at Santa Clara so I have some firsthand knowledge). 
 
 If he wants, he can take some of the more challenging classes during the gap year (Calc if he hasn't done it yet, stats) - possibly as a visiting student at UCLA if he's in LA. 
 
@@ -49,16 +125,16 @@ The difficulty with the UC schools is that it is very dependent on where you go 
   - **failingmyself** (6↑): Chico will give him a residential 4-year university experience. Lots of urban kids in California end up liking it there. Maybe the miracle will be that going there will open his eyes to options besides a general business degree.
     - **Puzzleheaded-Buy-5** (3↑): My friend goes to Chico and wishes he had gone to cc and transferred instead. I know many who went to 4 years they weren’t ecstatic about and regretted it
   - **zunzarella** (1↑): And it also depends on what major you're trying to get into-- there are some majors (like Business, EECS, Data Sci, etc) that are impacted, making the few spots super competitive.
-  - **TryTwiceAsHard** (-14↑): Thank you for responding! 
+  - **TryTwiceAsHard** (-15↑): Thank you for responding! 
 He goes to an amazing public high school and most of the 900 graduates do move on to 4 year colleges. Definitely not underrepresented. This is one ofthe reasons we were sure to meet with his guidance counselor both junior and senior year, to be sure he was following the right path to move forward into state schools. Which she said he was. But for example, his girlfriend has a 4.5 gpa. She's gotten in to all the schools so far. He has just under a 4.1 and he's not having the same luck. 
 
 A Congressman's referral has always been known to guarantee your acceptance pretty much anywhere you'd want to go, even Ivy League schools. Even 30 years ago when I was in high school the Congressman's referral did this. Keep in mind though this is different than the 10 kids who want to go to military colleges that need the congressman to refer them, that's not an internship, that's some other whole thing.
-    - **The_Time_When** (32↑): The congressman letter would guarantee nothing in the current college admissions world. Things have changed rapidly over the last 5 years and colleges are looking for something very different than they were even 5 years ago. 
+    - **The_Time_When** (31↑): The congressman letter would guarantee nothing in the current college admissions world. Things have changed rapidly over the last 5 years and colleges are looking for something very different than they were even 5 years ago. 
 
 I am also a parent. We are not in CA and I think CA faces additional challenges as we do here in TX and trying to get into UT Austin.
     - **lifeisworthdoing** (19↑): It is definitely great-looking to have a congressional internship and letter of recommendation up your sleeve, but it's certainly not a guarantee at any top school! Many students have extremely impressive, comparable qualifications. Keep that in mind.
-    - **Dangerous-Advisor-31** (22↑): this “congressman guarantee” is fucking BS 😂😂😂
-    - **MapDowntown2260** (6↑): this is COMPLETELY wrong. A congresswomen referral is eh, nowhere near how big u think it is. UCs again, dont even take recommendation letters! I have many peers with congressional recommendations with perfect SATs and 15+ APs and get full rejected ALL T20s. Unless its the dam president of somone like Fouchi this isnt going to give him a leg up, ESPECIALLY at Ucs.
+    - **Dangerous-Advisor-31** (23↑): this “congressman guarantee” is fucking BS 😂😂😂
+    - **MapDowntown2260** (7↑): this is COMPLETELY wrong. A congresswomen referral is eh, nowhere near how big u think it is. UCs again, dont even take recommendation letters! I have many peers with congressional recommendations with perfect SATs and 15+ APs and get full rejected ALL T20s. Unless its the dam president of somone like Fouchi this isnt going to give him a leg up, ESPECIALLY at Ucs.
     - **VegetableFlounder310** (7↑): While there is a chance that this letter will in fact do this, I'm afraid that the "magical thinking" and naivete that led you to write "a congressman's referral has always been known to guarantee..." is the same magical thinking and naiveite that got you into this situation in the first place.    
   
 I have worked in / around elite college admissions for over 30 years, have 2 HYP degrees myself,  and while it sounds like this letter might indeed be terrific, it may not move the needle (there are hundreds of congresspeople, each of which has many interns)  -- and anyway, the UCs don't often even take LoRs anyway. 
@@ -71,18 +147,18 @@ Maybe ask this Congressperson to put you in touch with prior interns for whom he
 
 Aside from that, there is zero shame in the CC route -- it can be an amazing way to save money and also graduate from a terrific college!
     - **SecretDevilsAdvocate** (1↑): fyi Congressional letter is not all that. It’s impressive, but hardly a guaranteed acceptance to Ivys. Also didnt know UCs accepted letters of req
-- **Ok_Experience_5151** (45↑): Honestly his best bet is to suck it up and spend a year at CC then try to make use of one of California's guaranteed transfer pathways.  He'd still get three years of the "university experience".  This assumes he makes the grades at CC that he'd need in order to successfully transfer.
-  - **staya74** (8↑): Can’t do that for the UCs. They accept junior transfers (60+ credits).
-    - **TryTwiceAsHard** (10↑): Yeah I think you're required to do 2 years in order to transfer. If he took the congressman internship I don't think he'd try to go to school that year. It's a 40+ hour week internship.
+- **Ok_Experience_5151** (43↑): Honestly his best bet is to suck it up and spend a year at CC then try to make use of one of California's guaranteed transfer pathways.  He'd still get three years of the "university experience".  This assumes he makes the grades at CC that he'd need in order to successfully transfer.
+  - **staya74** (9↑): Can’t do that for the UCs. They accept junior transfers (60+ credits).
+    - **TryTwiceAsHard** (9↑): Yeah I think you're required to do 2 years in order to transfer. If he took the congressman internship I don't think he'd try to go to school that year. It's a 40+ hour week internship.
 - **Chessdaddy_** (22↑): Sometimes you have to do things you don’t want to do. Community college for 1-2 years can save a ton of money. If he lives at home you can get the price down to under 8k a year
-  - **DarkElfBard** (6↑): Cali does 2 years of free CC, and low income students actually make money by going with Pell grant (not this situation but I teach in CA so I make sure students consider that).
+  - **DarkElfBard** (5↑): Cali does 2 years of free CC, and low income students actually make money by going with Pell grant (not this situation but I teach in CA so I make sure students consider that).
     - **TryTwiceAsHard** (3↑): This was me. They basically paid me to go to community College due to pell grants.
     - **Chessdaddy_** (0↑): thats even better. im not from california so i wasnt aware of that
   - **TryTwiceAsHard** (2↑): I think community college is actually free in our area.
     - **taxmamma2** (2↑): Hi- fellow parent here and completely understand where you are coming from. There is a possible hybrid option where he can get the university experience and still go right to cc and then tag a  to a UC.  My daughter did this at SBCC. They will 100 percent get the college experience (your son can even join a fraternity at the UC if he wants ) but no tuition and if he gets good grades he can tag - just DM me if you need details, where to live , etc. I promise there is a good solution.
     - **BayAreaPupMom** (1↑): I think community college in CA is free for all CA residents.
 - **AcanthaceaeStunning7** (20↑): It is bold to assume that an internship and recommendation will guarantee him admission into UCLA.
-- **princess20202020** (14↑): I think you may be overestimating the value of a congressional recommendation (unless it’s for a military academy). I really don’t think the schools are going to value that more than any other recommendation. They might not even be allowed to consider it since it’s not a teacher. UCs have strict rules about what they can factor into the decision. Unless they accept “other” recommendations from supervisors, this letter most likely will be discarded  
+- **princess20202020** (15↑): I think you may be overestimating the value of a congressional recommendation (unless it’s for a military academy). I really don’t think the schools are going to value that more than any other recommendation. They might not even be allowed to consider it since it’s not a teacher. UCs have strict rules about what they can factor into the decision. Unless they accept “other” recommendations from supervisors, this letter most likely will be discarded  
 
 Most schools, especially the UCs are moving away from elitist stuff like that and are trying to identify the kids who don’t have connections or wealth or other advantages. 
 
@@ -98,10 +174,10 @@ I think he should do the congressman internship. Our congressman knows him and s
     - **BlueCanary19** (2↑): Mizzou is a great school, like 45k the first year, most students stay over for the first summer and then they get in state tuition for the next 3- there may be multiple schools like this, Chicago just sends a ton here.  Huge highly ranked journalism school and business is not super hard to get into.  Sports are great.  Kids do well in and out of Greek.
     - **the-moops** (1↑): Business/polisci double major? My sister majored in PoliSci and went to law school so it’s not just politics. That internship would be great and his best option if he doesn’t want CC.
 - **ikishenno** (9↑): He doesn’t want it bad enough haha. Congressman offer is the no brainer.
-  - **MapDowntown2260** (9↑): no. congressman offer guarantees jack shit after one year. UCs dont even take recommendations.
+  - **MapDowntown2260** (10↑): no. congressman offer guarantees jack shit after one year. UCs dont even take recommendations.
 - **Commercial_Ad8072** (5↑): I’d do the internship and some comm college classes that business schools like and transfer into state school. That’s the way.
   - **TryTwiceAsHard** (1↑): I agree with you. This is what i think he should do as well.
-- **Fickle_Emotion_7233** (5↑): Wait…he has 2 years tuition in the bank from his acting work? That’s why you aren’t going to get anything from private schools. Just let him go to them and pay the 2 years out of his money, if you can’t swing the 2 years after that, transfer to UC then?
+- **Fickle_Emotion_7233** (4↑): Wait…he has 2 years tuition in the bank from his acting work? That’s why you aren’t going to get anything from private schools. Just let him go to them and pay the 2 years out of his money, if you can’t swing the 2 years after that, transfer to UC then?
 
 You can’t make him want to be an actor or a politician if he doesn’t want it. But if it’s just a summer job he should do it and use that letter if he wants to transfer to a UC sophomore or junior year.
   - **TryTwiceAsHard** (2↑): Not quite two years. Just over a year is more like it. I don't want to send him off to his dream school but tell him it's only for the year he can afford it. Nothing in our lives is going to change where we'd have 50k per year for following years.

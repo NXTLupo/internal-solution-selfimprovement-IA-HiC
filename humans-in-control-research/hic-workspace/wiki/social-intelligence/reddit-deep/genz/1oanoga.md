@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/genz/1oanoga.md
 url: "https://www.reddit.com/r/GenZ/comments/1oanoga/does_anyone_else_feel_like_money_anxiety_is_just/"
 kind: "social-post"
 source: "reddit-deep: r/genz"
@@ -13,8 +14,33 @@ flair: "Discussion"
 extracted_at: "2026-05-17T01:11:40.765Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services, healthcare]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/genz/1oanoga.md#c0"
+    char_span: [0, 1893]
+    sentence_count: 13
+    key_terms: [gen-z-feels-financially-insecure-here-s-what-it-means-for-your-credit-choices, feels, credit, money, been, feel, like, everything]
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/genz/1oanoga.md#c1"
+    char_span: [1908, 3677]
+    sentence_count: 7
+    key_terms: [enough, money, food, prosperity, resources, anxiety, because, discord]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/genz/1oanoga.md#c2"
+    char_span: [3679, 5748]
+    sentence_count: 18
+    key_terms: [paycheck, generation, anxiety, "don't", human, learn, like, earning]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/genz/1oanoga.md#c3"
+    char_span: [5750, 6196]
+    sentence_count: 3
+    key_terms: [gen-z-feels-financially-insecure-here-s-what-it-means-for-your-credit-choices, worse, icycombination8993, blog, gets, effectively, impossible, university]
+    section: Comments
+    token_count: 117
 ---
-
 # Does anyone else feel like money anxiety is just a part of being Gen Z?
 
 Source: [reddit-deep: r/genz](https://www.reddit.com/r/GenZ/comments/1oanoga/does_anyone_else_feel_like_money_anxiety_is_just/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/neu/1sgqqp1.md
 url: "https://www.reddit.com/r/NEU/comments/1sgqqp1/schedule_professors_am_i_doomed/"
 kind: "social-post"
 source: "reddit-deep: r/neu"
@@ -6,19 +7,42 @@ subreddit: "neu"
 title: "Schedule & Professors - Am I doomed?"
 author: "Gh0stlyVisitation"
 date: "2026-04-09T14:11:25.000Z"
-score: 4
-upvote_ratio: 0.83
-num_comments: 9
+score: 3
+upvote_ratio: 0.72
+num_comments: 10
 flair: "Academics"
-extracted_at: "2026-05-19T17:57:09.047Z"
+extracted_at: "2026-06-06T00:27:19.933Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+chunks:
+  - id: "social-intelligence/reddit-deep/neu/1sgqqp1.md#c0"
+    char_span: [0, 890]
+    sentence_count: 7
+    key_terms: [professors, comments, gh0stlyvisitation, chem, fall, "i'm", neu, photojournalism]
+    token_count: 256
+  - id: "social-intelligence/reddit-deep/neu/1sgqqp1.md#c1"
+    char_span: [905, 2426]
+    sentence_count: 9
+    key_terms: [satvat, transport, classes, thermo, revolutionary-tone51, exams, exam, equation]
+    section: Comments
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/neu/1sgqqp1.md#c2"
+    char_span: [2428, 4577]
+    sentence_count: 9
+    key_terms: [hoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooorrible, exams, get, usually, class, like, possible, average]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/neu/1sgqqp1.md#c3"
+    char_span: [4275, 4672]
+    sentence_count: 1
+    key_terms: [down, possible, problem, copy, derivations, something, problems, correct]
+    section: Comments
+    token_count: 84
 ---
-
 # Schedule & Professors - Am I doomed?
 
 Source: [reddit-deep: r/neu](https://www.reddit.com/r/NEU/comments/1sgqqp1/schedule_professors_am_i_doomed/)
-Posted by **Gh0stlyVisitation** · **4↑** · **9 comments**
+Posted by **Gh0stlyVisitation** · **3↑** · **10 comments**
 
 I had a really rough semester in fall 2025, but I'm on co-op and just registered for my fall classes. I'm taking a lighter courseload and added a non-STEM elective, but I wanna know if my decisions are shit.
 
@@ -41,6 +65,7 @@ Satvat is very theory and math heavy in lectures which some people can have trou
     - **Revolutionary-Tone51** (1↑): Yeah, I've only heard bad things about Ming Su.... Satvat doesn't have any tests, all projects and hw problems.
 
 I had Carrier for Thermo2, so can't say much, but my friends who had Hung all like him. GL i think ull be OK
+    - **grrlinredd** (1↑): wait im so late on this but TAKE ZHAO FOR THERMO, SHES THE BEST EVER! (has quizzes tho, but not exams & is easy grader. class avg was like a 92 for the course) also yeah ming su is hoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooorrible -100/10
 - **Away_Contract6386** (2↑): I had satvat for thermo 1 about 3 years ago and then again for kinetics last year, we did have exams in both and final project / homeworks unless he’s changed like super recently? He teaches on zoom from California, sweet guy but his class is all staring at his hand derivations of every equation ever. His exams are very difficult as well and usually the whole class has a failing average, but if you get above average you get an A and if you get below average you get a B or lower depending on the distribution (so rarely anyone fails but it’s just kinda what you wanna get out of the class). He does allow double sided cheat sheets that are a saving grace tho. Don’t mean to scare you at all just the truth 😅 but I ended with As both times so it is possible just not super easy.
   - **Gh0stlyVisitation** (1↑): No this is actually so helpful tysmmmmm his rate my professor reviews were getting SCARYYYYY. How would you say the hw load is and does the prep work seem adequate for his exams/projects?
     - **Away_Contract6386** (1↑): The hws are usually done in groups so not too bad when you can split it up a bit. Project is usually very open ended (probably like pick any topic that has to do with transport 2 lol) usually he doesn’t grade those harsh at all. As for exams, in my experience I tried to really study for the them at first and tbh it never actually helped me that much because the test problems he makes up and are just really hard, I found the easiest thing to do is to copy down as many example problems and derivations onto your cheat sheet as possible and during the exam find a problem that’s as similar as possible and copy it down (ofc try to modify to actually solve the test problem) but he gives lots of partial credit so as long as you have something down that’s correct, it could save you

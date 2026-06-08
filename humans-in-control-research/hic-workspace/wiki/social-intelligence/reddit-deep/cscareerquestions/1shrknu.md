@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1shrknu.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1shrknu/for_those_who_already_have_a_cs_degree_did/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,26 @@ flair: "New Grad"
 extracted_at: "2026-05-23T14:54:48.630Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1shrknu.md#c0"
+    char_span: [0, 2003]
+    sentence_count: 15
+    key_terms: [certifications, google, cscareerquestions, job, meta, degree, architecture, certificates]
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1shrknu.md#c1"
+    char_span: [2005, 2662]
+    sentence_count: 9
+    key_terms: [certificates, experience, projects, hiring, job, time-consuming, contributing, engineering]
+    token_count: 136
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1shrknu.md#c2"
+    char_span: [2677, 3719]
+    sentence_count: 6
+    key_terms: [certificates, resume, revorian, project, hiring, skills, intelligent-glass840, top-half-of-the-page]
+    section: Comments
+    token_count: 255
 ---
-
 # For those who already have a CS degree did Coursera professional certificates actually help your job search?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1shrknu/for_those_who_already_have_a_cs_degree_did/)

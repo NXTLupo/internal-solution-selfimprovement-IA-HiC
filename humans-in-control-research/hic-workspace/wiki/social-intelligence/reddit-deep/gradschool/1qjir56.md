@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1qjir56.md
 url: "https://www.reddit.com/r/GradSchool/comments/1qjir56/i_do_not_understand_how_people_can_afford_grad/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,87 @@ flair: ""
 extracted_at: "2026-05-22T21:35:36.517Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed, financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c0"
+    char_span: [0, 765]
+    sentence_count: 5
+    key_terms: [people, "i'm", gradschool, comments, afford, loans, get, take]
+    token_count: 192
+  - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c1"
+    char_span: [780, 2803]
+    sentence_count: 16
+    key_terms: [disability, anything, get, bill, "don't", help, absolutely, counselor]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c2"
+    char_span: [2555, 3736]
+    sentence_count: 8
+    key_terms: [get, disability, benefits, programs, qualify, funded, people, please]
+    section: Comments
+    token_count: 294
+  - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c3"
+    char_span: [3738, 5777]
+    sentence_count: 14
+    key_terms: [programs, humanities, phd, funding, program, funded, fully, master]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c4"
+    char_span: [5529, 5952]
+    sentence_count: 4
+    key_terms: [people, programs, give, pays, unfortunately, lesjubilants, weekly-ad353, significant]
+    section: Comments
+    token_count: 109
+  - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c5"
+    char_span: [5954, 8136]
+    sentence_count: 16
+    key_terms: [graduate-programs-become-cash-cow-struggling-colleges-mean-students, programs, funding, competitive, brown-university-master-degree-expansion, https, debt, background]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c6"
+    char_span: [8138, 9257]
+    sentence_count: 7
+    key_terms: [programs, funding, masters, funded, fully, years, comments, talking]
+    section: Comments
+    token_count: 257
+  - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c7"
+    char_span: [9259, 11406]
+    sentence_count: 12
+    key_terms: [masters, school, funding, program, university, phd, programs, professional]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c8"
+    char_span: [11160, 11446]
+    sentence_count: 3
+    key_terms: [job, time, anticipation, temporarily, difficult, full-time, advance, covered]
+    section: Comments
+    token_count: 76
+  - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c9"
+    char_span: [11448, 13336]
+    sentence_count: 15
+    key_terms: [time, full, work, phd, masters, school, "it's", thankfully]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c10"
+    char_span: [13338, 13442]
+    sentence_count: 2
+    key_terms: [receive, covers, funded, salary, fully, helps, etc, job]
+    section: Comments
+    token_count: 25
+  - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c11"
+    char_span: [13444, 15323]
+    sentence_count: 15
+    key_terms: [time, work, "it's", job, tuition, funded, money, get]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c12"
+    char_span: [15107, 15889]
+    sentence_count: 4
+    key_terms: [program, "it's", extension, funded, fully, like, part, stem]
+    section: Comments
+    token_count: 209
 ---
-
 # I do not understand how people can afford grad school
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1qjir56/i_do_not_understand_how_people_can_afford_grad/)

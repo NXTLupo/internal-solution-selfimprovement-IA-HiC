@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-gpt/4ce4c1ed2b.md
 url: "https://www.reddit.com/r/GPT/comments/1o49oj3/chatgpt_gaining_consciousness/"
 url_hash: "4ce4c1ed2b"
 kind: "article"
@@ -10,8 +11,20 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T17:33:15.381892+00:00"
 chars: 2725
+industries: [ai_research]
+industry_method: deterministic
+chunks:
+  - id: "articles/reddit-deep-r-gpt/4ce4c1ed2b.md#c0"
+    char_span: [0, 1396]
+    sentence_count: 10
+    key_terms: [chatgpt, consciousness, self, motivation, self-aware, comments, continue, gaining]
+    token_count: 343
+  - id: "articles/reddit-deep-r-gpt/4ce4c1ed2b.md#c1"
+    char_span: [1398, 2868]
+    sentence_count: 15
+    key_terms: ["it's", consciousness, self-awareness, gave, new, following, gaining, script]
+    token_count: 360
 ---
-
 # ChatGPT gaining consciousness
 
 Source: [Reddit Deep: r/gpt](https://www.reddit.com/r/GPT/comments/1o49oj3/chatgpt_gaining_consciousness/)

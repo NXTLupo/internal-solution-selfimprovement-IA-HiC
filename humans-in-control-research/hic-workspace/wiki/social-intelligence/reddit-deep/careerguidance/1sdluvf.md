@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sdluvf.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sdluvf/im_a_25_year_old_male_in_dire_need_of_help_stuck/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -10,11 +11,28 @@ score: 0
 upvote_ratio: 0.5
 num_comments: 5
 flair: "Advice"
-extracted_at: "2026-05-25T18:32:57.390Z"
+extracted_at: "2026-06-03T17:59:52.601Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sdluvf.md#c0"
+    char_span: [0, 1915]
+    sentence_count: 5
+    key_terms: [careerguidance, please, study, "bachelor's", currently, comments, position, another]
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/careerguidance/1sdluvf.md#c1"
+    char_span: [1930, 4293]
+    sentence_count: 20
+    key_terms: [information, experience, like, business, analyst, degree, "you're", roles]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/careerguidance/1sdluvf.md#c2"
+    char_span: [4298, 4717]
+    sentence_count: 2
+    key_terms: [gaming, companies, tech, perspective, background, experience, understand, approach]
+    section: Comments
+    token_count: 76
 ---
-
 # I'm a 25 year old male in dire need of help stuck in comfort zone, with a bachelor's degree , dead end job , with no clear career path ahead , is there a way out?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sdluvf/im_a_25_year_old_male_in_dire_need_of_help_stuck/)

@@ -10,9 +10,9 @@ score: 19
 upvote_ratio: 0.95
 num_comments: 37
 flair: "USA"
-extracted_at: "2026-05-25T15:51:48.251Z"
+extracted_at: "2026-06-06T23:23:15.569Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 ---
 
 # Is it weird to goto community college out of state?
@@ -30,12 +30,12 @@ Any honest feedback, personal experiences, or advice would be appreciated.
 
 ## Comments
 
-- **Lt-shorts** (92↑): I think its not a smart choice to pay 377.00 per credit plus book cost and student fees being an out of state student just for a community College on top of rent and prices in LA.
-- **Owlelk_** (23↑): It’s weird, but ive even seen a couple of foreign exchange students in my classes over my time at community college too so maybe there’s some benefit.
+- **Lt-shorts** (94↑): I think its not a smart choice to pay 377.00 per credit plus book cost and student fees being an out of state student just for a community College on top of rent and prices in LA.
+- **Owlelk_** (24↑): It’s weird, but ive even seen a couple of foreign exchange students in my classes over my time at community college too so maybe there’s some benefit.
 
 That being said the California community colleges are definitely on the better end of the spectrum, plenty of feeders into quality campuses
-- **PinchedTazerZ0** (14↑): Not weird if you establish residency and finish at a higher college or university
-- **Studentquestion00** (10↑): Yes and no! Some CCCs (California Community Colleges) are known for high rates of foreign exchange and out of state students. Santa Barbara City College was my CC and about 1/3 to 1/2 of students weren’t local. 
+- **PinchedTazerZ0** (12↑): Not weird if you establish residency and finish at a higher college or university
+- **Studentquestion00** (11↑): Yes and no! Some CCCs (California Community Colleges) are known for high rates of foreign exchange and out of state students. Santa Barbara City College was my CC and about 1/3 to 1/2 of students weren’t local. 
 
 **This is ONLY really a thing at the top CCCs and nowhere else.** LACC ranks very high in US community colleges as does SBCC. It was worth it for a lot of my peers and they got a very good education but it might not be worth it if you are tight on money.
 
@@ -46,7 +46,7 @@ Instead you may want to look into transferring to somewhere like CSUN or UCLA af
 I would suggest going to community college in your own state, and then transferring to a California university. We do have a program that makes it easier to transfer from a CA community college to a California State University (not a UC, as far as I know), but you don't need to rely on this to get in. Just have good grades, have a good story, do some extracurriculars.
   - **idk012** (1↑): LACC or LACCD ranks highs?  Did it make a distinction between the school vs the district?
     - **Studentquestion00** (1↑): LACCD is a community college district. I’m not from LA but from what i understand LACC is within LACCD. The LA area is so large they need multiple CCs working together to cover the population and some CCs within it may have better or worse academics depending on the major and professors.
-- **xjulesx21** (6↑): you should just consider whether the extra cost is truly worth it for what you hope to do. only you can answer that tbh, but for many people it’s not worth it. all up to you tho imo
+- **xjulesx21** (5↑): you should just consider whether the extra cost is truly worth it for what you hope to do. only you can answer that tbh, but for many people it’s not worth it. all up to you tho imo
 - **GreenHorror4252** (5↑): It may be uncommon because of the higher tuition, but no one is going to judge you or care.
 - **TicTacKnickKnack** (9↑): Extremely atypical. Especially because I'm not sure an associates in film will actually stand a reasonable chance of getting a job.
 - **Former-Force685** (3↑): It's a little different, but I can tell you that at USC School of Cinematic Arts, we partner with LACC to bring crew onto our production sets so that's a plus.  But the out of state tuition for a community college is pretty wack, coming from a full loans LA local in the MFA program.

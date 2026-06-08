@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1sdi8x9.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1sdi8x9/graduating_soon_with_fin_degree_then_pursuing_and/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,21 @@ flair: ""
 extracted_at: "2026-05-23T20:15:57.475Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, financial_services, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sdi8x9.md#c0"
+    char_span: [0, 1463]
+    sentence_count: 7
+    key_terms: [cscareerquestions, replaced, degree, route, competitive, side, comments, remotely]
+    token_count: 337
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sdi8x9.md#c1"
+    char_span: [1478, 3389]
+    sentence_count: 6
+    key_terms: [internship, technical, side, finance, understand, available, financial, business]
+    section: Comments
+    token_count: 459
 ---
-
 # Graduating soon (with Fin Degree), then pursuing and MS in InfoScience to get more into the financial analyst and or FinTech side of things, but im hearing job market is tough / huge lay offs? Do I have nothing to worry about?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sdi8x9/graduating_soon_with_fin_degree_then_pursuing_and/)

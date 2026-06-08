@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1q4bw7g.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1q4bw7g/i_dont_think_i_can_make_it_at_this_point_what/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,48 @@ subreddit: "cscareerquestions"
 title: "I don’t think I can make it at this point, what unsaturated field can I pivot to?"
 author: "Crocodile-Jesus"
 date: "2026-01-05T04:24:08.000Z"
-score: 95
+score: 100
 upvote_ratio: 0.93
 num_comments: 58
 flair: ""
-extracted_at: "2026-05-22T21:34:54.421Z"
+extracted_at: "2026-06-03T18:35:34.190Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for NU, informed by its current SOW, prior projects, and a fresh industry analysis of experiential learning and engagement tactics, to maximize learner access to meaningful experiential opportunities from pre-enrollment through graduate school."
+research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q4bw7g.md#c0"
+    char_span: [0, 1336]
+    sentence_count: 13
+    key_terms: [cscareerquestions, decent, data, analytics, comments, doing, great, don]
+    token_count: 337
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q4bw7g.md#c1"
+    char_span: [1351, 3389]
+    sentence_count: 25
+    key_terms: [companies, security, lack, people, "you'll", apply, jobs, candidate]
+    section: Comments
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q4bw7g.md#c2"
+    char_span: [3391, 5223]
+    sentence_count: 9
+    key_terms: [demonstrate, informatics, ehh, management, something, everyone, actuary, health]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q4bw7g.md#c3"
+    char_span: [5225, 6672]
+    sentence_count: 17
+    key_terms: [executives, tech, illustrious-pound266, high, security, market, great, job]
+    section: Comments
+    token_count: 348
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1q4bw7g.md#c4"
+    char_span: [6674, 7703]
+    sentence_count: 3
+    key_terms: [apple-google-415-million-poaching-settlement, idontevenknowwhats, ceo, get, lane, crocodile-jesus, greenacregal, immigration]
+    section: Comments
+    token_count: 271
 ---
-
 # I don’t think I can make it at this point, what unsaturated field can I pivot to?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1q4bw7g/i_dont_think_i_can_make_it_at_this_point_what/)
-Posted by **Crocodile-Jesus** · **95↑** · **58 comments**
+Posted by **Crocodile-Jesus** · **100↑** · **58 comments**
 
 \-I’m getting a degree(CS) from a decent college with decent grades.
 
@@ -37,14 +67,14 @@ TLDR: I’d be an ehh candidate in a healthy market, what can I do from here?
 ## Comments
 
 - **MoreHuman_ThanHuman** (93↑): the world is a competitive place, the only easy money when you have no capital is luck
-  - **Crocodile-Jesus** (28↑): You’re completely right but I don’t think I’m cut out for the lack of security. I am willing to work hard at certs and projects but I fear my effort may be in vain in cs. I was hoping there may be another path I haven’t explored. That second part of ur comment is kinda tough lol.
-    - **jimbo831** (22↑): >I don’t think I’m cut out for the lack of security
+  - **Crocodile-Jesus** (26↑): You’re completely right but I don’t think I’m cut out for the lack of security. I am willing to work hard at certs and projects but I fear my effort may be in vain in cs. I was hoping there may be another path I haven’t explored. That second part of ur comment is kinda tough lol.
+    - **jimbo831** (23↑): >I don’t think I’m cut out for the lack of security
 
 Lack of security isn't limited to this industry. Basically every worker in this country has a lack of security no matter what they do.
 
 You're looking for something that just doesn't exist. Life is precarious for all but the richest people in this country. Software engineers have it better than most.
     - **Wizywig** (-5↑): Go through a recruiter. Often better chance. Also depends on where you live. Some markets are far harder to find work in.
-- **Kyanche** (64↑): > TLDR: I’d be an ehh candidate in a healthy market, what can I do from here?
+- **Kyanche** (65↑): > TLDR: I’d be an ehh candidate in a healthy market, what can I do from here?
 
 One thing you could do, is stop being so hard on yourself. 
 
@@ -61,10 +91,10 @@ That's more than most people.
 Everything will be okay. Keep it up with the applications. Remember to apply to any and every company you can think of. Apply to med companies, tech companies, space companies, banks, insurance companies, the power company, your local city if they hire developers (many do for things like the city websites and sometimes for infrastructure). 
 
 If you go 12-18 months after graduation without a job, you're welcome to revisit this topic THEN.
-  - **DustingMop** (6↑): Not me bro I’m different.
+  - **DustingMop** (7↑): Not me bro I’m different.
   - **[deleted]** (1↑): Not everyone is an ehh candidate by the very definition of ehh
     - **Kyanche** (1↑): Everyone is more "ehh" than they think lol
-- **terrany** (21↑): Probably something related to supply chain management or actuary. Both take generic degrees, offer good employment with a few certs and allow you to scale your income relatively easily with experience and more certs.
+- **terrany** (22↑): Probably something related to supply chain management or actuary. Both take generic degrees, offer good employment with a few certs and allow you to scale your income relatively easily with experience and more certs.
 
 Supply chain for the first 0-5 years I hear is stressful since something’s blowing up constantly, but chills out once you can move higher up and back office — or pivot to project management. 
 
@@ -79,7 +109,7 @@ With hindsight sure looks like a bad choice, but it was absolutely not dumb at t
 
 Health informatics. That's where you'll find the shrimp, my boy.
   - **InadequatePPE** (2↑): Tell me more? I’m in defense, but what you’re describing sounds appealing. I wanted to go to med school before I settled for comp sci
-- **Illustrious-Pound266** (18↑): >I was told it was great pay and great job security.
+- **Illustrious-Pound266** (19↑): >I was told it was great pay and great job security.
 
 
 Unfortunately, this was all part of the Silicon Valley campaign from tech executives to saturate the dev market. The job security part was a lie, although great pay was not. 
@@ -93,12 +123,12 @@ You guys are deluded beyond rescue. There wasn’t some grand plan with tech exe
 Software was in demand. There were few SWEs. Salary was high. People rushed to get a high salary. Field is saturated now, giving more power to employers.
 
 That’s how it works in any high paying industry without barriers to entry.
-    - **Illustrious-Pound266** (10↑): No, it wasn't some conspiracy, but it's a well-known fact that tech executives didn't want to pay high market wages for developers. There was a class-action lawsuit against many companies for this: [https://en.wikipedia.org/wiki/High-Tech\_Employee\_Antitrust\_Litigation](https://en.wikipedia.org/wiki/High-Tech_Employee_Antitrust_Litigation)
+    - **Illustrious-Pound266** (11↑): No, it wasn't some conspiracy, but it's a well-known fact that tech executives didn't want to pay high market wages for developers. There was a class-action lawsuit against many companies for this: [https://en.wikipedia.org/wiki/High-Tech\_Employee\_Antitrust\_Litigation](https://en.wikipedia.org/wiki/High-Tech_Employee_Antitrust_Litigation)
 
 Steve Jobs asked then-Google CEO Eric Schmidt and Adobe CEO Bruce Chizen to not poach workers: https://www.theverge.com/2015/9/3/9256097/apple-google-415-million-poaching-settlement. This is a known fact that was presented in court and they had to pay a large settlement fee.
-    - **EntropyRX** (5↑): It doesn't take some huge conspiracy or plotting to understand that employers promoted a certain narrative ("learn how to code", "get a CS degree", "study CS in high school", "women in tech", "immigration" .......) to get a bigger pool of candidates and therefore suppress wages.
+    - **EntropyRX** (6↑): It doesn't take some huge conspiracy or plotting to understand that employers promoted a certain narrative ("learn how to code", "get a CS degree", "study CS in high school", "women in tech", "immigration" .......) to get a bigger pool of candidates and therefore suppress wages.
 - **greenacregal** (4↑): Pick one lane for the next 6-8 weeks (data analyst or cloud support or SWE) and build a resume that only sells that lane, then only apply to roles posted in the last 48 hours.
-- **idontevenknowwhats** (6↑): Who the heck told you there is good job security?! 
+- **idontevenknowwhats** (5↑): Who the heck told you there is good job security?! 
 
 CS has a proven track record of blowing up every few years
 - **anya_______kl** (7↑): Which country?

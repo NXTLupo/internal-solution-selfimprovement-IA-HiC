@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/humanresources/1ntm8j0.md
 url: "https://www.reddit.com/r/humanresources/comments/1ntm8j0/nj_how_many_hr_staff_does_your_company_have_for/"
 kind: "social-post"
 source: "reddit-deep: r/humanresources"
@@ -13,8 +14,39 @@ flair: "Off-Topic / Other"
 extracted_at: "2026-05-23T12:15:41.531Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
+industries: [workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/humanresources/1ntm8j0.md#c0"
+    char_span: [0, 1340]
+    sentence_count: 8
+    key_terms: [employees, company, humanresources, acquisition, coordinator, assistant, companies, comments]
+    token_count: 322
+  - id: "social-intelligence/reddit-deep/humanresources/1ntm8j0.md#c1"
+    char_span: [1355, 2991]
+    sentence_count: 12
+    key_terms: [company, including, payroll, goodvibezone, wrong, benicebuddy, superhuman, employees]
+    section: Comments
+    token_count: 413
+  - id: "social-intelligence/reddit-deep/humanresources/1ntm8j0.md#c2"
+    char_span: [2993, 4157]
+    sentence_count: 10
+    key_terms: [benefits, manager, director, coordinator, comp, hris, processing, recruiting]
+    section: Comments
+    token_count: 283
+  - id: "social-intelligence/reddit-deep/humanresources/1ntm8j0.md#c3"
+    char_span: [4159, 6055]
+    sentence_count: 14
+    key_terms: [employees, people, admin, organization, understaffed, hrbp, hris, work]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/humanresources/1ntm8j0.md#c4"
+    char_span: [6057, 6184]
+    sentence_count: 2
+    key_terms: [fractional, companies, employees, meinsc40, value, don, ftes]
+    section: Comments
+    token_count: 42
 ---
-
 # [NJ] How many HR staff does your company have for ~950 employees?
 
 Source: [reddit-deep: r/humanresources](https://www.reddit.com/r/humanresources/comments/1ntm8j0/nj_how_many_hr_staff_does_your_company_have_for/)

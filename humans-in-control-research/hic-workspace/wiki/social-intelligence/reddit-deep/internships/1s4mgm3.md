@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1s4mgm3.md
 url: "https://www.reddit.com/r/internships/comments/1s4mgm3/advice_for_fall_2026_internships_or_coop/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,21 @@ flair: "Applications"
 extracted_at: "2026-05-20T03:54:30.567Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive co-op strategy for NU, integrating insights from current SOW, past projects, and fresh industry analysis of experiential learning and engagement tactics. The strategy must enhance learners' access to meaningful experiential opportunities from pre-enrollment through graduate school."
+industries: [higher_ed]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1s4mgm3.md#c0"
+    char_span: [0, 264]
+    sentence_count: 1
+    key_terms: [internships, comments, reddit-deep, advice, posted, reddit, source, co-op]
+    token_count: 84
+  - id: "social-intelligence/reddit-deep/internships/1s4mgm3.md#c1"
+    char_span: [279, 664]
+    sentence_count: 1
+    key_terms: [companies, sweet-frosting4839, fall, internshipdaily, international, sponsorship, definitely, targeting]
+    section: Comments
+    token_count: 88
 ---
-
 # Advice for Fall 2026 internships or Co-op
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1s4mgm3/advice_for_fall_2026_internships_or_coop/)

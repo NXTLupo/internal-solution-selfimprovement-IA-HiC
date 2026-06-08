@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/wallstreetbets/1ordp9u.md
 url: "https://www.reddit.com/r/wallstreetbets/comments/1ordp9u/decade_of_experience/"
 kind: "social-post"
 source: "reddit-deep: r/wallstreetbets"
@@ -13,8 +14,62 @@ flair: "Loss"
 extracted_at: "2026-05-17T01:14:17.602Z"
 extraction_method: "praw-deep"
 research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
+industries: [financial_services]
+industry_method: llm
+chunks:
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ordp9u.md#c0"
+    char_span: [0, 1985]
+    sentence_count: 28
+    key_terms: [bought, wallstreetbets, calls, point, years, like, expiration, comments]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ordp9u.md#c1"
+    char_span: [1987, 3396]
+    sentence_count: 19
+    key_terms: [bought, interest, diversified, like, million, options, margin, chart]
+    token_count: 350
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ordp9u.md#c2"
+    char_span: [3411, 4806]
+    sentence_count: 3
+    key_terms: [https, ade7f854fc152e2f3bac4a7bc3d6cb94f30002cb, da9449954425ce252c411654bea25b2f49bc55db, years, discord, preview, trading, format]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ordp9u.md#c3"
+    char_span: [4808, 6408]
+    sentence_count: 9
+    key_terms: [wendys-member, calls, experience, opposite, friends, bought, breakfastmedical5164, being]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ordp9u.md#c4"
+    char_span: [6226, 6712]
+    sentence_count: 5
+    key_terms: [bought, calls, "don't", price, june, sept, alert-money-9699, salespunk44]
+    section: Comments
+    token_count: 167
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ordp9u.md#c5"
+    char_span: [6717, 8117]
+    sentence_count: 3
+    key_terms: [spdr-s-p-500-ucits-etf-acc-ie000xzsv718--noigygcgigsgbgazbobwadoubvawgsqbuw4brqgmtgaobbay3oeob9tn0analtadua7aeyahexaaaykdyce-ysmlcaumqa, people, "wendy's", behind, prestigious-ebb-6408, appropriateowl1370, howdthatturnout, lewdacris916]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ordp9u.md#c6"
+    char_span: [8119, 9634]
+    sentence_count: 7
+    key_terms: [thank, like, bullish, flgrant, instead, service, casino, option]
+    section: Comments
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ordp9u.md#c7"
+    char_span: [9636, 10120]
+    sentence_count: 2
+    key_terms: [a7df81463f99ff0325c9af0d1252ac13f6320898, howdthatturnout, b8egbm61t10g1, lewdacris916, inevitable, mentality, collapse, gambling]
+    section: Comments
+    token_count: 156
+  - id: "social-intelligence/reddit-deep/wallstreetbets/1ordp9u.md#c8"
+    char_span: [10122, 11517]
+    sentence_count: 5
+    key_terms: [like, blah, sell, retirement, market, disconnectedgarbage, right, years]
+    section: Comments
+    token_count: 415
 ---
-
 # Decade of experience
 
 Source: [reddit-deep: r/wallstreetbets](https://www.reddit.com/r/wallstreetbets/comments/1ordp9u/decade_of_experience/)

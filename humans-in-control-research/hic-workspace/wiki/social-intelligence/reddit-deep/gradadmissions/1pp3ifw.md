@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1pp3ifw.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1pp3ifw/master_list_of_interview_questions/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,41 @@ flair: "General Advice"
 extracted_at: "2026-05-22T23:33:50.638Z"
 extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pp3ifw.md#c0"
+    char_span: [0, 1831]
+    sentence_count: 11
+    key_terms: [repost, questions, phd, gradadmissions, reddit, school, migorrortis96, https]
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pp3ifw.md#c1"
+    char_span: [1833, 4402]
+    sentence_count: 1
+    key_terms: [research, institution, program, interests, questions, work, funding, project]
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pp3ifw.md#c2"
+    char_span: [4404, 6395]
+    sentence_count: 6
+    key_terms: [research, teaching, experience, lab, disagreement, combination, did, time]
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pp3ifw.md#c3"
+    char_span: [6397, 8763]
+    sentence_count: 1
+    key_terms: [research, students, program, grad, advisor, working, people, environment]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pp3ifw.md#c4"
+    char_span: [8765, 10232]
+    sentence_count: 6
+    key_terms: [students, lab, program, projects, graduate, meetings, research, student]
+    token_count: 303
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pp3ifw.md#c5"
+    char_span: [10247, 11629]
+    sentence_count: 8
+    key_terms: [questions, interview, thank, ask, experience, interviews, statements, students]
+    section: Comments
+    token_count: 338
 ---
-
 # Master List of Interview Questions
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1pp3ifw/master_list_of_interview_questions/)

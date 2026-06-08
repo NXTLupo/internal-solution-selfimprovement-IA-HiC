@@ -1,4 +1,5 @@
 ---
+id: articles/reddit-deep-r-careeradvice/a4fdbe17d8.md
 url: "https://www.reddit.com/r/careeradvice/comments/1pbnkqn/how_to_protect_my_career_as_a_software_engineer/"
 url_hash: "a4fdbe17d8"
 kind: "article"
@@ -10,8 +11,25 @@ tier:
 method: "source-native"
 extracted_at: "2026-05-11T18:59:04.774484+00:00"
 chars: 4016
+industries: [workforce, ai_research, enterprise_it]
+industry_method: llm
+chunks:
+  - id: "articles/reddit-deep-r-careeradvice/a4fdbe17d8.md#c0"
+    char_span: [0, 2007]
+    sentence_count: 11
+    key_terms: [software, online, engineer, certifications, career, careeradvice, engineering, etc]
+    token_count: 446
+  - id: "articles/reddit-deep-r-careeradvice/a4fdbe17d8.md#c1"
+    char_span: [2009, 3521]
+    sentence_count: 12
+    key_terms: [currently, job, timmyturnahp21, using, "i'm", want, companies, blocked]
+    token_count: 371
+  - id: "articles/reddit-deep-r-careeradvice/a4fdbe17d8.md#c2"
+    char_span: [3526, 4231]
+    sentence_count: 4
+    key_terms: [development, software, amount, front, going, end, improvements, engineering]
+    token_count: 149
 ---
-
 # How to protect my career as a software engineer in the age of AI?
 
 Source: [Reddit Deep: r/careeradvice](https://www.reddit.com/r/careeradvice/comments/1pbnkqn/how_to_protect_my_career_as_a_software_engineer/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/highereducation/1s2gnr9.md
 url: "https://www.reddit.com/r/highereducation/comments/1s2gnr9/advice_on_figuring_out_a_path_in_higher_ed/"
 kind: "social-post"
 source: "reddit-deep: r/highereducation"
@@ -13,8 +14,63 @@ flair: ""
 extracted_at: "2026-05-23T14:53:59.510Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [higher_ed, workforce]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/highereducation/1s2gnr9.md#c0"
+    char_span: [0, 2250]
+    sentence_count: 15
+    key_terms: [additionally, student, higher, school, highereducation, affairs, applications, specifically]
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/highereducation/1s2gnr9.md#c1"
+    char_span: [2252, 3334]
+    sentence_count: 8
+    key_terms: [controlled, adhd, therapist, vyvanse, easy-childhood-250, get, good, like]
+    section: Comments
+    token_count: 261
+  - id: "social-intelligence/reddit-deep/highereducation/1s2gnr9.md#c2"
+    char_span: [3336, 5554]
+    sentence_count: 14
+    key_terms: [easy-childhood-250, experience, tuition, advice, higher, use, especially, statement]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/highereducation/1s2gnr9.md#c3"
+    char_span: [5309, 6337]
+    sentence_count: 12
+    key_terms: [students, lot, breakdown, semester, systems, easy-childhood-250, advising-adjacent, feel]
+    section: Comments
+    token_count: 247
+  - id: "social-intelligence/reddit-deep/highereducation/1s2gnr9.md#c4"
+    char_span: [6339, 8013]
+    sentence_count: 20
+    key_terms: [students, cuts, like, everyone, better, apply, doing, "won't"]
+    section: Comments
+    token_count: 378
+  - id: "social-intelligence/reddit-deep/highereducation/1s2gnr9.md#c5"
+    char_span: [8015, 9036]
+    sentence_count: 9
+    key_terms: [get, higher, supervising, job, partner, field, years, easy-childhood-250]
+    section: Comments
+    token_count: 239
+  - id: "social-intelligence/reddit-deep/highereducation/1s2gnr9.md#c6"
+    char_span: [9038, 11275]
+    sentence_count: 13
+    key_terms: [job, office, admissions, easy-childhood-250, desk, work, because, front]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/highereducation/1s2gnr9.md#c7"
+    char_span: [10984, 11475]
+    sentence_count: 4
+    key_terms: [love, different, always, office, lavenderwildflowers, feel, student-facing, interacting]
+    section: Comments
+    token_count: 113
+  - id: "social-intelligence/reddit-deep/highereducation/1s2gnr9.md#c8"
+    char_span: [11477, 13230]
+    sentence_count: 14
+    key_terms: [adhd, masters, student, bachelors, get, working, career, work]
+    section: Comments
+    token_count: 391
 ---
-
 # Advice on Figuring Out A Path in Higher Ed
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1s2gnr9/advice_on_figuring_out_a_path_in_higher_ed/)

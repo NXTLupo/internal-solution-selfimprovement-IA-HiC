@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradschool/1npnbao.md
 url: "https://www.reddit.com/r/GradSchool/comments/1npnbao/the_ideal_grad_school_path_for_a_clinical/"
 kind: "social-post"
 source: "reddit-deep: r/gradschool"
@@ -13,8 +14,26 @@ flair: "Academics"
 extracted_at: "2026-05-20T12:57:40.630Z"
 extraction_method: "praw-deep"
 research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
+industries: [healthcare]
+industry_method: deterministic
+chunks:
+  - id: "social-intelligence/reddit-deep/gradschool/1npnbao.md#c0"
+    char_span: [0, 2039]
+    sentence_count: 13
+    key_terms: [program, programs, phd, clinical, research, psychologist, "i'm", gradschool]
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/gradschool/1npnbao.md#c1"
+    char_span: [2041, 2637]
+    sentence_count: 4
+    key_terms: [student, valedictorian, appreciate, leadership, psychology, waitlisted, haverford, societies]
+    token_count: 152
+  - id: "social-intelligence/reddit-deep/gradschool/1npnbao.md#c2"
+    char_span: [2652, 3917]
+    sentence_count: 9
+    key_terms: [research, experience, clinical, electrical-finger-11, participants, phd, interested, empirical]
+    section: Comments
+    token_count: 285
 ---
-
 # The ideal grad school path for a clinical psychologist?
 
 Source: [reddit-deep: r/gradschool](https://www.reddit.com/r/GradSchool/comments/1npnbao/the_ideal_grad_school_path_for_a_clinical/)
