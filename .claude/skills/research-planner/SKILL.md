@@ -70,7 +70,7 @@ max_iterations: 6
 
 1. **Read the goal + brief.** Extract named entities, target outcome, audience.
 2. **Decompose into 5-10 sub-questions** spanning the 6 angles (definition / mechanism / evidence / counter_evidence / second_order / named_entities). Priority-tag each.
-3. **Map sub-questions to source connectors.** For each sub-question, pick 2-4 connectors most likely to answer it. Reference the SOURCES registry in proxy/app.py.
+3. **Map sub-questions to source connectors.** For each sub-question, pick 2-4 connectors most likely to answer it. Reference the SOURCES registry in proxy/app.py. **Enhancement F (2026-06-08): consult `hic-workspace/wiki/synthesis/source-scores.md` first (produced by the `source-yield-scorer` skill from the connector-health ledger). DEPRIORITIZE or drop any connector marked DEAD (reliability < 0.3 or yield_score ~ 0) and PREFER connectors with high yield_score for this goal's domain. If source-scores.md is absent, fall back to the registry defaults. This is the collection-side self-improvement loop: the planner learns which sources actually return relevant evidence over time instead of re-selecting dead connectors every run.**
 4. **Estimate yield + budget.** Per source, expected articles. Sum to total. Compare to budget_usd cap.
 5. **Set reflection threshold.** For a typical 200-doc target with 5 sub-questions, threshold=0.75 means: stop when ≥4 of 5 sub-questions are "covered" (≥10 articles found per sub-question).
 
